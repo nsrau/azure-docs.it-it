@@ -1,6 +1,6 @@
 ---
-title: Correggere gli errori &quot;502 - Gateway non valido&quot; e &quot;503 - Servizio non disponibile&quot;| Documentazione Microsoft
-description: Risoluzione degli errori &quot;502 - Gateway non valido&quot; e &quot;503 - Servizio non disponibile&quot; nelle app Web ospitate in un servizio App di Azure.
+title: Correggere gli errori "502 - Gateway non valido" e "503 - Servizio non disponibile"| Documentazione Microsoft
+description: Risoluzione degli errori "502 - Gateway non valido" e "503 - Servizio non disponibile" nelle app Web ospitate in un servizio App di Azure.
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 397a6aaf7dc27adfa0fc0e722b8a2be5cc1d75f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile" nelle App Web di Azure
 Gli errori "502 - Gateway non valido" e "503 - Servizio non disponibile" sono comuni nelle applicazioni Web ospitate in un [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Questo articolo fornisce informazioni utili per la risoluzione di questi errori.
@@ -130,5 +129,4 @@ Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel p
  ![riavviare l'app per risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile"](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 È anche possibile gestire l'app Web usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
-
 

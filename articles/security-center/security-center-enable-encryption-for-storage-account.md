@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Abilitare la crittografia per l'account di archiviazione nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglia all'utente di abilitare la crittografia del servizio di archiviazione di Azure per i dati inattivi.
@@ -69,4 +68,3 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png
 [2]: ./media/security-center-enable-encryption-for-storage-account/enable-storage-encryption.png
 [3]: ./media/security-center-enable-encryption-for-storage-account/encryption-blade.png
-

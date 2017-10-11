@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: kgremban
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: a470a8bc70365a1891fc57efc6d2d4391162fd17
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 Le informazioni in questo articolo sono utili per gestire Azure Multi-Factor Authentication ora che si è operativi.  L'articolo illustra diversi argomenti che permettono di ottenere il massimo da Azure Multi-Factor Authentication.  Non tutte queste funzionalità sono disponibili in ogni versione di Azure Multi-Factor Authentication.
@@ -316,5 +315,4 @@ Quando gli utenti registrano i propri account per l'autenticazione MFA, scelgono
    ![Opzioni di verifica](./media/multi-factor-authentication-whats-next/authmethods.png)
 4. Fare clic su **Save**.
 5. Fare clic su **Close**.
-
 

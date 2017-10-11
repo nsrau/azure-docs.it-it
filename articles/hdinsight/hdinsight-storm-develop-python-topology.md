@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/04/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 305c4060ad81458b254e66a4bad6dfd7bf69b28d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Sviluppare topologie Apache Storm con Python in HDInsight
 
@@ -156,4 +155,3 @@ Vedere i documenti seguenti per altri modi di usare Python con HDInsight:
 
 * [Come usare Python per il flusso di processi MapReduce](hdinsight-hadoop-streaming-python.md)
 * [Come usare funzioni definite dall'utente Python in Pig e Hive](hdinsight-python.md)
-

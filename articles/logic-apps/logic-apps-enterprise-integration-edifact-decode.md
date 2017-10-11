@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 39d9661adc90e6113e2152d844473f9f4caa755a
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: e3787b48037360bf6066ddce2bacba6842213b2d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode EDIFACT in App per la logica di Azure con Enterprise Integration Pack
 
 Il connettore di messaggi EDIFACT convalida le proprietà EDI e specifiche del partner, suddivide gli interscambi in set di transazioni o mantiene gli interscambi interi, nonché genera riconoscimenti per le transazioni elaborate. Per usare questo connettore, è necessario aggiungerlo a un trigger esistente nell'app per la logica.
@@ -104,5 +101,4 @@ Per visualizzare i dettagli di Swagger per il connettore EDIFACT, vedere [EDIFAC
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") 
-
 

@@ -16,12 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Gestione delle eccezioni e registrazione degli errori per le app per la logica
 
@@ -492,4 +491,3 @@ Il codice sorgente dell'applicazione per le API di gestione delle eccezioni di a
 * [Visualizzare altri esempi e scenari di app per la logica](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Informazioni sul monitoraggio delle app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Creare modelli di distribuzione automatizzati per le app per la logica](../logic-apps/logic-apps-create-deploy-template.md)
-

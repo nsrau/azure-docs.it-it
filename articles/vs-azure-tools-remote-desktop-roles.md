@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 50c463588356cc4725b038cbf89a49b6ce2bdc3b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: eab135d10c0d6df8ca72ac47d6804017a998a3d2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>Utilizzo di Desktop remoto con i ruoli Azure
 Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azure e alle macchine virtuali ospitate da Azure. In Visual Studio è possibile configurare Servizi Desktop remoto da un progetto del servizio cloud di Azure. Per abilitare Servizi Desktop remoto, è necessario creare un progetto di lavoro contenente uno o più ruoli e quindi pubblicarlo in Azure.
@@ -77,5 +76,4 @@ Dopo aver pubblicato il servizio cloud in Azure, è possibile usare Esplora Serv
    
     ![Connessione tramite Desktop remoto](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 3. Immettere il nome utente e la password creati in precedenza. L'accesso alla sessione remota è stato completato.
-
 

@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
-ms.openlocfilehash: b76ef954d8a00e190817e3d7f8e2b064210d0357
-ms.contentlocale: it-it
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Schema di configurazione di Diagnostica Azure 1.2
 > [!NOTE]
@@ -206,4 +204,3 @@ Definisce le impostazioni di configurazione per i dati di telemetria da raccogli
 |Nome dell'elemento|Descrizione|  
 |------------------|-----------------|  
 |**DataSource**|Registri eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. Ad esempio:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*".|
-

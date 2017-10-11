@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Procedure consigliate per la sicurezza della rete di Azure
 Microsoft Azure consente di connettere macchine e dispositivi virtuali ad altri dispositivi di rete inserendoli in reti virtuali di Azure. Una rete virtuale di Azure è un costrutto di rete virtuale che consente di connettere le schede di rete virtuale a una rete virtuale per consentire le comunicazioni basate su TCP/IP tra i dispositivi abilitati per la rete. Le macchine virtuali di Azure connesse a una rete virtuale di Azure possono connettersi ai dispositivi nella stessa rete virtuale di Azure, in diverse reti virtuali di Azure, su Internet o persino in reti locali.
@@ -236,4 +235,3 @@ Molte organizzazioni IT di classe enterprise mirano a espandersi nel cloud piutt
 Microsoft ha creato il [Diagramma dell'architettura di riferimento delle estensioni del data center](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) e materiale supplementare per comprendere quale aspetto avrebbe un'estensione del data center. In tal modo, si avrà un esempio di implementazione di riferimento da consultare per pianificare e progettare un'estensione del data center aziendale sicura nel cloud. È consigliabile rivedere questo documento per farsi un'idea dei componenti principali di una soluzione sicura.
 
 Per altre informazioni su come estendere in modo sicuro il data center in Azure, guardare il video su come [estendere il data center in Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
-

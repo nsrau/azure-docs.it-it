@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 25a13ad3738286795f45bbdec681614356bd3db8
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 8de3bdd45261c84a0e1bb90f1c58863ad740dd5a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard 
 
 ## <a name="overview"></a>Panoramica
@@ -1044,4 +1042,3 @@ Per altre informazioni sul modo in cui il codificatore interpreta le impostazion
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
-

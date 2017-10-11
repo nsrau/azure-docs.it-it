@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/20/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 90ffd3dd1cf5068359afa1b60892cdee43ec0658
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>Progettazione della rete per il ripristino di emergenza
 
@@ -167,4 +166,3 @@ Il post di blog dedicato alla [configurazione dell'infrastruttura di rete per Mi
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) sul mapping di reti di origine e destinazione da parte di Site Recovery quando viene usato un server VMM per gestire il sito primario.
-

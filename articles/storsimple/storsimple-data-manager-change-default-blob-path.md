@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 057d4d7370207859617eb63238bf425bfa6d3e16
-ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="change-a-blob-path-from-the-default-path-private-preview"></a>Cambiare il percorso BLOB da quello predefinito (anteprima privata)
 
 L'articolo descrive come impostare una funzione di Azure per rinominare un percorso di file BLOB predefinito. 
@@ -242,4 +240,3 @@ Per creare una funzione di Azure, seguire questa procedura:
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Usare l'interfaccia utente di StorSimple Data Manager per la trasformazione dei dati](storsimple-data-manager-ui.md)
-

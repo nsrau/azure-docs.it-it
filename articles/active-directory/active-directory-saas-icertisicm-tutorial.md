@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: 9dd002f71b7a960338071db869f7c8cf88071342
-ms.contentlocale: it-it
-ms.lasthandoff: 06/24/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Esercitazione: Integrazione di Azure Active Directory con Icertis Contract Management Platform
 
@@ -227,5 +226,4 @@ Quando si fa clic sul riquadro di Icertis Contract Management Platform nel panne
 [201]: ./media/active-directory-saas-icertisicm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-icertisicm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-icertisicm-tutorial/tutorial_general_203.png
-
 

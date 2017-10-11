@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 57ab58fa1fd8371d0b6f019f94bb162bcc1e0e43
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="repairing-an-export-job"></a>Riparazione di un processo di esportazione
 Al termine di un processo di esportazione, è possibile eseguire lo strumento Importazione/Esportazione di Microsoft Azure in locale per:  
@@ -163,4 +162,3 @@ Qualsiasi componente con esito negativo della verifica verrà scaricato dallo st
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)   
 * [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)   
 * [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
-

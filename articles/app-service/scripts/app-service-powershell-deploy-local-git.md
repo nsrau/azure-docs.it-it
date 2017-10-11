@@ -15,14 +15,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f6aaad96c5705fcc50c25c5fd3be1542fabdbc56
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 855b8c643bf2a742e763bda2e2c21c6a86331aac
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Creare un'App Web e distribuire il codice da un archivio Git locale
 
 Questo script di esempio crea un'App Web nel servizio app con le relative risorse correlate e quindi distribuisce il codice dell'App Web in un archivio Git locale.
@@ -58,4 +56,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Altri esempi di Azure PowerShell per app Web del servizio app di Azure sono disponibili in [Azure PowerShell samples](../app-service-powershell-samples.md) (Esempi di Azure PowerShell).
-

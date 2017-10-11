@@ -1,6 +1,6 @@
 ---
 title: Creare i gruppi di sicurezza di rete - interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: Informazioni su come creare e distribuire i gruppi di sicurezza di rete usando l&quot;interfaccia della riga di comando di Azure 2.0.
+description: Informazioni su come creare e distribuire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure 2.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: e7a8f4cff0889a02ef1f7a4d32fda4e57c5d35b0
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 8efb3ab66d07875b51f723fed5594bcb477ed025
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-network-security-groups-using-the-azure-cli-20"></a>Creare i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure 2.0
 
@@ -362,4 +361,3 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
     "routeTable": null
     }
     ```
-

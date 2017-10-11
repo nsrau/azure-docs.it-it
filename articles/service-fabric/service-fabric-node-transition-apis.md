@@ -1,6 +1,6 @@
 ---
 title: Avviare e arrestare nodi di cluster per testare microservizi di Azure | Documentazione Microsoft
-description: Informazioni su come usare la tecnologia fault injection per testare un&quot;applicazione di Service Fabric avviando e arrestando nodi di cluster.
+description: Informazioni su come usare la tecnologia fault injection per testare un'applicazione di Service Fabric avviando e arrestando nodi di cluster.
 services: service-fabric
 documentationcenter: .net
 author: LMWF
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 5f76100007466f2baf4e067de963486f47fbf857
-ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 850fbc0c74811ec942292da64064dec867cd1b9e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Sostituzione dell'API di avvio del nodo e dell'API di arresto del nodo con l'API di transizione del nodo
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Come funzionano le API di avvio del nodo e di arresto del nodo?
@@ -290,4 +287,3 @@ L'avvio di un nodo *arrestato* usando l'API di transizione del nodo ne ripristin
 [nodequeryps]: https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode?redirectedfrom=msdn
 [snt]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartNodeTransitionAsync_System_Fabric_Description_NodeTransitionDescription_System_TimeSpan_System_Threading_CancellationToken_
 [gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_GetNodeTransitionProgressAsync_System_Guid_System_TimeSpan_System_Threading_CancellationToken_
-

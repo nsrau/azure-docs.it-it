@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/09/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ba37cbfc8c92d00cf0ec02dd7b1ea9795946bcd
 ms.openlocfilehash: 100eed4694d2017333ef25eca86034d17cce78d1
-ms.contentlocale: it-it
-ms.lasthandoff: 12/09/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduzione a StorSimple Virtual Array
 ## <a name="overview"></a>Panoramica
@@ -191,5 +190,4 @@ Le funzionalità di protezione dei dati di StorSimple consentono di creare backu
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [preparare il portale dell'array virtuale](storsimple-virtual-array-deploy1-portal-prep.md).
-
 

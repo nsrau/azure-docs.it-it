@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Abintegro | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Abintegro.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Abintegro.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: a2a3c1a7a338ee1cb35dd08176ad3bb5f3cdc319
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>Esercitazione: Integrazione di Azure Active Directory con Abintegro
 
@@ -112,10 +110,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_url.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`.
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`
 
     > [!NOTE] 
-    > Poiché non è il valore reale, aggiornarlo con l'URL di accesso effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Abintegro](mailto:support@abintegro.com). 
+    > Poiché non è reale, aggiornarlo con l'URL di accesso effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Abintegro](mailto:support@abintegro.com). 
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -224,5 +222,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_203.png
-
 

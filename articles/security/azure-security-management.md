@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
 ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
-ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
@@ -233,4 +232,3 @@ Le risorse seguenti sono disponibili per fornire altre informazioni generali su 
 [2]: ./media/azure-security-management/stand-alone-hardened-workstation-topology.png
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
-

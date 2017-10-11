@@ -15,15 +15,12 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Aggiornare il server Azure Multi-Factor Authentication alla versione più recente
 
 In questo articolo viene illustrato il processo di aggiornamento del Server Azure multi-Factor Authentication (MFA) alla versione 6.0 o successiva. Se si desidera aggiornare una versione precedente dell'agente PhoneFactor, fare riferimento all'articolo [Aggiornare l'agente PhoneFactor al server Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md).
@@ -116,4 +113,3 @@ Queste istruzioni sono valide solo se si esegue il server Multi-Factor Authentic
 - [Sincronizzazione del server MFA con Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)
 
 - [Configurare l'autenticazione di Windows](multi-factor-authentication-get-started-server-windows.md) per le applicazioni
-

@@ -9,14 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/08/2017
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: e746f28829063f8437ad408c4681f90aec6c0e0a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Raccolte connessioni per il Database di Azure per MySQL
 Questo argomento elenca le raccolte e i driver che è possibile usare nei programmi client quando ci si connette al database di Azure per MySQL.
 
@@ -39,4 +37,3 @@ MySQL offre la connettività driver di database standard per l'uso di MySQL con 
 ## <a name="next-steps"></a>Passaggi successivi
 [Panoramica del database di Azure per MySQL](./overview.md)
 [Concetti relativi al server nel database di Azure per MySQL](./concepts-servers.md)
-

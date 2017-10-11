@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: da4a196b1a73c78dfff7d8310edcc349b8d10665
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Pool di agenti DC/OS per il servizio contenitore di Azure
 I cluster DC/OS nel servizio contenitore di Azure contengono nodi di agenti in due pool, uno pubblico e uno privato. Un'applicazione può essere distribuita indifferentemente in uno dei due pool, ma ciò influisce sull'accessibilità tra i computer nel servizio contenitore. I computer possono essere esposti a Internet (pubblico) o rimanere interni (privato). Questo articolo descrive brevemente il motivo per cui esistono i pool pubblici e i pool privati.
@@ -50,5 +49,4 @@ Per impostazione predefinita, **Marathon** distribuisce le nuove applicazioni in
 * Sono disponibili altre informazioni sulla [gestione dei contenitori DC/OS](container-service-mesos-marathon-ui.md).
 
 * Informazioni su come [aprire il firewall](container-service-enable-public-access.md) fornito da Azure per consentire l'accesso pubblico ai contenitori DC/OS.
-
 

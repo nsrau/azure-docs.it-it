@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 0b6150bca333188666935b3c9aa02c4b33690db9
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>Usare cloud-init per personalizzare una VM Linux durante la creazione con l'interfaccia della riga di comando di Azure 1.0
 Questo articolo illustra come creare script cloud-init per impostare il nome host, aggiornare i pacchetti installati e gestire gli account utente.  Gli script cloud-init vengono richiamati durante la creazione della VM dall'interfaccia della riga di comando di Azure.  L'articolo richiede:
@@ -272,5 +271,4 @@ Cloud-init si sta affermando come metodo standard per modificare la VM Linux in 
 [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Gestire utenti, SSH e dischi di controllo o di ripristino in VM Linux di Azure tramite l'estensione VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 

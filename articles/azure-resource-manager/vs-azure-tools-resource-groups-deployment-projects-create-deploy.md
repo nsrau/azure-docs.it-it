@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
-ms.contentlocale: it-it
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 Con Visual Studio e [Azure SDK](https://azure.microsoft.com/downloads/)è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile definire l'host Web, il sito Web e il database per l'app e distribuire l'infrastruttura insieme al codice. In alternativa, è possibile definire una macchina virtuale, una rete virtuale e un account di archiviazione e distribuire questa infrastruttura insieme a uno script che viene eseguito nella macchina virtuale. Il progetto di distribuzione **Gruppo di risorse di Azure** consente di distribuire tutte le risorse necessarie in una singola operazione ripetibile. Per altre informazioni sulla distribuzione e sulla gestione delle risorse, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
@@ -220,5 +219,4 @@ A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni sulla gestione delle risorse tramite il portale, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
 * Per altre informazioni sui modelli, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
-
 

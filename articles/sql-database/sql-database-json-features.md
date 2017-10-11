@@ -15,13 +15,11 @@ ms.author: jovanpop
 ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 57057bbdbbafff6843070336efc986286d84af36
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: 883e661107dd838f5c381cdef2c7f891b9a9389c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introduzione alle funzionalità JSON nel database SQL di Azure
 Il database SQL di Azure consente di analizzare ed eseguire query sui dati rappresentati in formato JavaScript Object Notation [(JSON)](http://www.json.org/) e di esportare i dati relazionali come testo JSON.
@@ -206,5 +204,4 @@ Per informazioni su come integrare JSON nell'applicazione, consultare le seguent
 * [Video di Channel 9](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
 Per altre informazioni sui vari scenari per l'integrazione di JSON nell'applicazione, vedere le dimostrazioni in questo [video di Channel 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) o trovare uno scenario corrispondente al caso d'uso nei [post del blog su JSON](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
-
 

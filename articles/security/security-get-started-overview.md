@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-overview"></a>Panoramica della sicurezza in Azure
 Nel sito di informazioni sulla sicurezza di Microsoft Azure su Azure.com è possibile trovare risposte tecniche alle domande relative alla sicurezza di Azure. Se si è interessati alla conformità di Azure e alle modalità di protezione dell'infrastruttura da parte di Azure, visitare il [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
@@ -52,4 +51,3 @@ Il sito di informazioni sulla sicurezza di Azure attualmente include le categori
 >
 
 I commenti e i suggerimenti degli utenti sono molto apprezzati. Segnalare se sono presenti categorie che si vuole aggiungere al sito o se sono presenti articoli che si vuole aggiungere a una categoria esistente. A tale scopo, usare la sezione dei commenti qui di seguito o scrivere all'indirizzo [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com). I suggerimenti ricevuti verranno incorporati nelle progettazioni future.
-

@@ -1,5 +1,5 @@
 ---
-title: Come ridimensionare una VM Linux con l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
+title: Come ridimensionare una VM Linux con l'interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
 description: Come ridimensionare una macchina virtuale di Linux, modificando le dimensioni della VM.
 services: virtual-machines-linux
 documentationcenter: na
@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 23fc9f7f34732079682857d4ee685fe811751698
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resize-a-linux-virtual-machine-using-cli-20"></a>Ridimensionare una macchina virtuale Linux con l'interfaccia della riga di comando 2.0
 
@@ -63,4 +61,3 @@ Per una maggiore scalabilità, eseguire più istanze di VM e la scalabilità ori
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [scale-set]: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]:sizes.md
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 292598b79b9b9749de8c4994de32349625611195
-ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
-
+ms.openlocfilehash: cd5db703ab0b89b8597c99c0d536bc07f883ebc6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-azure-marketplace-seller-insights-portal"></a>Come usare il portale delle informazioni dettagliate del venditore di Azure Marketplace
 
@@ -418,4 +416,3 @@ Usare questi account Microsoft aziendali o dell'istituto di istruzione per reimp
 [33]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-fill-out-and-submit.png
 [34]: ./media/marketplace-publishing-report-seller-insights-user-guide/feedback-form.png
 [35]: ./media/marketplace-publishing-report-seller-insights-user-guide/help.png
-

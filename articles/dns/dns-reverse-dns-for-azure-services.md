@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurare il DNS inverso per i servizi ospitati in Azure
 
 Questo articolo illustra come configurare ricerche DNS inverse per i servizi ospitati in Azure.
@@ -255,5 +253,4 @@ No. [I servizi di calcolo di Azure non supportano l'invio di messaggi di posta e
 Per altre informazioni sul DNS inverso, vedere [Risoluzione DNS inversa su Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Informazioni su come eseguire l'[hosting della zona di ricerca inversa per l'intervallo di indirizzi IP assegnato dal provider di servizi Internet in DNS Azure](dns-reverse-dns-for-azure-services.md).
-
 

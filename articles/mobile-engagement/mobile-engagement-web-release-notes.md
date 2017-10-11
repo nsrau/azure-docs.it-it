@@ -14,12 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk-release-notes"></a>Note sulla versione di Azure Mobile Engagement SDK per Web
 ## <a name="202-10182016"></a>2.0.2 (18/10/2016)
@@ -39,5 +38,4 @@ ms.lasthandoff: 11/17/2016
 * Rimossa l'API che invia e riceve messaggi tra i dispositivi.
 * Rimozione di callback correlati alla connessione XMPP deprecata.
 * Rimosso il supporto per la funzionalità Reach.
-
 

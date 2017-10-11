@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 07135e9b5e619971a59cc22ec68a0a4e8bcaabe1
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-6-set-up-the-replication-source-and-target"></a>Passaggio 6: Configurare l'origine e la destinazione della replica
 
@@ -100,4 +99,3 @@ Selezionare il server VMM di destinazione e il cloud:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare al [Passaggio 7: Configurare il mapping di rete](vmm-to-vmm-walkthrough-network-mapping.md).
-

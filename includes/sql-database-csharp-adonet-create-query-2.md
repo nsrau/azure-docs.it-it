@@ -24,7 +24,7 @@ Il programma C# contiene:
 Questo programma C# è costituito logicamente da un file con estensione cs. In questo caso il programma è suddiviso fisicamente in diversi blocchi di codice, in modo da semplificare la visualizzazione e la comprensione di ogni blocco. Per compilare ed eseguire questo programma, seguire questa procedura:
 
 1. Creare un progetto C# in Visual Studio.
-    - Il tipo di progetto deve essere un'applicazione *console*, da un elemento simile alla gerarchia seguente: **Modelli** > **Visual C#** > **Desktop classico di Windows** > **App console (.NET Framework)**.
+    - Il tipo di progetto deve essere un *console* un'applicazione, da un elemento come la seguente gerarchia: **modelli** > **Visual c#** >  **Windows Desktop classico** > **Console App (.NET Framework)**.
 3. Nel file **Program.cs** cancellare le brevi righe iniziali del codice.
 3. In Program.cs copiare e incollare ogni blocco seguente nella stessa sequenza riportata.
 4. In Program.cs modificare i valori seguenti nel metodo **Main**:

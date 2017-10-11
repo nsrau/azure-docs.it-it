@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: b6a77e33eea24000037ffb31d7aae3cb1d345ce9
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Uso delle date in Azure Cosmos DB
 Azure Cosmos DB offre flessibilità dello schema e un'indicizzazione avanzata tramite un modello di dati [JSON](http://www.json.org) nativo. Tutte le risorse di Azure Cosmos DB, inclusi database, raccolte, documenti e procedure archiviate, sono modellate e archiviate come documenti JSON. Come requisito per essere portatile, JSON, insieme a Azure Cosmos DB, supporta solo un piccolo set di tipi di base: String, Number, Boolean, Array, Object e Null. Tuttavia, JSON è flessibile e consente a sviluppatori e strutture di rappresentare tipi più complessi tramite l'uso di queste primitive, componendole come oggetti o matrici. 
@@ -92,4 +91,3 @@ In questo articolo è stato descritto come archiviare, indicizzare ed eseguire q
 * Scaricare ed eseguire gli [Esempi di codice su GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * Altre informazioni sulle [query dell'API di DocumentDB](documentdb-sql-query.md)
 * Altre informazioni sui [criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md)
-

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 94744e8138d40dd777c0c004472804e3af6c0b1e
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="deploy-a-container-group"></a>Distribuire un gruppo di contenitori
 
 Istanze di contenitore di Azure supporta la distribuzione di più contenitori in un singolo host usando un *gruppo di contenitori*. Ciò è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato. 
@@ -203,4 +201,3 @@ In questo documento sono stati illustrati i passaggi necessari per la distribuzi
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure]: ./container-instances-tutorial-prepare-app.md
-

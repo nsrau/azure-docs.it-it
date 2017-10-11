@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 09ddabf97028525e04f930f935f6ddf7ae132567
-ms.contentlocale: it-it
-ms.lasthandoff: 03/03/2017
-
+ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Controllo di accesso basato sui ruoli per i client di Service Fabric
 Azure Service Fabric supporta due tipi di controllo di accesso diversi per i client connessi a un cluster di Service Fabric: amministratore e utente. Il Controllo di accesso consente all'amministratore del cluster di limitare l'accesso a determinate operazioni del cluster per diversi gruppi di utenti, rendendo più sicuro il cluster.  
@@ -106,5 +105,4 @@ Nel file manifesto del cluster è possibile assegnare al client funzionalità di
 [Sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md)
 
 [Creazione del cluster di Service Fabric](service-fabric-cluster-creation-via-portal.md)
-
 

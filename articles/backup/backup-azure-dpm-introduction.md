@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3422c8d57bdd786ce5d1a41fbb4c12cc4efffddd
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparazione del backup dei carichi di lavoro in Azure con DPM
 > [!div class="op_single_selector"]
@@ -198,4 +197,3 @@ Questi tipi di file non sono supportati:
 > A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup su carichi di lavoro (protetti da DPM) in Azure usando il servizio Backup di Microsoft Azure.
 >
 >
-

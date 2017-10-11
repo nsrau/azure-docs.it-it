@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: d607449a16e886337ab1bd96213fbb4231124353
-ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-service-fabric-reliable-state-manager-and-reliable-collection-internals"></a>Elementi interni delle raccolte Reliable Collections e di Reliable State Manager in Azure Service Fabric
 Questo articolo tratta in modo approfondito Reliable State Manager e le raccolte Reliable Collections per spiegare il funzionamento in background dei componenti di base.
 
@@ -55,5 +53,4 @@ Al contrario, una raccolta Reliable Collection inserisce un checkpoint solo dell
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Transazioni e blocchi](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.contentlocale: it-it
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Soluzione di Azure Key Vault Analytics in Log Analytics
 
@@ -153,4 +152,3 @@ I dati raccolti prima della modifica non sono visibili nella nuova soluzione. È
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare le [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) per visualizzare i dati dettagliati per l'Insieme di credenziali delle chiavi di Azure.
-

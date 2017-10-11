@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.contentlocale: it-it
-ms.lasthandoff: 01/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introduzione ai componenti di richiesta e risposta
 Con i componenti di richiesta e risposta in un'app per la logica è possibile rispondere in tempo reale agli eventi.
@@ -111,5 +110,4 @@ Di seguito sono riportati i campi di input per l'azione di risposta HTTP. Un ast
 
 ## <a name="next-steps"></a>Passaggi successivi
 Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
-
 

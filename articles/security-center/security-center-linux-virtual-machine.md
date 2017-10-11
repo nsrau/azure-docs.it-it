@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
 ms.openlocfilehash: 0df4fca59575bd8e18e91fea2066a9e694ed320d
-ms.contentlocale: it-it
-ms.lasthandoff: 01/05/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Centro sicurezza di Azure e macchine virtuali di Azure con Linux
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -107,5 +106,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
-
 

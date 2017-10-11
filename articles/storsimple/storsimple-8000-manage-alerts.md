@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/22/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b7f9a2b7eb3dbf4cc97fac9a410359e068e67eb1
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
 
@@ -229,5 +228,4 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su [Errori di StorSimple e risoluzione dei problemi relativi a un dispositivo operativo](storsimple-troubleshoot-operational-device.md).
-
 

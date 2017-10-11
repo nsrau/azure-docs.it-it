@@ -14,12 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 214fdcfe20f3fa4ebcbe41308404f8b7e7d15310
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>Come creare ruoli Web e di lavoro PHP
 ## <a name="overview"></a>Overview
@@ -214,4 +213,3 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [programma di installazione sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Servizi BizTalk: Risoluzione dei problemi mediante i log operazioni
 
@@ -38,7 +36,7 @@ I log operazioni costituiscono una funzionalità dei servizi di gestione disponi
 ## <a name="view-biztalk-services-operation-logs"></a>Visualizzazione dei log operazioni di Servizi BizTalk
 1. Nel portale di Azure classico selezionare **Servizi di gestione**, quindi selezionare la scheda **Log operazioni**.
 2. È possibile filtrare i log in base a diversi parametri quali sottoscrizione, intervallo di date, tipo di servizio (ad esempio Servizi BizTalk), nome del servizio o stato dell'operazione (Completata, Non riuscita).
-3. Fare clic sul segno di spunta per visualizzare l'elenco filtrato. L'immagine seguente illustra le attività correlate a testbiztalkservice:  ![Visualizzare i log delle operazioni][ViewLogs] 
+3. Fare clic sul segno di spunta per visualizzare l'elenco filtrato. L'immagine seguente illustra le attività correlate a testbiztalkservice: ![Visualizzare i log delle operazioni][ViewLogs] 
 4. Per visualizzare informazioni più dettagliate su una specifica operazione, selezionare la riga e fare clic su **Dettagli** nella barra delle attività nella parte inferiore.
 
 ## <a name="bizops"></a>Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure
@@ -74,5 +72,4 @@ Nella tabella seguente sono elencate le operazioni di cui viene tenuta traccia t
 * [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
-
 

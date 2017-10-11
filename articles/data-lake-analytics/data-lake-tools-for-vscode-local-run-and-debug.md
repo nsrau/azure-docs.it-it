@@ -1,4 +1,3 @@
-
 ---
 title: Strumenti Azure Data Lake per Visual Studio - Esecuzione locale e debug locale di U-SQL con Visual Studio Code | Microsoft Docs
 description: Informazioni su come usare Strumenti Azure Data Lake per Visual Studio Code per l'esecuzione locale e il debug locale.
@@ -17,14 +16,12 @@ ms.tgt_pltfrm:
 ms.workload: big-data
 ms.date: 07/14/2017
 ms.author: jejiang
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 367e4ba792f83d6ee246208306e4c09b69cb49ef
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="u-sql-local-run-and-local-debug-with-visual-studio-code"></a>Esecuzione locale e debug locale di U-SQL con Visual Studio Code
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -97,4 +94,3 @@ Al primo utilizzo viene chiesto di scaricare i pacchetti di dipendenza LocalRun 
 - Per informazioni introduttive su Data Lake Analytics, vedere [Esercitazione: Introduzione a Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 - Per informazioni sull'uso degli strumenti di Data Lake per Visual Studio, vedere [Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Per informazioni sullo sviluppo di assembly, vedere [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md) (Sviluppare assembly U-SQL per i processi di Azure Data Lake Analytics).
-

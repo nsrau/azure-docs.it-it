@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: stefsch
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 687475fae0c90713c15e8abbb92b71059eae81c0
-ms.lasthandoff: 03/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Impostazioni di configurazione personalizzate per gli ambienti del servizio app
 ## <a name="overview"></a>Overview
@@ -97,4 +96,3 @@ Il sito dei modelli di avvio rapido di Azure Resource Manager include un modello
 <!-- LINKS -->
 
 <!-- IMAGES -->
-

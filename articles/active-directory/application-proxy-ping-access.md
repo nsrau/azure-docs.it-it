@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
 Il proxy dell'applicazione Azure Active Directory e PingAccess hanno collaborato per fornire ai clienti di Azure Active Directory l'accesso a un numero ancora maggiore di applicazioni. PingAccess espande le [offerte esistenti del proxy di applicazione](active-directory-application-proxy-get-started.md) in modo da includere l'accesso Single Sign-On alle applicazioni che usano intestazioni per l'autenticazione.
@@ -163,4 +161,3 @@ Dopo aver completato tutti questi passaggi, l'app dovrebbe funzionare. Per verif
 - [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html) (Configurare PingAccess per Azure AD)
 - [Come viene offerto l'accesso Single Sign-On dal proxy di applicazione di Azure AD?](application-proxy-sso-overview.md)
 - [Risolvere i problemi del Proxy applicazione](active-directory-application-proxy-troubleshoot.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 6410ea44861c59841d945390de326a805ee4b8e1
-ms.lasthandoff: 12/09/2016
-
-
+ms.openlocfilehash: 3d76aebd2a1fd729c8e0639e6afcbde4c3fb752b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scp-programming-guide"></a>Guida alla programmazione SCP
 SCP è una piattaforma per la compilazione di applicazioni di elaborazione dati dalle prestazioni elevate, affidabili, coerenti e in tempo reale. È basata su [Apache Storm](http://storm.incubator.apache.org/) , un sistema di elaborazione dei flussi progettato dalle community di sviluppo di software open source (OSS). Storm è stato progettato da Nathan Marz e reso open source da Twitter. Il sistema si avvale di [Apache Zookeeper](http://zookeeper.apache.org/), un altro progetto Apache per il coordinamento e la gestione dello stato altamente affidabili delle applicazioni distribuite. 
@@ -657,5 +656,4 @@ Per esempi di topologie Storm create con SCP, vedere quanto segue:
 * [Elaborare i dati del sensore veicolo dall'hub di eventi usando Storm in HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
 * [Estrarre, trasformare e caricare dagli hub eventi di Azure in HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
 * [Correlare gli eventi  con Storm e HBase in HDInsight](hdinsight-storm-correlation-topology.md)
-
 

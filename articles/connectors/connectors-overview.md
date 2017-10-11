@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44a756ba437b2ce9f625017998d9ae7d09acae1f
 ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Uso dei connettori in un'app per la logica
 I connettori consentono di accedere rapidamente a eventi, dati e azioni tra servizi, protocolli e piattaforme.  L'elenco completo dei connettori supportati dalle app per la logica è [disponibile qui](apis-list.md).  I connettori possono essere usati come trigger o azioni in un'app per la logica e possono richiedere una *connessione* configurata da usare (ad esempio l'autorizzazione di un account Twitter a effettuare l'accesso o a postare contenuti per conto del cliente).
@@ -64,4 +63,3 @@ Le connessioni possono essere visualizzate e gestite in Azure facendo clic su **
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
 [2]: ./media/connectors-overview/configureAction.png
-

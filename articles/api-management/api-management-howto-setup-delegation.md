@@ -1,6 +1,6 @@
 ---
 title: Come delegare la registrazione utente e la sottoscrizione ai prodotti
-description: Informazioni su come delegare la registrazione dell&quot;utente e la sottoscrizione del prodotto a terze parti in Gestione API di Azure.
+description: Informazioni su come delegare la registrazione dell'utente e la sottoscrizione del prodotto a terze parti in Gestione API di Azure.
 services: api-management
 documentationcenter: 
 author: antonba
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 0be893406c6a20193b10b728fff2cec06f562069
-ms.lasthandoff: 12/20/2016
-
-
+ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Come delegare la registrazione utente e la sottoscrizione ai prodotti
 La delega consente di usare il sito Web esistente per gestire l'accesso e l'iscrizione degli sviluppatori e la sottoscrizione ai prodotti invece di usare la funzionalità incorporata nel portale per sviluppatori. Ciò consente al sito Web di avere la proprietà dei dati utente e di eseguire la convalida di questi passaggi in modo personalizzato.
@@ -180,4 +179,3 @@ Per altre informazioni sulla delega, vedere il video seguente.
 [il codice di esempio è fornito di seguito]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
-

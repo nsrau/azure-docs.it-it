@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 418a4b638dfaa3fee33a7a7242433699205c79f7
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs-notify-users-for-android-with-net-backend"></a>Uso di Hub di notifica di Azure per inviare notifiche agli utenti per Android con back-end .NET
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -363,7 +363,7 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Android.
             }.execute(null, null, null);
         }
 
-    Il gestore `login` per il pulsante **Log in`RegisterClient` genera un token di autenticazione di base usando il nome utente e la password di input. Si noti che rappresenta qualsiasi token usato dallo schema di autenticazione, quindi usa ** per chiamare il back-end per la registrazione.
+    Il gestore `login` per il pulsante **Log in`RegisterClient` genera un token di autenticazione di base usando il nome utente e la password di input. Si noti che rappresenta qualsiasi token usato dallo schema di autenticazione, quindi usa**  per chiamare il back-end per la registrazione.
 
     Il metodo `sendPush` chiama il back-end per attivare una notifica sicura per l'utente in base al tag user. Il servizio di notifica della piattaforma a cui è destinato `sendPush` dipende dalla stringa `pns` passata.
 
@@ -413,9 +413,3 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Android.
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

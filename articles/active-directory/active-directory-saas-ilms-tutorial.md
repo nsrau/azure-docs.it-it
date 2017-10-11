@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: integrazione di Azure Active Directory con iLMS | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e iLMS.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e iLMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
 ms.openlocfilehash: 22c72020200138e78835ed7dd2661f18b824c785
-ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Esercitazione: Integrazione di Azure Active Directory con iLMS
 
@@ -123,13 +121,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url1.png)
 
-    Nella casella di testo **URL di accesso** incollare il valore **Endpoint (URL)** copiato dalla sezione **Provider di servizi** delle impostazioni SAML nel portale di amministrazione come `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`        
+    Nella casella di testo **URL di accesso** incollare il valore **Endpoint (URL)** copiato dalla sezione **Provider di servizi** delle impostazioni SAML nel portale di amministrazione come `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
 5. Per abilitare il provisioning JIT, l'applicazione iLMS si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
     
     ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/4.png)
     
-    Creare gli attributi **Department (Reparto), Region (Area)** e **Division** (Divisione) e aggiungere il nome di questi attributi in iLMS. Tutti gli attributi indicati sopra sono obbligatori.    
+    Creare gli attributi **Department (Reparto), Region (Area)** e **Division** (Divisione) e aggiungere il nome di questi attributi in iLMS. Tutti gli attributi indicati sopra sono obbligatori.  
 
     > [!NOTE] 
     > È necessario abilitare **Create Un-recognized User Account** (Crea account utente non riconosciuto) in iLMS per eseguire il mapping di questi attributi. Seguire le istruzioni [qui](http://support.inspiredelearning.com/customer/portal/articles/2204526) per avere un'idea della configurazione degli attributi.
@@ -203,7 +201,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/save.png)
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD)
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
     
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -325,5 +323,4 @@ Quando si fa clic sul riquadro iLMS nel pannello di accesso, si accederà automa
 [201]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_203.png
-
 

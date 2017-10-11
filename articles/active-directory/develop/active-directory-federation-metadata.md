@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: a2f3c2d97df37e067670af48b37cc2e2dd3a36cc
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: ecafb02a6ac13d1c3cd1fe77ef710cd8525e32b0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="federation-metadata"></a>Metadati della federazione
 Azure Active Directory (Azure AD) pubblica un documento di metadati della federazione per i servizi configurati per accettare i token di sicurezza rilasciati da Azure AD. Il formato del documento di metadati della federazione è descritto in [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) (Linguaggio Web Services Federation (WS-Federation) versione 1.2), che estende la pubblicazione [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf) (Metadati per il linguaggio SAML (Security Assertion Markup Language) OASIS v 2.0).
@@ -158,4 +156,3 @@ Allo stesso modo, gli endpoint per gli endpoint del protocollo SAML 2.0 comune v
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/common/saml2" />
   </IDPSSODescriptor>
 ```
-

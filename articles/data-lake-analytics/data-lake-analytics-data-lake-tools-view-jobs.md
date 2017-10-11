@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics
 Il servizio Azure Data Lake Analytics archivia i processi inviati in un [archivio query](#query-store). Questo articolo contiene informazioni su come usare Job Browser e Job View (Visualizzazione processo) in Azure Data Lake Tools per Visual Studio per trovare informazioni sulla cronologia di processi. 
@@ -176,5 +175,4 @@ Mostra informazioni dettagliate sul processo, inclusi gli script, le risorse e l
 * Per registrare informazioni di diagnostica, vedere [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Analisi Data Lake di Azure](data-lake-analytics-analyze-weblogs.md).
 * Per usare la visualizzazione esecuzioni vertici, vedere [Usare la visualizzazione esecuzioni vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-
 

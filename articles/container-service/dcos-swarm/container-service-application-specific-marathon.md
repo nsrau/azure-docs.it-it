@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 3134872eb59f2f6219499f3d5a92673f680af04d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: b265763fb5dad240edd710cd8d0fb1079e3a7b51
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-an-application-or-user-specific-marathon-service"></a>Creare un servizio Marathon specifico per un'applicazione o un'utente
 Il servizio contenitore di Azure fornisce un set di server master in cui vengono preconfigurati Apache Mesos e Marathon. È possibile usarli per orchestrare le applicazioni nel cluster, ma è consigliabile non usare i server master a questo scopo. La modifica della configurazione di Marathon richiede ad esempio l'accesso ai server master stessi per apportare modifiche. Per questa operazione sono consigliabili server master univoci, che risultano leggermente diversi dai server standard e devono essere gestiti in modo specifico e indipendente. La configurazione necessaria per un team potrebbe non essere ottimale per un altro team.
@@ -58,5 +57,4 @@ dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
 Per verificare quale istanza di Marathon stia usando l'interfaccia della riga di comando, è possibile usare il comando `dcos config show` . Per ripristinare l'uso del servizio Marathon master, è possibile usare il comando `dcos config unset marathon.url`.
-
 

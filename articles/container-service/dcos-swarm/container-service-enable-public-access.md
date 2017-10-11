@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 25eb3b5d379f58022e9e516c51f67c52becf9087
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Abilitare l'accesso pubblico a un'applicazione del servizio contenitore di Azure
 Qualsiasi contenitore DC/OS nel [pool di agenti pubblico](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) del servizio contenitore di Azure viene esposto automaticamente a Internet. Per impostazione predefinita, le porte **80**, **443**, **8080** sono aperte e qualsiasi contenitore (pubblico) in ascolto su queste porte è accessibile. Questo articolo descrive come aprire altre porte per le applicazioni nel servizio contenitore di Azure.
@@ -88,5 +87,4 @@ Successivamente, è necessario aggiungere una regola di sicurezza che instradi i
 Informazioni sulle differenze tra [agenti DC/OS pubblici e privati](container-service-dcos-agents.md).
 
 Sono disponibili altre informazioni sulla [gestione dei contenitori DC/OS](container-service-mesos-marathon-ui.md).
-
 

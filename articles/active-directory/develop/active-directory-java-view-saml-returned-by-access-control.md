@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06d30b8222cd0590809b2fd5a1241394056c6338
-ms.openlocfilehash: ac91a1c753611f4002a930dadeaeba2fcd53a324
-ms.contentlocale: it-it
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Come visualizzare il codice SAML restituito dal Servizio di controllo di accesso di Azure
 In questa guida verrà descritto come visualizzare il codice SAML (Security Assertion Markup Language) sottostante restituito all'applicazione dal Servizio di controllo di accesso di Azure. Questa guida si basa sull'argomento [Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) e fornisce il codice per la visualizzazione delle informazioni relative a SAML. L'applicazione completata avrà un aspetto analogo al seguente.
@@ -197,4 +195,3 @@ Per continuare a esplorare le funzionalità di ACS ed esercitarsi con scenari pi
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
-

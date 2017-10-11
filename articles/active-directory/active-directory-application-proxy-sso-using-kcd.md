@@ -15,14 +15,12 @@ ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 149af1f68e574f78127a9c2de8a0e79ed8774d29
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
 
 È possibile fornire l'accesso single sign-on per le applicazioni locali pubblicate mediante il proxy di applicazione che sono protette con l'autenticazione integrata di Windows. Queste applicazioni richiedono un ticket Kerberos per l'accesso. Il proxy di applicazione usa la delega vincolata Kerberos (KCD) per supportare queste applicazioni. 
@@ -130,5 +128,4 @@ In alcuni casi, tuttavia, la richiesta viene inviata correttamente all'applicazi
 
 
 Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-
 

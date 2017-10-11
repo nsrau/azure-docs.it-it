@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 02c393f632c355ea5fbde554adbd8b1169ad8bc8
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 1.2 del dispositivo StorSimple serie 8000
 
@@ -113,5 +112,4 @@ Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà ne
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Installare l'aggiornamento 1.2 nel dispositivo](storsimple-install-update-1.md).
-
 

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-high-availability-and-reliability"></a>Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione
 ## <a name="azure-scheduler-high-availability"></a>Livelli elevati di disponibilità dell'Utilità di pianificazione
@@ -80,4 +79,3 @@ Per informazioni su come configurare un endpoint alternativo, fare riferimento a
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
-

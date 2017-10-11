@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
 > [!div class="op_single_selector"]
@@ -178,4 +177,3 @@ $ ./install.sh
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
-

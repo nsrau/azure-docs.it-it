@@ -16,14 +16,12 @@ ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
-ms.contentlocale: it-it
-ms.lasthandoff: 03/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Concedere autorizzazioni agli utenti di organizzazioni partner nel tenant di Azure Active Directory
 
 Gli utenti di Collaborazione B2B di Azure Active Directory (Azure AD) vengono aggiunti come utenti guest alla directory e le autorizzazioni guest nella directory sono limitate per impostazione predefinita. Può essere necessario definire alcuni utenti guest per assegnare ruoli con privilegi elevati nell'organizzazione. Per supportare la definizione di ruoli con privilegi più elevati, gli utenti guest possono essere aggiunti a qualsiasi ruolo, in base alle esigenze dell'organizzazione.
@@ -54,4 +52,3 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
-

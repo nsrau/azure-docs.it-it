@@ -15,14 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
-ms.openlocfilehash: bfed40417d800e86de7ef437c42162b1e1a0d886
-ms.contentlocale: it-it
-ms.lasthandoff: 02/24/2017
-
+ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Ridimensionare i livelli di risorse per i carichi di lavoro di indicizzazione e query in Ricerca di Azure
 Dopo aver [scelto un piano tariffario](search-sku-tier.md) ed [eseguito il provisioning di un servizio di ricerca](search-create-service-portal.md), il passaggio successivo consente di aumentare il numero di repliche o partizioni usate dal servizio. Ogni livello offre un numero fisso di unità di fatturazione. Questo articolo illustra come assegnare le unità per ottenere una configurazione ottimale che bilanci i requisiti per l'esecuzione di query, indicizzazione e archiviazione.
 
@@ -129,4 +127,3 @@ Le unità di ricerca, i prezzi e le capacità sono illustrati in dettaglio nel s
 La formula per il calcolo del numero di unità di ricerca usate per combinazioni specifiche è il prodotto delle repliche e delle partizioni, vale a dire (R X P = SU). Ad esempio, tre repliche moltiplicate per tre partizioni vengono fatturate come nove unità di ricerca.
 
 Il costo per SU è determinato dal livello, con una tariffa di fatturazione per unità inferiore per il livello Basic rispetto al livello Standard. Le tariffe per ogni livello sono disponibili in [Prezzi di Ricerca](https://azure.microsoft.com/pricing/details/search/).
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 298e0218c51385caa2de6a684ac40503fc07f5fa
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 64675c51abf80daa3a55220f910aa8fdee1042ca
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usare PowerShell per impostare gli avvisi in Application Insights
 È possibile automatizzare la configurazione degli [avvisi](app-insights-alerts.md) in [Application Insights](app-insights-overview.md).
@@ -140,4 +139,3 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 * [Creare risorse Application Insights e test web da modelli](app-insights-powershell.md)
 * [Automatizzare l'accoppiamento tra Diagnostica di Microsoft Azure e Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Automatizzare la risposta a un avviso](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
-

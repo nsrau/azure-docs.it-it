@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ce0d178914907750e5da59f223a4b1e04b9bb6fb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Aggiornare la versione del sistema operativo nel Centro sicurezza di Azure
 Per le macchine virtuali nei servizi cloud il Centro sicurezza di Azure consiglierà l'aggiornamento del sistema operativo se è disponibile una versione più recente.  Vengono monitorati solo i ruoli Web e di lavoro dei servizi cloud in esecuzione negli slot di produzione.
@@ -52,9 +52,3 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

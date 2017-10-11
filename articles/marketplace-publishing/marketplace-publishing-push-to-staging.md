@@ -1,6 +1,6 @@
 ---
-title: Preparare e testare l&quot;offerta per la distribuzione in Azure Marketplace | Documentazione Microsoft
-description: Istruzioni dettagliate fornitura di contenuti di marketing, configurazione dei prezzi e test dell&quot;offerta prima della distribuzione in Azure Marketplace.
+title: Preparare e testare l'offerta per la distribuzione in Azure Marketplace | Documentazione Microsoft
+description: Istruzioni dettagliate fornitura di contenuti di marketing, configurazione dei prezzi e test dell'offerta prima della distribuzione in Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Completare la creazione dell’offerta con contenuti di marketing
 In questo passaggio del processo di pubblicazione, sarà necessario fornire alcuni contenuti di marketing e informazioni dettagliate sull'offerta e/o sugli SKU in Azure Marketplace. Ad esempio, si fornirà una descrizione del prodotto, i logo aziendali, piani di prezzo, dettagli dei piani e altre informazioni necessarie per portare l'offerta e/o SKU in gestione temporanea. Queste informazioni vengono utilizzate come contenuto di marketing nel portale di Azure. Si inizierà il processo nel [portale di pubblicazione][link-pubportal].
@@ -287,9 +287,3 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 
 [link-pubportal]:https://publish.windowsazure.com
 [link-push-to-production]:marketplace-publishing-push-to-production.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

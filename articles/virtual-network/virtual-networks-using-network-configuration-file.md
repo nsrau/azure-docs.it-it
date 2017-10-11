@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurare una rete virtuale (classica) usando un file di configurazione di rete
 > [!IMPORTANT]
@@ -142,4 +141,3 @@ Se il file di configurazione di rete esportato non include alcun contenuto, è p
     ```azurecli
     azure network import c:\azure\networkconfig.json
     ```
-

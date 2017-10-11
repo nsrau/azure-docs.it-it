@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: eb53ed852b6175fbc7faea44a243e8c7d5ce1753
-ms.contentlocale: it-it
-ms.lasthandoff: 03/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Introduzione alla sicurezza in Microsoft Azure
 Quando si compilano asset IT o se ne esegue la migrazione in un provider di servizi cloud, si dipende dalla capacità di tale organizzazione di proteggere le applicazioni e i dati con i servizi e i controlli forniti per gestire la sicurezza degli asset basati sul cloud.
@@ -195,4 +194,3 @@ Azure usa controlli di sicurezza per implementare la prevenzione delle minacce e
 [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
 [Blog di Active Directory](http://blogs.technet.com/b/ad/)
-

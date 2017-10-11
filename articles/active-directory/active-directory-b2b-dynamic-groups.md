@@ -16,14 +16,12 @@ ms.workload: identity
 ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 5818c41610c8c5df89abcb0dcd058bcbe9579ce7
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Gruppi dinamici e Collaborazione B2B di Azure Active Directory
 
 ## <a name="what-are-dynamic-groups"></a>Che cosa sono i gruppi dinamici
@@ -61,4 +59,3 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
-

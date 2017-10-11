@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
-ms.openlocfilehash: 72f1ed52c9e0f39009efc54967d7cc68517182a3
-ms.contentlocale: it-it
-ms.lasthandoff: 03/02/2017
-
+ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 > [!div class="op_single_selector"]
@@ -106,4 +105,3 @@ Dopo aver protetto la macchina virtuale, vedere gli articoli seguenti per ottene
 
 * [Gestire e monitorare il backup delle macchine virtuali di Azure](backup-azure-manage-vms.md)
 * [Ripristino di macchine virtuali](backup-azure-arm-restore-vms.md)
-

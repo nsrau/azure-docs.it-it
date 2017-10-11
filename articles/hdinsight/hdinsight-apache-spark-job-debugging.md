@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: bf66757cc9439a969c9f28abc0b95055ff697c3b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Eseguire il debug di processi Apache Spark in esecuzione in Azure HDInsight
 
@@ -129,6 +128,5 @@ Una volta completato un processo, le informazioni corrispondenti vengono salvate
 * [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-
 
 

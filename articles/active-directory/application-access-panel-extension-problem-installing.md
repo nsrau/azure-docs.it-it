@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 8b7327508633e33917d1fa9c1f35ed1bde5a26e1
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-installing-the-application-access-panel-browser-extension"></a>Problema nell'installazione dell'estensione del browser per il pannello di accesso dell'applicazione
 
 Il pannello di accesso è un portale basato sul Web che permette a un utente che ha un account aziendale o di istituto di istruzione in Azure Active Directory (Azure AD) di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD ha concesso l'accesso. Un utente dotato di edizioni di Azure AD può anche usare le funzionalità di gestione self-service di gruppi e app tramite il pannello di accesso. Il pannello di accesso è separato dal portale di Azure e non richiede una sottoscrizione Azure.
@@ -100,4 +98,3 @@ Aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-

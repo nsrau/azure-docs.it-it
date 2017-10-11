@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte;csand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dee39662472fe54776b591977f2b1ecb39d15b00
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gestione dell'insieme di credenziali chiave usando Automazione di Azure
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione delle chiavi e dei segreti nell'insieme di credenziali chiave di Azure.
@@ -53,5 +52,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e d
 
 * Vedere l' [esercitazione introduttiva](../automation/automation-first-runbook-graphical.md)di Automazione di Azure.
 * Vedere gli [script di PowerShell dell'insieme di credenziali chiave di Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?query=azure%20key%20vault&f%5B0%5D.Value=azure%20key%20vault&f%5B0%5D.Type=SearchText&ac=5).
-
 

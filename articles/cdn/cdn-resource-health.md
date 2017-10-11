@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
-ms.contentlocale: it-it
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorare l'integrità delle risorse della rete CDN di Azure
   
 L'integrità delle risorse della rete CDN di Azure costituisce un sottoinsieme di [Integrità risorse di Azure](../resource-health/resource-health-overview.md).  È possibile usare Integrità risorse di Azure per monitorare l'integrità delle risorse della rete CDN e ricevere indicazioni pratiche per risolvere i problemi.

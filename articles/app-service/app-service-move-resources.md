@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: zarizvi
-translationtype: Human Translation
-ms.sourcegitcommit: 078833a21cd309087b842e21e3fc730695c254dd
-ms.openlocfilehash: 89fdeca4ffc1a36e8aff829b00483f208fa03e0f
-ms.lasthandoff: 12/21/2016
-
-
+ms.openlocfilehash: 1b5059dc052005b6079f70ecf6771a3771df8d87
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="supported-move-configurations"></a>Configurazioni di spostamento supportate
 È possibile spostare le risorse di App Web di Azure usando l'[API di spostamento delle risorse di Resource Manager](../azure-resource-manager/resource-group-move-resources.md).
@@ -31,6 +30,5 @@ App Web di Microsoft Azure supporta attualmente i seguenti scenari di spostament
    > In questo scenario il gruppo di risorse di destinazione non può contenere alcuna risorsa Microsoft.Web.
 
 * Spostamento di singole app Web in un altro gruppo di risorse. Le app Web rimangono tuttavia ospitate nel relativo piano di servizio app (il piano di servizio app rimane nel gruppo di risorse precedente).
-
 
 

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 22f2bcfdd8c3978a6924c8c8cdea2744001000fe
-ms.contentlocale: it-it
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS
 
 In una singola farm AD FS a disponibilità elevata è possibile eseguire la federazione di più foreste, se tra di esse esiste un trust bidirezionale. Queste diverse foreste possono corrispondere o meno alla stessa istanza di Azure Active Directory. Questo articolo contiene istruzioni su come configurare la federazione tra una singola distribuzione di AD FS e più foreste con sincronizzazione in istanze diverse di Azure AD.
@@ -66,4 +64,3 @@ L'operazione riportata sopra eseguirà la federazione del dominio fabrikam.com c
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Connettere Active Directory ad Azure Active Directory](active-directory-aadconnect.md)
-

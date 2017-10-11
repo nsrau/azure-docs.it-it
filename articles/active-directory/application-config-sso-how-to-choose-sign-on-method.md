@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6aba9206ab0634e9379d63520ad9e2d0256b7e94
-ms.contentlocale: it-it
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 80f4a965920fec9cb578c1bee235c7857f37431e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Come determinare il metodo Single Sign-On da usare
 
 Questo articolo consente di comprendere le modalità Single Sign-On supportate da Azure AD e come sceglierne una per l'applicazione d'interesse.
@@ -65,11 +63,11 @@ Leggere [Guida per gli sviluppatori di Azure Active Directory](https://docs.micr
 
 Per impostare la modalità **Single Sign-On** di un'applicazione, seguire queste istruzioni:
 
-1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
 
@@ -83,5 +81,4 @@ Per impostare la modalità **Single Sign-On** di un'applicazione, seguire queste
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)
-
 

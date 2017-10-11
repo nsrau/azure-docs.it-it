@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 972ed736e63089a69726de5d26236b930b390a10
-ms.contentlocale: it-it
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 61536612e0dd5102b8f5e911c350826846f5ed77
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>Come assegnare utenti e gruppi a un'applicazione
 
 Prima che gli utenti effettuino una delle operazioni seguenti per un'applicazione specifica, è necessario innanzitutto **assegnarli all'applicazione** per concedere loro l'accesso:
@@ -47,19 +45,19 @@ Esistono 3 modi per poter assegnare applicazioni con Azure Active Directory:
 
 Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
 
-1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione che si desidera assegnare a un utente dall'elenco.
+6.  Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
 7.  Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di navigazione a sinistra dell'applicazione.
 
@@ -67,11 +65,11 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 9.  Fare clic sul selettore **Utenti e gruppi** nel pannello **Aggiungi assegnazione**.
 
-10. Digitare il **nome completo**  o l'**indirizzo di posta elettronica** dell'utente per cui si desidera eseguire l'assegnazione nella casella di ricerca **Cerca per nome o indirizzo di posta**.
+10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo**  o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
 
 11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
-12. **Facoltativo:** se si desidera **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **Selezionato**.
+12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
 
 13. Dopo avere selezionato gli utenti, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 
@@ -89,15 +87,15 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione che si desidera assegnare a un utente dall'elenco.
+6.  Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
 7.  Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di navigazione a sinistra dell'applicazione.
 
@@ -105,13 +103,13 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 
 9.  Fare clic sul selettore **Utenti e gruppi** nel pannello **Aggiungi assegnazione**.
 
-10. Digitare il **nome completo del gruppo** per cui si vuole eseguire l'assegnazione nella casella di ricerca **Cerca per nome o indirizzo di posta**.
+10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo del gruppo** a cui si vuole eseguire l'assegnazione.
 
-11. Passare il puntatore sul **gruppo** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo del gruppo per aggiungere l'utente all'elenco **Selezionato**.
+11. Posizionare il puntatore sul **gruppo** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo del gruppo per aggiungere il gruppo all'elenco **selezionato**.
 
-12. **Facoltativo:** se si desidera **aggiungere più di un gruppo**, digitare un altro **nome completo di gruppo** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere il gruppo all'elenco **Selezionato**.
+12. **Facoltativo:** se si vuole **aggiungere più di un gruppo**, digitare un altro **nome completo di gruppo** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere il gruppo all'elenco **selezionato**.
 
-13. Dopo aver selezionato i gruppi, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
+13. Dopo avere selezionato i gruppi, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 
 14. **Facoltativo:** fare clic sul selettore **Seleziona ruolo** nel pannello **Aggiungi assegnazione** per scegliere un ruolo da assegnare ai gruppi selezionati.
 
@@ -129,7 +127,7 @@ Per abilitare l'accesso self-service per un'applicazione, seguire questa procedu
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
 
@@ -166,4 +164,3 @@ Tali approvazioni supportano solo flussi di lavoro di approvazione individuali. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: edfd06a06c730597fee4569ca1ce29092b45244a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Esercitazione: Integrazione di Azure Active Directory con SpringCM
 
@@ -270,5 +269,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_203.png
-
 

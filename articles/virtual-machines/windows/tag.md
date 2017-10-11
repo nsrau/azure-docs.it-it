@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 5f00c4265cea3db02dbb09a7f81be636a3fdd3d1
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Come assegnare un tag a una macchina virtuale Windows in Azure
 Questo articolo descrive diversi modi per contrassegnare una macchina virtuale Windows in Azure tramite il modello di distribuzione Resource Manager. I tag sono coppie chiave/valore definite dall'utente che possono essere inserite direttamente in una risorsa o un gruppo di risorse. Attualmente, Azure supporta fino a 15 tag per ogni risorsa e gruppo di risorse. I tag possono essere posizionati su una risorsa al momento della creazione o aggiunti a una risorsa esistente. Si noti che i tag sono supportati solo per le risorse create tramite il modello di distribuzione Resource Manager. Se si desidera assegnare un tag a una macchina virtuale Linux, vedere l'articolo relativo a [come assegnare un tag a una macchina virtuale Linux in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -103,4 +102,3 @@ Per altre informazioni sull'assegnazione di tag tramite PowerShell, vedere l'art
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md
 [Gain insights into your Microsoft Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md
-

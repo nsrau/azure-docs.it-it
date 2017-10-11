@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse
 Questo argomento illustra i modelli di distribuzione classica e Azure Resource Manager, lo stato delle risorse e i motivi per cui le risorse sono state distribuite con un metodo o con l'altro. I modelli di distribuzione classica e Resource Manager rappresentano due diversi modi di distribuire e gestire le soluzioni Azure. Vengono usati con due diversi set di API e le risorse distribuite possono contenere differenze significative. I due modelli non sono completamente compatibili tra loro. Questo argomento descrive tali differenze.
@@ -218,5 +217,4 @@ Tutta l'automazione e tutti gli script creati dall'utente continueranno a funzio
 ## <a name="next-steps"></a>Passaggi successivi
 * Per la procedura dettagliata di creazione del modello che definisce una macchina virtuale, un account di archiviazione e una rete virtuale, vedere [Procedura dettagliata per un modello di Resource Manager](resource-manager-template-walkthrough.md).
 * Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
-
 

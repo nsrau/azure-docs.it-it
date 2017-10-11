@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
-ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Procedura: Eseguire il monitoraggio delle app nel servizio app di Azure
 Il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) offre la funzionalità di monitoraggio incorporata nel [portale di Azure](https://portal.azure.com).
@@ -169,4 +168,3 @@ Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Pre
 [http403]: ./media/web-sites-monitor/http403.png
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
-

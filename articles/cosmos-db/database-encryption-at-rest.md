@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Crittografia di dati inattivi del database in Azure Cosmos DB
 
 Il termine "crittografia di dati inattivi" denota in genere la crittografia dei dati su dispositivi di archiviazione non volatili, come ad esempio unità a stato solido (SSD) e dischi rigidi (HDD). Cosmos DB archivia i propri database primari su SSD. Gli allegati multimediali e i backup vengono memorizzati nell'archiviazione BLOB di Azure, di cui in genere si esegue il backup su HDD. Con il rilascio della crittografia di dati inattivi per Cosmos DB, tutti i database, gli allegati multimediali e i backup vengono ora crittografati. Vengono crittografati sia i dati in transito (attraverso la rete), sia quelli inattivi (memoria non volatile), fornendo una crittografia end-to-end.
@@ -70,4 +68,3 @@ R: L'emulatore è uno strumento di sviluppo e test autonomo e non usa i servizi 
 
 Per una panoramica della sicurezza di Cosmos DB e dei miglioramenti più recenti, vedere [Sicurezza database di Azure Cosmos DB](database-security.md).
 Per altre informazioni sulle certificazioni Microsoft, vedere il [Centro protezione di Azure](https://azure.microsoft.com/en-us/support/trust-center/).
-

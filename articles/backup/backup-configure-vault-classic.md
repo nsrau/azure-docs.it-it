@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: a8daa6a4655b72936b6299c0fa5b80459ffa5da3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal"></a>Eseguire il backup del server o della workstation di Windows Server tramite il portale classico
 > [!div class="op_single_selector"]
@@ -171,4 +170,3 @@ Per altre informazioni sul backup di macchine virtuali o altri carichi di lavoro
 * [Eseguire il backup di macchine virtuali IaaS](backup-azure-vms-prepare.md)
 * [Eseguire il backup dei carichi di lavoro con il server di Backup di Microsoft Azure](backup-azure-microsoft-azure-backup.md)
 * [Eseguire il backup dei carichi di lavoro in Azure con Data Protection Manager](backup-azure-dpm-introduction.md)
-

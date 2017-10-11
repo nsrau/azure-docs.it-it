@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Clarizen | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Clarizen.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Clarizen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 3908c354a8551d7b16c759a48ef3e5316bfa11fa
 ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
-ms.lasthandoff: 02/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Esercitazione: Integrazione di Azure Active Directory con Clarizen
 
@@ -106,7 +105,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
-    ![Clic su "Crea nuovo certificato"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)     
+    ![Clic su "Crea nuovo certificato"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)  
 
 5. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una data di scadenza. Fare quindi clic su **Salva**.
 
@@ -259,4 +258,3 @@ Quando si fa clic sul riquadro Clarizen nel pannello di accesso, si dovrebbe acc
 [201]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_203.png
-

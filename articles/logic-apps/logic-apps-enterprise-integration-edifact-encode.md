@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: e83488f4ec420c2af40d373239ba6989387da3cb
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: b8d577326d23ec45cb4a9ec0e450ebf7afd945f3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Encode EDIFACT in App per la logica di Azure con Enterprise Integration Pack
 
@@ -42,7 +40,7 @@ Sono necessari gli elementi seguenti:
 
 2. Il connettore di messaggi Encode EDIFACT non dispone di trigger, pertanto è necessario aggiungerne uno per avviare l'app per la logica, ad esempio un trigger di richiesta. In Progettazione app per la logica aggiungere un trigger e un'azione all'app per la logica.
 
-3.    Nella casella di ricerca, digitare "EDIFACT" come filtro. Selezionare **Codifica in un messaggio EDIFACT in base al nome dell'accordo** o **Codifica in un messaggio EDIFACT in base alle identità**.
+3.  Nella casella di ricerca, digitare "EDIFACT" come filtro. Selezionare **Codifica in un messaggio EDIFACT in base al nome dell'accordo** o **Codifica in un messaggio EDIFACT in base alle identità**.
    
     ![ricerca di EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
 
@@ -57,7 +55,7 @@ Sono necessari gli elementi seguenti:
     | Nome connessione * |Immettere un nome per la connessione. |
     | Account di integrazione * |Immettere un nome per l'account di integrazione. Verificare che l'account di integrazione e l'app per la logica si trovino nella stessa località di Azure. |
 
-5.    Al termine, i dettagli della connessione dovrebbero essere simili a quelli dell'esempio seguente. Per completare la creazione della connessione, scegliere **Crea**.
+5.  Al termine, i dettagli della connessione dovrebbero essere simili a quelli dell'esempio seguente. Per completare la creazione della connessione, scegliere **Crea**.
 
     ![dettagli della connessione all'account di integrazione](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
 
@@ -100,5 +98,4 @@ Per visualizzare i dettagli di Swagger per il connettore EDIFACT, vedere [EDIFAC
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") 
-
 

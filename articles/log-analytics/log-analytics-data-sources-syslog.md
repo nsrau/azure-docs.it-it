@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: magoedte;bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Origini dati Syslog in Log Analytics
 Syslog è un protocollo di registrazione di eventi comunemente usato in Linux.  Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog.  Quando viene installato, l'agente OMS per Linux configura il daemon Syslog locale in modo da inoltrare i messaggi all'agente.  Quest'ultimo invia quindi il messaggio a Log Analytics, dove viene creato un record corrispondente nel repository OMS.  
@@ -219,4 +218,3 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
 * Usare [campi personalizzati](log-analytics-custom-fields.md) per analizzare i dati dei record Syslog nei singoli campi.
 * [Configurare agenti Linux](log-analytics-linux-agents.md) per raccogliere altri tipi di dati.
-

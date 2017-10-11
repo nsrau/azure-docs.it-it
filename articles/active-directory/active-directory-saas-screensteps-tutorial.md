@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: b6ded8ba1adf03fdccbdb7573c09fae1857c8b16
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Esercitazione: Integrazione di Azure Active Directory con ScreenSteps
 
@@ -109,7 +108,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di ScreenSteps](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_url.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenantname>.ScreenSteps.com`
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenantname>.ScreenSteps.com`.
 
     > [!NOTE] 
     > Poiché non è reale, Aggiornare questo valore con l'URL di accesso effettivo, come illustrato più avanti nell'esercitazione. 
@@ -269,5 +268,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_203.png
-
 

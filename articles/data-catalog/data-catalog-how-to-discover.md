@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 1cefc0341789a4751d4e3ee687048ccd291559e3
-ms.contentlocale: it-it
-ms.lasthandoff: 06/21/2017
-
+ms.openlocfilehash: 9ff67dcb5ecb00440f73f979fd8d2b79a570c674
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Come trovare le origini dati in Azure Data Catalog
 ## <a name="introduction"></a>Introduzione
@@ -67,4 +66,3 @@ Poiché la registrazione di un'origine dati con Data Catalog copia i metadati st
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per istruzioni dettagliate su come trovare le origini dati, vedere [Introduzione ad Azure Data Catalog](data-catalog-get-started.md).
-

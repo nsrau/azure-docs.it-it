@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 9ea5744d77b90929598ea5feb80c7bbdff3772fc
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Un'applicazione assegnata non viene visualizzata nel pannello di accesso
 
 Il pannello di accesso è un portale basato sul Web che consente a un utente con account aziendale o di istituto di istruzione in Azure Active Directory (Azure AD) di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD ha concesso l'accesso. Queste applicazioni sono configurate per conto dell'utente nel portale di Azure AD. Perché l'applicazione sia visibile nel pannello di accesso, è necessario che sia configurata correttamente e assegnata all'utente o a un gruppo di cui l'utente è membro.
@@ -671,5 +669,4 @@ Per assegnare una licenza a un gruppo, seguire questa procedura:
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Aggiungere o modificare utenti in Azure Active Directory](active-directory-users-create-azure-portal.md)
-
 

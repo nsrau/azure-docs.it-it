@@ -1,5 +1,5 @@
 ---
-title: "Pianificare la capacità e la scalabilità per la replica VMware in Azure con Azure Site Recovery | Microsoft Docs"
+title: "Pianificare la capacità e la scalabilità per la replica VMware con Azure Site Recovery | Microsoft Docs"
 description: "Consultare questo articolo per pianificare la capacità e la scalabilità quando si esegue la replica delle macchine virtuali VMware in Azure con Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: rayne
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 8b580ac239bfb6d7b633fb03d4cfb91b168b0610
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Pianificare la capacità e la scalabilità per la replica VMware con Azure Site Recovery
 
@@ -144,4 +143,3 @@ Se è necessario ridimensionare la distribuzione oltre 200 computer di origine o
 ## <a name="next-steps"></a>Passaggi successivi
 
 Scaricare ed eseguire [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)
-

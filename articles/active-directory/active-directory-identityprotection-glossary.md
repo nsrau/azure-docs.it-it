@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f31188ed3216034ef8ec056023472844ec4debd6
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 2cf64925cff9a78cf83532a1cfd231f7a1d98304
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossario di Azure Active Directory Identity Protection
 ### <a name="at-risk-user"></a>A rischio (utente)
@@ -163,5 +162,4 @@ Configurazione o condizione in Azure Active Directory che rende la directory vul
 
 ## <a name="see-also"></a>Vedere anche
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
 

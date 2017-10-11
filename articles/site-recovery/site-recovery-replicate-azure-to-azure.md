@@ -14,16 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 5/22/2017
 ms.author: asgang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: f9f97cf840b722c8cfee169dd1640e0682f287ff
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali di Azure in un'altra area di Azure
 
 
@@ -127,4 +123,3 @@ Dopo avere completato la protezione delle macchine virtuali, è possibile contro
 - [Altre informazioni](site-recovery-failover.md) sui diversi tipi di failover e su come eseguirli.
 - Altre informazioni sull'[uso dei piani di ripristino](site-recovery-create-recovery-plans.md) per la riduzione di RTO.
 - Altre informazioni sulla [riprotezione delle VM di Azure](site-recovery-how-to-reprotect.md) dopo il failover.
-

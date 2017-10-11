@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: b85680104fe4f33638c559b2a12483a2312a4476
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Esercitazione: Integrazione di Azure Active Directory con Citrix ShareFile
 
@@ -109,7 +108,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_url.png)
     
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenant-name>.sharefile.com/saml/login`
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenant-name>.sharefile.com/saml/login`.
 
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Citrix ShareFile](https://www.citrix.co.in/products/sharefile/support.html). 
@@ -270,5 +269,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_203.png
-
 

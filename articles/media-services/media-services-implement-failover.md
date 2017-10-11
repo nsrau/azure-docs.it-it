@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: eaa87671a90ab6b090fb04f346ef551edba4d173
-ms.contentlocale: it-it
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: aed104c9c74606e0ad69fc2d0bfb2f38d85d795d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implementare lo streaming del failover con Servizi multimediali di Azure
 
@@ -67,7 +66,7 @@ In questa sezione si crea e si configura un progetto di applicazione console in 
 
 1. Usare Visual Studio per creare una nuova soluzione contenente il progetto di applicazione console in C#. Immettere **HandleRedundancyForOnDemandStreaming** come nome e quindi fare clic su **OK**.
 2. Creare la cartella **SupportFiles** allo stesso livello del file di progetto **HandleRedundancyForOnDemandStreaming.csproj**. Nella cartella **SupportFiles** creare le cartelle **OutputFiles** e **MP4Files**. Copiare un file con estensione .mp4 nella cartella **MP4Files**. (In questo esempio, viene usato il file **BigBuckBunny.mp4**.) 
-3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel **menu principale di Visual Studio** scegliere **STRUMENTI** > **Library Package Manager (Gestione pacchetti libreria)** > **Console di Gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
+3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel **menu principale di Visual Studio** scegliere **STRUMENTI** > **Library Package Manager (Gestione pacchetti libreria)** >  **Console di Gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
 4. Aggiungere gli altri riferimenti necessari per il progetto: System.Configuration, System.Runtime.Serialization e System.Web.
 5. Sostituire le istruzioni **using** aggiunte per impostazione predefinita al file **Programs.cs** con le seguenti:
    
@@ -948,5 +947,4 @@ In questa sezione, si crea la possibilità di gestire la ridondanza.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

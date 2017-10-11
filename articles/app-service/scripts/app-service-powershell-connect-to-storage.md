@@ -16,14 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f97294d97acff6daaaeb5c4bfe77f295d356997c
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 481f3efdb1cbbeba328183da7e320c7e5b819b3a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="connect-a-web-app-to-a-storage-account"></a>Connettere un'App Web a un account di archiviazione
 
 Questo scenario illustra come creare un account di archiviazione di Azure e un'App Web di Azure. L'account di archiviazione viene quindi collegato all'App Web usando le impostazioni dell'app.
@@ -60,4 +58,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Altri esempi di Azure PowerShell per app Web del servizio app di Azure sono disponibili in [Azure PowerShell samples](../app-service-powershell-samples.md) (Esempi di Azure PowerShell).
-

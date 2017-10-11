@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 38d70ed302eeab912ce4fe33272f85e96f1b1eda
 ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
-ms.contentlocale: it-it
-ms.lasthandoff: 01/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-custom-image-from-a-vm"></a>Creare un'immagine personalizzata da una VM
 
 [!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
@@ -61,5 +59,4 @@ ms.lasthandoff: 01/11/2017
 
 ##<a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere una macchina virtuale all'ambiente lab](./devtest-lab-add-vm-with-artifacts.md)
-
+- [Aggiungere una macchina virtuale al lab](./devtest-lab-add-vm-with-artifacts.md)

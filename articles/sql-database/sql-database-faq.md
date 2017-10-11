@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 6ed02ead07c50b9a49e8868756b6f957d7b49b99
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-database-faq"></a>Domande frequenti sul database SQL
 
@@ -124,4 +123,3 @@ L'intervallo di replica in tempo reale tra il database primario e la replica geo
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Per spostare un database tra sottoscrizioni
 * Nel [portale di Azure](https://portal.azure.com)fare clic su **SQL Server** e quindi selezionare dall'elenco il server che ospita il database. Fare clic su **Sposta**, quindi selezionare le risorse da spostare e la sottoscrizione in cui spostarle.
-

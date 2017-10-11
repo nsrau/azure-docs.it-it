@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: babanisa
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: cce058e75ebf49f53d11e3b5a87ea4625994db0f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: eff2352066a76010d6d882a7b7e1961870cd2d46
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="event-grid-subscription-schema"></a>Schema di sottoscrizione per Griglia di eventi
 
 Per creare una sottoscrizione di Griglia di eventi, si invia una richiesta all'operazione di sottoscrizione Crea evento. Utilizzare il seguente formato:
@@ -79,4 +77,4 @@ L'articolo descrive le proprietà e lo schema per il corpo della richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione a Griglia di eventi, vedere [What is Event Grid?](overview.md) (Informazioni su Griglia di eventi)
+* Per un'introduzione a Griglia di eventi, vedere [Informazioni su Griglia di eventi](overview.md)

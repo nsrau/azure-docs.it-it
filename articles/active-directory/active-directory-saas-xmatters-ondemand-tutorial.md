@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 9bfcb44ed19f167872b3cd9119e2dbdd35c82604
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Esercitazione: Integrazione di Azure Active Directory con xMatters OnDemand
 
@@ -111,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente:   
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il criterio seguente:   
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -285,5 +284,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_203.png
-
 

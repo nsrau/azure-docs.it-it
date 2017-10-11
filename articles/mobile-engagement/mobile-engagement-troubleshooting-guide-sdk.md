@@ -1,6 +1,6 @@
 ---
 title: Guida alla risoluzione dei problemi di Azure Mobile Engagement - SDK
-description: Risoluzione dei problemi relativi all&quot;integrazione dell&quot;SDK in Azure Mobile Engagement
+description: Risoluzione dei problemi relativi all'integrazione dell'SDK in Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 46a86bf99c1afd09ae3921a205d27532246171c9
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 4d9d6165deb4bd0c65f1841aa7c457363a1f2865
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-guide-for-sdk-integration-issues"></a>Guida alla risoluzione dei problemi relativi all'integrazione dell'SDK
 Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile Engagement si integra con l'applicazione.
@@ -135,5 +134,4 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

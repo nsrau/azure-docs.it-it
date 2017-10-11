@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Crittografia dei dati in Azure Data Lake Store
 
 La crittografia in Azure Data Lake Store consente di proteggere i dati, implementare criteri di sicurezza aziendali e soddisfare i requisiti di conformità normativi. Questo articolo offre una panoramica della progettazione e illustra alcuni aspetti tecnici dell'implementazione.
@@ -140,4 +138,3 @@ Tenere presente che, se si usano le opzioni predefinite per la crittografia, i d
     ![Screenshot della finestra Data Lake Store con il messaggio e Ruota chiave in evidenza](./media/data-lake-store-encryption/rotatekey.png)
 
 Questa operazione richiederà meno di due minuti e non sono previsti tempi di inattività a causa della rotazione della chiave. Al termine dell'operazione, sarà in uso la nuova versione della chiave.
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/12/2017
 ms.author: anuragm;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Backup coerente con le applicazioni di VM Linux di Azure (anteprima)
 
 Questo articolo illustra il framework degli script di pre e post-backup di Linux e il relativo uso per eseguire backup coerenti con le applicazioni di VM Linux di Azure.
@@ -99,4 +97,3 @@ Accertarsi di aggiungere le funzioni di log appropriate negli script di pre e po
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurare il backup di una VM in un insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
-

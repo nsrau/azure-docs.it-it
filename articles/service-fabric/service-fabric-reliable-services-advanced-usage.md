@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Uso avanzato del modello di programmazione Reliable Services
 Service Fabric di Azure semplifica la scrittura e la gestione di servizi affidabili con e senza stato. Questa guida illustra gli utilizzi avanzati di Reliable Services per ottenere più controllo e flessibilità sui servizi. Prima di leggere questa guida, acquisire familiarità con il [modello di programmazione Reliable Services](service-fabric-reliable-services-introduction.md).
@@ -70,4 +69,3 @@ Per argomenti più avanzati relativi a Service Fabric, vedere gli articoli segue
 * [Introduzione all'integrità di Service Fabric](service-fabric-health-introduction.md)
 * [Utilizzo dei report di integrità del sistema per la risoluzione dei problemi](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [Configurazione dei servizi con Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-configure-services.md)
-

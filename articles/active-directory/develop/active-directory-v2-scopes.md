@@ -1,6 +1,6 @@
 ---
 title: Ambiti, autorizzazioni e consenso in Azure Active Directory v2.0 | Documentazione Microsoft
-description: Descrizione dell&quot;autorizzazione nell&quot;endpoint v2.0 di Azure AD, inclusi gli ambiti, le autorizzazioni e il consenso.
+description: Descrizione dell'autorizzazione nell'endpoint v2.0 di Azure AD, inclusi gli ambiti, le autorizzazioni e il consenso.
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: e00ceb8dd87e00bbdd05146e107c72e6182eb474
-ms.contentlocale: it-it
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Ambiti, autorizzazioni e consenso nell'endpoint di Azure Active Directory v2.0
 Le app che si integrano con Azure Active Directory (Azure AD) seguono un modello di autorizzazione che consente agli utenti di controllare la modalità di accesso ai dati da parte di un'app. L'implementazione v2.0 di questo modello di autorizzazione è stata aggiornata, modificando la modalità di interazione di un'app con Azure AD. Questo articolo illustra i concetti di base di questo modello di autorizzazione, inclusi gli ambiti, le autorizzazioni e il consenso.
@@ -204,4 +202,3 @@ Content-Type: application/json
 È possibile usare il token di accesso risultante nelle richieste HTTP per la risorsa. Esso indica alla risorsa, in modo affidabile, che l'applicazione dispone delle autorizzazioni appropriate per eseguire un'attività specifica.  
 
 Per altre informazioni sul protocollo OAuth 2.0 e su come ottenere i token di accesso, vedere il [riferimento al protocollo dell'endpoint v2.0](active-directory-v2-protocols.md).
-

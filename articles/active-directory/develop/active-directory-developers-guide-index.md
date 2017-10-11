@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a13e27474d4c23024ee4e5b5c7a4a8cbff04b7ed
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 307e6ddc9b3d5a85a25b185144a548e0101a9877
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Articoli nella Guida per gli sviluppatori di Azure AD
 Di seguito viene indicato un elenco di tutti gli argomenti trattati nella Guida per gli sviluppatori di Azure Active Directory.
 
@@ -31,7 +29,7 @@ Questi articoli descrivono i concetti e le funzionalità specifici di Azure Acti
 
 |                                                                                                                                 |  |
 | ------------------------------------------------------------------------------------------------------------------------------- | --- |
-| [App multi-tenant](active-directory-devhowto-multi-tenant-overview.md)                                                         | Come consentire l'accesso a qualsiasi account aziendale Microsoft |
+| [App multi-tenant](active-directory-devhowto-multi-tenant-overview.md)                                                         | Informazioni su come consentire l'accesso a qualsiasi account aziendale Microsoft |
 | [OAuth e OpenID Connect](active-directory-protocols-openid-connect-code.md)                                                     | Come consentire l'accesso agli utenti e chiamare le API Web con i protocolli di autenticazione moderni di Microsoft |
 | [SAML 2.0](active-directory-saml-protocol-reference.md)                                                                         | Come consentire agli utenti di eseguire l'accesso con il protocollo di autenticazione SAML |
 | [Registrazione delle app](active-directory-integrating-applications.md)                                                                | Come registrare un'app in Azure AD |

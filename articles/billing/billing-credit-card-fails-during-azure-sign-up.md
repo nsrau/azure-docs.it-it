@@ -1,6 +1,6 @@
 ---
-title: Carta di credito rifiutata al momento dell&quot;iscrizione ad Azure | Documentazione Microsoft
-description: Informazioni su come risolvere i problemi relativi alla carta di credito o di debito quando viene rifiutata al momento dell&quot;iscrizione ad Azure.
+title: Carta di credito rifiutata al momento dell'iscrizione ad Azure | Documentazione Microsoft
+description: Informazioni su come risolvere i problemi relativi alla carta di credito o di debito quando viene rifiutata al momento dell'iscrizione ad Azure.
 services: 
 documentationcenter: 
 author: JiangChen79
@@ -16,13 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: cjiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c1ce4284bc058096387986c8706ddc7317ee724
-ms.openlocfilehash: c2fd2a8f9eac4ef4d6f67ed924c77daa86cb81a8
-ms.contentlocale: it-it
-ms.lasthandoff: 02/11/2017
-
-
+ms.openlocfilehash: bad37f2447ac8de727326914b611f81effc9cf3f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="your-debit-card-or-credit-card-is-declined-at-azure-sign-up"></a>La carta di debito o credito viene rifiutata al momento dell'iscrizione ad Azure
 Se la carta di debito o credito viene rifiutata o non accettata al momento dell'iscrizione ad Azure, è possibile che si riscontri uno dei problemi seguenti:
@@ -43,4 +41,3 @@ Dopo l'iscrizione, [gestire le informazioni di pagamento](billing-how-to-change-
 
 ## <a name="need-more-help-contact-support"></a>Ulteriore assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-

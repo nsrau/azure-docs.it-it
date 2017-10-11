@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa
 > [!IMPORTANT] 
@@ -608,5 +607,4 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Collegamenti ad altre risorse di SQL Server in Macchine virtuali di Azure
 [Panoramica di SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
-
 

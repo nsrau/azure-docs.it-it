@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/26/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 2b627250df62bbe3299869ef3812947afbb8f29f
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-clone-a-volume-update-2"></a>Utilizzare il servizio StorSimple Manager per clonare un volume (aggiornamento 2)
 [!INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
@@ -112,5 +111,4 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set-u2.md).
 * Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

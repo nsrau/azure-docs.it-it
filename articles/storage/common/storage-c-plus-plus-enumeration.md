@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 9844412739f4f6f95416f81347f0f2eeeca62bea
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Elenco delle risorse di archiviazione di Azure in C++
 Elenco operazioni fondamentali per numerosi scenari di sviluppo con la risorsa di archiviazione di Azure. In questo articolo viene descritto come enumerare in modo più efficiente gli oggetti in archiviazione di Azure utilizzando l'elenco interfacce API fornito nella libreria client di archiviazione di Microsoft Azure per C++.
@@ -203,5 +202,4 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 * [Documentazione relativa alla libreria Client di archiviazione Azure per API C++.](http://azure.github.io/azure-storage-cpp/)
 * [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-
 

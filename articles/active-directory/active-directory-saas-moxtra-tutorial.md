@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: db2f041a44b6771b0a4f734e58d899298ef0847b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Esercitazione: integrazione di Azure Active Directory con Moxtra
 
@@ -300,5 +299,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_203.png
-
 

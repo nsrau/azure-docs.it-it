@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 7fc2b59fe37ed2ffe85925c457300ef8fd83c3c7
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Esempi dell'API del report sull'attività di accesso di Azure Active Directory
 Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory.  
@@ -88,5 +87,4 @@ Lo script restituisce l'output del report sugli accessi in formato JSON. Crea an
 * Si desidera personalizzare gli esempi contenuti in questo argomento? Consultare la pagina [Riferimento API del report sull'attività di accesso di Azure Active Directory](active-directory-reporting-api-sign-in-activity-reference.md). 
 * Se si desidera visualizzare una panoramica completa sull'uso dell'API di creazione report di Azure Active Directory, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
-
 

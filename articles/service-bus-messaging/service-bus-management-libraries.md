@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 384066affe46bfd2917a3a14e4cfa7d2fc8a25f1
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 1db00dc1f91e8976b622030450445babbe547ad8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="service-bus-management-libraries"></a>Librerie di gestione del bus di servizio
 
 Le librerie di gestione del bus di servizio di Azure possono eseguire il provisioning di entità e spazi dei nomi del bus di servizio in modo dinamico, per consentire distribuzioni complesse e scenari di messaggistica e permettere di determinare a livello di codice le entità di cui eseguire il provisioning. Queste librerie sono attualmente disponibili per .NET.
@@ -83,4 +81,3 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esempio di gestione .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Informazioni di riferimento sull'API Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
-

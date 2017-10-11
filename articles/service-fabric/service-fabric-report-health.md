@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: oanapl
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: ed10eef347d4d93012078456b3a145589e66d30e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aggiungere report sull'integrità di Service Fabric personalizzati
 In Azure Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche. Il modello di integrità usa **i** , costituiti da watchdog e componenti di sistema. Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli sviluppatori del servizio devono tenere conto dell'integrità fin dall'inizio. È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi. L'utilità è particolarmente evidente quando il servizio è in esecuzione su larga scala nel cloud (privato o Azure).
@@ -315,5 +314,4 @@ In base ai dati sull'integrità, gli sviluppatori del servizio e gli amministrat
 [Monitorare e diagnosticare servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
-
 

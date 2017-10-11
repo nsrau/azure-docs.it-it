@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 09db38cfb5fb4277d4ca259eb10e388af33f1773
-ms.contentlocale: it-it
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: d6c1707f67d986487e5a45e76ffc9a02ddf16eb1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Come configurare l'applicazione del servizio app per usare l'account di accesso di Google
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -69,5 +68,4 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [portale di Azure]: https://portal.azure.com/
-
 

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
-ms.openlocfilehash: 514942b2552564f669d73b997a2d355ddb477b22
-ms.contentlocale: it-it
-ms.lasthandoff: 02/15/2017
-
-
+ms.openlocfilehash: 9462707db03ecfcc3d5186ce7ded8655ad3bdcc9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Panoramica: scenari B2B e comunicazione con Enterprise Integration Pack
 
@@ -76,5 +74,4 @@ Enterprise Integration supporta gli standard del settore seguenti:
 * [Metadati dell'account di integrazione](../logic-apps/logic-apps-enterprise-integration-metadata.md "Informazioni sui metadati dell'account di integrazione")
 * [Monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md "Altre informazioni sul monitoraggio dei messaggi B2B")
 * [Rilevamento dei messaggi B2B nel portale OMS](logic-apps-track-b2b-messages-omsportal.md "Altre informazioni sul rilevamento dei messaggi B2B nel portale OMS")
-
 

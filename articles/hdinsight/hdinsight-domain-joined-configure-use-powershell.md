@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 9da76bb5f649817cd2f027f3d0eb46d58a996b4f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Configurare cluster HDInsight aggiunti al dominio (anteprima) usando Azure PowerShell
 Informazioni su come configurare un cluster Azure HDInsight con Azure Active Directory (Azure AD) e [Apache Ranger](http://hortonworks.com/apache/ranger/) usando Azure PowerShell. Viene fornito uno script di Azure PowerShell per velocizzare la configurazione ed evitare errori. HDInsight aggiunto al dominio può essere configurato solo nei cluster basati su Linux. Per altre informazioni, consultare [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Introduzione ai cluster HDInsight aggiunti al dominio).
@@ -191,5 +190,4 @@ Al termine dell'esercitazione, è consigliabile eliminare il cluster. Con HDInsi
 
 * Per configurare i criteri ed eseguire query Hive, vedere [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Configurare criteri Hive per cluster HDInsight aggiunti al dominio).
 * Per usare SSH per connettersi ai cluster HDInsight aggiunti al dominio, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
 

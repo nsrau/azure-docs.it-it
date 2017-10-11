@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 33d4aaa78fcdf3bd9e2e236606f2d3049f464a8a
-ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Procedura per creare una VM Linux in Azure con un'interfaccia della riga di comando 1.0 di Azure e un modello di Azure Resource Manager
 Questo articolo illustra come distribuire rapidamente una macchina virtuale Linux usando un'interfaccia della riga di comando 1.0 di Azure e un modello di Azure Resource Manager. L'articolo richiede:
@@ -86,5 +85,4 @@ L'esempio ha distribuito una VM usando il parametro `--template-uri` .  È anche
 
 ## <a name="next-steps"></a>Passaggi successivi
 Eseguire una ricerca nella [raccolta di modelli](https://azure.microsoft.com/documentation/templates/) per scoprire quali framework per app si possono distribuire successivamente.
-
 

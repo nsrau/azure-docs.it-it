@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Problemi riscontrati con il portale App personali
 
@@ -109,5 +108,4 @@ Se dopo l'installazione si riscontrano problemi, seguire questa procedura:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni correlate alla risoluzione dei problemi, vedere [Problemi relativi all'uso del sito Web o dell'applicazione per dispositivi mobili del pannello di accesso dell'applicazione](active-directory-application-access-panel-content-map.md)
-
 

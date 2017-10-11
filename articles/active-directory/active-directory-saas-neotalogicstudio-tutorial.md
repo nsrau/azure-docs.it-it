@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Neota Logic Studio | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Neota Logic Studio.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Neota Logic Studio.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 99018277392cab44a6b579ad45b4611739a803d8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Esercitazione: Integrazione di Azure Active Directory con Neota Logic Studio
 
 Questa esercitazione descrive come integrare Neota Logic Studio con Azure Active Directory (Azure AD).
@@ -226,5 +224,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_general_203.png
-
 

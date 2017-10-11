@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: sujayt
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 7b37e853f6b97ba313111f9201f877846a28fae9
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-3-plan-networking-for-azure-vm-replication"></a>Passaggio 3: Pianificare la rete per la replica di macchine virtuali di Azure
 
@@ -153,5 +152,4 @@ Se è presente una connessione VPN o ExpressRoute tra il sito locale e la locali
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 4: Creare un insieme di credenziali](azure-to-azure-walkthrough-vault.md).
-
 

@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 275b1cd91347fdfcc36e0e8a6448ccd8818a507d
-ms.contentlocale: it-it
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: ebec29dea9f5dc1767f47a53d9da03347a51de28
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Hadoop personalizzate in Azure HDInsight
 
@@ -135,4 +133,3 @@ Dal portale è anche possibile eliminare il cluster o il gruppo di risorse che c
 * [Personalizzare cluster HDInsight basati su Linux tramite Azioni script](hdinsight-hadoop-customize-cluster-linux.md): informazioni su come usare Azioni script per installare applicazioni aggiuntive.
 * [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): informazioni su come chiamare i modelli di Azure Resource Manager per creare cluster HDInsight.
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md)(Usare nodi perimetrali vuoti in HDInsight): informazioni su come usare un nodo perimetrale vuoto per l'accesso a cluster HDInsight, il test di applicazioni HDInsight e l'hosting di applicazioni HDInsight.
-

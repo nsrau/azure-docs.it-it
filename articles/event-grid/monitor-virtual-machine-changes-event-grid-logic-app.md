@@ -11,14 +11,12 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: LADocs; estfan
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 4d4c16860dbec10162797a13c8f9f57106abd17f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitorare le modifiche a una macchina virtuale con Griglia di eventi di Azure e app per la logica
 
 È possibile avviare un [flusso di lavoro di app per la logica](../logic-apps/logic-apps-what-are-logic-apps.md) automatizzato quando si verificano determinati eventi in risorse di Azure o in risorse di terze parti. Le risorse possono pubblicare questi eventi nel servizio [Griglia di eventi di Azure](../event-grid/overview.md), che a sua volta esegue il push degli eventi ai sottoscrittori che hanno code, webhook o [hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md) come endpoint. Le app per la logica dei sottoscrittori possono quindi attendere gli eventi da Griglia di eventi prima di eseguire i flussi di lavoro automatizzati per l'esecuzione di determinate attività, senza bisogno di scrivere codice.

@@ -1,5 +1,4 @@
 ---
-
 title: Formato dei file di log del servizio Importazione/Esportazione | Documentazione Microsoft
 description: Altre informazioni sul formato dei file di log creati quando vengono eseguiti i passaggi per un processo del servizio Importazione/Esportazione.
 author: muralikk
@@ -15,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
-ms.lasthandoff: 03/30/2017
-
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato dei file di log del servizio Importazione/Esportazione di Azure
 Quando il servizio Importazione/Esportazione di Microsoft Azure esegue un'azione in un'unità come parte di un processo di importazione o di esportazione, i log vengono scritti in BLOB in blocchi nell'account di archiviazione associato a tale processo.  
@@ -361,4 +359,3 @@ Il log degli errori seguente per un processo di esportazione indica che il conte
 ## <a name="next-steps"></a>Passaggi successivi
  
 * [Storage Import/Export REST API](/rest/api/storageimportexport/) (API REST di importazione/esportazione dell'archiviazione)
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 8e97c365383ecdb72cc1cd449b522b75875fc1db
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Esercitazione: Integrazione di Azure Active Directory con Allocadia
 
@@ -130,7 +129,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_attributes.png)
     
-5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come illustrato nell'immagine ed eseguire i passaggi descritti di seguito:
+5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come illustrato nell'immagine e seguire questa procedura:
     
     | Nome attributo | Valore attributo |
     | ------------------- | -------------------- |    
@@ -259,5 +258,4 @@ Per altre informazioni in proposito, vedere l'[introduzione al pannello di acces
 [201]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_203.png
-
 

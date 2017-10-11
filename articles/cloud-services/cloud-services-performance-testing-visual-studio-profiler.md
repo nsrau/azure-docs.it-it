@@ -15,12 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0440827a5f5f82a43a88d601a6d090436b81df8e
-ms.openlocfilehash: bb06e93608f7914b0f8c9b971cc285a849056345
-ms.contentlocale: it-it
-ms.lasthandoff: 12/10/2016
-
+ms.openlocfilehash: 51c8192d8312dc5cf546b4c357aeecf6f19d56b8
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
 È possibile usare diversi strumenti e tecniche per il test delle prestazioni di servizi cloud.
@@ -175,4 +174,3 @@ La strumentazione dei file binari di Azure nell'emulatore non è supportata nel 
 [15]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
-

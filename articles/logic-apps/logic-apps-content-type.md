@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Gestire i tipi di contenuto di app per la logica
 
@@ -111,5 +110,4 @@ Poiché la richiesta non è in testo normale o JSON, la richiesta viene archivia
 ```
 
 Poiché al momento non esiste una funzione nativa per dati del modulo, questi dati possono essere usati all'interno di un flusso di lavoro eseguendo manualmente l'accesso ai dati con una funzione come `@string(body('formdataAction'))`. Se la richiesta in uscita deve avere anche l'intestazione content-type `application/x-www-url-formencoded`, è sufficiente aggiungere la richiesta al corpo dell'azione senza cast come `@body('formdataAction')`. Questo metodo tuttavia funziona solo se il corpo è l'unico parametro nell'input `body`. Se si tenta di usare `@body('formdataAction')` in una richiesta `application/json`, verrà visualizzato un errore di runtime perché viene inviato il corpo codificato.
-
 

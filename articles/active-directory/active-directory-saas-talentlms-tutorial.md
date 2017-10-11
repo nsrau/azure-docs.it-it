@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: f28d6fbfad9dae578a20db7218b7e3b174ed859c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Esercitazione: Integrazione di Azure Active Directory con TalentLMS
 
@@ -215,7 +214,7 @@ Per consentire agli utenti di Azure AD di accedere a TalentLMS, è necessario es
 
     a. Nella casella di testo **First name** (Nome) immettere il nome dell'utente, ad esempio **Britta**.
 
-    b. Nella casella di testo **Last name** (Nome) immettere il cognome dell'utente, ad esempio **Simon**.
+    b. Nella casella di testo **Last name** (Cognome) immettere il cognome dell'utente, ad esempio **Simon**.
  
     c. Nella casella di testo **Email address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
 
@@ -281,5 +280,4 @@ Quando si fa clic sul riquadro TalentLMS nel pannello di accesso, si dovrebbe ac
 [201]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_203.png
-
 

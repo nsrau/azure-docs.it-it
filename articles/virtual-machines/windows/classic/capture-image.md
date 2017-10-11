@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 6032263848c469ce2f416306e5c91c29f4cb30e4
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classico.
 > [!IMPORTANT]
@@ -84,4 +83,3 @@ L'immagine è pronta per essere utilizzata per creare macchine virtuali. A tale 
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
-

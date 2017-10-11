@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 2af9ebaa8f52690ed63406cbd85b77544d2d900d
-ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di SQL Server in Azure con il server di Backup di Azure
 Questo articolo descrive la procedura di configurazione per il backup dei database SQL Server mediante il server di Backup di Microsoft Azure (MABS).
@@ -157,4 +156,3 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 
 ### <a name="next-steps"></a>Passaggi successivi:
 [Domande frequenti su Backup di Azure](backup-azure-backup-faq.md)
-

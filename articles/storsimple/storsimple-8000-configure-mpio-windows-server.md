@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/05/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurare Multipath I/O per il dispositivo StorSimple
 
@@ -192,5 +190,4 @@ Nella procedura seguente viene descritto come aggiungere le sessioni quando un d
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su come [usare il servizio Gestione dispositivi StorSimple per modificare la configurazione del dispositivo StorSimple](storsimple-8000-modify-device-config.md).
-
 

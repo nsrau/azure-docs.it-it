@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c4b5b8bc05365ddc63b0d7a6a3c63eaee31af957
 ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-ms.contentlocale: it-it
-ms.lasthandoff: 12/14/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-procedures"></a>Procedure di aggiornamento
 Se nell'applicazione è già stata integrata una versione precedente dell'SDK, è necessario considerare i seguenti punti quando si aggiorna l'SDK.
@@ -98,7 +97,7 @@ Un delegato `UNUserNotificationCenter` viene usato dall'SDK per monitorare il ci
 
 A questo scopo è possibile procedere in due modi:
 
-Proposta 1: inoltrando semplicemente le chiamate del delegato all'SDK
+Proposta 1: inoltrare semplicemente le chiamate del delegato all'SDK:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -125,7 +124,7 @@ Proposta 1: inoltrando semplicemente le chiamate del delegato all'SDK
     }
     @end
 
-Proposta 2: ereditandola dalla classe `AEUserNotificationHandler`
+Proposta 2: ereditare dalla classe `AEUserNotificationHandler`
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -154,7 +153,7 @@ Proposta 2: ereditandola dalla classe `AEUserNotificationHandler`
 > [!NOTE]
 > È possibile determinare se una notifica proviene o meno da Engagement passando il suo dizionario `userInfo` al metodo della classe dell'agente `isEngagementPushPayload:`.
 
-Assicurarsi che il delegato dell'oggetto `UNUserNotificationCenter` sia impostato sul delegato entro il metodo `application:willFinishLaunchingWithOptions:` o il metodo `application:didFinishLaunchingWithOptions:` del delegato dell'applicazione.
+Assicurarsi che il delegato dell'oggetto `UNUserNotificationCenter` sia impostato sul delegato nel metodo `application:willFinishLaunchingWithOptions:` o nel metodo `application:didFinishLaunchingWithOptions:` del delegato dell'applicazione.
 Se, ad esempio, è stata implementata la Proposta 1 precedente:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -215,5 +214,4 @@ Esempi:
 * La classe `CapptainTableViewController` viene rinominata come `EngagementTableViewController`.
 * La classe `CapptainUtils` viene rinominata come `EngagementUtils`.
 * La classe `CapptainViewController` viene rinominata come `EngagementViewController`.
-
 

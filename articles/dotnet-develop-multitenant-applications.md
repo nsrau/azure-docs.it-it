@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 57ba0e46139bda2d74c9f7db0ffab2f2122b0df2
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="multitenant-applications-in-azure"></a>Applicazioni multi-tenant in Azure
 Un'applicazione multi-tenant è una risorsa condivisa che consente a utenti separati, o "tenant", di visualizzare l'applicazione come se fosse la propria. Uno degli scenari tipici di un'applicazione multi-tenant è quando tutti gli utenti dell'applicazione desiderano personalizzare l'esperienza utente, ma dispongono tutti degli stessi requisiti aziendali di base. Esempi di grandi applicazioni multi-tenant sono Office 365, Outlook.com e visualstudio.com.
@@ -93,4 +92,3 @@ Azure offre diverse modalità per eseguire il provisioning di nuovi tenant per l
 
 [Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
-

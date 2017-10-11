@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: eff4add1cb16fe25022787668dc1d2277845dd95
-ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Ridimensionare automaticamente macchine virtuali Linux in un set di scalabilità di macchine virtuali
 I set di scalabilità di macchine virtuali semplificano la distribuzione e la gestione di macchine virtuali identiche come un set. I set di scalabilità offrono un livello di calcolo scalabile e personalizzabile per applicazioni con iperscalabilità e supportano le immagini della piattaforma Windows, le immagini della piattaforma Linux, le immagini personalizzate e le estensioni. Per altre informazioni, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
@@ -592,5 +591,4 @@ azure group delete vmsstestrg1
 * Per informazioni sulle funzionalità di notifica, vedere [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) (Usare le azioni di scalabilità automatica per inviare notifiche di avviso tramite e-mail e webhook in Monitoraggio di Azure).
 * Per informazioni, vedere [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) (Usare i log di controllo per inviare notifiche di avviso tramite e-mail e webhook in Monitoraggio di Azure).
 * Vedere il modello di [app demo per la scalabilità automatica su Ubuntu 16.04](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) che consente di configurare un'app Python/Bottle per applicare la funzionalità di ridimensionamento automatico dei set di scalabilità di macchine virtuali.
-
 

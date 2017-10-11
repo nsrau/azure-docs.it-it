@@ -12,14 +12,12 @@ ms.date: 05/15/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-backup-server-protection-matrix"></a>Matrice di protezione del server di Backup di Azure
 
 Questo articolo elenca i vari server e carichi di lavoro che è possibile proteggere con il server di Backup di Azure. La matrice seguente elenca ciò che è possibile proteggere con il server di Backup di Azure v1 e v2.
@@ -105,11 +103,10 @@ Il server di Backup di Azure può proteggere i dati nelle applicazioni in cluste
 -   Hyper-V - Se si protegge un cluster Hyper-V con protezione DPM con aumento delle prestazioni, non è possibile aggiungere una protezione secondaria per i carichi di lavoro protetti di Hyper-V.
 
     Se si esegue Hyper-V in Windows Server 2008 R2, assicurarsi di installare l'aggiornamento descritto in KB [975354](https://support.microsoft.com/en-us/kb/975354).
-    Se si esegue Hyper-V in Windows Server 2008 R2 in una configurazione cluster, assicurarsi di installare SP2 e l'hotfix a cui si fa riferimento nell'articolo KB [971394](https://support.microsoft.com/en-us/kb/971394).
+    Se si esegue Hyper-V in Windows Server 2008 R2 in una configurazione cluster, assicurarsi di installare SP2, come descritto in KB [971394](https://support.microsoft.com/en-us/kb/971394).
 
 -   Exchange Server - Il server di Backup di Azure può proteggere i cluster di dischi non condivisi per le versioni di Exchange Server supportate (replica continua cluster) e può inoltre proteggere Exchange Server configurato per la replica continua locale.
 
 -   SQL Server - Il server di Backup di Azure non supporta il backup dei database di SQL Server ospitati in volumi condivisi cluster (CSV).
 
 Il server di Backup di Azure può proteggere i carichi di lavoro del cluster che si trovano nello stesso dominio del server DPM e in un dominio figlio o attendibile. Per proteggere le origini dati in domini o gruppi di lavoro non attendibili, usare l'autenticazione di NTLM o del certificato per un singolo server, o l'autenticazione del certificato solo per un cluster.
-

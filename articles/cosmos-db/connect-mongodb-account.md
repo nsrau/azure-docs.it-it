@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 5a47001705531d971d3181df9c0aa8f957168845
-ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connettere un'applicazione MongoDB ad Azure Cosmos DB
 Informazioni su come connettere l'app MongoDB a un account Azure Cosmos DB usando una stringa di connessione MongoDB. È quindi possibile usare un database di Azure Cosmos DB come archivio dati per l'app MongoDB. 
 
@@ -79,4 +77,3 @@ Si consideri l'account mostrato nel pannello **Stringa di connessione**. Una str
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [utilizzare MongoChef](mongodb-mongochef.md) con un'API di Azure Cosmos DB per l'account MongoDB.
 * Esaminare l'API di Azure Cosmos DB per MongoDB visualizzando gli [esempi](mongodb-samples.md).
-

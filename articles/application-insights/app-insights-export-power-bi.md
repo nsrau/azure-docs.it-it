@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
-ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 350a65b1c6432baf258e014c9e63133d2b29e34f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](http://www.powerbi.com/) è una suite di strumenti di analisi business che consente di analizzare i dati e condividere informazioni dettagliate. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](app-insights-overview.md).
@@ -119,5 +118,4 @@ Se l'applicazione invia una grande quantità di dati, la funzionalità di campio
 ## <a name="next-steps"></a>Passaggi successivi
 * [Power BI - Informazioni](http://www.powerbi.com/learning/)
 * [Esercitazione su Analisi](app-insights-analytics-tour.md)
-
 

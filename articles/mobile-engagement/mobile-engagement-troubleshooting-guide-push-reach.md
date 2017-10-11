@@ -1,6 +1,6 @@
 ---
 title: Guida alla risoluzione dei problemi di Azure Mobile Engagement - Push/Reach
-description: Risoluzione dei problemi relativi all&quot;interazione dell&quot;utente e alle notifiche in Azure Mobile Engagement
+description: Risoluzione dei problemi relativi all'interazione dell'utente e alle notifiche in Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d59fcba3467e1739c1782a896fc9b5542422e884
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: ef6f34404b97a6972fc136262920a1bdbc4117b0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-guide-for-push-and-reach-issues"></a>Guida alla risoluzione di problemi relativi a notifiche push e Reach
 Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile Engagement invia informazioni agli utenti.
@@ -100,5 +99,4 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 * Quando si avviano più campagne contemporaneamente, l'analisi relativa alla base dell'utente richiede più tempo. Pertanto, avviare una sola campagna alla volta (usarne al massimo 4) e scegliere come destinazione soltanto gli utenti attivi; in questo modo non sarà necessario analizzare gli utenti precedenti.
 * Se si usa l'opzione "Ignora destinatari, il push verrà inviato agli utenti tramite l'API" nella sezione "Campagna" di una campagna di copertura, la campagna NON sarà inviata automaticamente, ma sarà necessario inviarla manualmente tramite l'API Copertura.
 * Se si usa una categoria personalizzata in Reach per visualizzare le notifiche in-app, è necessario correggere il ciclo di vita della notifica. In caso contrario, è possibile che la notifica non venga cancellata quando l'utente la elimina.
-
 

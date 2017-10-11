@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: c77def8906b151f2cc6e4bbc4188be8ecbeac732
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
 
 Questo script di esempio crea tutti gli elementi necessari per eseguire più macchine virtuali Windows configurate in una configurazione a disponibilità elevata e con bilanciamento del carico. Dopo aver eseguito lo script, si disporrà di tre macchine virtuali, aggiunte a un set di disponibilità di Azure e accessibili tramite Azure Load Balancer.
@@ -70,4 +68,3 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 Altri esempi di script di PowerShell per la rete sono disponibili nella [documentazione con la panoramica delle reti di Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
-

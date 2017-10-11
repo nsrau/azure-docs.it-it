@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedure consigliate per la sicurezza delle VM di Azure
 
@@ -128,4 +127,3 @@ Analizzando [i file di log di diagnostica di Azure](https://azure.microsoft.com/
 È possibile usare [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) per ottenere visibilità sull'integrità della risorsa.
 
 Le organizzazioni che non monitorano le prestazioni della VM non sono in grado di capire se determinate modifiche nei modelli di prestazioni sono normali o anomale. Se la VM consuma più risorse del normale, una tale anomalia potrebbe indicare un potenziale attacco proveniente da una risorsa esterna o un processo compromesso in esecuzione nella VM.
-

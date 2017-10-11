@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Distribuire SAP S/4HANA o BW/4HANA in Azure
 Questo articolo descrive come distribuire S/4HANA in Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Per distribuire altre soluzioni basate su SAP HANA, ad esempio BW/4HANA, seguire la stessa procedura.
@@ -161,7 +160,6 @@ In questo articolo verrà illustrato il percorso di distribuzione di base.
 In poche ore un'appliance SAP S/4 integra verrà distribuita in Azure.
 
 Se è stata acquistata una sottoscrizione SAP CAL, SAP offre il supporto completo alle distribuzioni in Azure tramite SAP CAL. La coda di supporto è BC-VCM-CAL.
-
 
 
 

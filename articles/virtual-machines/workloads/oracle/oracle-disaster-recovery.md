@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/2/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: f17ebb2b74cd7ad872f88483ed7cdb4f239ee069
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Ripristino di emergenza per un'istanza di Database Oracle 12c in un ambiente Azure
 
 ## <a name="assumptions"></a>Presupposti
@@ -109,4 +107,3 @@ Il seguente è un riepilogo della configurazione di Azure:
 
 - [Esercitazione: Creare VM a disponibilità elevata](../../linux/create-cli-complete.md)
 - [Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](../../linux/cli-samples.md)
-

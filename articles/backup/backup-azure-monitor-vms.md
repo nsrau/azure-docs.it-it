@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorare gli avvisi per i backup della macchina virtuale di Azure
 Gli avvisi sono risposte del servizio che informano che è stata raggiunta o superata la soglia di un evento. Sapere quando i problemi hanno inizio può essere determinante per contenere i costi aziendali. Gli avvisi in genere non seguono una pianificazione e quindi è utile sapere appena possibile quando un avviso viene generato. Quando ad esempio un processo di backup o ripristino non riesce, l'avviso verrà generato entro cinque minuti dall'errore. Nel dashboard dell'insieme di credenziali il riquadro Avvisi di backup visualizza gli eventi di livello critico e avviso. Nelle impostazioni di Avvisi di backup è possibile visualizzare tutti gli eventi. Ma cosa fare se un avviso viene generato mentre si lavora a un problema diverso? Non sapere quando l'avviso viene generato può essere un piccolo inconveniente o può compromettere i dati. Per verificare che chi di dovere sia informato dell'avviso e sappia quando viene generato, configurare il servizio per l'invio tramite posta elettronica di notifiche di avviso. Per informazioni dettagliate sulla configurazione di notifiche di posta elettronica, vedere [Configurare le notifiche](backup-azure-monitor-vms.md#configure-notifications).
@@ -215,4 +214,3 @@ I log eventi offrono un ottimo supporto per i controlli e le relazioni finali su
 Per una spiegazione approfondita di eventi, operazioni e log di controllo nei servizi di Azure, vedere l'articolo [Visualizzare eventi e log di controllo](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
 Per informazioni su come ricreare una macchina virtuale da un punto di ripristino, vedere [Ripristinare macchine virtuali in Azure](backup-azure-restore-vms.md). Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md). Per informazioni sulle attività di gestione per i backup di VM, vedere l'articolo [Gestire e monitorare i backup delle macchine virtuali di Azure](backup-azure-manage-vms.md).
-

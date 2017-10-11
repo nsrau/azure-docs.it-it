@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 4ad9156e481eac0bae32bca35a2b126363e5d8b6
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure
 
@@ -100,5 +99,4 @@ Oltre alle procedure descritte in questo argomento, è consigliabile rivedere e 
 Se si è interessati anche alle procedure consigliate relative alle prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
 

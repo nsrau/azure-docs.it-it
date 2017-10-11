@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 3bd8256814036a357b30b69286da6bb7c974162f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # Protocolli della versione 2.0: applicazioni a singola pagina che usano il flusso implicito
 Con l'endpoint v2.0 è possibile far accedere gli utenti alle app a singola pagina con account Microsoft sia personali che aziendali o dell'istituto di istruzione.  Le app a pagina singola e le altre app JavaScript che vengono eseguite soprattutto in un browser presentano alcune problematiche interessanti nell'ambito dell'autenticazione:
@@ -231,4 +230,3 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 | --- | --- | --- |
 | tenant |Obbligatoria |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione.  I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant.  Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
 | post_logout_redirect_uri | consigliato | URL di destinazione al quale l'utente deve essere reindirizzato dopo la disconnessione. Questo valore deve corrispondere a uno degli URI di reindirizzamento registrati per l'applicazione. In caso contrario, all'utente verrà visualizzato un messaggio generico da parte dell'endpoint 2.0. |
-

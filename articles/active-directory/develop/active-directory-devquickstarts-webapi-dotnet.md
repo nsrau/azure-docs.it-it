@@ -1,6 +1,6 @@
 ---
 title: Introduzione alle API Web .NET per Azure AD | Microsoft Docs
-description: Come compilare un&quot;API Web MVC per Node.js che si integra con Azure AD per l&quot;autenticazione e l&quot;autorizzazione.
+description: Come compilare un'API Web MVC per Node.js che si integra con Azure AD per l'autenticazione e l'autorizzazione.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: b028a75836f7c762431bfb9e3fc30822b7dee885
-ms.contentlocale: it-it
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: f44d75f45073a5d9aa9b1863ed227aba4efcf785
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Proteggere un'API Web usando token di connessione di Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -155,4 +153,3 @@ Infine pulire, compilare ed eseguire ogni progetto. Se non si è ancora creato u
 Come riferimento, l'esempio completo, senza valori di configurazione, è disponibile in [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). È ora possibile passare ad altri scenari relativi alle identità.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

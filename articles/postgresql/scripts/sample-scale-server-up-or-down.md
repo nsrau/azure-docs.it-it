@@ -11,12 +11,11 @@ ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 05/31/2017
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b847abb336cce5dd5516469dca58002d3ba265f0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorare e scalare un singolo server PostgreSQL tramite l'interfaccia della riga di comando di Azure
 Questo esempio di script dell'interfaccia della riga di comando di Azure scala un singolo database di Azure per il server PostgreSQL a un diverso livello di prestazioni dopo le query sulle metriche. 
@@ -46,4 +45,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 - Altre informazioni sull'interfaccia della riga di comando di Azure: [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/overview)
 - Provare a eseguire altri script: [esempi dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL](../sample-scripts-azure-cli.md)
 - Altre informazioni sul ridimensionamento: [Livelli di servizio](../concepts-service-tiers.md) e [Unità di calcolo e unità di archiviazione](../concepts-compute-unit-and-storage.md)
-

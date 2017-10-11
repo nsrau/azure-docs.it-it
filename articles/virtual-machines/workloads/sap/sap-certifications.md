@@ -17,12 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rclaus
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: e4d5c78299903659a18aa9b8d04495e215bcca0d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Configurazioni e certificazioni SAP in esecuzione su Microsoft Azure
 
@@ -48,4 +47,3 @@ Microsoft Azure è certificato per i seguenti prodotti SAP, con pieno supporto d
 | SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5 |
 | SAP BusinessObjects BI |Windows |N/D |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5 |
 | SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5 |
-

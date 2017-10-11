@@ -14,20 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 37f3a2b50b437fd675c17a26a143eb649fb6c857
-ms.contentlocale: it-it
-ms.lasthandoff: 11/29/2016
-
+ms.openlocfilehash: af10b703615e35c28038ef5b8e15f3e58e0eecb1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="h264-single-bitrate-low-quality-sd-for-android"></a>Codec video H.264 a bitrate singolo con risoluzione SD di bassa qualità per Android
-`Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui si desidera codificare il file multimediale oppure creare set di impostazioni JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi delle impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni delle attività per Media Encoder Standard).  
+`Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui codificare il file multimediale oppure creare set di impostazioni basati su JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi dei set di impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni di attività per Media Encoder Standard).  
   
  Questo argomento illustra il set di impostazioni `H264 Single Bitrate Low Quality SD for Android` nei formati XML e JSON.  
   
- Questo set di impostazioni genera un file MP4 con una velocità in bit di 56 kbps e audio AAC stereo. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per una spiegazione del significato di ogni elemento di questo set di impostazioni e dei valori possibili per ciascuno, vedere l'argomento [Media Encoder Standard schema](media-services-mes-schema.md) (Schema di Media Encoder Standard).  
+ Questo set di impostazioni genera un file MP4 con una velocità in bit di 56 kbps e audio AAC stereo. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per informazioni sul significato di ogni elemento in questi set di impostazioni e sui valori possibili per ciascuno, vedere lo [schema di Media Encoder Standard](media-services-mes-schema.md).  
   
  XML  
   
@@ -116,4 +114,3 @@ ms.lasthandoff: 11/29/2016
   ]  
 }  
 ```
-

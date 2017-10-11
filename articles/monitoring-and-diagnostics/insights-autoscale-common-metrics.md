@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2016
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7f9fb67a28560f8cc48ba8be8011bc1991d09024
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Metriche comuni per la scalabilità automatica di Monitoraggio di Azure
 La scalabilità automatica di Monitoraggio di Azure consente di aumentare o ridurre il numero delle istanze in esecuzione in base ai dati di telemetria (metriche). Questo documento descrive le metriche comuni che è possibile usare. Nel portale di Azure per servizi cloud e server farm è possibile scegliere la metrica della risorsa in base alla quale eseguire il ridimensionamento. È tuttavia possibile scegliere metriche da risorse diverse.
@@ -193,4 +192,3 @@ Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impost
 > Per il bus di servizio il concetto di gruppo di risorse non esiste, ma Azure Resource Manager consente di creare un gruppo di risorse predefinito per ogni area. Il gruppo di risorse è in genere nel formato "Default-ServiceBus-[area]". Ad esempio, "Default-ServiceBus-EastUS", "Default-ServiceBus-WestUS", "Default-ServiceBus-AustraliaEast" e così via.
 >
 >
-

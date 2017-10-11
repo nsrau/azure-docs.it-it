@@ -15,12 +15,11 @@ ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 53ce95811bbeb306ae986fda91d3387db4e71998
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: b402ae326ab34ec71ad9de966e22be00045fee3e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
 Questa esercitazione illustra come usare Criteri di gruppo per installare l'estensione Pannello di accesso per Internet Explorer nei computer degli utenti in modalità remota. Questa estensione è necessaria per gli utenti di Internet Explorer che devono eseguire l'accesso ad app configurate con l' [accesso Single Sign-On basato su password](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
@@ -165,5 +164,4 @@ Per verificare la corretta distribuzione dell'estensione, seguire questa procedu
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Risoluzione dei problemi dell’estensione del pannello di accesso per Internet Explorer](active-directory-saas-ie-troubleshooting.md)
-
 

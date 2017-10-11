@@ -15,14 +15,12 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 6/2/2017
 ms.author: shigu;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
 
 La qualità di un gruppo di righe è determinata dal numero di righe nel gruppo. Ridurre i requisiti di memoria o aumentare la memoria disponibile per accrescere al massimo il numero di righe che un indice columnstore comprime in ogni gruppo di righe.  Usare questi metodi per migliorare il tasso di compressione e le prestazioni delle query per gli indici columnstore.
@@ -164,4 +162,3 @@ Per trovare altri modi con cui migliorare le prestazioni in SQL Data Warehouse, 
 <!--MSDN references-->
 
 <!--Other Web references-->
-

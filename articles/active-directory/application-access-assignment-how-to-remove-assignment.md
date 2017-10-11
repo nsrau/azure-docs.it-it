@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 8d4f2cec35a8edfec9b8830a077b8aa65ca0c229
-ms.contentlocale: it-it
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 497429e7bf62f7e1d67ea429d6b858725f843688
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Come rimuovere l'accesso di un utente a un'applicazione
 
 Questo articolo consente di comprendere come rimuovere l'accesso di un utente a un'applicazione.
@@ -33,7 +31,7 @@ Si desidera disabilitare tutti gli accessi a un'applicazione per tutti gli utent
 
 Per disabilitare tutti gli accessi utente a un'applicazione, seguire la procedura indicata nell'articolo [Disabilitare gli accessi utente per un'app aziendale in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
 
-## <a name="i-want-to-delete-an-application-entirely"></a>Si desidera eliminare completamente un'applicazione
+## <a name="i-want-to-delete-an-application-entirely"></a>Si vuole eliminare completamente un'applicazione
 
 Per **eliminare un'applicazione**, seguire queste istruzioni:
 
@@ -53,9 +51,9 @@ Per **eliminare un'applicazione**, seguire queste istruzioni:
 
 7.  Dopo il caricamento dell'applicazione, fare clic sull'icona **Elimina** che si trova nella parte superiore del pannello **Panoramica** dell'applicazione.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Voglio disabilitare tutte le operazioni future di consenso dell'utente a tutte le applicazioni
+## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Si vuole disabilitare tutte le operazioni future di consenso da parte dell'utente a tutte le applicazioni
 
-La disabilitazione di consenso dell'utente per l'intera directory impedisce agli utenti finali di consentire l'accesso a qualsiasi applicazione. Gli amministratori possono sempre dare consenso per conto degli utenti. Per informazioni sul consenso alle applicazioni e sui motivi per cui si desideri dare o meno consenso, leggere [Informazioni sul consenso dell'utente e dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+La disabilitazione di consenso da parte dell'utente per l'intera directory impedisce agli utenti finali di consentire l'accesso a qualsiasi applicazione. Gli amministratori possono sempre dare consenso per conto degli utenti. Per informazioni sul consenso alle applicazioni e sui motivi per cui si desideri dare o meno consenso, leggere [Informazioni sul consenso dell'utente e dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
 Per **disabilitare tutte le operazioni future di consenso degli utenti nella directory intera**, seguire queste istruzioni:
 
@@ -74,4 +72,3 @@ Per **disabilitare tutte le operazioni future di consenso degli utenti nella dir
 
 # <a name="next-steps"></a>Passaggi successivi
 [Gestione dell'accesso alle app](active-directory-managing-access-to-apps.md)
-

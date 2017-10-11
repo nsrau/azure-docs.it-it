@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: a8c636ac3b3b12543bfc597489345b3cf153daa6
-ms.contentlocale: it-it
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 0453ec62252bd21bd81bb26c2b01f8a80656d8bf
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="sdk-release-notes---application-insights"></a>Note sulla versione - Application Insights SDK
 Queste sono note sulla versione dettagliate e istruzioni aggiornate relative agli SDK:
@@ -33,5 +32,4 @@ Queste sono note sulla versione dettagliate e istruzioni aggiornate relative agl
 * [Altre piattaforme](https://github.com/Microsoft/ApplicationInsights-Home)
 
 Leggere anche i [blog](https://azure.microsoft.com/blog/tag/application-insights/) e gli [Aggiornamenti dei servizi](https://azure.microsoft.com/updates/?service=application-insights) in cui vengono riepilogati i principali miglioramenti apportati all'intero servizio Application Insights.
-
 

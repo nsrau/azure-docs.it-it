@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
 ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
-ms.contentlocale: it-it
-ms.lasthandoff: 11/28/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare i processi per l'array virtuale StorSimple
 ## <a name="overview"></a>Overview
@@ -65,5 +64,4 @@ Questi errori possono verificarsi con processi di backup, ripristino, aggiorname
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni su come usare l'interfaccia utente Web locale per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
-
 

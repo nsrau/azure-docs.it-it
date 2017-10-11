@@ -11,14 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
 ms.openlocfilehash: 33316ff3db382d25a444d55772c6ee4d7b7ac418
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Monitorare a scalare un database di Azure per il server MySQL usando l'interfaccia della riga di comando di Azure
 Questo esempio di script dell'interfaccia della riga di comando di Azure scala un singolo database di Azure per il server MySQL a un diverso livello di prestazioni dopo le query sulle metriche.
 
@@ -48,4 +46,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 - Altre informazioni sull'interfaccia della riga di comando di Azure: [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/overview).
 - Provare a eseguire altri script: [esempi dell'interfaccia della riga di comando di Azure per il database di Azure per MySQL](../sample-scripts-azure-cli.md)
 - Per altre informazioni sul ridimensionamento, vedere [Livelli di servizio](../concepts-service-tiers.md) e [Unità di calcolo e unità di archiviazione](../concepts-compute-unit-and-storage.md).
-

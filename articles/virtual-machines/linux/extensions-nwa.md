@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: eaadd531b9e05a54446e61f98584ae9d75470a5f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale Network Watcher Agent per Linux
 
@@ -114,4 +113,3 @@ L'output dell'esecuzione dell'estensione viene registrato nei file presenti nell
 ### <a name="support"></a>Supporto
 
 Per ricevere assistenza più approfondita su qualsiasi punto dell'articolo, fare riferimento alla documentazione su Network Watcher o contattare gli esperti di Azure nei [forum di Azure su MSDN e Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/en-us/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/en-us/support/faq/).
-

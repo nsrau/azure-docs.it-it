@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a662841bebda460d4225e080f16705b3f16fdc46
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
 
 Informazioni su come accedere ad Advisor tramite il portale di Azure e ricevere, mettere in pratica, cercare consigli o chiedere consigli aggiornati.
@@ -95,4 +93,3 @@ Per altre informazioni su Advisor, vedere:
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 -  [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
 * [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)
-

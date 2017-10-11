@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Risoluzione dei problemi di rallentamento delle prestazioni delle app Web nel Servizio app di Azure
 Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app Web nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -187,4 +186,3 @@ Il riavvio è spesso il modo più semplice per risolvere problemi occasionali. N
  ![riavviare l'app Web per risolvere i problemi di prestazioni](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 È anche possibile gestire l'app Web usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
-

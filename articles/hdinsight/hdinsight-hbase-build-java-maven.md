@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 02/05/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 83aeb23275a86e5d4706a0ad7ea72d11d71f9604
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 59c9af5a91b107e68a676f02fe5a936f955b22fa
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Usare Maven per compilare applicazioni Java che usano HBase con HDInsight basato su Windows (Hadoop)
 In questo articolo si apprenderà come creare e compilare un'applicazione [Apache HBase](http://hbase.apache.org/) in Java usando Apache Maven. quindi a usare l'applicazione con HDInsight di Azure (Hadoop).
@@ -618,4 +617,3 @@ Sostituire **hdinsightclustername** con il nome del cluster HDInsight.
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Nessun risultato o risultati imprevisti quando si usa Start-HBaseExample
 Usare il parametro `-showErr` per visualizzare l'errore standard (STDERR) prodotto durante l'esecuzione del processo.
-

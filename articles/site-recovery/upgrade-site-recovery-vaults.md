@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/31/2017
 ms.author: rajani-janaki-ram
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: fdb33ea0d08353b491f2934fcf885fcb6910b9a2
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Site Recovery a un insieme di credenziali di Servizi di ripristino basato su Azure Resource Manager
 
@@ -33,21 +32,21 @@ Gli insiemi di credenziali di Servizi di ripristino offrono una nuova gamma di f
 
 * Esclusione del disco: se si hanno file temporanei o dati ad alta varianza per i quali non si vuole usare tutta la larghezza di banda, è possibile escludere volumi dalla replica. Questa funzionalità è attualmente abilitata negli scenari *da VMware ad Azure* e *da Hyper-V ad Azure* ed è estesa anche ad altri scenari.
 
-* Supporto per l'archiviazione Premium e con ridondanza locale: è possibile ora proteggere i server in account di archiviazione Premium che consentono agli utenti di proteggere le applicazioni con valori di inoput/output al secondo più elevati. Questa funzionalità è attualmente abilitata nello scenario *da VMware ad Azure*.
+* Supporto per l'archiviazione Premium e con ridondanza locale: è possibile ora proteggere i server in account di archiviazione Premium che consentono agli utenti di proteggere le applicazioni con valori di input/output al secondo più elevati. Questa funzionalità è attualmente abilitata nello scenario *da VMware ad Azure*.
 
 * Attività iniziali semplificate: le attività iniziali sono state progettate per facilitare la configurazione del ripristino di emergenza.
 
-* Gestione di Backup e Site Recovery dallo stesso insieme di credenziali: è possibile ora proteggere i server per il ripristino di emergenza o il backup dallo stesso insieme di credenziali, riducendo in modo significativo il sovraccarico di gestione.
+* Gestione di Backup e Site Recovery dallo stesso insieme di credenziali: è ora possibile proteggere i server per il ripristino di emergenza o il backup dallo stesso insieme di credenziali, riducendo in modo significativo il sovraccarico di gestione.
 
 Per altre informazioni sull'esperienza e sulle funzionalità aggiornate, vedere il blog [Storage, Backup, and Recovery](https://azure.microsoft.com/blog/azure-site-recovery-now-available-in-a-new-experience-with-support-for-arm-and-csp/) (Archiviazione, backup e ripristino).
 
 ## <a name="salient-features"></a>Funzionalità principali
 
-* Nessun impatto sulla replica in corso: le repliche in corso continuano senza interruzioni durante e in seguito all'aggiornamento.
+* Nessun impatto sulla replica in corso: le repliche in corso continuano senza interruzioni durante e dopo l'aggiornamento.
 
 * Nessun costo aggiuntivo: è possibile ottenere un intero set di funzionalità aggiornate senza costi aggiuntivi.
 
-* Nessuna perdita di dati: trattandosi di un processo di aggiornamento e non di migrazione, i punti di ripristino e le impostazioni esistenti della replica rimangono invariate durante e in seguito all'aggiornamento.
+* Nessuna perdita di dati: trattandosi di un processo di aggiornamento e non di migrazione, i punti di ripristino e le impostazioni esistenti della replica rimangono invariate durante e dopo l'aggiornamento.
 
 
 ## <a name="what-happens-during-the-vault-upgrade"></a>Che cosa accade durante l'aggiornamento dell'insieme di credenziali
@@ -148,7 +147,7 @@ In alternativa, è possibile usare lo script seguente. Immettere i valori per i 
 
 1. Lo script di PowerShell richiede di immettere le credenziali. Immetterle due volte, la prima per l'account del modello di distribuzione classica, la seconda per l'account di Azure Resource Manager.
 
-2. Dopo avere immesso le credenziali, lo script esegue un controllo per determinare se la configurazione dell'infrastruttura soddisfa i requisiti descritti in prima.
+2. Dopo avere immesso le credenziali, lo script esegue un controllo per determinare se la configurazione dell'infrastruttura soddisfa i requisiti descritti prima.
 
 3. Dopo che i prerequisiti sono stati controllati e confermati, viene chiesto di continuare con l'aggiornamento dell'insieme di credenziali. Il processo di aggiornamento avvia l'aggiornamento dell'insieme di credenziali. L'aggiornamento viene completato in 15-30 minuti.
 
@@ -186,4 +185,3 @@ L'immagine seguente illustra il flusso di lavoro per visualizzare gli elementi r
 Nell'insieme di credenziali di Site Recovery ogni gruppo protezione dati è configurato con frequenza di copia, conservazione del punto di ripristino, frequenza degli snapshot coerenti con l'applicazione e altre impostazioni di replica. Nell'insieme di credenziali di Servizi di ripristino queste impostazioni sono configurate come criteri di replica. Il nome dei criteri corrisponde al nome del gruppo protezione dati o a *primarycloud_Policy*.
 
 Per altre informazioni sui criteri di replica, vedere [Gestire i criteri di replica per VMware in Azure](site-recovery-setup-replication-settings-vmware.md).
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
 ms.openlocfilehash: 9f085dfa1fe4db36d58cb976bb550a46bf241ac7
-ms.contentlocale: it-it
-ms.lasthandoff: 03/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli-10"></a>Assegnare più indirizzi IP alle macchine virtuali usando l'interfaccia della riga di comando 1.0 di Azure
 
@@ -215,4 +214,3 @@ Questo articolo spiega come creare una macchina virtuale (VM) tramite il modello
 4. Aggiungere al sistema operativo della macchina virtuale gli indirizzi IP privati aggiunti alla scheda di interfaccia di rete seguendo le istruzioni disponibili nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#os-config) di questo articolo. Non aggiungere gli indirizzi IP pubblici al sistema operativo.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

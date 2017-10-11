@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 9109c698e4e8b43eeb7534c338adc99476012a3f
-ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 3d56f89035da4d1a0074256b165663f81fc2b01e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>Non è possibile trovare dati nei log attività di Azure Active Directory scaricati
 
 
@@ -43,5 +41,4 @@ Quando si scaricano i log attività nel portale di Azure, viene applicata una li
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere [Domande frequenti sulla creazione di report in Azure Active Directory](active-directory-reporting-faq.md).
-
 

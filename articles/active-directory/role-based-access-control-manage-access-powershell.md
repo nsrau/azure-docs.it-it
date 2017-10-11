@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e7323325c303c26e2ea4d9f2a8ac5178fa33b875
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: d7b11df21650b5cb27f9c3dd8306f8d12664185e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Gestire il controllo degli accessi in base al ruolo con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -280,5 +279,4 @@ Nell'esempio seguente il ruolo personalizzato *Virtual Machine Operator* non è 
 ## <a name="see-also"></a>Vedere anche
 * [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)] (Uso di Azure PowerShell con Azure Resource Manager)
-
 

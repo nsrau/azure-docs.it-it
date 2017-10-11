@@ -1,6 +1,6 @@
 ---
 title: Interfaccia utente di Azure Mobile Engagement - Impostazioni
-description: Informazioni su come gestire le impostazioni globali dell&quot;applicazione usando Azure Mobile Engagement
+description: Informazioni su come gestire le impostazioni globali dell'applicazione usando Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3c20ee0d5abb40d7650eeaa722e87142275448d
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>Come gestire le impostazioni globali dell'applicazione
 Le opzioni del menu **Impostazioni** disponibili per un'applicazione variano a seconda della piattaforma dell'applicazione e delle autorizzazioni di cui si dispone per l'applicazione. Sono disponibili le impostazioni seguenti: Dettagli, Progetti, Push nativo, Velocità push, Tag (info app) e Pressione commerciale. L'opzione di menu Tag (info app) della sezione Impostazioni può essere gestita dall'applicazione (utilizzando l’SDK) o dal back-end (utilizzando l'API dispositivo). 
@@ -189,5 +188,4 @@ Mostra la velocità di push corrente dell'applicazione e consente di definire la
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

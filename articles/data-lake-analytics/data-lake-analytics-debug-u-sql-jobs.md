@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: saveenr
-ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
 ms.openlocfilehash: 2a77c72d3062272305208934d6406d040266c753
-ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Eseguire il debug del codice C# definito dall'utente per i processi U-SQL non riusciti
 
@@ -122,4 +121,3 @@ Dopo aver completato il debug è possibile inviare nuovamente il processo non ri
 - [Guida di programmabilità di U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Sviluppare operatori U-SQL definiti dall'utente per i processi di Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 - [Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-

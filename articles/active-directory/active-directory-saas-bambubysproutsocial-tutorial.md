@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: 985966d26f6ed0dcd4db47589abf94260ce62bf0
-ms.contentlocale: it-it
-ms.lasthandoff: 04/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Esercitazione: Integrazione di Azure Active Directory con Bambu by Sprout Social
 
@@ -241,5 +240,4 @@ Quando si fa clic sul riquadro Bambu by Sprout Social nel pannello di accesso, s
 [201]: ./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_general_203.png
-
 

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 8/2/2017
 ms.author: markgal;trinadhk;jimpark
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 5f0f06adb8177ce2d17aa0b40666470279c04e22
-ms.contentlocale: it-it
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Usare i cmdlet AzureRM.Backup per eseguire il backup di macchine virtuali
 > [!div class="op_single_selector"]
@@ -358,4 +357,3 @@ Se si vogliono aggiungere funzionalità per la creazione di grafici all'output d
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si preferisce usare PowerShell per interagire con le risorse di Azure, vedere l'articolo relativo a PowerShell per la protezione di Windows Server, [Distribuire e gestire il backup per Windows Server](backup-client-automation-classic.md). È disponibile anche un articolo relativo a PowerShell per la gestione dei backup di DPM, [Distribuire e gestire il backup per DPM](backup-dpm-automation-classic.md). Entrambi gli articoli prevedono due versioni: una per la distribuzione con Resource Manager, l’altra per la distribuzione classica.
-

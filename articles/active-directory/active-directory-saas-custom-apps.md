@@ -15,12 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
-ms.openlocfilehash: b4a1bb3211da8c02d48ebad69d5e1cbb4de2c45d
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 9049f526243cb4659aaf86b3d31146abe8f5f3ef
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory
 Questo articolo illustra una funzionalità che consente agli amministratori di configurare l'accesso Single Sign-On alle applicazioni non presenti nella raccolta di app di Azure Active Directory *senza scrivere codice*. Questa funzionalità è stata rilasciata dall'anteprima tecnica il 18 novembre 2015 ed è inclusa in [Azure Active Directory Premium](active-directory-editions.md). Se si cercano invece indicazioni per gli sviluppatori sull'integrazione delle app personalizzate con Azure AD tramite il codice, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
@@ -142,4 +141,3 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 [5]: ./media/active-directory-saas-custom-apps/customapp5.png
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
-

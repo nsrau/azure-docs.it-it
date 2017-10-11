@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 1b1d65a41a794a566287dcffe3581ac58e2a965f
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Esercitazione per il ripristino di emergenza
 È consigliabile verificare periodicamente la conformità delle applicazioni per il flusso di lavoro di ripristino. La verifica del comportamento di un'applicazione e delle implicazioni legate alla perdita di dati e/o all'interruzione del servizio che comporta il failover è una buona norma di progettazione. Inoltre, questa verifica è richiesta dalla maggior parte degli standard del settore come parte della certificazione di continuità aziendale.
@@ -65,4 +64,3 @@ Per simulare l'interruzione è possibile disabilitare l'applicazione web o la ma
 * Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
 * Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
 * Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md).  
-

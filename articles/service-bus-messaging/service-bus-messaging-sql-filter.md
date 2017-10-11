@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 3aaec8f9b6a3bbcf814f771405c3b589de6f7ae0
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="sqlfilter-syntax"></a>Sintassi di SQLFilter
 
 *SqlFilter* è un'istanza della [classe SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) e rappresenta un'espressione filtro basata sul linguaggio SQL che viene valutata su una [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Un SqlFilter supporta un sottoinsieme dello standard SQL-92.  

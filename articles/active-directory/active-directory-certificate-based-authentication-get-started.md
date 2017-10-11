@@ -13,12 +13,11 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 
@@ -223,5 +222,4 @@ Un profilo EAS può essere configurato e aggiunto al dispositivo tramite l'uso d
 
 1. Configurare un profilo EAS nell'applicazione che soddisfi i requisiti riportati sopra.  
 2. Aprire l'applicazione e verificare che venga eseguita la sincronizzazione dell'email. 
-
 

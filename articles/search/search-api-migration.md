@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
-ms.contentlocale: it-it
-ms.lasthandoff: 01/14/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Aggiornamento all'API REST di Ricerca di Azure versione 2016-09-01
 Se si usa la versione 2015-02-28 o 2015-02-28-Preview dell'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx), questo articolo consente di aggiornare l'applicazione alla prima versione disponibile a livello generale dell'API, la versione 2016-09-01.
@@ -68,5 +67,4 @@ Per altre informazioni sull'uso dell'API REST di Ricerca di Azure, vedere il [ri
 I commenti degli utenti su Ricerca di Azure sono molto apprezzati. In caso di problemi, è possibile richiedere assistenza nel [forum MSDN su Ricerca di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) o in [StackOverflow](http://stackoverflow.com/). Se si pongono domande su Ricerca di Azure in StackOverflow, assicurarsi di contrassegnarle con `azure-search`.
 
 Grazie per avere usato Ricerca di Azure.
-
 

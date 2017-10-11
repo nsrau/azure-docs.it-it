@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 33c65bf2eecff3914f3227c76f7d638a4507e1f6
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Cambiare le modalità del dispositivo sul dispositivo StorSimple
 In questo articolo viene fornita una breve descrizione delle varie modalità in cui può operare il dispositivo StorSimple. Il dispositivo StorSimple può funzionare in tre modalità: normale, manutenzione e ripristino. 
@@ -91,5 +90,4 @@ Per eseguire la manutenzione o installare gli aggiornamenti in modalità manuten
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [applicare gli aggiornamenti in modalità normale e manutenzione](storsimple-update-device.md) al dispositivo StorSimple.
-
 

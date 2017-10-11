@@ -1,6 +1,6 @@
 ---
-title: "Entità, termini e concetti dell&quot;Utilità di pianificazione | Documentazione Microsoft"
-description: "Concetti, terminologia e gerarchia di entità dell&quot;Utilità di pianificazione di Azure, inclusi processi e raccolte di processi.  Fornisce un esempio completo di un processo pianificato."
+title: "Entità, termini e concetti dell'Utilità di pianificazione | Documentazione Microsoft"
+description: "Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure, inclusi processi e raccolte di processi.  Fornisce un esempio completo di un processo pianificato."
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
 ## <a name="scheduler-entity-hierarchy"></a>Gerarchia di entità dell'Utilità di pianificazione
@@ -176,7 +176,7 @@ Se un'utilità di pianificazione non riesce, è possibile specificare un criteri
 
 Per impostare un criterio di ripetizione, è possibile specificare due impostazioni aggiuntive: un intervallo tra i tentativi (**retryInterval**) e il numero di tentativi (**retryCount**).
 
-L'intervallo tra tentativi, specificato con l'oggetto **retryInterval** , è l'intervallo di tempo tra i tentativi. Il valore predefinito è 30 secondi, il valore minimo configurabile è 15 secondi e il valore massimo è 18 mesi. I processi inclusi nelle raccolte di processi del livello Gratuito hanno un valore minimo configurabile di 1 ora.  Viene definito nel formato ISO 8601. Analogamente, il valore del numero di tentativi è specificato con l'oggetto **retryCount** e specifica quanti tentativi verranno eseguiti. Il valore predefinito è 4 e il valore massimo è 20\. Sia **retryInterval** che **retryCount** sono facoltativi. A questi oggetti vengono assegnati i valori predefiniti se **retryType** è impostato su **fixed** e non sono specificati valori in modo esplicito.
+L'intervallo tra tentativi, specificato con l'oggetto **retryInterval** , è l'intervallo di tempo tra i tentativi. Il valore predefinito è 30 secondi, il valore minimo configurabile è 15 secondi e il valore massimo è 18 mesi. I processi inclusi nelle raccolte di processi del livello Gratuito hanno un valore minimo configurabile di 1 ora.  Viene definito nel formato ISO 8601. Analogamente, il valore del numero di tentativi è specificato con l'oggetto **retryCount** e specifica quanti tentativi verranno eseguiti. Il valore predefinito è 4 e il valore massimo è 20\. Entrambi **retryInterval** e **retryCount** sono facoltativi. A questi oggetti vengono assegnati i valori predefiniti se **retryType** è impostato su **fixed** e non sono specificati valori in modo esplicito.
 
 ## <a name="see-also"></a>Vedere anche
  [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
@@ -196,10 +196,4 @@ L'intervallo tra tentativi, specificato con l'oggetto **retryInterval** , è l'i
  [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

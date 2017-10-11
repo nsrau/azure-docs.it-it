@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: cc7ad4aa5260276e26406b6b79c039372e5ee69f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Esercitazione: Integrazione di Azure Active Directory con Predictix Assortment Planning
 
@@ -239,5 +238,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_203.png
-
 

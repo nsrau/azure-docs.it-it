@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5d5aa67d14d2344c58e67ee78ea3f2b5d8fd415
-
-
+ms.openlocfilehash: 22924da07434a06f4c822d97a2afd02ea982e0e0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-device"></a>Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In questo articolo viene descritta l'interfaccia del servizio StorSimple Manager, tra cui la modalità di connessione, le diverse opzioni disponibili e i collegamenti a flussi di lavoro specifici che possono essere eseguiti mediante questa interfaccia. Questa guida è applicabile al dispositivo StorSimple fisico e virtuale.
 
 Una volta letto l'articolo, si sarà in grado di:
@@ -102,10 +102,4 @@ Se si riscontrano problemi con le operazioni giornaliere del dispositivo StorSim
 * [Utilizzare gli indicatori LED di monitoraggio di StorSimple](storsimple-monitoring-indicators.md)
 
 Se non è possibile risolvere i problemi ed è necessario creare una richiesta di servizio, fare riferimento a [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

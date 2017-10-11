@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/16/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8d1b4905d0a24c8df9eb2c986459286909fd20dc
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Risoluzione dei problemi relativi a un dispositivo StorSimple operativo
 ## <a name="overview"></a>Panoramica
@@ -27,7 +27,7 @@ Questo articolo fornisce utili indicazioni sulla risoluzione dei problemi riguar
 Alla fine di questo articolo è disponibile un elenco dei codici di errore che potrebbero verificarsi durante il funzionamento di Microsoft Azure StorSimple, nonché i passaggi da eseguire per risolvere gli errori. 
 
 ## <a name="setup-wizard-process-for-operational-devices"></a>Procedura di configurazione guidata per i dispositivi operativi
-È possibile utilizzare la configurazione guidata ([Invoke-HcsSetupWizard][1]) per controllare la configurazione del dispositivo e intraprendere l'azione correttiva, se necessario.
+Utilizzare l'installazione guidata ([Invoke-HcsSetupWizard][1]) per verificare la configurazione del dispositivo e adottare misure correttive se necessario.
 
 Quando si esegue la configurazione guidata su un dispositivo precedentemente configurato e operativo, il flusso del processo è differente. È possibile modificare le seguenti voci:
 
@@ -45,7 +45,7 @@ Nella tabella seguente vengono descritti gli errori che potrebbero verificarsi q
 |:--- |:--- |:--- |:--- |
 | 1 |Errore 350032: il dispositivo è già stato disattivato. |Questo errore verrà visualizzato se si esegue la configurazione guidata su un dispositivo disattivato. |[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per i passaggi successivi. Un dispositivo disattivato non può essere messo in servizio. Prima di poter attivare nuovamente il dispositivo, potrebbe essere necessario un ripristino delle impostazioni predefinite. |
 | 2 |Invoke-HcsSetupWizard: ERROR_INVALID_FUNCTION (eccezione da HRESULT: 0x80070001) |L'aggiornamento del server DNS in corso ha esito negativo. Le impostazioni DNS sono impostazioni globali e vengono applicate a tutte le interfacce di rete abilitate. |Abilitare l'interfaccia e applicare nuovamente le impostazioni DNS. Siccome queste impostazioni sono globali, ciò potrebbe interferire con la rete per le altre interfacce abilitate. |
-| 3 |Il dispositivo apparirà online nel portale del servizio StorSimple Manager ma quando si tenta di completare l'installazione minima e salvare la configurazione, l'operazione ha esito negativo. |Durante l'installazione iniziale, il proxy Web non è stato configurato, anche se era disponibile un server proxy effettivo. |Utilizzare il cmdlet [Test-HcsmConnection][2] per individuare l'errore. [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) se non si è in grado di risolvere il problema. |
+| 3 |Il dispositivo apparirà online nel portale del servizio StorSimple Manager ma quando si tenta di completare l'installazione minima e salvare la configurazione, l'operazione ha esito negativo. |Durante l'installazione iniziale, il proxy Web non è stato configurato, anche se era disponibile un server proxy effettivo. |Utilizzare il [cmdlet Test-HcsmConnection] [ 2] per individuare l'errore. [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) se non si è in grado di risolvere il problema. |
 | 4 |Invoke-HcsSetupWizard: il valore non è compreso nell'intervallo previsto. |L'errore viene generato da una subnet mask non corretta. Le possibili cause sono:  <ul><li> La subnet mask è mancante o vuota.</li><li>Il formato del prefisso Ipv6 non è corretto.</li><li>L'interfaccia è abilitata per il cloud, ma il gateway è mancante o non corretto.</li></ul>Considerare che DATI 0 è automaticamente abilitata per il cloud se configurata tramite la configurazione guidata. |Per determinare il problema, utilizzare la subnet 0.0.0.0 o 256.256.256.256 ed esaminare l'output. Immettere i valori corretti per la subnet mask, un gateway e un prefisso Ipv6, se necessario. |
 
 ## <a name="error-codes"></a>Codici di errore
@@ -64,9 +64,3 @@ Se non si riesce a risolvere il problema, [contattare il supporto tecnico Micros
 
 [1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
 [2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

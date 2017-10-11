@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 37df8d66d0a3ce738db2960d4283bdc672fb0fc4
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: e8321c3d16253226a5931cacbce6fa5d50b697bd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Considerazioni speciali per le istanze
 Azure AD Connect si usa soprattutto con l'istanza di Azure AD e Office 365 disponibili in tutto il mondo. Ma esistono anche altre istanze e hanno requisiti diversi per gli URL e altre considerazioni speciali.
@@ -70,4 +69,3 @@ Funzionalità attualmente non presenti nel cloud di Microsoft Azure per enti pub
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-

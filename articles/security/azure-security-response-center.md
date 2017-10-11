@@ -1,6 +1,6 @@
 ---
 title: Microsoft Security Response Center | Documentazione Microsoft
-description: L&quot;articolo fornisce un elenco completo di risorse di Microsoft Security Response Center (MSRC) che possono essere usate per ottenere altre informazioni sulle procedure e i suggerimenti di MSRC.
+description: L'articolo fornisce un elenco completo di risorse di Microsoft Security Response Center (MSRC) che possono essere usate per ottenere altre informazioni sulle procedure e i suggerimenti di MSRC.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35b51ab7fa40e16ebe5170c3dea33b02a653d23b
-
-
+ms.openlocfilehash: bc47589ac769d89b2aa7f7565d08555ace3119d9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft Security Response Center
 Microsoft Security Response Center (MSRC) è gestito da alcuni dei migliori esperti di sicurezza del mondo che identificano, monitorano, rispondono e risolvono eventi imprevisti di sicurezza e vulnerabilità locali e del cloud 24 ore su 24, ogni giorno dell'anno.
@@ -39,9 +39,3 @@ I programmi Bounty di Microsoft offrono compensi ai ricercatori per nuove tecnic
 Altre informazioni su questi programmi sono disponibili nella pagina [MSRC Bug Bounty](https://technet.microsoft.com/security/dn425036) e nel [blog MSRC](https://blogs.technet.microsoft.com/msrc/).
 
 Per altre informazioni su MSRC, visitare la [home page MSRC](https://technet.microsoft.com/library/dn440717.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

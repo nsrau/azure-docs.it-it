@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: LADocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8dd90542440322e6d57406cd950fa0a13bd4fe1d
-ms.openlocfilehash: 1068b5bd5f2c86de0c82f5a96cb2718645c0a3d3
-ms.contentlocale: it-it
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: 7ce0860272901f3b4e4cf3d63f7361d539f64741
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Accordi tra partner per la comunicazione B2B con App per la logica di Azure ed Enterprise Integration Pack
 
@@ -78,4 +76,3 @@ Di seguito sono riportati alcuni dei vantaggi più comuni legati all'uso degli a
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare un contratto AS2](logic-apps-enterprise-integration-as2.md)
-

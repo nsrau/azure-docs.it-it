@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 664a1bd9df9ace4993a8389dbeb049e721932082
-ms.contentlocale: it-it
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici
 Questa guida al monitoraggio e alla risoluzione dei problemi illustra come tenere traccia dello stato della replica e le tecniche di risoluzione dei problemi per Azure Site Recovery.
@@ -196,4 +194,3 @@ Di seguito sono elencati gli errori comuni e le relative soluzioni. Ogni errore 
 Se il pulsante **Connetti** nel portale è disattivato e non si è connessi ad Azure tramite una connessione Express Route o VPN da sito a sito, per poter usare Desktop remoto o la shell condivisa è necessario creare un indirizzo IP pubblico e assegnarlo alla macchina virtuale. È quindi possibile aggiungere un indirizzo IP pubblico nell'interfaccia di rete della macchina virtuale.  
 
 ![Aggiunta di un indirizzo IP pubblico nell'interfaccia di rete sulla macchina virtuale](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Utilizzo delle regole di avviso in Log Analytics
 Gli avvisi vengono creati da regole di avviso che eseguono automaticamente ricerche log a intervalli regolari.  Viene quindi creato un record di avviso se i risultati corrispondono a particolari criteri.  La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo.   
@@ -155,5 +154,4 @@ Le azioni runbook avviano un runbook in Automazione di Azure.
 * Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) che possono generare avvisi.
 * Completare una procedura dettagliata per la [configurazione di un webhook](log-analytics-alerts-webhooks.md) con una regola di avviso.  
 * Informazioni su come scrivere [runbook in Automazione di Azure](https://azure.microsoft.com/documentation/services/automation) per la risoluzione dei problemi identificati dagli avvisi.
-
 

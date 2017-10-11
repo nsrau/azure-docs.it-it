@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a179f184b7d6a425d0fed4b58551b08bb937ea87
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Creare una rete virtuale usando un modello di Azure Resource Manager
 
@@ -243,4 +242,3 @@ Leggere le informazioni su come connettere:
 - Una macchina virtuale (VM) a una rete virtuale negli articoli [Creare una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creare una VM Linux](../virtual-machines/linux/quick-create-portal.md). Anziché creare una rete virtuale e una subnet, come illustrato nelle procedure degli articoli, è possibile selezionare una rete virtuale e una subnet esistenti a cui connettere una VM.
 - La rete virtuale ad altre reti virtuali nell'articolo [Connettere reti virtuali](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - La rete virtuale a una rete locale tramite una rete privata virtuale (VPN) da sito a sito o il circuito ExpressRoute negli articoli [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) (Connettere una rete virtuale a una rete locale tramite una VPN da sito a sito) e [Collegare una rete virtuale a un circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-arm.md).
-

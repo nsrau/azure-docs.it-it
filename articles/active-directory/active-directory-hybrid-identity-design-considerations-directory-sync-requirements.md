@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 69f7b49fd82e4d34b1d54718cfbd2f4dedd2ae47
-ms.openlocfilehash: e50a308a897878d0985f2a8f1baa044e5c82335f
-ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 5ef87e606f055359ca325befd6048353ce57ca2b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinare i requisiti di sincronizzazione delle directory
 La sincronizzazione consiste nel fornire agli utenti un'identità nel cloud basata sulla rispettiva identità locale. Gli utenti, infatti, devono necessariamente disporre di un'identità nel cloud, indipendentemente dal fatto che per autenticarsi si avvalgano di un account sincronizzato o di un'autenticazione federata.  L'identità dovrà inoltre essere gestita e aggiornata periodicamente.  Gli aggiornamenti possono assumere molte forme, tra cui modifiche al titolo o alla password.  
@@ -74,5 +73,4 @@ Dopo aver individuato i requisiti di sincronizzazione e lo strumento corretto pe
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

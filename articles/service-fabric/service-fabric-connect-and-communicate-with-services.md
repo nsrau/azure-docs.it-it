@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/9/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 3e61ad19df34c6a57da43e26bd2ab9d7ecdbf98e
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Connettersi e comunicare con i servizi in Service Fabric
 In Service Fabric un servizio viene eseguito in una posizione nel cluster di Service Fabric, in genere distribuito su più macchine virtuali. Può essere spostato da una posizione all'altra, dal proprietario del servizio o automaticamente da Service Fabric. I servizi non sono statisticamente associati a un computer o a un indirizzo specifico.
@@ -155,7 +153,7 @@ Ad esempio, per accettare il traffico esterno sulla porta **80**, è necessario 
             protected List<ServiceInstanceListener> createServiceInstanceListeners() {
                 <ServiceInstanceListener> listeners = new ArrayList<ServiceInstanceListener>();
                 listeners.add(new ServiceInstanceListener((context) -> new HttpCommunicationlistener(context)));
-                return listeners;        
+                return listeners;       
             }
 
             ...
@@ -195,4 +193,3 @@ Per altre informazioni sui concetti e sulle API disponibili, vedere il [modello 
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
 [9]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
 [10]: ./media/service-fabric-reverseproxy/internal-communication.png
-

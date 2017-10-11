@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Debug delle applicazioni in un contenitore Docker locale
 ## <a name="overview"></a>Panoramica
@@ -115,4 +114,3 @@ Con [Docker Tools for Visual Studio 2015](https://aka.ms/DockerToolsForVS)si ott
 * [Developing .NET apps in containers, Channel 9 (Sviluppo di applicazioni .NET in contenitori, Channel 9)](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: e9a3aedfb6e55696e1525e226fada1062fd5eda8
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Distribuire un modello da SSDT
 Dopo aver creato un server nella sottoscrizione di Azure, si è pronti per distribuire un database modello tabulare a tale server. È possibile usare SQL Server Data Tools (SSDT) per compilare e distribuire un progetto modello tabulare in uso. 
@@ -63,5 +62,4 @@ Se la distribuzione non riesce in una tabella, probabilmente è dovuto al fatto 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che il modello tabulare è stato distribuito nel server, si è pronti per la connessione. È possibile [connettersi al modello con SSMS](analysis-services-manage.md) per gestirlo. Ed è anche possibile [connettersi al modello usando uno strumento client](analysis-services-connect.md) come Power BI, Power BI Desktop o Excel e avviare la creazione di report.
-
 

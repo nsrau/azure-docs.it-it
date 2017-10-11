@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 19cb8f436fa4d86f323013a5d4b3b50bf6c80a1a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for IntelliJ per creare applicazioni Spark per un cluster HDInsight
 
@@ -341,5 +340,4 @@ Per eventuali commenti o suggerimenti oppure se si riscontrano problemi nell'uso
 ### <a name="managing-resources"></a>Gestione delle risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
-
 

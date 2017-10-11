@@ -1,6 +1,6 @@
 ---
-title: Introduzione alla chiamata di API da un&quot;App Web Azure AD v2.0 .NET| Documentazione Microsoft
-description: Come creare un&quot;app Web .NET MVC che chiama servizi Web usando account Microsoft personali, aziendali e dell&quot;istituto di istruzione per l&quot;accesso.
+title: Introduzione alla chiamata di API da un'App Web Azure AD v2.0 .NET| Documentazione Microsoft
+description: Come creare un'app Web .NET MVC che chiama servizi Web usando account Microsoft personali, aziendali e dell'istituto di istruzione per l'accesso.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: c6cca8fda4ba6a26d5ee74b43e0bae37639865c5
-ms.contentlocale: it-it
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: dc3162ae8e6ce622139125c2e78fa45d2e90d534
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Chiamare un'API Web da un'applicazione Web .NET
 Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app Web e alle API Web con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione.  Di seguito viene creata un'app Web MVC che consente agli utenti di accedere tramite OpenID Connect e con l'aiuto del middleware OWIN di Microsoft.  L'applicazione Web otterrà i token di accesso OAuth 2.0 per un'api Web protetta da OAuth 2.0 che consente di creare, leggere ed eliminare le voci dell'elenco attività di un determinato utente.
@@ -201,5 +199,4 @@ Per altre risorse, vedere:
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
 

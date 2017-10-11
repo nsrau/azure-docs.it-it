@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Risolvere i problemi relativi ai gruppi di sicurezza di rete tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -149,5 +148,4 @@ Durante la risoluzione dei problemi di connettività, tenere presente quanto seg
 * Se si hanno reti virtuali con peering, il tag VIRTUAL_NETWORK si espanderà automaticamente per impostazione predefinita in modo da includere i prefissi delle reti virtuali con peering. È possibile vedere questi prefissi nell'elenco **ExpandedAddressPrefix** per risolvere eventuali problemi legati alla connettività di peering della rete virtuale. 
 * Le regole di sicurezza effettive vengono visualizzate solo se c'è un gruppo di sicurezza di rete associato all'interfaccia di rete o alla subnet della VM. 
 * Se non esistono gruppi di sicurezza di rete associati all'interfaccia di rete o alla subnet e si dispone di un indirizzo IP pubblico assegnato alla VM, tutte le porte saranno aperte per l'accesso in ingresso e in uscita. Se la VM ha un indirizzo IP pubblico, è consigliabile applicare gruppi di sicurezza di rete all'interfaccia di rete o alla subnet.
-
 

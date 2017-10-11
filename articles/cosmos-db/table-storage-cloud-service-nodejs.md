@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="nodejs-web-application-using-storage"></a>Creazione di un'applicazione Web Node.js con Archiviazione
 ## <a name="overview"></a>Panoramica
@@ -415,6 +414,5 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
 [Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
 [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
-
 
 

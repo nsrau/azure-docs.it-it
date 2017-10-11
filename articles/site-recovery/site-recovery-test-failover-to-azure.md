@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 54f62af6abcdd38254fd5379b95baa05656dc90b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Failover di test in Azure in Site Recovery
 
@@ -127,4 +125,3 @@ Per connettersi alle macchine virtuali di Azure con RDP dopo il failover, seguir
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo l'esito positivo di un failover di test, si può provare a eseguire un [failover](site-recovery-failover.md).
-

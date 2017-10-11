@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: ec9e0fc7d67537a47d5c0d3bb376b60dc6ccffcd
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
 ## <a name="introduction"></a>Introduzione
 
@@ -341,5 +339,4 @@ Microsoft progetta il software e i servizi tenendo a mente la sicurezza degli ut
 Usare le caratteristiche Microsoft di sicurezza dei dati e analisi per eseguire il rilevamento delle minacce più intelligente ed efficiente.
 
 - [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide) Una serie di passaggi e attività per ottimizzare l'uso del Centro sicurezza in base ai requisiti di sicurezza e al modello di gestione cloud dell'organizzazione.
-
 

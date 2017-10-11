@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 47da343d4ec956ec2e669757f56e853675f887a3
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Aggiungere l'autenticazione all'app Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -166,4 +165,3 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
-

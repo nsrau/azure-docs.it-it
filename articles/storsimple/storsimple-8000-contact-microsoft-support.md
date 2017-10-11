@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: alkohli;
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
@@ -117,4 +116,3 @@ Per avviare una sessione di supporto, attenersi alla procedura seguente.
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come [diagnosticare e risolvere i problemi relativi al dispositivo virtuale StorSimple serie 8000](storsimple-troubleshoot-deployment.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 3f7eb053db6b6a545990f31f64628594f7f3e2c1
-ms.contentlocale: it-it
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 30166823b33669dda88b41a4aee2dfc34f01466f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registrare le origini dati in Azure Data Catalog
 ## <a name="introduction"></a>Introduzione
@@ -88,4 +87,3 @@ La registrazione dell'origine dati in Data Catalog, poiché copia i metadati str
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla registrazione delle origini dati, vedere l'esercitazione [Introduzione ad Azure Data Catalog](data-catalog-get-started.md).
-

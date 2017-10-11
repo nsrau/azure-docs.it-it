@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: ganesr;cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: af68955b78239832e413e1b59e033d7d3da8d599
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creare e modificare il peering per un circuito ExpressRoute usando PowerShell
 
@@ -456,4 +455,3 @@ Successivamente, [collegare una rete virtuale a un circuito ExpressRoute](expres
 * Per ulteriori informazioni sui flussi di lavoro ExpressRoute, vedere [Flussi di lavoro ExpressRoute](expressroute-workflows.md).
 * Per altre informazioni sul peering del circuito, vedere l'articolo relativo ai [circuiti ExpressRoute e domini di routing](expressroute-circuit-peerings.md)
 * Per ulteriori informazioni sull’uso delle reti virtuali, vedere [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 1e4336bef9324b5aa9456135cac9b71d19e02050
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: a336907b605da962f835b8057ac6071f480cd85e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gestione di entità di Servizi multimediali con REST 
 > [!div class="op_single_selector"]
@@ -176,5 +175,4 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

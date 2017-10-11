@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Tutti gli argomenti per il servizio SQL Data Warehouse di Azure
 Questo argomento elenca tutti gli argomenti che si applicano direttamente al servizio **SQL Data Warehouse** di Azure. È possibile cercare la pagina Web per le parole chiave utilizzando **Ctrl+F**, per trovare gli argomenti di interesse corrente.
@@ -165,5 +164,4 @@ Questa sezione elenca gli articoli aggiornati di recente, in cui l'aggiornamento
 | 85 |[Introduzione al rilevamento delle minacce](sql-data-warehouse-security-threat-detection.md) |Attività iniziali per il rilevamento delle minacce |
 | 86 |[Limiti di capacità di SQL Data Warehouse](sql-data-warehouse-service-capacity-limits.md) |I valori massimi per le connessioni, i database, le tabelle e le query per SQL Data Warehouse. |
 | 87 |[Risoluzione dei problemi relativi a SQL Data Warehouse di Azure](sql-data-warehouse-troubleshoot.md) |Risoluzione dei problemi relativi a SQL Data Warehouse di Azure. |
-
 

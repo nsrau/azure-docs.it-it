@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 98c247a03132ad1f5bf158d257cd5ba764162112
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: e0c07fd030339d025894520500d2cd948d31af45
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Come trovare un'API specifica necessaria per un'applicazione personalizzata
 
 L'accesso alle API richiede la configurazione di ruoli e ambiti di accesso. Se si desidera esporre le API Web dell'applicazione della risorsa alle applicazioni client, è necessario configurare gli ambiti e i ruoli di accesso per l'API. Se si desidera che un'applicazione client acceda a un'API Web, è necessario configurare le autorizzazioni per accedere all'API nella registrazione dell'app.
@@ -38,6 +36,5 @@ Quando si aggiungono le autorizzazioni per la registrazione dell'app, è possibi
 -   [Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 -   [Informazioni sul manifesto dell'applicazione in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
-
 
 

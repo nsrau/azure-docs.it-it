@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
 ms.openlocfilehash: 8dea36f92b034f8c6cdb6875634848d37f4c6606
-ms.contentlocale: it-it
-ms.lasthandoff: 11/28/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Disattivare ed eliminare un array virtuale StorSimple
 
@@ -91,5 +90,4 @@ Per eliminare il dispositivo, completare la procedura seguente.
 * Per informazioni su come eseguire il failover, fare riferimento all'articolo relativo a [failover e ripristino di emergenza per l'array virtuale StorSimple](storsimple-virtual-array-failover-dr.md).
 
 * Per altre informazioni sull'uso del servizio Gestione dispositivi StorSimple, vedere l'articolo relativo all'[uso di Gestione dispositivi StorSimple per amministrare l'array virtuale StorSimple](storsimple-virtual-array-manager-service-administration.md). 
-
 

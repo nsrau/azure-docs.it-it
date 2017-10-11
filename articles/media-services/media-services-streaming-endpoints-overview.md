@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: cbdc964b16cbc6cf291dbc4b6f60b20d67d9fc41
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming 
 
@@ -112,5 +111,4 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

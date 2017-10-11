@@ -14,14 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Schema del linguaggio di definizione del flusso di lavoro per App per la logica di Azure
 
 Una definizione del flusso di lavoro contiene la logica effettiva che viene eseguita come parte dell'app per la logica. Questa definizione include uno o più trigger che avviano l'app per la logica e una o più azioni che devono essere eseguite dall'app per la logica.  
@@ -338,4 +336,3 @@ Queste funzioni consentono di ottenere informazioni sul flusso di lavoro stesso 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Azioni e trigger del flusso di lavoro](logic-apps-workflow-actions-triggers.md)
-

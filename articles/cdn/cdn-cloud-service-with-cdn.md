@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="intro"></a> Integrare un servizio cloud con la rete CDN di Azure
 È possibile integrare un servizio cloud con la rete CDN di Azure, rendendo disponibile qualsiasi contenuto dalla posizione del servizio cloud. Questo approccio offre i vantaggi seguenti:
@@ -601,4 +600,3 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 [cdn-new-endpoint-button]: ./media/cdn-cloud-service-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
-

@@ -1,6 +1,6 @@
 ---
 title: Guida pratica alla progettazione di soluzioni sicure per il settore sanitario in Azure | Documentazione Microsoft
-description: " Questo articolo spiega come migliorare la sicurezza delle soluzioni sanitarie con i servizi e le funzionalità di Azure.. "
+description: " Questo articolo spiega come migliorare la sicurezza delle soluzioni sanitarie con i servizi e le funzionalità di Azure. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/07/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
 ms.openlocfilehash: 34ded89eb7fe005be2341f96e5b883ec73d9e0a5
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Guida pratica alla progettazione di soluzioni sicure per il settore sanitario in Azure
 Le startup, gli integratori di sistemi, i fornitori di software indipendenti (ISV) e le organizzazioni del settore sanitario che intendono passare ad Azure sono alla ricerca di una guida che le aiuti a integrare controlli di sicurezza che consentano di soddisfare gli obblighi di conformità.
@@ -31,9 +31,3 @@ Il contenuto è suddiviso in tre sezioni principali:
 3. Applicazione dei principi fondamentali a casi d'uso illustrando l'allineamento da una prospettiva di architetto di soluzioni, in cui i requisiti per le soluzioni sono allineati allo standard di gestione della sicurezza delle informazioni.
 
 Microsoft confida che [Guida pratica alla progettazione di soluzioni sicure per il settore sanitario in Azure](https://aka.ms/azureindustrysecurity) sia utile. In caso di domande o suggerimenti è possibile lasciare un commento in basso.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

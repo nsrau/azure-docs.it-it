@@ -1,6 +1,6 @@
 ---
 title: Implementazione di Azure Mobile Engagement per app di gioco
-description: Scenario di app di gioco per l&quot;implementazione di Azure Mobile Engagement
+description: Scenario di app di gioco per l'implementazione di Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>Implementare Mobile Engagement con app di gioco
 ## <a name="overview"></a>Overview
@@ -62,12 +61,10 @@ Dopo 3 mesi, il Mobile Project Manager ha raccolto dati sufficienti per migliora
 * Gli utenti che hanno superato il livello 20 iniziano a spendere oltre 10 dollari alla settimana.
 * Gli utenti tendono ad acquistare pacchetti Premium ai livelli 16, 24 e 32.
 
-Grazie a questa analisi il Mobile Project Manager decide di creare sequenze di notifiche push specifiche per aumentare le vendite all'interno dell'app. Crea tre sequenze push denominate: programma di benvenuto, programma di vendita e programma utenti inattivi. Per altre informazioni, vedere gli [schemi di progetto](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
-    ![][1]
+Grazie a questa analisi il Mobile Project Manager decide di creare sequenze di notifiche push specifiche per aumentare le vendite all'interno dell'app. Crea tre sequenze push denominate: programma di benvenuto, programma di vendita e programma utenti inattivi. Per ulteriori informazioni consultare il [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)![][1]
 
 <!--Image references-->
 
 [1]: ./media/mobile-engagement-game-scenario/notification-scenario.png
 
 <!--Link references-->
-

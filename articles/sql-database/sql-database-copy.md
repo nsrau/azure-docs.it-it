@@ -15,13 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 67c42b8df2f1d12ceecd127ab24d359a6de8ef43
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: 8c1e3c80b9f24089dc99463d6ea8ae5d0ea7b19d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="copy-an-azure-sql-database"></a>Copiare un database SQL di Azure
 
@@ -111,4 +109,3 @@ Per informazioni sulla gestione di utenti e account di accesso durante la copia 
 
 * Per informazioni sugli account di accesso, vedere [Controllo e concessione dell'accesso al database](sql-database-manage-logins.md) e [Configurare e gestire la sicurezza dei database SQL di Azure per il ripristino geografico o il failover](sql-database-geo-replication-security-config.md).
 * Per esportare un database, vedere [Esportare un database SQL di Azure in un file BACPAC](sql-database-export.md).
-

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f05ef18fb33942883ba164985721ce2d4f79d3fa
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 65557938673c5442758396a47873be1016e0f71b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Backup e ripristino per SQL Server in Macchine virtuali di Azure
 ## <a name="overview"></a>Panoramica
@@ -89,5 +87,4 @@ Se si prevede di distribuire SQL Server in una VM di Azure, le indicazioni sul p
 Sebbene il backup e il ripristino possano essere utilizzati per la migrazione dei dati, esistono percorsi di SQL Server potenzialmente più semplici per la migrazione dati in una macchina virtuale di Azure. Per una descrizione completa delle opzioni di migrazione e i suggerimenti, vedere [Migrazione di un database a SQL Server in una macchina virtuale di Azure](virtual-machines-windows-migrate-sql.md).
 
 Esaminare altre [risorse per l'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
 

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Configurare i cluster HDInsight aggiunti al dominio (anteprima)
 
@@ -321,5 +319,4 @@ Al termine dell'esercitazione, è consigliabile eliminare il cluster. Con HDInsi
 ## <a name="next-steps"></a>Passaggi successivi
 * Per configurare i criteri ed eseguire query Hive, vedere [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Configurare criteri Hive per cluster HDInsight aggiunti al dominio).
 * Per usare SSH per la connessione a cluster HDInsight aggiunti al dominio, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
 

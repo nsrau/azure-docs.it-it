@@ -9,14 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/20/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 49d1a893f4c7c7d99bf30ac7f7665c05019b02f4
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 3fbdb7741481bd3620466c3489d3609f9ea6961f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Come eseguire la procedura di backup e ripristino di un server nel Database di Azure per PostgreSQL usando il portale di Azure
 
 ## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
@@ -46,7 +44,7 @@ La procedura seguente consente di ripristinare il server di esempio ad un punto 
    ![Database di Azure per PostgreSQL - Informazioni di ripristino ](./media/postgresql-howto-restore-server-portal/3_restore.png)
   - **Punto di ripristino**: selezionare un punto nel tempo precedente alla modifica del server
   - **Server di destinazione**: fornire un nuovo nome del server che si desidera ripristinare
-  - **Percorso**: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
+  - **Posizione**: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
   - **Piano tariffario**: non è possibile modificare questo valore quando si ripristina un server. È uguale al server di origine. 
 
 5. Fare clic su **OK** per ripristinare il server al punto di ripristino temporizzato. 
@@ -55,4 +53,3 @@ La procedura seguente consente di ripristinare il server di esempio ad un punto 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Raccolte connessioni per il Database di Azure per PostgreSQL](concepts-connection-libraries.md)
-

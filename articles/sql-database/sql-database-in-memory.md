@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jodebrui
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 4cb45551c486263f26947e5684d54b4f2ecc7410
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Ottimizzare le prestazioni tramite le tecnologie in memoria nel database SQL
 
@@ -529,4 +528,3 @@ In un database con piano tariffario P2 è possibile raggiungere circa 9X il guad
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
-

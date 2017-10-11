@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: f6ed02cc67be4090402a115c30819ff6cff99c99
-ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Esercitazione: Integrazione di Azure Active Directory con Hosted Graphite
 
@@ -112,9 +110,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente:  `https://www.hostedgraphite.com/metadata/<user id>`
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:  `https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://www.hostedgraphite.com/complete/saml/<user id>`
 
 4. Nella sezione **URL e dominio Hosted Graphite** seguire questa procedura per configurare l'applicazione in **modalità avviata da SP**:
    
@@ -265,5 +263,4 @@ Quando si fa clic sul riquadro Hosted Graphite nel pannello di accesso, si dovre
 [201]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_203.png
-
 

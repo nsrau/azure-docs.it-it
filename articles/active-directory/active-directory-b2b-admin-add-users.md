@@ -1,7 +1,6 @@
 ---
-
 title: Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori | Microsoft Docs
-description: "Un amministratore può aggiungere utenti guest ad Azure AD da un&quot;organizzazione partner usando la Collaborazione B2B di Azure Active Directory."
+description: "Un amministratore può aggiungere utenti guest ad Azure AD da un'organizzazione partner usando la Collaborazione B2B di Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -16,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 7f33165141f31c1b495313f2da0d6e4681bdf8f2
-ms.lasthandoff: 03/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="how-do-azure-active-directory-admins-add-b2b-collaboration-users"></a>Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori
 
 Gli amministratori globali e gli amministratori con limitazioni possono usare il [portale di Azure](https://portal.azure.com) per invitare gli utenti di Collaborazione B2B alla directory, a un gruppo o a un'applicazione.
@@ -70,4 +66,3 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [API e personalizzazione per Collaborazione B2B di Azure Active Directory](active-directory-b2b-api.md)
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-

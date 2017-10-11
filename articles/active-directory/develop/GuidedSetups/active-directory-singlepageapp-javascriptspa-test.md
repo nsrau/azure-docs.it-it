@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: c559c80781da3631a783d96539622c4c89fe7e17
-ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
-
+ms.openlocfilehash: c888760ab311e8ac08b1e625bb837f91047db645
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 ## <a name="test-your-code"></a>Testare il codice
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 08/19/2017
 
 ## <a name="test-your-application"></a>Testare l'applicazione
 
-Dopo che il browser ha caricato *index.html*, fare clic sul pulsante *Call Microsoft Graph API* (Chiama API Microsoft Graph). Se è la prima volta, il browser reindirizza l'utente all'endpoint v2 di Microsoft Azure Active Directory, da cui viene chiesto di accedere.
+Dopo che il browser ha caricato *index.html*, fare clic sul pulsante *Call Microsoft Graph API*. Se questa è la prima volta, il browser reindirizza all'endpoint v2 di Microsoft Azure Active Directory, a cui viene chiesto di accedere.
  
 ![Schermata di esempio](media/active-directory-singlepageapp-javascriptspa-test/javascriptspascreenshot1.png)
 
@@ -63,4 +62,3 @@ L'API di Microsoft Graph richiede l'ambito `user.read` per leggere il profilo de
 Se per un'API back-end non è richiesto alcun ambito (non consigliabile), è possibile usare `clientId` come ambito nelle chiamate `acquireTokenSilent` e/o `acquireTokenRedirect`.
 
 <!--end-collapse-->
-

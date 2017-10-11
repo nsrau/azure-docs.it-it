@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 4eaf86c9ac3e4dc2b51b88383626eda774cab0e9
-ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Usare set con bilanciamento del carico per creare un cluster MySQL su Linux
 > [!IMPORTANT]
@@ -339,4 +338,3 @@ Si applicano le limitazioni seguenti:
 * Il bilanciamento del carico richiede almeno cinque secondi per rispondere, quindi le applicazioni devono essere compatibili con i cluster ed essere più tolleranti del timeout. Possono essere utili anche altre architetture, quali le code in-app e i middleware di query.
 * L'ottimizzazione di MySQL è necessaria per assicurare che la scrittura venga effettuata con la velocità adeguata e che le cache siano scaricate nel disco il più frequentemente possibile per ridurre al minimo le perdite di memoria.
 * Le prestazioni delle operazioni di scrittura dipendono dall'interconnessione delle VM nel commutatore virtuale, in quanto questo è il meccanismo utilizzato da DRBD per replicare il dispositivo.
-

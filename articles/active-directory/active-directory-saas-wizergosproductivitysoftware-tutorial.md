@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
 ms.openlocfilehash: 73b3bc05aeb337c12acb7e47c0dbebe6d0196530
-ms.contentlocale: it-it
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>Esercitazione: Integrazione di Azure Active Directory con Wizergos Productivity Software
 Questa esercitazione descrive l'integrazione di Wizergos Productivity Software con Azure Active Directory (Azure AD).
@@ -224,4 +223,3 @@ Quando si fa clic sul riquadro Wizergos Productivity Software nel pannello di ac
 [203]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_205.png
-

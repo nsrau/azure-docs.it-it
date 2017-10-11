@@ -11,14 +11,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/30/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: a04188aed40a46e8cb64dfeb1230fb9b3c6ab679
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 9153a5a843dd5c18f27a3af232fea3b152240fe1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare Ruby per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per PostgreSQL usando un'applicazione [Ruby](https://www.ruby-lang.org). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo articolo presuppone che si abbia familiarità con lo sviluppo con Ruby, ma non con Database di Azure per PostgreSQL.
 
@@ -214,4 +212,3 @@ end
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./howto-migrate-using-export-and-import.md)
-

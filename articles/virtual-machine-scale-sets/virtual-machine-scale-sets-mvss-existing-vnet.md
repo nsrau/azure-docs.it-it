@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 28117d467b491704aed8d45e5eba42530579dfa2
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Aggiungere un riferimento a una rete virtuale esistente in un modello di set di scalabilità di Azure
 
 Questo articolo illustra come modificare il [modello di set di scalabilità minimo valido](./virtual-machine-scale-sets-mvss-start.md) per eseguire la distribuzione in una rete virtuale esistente anziché crearne uno nuovo.
@@ -107,4 +105,3 @@ Infine, si passa il parametro `subnetId` impostato dall'utente, anziché usare `
 ## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

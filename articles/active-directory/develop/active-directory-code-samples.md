@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
-ms.openlocfilehash: 4e8c8539fdcab348aa91644baafae217bd5e863a
-ms.contentlocale: it-it
-ms.lasthandoff: 02/13/2017
-
+ms.openlocfilehash: 19d71e65dc2c78663d94c74228dcff038566391b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-code-samples"></a>Esempi di codice di Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -132,4 +131,3 @@ Queste procedure possono risultare interessanti per l'utente pur essendo basate 
 [Concetti e riferimenti relativi all'API Graph di Azure AD](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 
 [Libreria helper dell'API Graph di Azure AD](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
-

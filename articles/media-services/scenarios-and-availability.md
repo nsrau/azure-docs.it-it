@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 5cdfd4dd90f5073d03071ef77c062d450210f5ea
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: d9994dd7bfb6b6bf949a7708c07651d667929ae4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
@@ -260,5 +259,4 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

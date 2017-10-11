@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/22/2017
 ms.author: elbutter
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
-ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)
 > [!div class="op_single_selector"]
@@ -220,4 +219,3 @@ Per comprendere più facilmente altri concetti importanti sulle prestazioni, ved
 
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.com/
-

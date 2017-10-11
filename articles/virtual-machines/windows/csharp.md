@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 5d9021c2f65b70e36d5ea82992c9fb9d2d6d394a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Creare e gestire macchine virtuali Windows in Azure tramite C# #
 
@@ -397,5 +396,4 @@ L'esecuzione completa dell'applicazione console dall'inizio alla fine richieder√
 ## <a name="next-steps"></a>Passaggi successivi
 * Per usare un modello per creare una macchina virtuale, vedere le informazioni contenute in [Distribuire una macchina virtuale di Azure con C# e un modello di Resource Manager](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Altre informazioni sull'uso delle [librerie di Azure per .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
-
 

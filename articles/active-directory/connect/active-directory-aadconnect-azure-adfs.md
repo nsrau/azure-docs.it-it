@@ -16,12 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 9119a4523c66415925223b5de10ca0fb4a7147b2
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuzione di Active Directory Federation Services in Azure
 AD FS offre funzionalità di federazione delle identità e Single Sign-On (SSO) Web protette e semplificate. La federazione con Azure AD o O365 consente agli utenti di eseguire l'autenticazione con credenziali locali e accedere a tutte le risorse nel cloud. Di conseguenza, diventa importante la presenza di un'infrastruttura AD FS a disponibilità elevata per garantire l'accesso alle risorse sia in locale sia nel cloud. La distribuzione di AD FS in Azure consente di raggiungere facilmente la disponibilità elevata necessaria.
@@ -355,5 +354,4 @@ Durante la distribuzione di questo modello, è possibile usare una rete virtuale
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 * [Configurazione e gestione di AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Distribuzione di AD FS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
 

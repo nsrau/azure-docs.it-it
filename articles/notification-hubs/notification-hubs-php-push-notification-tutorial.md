@@ -14,12 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c81ab9004bf71007395d2545c4e44b07c865aa9d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Come usare Hub di notifica da PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -198,7 +197,7 @@ Una volta definita questa classe, è possibile scrivere i metodi di notifica all
 
 I metodi sopra indicati inviano una richiesta POST HTTP all'endpoint /messages dell'hub di notifica, contenenti il corpo e le intestazioni corrette per l'invio della notifica.
 
-## <a name="a-namecomplete-tutorialacomplete-the-tutorial"></a><a name="complete-tutorial"></a>Completare l'esercitazione
+## <a name="complete-tutorial"></a>Completare l'esercitazione
 È ora possibile completare l'esercitazione introduttiva inviando la notifica da un back-end PHP.
 
 Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'esercitazione [esercitazione Introduzione ad Hub di notifica]:
@@ -254,5 +253,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 
 [esempio di wrapper REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [esercitazione Introduzione ad Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-
 

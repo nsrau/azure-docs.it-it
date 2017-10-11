@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
 Per fornire prestazioni stimabili e scalabili, Microsoft Azure SQL Data Warehouse consente di controllare i livelli di concorrenza e le allocazioni di risorse, come la memoria e la classificazione in ordine di priorità della CPU. Questo articolo introduce i concetti di gestione della concorrenza e del carico di lavoro, spiegando in che modo entrambe le funzionalità sono state implementate e come vengono controllate nel data warehouse. La gestione del carico di lavoro di SQL Data Warehouse è concepita per facilitare il supporto di ambienti multiutente. Non è concepita per i carichi di lavoro multi-tenant.
@@ -842,4 +841,3 @@ Per altre informazioni sulla gestione degli utenti e della sicurezza del databas
 [Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-

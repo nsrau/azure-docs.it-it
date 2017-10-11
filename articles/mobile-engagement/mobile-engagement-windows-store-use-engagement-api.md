@@ -1,6 +1,6 @@
 ---
-title: Come usare l&quot;API di Engagement in un&quot;app di Windows universale
-description: Come usare l&quot;API di Engagement in un&quot;app di Windows universale
+title: Come usare l'API di Engagement in un'app di Windows universale
+description: Come usare l'API di Engagement in un'app di Windows universale
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8a643b01057386722aa73df6fa3937c923c378ef
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 75fc134a5535e6113331470cf61df9c06eb8e2ab
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-universal"></a>Come usare l'API di Engagement in un'app di Windows universale
 Questo documento è complementare all'articolo [Come integrare Engagement in un'app di Windows universale](mobile-engagement-windows-store-integrate-engagement.md)e fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
@@ -321,5 +320,4 @@ Questi log non sono abilitati per impostazione predefinita. Per eseguire una per
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
-
 

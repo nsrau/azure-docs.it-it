@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: a347eedbf5511dc83e1bc7721667441cfb87cb59
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning degli utenti
 
@@ -29,7 +28,7 @@ Questa esercitazione illustra i passaggi necessari per effettuare automaticament
 Per configurare l'integrazione di Azure AD con Workplace by Facebook, sono necessari:
 
 - Sottoscrizione di Azure AD.
-- Una sottoscrizione Workplace by Facebook abilitata per l'accesso Single Sign-On (SSO)
+- Una sottoscrizione a Workplace by Facebook abilitata per l'accesso Single Sign-On (SSO)
 
 A questo scopo, seguire queste indicazioni:
 
@@ -92,5 +91,4 @@ Per altre informazioni su come configurare il provisioning automatico, vedere [l
 * [Gestione del provisioning degli account utente per le app aziendali](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Configurare l'accesso Single Sign-On](active-directory-saas-facebook-at-work-tutorial.md)
-
 

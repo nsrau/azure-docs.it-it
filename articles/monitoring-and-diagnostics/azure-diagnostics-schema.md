@@ -1,5 +1,5 @@
 ---
-title: Versioni e cronologia degli schemi di configurazione dell&quot;estensione di Diagnostica di Azure | Microsoft Docs
+title: Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure | Microsoft Docs
 description: "Pertinenti per la raccolta di contatori delle prestazioni in Macchine virtuali, set di scalabilità di macchine virtuali di Microsoft Azur, Service Fabric e Servizi cloud di Azure."
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
 ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure
 Questa pagina rappresenta l'indice delle versioni degli schemi di estensione di Diagnostica di Azure forniti con Microsoft Azure SDK.  
@@ -167,5 +165,4 @@ Se si aggiorna il progetto da Azure SDK 2.4 ad Azure SDK 2.5 o versioni successi
 * **La diagnostica per le applicazioni del servizio cloud può essere configurata solo a livello di ruolo, non a livello di istanza.**
 * **Ogni volta che si distribuisce l'app, le configurazioni di diagnostica vengono aggiornate** : ciò può provocare problemi di parità se si modifica la configurazione di diagnostica da Esplora server e quindi si ridistribuisce l'app.
 * **In Azure SDK 2.5 e versioni successive i dump di arresto anomalo del sistema sono configurati nel file di configurazione, non nel codice** : se i dump di arresto anomalo del sistema sono configurati nel codice, sarà necessario trasferire manualmente la configurazione dal codice al file di configurazione, perché i dump di arresto anomalo del sistema non vengono trasferiti durante la migrazione in Azure SDK 2.6.
-
 

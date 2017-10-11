@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: bc8e3b76aad18e8d7a73de8bc12e6527e415035d
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 536071ec61d093af243bfd42faa6bb404172fb8e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di risposta agli eventi imprevisti per una soluzione di identità ibrida
 La maggior parte delle aziende di medie o grandi dimensioni dovrà definire una [risposta ad eventi imprevisti](https://technet.microsoft.com/library/cc700825.aspx) in materia di sicurezza per consentire al personale IT di prendere le azioni appropriate in base al livello di gravità. Il sistema di gestione delle identità è una componente importante del processo di risposta agli eventi imprevisti, poiché consente di identificare l'utente che ha eseguito una determinata azione nel perseguimento dell'obiettivo. La soluzione di identità ibrida, inoltre, deve essere in grado di fornire funzionalità di monitoraggio e reporting di cui può avvalersi il personale IT per intraprendere le azioni necessarie per identificare e contrastare una potenziale minaccia. In un piano di risposta agli eventi imprevisti, sono generalmente contenute le fasi seguenti:
@@ -66,5 +65,4 @@ Durante le fasi di controllo dei danni e riduzione dei rischi, è importante lim
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

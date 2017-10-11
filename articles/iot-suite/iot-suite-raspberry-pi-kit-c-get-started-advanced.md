@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 971f23a01b53ed6d7d19438567392e0b43b57120
-ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: f36f6512bb30e4b109b1bd1c3cdab10300f4edc9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>Connettere Raspberry Pi 3 alla soluzione di monitoraggio remoto e attivare gli aggiornamenti del firmware remoto usando C
 
@@ -37,11 +36,11 @@ L'esercitazione usa:
 
 ## <a name="overview"></a>Panoramica
 
-In questa esercitazione si completa questa procedura:
+In questa esercitazione si completa la procedura seguente:
 
 * Distribuire un'istanza della soluzione preconfigurata di monitoraggio remoto nella sottoscrizione di Azure. Questo passaggio distribuisce e configura automaticamente più servizi di Azure.
 * Configurare il dispositivo e i sensori per la comunicazione con il computer e la soluzione di monitoraggio remoto.
-* Aggiornare il codice del dispositivo di esempio per la connessione alla soluzione di monitoraggio remoto e per inviare i dati di telemetria che è possibile visualizzare nel dashboard della soluzione.
+* Aggiornare il codice del dispositivo di esempio per eseguire la connessione alla soluzione di monitoraggio remoto e inviare i dati di telemetria che è possibile visualizzare nel dashboard della soluzione.
 * Usare il codice del dispositivo di esempio per aggiornare l'applicazione client.
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites](../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
@@ -49,7 +48,7 @@ In questa esercitazione si completa questa procedura:
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> La soluzione di monitoraggio remota esegue il provisioning di un set di servizi di Azure nella sottoscrizione di Azure. La distribuzione riflette un'architettura enterprise reale. Per evitare costi di consumo di Azure non necessari, eliminare l'istanza della soluzione preconfigurata in azureiotsuite.com al completamento. Se la soluzione preconfigurata occorre nuovamente, è possibile ricrearla facilmente. Per altre informazioni sulla riduzione dei consumi durante l'esecuzione della soluzione di monitoraggio remoto, vedere [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurazione di soluzioni preconfigurate di Azure IoT Suite per scopi dimostrativi).
+> La soluzione di monitoraggio remota esegue il provisioning di un set di servizi di Azure nella sottoscrizione di Azure. La distribuzione riflette un'architettura enterprise reale. Per evitare costi di consumo di Azure non necessari, eliminare l'istanza della soluzione preconfigurata in azureiotsuite.com al completamento. Se la soluzione preconfigurata occorre nuovamente, è possibile ricrearla facilmente. Per altre informazioni sulla riduzione del consumo durante l'esecuzione della soluzione di monitoraggio remoto, vedere [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurazione di soluzioni preconfigurate di Azure IoT Suite per scopi dimostrativi).
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-solution](../../includes/iot-suite-raspberry-pi-kit-view-solution.md)]
 
@@ -138,7 +137,7 @@ Premere **CTRL+C** per uscire dal programma in qualsiasi momento.
     ![Mostra l'avanzamento dell'aggiornamento][img-update-progress]
 
     > [!NOTE]
-    > L'applicazione di monitoraggio remoto viene riavviata automaticamente al termine dell'aggiornamento. Usare il comando `ps -ef` per verificare che sia in esecuzione. Se si desidera terminare il processo, usare il comando `kill` con l'id del processo.
+    > L'applicazione di monitoraggio remoto viene riavviata automaticamente al termine dell'aggiornamento. Usare il comando `ps -ef` per verificare che sia in esecuzione. Se si vuole terminare il processo, usare il comando `kill` con l'id del processo.
 
 1. È possibile visualizzare lo stato dell'aggiornamento del firmware, come segnalato dal dispositivo, nel portale della soluzione. La schermata seguente mostra lo stato e la durata di ogni fase del processo di aggiornamento e la nuova versione del firmware:
 
@@ -147,7 +146,7 @@ Premere **CTRL+C** per uscire dal programma in qualsiasi momento.
     Se si passa nuovamente al dashboard, è possibile verificare che il dispositivo sta ancora inviando i dati di telemetria dopo l'aggiornamento del firmware.
 
 > [!WARNING]
-> Se si lascia la soluzione di monitoraggio remoto in esecuzione nell'account Azure, verrà addebitato il tempo dell'esecuzione. Per altre informazioni sulla riduzione dei consumi durante l'esecuzione della soluzione di monitoraggio remoto, vedere [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurazione di soluzioni preconfigurate di Azure IoT Suite per scopi dimostrativi). Al termine, eliminare la soluzione preconfigurata dall'account Azure.
+> Se si lascia la soluzione di monitoraggio remoto in esecuzione nell'account Azure, verrà addebitato il tempo dell'esecuzione. Per altre informazioni sulla riduzione del consumo durante l'esecuzione della soluzione di monitoraggio remoto, vedere [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurazione di soluzioni preconfigurate di Azure IoT Suite per scopi dimostrativi). Al termine, eliminare la soluzione preconfigurata dall'account Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 0ab6506e14997c0c6d58afa22db63f928d7cceb9
-ms.contentlocale: it-it
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Aggiungere l'accesso a un'app a pagina singola AngularJS - .NET
 In questo articolo verrà aggiunto l'accesso con account Microsoft a un'app AngularJS usando l'endpoint v2.0 di Azure Active Directory.  L'endpoint v2.0 consente di eseguire una singola integrazione nell'app e di autenticare gli utenti con account sia personali che aziendali o dell'istituto di istruzione.
@@ -236,5 +234,4 @@ Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori 
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
 

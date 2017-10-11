@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 7e6ccf51a4b75eef16a7df5c1a1018954af8e5dd
-ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
 Per usare il servizio di "split and merge", è necessario configurare correttamente le impostazioni sulla sicurezza. Il servizio rientra nella funzionalità Scalabilità elastica di database SQL di Microsoft Azur. Per altre informazioni, vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -453,5 +452,4 @@ Le impostazioni SSL descritte in questo documento crittografano le comunicazioni
 Le credenziali archiviate in questo database vengono crittografate. Come procedura consigliata è opportuno verificare tuttavia che i ruoli Web e di lavoro delle distribuzioni del servizio siano sempre aggiornati e protetti, in quanto dispongono dell'accesso al database di metadati e al certificato usati per la crittografia e decrittografia delle credenziali archiviate. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

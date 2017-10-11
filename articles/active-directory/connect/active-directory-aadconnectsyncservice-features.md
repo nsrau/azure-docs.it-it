@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a439f421d726f58b2d21fb4a0e883e16db719364
-ms.contentlocale: it-it
-ms.lasthandoff: 03/10/2017
-
+ms.openlocfilehash: c2873510c280a2683c235cfdce3d2617c3b665cd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funzionalità del servizio di sincronizzazione Azure AD Connect
 La funzionalità di sincronizzazione di Azure AD Connect include due componenti:
@@ -108,5 +107,4 @@ Dopo aver abilitato questa funzionalità, i valori di userPrincipalName esistent
 ## <a name="see-also"></a>Vedere anche
 * [Servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
 

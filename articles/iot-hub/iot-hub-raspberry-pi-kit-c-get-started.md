@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 7/12/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 8b8fda17a8d1d1796d5299e3aba4b0fd5e719a4c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Connettere Raspberry Pi ad Azure IoT Hub (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -222,4 +220,3 @@ Dovrebbe essere visibile l'output seguente che mostra i dati del sensore e i mes
 È stata eseguita un'applicazione di esempio per raccogliere i dati del sensore da inviare all'hub IoT. Per visualizzare i messaggi inviati da Raspberry Pi all'hub IoT o per inviare messaggi a Raspberry Pi in un'interfaccia della riga di comando, vedere l'[esercitazione sulla gestione della messaggistica tra cloud e dispositivo con iothub-explorer](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migrazione di un database SQL Server al database SQL nel cloud
 Questo articolo illustra i due metodi principali per eseguire la migrazione di un database SQL Server 2005 o versione successiva a un database SQL di Azure. Il primo metodo è più semplice, ma comporta tempi di inattività anche lunghi durante la migrazione. Il secondo metodo è più complesso, ma elimina quasi completamente i tempi di inattività durante la migrazione.
@@ -119,6 +118,5 @@ Oltre a ricerche su Internet e all'uso di queste risorse, usare il [forum della 
 * Per informazioni sull'uso di file BACPAC per la migrazione, vedere l'articolo [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrazione da SQL Server al database SQL di Azure con file BACPAC) del blog del Customer Advisory Team di SQL Server.
 * Per informazioni sull'uso dell'ora UTC dopo la migrazione, vedere [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/) (Sostituire il fuso orario predefinito con il fuso orario locale).
 * Per informazioni su come modificare la lingua predefinita di un database dopo la migrazione, vedere [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/) (Come modificare la lingua predefinita del database SQL di Azure).
-
 
 

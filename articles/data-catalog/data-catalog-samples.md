@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/05/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0c76287232e578df695f73e5d9792ee457266db9
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: 6ba88885805f1a206f01015f7eec5236da517403
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="data-catalog-developer-samples"></a>Esempi per sviluppatori del Catalogo dati
 Introduzione allo sviluppo delle app del catalogo dati mediante l'API REST del catalogo dati. L'API REST Data Catalog è un'API basata su REST che consente l'accesso a livello di codice alle risorse di Data Catalog per registrare, annotare e cercare asset di dati.
@@ -40,5 +39,4 @@ Di seguito vi sono gli esempi presenti in GitHub:
 * [Importazione in massa dei termini di glossario](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
 
     In questo esempio viene illustrato come importare i termini di glossario da un file CSV in un glossario ADC.
-
 

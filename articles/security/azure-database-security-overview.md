@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-database-security-overview"></a>Panoramica della sicurezza del database di Azure
 
 La sicurezza è un tema della massima importanza per la gestione dei database ed è sempre stata una priorità per il database SQL di Azure. Il database SQL di Azure supporta la sicurezza della connessione con regole del firewall e crittografia delle connessioni. Supporta anche l'autenticazione con nome utente e password e l'autenticazione di Azure Active Directory, che usa identità gestite da Azure Active Directory. Per l'autorizzazione viene usato il controllo degli accessi in base al ruolo.
@@ -219,4 +217,3 @@ Azure Marketplace riunisce gli ecosistemi dei partner di Microsoft Azure in una 
 - Altre informazioni sul [Centro sicurezza di Azure e il servizio database SQL di Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-database).
 - Per altre informazioni sul rilevamento delle minacce, vedere [Rilevamento delle minacce nel database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 - Per altre informazioni, vedere [Migliorare le prestazioni del database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial). 
-

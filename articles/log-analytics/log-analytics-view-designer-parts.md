@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Riferimento alla parte di visualizzazione relativa a Progettazione viste di Log Analytics
 Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati provenienti dal repository OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascuna parte di visualizzazione disponibile per l'uso nelle viste personalizzate.
@@ -346,4 +345,3 @@ La tabella seguente illustra le impostazioni relative alle soglie.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [ricerche log](log-analytics-log-searches.md) per supportare le query nelle parti di visualizzazione.
-

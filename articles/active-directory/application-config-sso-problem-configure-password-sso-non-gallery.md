@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2fc922cb591bcd9ef333fbe3d77ee3dd03005915
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 9c76b6f3495e2dd759a156fcef97b57aece8d632
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
 L'articolo descrive i problemi comuni che si possono incontrare durante la configurazione dell'accesso**Single Sign-On basato su password** per un'applicazione non inclusa nella raccolta.
@@ -173,7 +171,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 È possibile visualizzare i dettagli di qualsiasi notifica del portale seguendo questa procedura:
 
-1.  Fare clic sull'icona **Notifiche** (la campanella) nella parte superiore destra del portale di Azure.
+1.  Fare clic sull'icona **Notifiche** (la campanella) nella parte superiore destra del portale di Azure
 
 2.  Selezionare una notifica in uno stato di **Errore** (quelle con accanto un (!) di colore rosso).
 
@@ -191,7 +189,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Come ottenere assistenza inviando i dettagli di notifica a un tecnico del supporto
 
-È molto importante condividere **tutti i dettagli elencati di seguito** con un tecnico del supporto per poter ricevere assistenza immediata. È possibile, a tale scopo, è **effettuare uno screenshot** o fare clic sull'**icona Copia errore** che si trova a destra della casella di testo **Copia errore**.
+È molto importante condividere **tutti i dettagli elencati di seguito** con un tecnico del supporto per poter ricevere assistenza immediata. A tale scopo, è possibile **acquisire uno screenshot** o fare clic sull'**icona Copia errore** che si trova a destra della casella di testo **Copia errore**.
 
 ## <a name="notification-details-explained"></a>Spiegazione dei dettagli della notifica
 
@@ -201,11 +199,11 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
 -   **Titolo**: il titolo descrittivo della notifica
 
-    -   Esempio: **impostazioni del proxy di applicazione**
+    -   Esempio: **Impostazioni proxy di applicazione**
 
 -   **Descrizione**: la descrizione di ciò che si è verificato a seguito dell'operazione
 
-    -   Esempio: **l'URL interno specificato è già usato da un'altra applicazione**
+    -   Esempio: **L'URL interno immesso è già usato da un'altra applicazione**
 
 -   **ID notifica**: l'ID univoco della notifica
 
@@ -259,5 +257,4 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)
-
 

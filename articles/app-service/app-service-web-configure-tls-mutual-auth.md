@@ -1,6 +1,6 @@
 ---
-title: Come configurare l&quot;autenticazione reciproca TLS per un&quot;app Web
-description: Informazioni su come configurare un&quot;app Web per l&quot;uso dell&quot;autenticazione del certificato client in TLS.
+title: Come configurare l'autenticazione reciproca TLS per un'app Web
+description: Informazioni su come configurare un'app Web per l'uso dell'autenticazione del certificato client in TLS.
 services: app-service
 documentationcenter: 
 author: naziml
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
-ms.lasthandoff: 03/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Come configurare l'autenticazione reciproca TLS per un'app Web
 ## <a name="overview"></a>Panoramica
@@ -195,4 +194,3 @@ Il certificato client inviato all'applicazione non viene sottoposto ad alcuna co
             }
         }
     }
-

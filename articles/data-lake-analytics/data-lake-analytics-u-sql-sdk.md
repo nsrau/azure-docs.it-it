@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Ridimensionare esecuzione e test locali di U-SQL con l'SDK U-SQL di Azure Data Lake
 
 Durante lo sviluppo di script U-SQL, è comune eseguire e testare a livello locale gli script U-SQL prima di inviarli al cloud. Per questo scenario, Azure Data Lake offre un pacchetto NuGet, denominato SDK U-SQL di Azure Data Lake, tramite cui è possibile ridimensionare facilmente l'esecuzione e il test locali di U-SQL. È inoltre possibile integrare questo test di U-SQL con il sistema CI (Continuous Integration, integrazione continua) per automatizzare la compilazione e il test.
@@ -398,4 +395,3 @@ Verificare quanto segue:
 * Per visualizzare una query più complessa, vedere [Analizzare i log dei siti Web con Analisi Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 * Per visualizzare i dettagli del processo, vedere [Usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
 * Per usare la visualizzazione esecuzioni vertici, vedere [Usare la visualizzazione esecuzioni vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
-

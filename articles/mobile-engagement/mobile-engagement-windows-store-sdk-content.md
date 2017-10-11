@@ -1,5 +1,5 @@
 ---
-title: Contenuto dell&quot;SDK per app di Windows universali
+title: Contenuto dell'SDK per app di Windows universali
 description: Informazioni sul contenuto di Azure Mobile Engagement SDK per app di Windows universali
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea47cba55c9689e23eb3592ae2559649d3377055
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: b28d525ab16487b963772e23fdecd11f94dcabd1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-sdk-content"></a>Contenuto dell'SDK per app di Windows universali
 Questo documento elenca e descrive il contenuto distribuito dall'SDK nell'applicazione.
@@ -41,5 +40,4 @@ Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È ino
 
 ### <a name="overlay-folder"></a>Cartella /overlay
 * `EngagementPageOverlay.cs` : la pagina di sovrimpressione che determina l'aggiunta dell'interfaccia utente in-app Reach di Engagement al figlio.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Note sulla versione per Servizi BizTalk di Azure
 
@@ -222,5 +221,4 @@ In tutto il documento i termini "pipeline" e "bridge" sono stati usati in modo i
 
 ### <a name="concepts"></a>Concetti
 [Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
 

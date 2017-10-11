@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>Assegnare più indirizzi IP a una macchina virtuale usando un modello di Azure Resource Manager
 
@@ -101,4 +100,3 @@ Per distribuire il modello usando l'interfaccia della riga di comando di Azure 1
 2. Dopo aver distribuito la VM, connettersi alla VM e aggiungere gli indirizzi IP privati al sistema operativo che si è distribuito completando la procedura riportata nella sezione di questo articolo [Add IP addresses to a VM operating system](#os-config) (Aggiungere indirizzi IP al sistema operativo di una VM). Non aggiungere gli indirizzi IP pubblici al sistema operativo.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

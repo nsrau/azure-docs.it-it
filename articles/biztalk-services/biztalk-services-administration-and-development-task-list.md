@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1013419f9283c3e81a6a6e8ed56a34d6ee5937ea
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7d4532daf5e4b8f45de94bbec230633978814a6e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Elenco dell’attività di Amministrazione e Sviluppo in Servizi BizTalk
 
@@ -58,5 +56,4 @@ Quando si lavora con i servizi BizTalk di Microsoft Azure, esistono diversi comp
 [Imparare a usare e creare mappe e trasformazioni dei messaggi](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
 [Uso del servizio Adapter BizTalk](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
 [Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
 ms.openlocfilehash: 23f1bbb066c5b6481988ee841ad8979d78abf084
-ms.contentlocale: it-it
-ms.lasthandoff: 04/05/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Note sulla versione dell'aggiornamento 4 di StorSimple serie 8000
 
@@ -91,5 +90,4 @@ Questo aggiornamento non può essere applicato all'appliance cloud StorSimple (o
 ## <a name="next-step"></a>Passaggio successivo
 
 Informazioni su come [installare l'aggiornamento 4](storsimple-install-update-4.md) nel dispositivo StorSimple.
-
 

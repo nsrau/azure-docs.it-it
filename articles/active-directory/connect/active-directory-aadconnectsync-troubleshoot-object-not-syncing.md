@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3c9642e5c2da92203be2bc23820e5b6f544de660
-ms.contentlocale: it-it
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: 491a920ceeaac62dd37b1def3f02234056aebfb0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Risoluzione dei problemi relativi a un oggetto che non esegue la sincronizzazione in Azure AD
 
@@ -142,7 +141,6 @@ Se manca il connettore in Azure AD, leggere [Attributi MV](#MV-attributes) per v
 Questa scheda consente anche di passare all'[oggetto spazio connettore](#connector-space-object-properties). Selezionare una riga e fare clic su **Proprietà**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-

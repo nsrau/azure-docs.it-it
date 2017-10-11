@@ -1,6 +1,6 @@
 ---
 title: Controllo tabelle, reindirizzamento TDS ed endpoint IP per il database SQL di Azure | Microsoft Docs
-description: Informazioni su controllo, reindirizzamento TDS e modifiche apportate all&quot;endpoint IP quando si implementa il controllo delle tabelle in un database SQL di Azure.
+description: Informazioni su controllo, reindirizzamento TDS e modifiche apportate all'endpoint IP quando si implementa il controllo delle tabelle in un database SQL di Azure.
 services: sql-database
 documentationcenter: 
 author: giladm
@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 1447a75758475dd6536ef1bcd0e8432e5618dab8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: d4a7e6658ec65a70bd7e07859e2a69acee58b7b5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Database SQL: supporto dei client di livello inferiore e modifiche all'endpoint IP per il controllo tabelle
 
 > [!IMPORTANT]
@@ -85,4 +82,3 @@ Il nuovo endpoint IP del database dipenderà dall'area del database:
 | Canada orientale |40.86.227.82, 40.86.225.194 |
 | Regno Unito settentrionale |13.87.101.18, 13.87.100.232 |
 | Regno Unito meridionale 2 |13.87.32.202, 13.87.32.226 |
-

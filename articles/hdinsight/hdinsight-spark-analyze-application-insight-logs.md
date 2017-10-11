@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 8ccb94ea1b415c93d9dc3faefab3cbf8fb075b89
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: d98e403683618ef6115372f99e4949af87af4490
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analizzare i log di Application Insights Telemetry con Spark in HDInsight
 
@@ -380,4 +379,3 @@ Per informazioni sulla creazione e l'esecuzione delle applicazioni Spark, vedere
 
 * [Creare un'applicazione autonoma con Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Eseguire processi in modalità remota in un cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
-

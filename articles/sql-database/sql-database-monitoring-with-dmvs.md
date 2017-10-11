@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae0054ac9d87562f6babbfaeaf440d653d60963a
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: d9b007d29e06e672db71b4a8415673f258c3fd89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica
 Il database SQL di Microsoft Azure consente a un sottoinsieme di visualizzazioni a gestione dinamica di diagnosticare i problemi delle prestazioni che potrebbero essere causati da query bloccate o con esecuzione prolungata, colli di bottiglia delle risorse, piani di query insufficienti e così via. Questo argomento fornisce informazioni su come rilevare problemi comuni relativi alle prestazioni tramite le DMV.
@@ -137,5 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 ## <a name="see-also"></a>Vedere anche
 [Introduzione al Database SQL](sql-database-technical-overview.md)
-
 

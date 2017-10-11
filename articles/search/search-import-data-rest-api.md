@@ -15,14 +15,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Caricare dati in Ricerca di Azure tramite l'API REST
 > [!div class="op_single_selector"]
 >
@@ -181,4 +179,3 @@ Per altre informazioni su azioni sui documenti e risposte di esito positivo/erro
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure](search-query-overview.md) .
-

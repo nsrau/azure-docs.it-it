@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 8d00882caf5411240c5f0a3533c78c3dbe361ef2
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 Le soluzioni Microsoft di gestione degli accessi e delle identità consentono all'IT di proteggere l'accesso ad applicazioni e risorse nel data center aziendale e nel cloud, abilitando altri livelli di convalida, ad esempio Multi-Factor Authentication e criteri di accesso condizionale. Il monitoraggio delle attività sospette tramite funzioni avanzate di report di sicurezza, controllo e avvisi consente di attenuare i potenziali problemi di sicurezza. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) offre l'accesso Single Sign-On a migliaia di app cloud (SaaS) e alle app Web eseguite in locale.
@@ -154,4 +153,3 @@ Altre informazioni:
 * [White paper sull'identità ibrida](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Blog del team di Active Directory](https://blogs.technet.microsoft.com/ad/)
-

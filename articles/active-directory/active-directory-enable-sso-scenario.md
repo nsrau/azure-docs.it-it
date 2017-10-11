@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: b8f0cfdb468094bc761d6b939ca318fcfbea3ea4
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestione di applicazioni con Azure Active Directory
 Oltre alla gestione del flusso di lavoro o del contenuto effettivo, in generale le aziende prevedono due requisiti di base per tutte le applicazioni:
@@ -113,5 +112,4 @@ Per iniziare a integrare applicazioni con Azure AD, vedere [Guida introduttiva a
 
 ## <a name="see-also"></a>Vedere anche
 [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
 

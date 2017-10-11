@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ambapat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 5da9f5eceda71ac85259193e0f183c72813e1679
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Gestire Key Vault tramite l'interfaccia della riga di comando 2.0
 L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -254,4 +253,3 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 Per riferimenti sull'interfaccia della riga di comando di Azure per i comandi delle credenziali delle chiavi, vedere [Key Vault CLI reference](/cli/azure/keyvault) (Riferimento dell'interfaccia della riga di comando di Key Vault)
 
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](key-vault-developers-guide.md).
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Condividere i dashboard di Azure tramite il Controllo degli accessi in base al ruolo
 Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Si consente ad altri utenti di visualizzare il proprio dashboard tramite il [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) di Azure. Si assegna un utente o gruppo di utenti a un ruolo e questo ruolo definisce se gli utenti possono visualizzare o modificare il dashboard pubblicato. 
@@ -77,5 +76,4 @@ Il dashboard viene pubblicato. Se le autorizzazioni ereditate dalla sottoscrizio
 ## <a name="next-steps"></a>Passaggi successivi
 * Per un elenco di ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md).
 * Per altre informazioni sulla gestione delle risorse, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
-
 

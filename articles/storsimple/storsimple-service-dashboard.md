@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 596431b7279b753ca4da838eb028cdde2022ce02
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-dashboard"></a>Utilizzare il dashboard del servizio StorSimple Manager
 ## <a name="overview"></a>Panoramica
@@ -69,5 +68,4 @@ I passaggi seguenti descrivono il processo di rollover per la chiave DEK del ser
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [risolvere i problemi relativi a un dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
 * Ulteriori informazioni sull’ [utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

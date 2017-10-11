@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: e1a28d69bbf40ea3134a7899a0d2fe70e5fc9e71
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
@@ -192,5 +191,4 @@ Di seguito sono illustrati alcuni problemi riscontrabili durante l'uso di Livy p
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
-
 

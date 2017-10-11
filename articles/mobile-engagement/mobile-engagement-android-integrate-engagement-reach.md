@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Come integrare il servizio di copertura di Engagement in Android
 > [!IMPORTANT]
@@ -630,4 +629,3 @@ Come si può notare, se è stato chiamato `actionContent(this)` e l'attività è
 [here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
-

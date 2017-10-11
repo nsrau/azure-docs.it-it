@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f13fd0540b783120014b3a8d4e41f78808c7fade
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-guide-for-service-issues"></a>Guida alla risoluzione dei problemi relativi al servizio
 Di seguito sono indicati possibili problemi relativi all'esecuzione di Azure Mobile Engagement.
@@ -89,5 +88,4 @@ Di seguito sono indicati possibili problemi relativi all'esecuzione di Azure Mob
   * Usare la virgola "," come separatore. È possibile aprire una richiesta di assistenza per richiedere di non usare la virgola "," come separatore, ma un altro carattere, ad esempio il punto e virgola ";".
   * Usare tutte le lettere minuscole per i valori Boolean "true" e "false".
   * Usare un file di dimensioni inferiori a 35 MB (limite consentito).
-
 

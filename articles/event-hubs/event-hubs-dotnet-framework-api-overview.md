@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="event-hubs-net-framework-api-overview"></a>Panoramica dell'API .NET Framework di Hub eventi
 In questo articolo vengono riepilogati alcune delle principali API client .NET Framework di Hub eventi. Esistono due categorie: API di runtime e gestione. Le API di runtime si compongono di tutte le operazioni necessarie per inviare e ricevere un messaggio. Operazioni di gestione consentono di gestire lo stato dell'entità di Hub eventi per la creazione, aggiornamento ed eliminazione di entità.
 
@@ -180,4 +178,3 @@ I riferimenti API .NET sono qui:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 * [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)
-

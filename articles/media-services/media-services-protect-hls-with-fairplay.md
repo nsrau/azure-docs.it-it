@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8d5ed9d8a14ae8cc656dfe9d48700cc44b8908e8
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteggere il contenuto HLS con Apple FairPlay o Microsoft PlayReady
 Servizi multimediali di Azure consente di crittografare dinamicamente il contenuto di HTTP Live Streaming (HLS) usando i formati seguenti:  
@@ -146,7 +145,7 @@ Si applicano le considerazioni seguenti:
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
 1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
-2. Aggiungere i seguenti elementi alla sezione **appSettings** definita nel file app.config:
+2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
 
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
@@ -545,4 +544,3 @@ Assicurarsi di aggiornare le variabili in modo da puntare alle cartelle in cui s
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 86ed3f25f0bdd6bb5d8a93f124a0d2bcd7e2b07a
-ms.contentlocale: it-it
-ms.lasthandoff: 03/08/2017
-
+ms.openlocfilehash: 4bc73f581f4855ebc724df19dd56fab8bf103854
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale
 
 
@@ -145,4 +143,3 @@ Gli esempi in [C# Samples](https://github.com/Azure-Samples/service-fabric-dotne
 ## <a name="next-steps"></a>Passaggi successivi
 Lo stesso codice di traccia aggiunto all'applicazione potrà essere usato per la diagnostica dell'applicazione in un cluster di Azure. Consultare questi articoli che illustrano le diverse opzioni per gli strumenti e descrivono come configurarli.
 * [Come raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-lad.md)
-

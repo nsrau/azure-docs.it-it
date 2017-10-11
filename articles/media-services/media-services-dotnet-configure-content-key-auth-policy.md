@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
-ms.contentlocale: it-it
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: 75dd9107dca215a0b31db3d44bada69210fe9ac6
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Crittografia dinamica: configurare i criteri di autorizzazione della chiave simmetrica
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -150,7 +149,7 @@ Per configurare l'opzione di restrizione Token, è necessario usare un file XML 
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Quando si configurano i criteri di restrizione **token**, è necessario specificare i parametri primary**verification key**, **issuer** e **audience**. Il parametro **primary verification key** include la chiave usata per firmare il token. Il parametro **issuer** è il servizio token di sicurezza che emette il token. Il parametro **audience** (talvolta denominato **scope**) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello. 
+Quando si configurano i criteri di limitazione del **token**, è necessario specificare i parametri primary **verification key**, **issuer** e **audience**. Il parametro **primary verification key** include la chiave usata per firmare il token. Il parametro **issuer** è il servizio token di sicurezza che emette il token. Il parametro **audience** (talvolta denominato **scope**) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello. 
 
 Se si usa **Media Services SDK per .NET**, è possibile usare la classe **TokenRestrictionTemplate** per generare il token della restrizione.
 Il seguente esempio crea un criterio di autorizzazione con una restrizione Token. In questo esempio il client deve presentare un token contenente i seguenti dati: chiave di firma (VerificationKey), autorità emittente del token e attestazioni richieste.
@@ -426,5 +425,4 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 
 ## <a name="next-step"></a>Passaggio successivo
 Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md) .
-
 

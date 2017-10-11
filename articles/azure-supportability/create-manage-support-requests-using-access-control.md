@@ -7,14 +7,12 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d408dbd55fa667e150bb42ff0d1e4b3236c438e9
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.contentlocale: it-it
-ms.lasthandoff: 02/02/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Controllo degli accessi in base al ruolo di Azure per controllare i diritti di accesso e gestire le richieste di supporto
 
 Il [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) consente una gestione specifica degli accessi per Azure.
@@ -92,7 +90,7 @@ Si vuole concedere al collega Joe l'accesso per poter creare e gestire i ticket 
 
     ![Nuova richiesta di supporto](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Facendo clic su "Tutte le richieste di supporto" Joe può visualizzare l'elenco delle richieste di supporto create per questa sottoscrizione  ![Visualizzazione dei dettagli del caso](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. Fare clic su "Tutte le richieste di supporto" Joe possibile visualizzare l'elenco delle richieste di supporto creato per questa sottoscrizione ![Case visualizzazione dettagli](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Rimuovere l'accesso alle richieste di supporto nel portale di Azure
 
@@ -104,9 +102,8 @@ Fare clic con il pulsante destro del mouse sul nome del ruolo "Support Request C
 
 Quando Joe eseguirà l'accesso al portale e tenterà di creare una richiesta di supporto, verrà visualizzato l'errore seguente
 
-![Errore di sottoscrizione&2;](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
+![Errore di sottoscrizione 2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
 Quando Joe fa clic su "Tutte le richieste di supporto", non sarà visibile nessuna richiesta di supporto
 
-![Visualizzazione dettagli del caso&2;](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)
-
+![Visualizzazione dettagli del caso 2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: bbd6ddeeeff949afe0cb66adc37982c036fc5c46
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 898160814304fa8ec65622056a77ca9d4caf2c99
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Integrazione di Engagement SDK per app universali di Windows
 > [!div class="op_single_selector"]
@@ -279,5 +278,4 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 
 [here]:http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]:http://docs.nuget.org/docs/start-here/overview
-
 

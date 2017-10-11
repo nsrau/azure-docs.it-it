@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
-ms.openlocfilehash: 51eafa16bd918a065f896ba89dec54d2340b5c69
-ms.contentlocale: it-it
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Rinnovare i certificati di federazione per Office 365 e Azure Active Directory
 ## <a name="overview"></a>Overview
@@ -165,4 +164,3 @@ Aggiornare Office 365 con i nuovi certificati per la firma di token da usare per
 Se la farm AD FS e il trust di Azure AD sono stati configurati con Azure AD Connect, è possibile usare quest'ultimo per rilevare se occorre intraprendere un'azione per i certificati per la firma di token. Se è necessario rinnovare i certificati, è possibile usare Azure AD Connect a questo scopo.
 
 Per altre informazioni, vedere [Ripristino del trust](active-directory-aadconnect-federation-management.md).
-

@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analizzare i dati di Twitter mediante Hive e Hadoop in HDInsight
 
@@ -335,4 +334,3 @@ Si è appreso come trasformare un set di dati JSON non strutturato in una tabell
 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Aggiungere un'immagine personalizzata in un modello di set di scalabilità di Azure
 
 Questo articolo illustra come modificare il [modello di set di scalabilità a validità minima](./virtual-machine-scale-sets-mvss-start.md) per la distribuzione da un'immagine personalizzata.
@@ -119,4 +117,3 @@ In questo esempio, viene usata la funzione `resourceId` per ottenere l'ID dell'i
 ## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: f8ccf2cf66b49940bc7f2b9f4764020efc04838e
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-applications-appear-on-the-access-panel"></a>Come vengono visualizzate le applicazioni nel pannello di accesso
 
 Il pannello di accesso è un portale basato sul Web e consente a un utente che ha un account aziendale o dell'istituto di istruzione in Azure Active Directory (Azure AD) di visualizzare e avviare applicazioni basate su cloud a cui l'amministratore di Azure AD ha concesso l'accesso. Queste applicazioni sono configurate per conto dell'utente nel portale di Azure AD. L'amministratore può effettuare il provisioning dell'applicazione direttamente per un utente o un gruppo di cui fa parte l'utente. Come risultato di questa operazione, l'applicazione viene visualizzata nel pannello di accesso dell'utente.
@@ -154,4 +152,3 @@ aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
-

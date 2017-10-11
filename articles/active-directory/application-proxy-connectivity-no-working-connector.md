@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5b133afd82afecbfab250c2760404a4173086fa5
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 4945958deedc8a1d9989ff901192c03a5363b4dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Nessun gruppo di connettori funzionante trovato per un'applicazione Proxy di applicazione
 
 Questo articolo fornisce istruzioni sulla risoluzione di problemi comuni riscontrati quando non viene rilevato un connettore per un'applicazione Proxy di applicazione integrata con Azure Active Directory.
@@ -68,6 +66,5 @@ Vedere il documento di risoluzione dei problemi relativi alle porte per informaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-understand-connectors.md)
-
 
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Panoramica della soluzione preconfigurata di manutenzione predittiva
 

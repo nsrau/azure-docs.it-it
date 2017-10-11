@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codici di errore del report delle attività di accesso nel portale di Azure Active Directory
 
@@ -101,5 +100,4 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere [Report delle attività di accesso nel portale di Azure Active Directory](active-directory-reporting-activity-sign-ins.md).
-
 

@@ -15,12 +15,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 3889fa1c3523eb0330cbe3b7640fd8590a5ceadf
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Usare l'interfaccia utente di Tez per il debug di processi Tez in HDInsight basato su Windows
 L'interfaccia utente di Tez è una pagina Web che può essere usata per la comprensione e il debug di processi che usano Tez come motore di esecuzione nei cluster HDInsight basati su Windows. L'interfaccia utente di Tez consente di visualizzare il processo come grafico di elementi connessi, esaminare ogni elemento e recuperare statistiche e informazioni sulla registrazione.
@@ -143,4 +142,3 @@ Usare la procedura seguente per eseguire una query Hive che verrà eseguita con 
 A questo punto, dopo avere appreso come usare la visualizzazione Tez, è possibile trovare altre informazioni in [Uso di Hive in HDInsight](hdinsight-use-hive.md).
 
 Per informazioni tecniche più dettagliate su Tez, vedere la [pagina di Tez in Hortonworks](http://hortonworks.com/hadoop/tez/).
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: e09fa93038965e4880a23002bac6917ad2a077f7
-ms.contentlocale: it-it
-ms.lasthandoff: 06/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Esercitazione: Integrazione di Azure Active Directory con Halogen Software
 
@@ -287,4 +286,3 @@ Quando si fa clic sul riquadro Halogen Software nel pannello di accesso, si dovr
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e22a16c0929b28c475aa4caa0465651603713112
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 859dd76db4ba06196a853469a1385703d835fa22
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logica di ripetizione dei tentativi in Media Services SDK for .NET
 Quando si usano i servizi di Microsoft Azure, possono verificarsi errori temporanei. Se si verifica un errore temporaneo, nella maggior parte dei casi, dopo alcune ripetizioni dei tentativi l'operazione ha esito positivo. Media Services SDK for .NET implementa la logica di ripetizione dei tentativi per gestire gli errori temporanei associati a eccezioni ed errori causati da richieste Web, dall'esecuzione di query, dal salvataggio delle modifiche e dalle operazioni di archiviazione.  Per impostazione predefinita, Media Services SDK for .NET esegue quattro ripetizioni dei tentativi prima di rigenerare l'eccezione all'applicazione. Il codice nell'applicazione deve quindi gestire questa eccezione correttamente.  
@@ -87,5 +86,4 @@ Se si vuole esaminare l'implementazione effettiva della logica di ripetizione de
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

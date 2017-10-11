@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Informazioni sullo schema di nodi per il mapping di un servizio Web esistente a OData tramite CSDL
 > [!IMPORTANT]
@@ -273,4 +272,3 @@ Di seguito sono indicati i tipi supportati per i parametri e le proprietà. C'è
 * Per comprendere meglio nel suo complesso il processo del mapping OData e il suo scopo, nonché per esaminare le definizioni, le strutture e le istruzioni, leggere l'articolo [relativo al mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping.md) .
 * Per esaminare gli esempi, consultare il codice di esempio e apprendere la sintassi del codice e il contesto, leggere l'articolo [relativo agli esempi di mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md) .
 * Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere questo articolo [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
-

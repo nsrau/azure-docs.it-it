@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 078865245989578d17b6eb0b59b379aa2056f31c
-ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Uso di SAP su macchine virtuali Linux in Azure
 Cloud computing è un termine ampiamente diffuso che sta assumendo un'importanza sempre più rilevante nel settore IT, dalle piccole imprese fino alle grandi aziende e alle multinazionali. Microsoft Azure è la piattaforma di servizi cloud di Microsoft che offre un'ampia gamma di nuove possibilità. I clienti possono infatti effettuare rapidamente il provisioning e il deprovisioning di applicazioni come servizi cloud, senza essere soggetti a eventuali limiti tecnici o di budget. Anziché investire tempo e denaro nell'infrastruttura hardware, le aziende possono concentrarsi sull'applicazione, sui processi aziendali e sui vantaggi per clienti e utenti.
@@ -38,5 +37,4 @@ Riepilogo: attualmente, non è previsto alcun supporto ufficiale di SAP per l'es
 Ultimo aggiornamento: dicembre 2015
 
 [Questo articolo è disponibile qui](../../virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 

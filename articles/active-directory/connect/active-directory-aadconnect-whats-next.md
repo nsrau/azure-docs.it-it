@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dde6242211ca3d8d7b47c0ec4a01965e1439adeb
-ms.openlocfilehash: d3b900b40f683cd446b41696c4f9e617299bf0b1
-ms.contentlocale: it-it
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: beace24fa00c85a5038a3c39ae8f76af5fd12111
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Passaggi successivi e come gestire Azure AD Connect
 Usare le procedure operative descritte in questo articolo per personalizzare Azure Active Directory Connect al fine di soddisfare le esigenze e i requisiti dell'organizzazione.  
@@ -73,4 +72,3 @@ La tabella seguente include un riepilogo di tali attività e una breve descrizio
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-

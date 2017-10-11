@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
 ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Configurare un gruppo di disponibilità AlwaysOn in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -415,5 +414,4 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere [Configurare un listener ILB per gruppi di disponibilità Always On in Azure](../classic/ps-sql-int-listener.md).
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
 

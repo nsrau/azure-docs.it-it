@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-redis-cache-faq"></a>Domande frequenti sulla Cache Redis di Azure
 Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure.
@@ -476,4 +475,3 @@ Il [servizio Cache nel ruolo è stato ritirato il 30 novembre 2016](https://azur
 Per visualizzare la documentazione archiviata, vedere [Documentazione archiviata di Cache nel ruolo](https://msdn.microsoft.com/library/azure/dn386103.aspx).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
-

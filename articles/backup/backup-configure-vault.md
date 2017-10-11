@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b95dc0a83d8e5618effb573353f419e1837d30c5
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Eseguire il backup di un client o server Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
 > [!div class="op_single_selector"]
@@ -268,4 +267,3 @@ Per altre informazioni sul backup di macchine virtuali o altri carichi di lavoro
 
 * Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 * Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
-

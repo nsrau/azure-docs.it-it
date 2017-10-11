@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Creare cluster basati su Linux in HDInsight tramite .NET SDK
 
@@ -405,5 +404,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Eseguire processi Pig con .NET SDK in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [Eseguire processi Sqoop con .NET SDK in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [Eseguire processi Oozie in HDInsight](hdinsight-use-oozie.md)
-
 

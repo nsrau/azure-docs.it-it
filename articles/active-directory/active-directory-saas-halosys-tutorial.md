@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Halosys | Documentazione Microsoft'
-description: Informazioni su come usare Halosys con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare Halosys con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
-ms.openlocfilehash: 655d2ea7193551caa4b32efcf75a1dbf204f4954
-
-
+ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Esercitazione: Integrazione di Azure Active Directory con Halosys
 
@@ -124,7 +124,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Halosys usando il modello seguente: `https://<company-name>.Halosys.com/client-api/api`.
 
-    Nella casella di testo **Identificatore** digitare l'URL usando il modello seguente: `https://<company-name>.Halosys.com`.    
+    Nella casella di testo **Identificatore** digitare l'URL usando il modello seguente: `https://<company-name>.Halosys.com`.   
          
 4. Nella pagina **Configura accesso Single Sign-On in Halosys** fare clic su **Scarica metadati** e salvare il file nel computer:
 
@@ -168,7 +168,7 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:  ![Creazione di un utente test di Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+5. Nel **informazioni sull'utente** finestra di dialogo pagina, effettuare le seguenti operazioni: ![creazione di un utente prova AD Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
@@ -264,9 +264,3 @@ Quando si fa clic sul riquadro Halosys nel pannello di accesso, si dovrebbe acce
 [203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

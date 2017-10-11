@@ -15,12 +15,11 @@ ms.date: 06/23/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: e9b8504d4a59cf0fae69a4e975d6f834028066d5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestire le impostazioni utente nel cloud con Azure Multi-Factor Authentication
 Come amministratore, è possibile gestire le impostazioni relative all'utente e al dispositivo riportate di seguito:
@@ -80,4 +79,3 @@ L'impostazione **Ripristina l'autenticazione a più fattori in tutti i dispositi
 - Per altre informazioni, vedere [Configurare le impostazioni di Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md)
 
 - Se gli utenti hanno bisogno di supporto, suggerire loro di vedere il [Manuale dell'utente per la verifica in due passaggi](./end-user/multi-factor-authentication-end-user.md)
-

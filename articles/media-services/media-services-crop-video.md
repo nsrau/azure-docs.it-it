@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: anilmur;juliako;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
-ms.contentlocale: it-it
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 60d0ce14a271fcbe698559da95ca011cb888b221
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Ritagliare video con Media Encoder Standard
 È possibile usare Media Encoder Standard (MES) per ritagliare l'input video. Il ritaglio è il processo di selezione di una finestra rettangolare all'interno del fotogramma video per codificare solo i pixel all'interno di quella finestra. Il diagramma seguente illustra il processo.
@@ -143,4 +142,3 @@ Alla funzionalità di ritaglio si applicano le limitazioni seguenti. Se queste l
 Vedere i percorsi di apprendimento di Servizi multimediali di Azure per informazioni sulle potenti funzionalità offerte da Servizi multimediali di Azure.  
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-

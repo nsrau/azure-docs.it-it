@@ -37,8 +37,8 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
 
    ![Risorsa IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
-    <!-----------------------Questa opzione non è disponibile nel server 2016
-    1. Disabilitare NetBIOS per questo indirizzo e fare clic su **OK**. Ripetere questo passaggio per ogni risorsa IP se la soluzione si estende su più reti virtuali di Azure. 
+    <!-----------------------I don't see this option on server 2016
+    1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
 4. <a name = "dependencyGroup"></a>Rendere la risorsa del gruppo di disponibilità di SQL Server dipendente dal punto di accesso client.

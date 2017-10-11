@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Note sulla versione di componenti Hadoop in Azure HDInsight
 
@@ -103,7 +102,6 @@ Spark 2.0.1 è ora disponibile in cluster Spark (HDInsight versione 3.5).
 * Il provisioning del cluster R Server in HDInsight è stato semplificato.
 * R Server in HDInsight ora è disponibile come normale tipo di cluster "R Server" in HDInsight e non viene più installato come applicazione HDInsight separata. Il provisioning del nodo perimetrale e dei file binari di R Server ora viene effettuato durante la distribuzione del cluster R Server. In questo modo il provisioning è più veloce e affidabile. Il modello di determinazione prezzi per R Server viene aggiornato di conseguenza.
 * Il prezzo del tipo di cluster R Server ora corrisponde al prezzo del piano Standard più la maggiorazione per R Server. Il piano Premium è riservato alle funzionalità Premium disponibili in tipi di cluster diversi e non viene usato per il tipo di cluster R Server. Questa modifica non ha effetto sul prezzo effettivo di R Server. Cambia solo il modo in cui gli addebiti vengono presentati nella fattura. Tutti i cluster R Server esistenti e i modelli di Azure Resource Manager continuano a funzionare fino all'avviso di funzionalità deprecata. **È tuttavia consigliabile aggiornare le distribuzioni con script per l'uso del nuovo modello di Resource Manager.**
-
 
 
 

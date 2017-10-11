@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f9e97bb2352231b46bdf66b1165bf22ec639fddf
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: af135518f66eb8c94c183f28191f016fcd601ae1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 ## <a name="overview"></a>Panoramica
@@ -164,7 +163,7 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 
 #### <a name="to-update-cmdlet-help"></a>Per aggiornare la guida dei cmdlet:
 1. Avviare Windows PowerShell con l'opzione **Esegui come amministratore** .
-2. Al prompt dei comandi digitare:  `Update-Help`
+2. Al prompt dei comandi digitare: `Update-Help`
 3. Verranno installati i file della guida aggiornati.
 4. Una volta installati i file della guida, digitare: `Get-Help Get-Command`. Verrà visualizzato un elenco dei cmdlet per cui è disponibile la guida.
 
@@ -175,5 +174,4 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento a [Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-
 

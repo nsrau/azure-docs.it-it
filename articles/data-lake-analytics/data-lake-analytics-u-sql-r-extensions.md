@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>Esercitazione: Introduzione all'estensione di U-SQL con R
 
 L'esempio seguente illustra i passaggi di base per la distribuzione del codice R:
@@ -216,4 +214,3 @@ Innanzitutto, creare un modulo personalizzato R fare lo zip e quindi caricare il
 * [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-use-window-functions.md)
-

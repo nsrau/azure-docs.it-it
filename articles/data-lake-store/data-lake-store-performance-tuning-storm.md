@@ -1,6 +1,6 @@
 ---
-title: Linee guida per l&quot;ottimizzazione delle prestazioni di Storm in Azure Data Lake Store | Microsoft Docs
-description: Linee guida per l&quot;ottimizzazione delle prestazioni di Storm in Azure Data Lake Store
+title: Linee guida per l'ottimizzazione delle prestazioni di Storm in Azure Data Lake Store | Microsoft Docs
+description: Linee guida per l'ottimizzazione delle prestazioni di Storm in Azure Data Lake Store
 services: data-lake-store
 documentationcenter: 
 author: stewu
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 1dfa93643f45a96ded3fd022aa8b1c71d487acb4
-ms.lasthandoff: 03/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Linee guida per l'ottimizzazione delle prestazioni di Storm in HDInsight e di Azure Data Lake Store
 
@@ -141,4 +140,3 @@ Per verificare la presenza di limitazioni, abilitare la registrazione di debug s
 L'ottimizzazione aggiuntiva delle prestazioni di Storm è reperibile in questo [blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
 
 Per un esempio aggiuntivo da eseguire, vedere [questo in GitHub](https://github.com/hdinsight/storm-performance-automation).
-

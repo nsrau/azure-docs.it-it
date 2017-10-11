@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione di un Azure Data Warehouse esistente all&quot;archiviazione Premium | Microsoft Docs
-description: Istruzioni per la migrazione di un data warehouse esistente all&quot;archiviazione Premium
+title: Eseguire la migrazione di un Azure Data Warehouse esistente all'archiviazione Premium | Microsoft Docs
+description: Istruzioni per la migrazione di un data warehouse esistente all'archiviazione Premium
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e66f808da8d301e0adc393ba0ae67ab8618ce814
-ms.openlocfilehash: e73e52665dd22e33054745907613c269b6d57915
-ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Eseguire la migrazione di un data warehouse proprio all'archiviazione Premium
 Azure SQL Data Warehouse ha recentemente introdotto l'[archiviazione Premium per una maggiore prevedibilità delle prestazioni][premium storage for greater performance predictability]. I data warehouse esistenti attualmente inclusi nell'archiviazione Standard possono essere migrati all'archiviazione Premium. È possibile sfruttare la migrazione automatica oppure, se si preferisce controllare quando eseguire la migrazione (che prevede tempi di inattività), è possibile eseguire la migrazione manualmente.
@@ -118,7 +116,7 @@ Con il passaggio ad archiviazione Premium, il numero di file BLOB del database n
 **Prerequisiti:**
 
 - È necessario eseguire il data warehouse con almeno 1.000 unità data warehouse (vedere [Ridimensionare la potenza di calcolo][scale compute power]).
-- L'utente che esegue lo script deve essere nel [ruolo mediumrc][mediumrc role] o superiore. Per aggiungere un utente a questo ruolo, eseguire questo codice:     ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- L'utente che esegue lo script deve essere nel [ruolo mediumrc][mediumrc role] o superiore. Per aggiungere un utente a questo ruolo, eseguire questo codice: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
@@ -184,4 +182,3 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][create
 <!--Other Web references-->
 [Premium Storage for greater performance predictability]: https://azure.microsoft.com/en-us/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure Portal]: https://portal.azure.com
-

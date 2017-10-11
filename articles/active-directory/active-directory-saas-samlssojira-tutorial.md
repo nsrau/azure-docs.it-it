@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: integrazione di Azure Active Directory con SAML SSO for Jira di resolution GmbH | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e SAML SSO for Jira di resolution GmbH.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SAML SSO for Jira di resolution GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Esercitazione: integrazione di Azure Active Directory con SAML SSO for Jira di resolution GmbH
 
@@ -153,7 +151,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon9.png)
 
-12.    Fare clic su **Manage**.
+12. Fare clic su **Manage**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon10.png)
     
@@ -177,7 +175,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Fare clic sul pulsante **Load** (Carica).
 
-    e. Legge i metadati IdP e popola i campi come evidenziato nella schermata.    
+    e. Legge i metadati IdP e popola i campi come evidenziato nella schermata. 
 
 16. Fare clic sul pulsante **Save settings** (Salva impostazioni) per salvare le impostazioni.
 
@@ -251,7 +249,7 @@ In SAML SSO for Jira di resolution GmbH il provisioning è un'attività manuale.
 
     d. Nella casella di testo **Password** digitare la password dell'utente.
 
-    e. Fare clic su **Create User** (Crea utente).    
+    e. Fare clic su **Create User** (Crea utente).   
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
@@ -310,5 +308,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_203.png
-
 

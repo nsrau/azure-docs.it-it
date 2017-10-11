@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Eseguire il backup dello stato del sistema Windows in una distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup dello stato del sistema Windows Server in Azure. Si tratta di un'esercitazione che illustra le informazioni di base,
@@ -320,4 +319,3 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 * Sono disponibili altre informazioni sul [backup di computer Windows](backup-configure-vault.md).
 * Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 * Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
-

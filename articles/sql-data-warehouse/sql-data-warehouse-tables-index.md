@@ -1,6 +1,6 @@
 ---
 title: Indicizzazione di tabelle in SQL Data Warehouse | Microsoft Azure
-description: Introduzione all&quot;indicizzazione delle tabelle in Azure SQL Data Warehouse.
+description: Introduzione all'indicizzazione delle tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 07/12/2016
 ms.author: shigu;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: dff94161c7d6dfedc91cfb36954e847f945985f7
-ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indicizzazione di tabelle in SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -323,4 +321,3 @@ Per altre informazioni, vedere gli articoli [Panoramica delle tabelle][Overview]
 [clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
-

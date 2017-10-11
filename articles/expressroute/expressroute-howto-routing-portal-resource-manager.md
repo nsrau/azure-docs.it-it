@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 55ccadfea55b8098ee58dcaef942f6ba54093665
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Creare e modificare i peering per un circuito ExpressRoute
 
@@ -135,7 +134,7 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
 Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configurazione del peering Microsoft per un circuito ExpressRoute.
 
 > [!IMPORTANT]
-> Il peering Microsoft dei circuiti ExpressRoute configurati prima del 1° agosto 2017 avranno tutti i prefissi di servizio annunciati tramite il peering Microsoft, anche se non sono definiti i filtri di route. Per il peering Microsoft dei circuiti ExpressRoute configurati dopo il 1° agosto 2017 non verrà annunciato alcun prefisso fino a quando non verrà associato un filtro di route al circuito. Per altre informazioni, vedere [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md) (Configurare un filtro di route per il peering Microsoft).
+> Per i circuiti ExpressRoute configurati prima del 1 agosto 2017 tutti i prefissi di servizio saranno annunciati tramite il peering Microsoft, anche se non sono definiti i filtri di route. Per il peering Microsoft dei circuiti ExpressRoute configurati dopo il 1 agosto 2017 non verrà annunciato alcun prefisso fino a quando non viene associato un filtro di route al circuito. Per altre informazioni, vedere [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md) (Configurare un filtro di route per il peering Microsoft).
 > 
 > 
 
@@ -199,4 +198,3 @@ Successivamente, [collegare una rete virtuale a un circuito ExpressRoute](expres
 * Per ulteriori informazioni sui flussi di lavoro ExpressRoute, vedere [Flussi di lavoro ExpressRoute](expressroute-workflows.md).
 * Per altre informazioni sul peering del circuito, vedere l'articolo relativo ai [circuiti ExpressRoute e domini di routing](expressroute-circuit-peerings.md)
 * Per ulteriori informazioni sull’uso delle reti virtuali, vedere [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md).
-

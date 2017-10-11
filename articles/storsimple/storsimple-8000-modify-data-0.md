@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 90df43e22f17fd32fe642514df098b72700e77af
-ms.contentlocale: it-it
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modificare le impostazioni dell'interfaccia di rete DATA 0 in un dispositivo StorSimple serie 8000
 
@@ -69,5 +68,4 @@ Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell
 ## <a name="next-steps"></a>Passaggi successivi
 * Per configurare interfacce di rete diverse da DATA 0, vedere l'articolo su come [configurare le impostazioni di rete nel portale di Azure](storsimple-8000-modify-device-config.md). 
 * Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md).
-
 

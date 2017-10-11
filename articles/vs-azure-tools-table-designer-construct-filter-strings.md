@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98b06b14ca7897cce884f6d80f998661cacb7ea4
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 069224d84462b4955912ce1462a65298a5acc04a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Creazione di stringhe di filtro per Progettazione tabelle
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Per filtrare i dati in una tabella di Azure visualizzata in **Progettazione tabelle**di Visual Studio, creare una stringa di filtro e immetterla nel campo del filtro. La sintassi della stringa di filtro è definita da WCF Data Services ed è simile a una clausola WHERE SQL, ma viene inviata al servizio tabelle con una richiesta HTTP. **Progettazione tabelle** gestisce automaticamente la codifica appropriata, quindi per filtrare in base a un valore di proprietà desiderato, è necessario immettere solo il nome della proprietà, l'operatore di confronto, il valore dei criteri e, facoltativamente, l'operatore booleano nel campo del filtro. Non è necessario includere l'opzione di query $filter come quando si crea un URL per eseguire la query della tabella in base alle [Informazioni di riferimento sulle API REST dei servizi di archiviazione](http://go.microsoft.com/fwlink/p/?LinkId=400447).
 
 WCF Data Services si basa su [Open Data Protocol](http://go.microsoft.com/fwlink/p/?LinkId=214805) (OData). Per i dettagli sull'opzione di query del sistema di filtro (**$filter**), vedere la [specifica sulle convenzioni URI OData](http://go.microsoft.com/fwlink/p/?LinkId=214806).
@@ -95,4 +94,3 @@ Per applicare filtri a un valore DateTime, specificare la parola chiave **dateti
 L'esempio seguente restituisce le entità in cui la proprietà CustomerSince è uguale a 10 luglio 2008:
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
-

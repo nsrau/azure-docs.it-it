@@ -1,6 +1,6 @@
 ---
-title: Prerequisiti non tecnici per la creazione di un&quot;offerta per Azure Marketplace | Documentazione Microsoft
-description: Informazioni sui requisiti per la creazione e la distribuzione di un&quot;offerta in Azure Marketplace per l&quot;acquisto da parte di altri utenti.
+title: Prerequisiti non tecnici per la creazione di un'offerta per Azure Marketplace | Documentazione Microsoft
+description: Informazioni sui requisiti per la creazione e la distribuzione di un'offerta in Azure Marketplace per l'acquisto da parte di altri utenti.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bc9d40daf0b9bc8256e88b39039fca7e4cb8a53
-
-
+ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Prerequisiti generali per la creazione di un'offerta per Azure Marketplace
 Informazioni sui prerequisiti generali e relativi ai processi aziendali necessari per procedere con il processo di creazione dell'offerta.
@@ -81,10 +81,4 @@ Quando vengono rispettati i prerequisiti non tecnici, occorre passare ai prerequ
 
 ## <a name="see-also"></a>Vedere anche
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

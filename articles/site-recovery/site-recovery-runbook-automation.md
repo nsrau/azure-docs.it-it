@@ -14,12 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
 ms.author: ruturajd@microsoft.com
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 064a6782970b950543f93c24800998c1f104c8df
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
 Questo articolo descrive come Azure Site Recovery si integra con Automazione di Azure per facilitare l'estensione dei piani di ripristino. I piani di ripristino possono orchestrare il ripristino di macchine virtuali protette con Site Recovery. I piani di ripristino possono essere usati sia per la replica in un cloud secondario che per la replica in Azure e consentono anche di ottenere un ripristino **costantemente accurato**, **ripetibile** e **automatizzato**. Se si esegue il failover delle macchine virtuali in Azure, l'integrazione con Automazione di Azure estende i piani di ripristino. È possibile usare questa funzionalità per eseguire runbook, che offrono attività di automazione dalle grandi potenzialità.
@@ -262,4 +261,3 @@ Per un altro esempio, vedere il video seguente che mostra come ripristinare un'a
 * [Account RunAs per il servizio Automazione di Azure](../automation/automation-sec-configure-azure-runas-account.md)
 * [Panoramica di Automazione di Azure](http://msdn.microsoft.com/library/azure/dn643629.aspx "Panoramica di Automazione di Azure")
 * [Script di esempio di Automazione di Azure](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Script di esempio di Automazione di Azure")
-

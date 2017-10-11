@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 5add8703b7b16ba8d9dc49f42f5e71b195c46653
-ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Compilazione di progetti Azure dalla riga di comando
 Tramite Microsoft Build Engine (MSBuild) è possibile compilare prodotti in ambienti lab di compilazione in cui Visual Studio non è installato. MSBuild usa per i file di progetto il formato XML, che è estendibile e completamente supportato da Microsoft. Usando il formato file MSBuild è possibile indicare quali elementi devono essere compilati per una o più piattaforme o configurazioni.
@@ -38,5 +37,4 @@ Se si vuole usare una directory alternativa per i file di configurazione e del p
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo la compilazione, sarà possibile distribuire il pacchetto in Azure. Per un'esercitazione su come automatizzare questo processo, vedere [Recapito continuo per Servizi cloud in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
-
 

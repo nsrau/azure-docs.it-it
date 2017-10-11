@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: af68d21184c137b2b0f1bb4c1afb9bf507e8332d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Eseguire la replica di macchine virtuali Hyper-V nei cloud VMM in Azure tramite Site Recovery nel Portale di Azure
 > [!div class="op_single_selector"]
@@ -113,6 +112,5 @@ Andare a [Passaggio 11: Abilitare la replica](vmm-to-azure-walkthrough-enable-re
 Eseguire un failover di test per verificare che tutti gli elementi funzionino come previsto.
 
 Andare a [Passaggio 12: Eseguire un failover di test](vmm-to-azure-walkthrough-test-failover.md)
-
 
 

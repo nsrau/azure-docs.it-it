@@ -15,13 +15,11 @@ ms.devlang: dotnet
 ms.date: 02/20/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 8013fc618fe78ea16c21a4605deb91797bf00f7d
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: 369802f1a42b8720aa730d5ac7e5576ed20eeddf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>Aggiungere accesso a un'app di Windows universale usando l'endpoint v2.0
   L'esercitazione introduttiva per app universali di Windows non è ancora disponibile... Riprovare più tardi e cercare gli aggiornamenti da @AzureAD su Twitter.
@@ -34,5 +32,4 @@ ms.lasthandoff: 05/25/2017
     ## Get security updates for our products
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
 

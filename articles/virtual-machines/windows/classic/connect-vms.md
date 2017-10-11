@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 0c7a21461e5bb111c4359df8e949d48382b591c1
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="connect-windows-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>Connettere le macchine virtuali Windows create con il modello di distribuzione classica con un servizio cloud o rete virtuale
 > [!IMPORTANT]
@@ -36,4 +35,3 @@ Se si inseriscono le macchine virtuali nello stesso servizio cloud autonomo, si 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere creato una macchina virtuale, è consigliabile [aggiungere un disco dati](attach-disk.md) , in modo che i servizi e i carichi di lavoro possano usarlo per archiviare i dati.
-

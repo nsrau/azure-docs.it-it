@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: 5fafd83c337e3c73260d89cdad7409a01ce5855b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/07/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
@@ -189,5 +188,4 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
 ## <a name="next-steps"></a>Passaggi successivi
 * Si desidera accedere ai dati dall'API di creazione report di Azure AD mediante il codice? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
-
 

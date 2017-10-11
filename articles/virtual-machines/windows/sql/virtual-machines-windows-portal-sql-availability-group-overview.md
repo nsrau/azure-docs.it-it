@@ -15,13 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 3bf8cc49223e3e612a2343e8a3383bbbe02dcd82
-ms.openlocfilehash: 3d18551823abbb9beca4212aa8095b6757a080cb
-
-
+ms.openlocfilehash: 2cbb9ff3b2d13996b1b8dc64aa833807c264c877
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Panoramica sui gruppi di disponibilità AlwaysOn di SQL Server in macchine virtuali di Azure #
 
 Questo articolo offre una panoramica sui gruppi di disponibilità di SQL Server in macchine virtuali di Azure. 
@@ -51,9 +50,3 @@ Per compilare un gruppo di disponibilità di SQL Server in macchine virtuali di 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Configurare un gruppo di disponibilità SQL Server AlwaysOn in Macchine virtuali di Azure](virtual-machines-windows-portal-sql-availability-group-dr.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

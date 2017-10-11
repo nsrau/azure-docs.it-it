@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 77f8f10c764013e539480138fb1479d0326b5eef
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 5638434270ee82d2b9737ea8eed8b5a8c62f7121
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemi di accesso a un'applicazione Microsoft
 
 Le applicazioni Microsoft (ad esempio Office 365 Exchange, SharePoint, Yammer e così via) vengono assegnate e gestite in modo leggermente diverso dalle applicazioni SaaS di terza parte o da altre applicazioni che si integrano con Azure AD per Single Sign On.
@@ -528,5 +526,4 @@ L'accesso all'applicazione può essere bloccato poiché non è stata eseguita l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Uso dell'endpoint di consenso dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
 

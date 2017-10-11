@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usare l'interfaccia utente di StorSimple Snapshot Manager per gestire i processi di backup e il catalogo di backup
 
@@ -450,5 +449,4 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [usare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 * Leggere le informazioni su come [usare StorSimple Snapshot Manager per connettere e gestire i dispositivi](storsimple-snapshot-manager-manage-devices.md).
-
 

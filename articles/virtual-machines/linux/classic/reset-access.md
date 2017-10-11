@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Come reimpostare la password o la chiave SSH di una VM Linux, correggere la configurazione SSH e verificare la coerenza dei dischi che utilizzano l'estensione VMAccess
 Se non è possibile connettersi a una macchina virtuale Linux su Azure perché si è dimenticata la password o una chiave SSH (Secure Shell) non è valida o per un problema di configurazione di SSH, usare l'estensione VMAccessForLinux con l'interfaccia della riga di comando di Azure per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza del disco. 
@@ -53,7 +52,7 @@ Sarà necessario eseguire le operazioni seguenti:
 * Procurarsi una nuova password o un set di chiavi SSH, se si desidera reimpostare l'una o l'altro. Queste non saranno necessarie se si vuole reimpostare la configurazione di SSH.
 
 ## <a name="pwresetcli"></a>Reimpostare la password
-1. Creare un file denominato PrivateConf.json nel computer locale con queste righe. Sostituire **myUserName** e **myP@ssW0rd** con il proprio nome utente e password e impostare la data di scadenza.
+1. Creare un file denominato PrivateConf.json nel computer locale con queste righe. Sostituire **myUserName** e  **myP@ssW0rd**  con il proprio nome utente e password e impostare la data di scadenza.
 
     ```   
         {
@@ -194,5 +193,4 @@ Per ripristinare i dischi che presentano problemi di montaggio o errori di confi
 * Se per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza dei dischi si vogliono usare cmdlet Azure PowerShell o modelli di Azure Resource Manager, vedere la [documentazione dell'estensione VMAccess in GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * Per reimpostare la password o la chiave SSH di una VM Linux distribuita con il modello di distribuzione classica è anche possibile usare il [portale di Azure](https://portal.azure.com) . Non è attualmente possibile usare il portale per eseguire queste operazioni per una VM Linux distribuita con il modello di distribuzione Resource Manager.
 * Per altre informazioni sull'uso di estensioni VM per macchine virtuali di Azure vedere [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: milanga;cenkdin;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8e0f0905748923177269b6d5df27be900770fece
-ms.openlocfilehash: a2802dbf1d8a22c33b20dd4e71fcf26d9780f86a
-ms.contentlocale: it-it
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 304e72e0d2d4a7e95df513e6d5481def9eae3f68
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
 
@@ -78,4 +77,3 @@ L'argomento seguente illustra come aggiungere gli account di archiviazione all'a
 
 ### <a name="acknowledgments"></a>Ringraziamenti
 Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Cenk Dingiloglu, Gada Milano, Seva Titov.
-

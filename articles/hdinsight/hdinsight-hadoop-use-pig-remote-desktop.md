@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9ab67d21b65323b7f927cb2197c0e123ebe3351e
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 5e8d4fbd8afc54c8bbc1a9a71c66d7022a7d5986
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Eseguire processi Pig da una connessione Desktop remoto
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
@@ -130,4 +129,3 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-

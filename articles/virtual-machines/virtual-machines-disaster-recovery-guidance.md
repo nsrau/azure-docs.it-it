@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: fb986a41e33501ee71c93a48457ac4114e33c671
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure
 Microsoft si impegna costantemente per garantire agli utenti la disponibilità dei servizi in base alle esigenze. Eventi imprevisti possono, tuttavia, causare interruzioni non pianificate dei servizi.
@@ -58,4 +57,3 @@ Questa è l'opzione migliore se non sono stati configurati Azure Site Recovery, 
 
 
 - Per chiarimenti sulle istruzioni o per chiedere a Microsoft di eseguire le operazioni per proprio conto, contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-

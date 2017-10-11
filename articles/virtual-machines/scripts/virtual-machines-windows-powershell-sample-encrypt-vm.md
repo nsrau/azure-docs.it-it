@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/02/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: b7abbce10fc808458a75a4a81a6ab73f46fb19fd
-ms.contentlocale: it-it
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 9279fea482fcd8716bcd996985e10f500a4775ce
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="encrypt-a-windows-virtual-machine-with-azure-powershell"></a>Crittografare una macchina virtuale Windows con Azure PowerShell
 
 Questo script crea un Azure Key Vault sicuro, le chiavi di crittografia, un'entità servizio di Azure Active Directory e una macchina virtuale (VM) Windows. La VM viene quindi crittografata usando la chiave di crittografia del Key Vault e le credenziali dell'entità servizio.
@@ -73,4 +71,3 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Altri esempi di script PowerShell della macchina virtuale sono reperibili nella [documentazione della VM Windows di Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

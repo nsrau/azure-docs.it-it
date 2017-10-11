@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: c6d76cc741a6d932a506017781e45bc9b8f8c640
-ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: b28105f300723b542fa6d1aebc569439d5c73dc4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Procedura dettagliata della soluzione preconfigurata per il monitoraggio remoto
 
@@ -283,4 +282,3 @@ I post del blog TechNet offrono altri dettagli sulla soluzione preconfigurata pe
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-

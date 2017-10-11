@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/11/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: baf456740bddd562391ed64d707f990c8921d710
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="consume-azure-managed-applications-in-the-marketplace"></a>Utilizzare un'applicazione gestita di Azure in Marketplace
 
 Come illustrato nell'articolo [Panoramica di Applicazione gestita di Azure](managed-application-overview.md), gli scenari nell'esperienza end-to-end sono due. Nel primo l'editore o il fornitore vuole creare un'applicazione gestita che verrà usata dai clienti. Il secondo è relativo al cliente finale o all'utente dell'applicazione gestita. Questo articolo riguarda il secondo scenario. Descrive come è possibile distribuire un'applicazione gestita da Microsoft Azure Marketplace.

@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: adegeo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Come usare ridimensionamento automatico e set di scalabilità di macchine virtuali
 Il ridimensionamento automatico delle macchine virtuali in un set di scalabilità consiste nella creazione o nell'eliminazione di macchine nel set in base alle esigenze per soddisfare i requisiti a livello di prestazioni. Man mano che aumenta il volume di lavoro, è possibile che un'applicazione richieda risorse aggiuntive per poter eseguire le attività in modo efficace.
@@ -251,4 +250,3 @@ Usare questo comando per ottenere alcune informazioni:
 * Per informazioni, vedere [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) (Usare i log di controllo per inviare notifiche di avviso di webhook in Monitoraggio di Azure).
 
 * Informazioni sugli [scenari di scalabilità automatica avanzata](virtual-machine-scale-sets-advanced-autoscale.md).
-

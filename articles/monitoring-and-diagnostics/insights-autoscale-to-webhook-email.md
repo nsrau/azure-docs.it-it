@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: 16caf14028494800e9259f0296c292b606d0210a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Monitoraggio di Azure
 Questo articolo illustra come configurare i trigger per poter chiamare URL Web specifici o inviare messaggi di posta elettronica in base alle azioni di scalabilità automatica in Azure.  
@@ -126,4 +125,3 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 | oldCapacity |sì |Conteggio delle istanze corrente (precedente) quando la scalabilità automatica ha eseguito un'azione di scalabilità |
 | newCapacity |sì |Nuovo conteggio delle istanze in base al quale la scalabilità automatica ha ridimensionato la risorsa |
 | properties |No |Facoltativo. Set di coppie <chiave, valore> (ad esempio Dizionario <Stringa, Stringa>). Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query) |
-

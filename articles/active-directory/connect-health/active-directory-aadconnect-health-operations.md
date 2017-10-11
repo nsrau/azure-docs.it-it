@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: fa9983a3d53cf8d6278163a2b7d08c86ae2f0637
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 06afc6b4149ea1590a2994d1638d6979a89035e3
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operazioni di Azure Active Directory Connect Health
 Questo argomento descrive le varie operazioni che è possibile eseguire tramite Azure Active Directory (Azure AD) Connect Health.
@@ -157,4 +156,3 @@ Ora gli utenti e i gruppi elencati hanno accesso, in base ai relativi ruoli asse
 * [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md)
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 0a9bdf3afba87ba1e7a1047907ab9eeb0ef8a842
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 84b4c59bac1feeb8611b3a8d783d093ba073e532
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="analysis-services-high-availability"></a>Disponibilità elevata di Azure Analysis Services
 Questo articolo descrive come garantire la disponibilità elevata dei server di Azure Analysis Services. 
 
@@ -40,5 +38,4 @@ In entrambi i casi, se il server principale subisce un'interruzione, è necessar
 ## <a name="related-information"></a>Informazioni correlate
 [Backup e ripristino](analysis-services-backup.md)   
 [Gestire Azure Analysis Services](analysis-services-manage.md) 
-
 

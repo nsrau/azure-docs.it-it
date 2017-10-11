@@ -1,6 +1,6 @@
 ---
 title: Sottoscrizione di Azure Active Directory Privileged Identity Management | Documentazione Microsoft
-description: Illustra la sottoscrizione e i requisiti per le licenze per la gestione e l&quot;utilizzo di Azure AD Privileged Identity Management nel tenant
+description: Illustra la sottoscrizione e i requisiti per le licenze per la gestione e l'utilizzo di Azure AD Privileged Identity Management nel tenant
 services: active-directory
 documentationcenter: 
 author: barclayn
@@ -15,15 +15,12 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: barclayn
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
-ms.openlocfilehash: c6aea0b7280ad8f1365c04203c78a1499ba0aa58
-ms.contentlocale: it-it
-ms.lasthandoff: 01/27/2017
-
-
+ms.openlocfilehash: 62d8f80fa1bec3a1b75e316f0b0ee7be8cbefbff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Requisiti di sottoscrizione di Azure Active Directory Privileged Identity Management
 
 Azure AD Privileged Identity Management è disponibile solo come parte di Azure AD Premium P2 Edition. Per maggiori informazioni su altre funzionalità di P2 e per un confronto con la versione Premium P1, vedere [Edizioni di Azure Active Directory](../active-directory-editions.md).
@@ -64,4 +61,3 @@ Quando scade una sottoscrizione di Azure AD Premium P2 o EMS E5 oppure un'organi
 
 - [Introduzione ad Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
 - [Ruoli in Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-roles.md)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
-ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>Usare .Net SDK per avviare la trasformazione dei dati (anteprima privata)
 
 ## <a name="overview"></a>Overview
@@ -183,4 +181,3 @@ Eseguire la procedura seguente per usare .NET allo scopo di avviare un processo 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Usare l'interfaccia utente di StorSimple Data Manager per la trasformazione dei dati](storsimple-data-manager-ui.md).
-

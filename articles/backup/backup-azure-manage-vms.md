@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestire i backup delle macchine virtuali di Azure
 > [!div class="op_single_selector"]
@@ -171,7 +170,7 @@ Per arrestare la protezione per una macchina virtuale:
 
     Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzarlo. Il nome dell'elemento si trova anche nella parte superiore del pannello **Interrompi backup** .
 4. L'aggiunta di un **motivo** o **commento** è facoltativa.
-5. Per interrompere il processo di backup per l'elemento corrente, fare clic sul pulsante  ![Interrompi backup](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
+5. Per arrestare il processo di backup per l'elemento corrente, fare clic su ![backup pulsante di arresto](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
     Un messaggio di notifica informa che i processi di backup sono stati arrestati.
 
@@ -220,10 +219,9 @@ Per eliminare i dati di backup in una macchina virtuale con il *backup disabilit
 
     Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzarlo. Il nome dell'elemento si trova anche nella parte superiore del pannello **Elimina dati backup** .
 3. L'aggiunta di un **motivo** o **commento** è facoltativa.
-4. Per eliminare i dati di backup per l'elemento corrente, fare clic sul pulsante  ![Interrompi backup](./media/backup-azure-manage-vms/delete-button.png)
+4. Per eliminare i dati di backup per l'elemento corrente, fare clic su ![backup pulsante di arresto](./media/backup-azure-manage-vms/delete-button.png)
 
     Un messaggio di notifica informa che i dati di backup sono stati eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come ricreare una macchina virtuale da un punto di ripristino, vedere [Ripristinare macchine virtuali in Azure](backup-azure-restore-vms.md). Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md). Per informazioni sul monitoraggio degli eventi, vedere [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md)(Monitorare gli avvisi per i backup delle macchine virtuali di Azure).
-

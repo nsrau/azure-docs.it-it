@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
 ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-ms.contentlocale: it-it
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configurare CHAP per il dispositivo StorSimple
 In questa esercitazione viene illustrato come configurare CHAP per il dispositivo StorSimple. La procedura descritta in questo articolo si applica ai dispositivi StorSimple serie 8000 e StorSimple 1200.
@@ -161,5 +160,4 @@ Se la configurazione di CHAP non è corretta, è probabile che venga visualizzat
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 * Ulteriori informazioni sull’ [utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

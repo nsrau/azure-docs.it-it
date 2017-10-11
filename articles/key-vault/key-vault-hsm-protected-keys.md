@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: ambapat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f481de9d7eb23531b4be82c3b61e4f3850bed72e
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 5dbee1221f64045c64fecb344de1e03b2183dfb1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
 ## <a name="introduction"></a>Introduzione
@@ -448,4 +447,3 @@ Se il pacchetto viene caricato correttamente, verranno visualizzate le propriet√
 
 ## <a name="next-steps"></a>Passaggi successivi
 √à ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM)** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md) .
-

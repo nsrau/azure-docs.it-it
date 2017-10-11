@@ -14,22 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 2a7ecec310f4e321417364eee854409b2f85e2d3
-ms.contentlocale: it-it
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="what-is-an-integration-account"></a>Cos'è un account di integrazione?
 
 Un account di integrazione consente alle app di integrazione aziendale di gestire elementi diversi, ad esempio schemi, mappe, certificati, partner e contratti. Qualsiasi applicazione di integrazione create usa un account di integrazione per accedere a tali schemi, mappe, certificati e così via.
 
 ## <a name="create-an-integration-account"></a>Creare un account di integrazione
 
-1.    Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). Fare clic su **Altri servizi** nel menu a sinistra.
+1.  Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). Fare clic su **Altri servizi** nel menu a sinistra.
 
     ![Selezionare "Altri servizi"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
@@ -131,5 +128,4 @@ Per spostare un account di integrazione a un'altra sottoscrizione o gruppo di ri
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sui contratti](../logic-apps/logic-apps-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")  
-
 

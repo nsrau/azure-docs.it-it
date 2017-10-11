@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/22/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
-ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>Ripristinare un volume StorSimple da un set di backup (aggiornamento 2)
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -120,5 +119,4 @@ Per completare l'operazione di ripristino, portare offline il volume nell'host e
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [gestire i volumi StorSimple](storsimple-manage-volumes-u2.md).
 * Informazioni su come [usare il servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

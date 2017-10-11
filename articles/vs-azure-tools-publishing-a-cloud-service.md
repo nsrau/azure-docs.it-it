@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/14/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 23cea0486a769d4f446f5114016d5accbe8113cf
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: e617d600dbc8287eea737fc4969833e873365288
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Pubblicazione di un servizio cloud con gli strumenti di Azure
 Utilizzando gli Strumenti di Azure per Microsoft Visual Studio, è possibile pubblicare l'applicazione Azure direttamente da Visual Studio. Visual Studio supporta la pubblicazione integrata per la gestione temporanea o l’ambiente di produzione di un servizio cloud.
@@ -148,5 +147,4 @@ Potrebbe essere necessario includere file specifici nel pacchetto di servizio in
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla pubblicazione in Azure da Visual Studio, vedere [Procedura guidata Pubblica l'applicazione Azure](vs-azure-tools-publish-azure-application-wizard.md).
-
 

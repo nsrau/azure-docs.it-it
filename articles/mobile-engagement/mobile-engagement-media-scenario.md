@@ -1,6 +1,6 @@
 ---
 title: Implementazione di Azure Mobile Engagement per app multimediali
-description: Scenario di app multimediali per l&quot;implementazione di Azure Mobile Engagement
+description: Scenario di app multimediali per l'implementazione di Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08f986e66e40211f60beef6ebd00bb041a8ada
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>Implementare Mobile Engagement con app multimediali
 ## <a name="overview"></a>Overview
@@ -57,7 +56,7 @@ In base ai suggerimenti del team IT, vengono aggiunti gli indicatori KPI tecnici
 Per ogni indicatore KPI, i dati necessari vengono classificati e registrati correttamente nello schema di progetto.
 
 ## <a name="engagement-program-and-integration"></a>Programma di engagement e integrazione
-Dopo aver definito gli indicatori KPI, Mattia inizia la fase della strategia di engagement stabilendo quattro programmi di engagement e i relativi obiettivi:     ![][1]
+Dopo aver definito gli indicatori KPI, Mattia inizia la fase della strategia di engagement stabilendo quattro programmi di engagement e i relativi obiettivi: ![][1]
 
 Mattia crea notifiche push dettagliate per ogni programma. Le notifiche push sono definite da cinque elementi:
 
@@ -99,4 +98,3 @@ Dopo questi primi quattro mesi, i risultati riflettono buone prestazioni general
 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gestire tutti i criteri per un lab in Azure DevTest Labs
 
@@ -111,5 +110,4 @@ Dopo avere definito e applicato i diversi criteri per le VM per il lab, è possi
 * [Creare un'immagine personalizzata](devtest-lab-create-template.md): quando si crea una VM, si specifica una base, che può essere un'immagine personalizzata o un'immagine del Marketplace. Questo articolo illustra come creare un'immagine personalizzata da un file VHD.
 * [Configurare immagini del Marketplace](devtest-lab-configure-marketplace-images.md): Azure DevTest Labs supporta la creazione di VM basate su immagini di Azure Marketplace. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di VM in un lab.
 * [Creare una VM in un lab](devtest-lab-add-vm-with-artifacts.md): questo articolo illustra come creare una VM da un'immagine di base, personalizzata o del Marketplace, e come usare gli elementi nella VM.
-
 

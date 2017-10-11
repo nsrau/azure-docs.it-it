@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sull&quot;invio di ultime notizie localizzate per iOS mediante Hub di notifica
+title: Esercitazione sull'invio di ultime notizie localizzate per iOS mediante Hub di notifica
 description: Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate (iOS).
 services: notification-hubs
 documentationcenter: ios
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>Uso di Hub di notifica per inviare le ultime notizie localizzate ai dispositivi iOS
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
 > 
 
 ## <a name="overview"></a>Panoramica
-In questo argomento viene illustrato come utilizzare la funzionalità relativa ai [modelli](notification-hubs-templates-cross-platform-push-messages.md) di Hub di notifica di Azure per trasmettere notifiche relative alle ultime notizie localizzate in base alla lingua e al dispositivo. In questa esercitazione verrà utilizzata l'app di iOS creata in [Utilizzo di Hub di notifica per inviare le ultime notizie]. Al termine, sarà possibile effettuare la registrazione per le categorie di proprio interesse, specificare la lingua in cui ricevere le notifiche e ricevere solo notifiche push per le categorie selezionate nella lingua scelta.
+In questo argomento viene illustrato come utilizzare la funzionalità relativa ai [modelli](notification-hubs-templates-cross-platform-push-messages.md) di Hub di notifica di Azure per trasmettere notifiche relative alle ultime notizie localizzate in base alla lingua e al dispositivo. In questa esercitazione verrà utilizzata l'app di iOS creata in [Utilizzo di Hub di notifica per inviare le e ultime notizie]. Al termine, sarà possibile effettuare la registrazione per le categorie di proprio interesse, specificare la lingua in cui ricevere le notifiche e ricevere solo notifiche push per le categorie selezionate nella lingua scelta.
 
 Lo scenario è composto da due parti:
 
@@ -36,12 +36,12 @@ Lo scenario è composto da due parti:
 * il back-end trasmette le notifiche usando le funzionalità relative ai **tag** e ai **modelli** di Hub di notifica di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
-È necessario aver completato l'esercitazione [Utilizzo di Hub di notifica per inviare le ultime notizie] e disporre del relativo codice, in quanto questa esercitazione è basata direttamente su tale codice.
+È necessario aver completato l'esercitazione [Utilizzo di Hub di notifica per inviare le e ultime notizie] e disporre del relativo codice, in quanto questa esercitazione è basata direttamente su tale codice.
 
 Visual Studio 2012 o versione successiva è facoltativo.
 
 ## <a name="template-concepts"></a>Concetti relativi ai modelli
-In [Utilizzo di Hub di notifica per inviare le ultime notizie] è stata creata un'app che utilizza i **tag** per sottoscrivere le notifiche per diverse categorie di notizie.
+In [Utilizzo di Hub di notifica per inviare le e ultime notizie] è stata creata un'app che utilizza i **tag** per sottoscrivere le notifiche per diverse categorie di notizie.
 Molte app, tuttavia, sono destinate a più mercati ed è necessario localizzarle. Questo significa che il contenuto delle notifiche deve essere localizzato e inviato al set di dispositivi corretto.
 In questo argomento verrà illustrato come usare la funzionalità relativa ai **modelli** di Hub di notifica per inviare facilmente notifiche relative alle ultime notizie localizzate.
 
@@ -66,7 +66,7 @@ Si procederà quindi a verificare che i dispositivi effettuino la registrazione 
 I modelli rappresentano uno strumento particolarmente efficace. Per altre informazioni, vedere l'articolo [Modelli](notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="the-app-user-interface"></a>Interfaccia utente dell'app
-L'app Breaking News creata nell'argomento [Utilizzo di Hub di notifica per inviare le ultime notizie] verrà ora modificata in modo da inviare notizie localizzate mediante modelli.
+L'app Breaking News creata nell'argomento [Utilizzo di Hub di notifica per inviare le e ultime notizie] verrà ora modificata in modo da inviare notizie localizzate mediante modelli.
 
 In MainStoryboard_iPhone.storyboard aggiungere un controllo Segmented con le tre lingue che saranno supportate: inglese, francese e mandarino.
 
@@ -247,29 +247,23 @@ Per altre informazioni sull'uso dei modelli, vedere:
 
 
 <!-- URLs. -->
-[Procedura: Hub di notifica del bus di servizio (app per iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Utilizzo di Hub di notifica per inviare le ultime notizie]: /manage/services/notification-hubs/breaking-news-ios
-[Servizio mobile]: /develop/mobile/tutorials/get-started
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[Utilizzo di Hub di notifica per inviare le e ultime notizie]: /manage/services/notification-hubs/breaking-news-ios
+[Mobile Service]: /develop/mobile/tutorials/get-started
 [Usare Hub di notifica per inviare notifiche agli utenti: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Usare Hub di notifica per inviare notifiche agli utenti: Servizi mobili]: /manage/services/notification-hubs/notify-users
-[Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started/#create-new-service
-[Introduzione ai dati]: /develop/mobile/tutorials/get-started-with-data-ios
-[Aggiungere l'autenticazione all'app Android]: /develop/mobile/tutorials/get-started-with-users-ios
-[Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-ios
-[Inviare notifiche push agli utenti di app]: /develop/mobile/tutorials/push-notifications-to-users-ios
-[Autorizzazione di utenti con script]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[JavaScript and HTML]: ../get-started-with-push-js.md (JavaScript e HTML)
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[JavaScript and HTML]: ../get-started-with-push-js.md
 
-[Procedura di registrazione di Windows Developer Preview per servizi mobili]: ../mobile-services-windows-developer-preview-registration.md
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591 (Oggetto WNS)
-[linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+[Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx

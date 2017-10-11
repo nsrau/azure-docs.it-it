@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 09a68c7f4e7169a6ca02e33e89e0f048155fa88c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Come decidere Servizi di dominio Azure AD è adatto alle esigenze del caso di utilizzo
 Con Azure Active Directory Domain Services è possibile distribuire i carichi di lavoro nei servizi di infrastruttura di Azure senza preoccuparsi di mantenere l'infrastruttura di identità in Azure. Questo servizio gestito è diverso da una tipica distribuzione di Windows Server Active Directory che viene distribuita e amministrata in modo autonomo. Il servizio è facile da distribuire e offre il monitoraggio e la correzione dell'integrità automatizzati. Il servizio è in continua evoluzione per l'aggiunta del supporto di scenari di distribuzione comuni.
@@ -120,4 +119,3 @@ Microsoft ha pubblicato alcune [linee guida per la distribuzione di Active Direc
 * [Funzionalità - Servizi di dominio Azure AD](active-directory-ds-features.md)
 * [Scenari di distribuzione - Servizi di dominio Azure AD](active-directory-ds-scenarios.md)
 * [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-

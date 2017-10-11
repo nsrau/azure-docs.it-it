@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: viviali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f9a5e7a4e25ce5e7f63fe5a09fafeb6b4a8166ad
-ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 79bb96171c00fa62f24113800c3824856febe728
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-graph-api"></a>API Graph di Azure Active Directory
 > [!IMPORTANT]
@@ -68,5 +66,4 @@ Gli scenari di applicazione dell'API Graph sono numerosi. Ecco i più comuni:
 [Documentazione di riferimento all'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
 [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md)
-
 

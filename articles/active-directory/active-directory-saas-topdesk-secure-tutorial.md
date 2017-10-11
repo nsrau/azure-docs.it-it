@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
 ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.contentlocale: it-it
-ms.lasthandoff: 02/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Secure
 Questa esercitazione descrive l'integrazione di Azure e TOPdesk - Secure.  
@@ -105,7 +104,7 @@ La configurazione dell'accesso Single Sign-On per TOPdesk - Secure richiede il c
 
 6. In un'altra finestra del Web browser accedere al portale di **portale di Azure classico** come amministratore.
 
-7. Nella pagina di integrazione dell'applicazione **TOPdesk - Secure** fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+7. Nel **TOPdesk - Secure** pagina di integrazione dell'applicazione, fare clic su **configurare single sign-on** per aprire il * * configurare Single Sign-On * * finestra di dialogo.
    
     ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Configurare l'accesso Single Sign-On")
 
@@ -206,7 +205,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Per assegnare gli utenti a TOPdesk - Secure, seguire questa procedura:
 1. Nel portale di Azure classico creare un account di test.
-2. Nella pagina di integrazione dell'applicazione **TOPdesk - Secure ** fare clic su **Assegna utenti**.
+2. Nel * * TOPdesk - Secure * * pagina di integrazione dell'applicazione, fare clic su **assegnare gli utenti**.
    
     ![Assegnare utenti](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Assegnare utenti")
 
@@ -215,5 +214,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
     ![Sì](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
 

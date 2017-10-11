@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con PurelyHR | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e PurelyHR.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e PurelyHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: a9075b1759ebd39f164bfe288fb0a365acdcc44c
-ms.lasthandoff: 04/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Esercitazione: Integrazione di Azure Active Directory con PurelyHR
 
@@ -249,5 +248,4 @@ Per ulteriori informazioni sul pannello di accesso, vedere [Introduzione al Pann
 [201]: ./media/active-directory-saas-purelyhr-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-purelyhr-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-purelyhr-tutorial/tutorial_general_203.png
-
 

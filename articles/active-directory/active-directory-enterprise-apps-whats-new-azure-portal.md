@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 36de09434ae5082e5f92dcc9a82bba88f5b89c85
-ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 0c32a6719292aa903aa32dfdc4a31114e7a28346
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novità della gestione delle applicazioni aziendali in Azure Active Directory 
 
@@ -155,7 +154,6 @@ Speriamo che gli utenti usino il nuovo Azure AD e inviino commenti e suggeriment
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altri dettagli, vedere [Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md).
-
 
 
 

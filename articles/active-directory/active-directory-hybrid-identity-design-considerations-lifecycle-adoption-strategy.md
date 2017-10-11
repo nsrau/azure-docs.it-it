@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 18b40486a66d8e092a8af299460145989a1ab99d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di gestione delle identità in modo che la soluzione ibrida soddisfi i requisiti aziendali definiti in [Determinare le attività della gestione ibrida delle identità](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -100,5 +99,4 @@ Esaminare la tabella seguente per un confronto tra le opzioni di sincronizzazion
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/05/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Note sulla versione di anteprima pubblica dei criteri personalizzati di Azure Active Directory B2C
 Il set di funzionalità dei criteri personalizzati è ora disponibile per la valutazione in anteprima pubblica per tutti i clienti di Azure Active Directory B2C (Azure AD B2C). Questo set di funzionalità è destinato agli sviluppatori esperti che creano le soluzioni di gestione delle identità più complesse.  
@@ -64,4 +63,3 @@ Per sfruttare appieno l'anteprima pubblica, è consigliabile che gli sviluppator
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md)
-

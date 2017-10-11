@@ -1,5 +1,4 @@
 ---
-
 title: Assegnare un utente ai ruoli di amministratore in Azure Active Directory | Microsoft Docs
 description: Illustra come cambiare le informazioni amministrative in Azure Active Directory
 services: active-directory
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: ebbadff39c736ec7364999f7644694e8a177073f
-ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
-
+ms.openlocfilehash: bfadf133154488f9827cfbeaa98ddb0eb84b52f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Assegnare un utente ai ruoli di amministratore in Azure Active Directory
 Questo articolo descrive come assegnare un ruolo di amministratore a un utente in Azure Active Directory (Azure AD). Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad Azure Active Directory](active-directory-users-create-azure-portal.md). Gli utenti aggiunti non hanno autorizzazioni di amministratore per impostazione predefinita, ma è possibile assegnare loro dei ruoli in qualsiasi momento.
@@ -47,4 +44,3 @@ Questo articolo descrive come assegnare un ruolo di amministratore a un utente i
 * [Modificare le informazioni di lavoro di un utente](active-directory-users-work-info-azure-portal.md)
 * [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
 * [Eliminare un utente in Azure AD](active-directory-users-delete-user-azure-portal.md)
-

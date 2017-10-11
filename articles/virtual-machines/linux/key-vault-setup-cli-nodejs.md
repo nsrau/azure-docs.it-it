@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
-ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Configurare l'insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager con l'interfaccia della riga di comando 1.0 di Azure
 In Azure Resource Manager gli stack, i segreti e i certificati vengono modellati come risorse fornite dal provider di risorse dell'insieme di credenziali delle chiavi. Per altre informazioni sugli insiemi di credenziali delle chiavi di Azure, vedere [Informazioni sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-whatis.md) Per consentire l'uso dell'insieme di credenziali delle chiavi con le macchine virtuali di Azure Resource Manager, è necessario impostare su true la proprietà *EnabledForDeployment* nell'insieme di credenziali delle chiavi. È possibile farlo in vari tipi di client. Questo articolo descrive come configurare un insieme di credenziali delle chiavi da usare con le macchine virtuali di Azure.
@@ -54,4 +53,3 @@ Se si usa un modello, è necessario impostare la proprietà `enabledForDeploymen
     }
 
 Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi utilizzando i modelli, vedere l'articolo su come [creare un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
-

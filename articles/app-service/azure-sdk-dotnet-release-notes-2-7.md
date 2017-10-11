@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
-
-
+ms.openlocfilehash: 9a69253129cdedc4f5d7e736d5bd8d6a68f95a1e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.7 e .NET 2.7.1
 ## <a name="overview"></a>Panoramica
@@ -63,7 +63,7 @@ In questa versione sono stati introdotti gli aggiornamenti seguenti per le esten
 #### <a name="known-issues"></a>Problemi noti
 I nodi dello slot di distribuzione di app Web non vengono visualizzati nel nodo Slot in Esplora server e i nodi figlio dello slot di distribuzione di app Web non vengono caricati in Cloud Explorer. Questo problema è stato risolto e preparato per la prossima versione dell'SDK. 
 
-### <a name="a-namecloudexploreracloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>Cloud Explorer per Visual Studio 2015
+### <a name="cloud_explorer"></a>Cloud Explorer per Visual Studio 2015
 Azure SDK 2.7 include Cloud Explorer per Visual Studio 2015 che consente di visualizzare le risorse di Azure, controllare le relative proprietà ed eseguire azioni fondamentali per gli sviluppatori dall'interno di Visual Studio. 
 
 Cloud Explorer supporta quanto segue:
@@ -136,10 +136,4 @@ I Progetti LightSwitch non sono compatibili con questa versione. Questo problema
 [Post di annuncio di Azure SDK 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
 [Informazioni sul Supporto e il Ritiro di Azure SDK per .NET e API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

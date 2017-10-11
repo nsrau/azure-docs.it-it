@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0be8ba4cfdf0686e14e70d0688085af5455de43a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 187c7cb413b3707e58eea387857375053d267189
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Uso di Hive con Hadoop in HDInsight con Desktop remoto
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -144,4 +143,3 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-

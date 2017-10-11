@@ -16,14 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure
 
 Questa esercitazione illustra come completare i prerequisiti per la creazione di un [gruppo di disponibilità AlwaysOn di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md). Dopo il completamento dei prerequisiti, sono presenti un controller di dominio, due VM di SQL Server e un server di controllo in un unico gruppo di risorse.
@@ -498,4 +496,3 @@ Ripetere questi passaggi per la seconda VM di SQL Server.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un gruppo di disponibilità AlwaysOn in Macchine virtuali di Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Autenticazione del bus di servizio con firme di accesso condiviso
 
 Le *firme di accesso condiviso* sono il meccanismo di sicurezza principale per la messaggistica del bus di servizio. Questo articolo illustra le firme di accesso condiviso, il loro funzionamento e come usarle in modo indipendente dalla piattaforma.

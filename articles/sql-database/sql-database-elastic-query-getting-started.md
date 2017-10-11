@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: b817577d835f2f4a912356366ab24d1f812e1e11
-ms.contentlocale: it-it
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 8eb56d44c3a261f6325d4fc91f169d09bf108160
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Creare report in database cloud con numero maggiore di istanze (anteprima)
 È possibile creare report da più database SQL di Azure da un unico punto di connessione usando una [query elastica](sql-database-elastic-query-overview.md). Il database deve essere con partizionamento orizzontale.
@@ -145,4 +144,3 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://a
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-

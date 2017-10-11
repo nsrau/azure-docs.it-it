@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: 5a1b2ffa160a31b639605242b651dc8d14e7a01b
-ms.contentlocale: it-it
-ms.lasthandoff: 03/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Come usare Twilio per le funzionalità voce ed SMS in Java
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps) .
@@ -57,7 +56,7 @@ Di seguito è riportato un elenco dei verbi Twilio.
 ### <a id="TwiML"></a>TwiML
 TwiML è un set di istruzioni basate su XML e sui verbi Twilio che indicano a Twilio come elaborare una chiamata o un SMS.
 
-Ad esempio, il codice TwiML seguente effettua la sintesi vocale del testo **Hello World!** to speech.
+Ad esempio, il codice TwiML seguente effettua la sintesi vocale del testo **Hello World!** sintesi vocale.
 
 ```xml
     <?xml version="1.0" encoding="UTF-8" ?>
@@ -239,4 +238,3 @@ Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegame
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
-

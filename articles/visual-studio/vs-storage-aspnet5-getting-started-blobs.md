@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e4daf733cb4be630222425c2cda29eea12bac86d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: 2e8060b44c395ad7c24e7778c0ef65148a3a45de
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introduzione all'archiviazione BLOB di Azure e ai relativi servizi di Visual Studio (ASP.NET Core)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -152,5 +151,4 @@ Per eliminare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi ch
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
-
 

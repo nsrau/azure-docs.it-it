@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 07/12/2017
 ms.author: jrj;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Dati distribuiti e tabelle distribuite per l'elaborazione parallela elevata (Massively Parallel Processing, MPP)
 Informazioni sulla distribuzione dei dati utente in Azure SQL Data Warehouse e Parallel Data Warehouse, i sistemi di elaborazione parallela elevata (Massively Parallel Processing, MPP) di Microsoft. La progettazione di un data warehouse che usa dati distribuiti consente di ottenere i vantaggi derivanti dall'elaborazione di query dell'architettura MPP. Un numero limitato di scelte nella progettazione dei database può avere un impatto significativo nel miglioramento delle prestazioni delle query.  
@@ -73,5 +72,4 @@ La figura seguente illustra una tabella replicata archiviata in ogni nodo di cal
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un uso efficace delle tabelle distribuite, vedere [Distributing tables in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md) (Distribuzione di tabelle in SQL Data Warehouse)  
-
 

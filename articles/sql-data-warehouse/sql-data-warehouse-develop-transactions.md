@@ -1,6 +1,6 @@
 ---
 title: Transazioni in SQL Data Warehouse | Documentazione Microsoft
-description: Suggerimenti per l&quot;implementazione di transazioni in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per l'implementazione di transazioni in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Transazioni in SQL Data Warehouse
 Come si può immaginare, SQL Data Warehouse supporta le transazioni come parte del carico di lavoro del data warehouse. Tuttavia, per garantire che le prestazioni di SQL Data Warehouse siano mantenute al massimo livello, alcune funzionalità sono limitate rispetto a SQL Server. Questo articolo evidenzia le differenze ed elenca le altre. 
@@ -36,7 +35,7 @@ Ecco alcuni presupposti riportati nella tabella seguente:
 * Si è verificata una distribuzione uniforme dei dati 
 * La lunghezza media delle righe è 250 byte
 
-| [DWU][DWU] | Limite per ogni distribuzione (GiB) | Numero di distribuzioni | Dimensioni MAX delle transazioni (GiB) | # Righe per distribuzione | Righe max per transazione |
+| [DWU][DWU] | Limite per ogni distribuzione (GiB) | Numero di distribuzioni | Dimensioni MAX delle transazioni (GiB) | # Righe per la distribuzione | Righe max per transazione |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4.000.000 |240.000.000 |
 | DW200 |1,5 |60 |90 |6.000.000 |360.000.000 |
@@ -191,4 +190,3 @@ Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Ottimizzaz
 <!--MSDN references-->
 
 <!--Other Web references-->
-

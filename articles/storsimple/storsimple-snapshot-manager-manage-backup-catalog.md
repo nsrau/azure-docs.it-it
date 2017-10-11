@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: b97753e6f1b67e3c8d247281c5e5208033a56eca
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Uso di StorSimple Snapshot Manager per gestire il catalogo di backup
 
@@ -164,5 +163,4 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sull’ [utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 * Ulteriori informazioni sulle [attività e sui flussi di lavoro di StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
-
 

@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: b6fc2098027690eb76b69b1427f0e9541b8a7a69
-ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari
 Informazioni sul monitoraggio di cluster HDInsight con API Ambari.
@@ -172,4 +171,3 @@ In questa esercitazione si è appreso come utilizzare le chiamate API Ambari di 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
-

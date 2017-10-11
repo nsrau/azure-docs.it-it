@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 27bb185d0243b1e8c0fd7697650eaf7bbd5eefa7
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 207526b7a675f92134d045ebefb9a372749bce92
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-map-in-application-insights"></a>Mappa delle applicazioni in Application Insights
 In [Azure Application Insights](app-insights-overview.md), Mappa delle applicazioni è un layout visivo delle relazioni di dipendenza dei componenti dell'applicazione. Ogni componente mostra gli indicatori KPI, ad esempio carico, prestazioni, errori e avvisi per individuare eventuali componenti che generano un errore o un problema di prestazioni. È possibile fare clic da qualsiasi componente per ottenere una diagnostica più dettagliata, ad esempio sugli eventi di Application Insights. Se l'app usa i servizi di Azure, è possibile anche fare clic sulla diagnostica di Azure, ad esempio per consigli di Advisor su database SQL.
@@ -129,4 +128,3 @@ Inviare commenti e suggerimenti tramite l'apposita opzione del portale.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Portale di Azure](https://portal.azure.com)
-

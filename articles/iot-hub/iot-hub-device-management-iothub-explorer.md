@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Usare iothub-explorer per la gestione di dispositivi hub IoT di Azure
 
@@ -147,4 +146,3 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperatur
 Si è appreso l'uso di iothub-explorer con diverse opzioni di gestione.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08fcdb4ec6dd124760cff54c522d998d5a0327
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: 58943e1e29755c983e55c675dd4fe7b75ac47b34
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Abilitare Microsoft Windows Hello for Business nell'organizzazione
 Dopo [aver connesso i dispositivi appartenenti a un dominio di Windows 10 ad Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), seguire questa procedura per abilitare Microsoft Windows Hello for Business nell'organizzazione:
@@ -90,7 +88,7 @@ Usare System Center Configuration Manager è il metodo preferito quando lo si us
    
     b. Per **Usa Trusted Platform Module (TPM)** selezionare **Richiesto**. 
    
-    c. Per **Metodo di autenticazione**selezionare **Basata su certificati**.
+    c. Per **Metodo di autenticazione** selezionare **Basata su certificati**.
    
     d. Fare clic su **Avanti**.
 6. Nella finestra di dialogo **Riepilogo** fare clic su **Avanti**.
@@ -114,5 +112,4 @@ Nella pagina **Registrazione SCEP** del profilo certificato è necessario scegli
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
-
 

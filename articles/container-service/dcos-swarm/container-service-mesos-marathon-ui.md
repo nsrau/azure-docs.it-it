@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 4b23d46ef3c56baf91d09018552969eaf20cc8d7
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: b00088bb005519dc5d533433308c0e3e33c7f433
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Gestire un cluster DC/OS del servizio contenitore di Azure tramite l'interfaccia utente Web di Marathon
 DC/OS offre un ambiente di distribuzione e ridimensionamento dei carichi di lavoro cluster con l'astrazione dell'hardware sottostante. In DC/OS è disponibile anche un framework che gestisce la pianificazione e l'esecuzione dei carichi di lavoro di calcolo.
@@ -114,4 +113,3 @@ In questo esempio l'applicazione è in esecuzione su un nodo dell'agente pubblic
 
     > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
     > 
-

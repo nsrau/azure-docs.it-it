@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/17/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
-ms.openlocfilehash: 809b010fbbc0b5c1cbc2d5d5474374a4467defb4
-ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: d498eac2d0dfe7d271bdb5e47159faa113545ab4
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Scelte rapide da tastiera per Catalogo dati di Azure
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Tasti di scelta rapida per il tool di registrazione delle origini dati di Azure Data Catalog
@@ -86,5 +85,4 @@ ms.lasthandoff: 01/24/2017
 | Attiva/Disattiva il menu delle corrispondenze con i termini di ricerca |ALT+S |
 | Attiva/Disattiva il menu **Apri In** |ALT + O |
 | Esplorare il contenitore, se l'asset è un contenitore |ALT+L |
-
 

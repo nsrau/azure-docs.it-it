@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/15/2017
 ms.author: markgal;arunak
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
 ms.openlocfilehash: 19e2aafe3de106be32f3d90c63c0ea03c626f272
-ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="recovery-services-vaults-overview"></a>Panoramica di insiemi di credenziali di Servizi di ripristino
 
@@ -77,4 +76,3 @@ Usare l'articolo seguente per:</br>
 [Eseguire il backup di una macchina virtuale IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Eseguire il backup del server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</br>
 [Eseguire il backup di Windows Server](backup-configure-vault.md)
-

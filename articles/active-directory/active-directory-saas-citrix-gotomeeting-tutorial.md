@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: c1ac144c4fa43312ec26fce03cd0ee1bfcf73d4b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-gotomeeting"></a>Esercitazione: Integrazione di Azure Active Directory con Citrix GoToMeeting
 
@@ -224,7 +223,7 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-* [Configurare il provisioning utenti](active-directory-saas-citrixgotomeeting-provisioning-tutorial.md)
+* [Configura provisioning utenti](active-directory-saas-citrixgotomeeting-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -239,5 +238,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 [201]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_203.png
-
 

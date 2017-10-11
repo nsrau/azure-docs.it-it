@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
-ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Eseguire il backup di un server Exchange in Backup di Azure con il server di Backup di Azure
 Questo articolo descrive come configurare il server di Backup di Microsoft Azure (MABS) per eseguire il backup di un server Microsoft Exchange in Azure.  
@@ -53,7 +52,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 
    * Protezione dati breve termine tramite: Disco.
    * Protezione dati online.
-6. Fare clic su **Next**.
+6. Fare clic su **Avanti**.
 7. Selezionare l'opzione **Esegui Eseutil per controllare l'integrità dei dati** se si vuole controllare l'integrità dei database di Exchange Server.
 
     Dopo aver selezionato questa opzione, la verifica coerenza del backup verrà eseguito in MABS per evitare il traffico di I/O che viene generato eseguendo il comando **eseutil** sul server di Exchange.
@@ -63,7 +62,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
    > ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Fare clic su **Next**.
+8. Fare clic su **Avanti**.
 9. Selezionare il database per **Backup di copia**, quindi fare clic su **Avanti**.
 
    > [!NOTE]
@@ -112,4 +111,3 @@ Per i punti di ripristino online sono disponibili cinque tipi:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
-

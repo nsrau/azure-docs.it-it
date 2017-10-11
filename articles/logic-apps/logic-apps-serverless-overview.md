@@ -1,6 +1,6 @@
 ---
-title: Panoramica dell&quot;architettura senza server di Azure | Microsoft Docs
-description: Creare potenti soluzioni nel cloud senza preoccuparsi dell&quot;infrastruttura.
+title: Panoramica dell'architettura senza server di Azure | Microsoft Docs
+description: Creare potenti soluzioni nel cloud senza preoccuparsi dell'infrastruttura.
 keywords: 
 services: logic-apps
 author: jeffhollan
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ae74dda6337c04eea0641930d1ec6ab7570c5486
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: 6803e22a78e27c15ff4fec301cd5bdd55aacd3e3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Panoramica dell'architettura senza server di Azure con Funzioni e App per la logica
 

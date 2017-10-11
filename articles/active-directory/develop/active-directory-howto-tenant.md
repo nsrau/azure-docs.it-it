@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
-ms.contentlocale: it-it
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Come ottenere un tenant di Azure Active Directory
 In Azure Active Directory (Azure AD), un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) rappresenta un'organizzazione.  Si tratta di un'istanza dedicata del servizio Azure AD che l'organizzazione riceve al momento dell'iscrizione a un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Office 365 e che diventa di sua proprietà.  Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD.  
@@ -47,7 +46,7 @@ A tale scopo, seguire questa procedura.  In alternativa, è possibile creare un 
 1. Accedere al [portale di Azure](https://portal.azure.com) con l'account personale.
 2. Passare alla sezione "Azure Active Directory" del portale, che si trova nella barra di spostamento a sinistra in **Altri servizi**.
 3. Viene eseguito automaticamente l'accesso alla "directory predefinita". In caso contrario, è possibile passare a un'altra directory facendo clic sul nome dell'account nell'angolo superiore destro.
-4. Nella sezione **Attività rapide** scegliere **Aggiungere un utente**.
+4. Nella sezione **Attività rapide**  scegliere **Aggiungere un utente**.
 5. Nel modulo Aggiungi utente specificare le informazioni seguenti:
 
    * Nome: scegliere un valore appropriato
@@ -65,4 +64,3 @@ Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio a
 Se quanto descritto finora è incomprensibile, non è il caso di preoccuparsi.  Passare a [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) per iscriversi ad Azure con un nuovo account aziendale.  Al termine della procedura verrà creato il proprio tenant di Azure AD con il nome di dominio scelto durante l'iscrizione.  Per trovare il tenant nel [portale di Azure](https://portal.azure.com), passare ad "Azure Active Directory" nella barra di spostamento a sinistra.
 
 Durante la procedura di iscrizione ad Azure, verrà richiesto di indicare i dettagli della carta di credito.  Non c'è nulla di cui preoccuparsi, la pubblicazione di applicazioni in Azure AD o la creazione di nuovi tenant non vengono addebitate.
-

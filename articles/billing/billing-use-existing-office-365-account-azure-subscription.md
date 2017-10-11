@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: cjiang
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 923b3ca8a2e2b1d7f44cd77946a02e1d30839f14
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365
 Se si dispone di un abbonamento a Office 365, è possibile usare l'account di Office 365 per creare una sottoscrizione di Azure. Accedere al [portale di Azure](https://portal.azure.com/) usando il nome utente e la password di Office 365. Se si vuole configurare le macchine virtuali o usare altri servizi di Azure, è necessario ottenere una sottoscrizione di Azure. È possibile condividere la sottoscrizione di Azure con altri utenti e [usare controllo degli accessi in base al ruolo per gestire l'accesso alle risorse e alla sottoscrizione di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
@@ -57,4 +56,3 @@ Per altre informazioni, vedere [Associare le sottoscrizioni di Azure ad Azure Ac
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema. 
-

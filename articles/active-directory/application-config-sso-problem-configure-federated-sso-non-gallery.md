@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: d6bc4a67a95f41db7f89fbafd35819d38a9844d1
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 4eb2c04c940dd6ad15a491a331aed76c237f0387
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On federato per un'applicazione non inclusa nella raccolta di Azure AD
 
 Se si verifica un problema durante la configurazione di un'applicazione. Verificare di avere seguito tutti i passaggi indicati nell'articolo [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).
@@ -71,4 +69,3 @@ Per informazioni su come personalizzare le attestazioni degli attributi SAML inv
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
-

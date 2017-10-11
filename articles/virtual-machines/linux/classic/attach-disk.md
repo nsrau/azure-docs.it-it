@@ -1,6 +1,6 @@
 ---
 title: Collegare un disco a una macchina virtuale Linux in Azure| Documentazione Microsoft
-description: "Informazioni su come collegare un disco dati a una VM Linux usando il modello di distribuzione classica e inizializzare il disco affinché sia pronto per l&quot;uso"
+description: "Informazioni su come collegare un disco dati a una VM Linux usando il modello di distribuzione classica e inizializzare il disco affinché sia pronto per l'uso"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Come collegare un disco dati a una macchina virtuale Linux
 > [!IMPORTANT] 
@@ -90,7 +89,7 @@ ms.lasthandoff: 04/03/2017
     sudo fdisk /dev/sdc
     ```
 
-4. Quando richiesto, digitare **n** per creare una partizione.
+4. Quando richiesto, digitare  **n**  per creare una partizione.
 
     ![Creare un dispositivo](./media/attach-disk/fdisknewpartition.png)
 
@@ -235,4 +234,3 @@ Per altre informazioni sull'uso delle VM Linux, vedere gli articoli seguenti:
 <!--Link references-->
 [Agent]:../agent-user-guide.md
 [Logon]:../mac-create-ssh-keys.md
-

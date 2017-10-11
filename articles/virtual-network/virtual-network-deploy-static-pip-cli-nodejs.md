@@ -1,6 +1,6 @@
 ---
 title: Creare una VM con un indirizzo IP pubblico statico - interfaccia della riga di comando 1.0 di Azure | Documentazione Microsoft
-description: Informazioni su come creare una VM con un indirizzo IP pubblico statico usando l&quot;interfaccia della riga di comando 1.0 di Azure.
+description: Informazioni su come creare una VM con un indirizzo IP pubblico statico usando l'interfaccia della riga di comando 1.0 di Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 7aec9dcba717592b5324ac667008902bd323f537
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: a373c32271096308678fe3402e8420cc14fe5935
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-10"></a>Creare una VM con un IP pubblico statico usando l'interfaccia della riga di comando 1.0 di Azure
 
@@ -254,4 +253,3 @@ Dopo aver apportato tutte le modifiche necessarie e aver compreso il funzionamen
         info:    Looking up the NIC "NICWEB1"
         info:    Creating VM "WEB1"
         info:    vm create command OK
-

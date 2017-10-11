@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
-ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
 
 Il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) consente di [creare e aggiungere una macchina virtuale a un lab](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Ciò vale per la creazione di una macchina virtuale alla volta. Tuttavia, se l'ambiente contiene più macchine virtuali, ogni macchina deve essere creata individualmente. Per scenari quali app Web multilivello o farm di SharePoint, è necessario un meccanismo che consenta la creazione di più macchine virtuali in un unico passaggio. I modelli di Azure Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e di distribuire ripetutamente più macchine virtuali in modo coerente. Ciò offre i vantaggi seguenti:
@@ -132,4 +130,3 @@ Dopo aver configurato un repository di modelli di Azure Resource Manager nel lab
 * Dopo aver creato la macchina virtuale, è possibile connettersi ad essa selezionando **Connetti** nel pannello della macchina virtuale.
 * Visualizzare e gestire le risorse in ambiente selezionando l'ambiente nell'elenco **My virtual machines (Macchine virtuali personali)** nel lab. 
 * Esplorare i [modelli di Azure Resource Manager dalla raccolta di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates)
-

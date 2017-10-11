@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 533d3db2a9b49f3077b7cdb699cac797c7a931b3
-ms.contentlocale: it-it
-ms.lasthandoff: 03/24/2017
-
+ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Come eseguire il ripristino dal limite di 10 GB per LocalDB
 Per archiviare i dati sull'identità, Azure AD Connect richiede un database SQL. È possibile usare l'istanza predefinita di SQL Server 2012 Express LocalDB installata con Azure AD Connect oppure usare la versione di SQL completa. SQL Server Express impone un limite di 10 GB. Quando si usa LocalDB e viene raggiunto questo limite, il servizio di sincronizzazione Azure AD Connect non può più essere avviato o eseguire la sincronizzazione correttamente. Questo articolo illustra la procedura di ripristino.
@@ -103,4 +102,3 @@ In generale, il problema indica che le dimensioni del database di 10 GB non sono
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-

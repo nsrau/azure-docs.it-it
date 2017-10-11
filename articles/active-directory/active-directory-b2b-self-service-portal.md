@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 307373c75bbb87cec683f7a3097f8f159c9d5e61
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portale self-service per l'iscrizione a Collaborazione B2B di Azure AD
 
 I clienti possono eseguire molte operazioni con le funzionalità predefinite esposte tramite il [portale di Azure](https://portal.azure.com) per gli amministratori IT e il [pannello di accesso alle applicazioni](https://myapps.microsoft.com) per gli utenti finali. Le aziende hanno tuttavia bisogno di personalizzare il flusso di lavoro di onboarding per gli utenti B2B in base alle esigenze della propria organizzazione. È possibile farlo con la [nostra API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).

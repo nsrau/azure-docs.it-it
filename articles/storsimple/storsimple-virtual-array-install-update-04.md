@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a0c56eb55f81a30924835290acb59b7e7d7e3480
 ms.openlocfilehash: 3fb246b1515e7a637e6cff6499bf324c3f80dd45
-ms.contentlocale: it-it
-ms.lasthandoff: 02/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 0.4 nell'array virtuale StorSimple
 
@@ -109,5 +108,4 @@ Al termine dell'installazione, quando lo stato del processo è 100%, passare al 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Scoprire di più su come [amministrazione StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
 

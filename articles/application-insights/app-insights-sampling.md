@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
-ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
-ms.contentlocale: it-it
-ms.lasthandoff: 02/03/2017
-
+ms.openlocfilehash: ceaeced414c9c302fba335b4578bcdcbfaef0410
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -29,11 +28,11 @@ Quando i conteggi delle metriche vengono presentati nel portale, vengono nuovame
 Il campionamento riduce i costi del traffico e dei dati e consente di evitare la limitazione.
 
 ## <a name="in-brief"></a>In breve:
-* Il campionamento mantiene un record su *n* e rimuove il resto. Ad esempio, potrebbe mantenere 1 un evento su 5, corrispondente a una frequenza di campionamento del 20%. 
+* Campionamento mantiene 1 in  *n*  registra e ignora il resto. Ad esempio, potrebbe mantenere 1 un evento su 5, corrispondente a una frequenza di campionamento del 20%. 
 * Nelle app server Web ASP.NET, il campionamento viene eseguito automaticamente se l'applicazione invia molti dati di telemetria.
 * È anche possibile impostare il campionamento manualmente, nella pagina del portale relativa ai prezzi oppure nel file con estensione config di ASP.NET SDK, per ridurre anche il traffico di rete.
 * Se si registrano eventi personalizzati e ci si vuole assicurare che gli eventi di un set vengano mantenuti o rimossi insieme, verificare che abbiano lo stesso valore OperationId.
-* Il divisore di campionamento *n* è indicato in ogni record nella proprietà `itemCount`, visualizzata nella ricerca con il nome descrittivo "Conteggio delle richieste" o "Conteggio degli eventi". Quando il campionamento non è in esecuzione, `itemCount==1`.
+* Il divisore di campionamento  *n*  viene segnalato in ogni record nella proprietà `itemCount`, che nella ricerca viene visualizzata sotto il nome descrittivo "numero di richieste" o "conteggio eventi". Quando il campionamento non è in esecuzione, `itemCount==1`.
 * Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](app-insights-analytics-tour.md#counting-sampled-data). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipi di campionamento
@@ -352,5 +351,4 @@ L'SDK lato client (JavaScript) partecipa al campionamento a frequenza fissa insi
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [applicazione di filtri](app-insights-api-filtering-sampling.md) può garantire un controllo più rigoroso sui dati inviati dall'SDK.
-
 

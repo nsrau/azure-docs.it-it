@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
 ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="resource-providers-and-types"></a>Provider e tipi di risorse
 
 Quando si distribuiscono risorse, è spesso necessario recuperare informazioni sui provider e i tipi di risorse. Questo articolo illustra come:
@@ -293,5 +291,4 @@ La versione dell'API corrisponde a una versione delle operazioni API REST che ve
 * Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 * Per informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 * Per visualizzare le operazioni di un provider di risorse, vedere [Azure REST API](/rest/api/) (API REST di Azure).
-
 

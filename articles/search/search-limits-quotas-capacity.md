@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/07/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
 I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal [piano tariffario scelto per Ricerca di Azure](search-create-service-portal.md): **Gratuito**, **Basic** o **Standard**.
@@ -96,4 +95,3 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 
 * 2 chiavi di amministrazione al massimo per ogni servizio
 * 50 chiavi di query al massimo per ogni servizio
-

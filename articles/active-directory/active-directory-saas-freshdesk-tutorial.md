@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 47609ab453cf3db3cb745f91ed23904ff90e7b41
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: f4b47e345a40b64f69ad8a4618564662b4a6c879
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Esercitazione: Integrazione di Azure Active Directory con FreshDesk
 
@@ -285,5 +284,4 @@ Quando si fa clic sul riquadro FreshDesk nel pannello di accesso, si apre la pag
 [201]: ./media/active-directory-saas-freshdesk-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-freshdesk-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-freshdesk-tutorial/tutorial_general_203.png
-
 

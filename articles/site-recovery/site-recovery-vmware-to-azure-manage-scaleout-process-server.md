@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: e5c01de19917235c34c035415df86291b9152bf0
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-a-scale-out-process-server"></a>Gestire un server di elaborazione con scalabilità orizzontale
 
 Il server di elaborazione con scalabilità orizzontale funge da coordinatore per il trasferimento dei dati tra i servizi di Site Recovery e l'infrastruttura locale in uso. Questo articolo descrive come impostare, configurare e gestire i server di elaborazione con scalabilità orizzontale.
@@ -148,4 +146,3 @@ Possono essere necessari fino a 15 minuti affinché l'eliminazione del server di
 |4 vCPU (2 socket * 2 core a 2,5 GHz), 8 GB di memoria |300 GB |250 GB o inferiore |Replicare un massimo di 85 computer. |
 |8 vCPU (2 socket * 4 core a 2,5 GHz), 12 GB di memoria |600 GB |Da 250 GB a 1 TB |Replicare tra 85 e 150 computer. |
 |12 vCPU (2 socket * 6 core a 2,5 GHz), 24 GB di memoria |1 TB |Da 1 TB a 2 TB |Replicare tra 150 e 225 computer. |
-

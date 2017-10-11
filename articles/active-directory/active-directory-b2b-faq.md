@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: bfedbbf8b26e1b129584a6a644e64a15635f5723
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
 Le domande frequenti, o FAQ, sulla collaborazione business-to-business, o B2B, di Azure Active Directory, ovvero Azure AD, vengono aggiornate periodicamente in modo da includere nuovi argomenti.
@@ -147,4 +144,3 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-

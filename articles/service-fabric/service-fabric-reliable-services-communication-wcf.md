@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a3b0362f0c3b42e4a61348abe306c3beaa6f0c86
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7037620ebdc26a9f18531064bf45d058f5060e39
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Stack di comunicazione basato su WCF per Reliable Services
 Il framework di Reliable Services consente agli autori del servizio di scegliere lo stack di comunicazione da usare per il servizio, nonché di collegarsi allo stack di comunicazione scelto tramite l'oggetto **ICommunicationListener** restituito dai metodi [CreateServiceReplicaListeners o CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md). Il framework offre un'implementazione dello stack di comunicazione basata su Windows Communication Foundation (WCF) per gli autori del servizio che intendono usare la comunicazione basata su WCF.
@@ -128,5 +126,4 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 * [Chiamata di procedura remota con i Reliable Services remoti](service-fabric-reliable-services-communication-remoting.md)
 * [Web API con OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Proteggere le comunicazioni per Reliable Services](service-fabric-reliable-services-secure-communication.md)
-
 

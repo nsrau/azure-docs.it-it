@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: d6ef6c988533f27338a61a587b3ce5174d8fa806
-ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
-
+ms.openlocfilehash: 03c88397e36c0fc7f19410e49f6b6f1a607659f8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
 
@@ -691,4 +690,3 @@ __Da Azure PowerShell__:
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Informazioni su come usare SQuirreL SQL con HBase](hdinsight-hbase-phoenix-squirrel-linux.md)
-

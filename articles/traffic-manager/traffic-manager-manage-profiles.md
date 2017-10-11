@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gestire un profilo di Gestione traffico di Azure
 
 I profili di Gestione traffico di Azure usano metodi di routing del traffico per controllare la distribuzione del traffico verso i servizi cloud o gli endpoint di siti Web. Questo articolo illustra come creare e gestire tali profili.
@@ -76,4 +74,3 @@ I profili di Gestione traffico di Azure usano metodi di routing del traffico per
 * [Configurare il metodo di routing Geografico](traffic-manager-configure-geographic-routing-method.md) 
 * [Configurare il metodo di routing Ponderato](traffic-manager-configure-weighted-routing-method.md)
 * [Configurare il metodo di routing Prestazioni](traffic-manager-configure-performance-routing-method.md)
-

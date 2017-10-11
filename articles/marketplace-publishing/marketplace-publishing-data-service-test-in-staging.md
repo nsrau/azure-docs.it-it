@@ -1,6 +1,6 @@
 ---
-title: Testare l&quot;offerta di servizi dati per il Marketplace | Microsoft Docs
-description: Informazioni su come testare l&quot;offerta del servizio dati per Azure Marketplace.
+title: Testare l'offerta di servizi dati per il Marketplace | Microsoft Docs
+description: Informazioni su come testare l'offerta del servizio dati per Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: daf2017bfbab4250e3f1481f592e0e858c77f121
-
-
+ms.openlocfilehash: 56a8aad7484fed18b74200ffa7acf22363625a15
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="testing-your-data-service-offer-in-staging"></a>Test dell'offerta del servizio dati in gestione temporanea
 > [!IMPORTANT]
@@ -63,7 +63,7 @@ La schermata successiva visualizzata mostra che la pubblicazione ha luogo visual
 Quando il push in gestione temporanea viene completato, l'icona "In corso" smette di muoversi e lo stato viene aggiornato in "Gestione temporanea".  È ora possibile testare l'offerta.  
 
 ## <a name="step-2-test-your-staged-offer-in-datamarket"></a>Passaggio 2. Testare l'offerta in gestione temporanea in DataMarket
-Fare clic sul collegamento che segue il testo **"Visualizza l’offerta di servizio in..."**  per visualizzare la schermata che il sottoscrittore potrà vedere quando l'offerta passerà alla produzione e verrà visualizzata nel DataMarket.
+Fare clic sul collegamento che segue il testo **"Visualizza l’offerta di servizio in..."** per visualizzare la schermata che il sottoscrittore potrà vedere quando l'offerta passerà alla produzione e verrà visualizzata nel DataMarket.
 
   ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
 
@@ -96,10 +96,4 @@ Se si è soddisfatti e pronti per la pubblicazione dell'offerta, leggere la docu
 
 ## <a name="see-also"></a>Vedere anche
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

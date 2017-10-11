@@ -1,6 +1,6 @@
 ---
 title: 'Introduzione al server Web ASP.NET per Azure AD v2: test | Microsoft Docs'
-description: Implementazione di accessi Microsoft in una soluzione ASP.NET con un&quot;applicazione tradizionale basata su Web browser tramite lo standard OpenID Connect
+description: Implementazione di accessi Microsoft in una soluzione ASP.NET con un'applicazione tradizionale basata su Web browser tramite lo standard OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 00cb963e85111274c36c3a84489894811ad2dabd
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 ## <a name="test-your-code"></a>Testare il codice
 
@@ -84,5 +82,4 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 > Per consentire l'accesso solo agli utenti di un elenco di organizzazioni specifiche, impostare `ValidateIssuer` su true e usare il parametro `ValidIssuers` per specificare un elenco di organizzazioni.
 
 > Un'altra opzione consiste nell'implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro IssuerValidator. Per altre informazioni su `TokenValidationParameters`, vedere [questo](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "Articolo di MSDN su TokenValidationParameters") articolo di MSDN.
-
 

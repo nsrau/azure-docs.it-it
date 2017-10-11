@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
 ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.contentlocale: it-it
-ms.lasthandoff: 01/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 Molti considerano l'identità come il nuovo livello limite per la sicurezza, sostituendo in questo ruolo la prospettiva tradizionale incentrata sulla rete. Questa evoluzione nell'attenzione per la sicurezza e negli investimenti è dovuta al fatto che i perimetri di rete sono diventati sempre più permeabili e la difesa perimetrale non può più essere efficace quanto prima dell'esplosione delle applicazioni cloud e dei dispositivi [BYOD](http://aka.ms/byodcg).
@@ -136,4 +135,3 @@ Azure AD Identity Protection è invece un sistema di monitoraggio attivo che con
 
 Le organizzazioni che non monitorano attivamente i sistemi di identità sono esposti al rischio di compromissione delle credenziali utente. Se l'organizzazione non è a conoscenza dello svolgimento di attività sospette con tali credenziali, non potrà attenuare questo tipo di minaccia.
 Per altre informazioni in merito, vedere [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md).
-

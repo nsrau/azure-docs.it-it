@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: cherylmc;ganesr
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: e3721cd3c031622788f553e71a6555b844f3f7dc
-ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creare e modificare un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -158,5 +157,4 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 
 * [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 * [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
 

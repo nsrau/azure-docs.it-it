@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 91451b2cdc42ed05ef7c1ba9c66ad5b4b45dd788
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Gestire server e insiemi di credenziali di Backup di Azure con il modello di distribuzione classica
 > [!div class="op_single_selector"]
@@ -199,4 +198,3 @@ Per abilitare la limitazione della larghezza di banda della rete:
 * [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 * Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
 * Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-

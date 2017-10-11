@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1feba4f7c33276996213f50e34784c0f8edff226
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 11231bb5af5374f3c05cfd5038e1ad03cdd01372
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-adding-or-configuring-applications"></a>Problemi di aggiunta o di configurazione delle applicazioni
 
 
@@ -44,4 +42,3 @@ ms.lasthandoff: 04/17/2017
   * [I encountered a problem when configuring federated single sign-on for an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-federated-sso-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Problema durante la configurazione di Single Sign-On federato per un'applicazione della raccolta di Azure AD)
   * [I encountered a problem when configuring password single sign-on for a non-gallery application](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Problema durante la configurazione di una password Single Sign-On per un'applicazione non inclusa nella raccolta)
   * [I encountered a problem when configuring password single sign-on for an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Problema durante la configurazione di una password Single Sign-On per un'applicazione della raccolta di Azure AD)
-

@@ -1,5 +1,5 @@
 ---
-title: Modifiche all&quot;endpoint v2.0 di Azure AD | Documentazione Microsoft
+title: Modifiche all'endpoint v2.0 di Azure AD | Documentazione Microsoft
 description: Descrizione delle modifiche in corso ai protocolli del Modello app 2.0 disponibili in anteprima pubblica.
 services: active-directory
 documentationcenter: 
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: ce60eb0586b4756aabab0bad830e7fc3ca506097
-ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: ae73833a68db14804dc40eaf07ff7d3effaa9052
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="important-updates-to-the-v20-authentication-protocols"></a>Aggiornamenti importanti ai protocolli di autenticazione della versione 2.0
 Nota per gli sviluppatori: nelle prossime due settimane verranno rilasciati alcuni aggiornamenti ai protocolli di autenticazione della versione 2.0 che potrebbero comportare modifiche di rilievo per le app scritte durante il periodo di anteprima.  
@@ -238,5 +236,4 @@ Microsoft ringrazia gli utenti per la disponibilità nel periodo di anteprima.  
 Buon lavoro.
 
 Microsoft Identity Division
-
 

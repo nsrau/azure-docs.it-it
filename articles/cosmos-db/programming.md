@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: andrl
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: 8cddc7a8c9aa677b9c93bee3a7e05c226cc1f655
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmazione lato server per Azure Cosmos DB: stored procedure, trigger del database e funzioni definite dall'utente
 L'esecuzione integrata e transazionale di JavaScript con il linguaggio di Azure Cosmos DB permette agli sviluppatori di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente** in modo nativo in [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Ciò consente di scrivere la logica dell'applicazione del programma del database che può essere inserita ed eseguita direttamente nelle partizioni di archiviazione del database. 
@@ -810,5 +809,4 @@ Quando sono presenti uno o più stored procedure, trigger e funzioni definite da
 * [Estensibilità di Database protette e portatile](http://dl.acm.org/citation.cfm?id=276339) 
 * [Database architettura orientata ai servizi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Hosting del Runtime .NET in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)
-
 

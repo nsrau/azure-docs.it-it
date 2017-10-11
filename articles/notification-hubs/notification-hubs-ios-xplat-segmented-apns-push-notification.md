@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sull&quot;invio di ultime notizie mediante Hub di notifica - iOS
+title: Esercitazione sull'invio di ultime notizie mediante Hub di notifica - iOS
 description: Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie a dispositivi iOS.
 services: notification-hubs
 documentationcenter: ios
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Uso di Hub di notifica per inviare le ultime notizie
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -29,7 +29,7 @@ In questo argomento viene illustrato come utilizzare Hub di notifica di Azure pe
 È possibile abilitare gli scenari di trasmissione includendo uno o più *tag* durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione al tag riceveranno la notifica. Poiché i tag sono costituiti da stringhe, non è necessario eseguire il provisioning anticipatamente. Per ulteriori informazioni sui tag, vedere [Espressioni di routing e tag  per hub di notifica](notification-hubs-tags-segment-push-message.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Questo argomento si basa sull'app creata in [Introduzione ad Hub di notifica][get-started]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ad Hub di notifica][get-started].
+Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub di notifica][get-started]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ad Hub di notifica][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
 Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente allo storyboard esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione del dispositivo nell'hub di notifica con le categorie selezionate come tag.
@@ -149,16 +149,16 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
     Si noti che a questo punto nel metodo **didRegisterForRemoteNotificationsWithDeviceToken** non dovrebbe essere presente altro codice.
 
-1. I metodi seguenti devono essere già presenti in AppDelegate.m in seguito al completamento dell'esercitazione [Introduzione ad Hub di notifica][get-started].  In caso contrario, aggiungerli.
+1. I metodi seguenti devono essere già presenti in appdelegate. M dal completamento di [iniziare con gli hub di notifica] [ get-started] esercitazione.  In caso contrario, aggiungerli.
    
-    -(void)MessageBox:(NSString *)title message:(NSString *)messageText  {
+    -(void) MessageBox:(NSString *) titolo messaggio:(NSString *) messageText {
    
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
             cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
    
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:   (NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]]; }
+   * applicazione (void):(UIApplication *) applicazione didReceiveRemoteNotification: (NSDictionary *) userInfo {NSLog (@"% @", userInfo);   [self MessageBox:@"Notification" messaggio: [valueForKey:@"alert [userInfo objectForKey:@"aps"]"]]; }
    
    This method handles notifications received when the app is running by displaying a simple **UIAlert**.
 2. In ViewController.m, aggiungere un'istruzione import per AppDelegate.h e copiare il codice seguente nel metodo **subscribe** generato da XCode. Questo codice aggiornerà la registrazione della notifica per utilizzare i nuovi tag di categoria selezionati dall'utente nell'interfaccia utente.
@@ -212,7 +212,7 @@ Se non si ha accesso a Visual Studio, è possibile passare alla sezione successi
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(facoltativo) Inviare notifiche dal dispositivo
-In genere le notifiche vengono inviate da un servizio di back-end ma per questa esercitazione è possibile inviare notifiche relative alle ultime notizie direttamente dall'applicazione. A tale scopo si aggiornerà il metodo `SendNotificationRESTAPI` definito nell'esercitazione [Introduzione ad Hub di notifica][get-started].
+In genere le notifiche vengono inviate da un servizio di back-end ma per questa esercitazione è possibile inviare notifiche relative alle ultime notizie direttamente dall'applicazione. A tale scopo si aggiornerà il `SendNotificationRESTAPI` metodo che è stato definito nel [iniziare con gli hub di notifica] [ get-started] esercitazione.
 
 1. In ViewController.m aggiornare il metodo `SendNotificationRESTAPI` come segue in modo che accetti un parametro per il tag di categoria e invii la notifica [modello](notification-hubs-templates-cross-platform-push-messages.md) appropriata.
    
@@ -324,17 +324,11 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 
 <!-- URLs. -->
-[Procedura: Hub di notifica del bus di servizio (app per iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Usare Hub di notifica per la trasmissione di notizie localizzate]: notification-hubs-ios-xplat-localized-apns-push-notification.md
-[Servizio mobile]: /develop/mobile/tutorials/get-started
-[Usare Hub di notifica per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
-[linee guida su Hub di notifica]: http://msdn.microsoft.com/library/dn530749.aspx
-[Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [portale di Azure classico]: https://manage.windowsazure.com
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

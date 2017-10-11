@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 68db9635e274d76127021ff95d38570b980048f3
-ms.contentlocale: it-it
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 24e7e0d586dab3f77e643197594c3c4462ff997e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Come configurare una nuova applicazione multi-tenant
 
 Di seguito è riportato un elenco di argomenti consigliati per altre informazioni sulle applicazioni multi-tenant:
@@ -32,4 +30,3 @@ Di seguito è riportato un elenco di argomenti consigliati per altre informazion
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Azure AD in Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

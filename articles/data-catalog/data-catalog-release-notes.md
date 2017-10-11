@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 60abdc490cefc7362ca6ed0dec7dbfd53984201f
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: d3db9bee0558cac5fb4f5b8fb4ab67a35ce0f141
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-release-notes"></a>Note sulla versione del Catalogo dati di Azure
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Note per la versione del 20 novembre 2015 del Catalogo dati di Azure
@@ -78,4 +77,3 @@ Per altre informazioni, vedere [Configurare i criteri di autenticazione](https:/
 
 
 Per individuare il file RegistrationTool.exe.config, avviare lo strumento di registrazione e quindi aprire l'utilità Gestione attività Windows. Nella scheda Dettagli di Gestione attività, fare clic con il pulsante destro del mouse su RegistrationTool.exe e scegliere Apri percorso file dal menu a comparsa.
-

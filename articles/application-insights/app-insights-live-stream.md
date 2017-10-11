@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 68820f9c018b1076bae8dc0195906d0f34590748
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 1eb2e0c467d4fb4cb263047caf58d36231578d9a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo 
 
 Usando Live Metrics Stream da [Application Insights](app-insights-overview.md) è possibile testare il funzionamento dell'applicazione Web live nell'ambiente di produzione. Selezionare e filtrare le metriche e i contatori delle prestazioni in tempo reale, senza distorsioni del servizio. Esaminare le analisi dello stack da richieste ed eccezioni di esempio non riuscite. Insieme al [Profiler](app-insights-profiler.md), al [debugger di snapshot](app-insights-snapshot-debugger.md) e [al test delle prestazioni](app-insights-monitor-web-app-availability.md#performance-tests), Live Metrics Stream offre uno strumento di diagnostica non invasivo e potente per il sito Web live.
@@ -161,4 +159,3 @@ Dati non visualizzati Se l'applicazione si trova in una rete protetta: Live Metr
 * [Uso di Ricerca diagnostica](app-insights-diagnostic-search.md)
 * [Profiler](app-insights-profiler.md)
 * [Debugger di snapshot](app-insights-snapshot-debugger.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: joflore
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 928de285e126a7f62ee075d1c02688bf8f388cb7
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="windows-server-active-directory-on-azure-vms"></a>Windows Server Active Directory in macchine virtuali di Azure
 Questo argomento di navigazione contiene collegamenti ad altri argomenti sulla distribuzione di Servizi di dominio Active Directory o Active Directory Federation Services (ADFS) di Windows Server in una macchina virtuale (VM) di Azure.
@@ -37,5 +36,4 @@ Questo argomento di navigazione contiene collegamenti ad altri argomenti sulla d
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
-
 

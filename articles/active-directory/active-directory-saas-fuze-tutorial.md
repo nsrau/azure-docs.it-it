@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
 ms.openlocfilehash: c7f7b095aac6202a7ec5248ee2bbb109615287a7
-ms.contentlocale: it-it
-ms.lasthandoff: 04/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Esercitazione: Integrazione di Azure Active Directory con Fuze
 

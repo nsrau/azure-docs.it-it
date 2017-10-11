@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con HappyFox | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e HappyFox.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e HappyFox.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
 ms.openlocfilehash: 8b5ad750d7849e4037ed7ee93c48b5645c68e799
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Esercitazione: Integrazione di Azure Active Directory con HappyFox
 
@@ -92,7 +90,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con HappyFox, è 
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test di HappyFox](#creating-a-happyfox-test-user)**: per avere una controparte di Britta Simon in HappyFox collegata alla rappresentazione in Azure AD dell'utente.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -252,5 +250,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-happyfox-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-happyfox-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-happyfox-tutorial/tutorial_general_203.png
-
 

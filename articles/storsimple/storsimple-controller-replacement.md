@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
-ms.contentlocale: it-it
-ms.lasthandoff: 03/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Sostituire un modulo controller nel dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -43,7 +42,7 @@ Nella tabella seguente vengono illustrati gli scenari di sostituzione del contro
 | 2 |Entrambi i controller hanno avuto esito negativo e richiedono la sostituzione. Lo chassis, i dischi, e lo chassis del disco sono integri. |[Sostituzione di un controller doppio](#replace-both-controllers), che descrive la [logica alla base della sostituzione di un controller doppio](#dual-controller-replacement-logic), nonché la [procedura per la sostituzione](#dual-controller-replacement-steps). |
 | 3 |I controller dallo stesso dispositivo o da diversi dispositivi vengono invertiti. Lo chassis, i dischi e l’enclosure del disco sono integri. |Verrà visualizzato un messaggio di avviso di mancata corrispondenza dello slot. |
 | 4 |Un controller non è presente e l'altro controller ha avuto esito negativo. |[Sostituzione di un controller doppio](#replace-both-controllers), che descrive la [logica alla base della sostituzione di un controller doppio](#dual-controller-replacement-logic), nonché la [procedura per la sostituzione](#dual-controller-replacement-steps). |
-| 5 |Uno o entrambi i controller hanno avuto esito negativo.. Non è possibile accedere al dispositivo tramite la console seriale o Windows PowerShell in remoto. |[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per una procedura di sostituzione manuale. |
+| 5 |Uno o entrambi i controller hanno avuto esito negativo. Non è possibile accedere al dispositivo tramite la console seriale o Windows PowerShell in remoto. |[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per una procedura di sostituzione manuale. |
 | 6 |I controller dispongono di una versione di build diverse, e questo potrebbe essere dovuto a:<ul><li>I controller hanno una versione diversa del software.</li><li>I controller hanno una versione diversa del firmware.</li></ul> |Se le versioni del software del controller sono diverse, la logica di sostituzione rileva e aggiorna la versione del software sul controller di sostituzione.<br><br>Se le versioni del firmware del controller sono diverse e la precedente versione del firmware è **non** automaticamente aggiornabile, verrà visualizzato un messaggio di avviso nel portale di Azure classico. È necessario analizzare gli aggiornamenti e installare gli aggiornamenti firmware.</br></br>Se le precedenti versioni del firmware sono diverse e la versione precedente del firmware del controller è aggiornabile automaticamente, la logica di sostituzione del controller lo rileverà e dopo che il controller viene avviato, il firmware viene aggiornato automaticamente. |
 
 È necessario rimuovere un modulo controller se non funziona. Uno o entrambi i moduli controller possono avere esito negativo, ciò potrebbe comportare una sostituzione di un singolo controller o una sostituzione di entrambi i controller. Per le procedure di sostituzione e la logica su cui si basano, vedere gli argomenti seguenti:
@@ -248,5 +247,4 @@ Se il LED lampeggia, il controller è attivo e l'altro controller è in modalit�
 
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
-
 

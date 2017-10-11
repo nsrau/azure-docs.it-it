@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 87f99a9e6df2103f70968c10556242ddb268e9e4
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 36a59a41b2261369a2062c76ef90aebf7e24a221
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfismo nel framework Reliable Actors
 Il framework Reliable Actors consente di creare attori usando molte delle tecniche usate per la progettazione orientata agli oggetti. Una di queste tecniche è il polimorfismo, che consente a tipi e interfacce di ereditare da più elementi padre generalizzati. L'ereditarietà nel framework Reliable Actors in genere segue il modello .NET con alcuni vincoli aggiuntivi. In caso di Java/Linux, segue il modello Java.
@@ -102,4 +100,3 @@ Si noti l’attributo `ActorService` nel tipo di attore. Questo attributo indica
 <!-- Image references -->
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
-

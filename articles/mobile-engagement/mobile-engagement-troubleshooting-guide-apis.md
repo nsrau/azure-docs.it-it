@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-guide-for-api-issues"></a>Guida alla risoluzione dei problemi relativi all’API
 Di seguito sono indicati possibili problemi relativi al modo in cui gli amministratori interagiscono con Azure Mobile Engagement usando le API.
@@ -120,5 +119,4 @@ Di seguito sono indicati possibili problemi relativi al modo in cui gli amminist
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

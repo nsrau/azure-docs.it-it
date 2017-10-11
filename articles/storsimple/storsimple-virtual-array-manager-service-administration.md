@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 638e3e59f91202d55347c830542801ccead1b90f
 ms.openlocfilehash: a74a160eae88a2d03460a1346479c333d8f9d524
-ms.contentlocale: it-it
-ms.lasthandoff: 12/01/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per amministrare l'array virtuale StorSimple
 ![flusso del processo di installazione](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -78,5 +77,4 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sull'interfaccia utente Web e sul suo uso, vedere [Usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple (anteprima)](storsimple-ova-web-ui-admin.md).
-
 

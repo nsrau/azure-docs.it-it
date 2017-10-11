@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/12/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Creare una funzione attivata da un webhook generico
 
@@ -167,5 +166,4 @@ Il webhook verrà chiamato quando viene creato un gruppo di risorse nella sottos
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Per altre informazioni sui trigger webhook, vedere [Associazioni HTTP e webhook in Funzioni di Azure](functions-bindings-http-webhook.md). Per altre informazioni sullo sviluppo di funzioni in C#, vedere [Guida di riferimento a Funzioni di Azure per sviluppatori di script C#](functions-reference-csharp.md).
-
 

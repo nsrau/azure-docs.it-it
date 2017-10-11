@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 650c7e10150b95a6ad7cd455746f7c1d77b9b34c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
 > [!IMPORTANT]
@@ -32,4 +31,3 @@ ms.lasthandoff: 08/21/2017
 [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Come collegare un disco dati a una macchina virtuale Windows](attach-disk.md)
-

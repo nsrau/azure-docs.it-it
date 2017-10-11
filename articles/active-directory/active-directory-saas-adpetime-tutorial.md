@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 31fed307a32e629d00aab7cc9d5167ee16d83936
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-etime"></a>Esercitazione: Integrazione di Azure Active Directory con ADP eTime
 
@@ -112,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_url.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente:  `https://<servername>.adp.com`
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<servername>.adp.com`
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<servername>.adp.com/affwebservices/public/saml2assertionconsumer` 
  
@@ -253,5 +251,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_203.png
-
 

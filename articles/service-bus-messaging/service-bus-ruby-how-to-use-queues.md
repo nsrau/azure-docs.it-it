@@ -14,12 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 357a7277dd42b6973cf35a9f642b8eec36a745e3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Come usare le code del bus di servizio con Ruby
 
@@ -98,5 +97,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 * Vedere il repository [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) su GitHub.
 
 Per un confronto tra le code del bus di servizio di Azure discusse in questo articolo e le code di Azure discusse nell'articolo [Come usare l'archiviazione di accodamento da Ruby](../storage/queues/storage-ruby-how-to-use-queue-storage.md), vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md).
-
 

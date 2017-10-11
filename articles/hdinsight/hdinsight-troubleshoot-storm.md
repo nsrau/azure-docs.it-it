@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: raviperi
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Risolvere i problemi di Storm usando Azure HDInsight
 
 Informazioni sui problemi principali che possono verificarsi quando si usano i payload di Apache Storm in Apache Ambari unitamente alle risoluzioni.
@@ -153,5 +151,4 @@ La configurazione Log4J del supervisore viene letta da /usr/hdp/\<versione HDP\>
 Il file di configurazione Log4J di lavoro viene letto da /usr/hdp/\<versione HDP\>/storm/log4j2/worker.xml.
  
 Esempi: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
-
 

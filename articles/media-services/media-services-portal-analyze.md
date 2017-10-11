@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 0bf2e57fb0f51f22ccd99b5b27775d007b8a7ccc
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analizzare i contenuti multimediali usando il portale di Azure
 > [!NOTE]
@@ -143,5 +142,4 @@ Visualizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: maheshu
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 93afa49166c5b31d23237c308b9d34f6d6f3507d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Azure AD Domain Services
 Questo articolo illustra come abilitare l'accesso LDAPS (Secure Lightweight Directory Access Protocol) per il dominio gestito di Servizi di dominio Azure AD. L'accesso LDAP sicuro è noto anche come LDAP (Lightweight Directory Access Protocol) su SSL (Secure Sockets Layer) / TLS (Transport Layer Security).
@@ -89,4 +88,3 @@ Il certificato autofirmato appena creato viene inserito nell'archivio certificat
 
 ## <a name="next-step"></a>Passaggio successivo
 [Attività 2: Esportare il certificato LDAP sicuro in un file PFX](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-

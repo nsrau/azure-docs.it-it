@@ -15,12 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 668e7d18951412e9649e2f5273a4ef1116ee8117
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.openlocfilehash: faa567ec615a07da8633629fc98e3454c84a8f5f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Esportare un database SQL di Azure in un file BACPAC
 
@@ -104,4 +103,3 @@ $exportStatus
 * Per informazioni sull'importazione di un file con estensione bacpac in un database di SQL Server, vedere [Importare un file BACPAC per creare un nuovo database utente](https://msdn.microsoft.com/library/hh710052.aspx).
 * Per altre informazioni sull'esportazione di un file con estensione bacpac da un database di SQL Server, vedere [Esportazione guidata applicazione livello dati](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) e come [eseguire la migrazione del primo database](sql-database-migrate-your-sql-server-database.md).
 * Se si sta eseguendo l'esportazione da SQL Server come preparazione alla migrazione nel database SQL di Azure, vedere [Migrare un database SQL Server nel database SQL di Azure](sql-database-cloud-migrate.md).
-

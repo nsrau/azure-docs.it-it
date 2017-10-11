@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 32fcca540c1db317c5f11e94b2ee3359cadcc806
 ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
-ms.contentlocale: it-it
-ms.lasthandoff: 11/28/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="storsimple-data-manager-overview-private-preview"></a>Panoramica di StorSimple Data Manager (anteprima privata)
 
 ## <a name="overview"></a>Overview

@@ -1,6 +1,6 @@
 ---
 title: Scenario - Attivare app per la logica con Funzioni di Azure e il bus di servizio di Azure | Documentazione Microsoft
-description: Creare una funzione per attivare un&quot;app per la logica usando Funzioni di Azure e il bus di servizio di Azure
+description: Creare una funzione per attivare un'app per la logica usando Funzioni di Azure e il bus di servizio di Azure
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 98c78d84f3a615fae7d6785994f0db20f7a53254
-ms.openlocfilehash: 013e3d29694a8daf1481e513c9c4dfc6b5da3384
-ms.contentlocale: it-it
-ms.lasthandoff: 02/10/2017
-
-
+ms.openlocfilehash: 088f10bc32dd492f82f0a10a7e5829e76f588758
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Scenario: Attivare app per la logica con Funzioni di Azure e il bus di servizio di Azure
 
@@ -70,4 +68,3 @@ Per effettuare una prova, aggiungere un messaggio in coda tramite uno strumento 
 <!-- Image References -->
 [1]: ./media/logic-apps-scenario-function-sb-trigger/manualtrigger.png
 [2]: ./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png
-

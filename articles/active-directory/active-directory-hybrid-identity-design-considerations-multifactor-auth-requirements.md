@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfb4104dd58f2af8b3ffed7491c91ae6c6557ddc
-ms.openlocfilehash: f5006b6ce1b409fae5e540d8414e8e56651f9349
-ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 5b3a8ce6e4203dfb3700f324e32687dd910118af
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti dell'autenticazione a più fattori per la soluzione di identità ibrida
 Nell'era della mobilità, in cui gli utenti accedono a dati e applicazioni nel cloud con qualsiasi dispositivo, proteggere queste informazioni è diventata un'esigenza assoluta.  Ogni giorno viene data notizia di una nuova violazione della sicurezza.  Sebbene non esista una soluzione in grado di fornire una protezione assoluta contro tali violazioni, l'autenticazione a più fattori fornisce un livello aggiuntivo di sicurezza nel tentativo di contrastarle.
@@ -62,5 +61,4 @@ Dopo aver risposto a queste domande, sarà possibile capire se l'autenticazione 
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

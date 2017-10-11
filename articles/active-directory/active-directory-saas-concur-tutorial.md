@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 0b44437b3dcf69dae3587529da7d12e7809b9f55
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Esercitazione: Integrazione di Azure Active Directory con Concur
 
@@ -216,7 +215,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-* [Configure User Provisioning](active-directory-saas-concur-provisioning-tutorial.md) (Configurazione per il provisioning degli utenti)
+* [Configura provisioning utenti](active-directory-saas-concur-provisioning-tutorial.md)
 
 
 
@@ -233,5 +232,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-concur-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-concur-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-concur-tutorial/tutorial_general_203.png
-
 

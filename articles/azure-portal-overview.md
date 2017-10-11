@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 71820306716c6297085a29f3ceab89b55396bfe6
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="microsoft-azure-portal-overview"></a>Panoramica del portale di Microsoft Azure
 Il portale di Microsoft Azure è una posizione centrale in cui è possibile eseguire il provisioning e gestire le risorse di Azure.  Questa esercitazione consente di familiarizzare con il portale e illustra come usare alcune di queste funzionalità chiave:
@@ -85,4 +84,3 @@ Il portale di Microsoft Azure semplifica in modo radicale lo sviluppo e la gesti
 [ManageResource]: ./media/azure-portal-how-to-use/azure_portal_4.png
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
-

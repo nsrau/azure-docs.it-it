@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Distribuire un dispositivo StorSimple locale nel portale di Azure per enti pubblici
 
@@ -197,5 +196,4 @@ Attenersi alla procedura seguente nel portale per enti pubblici per creare un ba
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare un [dispositivo virtuale](storsimple-8000-cloud-appliance-u2.md).
 * Usare il [servizio Gestione dispositivi StorSimple](storsimple-8000-manager-service-administration.md) per gestire il dispositivo StorSimple.
-
 

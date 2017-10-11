@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
-ms.contentlocale: it-it
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Limitare il contenuto della rete CDN di Azure in base al paese
 
@@ -68,5 +67,4 @@ La funzionalità **Filtro geografico** usa i codici paese per definire i paesi d
 * Questa funzionalità non supporta i caratteri jolly (ad esempio, ‘*’).
 * La configurazione del filtro geografico associata al percorso relativo viene applicata in modo ricorsivo a tale percorso.
 * Può essere applicata solo una regola allo stesso percorso relativo (non è possibile creare più filtri di paese che puntano allo stesso percorso relativo). Tuttavia, una cartella potrebbe avere più filtri di paese. Ciò è dovuto alla natura ricorsiva dei filtri di paese. In altre parole, una sottocartella di una cartella configurata in precedenza può essere assegnata a un filtro di paese diverso.
-
 

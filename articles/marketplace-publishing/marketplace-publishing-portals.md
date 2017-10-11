@@ -1,6 +1,6 @@
 ---
-title: Panoramica dei vari portali necessari per creare un&quot;offerta per Marketplace | Documentazione Microsoft
-description: Panoramica dei vari portali necessari per creare un&quot;offerta per Marketplace
+title: Panoramica dei vari portali necessari per creare un'offerta per Marketplace | Documentazione Microsoft
+description: Panoramica dei vari portali necessari per creare un'offerta per Marketplace
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8087f27a692e1e2d0f2d9434b065ddb902de0d57
-
-
+ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="portals-you-will-need"></a>Portali necessari
 Prima di iniziare il processo di pubblicazione di un’offerta, è necessario fornire alcune informazioni sui diversi portali che saranno necessari. Di seguito sono riepilogati i portali (centro per sviluppatori, portale di pubblicazione di Azure e portale di Azure) nell'ordine in cui si interagirà con loro.                                                                            
@@ -35,7 +35,7 @@ La creazione dell'account del Centro per sviluppatori Microsoft è un'attività 
 > 
 
 ### <a name="identityaccount-used"></a>Identità/account usato
-Idealmente, questa è una lista di distribuzione o un gruppo di sicurezza (ad esempio azurepublishing@*partnercompany*.com). La lista di distribuzione o il gruppo di sicurezza **devono** essere registrati come un account Microsoft.
+In teoria, si tratta di una lista di distribuzione o un gruppo di sicurezza (ad esempio, azurepublishing @*partnercompany*. com). La lista di distribuzione o il gruppo di sicurezza **devono** essere registrati come un account Microsoft.
 
 > [!TIP]
 > È consigliabile usare una lista di distribuzione o un gruppo di sicurezza perché in questo modo si elimina la dipendenza da una singola persona. È comunque possibile usare anche un singolo account.
@@ -62,10 +62,4 @@ Durante la gestione temporanea dell'offerta dal portale di pubblicazione, deve e
 
 ## <a name="see-also"></a>Vedere anche
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

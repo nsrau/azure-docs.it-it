@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/02/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 42b7ea3ec1efa6eb7f3ac31ecefa615c29f7d495
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 9c6035e97de38ff63ef074109afd9f3c7484f828
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo eseguito in Windows Server
 Dopo la [creazione del cluster autonomo di Service Fabric in computer Windows Server](service-fabric-cluster-creation-for-windows-server.md) le esigenze aziendali possono cambiare e richiedere l'aggiunta o la rimozione di più nodi nel cluster. Questo articolo riporta i passaggi dettagliati per ottenere questo risultato. Si noti che la funzionalità di aggiunta o rimozione di nodi non è supportata nei cluster di sviluppo locali.
@@ -131,5 +130,4 @@ La sostituzione dei nodi primari deve essere eseguita un nodo alla volta, anzich
 * [Impostazioni di configurazione per un cluster autonomo in Windows](service-fabric-cluster-manifest.md)
 * [Proteggere un cluster autonomo in Windows con certificati X.509](service-fabric-windows-cluster-x509-security.md)
 * [Creare un cluster di Service Fabric autonomo con VM di Azure che eseguono Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
-
 

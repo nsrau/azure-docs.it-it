@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 934719868ab9968db352db2b440014d35dbc0274
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="operational-channel"></a>Canale operativo 
 
 Il canale operativo è costituito da log di azioni di alto livello eseguite da Service Fabric sui nodi e il cluster. Quando l'opzione "Diagnostica" è abilitata per un cluster, l'agente di Diagnostica di Azure viene distribuito nel cluster e per impostazione predefinita viene configurato per la lettura nei log dal canale operativo. Altre informazioni sulla configurazione dell'[agente di Diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md) per modificare la configurazione della diagnostica del cluster in modo da prelevare più log o contatori delle prestazioni. 
@@ -61,4 +59,3 @@ Di seguito è riportato un elenco completo dei log forniti da Service Fabric nel
 * Altre informazioni sul processo globale di [generazione di eventi a livello piattaforma](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
 * Modifica della configurazione di [Diagnostica di Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md) per raccogliere più log
 * [Configurazione di Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) per visualizzare i log del canale operativo
-

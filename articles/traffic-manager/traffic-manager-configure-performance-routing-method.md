@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 014aa646459cd64fca7c697419324caa3edaeeea
-ms.contentlocale: it-it
-ms.lasthandoff: 03/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="configure-the-performance-traffic-routing-method"></a>Configurare un metodo di routing del traffico delle prestazioni
 
 Il metodo di routing del traffico Prestazioni consente di indirizzare il traffico all'endpoint con latenza più bassa dalla rete del client. In genere, il data center con latenza più bassa è quello più vicino in termini di distanza geografica. Questo metodo di routing del traffico non può basarsi per le modifiche in tempo reale sul carico o sulla configurazione di rete.

@@ -1,6 +1,6 @@
 ---
 title: Introduzione alle query tra database (partizionamento verticale) | Documentazione Microsoft
-description: Informazioni sull&quot;uso della query del database elastico con database con partizionamento verticale.
+description: Informazioni sull'uso della query del database elastico con database con partizionamento verticale.
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 594760d5c52ac3724a0b8dd882e76ca3302ee8ba
-ms.contentlocale: it-it
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: 17158c4960e9ba9251524659c90af9aec1316774
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introduzione alle query tra database (partizionamento verticale) (anteprima)
 La query del database elastico (anteprima) per il database SQL di Azure consente di eseguire query T-SQL che si estendono a più database usando un unico punto di connessione. Questo argomento si applica ai [database con partizionamento verticale](sql-database-elastic-query-vertical-partitioning.md).  

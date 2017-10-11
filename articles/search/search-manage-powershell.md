@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a635b214fcc9b37ac426df227420b643e2a02cc7
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gestire il servizio Ricerca di Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -138,5 +137,4 @@ Dopo aver creato il servizio, è possibile procedere a compilare un [indice](sea
 * [Installare un indicizzatore per caricare dati da altri servizi](search-indexer-overview.md)
 * [Come utilizzare Ricerca di Azure in .NET](search-howto-dotnet-sdk.md)
 * [Analizzare il traffico di Ricerca di Azure](search-traffic-analytics.md)
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-box-connector"></a>Introduzione al connettore Box
 Connettersi a Box per creare ed eliminare file e così via. Con Box è possibile:
@@ -37,5 +36,4 @@ Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali lim
 
 ## <a name="more-connectors"></a>Altri connettori
 Tornare all' [elenco di API](apis-list.md).
-
 

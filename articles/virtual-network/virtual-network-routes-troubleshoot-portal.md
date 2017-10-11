@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: b2e005d707717a8f6db90b24438527304823a6a8
-ms.openlocfilehash: a0867e97805bbb905d5defa89d13bbb0d4c4aa49
-
-
+ms.openlocfilehash: dad415936280b4af916b8c46df46f6c51ac0bca4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Risolvere i problemi relativi alle route con il portale di Azure
 > [!div class="op_single_selector"]
@@ -150,9 +150,3 @@ Alcuni aspetti da tenere presenti quando si esamina l'elenco delle route restitu
 * Per il corretto funzionamento del traffico peering di rete virtuale, deve esistere una route di sistema con **nextHopType** *VNetPeering* per l'intervallo dei prefissi della rete virtuale con peering. Se non esiste una route di questo tipo e il collegamento di peering della rete virtuale ha un aspetto corretto:
   * Attendere alcuni secondi e riprovare, se si tratta di un collegamento di peering appena stabilito. In alcuni casi è necessario più tempo per propagare le route a tutte le interfacce di rete in una subnet.
   * Le regole del gruppo di sicurezza di rete possono influire sui flussi di traffico. Per altre informazioni, vedere l'articolo [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-portal.md) (Risolvere i problemi dei gruppi di sicurezza di rete).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

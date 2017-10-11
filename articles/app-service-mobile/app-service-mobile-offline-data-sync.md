@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure
 ## <a name="what-is-offline-data-sync"></a>Che cos'è la sincronizzazione di dati offline?
@@ -102,4 +101,3 @@ Quando si usano le tabelle di sincronizzazione, il codice client controlla quand
 [Xamarin iOS: Abilitare la sincronizzazione offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Abilitare la sincronizzazione offline]: app-service-mobile-xamarin-android-get-started-offline-data.md
 [Abilitare la sincronizzazione offline per l'app di Windows]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
-

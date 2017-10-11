@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Risolvere i problemi di HDFS tramite Azure HDInsight
 
 Informazioni sui problemi principali che possono verificarsi quando si usano i payload di HDFS (Hadoop Distributed File System) in Apache Ambari unitamente alle risoluzioni.
@@ -234,4 +232,3 @@ Il cluster HDInsight è stato ridotto a pochissimi nodi. Il numero di nodi è in
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
-

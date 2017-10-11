@@ -1,6 +1,6 @@
 ---
 title: Come configurare gli avvisi di sicurezza | Documentazione Microsoft
-description: Informazioni su come configurare gli avvisi di sicurezza per l&quot;estensione Azure Privileged Identity Management.
+description: Informazioni su come configurare gli avvisi di sicurezza per l'estensione Azure Privileged Identity Management.
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd8987a05c71643b49e0ac9e3c8ae43d47743225
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: e057120e31eeebc3da274536c09d6d9972854338
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Come configurare gli avvisi di sicurezza in Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Avvisi di sicurezza
@@ -68,4 +67,3 @@ Questo avviso viene attivato se un utente non attiva un ruolo dopo un determinat
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
-

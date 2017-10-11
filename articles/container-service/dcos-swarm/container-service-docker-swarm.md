@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 50f084b8e5fc7c113e54c3be094cbf06413eb035
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 6ca2d2e49c4b7f5eb0580e7091b09209f8b73a7c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="container-management-with-docker-swarm"></a>Gestione dei contenitori con Docker Swarm
 Docker Swarm offre un ambiente per la distribuzione di carichi di lavoro in contenitori in un set di host Docker in pool. Docker Swarm usa l'API Docker nativa. Il flusso di lavoro per la gestione dei contenitori in Docker Swarm è quasi identico a quello di un host con un singolo contenitore. Questo documento fornisce semplici esempi di distribuzione di carichi di lavoro in contenitori, in un'istanza del servizio contenitore di Azure di Docker Swarm. Per una documentazione più dettagliata su Docker Swarm, vedere [Docker Swarm in Docker.com](https://docs.docker.com/swarm/).
@@ -118,5 +117,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni su Docker Swarm](https://docs.docker.com/swarm/)
-
 

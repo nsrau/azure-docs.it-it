@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 63f2d88ad59661b7fbcffd0aaeb94c58d40bdb73
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Risolvere i problemi di YARN tramite Azure HDInsight
 
 Informazioni sui problemi principali che possono verificarsi quando si usano i payload di Apache Hadoop YARN in Apache Ambari unitamente alle risoluzioni.
@@ -35,7 +33,7 @@ Informazioni sui problemi principali che possono verificarsi quando si usano i p
 Seguire questa procedura in Ambari per creare una nuova coda YARN e bilanciare l'allocazione delle capacità tra tutte le code. 
 
 In questo esempio è stata modificata la capacità dal 50% al 25% per due code esistenti (**predefinita** e **thriftsvr**), in modo da consentire alla nuova coda (Spark) di avere una capacità del 50%.
-| Coda | Capacità | Capacità massima |
+| Coda | Capacity | Capacità massima |
 | --- | --- | --- | --- |
 | default | 25% | 50% |
 | thrftsvr | 25% | 50% |
@@ -143,7 +141,6 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
 
 - [Connettersi a HDInsight (Hadoop) con SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/) (Concetti e applicazioni di Apache Hadoop YARN)
-
 
 
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4e6ef568f510d9db4df115e25d66f53feffc829e
-ms.openlocfilehash: c607830466d7f942f1d0a43ebeccea07ed0877a9
-ms.contentlocale: it-it
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: 8e9e8192ee4fcb636b5be91d2616acbc9120c8c0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Servizio di sincronizzazione Azure Active Directory Connect: come gestire l'account del servizio Azure Active Directory
 L'account di servizio utilizzato da Azure Active Directory Connector è progettato per non richiedere manutenzione. Questo argomento descrive come reimpostare le credenziali in caso di necessità, ad esempio se un amministratore globale ha erroneamente reimpostato la password dell'account del servizio con PowerShell.
@@ -53,5 +52,4 @@ AADSTS70002: Errore di convalida delle credenziali. AADSTS50054: Per l'autentica
 
 * [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-
 

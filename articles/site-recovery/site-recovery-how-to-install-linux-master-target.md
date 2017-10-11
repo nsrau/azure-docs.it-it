@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Installare un server di destinazione master Linux
 Dopo aver eseguito il failover delle macchine virtuali, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -401,4 +400,3 @@ Al termine dell'installazione e della registrazione del server, quest'ultimo vie
 * Per via delle configurazioni personalizzate della scheda di interfaccia di rete presso alcuni clienti, l'interfaccia di rete viene disabilitata durante l'avvio e non è possibile inizializzare l'agente del server di destinazione master. Verificare che le proprietà seguenti siano impostate correttamente. Verificare le proprietà nei file della scheda Ethernet /etc/sysconfig/network-scripts/ifcfg-eth*.
     * BOOTPROTO=dhcp
     * ONBOOT=yes
-

@@ -14,20 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: bc10d7a1f3b7f26389b49af21f9553e83b5e078d
-ms.contentlocale: it-it
-ms.lasthandoff: 11/29/2016
-
+ms.openlocfilehash: 629ef7690f25dc6de1773a83cf967544cdf16682
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="h264-single-bitrate-720p-audio-51"></a>Codec video H.264 a bitrate singolo con risoluzione 720p e audio 5.1
-`Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui si desidera codificare il file multimediale oppure creare set di impostazioni JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi delle impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni delle attività per Media Encoder Standard).  
+`Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui codificare il file multimediale oppure creare set di impostazioni basati su JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi dei set di impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni di attività per Media Encoder Standard).  
   
  Questo argomento illustra il set di impostazioni `H264 Single Bitrate 720p Audio 5.1` nei formati XML e JSON.  
   
- Questo set di impostazioni genera un file MP4 con una velocità in bit di 4.500 kbps e audio AAC 5.1. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per una spiegazione del significato di ogni elemento e dei valori possibili per ciascuno, vedere lo [schema di Media Encoder Standard](media-services-mes-schema.md).  
+ Questo set di impostazioni genera un file MP4 con una velocità in bit di 4.500 kbps e audio AAC 5.1. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per informazioni sul significato di ogni elemento e sui valori possibili per ciascuno, vedere lo [schema di Media Encoder Standard](media-services-mes-schema.md).  
   
  XML  
   
@@ -117,4 +115,3 @@ ms.lasthandoff: 11/29/2016
   ]  
 }  
 ```
-

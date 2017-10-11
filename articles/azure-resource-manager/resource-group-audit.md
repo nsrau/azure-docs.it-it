@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
 ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visualizzare i log attività per controllare le azioni sulle risorse
 Con i log attività è possibile determinare:
@@ -148,5 +147,4 @@ Le operazioni REST per l'uso del log attività fanno parte delle [Informazioni d
 * Per informazioni su come impostare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo in Azure](../active-directory/role-based-access-control-configure.md).
 * Per informazioni sui comandi per visualizzare le operazioni di distribuzione, vedere [Visualizzare le operazioni di distribuzione](resource-manager-deployment-operations.md).
 * Per informazioni su come impedire operazioni di eliminazione su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Azure Resource Manager](resource-group-lock-resources.md).
-
 

@@ -1,5 +1,5 @@
 ---
-title: Configurare l&quot;array virtuale StorSimple come file server | Microsoft Docs
+title: Configurare l'array virtuale StorSimple come file server | Microsoft Docs
 description: Questa terza esercitazione sulla distribuzione di StorSimple Virtual Array illustra come configurare un dispositivo virtuale come file server.
 services: storsimple
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
-ms.lasthandoff: 05/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -209,5 +209,4 @@ A questo punto, è necessario connettersi a una o più condivisioni create nel p
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
-
 

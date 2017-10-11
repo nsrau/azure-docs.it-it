@@ -6,12 +6,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 07/03/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 921bbd109c9ea98d8b5c286a7512bed026412d26
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Scenari di sicurezza di Azure Key Vault e confini geografici
 
@@ -41,7 +40,6 @@ Nei prodotti dell'articolo in base all'area, ad esempio, la scheda **Americhe** 
 >Un'eccezione è che il Dipartimento della difesa Stati Uniti orientali e il Dipartimento della difesa Stati Uniti centrali hanno i propri scenari di sicurezza. 
 
 Analogamente, nella scheda **Europa** l'Europa settentrionale e l'Europa occidentale eseguono entrambi il mapping nell'area Europa. Lo stesso vale anche per la scheda **Asia Pacifico**.
-
 
 
 

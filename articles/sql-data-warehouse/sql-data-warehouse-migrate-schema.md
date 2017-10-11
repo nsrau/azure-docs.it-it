@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 07ca2321852e276502187e768177e7e82bdfd080
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Eseguire la migrazione degli schemi a SQL Data Warehouse
 Indicazioni per la migrazione degli schemi SQL a SQL Data Warehouse. 
@@ -85,4 +84,3 @@ Per altre informazioni, vedere l'articolo con le [procedure consigliate][best pr
 
 
 <!--Other Web references-->
-

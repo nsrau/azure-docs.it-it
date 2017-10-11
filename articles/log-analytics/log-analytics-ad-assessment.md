@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente Active Directory con la soluzione Active Directory Assessment in Log Analytics
 
@@ -191,4 +190,3 @@ Dopo la successiva esecuzione della valutazione pianificata, per impostazione pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare dati e raccomandazioni dettagliati di AD Assessment usare [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) .
-

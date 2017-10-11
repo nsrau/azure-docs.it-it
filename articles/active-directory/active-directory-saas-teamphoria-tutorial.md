@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 2a35efb04d7fe22abc6894c149caf090666ce016
-ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Esercitazione: Integrazione di Azure Active Directory con Teamphoria
 
@@ -288,5 +287,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 [201]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_203.png
-
 

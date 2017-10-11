@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Ripristino di emergenza tra più aree delle app per la logica B2B
 
 I carichi di lavoro B2B coinvolgono le transazioni di denaro, come ad esempio gli ordini e le fatture. In caso di un evento di emergenza, per un'azienda è essenziale eseguire rapidamente un ripristino per soddisfare i contratti di servizio a livello di business secondo gli accordi presi con i partner. In questo articolo viene illustrato come creare un piano di continuità aziendale per i carichi di lavoro B2B. 
@@ -248,5 +246,4 @@ In base all'intervallo di tempo, lo stato di runtime incrementale viene replicat
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Monitorare i messaggi B2B](logic-apps-monitor-b2b-message.md)
-
 

@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/06/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
 Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazioni di esempio indicati di seguito.
@@ -101,5 +100,4 @@ Demo e laboratori multisessione per la Ricerca di Azure.
 | [Come aggiungere suggerimenti alle applicazioni di ricerca](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |Informazioni su come implementare i suggerimenti, comunemente denominati completamento automatico. In questa demo vengono illustrati alcuni argomenti compresa la creazione di applicazioni MVC4 che sfruttano i suggerimenti di Ricerca di Azure, l'uso della libreria typeahead.js di Twitter per creare un componente efficace di suggerimenti automatici in JavaScript e l'uso dei suggerimenti fuzzy per consentire di offrire suggerimenti anche se la parola contiene errori di digitazione. |
 | [Laboratorio virtuale TechNet: creazione di un'applicazione di Ricerca di Microsoft Azure](http://go.microsoft.com/?linkid=9874663) |Laboratorio virtuale che fornisce un ambiente di sviluppo, strumenti, documentazione e dati. Per completare il laboratorio è necessario un account Azure, una sottoscrizione di valutazione o una sottoscrizione di Azure personale. |
 | [Sincronizzare i dati di SQL Server con Ricerca di Azure](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Post di blog che spiega come caricare i dati dai database relazionali SQL Server in un indice di Ricerca di Azure. |
-
 

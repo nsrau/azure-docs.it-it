@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 4963888748d7103e3b24ac9c8de3d10ef9554fd4
-ms.contentlocale: it-it
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: 0b6a7f22d744480a40a878c979986cdd7667109c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Attributi shadow del servizio di sincronizzazione Azure AD Connect
 La maggior parte degli attributi viene rappresentata allo stesso modo in Azure AD e nel servizio Active Directory locale. Tuttavia, alcuni attributi sono caratterizzati da una gestione speciale e il valore dell'attributo in Azure AD potrebbe essere diverso da quello sincronizzato in Azure AD Connect.
@@ -75,4 +74,3 @@ Gli attributi shadow vengono usati anche quando sono presenti valori di attribut
 ## <a name="see-also"></a>Vedere anche
 * [Servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-

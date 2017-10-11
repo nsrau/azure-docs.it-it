@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="a-idunity-roll-a-ballacreate-unity-roll-a-ball-game"></a><a id="unity-roll-a-ball"></a>Creare il gioco Roll a Ball di Unity
+# <a id="unity-roll-a-ball"></a>Creare il gioco Roll a Ball di Unity
 Questa esercitazione illustra i passaggi principali di un' [esercitazione su Roll a Ball di Unity](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial)leggermente modificata. Questo gioco di esempio è costituito da un oggetto "player" sferico controllato dall'utente dell'app e lo scopo del gioco è di raccogliere oggetti da collezione facendo scontrare l'oggetto player con questi oggetti da collezione. Ciò presuppone una certa conoscenza di base dell'ambiente dell'editor di Unity. In caso di problemi, vedere l'esercitazione completa. 
 
 ### <a name="setting-up-the-game"></a>Configurazione del gioco
@@ -329,11 +329,5 @@ Con questa esercitazione termina la creazione di un gioco di base con Unity, che
 
 
 
-
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

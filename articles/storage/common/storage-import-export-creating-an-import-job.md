@@ -1,6 +1,6 @@
 ---
 title: Creare un processo di importazione per Importazione/Esportazione di Azure | Documentazione Microsoft
-description: Informazioni su come creare un&quot;importazione per il servizio Importazione/Esportazione di Microsoft Azure.
+description: Informazioni su come creare un'importazione per il servizio Importazione/Esportazione di Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: syadav
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creazione di un processo di importazione per Importazione/Esportazione di Azure
 
@@ -108,4 +107,3 @@ Dopo avere ottenuto il numero di tracciabilità, chiamare l'operazione [Update J
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
-

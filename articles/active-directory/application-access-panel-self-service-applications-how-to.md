@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 08a05a70d976104d4e0a37b0a0dd15042b0212d8
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-use-self-service-application-access"></a>Come usare l'accesso alle applicazioni self-service
 
 Prima che gli utenti possano da soli individuare le applicazioni dal pannello di accesso, è necessario abilitare l'**accesso alle applicazioni self-service** per tutte le applicazioni per cui si desidera consentire l'individuazione e l'accesso da parte degli utenti.
@@ -86,4 +84,3 @@ Tali approvazioni supportano solo flussi di lavoro di approvazione individuali. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurazione di Azure Active Directory per la gestione self-service dei gruppi](active-directory-accessmanagement-self-service-group-management.md)
-

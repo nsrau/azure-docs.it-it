@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ffab59315a5533c9df92e8b18b4db2ff2314fd59
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 04ccb4ab4e60a11cdce11ca8194c157b8e8f11f4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versioni supportate del Database di Azure per il server MySQL
 Il Database di Azure per MySQL è stato sviluppato da MySQL Community Edition [MySQL Community Edition](https://www.mysql.com/products/community/) per mezzo del motore InnoDB.  Al momento il Database di Azure per MySQL supporta le versioni indicate di seguito.
@@ -31,4 +30,3 @@ Il Database di Azure per MySQL gestisce automaticamente l'applicazione di patch 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**, vedere [Livelli di servizio](./concepts-service-tiers.md)
-

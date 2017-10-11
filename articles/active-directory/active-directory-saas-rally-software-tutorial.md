@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 6481c9ef0ca71419ccfa6f7956f4702985743df3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Esercitazione: Integrazione di Azure Active Directory con Rally Software
 
@@ -271,5 +270,4 @@ Quando si fa clic sul riquadro Rally Software nel pannello di accesso si accede 
 [201]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_203.png
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 63bd33bf4e09b98aa53dcfec9fcc4a0109204952
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Introduzione al connettore OneDrive
 Connettersi a OneDrive per gestire i file, ad esempio, caricare, recuperare ed eliminare i file e altro ancora. 

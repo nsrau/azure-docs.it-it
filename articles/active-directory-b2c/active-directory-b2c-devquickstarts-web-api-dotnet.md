@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: Chiamare un'API Web .NET da un'app Web .NET
 
@@ -187,5 +186,4 @@ Seguire lo stesso modello quando si inviano le richieste `POST` e `DELETE` all'A
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
 Infine, compilare ed eseguire entrambe le app. Eseguire l'iscrizione e l'accesso e creare attività per l'utente connesso. Disconnettersi ed eseguire l'accesso usando un account utente diverso. Creare le attività per l'utente. Si noti che le attività sono archiviate per ogni utente nell'API, perché l'API estrae l'identità dell'utente dai token che riceve. Provare inoltre a usare gli ambiti. Rimuovere l'autorizzazione "scrivere" e quindi provare ad aggiungere un'attività. Basta assicurarsi di disconnettersi ogni volta che si modifica l'ambito.
-
 

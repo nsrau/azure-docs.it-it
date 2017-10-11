@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: a3eedacac5efb53f82e46a56285713dece56ffe8
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="service-fabric-with-azure-api-management-overview"></a>Panoramica di Service Fabric con Gestione API di Azure
 
 Le applicazioni cloud necessitano in genere di un gateway front-end per garantire un singolo punto di ingresso per utenti, dispositivi o altre applicazioni. In Service Fabric un gateway può essere qualsiasi servizio senza stato, ad esempio un'[applicazione ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), o un altro servizio progettati per l'ingresso del traffico, ad esempio [Hub eventi](https://docs.microsoft.com/azure/event-hubs/), [Hub IoT](https://docs.microsoft.com/azure/iot-hub/) o [Gestione API di Azure](https://docs.microsoft.com/azure/api-management/).

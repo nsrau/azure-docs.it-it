@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 510a1827f432c4db2190deff016a886dd79eebc9
-ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
-
-
+ms.openlocfilehash: 9c7e959530a836fe5ddf74708363a636c39b3cc6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Come abilitare l'accesso Single Sign-On tra app su Android tramite ADAL
 Ora i clienti si aspettano che l'accesso SSO (Single Sign-On) venga fornito in modo che gli utenti debbano inserire le loro credenziali una volta sola e che le credenziali valgano automaticamente per le varie applicazioni. La difficoltà di immissione di nome utente e password su uno schermo di piccole dimensioni, spesso abbinata a un fattore aggiuntivo (2FA) come una telefonata o un codice inviato tramite SMS, rende l'utente insoddisfatto se questa procedura va ripetuta più volte per il prodotto.
@@ -251,5 +249,4 @@ MANAGE_ACCOUNTS
 
 ### <a name="youve-configured-sso"></a>L'SSO è stato configurato!
 Ora Microsoft Identity SDK condividerà automaticamente le credenziali tra le applicazioni e richiamerà il broker, se presente nel dispositivo.
-
 

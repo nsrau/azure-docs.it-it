@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: fb7d391e3118a9dccde5501c3f30c6f580932a30
-ms.contentlocale: it-it
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Controllo del traffico delle app Web di Azure con Gestione traffico di Azure
 > [!NOTE]
@@ -55,5 +54,4 @@ Quando si utilizza Gestione traffico con Azure, è opportuno tenere presenti i f
 Per una panoramica concettuale e tecnica di Gestione traffico di Azure, vedere [Panoramica di Gestione traffico](../traffic-manager/traffic-manager-overview.md).
 
 Per altre informazioni sull'uso di Gestione traffico con App Web, vedere i post di blog relativi all'[uso di Gestione traffico di Azure con Siti Web di Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [all'integrazione di Gestione traffico di Azure con Siti Web di Azure](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
-
 

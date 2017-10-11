@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 4c1a50e26e5cde606d0ef34889fb1c9db80e8ee0
-ms.contentlocale: it-it
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: 42b012fb98bd0504c931ce391d63aecca8c3d311
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizzare il codificatore NewTek TriCaster per inviare un flusso live a velocità in bit singola.
 > [!div class="op_single_selector"]
@@ -165,4 +164,3 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

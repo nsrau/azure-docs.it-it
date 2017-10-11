@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.contentlocale: it-it
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
 ## <a name="overview"></a>Panoramica
@@ -190,8 +189,8 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    
    | Etichetta | Description |
    | --- | --- |
-   |   0,1,4,5 |Interfacce di rete da&1; GbE |
-   |   2,3 |Interfacce di rete da&10; GbE |
+   |   0,1,4,5 |Interfacce di rete da 1 GbE |
+   |   2,3 |Interfacce di rete da 10 GbE |
    |   6 |Porte seriali |
 2. Per il cablaggio di rete vedere la seguente figura. La configurazione minima di rete è indicata da linee blu continue. La configurazione aggiuntiva richiesta per una disponibilità elevata e prestazioni ottimali è indicata da linee tratteggiate.
 
@@ -248,5 +247,4 @@ Il dispositivo è ora collegato per l'alimentazione, l'accesso di rete e quello 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [distribuire e configurare un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
-
 

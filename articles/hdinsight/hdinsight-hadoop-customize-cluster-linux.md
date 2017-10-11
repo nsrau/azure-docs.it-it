@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: cbfdc3c4b6a6d0f3174c9d7512c3aadd926a56df
-ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
-
+ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Personalizzare cluster HDInsight basati su Linux tramite Azione script
 
@@ -722,4 +721,3 @@ Sussistono due eccezioni:
 * [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md) (Aggiungere altra memoria a un cluster HDInsight)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
-

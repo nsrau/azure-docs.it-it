@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/03/2017
 ms.author: alkohli@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
@@ -186,5 +185,4 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento a [Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-
 

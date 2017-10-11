@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 869e5284c71904fcc817ceee0f39d94fab1bc6f3
-ms.contentlocale: it-it
-ms.lasthandoff: 04/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Esercitazione: Integrazione di Azure Active Directory con T&E Express
 
@@ -250,5 +249,4 @@ Quando si fa clic sul riquadro T&E Express nel pannello di accesso, si dovrebbe 
 [201]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_203.png
-
 

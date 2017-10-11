@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 356083fbaabfcd2ec7581adf319fa22b810df0d3
-ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # Flusso on-behalf-of di Azure Active Directory v2.0 e di OAuth 2.0
 Il flusso on-behalf-of di OAuth 2.0 viene usato quando un'applicazione richiama un servizio o un'API Web, che a sua volta deve chiamare un altro servizio o un'altra API Web. Lo scopo è di propagare l'identità utente delegato e le autorizzazioni attraverso la catena di richieste. Per eseguire richieste autenticate al servizio downstream, il servizio di livello intermedio deve assicurarsi un token di accesso da Azure Active Directory (Azure AD) per conto dell'utente.
@@ -175,4 +174,3 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 Altre informazioni sul protocollo OAuth 2.0 e su un altro modo per eseguire l'autenticazione da servizio a servizio usando le credenziali del client.
 * [Concessione di credenziali client OAuth 2.0 in Azure AD v2.0](active-directory-v2-protocols-oauth-client-creds.md)
 * [OAuth 2.0 in Azure AD v2.0](active-directory-v2-protocols-oauth-code.md)
-

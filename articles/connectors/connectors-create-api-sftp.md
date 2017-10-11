@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/20/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 31253d8daee1581167a96a20ba8ad529a04b3e92
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Introduzione al connettore SFTP
 Usare il connettore SFTP per accedere a un account SFTP al fine di inviare e ricevere file. È possibile eseguire varie operazioni come creare, aggiornare, recuperare o eliminare file.  

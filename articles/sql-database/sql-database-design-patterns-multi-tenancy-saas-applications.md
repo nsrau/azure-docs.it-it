@@ -1,6 +1,6 @@
 ---
 title: Schemi progettuali per le applicazioni SaaS multi-tenant e il database SQL di Azure | Microsoft Docs
-description: "Questo articolo illustra i requisiti e i modelli comuni di architettura dei dati delle applicazioni di database multi-tenant in esecuzione in un ambiente cloud e i vari compromessi associati a tali modelli. Illustra anche l&quot;utilità del database SQL di Azure, con i relativi pool e strumenti elastici, per soddisfare questi requisiti senza dover scendere a compromessi."
+description: "Questo articolo illustra i requisiti e i modelli comuni di architettura dei dati delle applicazioni di database multi-tenant in esecuzione in un ambiente cloud e i vari compromessi associati a tali modelli. Illustra anche l'utilità del database SQL di Azure, con i relativi pool e strumenti elastici, per soddisfare questi requisiti senza dover scendere a compromessi."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -16,13 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Schemi progettuali per le applicazioni SaaS multi-tenant e il database SQL di Azure
 Questo articolo include informazioni sui requisiti e i modelli comuni di architettura dei dati delle applicazioni di database SaaS (Software-as-a-Service) multi-tenant in esecuzione in un ambiente cloud. Illustra anche i fattori da considerare e i compromessi tra i diversi modelli di progettazione. I pool e gli strumenti elastici nel database SQL di Azure consentono di soddisfare requisiti specifici senza compromettere altri obiettivi.
@@ -169,5 +167,4 @@ Informazioni su come [monitorare e gestire un pool elastico](sql-database-elasti
 ## <a name="questions-and-feature-requests"></a>Domande e richieste di funzionalità
 
 Per domande, è disponibile il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Aggiungere una richiesta di funzionalità nel [forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
-
 

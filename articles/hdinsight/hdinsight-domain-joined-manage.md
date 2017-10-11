@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 9b56ce6cc5bdd3b8d48d047751e978cad08598e1
-ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-domain-joined-hdinsight-clusters-preview"></a>Gestione dei cluster HDInsight aggiunti al dominio (anteprima)
 Informazioni su utenti e ruoli nei cluster HDInsight aggiunti al dominio e su come gestire i cluster HDInsight aggiunti al dominio.
@@ -111,4 +110,3 @@ I cluster HDInsight aggiunti al dominio includono i seguenti ruoli:
 * Per configurare un cluster HDInsight aggiunto al dominio, vedere [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Configurare i cluster HDInsight aggiunti al dominio).
 * Per configurare i criteri ed eseguire query Hive, vedere [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Configurare criteri Hive per cluster HDInsight aggiunti al dominio).
 * Per eseguire query Hive usando SSH nei cluster HDInsight aggiunti al dominio, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-

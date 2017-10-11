@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: ec4512500dc3c77a40d2ebd1e6b460d5bb005811
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma 1.0 per Monitoraggio di Azure
 Questo articolo illustra i comandi dell'interfaccia della riga di comando di esempio per accedere alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare automaticamente servizi cloud, macchine virtuali e app Web e di inviare notifiche di avviso o chiamare URL Web in base ai valori dei dati di telemetria configurati.
@@ -202,4 +201,3 @@ azure insights autoscale setting list montest2 -n setting2
 ```console
 azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
-

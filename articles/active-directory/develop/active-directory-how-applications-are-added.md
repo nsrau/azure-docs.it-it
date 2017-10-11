@@ -1,6 +1,6 @@
 ---
 title: Come vengono aggiunte le applicazioni in Azure Active Directory.
-description: Questo articolo descrive il modo in cui le applicazioni vengono aggiunge a un&quot;istanza di Azure Active Directory.
+description: Questo articolo descrive il modo in cui le applicazioni vengono aggiunge a un'istanza di Azure Active Directory.
 services: active-directory
 documentationcenter: 
 author: shoatman
@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 65c8a2c020d5ef7ce47905927a248b9e73d2ed1b
-ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 Uno degli aspetti più sconcertanti quando si visualizza un elenco di applicazioni nell'istanza di Azure Active Directory sta nel comprendere da dove provengono le applicazioni e perché si trovano nella directory.  Questo articolo fornisce una panoramica generale del modo in cui le applicazioni sono rappresentate nella directory, oltre alle informazioni necessarie per comprendere perché un'applicazione è stata inclusa nella directory.
@@ -146,4 +144,3 @@ Altre informazioni su come aggiungere applicazioni in Azure AD e su come configu
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]:../media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
-

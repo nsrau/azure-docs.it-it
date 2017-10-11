@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD e applicazioni: assegnazione degli utenti a un&quot;applicazione | Documentazione Microsoft'
-description: Come implementare l&quot;assegnazione di un utente per le applicazioni Azure.
+title: 'Azure AD e applicazioni: assegnazione degli utenti a un''applicazione | Documentazione Microsoft'
+description: Come implementare l'assegnazione di un utente per le applicazioni Azure.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: kgremban
 robots: noindex
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d30ebb5a0e3e7b1560e1eff04bc5a54f0c45a595
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 29d63bd5781dc7ef9e84840dd4b1b70222cf6892
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD e le applicazioni: assegnazione di utenti a un'applicazione
 Prima di assegnare utenti e gruppi a un'applicazione, è necessario richiedere l'assegnazione dell’utente.  Per informazioni su come richiedere l'assegnazione dell’utente, vedere l’articolo [Richiedere assegnazione utente](active-directory-applications-guiding-developers-requiring-user-assignment.md) .
@@ -38,5 +37,4 @@ Prima di assegnare utenti e gruppi a un'applicazione, è necessario richiedere l
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
-
 

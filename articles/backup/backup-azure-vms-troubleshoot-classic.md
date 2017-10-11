@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: trinadhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
 > [!div class="op_single_selector"]
@@ -115,4 +114,3 @@ Come controllare la versione dell'agente di VM nelle macchine virtuali di Window
 
 1. Accedere alla macchina virtuale di Azure e passare alla cartella *C:\WindowsAzure\Packages*. che dovrebbe includere il file WaAppAgent.exe.
 2. Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore.
-

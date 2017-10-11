@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 43061d1a9abd30d8f0c8a627183dbafb00da5067
-ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Trasmettere i dati di Diagnostica di Azure nel percorso critico tramite Hub eventi
 Diagnostica di Azure fornisce metodi flessibili per raccogliere le metriche e i log delle macchine virtuali (VM) di servizi cloud e trasferire i risultati in Archiviazione di Azure. A partire da marzo 2016 (SDK 2.9), è possibile eseguire inviare la diagnostica a origini dati completamente personalizzate e trasferire i dati del percorso critico in pochi secondi tramite [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -514,4 +513,3 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 <!-- Images. -->
 [0]: ../event-hubs/media/event-hubs-streaming-azure-diags-data/dashboard.png
-

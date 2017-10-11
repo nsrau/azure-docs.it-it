@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 45699c267d1009c4884dd164fd3f2950d6d5f555
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Sostituzione di un controller EBOD nel dispositivo StorSimple
 
@@ -100,5 +99,4 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
 
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-8000-hardware-component-replacement.md).
-
 

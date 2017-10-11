@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
-ms.contentlocale: it-it
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure
 Questo argomento elenca descrizioni dettagliate delle condizioni di corrispondenza disponibili per il [motore regole](cdn-rules-engine.md)della rete per la distribuzione di contenuti (rete CDN) di Azure.
 
@@ -125,5 +123,4 @@ Carattere jolly query URL | Confronta uno o più valori specificati con la strin
 * [Espressioni condizionali del motore regole](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funzionalità del motore regole](cdn-rules-engine-reference-features.md)
 * [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)
-
 

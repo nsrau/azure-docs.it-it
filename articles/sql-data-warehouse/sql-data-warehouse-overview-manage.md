@@ -1,6 +1,6 @@
 ---
 title: Gestire i database in Azure SQL Data Warehouse | Documentazione Microsoft
-description: "Panoramica della gestione dei database di SQL Data Warehouse. Include strumenti di gestione, prestazioni di DWU e di scalabilità orizzontale, risoluzione dei problemi di prestazioni delle query, definizione dei criteri di protezione e ripristino di un database da un danneggiamento dei dati o da un&quot;interruzione dell&quot;alimentazione locale."
+description: "Panoramica della gestione dei database di SQL Data Warehouse. Include strumenti di gestione, prestazioni di DWU e di scalabilità orizzontale, risoluzione dei problemi di prestazioni delle query, definizione dei criteri di protezione e ripristino di un database da un danneggiamento dei dati o da un'interruzione dell'alimentazione locale."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 0056c458cc002cbdb1b8dabefe0d11a8abd61179
-ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Gestire i database in Azure SQL Data Warehouse
 SQL Data Warehouse automatizza molti aspetti della gestione dei database. Ad esempio, per aumentare le prestazioni è necessario solo regolare e pagare il corretto livello di risorse di calcolo e lasciare che SQL Data Warehouse esegua tutte le operazioni di scalabilità orizzontale e scalabilità inversa.
@@ -115,4 +113,3 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 
 <!--Other web references-->
 [Azure portal]: http://portal.azure.com/
-

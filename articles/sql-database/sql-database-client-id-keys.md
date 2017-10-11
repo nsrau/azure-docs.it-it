@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: ec6256e9c5bb0d9c8d15d0f673cea70b3915eb34
-ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Ottenere i valori richiesti per l'autenticazione di un'applicazione per l'accesso al database SQL dal codice
 Per creare e gestire database SQL dal codice è necessario registrare l'app nel dominio di Azure Active Directory (AAD) nella sottoscrizione in cui sono state create le risorse di Azure.
@@ -75,5 +74,4 @@ Lo script di PowerShell seguente permette di creare l'applicazione Active Direct
 ## <a name="see-also"></a>Vedere anche
 * [Usare C# per creare un database SQL](sql-database-get-started-csharp.md)
 * [Connettersi al Database SQL utilizzando l’autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
-
 

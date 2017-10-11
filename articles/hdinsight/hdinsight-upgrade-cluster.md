@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: bhanupr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
 ms.openlocfilehash: fa2e37bd922690322ccc3d8f68128180d013b701
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Eseguire l'aggiornamento del cluster HDInsight a una versione più recente
 Per poter sfruttare le funzionalità più recenti di HDInsight, è consigliabile che i cluster HDInsight siano aggiornati alla versione più recente. Seguire le linee guida per aggiornare le versioni dei cluster HDInsight.
@@ -53,5 +52,4 @@ Dopo avere verificato che tutto funzioni come previsto, pianificare i tempi di i
 * [Informazioni su come creare cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Connettersi a HDInsight tramite SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Gestire un cluster basato su Linux tramite Ambari](hdinsight-hadoop-manage-ambari.md)
-
 

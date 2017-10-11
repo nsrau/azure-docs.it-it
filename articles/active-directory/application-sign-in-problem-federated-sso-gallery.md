@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 0fc5a8eb3d033d60bf6082d61bf1698924ab91c6
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta configurata per il Single Sign-On federato
 
 Per risolvere il problema, è necessario verificare la configurazione dell'applicazione in Azure AD come segue:
@@ -33,7 +31,7 @@ Per risolvere il problema, è necessario verificare la configurazione dell'appli
 
 ## <a name="application-not-found-in-directory"></a>Applicazione non trovata nella directory
 
-*Error AADSTS70001: Application with Identifier 'https://contoso.com' was not found in the directory* (Errore AADSTS70001: applicazione con identificatore 'https://contoso.com' non trovata nella directory).
+*Errore AADSTS70001: applicazione con identificatore 'https://contoso.com' non trovata nella directory*.
 
 **Causa possibile**
 
@@ -65,7 +63,7 @@ Dopo aver aggiornato il valore dell'identificatore in Azure AD in modo che corri
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L'indirizzo di risposta non corrisponde agli indirizzi di risposta configurati per l'applicazione.
 
-*Error AADSTS50011: The reply address 'https://contoso.com' does not match the reply addresses configured for the application* (Errore AADSTS50011: l'indirizzo di risposta 'https://contoso.com' non corrisponde agli indirizzi risposta configurati per l'applicazione)
+*Errore AADSTS50011: l'indirizzo di risposta 'https://contoso.com' non corrisponde agli indirizzi risposta configurati per l'applicazione*
 
 **Causa possibile**
 
@@ -267,4 +265,3 @@ Per informazioni su come personalizzare le attestazioni degli attributi SAML inv
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
-

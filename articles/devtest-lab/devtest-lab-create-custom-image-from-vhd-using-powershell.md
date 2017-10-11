@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;immagine personalizzata in Azure DevTest Labs da un file VHD usando PowerShell | Documentazione Microsoft
-description: Creazione automatica di un&quot;immagine personalizzata in Azure DevTest Labs da un file VHD usando PowerShell
+title: Creare un'immagine personalizzata in Azure DevTest Labs da un file VHD usando PowerShell | Microsoft Docs
+description: Automatizzare la creazione di un'immagine personalizzata in Azure DevTest Labs da un file VHD usando PowerShell
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 38d70ed302eeab912ce4fe33272f85e96f1b1eda
-ms.openlocfilehash: 6c85df6bbcf25e687881380fd68bb3ee861098e3
-ms.contentlocale: it-it
-ms.lasthandoff: 01/11/2017
-
-
+ms.openlocfilehash: a4729f70aae80a13233fbe96a5d8a56c0c9d01d3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Creare un'immagine personalizzata da un file VHD usando PowerShell
 
 [!INCLUDE [devtest-lab-create-custom-image-from-vhd-selector](../../includes/devtest-lab-create-custom-image-from-vhd-selector.md)]
@@ -33,7 +30,7 @@ ms.lasthandoff: 01/11/2017
 
 ## <a name="step-by-step-instructions"></a>Istruzioni dettagliate
 
-La procedura seguente illustra come creare un'immagine personalizzata da un file VHD con PowerShell:
+La procedura seguente illustra come creare un'immagine personalizzata da un file VHD usando PowerShell:
 
 1. Al prompt di PowerShell accedere al proprio account Azure con la chiamata seguente al cmdlet **Login-AzureRmAccount**.  
     
@@ -41,14 +38,14 @@ La procedura seguente illustra come creare un'immagine personalizzata da un file
     Login-AzureRmAccount
     ```
 
-1.    Selezionare la sottoscrizione di Azure desiderata mediante una chiamata al cmdlet **Select-AzureRmSubscription**. Sostituire il segnaposto riportato di seguito per la variabile **$subscriptionId** con un ID sottoscrizione di Azure valido. 
+1.  Selezionare la sottoscrizione di Azure desiderata mediante una chiamata al cmdlet **Select-AzureRmSubscription**. Sostituire il segnaposto riportato di seguito per la variabile **$subscriptionId** con un ID sottoscrizione di Azure valido. 
 
     ```PowerShell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzureRmSubscription -SubscriptionId $subscriptionId
     ```
 
-1.    Ottenere l'oggetto lab mediante una chiamata al cmdlet **Get-AzureRmResource**. Sostituire i segnaposto riportati di seguito per le variabili **$labRg** e **$labName** con i valori appropriati per l'ambiente in uso. 
+1.  Ottenere l'oggetto lab mediante una chiamata al cmdlet **Get-AzureRmResource**. Sostituire i segnaposto riportati di seguito per le variabili **$labRg** e **$labName** con i valori appropriati per l'ambiente in uso. 
 
     ```PowerShell
     $labRg = '<Specify your lab resource group name here>'
@@ -56,20 +53,20 @@ La procedura seguente illustra come creare un'immagine personalizzata da un file
     $lab = Get-AzureRmResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
     ```
  
-1.    Ottenere l'account di archiviazione lab e i relativi valori chiave dall'oggetto lab. 
+1.  Ottenere l'account di archiviazione del lab e i relativi valori chiave dall'oggetto lab. 
 
     ```PowerShell
     $labStorageAccount = Get-AzureRmResource -ResourceId $lab.Properties.defaultStorageAccount 
     $labStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
     ```
 
-1.    Sostituire il segnaposto riportato di seguito per la variabile **$vhdUri** con l'URI al file VHD caricato. È possibile ottenere l'URI del file VHD dal pannello del BLOB dell'account di archiviazione nel portale di Azure.
+1.  Sostituire il segnaposto riportato di seguito per la variabile **$vhdUri** con l'URI al file VHD caricato. È possibile ottenere l'URI del file VHD dal pannello del BLOB dell'account di archiviazione nel portale di Azure.
 
     ```PowerShell
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
-1.    Creare l'immagine personalizzata usando il cmdlet **New-AzureRmResourceGroupDeployment**. Sostituire i segnaposto riportati di seguito per le variabili **$customImageName** e **$customImageDescription** con nomi significativi per l'ambiente in uso.
+1.  Creare l'immagine personalizzata usando il cmdlet **New-AzureRmResourceGroupDeployment**. Sostituire i segnaposto riportati di seguito per le variabili **$customImageName** e **$customImageDescription** con nomi significativi per l'ambiente in uso.
 
     ```PowerShell
     $customImageName = '<Specify the custom image name>'
@@ -101,7 +98,7 @@ $lab = Get-AzureRmResource -ResourceId ('/subscriptions/' + $subscriptionId + '/
 $labStorageAccount = Get-AzureRmResource -ResourceId $lab.Properties.defaultStorageAccount 
 $labStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
 
-# Set the URI of the VHD file.    
+# Set the URI of the VHD file.  
 $vhdUri = '<Specify the VHD URI here>'
 
 # Set the custom image name and description values.
@@ -122,5 +119,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Na
 
 ##<a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere una macchina virtuale all'ambiente lab](./devtest-lab-add-vm-with-artifacts.md)
-
+- [Aggiungere una macchina virtuale al lab](./devtest-lab-add-vm-with-artifacts.md)

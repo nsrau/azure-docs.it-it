@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sicurezza e protezione dei dati di StorSimple
 
@@ -272,5 +271,4 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Distribuire il dispositivo StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
-
 

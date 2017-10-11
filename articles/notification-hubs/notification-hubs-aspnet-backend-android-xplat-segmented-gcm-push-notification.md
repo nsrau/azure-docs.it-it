@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sull&quot;invio di ultime notizie mediante Hub di notifica - Android
+title: Esercitazione sull'invio di ultime notizie mediante Hub di notifica - Android
 description: Informazioni su come usare Hub di notifica di Bus di servizio di Azure per inviare notifiche relative alle ultime notizie a dispositivi Android.
 services: notification-hubs
 documentationcenter: android
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Uso di Hub di notifica per inviare le ultime notizie
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -29,7 +29,7 @@ Questo argomento illustra come usare Hub di notifica di Azure per trasmettere le
 È possibile abilitare gli scenari di trasmissione includendo uno o più *tag* durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione al tag riceveranno la notifica. Poiché i tag sono costituiti da stringhe, non è necessario eseguire il provisioning anticipatamente. Per ulteriori informazioni sui tag, vedere [Espressioni di routing e tag  per hub di notifica](notification-hubs-tags-segment-push-message.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Questo argomento si basa sull'app creata in [Invio di notifiche push ad Android con Hub di notifica di Azure][get-started]. Prima di iniziare questa esercitazione, è necessario aver completato le procedure illustrate in [Invio di notifiche push ad Android con Hub di notifica di Azure][get-started].
+Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub di notifica][get-started]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ad Hub di notifica][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
 Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all'attività principale esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione nell'hub di notifica con le categorie selezionate come tag.
@@ -295,18 +295,12 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 <!-- URLs.-->
 [get-started]: notification-hubs-android-push-notification-google-gcm-get-started.md
 [Usare Hub di notifica per la trasmissione di notizie localizzate]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /manage/services/notification-hubs/notify-users
-[Servizio mobile]: /develop/mobile/tutorials/get-started/
-[linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procedure degli hub di notifica per Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-[Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
+[Mobile Service]: /develop/mobile/tutorials/get-started/
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [portale di Azure classico]: https://manage.windowsazure.com
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591 (Oggetto WNS)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

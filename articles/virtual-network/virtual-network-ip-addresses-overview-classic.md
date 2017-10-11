@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione (modello di distribuzione classica) in Azure
 È possibile assegnare gli indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e con Internet. Sono disponibili due tipi di indirizzi IP che è possibile usare in Azure: pubblici e privati.
@@ -179,5 +178,4 @@ Di seguito è riportato un confronto tra la funzione di assegnazione degli indir
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire una VM con un indirizzo IP statico privato](virtual-networks-static-private-ip-classic-pportal.md) usando il portale di Azure.
-
 

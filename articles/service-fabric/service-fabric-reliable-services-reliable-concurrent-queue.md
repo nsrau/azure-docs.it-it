@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: sangarg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introduzione a ReliableConcurrentQueue in Azure Service Fabric
 La coda simultanea affidabile è una coda replicata, transazionale e asincrona che assicura concorrenza elevata per le operazioni di accodamento e rimozione dalla coda. È progettata per offrire velocità effettiva elevata e bassa latenza allentando il vincolo di ordinamento FIFO fornito dalla [coda affidabile](https://msdn.microsoft.com/library/azure/dn971527.aspx) e fornisce invece un ordinamento in base al migliore sforzo.
@@ -345,4 +344,3 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Introduzione ai servizi API Web di Microsoft Azure Service Fabric](service-fabric-reliable-services-communication-webapi.md)
 * [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C | Documentazione Microsoft
-description: "Come creare un&quot;applicazione desktop di Windows con funzionalità di gestione dell&quot;iscrizione, dell&quot;accesso e del profilo utente usando Azure Active Directory B2C."
+description: "Come creare un'applicazione desktop di Windows con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente usando Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: .net
 author: dstrockis
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: 9a78daac2269c9d44558e92b80c869603e014fb6
-
-
+ms.openlocfilehash: 8e2b5c704230ee2ba1395dc76a1551aaa8e7af7f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: creare un'app desktop di Windows
 Azure Active Directory (Azure AD) B2C consente di aggiungere funzionalità avanzate di gestione delle identità self-service all'app desktop in pochi brevi passaggi. Questo articolo descrive come creare un'app Windows Presentation Foundation (WPF) .NET "To do list" con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente. L'app includerà il supporto per l'iscrizione e l'accesso tramite un nome utente o un indirizzo di posta elettronica. L'app includerà anche il supporto per l'iscrizione e l'accesso tramite account di social networking quali Facebook e Google.
@@ -330,9 +330,3 @@ Provare a usare i criteri e osservare gli effetti sull'app di esempio. Aggiunger
 Come riferimento, l'esempio completo [è disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). È anche possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
-
-
-
-<!--HONumber=Dec16_HO4-->
-
-

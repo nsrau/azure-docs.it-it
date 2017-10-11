@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 51fac8adc2fe11aac005b4c0c0e9b67bbca8fa6e
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: b0df23e040a73d18968f547eef7347f14cc577c6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Problemi di accesso a un'applicazione personalizzata
 
 Ci sono diversi errori che potrebbero impedire l'accesso a un'app. Il motivo più frequente che causa questo problema è l'errata configurazione delle app.
@@ -42,4 +40,3 @@ Ci sono diversi errori che potrebbero impedire l'accesso a un'app. Il motivo pi�
 [Consenso e concessione delle autorizzazioni per le app con convergenza di Azure Active Directory v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [Azure AD in Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)
-

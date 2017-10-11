@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: b1a468caa22159ad603dbec1ef530e7e0e24f96d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Esercitazione: Integrazione di Azure Active Directory con Reward Gateway
 
@@ -111,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_url.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente:
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il criterio seguente:
     | |
     |--|
     | `https://<companyname>.rewardgateway.com` |
@@ -235,5 +234,4 @@ Quando si fa clic sul riquadro Reward Gateway nel pannello di accesso, si dovreb
 [201]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_203.png
-
 

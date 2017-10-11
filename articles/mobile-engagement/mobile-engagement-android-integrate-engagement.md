@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-integrate-engagement-on-android"></a>Come integrare Engagement in Android
 > [!div class="op_single_selector"]
@@ -385,4 +384,3 @@ Sarà quindi possibile aggiungere un elemento `CheckBoxPreference` nel layout de
 
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
-

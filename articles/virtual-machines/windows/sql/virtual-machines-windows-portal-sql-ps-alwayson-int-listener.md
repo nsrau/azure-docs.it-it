@@ -14,13 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 800a37dba526a43e490c7bdff55e3b48e5234a20
-ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 74fa1e4c9cfa608a9a385f3dd82a0599fbcc421c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurare uno o più listener di gruppi di disponibilità AlwaysOn - Resource Manager
 Questo argomento illustra come:
@@ -209,4 +207,3 @@ Usare i seguenti cmdlet PowerShell per creare un servizio di bilanciamento del c
 * [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) crea una configurazione di pool di indirizzi per un bilanciamento del carico. 
 * [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) crea una configurazione di probe per un bilanciamento del carico.
 * [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) rimuove un bilanciamento del carico da un gruppo di risorse di Azure.
-

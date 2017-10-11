@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;milangada;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: ee40b92c48d91a391fe72582c7ea5e244907747f
-ms.contentlocale: it-it
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 72a8729d22a9e76c8076d7a3347619a2163e4f09
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Come scalare la codifica con .NET SDK
 > [!div class="op_single_selector"]
@@ -70,5 +69,4 @@ Per aprire un ticket di supporto, seguire questa procedura:
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

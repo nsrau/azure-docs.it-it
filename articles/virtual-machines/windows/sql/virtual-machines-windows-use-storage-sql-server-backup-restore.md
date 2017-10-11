@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usare Archiviazione di Azure per il backup e il ripristino di SQL Server
 ## <a name="overview"></a>Panoramica
@@ -71,11 +70,10 @@ Quando si eseguono backup nel servizio di archiviazione BLOB di Azure, vengono u
 2. Eseguire quindi una delle esercitazioni seguenti, in cui vengono fornite informazioni dettagliate sulla creazione di un account di archiviazione e sull'esecuzione di un ripristino.
    
    * **SQL Server 2014** - [Esercitazione: Backup e ripristino di SQL Server 2014 nel servizio di archiviazione BLOB di Microsoft Azure](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
-   * **SQL Server 2016**: [Esercitazione: Uso del servizio archiviazione BLOB di Microsoft Azure con database di SQL Server 2016](https://msdn.microsoft.com/library/dn466438.aspx)
+   * **SQL Server 2016**- [Tutorial- Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx)
 3. Esaminare la documentazione aggiuntiva, a partire da [Backup e ripristino di SQL Server con il servizio di archiviazione BLOB di Microsoft Azure](https://msdn.microsoft.com/library/jj919148.aspx).
 
 Se si verificano problemi, consultare l'argomento [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL](https://msdn.microsoft.com/library/jj919149.aspx).
 
 Per una descrizione delle altre opzioni di backup e ripristino, vedere [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md).
-
 

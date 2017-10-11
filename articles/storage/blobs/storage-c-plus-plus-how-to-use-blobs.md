@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: daf480b7be78dc001712010eac6386d4744c3c1d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Come usare l'archiviazione BLOB da C++
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -273,5 +272,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 * [Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](../storage-use-azcopy.md)
-
 

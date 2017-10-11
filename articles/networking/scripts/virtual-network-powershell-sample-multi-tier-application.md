@@ -15,15 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: ab49e78ef17b093d2bbe4e3276a1ece3a4247f91
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-network-for-multi-tier-applications"></a>Creare una rete per applicazioni multilivello
 
 Questo script di esempio crea una rete virtuale con subnet front-end e back-end. Il traffico verso la subnet front-end è limitato a HTTP e SSH, mentre il traffico verso la subnet back-end è limitato a MySQL sulla porta 3306. Dopo aver eseguito lo script saranno presenti due macchine virtuali, una in ogni subnet in cui è possibile distribuire server Web e software MySQL.

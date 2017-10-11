@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: anandy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 589c37d4bb59ceeb37742163fad21d465b3d3827
-ms.contentlocale: it-it
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e federazione
 Azure Active Directory (Azure AD) consente di configurare la federazione con Active Directory Federation Services (ADFS) locale e Azure AD. Grazie all'accesso federato, gli utenti possono accedere ai servizi basati su Azure AD con le proprie password locali e, se usano la rete aziendale, senza dover immettere di nuovo le password. Usando l'opzione di federazione con ADFS, è possibile distribuire una nuova installazione di ADFS oppure specificare un'installazione esistente in una farm di Windows Server 2012 R2.
@@ -52,4 +51,3 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 * [Eseguire la federazione di due istanze di Azure AD con una singola istanza di AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 * [Distribuzione di AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 * [Distribuzione di ADFS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-

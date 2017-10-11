@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Origini dei dati del registro eventi di Windows in Log Analytics
 I registri eventi di Windows rappresentano una delle più comuni [origini dati](log-analytics-data-sources.md) per raccogliere i dati tramite gli agenti di Windows, dal momento che molte applicazioni scrivono nel registro eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
@@ -89,4 +88,3 @@ La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i re
 * Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
 * Usare i [Campi personalizzati](log-analytics-custom-fields.md) per analizzare i record degli eventi nei singoli campi.
 * Configurare la [raccolta dei contatori delle prestazioni](log-analytics-data-sources-performance-counters.md) dagli agenti di Windows.
-

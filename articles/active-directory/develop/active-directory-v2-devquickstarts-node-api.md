@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: d42b96b0fb02b6c2df364d5e19f3345991ee03b1
-ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: 94e945a52b9df7c495de1611baa08083357670c9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>Proteggere un'API Web usando node.js
 > [!NOTE]
@@ -846,5 +844,4 @@ Altre risorse:
 
 ### <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile eseguire l'iscrizione per ricevere una notifica quando si verificano problemi di protezione. Nella pagina [Notifiche sulla sicurezza Microsoft](https://technet.microsoft.com/security/dd252948) effettuare la sottoscrizione agli advisory sulla sicurezza.
-
 

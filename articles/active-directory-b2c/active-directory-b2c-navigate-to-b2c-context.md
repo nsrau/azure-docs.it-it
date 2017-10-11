@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 40d8d57d974a949fbdc0a06eeceb2d06bfbaa09f
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Passaggio al tenant di Azure AD B2C
 
 Per configurare Azure AD B2C, è necessario trovarsi nel contesto del tenant di Azure AD B2C.
@@ -46,4 +44,3 @@ Il portale di Azure verrà aggiornato.  Si è ora connessi al portale di Azure n
 
 > [!IMPORTANT]
 > È necessario avere diritti di amministratore globale del tenant B2C per poter accedere al pannello delle funzionalità B2C. Un amministratore globale o un utente di qualsiasi altro tenant non può accedere.  È possibile passare al tenant B2C usando l'apposito controllo nell'angolo superiore destro del portale di Azure.
-

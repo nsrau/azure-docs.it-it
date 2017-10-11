@@ -15,15 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9bd9ff35cebc2aeaf0558dcf1a37887050682f0a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 1af7e1d40a0eb129875dd6a30ac899f2025bee13
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
-
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
 
 ## <a name="assumptions"></a>Presupposti
@@ -238,4 +235,3 @@ Dopo avere installato e configurato l'ambiente Azure, il passaggio successivo co
 
 - [Esercitazione: Creare VM a disponibilità elevata](../../linux/create-cli-complete.md)
 - [Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](../../linux/cli-samples.md)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: steveesp
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Ottimizzare la velocità effettiva di rete per le macchine virtuali di Azure
 
 Le macchine virtuali di Azure hanno impostazioni di rete predefinite che possono essere ottimizzate ulteriormente per una migliore velocità effettiva di rete. Questo articolo illustra come ottimizzare la velocità effettiva di rete per macchine virtuali Windows e Linux di Microsoft Azure, incluse le distribuzioni principali, ad esempio Ubuntu, CentOS e Red Hat.
@@ -139,4 +137,3 @@ Per altre informazioni su Linux Integration Services versione 4.2 per Hyper-V, v
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo avere ottimizzato la VM, verificare il risultato con [Test della larghezza di banda/velocità effettiva della VM di Azure](virtual-network-bandwidth-testing.md) per lo scenario.
 * Altre informazioni sono disponibili nell'articolo [Domande frequenti sulla rete virtuale di Azure](virtual-networks-faq.md).
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
-ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-powershell"></a>Introduzione a DNS Azure con PowerShell
 
 > [!div class="op_single_selector"]
@@ -108,5 +106,4 @@ Per altre informazioni sul servizio DNS Azure, vedere [Panoramica di DNS Azure](
 Per altre informazioni sulla gestione delle zone DNS in DNS Azure, vedere [Gestire le zone DNS in DNS Azure usando PowerShell](dns-operations-dnszones.md).
 
 Per altre informazioni sulla gestione dei record DNS in DNS Azure, vedere [Gestire i record e i set di record DNS in DNS Azure usando PowerShell](dns-operations-recordsets.md).
-
 

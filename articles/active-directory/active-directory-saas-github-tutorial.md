@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 8b0417d131bc25225e777285b9e4bfbaa97aad8f
-ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 9dc12bc2e313bcb2000724d035156c5054d14e1c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Esercitazione: Integrazione di Azure Active Directory con GitHub
 
@@ -302,4 +301,3 @@ Quando si fa clic sul riquadro GitHub nel pannello di accesso, si dovrebbe acced
 [201]: ./media/active-directory-saas-github-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-github-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-github-tutorial/tutorial_general_203.png
-

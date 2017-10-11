@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: a1c7afab747b917ae979a41e63739a4f726265fc
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 8996f5ce03e39557d9cc9c3de1ec214f5cd664b4
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Come monitorare Cache Redis di Azure
 La Cache Redis di Azure usa [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) per offrire alcune opzioni per il monitoraggio delle istanze della cache. È possibile visualizzare le metriche, aggiungere i grafici delle metriche alla Schermata iniziale, personalizzare l'intervallo di data e ora per il monitoraggio dei grafici, aggiungere e rimuovere metriche dai grafici e impostare avvisi per le situazioni in cui vengono soddisfatte determinate condizioni. Questi strumenti permettono di monitorare l'integrità delle istanze della Cache Redis di Azure e semplificano la gestione delle applicazioni di memorizzazione nella cache.
@@ -139,7 +138,6 @@ I log attività offrono informazioni dettagliate sulle operazioni eseguite nelle
 Per visualizzare i log attività per la cache, scegliere **Log attività** dal menu **Risorsa**.
 
 Per altre informazioni sui log attività, vedere [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
-
 
 
 

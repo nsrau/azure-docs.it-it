@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
 ms.author: mfussell
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 471ec6f45f4152fbac56242ef3ce906f8af00b54
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenari di applicazione di Service Fabric
 Azure Service Fabric offre una piattaforma flessibile e affidabile che consente di scrivere ed eseguire molti tipi di applicazioni e servizi aziendali. Le applicazioni e i microservizi possono essere con o senza stato e implementano il bilanciamento delle risorse tra le macchine virtuali per ottimizzare l'efficienza. La particolare architettura di Service Fabric consente di eseguire operazioni di analisi dei dati e di calcolo in memoria, transazioni parallele ed elaborazione degli eventi quasi in tempo reale nelle applicazioni. √à possibile aumentare o ridurre facilmente il numero di applicazioni a seconda dei requisiti di risorse.
@@ -68,4 +67,3 @@ I microservizi con stato semplificano la progettazione delle applicazioni perch√
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
-

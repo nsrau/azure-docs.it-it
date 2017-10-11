@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9ee460b29deba598e648e72958b08e77015a5505
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: e61001161e632a5d2e513107e30f1eaf06103989
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Monitorare un cluster del servizio contenitore di Azure con Sysdig
 In questo articolo verranno distribuiti agenti di Sysdig in tutti i nodi agente nel cluster del servizio contenitore di Azure. Per questa configurazione, è necessario un account con Sysdig. 
@@ -56,4 +55,3 @@ Impostare ora le istanze su 10000000 in modo che, quando viene aggiunto un nuovo
 Una volta installato il pacchetto, tornare all'interfaccia utente di Sysdig per esplorare le diverse metriche di utilizzo per i contenitori nel cluster. 
 
 È anche possibile installare i dashboard specifici di Mesos e Marathon tramite la [creazione guidata nuovo dashboard](https://app.sysdigcloud.com/#/dashboards/new).
-

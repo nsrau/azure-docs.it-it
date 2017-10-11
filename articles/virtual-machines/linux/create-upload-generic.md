@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informazioni per le distribuzioni non approvate
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -187,5 +186,4 @@ L' [agente Linux di Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual
   > 
 
 * Arrestare la macchina virtuale e caricare il VHD in Azure.
-
 

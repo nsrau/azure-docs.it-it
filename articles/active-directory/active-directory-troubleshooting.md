@@ -1,5 +1,5 @@
 ---
-title: 'Troubleshooting: ''Active Directory'' item is missing or not available | Microsoft Docs'
+title: "Risoluzione dei problemi: Elemento \"Active Directory\" è mancante o non disponibile | Documenti Microsoft"
 description: Operazioni da eseguire quando la voce di menu Active Directory non viene visualizzata nel portale di gestione di Azure.
 services: active-directory
 documentationcenter: na
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c52e9257272c5b0c55c488d2c7ca6fef500260b
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Risoluzione dei problemi: Voce "Active Directory" mancante o non disponibile
 Per la maggior parte delle istruzioni relative all'uso delle funzionalità di Azure Active Directory è necessario accedere al portale di gestione di Azure e fare clic su **Active Directory**. Come procedere però se la voce di menu Active Directory non viene visualizzata o è contrassegnata come **Non disponibile**? Questo argomento illustra come risolvere il problema. Descrive inoltre le condizioni per cui la voce di menu **Active Directory** non viene visualizzata o non è disponibile e illustra le procedure da eseguire.
@@ -52,5 +51,4 @@ Quando si fa clic su **+Nuovo** > **Servizi app**, viene visualizzata la voce **
 Tuttavia, durante il caricamento della pagina, la voce viene visualizzata in grigio ed è contrassegnata come **Non disponibile**. Questo stato è temporaneo. Dopo alcuni secondi, la voce diventerà disponibile. Se il ritardo è prolungato, spesso il problema si risolve aggiornando la pagina Web.
 
 ![Schermata: Active Directory non disponibile](./media/active-directory-troubleshooting/not-available.png)
-
 

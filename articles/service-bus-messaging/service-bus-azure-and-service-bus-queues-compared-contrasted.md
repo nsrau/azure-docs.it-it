@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 555759073507219188b59af76a82be74b112c57c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le differenze e le analogie presenti tra i due tipi di code offerte attualmente da Microsoft Azure: code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.
@@ -199,5 +198,4 @@ Gli articoli seguenti offrono ulteriori indicazioni e informazioni sull'uso dell
 * [Uso del servizio di accodamento in Azure](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.com
-
 

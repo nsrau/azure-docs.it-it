@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 8212ff011633c3a89d3310e828b6d5f1cda6ce3f
-ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-7-set-up-a-vault-for-hyper-v-replication"></a>Passaggio 7: Configurare un insieme di credenziali per la replica Hyper-V
 
 Questo articolo descrive come configurare un insieme di credenziali e specificare ciò di cui si vuole eseguire la replica dall'ambiente locale ad Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md) nel portale di Azure.
@@ -50,4 +48,3 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 8: Configurare l'origine e la destinazione](hyper-v-site-walkthrough-source-target.md)
-

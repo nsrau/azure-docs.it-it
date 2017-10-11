@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 29084a52aca22b31a2fa42660ec2cdf050aec7ca
-ms.contentlocale: it-it
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 3df38802fcdc86e4553253d38c49faff455f873e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replicate-hyper-v-vms-in-vmm-clouds-to-a-secondary-site-with-azure-site-recovery-by-using-san"></a>Eseguire la replica di VM Hyper-V nei cloud VMM in un sito secondario con Azure Site Recovery tramite SAN
 
@@ -350,4 +348,3 @@ Testare la distribuzione per assicurarsi che il failover delle macchine virtuali
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver eseguito un failover di test per verificare che l'ambiente funzioni nel modo previsto, vedere [Failover in Site Recovery](site-recovery-failover.md) per altre informazioni sui diversi tipi di failover.
-

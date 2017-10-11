@@ -16,14 +16,13 @@ ms.date: 07/21/2017
 ms.author: priyamo
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: dceaab3f89675ae8e046419aaa5173c2733b0660
-ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: d5ffba5d0c409fe9de7a9e82c6faa4ca2702ab95
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Uso del protocollo SAML in Azure Active Directory
+# Uso del protocollo SAML in Azure Active Directory
 Azure Active Directory (Azure AD) usa il protocollo SAML 2.0 per consentire alle applicazioni di offrire agli utenti un'esperienza di accesso Single Sign-On. I profili SAML [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) e [Single Sign-Out](active-directory-single-sign-out-protocol-reference.md) di Azure AD specificano come vengono usati i protocolli, le associazioni e le asserzioni SAML nel servizio del provider di identità.
 
 Il protocollo SAML richiede che il provider di identità (Azure AD) e il provider del servizio (l'applicazione) si scambino informazioni su se stessi.
@@ -39,4 +38,3 @@ Azure Active Directory espone endpoint di Single Sign-On e Single Sign-Out speci
 * L'endpoint indipendente dal tenant si trova all'indirizzo `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Questo indirizzo dell'endpoint contiene **common** anziché l'ID o il nome di un domino tenant.
 
 Per informazioni sui documenti di metadati della federazione pubblicati da Azure AD, vedere [Metadati della federazione](active-directory-federation-metadata.md).
-

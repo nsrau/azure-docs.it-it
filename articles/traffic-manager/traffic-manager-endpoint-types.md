@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 792712e3e529d77ff20a7603b5fbf028ca60f8c8
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
 Gestione traffico di Microsoft Azure consente di controllare la distribuzione del traffico di rete a distribuzioni di applicazioni in esecuzione in diversi data center. In Gestione traffico ogni distribuzione di applicazioni viene configurata come "endpoint". Quando Gestione traffico riceve una richiesta DNS, sceglie un endpoint disponibile da restituire nella risposta DNS. Gestione traffico basa la scelta sullo stato dell'endpoint corrente e sul metodo di routing del traffico. Per altre informazioni, vedere [Modalità di funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md).
 
@@ -96,4 +94,3 @@ Se tutti gli endpoint di un profilo sono disabilitati o se il profilo stesso è 
 * Informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md).
 * Informazioni sul [monitoraggio degli endpoint e sul failover automatico](traffic-manager-monitoring.md)di Gestione traffico.
 * Informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md)di Gestione traffico.
-

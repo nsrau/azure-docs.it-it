@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: f4a02bb7a7c46e7a0e3c75b870c522eae8294339
-ms.contentlocale: it-it
-ms.lasthandoff: 03/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Come usare Twilio per le funzionalità voce ed SMS in Python
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps) .
@@ -32,7 +31,7 @@ Twilio è una tecnologia all'avanguardia per le comunicazioni aziendali che cons
 **Twilio Client** consente di effettuare chiamate VoIP da qualsiasi telefono, tablet o browser e supporta WebRTC.
 
 ## <a id="Pricing"></a>Prezzi e offerte speciali di Twilio
-I clienti di Azure ricevono un'[offerta speciale][special_offer]: $&10; di credito Twilio quando si esegue l'aggiornamento dell'account Twilio. Il credito Twilio può essere applicato a qualsiasi utilizzo di Twilio ($ 10 di credito equivalgono all'invio di 1.000 SMS o a 1.000 minuti voce per le chiamate in entrata, a seconda della località del numero di telefono, del messaggio o della destinazione della chiamata). Riscattare il [credito Twilio][special_offer] e iniziare a usare il servizio.
+I clienti di Azure ricevono un'[offerta speciale][special_offer]: $ 10 di credito Twilio quando si esegue l'aggiornamento dell'account Twilio. Il credito Twilio può essere applicato a qualsiasi utilizzo di Twilio ($ 10 di credito equivalgono all'invio di 1.000 SMS o a 1.000 minuti voce per le chiamate in entrata, a seconda della località del numero di telefono, del messaggio o della destinazione della chiamata). Riscattare il [credito Twilio][special_offer] e iniziare a usare il servizio.
 
 Twilio è un servizio con pagamento in base al consumo. Non prevede spese iniziali ed è possibile chiudere l'account in qualsiasi momento. Per altre informazioni, vedere la pagina [Twilio Pricing][twilio_pricing] (Prezzi di Twilio).
 
@@ -256,4 +255,3 @@ A questo punto, dopo aver appreso le nozioni di base del servizio Twilio, usare 
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
-

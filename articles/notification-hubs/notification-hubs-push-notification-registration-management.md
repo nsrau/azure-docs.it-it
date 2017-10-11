@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4d1f02951bf93d59f16173bd021ab9340a425071
-
-
+ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="registration-management"></a>Gestione delle registrazioni
 ## <a name="overview"></a>Panoramica
@@ -317,10 +317,4 @@ Dal back-end dell'app è possibile eseguire operazioni CRUD di base sulle regist
 
 
 Il back-end deve gestire la concorrenza tra gli aggiornamenti delle registrazioni. Il bus di servizio offre il controllo della concorrenza ottimistica per la gestione delle registrazioni. A livello HTTP, questo viene implementato attraverso l'uso di ETag sulle operazioni di gestione delle registrazioni. Questa funzionalità viene usata in modo trasparente dagli SDK Microsoft, che generano un'eccezione se un aggiornamento viene rifiutato a causa della concorrenza. Il backend dell'app è responsabile della gestione di queste eccezioni e dei nuovi tentativi di aggiornamento, se necessario.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

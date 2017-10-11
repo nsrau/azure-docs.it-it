@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: eamono
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4649e42a628307e15f8b067503e4e8e13f16f1af
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Gestione di Archiviazione di Azure mediante Automazione di Azure
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione di BLOB, tabelle e code di Archiviazione di Azure.
@@ -44,5 +43,4 @@ La [raccolta di Runbook di Automazione di Azure](https://azure.microsoft.com/blo
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e come può essere usato per gestire BLOB, tabelle e code di Azure, seguire i collegamenti seguenti per altre informazioni su Automazione di Azure.
 
 Vedere l'esercitazione di Automazione di Azure [Creazione e importazione di un runbook in Automazione di Azure](../../automation/automation-creating-importing-runbook.md).
-
 

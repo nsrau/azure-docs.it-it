@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 438f32ee3605e2dd0c46de7993a359cc269262fe
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="replicate-between-on-premises-hyper-v-virtual-machines-and-azure-without-vmm-with-azure-site-recovery"></a>Replica tra macchine virtuali Hyper-V locali e Azure (senza VMM) con Azure Site Recovery
 > [!div class="op_single_selector"]
@@ -277,4 +276,3 @@ Eseguire il failover di test come descritto di seguito:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
-

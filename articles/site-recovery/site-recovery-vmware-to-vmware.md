@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: c49f283971b33a4e88573e1d67ba159021fbccb8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.openlocfilehash: 01a6f35fe61290f8c7275c34273d66956a53d3f9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Eseguire la replica di macchine virtuali VMware locali o server fisici in un sito secondario nel portale di Azure classico
 
@@ -231,4 +230,3 @@ Update 1 include le correzioni di bug e le nuove funzionalità seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Pubblicare eventuali domande nel [forum Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-

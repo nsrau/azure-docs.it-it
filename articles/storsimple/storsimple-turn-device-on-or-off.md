@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 0577c837e0c47ba37a4f586603b0f5b951f1b549
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Attivare o disattivare il dispositivo StorSimple serie 8000
 ## <a name="overview"></a>Panoramica
@@ -173,5 +172,4 @@ Dopo aver effettuato l'accesso a Windows PowerShell per StorSimple o al portale 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) se si riscontrano problemi durante l'attivazione o l'arresto di un dispositivo StorSimple.
-
 

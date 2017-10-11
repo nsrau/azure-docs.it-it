@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 78613cc978b585a98d235245194c02371f7f3849
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Delegare gli inviti per Collaborazione B2B di Azure Active Directory
 
 Con Collaborazione B2B (Business-to-Business) di Azure Active Directory (Azure AD) non è necessario essere un amministratore globale per inviare inviti. È possibile invece usare i criteri e delegare gli inviti agli utenti nei ruoli a cui è consentito inviare l'invito. Un nuovo modo importante per delegare gli inviti di utenti guest consiste nell'usare il ruolo Mittente dell'invito guest.
@@ -63,4 +61,3 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
-

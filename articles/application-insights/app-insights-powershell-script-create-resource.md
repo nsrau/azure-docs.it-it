@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 4a7a4b719176a1d10bee2fc4f6b65204cc77bee8
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: a828af9c7d207dd84cc626fc70206018fd67e2dd
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Script di PowerShell per creare una risorsa di Application Insights
 
@@ -114,5 +113,4 @@ Per identificare le singole risorse, viene usata una chiave di strumentazione (i
 * [Creare risorse Application Insights e test web da modelli](app-insights-powershell.md)
 * [Impostare il monitoraggio di diagnostica Azure con PowerShell](app-insights-powershell-azure-diagnostics.md) 
 * [Impostare avvisi tramite PowerShell](app-insights-powershell-alerts.md)
-
 

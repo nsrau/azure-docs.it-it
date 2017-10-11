@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b98dcbcf219276bb9a7fd24e7f8c8c8eba806cf0
-
-
+ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campi personalizzati in Log Analytics
 La funzionalità **Campi personalizzati** di Log Analytics consente di estendere i record esistenti nell'archivio di OMS con l'aggiunta di campi ricercabili personalizzati.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
@@ -141,10 +141,4 @@ Ora il campo personalizzato può essere usato come le altre proprietà del recor
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come creare query usando i campi personalizzati come criteri, vedere l'articolo relativo alle [ricerche nei log](log-analytics-log-searches.md) .
 * Monitorare i [file di log personalizzati](log-analytics-data-sources-custom-logs.md) analizzati usando campi personalizzati.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

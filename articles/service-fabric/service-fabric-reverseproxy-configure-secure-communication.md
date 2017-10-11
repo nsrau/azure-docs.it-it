@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 89102e8b7bc01768742ed3e5e2bd8a9fd6c62ee8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: 568f9638c59282bcd7d3fae058a1588a889c22dc
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Connettersi a un servizio protetto con il proxy inverso
 
@@ -197,4 +196,3 @@ Se il client non presenta un certificato, il proxy inverso inoltra un'intestazio
 * [Chiamate di procedura remota con i Reliable Services remoti](service-fabric-reliable-services-communication-remoting.md)
 * [Web API che usa OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Gestire i certificati cluster](service-fabric-cluster-security-update-certs-azure.md)
-

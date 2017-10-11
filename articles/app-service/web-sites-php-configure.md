@@ -1,6 +1,6 @@
 ---
 title: Configurare PHP nelle app Web del Servizio app di Azure | Microsoft Doc
-description: Informazioni su come configurare l&quot;installazione predefinita di PHP o aggiungere un&quot;installazione personalizzata di PHP in Servizio app di Azure.&quot;
+description: Informazioni su come configurare l'installazione predefinita di PHP o aggiungere un'installazione personalizzata di PHP in Servizio app di Azure."
 services: app-service
 documentationcenter: php
 author: rmcmurray
@@ -14,12 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 52db4d82faa0db07224f48b6600e690e34808e91
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 624dd416f37aacdb3d2f6e59afdc2efe646e610b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurazione di PHP nelle app Web di Servizio app di Azure
 ## <a name="introduction"></a>Introduzione
@@ -204,5 +203,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
-
 

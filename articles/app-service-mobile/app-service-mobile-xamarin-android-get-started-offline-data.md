@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 29cd1d3583dfcba5c1057ae1e81376930f52f887
-ms.openlocfilehash: 1152fcf551aa02264d626f87e97bc3f69b4f6778
-ms.contentlocale: it-it
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 471433c7ef2f6f128210ed145f685b42b44eea92
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -128,4 +127,3 @@ Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Crear
 [Xamarin extension]: http://xamarin.com/visual-studio
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-

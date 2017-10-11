@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ab1dc21a829140f8cd2e57837d83a05b0d71bcdf
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="step-3-plan-capacity-and-scaling-for-hyper-v-with-vmm-to-azure-replication"></a>Passaggio 3: Pianificare la capacità e la scalabilità per la replica di Hyper-V in Azure (con VMM)
 
 Dopo avere verificato i [prerequisiti per la distribuzione](vmm-to-azure-walkthrough-prerequisites.md), usare le istruzioni disponibili in questo articolo per configurare la pianificazione per la capacità e la scalabilità durante la replica di VM Hyper-V locali in cloud System Center Virtual Machine Manager (VMM) in Azure con [Azure Site Recovery](site-recovery-overview.md).
@@ -85,4 +83,3 @@ Dopo aver calcolato la larghezza di banda necessaria, sono disponibili un paio d
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 4: Pianificare la rete](vmm-to-azure-walkthrough-network.md).
-

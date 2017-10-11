@@ -16,12 +16,11 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
-ms.openlocfilehash: 2dc166a346c58d43e9ed60332f47619c1de89816
-ms.contentlocale: it-it
-ms.lasthandoff: 02/11/2017
-
+ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Informazioni sul manifesto dell'applicazione in Azure Active Directory
 Le applicazioni che si integrano con Azure Active Directory (AD) devono essere registrate con un tenant di Azure AD, fornendo una configurazione dell'identità permanente per l'applicazione. Questa configurazione viene valutata in fase di esecuzione, rendendo possibili scenari che consentono a un'applicazione di eseguire l'outsourcing e negoziare le operazioni di autenticazione/autorizzazione tramite Azure AD. Per altre informazioni sul modello applicativo di Azure AD, vedere l'articolo relativo ad [aggiunta, aggiornamento e rimozione di un'applicazione][ADD-UPD-RMV-APP].
@@ -115,5 +114,4 @@ La sezione dei commenti di seguito consente di fornire commenti e suggerimenti u
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
-
 

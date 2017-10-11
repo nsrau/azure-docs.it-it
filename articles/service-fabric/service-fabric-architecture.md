@@ -1,6 +1,6 @@
 ---
 title: Architettura di Azure Service Fabric | Documentazione Microsoft
-description: "Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud. Questo articolo illustra l&quot;architettura di Service Fabric."
+description: "Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud. Questo articolo illustra l'architettura di Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rishirsinha
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rsinha
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: c485e8a3d12e7d2dcbfd6304a67aaa4fc2838b3f
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 3cf019bf9a08574c984e92985452df438f3eeb77
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-fabric-architecture"></a>Architettura di Service Fabric
 Service Fabric è costituito da sottosistemi a più livelli. Tali sottosistemi consentono di scrivere applicazioni con le caratteristiche seguenti:
@@ -63,5 +62,4 @@ Questo sottosistema offre messaggistica affidabile nel cluster e rilevamento dei
 
 ## <a name="testability-subsystem"></a>Sottosistema di testabilità
 Il sottosistema di testabilità è costituito da strumenti progettati specificamente per il test di servizi basati su Service Fabric. Gli strumenti consentono a uno sviluppatore di causare, in modo semplice, errori significativi ed eseguire scenari di test per verificare e convalidare i numerosi stati e le transizioni sperimentate da un servizio nel corso della durata, il tutto in modo controllato e sicuro. Questo sottosistema fornisce anche un meccanismo per eseguire test prolungati in grado di eseguire l'iterazione di diversi possibili errori senza perdere la disponibilità fornendo un ambiente di testing in produzione.
-
 

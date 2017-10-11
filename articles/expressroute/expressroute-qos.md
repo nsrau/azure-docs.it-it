@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
 ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="expressroute-qos-requirements"></a>Requisiti ExpressRoute QoS
 Skype per aziende dispone di diversi carichi di lavoro che richiedono la gestione QoS differenziata. Se si prevede di utilizzare i servizi vocali tramite ExpressRoute, è necessario rispettare i requisiti descritti di seguito.
@@ -52,5 +51,4 @@ La tabella seguente fornisce un elenco di contrassegni DSCP utilizzati da Skype 
   * [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configurare il routing](expressroute-howto-routing-classic.md)
   * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
 

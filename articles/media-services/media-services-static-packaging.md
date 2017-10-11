@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f05f188633e2d5103e29ae4501f7ea9a832acba
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: cd36e46821eb85db523a5c84ec44895f68cc60e1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilizzare Azure Media Packager per eseguire attività di creazione statica dei pacchetti
 > [!NOTE]
@@ -27,7 +26,7 @@ ms.lasthandoff: 11/17/2016
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta sui dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali. Una volta codificato, un video può essere inserito in contenitori di file diversi. Il processo di collocare supporti di memorizzazione codificati in un contenitore è denominato creazione di pacchetti. Ad esempio, è possibile prendere un file MP4 e convertirlo in un contenuto Smooth Streaming o HLS usando Azure Media Packager. 
 
 Servizi Multimediali supporta pacchetti statici e dinamici. Quando si utilizza il pacchetto di creazione statico è necessario creare una copia dei contenuti in ognuno dei formati richiesti dagli utenti. Con il pacchetto di creazione dinamico, è sufficiente creare un asset che contenga un set di file a velocità in bit adattiva MP4 o Smooth Streaming. In base al formato specificato nella richiesta del manifesto o del frammento, il server di streaming on demand garantirà agli utenti che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
@@ -701,8 +700,8 @@ Se si desidera crittografare il contenuto HLS con AES-128, è possibile sceglier
 
 > [!NOTE]
 > Per convertire il contenuto in formato HLS, è necessario prima convertire/codificare il contenuto in formato Smooth Streaming.
-> Inoltre, per crittografare HLS con AES assicurarsi di impostare le proprietà seguenti nel file MediaPackager_SmoothToHLS.xml: impostare la proprietà encrypt su true, impostare il valore della chiave e il valore keyuri in modo che punti al server di autenticazione\autorizzazione..
-> Servizi multimediali creerà un file di chiave e lo posizionerà nel contenitore di asset. Si deve copiare il file /asset-containerguid/*.key file to your server (or create your own key file) and then delete the *.key dal contenitore di asset.
+> Inoltre, per crittografare HLS con AES assicurarsi di impostare le proprietà seguenti nel file MediaPackager_SmoothToHLS.xml: impostare la proprietà encrypt su true, impostare il valore della chiave e il valore keyuri in modo che punti al server di autenticazione\autorizzazione.
+> Servizi multimediali creerà un file di chiave e lo posizionerà nel contenitore di asset. Si deve copiare il file /asset-containerguid/*.key al server (o creare un file chiave) e quindi eliminare il file *.key dal contenitore di asset.
 > 
 > 
 
@@ -1459,5 +1458,4 @@ Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in 
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

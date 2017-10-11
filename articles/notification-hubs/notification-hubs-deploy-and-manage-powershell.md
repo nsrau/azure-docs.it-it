@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
 ms.openlocfilehash: 4db058e4bd91dc287b14e887abc6c378c65c4a2b
-ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuire e gestire hub di notifica tramite PowerShell
 ## <a name="overview"></a>Panoramica
@@ -163,5 +162,4 @@ Sono disponibili per il download anche alcuni script predefiniti:
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-
 

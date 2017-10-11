@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 086091bb3be6659436ec8e371acbe4b8e86bfacb
-ms.openlocfilehash: 3ef5f6240d7e4704118b86fb0cfee8cf502859ff
-ms.contentlocale: it-it
-ms.lasthandoff: 12/13/2016
-
+ms.openlocfilehash: 5baba3deaf58a1a24995c60381592a9c2ffefd81
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Esplorare i log di traccia Java in Application Insights
 Se si usa Logback o Log4J (v1.2 o v2.0) per la traccia, è possibile inviare automaticamente i log di traccia ad Application Insights dove è possibile esplorarli e eseguirvi ricerche.
@@ -168,6 +167,5 @@ Ora che è stato configurato il progetto per inviare tracce in Application Insig
 
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
-
 
 

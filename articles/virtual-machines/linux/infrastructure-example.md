@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: b18be0d81d6fad7328edb47c9b69af4eecd3b971
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Linux
 
@@ -118,4 +117,3 @@ Questa configurazione include:
 * Un set esterno con bilanciamento del carico per il traffico Web basato su HTTPS da Internet ai server Web
 * Un set interno con bilanciamento del carico per il traffico Web crittografato dai server Web ai server applicazioni
 * Un unico gruppo di risorse
-

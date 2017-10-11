@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 91b02d1099dc1683abb1042b3dc65cbee5aeae5b
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Esempi di interfaccia della riga di comando di Azure per un database SQL di Azure
 
 La tabella seguente include collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per il database SQL di Azure.
@@ -37,4 +35,3 @@ La tabella seguente include collegamenti a esempi di script dell'interfaccia del
 | [Ridimensionare un database singolo](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando ridimensiona un database SQL di Azure singolo per impostare un livello di prestazioni diverso dopo aver recuperato informazioni sulle dimensioni per il database. |
 | [Ridimensionare un pool elastico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando ridimensiona un pool elastico SQL impostando un livello di prestazioni diverso.  |
 |||
-

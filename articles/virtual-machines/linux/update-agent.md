@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mingzhan
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: c79e37976a58ae5384b5856e0f7f258a773ef0fd
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Come aggiornare l'agente Linux di Azure in una macchina virtuale
 

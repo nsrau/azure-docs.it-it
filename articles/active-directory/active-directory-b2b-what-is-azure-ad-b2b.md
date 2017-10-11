@@ -17,14 +17,12 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: fbc12a52555b190d43b5e953fd4d19923a25b0ed
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="what-is-azure-ad-b2b-collaboration"></a>Informazioni su Collaborazione B2B di Azure AD
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
@@ -124,4 +122,3 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Controllo e creazione di report per un utente di Collaborazione B2B](active-directory-b2b-auditing-and-reporting.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-

@@ -1,6 +1,6 @@
 ---
-title: Come abilitare l&quot;accesso Single Sign-On tra app in iOS usando ADAL | Microsoft Docs
-description: "Come utilizzare le funzionalità dell&quot;SDK ADAL per abilitare il Single Sign-On tra le applicazioni. "
+title: Come abilitare l'accesso Single Sign-On tra app in iOS usando ADAL | Microsoft Docs
+description: "Come utilizzare le funzionalità dell'SDK ADAL per abilitare il Single Sign-On tra le applicazioni. "
 services: active-directory
 documentationcenter: 
 author: brandwe
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5f10f6dc878d92337a37bbc4b16edf3962d53cc6
-ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
-
-
+ms.openlocfilehash: 73b8ed7e6a153a0790f7eae9bd51bb2e554ae72e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Come abilitare l'accesso Single Sign-On tra app in iOS usando ADAL
 Ora i clienti si aspettano che l'accesso SSO (Single Sign-On) venga fornito in modo che gli utenti debbano inserire le loro credenziali una volta sola e che le credenziali funzionino automaticamente per le varie applicazioni. La difficoltà di immissione di nome utente e password su uno schermo di piccole dimensioni, spesso abbinata a un fattore aggiuntivo (2FA) come una telefonata o un codice inviato tramite SMS, rende l'utente insoddisfatto se questa procedura va ripetuta più volte per il prodotto.
@@ -298,11 +296,9 @@ ADAL usa –canOpenURL: per controllare se il broker è installato nel dispositi
 
 <key>LSApplicationQueriesSchemes</key>
 
-<array>
-     <string>msauth</string>
+<array><string>msauth</string>
 </array>
 
 ### <a name="youve-configured-sso"></a>L'SSO è stato configurato!
 Ora Microsoft Identity SDK condividerà automaticamente le credenziali tra le applicazioni e richiamerà il broker, se presente nel dispositivo.
-
 

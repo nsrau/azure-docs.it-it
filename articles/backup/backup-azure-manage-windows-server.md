@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitorare e gestire i server e gli insiemi di credenziali dei servizi di ripristino di Azure per i computer Windows
 > [!div class="op_single_selector"]
@@ -320,4 +319,3 @@ R3. Di seguito sono indicati i casi in cui la notifica non verrà inviata per ri
 * [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 * Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
 * Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-

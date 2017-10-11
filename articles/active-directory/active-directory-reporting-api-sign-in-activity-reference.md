@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Riferimento API del report sull'attività di accesso di Azure Active Directory
 Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory.  
@@ -190,5 +189,4 @@ Sono disponibili due opzioni per loginStatus: 0 - esito positivo, 1 - esito nega
 ## <a name="next-steps"></a>Passaggi successivi
 * Si desidera vedere esempi sulle attività di accesso filtrate? Consultare la pagina [Esempi dell'API del report sull'attività di accesso di Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Si desiderano altre informazioni sull'API di creazione report di Azure AD? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
 

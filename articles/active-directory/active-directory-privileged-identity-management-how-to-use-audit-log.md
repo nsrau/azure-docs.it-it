@@ -1,6 +1,6 @@
 ---
 title: Come usare il log di controllo in Azure AD Privileged Identity Management | Documentazione Microsoft
-description: Informazioni su come usare il log di controllo nell&quot;estensione Azure Privileged Identity Management.
+description: Informazioni su come usare il log di controllo nell'estensione Azure Privileged Identity Management.
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: a36231d9326158068e9460ed4594a79c744d3087
-ms.contentlocale: it-it
-ms.lasthandoff: 01/27/2017
-
-
+ms.openlocfilehash: 7d9a5255a64d46c1388d328a606b3f297d61262b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-the-audit-log-in-pim"></a>Uso del log di controllo in PIM
 È possibile usare il log di controllo di Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni utente e le attivazioni per un periodo di tempo specificato. Se si desidera visualizzare la cronologia di controllo completa dell'attività nel tenant, inclusi amministratore, utente finale e attività di sincronizzazione, è possibile usare i [report di accesso e utilizzo di Azure Active Directory.](active-directory-view-access-usage-reports.md)
@@ -61,5 +59,4 @@ Selezionare o deselezionare la casella di controllo **Ruolo** accanto a ogni ruo
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

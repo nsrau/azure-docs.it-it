@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Wdesk | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Wdesk.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Wdesk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 37660b80cfb01d6a3105aea5ce248f1e03c46695
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Esercitazione: Integrazione di Azure Active Directory con Wdesk
 
@@ -294,5 +292,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-wdesk-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-wdesk-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-wdesk-tutorial/tutorial_general_203.png
-
 

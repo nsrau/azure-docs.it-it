@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/23/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 9099e90c402185b371495379db943d64fb82cdb8
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-table-storage-overview"></a>Panoramica di Archiviazione tabelle di Azure
 
@@ -42,4 +41,3 @@ L'archiviazione tabelle di Azure è un servizio che archivia dati NoSQL struttur
     * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
     * [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
-

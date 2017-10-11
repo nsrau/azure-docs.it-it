@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125d4d4bc916883e3bb53b9b3b4bf46bbb4bf139
 ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.contentlocale: it-it
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
 In questo articolo viene illustrata la creazione e la registrazione dell'account necessario per diventare un Microsoft Developer approvato per Azure Marketplace.
@@ -54,7 +53,7 @@ Per maggiori informazioni sulla sicurezza e le linee guida dell'account per svil
 
 ### <a name="instructions"></a>Istruzioni
 1. Aprire una nuova sessione in incognito in Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account esistente.
-2. Registrare l'email (secondo le linee guida indicate sopra per es. windowsapp@fabrikam.com) come account Microsoft usando il collegamento [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Seguire le istruzioni riportate di seguito.
+2. Registrare l'indirizzo di posta elettronica (seguendo le linee guida indicate in precedenza, ad esempio windowsapp@fabrikam.com) come account Microsoft usando il collegamento [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Seguire le istruzioni riportate di seguito.
 
    1. Durante la registrazione dell'account come account Microsoft, è necessario fornire un numero di telefono valido che il sistema userà per inviare un codice di verifica account mediante un SMS o una chiamata automatica.
    2. Durante la registrazione dell'account come account Microsoft è necessario fornire un ID di posta elettronica valido per poter ricevere un messaggio e-mail automatico per la verifica dell'account.
@@ -76,7 +75,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
 | Conto bancario |Facoltativo |Facoltativo |Facoltativo |Necessario |
 
 > [!NOTE]
-> Bring Your Own License (BYOL) è supportato solo per le macchine virtuali e viene considerato un’offerta **gratuita** .
+> Bring Your Own License (BYOL) è supportato solo per le macchine virtuali e viene considerato un’offerta **gratuita**.
 >
 >
 
@@ -184,7 +183,7 @@ In caso di problemi con la registrazione in Developer Center, inoltrare un ticke
 
     ![disegno](media/marketplace-publishing-accounts-creation-registration/imgAddTax_03.png)
 4. Viene visualizzata una pagina di accesso. Usare qualsiasi account Microsoft per effettuare l'accesso. Se non si dispone di un account Microsoft, crearne una seguendo questo [collegamento](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
-5. Inserire i dettagli del problema e inviare il ticket facendo clic sul pulsante **Invia** .
+5. Inserire i dettagli del problema e inviare il ticket facendo clic sul pulsante **Invia**.
 
     ![disegno](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
 
@@ -259,4 +258,3 @@ Dopo avere creato e registrato l'account, assicurarsi di completare o rispettare
 [link-devsvc]:marketplace-publishing-dev-service-creation.md
 [link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
-

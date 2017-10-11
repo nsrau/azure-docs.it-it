@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 187642db18806f4034dcecf4c25b5c71028fdfe3
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>Informazioni sulle immagini per le macchine virtuali Linux
 > [!IMPORTANT]
@@ -35,4 +34,3 @@ Per esempi d'uso degli strumenti, vedere [Comandi comuni dell'interfaccia della 
 
 ## <a name="next-steps"></a>Passaggi successivi
 È anche possibile [caricare la propria immagine](create-upload-vhd.md).
-

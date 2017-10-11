@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c72f839d0a1288dccb7deb3e44fc2b20d64818f0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-8-set-up-the-source-and-target-for-hyper-v-with-vmm-replication-to-azure"></a>Passaggio 8: Configurare l'origine e la destinazione per la replica Hyper-V (con VMM) in Azure
 
 Dopo aver [creato un insieme di credenziali delle chiavi](vmm-to-azure-walkthrough-create-vault.md) e aver specificato cosa si vuole replicare, usare le informazioni in questo articolo per configurare le impostazioni di origine e destinazione per la replica in Azure di macchine virtuali Hyper-V locali presenti in cloud di System Center Virtual Machine Manager (VMM) usando il servizio [Azure Site Recovery](site-recovery-overview.md) nel portale di Azure.
@@ -133,4 +131,3 @@ Specificare l'account di archiviazione di Azure da usare per la replica e la ret
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare al [Passaggio 9: Configurare il mapping di rete](vmm-to-azure-walkthrough-network-mapping.md)
-

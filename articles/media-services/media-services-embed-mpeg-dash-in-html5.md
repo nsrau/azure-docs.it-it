@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35ba9161f70a27a215685830d1a9e7c1881cc3bb
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 MPEG-DASH è uno standard ISO per lo streaming adattivo di contenuti video che offre vantaggi significativi agli utenti che desiderano distribuire output di streaming video adattivo di alta qualità. Con MPEG-DASH il flusso video viene automaticamente impostato a una definizione inferiore quando si verificano situazioni di congestione sulla rete. Questo riduce il rischio che il video si interrompa mentre il lettore scarica i secondi successivi da riprodurre (noto anche come buffering). Man mano che la congestione sulla rete si riduce, il lettore video torna a un flusso di qualità elevata. La possibilità di adattare la larghezza di banda richiesta riduce anche i tempi di avvio del video. I primi secondi, ad esempio, possono essere riprodotti con una qualità inferiore, rapida da scaricare, per poi passare a una qualità superiore nel momento in cui nel buffer è stato memorizzato contenuto sufficiente.
 
 Dash.js è un lettore video MPEG-DASH open source scritto in JavaScript. È stato sviluppato per offrire un affidabile lettore multipiattaforma che possa essere liberamente riusato in applicazioni che richiedono la riproduzione video. Offre funzionalità di riproduzione MPEG-DASH in qualsiasi browser che supportalo standard W3C Media Source Extensions (MSE), ovvero Chrome,  Microsoft Edge e IE11 (altri browser hanno manifestato l'intenzione di supportare MSE). Per altre informazioni su DASH.js, vedere la pagina relativa al repository dash.js di GitHub.
@@ -106,5 +105,4 @@ Per riprodurre un video, passare nel browser al file basicPlayback.html e fare c
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js) 
-
 

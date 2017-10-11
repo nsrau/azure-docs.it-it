@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: ecf4e31ecea00d003fc47ea4cebb781ca58957f7
-ms.contentlocale: it-it
-ms.lasthandoff: 03/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Esercitazione: Integrazione di Azure Active Directory con SilkRoad Life Suite
 Questa esercitazione descrive l'integrazione di SilkRoad Life Suite con Azure Active Directory (Azure AD). 
@@ -305,7 +304,6 @@ Quando si fa clic sul riquadro SilkRoad Life Suite nel pannello di accesso, si d
 [203]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
-
 
 
 

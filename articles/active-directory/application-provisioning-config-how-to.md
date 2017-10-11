@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d24031955f57794d6796ea37d8d1b0984f066286
-ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
-
+ms.openlocfilehash: 2e38fcb30ea7632339a3ba8815a536872cfcc69e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Come configurare il provisioning degli utenti in un'applicazione della raccolta di Azure AD
 
 Il *provisioning degli account utente* è l'atto di creazione, aggiornamento e/o la disabilitazione di record di account utente nell'archivio di profili utente locale di un'applicazione. La maggior parte delle applicazioni cloud e SaaS archiviano i ruoli e le autorizzazioni utente in un proprio archivio di profili utente locale e la presenza di tali record utente nell'archivio locale è *necessaria* per il funzionamento degli accessi e del Single Sign-on.
@@ -54,5 +52,4 @@ Un aspetto importante da considerare quando si configura il provisioning è quel
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
-
 

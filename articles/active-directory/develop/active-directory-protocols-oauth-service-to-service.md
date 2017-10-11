@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: cc30a54cd56c0cb03a67f86e4552398baa764e58
-ms.contentlocale: it-it
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # Chiamate da servizio a servizio mediante le credenziali client (certificato o segreto condiviso)
 Il flusso di concessione delle credenziali client OAuth 2.0 consente a un servizio Web, (*client riservato*) di usare le proprie credenziali, invece di rappresentare un utente, per l'autenticazione durante la chiamata a un altro servizio Web. In questo scenario il client è in genere un servizio Web di livello intermedio, un servizio daemon o un sito Web. Per un livello più elevato di sicurezza, Azure AD consente al servizio chiamante di usare anche un certificato (invece di un segreto condiviso) come credenziale.
@@ -122,4 +121,3 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 ## Vedere anche
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)
 * [Esempio in C# della chiamata da servizio a servizio con un segreto condiviso](https://github.com/Azure-Samples/active-directory-dotnet-daemon) ed [esempio in C# della chiamata da servizio a servizio con un certificato](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
-

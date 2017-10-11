@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/01/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
-ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-search-service-rest-api-version-2015-02-28-preview"></a>API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
 Questo articolo è la documentazione di riferimento per `api-version=2015-02-28-Preview`. Questa versione di anteprima estende l'attuale versione disponibile per il pubblico, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), con le seguenti funzionalità sperimentali:
@@ -1969,4 +1968,3 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "top": 5,
       "suggesterName": "sg"
     }
-

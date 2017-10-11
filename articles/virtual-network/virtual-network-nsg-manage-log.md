@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.contentlocale: it-it
-ms.lasthandoff: 08/07/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Analisi dei log per i gruppi di sicurezza di rete
 
@@ -124,4 +123,3 @@ Questo log contiene informazioni su ogni regola applicata alle risorse. I dati n
 ## <a name="view-and-analyze-logs"></a>Visualizzare e analizzare i log
 
 Leggere l'articolo [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati del log attività. Leggere l'articolo [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati dei log di diagnostica. Se si inviano dati di diagnostica a Log Analytics, è possibile usare la soluzione di gestione [Analisi di gruppo di sicurezza di rete di Azure](../log-analytics/log-analytics-azure-networking-analytics.md) (anteprima) per approfondimenti avanzati. 
-

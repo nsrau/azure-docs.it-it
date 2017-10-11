@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: 44ff168599e9078506e1afdd0f1dc4657ef0964d
-ms.contentlocale: it-it
-ms.lasthandoff: 06/24/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure Active Directory B2C: app a singola pagina tramite il flusso implicito OAuth 2.0
 
@@ -289,5 +287,4 @@ Per provare queste richieste, completare i tre passaggi seguenti. Sostituire i v
 
 * [Creare un'app a singola pagina con Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
 * [Creare un'app a singola pagina con .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
-
 

@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Come viene offerto l'accesso Single Sign-On dal proxy di applicazione di Azure AD?
 
 Single Sign-On è un elemento chiave del proxy di applicazione di Azure AD.  Offre un'esperienza d'uso ottimale, poiché gli utenti devono solo eseguire l'accesso ad Azure Active Directory nel cloud. Dopo che un utente ha eseguito l'autenticazione ad Azure Active Directory, il connettore del proxy di applicazione gestisce l'autenticazione all'applicazione locale. L'applicazione di back-end non è in grado di rilevare la differenza tra un utente remoto che accede tramite il proxy di applicazione e un utilizzo standard basato su un dispositivo aggiunto al dominio. 
@@ -81,4 +79,3 @@ Per informazioni sulla configurazione dell'autenticazione basata su intestazione
 - [Insieme di credenziali delle password per l'accesso Single Sign-On con il proxy di applicazione](application-proxy-sso-azure-portal.md)
 - [Delega vincolata Kerberos per l'accesso Single Sign-On con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)
 - [Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione](application-proxy-ping-access.md) 
-

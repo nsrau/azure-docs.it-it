@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d1660c9ea528741ea02e6bbae7b1f8fd7afea0eb
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.contentlocale: it-it
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Esercitazione: Integrazione di Azure Active Directory con Coupa
 Questa esercitazione descrive l'integrazione di Azure e Coupa.  
@@ -91,7 +90,7 @@ La configurazione dell'accesso Single Sign-On per Coupa richiede di recuperare u
    1. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Coupa, ad esempio: "*http://company.Coupa.com*".
    2. Aprire il file dei metadati Coupa scaricato e quindi copiare il valore di **Indice/URL AssertionConsumerService**.
    3. Nella casella di testo **URL di risposta Coupa** incollare il valore di **AssertionConsumerService index/URL** (Indice/URL AssertionConsumerService).
-   4. Fare clic su **Next**.
+   4. Fare clic su **Avanti**.
 8. Nella pagina **Configura accesso Single Sign-On in Coupa** fare clic su **Scarica metadati** per scaricare il file di metadati e salvarlo nel computer.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-coupa-tutorial/IC791905.png "Configurare l'accesso Single Sign-On")
@@ -143,7 +142,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 **Per assegnare gli utenti a Coupa, seguire questa procedura:**
 
 1. Nel portale di Azure classico creare un account di test.
-2. Nella pagina di integrazione dell'applicazione **Coupa** fare clic su **Assegna utenti**.
+2. Nel * * Coupa * * pagina di integrazione dell'applicazione, fare clic su **assegnare gli utenti**.
    
    ![Assegnare utenti](./media/active-directory-saas-coupa-tutorial/IC791911.png "Assegnare utenti")
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
@@ -151,5 +150,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    ![Sì](./media/active-directory-saas-coupa-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
 

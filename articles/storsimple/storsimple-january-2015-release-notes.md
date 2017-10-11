@@ -1,5 +1,5 @@
 ---
-title: Note sulla versione dell&quot;aggiornamento 0.2 di StorSimple 8000 | Microsoft Docs
+title: Note sulla versione dell'aggiornamento 0.2 di StorSimple 8000 | Microsoft Docs
 description: "Vengono descritte le nuove funzionalità e correzioni, i problemi e le soluzioni alternative disponibili per la versione di gennaio 2015 di Microsoft Azure StorSimple. (aggiornamento 0.2)."
 services: storsimple
 documentationcenter: NA
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/16/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e9b5773f0152a8ff377169041b28fa1782288217
-
-
+ms.openlocfilehash: 2fc50f7faddb4b61ea5e7d328469fc3cc0eb6f3e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-02-release-notes---january-2015"></a>Note sulla versione dell'aggiornamento 0.2 di StorSimple serie 8000 - Gennaio 2015
 ## <a name="overview"></a>Panoramica
@@ -71,10 +71,4 @@ Questa versione non contiene aggiornamenti per il controller SAS (Serial Attache
 
 ## <a name="virtual-device-updates-in-the-january-release"></a>Aggiornamenti del dispositivo virtuale nella versione di gennaio
 Questa versione contiene un'immagine aggiornata per il dispositivo virtuale. Di conseguenza, tutti i dispositivi virtuali creati dopo il 20 gennaio 2015 visualizzeranno la versione del software come 6.3.9600.17361.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

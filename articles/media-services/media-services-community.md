@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: ef77ed3a4efee7ebcdd716376be78db38ce46f8f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure
 La pagina della community di Servizi multimediali di Azure illustra i diversi modi in cui è possibile ottenere aggiornamenti su Servizi multimediali di Azure, visualizzare nuovi video e podcast, porre domande e inviare commenti e suggerimenti.   
@@ -60,5 +59,4 @@ La tabella seguente elenca l'indirizzo di posta elettronica dei team secondari p
 | Azure Media Player |ampinfo@microsoft.com |
 | Azure Media Explorer |amse@microsoft.com |
 | Progettazione flussi di lavoro |mepd@microsoft.com |
-
 

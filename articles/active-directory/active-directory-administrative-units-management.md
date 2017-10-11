@@ -16,12 +16,11 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: e12a0aea8264b1ea67c26294ec5bbe9c404a171e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Gestione delle unità amministrative in Azure AD - Anteprima pubblica
 Questo articolo descrive le unità amministrative, un nuovo contenitore di risorse di Azure Active Directory che può essere usato per la delega di autorizzazioni amministrative su subset di utenti e per l'applicazione di criteri a un subset di utenti. In Azure Active Directory, le unità amministrative consentono agli amministratori centrali di delegare le autorizzazioni agli amministratori regionali o di impostare criteri a livello dettagliato.
@@ -42,4 +41,3 @@ Per ulteriori informazioni sui requisiti software e l'installazione del modulo d
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Edizioni di Azure Active Directory](active-directory-editions.md)
-

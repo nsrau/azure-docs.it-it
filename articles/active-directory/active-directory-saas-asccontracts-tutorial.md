@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: integrazione di Azure Active Directory con ASC Contracts | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e ASC Contracts.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ASC Contracts.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 87ea3cc55f9683e7d5b9912a87d675575cea0347
-ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Esercitazione: integrazione di Azure Active Directory con ASC Contracts
 
@@ -130,7 +128,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 6. Per configurare l'accesso Single Sign-On sul lato **ASC Contracts**, chiamare il supporto di ASC Networks Inc. (ASC) al numero **613.599.6178** e dare il file **XML metadati** scaricato. L'applicazione verrà configurata in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD)
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -223,5 +221,4 @@ Quando si fa clic sul riquadro di ASC Contracts nel riquadro di accesso, si dovr
 [201]: ./media/active-directory-saas-asccontracts-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-asccontracts-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-asccontracts-tutorial/tutorial_general_203.png
-
 

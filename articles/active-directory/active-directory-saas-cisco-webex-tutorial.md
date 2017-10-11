@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ada8ffbbdc5565a517f5a06cb640a36aaf8879b4
 ms.openlocfilehash: b44b1a5b3e988a51db3325ec8a181651fa84e768
-ms.contentlocale: it-it
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Esercitazione: Integrazione di Azure Active Directory con Cisco Webex
 Questa esercitazione descrive l'integrazione di Azure e Cisco Webex.  
@@ -149,5 +148,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    ![Sì](./media/active-directory-saas-cisco-webex-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
 

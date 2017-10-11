@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
 ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
-ms.contentlocale: it-it
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Centro sicurezza di Azure e servizio Database SQL di Azure
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/documentation/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -116,4 +115,3 @@ Per altre informazioni, vedere [Gestione e risposta agli avvisi di sicurezza](se
 [6]: ./media/security-center-sql-database/monitor-health.png
 [7]: ./media/security-center-sql-database/alert.png
 [8]: ./media/security-center-sql-database/sql-injection.png
-

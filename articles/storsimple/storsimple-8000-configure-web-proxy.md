@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 1109e44ed9c6aa8a0f7305b8a50410316711589c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurare il proxy web per il dispositivo StorSimple
 
@@ -156,5 +155,4 @@ Se le impostazioni proxy Web sono configurate in modo errato, verranno visualizz
 ## <a name="next-steps"></a>Passaggi successivi
 * Se si riscontrano problemi durante la distribuzione del dispositivo o la configurazione delle impostazioni proxy Web, fare riferimento a [Risoluzione dei problemi relativi alla distribuzione del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 * Per altre informazioni sull'uso del servizio Gestione dispositivi StorSimple, passare a [Uso del servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

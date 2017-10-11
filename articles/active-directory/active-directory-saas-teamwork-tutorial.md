@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 92ff0b4b7664ad2d33b54d02290c55a213d4e610
 ms.openlocfilehash: edd2f9446515531f1147a8abf99295b618b89b25
-ms.contentlocale: it-it
-ms.lasthandoff: 02/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamwork"></a>Esercitazione: Integrazione di Azure Active Directory con Teamwork
 

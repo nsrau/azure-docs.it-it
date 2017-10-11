@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 5336543e06d60be555722a615568b12048c2aa2f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Esercitazione: Integrazione di Azure Active Directory con LinkedIn Elevate
 
@@ -257,4 +256,3 @@ Quando si fa clic sul riquadro LinkedIn Elevate nel Pannello di accesso, viene v
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: aeb27a02ed624106afec5dbd98faacf5f400f89e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: e2d12f807756b778a64920b12a66fba184a99844
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
 Ricerca è una funzionalità di [Application Insights](app-insights-overview.md) che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagine, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
@@ -184,4 +183,3 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 * [Inviare log e dati di telemetria personalizzati ad Application Insights](app-insights-asp-net-trace-logs.md)
 * [Configurare i test di disponibilità e velocità di risposta](app-insights-monitor-web-app-availability.md)
 * [Risoluzione dei problemi](app-insights-troubleshoot-faq.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 8ef9ddc345fb553b93815022dc3e6a796cae8b3a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare questi attacchi, Backup di Azure offre ora una serie di funzionalità di sicurezza per la protezione dei backup ibridi. Questo articolo descrive come abilitare e usare queste funzionalità tramite un agente di Servizi di ripristino di Azure e il server di Backup di Azure. Queste funzionalità includono:
@@ -119,4 +118,3 @@ Le funzionalità di sicurezza descritte in questo articolo offrono meccanismi di
 * Vedere [Download the latest Azure Recovery Services agent](http://aka.ms/azurebackup_agent) (Download dell'agente di Servizi di ripristino di Azure più recente) per proteggere i computer Windows e i dati di backup dagli attacchi.
 * Vedere [Download the latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) (Download del server di Backup di Azure più recente) per proteggere i carichi di lavoro e i dati di backup dagli attacchi.
 * Vedere [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) (Download della versione UR2 per System Center 2012 R2 Data Protection Manager) o [Download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) (Download della versione UR2 per System Center 2016 Data Protection Manager) per proteggere i carichi di lavoro e i dati di backup dagli attacchi.
-

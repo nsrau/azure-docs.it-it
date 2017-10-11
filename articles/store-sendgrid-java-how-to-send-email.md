@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Come inviare messaggi di posta elettronica usando SendGrid da Java
 Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in Java. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **uso di filtri** e **aggiornamento delle proprietà**. Per altre informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi](#next-steps) .
@@ -82,7 +81,7 @@ Ottenere le librerie javax.mail, ad esempio da <http://www.oracle.com/technetwor
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
 3. Creare il messaggio e assegnare i valori relativi ai campi **A**, **Da**, **Oggetto** e contenuto. Questa operazione è illustrata nella sezione [Procedura: Creare un'e-mail](#how-to-create-an-email) .
-4. Inviare il messaggio tramite un oggetto *javax.mail.Transport* . Questa operazione è illustrata nella sezione [Procedura: Inviare un messaggio di posta elettronica].
+4. Inviare il messaggio tramite un oggetto *javax.mail.Transport* . Questa operazione è illustrata nella sezione [Procedura: Inviare un messaggio di posta elettronica][Procedura: Inviare un messaggio di posta elettronica].
 
 ## <a name="how-to-create-an-email"></a>Procedura: Creare un messaggio di posta elettronica
 Il codice seguente illustra come specificare i valori per un messaggio di posta elettronica.
@@ -159,7 +158,7 @@ SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uti
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Procedura: Aggiornare le proprietà dei messaggi di posta elettronica
-È possibile sovrascrivere alcune proprietà delle e-mail usando **set*Property*** oppure aggiungerle usando **add*Property***.
+Alcune proprietà del messaggio di posta elettronica può essere sovrascritto usando  **impostare*proprietà** * o aggiunti utilizzando  **aggiungere*proprietà** *.
 
 Ad esempio, per specificare indirizzi **Rispondi a** , usare il codice seguente:
 
@@ -195,4 +194,3 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
 [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
-

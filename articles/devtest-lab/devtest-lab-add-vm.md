@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 449bffb040dafc8edd0b8b0afd80dbea35cd28ac
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Aggiungere una VM in un lab in Azure DevTest Labs
 Se è già stata [creata la prima VM](devtest-lab-create-first-vm.md), l'operazione è stata eseguita con un'[immagine di marketplace](devtest-lab-configure-marketplace-images.md) precaricata. Se ora si vuole aggiungere le macchine virtuali successive al lab, è anche possibile scegliere una *base* che sia un'[immagine personalizzata](devtest-lab-create-template.md) o una [formula](devtest-lab-manage-formulas.md). Questa esercitazione illustra l'uso del portale di Azure per aggiungere una VM in un lab in DevTest Labs.
@@ -117,4 +115,3 @@ Dopo il salvataggio è possibile usare il modello di Azure Resource Manager per 
 * Dopo avere creato la VM, è possibile connettersi ad essa selezionando **Connetti** nel pannello della VM.
 * Informazioni su come [creare elementi personalizzati per la VM di DevTest Labs](devtest-lab-artifact-author.md).
 * Esplorare la [raccolta dei modelli di avvio rapido di Azure Resource Manager di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
-

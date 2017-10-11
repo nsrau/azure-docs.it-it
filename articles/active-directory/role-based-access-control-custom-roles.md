@@ -15,12 +15,11 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0479f3c4bb65d208cae2424071dface5606a6fa6
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 8e72f2c8095d13c4b6df3c6576bd58806a3c0f2f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure
 Creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo di Azure, se nessuno dei ruoli predefiniti soddisfa le esigenze di accesso specifiche. I ruoli personalizzati possono essere creati usando [Azure PowerShell](role-based-access-control-manage-access-powershell.md), l'[interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md) e l'[API REST](role-based-access-control-manage-access-rest.md). Analogamente ai ruoli predefiniti, è possibile assegnare ruoli personalizzati a utenti, gruppi e applicazioni nell'ambito della sottoscrizione, del gruppo di risorse e delle risorse. I ruoli personalizzati vengono archiviati in un tenant di Azure AD e possono essere condivisi tra le sottoscrizioni.
@@ -124,4 +123,3 @@ La proprietà **AssignableScopes** del ruolo personalizzato controlla anche qual
   * [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
   * [API REST](role-based-access-control-manage-access-rest.md)
 * [Ruoli predefiniti](role-based-access-built-in-roles.md): informazioni dettagliate sui ruoli predefiniti del controllo degli accessi in base al ruolo.
-

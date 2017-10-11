@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Come creare un set di scalabilità di macchine virtuali con Visual Studio
 Questo articolo descrive come distribuire un set di scalabilità della macchina virtuale di Azure usando una distribuzione del gruppo di risorse di Visual Studio.
@@ -107,4 +106,3 @@ Dopo aver distribuito i set di scalabilità di macchine virtuali tramite Visual 
 [edit_parameters]: ./media/virtual-machine-scale-sets-vs-create/8-EditParameter.png
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
-

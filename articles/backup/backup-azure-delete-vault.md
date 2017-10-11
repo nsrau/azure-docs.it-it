@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: markgal;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 Il servizio Backup di Azure presenta insiemi di credenziali di due tipi: l'insieme di credenziali per il backup e l'insieme di credenziali dei servizi di ripristino. L'insieme di credenziali per il backup è stato creato per primo. L'insieme di credenziali dei servizi di ripristino è stato creato in seguito per supportare le distribuzioni Resource Manager espanse. A causa delle funzionalità espanse e delle dipendenze delle informazioni che devono essere archiviate nell'insieme di credenziali, l'eliminazione di un insieme di credenziali di Backup o dei Servizi di ripristino può sembrare complessa. In questo articolo viene illustrato come eliminare gli insiemi di credenziali nel portale classico e nel portale di Azure.  
@@ -227,4 +226,3 @@ Se in un insieme di credenziali sono registrati più server, potrebbe essere dif
 5. Per eliminare un server dall'elenco, fare clic con il pulsante destro del mouse sul nome del server e quindi scegliere **Elimina**.
     Viene visualizzato il pannello **Elimina** .
 6. Nel pannello **Elimina** specificare il nome del server. Se il nome è lungo, è possibile copiarlo e incollarlo dall'elenco di Server di gestione di backup. Fare quindi clic su **Elimina**.  
-

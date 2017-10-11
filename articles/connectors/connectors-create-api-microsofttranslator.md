@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: f36cd801a0572d671977e2e48a7f1e743e38e768
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Introduzione al connettore Microsoft Translator
 Connettersi a Microsoft Translator per tradurre il testo, individuare una lingua e così via. Con Microsoft Translator è possibile: 

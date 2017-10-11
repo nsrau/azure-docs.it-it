@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 35dcbb91e6af1480685c9fd5b829c54277c1c605
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Usare Apache Sqoop per importare ed esportare dati tra Hadoop su HDInsight e un database SQL
 
@@ -228,4 +227,3 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-

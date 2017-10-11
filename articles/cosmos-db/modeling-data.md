@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 16c387fe574243544cf54cf283c7713ddcaa1942
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modellazione dei dati di un documento per un database NoSQL
 Anche se con i database privi di schema, come Azure Cosmos DB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati. 
@@ -397,4 +396,3 @@ Come non esiste un solo modo per rappresentare i dati in una schermata, così no
 Per altre informazioni su Azure Cosmos DB, vedere la pagina della [documentazione](https://azure.microsoft.com/documentation/services/cosmos-db/) del servizio. 
 
 Per informazioni su come suddividere i dati in più partizioni, vedere [Partizionamento dei dati in Azure Cosmos DB](documentdb-partition-data.md). 
-

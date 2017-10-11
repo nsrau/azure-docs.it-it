@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
 Questo articolo descrive come escludere dischi dalla replica, in modo da ottimizzare la larghezza di banda di replica usata o le risorse lato destinazione usate dai dischi. La funzionalità è supportata per due tipi di scenari: da VMware ad Azure e da Hyper-V ad Azure.
@@ -270,4 +269,3 @@ Di seguito sono illustrate le impostazioni del file di paging nella macchina vir
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver configurato correttamente la distribuzione, vedere [altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
-

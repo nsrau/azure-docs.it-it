@@ -13,14 +13,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e0aa7db15451bd3ea868932455127e000619aa5d
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilazione di configurazioni in Azure Automation DSC
 
 È possibile compilare configurazioni dello stato desiderato (DSC, Desired State Configuration) in due modi con Automazione di Azure: nel portale di Azure e con Windows PowerShell. La tabella seguente consente di determinare quando usare ciascun metodo in base alle caratteristiche specifiche:
@@ -274,7 +272,6 @@ Altre informazioni su come firmare le configurazioni del nodo firmate sono reper
 ```powershell
 Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName "MyAutomationAccount" -ResourceGroupName "MyResourceGroup" -ConfigurationName "MyNodeConfiguration" -Path "C:\MyConfigurations\TestVM1.mof"
 ```
-
 
 
 

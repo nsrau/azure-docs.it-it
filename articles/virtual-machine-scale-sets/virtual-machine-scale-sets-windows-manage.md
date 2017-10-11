@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 88541f6054df1476866d68fdc1c9690a73ada83c
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: d09a020b903e5f43afe03b86c675bcc1eb536cbc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-virtual-machines-in-a-virtual-machine-scale-set"></a>Gestire le macchine virtuali in un set di scalabilità di macchine virtuali
 Usare le attività descritte in questo articolo per gestire le macchine virtuali nel set di scalabilità.
@@ -213,5 +212,4 @@ Per rimuovere il set di scalabilità di macchine virtuali tutto in una volta, no
     Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 Se si rimuovono le macchine virtuali dal set di scalabilità, per prime verranno rimosse le macchine virtuali con gli ID più elevati.
-
 

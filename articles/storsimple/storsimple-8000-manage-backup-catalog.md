@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: ac2577c6cd350d6d437d55e61ec73d954cb24893
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Usare il servizio Gestione dispositivi StorSimple per gestire il catalogo di backup
 ## <a name="overview"></a>Panoramica
@@ -112,5 +111,4 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [usare la pagina Catalogo di backup per ripristinare il dispositivo da un set di backup](storsimple-8000-restore-from-backup-set-u2.md).
 * Informazioni su come [usare il servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

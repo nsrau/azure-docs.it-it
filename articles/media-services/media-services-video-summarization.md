@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: milanga;juliako;
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c8e760460668aca89a754e2d8536282160de0e0a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 5d5afdaf22ffea8f3b77a154acb5d0a8dda74405
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Uso delle anteprime video multimediali di Azure per creare un riepilogo video
 ## <a name="overview"></a>Overview
@@ -269,5 +268,4 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

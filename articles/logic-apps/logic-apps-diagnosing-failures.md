@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 25f4520bae3089ce9f11efcf6acd176255043e70
-ms.contentlocale: it-it
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 814e6f93088cdd96b0a663d2a7494b5a11470d99
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="diagnose-logic-app-failures"></a>Eseguire una diagnosi degli errori delle app per la logica
 Se si verificano problemi o errori con le app per la logica, con alcuni accorgimenti sarà possibile capire meglio l'origine degli errori.  
@@ -87,4 +85,3 @@ Oltre al monitoraggio di input, output e trigger di un'esecuzione, potrebbe esse
 [2]: ./media/logic-apps-diagnosing-failures/runhistory.png
 [3]: ./media/logic-apps-diagnosing-failures/triggeroutputslink.png
 [4]: ./media/logic-apps-diagnosing-failures/actionoutputs.png
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 5448247428ab96887470c6b53f7a9b3dcd9238f0
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-backup-policies-update-2"></a>Per gestire i criteri di backup è possibile usare il servizio StorSimple Manager (aggiornamento 2)
 [!INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
@@ -85,5 +84,4 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un criteri
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni sull’ [utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

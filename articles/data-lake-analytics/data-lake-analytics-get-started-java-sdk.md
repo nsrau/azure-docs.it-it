@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Introduzione ad Azure Data Lake Analytics con Java SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -350,4 +349,3 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) e [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348) (Riferimenti al linguaggio U-SQL).
 * Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-manage-use-portal.md).
 * Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
-

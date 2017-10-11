@@ -1,6 +1,6 @@
 ---
 title: Maschera dati dinamica del database SQL di Azure | Microsoft Docs
-description: La funzione Maschera dati dinamica del database SQL limita l&quot;esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi
+description: La funzione Maschera dati dinamica del database SQL limita l'esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi
 services: sql-database
 documentationcenter: 
 author: ronitr
@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/09/2017
 ms.author: ronitr; ronmat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: cf13c0290cc0356db0885d6762a4ebebac304431
-ms.contentlocale: it-it
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 83deadce3cbdd30aa50d22d99378bd86133677c4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Maschera dati dinamica del database SQL
 
@@ -60,5 +58,4 @@ Vedere [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/azu
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configurare il mascheramento dei dati dinamici per il database usando l'API REST
 Vedere [Operazioni per i database SQL di Azure](https://msdn.microsoft.com/library/dn505719.aspx).
-
 

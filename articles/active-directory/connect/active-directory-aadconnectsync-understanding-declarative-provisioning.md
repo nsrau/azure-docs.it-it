@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 7497ec2ca658c3790227c56ef1755d9a1cb74e0a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/22/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
 Questo argomento illustra il modello di configurazione in Azure AD Connect. Il modello è denominato provisioning dichiarativo e consente di modificare una configurazione con facilità. Molte operazioni descritte in questo argomento sono avanzate e non necessarie per la maggior parte degli scenari dei clienti.
@@ -163,4 +162,3 @@ Per questo scenario è necessario modificare l'ambito delle regole di sincronizz
 **Argomenti di riferimento**
 
 * [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
-

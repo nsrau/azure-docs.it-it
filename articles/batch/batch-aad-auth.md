@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/20/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
 ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
 Azure Batch supporta l'autenticazione con [Azure Active Directory][aad_about], ovvero Azure AD. Azure AD è il servizio Microsoft di gestione di identità e directory basato sul cloud e multi-tenant. Azure stesso usa Azure AD per l'autenticazione i propri clienti, gli amministratori del servizio e gli utenti dell'organizzazione.
@@ -332,4 +330,3 @@ Per eseguire l'autenticazione di applicazioni di gestione batch con Azure AD, ve
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Scenari di autenticazione per Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrazione di applicazioni con Azure Active Directory"
 [azure_portal]: http://portal.azure.com
-

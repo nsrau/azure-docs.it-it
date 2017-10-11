@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: e1a9653d5feea910308cefabdbdfe3a6af44bbe4
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Esercitazione: integrazione di Azure Active Directory con Sansan
 
@@ -111,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando i criteri seguenti: 
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: 
     
     | Environment | URL |
     |:--- |:--- |
@@ -242,5 +241,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_203.png
-
 

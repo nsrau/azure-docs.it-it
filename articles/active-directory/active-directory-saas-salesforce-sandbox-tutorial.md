@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Esercitazione: Integrazione di Azure Active Directory con Salesforce Sandbox
 
@@ -188,5 +187,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 È ora necessario attendere 10 minuti e verificare che l'account sia stato sincronizzato con Salesforce Sandbox.
 
 Per testare le impostazioni di SSO, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
-
 

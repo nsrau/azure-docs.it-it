@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18c71608f7429f7c52720282ca66f44c88de2d84
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-# Notifiche di Reliable Services
-<a id="reliable-services-notifications" class="xliff"></a>
+# <a name="reliable-services-notifications"></a>Notifiche di Reliable Services
 Le notifiche consentono ai client di tenere traccia delle modifiche apportate a un oggetto a cui sono interessati. Le notifiche sono supportate da due tipi di oggetto: *Reliable State Manager* e *Reliable Dictionary*.
 
 I motivi comuni per l'uso di notifiche sono i seguenti:
@@ -33,8 +30,7 @@ I motivi comuni per l'uso di notifiche sono i seguenti:
 
 Le notifiche vengono attivate come parte dell'applicazione dell'operazione. Per questo motivo, le notifiche devono essere gestite nel più breve tempo possibile e gli eventi sincroni non devono includere operazioni dispendiose.
 
-## Notifiche di Reliable State Manager
-<a id="reliable-state-manager-notifications" class="xliff"></a>
+## <a name="reliable-state-manager-notifications"></a>Notifiche di Reliable State Manager
 Reliable State Manager prevede notifiche per gli eventi seguenti:
 
 * Transazione
@@ -109,8 +105,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## Notifiche di Reliable Dictionary
-<a id="reliable-dictionary-notifications" class="xliff"></a>
+## <a name="reliable-dictionary-notifications"></a>Notifiche di Reliable Dictionary
 Reliable Dictionary prevede notifiche per gli eventi seguenti.
 
 * Ricompilazione: chiamata quando l'oggetto **ReliableDictionary** ha recuperato il proprio stato da un backup o uno stato locale copiato o ripristinato.
@@ -207,8 +202,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## Consigli
-<a id="recommendations" class="xliff"></a>
+## <a name="recommendations"></a>Consigli
 * *Completare* gli eventi di notifica nel più breve tempo possibile.
 * *Non eseguire* operazioni dispendiose (ad esempio, operazioni di I/O) nell'ambito di eventi sincroni.
 * *Controllare* il tipo di azione prima di elaborare l'evento. In futuro potrebbero essere aggiunti nuovi tipi di azione.
@@ -221,11 +215,9 @@ Occorre tenere presente i concetti seguenti:
 * Per le transazioni che contengono più operazioni, queste verranno applicate nell'ordine in cui sono state ricevute nella replica primaria dall'utente.
 * Come parte dell'elaborazione di un'incoerenza, alcune operazioni potrebbero essere annullate. Per queste operazioni di annullamento vengono generate notifiche, con rollback dello stato della replica a un punto stabile. Una differenza importante delle notifiche di annullamento è che gli eventi con chiavi duplicate vengono aggregati. Se la transazione T1 viene annullata, ad esempio, viene visualizzata una singola notifica per Delete(X).
 
-## Passaggi successivi
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Passaggi successivi
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
 * [Eseguire il backup e il ripristino di Reliable Services (ripristino di emergenza)](service-fabric-reliable-services-backup-restore.md)
 * [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
 

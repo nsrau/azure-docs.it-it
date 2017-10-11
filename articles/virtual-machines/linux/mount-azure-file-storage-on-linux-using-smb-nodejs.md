@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/07/2016
 ms.author: v-livech
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 4951860630f0aad107d0846d52ebe4423ee0b91c
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="mount-azure-file-storage-on-linux-vms-by-using-smb-with-azure-cli-10"></a>Montare Archiviazione file di Azure in VM Linux usando SMB con l'interfaccia della riga di comando di Azure 1.0
 
 Questo articolo illustra come montare Archiviazione file di Azure in una VM Linux usando il protocollo Server Message Block (SMB). Archiviazione file offre condivisioni file nel cloud tramite il protocollo SMB standard. I requisiti sono:
@@ -134,4 +132,3 @@ Per questa procedura dettagliata vengono definiti i prerequisiti necessari prima
 - [Uso di cloud-init per personalizzare una VM Linux durante la creazione](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Aggiungere un disco a una VM Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Crittografare i dischi di una VM Linux usando l'interfaccia della riga di comando di Azure](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

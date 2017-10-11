@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 82cec2c9545cd5ae33ec6d5d0e4c7ebf1a500e5b
-ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: e850370faf2d271b4adad1af48c1ead7b316fa67
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="understand-iot-hub-metrics"></a>Comprendere le metriche dell'hub IoT
 Le metriche dell'hub IoT offrono dati migliori sullo stato delle risorse di Azure IoT nella sottoscrizione di Azure. La metrica dell'hub IoT consente di valutare l'integrità complessiva del servizio e dei dispositivi connessi. Le statistiche per l'utente sono importanti perché consentono di vedere le attività in corso nell'hub IoT e di individuare la causa radice dei problemi senza dover contattare il supporto di Azure.
@@ -116,4 +115,3 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

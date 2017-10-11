@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 94f8e3330fb2d6547811315fcfdb8ced338e0247
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertire una macchina virtuale Linux da dischi non gestiti a dischi gestiti
 
 Se sono presenti macchine virtuali Linux che usano dischi non gestiti, è possibile convertire le macchine virtuali in modo che usino dischi gestiti mediante il servizio [Azure Managed Disks](../windows/managed-disks-overview.md). Questo processo consente di convertire sia il disco del sistema operativo che eventuali dischi dati collegati.
@@ -99,4 +97,3 @@ Tutte le macchine virtuali nel set di disponibilità devono essere deallocate pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle opzioni di archiviazione, vedere [Panoramica di Azure Managed Disks](../windows/managed-disks-overview.md).
-

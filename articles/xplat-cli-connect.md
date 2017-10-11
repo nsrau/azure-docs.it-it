@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
-ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="log-in-to-azure-from-the-azure-cli"></a>Accedere ad Azure dall'interfaccia della riga di comando di Azure
 L'interfaccia della riga di comando di Azure è un insieme di comandi multipiattaforma open source per l'uso delle risorse di Azure. Questo articolo illustra diverse procedure che consentono di specificare le credenziali necessarie all'account Azure per connettere l'interfaccia della riga di comando di Azure alla sottoscrizione di Azure:
@@ -166,4 +165,3 @@ Se le sottoscrizioni associate all'account vengono autenticate solo con Active D
 * Per l'uso dei comandi dell'interfaccia della riga di comando di Azure, vedere [Comandi dell'interfaccia della riga di comando di Azure in modalità Resource Manager](virtual-machines/azure-cli-arm-commands.md) e [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Per altre informazioni sull'interfaccia della riga di comando di Azure, il download del codice sorgente, la segnalazione dei problemi o la collaborazione al progetto, visitare il [repository GitHub per tale interfaccia](https://github.com/azure/azure-xplat-cli).
 * In caso di problemi durante l'uso dell'interfaccia della riga di comando di Azure o di Azure, visitare i [forum di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
-

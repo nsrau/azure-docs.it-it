@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 4e6d859ee621a730e0d2c1062d3a31e7c053e798
-ms.contentlocale: it-it
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 91e4a7b2ac454465d5cce4948a4d5f0b542d2b55
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Uso dell'app della riga di comando Java per accedere a un'API con Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -270,5 +268,4 @@ Congratulazioni. È stata compilata un'applicazione Java funzionante che può au
 Come riferimento, l'esempio completato (senza i valori di configurazione) [è disponibile in un file con estensione .zip qui](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-
 

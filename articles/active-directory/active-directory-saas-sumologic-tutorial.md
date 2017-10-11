@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: e739106472ccf930b2942eb810dd844f2b1ade7c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Esercitazione: Integrazione di Azure Active Directory con SumoLogic
 
@@ -296,5 +295,4 @@ Quando si fa clic sul riquadro SumoLogic nel pannello di accesso, si dovrebbe ac
 [201]: ./media/active-directory-saas-sumologic-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sumologic-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sumologic-tutorial/tutorial_general_203.png
-
 

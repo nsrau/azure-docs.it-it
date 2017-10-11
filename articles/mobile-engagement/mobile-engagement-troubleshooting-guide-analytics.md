@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c407e8f0beb110844ba2ae4ca1a065a122d0fdbd
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: e30c9ac0a8421ffcf4fc3e2548cfd7ac49701900
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-guide-for-analytics-monitoring-segmentation-and-dashboard-issues"></a>Guida alla risoluzione dei problemi relativi ad analisi, monitoraggio, segmentazione e dashboard
 Di seguito sono indicati possibili problemi che relativi al modo in cui Azure Mobile Engagement raccoglie informazioni su applicazioni, dispositivi e utenti.
@@ -60,5 +59,4 @@ Di seguito sono indicati possibili problemi che relativi al modo in cui Azure Mo
 ### <a name="causes"></a>Cause
 * Per risolvere i problemi di arresto anomalo dell'applicazione visualizzati nelle sezioni di analisi, monitoraggio o dashboard, controllare le note sulla versione e verificare la presenza di problemi noti nelle versioni precedenti dell'SDK.
 * Per risolvere altri problemi di arresto anomalo dell'app, eseguire un evento da un dispositivo di test su cui è installata l'app, quindi cercare l'ID dispositivo nella sezione "Monitor - Eventi" dell'interfaccia utente di Azure Mobile Engagement. Quindi, eseguire l'evento che causa l'arresto anomalo dell'applicazione e cercare altre informazioni nella sezione "Monitor - Arresto anomalo" dell'interfaccia utente di Azure Mobile Engagement. 
-
 

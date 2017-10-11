@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6c5fa51bdaad808d90cac6c8b8adeafe7d1cafc9
 ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
-ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array
 ![flusso del processo di installazione](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -111,5 +110,4 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-virtual-array-manager-service-administration.md).
-
 

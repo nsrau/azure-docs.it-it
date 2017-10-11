@@ -1,6 +1,6 @@
 ---
-title: Protezione di asset della rete CDN di Azure con l&quot;autenticazione basata su token | Documentazione Microsoft
-description: Uso dell&quot;autenticazione basata su token per proteggere l&quot;accesso agli asset della rete CDN di Azure.
+title: Protezione di asset della rete CDN di Azure con l'autenticazione basata su token | Documentazione Microsoft
+description: Uso dell'autenticazione basata su token per proteggere l'accesso agli asset della rete CDN di Azure.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/11/2016
 ms.author: mezha
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 42b182c314795b1ebf69639ec7ac5583208dc7c1
-ms.lasthandoff: 03/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protezione di asset della rete CDN di Azure con l'autenticazione basata su token
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -59,7 +56,7 @@ Questo grafico illustra come la rete CDN di Azure convalida la richiesta client 
 
 ## <a name="setting-up-token-authentication"></a>Configurazione dell'autenticazione basata su token
 
-1. Dal [portale di Azure](https://portal.azure.com) passare al profilo di rete CDN e quindi fare clic sul pulsante **Gestisci** per avviare il portale supplementare.
+1. Dal [portale di Azure](https://portal.azure.com) passare al profilo di rete CDN e quindi fare clic sul pulsante **Gestisci**  per avviare il portale supplementare.
 
     ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
 
@@ -147,4 +144,3 @@ I linguaggi disponibili includono:
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Prezzi dei provider e funzionalità della rete CDN di Azure
 
 Vedere l'argomento [Panoramica della rete CDN](cdn-overview.md).
-

@@ -1,6 +1,6 @@
 ---
 title: Invio di notifiche push sicure con Hub di notifica di Azure
-description: Informazioni su come inviare notifiche push sicure a un&quot;app per Android da Azure. Gli esempi di codice sono scritti in Java e C#.
+description: Informazioni su come inviare notifiche push sicure a un'app per Android da Azure. Gli esempi di codice sono scritti in Java e C#.
 documentationcenter: android
 keywords: notifica push, notifiche push, push dei messaggi, notifiche push di android
 author: ysxu
@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce4bc214d4428393d8130831d628c324ad3485e8
-
-
+ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Invio di notifiche push sicure con Hub di notifica di Azure
 > [!div class="op_single_selector"]
@@ -135,10 +135,4 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 2. In Eclipse eseguire l'app su un dispositivo Android fisico o sull'emulatore.
 3. Nell'interfaccia utente dell'app per Android immettere un nome utente e una password. Può trattarsi di qualsiasi stringa, ma devono avere lo stesso valore.
 4. Nell'interfaccia utente dell'app per Android fare clic su **Log in**. Fare clic su **Send push**.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

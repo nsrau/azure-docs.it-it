@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d5110a33e13802fd6e5e0f075c7d3ddd521a1ef9
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Come creare e gestire le campagne di notifica push
 È possibile usare la sezione Reach dell'interfaccia utente per creare una nuova campagna di push con una formula complessa fornendo tutte le informazioni necessarie per inviare una notifica push. Le opzioni di una campagna di push variano leggermente in base ai quattro tipi di campagna: annunci, sondaggi, push di dati e riquadri (solo per Windows Phone).
@@ -267,5 +266,4 @@ ms.lasthandoff: 12/08/2016
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

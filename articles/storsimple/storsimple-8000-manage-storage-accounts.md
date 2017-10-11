@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usare il servizio Gestione dispositivi StorSimple per gestire le credenziali degli account di archiviazione
 
 ## <a name="overview"></a>Panoramica
@@ -180,5 +178,4 @@ Al termine della sincronizzazione della chiave, si riceve una notifica.
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-8000-security.md).
 * Altre informazioni sull'[uso del servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

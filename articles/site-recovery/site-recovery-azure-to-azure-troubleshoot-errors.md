@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 4e4e8b097fbab3ddce551eb93945d0880f8c457f
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Risolvere i problemi di replica delle VM da Azure ad Azure
 
@@ -135,4 +134,3 @@ La VM di Azure potrebbe non venire visualizzata tra le opzioni nel [passaggio 2 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Replicare le macchine virtuali di Azure](site-recovery-replicate-azure-to-azure.md)
-

@@ -15,40 +15,30 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-<a id="whats-different-about-the-v20-endpoint" class="xliff"></a>
-
-# Differenze dell'endpoint 2.0.
+# <a name="whats-different-about-the-v20-endpoint"></a>Differenze dell'endpoint 2.0.
 Se si ha familiarità con Azure Active Directory o si sono svolte attività di integrazione di app con Azure AD in passato, si noteranno alcune differenze inaspettate nell'endpoint 2.0.  Questo documento descrive tali differenze per una maggiore comprensione da parte dell'utente.
 
 > [!NOTE]
 > Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è consigliabile usare l'endpoint 2.0, leggere l'articolo relativo alle [limitazioni della versione 2.0](active-directory-v2-limitations.md).
 >
 
-<a id="microsoft-accounts-and-azure-ad-accounts" class="xliff"></a>
-
-## Account Microsoft e account Azure AD
+## <a name="microsoft-accounts-and-azure-ad-accounts"></a>Account Microsoft e account Azure AD
 L'endpoint 2.0 consente agli sviluppatori di scrivere app che supportano l'accesso da account Microsoft e Azure AD mediante un unico endpoint di autorizzazione.  In questo modo, è possibile scrivere l'app senza tenere conto dell'account usato per l'accesso. Ossia, l'app non contiene informazioni riguardo al tipo di account con cui accede l'utente.  È ovviamente *possibile* inserire nell'app informazioni sul tipo di account usato in una determinata sessione, ma è facoltativo.
 
 Se, ad esempio, l'app chiama [Microsoft Graph](https://graph.microsoft.io), per gli utenti aziendali saranno disponibili funzionalità e dati aggiuntivi, quali i siti di SharePoint o i dati di Directory.  Per numerose azioni, ad esempio la [lettura di un messaggio di posta elettronica dell'utente](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), il codice può tuttavia essere scritto esattamente nello stesso modo per gli account Microsoft e quelli Azure AD.  
 
 L'integrazione dell'app con account Microsoft e Azure AD è ora un processo semplice.  È possibile usare un unico set di endpoint, un'unica libreria e un'unica registrazione dell'app per accedere ai vantaggi di livello consumer e aziendale.  Per altre informazioni sull'endpoint 2.0, consultare [la panoramica](active-directory-appmodel-v2-overview.md).
 
-<a id="new-app-registration-portal" class="xliff"></a>
-
-## Nuovo portale di registrazione delle app
+## <a name="new-app-registration-portal"></a>Nuovo portale di registrazione delle app
 Per registrare un'app che usa l'endpoint 2.0, è necessario accedere a un nuovo portale di registrazione delle app: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  In questo portale è possibile ottenere un ID applicazione, personalizzare l'aspetto della pagina di accesso dell'app ed eseguire molte altre operazioni.  Per accedere al portale è sufficiente un account con tecnologia Microsoft, personale oppure dell'azienda o dell'istituto di istruzione.
 
-<a id="one-app-id-for-all-platforms" class="xliff"></a>
-
-## ID app univoco per tutte le piattaforme
+## <a name="one-app-id-for-all-platforms"></a>ID app univoco per tutte le piattaforme
 Se si usa Azure Active Directory, è possibile che siano state registrate più app diverse per un unico progetto.  Se, ad esempio, sono stati creati sia un sito Web sia un'app per iOS, è stato necessario registrarli separatamente, usando due diversi ID applicazione. Il portale di registrazione delle app Azure AD obbligava a compiere questa distinzione durante la registrazione:
 
 ![Interfaccia utente della registrazione dell'applicazione precedente](../../media/active-directory-v2-flows/old_app_registration.PNG)
@@ -63,9 +53,7 @@ Con l'endpoint 2.0, è ora possibile registrare tutti i componenti del progetto 
 
 L'obiettivo è ottenere un'esperienza di sviluppo e gestione delle app più semplificata e creare una vista più consolidata del progetto al quale si lavora.
 
-<a id="scopes-not-resources" class="xliff"></a>
-
-## Ambiti e non risorse
+## <a name="scopes-not-resources"></a>Ambiti e non risorse
 In Azure Active Directory un'app può comportarsi come una **risorsa** o come un destinatario di token.  Una risorsa può definire diversi **ambiti** o autorizzazioni **oAuth2Permissions** che può riconoscere, consentendo alle app client di richiedere token per la risorsa per un determinato set di ambiti.  Si consideri l'API Graph di Azure AD come esempio di una risorsa:
 
 * Identificatore della risorsa o `AppID URI`: `https://graph.windows.net/`
@@ -91,9 +79,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 
 dove il parametro dell' **ambito** indica per quali risorse e autorizzazioni l'app richiede l'autorizzazione. La risorsa desiderata è ancora presente nella richiesta, semplicemente è inclusa in ognuno dei valori del parametro di ambito.  Tale uso del parametro di ambito consente all'endpoint 2.0 di essere più conforme alla specifica OAuth 2.0 e alle pratiche comuni del settore.  Consente inoltre alle app di eseguire il [consenso incrementale](#incremental-and-dynamic-consent)descritto nella sezione seguente.
 
-<a id="incremental-and-dynamic-consent" class="xliff"></a>
-
-## Consenso incrementale e dinamico
+## <a name="incremental-and-dynamic-consent"></a>Consenso incrementale e dinamico
 Per le app registrate in Azure AD, in passato era necessario specificare le autorizzazioni OAuth 2.0 obbligatorie nel portale di Azure al momento della creazione dell'app:
 
 ![Interfaccia utente della registrazione delle autorizzazioni](../../media/active-directory-v2-flows/app_reg_permissions.PNG)
@@ -117,21 +103,15 @@ Il codice precedente richiede l'autorizzazione per l'app di leggere i dati di di
 
 Consentendo a un'app di richiedere le autorizzazioni in modo dinamico tramite il parametro `scope` gli sviluppatori hanno il controllo completo dell'esperienza dell'utente.  Se si desidera, è possibile scegliere di agire d'anticipo chiedendo il consenso per tutte le autorizzazioni in un'unica richiesta iniziale.  In alternativa, se l'app richiede un numero elevato di autorizzazioni, è possibile scegliere di raccogliere tali autorizzazioni dall'utente in modo incrementale, man mano che determinate funzionalità dell'app vengono usate.
 
-<a id="well-known-scopes" class="xliff"></a>
-
-## Ambiti conosciuti
-<a id="offline-access" class="xliff"></a>
-
-#### Accesso offline
+## <a name="well-known-scopes"></a>Ambiti conosciuti
+#### <a name="offline-access"></a>Accesso offline
 Per le app che usano l'endpoint 2.0 è possibile che sia necessaria una nuova autorizzazione nota per le app: l'ambito `offline_access`.  Tutte le app dovranno richiedere questa autorizzazione, se devono accedere alle risorse per conto di un utente per un periodo di tempo prolungato, anche se l'utente non sta usando attivamente l'app.  L'utente visualizzerà l'ambito `offline_access` in finestre di dialogo di consenso, quali "Accedere ai dati offline", che dovrà accettare.  La richiesta dell'autorizzazione `offline_access` consentirà all'app Web di ricevere token di aggiornamento di OAuth 2.0 dall'endpoint 2.0.  I token di aggiornamento hanno una durata elevata e possono essere scambiati con nuovi token di accesso di OAuth 2.0 per periodi prolungati di accesso.  
 
 Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggiornamento.  Pertanto, se si riscatta un codice di autorizzazione nel flusso del codice di autorizzazione di OAuth 2.0, si riceverà solo un token di accesso dall'endpoint `/token`.  Tale token di accesso rimarrà valido per un breve periodo di tempo (in genere un'ora), per poi scadere.  A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione.  Durante il reindirizzamento, l'utente può o meno avere esigenza di immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni, a seconda del tipo di app.
 
 Per altre informazioni su OAuth 2.0, token di aggiornamento e token di accesso, vedere le [informazioni di riferimento sui protocolli della versione 2.0](active-directory-v2-protocols.md).
 
-<a id="openid-profile-and-email" class="xliff"></a>
-
-#### OpenID, profilo e indirizzo di posta elettronica
+#### <a name="openid-profile-and-email"></a>OpenID, profilo e indirizzo di posta elettronica
 Tradizionalmente, il flusso di accesso più semplice di OpenID Connect in Azure Active Directory fornisce molte informazioni sull'utente nel token ID risultante.  Le attestazioni nel token ID includono, ad esempio, il nome dell'utente, il nome utente preferito, l'indirizzo di posta elettronica, l'ID oggetto e altro ancora.
 
 Attualmente vengono limitate le informazioni a cui l'app ha accesso tramite l'ambito `openid`.  L'ambito "openid" consente all'app di far accedere l'utente e di ricevere un identificatore specifico dell'app per l'utente.  Per ottenere informazioni personali sull'utente nell'app, questa dovrà richiedere autorizzazioni aggiuntive all'utente.  Vengono introdotti due nuovi ambiti, `email` e `profile`, che consentono di eseguire questa operazione.
@@ -140,13 +120,8 @@ L'ambito `email` è molto semplice: consente all'app di accedere all'indirizzo d
 
 Questo permette di creare il codice dell'app in modo che la divulgazione delle informazioni sia minima, chiedendo all'utente solo il set di informazioni necessario per il funzionamento dell'app.  Per altre informazioni su questi ambiti, vedere l'articolo relativo al [riferimento all'ambito della versione 2.0](active-directory-v2-scopes.md).
 
-<a id="token-claims" class="xliff"></a>
-
-## Attestazioni nei token
+## <a name="token-claims"></a>Attestazioni nei token
 Le attestazioni nei token rilasciati dall'endpoint 2.0 non sono identiche a quelle nei token rilasciati dagli endpoint di Azure AD disponibile a livello generale. Le app che eseguono la migrazione al nuovo servizio non devono presupporre che esista un'attestazione particolare nei token ID o di accesso. Per altre informazioni sulle attestazioni specifiche generate nei token 2.0, vedere l'articolo relativo al [riferimento al token della versione 2.0](active-directory-v2-tokens.md).
 
-<a id="limitations" class="xliff"></a>
-
-## Limitazioni
+## <a name="limitations"></a>Limitazioni
 Esistono alcune limitazioni da tenere in considerazione quando si usa l'endpoint 2.0.  Fare riferimento al [documento relativo alle limitazioni della versione 2.0](active-directory-v2-limitations.md) per verificare se una di queste restrizioni si applica a un particolare scenario.
-

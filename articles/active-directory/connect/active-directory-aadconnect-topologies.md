@@ -14,12 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1da3bc5454111bac5e958bf26d33cf61a5d4213c
-ms.openlocfilehash: ecff6e2e5be05499896ad23675682db184c634af
-ms.contentlocale: it-it
-ms.lasthandoff: 02/17/2017
-
+ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -185,4 +184,3 @@ Per informazioni su come installare Azure AD Connect per questi scenari, vedere 
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Altre informazioni sull'[integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-

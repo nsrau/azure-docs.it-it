@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/05/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Backup automatico v2 per macchine virtuali SQL Server 2016 in Azure (Resource Manager)
 
 > [!div class="op_single_selector"]
@@ -331,5 +329,4 @@ Backup automatico v2 configura backup gestito in Macchine virtuali di Azure. Per
 Per informazioni sulle altre attività di automazione disponibili, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Per altre informazioni sull'esecuzione di SQL Server nelle VM di Azure, vedere [Panoramica di SQL Server nelle macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
 

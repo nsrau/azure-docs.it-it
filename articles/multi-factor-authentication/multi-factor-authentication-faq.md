@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 023dee623ca6ec35ab77578c97e5bf197b4bfe75
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 Queste domande frequenti offrono risposte su Azure Multi-Factor Authentication e sull'uso del servizio Multi-Factor Authentication. Le domande sono suddivise fra servizio in generale, modelli di fatturazione, esperienze utente e risoluzione dei problemi.
@@ -208,4 +207,3 @@ Se la domanda non ha ricevuto risposta qui, riproporla nei commenti in fondo all
 * È possibile cercare e sfogliare le domande e risposte tecniche dalla community o porre le proprie domande nei [forum di Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * I clienti legacy di PhoneFactor che hanno domande o necessitano di assistenza per reimpostare una password possono usare il collegamento per la [reimpostazione della password](mailto:phonefactorsupport@microsoft.com) per aprire una richiesta di assistenza.
 * Contattare un tecnico del supporto tramite [Azure Multi-Factor Authentication - PhoneFactor](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando si contatta Microsoft, è utile includere il maggior numero possibile di informazioni relative al problema. Tali informazioni includono la pagina in cui viene visualizzato l'errore, il codice dell'errore specifico, l'ID della sessione specifico e l'ID dell'utente che visualizza l'errore.
-

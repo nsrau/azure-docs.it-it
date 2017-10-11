@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Avviso di ritiro della famiglia di sistemi operativi guest 1
 Il ritiro della famiglia di sistemi operativi guest 1 è stato annunciato il 1° giugno 2013.
@@ -74,4 +73,3 @@ I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più suppo
 
 ## <a name="next-steps"></a>Passaggi successivi
 Esaminare le [versioni del sistema operativo guest](cloud-services-guestos-update-matrix.md)più recenti.
-

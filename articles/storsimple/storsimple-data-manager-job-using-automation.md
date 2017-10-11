@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9691408bcd80afb6eba534f26749b76dd3bfe315
-ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="use-azure-automation-to-trigger-a-job-private-preview"></a>Attivare un processo tramite Automazione di Azure (anteprima privata)
 
 In questo articolo viene descritto come usare Automazione di Azure per attivare un processo di Gestore dati StorSimple.

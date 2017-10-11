@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 81549c4bc0cabcf46bc7dc66d7e6662d7f787b1e
-ms.openlocfilehash: df6353f84f898a1722e3e985244a90dbd6b22522
-ms.contentlocale: it-it
-ms.lasthandoff: 01/26/2017
-
+ms.openlocfilehash: a5697686bd1f41d581554b27ce78897963e38c74
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selezionare il tipo di installazione da usare per Azure AD Connect
 Per Azure AD Connect sono disponibili due tipi di installazione: rapida e personalizzata. Questo argomento consente di decidere quale opzione usare durante l'installazione.
@@ -42,7 +41,7 @@ Offre:
 
 Casi in cui è comunque possibile usare l'installazione rapida:
 
-- Se non si desidera sincronizzare tutte le unità organizzative, è comunque possibile usare l'installazione rapida, deselezionando **Avviare il processo di sincronizzazione...*** nell'ultima pagina. Eseguire quindi di nuovo l'Installazione guidata, modificare le unità organizzative nelle [opzioni di configurazione](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e abilitare la sincronizzazione pianificata.
+- Se non si desidera sincronizzare tutte le unità organizzative, è comunque possibile usare l'installazione rapida, deselezionando **Avviare il processo di sincronizzazione...** * nell'ultima pagina. Eseguire quindi di nuovo l'Installazione guidata, modificare le unità organizzative nelle [opzioni di configurazione](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e abilitare la sincronizzazione pianificata.
 - Si desidera abilitare una delle funzionalità in Azure AD Premium, ad esempio il writeback delle password. Completare innanzitutto l'intera procedura di installazione rapida iniziale. Eseguire quindi di nuovo l'Installazione guidata e modificare le [opzioni di configurazione](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizzate
@@ -74,4 +73,3 @@ Se si usa Forefront Identity Manager 2010 o Microsoft Identity Manager 2016 con 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In base all'opzione scelta, usare i contenuti a sinistra per trovare l'articolo con i passaggi dettagliati.
-

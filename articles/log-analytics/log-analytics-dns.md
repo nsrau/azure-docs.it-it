@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 1b2f9c3fc59a83b384a63db00d2d039cab8679e8
-ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
 
 ![Simbolo di Analisi DNS](./media/log-analytics-dns/dns-analytics-symbol.png)
@@ -192,4 +190,3 @@ Nella pagina Ricerca log è possibile creare una query. È possibile filtrare i 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Eseguire ricerche nei log](log-analytics-log-searches.md) per visualizzare record di log dettagliati per DNS.
-

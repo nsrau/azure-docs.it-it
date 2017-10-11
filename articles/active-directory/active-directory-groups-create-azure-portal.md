@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 9636d26ec62bb83b30fdc4ae8b1701da8ab532e8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 6d3d37761a9fdf9bd9801396d45f2fcd47efb0be
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Creare un gruppo e aggiungere membri in Azure Active Directory
 > [!div class="op_single_selector"]
@@ -61,4 +60,3 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestire i membri di un gruppo](active-directory-groups-members-azure-portal.md)
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
-

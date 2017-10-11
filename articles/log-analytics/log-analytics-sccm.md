@@ -1,6 +1,6 @@
 ---
 title: Connettere Configuration Manager a Log Analytics | Documentazione Microsoft
-description: In questo articolo vengono illustrati i passaggi per connettere Configuration Manager a Log Analytics e avviare l&quot;analisi dei dati.
+description: In questo articolo vengono illustrati i passaggi per connettere Configuration Manager a Log Analytics e avviare l'analisi dei dati.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: aca83d2de9247bedacce0fb03efe141d903d8605
-ms.openlocfilehash: f93d37ad5be4bf7fdc78d83ec68ba56a427b3e35
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 62d31ed486458245156f7fc832294d662c62991e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Connettere Configuration Manager a Log Analytics
 È possibile connettere System Center Configuration Manager a Log Analytics in OMS per sincronizzare i dati della raccolta dei dispositivi. Ciò rende disponibili in OMS i dati provenienti dalla gerarchia di Configuration Manager.
@@ -135,4 +134,3 @@ Facendo clic su dei due, si apre la funzione di ricerca, nella quale vengono vis
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare [Ricerca Log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate sui dati di Configuration Manager.
-

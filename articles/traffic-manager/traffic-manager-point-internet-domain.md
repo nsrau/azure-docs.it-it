@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
 ms.openlocfilehash: 0322b3510cfd4f94031d8c1db8f1cc032b997fa8
-ms.contentlocale: it-it
-ms.lasthandoff: 11/30/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico di Azure
 
 Quando si crea un profilo di Gestione traffico, Azure assegna automaticamente un nome DNS per tale profilo. Per usare un nome dalla zona DNS, creare un record DNS CNAME che esegua il mapping al nome di dominio del profilo di Gestione traffico. È possibile visualizzare il nome di dominio di Gestione traffico nella sezione **Generale** nella pagina di configurazione del profilo di Gestione traffico.
@@ -40,4 +38,3 @@ Tutto il traffico indirizzato a *www.contoso.com* viene reindirizzato a *contoso
 * [Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 * [Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
 * [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
-

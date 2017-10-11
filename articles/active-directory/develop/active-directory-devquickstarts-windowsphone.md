@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 03c4b6d225dce99d79ef6c1ba2af43af8dea3eae
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Integrare Azure AD con un'app di Windows Phone
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -184,5 +183,4 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 [Proteggere un'API Web .NET con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
 

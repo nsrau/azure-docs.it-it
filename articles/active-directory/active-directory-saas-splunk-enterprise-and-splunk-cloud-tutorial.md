@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: b78e9b7161207a74880e912241d5e965b353d1c5
-ms.contentlocale: it-it
-ms.lasthandoff: 03/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con Splunk Enterprise e Splunk Cloud
 
 Questa esercitazione descrive come integrare Splunk Enterprise e Splunk Cloud con Azure Active Directory (Azure AD).
@@ -254,4 +252,3 @@ Quando si fa clic sul riquadro Splunk Enterprise e Splunk Cloud nel pannello di 
 [203]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_205.png
-

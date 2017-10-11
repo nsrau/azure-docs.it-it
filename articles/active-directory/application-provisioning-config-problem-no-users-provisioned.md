@@ -1,6 +1,6 @@
 ---
-title: "Nessun utente è sottoposto a provisioning per un&quot;applicazione della raccolta di Azure AD | Microsoft Docs"
-description: Come risolvere i problemi comuni riscontrati quando in un&quot;applicazione della raccolta di Azure AD non vengono visualizzati utenti configurati per il provisioning utenti con Azure AD
+title: "Nessun utente è sottoposto a provisioning per un'applicazione della raccolta di Azure AD | Microsoft Docs"
+description: Come risolvere i problemi comuni riscontrati quando in un'applicazione della raccolta di Azure AD non vengono visualizzati utenti configurati per il provisioning utenti con Azure AD
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,16 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 30db71c0706de1dcc0d48fb72fa5d62475a14ba7
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Nessun utente è sottoposto a provisioning per un'applicazione della raccolta di Azure AD
 
 Dopo aver configurato il provisioning automatico per un'applicazione (e dopo aver verificato la validità delle credenziali fornite ad Azure AD per connettersi all'app), gli utenti e/o i gruppi vengono sottoposti a provisioning per l'app in base a quanto segue:
@@ -69,5 +65,4 @@ Quando un utente viene visualizzato come "ignorato" nei log di controllo, è ess
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Servizio di sincronizzazione Azure AD Connect: informazioni sul provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
-
 

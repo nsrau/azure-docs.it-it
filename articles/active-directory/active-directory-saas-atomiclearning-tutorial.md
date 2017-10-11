@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 6cce8fc839e60eb6498ab48bf68e9906c98889a2
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Esercitazione: Integrazione di Azure Active Directory con Atomic Learning
 
@@ -124,7 +123,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso Single Sign-On sul lato **Atomic Learning** è necessario inviare il file **XML metadati** scaricato al [team di supporto di Atomic Learning](mailto:cs@atomiclearning.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+6. Per configurare l'accesso Single Sign-On sul lato **Atomic Learning** è necessario inviare il file **XML metadati** scaricato al [team di supporto di Atomic Learning](mailto:cs@atomiclearning.com). L’impostazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -164,7 +163,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione viene creato un utente di nome Britta Simon in Atomic Learning. Atomic Learning supporta il provisioning just-in-time, abilitato per impostazione predefinita. 
 
-Non è necessario alcun intervento dell'utente in questa sezione. Un utente, se non esiste già, viene creato durante un tentativo di accesso ad Atomic Learning con l'indirizzo di posta elettronica dell'utente stesso.
+Non è necessario alcun intervento dell'utente in questa sezione. Un utente, se non esiste già, viene creato durante un tentativo di accesso ad Atomic Learning con l'indirizzo e-mail dell'utente stesso.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
@@ -222,5 +221,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_203.png
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/06/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 5c8f4c784eed7b64810a3dd1c36c043d22a66936
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Creare il primo cluster autonomo di Service Fabric
 È possibile creare un cluster autonomo di Service Fabric su qualsiasi macchina virtuale o computer che esegua Windows Server 2012 R2 o Windows Server 2016, locale o nel cloud. Questa guida introduttiva consente di creare un cluster di sviluppo autonomo in pochi minuti.  Al termine si ottiene un cluster di tre nodi in esecuzione in un singolo computer nel quale è possibile distribuire app.
 
@@ -95,4 +93,3 @@ Ora che è stato configurato un cluster di sviluppo autonomo, vedere gli articol
 * [Distribuire le app tramite PowerShell](service-fabric-deploy-remove-applications.md)
 
 [service-fabric-explorer]: ./media/service-fabric-get-started-standalone-cluster/sfx.png
-

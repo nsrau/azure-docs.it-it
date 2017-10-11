@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configurare l'aggiornamento di un'applicazione di Infrastruttura di servizi in Visual Studio
 Gli strumenti di Visual Studio per Service Fabric di Azure forniscono supporto per l'aggiornamento per la pubblicazione nei cluster locali o remoti. Esistono tre scenari in cui è consigliabile eseguire l'aggiornamento dell'applicazione a una versione più recente anziché sostituirla durante il test e il debug:

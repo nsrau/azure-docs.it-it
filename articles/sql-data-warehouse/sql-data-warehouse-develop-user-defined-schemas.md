@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: dfb58956ad6637cf0f50b4c052ab98fb7c26139d
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="user-defined-schemas-in-sql-data-warehouse"></a>Schemi definiti dall'utente in SQL Data Warehouse
 I data warehouse tradizionali spesso usano database separati per creare i limiti dell'applicazione in base a carico di lavoro, dominio o di sicurezza. Ad esempio, un data warehouse di SQL Server tradizionale potrebbe includere un database di gestione temporanea, un database del data warehouse e alcuni database del data mart. In questa topologia ogni database funziona come carico di lavoro e limite di sicurezza nell'architettura.
@@ -132,4 +131,3 @@ Per altri suggerimenti sullo sviluppo, vedere la [panoramica dello sviluppo][dev
 <!--MSDN references-->
 
 <!--Other Web references-->
-

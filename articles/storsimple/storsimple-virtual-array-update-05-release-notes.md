@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/08/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 4d020ff2b998da4cb52fe91e4d7d4b93544965a8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-virtual-array-update-05-release-notes"></a>Note sulla versione dell'aggiornamento 0.5 per l'array virtuale StorSimple
 
@@ -87,5 +86,4 @@ Si desidera consultare le note su una versione precedente? Passare a:
 * [Note sulla versione dell'aggiornamento 0.3 per l'array virtuale StorSimple](storsimple-ova-update-03-release-notes.md)
 * [Note sulla versione dell'Aggiornamento 0.1 e 0.2 per l'array virtuale StorSimple](storsimple-ova-update-01-release-notes.md)
 * [Note sulla versione con disponibilità generale dell'array virtuale StorSimple](storsimple-ova-pp-release-notes.md)
-
 

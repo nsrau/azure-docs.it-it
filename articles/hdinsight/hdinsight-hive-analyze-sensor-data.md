@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 3abb71c12b4769bebd808276f8bdd832aad22d7a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight
 
@@ -65,4 +64,3 @@ In questo esempio, usare Hive per elaborare i dati cronologici e identificare i 
     ![Immagine della raccolta introduttiva](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
-

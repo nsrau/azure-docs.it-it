@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3400d00112b4b66cceef602dba5cb8666e49e0e4
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: c0b4f455f067e825362bdecc02ea62d7984f0d31
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="unlicensed-usage-report"></a>Report Utilizzo senza licenza
 Il report Utilizzo senza licenza semplifica l'identificazione di utenti senza licenza che usano funzionalità a pagamento di Azure AD. Ciò consente di usare in modo ottimale le licenze acquistate e di identificare le situazioni in cui potrebbero essere necessarie licenze aggiuntive. 
@@ -46,5 +44,4 @@ Questo approccio viene applicato ai criteri di MFA e di posizione, oltre ai disp
 ## <a name="see-also"></a>Vedere anche
 * [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 * [Guida introduttiva all'accesso condizionale ad Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
-
 

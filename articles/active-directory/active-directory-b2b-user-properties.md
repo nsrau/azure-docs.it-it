@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 6e49cb202ed03bf50fb9ca34d34924cda434829c
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
 Un utente di Collaborazione B2B (business-to-business ) di Azure Active Directory (Azure AD) è un utente con UserType = Guest. L'utente guest rappresenta in genere un utente di un'organizzazione partner e ha privilegi limitati nella directory di invito per impostazione predefinita.
@@ -107,4 +105,3 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
-

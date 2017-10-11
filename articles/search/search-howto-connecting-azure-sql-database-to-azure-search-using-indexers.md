@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori
 
 Prima di poter eseguire una query nell'[indice di Ricerca di Azure](search-what-is-an-index.md), è necessario inserirvi i propri dati. Se i dati si trovano in un database SQL di Azure, l'**Indicizzatore di Ricerca di Azure per il database SQL di Azure**, o in breve **Indicizzatore SQL di Azure**, è in grado di automatizzare il processo di indicizzazione. Questo implica che la quantità di codice da scrivere è inferiore, così come l'infrastruttura di cui occuparsi.
@@ -358,4 +356,3 @@ Non è consigliabile. Solo **rowversion** consente una sincronizzazione dei dati
 + Accertarsi che, durante l'esecuzione dell'indicizzatore, non siano presenti transazioni in sospeso nella tabella che si sta indicizzando. Ad esempio, tutti gli aggiornamenti della tabella vengono eseguiti come batch in una pianificazione e la pianificazione dell'indicizzatore di Ricerca di Azure è impostato per evitare la sovrapposizione con la pianificazione dell'aggiornamento della tabella.  
 
 + Eseguire periodicamente una reindicizzazione completa per prelevare le righe mancanti. 
-

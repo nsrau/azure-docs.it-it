@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 629fc1f95f8596c11ceadeda44a9b57eaefc702e
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azurelogcollector-extension"></a>Estensione AzureLogCollector
 [!INCLUDE [virtual-machines-common-log-collector-extension](../../../includes/virtual-machines-common-log-collector-extension.md)]
-
 

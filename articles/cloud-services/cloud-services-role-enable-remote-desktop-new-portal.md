@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
 > [!div class="op_single_selector"]
@@ -73,4 +72,3 @@ Dopo aver abilitato Desktop remoto nei ruoli, è possibile avviare una connessio
 
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 [Domande frequenti sui servizi cloud - Desktop remoto](cloud-services-faq.md)
-

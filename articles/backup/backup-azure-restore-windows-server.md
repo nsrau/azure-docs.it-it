@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 231dd61f95267b3a504ed70e9b3a5abc470b69b2
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Ripristinare file in un computer di Windows Server o in un client Windows con il modello di distribuzione di Resource Manager
 > [!div class="op_single_selector"]
@@ -184,4 +183,3 @@ Se il ripristino ha ancora esito negativo, riavviare il server o il client. Se u
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver ripristinato i file e le cartelle, è possibile [gestire i backup](backup-azure-manage-windows-server.md).
-

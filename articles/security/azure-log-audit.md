@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
-ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Registrazione e controllo di Azure
 ## <a name="introduction"></a>Introduzione
@@ -435,6 +434,5 @@ In qualità di amministratore della raccolta di siti, si può recuperare la cron
 - [Cercare il log di controllo nel Centro sicurezza e conformità di Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US)
 
 È possibile ricorrere al Centro sicurezza e conformità di Office 365 per cercare il log di controllo unificato per visualizzare l'attività dell'utente e dell'amministratore nell'organizzazione di Office 365.
-
 
 

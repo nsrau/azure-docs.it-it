@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/05/2017
 ms.author: betorres
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.contentlocale: it-it
-ms.lasthandoff: 04/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="what-is-search-traffic-analytics"></a>Analisi del traffico di ricerca
 Analisi del traffico di ricerca è un modello per l'implementazione di un ciclo di feedback per il servizio di ricerca. Questo modello descrive i dati necessari e come raccoglierli utilizzando Application Insights, uno strumento leader di settore per il monitoraggio dei servizi in più piattaforme.
 
@@ -197,4 +195,3 @@ Altre informazioni sulla creazione di report utili Per informazioni dettagliate,
 [1]: ./media/search-traffic-analytics/AzureSearch-TrafficAnalytics.png
 [2]: ./media/search-traffic-analytics/AzureSearch-AppInsightsData.png
 [3]: ./media/search-traffic-analytics/AzureSearch-PBITemplate.png
-

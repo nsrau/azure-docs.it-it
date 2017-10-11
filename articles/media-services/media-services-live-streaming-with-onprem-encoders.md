@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: d6e3ea06106463367eb03498ef8d9bc47d83c694
-ms.contentlocale: it-it
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming live con codificatori locali che creano flussi a bitrate multipli
 ## <a name="overview"></a>Panoramica
@@ -228,4 +227,3 @@ Ecco altre considerazioni relative all'uso dei canali e dei componenti correlati
 [Concetti relativi ai Servizi multimediali](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
-

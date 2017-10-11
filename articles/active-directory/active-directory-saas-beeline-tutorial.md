@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 93acbd90bbe5f0a40bf3f56edb766a0fdd30f68f
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Esercitazione: Integrazione di Azure Active Directory con BeeLine
 
@@ -231,5 +230,4 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 [201]: ./media/active-directory-saas-beeline-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-beeline-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-beeline-tutorial/tutorial_general_203.png
-
 

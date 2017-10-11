@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: cc6ef8f3ef5371ac3092686afddc9198516916fd
-ms.contentlocale: it-it
-ms.lasthandoff: 12/09/2016
-
-
+ms.openlocfilehash: d71924cda8bb3bffbe221946d80dba150359e38e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-secrets-in-service-fabric-applications"></a>Gestione dei segreti nelle applicazioni di Service Fabric
 Questa guida descrive la procedura di gestione dei segreti in un'applicazione di Service Fabric. I segreti possono essere informazioni riservate, ad esempio le stringhe di connessione di archiviazione, le password o altri valori che non devono essere gestiti in testo normale.
@@ -187,4 +185,3 @@ Altre informazioni sull' [esecuzione di applicazioni con autorizzazioni di sicur
 
 <!-- Images -->
 [overview]:./media/service-fabric-application-secret-management/overview.png
-

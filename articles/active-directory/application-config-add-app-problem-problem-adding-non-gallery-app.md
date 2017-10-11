@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 2dd8ed2cc0cd9575dcc56f489afa19a41cc9c10a
-ms.contentlocale: it-it
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: bb3fc7877f4e7cafc3904fc67abd87b897874d8a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-adding-a-non-gallery-application"></a>Errore durante l'aggiunta di un'applicazione non inclusa nella raccolta
 
 Questo articolo consente di comprendere i problemi frequenti che si riscontrano durante l'aggiunta di **applicazioni personalizzate non incluse nella raccolta** e presenta le azioni da intraprendere per risolverli. 
@@ -31,11 +29,11 @@ In alcuni casi, dopo essere stata aggiunta alla directory, un'applicazione può 
 
 Se l'applicazione non viene mai aggiunta o si verifica un errore quando si fa clic sul pulsante **Aggiungi**, verrà visualizzata una **Notifica** in uno stato di **Errore**. Se si desidera visualizzare altri dettagli sull'errore per saperne di più o per effettuarne la condivisione con un tecnico del supporto, è possibile visualizzare altre informazioni sull'errore seguendo i passaggi illustrati nella sezione [Come visualizzare i dettagli di una notifica del portale](#how-to-see-the-details-of-a-portal-notification).
 
-## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Dopo avere fatto clic sul pulsante "Aggiungi", l'applicazione non è stata visualizzata
+## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Quando si fa clic sul pulsante "Aggiungi" l'applicazione non viene visualizzata
 
-In alcuni casi, a causa di problemi temporanei, problemi di rete o un bug, l'aggiunta di un'applicazione ha esito negativo. È possibile stabilire che si è verificata tale situazione quando si fa clic sull'icona **Notifiche** (la campanella) nella parte superiore destra del portale di Azure e viene visualizzata un'icona di colore rosso (!) accanto alla notifica **Crea applicazione**. Ciò indica che si è verificato un errore durante la creazione dell'applicazione.
+In alcuni casi, a causa di problemi temporanei, problemi di rete o un bug, l'aggiunta di un'applicazione ha esito negativo. È possibile verificare il problema facendo clic sull'icona **Notifiche** (la campanella) nella parte superiore destra del portale di Azure. Un punto esclamativo (!) rosso viene visualizzato accanto alla notifica **Crea applicazione**. Questa icona indica che si è verificato un errore durante la creazione dell'applicazione.
 
-Se si verifica un errore quando si fa clic sul pulsante **Aggiungi**, verrà visualizzata una **Notifica** in uno stato di **Errore**. Se si desidera visualizzare altri dettagli sull'errore per saperne di più o per effettuarne la condivisione con un tecnico del supporto, è possibile visualizzare altre informazioni sull'errore seguendo i passaggi illustrati nella sezione [Come visualizzare i dettagli di una notifica del portale](#how-to-see-the-details-of-a-portal-notification).
+Se si verifica un errore quando si fa clic sul pulsante **Aggiungi**, viene visualizzata una **Notifica** con stato **Errore**. Se si desidera visualizzare altri dettagli sull'errore per saperne di più o per effettuarne la condivisione con un tecnico del supporto, è possibile visualizzare altre informazioni sull'errore seguendo i passaggi illustrati nella sezione [Come visualizzare i dettagli di una notifica del portale](#how-to-see-the-details-of-a-portal-notification).
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Come configurare l'applicazione dopo averla aggiunta
 
@@ -47,16 +45,16 @@ Se sono necessarie altre informazioni sulle applicazioni personalizzate, la [Rac
 
 1.  Fare clic sull'icona **Notifiche** (la campanella) nella parte superiore destra del portale di Azure
 
-2.  Selezionare qualsiasi notifica in uno stato di **Errore** (quelle con accanto un (!) di colore rosso).
+2.  Selezionare una notifica con stato **Errore** contrassegnata con un punto esclamativo (!) rosso.
 
    >[!NOTE]
-   >Non è possibile fare clic sulle notifiche in uno stato di **Riuscita** o **In corso**.
+   >Non è possibile fare clic sulle notifiche con stato **Operazione completata** o **In corso**.
    >
    >
 
-3.  Questa operazione apre il pannello **Dettagli notifica**.
+3.  Viene aperto il pannello **Dettagli notifica**.
 
-4.  Usare queste informazioni per comprendere altri dettagli sul problema.
+4.  Usare queste informazioni per ottenere più dettagli sul problema.
 
 5.  In caso sia necessaria ulteriore assistenza, è anche possibile condividere queste informazioni con un tecnico del supporto o il gruppo di prodotto per ottenere assistenza con il problema.
 
@@ -64,20 +62,20 @@ Se sono necessarie altre informazioni sulle applicazioni personalizzate, la [Rac
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Come ottenere assistenza inviando i dettagli di notifica a un tecnico del supporto
 
-È molto importante condividere **tutti i dettagli riportati di seguito** con un tecnico del supporto per poter ricevere assistenza rapidamente. È possibile farlo semplicemente **acquisendo una schermata** o facendo clic sull'**icona Copia errore** che si trova a destra della casella di testo **Copia errore**.
+È molto importante condividere **tutti i dettagli elencati di seguito** con un tecnico del supporto per poter ricevere assistenza immediata. A tale scopo, è possibile **acquisire uno screenshot** o fare clic sull'**icona Copia errore** che si trova a destra della casella di testo **Copia errore**.
 
-## <a name="notification-details-explained"></a>Spiegazione dei dettagli relativi alla notifica
+## <a name="notification-details-explained"></a>Spiegazione dei dettagli della notifica
 
-Quanto segue illustra in dettaglio il significato degli elementi della notifica e offre alcuni esempi per ognuno di essi.
+La sezione seguente illustra in dettaglio il significato degli elementi della notifica e offre esempi per ognuno di essi.
 
 ### <a name="essential-notification-items"></a>Elementi essenziali della notifica
 
--   **Titolo**: titolo descrittivo della notifica
-   *  Esempio: **Impostazioni del proxy dell'applicazione**
+-   **Titolo**: il titolo descrittivo della notifica
+   *  Esempio: **Impostazioni proxy di applicazione**
 
 -   **Descrizione**: la descrizione di ciò che si è verificato a seguito dell'operazione
 
-   *  Esempio: **L'URL interno immesso è già in uso da un'altra applicazione**
+   *  Esempio: **L'URL interno immesso è già usato da un'altra applicazione**
 
 -   **ID notifica**: l'ID univoco della notifica
 
@@ -87,7 +85,7 @@ Quanto segue illustra in dettaglio il significato degli elementi della notifica 
 
    *  Esempio: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Timestamp (UTC)**: il timestamp in cui si è verificata la notifica, in UTC
+-   **Timestamp (UTC)**: il timestamp in cui si è verificata la notifica, basato sul sistema UTC
 
    *  Esempio: **2017-03-23T19:50:43.7583681Z**
 
@@ -95,11 +93,11 @@ Quanto segue illustra in dettaglio il significato degli elementi della notifica 
 
    *  Esempio: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN**: l'utente che ha eseguito l'operazione
+-   **UPN** : l'utente che ha eseguito l'operazione
 
    *  Esempio: **tperkins@f128.info**
 
--   **ID tenant**: l'ID univoco del tenant di cui era membro l'utente che ha eseguito l'operazione
+-   **ID tenant**: l'ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
 
    *  Esempio: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
@@ -107,31 +105,30 @@ Quanto segue illustra in dettaglio il significato degli elementi della notifica 
 
  *  Esempio: **17f84be4-51f8-483a-b533-383791227a99**
 
-### <a name="detailed-notification-items"></a>Elementi della notifica in dettaglio
+### <a name="detailed-notification-items"></a>Elementi della notifica dettagliati
 
 -   **Nome visualizzato**: **(può essere vuoto)** un nome visualizzato più dettagliato per l'errore
 
-  *  Esempio: **Impostazioni del proxy dell'applicazione**
+  *  Esempio: **Impostazioni proxy di applicazione**
 
 -   **Stato**: lo stato specifico della notifica
 
-   *  Esempio: **Non riuscita**
+   *  Esempio: **Operazione non riuscita**
 
--   **ID oggetto**: **(può essere vuoto)** l'ID dell'oggetto per cui è stata eseguita l'operazione
+-   **ID oggetto**: **(può essere vuoto)** l'ID dell'oggetto su cui è stata eseguita l'operazione
 
    *  Esempio: **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Dettagli**: la descrizione dettagliata di ciò che si è verificato a seguito dell'operazione
+-   **Dettagli**: la descrizione dettagliata di ciò che si è verificato come conseguenza dell'operazione
 
-   *  Esempio: **L'URL interno 'http://bing.com/' non è valido perché è già in uso**
+   *  Esempio: **L'URL interno "http://bing.com/" non è valido perché è già in uso**
 
--   **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli di notifica da condividere con un tecnico del supporto o del gruppo di prodotto
+-   **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico di supporto o del gruppo di prodotti
 
    *  Esempio```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
-
 
 
 

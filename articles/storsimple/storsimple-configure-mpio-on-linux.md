@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/01/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aa0193e741b1a84c03230b2458eec96b5504f031
 ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.contentlocale: it-it
-ms.lasthandoff: 12/07/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
 Questo articolo illustra i passaggi necessari a configurare l'I/O a percorsi multipli (MPIO) nel server host CentOS 6.6. Il server host è connesso al dispositivo Microsoft Azure StorSimple per la disponibilità elevata attraverso gli iniziatori iSCSI. L'articolo descrive in dettaglio il rilevamento automatico dei dispositivi con percorsi multipli e la configurazione specifica solo per i volumi StorSimple.
@@ -447,5 +446,4 @@ Nella configurazione di MPIO sull'host Linux può anche essere necessario consul
 
 * [Configurazione di MPIO su CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 * [Guida alla formazione Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
-
 

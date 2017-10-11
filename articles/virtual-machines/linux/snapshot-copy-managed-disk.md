@@ -13,12 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 2/6/2017
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 22013ec8e5531a2f61d811300bce016fcde5ab86
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: c91367ef11c9d531bebac7c069d2df586607ec29
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Creare una copia di un disco rigido virtuale archiviato come disco gestito di Azure usando snapshot gestiti
 Creare uno snapshot di un disco gestito per il backup o creare un disco gestito dallo snapshot e collegarlo a una macchina virtuale di prova per risolvere i problemi. Uno snapshot gestito è una copia temporizzata completa di un disco gestito di macchina virtuale. Uno snapshot crea una copia di sola lettura del disco rigido virtuale che, per impostazione predefinita, viene memorizzato come disco gestito Standard. 
@@ -80,6 +79,5 @@ L'output dovrebbe essere simile a quanto segue:
 9. Fare clic su **Crea**.
 
 Se si prevede di usare lo snapshot per creare un disco gestito e associarlo a una macchina virtuale a prestazioni elevate, usare il parametro `--sku Premium_LRS` con il comando `az snapshot create`. In questo modo si crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. Managed Disks Premium offre prestazioni migliori perché consiste in unità SSD, ma con un costo superiore rispetto ai dischi Standard (HDD).
-
 
 

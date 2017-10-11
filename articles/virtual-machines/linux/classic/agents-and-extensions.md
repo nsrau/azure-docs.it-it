@@ -1,4 +1,3 @@
-
 ---
 title: Agente ed estensioni di macchine virtuali Linux in Azure | Documentazione Microsoft
 description: Fornisce una panoramica dell'agente e delle estensioni e informazioni su come installare l'agente, usando il modello di distribuzione classica su macchine virtuali Linux.
@@ -17,16 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 06b802c408ea5d1b2b40d05321e1a0014e99ca8b
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>Informazioni sull'agente e sulle estensioni di macchine virtuali per Linux
 > [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni su agenti ed estensioni VM tramite Gestione risorse, vedere [qui](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
-

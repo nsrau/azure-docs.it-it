@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a1e5461ef2188a42a3edd6cc35827874ddd6e3f3
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: e53f60979e01a0eabe118d3ae6457a61bd4b0ded
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery
 
@@ -203,4 +202,3 @@ Per i cluster SQL Server Standard, il failback dopo un failover non pianificato 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni](site-recovery-components.md) sull'architettura di Site Recovery.
-

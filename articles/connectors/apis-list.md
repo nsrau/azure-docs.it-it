@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connectors-list"></a>Elenco dei connettori
 > [!TIP]
@@ -315,4 +314,3 @@ Se manca un argomento sui connettori o qualche dettaglio che si ritiene sia impo
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
-

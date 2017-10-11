@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a9de327c20463469bc91d9720aa17333a36f919e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET 
 
@@ -77,7 +76,7 @@ Per altre informazioni sull'uso di contenitori e BLOB in Archiviazione di Azure,
 
 ### <a name="create-storage-container"></a>Creare un contenitore di archiviazione
 
-Per rendere persistente l'output delle attività in Archiviazione di Azure, creare innanzitutto un contenitore chiamando [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Questo metodo di estensione accetta un oggetto [CloudStorageAccount][net_cloudstorageaccount] come parametro. Crea un contenitore denominato in base allo standard File Conventions, in modo che il relativo contenuto sia individuabile dal portale di Azure e dai metodi di recupero descritti più avanti in questo articolo.
+Per rendere persistente l'output delle attività in Archiviazione di Azure, creare innanzitutto un contenitore chiamando [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Questo metodo di estensione accetta un oggetto [CloudStorageAccount] [ net_cloudstorageaccount] come parametro. Crea un contenitore denominato in base allo standard File Conventions, in modo che il relativo contenuto sia individuabile dal portale di Azure e dai metodi di recupero descritti più avanti in questo articolo.
 
 In genere si inserisce il codice per creare un contenitore nell'applicazione client, ovvero l'applicazione che crea i pool, i processi e le attività.
 
@@ -262,4 +261,3 @@ Il [codice sorgente][github_file_conventions] per la libreria File Conventions �
 
 [1]: ./media/batch-task-output/task-output-01.png "Selettori di file di output salvati e di log salvati nel portale"
 [2]: ./media/batch-task-output/task-output-02.png "Pannello dei file di output delle attività nel portale di Azure"
-

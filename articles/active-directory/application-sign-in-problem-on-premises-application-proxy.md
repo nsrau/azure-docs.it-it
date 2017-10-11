@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 18c6e8cfff3647c05cc11c79c6740ef9493828f9
-ms.contentlocale: it-it
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 5687f789355cc9769d26b53e98486bb213c66419
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemi durante l'accesso a un'applicazione locale tramite il proxy di applicazione di Azure AD
 
 Se si riscontrano problemi durante l'accesso a un'applicazione locale, è possibile provare a risolverli tramite le procedure seguenti.
@@ -38,18 +36,18 @@ I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni
   * [I don't know what ports to open for my application](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-ports-how-to/) (Quali porte aprire per l'applicazione)
   * [I encountered a problem because there was no working connector in a connector group for my application](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-no-working-connector/) (Un gruppo di connettori non contiene alcun connettore funzionante per l'applicazione)
 
-## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Si è verificato un problema di configurazione del proxy dell'applicazione Azure AD nel portale di amministrazione
+## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Si è verificato un problema di configurazione del proxy di applicazione di Azure AD nel portale di amministrazione
   I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni in questa categoria.
   * [I am having difficulty configuring an application Proxy application](https://docs.microsoft.com/azure/active-directory/application-proxy-config-how-to/) (Come configurare un'applicazione proxy di applicazione)
   * [I don't know how to configure single sign-on to my application Proxy application](https://docs.microsoft.com/azure/active-directory/application-proxy-config-sso-how-to/) (Come configurare Single Sign-On nell'applicazione proxy di applicazione)
   * [I encountered a problem when creating my application in admin portal](https://docs.microsoft.com/azure/active-directory/application-proxy-config-problem/) (Problema di creazione dell'applicazione nel portale di amministrazione)
 
-## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Si è verificato un problema durante la configurazione dell'autenticazione back-end sull'applicazione
+## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Si è verificato un problema di configurazione dell'autenticazione back-end nell'applicazione
   I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni in questa categoria.
   * [I don't know how to configure Kerberos Constrained Delegation](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to/) (Come configurare la delega vincolata Kerberos)
   * [I don't know how to configure my application with PingAccess](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-ping-access-how-to/) (Come configurare l'applicazione con PingAccess)
 
-## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Si è verificato un problema durante il tentativo di accesso all'applicazione
+## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Si è verificato un problema di accesso all'applicazione
   I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni in questa categoria.
   * [I get a "Can't Access this Corporate Application" error](https://docs.microsoft.com/azure/active-directory/application-proxy-sign-in-bad-gateway-timeout-error/) (Errore di accesso non riuscito all'applicazione aziendale)
 
@@ -59,4 +57,3 @@ I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Come fornire l'accesso remoto sicuro alle applicazioni locali](active-directory-application-proxy-get-started.md)
-

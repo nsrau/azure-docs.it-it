@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 522fa6a45521ab917a540e8cc6bc619b05ab262e
-ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 43b82e5fb6a309283979f23d8c87af600595bc55
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-c"></a>Connettere Raspberry Pi 3 alla soluzione di monitoraggio remoto e inviare la telemetria simulata usando C
 
@@ -35,7 +34,7 @@ Questa esercitazione illustra come usare Raspberry Pi 3 per simulare i dati rela
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> La soluzione di monitoraggio remota esegue il provisioning di un set di servizi di Azure nella sottoscrizione di Azure. La distribuzione riflette un'architettura enterprise reale. Per evitare costi di consumo di Azure non necessari, eliminare l'istanza della soluzione preconfigurata in azureiotsuite.com al completamento. Se la soluzione preconfigurata occorre nuovamente, è possibile ricrearla facilmente. Per altre informazioni sulla riduzione dei consumi durante l'esecuzione della soluzione di monitoraggio remoto, vedere [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurazione di soluzioni preconfigurate di Azure IoT Suite per scopi dimostrativi).
+> La soluzione di monitoraggio remoto esegue il provisioning di un set di servizi di Azure nella sottoscrizione di Azure. La distribuzione riflette un'architettura enterprise reale. Per evitare costi di consumo di Azure non necessari, eliminare l'istanza della soluzione preconfigurata in azureiotsuite.com al completamento. Se la soluzione preconfigurata occorre nuovamente, è possibile ricrearla facilmente. Per altre informazioni sulla riduzione del consumo durante l'esecuzione della soluzione di monitoraggio remoto, vedere [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurazione di soluzioni preconfigurate di Azure IoT Suite per scopi dimostrativi).
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-solution](../../includes/iot-suite-raspberry-pi-kit-view-solution.md)]
 
@@ -73,7 +72,7 @@ Sostituire i valori segnaposto con il dispositivo e le informazioni dell'hub IoT
 
 ## <a name="build-the-sample"></a>Compilare l'esempio
 
-Installare i pacchetti di prerequisiti per Azure IoT SDK per dispositivi di Microsoft per C eseguendo i comandi seguenti in un terminale di Raspberry Pi:
+Installare i pacchetti di prerequisiti per Microsoft Azure IoT SDK per dispositivi di Microsoft per C eseguendo i comandi seguenti in un terminale di Raspberry Pi:
 
 ```sh
 sudo apt-get update
@@ -97,7 +96,7 @@ L'output seguente riporta un esempio dell'output visualizzato al prompt dei coma
 
 ![Output dell'app Raspberry Pi][img-raspberry-output]
 
-Premere **CTRL+C** per uscire dal programma in qualsiasi momento.
+Premere **CTRL-C** per uscire dal programma in qualsiasi momento.
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry-simulator](../../includes/iot-suite-raspberry-pi-kit-view-telemetry-simulator.md)]
 
@@ -108,4 +107,3 @@ Visitare il [Centro per sviluppatori Azure IoT](https://azure.microsoft.com/deve
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-c-get-started-simulator/appoutput.png
 
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
-

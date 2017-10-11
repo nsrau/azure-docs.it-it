@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3f29547e1da6028b1e4b91d9e29fd3bcdfe08d50
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale Linux
 
@@ -62,5 +61,4 @@ Il disco rimane nello spazio di archiviazione ma non è più collegato a una mac
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si intende usare nuovamente il disco dati, è sufficiente [collegarlo a un'altra macchina virtuale](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
-ms.contentlocale: it-it
-ms.lasthandoff: 03/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="verify-traffic-manager-settings"></a>Verificare le impostazioni di Gestione traffico
 
 Per verificare le impostazioni di Gestione traffico, è necessario disporre di più client, ubicati in diverse posizioni, da cui eseguire i test. Arrestare quindi uno alla volta gli endpoint del profilo di Gestione traffico.
@@ -76,4 +74,3 @@ In alternativa, sono disponibili servizi gratuiti di analisi approfondita e DNS 
 * [Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 * [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
 * [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/7/2017
 ms.author: sromeroz
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 8c2154fcf33537358b549395d15b4ba937371cd0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C: fornire l'iscrizione e l'accesso agli utenti con account Facebook
 ## <a name="create-a-facebook-application"></a>Creare un'applicazione Facebook

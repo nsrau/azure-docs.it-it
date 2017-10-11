@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un firewall di nuova generazione nel Centro sicurezza di Azure | Microsoft Docs
-description: Questo argomento illustra come implementare le raccomandazioni **Aggiungi un firewall di nuova generazione** e **Indirizza il traffico solo tramite il firewall di nuova generazione** del Centro sicurezza di Azure.
+description: Questo argomento illustra come implementare le raccomandazioni **Aggiungi un firewall di nuova generazione** e **Route traffice through NGFW only** (Indirizza il traffico solo tramite il firewall di nuova generazione) del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
 ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
-ms.contentlocale: it-it
-ms.lasthandoff: 02/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Aggiungere un firewall di nuova generazione in Centro sicurezza di Azure
 È possibile che il Centro sicurezza di Azure consigli di aggiungere un firewall di nuova generazione di un partner Microsoft per aumentare le impostazioni di sicurezza. In questo documento è riportato un esempio di come eseguire questa operazione.
@@ -81,4 +80,3 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [8]: ./media/security-center-add-next-gen-firewall/select-vm.png
 [9]: ./media/security-center-add-next-gen-firewall/configure-rules-to-limit-access.png
 [10]: ./media/security-center-add-next-gen-firewall/edit-inbound-rule.png
-

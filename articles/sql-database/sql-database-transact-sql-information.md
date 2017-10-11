@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 105255696c59346f3a8f0013d98602c9f17b7661
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: c4efec378a31852feacfce4ed4f040f80284e230
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL   
 Durante la [migrazione del database](sql-database-cloud-migrate.md) da SQL Server ad Azure SQL Server, si potrebbe scoprire che il database richiede alcune operazioni di riprogettazione prima di poter eseguire la migrazione di SQL Server. In questo argomento vengono fornite istruzioni utili per eseguire la riprogettazione e capire i motivi che la rendono necessaria. Per rilevare le incompatibilità, usare [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -92,5 +90,4 @@ In alcuni casi, il tema generale di un argomento può essere utilizzato in un pr
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per un elenco delle funzionalità supportate e non supportate dal database SQL, vedere [Confronto fra le funzionalità del database SQL di Azure](sql-database-features.md). L'elenco riportato in questa pagina integra le linee guida e l'argomento sulle funzionalità e si concentra sulle istruzioni Transact-SQL.
-
 

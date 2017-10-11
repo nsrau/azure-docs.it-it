@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 668ba10474fc1b01d5ebccbff1f50fe09ade5f30
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.openlocfilehash: 39886a955124429302609dd9d5a7c20ae7f498d9
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-media-services-error-codes"></a>Codici di errore di Servizi multimediali di Azure
 Quando si usa Servizi multimediali di Microsoft Azure, è possibile ricevere codici di errore HTTP dal servizio a seconda del problema, ad esempio scadenza dei token di autenticazione o azioni non supportate in Servizi multimediali. Di seguito è riportato un elenco di **codici di errore HTTP** che possono essere restituiti da Servizi multimediali e le cause che li possono generare.  
@@ -124,5 +123,4 @@ Per gestire questo errore, è consigliabile usare la logica di ripetizione dei t
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

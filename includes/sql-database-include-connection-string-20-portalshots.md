@@ -23,7 +23,7 @@ Usare il [portale di Azure](https://portal.azure.com/) per ottenere la stringa d
     ![Copiare la stringa di connessione ADO per il database][20-CopyAdoConnectionString]
 7. In un formato o un altro, incollare le informazioni sulla stringa di connessione nel codice del programma client.
 
-Per altre informazioni, vedere il blog sul <br/>[stringhe di connessione e file di configurazione](http://msdn.microsoft.com/library/ms254494.aspx).
+Per altre informazioni, vedere il blog sul <br/>[Stringhe di connessione e file di configurazione](http://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 

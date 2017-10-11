@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="advanced-reporting-with-engagement-on-android"></a>Segnalazione avanzata con Engagement in Android
 > [!div class="op_single_selector"]
@@ -106,4 +105,3 @@ Se si compila il pacchetto dell'applicazione con ProGuard, è necessario mantene
     -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
     <methods>;
      }
-

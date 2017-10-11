@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 540ef8379145b764d0926649095db57fddb27329
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 6a91ea2251ea3b748faba5c97765bfded9c00234
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Aggiunta di una partizione utilizzando gli strumenti di database elastici
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Per aggiungere una partizione per un nuovo intervallo o una nuova chiave
@@ -79,5 +77,4 @@ In alcuni casi è possibile che pur avendo già eseguito il mapping di un interv
 **Importante**: usare questa tecnica solo se si è certi che l'intervallo per il mapping aggiornato sia vuoto.  Poiché i metodi descritti precedentemente non controllano i dati dell'intervallo da spostare, è consigliabile includere i controlli nel codice.  Se esistono righe nell'intervallo da spostare, la distribuzione dei dati effettivi non corrisponderà alla mappa partizioni aggiornata. In questi casi utilizzare invece lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md) per eseguire l'operazione.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

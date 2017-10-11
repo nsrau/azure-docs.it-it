@@ -15,12 +15,11 @@ ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 43ddeebfea4c914b8377d3363ba3d0c12db0adca
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 4e8028ab43ed02ef0c0a1374326b07f72f97d9d9
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Creare un report degli accessi per il controllo degli accessi in base al ruolo
 Ogni volta che un utente concede o revoca l'accesso all'interno delle sottoscrizioni, le modifiche vengono registrate negli eventi di Azure. È possibile creare report della cronologia delle modifiche relative all'accesso per visualizzare tutte le modifiche degli ultimi 90 giorni.
@@ -63,5 +62,4 @@ Per salvare il report o modificare i dati, esportare le modifiche relative all'a
 ## <a name="next-steps"></a>Passaggi successivi
 * Utilizzare i [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md)
 * Informazioni sono disponibili in [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](role-based-access-control-manage-access-powershell.md)
-
 

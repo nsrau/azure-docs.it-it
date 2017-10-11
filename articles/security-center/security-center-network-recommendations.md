@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 174546d59124296711731de6c8d8929bada56baf
 ms.openlocfilehash: 00b715507a7c3a4d784b800e7bf0c700f6ea6ff1
-ms.contentlocale: it-it
-ms.lasthandoff: 11/18/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="protecting-your-network-in-azure-security-center"></a>Protezione della rete nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari.  Le raccomandazioni sono applicabili ai tipi di risorse di Azure, ovvero macchine virtuali, risorse di rete, SQL e applicazioni.
@@ -46,4 +45,3 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
-

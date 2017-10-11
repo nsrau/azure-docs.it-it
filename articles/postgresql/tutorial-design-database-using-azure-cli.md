@@ -11,12 +11,11 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 700c68f354c61cb975ae684d558e650631ff4d66
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: cf536fce8925f9173b541b845af25a8d8c38eabd
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Progettare il primo Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure 
 In questa esercitazione, si usano l'interfaccia della riga di comando di Azure e altre utilità per informazioni su come:
@@ -183,7 +182,7 @@ Il comando `az postgres server restore` richiede i parametri seguenti:
 | --- | --- | --- |
 | --resource-group |  myResourceGroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | --name | mypgserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
-| restore-point-in-time | 2017-04-13T13:59:00Z | Selezionare un punto di ripristino temporizzato. La data e l'ora devono trovarsi all'interno del periodo di conservazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il fuso orario locale, ad esempio `2017-04-13T05:59:00-08:00`, o il formato UTC Zulu `2017-04-13T13:59:00Z`. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Selezionare un punto di ripristino temporizzato. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il fuso orario locale, ad esempio `2017-04-13T05:59:00-08:00`, o il formato UTC Zulu `2017-04-13T13:59:00Z`. |
 | --source-server | mypgserver-20170401 | Il nome o l'ID del server di origine da cui eseguire il ripristino. |
 
 Il ripristino temporizzato di un server crea un nuovo server, ovvero una copia del server originale nel momento specificato. I valori relativi al percorso e al piano tariffario del server ripristinato sono gli stessi del server di origine.
@@ -203,4 +202,3 @@ In questa esercitazione è stato illustrato come usare l'interfaccia della riga 
 > * Ripristinare i dati
 
 Successivamente, per informazioni su come usare il portale di Azure per eseguire attività simili, esaminare questa esercitazione: [Progettare il primo Database di Azure per PostgreSQL tramite il portale di Azure](tutorial-design-database-using-azure-portal.md)
-

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 342a305a4bbdc1526a9316a35819d06996702a5b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 6738d88d5a0430abaf3855dbf97a618e4c83617f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Come bilanciare il carico per le macchine virtuali di Windows in Azure per creare un'applicazione a disponibilità elevata
 Il bilanciamento del carico offre un livello più elevato di disponibilità distribuendo le richieste in ingresso tra più macchine virtuali. In questa esercitazione vengono illustrati i diversi componenti di Azure Load Balancer che distribuiscono il traffico e garantiscono una disponibilità elevata. Si apprenderà come:
 
@@ -358,4 +356,3 @@ Passare all'esercitazione successiva per imparare a gestire la rete delle macchi
 
 > [!div class="nextstepaction"]
 > [Gestire le VM e le reti virtuali](./tutorial-virtual-network.md)
-

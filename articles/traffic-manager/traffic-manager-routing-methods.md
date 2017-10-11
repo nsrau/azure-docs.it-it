@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
 
 Gestione traffico di Microsoft Azure supporta tre metodi di routing del traffico per determinare la modalità di instradamento del traffico di rete ai vari endpoint di servizio. Gestione traffico applica il metodo di routing a ogni query DNS ricevuta, per determinare l'endpoint da restituire nella risposta DNS.
@@ -136,7 +134,6 @@ Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-cr
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
-
 
 
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Usare la soluzione Mapping dei servizi in Operations Management Suite
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
 
@@ -367,4 +365,3 @@ Vedere la [sezione Risoluzione dei problemi del documento relativo alla configur
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 Per inviare commenti su Mapping dei servizi e sulla relativa documentazione,  Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
-

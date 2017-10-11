@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="platform-level-event-and-log-generation"></a>Generazione di eventi e log a livello piattaforma
 
 ## <a name="monitoring-the-cluster"></a>Monitoraggio del cluster
@@ -113,4 +111,3 @@ Di seguito sono illustrati due modi comuni disponibili per configurare la raccol
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per poter essere inviati a qualsiasi piattaforma di analisi, i log e gli eventi devono prima essere aggregati. Per comprendere meglio alcune delle opzioni consigliate, vedere gli articoli relativi a [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [Diagnostica di Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md).
-

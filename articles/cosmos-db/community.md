@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="community-portal"></a>Portale della community
 ## <a name="community-spotlight"></a>In evidenza nella community
@@ -243,5 +242,4 @@ I Wizard di Azure Cosmos DB sono leader della community che hanno dimostrato gra
 | [Matías Quaranta](https://twitter.com/ealsur) |[![Matías Quaranta](./media/community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) |
 
 Per diventare professionisti di Azure Cosmos DB Anche se non ci sono requisiti particolari per diventare Wizard, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio StackOverflow e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione. Per candidare se stessi o qualcun altro, è sufficiente [inviare un messaggio di posta elettronica](mailto:askcosmosdb@microsoft.com).
-
 

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 54e092e4bb8d83a59d05d8aca2760f9098ecd548
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: da7bc05c6452cde4d0236806f249559f178dd4e1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Come configurare l'accesso Single Sign-On federato per un'applicazione non inclusa nella raccolta
 
 Per configurare un'applicazione non inclusa nella raccolta, è necessario disporre di Azure AD Premium e l'applicazione deve supportare SAML 2.0. Per altre informazioni sulle versioni di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -184,4 +182,3 @@ Per informazioni su come personalizzare le attestazioni degli attributi SAML inv
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)
-

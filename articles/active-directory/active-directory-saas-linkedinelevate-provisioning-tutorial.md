@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: 526666301aad1e5284c621024649d9cd52c92d18
-ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-configuring-linkedin-elevate-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di LinkedIn Elevate per il provisioning automatico di utenti
 
 
@@ -125,4 +123,3 @@ Verrà avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi ass
 
 * [Gestione del provisioning degli account utente per app aziendali](active-directory-enterprise-apps-manage-provisioning.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-

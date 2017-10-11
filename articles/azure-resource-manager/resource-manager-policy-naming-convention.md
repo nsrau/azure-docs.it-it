@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Applicare criteri delle risorse per nomi e testo
 Questo argomento indica diversi [criteri delle risorse](resource-manager-policy.md) che è possibile applicare per stabilire le convenzioni di denominazione e testo. Questi criteri assicurano la coerenza per i nomi delle risorse e i valori dei tag. 
@@ -78,5 +77,4 @@ Per imporre un modello di data di due cifre, trattino, tre lettere, trattino e q
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver definito una regola di criterio, come mostrato negli esempi precedenti, è necessario creare la definizione di criterio e assegnarla a un ambito. L'ambito può essere una sottoscrizione, un gruppo di risorse o una risorsa. Per assegnare i criteri tramite il portale, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse). Per assegnare i criteri tramite l'API REST, PowerShell o l'interfaccia della riga di comando di Azure, vedere [Assegnare e gestire i criteri tramite script](resource-manager-policy-create-assign.md). 
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
 

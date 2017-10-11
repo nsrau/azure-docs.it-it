@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/11/2017
 ms.author: harijay
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 55b97b89cb297dc08dc73f6714c5159d4565a97c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-instance-metadata-service-for-windows-vms"></a>Servizio metadati dell'istanza di Azure per macchine virtuali Windows
 
 
@@ -61,7 +59,7 @@ Il Servizio metadati dell'istanza è con versione. Le versioni sono obbligatorie
 
 Quando si aggiungono versioni più recenti, quelle precedenti sono comunque accessibili per la compatibilità, se gli script presentano dipendenze in formati di dati specifici. Si noti però che la versione di anteprima corrente (2017-03-01) potrebbe non essere disponibile quando il servizio è disponibile a livello generale.
 
-### <a name="using-headers"></a>Utilizzo delle intestazioni
+### <a name="using-headers"></a>Uso delle intestazioni
 Quando si eseguono query sul Servizio metadati dell'istanza, è necessario specificare l'intestazione `Metadata: true` per garantire che la richiesta non sia stata reindirizzata accidentalmente.
 
 ### <a name="retrieving-metadata"></a>Recupero dei metadati
@@ -405,4 +403,3 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sull'API [Eventi pianificati](scheduled-events.md) **in anteprima pubblica** fornita dal servizio metadati dell'istanza.
-

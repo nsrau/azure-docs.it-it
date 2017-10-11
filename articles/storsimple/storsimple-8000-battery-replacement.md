@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
 
@@ -108,5 +107,4 @@ Se viene visualizzato lo stato **DANNEGGIATO** , è consigliabile adottare la li
 
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-8000-hardware-component-replacement.md).
-
 

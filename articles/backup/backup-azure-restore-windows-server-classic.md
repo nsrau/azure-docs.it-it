@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: saurse;trinadhk;markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 300b2b17b44e21ed446fd63d572a2461e2fc1343
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>Ripristinare file in un computer di Windows Server o in un client di Windows con il modello di distribuzione classica
 > [!div class="op_single_selector"]
@@ -241,4 +240,3 @@ Include la terminologia utilizzata in questi passaggi:
 * [Panoramica di Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 * [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms-introduction.md)
 * [Eseguire il backup dei carichi di lavoro di Microsoft](backup-azure-dpm-introduction.md)
-

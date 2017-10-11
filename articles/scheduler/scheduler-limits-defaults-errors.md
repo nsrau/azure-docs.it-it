@@ -1,6 +1,6 @@
 ---
-title: "Limiti e impostazioni predefinite dell&quot;Utilità di pianificazione"
-description: "Limiti e impostazioni predefinite dell&quot;Utilità di pianificazione"
+title: "Limiti e impostazioni predefinite dell'Utilità di pianificazione"
+description: "Limiti e impostazioni predefinite dell'Utilità di pianificazione"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-limits-and-defaults"></a>Limiti e impostazioni predefinite dell'Utilità di pianificazione
 ## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Quote, limiti, impostazioni predefinite e limiti dell'utilità di pianificazione
@@ -45,10 +45,4 @@ Se una richiesta fallisce sistematicamente e si è verificato che la richiesta �
  [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione di Azure](scheduler-high-availability-reliability.md)
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

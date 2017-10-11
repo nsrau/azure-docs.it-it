@@ -16,13 +16,11 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: viviali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: adefef44d9d3d8e986b26ebe813ecd5d3a6c6f3f
-ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: fad5c315a247673b7a2ad52b4a78b49c567a997a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Avvio rapido per l'API Graph di Azure AD
 L'API Graph di Azure Active Directory (AD) consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST OData. Le applicazioni possono usare l'API Graph per le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) su oggetti e dati della directory. Ad esempio, è possibile usare l'API Graph per creare un nuovo utente, visualizzare o aggiornare le proprietà dell'utente, modificare la password utente, verificare l'appartenenza ai gruppi per l'accesso basato sui ruoli e disabilitare o eliminare l'utente. Per altre informazioni sulle funzionalità dell'API Graph e sugli scenari di applicazione, vedere [API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [Prerequisiti dell'API di Azure AD Graph](https://msdn.microsoft.com/library/hh974476.aspx). 
@@ -119,5 +117,4 @@ Per altre informazioni sulle entità e i tipi di Azure AD esposti da Graph e sul
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni su [API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 * Per altre informazioni, vedere [Ambiti di autorizzazione dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
-
 

@@ -12,15 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 2530b7c20347b9fb58aee4dfe693847cf3911741
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
-
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Rendere persistenti i dati delle attività in Archiviazione di Azure con l'API del servizio Batch
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
@@ -197,4 +194,3 @@ Il progetto di esempio [PersistOutputs][github_persistoutputs] è uno degli [ese
 
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
 [github_samples]: https://github.com/Azure/azure-batch-samples
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-relay-exceptions"></a>Eccezioni del servizio di inoltro di Azure
 
@@ -95,5 +94,4 @@ Questo errore può essere dovuto a due cause comuni:
 * [Creare uno spazio dei nomi di inoltro](relay-create-namespace-portal.md)
 * [Introduzione al servizio di inoltro di Azure e .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione al servizio di inoltro di Azure e al nodo](relay-hybrid-connections-node-get-started.md)
-
 

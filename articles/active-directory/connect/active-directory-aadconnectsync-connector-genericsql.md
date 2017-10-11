@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
-ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Documentazione tecnica sul connettore Generic SQL
 Questo articolo descrive il connettore Generic SQL ed è applicabile ai prodotti seguenti:
@@ -307,4 +306,3 @@ Se si sceglie l'opzione SQL query, l'esportazione richiede tre diverse query per
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 * Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
-

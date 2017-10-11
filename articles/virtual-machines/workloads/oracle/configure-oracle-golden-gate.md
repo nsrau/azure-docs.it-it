@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementare Oracle Golden Gate in una VM Linux di Azure 
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida descrive nei dettagli come usare l'interfaccia della riga di comando di Azure per distribuire un database Oracle 12c dall'immagine della raccolta di Azure Marketplace. 
@@ -810,4 +808,3 @@ az group delete --name myResourceGroup
 [Creare esercitazioni per macchine virtuali a disponibilità elevata](../../linux/create-cli-complete.md)
 
 [Esplorare gli esempi dell'interfaccia della riga di comando per la distribuzione della VM](../../linux/cli-samples.md)
-

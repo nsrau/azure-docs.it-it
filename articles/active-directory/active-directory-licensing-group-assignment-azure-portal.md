@@ -16,14 +16,12 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 42b18eab9cb419e6ada72ba72dc8be8d7f7b2eed
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Assegnare licenze agli utenti in base all'appartenenza ai gruppi in Azure Active Directory
 
 Questo articolo spiega come assegnare licenze di prodotti a un gruppo di utenti in Azure Active Directory (Azure AD) e quindi verificare che le licenze siano state assegnate in modo corretto.
@@ -110,4 +108,3 @@ Per altre informazioni sulle funzionalità disponibili per la gestione delle lic
 * [Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Come eseguire la migrazione di singoli utenti con licenza alle licenze basate sui gruppi in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Scenari aggiuntivi relativi alle licenze basate sui gruppi in Azure Active Directory](active-directory-licensing-group-advanced.md)
-

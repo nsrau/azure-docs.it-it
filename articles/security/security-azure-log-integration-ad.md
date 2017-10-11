@@ -15,14 +15,12 @@ ums.workload: na
 ms.date: 08/08/2017
 ms.author: barclayn
 ms.custom: azlog
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 4a5c1cf7ee6f9e7ad43bb47f798520384606969c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: 8a1295cc86057ed72940e774d0bd423d61142e31
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrare i log di controllo di Azure Active Directory
 
 Gli eventi di controllo di Azure Active Directory (Azure AD) aiutano i clienti a identificare le azioni con privilegi che si sono verificate in Azure Active Directory. I tipi di eventi di cui è possibile tenere traccia sono visibili esaminando gli [eventi dei report di controllo di Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
@@ -76,4 +74,3 @@ Per altre informazioni sull'integrazione dei log di Azure, vedere:
 * [Domande frequenti sull'integrazione dei log di Azure](security-azure-log-integration-faq.md): questo articolo contiene le risponde alle domande sull'integrazione dei log di Azure.
 * [Integrazione degli avvisi del Centro sicurezza con l'integrazione dei log di Azure](../security-center/security-center-integrating-alerts-with-log-integration.md): questo articolo mostra come sincronizzare gli avvisi del Centro sicurezza di Azure, insieme agli eventi di sicurezza delle macchine virtuali raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log.
 * [New features for Azure Diagnostics and Azure audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Nuove funzionalità per Diagnostica di Azure e i log di controllo di Azure): questo post di blog presenta i log di controllo di Azure e altre funzionalità che consentono di ottenere informazioni dettagliate sulle operazioni delle risorse di Azure.
-

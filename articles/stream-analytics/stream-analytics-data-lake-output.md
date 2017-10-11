@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Output di Archivio Data Lake per Analisi di flusso
 I processi di Analisi di flusso supportano numerosi metodi di output, tra cui [Archivio Data Lake di Azure](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store è un repository su vasta scala a livello aziendale per carichi di lavoro di analisi di Big Data. Archivio Data Lake consente di archiviare dati di qualsiasi dimensione, tipo e velocità di inserimento per le analisi esplorative e operative.
@@ -88,5 +87,4 @@ Attualmente esiste una limitazione secondo cui il token di autenticazione deve e
 Per risolvere questo problema, arrestare il processo in esecuzione e passare all'output di Archivio Data Lake. Fare clic sul collegamento "Rinnova autorizzazione" e per un istante viene visualizzata una pagina che indica "Reindirizzamento all'autorizzazione..." La pagina verrà chiusa automaticamente e, in caso di esito positivo, verrà indicato "Autorizzazione rinnovata". È quindi necessario fare clic su "Salva" nella parte inferiore della pagina e, per continuare, riavviare il processo dall'ora dell'ultimo arresto per evitare la perdita di dati.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
 

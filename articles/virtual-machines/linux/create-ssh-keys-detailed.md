@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: d4548c6f21d04effd57ea36e4fc0d15f77568903
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Procedura dettagliata per creare una coppia di chiavi SSH e certificati aggiuntivi per una VM Linux in Azure
 Con una coppia di chiavi SSH è possibile creare macchine virtuali in Azure che per impostazione predefinita usano le chiavi SSH per l'autenticazione, eliminando la necessità di password per l'accesso. Le password sono intuibili e le macchine virtuali sono esposte a inesorabili tentativi di attacchi massicci per scoprire la password. Le macchine virtuali create con l'interfaccia della riga di comando di Azure o i modelli di Resource Manager possono includere la chiave pubblica SSH durante la distribuzione, rimuovendo il passaggio della configurazione post-distribuzione di disattivazione degli account di accesso con password per SSH. Questo articolo illustra i passaggi dettagliati e offre esempi aggiuntivi per la generazione di certificati, ad esempio per l'uso con macchine virtuali di Linux. Per creare rapidamente e usare una coppia di chiavi SSH, vedere [Come creare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](mac-create-ssh-keys.md).
 
@@ -217,4 +215,3 @@ Il prossimo passaggio consiste nel creare VM Linux di Azure usando la nuova chia
 * [Creare una VM Linux protetta usando un modello di Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una VM Linux protetta usando il portale di Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una VM Linux protetta usando l'interfaccia della riga di comando di Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

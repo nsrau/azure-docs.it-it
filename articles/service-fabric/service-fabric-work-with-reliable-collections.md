@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rajak
-translationtype: Human Translation
-ms.sourcegitcommit: 407f2631044fb836930093a774f5b718c91f711d
-ms.openlocfilehash: 822941aa3f745e51f653b4274bf0add9c44ff0c8
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: f53f13e4fb83b1cd370ec673e86e5311cd93055f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="working-with-reliable-collections"></a>Lavorare con le raccolte Reliable Collections
 Service Fabric offre un modello di programmazione con stato disponibile per gli sviluppatori .NET tramite Reliable Collections. In particolare, Service Fabric offre classi ReliableDictionary e ReliableQueue. Quando si usano queste classi, lo stato è partizionato (per la scalabilità), replicato (per la disponibilità) e le transazioni vengono eseguite all'interno di una partizione (per la semantica ACID). Di seguito viene descritto l'uso tipico di un oggetto ReliableDictionary per osservarne le azioni.
@@ -217,4 +216,3 @@ Per informazioni sulle procedure consigliate per il controllo delle versioni dei
 Per informazioni su come implementare contratti dati a tolleranza di versione, vedere [Callback di serializzazione a tolleranza di versione](https://msdn.microsoft.com/library/ms733734.aspx).
 
 Per informazioni su come fornire una struttura di dati che può interagire con più versioni, vedere [Interfaccia IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
-

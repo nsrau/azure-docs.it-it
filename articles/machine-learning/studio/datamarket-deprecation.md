@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: LuisCa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: e40b69f97878a6072a64912f017f8e5621ba6e71
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="datamarket-is-now-deprecated"></a>DataMarket è deprecata
 
 [Microsoft DataMarket](https://datamarket.azure.com/datasets) è ora deprecata e quindi sono deprecate anche le API di Machine Learning in essa contenute.
@@ -40,4 +38,3 @@ I clienti dell'API Consigli di DataMarket devono iniziare a usare l'[API Consigl
 L'API Consigli di Servizi cognitivi supporta tutti gli scenari supportati da DataMarket, nonché altri scenari, quali il supporto batch e migliori metriche offline per valutare la qualità dei modelli. 
 
 Per altre informazioni su come iniziare a usare l'API Consigli di Servizi cognitivi vedere [Migrate to Azure Cognitive Services Recommendations API](http://aka.ms/recomigrate) (Migrazione all'API Consigli di Servizi cognitivi di Azure).
-

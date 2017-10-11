@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 2e1b9495cecac0095a9364752967f868f8e92530
-ms.contentlocale: it-it
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: deb3ef28d20decef01826450bd6091f87dd069de
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="connect-to-an-azure-analysis-services-server"></a>Connettersi a un server di Azure Analysis Services
 
@@ -81,5 +80,4 @@ Con le versioni precedenti di Excel, gli utenti possono connettersi a un server 
 [Connettersi con Excel](analysis-services-connect-excel.md)    
 [Connettersi con Power BI](analysis-services-connect-pbi.md)   
 [Gestire il server](analysis-services-manage.md)   
-
 

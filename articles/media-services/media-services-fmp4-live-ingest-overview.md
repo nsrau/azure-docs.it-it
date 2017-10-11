@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d1a9328333bb8198d77e4b5d11fd8c6637a9e440
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: 6250b73504bec765b8299060a29e84e771791cc9
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure
 Questa specifica descrive il protocollo e il formato per l'inserimento di streaming live basato sul formato MP4 frammentato per Servizi multimediali di Azure. Servizi multimediali fornisce un servizio di streaming live che può essere usato dai clienti per lo streaming di eventi live e la trasmissione di contenuti in tempo reale usando Azure come piattaforma cloud. Questo documento contiene anche le procedure consigliate per creare meccanismi di inserimento live solidi e altamente ridondanti.
@@ -202,4 +201,3 @@ Di seguito è riportata l'implementazione consigliata per le tracce audio ridond
 [image5]: ./media/media-services-fmp4-live-ingest-overview/media-services-image5.png
 [image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
 [image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
-

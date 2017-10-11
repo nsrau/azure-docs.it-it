@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 588c87749f049eff5b9e0729f6769c8367ba41e4
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-10"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure 1.0
 
 > [!div class="op_single_selector"]
@@ -155,5 +153,4 @@ azure network dns zone delete MyResourceGroup contoso.com
 Informazioni su come [gestire record e set di record](dns-getstarted-create-recordset-cli-nodejs.md) nella zona DNS.
 
 Informazioni su come [delegare il dominio al servizio DNS di Azure](dns-domain-delegation.md).
-
 

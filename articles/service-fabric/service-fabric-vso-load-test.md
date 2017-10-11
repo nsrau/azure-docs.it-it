@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
 ms.author: cawa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e8e270ce865d4da3ee219958b308db2c1c89b11b
-ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Eseguire test di carico dell'applicazione usando Visual Studio Team Services
 Questo articolo illustra come usare le funzionalità di test di carico di Microsoft Visual Studio per eseguire test di stress di un'applicazione. Viene usato un back-end del servizio con stato di Service Fabric di Azure e un front-end Web di un servizio senza stato. L'applicazione di esempio usata in questo argomento è un simulatore dei percorsi di volo degli aeroplani. È necessario fornire l'ID dell'aereo, l'orario di partenza e la destinazione. Il back-end dell'applicazione elabora le richieste e il front-end consente di visualizzare su una mappa l'aereo che corrisponde ai criteri.
@@ -126,4 +125,3 @@ Il test di carico di Visual Studio Team Services fornisce API che consentono di 
 [7]: ./media/service-fabric-vso-load-test/RunTest.png
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
-

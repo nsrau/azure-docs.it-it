@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ef700f9a27d27997d53143260603bda822aa104
-ms.openlocfilehash: b84853da989d18414a31cf5b178c6506abc56bbe
-ms.lasthandoff: 01/30/2017
-
-
+ms.openlocfilehash: c3c923b5c9cd652f0c5b0ec98c1cda740f180122
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>Configurare un dominio gestito per supportare la sincronizzazione dei profili per SharePoint Server
 SharePoint Server include un servizio profili utente utilizzato per la sincronizzazione dei profili utente. Per impostare il servizio profili utente, è necessario concedere le autorizzazioni appropriate in un dominio di Active Directory. Per ulteriori informazioni, vedere [Concedere a Servizi di dominio di Active Directory le autorizzazioni per la sincronizzazione dei profili in SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx).
 
@@ -50,4 +48,3 @@ Questo gruppo di sicurezza è anche membro del gruppo predefinito **Accesso comp
 
 ## <a name="related-content"></a>Contenuti correlati
 * [Riferimento tecnico - Concedere a Servizi di dominio di Active Directory le autorizzazioni per la sincronizzazione dei profili in SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx)
-

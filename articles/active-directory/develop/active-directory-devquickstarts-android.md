@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 746cad19093fd2a1ad23ddd9412394f8d9da331c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Integrare Azure AD in un'app per Android
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -385,4 +384,3 @@ ADAL versione 1.1.0 supporta la finestra di dialogo NTLM che viene elaborata tra
 Informazioni su [Come abilitare l'accesso Single Sign-On tra app su Android usando ADAL](active-directory-sso-android.md).  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

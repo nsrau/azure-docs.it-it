@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: c591cf99aecc4153e378c42a530b80deeca63158
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Esercitazione: Integrazione di Azure Active Directory con GaggleAMP
 
@@ -114,7 +113,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
      Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.gaggleamp.com`
 
     > [!NOTE] 
-    > Il valore non è reale. Aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto clienti di GaggleAMP](mailto:sales@gaggleamp.com). 
+    > Poiché non è reale, Aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto clienti di GaggleAMP](mailto:sales@gaggleamp.com). 
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -239,5 +238,4 @@ Quando si fa clic sul riquadro GaggleAMP nel pannello di accesso, si dovrebbe ac
 [201]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_203.png
-
 

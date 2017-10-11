@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Come creare un'immagine di una macchina virtuale o un disco rigido virtuale
 
@@ -145,4 +144,3 @@ az vm show \
 - Usare la nuova immagine per le distribuzioni future. Se si desidera, eliminare l'immagine originale.
 
 Per altre informazioni sulla gestione delle macchine virtuali con l'interfaccia della riga di comando, vedere [Interfaccia della riga di comando di Azure 2.0](/cli/azure/overview).
-

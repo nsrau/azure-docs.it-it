@@ -1,6 +1,6 @@
 ---
-title: "Piani e fatturazione nell&quot;utilità di pianificazione di Azure"
-description: "Piani e fatturazione nell&quot;utilità di pianificazione di Azure"
+title: "Piani e fatturazione nell'utilità di pianificazione di Azure"
+description: "Piani e fatturazione nell'utilità di pianificazione di Azure"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5452a42cff5204fce780af41368b9515f9652d91
-
-
+ms.openlocfilehash: f0662230c5d1663e37ee2be58f234934ec3d55dd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Piani e fatturazione nell'utilità di pianificazione di Azure
 ## <a name="job-collection-plans"></a>Piani di raccolta di processi
@@ -85,10 +85,4 @@ Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](https://
  [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

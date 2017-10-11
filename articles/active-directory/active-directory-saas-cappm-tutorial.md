@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con CA PPM | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e CA PPM.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e CA PPM.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 4ca9268c26f681fcc96955b6161fe4a119b2dcf4
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Esercitazione: Integrazione di Azure Active Directory con CA PPM
 
@@ -112,9 +110,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_url.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente:  `https://ca.ondemand.saml.20.post.<companyname>`
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://ca.ondemand.saml.20.post.<companyname>`
     
-    b. Nella casella di testo **URL di risposta** digitare:  `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
+    b. Nella casella di testo **URL di risposta** digitare: `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
 
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornare questo valore con l'ID effettivo. Per ottenere questo valore, contattare il [team di supporto di CA PPM](mailto:catechnicalsupport@ca.com).
@@ -226,5 +224,4 @@ Quando si fa clic sul riquadro CA PPM nel pannello di accesso, si dovrebbe acced
 [201]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_203.png
-
 

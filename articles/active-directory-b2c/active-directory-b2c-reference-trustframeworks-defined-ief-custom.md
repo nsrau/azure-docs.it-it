@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 4e2de9c4d1c0f92970911e132fffaacbd01d9ad0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definizione dei framework attendibilità basati sul Framework dell'esperienza di gestione delle identità di Azure AD B2C
 
 I criteri personalizzati di Azure Active Directory B2C (Azure AD B2C) che usano il Framework dell'esperienza di gestione delle identità offrono all'organizzazione un servizio centralizzato. Questo servizio riduce la complessità della federazione delle identità in una community di interesse di grandi dimensioni a una singola relazione di trust e a un singolo scambio di metadati.
@@ -130,4 +128,3 @@ L'interoperabilità è un'altra sfida importante. È necessario integrare altri 
 I percorsi utente includono profili di protocolli e metadati che vengono usati per ottimizzare l'interoperabilità "in transito" tra la relying party e altri membri. Sono anche disponibili regole di runtime operative che vengono applicate ai messaggi di richiesta/risposta per lo scambio di informazioni di identità ai fini della conformità con i criteri pubblicati nell'ambito della specifica di framework attendibilità. Il concetto di percorso utente è fondamentale per la personalizzazione dell'esperienza del cliente. Chiarisce anche il funzionamento del sistema a livello di protocollo.
 
 Su questa base, le applicazioni e i portali delle relying party possono, a seconda del contesto, richiamare i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità passando il nome di un criterio specifico e ottenere esattamente il comportamento e lo scambio di informazioni desiderati in modo semplice e senza rischi.
-

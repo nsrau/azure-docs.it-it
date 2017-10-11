@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introduzione a Service Fabric Reliable Actors
 Reliable Actors è un framework di applicazione Service Fabric basato sul criterio [Actor virtuale](http://research.microsoft.com/en-us/projects/orleans/). L'API Reliable Actors offre un modello di programmazione a thread singolo basato sulle garanzie di affidabilità e scalabilità offerte da Service Fabric.
@@ -152,4 +151,3 @@ Il runtime di Actors fornisce queste garanzie di concorrenza nelle situazioni in
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
-

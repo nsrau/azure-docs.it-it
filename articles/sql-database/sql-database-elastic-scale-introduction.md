@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 2a7c761062dcf5da016a2e106274839f5f6c0d13
-ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
-
-
+ms.openlocfilehash: 5bb6d17ffd047ae91476c52750f293414d1dfdd5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentare il numero di istanze con il database SQL di Azure
 È possibile aumentare facilmente il numero di istante dei database SQL di Azure con gli strumenti dei **database elastici** . Questi strumenti e funzionalità consentono di usare le risorse di database virtualmente illimitate di **Database SQL di Azure** per creare soluzioni per carichi di lavoro transazionali e soprattutto applicazioni SaaS (Software as a Service). Le funzioni di database elastico sono costituite dai seguenti elementi:
@@ -105,5 +103,4 @@ Per visualizzare le specifiche del pool elastico, vedere [Considerazioni di prez
 [2]:./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]:./media/sql-database-elastic-scale-introduction/overview.png
 [4]:./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
-
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 5f8559450b24effd40a38879aeae3a8dd03944a3
-ms.contentlocale: it-it
-ms.lasthandoff: 03/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mapping delle attestazioni utente per Collaborazione B2B in Azure Active Directory
 
 Azure Active Directory (Azure AD) supporta la personalizzazione delle attestazioni rilasciate nel token SAML per gli utenti di Collaborazione B2B. Quando un utente esegue l'autenticazione all'applicazione, Azure AD rilascia un token SAML all'applicazione contenente informazioni (o attestazioni) sull'utente, che lo identificano in modo univoco. Per impostazione predefinita, sono inclusi il nome utente, l'indirizzo di posta elettronica, il nome e il cognome dell'utente. Le attestazioni inviate all'applicazione nel token SAML possono essere visualizzate o modificate nella scheda Attributi .
@@ -52,4 +50,3 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Token utente per Collaborazione B2B](active-directory-b2b-user-token.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: dc2b69db669366a89b33751ca2b3a9f5af292da2
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Creare uno spazio dei nomi di inoltro usando il portale di Azure
 Uno spazio dei nomi è un contenitore comune per tutti i componenti di inoltro di Azure. Più inoltri possono risiedere in un unico spazio dei nomi e gli spazi dei nomi vengono spesso usati come contenitori di applicazioni. Esistono attualmente due diversi modi per creare uno spazio dei nomi di inoltro.
 
@@ -38,5 +36,4 @@ Congratulazioni. È stato creato uno spazio dei nomi di inoltro.
 * [Domande frequenti sull'inoltro](relay-faq.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione a Node](relay-hybrid-connections-node-get-started.md)
-
 

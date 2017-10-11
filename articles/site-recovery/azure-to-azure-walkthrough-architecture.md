@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/12/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: f471add4f4dee26482e2820fb06d010d6c0c0e88
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-1-review-the-architecture-for-azure-vm-replication-between-azure-regions"></a>Passaggio 1: Esaminare l'architettura per la replica di VM di Azure tra aree di Azure
 
 
@@ -85,4 +83,3 @@ Quando si avvia un failover, le VM vengono create nel gruppo di risorse di desti
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 2: Esaminare i prerequisiti e le limitazioni](azure-to-azure-walkthrough-prerequisites.md)
-

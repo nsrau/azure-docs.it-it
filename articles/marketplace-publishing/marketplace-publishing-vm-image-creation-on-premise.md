@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Sviluppare l'immagine di una macchina virtuale in locale per Azure Marketplace
 Si consiglia di sviluppare i dischi rigidi virtuali (VHD, Virtual Hard Disk) di Azure direttamente nel cloud utilizzando Remote Desktop Protocol. Tuttavia, se necessario, è possibile scaricare un VHD e svilupparlo utilizzando l'infrastruttura locale.  
@@ -149,5 +148,4 @@ Con lo [strumento da riga di comando per Linux](https://docs.microsoft.com/cli/a
 ## <a name="see-also"></a>Vedere anche
 * [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 * [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md)
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 919d2262cf9f14159a13370037301005b5b69da2
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Esercitazione: Integrazione di Azure Active Directory con Domo
 
@@ -132,11 +131,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Domo](mailto:support@domo.com).
 
-4. L'applicazione Domo prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio di questa configurazione. 
+4. L'applicazione Domo prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. Lo screenshot seguente illustra un esempio di questa configurazione. 
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_attributes.png)
     
-5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine e seguire questa procedura:
+5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come illustrato nell'immagine e seguire questa procedura:
     
     | Nome attributo | Valore attributo |
     | ------------------- | -------------------- |    
@@ -267,5 +266,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-domo-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-domo-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-domo-tutorial/tutorial_general_203.png
-
 

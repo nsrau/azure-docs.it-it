@@ -15,12 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 7977460f61bfdabd399e45e86d9bbf2e5083992b
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-cli-samples-for-networking"></a>Esempi dell'interfaccia della riga di comando di Azure per la rete
 
@@ -38,4 +37,3 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 | [Eseguire il bilanciamento del carico per più siti Web sulle VM](./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md?toc=%2fazure%2fnetworking%2ftoc.json) | Crea due VM con più configurazioni IP, unite a un set di disponibilità di Azure, accessibili tramite un servizio di bilanciamento del carico di Azure. |
 | [Dirigere il traffico su più aree per la disponibilità elevata delle applicazioni](./scripts/traffic-manager-cli-websites-high-availability.md?toc=%2fazure%2fnetworking%2ftoc.json) |  Crea due piani di servizio app, due app Web, un profilo di gestione traffico e due endpoint di gestione traffico. |
 | | |
-

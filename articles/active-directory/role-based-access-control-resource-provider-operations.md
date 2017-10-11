@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni di provider di risorse con Azure Resource Manager
 
@@ -2224,4 +2223,3 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 - [Ruoli RBAC incorporati](role-based-access-built-in-roles.md).
 
 - Informazioni sulla gestione delle assegnazioni di accesso [per utente](role-based-access-control-manage-assignments.md) o [per risorsa](role-based-access-control-configure.md) 
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 78936ac34cc582684e938efa74133426f1b53741
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Creare route definite dall'utente (UDR) mediante un modello
 
@@ -407,4 +406,3 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 > [!TIP]
 > Se non è possibile visualizzare tutte le risorse, eseguire il comando `azure group deployment show` per assicurarsi che lo stato di provisioning della distribuzione sia *Riuscito*.
 > 
-

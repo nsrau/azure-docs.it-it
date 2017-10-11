@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Creare un dashboard personalizzato da usare in Log Analytics
 
@@ -89,4 +88,3 @@ Per rimuovere un riquadro, passare alla visualizzazione Dashboard e fare clic su
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Creare [avvisi](log-analytics-alerts.md) in Log Analytics per generare notifiche e risolvere i problemi.
-

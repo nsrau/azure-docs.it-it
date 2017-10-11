@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cenkdin;juliako
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 87d855b26a61db56de936444331d11bc1ccbcc49
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 3ef6065f5b9e05e0ea5716548699943a2c877bc4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Come eseguire lo streaming live con codificatori locali mediante .NET
 > [!div class="op_single_selector"]
@@ -387,5 +386,4 @@ Analizzare i percorsi di apprendimento dei Servizi multimediali
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3084bb344976bc542e78a55a1c27c4dedc111af0
-ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: a485ddd555f65473d81896effc4a3562bda71410
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-export-data-model"></a>Modello di dati di esportazione di Application Insights
 Questa tabella elenca le proprietà di telemetria inviate al portale dagli SDK di [Application Insights](app-insights-overview.md) .
@@ -351,4 +350,3 @@ Se non indicato diversamente, le durate vengono espresse in decimi di microsecon
 * [Application Insights](app-insights-overview.md)
 * [Esportazione continua](app-insights-export-telemetry.md)
 * [Esempi di codice](app-insights-export-telemetry.md#code-samples)
-

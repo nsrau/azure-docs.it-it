@@ -1,6 +1,6 @@
 ---
-title: Come usare l&quot;API di Engagement in iOS
-description: "iOS SDK più recente: come usare l&quot;API di Engagement in iOS"
+title: Come usare l'API di Engagement in iOS
+description: "iOS SDK più recente: come usare l'API di Engagement in iOS"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf672384407588ddc2c4998f42f6893e2638c592
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>Come usare l'API di Engagement in iOS
 Questo documento è complementare all'articolo relativo all'integrazione di Engagement in iOS e fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
@@ -268,4 +267,3 @@ Le informazioni sull'applicazione sono limitate a **1024** caratteri per chiamat
 Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 
     {"birthdate":"1983-12-07","gender":"female"}
-

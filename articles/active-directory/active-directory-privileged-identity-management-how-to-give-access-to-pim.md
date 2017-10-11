@@ -1,6 +1,6 @@
 ---
-title: Come concedere l&quot;accesso per la gestione di Privileged Identity Management - Azure | Documentazione Microsoft
-description: Informazioni su come aggiungere ruoli agli utenti con l&quot;estensione Azure Active Directory Privileged Identity Management per consentire la gestione di PIM.
+title: Come concedere l'accesso per la gestione di Privileged Identity Management - Azure | Documentazione Microsoft
+description: Informazioni su come aggiungere ruoli agli utenti con l'estensione Azure Active Directory Privileged Identity Management per consentire la gestione di PIM.
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 81deb3b31a4483b8c0031cf3571e5c5752db39ac
-ms.contentlocale: it-it
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: aeaefb484b29da6e89c2c3c650a79a881b3fa5b6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Concedere l'accesso per la gestione di Azure AD Privileged Identity Management
 L'amministratore globale che abilita Azure AD Privileged Identity Management (PIM) per un'organizzazione ottiene automaticamente le assegnazioni di ruolo e l'accesso a PIM. Per impostazione predefinita, nessun altro utente ottiene l'accesso in scrittura, inclusi gli altri amministratori globali. Gli altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza hanno l'accesso in sola lettura ad Azure AD PIM. Per concedere l'accesso a PIM, il primo utente può assegnare ad altri il ruolo di **amministratore dei ruoli con privilegi** . Questa assegnazione deve essere eseguita dall'interno PIM e non può essere modificata tramite PowerShell o altri portali.
@@ -62,4 +61,3 @@ Prima di rimuovere un utente dal ruolo di amministratore dei ruoli con privilegi
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png
-

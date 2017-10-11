@@ -1,6 +1,6 @@
 ---
-title: Registrare l&quot;utente corrente per le notifiche push mediante l&quot;API Web | Documentazione Microsoft
-description: Informazioni su come chiedere la registrazione per le notifiche push in un&quot;app per iOS con Hub di notifica di Azure quando la registrazione viene eseguita mediante l&quot;API Web ASP.NET.
+title: Registrare l'utente corrente per le notifiche push mediante l'API Web | Documentazione Microsoft
+description: Informazioni su come chiedere la registrazione per le notifiche push in un'app per iOS con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET.
 services: notification-hubs
 documentationcenter: ios
 author: ysxu
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questo argomento illustra come richiedere la registrazione per le notifiche push con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET. In questo argomento viene estesa l'esercitazione [Utilizzo di Hub di notifica per inviare notifiche agli utenti]. Per creare il servizio mobile autenticato è necessario aver già completato i passaggi richiesti in tale esercitazione. Per ulteriori informazioni sullo scenario di notifica agli utenti, vedere [Utilizzo di Hub di notifica per inviare notifiche agli utenti].
 
 ## <a name="update-your-app"></a>Aggiornamento dell'app
@@ -111,7 +111,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
    > 
 8. Nel file PushToUserAppDelegate.m aggiungere il metodo del seguente gestore:
    
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:                         [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:                         @"OK" otherButtonTitles:nil, nil];   [alert show]; }
+   * applicazione (void):(UIApplication *) applicazione didReceiveRemoteNotification:(NSDictionary *) userInfo {NSLog (@"% @", userInfo);   UIAlertView * avviso = [[UIAlertView alloc] initWithTitle:@"Notification" messaggio: cancelButtonTitle delegato: nil [userInfo objectForKey:@"inAppMessage"]: @ otherButtonTitles:nil "OK", null];   [avviso Mostra]; }
    
    Questo metodo visualizza un avviso nell'interfaccia utente quando l'app riceve notifiche mentre è in esecuzione.
 9. Aprire il file PushToUserViewController.m e restituire la tastiera nell'implementazione seguente:
@@ -220,9 +220,3 @@ Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica
 [Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Introduzione ad Hub di notifica]: /manage/services/notification-hubs/get-started-notification-hubs-ios
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

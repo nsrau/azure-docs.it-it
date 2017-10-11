@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bee9bfd76c2140da3e6c1e8f0f0dc65de8a44b17
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: cf14880c70f90b01c5dffbfe434150581c2ec33b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introduzione all’archiviazione BLOB di Azure e ai servizi connessi di Visual Studio (progetti servizi cloud)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -239,5 +238,4 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve essere prefissato 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: gangan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sku-series-unavailable"></a>Serie di SKU non disponibile
 In alcune aree determinati SKU non sono automaticamente disponibili nelle nuove sottoscrizioni.  Questo problema può verificarsi quando [in un'area vengono introdotti SKU più potenti](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) e la popolarità degli SKU legacy diminuisce.
@@ -47,5 +46,4 @@ Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti]
 
 ## <a name="learn-more"></a>Altre informazioni
 [Domande frequenti relative al supporto tecnico Azure](https://azure.microsoft.com/support/faq)
-
 

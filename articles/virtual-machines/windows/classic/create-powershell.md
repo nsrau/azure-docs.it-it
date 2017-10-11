@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: bd14d9902f4061965c008454a14f91d3927f5b99
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 75c6cf17ee269ae169d9f2f748d0985ca07e454e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Creare macchine virtuali Windows con il modello di distribuzione classica e PowerShell
 > [!div class="op_single_selector"]
@@ -260,5 +259,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se è necessario un disco del sistema operativo superiore a 127 GB, è possibile [espandere l'unità del sistema operativo](../../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

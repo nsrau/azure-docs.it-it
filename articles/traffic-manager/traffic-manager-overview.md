@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 50d7f14d0d4234ee98d8a46e903b5f916cb02fab
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="overview-of-traffic-manager"></a>Panoramica di Gestione traffico
 
 Gestione traffico di Microsoft Azure consente di controllare la distribuzione del traffico utente per gli endpoint di servizio in diversi data center. Gli endpoint di servizio supportati da Gestione traffico includono servizi cloud, app Web e macchine virtuali di Azure. È anche possibile usare Gestione traffico con endpoint esterni, non di Azure.
@@ -121,5 +119,4 @@ Informazioni su alcune altre [funzionalità di rete](../networking/networking-ov
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
-
 

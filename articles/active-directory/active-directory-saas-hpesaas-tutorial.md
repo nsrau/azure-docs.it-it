@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 5e6f0da531df85359aa47477248dd020a039e7e3
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Esercitazione: Integrazione di Azure Active Directory con HPE SaaS
 
@@ -45,7 +44,7 @@ Per configurare l'integrazione di Azure AD con HPE SaaS, sono necessari gli elem
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si ha un ambiente di valutazione di Azure AD, è possibile ottenere una versione di valutazione di un mese qui: [versione di valutazione](https://azure.microsoft.com/pricing/free-trial/).
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese: [offerta prova](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
@@ -223,5 +222,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_203.png
-
 

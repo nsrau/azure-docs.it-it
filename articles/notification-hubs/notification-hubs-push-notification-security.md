@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9128fa76cc0b0f4d879faaaf98d55b5b9180f46e
-
-
+ms.openlocfilehash: 7c3283799806135060bb8ca57ea398c93d1106bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="security"></a>Sicurezza
 ## <a name="overview"></a>Panoramica
@@ -45,10 +45,4 @@ Analogamente ad altre entità, le operazioni degli hub di notifica sono consenti
 | Manage |CRUD negli hub di notifica (incluso l'aggiornamento delle credenziali PNS e le chiavi di sicurezza) e lettura delle registrazioni basata sui tag |Hub di notifica di creazione, aggiornamento, lettura ed eliminazione<br><br>Leggere le registrazioni per tag |
 
 Gli hub di notifica accettano attestazioni concesse dai token del Controllo di accesso di Microsoft Azure e dai token di firma generati con chiavi condivise configurate direttamente nell’hub di notifica.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

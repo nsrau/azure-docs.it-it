@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Come gestire il contenuto univoco dei diversi tipi di campagne di notifica push
 È possibile usare la sezione Contenuto di una nuova campagna di copertura per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna. 
@@ -238,5 +237,4 @@ Un push di riquadri è la versione Servizio di notifica Push di Microsoft (MPNS)
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

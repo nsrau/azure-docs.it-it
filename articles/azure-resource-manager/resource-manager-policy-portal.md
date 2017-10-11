@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 868b2cc1559053057d17b34c03e2e31347f399bf
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-azure-portal-to-assign-and-manage-resource-policies"></a>Usare il portale di Azure per assegnare e gestire i criteri delle risorse
 Il portale di Azure consente di assegnare i criteri delle risorse a gruppi di risorse e sottoscrizioni. L'interfaccia utente rende più semplice la selezione dei criteri da assegnare e la specifica dei valori dei parametri dei criteri per personalizzare le impostazioni dei criteri. 
@@ -84,5 +83,4 @@ Se sono stati definiti criteri personalizzati nella sottoscrizione, i criteri so
 * Per altre informazioni sulla sintassi JSON per la definizione dei criteri, vedere [Cenni preliminari sui criteri delle risorse](resource-manager-policy.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
 * Lo schema del criterio è pubblicato in [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
 

@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9179319095c31d5eb454860e173ffa7c65fc9f73
-ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-10"></a>Configurare gli indirizzi IP privati per una macchina virtuale usando l'interfaccia della riga di comando 1.0 di Azure
 
@@ -269,5 +268,4 @@ Output previsto:
 * Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md) .
 * Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
 

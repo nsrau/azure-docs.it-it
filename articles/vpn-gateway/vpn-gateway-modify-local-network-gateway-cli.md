@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 7db1ad970ebb93d46d5a861f9a9b27bf121531a3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificare le impostazioni del gateway di rete locale usando l'interfaccia della riga di comando di Azure
 
@@ -50,5 +49,4 @@ Installare la versione più recente dei comandi dell'interfaccia della riga di c
 ## <a name="next-steps"></a>Passaggi successivi
 
 È possibile verificare la connessione al gateway. Vedere [Verificare una connessione al gateway](vpn-gateway-verify-connection-resource-manager.md).
-
 

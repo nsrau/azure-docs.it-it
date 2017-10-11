@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 122fa997ea11b369aae3c59edf0043ab19d21aea
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: personalizzare l'interfaccia utente di Azure AD B2C
 
@@ -348,4 +347,3 @@ Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia ut
   * Supporto limitato per Internet Explorer 9, 8
   * Google Chrome 42.0 e versioni successive
   * Mozilla Firefox 38.0 e versioni successive
-

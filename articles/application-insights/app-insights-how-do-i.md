@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 618fcfa3354ef5900d89546ffb7c222a852fe4f8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/22/2017
-
+ms.openlocfilehash: ef63e06c0621753e0a706d6efb709b943e38ee42
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-do-i--in-application-insights"></a>Cosa fare in Application Insights?
 ## <a name="get-an-email-when-"></a>Per ricevere un messaggio di posta elettronica quando...
@@ -162,4 +161,3 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 ### <a name="to-display-more-performance-counters"></a>Per visualizzare altri contatori delle prestazioni
 * Innanzitutto [aggiungere un nuovo grafico](app-insights-metrics-explorer.md) e verificare che il contatore sia incluso nel set di base offerto.
 * In caso contrario, [aggiungere il contatore al set raccolto dal modulo del contatore delle prestazioni](app-insights-performance-counters.md).
-

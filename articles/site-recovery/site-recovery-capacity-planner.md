@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d4183b73bcb0441c9ad5f12e7a3a1e4d8e31f4b5
-ms.openlocfilehash: 243fbea75c4ba9b280c65a378d6f2d069add1098
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>Pianificare la capacità per la protezione delle macchine virtuali e dei server fisici in Azure Site Recovery
 
@@ -128,4 +126,3 @@ Dopo aver specificato tutti i dettagli, fare clic su **Submit data to the planne
 2. Per apportare modifiche è necessario modificare il foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro) e fare clic di nuovo su **Submit data To the planner tool** (Invia dati a strumento di pianificazione).  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
-

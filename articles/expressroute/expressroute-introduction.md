@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a998ec92ad58932c5f71e84fbffcd7783cbb459b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 7390462d79506e63989baadac2b2cee00eef325d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="expressroute-overview"></a>Panoramica di ExpressRoute
 Microsoft Azure ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Office 365 e Dynamics 365.
@@ -114,4 +113,3 @@ Per le domande frequenti su ExpressRoute, vedere [Domande frequenti su ExpressRo
   * [Configurare il peering per un circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
   * [Connettere una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Informazioni su alcune altre [funzionalità di rete](../networking/networking-overview.md) chiave di Azure.
-

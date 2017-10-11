@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creare una rete virtuale (classica) con più subnet
 
@@ -167,4 +166,3 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
 - Creare una macchina virtuale [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e quindi connetterla a una rete virtuale esistente.
 - Per connettere due reti virtuali nella stessa località di Azure, creare un [peering reti virtuali](create-peering-different-deployment-models.md) tra due reti virtuali. È possibile connettere una rete virtuale (Gestione risorse) a una rete virtuale (classica), ma non è possibile creare un peering tra due reti virtuali (classica).
 - Connettere la rete virtuale a una rete locale tramite un [Gateway VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un circuito [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-

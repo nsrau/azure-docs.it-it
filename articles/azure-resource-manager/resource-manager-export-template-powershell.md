@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 74bf865d796c965b4843092215639b32f033d807
-ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 7543811eb9448222b6e7c266756e68debc7d54be
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Esportare modelli di Azure Resource Manager con PowerShell
 
@@ -27,13 +26,13 @@ Resource Manager consente di esportare un modello di Resource Manager dalle riso
 È importante notare che è possibile esportare un modello in due modi diversi:
 
 * È possibile esportare il modello vero e proprio usato per una distribuzione. Il modello esportato include tutti i parametri e le variabili uguali a quelli visualizzati nel modello originale. Questo approccio è utile quando si vuole recuperare un modello.
-* È possibile esportare un modello che rappresenta lo stato attuale del gruppo di risorse. Il modello esportato non si basa su un modello qualsiasi usato per la distribuzione, ma crea un modello che è uno snapshot del gruppo di risorse. Il modello esportato ha diversi valori hardcoded e probabilmente meno parametri di quelli che si definiscono in genere. Questo approccio è utile quando è stato modificato il gruppo di risorse e in seguito è necessario acquisire il gruppo di risorse come modello.
+* È possibile esportare un modello che rappresenta lo stato attuale del gruppo di risorse. Il modello esportato non si basa su un modello qualsiasi usato per la distribuzione, ma crea un modello che è uno snapshot del gruppo di risorse. Il modello esportato ha diversi valori hardcoded e probabilmente meno parametri di quelli che si definiscono in genere. Questo approccio è utile quando si modifica il gruppo di risorse e in seguito è necessario acquisire il gruppo di risorse come modello.
 
 Questo argomento illustra entrambi gli approcci.
 
 ## <a name="deploy-a-solution"></a>Distribuire una soluzione
 
-Per illustrare entrambi gli approcci all'esportazione di un modello, verrà mostrata la distribuzione di una soluzione nella sottoscrizione. Se nella sottoscrizione è già presente un gruppo di risorse da esportare, la distribuzione della soluzione non è necessaria. Il resto di questo articolo, tuttavia, fa riferimento al modello per questa soluzione. Lo script di esempio consente di distribuire un account di archiviazione.
+Per illustrare entrambi gli approcci per l'esportazione di un modello, si inizia con la distribuzione di una soluzione nella sottoscrizione in uso. Se si dispone già di un gruppo di risorse nella sottoscrizione che si vuole esportare, non è necessario distribuire la soluzione. Il resto dell'articolo si riferisce tuttavia al modello per questa soluzione. Lo script di esempio distribuisce un account di archiviazione.
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
@@ -58,7 +57,7 @@ Path
 C:\Users\exampleuser\NewStorage.json
 ```
 
-Aprendo il file si nota che si tratta dello stesso modello usato per la distribuzione. I parametri e le variabili corrispondono al modello di GitHub. Questo modello può essere ridistribuito.
+Aprendo il file si nota che si tratta dello stesso modello usato per la distribuzione. I parametri e le variabili corrispondono al modello di GitHub. È possibile ridistribuire il modello.
 
 ## <a name="export-resource-group-as-template"></a>Esportare il gruppo di risorse come modello
 
@@ -76,7 +75,7 @@ Path
 C:\Users\exampleuser\ExampleGroup.json
 ```
 
-Aprendo il file si nota che è diverso rispetto al modello di GitHub. Contiene parametri diversi e non include variabili. La risorsa di archiviazione SKU e la posizione sono hardcoded in base ai valori. L'esempio seguente mostra il modello esportato, ma il modello dell'utente presenta un nome di parametro diverso:
+Aprendo il file si nota che è diverso rispetto al modello di GitHub. Contiene parametri diversi e non include variabili. I valori dello SKU e della posizione della risorsa di archiviazione sono impostati come hardcoded. L'esempio seguente mostra il modello esportato, ma il modello in uso presenta un nome di parametro leggermente diverso:
 
 ```json
 {
@@ -124,7 +123,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
 "location": "[resourceGroup().location]",
 ```
 
-Per evitare di dover individuare un nome univoco per l'account di archiviazione, rimuovere il parametro del nome dell'account di archiviazione. Aggiungere un parametro per il suffisso del nome di archiviazione e uno SKU di archiviazione:
+Per evitare di dover individuare un nome univoco per l'account di archiviazione, rimuovere il parametro per il nome dell'account di archiviazione. Aggiungere un parametro per il suffisso del nome di archiviazione e uno SKU di archiviazione:
 
 ```json
 "parameters": {
@@ -219,7 +218,6 @@ Il modello si presenta ora come segue:
 Ridistribuire il modello modificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sull'utilizzo del portale per esportare un modello, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
+* Per altre informazioni sull'uso del portale per esportare un modello, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
 * Per definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md#parameters).
 * Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
-

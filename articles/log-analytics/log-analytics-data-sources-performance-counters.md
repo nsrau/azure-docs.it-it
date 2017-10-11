@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Origini dati per le prestazioni di Windows e Linux in Log Analytics
 I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Log Analytics può raccogliere i contatori delle prestazioni a intervalli frequenti per l'analisi NRT (quasi in tempo reale) e l'aggregazione dei dati sulle prestazioni per l'analisi e la creazione di report più a lungo termine.
@@ -250,4 +249,3 @@ Per aggregare i dati sulle prestazioni in una ricerca log, vedere [On-demand met
 * [Raccogliere i contatori delle prestazioni da applicazioni Linux](log-analytics-data-sources-linux-applications.md) come il server HTTP Apache e MySQL.
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
 * Esportare i dati raccolti in [Power BI](log-analytics-powerbi.md) per altre opzioni di visualizzazione e analisi.
-

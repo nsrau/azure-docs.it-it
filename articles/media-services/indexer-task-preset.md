@@ -13,12 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: adsolank;juliako;
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 520785880cb5c9dfa5191a097fdcc3ad776f403e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.openlocfilehash: ae6c4da189cd6637b4e1fa9274473b62f6664e51
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Set di impostazioni delle attività per Azure Media Indexer
 
@@ -65,5 +64,4 @@ La tabella seguente illustra gli elementi e gli attributi del file XML di config
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere [Indicizzazione di file multimediali con Azure Media Indexer](media-services-index-content.md).
-
 

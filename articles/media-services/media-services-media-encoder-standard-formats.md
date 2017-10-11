@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formati e codec Media Encoder Standard
 Questo documento contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con Media Encoder Standard.
@@ -99,7 +98,7 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 
 | Formato file | Codec video | Codec audio |
 | --- | --- | --- |
-| MP4  <br/><br/> (multi-bitrate MP4 container inclusi) |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4  <br/><br/>(multi-bitrate MP4 container inclusi) |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
@@ -112,5 +111,4 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md)
 
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
-
 

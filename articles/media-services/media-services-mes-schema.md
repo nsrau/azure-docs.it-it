@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: c9333e745c75f134e045ee6d15c3552449d8edc3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: 0d034e2c3827b297173262d294a2e566a6b45fac
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
 In questo argomento vengono descritti alcuni elementi e tipi di schema XML su cui si basa il [set di impostazioni di Media Encoder Standard](media-services-mes-presets-overview.md). L'argomento spiega gli elementi e i valori possibili per ognuno. Lo schema completo verrà pubblicato in un secondo momento.  
@@ -274,5 +273,4 @@ Per osservare esempi di set di impostazioni XML compilati in base a questo schem
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

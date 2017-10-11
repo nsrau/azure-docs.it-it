@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.contentlocale: it-it
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche software nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -184,4 +183,3 @@ Dopo l'installazione della soluzione, è possibile visualizzare il riepilogo del
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare dati dettagliati di monitoraggio delle modifiche, usare [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) .
-

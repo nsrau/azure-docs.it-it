@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 3499a7b23a7b4bdd44b5d9e8d7e750681efc3825
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
 La verifica in due passaggi è un livello di sicurezza aggiuntiva che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti. Se si sta leggendo questo articolo, probabilmente è stato ricevuto un messaggio di posta elettronica su Multi-Factor Authentication inviato dall'amministratore dell'azienda o dell'istituto di istruzione. In alternativa, si è tentato di eseguire l'accesso ed è stato ricevuto un messaggio in cui viene chiesto di configurare una verifica aggiuntiva di sicurezza. In questo caso, **non è possibile accedere fino al completamento del processo di registrazione automatica**.
@@ -107,5 +106,4 @@ Se si vuole aggiungere manualmente un account all'app per dispositivi mobili, an
 * Modificare le opzioni desiderate e [gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md)
 * Impostare [password di app](multi-factor-authentication-end-user-app-passwords.md) per tutte le app di dispositivo native che non supportano la verifica in due passaggi.
 * Estrarre l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per eseguire un'autenticazione sicura e veloce, anche in assenza di copertura di rete.
-
 

@@ -14,12 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Integrare Azure Mobile Engagement in un'applicazione Web
 > [!div class="op_single_selector"]
@@ -161,4 +160,3 @@ Se le funzioni URL restituiscono una stringa che inizia con `/`, `//`, `http://`
         scheme: '//'
       }
     };
-

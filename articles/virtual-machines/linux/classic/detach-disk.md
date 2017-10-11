@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: ac982bc153d523de29940af9b9e2609a39cd48a6
-ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>Informazioni su come scollegare un disco da una macchina virtuale Linux
 > [!IMPORTANT] 
@@ -33,5 +32,4 @@ Per altre informazioni sull'uso delle VM Linux, vedere gli articoli seguenti:
 
 * [Come collegare un disco dati a una macchina virtuale Linux](attach-disk.md)
 * [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-
 

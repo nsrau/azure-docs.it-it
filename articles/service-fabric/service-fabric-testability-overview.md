@@ -1,6 +1,6 @@
 ---
 title: Panoramica del servizio di analisi degli errori | Microsoft Docs
-description: Questo articolo descrive il servizio di analisi degli errori di Service Fabric per provocare errori ed eseguire scenari di test sui servizi dell&quot;utente.
+description: Questo articolo descrive il servizio di analisi degli errori di Service Fabric per provocare errori ed eseguire scenari di test sui servizi dell'utente.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c05081685532aecbe29e9bf380f0278e775ad6b7
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: f275fa5d3d6d727b016e55c188321d7e68091a33
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduzione al servizio di analisi degli errori
 Il servizio di analisi degli errori è progettato per testare servizi basati su Microsoft Azure Service Fabric. Con il servizio di analisi degli errori è possibile causare errori significativi ed eseguire scenari di test completi delle applicazioni. Tali errori e scenari verificano e convalidano i numerosi stati e le transizioni sperimentate da un servizio per la relativa durata, il tutto in modo controllato, sicuro e coerente.
@@ -104,4 +102,3 @@ A questo punto è possibile iniziare a testare le applicazioni e i servizi con g
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
-

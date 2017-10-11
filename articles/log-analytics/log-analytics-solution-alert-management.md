@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>La soluzione Gestione avvisi in Operations Management Suite (OMS)
 
@@ -136,4 +135,3 @@ La tabella seguente fornisce ricerche di log di esempio per i record degli avvis
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere l'articolo [Avvisi in Log Analytics](log-analytics-alerts.md) per informazioni dettagliate sulla generazione di avvisi di Log Analytics.
-

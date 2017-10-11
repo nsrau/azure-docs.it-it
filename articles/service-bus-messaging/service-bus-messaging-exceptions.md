@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-bus-messaging-exceptions"></a>Eccezioni di messaggistica del bus di servizio
 Questo articolo elenca alcune delle eccezioni generate dall'API di messaggistica del bus di servizio di Microsoft Azure. Il documento è soggetto a modifica ed è quindi opportuno controllare periodicamente la presenza di aggiornamenti.
@@ -91,12 +89,10 @@ ConnectionsQuotaExceeded for namespace xxx.
 #### <a name="common-causes"></a>Cause comuni
 Per questo errore, esistono due cause comuni: la coda dei messaggi non recapitabili e l'interruzione da parte dei destinatari dei messaggi.
 
-1. **Coda dei messaggi non recapitabili**
-   : un lettore non riesce a completare i messaggi e questi vengono restituiti alla coda o all'argomento alla scadenza del blocco. Questa situazione può verificarsi se il lettore rileva un'eccezione che impedisce la chiamata a [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). Dopo che un messaggio è stato letto 10 volte, si sposta alla coda dei messaggi non recapitabili per impostazione predefinita. Questo comportamento è controllato dalla proprietà [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) e ha un valore predefinito di 10. Man mano che i messaggi si accumulano nella coda dei messaggi non recapitabili, occupano spazio.
+1. **Coda dei messaggi non recapitabili** : un lettore non riesce a completare i messaggi e questi vengono restituiti alla coda o all'argomento alla scadenza del blocco. Questa situazione può verificarsi se il lettore rileva un'eccezione che impedisce la chiamata a [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). Dopo che un messaggio è stato letto 10 volte, si sposta alla coda dei messaggi non recapitabili per impostazione predefinita. Questo comportamento è controllato dalla proprietà [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) e ha un valore predefinito di 10. Man mano che i messaggi si accumulano nella coda dei messaggi non recapitabili, occupano spazio.
    
     Per risolvere il problema, leggere e completare i messaggi nella coda dei messaggi non recapitabili, come si farebbe per qualsiasi altra coda. La classe [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) contiene anche un metodo [FormatDeadLetterPath](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.formatdeadletterpath.aspx) per la formattazione del percorso della coda dei messaggi non recapitabili.
-2. **Interruzione da parte del destinatario**
-   : un destinatario ha interrotto la ricezione di messaggi da una coda o da una sottoscrizione. Per identificare questo problema, è necessario osservare la proprietà [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) , che mostra la suddivisione completa dei messaggi. Se il valore della proprietà [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) è elevato o in crescita, i messaggi non vengono più letti alla stessa velocità in cui vengono scritti.
+2. **Interruzione da parte del destinatario** : un destinatario ha interrotto la ricezione di messaggi da una coda o da una sottoscrizione. Per identificare questo problema, è necessario osservare la proprietà [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) , che mostra la suddivisione completa dei messaggi. Se il valore della proprietà [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) è elevato o in crescita, i messaggi non vengono più letti alla stessa velocità in cui vengono scritti.
 
 ### <a name="event-hubs"></a>Hub eventi
 Hub eventi ha un limite di 20 gruppi di utenti per Hub eventi. Quando si tenta di creare più gruppi, si riceve un'eccezione di tipo [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
@@ -115,10 +111,8 @@ Per Hub eventi, il timeout è specificato come parte della stringa di connession
 ### <a name="common-causes"></a>Cause comuni
 Per questo errore, esistono due cause comuni: una configurazione errata o un errore temporaneo del servizio.
 
-1. **Configurazione errata**
-   : il valore di timeout dell'operazione potrebbe essere troppo ridotto per la condizione operativa. Il valore predefinito per il timeout dell'operazione dell'SDK client è 60 secondi. Verificare se il codice contiene un valore troppo piccolo. Si noti che la condizione relativa all'utilizzo della rete e della CPU può influire sul tempo necessario per il completamento di una determinata operazione, pertanto il timeout dell'operazione non deve essere impostato su un valore troppo piccolo.
-2. **Errore temporaneo del servizio**
-   : a volte il servizio del bus di servizio può subire ritardi nell'elaborazione delle richieste, ad esempio durante periodi di traffico elevato. In questi casi, è possibile ritentare l'operazione dopo un ritardo fino a quando l'operazione ha esito positivo. Se la stessa operazione ha ancora esito negativo dopo diversi tentativi, visitare il [sito sullo stato dei servizi Azure](https://azure.microsoft.com/status/) per verificare se esistono casi noti di interruzioni del servizio.
+1. **Configurazione errata** : il valore di timeout dell'operazione è troppo piccolo per la condizione operativa. Il valore predefinito per il timeout dell'operazione dell'SDK client è 60 secondi. Verificare se il codice contiene un valore troppo piccolo. Si noti che la condizione relativa all'utilizzo della rete e della CPU può influire sul tempo necessario per il completamento di una determinata operazione, pertanto il timeout dell'operazione non deve essere impostato su un valore troppo piccolo.
+2. **Errore temporaneo del servizio** : a volte il servizio del bus di servizio può subire ritardi nell'elaborazione delle richieste, ad esempio durante periodi di traffico elevato. In questi casi, è possibile ritentare l'operazione dopo un ritardo fino a quando l'operazione ha esito positivo. Se la stessa operazione ha ancora esito negativo dopo diversi tentativi, visitare il [sito sullo stato dei servizi Azure](https://azure.microsoft.com/status/) per verificare se esistono casi noti di interruzioni del servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -129,5 +123,4 @@ Per altre informazioni sul [bus di servizio](https://azure.microsoft.com/service
 * [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
 * [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Architettura del bus di servizio](service-bus-architecture.md)
-
 

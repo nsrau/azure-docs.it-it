@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bd1736fdc04498779c7b749bf9cb1c79de075c96
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: a9e46aded0cf3792558a7fba6f00e5662166cc0a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Creare una macchina virtuale completamente configurata con PowerShell
 
 Questo script crea una macchina virtuale di Azure che esegue Windows Server 2016. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite RDP.
@@ -67,4 +65,3 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Altri esempi di script PowerShell della macchina virtuale sono reperibili nella [documentazione della VM Windows di Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

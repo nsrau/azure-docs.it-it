@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 74c9032aababdce91ed617cd7a4c628915b42504
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introduzione a Transparent Data Encryption (TDE)
 > [!div class="op_single_selector"]
@@ -87,4 +86,3 @@ Il risultato ```1``` indica un database crittografato, ```0``` indica un databas
 <!--Image references-->
 
 <!--Link references-->
-

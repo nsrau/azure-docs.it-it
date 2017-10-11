@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c0a113e50fdb78307b8030f9b0d95b696f3f234
 ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
-ms.contentlocale: it-it
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Aggiornare il dispositivo StorSimple 8000 serie
 ## <a name="overview"></a>Panoramica
@@ -119,5 +118,4 @@ Se il dispositivo viene ripristinato alle impostazioni predefinite, tutti gli ag
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sull' [utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 * Altre informazioni sull’ [utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

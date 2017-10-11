@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6ddb1915c8073a7b64ba03ff6b90e701ad337c3e
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 41a26e8b13fdb2531924ba441017c4c01e664995
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandi di rete di PowerShell comuni per le reti virtuali di Azure
 
@@ -76,5 +75,4 @@ Alcune di queste variabili potrebbero essere utili se si esegue più di uno tra 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare l'interfaccia di rete appena creata quando si [crea una VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Informazioni su come [creare una VM con più interfacce di rete](../../virtual-network/virtual-networks-multiple-nics.md).
-
 

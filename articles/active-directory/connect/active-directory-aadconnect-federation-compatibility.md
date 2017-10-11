@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 6b0fd60e79308b75c3a2797ff25065b8a500a3b4
-ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Elenco di compatibilità di federazione di Azure AD
 Azure Active Directory offre la sicurezza di accesso Single Sign-On e di applicazione avanzata per Office 365 e altri Microsoft Online Services per implementazioni ibride o solo cloud senza richiedere alcuna soluzione non Microsoft. Analogamente alla maggior parte dei Microsoft Online Services, Office 365 è integrato con Azure Active Directory per i servizi di directory, l'autenticazione e l'autorizzazione. Azure Active Directory offre anche l'accesso Single Sign-On a migliaia di applicazioni SaaS e di applicazioni Web locali. Per le applicazioni SaaS supportate, vedere la raccolta di applicazioni Azure Active Directory.
@@ -377,5 +376,4 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | Client di posta elettronica, ad esempio Outlook e ActiveSync |Supportato |Nessuna |
 
 Per altre informazioni, vedere [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
-
 

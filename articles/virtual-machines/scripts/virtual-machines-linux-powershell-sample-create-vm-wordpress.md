@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8b4bbc01c76e84961b1ed7e26e29022eb8f2a980
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 778a6d5cfc63f80aa66654d682fedb178cfd67a4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-wordpress-vm-with-powershell"></a>Creare una VM WordPress con PowerShell
 
 Questo script crea una macchina virtuale e usa l'estensione di script personalizzata della macchina virtuale di Azure per installare WordPress. Dopo aver eseguito lo script, è possibile accedere al sito di configurazione di WordPress in `http://<public IP of VM>/wordpress`. 
@@ -68,4 +66,3 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Altri esempi di script PowerShell per la macchina virtuale sono reperibili nella [documentazione della VM Linux di Azure](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42b245d4e205dffda7ec62199ced3834c278a466
-
-
+ms.openlocfilehash: 32d20e7a8adcfc646c592213fe7395b87a93c985
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-and-manage-a-storsimple-support-package"></a>Creare e gestire un pacchetto di supporto StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Un pacchetto per il supporto StorSimple è un meccanismo semplice da usare che raccoglie tutti i log pertinenti per aiutare il supporto tecnico Microsoft a risolvere i problemi relativi ai dispositivi StorSimple. I log raccolti vengono crittografati e compressi.
 
 Questa esercitazione include istruzioni dettagliate per creare e gestire il pacchetto per il supporto.
@@ -166,10 +166,4 @@ L'esempio seguente mostra come decrittografare, modificare e crittografare di nu
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [utilizzare i pacchetti per il supporto e i registri del dispositivo per risolvere i problemi di distribuzione del dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

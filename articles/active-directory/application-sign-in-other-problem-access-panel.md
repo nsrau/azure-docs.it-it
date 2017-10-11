@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 188a00db59b0aa8d26facc678fb52d96272183b6
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemi di accesso a un'applicazione dal pannello di accesso
 
 Il pannello di accesso è un portale basato sul Web e consente a un utente che ha un account aziendale o dell'istituto di istruzione in Azure Active Directory (Azure AD) di visualizzare e avviare applicazioni basate su cloud a cui l'amministratore di Azure AD ha concesso l'accesso. 
@@ -528,5 +526,4 @@ aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 532a953c02ef40eb55705eac885d74c5574deed5
-ms.contentlocale: it-it
-ms.lasthandoff: 01/05/2017
-
+ms.openlocfilehash: 5f099201d9018a6f8577cb3daf127d09560fb94b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -81,4 +80,3 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/deve
 <!-- URL List -->
 
 [CREATEDNS]: ../dns/dns-web-sites-custom-domain.md
-

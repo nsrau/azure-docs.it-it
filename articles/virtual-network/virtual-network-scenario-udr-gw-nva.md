@@ -1,6 +1,6 @@
 ---
 title: Connessione ibrida con applicazione a 2 livelli | Documentazione Microsoft
-description: Informazioni su come distribuire appliance virtuali e route definite dall&quot;utente per creare un ambiente di applicazioni multilivello in Azure
+description: Informazioni su come distribuire appliance virtuali e route definite dall'utente per creare un ambiente di applicazioni multilivello in Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fb8d59469eadad51dcf269ec8ff2829b2f8ef922
-
-
+ms.openlocfilehash: 8e464348660114f5e99b4739bb7761b7e53ebf99
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario dell'appliance virtuale
 Uno scenario comune tra i clienti di Azure di grandi dimensioni è la necessità di offrire un'applicazione a due livelli esposta a Internet, consentendo l'accesso al livello back-end da un data center locale. Questo documento illustra uno scenario che prevede route definite dall'utente (UDR), un gateway VPN e appliance di rete virtuali per distribuire un ambiente a due livelli che soddisfi i requisiti seguenti:
@@ -167,10 +167,4 @@ Per distribuire lo scenario seguire questi passaggi generali.
 3. Effettuare il provisioning delle risorse che fanno parte di **AZURERG**.
 4. Effettuare il provisioning del tunnel da **onpremvnet** ad **azurevnet**.
 5. Dopo aver effettuato il provisioning di tutte le risorse, accedere a **onpremvm2** ed eseguire il ping di 10.0.3.101 per verificare la connessione tra **onpremsn2** e **azsn3**.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

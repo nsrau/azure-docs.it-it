@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 2420723eed9ae8ba1ba6156482ef4b4de9ce2fc0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
-
+ms.openlocfilehash: 4a88096d2b0a23708acdbc1798eac528599b4f71
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Verificare l'esecuzione di query di API Graph di Microsoft dall'applicazione iOS
 
@@ -42,7 +41,6 @@ Si dovrebbero visualizzare le informazioni del profilo utente restituite dalla c
 L'API di Microsoft Graph richiede l'ambito `user.read` per leggere il profilo dell'utente. Per impostazione predefinita, questo ambito viene aggiunto automaticamente in ogni applicazione registrata nel portale di registrazione. Altre API per Microsoft Graph e le API personalizzate per il server di back-end potrebbero richiedere anche altri ambiti. Ad esempio, per Microsoft Graph, l'ambito `Calendars.Read` è necessario per elencare i calendari dell'utente. Per poter accedere al calendario dell'utente nel contesto di un'applicazione, è necessario aggiungere l'autorizzazione delegata `Calendars.Read` alle informazioni di registrazione dell'applicazione e quindi aggiungere l'ambito `Calendars.Read` alla chiamata `acquireTokenSilent`. Con l'aumentare del numero di ambiti è possibile che all'utente venga chiesto di esprimere anche altri tipi di consenso.
 
 <!--end-collapse-->
-
 
 
 

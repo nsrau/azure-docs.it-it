@@ -1,6 +1,6 @@
 ---
 title: 'Always Encrypted: database SQL di Azure - Archivio certificati di Windows | Documentazione Microsoft'
-description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia del database usando la procedura guidata Always Encrypted di SQL Server Management Studio (SSMS). Descrive anche l&quot;archiviazione delle chiavi di crittografia nell&quot;archivio certificati di Windows.
+description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia del database usando la procedura guidata Always Encrypted di SQL Server Management Studio (SSMS). Descrive anche l'archiviazione delle chiavi di crittografia nell'archivio certificati di Windows.
 keywords: crittografia dati, crittografia sql, crittografia database, dati sensibili, crittografia sempre attiva
 services: sql-database
 documentationcenter: 
@@ -16,13 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: e2474b2f69ee0301ba00bd2a49afa90f83935cb6
-ms.contentlocale: it-it
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: d1fdfc4f739e65ff532b159eefaffe1622ad0963
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL e archiviare le chiavi di crittografia nell'archivio certificati di Windows
 
@@ -519,5 +517,4 @@ Dopo avere creato un database che usa la crittografia sempre attiva, è possibil
 * [Crittografia di SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
 

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2e6995d730089e194dcac989151af13df28a173a
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 742b4578118bde878385c12cc7c9e4438f89cb33
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-when-signing-in-to-applications"></a>Problemi durante l'accesso alle applicazioni
 
 
@@ -44,4 +42,3 @@ ms.lasthandoff: 04/17/2017
   * [I can't sign in to an Azure AD Gallery application configured for federated single sign-on](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Non è possibile accedere a un'applicazione della raccolta di Azure AD configurata per Single Sign-On federato)
   * [I can't sign in to an custom-developed application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-custom-dev/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Non è possibile accedere a un'applicazione personalizzata)
   * [I can't sign in to an on-premises application using the Azure AD application proxy](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-on-premises-application-proxy/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Non è possibile accedere a un'applicazione locale tramite il proxy di applicazione di Azure AD)
-

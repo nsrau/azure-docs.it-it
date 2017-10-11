@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb2e480a45871ad0c956dc976de955ca48ecdfd0
 ms.openlocfilehash: 8506238e41c5d9dac8d76d729d4919b30a0528b9
-ms.contentlocale: it-it
-ms.lasthandoff: 01/05/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Applicazione di esempio per l'uso con reti perimetrali
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -203,4 +202,3 @@ In questa applicazione di esempio non è incluso alcuno script per la configuraz
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
-

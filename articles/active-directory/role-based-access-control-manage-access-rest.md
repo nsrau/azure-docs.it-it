@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 6decf3e228bf31f9da4ea2bfa4d0ada0b2ffad61
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Gestione del controllo degli accessi in base al ruolo con l'API REST
 > [!div class="op_single_selector"]
@@ -651,4 +650,3 @@ Codice di stato: 200
 ## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-

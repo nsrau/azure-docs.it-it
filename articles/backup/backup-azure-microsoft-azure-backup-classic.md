@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: ffef289e154986e4b08a072d3a95f77818fb9c35
-ms.contentlocale: it-it
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparazione del backup dei carichi di lavoro con il server di Backup di Azure
 > [!div class="op_single_selector"]
@@ -64,7 +63,7 @@ Se si inviano dati di backup in Azure o se si desidera mantenerli in locale, è 
 > A partire da marzo 2017, non è più possibile usare il portale classico per creare insiemi di credenziali di backup.
 > È ora possibile aggiornare gli insiemi di credenziali di Backup ad insiemi di credenziali dei servizi di ripristino. Per altre informazioni, vedere l'articolo [Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft consiglia di aggiornare gli insiemi di credenziali di Backup a insiemi di credenziali dei servizi di ripristino.<br/> Dopo il 15 ottobre 2017 non sarà possibile usare PowerShell per creare insiemi di credenziali di backup. **Entro il 1° novembre 2017**:
 >- Tutti gli insiemi di credenziali di backup rimanenti verranno aggiornati automaticamente a insiemi di credenziali dei servizi di ripristino.
->- Non sarà più possibile accedere ai dati di backup nel portale classico. Sarà possibile invece usare il portale di Azure per accedere ai dati di backup negli insiemi di credenziali di servizi di ripristino.
+>- e non sarà più possibile accedere ai dati di backup nel portale classico. Sarà possibile invece usare il portale di Azure per accedere ai dati di backup negli insiemi di credenziali di servizi di ripristino.
 >
 
 
@@ -201,4 +200,3 @@ Per informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://
 * [Backup di SQL Server](backup-azure-backup-sql.md)
 * [Backup di SharePoint Server](backup-azure-backup-sharepoint.md)
 * [Backup del server alternativo](backup-azure-alternate-dpm-server.md)
-

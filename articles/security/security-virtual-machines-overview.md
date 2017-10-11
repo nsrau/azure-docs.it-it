@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: f1fb7f876c7dc010c03f01a4f6698ddc18da1100
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
 Macchine virtuali di Azure consente di distribuire in modo flessibile un'ampia gamma di soluzioni di elaborazione. Grazie al supporto per Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e Servizi BizTalk di Azure, è possibile distribuire qualsiasi carico di lavoro, in qualunque linguaggio, praticamente su tutti i sistemi operativi.
@@ -151,4 +150,3 @@ Altre informazioni:
 
 * [Centro protezione Microsoft - Conformità](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 * [Trusted Cloud: sicurezza, privacy e conformità di Microsoft Azure](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
-

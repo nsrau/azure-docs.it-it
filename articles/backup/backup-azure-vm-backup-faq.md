@@ -1,4 +1,3 @@
-
 ---
 title: Domande frequenti sul servizio Backup delle macchine virtuali di Azure | Microsoft Docs
 description: Risposte alle domande frequenti sul funzionamento del backup delle macchine virtuali di Azure, sulle relative limitazioni e su cosa accade quando si modificano i criteri
@@ -16,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8c06a90f58cf56ebb4e75e7567e237de7414a300
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 1372a9e05cb47f6c68240bffccd46b0fbebb5464
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Domande sul servizio Backup delle macchine virtuali di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup delle macchine virtuali di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -62,4 +60,3 @@ Usare i dischi di ripristino per eseguire queste operazioni:
 ## <a name="manage-vm-backups"></a>Gestire i backup delle macchine virtuali
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Cosa accade quando si modificano criteri di backup in una o più macchine virtuali?
 Quando vengono applicati nuovi criteri a una o più macchine virtuali, viene seguita la pianificazione e la conservazione stabilita dai nuovi criteri. Se il periodo di conservazione viene esteso, i punti di ripristino esistenti vengono contrassegnati in modo che vengano mantenuti in base ai nuovi criteri. Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione nel processo di pulizia successivo e verranno eliminati. 
-

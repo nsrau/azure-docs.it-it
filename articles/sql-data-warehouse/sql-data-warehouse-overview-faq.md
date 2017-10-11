@@ -15,15 +15,12 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 3/1/2017
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 49cbfca4f733356548b6c8f491fead9e2d7fdf5c
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 4c00710ecc0c91f8407eca81b78176075fcbd6ad
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Domande frequenti su SQL Data Warehouse di Azure
 
 ## <a name="general"></a>Generale

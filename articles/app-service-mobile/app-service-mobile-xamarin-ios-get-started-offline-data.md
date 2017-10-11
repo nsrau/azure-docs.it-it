@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: d609231d6d9913b0f40b6e311aeedeb9a2391c7c
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: b5878d8a2e18cf08b6e9074ecf40cd732624f0c0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -115,4 +114,3 @@ Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Crear
 [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-

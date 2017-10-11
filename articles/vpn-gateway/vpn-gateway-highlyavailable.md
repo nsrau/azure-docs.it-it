@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3708a2f7c445a161f02416cf8427b1707e1db8f0
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata
 Questo articolo offre una panoramica delle opzioni di configurazione a disponibilità elevata per la connettività cross-premise e da rete virtuale a rete virtuale con gateway VPN di Azure.
@@ -84,5 +83,4 @@ Ciò assicura che tra le due reti virtuali sia sempre presente una coppia di tun
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sulla procedura per configurare connessioni cross-premise e da rete virtuale a rete virtuale di tipo attivo/attivo, vedere [Configurazione di gateway VPN di tipo attivo/attivo per connessioni cross-premise e da rete virtuale a rete virtuale](vpn-gateway-activeactive-rm-powershell.md) .
-
 

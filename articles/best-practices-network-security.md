@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 243c1cd5ebf34f2d8a8fda234fa3875298390336
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="microsoft-cloud-services-and-network-security"></a>Servizi cloud Microsoft e sicurezza di rete
 I Servizi cloud Microsoft offrono servizi e infrastruttura su scala elevata, capacità di livello aziendale e molte opzioni per la connettività ibrida. I clienti possono scegliere di accedere a questi servizi tramite Internet o con Azure ExpressRoute, che offre connettività di rete privata. La piattaforma Microsoft Azure consente ai clienti di estendere con facilità la propria infrastruttura nel cloud e di sviluppare architetture a più livelli. Inoltre, le terze parti possono abilitare capacità avanzate offrendo servizi di sicurezza e appliance virtuali. Questo white paper offre una panoramica dei problemi relativi a sicurezza e architettura che i clienti dovrebbero tenere in considerazione quando usano i Servizi cloud Microsoft con accesso tramite ExpressRoute. Il documento illustra anche come creare servizi più sicuri sulle reti virtuali di Azure.
 
@@ -552,4 +550,3 @@ L'aggiunta di una connessione di rete con peering privato di ExpressRoute può e
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
-

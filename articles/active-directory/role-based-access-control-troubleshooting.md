@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9ad194308d30ca652b32ec3b76750b0e838472f4
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 407c030ea159915d4d7ac21760a3d17ec2204372
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Risoluzione dei problemi del controllo degli accessi in base al ruolo
 
@@ -94,5 +93,4 @@ Se non è possibile accedere a nessuno di questi riquadri, richiedere all'ammini
 * [Ruoli predefiniti](role-based-access-built-in-roles.md): informazioni dettagliate sui ruoli predefiniti del controllo degli accessi in base al ruolo.
 * [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
 * [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): monitoraggio delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="azure-resource-health-faq"></a>Domande frequenti su Integrità risorse di Azure
 Risposte alle domande comuni su Integrità risorse di Azure.
 
@@ -109,4 +107,3 @@ In base allo stato di integrità, Integrità risorse offre consigli per ridurre 
 Altre informazioni su Integrità risorse:
 -  [Panoramica su Integrità risorse di Azure](Resource-health-overview.md)
 -  [Tipi di risorse e controlli integrità disponibili in Integrità risorse di Azure](resource-health-checks-resource-types.md)
-

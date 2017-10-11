@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione
 
@@ -321,5 +320,4 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per accedere alla nuova macchina virtuale, passare alla VM nel [portale](https://portal.azure.com), fare clic su **Connetti**e aprire il file RDP di Desktop remoto. Usare le credenziali dell'account della macchina virtuale originale per accedere alla nuova macchina virtuale. Per altre informazioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](connect-logon.md).
-
 

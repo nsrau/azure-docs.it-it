@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>Modificare le impostazioni dell'interfaccia di rete DATI 0 sul dispositivo StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Il dispositivo Microsoft Azure StorSimple ha sei interfacce di rete, da DATI 0 a DATI 5. L'interfaccia DATI 0 è sempre configurata tramite l'interfaccia di Windows PowerShell o la console seriale ed è automaticamente abilitata per il cloud. Si noti che non è possibile configurare l'interfaccia di rete DATI 0 con il portale di Azure classico. 
 
 L'interfaccia DATI 0 viene inizialmente configurata tramite l'installazione guidata durante la distribuzione iniziale del dispositivo StorSimple. Quando il dispositivo è in modalità operativa, potrebbe essere necessario riconfigurare le impostazioni di DATI 0. In questa esercitazione sono disponibili due metodi per modificare le impostazioni di rete di DATI 0, entrambi tramite Windows PowerShell per StorSimple.
@@ -69,5 +68,4 @@ Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell
 ## <a name="next-steps"></a>Passaggi successivi
 * Per configurare le interfacce di rete diverse da DATA 0, è possibile utilizzare la [pagina di configurazione nel portale di Azure classico](storsimple-modify-device-config.md). 
 * Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md).
-
 

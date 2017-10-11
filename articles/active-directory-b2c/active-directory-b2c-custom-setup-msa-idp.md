@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 928e33392924a7461a4a03ac16ff0994680e68f9
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: 8c981046ff41d3927ff60d6dc4f40366ae25ba74
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Aggiungere un account Microsoft come provider di identità tramite criteri personalizzati
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -228,4 +226,3 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 
 ## <a name="download-the-complete-policy-files"></a>Scaricare i file dei criteri completi
 Facoltativo: anziché usare i file di esempio, per creare lo scenario è consigliabile usare file di criteri personalizzati dopo aver completato la procedura Introduzione ai criteri personalizzati.  [File dei criteri di esempio di riferimento](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-msa-app)
-

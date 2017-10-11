@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
-ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="controlling-and-granting-database-access"></a>Controllo e concessione dell'accesso al database
 
@@ -193,4 +192,3 @@ Quando si gestiscono gli accessi e gli utenti nel database SQL, prendere in cons
 - Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md).
 - Per informazioni sulle viste e sulle stored procedure, vedere [Creazione di viste e stored procedure](https://msdn.microsoft.com/library/ms365311.aspx)
 - Per informazioni sulla concessione di accesso a un oggetto di database, vedere [Concessione dell'accesso a un oggetto di database](https://msdn.microsoft.com/library/ms365327.aspx)
-

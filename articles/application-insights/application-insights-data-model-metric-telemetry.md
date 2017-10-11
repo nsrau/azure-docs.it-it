@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 069457d7ef7855749f64e299e0db579e6bb2b590
-ms.contentlocale: it-it
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 42e55db4f932de85ee1a71c408b889e0ff9fe3e1
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Metrica dei dati di telemetria: modello di dati di Application Insights
 
@@ -74,4 +73,3 @@ Deviazione standard della metrica aggregata. Non deve essere impostato per una m
 - Informazioni su come usare l'[API di Application Insights per metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md#trackmetric).
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](application-insights-data-model.md).
 - Verificare quali [piattaforme](app-insights-platforms.md) supportano Application Insights.
-

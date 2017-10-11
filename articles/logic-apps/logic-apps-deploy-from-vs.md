@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.contentlocale: it-it
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
 ms.lasthandoff: 08/03/2017
-
 ---
-
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Progettare, compilare e distribuire app per la logica di Azure in Visual Studio
 
 Anche se il [portale di Azure](https://portal.azure.com/) è uno strumento eccellente per la creazione e la gestione delle app per la logica di Azure, è possibile usare Visual Studio per progettarle, compilarle e distribuirle. Visual Studio offre strumenti avanzati, come la finestra di progettazione di app per la logica, per creare app per la logica, configurare i modelli di distribuzione e automazione e distribuirli in qualsiasi ambiente. 
@@ -238,4 +236,3 @@ Se si dispone di un progetto Gruppo di risorse esistente, è possibile aggiunger
 * [Visualizzare esempi e scenari comuni](logic-apps-examples-and-scenarios.md)
 * [Introduzione all'automazione dei processi aziendali con le app per la logica di Azure](http://channel9.msdn.com/Events/Build/2016/T694)
 * [Informazioni su come integrare i sistemi con le app per la logica di Azure](http://channel9.msdn.com/Events/Build/2016/P462)
-

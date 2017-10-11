@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 1a1414eefd20e6d7c025da08cfd5ae7c45daad33
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="tutorial-configuring-zendesk-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di ZenDesk per il provisioning utenti automatico
 
 
@@ -107,4 +105,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](active-directory-saas-provisioning-reporting.md)
-

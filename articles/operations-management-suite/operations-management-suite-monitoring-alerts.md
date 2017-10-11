@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f2b0655bdddc162c7c8ef7d478b2ce1fd1993f15
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7df2fd7ef838465a60e3b0ce2f889127b7487684
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Gestione degli avvisi di monitoraggio Microsoft
 Un avviso indica un problema che richiede attenzione da parte di un amministratore.  Esistono delle differenze ben distinte tra System Center Operations Manager (SCOM) e Log Analytics in Operations Management Suite (OMS) in termini della modalità di creazione, gestione e analisi degli avvisi, ma anche per quanto riguarda la modalità di notifica in caso di rilevamento di un problema critico.
@@ -74,5 +73,4 @@ Se si utilizza SCOM come un'origine dati per Log Analytics, è possibile creare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni dettagliate sugli [avvisi in System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
-
 

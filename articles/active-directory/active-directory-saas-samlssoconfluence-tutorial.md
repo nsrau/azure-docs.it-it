@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: integrazione di Azure Active Directory con SAML SSO for Confluence di resolution GmbH | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e SAML SSO for Confluence di resolution GmbH.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SAML SSO for Confluence di resolution GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Esercitazione: integrazione di Azure Active Directory con SAML SSO for Confluence di resolution GmbH
 
@@ -133,7 +131,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 6. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)  
     
 7. In un'altra finestra del Web browser accedere al **portale di amministrazione di SAML SSO for Confluence di resolution GmbH** come amministratore.
 
@@ -159,7 +157,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
 
-13.    Fare clic su **Manage**.
+13. Fare clic su **Manage**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
     
@@ -187,7 +185,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Fare clic sul pulsante **Load** (Carica).
 
-    e. Legge i metadati IdP e popola i campi come evidenziato nella schermata.    
+    e. Legge i metadati IdP e popola i campi come evidenziato nella schermata. 
 18. Fare clic sul pulsante **Save settings** (Salva impostazioni) per salvare le impostazioni.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
@@ -312,5 +310,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_203.png
-
 

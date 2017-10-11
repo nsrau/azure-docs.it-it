@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 39bb294c96ce0c12d91cf8b3488ac3e1a7b2f7b2
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Come configurare i servizi cloud
 > [!div class="op_single_selector"]
@@ -77,5 +76,4 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 * [Gestire il servizio cloud](cloud-services-how-to-manage.md).
 * [Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](cloud-services-role-enable-remote-desktop.md)
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
-
 

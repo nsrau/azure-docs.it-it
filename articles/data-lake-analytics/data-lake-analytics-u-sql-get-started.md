@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-u-sql"></a>Introduzione a U-SQL
 U-SQL è un linguaggio che combina SQL dichiarativo con C# imperativo per consentire di elaborare da su qualsiasi scala. Le funzionalità di query scalabili e distribuite offerte da U-SQL consentono di analizzare con efficienza i dati presenti in archivi relazionali, ad esempio il database SQL di Azure. Con U-SQL è possibile elaborare i dati non strutturati applicando schemi in lettura e inserendo logiche personalizzate e funzioni definite dall'utente. Inoltre, U-SQL include estendibilità che consente un controllo specifico delle modalità di esecuzione su vasta scala. 
@@ -232,4 +231,3 @@ Per gli scenari avanzati di aggregazione, vedere la documentazione di riferiment
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-

@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 182d7b2bd4d9f663b545684f2bc2a02d06952b61
 ms.openlocfilehash: 0d8035b9608ca3bac3d4822c7c755b81c96d481e
-ms.contentlocale: it-it
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-device-dashboard-in-storsimple-manager-service"></a>Usare il dashboard del dispositivo nel servizio StorSimple Manager  
 
@@ -33,7 +32,7 @@ La scheda dashboard contiene le informazioni seguenti:
 
 * **Area del grafico** – è possibile visualizzare le metriche di archiviazione rilevanti nell'area del grafico nella parte superiore del dashboard. In questo grafico, è possibile visualizzare le metriche per l'archiviazione primaria totale (la quantità di dati scritti dall'host per il dispositivo) e l'archiviazione cloud totale utilizzata dal dispositivo in un periodo di tempo.
   
-     In questo contesto *archiviazione primaria* si riferisce alla quantità totale di dati scritti dall'host e può essere suddivisa in base al tipo di volume: *archiviazione primaria a livelli* include sia i dati archiviati in locale che quelli archiviati a livelli nel cloud, mentre *archiviazione primaria aggiunta in locale* include solo i dati archiviati in locale. L’*Archiviazione cloud*d'altra parte, è una misura della quantità totale di dati archiviati nel cloud. Sono inclusi i backup e i dati a più livelli. Si noti che i dati archiviati nel cloud sono deduplicati e compressi, mentre l'archiviazione primaria indica la quantità di spazio di archiviazione utilizzato prima della loro deduplicazione e compressione.. (È possibile confrontare i due numeri per avere un'idea del tasso di compressione). Per entrambe le archiviazioni primarie e cloud, gli importi mostrati si baseranno sulla frequenza di rilevamento che si configura. Ad esempio, se si sceglie una frequenza di una settimana, il grafico mostrerà dati per ogni giorno della settimana precedente.
+     In questo contesto *archiviazione primaria* si riferisce alla quantità totale di dati scritti dall'host e può essere suddivisa in base al tipo di volume: *archiviazione primaria a livelli* include sia i dati archiviati in locale che quelli archiviati a livelli nel cloud, mentre *archiviazione primaria aggiunta in locale* include solo i dati archiviati in locale. L’*Archiviazione cloud*d'altra parte, è una misura della quantità totale di dati archiviati nel cloud. Sono inclusi i backup e i dati a più livelli. Si noti che i dati archiviati nel cloud sono deduplicati e compressi, mentre l'archiviazione primaria indica la quantità di spazio di archiviazione utilizzato prima della loro deduplicazione e compressione. (È possibile confrontare i due numeri per avere un'idea del tasso di compressione). Per entrambe le archiviazioni primarie e cloud, gli importi mostrati si baseranno sulla frequenza di rilevamento che si configura. Ad esempio, se si sceglie una frequenza di una settimana, il grafico mostrerà dati per ogni giorno della settimana precedente.
   
      È possibile configurare il grafico come segue:
   
@@ -84,5 +83,4 @@ L’IQN di destinazione del dispositivo potrebbe essere necessario quando si con
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sul [dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
 * Ulteriori informazioni sull’ [utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

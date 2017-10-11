@@ -9,12 +9,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bruceper
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 115862aca98926e354e4703f86cb4a7e1d1f72a2
-ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
-
+ms.openlocfilehash: fec4769c0bd571edea84dd2f766bb907d8819be5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -139,6 +138,5 @@ Questi articoli illustrano altri scenari e servizi che usano o si integrano con 
 
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) include le interfacce **IKey** e **IKeyResolver** per individuare le chiavi dagli identificatori ed eseguire operazioni con le chiavi.
 - [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fornisce funzionalità estese per Insieme di credenziali delle chiavi di Azure.
-
 
 

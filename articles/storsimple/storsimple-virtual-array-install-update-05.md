@@ -1,6 +1,6 @@
 ---
-title: Installare l&quot;aggiornamento 0.5 nell&quot;array virtuale StorSimple | Microsoft Docs
-description: Descrive come usare l&quot;interfaccia utente Web dell&quot;array virtuale StorSimple per applicare aggiornamenti tramite il portale di Azure e gli hotfix
+title: Installare l'aggiornamento 0.5 nell'array virtuale StorSimple | Microsoft Docs
+description: Descrive come usare l'interfaccia utente Web dell'array virtuale StorSimple per applicare aggiornamenti tramite il portale di Azure e gli hotfix
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: c47da5b90c16e2d5b5709e2a6affc026238b9468
-ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 0.5 nell'array virtuale StorSimple
 
@@ -120,5 +119,4 @@ L'aggiornamento è ora completato.
 ## <a name="next-steps"></a>Passaggi successivi
 
 Scoprire di più su come [amministrazione StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
 

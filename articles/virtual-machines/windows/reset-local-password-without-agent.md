@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/07/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
 ms.openlocfilehash: 880f5e5967298401fc2522124af3746d9906ffa8
-ms.contentlocale: it-it
-ms.lasthandoff: 04/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-reset-local-windows-password-for-azure-vm"></a>Come reimpostare una password di Windows locale per una VM di Azure
 È possibile reimpostare la password di Windows locale di una VM in Azure tramite il [portale di Azure o Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a condizione che l'agente guest di Azure sia installato. Questo è il metodo principale per reimpostare una password per una VM di Azure. In mancanza di risposta da parte dell'agente guest di Azure, o in caso di errore di installazione dopo il caricamento di un'immagine personalizzata, è possibile reimpostare la password di Windows manualmente. Questo articolo illustra come reimpostare la password di un account locale collegando il disco virtuale del sistema operativo di origine a un'altra VM. 
@@ -146,5 +145,4 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è ancora possibile connettersi tramite Desktop remoto, vedere la [guida alla risoluzione dei problemi di RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). La [guida alla risoluzione dei problemi di RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) esamina i metodi di risoluzione dei problemi anziché i passaggi specifici. È anche possibile [aprire una richiesta di supporto tecnico di Azure](https://azure.microsoft.com/support/options/) per ricevere un supporto pratico.
-
 

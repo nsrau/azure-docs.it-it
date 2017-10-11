@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2016
 ms.author: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 9472cb01eb713e297053727b1a314293574bb657
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-threat-management"></a>Azure Active Directory B2C: Gestione delle minacce
 
@@ -34,4 +33,3 @@ Azure AD B2C usa tecniche di rilevamento e mitigazione, ad esempio cookie SYN e 
 Azure AD B2C dispone inoltre di tecniche di mitigazione per gli attacchi alle password. Questa mitigazione include sia attacchi di forza bruta che attacchi con dizionario alle password. Le password impostate dagli utenti devono essere ragionevolmente complesse. Tramite segnali diversi, Azure AD B2C analizza l'integrità delle richieste. Azure Active Directory B2C è progettato per distinguere in modo intelligente gli utenti previsti da hacker e botnet. Azure AD B2C fornisce una sofisticata strategia di blocco account in base alle password immesse rispetto alla probabilità di un attacco.
 
 Per maggiori informazioni, visitare il [Centro protezione Microsoft](https://www.microsoft.com/trustcenter/security/threatmanagement).
-

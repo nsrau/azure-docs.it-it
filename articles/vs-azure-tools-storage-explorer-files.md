@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.contentlocale: it-it
-ms.lasthandoff: 03/14/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Uso di Storage Explorer (anteprima) con Archiviazione file di Azure
 
 Archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo Server Message Block (SMB)standard. Sono supportati sia SMB 2.1 che SMB 3.0. Con Archiviazione file di Azure si può eseguire la migrazione ad Azure delle applicazioni legacy basate su condivisioni file velocemente e senza costose riscritture. È possibile usare Archiviazione file per esporre pubblicamente dati a livello mondiale o per archiviare privatamente dati applicazione. Questo articolo illustra come usare Storage Explorer (anteprima) per l'utilizzo con file e condivisioni file.
@@ -263,4 +261,3 @@ La procedura seguente illustra come gestire i file e le cartelle all'interno di 
 - Vedere le note sulla versione e i video in [Microsoft Azure Storage Explorer](http://www.storageexplorer.com/)(anteprima).
 
 - Informazioni su come creare applicazioni con BLOB, tabelle, code e file di Azure nella [Documentazione su Archiviazione](https://azure.microsoft.com/documentation/services/storage/).
-

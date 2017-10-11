@@ -1,5 +1,4 @@
 ---
-
 title: Come eseguire la migrazione di singoli utenti con licenza in un gruppo in Azure Active Directory | Documentazione Microsoft
 description: Come passare da licenze per utenti singoli a licenze basate sui gruppi usando Azure Active Directory
 services: active-directory
@@ -17,15 +16,12 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: d7c5ba12738c4713517743ae8c44e236c5e1a210
-ms.contentlocale: it-it
-ms.lasthandoff: 03/08/2017
-
-
+ms.openlocfilehash: 6b77dd4e9a6d361a05382397e89b575896fdad84
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Come aggiungere gli utenti con licenza a un gruppo per la gestione delle licenze in Azure Active Directory
 
 Le licenze esistenti potrebbero essere state distribuite agli utenti nelle organizzazioni tramite "assegnazione diretta", vale a dire usando script di PowerShell o altri strumenti per assegnare le licenze utente individuali. Se si vuole iniziare a usare le licenze basate sui gruppi per la gestione delle licenze dell'organizzazione, è necessario un piano di migrazione che permetta di sostituire facilmente le soluzioni esistenti con le licenze basate sui gruppi.
@@ -93,4 +89,3 @@ Per informazioni su altri scenari per la gestione delle licenze tramite i gruppi
 * [Che cosa sono le licenze basate sui gruppi in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Scenari aggiuntivi relativi alle licenze basate sui gruppi in Azure Active Directory](active-directory-licensing-group-advanced.md)
-
