@@ -1,7 +1,6 @@
-
 ---
-title: Usare Azure AD 2.0 per accedere a risorse sicure senza interazione dell&quot;utente | Documentazione Microsoft
-description: Creare applicazioni Web usando l&quot;implementazione del protocollo di autenticazione OAuth 2.0 definita in Azure AD.
+title: Usare Azure AD 2.0 per accedere a risorse sicure senza interazione dell'utente | Documentazione Microsoft
+description: Creare applicazioni Web usando l'implementazione del protocollo di autenticazione OAuth 2.0 definita in Azure AD.
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # Azure Active Directory v2.0 e il flusso di credenziali client OAuth 2.0
 La [concessione di credenziali client OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), anche detta *OAuth a due vie*, può essere usata per accedere alle risorse ospitate sul Web tramite l'identità di un'applicazione. Viene comunemente impiegata per le interazioni di tutti i server in esecuzione in background senza l'interazione immediata con un utente finale. Questo tipo di applicazioni vengono spesso definite *daemon* o *account di servizio*.
@@ -232,4 +229,3 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## Esempio di codice
 Per un esempio di un'applicazione che implementa la concessione delle credenziali client tramite l'endpoint di consenso dell'amministratore, vedere l'[esempio di codice daemon 2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-

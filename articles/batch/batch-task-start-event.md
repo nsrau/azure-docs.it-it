@@ -1,6 +1,6 @@
 ---
 title: "Evento di avvio attività di Azure Batch | Microsoft Docs"
-description: "Riferimento per l&quot;evento di avvio dell&quot;attività batch."
+description: "Riferimento per l'evento di avvio dell'attività batch."
 services: batch
 author: tamram
 manager: timlt
@@ -12,14 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: c47ab36c99dddd46a14c15018a2a46bf7f873ffa
-ms.contentlocale: it-it
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="task-start-event"></a>Evento di avvio attività
 
  Questo evento viene generato una volta che un'attività è stata pianificata per l'avvio su un nodo di calcolo dall'utilità di pianificazione. Se l'attività viene ritentata o reinserita nella coda, questo evento verrà generato nuovamente per la stessa attività, ma il numero di tentativi e la versione dell'attività di sistema verranno aggiornati di conseguenza.
@@ -84,4 +82,3 @@ ms.lasthandoff: 04/22/2017
 |Nome dell'elemento|Tipo|Note|
 |------------------|----------|-----------|
 |retryCount|Int32|Numero di tentativi di esecuzione dell'attività da parte del servizio Batch. L'attività viene ritentata se si conclude con un codice di uscita diverso da zero, fino al limite specificato in MaxTaskRetryCount.|
-

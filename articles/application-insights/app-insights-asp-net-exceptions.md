@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 09/19/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 8c73344b07e07cc89a18a10648b1a9c82c4b361a
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 6baffb1fb14a3b7ede5a754029b9efbaf543ea07
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
@@ -58,15 +58,19 @@ Nel codice, si noti che CodeLens mostra i dati relativi alle eccezioni:
 ![Notifica CodeLens di eccezioni.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnosi degli errori con il portale di Azure
-Il riquadro Errori nel pannello di panoramica dell'app in Application Insights mostra i grafici delle eccezioni e delle richieste HTTP non riuscite, insieme a un elenco di URL delle richieste che causano gli errori più frequenti.
+Application Insights viene fornito con un'esperienza APM (Application Performance Monitoring) dedicata per semplificare la diagnosi degli errori nelle applicazioni monitorate. Per iniziare, scegliere l'opzione Failures (Errori) dal menu delle risorse di Application Insights, che si trova nella sezione Investigate (Analisi dei problemi). Apparirà una visualizzazione a schermo intero che mostra le tendenze in termini di frequenza degli errori per le richieste, indicando quante non sono riuscite e quanti sono gli utenti interessati. A destra verranno visualizzate alcune delle distribuzioni più utili specifiche dell'operazione non riuscita selezionata, tra cui i primi tre codici di risposta, i primi tre tipi di eccezione e i primi tre tipi di dipendenza non riusciti. 
 
-![Selezionare Impostazioni, Errori.](./media/app-insights-asp-net-exceptions/012-start.png)
+![Visualizzazione di valutazione degli errori (scheda delle operazioni)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
-Fare clic su uno dei tipi di eccezione con errori nell'elenco per visualizzare le singole occorrenze dell'eccezione, in cui è possibile visualizzare i dettagli e l'analisi dello stack:
+Con un solo clic è quindi possibile esaminare i campioni rappresentativi per ognuno di questi subset di operazioni. In particolare, per diagnosticare le eccezioni, è possibile fare clic sul conteggio di un'eccezione specifica per visualizzarne le informazioni in un pannello dei dettagli dell'eccezione come questo:
 
-![Selezionare un'istanza di una richiesta non riuscita e nei dettagli dell'eccezione visualizzare le istanze dell'eccezione.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![Pannello dei dettagli dell'eccezione](./media/app-insights-asp-net-exceptions/ExceptionDetailsBlade.png)
 
-**In alternativa,** è possibile iniziare dall'elenco di richieste e individuare le eccezioni correlate.
+**In alternativa,** invece di esaminare le eccezioni di un'operazione non riuscita specifica, è possibile iniziare dalla visualizzazione complessiva delle eccezioni, passando alla scheda Exceptions (Eccezioni):
+
+![Visualizzazione di valutazione degli errori (scheda delle eccezioni)](./media/app-insights-asp-net-exceptions/FailuresTriageView_Exceptions.png)
+
+Qui è possibile visualizzare tutte le eccezioni raccolte per l'app monitorata.
 
 *Se non vengono visualizzate eccezioni, vedere la sezione [Acquisizione delle eccezioni](#exceptions).*
 
@@ -431,14 +435,14 @@ Aprire un pannello Esplora metrica, aggiungere un nuovo grafico e selezionare **
 
 .NET framework calcola la frequenza contando il numero delle eccezioni in un intervallo e dividendolo per la lunghezza dell'intervallo.
 
-Si noti che questo conteggio è diverso dal conteggio delle "Eccezioni" calcolato dal portale di Application Insights che conteggia i report TrackException. Gli intervalli di campionamento sono diversi e il SDK non invia report di TrackException per tutte le eccezioni gestite e non gestite.
+Questo conteggio è diverso dal conteggio delle eccezioni calcolato dal portale di Application Insights, che conteggia i report TrackException. Gli intervalli di campionamento sono diversi e il SDK non invia report di TrackException per tutte le eccezioni gestite e non gestite.
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Monitorare REST, SQL e altre chiamate alle dipendenze](app-insights-asp-net-dependencies.md)
+* [Monitorare chiamate REST, SQL e di altro tipo alle dipendenze](app-insights-asp-net-dependencies.md)
 * [Monitorare i tempi di caricamento delle pagina, le eccezioni del browser e le chiamate AJAX](app-insights-javascript.md)
 * [Monitorare i contatori delle prestazioni](app-insights-performance-counters.md)
 

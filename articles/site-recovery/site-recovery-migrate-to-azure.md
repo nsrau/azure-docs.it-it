@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 77ebe20940bce0e21caa60567e1ccffaba7351b3
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-to-azure-with-site-recovery"></a>Eseguire la migrazione ad Azure con Site Recovery
 
@@ -83,4 +81,3 @@ Per eseguire la migrazione di server fisici e VM VMware e Hyper-V locali, si seg
 - [Eseguire la migrazione di istanze AWS ad Azure](site-recovery-migrate-aws-to-azure.md)
 - [Preparare le macchine sottoposte a migrazione per abilitare la replica](site-recovery-azure-to-azure-after-migration.md) in un'altra area per il ripristino di emergenza.
 - Iniziare a proteggere i carichi di lavoro [replicando le macchine virtuali di Azure](site-recovery-azure-to-azure.md).
-

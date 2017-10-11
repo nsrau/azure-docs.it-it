@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 01911b85268244a8fddb32aa726f8a870abbaf77
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 34d935518f27bc465832b01a0d739f17ee0a13ea
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -52,11 +52,11 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Crea un server logico che ospita un database. |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#show-usage) | Mostra le informazioni sull'utilizzo delle dimensioni per un database. |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update) | Aggiorna le proprietà del database, come il livello di servizio o il livello di prestazioni, oppure sposta un database all'interno, all'esterno o tra pool elastici. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Crea un server logico che ospita un database. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_show_usage) | Mostra le informazioni sull'utilizzo delle dimensioni per un database. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update) | Aggiorna le proprietà del database, come il livello di servizio o il livello di prestazioni, oppure sposta un database all'interno, all'esterno o tra pool elastici. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi

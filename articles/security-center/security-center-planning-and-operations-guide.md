@@ -1,6 +1,6 @@
 ---
 title: Guida alla pianificazione e alla gestione del Centro sicurezza di Azure | Documentazione Microsoft
-description: Questo documento contiene indicazioni utili per l&quot;adozione del Centro sicurezza di Azure e considerazioni relative alle operazioni quotidiane.
+description: Questo documento contiene indicazioni utili per l'adozione del Centro sicurezza di Azure e considerazioni relative alle operazioni quotidiane.
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: c502e4363dbaa37455d1aad90d1e9fa855fd09b0
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure

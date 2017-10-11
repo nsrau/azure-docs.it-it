@@ -13,17 +13,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/22/2017
+ms.date: 09/06/2017
 ms.author: maroche
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 7ee836b4c0c87fc7d271f59dcb16f3293e68dc9a
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
 ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novità di Azure Data Catalog
 Gli aggiornamenti ad **Azure Data Catalog** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includono tuttavia nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio Azure Data Catalog.
+
+## <a name="whats-new-for-september-2017"></a>Novità di settembre 2017 
+Da settembre 2017 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+
+* Supporto per l'estrazione di metadati di relazioni di join da origini dati DB2 quando si esegue la registrazione di tabelle correlate con lo strumento di registrazione dell'origine dati.
+* Supporto per la registrazione di origini dati MongoDB versione 3.4 usando lo strumento di registrazione dell'origine dati.
+* Supporto per l'eliminazione di tutti i metadati per gli oggetti contenuti in una singola operazione durante la rimozione di un database o di un altro contenitore da Data Catalog.
+* Supporto per la visualizzazione di fino a 1.000 tag, termini del glossario aziendale o altri facet di ricerca quando si affina una ricerca nel portale di Data Catalog.
+
 
 ## <a name="whats-new-for-august-2017"></a>Novità di agosto 2017 
 A partire da agosto 2017 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:

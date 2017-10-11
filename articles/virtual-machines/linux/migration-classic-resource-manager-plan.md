@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 5db4e5b18ad385e7eba125a1296a9c5054213446
-ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione. 
 
@@ -96,7 +94,7 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
 - **Circuiti ExpressRoute e VPN**. I gateway ExpressRoute con collegamenti di autorizzazione attualmente non possono essere migrati senza tempi di inattività. Per una soluzione vedere [Eseguire la migrazione di circuiti ExpressRoute e delle reti virtuali associate dalla distribuzione classica al modello di distribuzione Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
 - **Estensioni VM** - Le estensioni macchina virtuale sono potenzialmente uno degli ostacoli principali della migrazione di macchine virtuali in esecuzione. Pianificare tenendo conto che la correzione delle estensioni VM potrebbe richiedere fino a 1-2 giorni.  È necessario un agente Azure funzionante per segnalare lo stato delle estensioni VM delle VM in esecuzione. Se per una VM in esecuzione viene restituito uno stato non valido, la migrazione si arresta. L'agente stesso non deve essere funzionante per abilitare la migrazione, ma se esistono estensioni nella macchina virtuale, per il progredire della migrazione saranno necessari sia un agente funzionante SIA una connessione Internet in uscita (con DNS).
-  - Se è stata persa la connessione a un server DNS durante la migrazione, tutte le estensioni VM, ad eccezione di BGInfo v1.\* devono essere rimosse da tutte le VM prima di preparare la migrazione e successivamente aggiunte nuovamente alle VM dopo la migrazione di Azure Resource Manager.  **Questo vale solo per le VM in esecuzione.**  Se le macchine virtuali sono arrestate (deallocate), non è necessario rimuovere le estensioni VM. **Nota:** molte estensioni come la diagnostica Azure e il monitoraggio del centro sicurezza si reinstalleranno automaticamente dopo la migrazione, per cui la loro rimozione non è un problema.
+  - Se la connettività a un server DNS viene persa durante la migrazione, tutte le estensioni VM tranne BGInfo v1. \* è necessario innanzitutto rimuovere da ogni macchina virtuale prima di preparare la migrazione e successivamente nuovamente aggiunto nuovamente alla macchina virtuale dopo la migrazione di gestione risorse di Azure.  **Questo vale solo per le VM in esecuzione.**  Se le macchine virtuali sono arrestate (deallocate), non è necessario rimuovere le estensioni VM. **Nota:** molte estensioni come la diagnostica Azure e il monitoraggio del centro sicurezza si reinstalleranno automaticamente dopo la migrazione, per cui la loro rimozione non è un problema.
   - Assicurarsi inoltre che non ci siano Gruppi di sicurezza di rete che limitano l'accesso Internet in uscita. Questa situazione può verificarsi con alcune configurazioni di Gruppi di sicurezza di rete. Per la migrazione delle estensioni VM ad Azure Resource Manager è necessario l'accesso a Internet in uscita e DNS. 
   - Esistono due versioni dell'estensione BGInfo: v1 e v2.  Se è stata creata tramite il portale classico o PowerShell, la macchina virtuale avrà probabilmente l'estensione v1. Questa estensione non deve essere rimossa e verrà ignorata (non migrata) dall'API di migrazione. Tuttavia, se la macchina virtuale classica è stata creata con il nuovo portale di Azure, probabilmente avrà la versione v2 basata su JSON di BGInfo, che è possibile migrare ad Azure Resource Manager se l'agente funziona e ha accesso a Internet in uscita e DNS. 
   - **Opzione di correzione 1**. Se si prevede che le macchine virtuali non disporranno di accesso a Internet in uscita, di un servizio DNS funzionante e di agenti di Azure funzionanti su di esse, disinstallare tutte le estensioni VM come parte della migrazione prima della preparazione, quindi reinstallarle dopo la migrazione. 
@@ -213,4 +211,3 @@ Tenere a mente il motivo per cui è stata eseguita la migrazione dalla distribuz
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Strumenti della community per assistenza alla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager)
 * [Rivedere gli errori di migrazione più comuni](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Esaminare le domande frequenti sulla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

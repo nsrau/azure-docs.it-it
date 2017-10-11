@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: a87624b5706c1d9b8c2b9926e5580996a89ce984
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Utilizzare il servizio StorSimple Manager per gestire li record di controllo di accesso
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 I record di controllo di accesso (ACR) consentono di specificare quali host possono connettersi a un volume nel dispositivo StorSimple. I record di controllo di accesso vengono impostati su un volume specifico e contengono i nomi completi iSCSI (IQN) degli host. Quando un host prova a connettersi a un volume, il dispositivo controlla il record di controllo di accesso associato a tale volume per l'IQN e, se esiste una corrispondenza, viene stabilita la connessione. Nella sezione dei record di controllo di accesso nella pagina **Configura** vengono visualizzati tutti i record di controllo di accesso insieme agli IQN degli host.
 
 In questa esercitazione vengono illustrate le seguenti attività comuni correlate ai record di controllo di accesso:
@@ -86,10 +86,4 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sulla [gestione di volumi StorSimple](storsimple-manage-volumes.md).
 * Ulteriori informazioni sull’ [utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

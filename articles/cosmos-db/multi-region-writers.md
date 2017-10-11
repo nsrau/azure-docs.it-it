@@ -21,7 +21,6 @@ ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Architetture di database multimaster replicate a livello globale con Cosmos DB
 Cosmos DB di Azure supporta la [replica globale](distribute-data-globally.md) chiavi in mano, che consente di distribuire i dati in più aree con accesso a bassa latenza in qualsiasi punto del carico di lavoro. Questo modello viene usato in genere per carichi di lavoro di pubblicazione/consumer in cui è presente un writer in una singola area geografica e con lettori distribuiti a livello globale in altre aree (lettura). 

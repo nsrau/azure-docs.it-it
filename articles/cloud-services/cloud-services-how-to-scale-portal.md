@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e9683d4c5779450fd67fa42ab13095c7f201b4cd
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Come configurare la scalabilità automatica per un servizio cloud nel portale
 > [!div class="op_single_selector"]
 > * [Portale di Azure](cloud-services-how-to-scale-portal.md)
@@ -114,4 +112,3 @@ Questa impostazione rimuove la scalabilità automatica dal ruolo e quindi è pos
 3. Istanze del ruolo da ridimensionare.
 
 Dopo aver configurato il profilo e le regole, selezionare l'icona **Salva** nella parte superiore.
-

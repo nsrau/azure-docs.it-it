@@ -1,6 +1,6 @@
 ---
-title: Ripristinare un&quot;istanza di Azure SQL Data Warehouse (API REST) | Microsoft Docs
-description: "Attività dell&quot;API REST per il ripristino di un&quot;istanza di Azure SQL Data Warehouse."
+title: Ripristinare un'istanza di Azure SQL Data Warehouse (API REST) | Microsoft Docs
+description: "Attività dell'API REST per il ripristino di un'istanza di Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: Lakshmi1812
@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: 7bd71144cd2c96fcfb6636ca8d24fc354f86584d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 8656607611e7518e42b51b91774f55abec15c228
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restore-an-azure-sql-data-warehouse-rest-api"></a>Ripristinare un'istanza di Azure SQL Data Warehouse (API REST)
 > [!div class="op_single_selector"]
@@ -86,4 +85,3 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Aggiornare un set di scalabilità di macchine virtuali
 Questo articolo descrive come eseguire un aggiornamento del sistema operativo a un set di scalabilità di macchine virtuali di Azure senza tempi di inattività. In questo contesto, un aggiornamento del sistema operativo riguarda la modifica della versione/SKU del sistema operativo oppure la modifica dell'URI di un'immagine personalizzata. L'aggiornamento senza tempi di inattività implica l'aggiornamento di una macchina virtuale alla volta o in gruppi, ad esempio un dominio di errore alla volta, anziché contemporaneamente. In questo modo, è possibile mantenere in esecuzione tutte le macchine virtuali non in fase di aggiornamento.
@@ -100,5 +98,4 @@ La schermata seguente illustra un modello di un set di scalabilità per Ubuntu 1
 Dopo aver selezionato **Aggiorna** e **Dettagli**, le macchine virtuali nel dominio di aggiornamento 0 avviano l'aggiornamento.
 
 ![Vmsseditor che illustra un aggiornamento in corso](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
-
 

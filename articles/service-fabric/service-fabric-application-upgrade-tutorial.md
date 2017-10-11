@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 2b1b12666b71bf173342d5864772a94b9625d38b
-ms.contentlocale: it-it
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 940440688ec770a4aeb932b574bd6be173f494d4
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio
 > [!div class="op_single_selector"]
@@ -88,4 +87,3 @@ Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'appl
 [image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
-

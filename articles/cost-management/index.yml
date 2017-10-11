@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Gestione dei costi di Azure
+metadata:
+  title: Documentazione sulla gestione dei costi - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  description: 'Gestione dei costi di Azure di Cloudyn è una soluzione di gestione dei costi multi-cloud che consente di usare Azure e altre risorse cloud. Informazioni su come esaminare l''uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con esercitazioni e guide rapide.'
+  services: cost-management
+  author: czeumault
+  manager: carolz
+  ms.service: cost-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/18/2017
+  ms.author: carolz
+abstract:
+  description: 'Gestione dei costi di Azure di Cloudyn è una soluzione di gestione dei costi multi-cloud che consente di usare al meglio e di gestire Azure e altre risorse cloud. Informazioni su come esaminare l''uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con esercitazioni e guide rapide.'
+sections:
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: Informazioni su come registrare le informazioni di contratto o sottoscrizione di Azure con Gestione dei costi e avviare la visualizzazione dei dati di costo.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Visualizzare i dati di costo
+            href: quick-register-azure-sub
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: 'Informazioni su come esaminare l''uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con Gestione dei costi.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-review-usage">Esaminare l'uso e i costi per rilevare anomalie ed efficienza</a>
+          - html: <a href="tutorial-user-access">Assegnare l'accesso ai dati di Gestione dei costi</a>
+          - html: <a href="tutorial-forecast-spending">Prevedere la spesa futura</a>

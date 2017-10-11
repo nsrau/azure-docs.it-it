@@ -1,6 +1,6 @@
 ---
-title: Creare un front-end Web per l&quot;app Azure Service Fabric tramite ASP.NET Core | Microsoft Docs
-description: Esporre l&quot;applicazione di Service Fabric al Web usando un progetto ASP.NET Core e la comunicazione tra servizi tramite servizio remoto.
+title: Creare un front-end Web per l'app Azure Service Fabric tramite ASP.NET Core | Microsoft Docs
+description: Esporre l'applicazione di Service Fabric al Web usando un progetto ASP.NET Core e la comunicazione tra servizi tramite servizio remoto.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/01/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Compilare un front-end di servizio Web per l'applicazione tramite ASP.NET Core
 Per impostazione predefinita, i servizi di Azure Service Fabric non forniscono un'interfaccia pubblica per il Web. Per esporre la funzionalità dell'applicazione ai client HTTP è necessario creare un progetto Web da usare come punto di ingresso per comunicare con i singoli servizi.
@@ -253,4 +251,3 @@ Dopo avere acquisito una buona comprensione del funzionamento della comunicazion
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
-

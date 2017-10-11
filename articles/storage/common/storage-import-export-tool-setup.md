@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5b73fec119a88cd86e68537199e7567afa3fdba8
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6b5febd051d0b956c90cb14c260dda1881adac3f
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -40,7 +40,7 @@ Se si intende **preparare le unità** per un processo di importazione, è necess
 * È necessario un computer ("computer di copia") in cui sia installato Windows 7, Windows Server 2008 R2 o un sistema operativo Windows più recente.
 * Nel computer di copia deve essere installato .NET Framework 4.
 * Nel computer di copia deve essere abilitato BitLocker.
-* Sono necessari uno o più dischi rigidi SATA da 3,5 pollici vuoti connessi al computer di copia.
+* Sono necessari uno o più dischi rigidi SATA II, III o SSD vuoti da 2,5 o 3,5 pollici, collegati al computer di copia.
 * I file che si intende importare devono essere accessibili dal computer di copia, che si trovino in una condivisione di rete o in un disco rigido locale.
 
 Se si tenta di **recuperare un'importazione** parzialmente non riuscita, è necessario disporre dei seguenti elementi:

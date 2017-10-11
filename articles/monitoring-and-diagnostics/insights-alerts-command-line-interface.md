@@ -1,6 +1,6 @@
 ---
 title: Creare avvisi per i servizi di Azure - Interfaccia della riga di comando multipiattaforma | Microsoft Docs
-description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l&quot;automazione quando vengono soddisfatte le condizioni specificate.
+description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni specificate.
 author: rboucher
 manager: carmonm
 editor: 
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Creare avvisi sulle metriche in Monitoraggio di Azure per i servizi di Azure - Interfaccia della riga di comando multipiattaforma
 > [!div class="op_single_selector"]
@@ -40,9 +39,9 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
 È possibile ricevere avvisi basati su metriche di monitoraggio o eventi nei servizi Azure.
 
 * **Valori metrici** : l'avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata per eccesso o difetto. Vale a dire che si attiva sia quando la condizione viene inizialmente soddisfatta e successivamente quando tale condizione non è più soddisfatta.    
-* **Eventi del log attività**: è possibile attivare un avviso per *ogni* evento o solo quando si verifica un determinato evento. Per altre informazioni sugli avvisi di log attività [fare clic qui](monitoring-activity-log-alerts.md)
+* **Eventi del log attività**: è possibile attivare un avviso per *ogni* evento o solo quando si verifica un determinato evento. Per altre informazioni sugli avvisi sui log attività [fare clic qui](monitoring-activity-log-alerts.md)
 
-È possibile configurare un avviso di metrica affinché esegua le operazioni seguenti al momento dell'attivazione:
+È possibile configurare un avviso sulle metriche affinché esegua queste operazioni al momento dell'attivazione:
 
 * inviare un messaggio di posta elettronica all'amministratore e ai coamministratori del servizio
 * inviare un messaggio di posta elettronica ad altri indirizzi specificati
@@ -142,4 +141,3 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
 * Altre informazioni sui [runbook di automazione di Azure](../automation/automation-starting-a-runbook.md).
 * Leggere una [panoramica della raccolta dei log di diagnostica](monitoring-overview-of-diagnostic-logs.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
 * Leggere una [panoramica della raccolta di metriche](insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
-

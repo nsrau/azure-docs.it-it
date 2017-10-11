@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b7411fa6aba04ffd34f3f4bd03e706ca75afc9c8
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="step-5-prepare-azure-resources-for-physical-server-replication-to-azure"></a>Passaggio 5: Preparare le risorse di Azure per la replica di server fisici in Azure
 
@@ -62,4 +61,3 @@ Assicurarsi di aver letto i [prerequisiti](physical-walkthrough-prerequisites.md
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 6: Configurare un insieme di credenziali](physical-walkthrough-create-vault.md)
-

@@ -1,6 +1,6 @@
 ---
-title: Configurare una pianificazione dell&quot;applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux - Azure | Microsoft Docs
-description: Informazioni su come configurare una pianificazione dell&quot;applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux.
+title: Configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux - Azure | Microsoft Docs
+description: Informazioni su come configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux.
 services: hdinsight
 documentationcenter: 
 author: bprakash
@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="os-patching-for-hdinsight"></a>Applicazione di patch del sistema operativo per HDInsight 
 Come servizio gestito di Hadoop, HDInsight si occupa dell'applicazione di patch al sistema operativo delle macchine virtuali sottostanti usate dal cluster HDInsight. A partire dal 1° agosto 2016, sono stati modificati i criteri di applicazione delle patch del sistema operativo guest per i cluster HDInsight basati su Linux (versione 3.4 o successiva). L'obiettivo del nuovo criterio è di ridurre in modo consistente il numero di riavvii causati dall'applicazione delle patch. Il nuovo criterio continuerà ad applicare le patch alle macchine virtuali sui cluster Linux ogni lunedì o giovedì a partire dalle ore 00:00 UTC con un flusso di intervalli sui nodi in ogni cluster. Tuttavia, le macchine virtuali verranno riavviate solo una volta ogni 30 giorni a causa dell'applicazione delle patch al sistema operativo guest. In aggiunta, il primo riavvio di un cluster appena creato non verrà eseguito prima di 30 giorni dalla data di creazione del cluster. I patch verranno applicati al riavvio delle macchine virtuali.
 
@@ -73,4 +70,3 @@ Per la procedura dettagliata sull'uso dell'azione di script, vedere le sezioni s
 
 * [Usare un'azione script durante la creazione di un cluster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Applicare un'azione script a un cluster in esecuzione](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
-

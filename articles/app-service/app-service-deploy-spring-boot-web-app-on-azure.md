@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8776142d5452bf5057990702c89aa1a541382ffc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -121,7 +121,7 @@ I passaggi seguenti illustrano la creazione di un'app Web di Azure, la configura
 
    c. Scegliere **Più recenti** per la versione di Java.
 
-   d. Scegliere **Newest Tomcat 8.5** [Tomcat 8.5 più recente] per il contenitore Web. (Questo contenitore non verrà effettivamente usato; Azure userà il contenitore dall'app Spring Boot.)
+   d. Scegliere **Newest Tomcat 8.5** \(Tomcat 8.5 più recente) per il contenitore Web. (Questo contenitore non verrà effettivamente usato; Azure userà il contenitore dall'app Spring Boot.)
 
    e. Fare clic su **Salva**.
 
@@ -216,8 +216,8 @@ Per altre informazioni sulla configurazione delle impostazioni aggiuntive per l'
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [portale di Azure]: https://portal.azure.com/
-[Configurare app Web in Servizio app di Azure]: /azure/app-service-web/web-sites-configure
-[Distribuire l'app nel servizio app di Azure usando FTP/S]: https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp
+[Configurare app Web in Servizio app di Azure]: /azure/app-service/web-sites-configure
+[Distribuire l'app nel servizio app di Azure usando FTP/S]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
 [account Azure gratuito]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/

@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Enterprise State Roaming | Documentazione Microsoft
-description: Fornisce informazioni sulle impostazioni del servizio Enterprise State Roaming nei dispositivi Windows. Enterprise State Roaming offre agli utenti un&quot;esperienza unificata in tutti i dispositivi Windows e riduce il tempo necessario per la configurazione di un nuovo dispositivo.
+description: Fornisce informazioni sulle impostazioni del servizio Enterprise State Roaming nei dispositivi Windows. Enterprise State Roaming offre agli utenti un'esperienza unificata in tutti i dispositivi Windows e riduce il tempo necessario per la configurazione di un nuovo dispositivo.
 services: active-directory
 keywords: informazioni su Enterprise State Roaming, sincronizzazione aziendale, cloud windows
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: ce78b996a5f45b0b074563bc50af5aaab85f2667
-ms.openlocfilehash: 56eacc48102302961132bba6d14838327a899c59
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: b3c01f8d332d26e92dc3052681a4b2c95142d440
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enterprise-state-roaming-overview"></a>Panoramica di Enterprise State Roaming
 Con Windows 10 gli utenti di [Azure Active Directory (Azure AD)](active-directory-whatis.md) ottengono la possibilità di sincronizzare in modo sicuro le proprie impostazioni utente e i dati delle impostazioni dell'applicazione sul cloud. Enterprise State Roaming offre agli utenti un'esperienza unificata in tutti i dispositivi Windows e riduce il tempo necessario per la configurazione di un nuovo dispositivo. Enterprise State Roaming funziona in modo simile alla [sincronizzazione delle impostazioni degli utenti](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) standard introdotta per la prima volta in Windows 8. Il servizio Enterprise State Roaming offre anche i vantaggi seguenti:
@@ -38,5 +37,4 @@ Enterprise State Roaming è disponibile in più aree di Azure. L'elenco aggiorna
 | [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |Windows 10 offre impostazioni relative a Criteri di gruppo e ai criteri di gestione di dispositivi mobili per limitare la sincronizzazione delle impostazioni. |
 | [Riferimento alle impostazioni di roaming di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming e/o il backup in Windows 10. |
 | [Risoluzione dei problemi](active-directory-windows-enterprise-state-roaming-troubleshooting.md) |Questo argomento illustra alcuni passaggi di base per la risoluzione dei problemi e contiene un elenco di problemi noti. |
-
 

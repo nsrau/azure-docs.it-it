@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Collegare un disco dati gestito a una macchina virtuale Windows nel portale di Azure
 
@@ -84,4 +82,3 @@ defrag.exe <volume:> -l
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se l'applicazione deve usare l'unità D: per archiviare i dati, è possibile [modificare la lettera di unità del disco temporaneo di Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-

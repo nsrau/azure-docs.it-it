@@ -3,7 +3,7 @@ title: Creare un servizio di bilanciamento del carico interno - Portale di Azure
 description: Informazioni su come creare un servizio di bilanciamento del carico interno in Resource Manager con il portale di Azure
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
+ms.contentlocale: it-it
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,6 +30,9 @@ ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -53,7 +58,7 @@ Per creare un servizio di bilanciamento del carico interno dal portale di Azure,
 7. In **Assegnazione indirizzo IP** fare clic su **Dinamico** o **Statico**, a seconda che si voglia un servizio di bilanciamento del carico con indirizzo IP fisso, cioè statico, o dinamico.
 
    > [!NOTE]
-   > Se si sceglie un indirizzo IP statico, sarà necessario fornire un indirizzo per il servizio di bilanciamento del carico.
+   > Se si sceglie un indirizzo IP statico, è necessario fornire un indirizzo per il servizio di bilanciamento del carico.
 
 8. In **Gruppo di risorse** specificare il nome di un nuovo gruppo di risorse per il servizio di bilanciamento del carico oppure fare clic su **Seleziona esistente** e scegliere un gruppo di risorse esistente.
 9. Fare clic su **Crea**.
@@ -61,18 +66,18 @@ Per creare un servizio di bilanciamento del carico interno dal portale di Azure,
 ## <a name="configure-load-balancing-rules"></a>Configurare le regole del servizio di bilanciamento del carico
 
 Dopo la creazione del servizio di bilanciamento di carico, individuare la risorsa di bilanciamento del carico per configurarla.
-Prima di configurare una regola di bilanciamento del carico, è necessario innanzitutto configurare un pool di indirizzi back-end e un probe.
+Prima di configurare una regola di bilanciamento del carico, configurare un pool di indirizzi back-end e un probe.
 
-### <a name="step-1-configure-a-back-end-pool"></a>Passaggio 1: Configurare un pool back-end
+### <a name="step-1-configure-a-backend-pool"></a>Passaggio 1: Configurare un pool back-end
 
-1. Nel portale di Azure fare clic su **Sfoglia** > **Servizi di bilanciamento del carico** e fare clic sul servizio di bilanciamento del carico creato in precedenza.
+1. Nel portale di Azure fare clic su **Sfoglia** > **Servizi di bilanciamento del carico** e fare clic sul servizio di bilanciamento del carico creato prima.
 2. Nel pannello **Impostazioni** fare clic su **Pool back-end**.
 3. Nel pannello **Pool di indirizzi back-end** fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi pool back-end** immettere un **nome** per il pool back-end e fare clic su **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Passaggio 2: Configurare un probe
 
-1. Nel portale di Azure fare clic su **Sfoglia** > **Servizi di bilanciamento del carico** e fare clic sul servizio di bilanciamento del carico creato in precedenza.
+1. Nel portale di Azure fare clic su **Sfoglia** > **Servizi di bilanciamento del carico** e fare clic sul servizio di bilanciamento del carico creato prima.
 2. Nel pannello **Impostazioni** fare clic su **Probe**.
 3. Nel pannello **Probe** fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi probe** immettere un **nome** per il probe.
@@ -85,14 +90,14 @@ Prima di configurare una regola di bilanciamento del carico, è necessario innan
 
 ### <a name="step-3-configure-load-balancing-rules"></a>Passaggio 3: Configurare le regole del servizio di bilanciamento del carico
 
-1. Nel portale di Azure fare clic su **Sfoglia** > **Servizi di bilanciamento del carico** e fare clic sul servizio di bilanciamento del carico creato in precedenza.
+1. Nel portale di Azure fare clic su **Sfoglia** > **Servizi di bilanciamento del carico** e fare clic sul servizio di bilanciamento del carico creato prima.
 2. Nel pannello **Impostazioni** fare clic su **Regole di bilanciamento del carico**.
 3. Nel pannello **Regole di bilanciamento del carico** fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi regola di bilanciamento del carico** immettere un **nome** per la regola.
 5. In **Protocollo** selezionare **HTTP** per i siti Web o **TCP** per le altre applicazioni basate su TCP.
 6. In **Porta** specificare la porta del servizio di bilanciamento del carico a cui i client devono connettersi.
 7. In **Porta back-end** specificare la porta da usare nel pool di back-end. La porta del servizio di bilanciamento del carico e la porta di back-end sono solitamente la stessa.
-8. In **Pool back-end**selezionare il pool back-end creato in precedenza.
+8. In **Pool back-end**selezionare il pool back-end creato prima.
 9. In **Salvataggio permanente sessione** selezionare la modalità di salvataggio delle sessioni.
 10. In **Timeout di inattività (minuti)**specificare il timeout di inattività.
 11. In **IP mobile (Direct Server Return)** fare clic su **Disabilitato** o **Abilitato**.
@@ -103,10 +108,5 @@ Prima di configurare una regola di bilanciamento del carico, è necessario innan
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

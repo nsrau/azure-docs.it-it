@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 391ea72390c589bf86ed9be58e44ce8b20eab837
-ms.contentlocale: it-it
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 8b9159b7bc4f7b2dac12d9012c6c903e75a6ac16
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gestire gli asset di dati in Azure Data Catalog
 ## <a name="introduction"></a>Introduzione
@@ -74,4 +73,3 @@ Gli amministratori di Data Catalog sono implicitamente comproprietari di tutti g
 
 ## <a name="summary"></a>Riepilogo
 Il modello di crowdsourcing di Data Catalog per l'individuazione di asset di dati e metadati consente a tutti gli utenti del catalogo di contribuire all'individuazione. L'edizione Standard di Data Catalog è progettata per la proprietà e la gestione per poter limitare la visibilità e l'uso di asset di dati specifici.
-

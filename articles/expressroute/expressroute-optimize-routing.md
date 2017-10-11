@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2017
 ms.author: charwen
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="optimize-expressroute-routing"></a>Ottimizzare il routing in ExpressRoute
 In presenza di più circuiti ExpressRoute sono disponibili più percorsi per connettersi a Microsoft. Il routing può quindi risultare non ottimale, ovvero è possibile che il traffico usi un percorso più lungo per raggiungere Microsoft e da Microsoft la rete del cliente. Più lungo è il percorso di rete, maggiore sarà la latenza che ha un impatto diretto sull'esperienza utente e sulle prestazioni dell'applicazione. Questo articolo descrive il problema e illustra come ottimizzare il routing con tecnologie di routing standard.
@@ -75,4 +74,3 @@ La soluzione è semplice. Dato che la posizione delle reti virtuali e dei circui
 > Per determinare il routing dalla rete virtuale alla rete locale, se si hanno più circuiti ExpressRoute, è anche possibile configurare il peso di una connessione anziché anteporre AS PATH applicando la tecnica descritta nel secondo scenario riportato sopra. Per ogni prefisso, per decidere come inviare il traffico verrà sempre esaminato il peso della connessione prima della lunghezza di AS PATH.
 >
 >
-

@@ -16,12 +16,11 @@ ms.date: 07/26/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 5ae19bb370064de96cf466ca09b13d02563d65a4
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
 Un nome di dominio può essere un identificatore importante per molte risorse della directory, come parte di:
@@ -78,5 +77,4 @@ La maggior parte delle attività di gestione per i nomi di dominio in Azure Acti
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni sui nomi di dominio in Azure AD](active-directory-add-domain-concepts.md)
 * [Gestire i nomi di dominio personalizzati](active-directory-add-manage-domain-names.md)
-
 

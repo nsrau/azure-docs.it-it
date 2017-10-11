@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/15/2017
 ms.author: bwren
 ms.translationtype: HT
 ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
@@ -57,7 +57,7 @@ Di seguito sono riportate ricerche di esempio che è possibile salvare come grup
 >[!NOTE]
 > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), vengono eseguite le seguenti modifiche alla procedura per creare un nuovo gruppo di computer.
 >  
-> - La query per creare un gruppo di computer deve includere `distinct Computer`.  Ecco un esempio di query per creare un gruppo di computer.<br>`Heartbeat | where Computer contains "srv" `
+> - La query per creare un gruppo di computer deve includere `distinct Computer`.  Ecco un esempio di query per creare un gruppo di computer.<br>`Heartbeat | where Computer contains "srv" | distinct Computer `
 > - Quando si crea un nuovo gruppo di computer, è necessario specificare un alias oltre al nome.  L'alias si usa quando si specifica il gruppo di computer in una query, come descritto di seguito.  
 
 ### <a name="log-search-api"></a>API di ricerca nei log
@@ -104,7 +104,7 @@ Nella ricerca log, i gruppi di computer vengono in genere usati con la clausola 
 >[!NOTE]
 > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), è possibile usare un gruppo di computer in una query trattando il suo alias come una funzione, come nell'esempio seguente:
 > 
->  `UpdateSummary | where Computer IN (MyComputerGroup)`
+>  `UpdateSummary | where Computer in (mycomputergroup)`
 
 ## <a name="computer-group-records"></a>Record dei gruppi di computer
 Per ogni appartenenza a gruppi di computer creata da Active Directory o WSUS viene creato un record nel repository OMS.  Il tipo di questi record è **ComputerGroup** e le proprietà sono elencate nella tabella seguente.  Per i gruppi di computer basati su ricerche nei log non vengono creati record.

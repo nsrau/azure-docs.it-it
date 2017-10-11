@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 24ca63e69d181f0d2c236b1fb6761984ce89520b
-ms.contentlocale: it-it
-ms.lasthandoff: 02/02/2017
-
+ms.openlocfilehash: e82d35459110e122ec8438b406a52df61922b0fc
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
 [Application Insights](app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se si verifica un incremento anomalo della frequenza di richieste non riuscite nell'app Web, rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per quanto riguarda le richieste, quelle non riuscite hanno in genere un codice di risposta 400 o superiore. Per poter valutare e diagnosticare il problema, la notifica include un'analisi delle caratteristiche degli errori e i dati di telemetria correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
@@ -152,4 +151,3 @@ Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia �
 
 * [Configurare manualmente gli avvisi relativi alle metriche](app-insights-alerts.md)
 * [Test Web di disponibilità](app-insights-monitor-web-app-availability.md)
-

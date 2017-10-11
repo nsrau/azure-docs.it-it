@@ -1,6 +1,6 @@
 ---
-title: Guida per l&quot;uso di PolyBase in SQL Data Warehouse | Microsoft Docs
-description: Linee guida e consigli per l&quot;uso di PolyBase in scenari di SQL Data Warehouse.
+title: Guida per l'uso di PolyBase in SQL Data Warehouse | Microsoft Docs
+description: Linee guida e consigli per l'uso di PolyBase in scenari di SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -12,16 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 6/5/2016
+ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 7594a0730477fe3f3bd34b0b6207478de70c7595
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Guida per l'uso di PolyBase in SQL Data Warehouse
@@ -46,21 +44,9 @@ Dopo aver migrato esterno tutte le tabelle per la nuova origine dati esterna, qu
 2. Credenziali in base alla chiave di accesso di archiviazione primaria con ambito database primo di rilascio
 3. Accedere a Azure e rigenerare la chiave di accesso primaria pronta per la volta successiva
 
-## <a name="query-azure-blob-storage-data"></a>Eseguire query sui dati di archiviazione BLOB di Azure
-Le query su tabelle esterne usano semplicemente il nome della tabella come se fosse una tabella relazionale.
 
-```sql
--- Query Azure storage resident data via external table.
-SELECT * FROM [ext].[CarSensor_Data]
-;
-```
 
-> [!NOTE]
-> Una query su una tabella esterna può avere esito negativo con l'errore *"Query interrotta: è stata raggiunta la soglia massima durante la lettura da un'origine esterna"*. Indica che i dati esterni contengono record *sporchi* . Un record di dati viene considerato "sporco" se i tipi/numero dei dati effettivi delle colonne non corrispondono a definizioni di colonna della tabella esterna o se i dati non sono conformi al formato di file esterno specificato. Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato del file esterno siano corrette e i dati esterni siano conformi a queste definizioni. Nel caso in cui un subset di record di dati esterni sia sporco, è possibile scegliere di rifiutare tali record per le query utilizzando le opzioni di rifiuto in CREATE EXTERNAL TABLE DDL.
-> 
-> 
-
-## <a name="load-data-from-azure-blob-storage"></a>Caricare dati dall'archiviazione BLOB di Azure
+## <a name="load-data-with-external-tables"></a>Caricare dati con tabelle esterne
 Questo esempio carica i dati dall'archiviazione BLOB di Azure nel database di SQL Data Warehouse.
 
 Archiviando i dati direttamente viene eliminato il tempo di trasferimento dei dati per le query. L'archiviazione dei dati con un indice columnstore migliora le prestazioni delle query di analisi fino a 10 volte.
@@ -86,6 +72,12 @@ FROM   [ext].[CarSensor_Data]
 
 Vedere [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
+> [!NOTE]
+> Un caricamento con una tabella esterna può avere esito negativo con l'errore *"Query interrotta. È stata raggiunta la soglia massima di rifiuti durante la lettura da un'origine esterna"*. Indica che i dati esterni contengono record *sporchi* . Un record di dati viene considerato "sporco" se i tipi/numero dei dati effettivi delle colonne non corrispondono a definizioni di colonna della tabella esterna o se i dati non sono conformi al formato di file esterno specificato. Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato del file esterno siano corrette e i dati esterni siano conformi a queste definizioni. Nel caso in cui un subset di record di dati esterni sia sporco, è possibile scegliere di rifiutare tali record per le query utilizzando le opzioni di rifiuto in CREATE EXTERNAL TABLE DDL.
+> 
+> 
+
+
 ## <a name="create-statistics-on-newly-loaded-data"></a>Creare statistiche sui dati appena caricati
 SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico.  Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati.  Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][Statistics] nel gruppo di argomenti sullo sviluppo.  Di seguito è possibile vedere un rapido esempio di come creare statistiche nella tabella caricata in questo esempio.
 
@@ -97,8 +89,8 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="export-data-to-azure-blob-storage"></a>Esportare i dati in archiviazione BLOB di Azure
-Questa sezione illustra come esportare i dati da SQL Data Warehouse nella risorsa di archiviazione BLOB di Azure. In questo esempio si utilizza CREATE EXTERNAL TABLE AS SELECT che è un’istruzione con elevate prestazioni di Transact-SQL per esportare i dati in parallelo da tutti i nodi di calcolo.
+## <a name="export-data-with-external-tables"></a>Esportare dati con tabelle esterne
+Questa sezione illustra come esportare i dati da SQL Data Warehouse in Archiviazione BLOB di Azure usando tabelle esterne. In questo esempio si utilizza CREATE EXTERNAL TABLE AS SELECT che è un’istruzione con elevate prestazioni di Transact-SQL per esportare i dati in parallelo da tutti i nodi di calcolo.
 
 Nell'esempio seguente si crea una tabella esterna Weblogs2014 utilizzando le definizioni delle colonne e dati dalla tabella dbo.Weblogs. La definizione della tabella esterna viene archiviata in SQL Data Warehouse e i risultati dell’istruzione SELECT sono esportati nella directory "/ archiviazione/log2014 /" nel contenitore BLOB specificato dall'origine dati. I dati vengono esportati nel formato di file di testo specificato.
 
@@ -132,6 +124,21 @@ Gli autori di schema A e B usano a questo punto DENY per bloccare i rispettivi s
 ```   
  In questo modo, utente_A e utente_B dovrebbero ora essere esclusi dall'accesso allo schema del reparto dell'altro utente.
  
+## <a name="polybase-performance-optimizations"></a>Ottimizzazioni delle prestazioni di PolyBase
+Per ottenere prestazioni di caricamento ottimali con PolyBase si consiglia quanto segue:
+- Suddividere i file compressi di grandi dimensioni in file compressi di dimensioni inferiori. I tipi di compressione attualmente supportati non sono divisibili. Si noterà quindi un peggioramento delle prestazioni caricando un unico file di grandi dimensioni.
+- Per ottenere la velocità massima, eseguire il caricamento in una tabella heap di staging round_robin. Si tratta del modo più efficiente per spostare i dati dal livello di archiviazione al data warehouse.
+- Tutti i formati di file hanno caratteristiche di prestazioni diverse. Per ottenere la velocità di caricamento massima, usare file di testo delimitati compressi. La differenza di prestazioni tra UTF-8 e UTF-16 è minima.
+- Condividere il percorso del livello di archiviazione e del data warehouse per ridurre al minimo la latenza
+- Aumentare le prestazioni del data warehouse se si prevede un processo di caricamento di grandi dimensioni.
+
+## <a name="polybase-limitations"></a>Limitazioni di PolyBase
+PolyBase in SQL Data Warehouse presenta le limitazioni seguenti che devono essere prese in considerazione quando si progetta un processo di caricamento:
+- Una singola riga non può essere maggiore di 1.000.000 byte, indipendentemente dallo schema di tabella definito, incluse le colonne (n)varchar(max). Per le tabelle esterne, ciò significa che le colonne (n)varchar(max) possono avere dimensioni massime di 1.000.000 byte, non il limite di 2 GB definito dal tipo di dati.
+- Quando si esportano dati in un formato file ORC da SQL Server o Azure SQL Data Warehouse, le colonne con molto testo possono essere limitate a 50, a causa di errori di memoria insufficiente di Java. Per risolvere questo problema, esportare solo un subset di colonne.
+
+
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

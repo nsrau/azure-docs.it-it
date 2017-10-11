@@ -1,6 +1,6 @@
 ---
 title: Funzionamento della replica di computer locali in un sito locale secondario in Azure Site Recovery | Documentazione Microsoft
-description: Questo articolo fornisce una panoramica dei componenti e dell&quot;architettura usati durante la replica di server fisici e macchine virtuali locali in un sito secondario con il servizio Azure Site Recovery.
+description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante la replica di server fisici e macchine virtuali locali in un sito secondario con il servizio Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -19,7 +19,6 @@ ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: fca95c63964b955db7ddfbe53250702cc8af122e
 ms.contentlocale: it-it
 ms.lasthandoff: 06/15/2017
-
 
 ---
 # <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>Funzionamento della replica di computer locali in un sito secondario in Site Recovery

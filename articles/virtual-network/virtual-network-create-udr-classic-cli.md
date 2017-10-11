@@ -1,6 +1,6 @@
 ---
 title: Controllare il routing in una rete virtuale di Azure - Interfaccia della riga di comando - Modello di distribuzione classica | Documentazione Microsoft
-description: Informazioni su come controllare il routing in reti virtuali mediante l&quot;interfaccia della riga di comando di Azure nel modello di distribuzione classica
+description: Informazioni su come controllare il routing in reti virtuali mediante l'interfaccia della riga di comando di Azure nel modello di distribuzione classica
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 71153e46d1695611c8286d2e57b109db9e7ad9df
-ms.openlocfilehash: 4a610a65b33f91f46d011e07c6cb11523d3dae0d
-ms.lasthandoff: 02/01/2017
-
-
+ms.openlocfilehash: 8fcb98723e7e872c932908e3456dc8680deb0901
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Controllare il routing e usare dispositivi virtuali di rete (distribuzione classica) mediante l'interfaccia della riga di comando di Azure
 
@@ -138,5 +137,4 @@ Per creare la tabella di route e la route necessarie per la subnet back-end in b
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
     ```
-
 

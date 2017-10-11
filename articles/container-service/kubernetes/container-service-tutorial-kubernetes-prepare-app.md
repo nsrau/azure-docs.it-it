@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: d09f59715ac4dac1482e6ca5f79e8426f1f01ced
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -46,6 +46,8 @@ Questa esercitazione presuppone una conoscenza di base dei concetti principali d
 
 Per completare questa esercitazione è necessario un ambiente di sviluppo Docker. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
+Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. È pertanto consigliabile usare un ambiente di sviluppo completo di Docker.
+
 ## <a name="get-application-code"></a>Ottenere il codice dell'applicazione
 
 L'applicazione di esempio utilizzata in questa esercitazione è un'app di voto base. L'applicazione è costituita da un componente Web front-end e un'istanza Redis back-end. Viene creato un pacchetto del componente Web in un'immagine del contenitore personalizzata. L'istanza di Redis usa un'immagine non modificata dell'hub Docker.  
@@ -56,16 +58,22 @@ Usare git per scaricare una copia dell'applicazione per l'ambiente di sviluppo.
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-All'interno della directory clonata sono disponibili il codice sorgente dell'applicazione, un file Docker Compose creato in precedenza e un file manifesto Kubernetes. Questi file vengono usati per creare le attività per l'esercitazione. 
+Cambiare directory in modo da usare la directory clonata.
+
+```
+cd azure-voting-app-redis
+```
+
+All'interno della directory sono disponibili il codice sorgente dell'applicazione, un file Docker Compose creato in precedenza e un file manifesto Kubernetes. Questi file vengono usati in tutta la serie di esercitazioni. 
 
 ## <a name="create-container-images"></a>Creare immagini del contenitore
 
 [Docker Compose](https://docs.docker.com/compose/) può essere usato per automatizzare la creazione di immagini del contenitore e la distribuzione di applicazioni multi-contenitore.
 
-Eseguire il file docker-compose.yml per creare l'immagine del contenitore, scaricare l'immagine Redis e avviare l'applicazione.
+Eseguire il file `docker-compose.yml` per creare l'immagine del contenitore, scaricare l'immagine Redis e avviare l'applicazione.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
+docker-compose up -d
 ```
 
 Al termine usare il comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) per vedere le immagini create.
@@ -74,7 +82,7 @@ Al termine usare il comando [docker images](https://docs.docker.com/engine/refer
 docker images
 ```
 
-Si noti che sono state scaricate o create tre immagini. L'immagine *azure-vote-front* contiene l'applicazione. È stata ottenuta dall'immagine *nginx-flask*. L'immagine Redis è stata scaricata dall'hub Docker.
+Si noti che sono state scaricate o create tre immagini. L'immagine `azure-vote-front` contiene l'applicazione e usa l'immagine `nginx-flask` come base. L'immagine `redis` viene usata per avviare un'istanza di Redis.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -105,18 +113,18 @@ Passare a http://localhost:8080 per vedere l'applicazione in esecuzione.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Ora che le funzionalità dell'applicazione sono state verificate, i contenitori in esecuzione possono essere arrestati e rimossi. Non eliminare le immagini del contenitore. L'immagine *azure-vote-front* verrà caricata in un'istanza di Registro contenitori di Azure nella prossima esercitazione.
+Ora che le funzionalità dell'applicazione sono state verificate, i contenitori in esecuzione possono essere arrestati e rimossi. Non eliminare le immagini del contenitore. L'immagine `azure-vote-front` verrà caricata in un'istanza del Registro contenitori di Azure nella prossima esercitazione.
 
 Eseguire questo comando per arrestare i contenitori in esecuzione.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
+docker-compose stop
 ```
 
-Eliminare i contenitori arrestati con il comando seguente.
+Eliminare le risorse e i contenitori arrestati con il comando seguente.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
+docker-compose down
 ```
 
 Al termine si avrà un'immagine del contenitore con l'applicazione Azure Vote.
@@ -134,3 +142,4 @@ Passare alla prossima esercitazione per apprendere informazioni sull'archiviazio
 
 > [!div class="nextstepaction"]
 > [Eseguire il push delle immagini nel Registro contenitori di Azure](./container-service-tutorial-kubernetes-prepare-acr.md)
+

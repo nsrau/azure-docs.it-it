@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: afa6625e4c3ebe2a408b4bd956c8d2eb9ac6a34b
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Come usare criteri di definizione dei destinatari per inviare campagne di push a un sottoinsieme selezionato di utenti
 La possibilità di definire i destinatari tramite criteri specifici con il pulsante "Nuovi criteri" è una delle funzioni più potenti di Azure Mobile Engagement. Consente infatti di inviare notifiche di push rilevanti a cui i clienti risponderanno, anziché mandare messaggi indesiderati a tutti gli utenti. È possibile limitare i destinatari in base ai criteri standard e simulare i push per stabilire quanti utenti riceveranno la notifica.
@@ -29,7 +28,7 @@ La possibilità di definire i destinatari tramite criteri specifici con il pulsa
 * [Documentazione dell'interfaccia utente - Reach - Nuova campagna di push][Link 27]
 
 ## <a name="audience-criteria-can-include"></a>I criteri dei destinatari possono includere:
-* **Informazioni tecniche: ** è possibile stabilire i destinatari in base alle informazioni tecniche visualizzate nelle sezioni di analisi e monitoraggio. **Vedere anche:** [Documentazione dell'interfaccia utente - Analytics][Link 15], [Documentazione dell'interfaccia utente - Monitor][Link 16]
+* * * Technicals: * * è possibile assegnare le stesse informazioni tecniche, è possibile visualizzare nelle sezioni Analitica e di monitoraggio in base. **Vedere anche:** [Documentazione dell'interfaccia utente - Analytics][Link 15], [Documentazione dell'interfaccia utente - Monitor][Link 16]
 * **Posizione:** le applicazioni che usano la segnalazione della posizione in tempo reale con geofencing possono usare la posizione geografica per definire i destinatari in base alla posizione del GPS. È inoltre possibile usare la chiamata di segnalazione della posizione della Lazy Area per definire i destinatari in base alla posizione dei telefoni cellulari (queste due funzioni di segnalazione della posizione devono essere attivate dall'SDK). **Vedere anche:** [Documentazione SDK - iOS - Integrazione][Link 5], [Documentazione SDK - Android - Integrazione][Link 5]
 * **Feedback di copertura:** è possibile definire i destinatari sulla base del loro feedback sulle precedenti notifiche di copertura usando il feedback di copertura derivante da annunci, sondaggi e push di dati. In questo modo, dopo due o tre campagne di copertura è possibile definire meglio i destinatari rispetto alla prima campagna. Il feedback può inoltre essere usato per filtrare gli utenti che hanno già ricevuto una notifica con contenuto simile, impostando una campagna che NON deve essere inviata agli utenti che hanno già ricevuto una specifica campagna precedente. È anche possibile escludere gli utenti inclusi in una campagna specifica ancora attiva in modo che non ricevano nuove notifiche push. **Vedere anche:** [Documentazione dell'interfaccia utente - Reach - Push del contenuto][Link 29]
 * **Rilevamento installazione:** è possibile rilevare le informazioni in base alla posizione in cui gli utenti hanno installato l'app. **Vedere anche:** [Documentazione dell'interfaccia utente - Impostazioni][Link 20]
@@ -176,5 +175,4 @@ Se si vuole eseguire il push di un annuncio solo per un sottoinsieme di utenti c
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

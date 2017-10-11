@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con RolePoint | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e RolePoint.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e RolePoint.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: fcde562484f4401e9f936614b9978f839f4aa290
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Esercitazione: Integrazione di Azure Active Directory con RolePoint
 
@@ -114,7 +112,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.rolepoint.com/login`.
     
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente:  `https://app.rolepoint.com/<instancename>`
+    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://app.rolepoint.com/<instancename>`
 
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. In questo caso, è consigliabile usare il valore univoco della stringa in Identificatore. Contattare il [team di supporto RolePoint](mailto:info@rolepoint.com) per ottenere il valore. 
@@ -225,5 +223,4 @@ Quando si fa clic sul riquadro RolePoint nel pannello di accesso, si dovrebbe ac
 [201]: ./media/active-directory-saas-rolepoint-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-rolepoint-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-rolepoint-tutorial/tutorial_general_203.png
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Eseguire query di analisi su più database SQL di Azure | Microsoft Docs"
-description: Estrarre i dati dai database tenant in un database di analisi per l&quot;analisi offline
+description: Estrarre i dati dai database tenant in un database di analisi per l'analisi offline
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -21,7 +21,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Estrarre i dati dai database tenant in un database di analisi per l'analisi offline

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 9f72a4900f20282827ff939aa41bc4f306e547a3
+ms.translationtype: HT
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: de2d41d8c2787ffdc80daddf959487f6031da87d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Reimpostazione self-service delle password di Azure AD per i professionisti IT
@@ -55,8 +55,8 @@ Se si è pronti, è possibile iniziare a usare la SSPR di Azure AD usando la nos
 
 La Reimpostazione self-service delle password di Azure AD è disponibile in tre livelli a seconda della sottoscrizione.
 
-* **Azure AD Free** - Gli amministratori di reti solo cloud possono reimpostare la password personale
-* **Azure AD Basic** o una **Sottoscrizione di Office365 a pagamento** - Gli amministratori e gli utenti di reti solo cloud possono reimpostare la password personale
+* **Azure AD Free**: gli amministratori di reti solo cloud possono reimpostare la password personale.
+* **Azure AD Basic** o un **abbonamento a Office365 a pagamento**: gli utenti di reti solo cloud possono modificare la password personale e gli amministratori di reti solo cloud possono reimpostare la password personale.
 * **Azure AD Premium** - qualsiasi utente o amministratore, inclusi gli utenti di reti solo cloud, federati o sincronizzati tramite password, può reimpostare la password personale. Le password locali richiedono che sia abilitato il writeback delle password.
 
 ## <a name="azure-ad-self-service-password-reset-a-sum-of-the-parts"></a>Reimpostazione self-service delle password di Azure AD, una somma delle parti

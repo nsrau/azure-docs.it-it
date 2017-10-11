@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
-ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Impostare la velocità effettiva per i contenitori di Azure Cosmos DB
 
 È possibile impostare la velocità effettiva per i contenitori di Azure Cosmos DB nel portale di Azure oppure usando gli SDK client. 
@@ -89,4 +86,3 @@ Non è disponibile alcuna estensione dell'API MongoDB per la configurazione dell
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul provisioning e sulla diffusione su scala globale di Cosmos DB, vedere [Partizionamento e scalabilità con Cosmos DB](partition-data.md).
-

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: 2ceb3c0833edcd4ecd875c5e8006961ed7216c66
-ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Esercitazione: Integrazione di Azure Active Directory con DigiCert
 
@@ -112,11 +110,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_url.png)
 
-4. L'applicazione DigiCert prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio di questa configurazione. 
+4. L'applicazione DigiCert prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. Lo screenshot seguente illustra un esempio di questa configurazione. 
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_attributes.png)
     
-5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine e seguire questa procedura:
+5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come illustrato nell'immagine e seguire questa procedura:
     
     | Nome attributo | Valore attributo |
     | ------------------- | -------------------- |    
@@ -243,5 +241,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-digicert-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-digicert-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-digicert-tutorial/tutorial_general_203.png
-
 

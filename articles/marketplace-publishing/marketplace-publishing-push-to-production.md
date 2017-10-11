@@ -1,6 +1,6 @@
 ---
-title: Distribuire l&quot;offerta in Azure Marketplace | Documentazione Microsoft
-description: "Informazioni e istruzioni dettagliate per distribuire l&quot;offerta (immagine di macchina virtuale, servizio per sviluppatori, servizio dati e così via) in Azure Marketplace."
+title: Distribuire l'offerta in Azure Marketplace | Documentazione Microsoft
+description: "Informazioni e istruzioni dettagliate per distribuire l'offerta (immagine di macchina virtuale, servizio per sviluppatori, servizio dati e così via) in Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Distribuire l'offerta in Azure Marketplace
 Quando si è soddisfatti dell'offerta (ad esempio, è stato eseguito il testing degli scenari dei clienti, del contenuto marketing e così via) e si è pronti per il lancio, richiedere **Push in produzione** nella scheda **Pubblica**.  
@@ -85,9 +85,3 @@ Una volta che l'offerta è pubblicata, testare gli scenari dei clienti per conva
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]:media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

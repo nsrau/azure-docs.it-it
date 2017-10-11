@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure | Microsoft Docs
-description: " La migrazione dei carichi di lavoro ad Azure IaaS offre l&quot;opportunità di rivalutare i progetti "
+description: " La migrazione dei carichi di lavoro ad Azure IaaS offre l'opportunità di rivalutare i progetti "
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/29/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 3123c8d780406c92f04592767e47c217c0a0ba73
-ms.lasthandoff: 03/28/2017
-
-
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: f93211d289553b7a8afbe8c17fa4847f3d4585a8
+ms.contentlocale: it-it
+ms.lasthandoff: 08/30/2017
 
 ---
-
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 
 Alcune delle considerazioni necessarie per lo spostamento di carichi di lavoro nell'infrastruttura distribuita come servizio (IaaS) di Azure sono simili a quelle relative alla protezione degli ambienti virtuali. Nel passaggio all'infrastruttura IaaS di Azure è possibile applicare le competenze acquisite nella protezione degli ambienti virtuali e usare un nuovo set di opzioni per la protezione degli asset.
@@ -42,11 +39,11 @@ Questo articolo illustra alcune delle opzioni disponibili in Azure che permetton
 
 Le organizzazioni sono spesso vittima di attacchi informatici perché gli amministratori eseguono azioni mentre usano account con diritti elevati. Questo avviene di solito in modo non intenzionale, ma perché la configurazione e i processi esistenti lo consentono. La maggior parte degli utenti conosce a livello concettuale i rischi legati a tali azioni, ma sceglie comunque di eseguirle.
 
-Controllare la posta elettronica e navigare in Internet possono sembrare operazioni innocue, ma possono esporre gli account con privilegi elevati al rischio di compromissione da parte di utenti malintenzionati. Questi potrebbero usare attività di esplorazione, messaggi di posta elettronica creati appositamente o altre tecniche per ottenere l'accesso all'azienda. Per eseguire tutte le attività di amministrazione di Azure riducendo l'esposizione a danni accidentali, è consigliabile usare workstation di gestione sicure.
+Controllare la posta elettronica e navigare in Internet possono sembrare operazioni innocue, Ma potrebbe esporre gli account con privilegi elevati alla compromissione da parte di malintenzionati. Attività di esplorazione, messaggi di posta elettronica creati appositamente o altre tecniche possono essere utilizzate per ottenere l'accesso all'azienda. Per eseguire tutte le attività di amministrazione di Azure è consigliabile usare workstation di gestione sicure (SAW). Le workstation di gestione sicure rappresentano un modo per ridurre l'esposizione a danni accidentali.
 
-Per le attività sensibili, le workstation con accesso con privilegi offrono un sistema operativo dedicato, protetto dagli attacchi provenienti da Internet e dai vettori di minacce. Separare le attività e gli account sensibili da workstation e dispositivi usati quotidianamente assicura una protezione molto efficace contro gli attacchi di phishing, le vulnerabilità di applicazioni e sistemi operativi, vari attacchi di rappresentazione e tecniche di furto delle credenziali, come la registrazione delle pressioni di tasti, pass-the-hash e pass-the-ticket.
+Per le attività sensibili, le workstation con accesso con privilegi offrono un sistema operativo dedicato, protetto dagli attacchi provenienti da Internet e dai vettori di minacce. Separando queste attività e account sensibili dalle workstation e i dispositivi di uso giornaliero si ottiene una protezione avanzata. Questa separazione consente di limitare l'impatto di attacchi di phishing, le vulnerabilità di applicazioni e sistema operativo, vari attacchi di rappresentazione e attacchi con furto di credenziali. (registrazione delle digitazioni e Pass-the-Hash e Pass-the-Ticket)
 
-L'uso di workstation dotate di accesso con privilegi rappresenta un'estensione della procedura consigliata e ampiamente diffusa di adottare un account amministrativo assegnato individualmente separato dall'account utente standard. Una workstation dotata di accesso con privilegi offre un ambiente affidabile per gli account sensibili.
+L'uso di workstation dotate di accesso con privilegi rappresenta un'estensione della procedura consigliata e ampiamente diffusa di adottare un account amministrativo. L'account amministrativo è separato da un account utente standard. Una workstation dotata di accesso con privilegi offre un ambiente affidabile per gli account sensibili.
 
 Per altre informazioni e istruzioni sull'implementazione, vedere [Workstation con accesso con privilegi](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations).
 
@@ -68,7 +65,7 @@ Lo screenshot seguente mostra alcune delle opzioni disponibili per Azure Multi-F
 
 ## <a name="limit-and-constrain-administrative-access"></a>Limitare e vincolare l'accesso amministrativo
 
-Proteggere gli account che gestiscono la sottoscrizione di Azure è estremamente importante. La compromissione di uno di questi account vanifica qualsiasi azione intrapresa per garantire la riservatezza e l'integrità dei dati. Come dimostra il caso di [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden), colpevole di aver diffuso informazioni riservate del governo USA, gli attacchi sferrati dall'interno rappresentano una minaccia notevole per la sicurezza di qualunque organizzazione.
+Proteggere gli account che gestiscono la sottoscrizione di Azure è estremamente importante. La compromissione di uno di questi account vanifica qualsiasi azione intrapresa per garantire la riservatezza e l'integrità dei dati. Come dimostra il caso di [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden), gli attacchi sferrati dall'interno rappresentano una minaccia notevole per la sicurezza di qualunque organizzazione.
 
 Per valutare i singoli utenti a cui concedere diritti amministrativi, seguire criteri simili a questi:
 
@@ -146,7 +143,7 @@ Chiunque abbia una sottoscrizione di Azure può creare e usare insiemi di creden
 
 Per altre informazioni, vedere [Crittografia dischi di Azure per macchine virtuali IaaS Windows e Linux](azure-security-disk-encryption.md).
 
-La [crittografia del servizio di archiviazione di Azure](../storage/storage-service-encryption.md) permette di protegge i dati inattivi. È abilitata a livello dell'account di Archiviazione e permette di crittografare i dati man mano che vengono scritti nel data center, per poi decrittografarli automaticamente quando vi si accede. Supporta gli scenari seguenti:
+La [crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md) permette di protegge i dati inattivi. È abilitata a livello dell'account di Archiviazione e permette di crittografare i dati man mano che vengono scritti nel data center, per poi decrittografarli automaticamente quando vi si accede. Supporta gli scenari seguenti:
 
 - Crittografia di BLOB in blocchi, BLOB di aggiunta e BLOB di pagine.
 - Crittografia di dischi rigidi virtuali archiviati e modelli trasferiti in Azure da posizioni locali.
@@ -228,10 +225,7 @@ Lo screenshot seguente mostra un esempio delle informazioni visualizzate in Oper
 
 ![Baseline della sicurezza di Operations Management Suite](./media/azure-security-iaas/oms-security-baseline.png)
 
-
-
 ## <a name="next-steps"></a>Passaggi successivi
-
 
 * [Blog del team di sicurezza di Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)

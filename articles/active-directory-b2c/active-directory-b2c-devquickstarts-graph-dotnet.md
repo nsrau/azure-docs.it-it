@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 1e6748f40c7b825615b3f58243afd9d50348214d
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 430063bbc9fab8195e12cd1d3e3966a29bafd404
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: usare l'API Graph
@@ -59,6 +59,11 @@ A questo punto è necessario configurare l'applicazione per ottenere tutte le au
 5. Infine, nel menu Autorizzazioni necessarie fare clic sul pulsante **Concedi autorizzazioni**.
 
 A questo punto è disponibile un'applicazione con le autorizzazioni per creare, leggere e aggiornare gli utenti dal tenant B2C.
+
+> [!NOTE]
+> Il completamento dell'operazione di concessione di autorizzazioni può richiedere alcuni minuti.
+> 
+> 
 
 ## <a name="configure-delete-permissions-for-your-application"></a>Configurare le autorizzazioni di eliminazione per l'applicazione
 L'autorizzazione *Legge e scrive i dati della directory* attualmente **NON** include la possibilità di eseguire le eliminazioni, ad esempio l'eliminazione degli utenti. Se si desidera assegnare all'applicazione la possibilità di eliminare gli utenti, è necessario eseguire questi passaggi aggiuntivi che coinvolgono PowerShell. In caso contrario, è possibile passare alla sezione successiva.

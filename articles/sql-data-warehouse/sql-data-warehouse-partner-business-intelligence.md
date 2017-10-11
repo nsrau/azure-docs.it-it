@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: partners
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 91b3f016497b268d9f7e9d305ec4f69f0a1cd856
-ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 7c88e55b420d45f6d0cd4486377e3f2b1347bd9b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partner di business intelligence per SQL Data Warehouse
 Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tra una vasta gamma di strumenti leader nel settore.  Questo articolo evidenzia aziende partner di Microsoft con soluzioni di business intelligence (BI) che supportano Azure SQL Data Warehouse.
@@ -153,4 +151,3 @@ Per informazioni su altri partner, vedere [Partner di integrazione di dati][di_p
 [tableau_twitter]:https://twitter.com/tableau
 [targit_twitter]:https://twitter.com/TARGIT
 [yellowfin_twitter]:https://twitter.com/YellowfinBI
-

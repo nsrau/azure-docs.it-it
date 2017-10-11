@@ -53,9 +53,9 @@ Dopo aver risolto eventuali errori, smontare e scollegare il disco rigido virtua
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>Creare una macchina virtuale dal disco rigido originale
 
-Per creare una macchina virtuale dal disco rigido virtuale originale, usare il [portale di Azure classico](https://manage.windowsazure.com).
+Per creare una macchina virtuale dal disco rigido virtuale originale, usare il [portale di Azure](https://portal.azure.com).
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Nella parte inferiore del portale selezionare **Nuovo** > **Calcolo** > **Macchina virtuale** > **Da raccolta**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Nella parte in alto a sinistra del portale selezionare **Nuovo** > **Calcolo** > **Macchina virtuale** > **Da raccolta**.
 3. Nella sezione **Scegli un'immagine** selezionare **Dischi personali** e quindi selezionare il disco rigido virtuale originale. Verificare le informazioni sulla posizione. Questa è l'area in cui deve essere distribuita la VM. Selezionare il pulsante Avanti.
 4. Nella sezione **Configurazione macchina virtuale** digitare il nome della macchina virtuale e selezionare una dimensione per la VM.

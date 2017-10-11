@@ -1,6 +1,6 @@
 ---
 title: Domini multipli di Azure AD Connect
-description: "Questo documento descrive l'impostazione e la configurazione di più domini di primo livello con Office&365; e Azure AD."
+description: "Questo documento descrive l'impostazione e la configurazione di più domini di primo livello con Office 365 e Azure AD."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
-ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-ms.contentlocale: it-it
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 8e3f496c2868cc3430e0efd47805aec2205168aa
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Supporto di più domini per la federazione con Azure AD
 La documentazione seguente fornisce indicazioni su come usare più domini di primo livello e sottodomini durante la federazione con domini di Office 365 o Azure AD.
@@ -67,7 +66,7 @@ Si noti che `-SupportMultipleDomain` non modifica gli altri endpoint, che sono a
 
 In questo modo durante l'autenticazione in Azure AD oppure Office 365 l'elemento IssuerUri nel token dell'utente viene usato per individuare il dominio in Azure AD.  Se non viene rilevata una corrispondenza, l'autenticazione non riuscirà. 
 
-Ad esempio, se l'UPN di un utente è bsimon@bmcontoso.com,, l'elemento IssuerUri nel token emesso da AD FS sarà impostato su http://bmcontoso.com/adfs/services/trust. Se questo corrisponde alla configurazione di Azure AD, l'autenticazione avrà esito positivo.
+Ad esempio, se un utente UPN è bsimon@bmcontoso.com, l'elemento IssuerUri i problemi di token AD FS verrà impostato su http://bmcontoso.com/adfs/services/trust. Se questo corrisponde alla configurazione di Azure AD, l'autenticazione avrà esito positivo.
 
 Di seguito è riportata la regola attestazioni personalizzata che implementa questa logica:
 
@@ -163,5 +162,4 @@ Usare la procedura seguente per aggiungere un'attestazione personalizzata per il
     ![Sostituzione dell'attestazione](./media/active-directory-multiple-domains/sub2.png)
 
 5. Fare clic su Ok.  Fare clic su Applica.  Fare clic su Ok.  Chiudere Gestione ADFS.
-
 

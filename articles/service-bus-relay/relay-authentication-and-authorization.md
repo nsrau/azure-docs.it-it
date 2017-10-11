@@ -20,7 +20,6 @@ ms.openlocfilehash: 95589ca169926362fa77f0e307afd449014c8402
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticazione e autorizzazione di Inoltro di Azure
 Le applicazioni possono eseguire l'autenticazione a Inoltro di Azure usando l'autenticazione con firma di accesso condiviso (SAS). Simile alla [messaggistica del bus di servizio](../service-bus-messaging/service-bus-authentication-and-authorization.md), l'autenticazione con firma di accesso condivisa consente alle applicazioni di eseguire l'autenticazione al servizio Inoltro di Azure tramite una chiave di accesso configurata nello spazio dei nomi di inoltro. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso che i client possono usare per eseguire l'autenticazione al servizio di inoltro.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 09/25/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 86e025f9211a1d7ed07e831b7ce4c21be351513b
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fbfb3d026540b45a28751d6c3ab0f8dce444e0cd
 ms.contentlocale: it-it
-ms.lasthandoff: 03/09/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -43,6 +43,7 @@ Le metriche presentano le caratteristiche seguenti:
 * Tutte le metriche hanno **frequenza di un minuto**. L'utente riceve il valore della metrica generata dalla risorsa ogni minuto, così da ottenere una visibilità quasi in tempo reale sullo stato e sull'integrità della risorsa.
 * Le metriche sono **disponibili immediatamente**. Non è necessario fornire il consenso esplicito o configurare la diagnostica aggiuntiva.
 * Per ogni metrica è possibile accedere alla **cronologia degli ultimi 30 giorni** . È possibile vedere rapidamente le tendenze recenti e mensili riguardo alle prestazioni o all'integrità della risorsa.
+* Alcune metriche possono avere attributi di coppia nome-valore denominati **dimensioni**. Queste consentono di segmentare ulteriormente ed esplorare una metrica in modo più significativo.
 
 È anche possibile:
 
@@ -85,14 +86,16 @@ Di seguito è descritta una procedura rapida per la creazione di un grafico dell
 >
 >
 
+Monitoraggio di Azure ha anche una nuova esperienza di creazione di grafici per metriche disponibile in anteprima. Questa esperienza consente agli utenti di sovrapporre delle metriche da più risorse in un grafico. Gli utenti possono anche tracciare, segmentare e filtrare metriche multidimensionali usando questa nuova esperienza di creazione di grafici per metriche. Per altre informazioni, [fare clic qui](https://aka.ms/azuremonitor/new-metrics-charts)
+
 ## <a name="access-metrics-via-the-rest-api"></a>Accedere alle metriche mediante l'API REST
 È possibile accedere alle metriche di Azure tramite le API del Monitoraggio di Azure. Sono due le API che consentono di rilevare le metriche e accedervi:
 
-* Usare l'[API REST relativa alle definizione delle metriche del Monitoraggio di Azure](https://msdn.microsoft.com/library/mt743621.aspx) per accedere all'elenco di metriche disponibili per un servizio.
-* Usare l'[API REST delle metriche del Monitoraggio di Azure](https://msdn.microsoft.com/library/mt743622.aspx) per accedere ai dati delle metriche effettive.
+* Usare l'[API REST relativa alle definizione delle metriche di Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) per accedere all'elenco di metriche, ed eventuali dimensioni, disponibili per un servizio.
+* Usare l'[API REST delle metriche di Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) per segmentare, filtrare e accedere ai dati delle metriche effettive.
 
 > [!NOTE]
-> Questo articolo è dedicato alle metriche accessibili tramite la [nuova API per le metriche](https://msdn.microsoft.com/library/dn931930.aspx) per le risorse di Azure. La versione della nuova API per le definizioni delle metriche è 2016-03-01 e la versione dell'API per le metriche è 2016-09-01. È possibile accedere alle metriche e alle definizioni delle metriche legacy con la versione API 2014-04-01.
+> Questo articolo è dedicato alle metriche accessibili tramite la [nuova API per le metriche](https://docs.microsoft.com/en-us/rest/api/monitor/) per le risorse di Azure. La versione della nuova API per le definizioni delle metriche e l'API per le metriche è 2017-05-01-preview. È possibile accedere alle metriche e alle definizioni delle metriche legacy con la versione API 2014-04-01.
 >
 >
 
@@ -109,9 +112,14 @@ Per una procedura ancor più dettagliata con le API REST del Monitoraggio di Azu
 Per ricevere notifiche o eseguire azioni automatizzate su dati delle metriche, è possibile configurare regole di avviso o impostazioni di ridimensionamento automatico.
 
 ### <a name="configure-alert-rules"></a>Configurare regole di avviso
-È possibile configurare le regole di avviso sulle metriche. Queste regole di avviso possono verificare se una metrica ha superato una determinata soglia. Possono quindi comunicare tramite e-mail o generare un webhook che può essere usato per eseguire qualsiasi script personalizzato. È anche possibile usare il webhook per configurare le integrazioni dei prodotti di terze parti.
+È possibile configurare le regole di avviso sulle metriche. Queste regole di avviso possono verificare se una metrica ha superato una determinata soglia. Esistono due possibilità di avvisi metrica offerte da Monitoraggio di Azure.
+
+Avvisi metrica: possono quindi comunicare tramite e-mail o generare un webhook che può essere usato per eseguire qualsiasi script personalizzato. È anche possibile usare il webhook per configurare le integrazioni dei prodotti di terze parti.
 
  ![Metriche e regole di avviso nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview4.png)
+
+Avvisi metrica quasi in tempo reale (anteprima): possono monitorare più metriche e soglie per una risorsa, quindi comunicare tramite un [gruppo di azioni](/monitoring-action-groups.md). Altre informazioni sugli [avvisi metrica quasi in tempo reale](https://aka.ms/azuremonitor/near-real-time-alerts).
+
 
 ### <a name="autoscale-your-azure-resources"></a>Ridimensionare automaticamente le risorse di Azure
 Alcune risorse di Azure supportano l'aumento o la riduzione di più istanze per gestire i carichi di lavoro. Il ridimensionamento automatico si applica ai servizi app (App Web), ai set di scalabilità di macchine virtuali e ai Servizi cloud di Azure. È possibile configurare le regole di ridimensionamento automatico in modo da ridurre o aumentare il numero di istanze quando una data metrica che influisce sul carico di lavoro supera una soglia specificata. Per ulteriori informazioni, vedere [Panoramica della scalabilità automatica](monitoring-overview-autoscale.md).

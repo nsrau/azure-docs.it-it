@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Azure Mobile Engagement per la distribuzione di Unity in Android
-description: "Informazioni sull&quot;uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app Unity distribuite in dispositivi iOS."
+description: "Informazioni sull'uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app Unity distribuite in dispositivi iOS."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Introduzione ad Azure Mobile Engagement per la distribuzione di Unity in Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -37,10 +37,10 @@ Per completare questa esercitazione, è necessario disporre di:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Configurare Mobile Engagement per l'app Android
+## <a id="setup-azme"></a>Configurare Mobile Engagement per l'app Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connettere l'app al back-end di Mobile Engagement
+## <a id="connecting-app"></a>Connettere l'app al back-end di Mobile Engagement
 ### <a name="import-the-unity-package"></a>Importare il pacchetto Unity
 1. Scaricare il [pacchetto Unity per Mobile Engagement](https://aka.ms/azmeunitysdk) e salvarlo nel computer locale. 
 2. Passare a **Assets -> Import Package -> Custom Package** (Asset -> Importa pacchetto -> Pacchetto personalizzato) e selezionare il pacchetto scaricato nel passaggio precedente. 
@@ -98,10 +98,10 @@ Assicurarsi che Android SDK sia installato nel computer prima di provare a distr
 6. Potrebbe essere necessario specificare un nome della cartella in cui archiviare il pacchetto Android. 
 7. Se tutto va bene, il pacchetto verrà distribuito nel dispositivo connesso e il gioco Unity sarà disponibile nel telefono. 
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Connettere l'app con monitoraggio in tempo reale
+## <a id="monitor"></a>Connettere l'app con monitoraggio in tempo reale
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Abilitare le notifiche push e la messaggistica in-app
+## <a id="integrate-push"></a>Abilitare le notifiche push e la messaggistica in-app
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ### <a name="update-the-engagementconfiguration"></a>Aggiornare EngagementConfiguration
@@ -134,9 +134,3 @@ Assicurarsi che Android SDK sia installato nel computer prima di provare a distr
 [52]: ./media/mobile-engagement-unity-android-get-started/52.png
 [53]: ./media/mobile-engagement-unity-android-get-started/53.png
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

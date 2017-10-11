@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Trakstar | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Trakstar.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Trakstar.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 757429aa187e6536489b6636a0a11d122c7f9378
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Esercitazione: Integrazione di Azure Active Directory con Trakstar

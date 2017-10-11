@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7c4e2f084571a2146e5013f24bd5da55319118af
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 78ff8763a461162cbcfa04c6a86123973271928a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Errore "Can't Access this Corporate Application" (Impossibile accedere all'applicazione aziendale) quando si usa un'applicazione Proxy di applicazione
 
 Questo articolo consente di risolvere alcuni problemi comuni riscontrati quando si visualizza un errore "Impossibile accedere a questa app aziendale" in un'applicazione Proxy di applicazione di Azure AD.
@@ -113,4 +111,3 @@ Se è possibile raggiungere l'applicazione da tale computer, cercare problemi o 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-understand-connectors.md)
-

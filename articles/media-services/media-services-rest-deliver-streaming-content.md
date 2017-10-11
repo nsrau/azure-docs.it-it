@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 3aa6bdac17a78b78490f255b0e86e1c210b64cc6
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: d1e0a112040f6aa4cfa9e8c323507b1c0a223f3e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Pubblicare contenuti di Servizi multimediali di Azure mediante REST
 > [!div class="op_single_selector"]
@@ -198,5 +197,4 @@ esempio:
 [Informazioni generali sull'API REST di Servizi multimediali](media-services-rest-how-to-use.md)
 
 [Configurare i criteri di distribuzione dell'asset](media-services-rest-configure-asset-delivery-policy.md)
-
 

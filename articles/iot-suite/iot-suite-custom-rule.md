@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 900f0b4c38f08d1e3017954db01cf32362765578
-ms.contentlocale: it-it
-ms.lasthandoff: 03/10/2017
-
+ms.openlocfilehash: d58c27234ea05a82aaa3e8d72f70c1449980df09
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>Creare una regola personalizzata nella soluzione di monitoraggio remota preconfigurata
 
@@ -217,7 +216,7 @@ Dopo aver completato la distribuzione, è possibile aggiornare il processo di an
  
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
-Modificare l'operatore **>** è più complesso ed esula dalla procedura descritta in questa esercitazione. Mentre è possibile modificare il processo di analisi di flusso perché usi qualsiasi operatore desiderato, riflettere tale operatore nel portale della soluzione è un'attività più complessa. 
+Modificare l'operatore  **>**  è più complesso ed esula dalla procedura descritta in questa esercitazione. Mentre è possibile modificare il processo di analisi di flusso perché usi qualsiasi operatore desiderato, riflettere tale operatore nel portale della soluzione è un'attività più complessa. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che si è appreso come creare regole personalizzate, è possibile vedere altre informazioni sulle soluzioni preconfigurate:

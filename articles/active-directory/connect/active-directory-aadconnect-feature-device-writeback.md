@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 310dcb176c2e1556af4ed0e0f50ea77c4644ec98
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: abilitazione del writeback dei dispositivi
@@ -44,19 +44,27 @@ Questo offre maggiore sicurezza e garantisce che l'accesso alle applicazioni ven
 Per preparare il writeback dei dispositivi, seguire questa procedura.
 
 1. Dal computer in cui è installato Azure AD, avviare PowerShell con privilegi elevati.
-2. Se il modulo Active Directory PowerShell NON è installato, installarlo usando il comando seguente:
-   
-   `Add-WindowsFeature RSAT-AD-PowerShell`
-3. Se il modulo di Azure Active Directory per PowerShell NON è installato, scaricarlo e installarlo da [Modulo di Azure Active Directory per Windows PowerShell (versione a 64 bit)](http://go.microsoft.com/fwlink/p/?linkid=236297). Questo componente presenta una dipendenza dall'Assistente per l'accesso, che viene installato con Azure AD Connect.
+2. Se il modulo Active Directory PowerShell NON è installato, installare Strumenti di amministrazione remota del server, che contiene il modulo AD PowerShell e dsacls.exe, necessario per eseguire lo script.  Eseguire il comando seguente:
+  
+   ``` powershell
+   Add-WindowsFeature RSAT-AD-Tools
+   ```
+
+3. Se il modulo di Azure Active Directory per PowerShell NON è installato, scaricarlo e installarlo da [Modulo di Azure Active Directory per Windows PowerShell (versione a 64 bit)](http://go.microsoft.com/fwlink/p/?linkid=236297). Questo componente presenta una dipendenza dall'Assistente per l'accesso, che viene installato con Azure AD Connect.  
 4. Con le credenziali di amministratore dell'organizzazione, eseguire i comandi seguenti e quindi uscire da PowerShell.
    
-   `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
-   
-   `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
+   ``` powershell
+   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+   ```
+
+   ``` powershell
+   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
+   ```
 
 Le credenziali di amministratore dell'organizzazione sono obbligatorie, perché è necessario apportare modifiche allo spazio dei nomi di configurazione. Le autorizzazioni di un amministratore di dominio non sono sufficienti.
 
 ![PowerShell per l'abilitazione del writeback dei dispositivi](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+
 
 Descrizione:
 

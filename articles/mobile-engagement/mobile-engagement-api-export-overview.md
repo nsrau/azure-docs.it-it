@@ -1,7 +1,6 @@
-
 ---
-title: Panoramica dell&quot;API di esportazione di Mobile Engagement
-description: Questo documento illustra le nozioni di base sull&quot;esportazione dei dati non elaborati generati da dispositivi dell&quot;utente per l&quot;uso in strumenti personalizzati.
+title: Panoramica dell'API di esportazione di Mobile Engagement
+description: Questo documento illustra le nozioni di base sull'esportazione dei dati non elaborati generati da dispositivi dell'utente per l'uso in strumenti personalizzati.
 services: mobile-engagement
 documentationcenter: mobile
 author: kpiteira
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-translationtype: Human Translation
-ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
 ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Panoramica dell'API di esportazione di Mobile Engagement
 ## <a name="introduction"></a>Introduzione
@@ -73,10 +72,4 @@ Si noti che l'avvio del processo potrebbe richiedere alcuni minuti e che la sua 
 Una volta creato il processo, è possibile controllarne lo stato per vedere se è ancora in esecuzione o se è stato completato.
 
 Una volta che il processo è stato completato correttamente, il file di dati risultante è disponibile nel contenitore di archiviazione specificato.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

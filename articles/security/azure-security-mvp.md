@@ -1,6 +1,6 @@
 ---
 title: Programma MVP per la sicurezza di Azure | Microsoft Docs
-description: L&quot;articolo offre una panoramica dell&quot;area di contributo alla sicurezza di Azure nel programma MVP.
+description: L'articolo offre una panoramica dell'area di contributo alla sicurezza di Azure nel programma MVP.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4e9f0b21c731cfcba0019892f84872cc36125630
-
-
+ms.openlocfilehash: 9a9f4341aaca5bb6049c6d85993c92ea6dd1c8dd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-mvp-program"></a>Programma MVP per la sicurezza di Azure
 I Microsoft MVP sono leader della community che hanno dimostrato grande impegno nell'aiutare gli altri utenti a sfruttare al meglio i vantaggi delle tecnologie Microsoft. Condividono la loro grande passione, l'esperienza e la competenza tecnica con la community e con Microsoft.
@@ -30,9 +30,3 @@ Microsoft è lieta di annunciare che Microsoft Azure ora riconosce gli esperti d
 Anche se non ci sono requisiti particolari per diventare MVP, anche perché dipende dalla tecnologia e dal relativo ciclo di vita, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio Microsoft Answers, TechNet e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione.
 
 Si è esperti della sicurezza di Azure? Si conosce qualcuno che lo sia? È possibile [nominare se stessi o qualcun altro](https://mvp.microsoft.com/Nomination/nominate-an-mvp) per diventare MVP della sicurezza di Azure oggi stesso.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: cb14bebfaf073cb38bdc1f1718ef3d8c7f6c45fc
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.openlocfilehash: c2cbe41b71afa8acc184f9d7f4cfe94686de783e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Procedura: Ottenere un'istanza del processore di contenuti multimediali
 > [!div class="op_single_selector"]
@@ -62,5 +61,4 @@ Il seguente metodo illustra come ottenere un'istanza del processore di contenuti
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare all'argomento [Come codificare un asset](media-services-dotnet-encode-with-media-encoder-standard.md) che illustra come usare Media Encoder Standard per codificare un asset.
-
 

@@ -12,22 +12,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 09/25/2017
 ms.author: juluk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 191a5d12fa899db48bbb751409ce3a732a56095e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: eddbc6e977b52e3a068a1b55792512b966a58c18
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="pricing"></a>Prezzi
 
 ## <a name="compute-cost"></a>Costi di calcolo
-Azure Cloud Shell viene eseguito in un computer fornito gratuitamente, ma è necessaria una condivisione file di Azure collegata per usarlo. 
+Azure Cloud Shell viene eseguito in un computer fornito gratuitamente da Azure, ma è necessaria una condivisione file di Azure per usarlo. 
 
 ## <a name="storage-cost"></a>Costi di archiviazione
-Cloud Shell crea un'immagine da 5 GB predefinita nella condivisione file per rendere persistente la directory $HOME. Per le condivisioni file di Azure vengono applicati i normali costi.
+Cloud Shell richiede di montare una condivisione file di Azure nuova o esistente per rendere persistenti i file tra le sessioni. L’archiviazione comporta costi regolari.
 
 Vedere [qui per informazioni dettagliate sui costi di File di Azure](https://azure.microsoft.com/pricing/details/storage/files/). 

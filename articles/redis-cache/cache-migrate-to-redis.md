@@ -14,13 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure
 La migrazione di un'applicazione che usa il Servizio cache gestita di Azure alla Cache Redis di Azure può essere eseguita con modifiche minime all'applicazione, a seconda delle funzionalità del Servizio cache gestita usate dall'applicazione di memorizzazione nella cache. Le API non sono identiche, ma sono simili e gran parte del codice esistente che usa il Servizio cache gestita per accedere a una cache può essere riutilizzata con modifiche minime. Questo argomento illustra come apportare le modifiche necessarie alla configurazione e all'applicazione per eseguire la migrazione delle applicazioni che usano il Servizio cache gestita alla Cache Redis di Azure e illustra come alcune delle funzioni della Cache Redis di Azure possano essere usate per implementare la funzionalità di una cache del Servizio cache gestita.
@@ -191,5 +189,4 @@ La Cache Redis di Azure include provider sia per lo stato della sessione ASP.NET
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per esercitazioni, esempi, video e altro ancora, vedere la [documentazione sulla Cache Redis di Azure](https://azure.microsoft.com/documentation/services/cache/) .
-
 

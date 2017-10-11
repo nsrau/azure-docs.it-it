@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
-ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
 Il Centro sicurezza di Azure usa il [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md), con [ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
@@ -66,4 +63,3 @@ In questo articolo è stato descritto come Centro sicurezza usa PC usa il contro
 - [Monitorare l'integrità della sicurezza delle risorse di Azure](security-center-monitoring.md)
 - [Gestire e rispondere agli avvisi di sicurezza in Centro sicurezza](security-center-managing-and-responding-alerts.md)
 - [Monitorare le soluzioni di sicurezza dei partner](security-center-partner-solutions.md)
-

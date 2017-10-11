@@ -1,5 +1,4 @@
 ---
-
 title: Uso di una macchina virtuale Linux per la risoluzione dei problemi nel portale di Azure | Documentazione Microsoft
 description: Informazioni su come risolvere i problemi delle macchine virtuali Linux connettendo il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure
 services: virtual-machines-linux
@@ -9,7 +8,7 @@ manager: timlt
 editor: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
@@ -19,7 +18,6 @@ ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
 ms.contentlocale: it-it
 ms.lasthandoff: 05/12/2017
-
 
 ---
 

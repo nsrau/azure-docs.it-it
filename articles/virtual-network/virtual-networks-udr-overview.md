@@ -1,6 +1,6 @@
 ---
-title: Route definite dall&quot;utente e inoltro IP in Azure | Microsoft Docs
-description: Informazioni su come configurare route definite dall&quot;utente e l&quot;inoltro IP per inoltrare il traffico a dispositivi virtuali di rete in Azure.
+title: Route definite dall'utente e inoltro IP in Azure | Microsoft Docs
+description: Informazioni su come configurare route definite dall'utente e l'inoltro IP per inoltrare il traffico a dispositivi virtuali di rete in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="user-defined-routes-and-ip-forwarding"></a>Route definite dall'utente e inoltro IP
 
@@ -112,5 +110,4 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Creare route definite dall'utente in Resource Manager usando un modello](virtual-network-create-udr-arm-template.md) e associarle alle subnet. 
 * Informazioni su come [creare route nel modello di distribuzione classica](virtual-network-create-udr-classic-ps.md) e associarle a subnet.
-
 

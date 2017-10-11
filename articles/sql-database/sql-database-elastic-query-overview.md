@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9b3151248a1d036117bbdc9af03a98dff71ca535
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 0130b1d4f3ee7b27786764a275ce4e3c0ee93b2d
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
@@ -142,7 +142,7 @@ Le query elastiche sono incluse nei costi dei database SQL di Azure. Si noti che
 * Le statistiche di colonna sulle tabelle esterne non sono attualmente supportate. Le statistiche di tabella sono supportate ma devono essere create manualmente.
 
 ## <a name="feedback"></a>Commenti e suggerimenti
-Per condividere commenti e suggerimenti sull'esperienza con le query elastiche, usare Disqus, i forum MSDN o Stackoverflow. Siamo interessati a tutti i tipi di commenti e suggerimenti relativi al servizio (difetti, bordi approssimativo, gap di funzionalità).
+Per condividere commenti e suggerimenti sull'esperienza con le query elastiche, usare Livefyre, i forum MSDN o Stackoverflow. Siamo interessati a tutti i tipi di commenti e suggerimenti relativi al servizio (difetti, bordi approssimativo, gap di funzionalità).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

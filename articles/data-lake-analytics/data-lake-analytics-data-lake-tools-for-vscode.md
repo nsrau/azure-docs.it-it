@@ -146,7 +146,8 @@ Per poter usare U-SQL è necessario aprire una cartella o un file U-SQL.
                       D( DepID, DepName );
          
         OUTPUT @departments
-            TO “/Output/departments.csv”
+            TO "/Output/departments.csv"
+        USING Outputters.Csv();
 
     Lo script crea un file departments.csv con alcuni dati inclusi nella cartella /output.
 

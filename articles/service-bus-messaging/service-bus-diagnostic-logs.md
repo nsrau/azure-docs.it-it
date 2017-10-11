@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: babanisa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-bus-diagnostic-logs"></a>Log di diagnostica del bus di servizio
 
@@ -99,4 +97,3 @@ Visitare i collegamenti seguenti per altre informazioni sul bus di servizio:
 
 * [Introduzione al bus di servizio](service-bus-messaging-overview.md)
 * [Introduzione al bus di servizio](service-bus-dotnet-get-started-with-queues.md)
-

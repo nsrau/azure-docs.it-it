@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c22cb3a5436daf0296451f1f05a52d315ebc0416
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 6e9c56874bf4bda7f4248a44e274532ed2555153
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco usa il database SQL di Azure per eseguire rapidamente il provisioning e il ridimensionamento di servizi per migliaia di tenant nel cloud.
 ![Logo di Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -131,5 +129,4 @@ Da quando ha scelto Azure come partner cloud, Umbraco è stato in grado di forni
 * Per altre informazioni su backup e ripristino, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).    
 * Per altre informazioni sul monitoraggio di pool, vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md).    
 * Per altre informazioni su Umbraco-as-a-Service, vedere [Umbraco](https://umbraco.com/cloud).
-
 

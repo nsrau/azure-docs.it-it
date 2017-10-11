@@ -1,6 +1,6 @@
 ---
 title: Accesso condizionale per gli utenti di Collaborazione B2B di Azure Active Directory | Microsoft Docs
-description: "La Collaborazione B2B di Azure Active Directory supporta l&quot;autenticazione a più fattori (MFA) per l&quot;accesso selettivo alle applicazioni aziendali"
+description: "La Collaborazione B2B di Azure Active Directory supporta l'autenticazione a più fattori (MFA) per l'accesso selettivo alle applicazioni aziendali"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/24/2017
+ms.date: 09/11/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: d85f711d6551a68d1248ae8ec61e2ecc1ddc8ecd
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: d3917754069ad961ffd9233d852aab6fa172eaef
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -66,7 +65,7 @@ L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B d
   Di seguito è fornito un esempio:
 
   ```
-  PS C:\Users\tjwasserGet-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
   ```
 
 3. Reimpostare il metodo di autenticazione a più fattori per un utente specifico in modo da richiedere all'utente di Collaborazione B2B di impostare di nuovo i metodi di identificazione. Esempio:

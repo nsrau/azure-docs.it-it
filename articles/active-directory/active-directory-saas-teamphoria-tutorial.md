@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Teamphoria| Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Teamphoria.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Teamphoria.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 2a35efb04d7fe22abc6894c149caf090666ce016
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Esercitazione: Integrazione di Azure Active Directory con Teamphoria
 
@@ -158,7 +157,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. **ENTRY POINT** (Punto di ingresso): incollare l'**URL del servizio Single Sign-On SAML** copiato in precedenza dal portale di Azure.
 
-    e. Posizionare il selettore dell'opzione su **ON** e fare clic su **SAVE** (Salva).    
+    e. Posizionare il selettore dell'opzione su **ON** e fare clic su **SAVE** (Salva).   
 
 <!--### Next steps
 
@@ -218,11 +217,11 @@ Per consentire agli utenti di Azure AD di accedere a Teamphoria, è necessario e
 
 3. Fare clic sull'opzione **MANUAL INVITE** (Invito manuale).
 
-    ![Invita persone](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)    
+    ![Invita persone](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)  
 
 4. In questa pagina effettuare l'operazione seguente. 
     
-    ![Invita persone](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)    
+    ![Invita persone](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)  
 
     a. Nella casella di testo **EMAIL ADDRESS** (Indirizzo email) immettere l'**indirizzo email** di Britta Simon.
 
@@ -288,5 +287,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 [201]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_203.png
-
 

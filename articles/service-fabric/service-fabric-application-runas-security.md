@@ -20,7 +20,6 @@ ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configurare i criteri di sicurezza per l'applicazione
 Azure Service Fabric consente di proteggere le applicazioni in esecuzione nel cluster con account utente diversi. Service Fabric permette anche di proteggere le risorse usate dalle applicazioni in fase di distribuzione con l'account utente, ad esempio file, directory e certificati. In questo modo le applicazioni in esecuzione, anche in un ambiente ospitato condiviso, sono reciprocamente protette.

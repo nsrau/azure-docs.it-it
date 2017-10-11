@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteggere il database SQL di Azure
@@ -188,7 +188,7 @@ Il controllo del database SQL di Azure tiene traccia degli eventi che si verific
 5. Fare clic su **Salva**.
 
 > [!IMPORTANT]
-> Se si vuole personalizzare gli eventi controllati, è possibile farlo tramite l'API di PowerShell o REST: per altre informazioni, vedere la sezione [Automazione (API di PowerShell/REST)](sql-database-auditing.md#subheading-7).
+> Se si vogliono personalizzare gli eventi controllati, è possibile farlo tramite PowerShell o l'API REST. Vedere [Introduzione al controllo del database SQL](sql-database-auditing.md) per altri dettagli.
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Abilitare il rilevamento delle minacce per il database SQL
@@ -240,7 +240,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-È possibile migliorare la protezione del database contro utenti malintenzionati o accessi non autorizzati con pochi semplici passaggi. In questa esercitazione si apprenderà come: 
+In questa esercitazione è stato descritto come migliorare la protezione del database contro utenti malintenzionati o accessi non autorizzati con pochi semplici passaggi.  Si è appreso come: 
 
 > [!div class="checklist"]
 > * Configurare le regole del firewall per il server e/o il database
@@ -250,7 +250,9 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 > * Abilitare il controllo del database SQL
 > * Abilitare il rilevamento delle minacce per il database SQL
 
+Passare all'esercitazione successiva per informazioni su come implementare un database di distribuzione geografica.
+
 > [!div class="nextstepaction"]
->[Migliorare le prestazioni del database SQL](sql-database-performance-tutorial.md)
+>[Implementare un database con distribuzione geografica](sql-database-implement-geo-distributed-database.md)
 
 

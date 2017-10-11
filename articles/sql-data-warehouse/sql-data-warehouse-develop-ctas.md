@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 01/30/2017
 ms.author: shigu;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 68655fff239bfd76f93ab9177d161d9534cbb901
-ms.openlocfilehash: 150113dda95ab021dd7ad8696b5886373ba982b8
-ms.contentlocale: it-it
-ms.lasthandoff: 01/31/2017
-
-
+ms.openlocfilehash: cb08313726e8135feaa9b413937c2197ea397f4b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>Create Table As Select (CTAS) in SQL Data Warehouse
 Create Table As Select o `CTAS` è una delle funzionalità più importanti disponibili in T-SQL. È un'operazione completamente parallelizzata che crea una nuova tabella basata sull'output di un'istruzione SELECT. `CTAS` è il modo più semplice e veloce di creare la copia di una tabella. Questo documento offre esempi e procedure consigliate per `CTAS`.
@@ -48,7 +46,7 @@ CREATE TABLE [dbo].[FactInternetSales_new]
 WITH
 (
     DISTRIBUTION = ROUND_ROBIN
-,    CLUSTERED COLUMNSTORE INDEX
+,   CLUSTERED COLUMNSTORE INDEX
 )
 AS
 SELECT  *
@@ -453,4 +451,3 @@ Per altri suggerimenti sullo sviluppo, vedere la [panoramica dello sviluppo][dev
 [CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
-

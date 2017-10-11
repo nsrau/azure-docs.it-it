@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-application-proxy-connectors-azure-portal.md)
@@ -133,6 +131,5 @@ Nell'esempio seguente l'azienda ha due data center, A e B, con due connettori ch
 
 * [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-understand-connectors.md)
 * [Abilitare l'accesso Single Sign-On](application-proxy-sso-overview.md)
-
 
 

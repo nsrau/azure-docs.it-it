@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
 ms.openlocfilehash: a5a73a9f124e5339b61dbc49021444a208a471f0
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview
 Per spostare le app per la logica esistenti nel nuovo schema, seguire questa procedura:  
@@ -38,7 +38,7 @@ Per spostare le app per la logica esistenti nel nuovo schema, seguire questa pro
 ## <a name="best-practices-when-migrating-your-logic-apps-to-the-latest-schema-version"></a>Procedure consigliate durante la migrazione di app per la logica alla versione più recente dello schema
 * Copiare lo script di cui è stata eseguita la migrazione in una nuova app per la logica. Non sovrascrivere l'app precedente fino a quando non è stato completato il test ed è stato confermato il corretto funzionamento dell'app di cui è stata eseguita la migrazione.
 * Testare l'app per la logica **prima** di passare alla fase di produzione.
-* Al termine della migrazione, avviare l'aggiornamento delle app per la logica per usare le [API gestite](apis-list.md), quando è possibile. Ad esempio, si può iniziare a usare Dropbox&2; anziché Dropbox&1;.
+* Al termine della migrazione, avviare l'aggiornamento delle app per la logica per usare le [API gestite](apis-list.md), quando è possibile. Ad esempio, si può iniziare a usare Dropbox 2 anziché Dropbox 1.
 
 ## <a name="whats-next"></a>Passaggi successivi
 * [Informazioni su come eseguire manualmente la migrazione delle app per la logica](../logic-apps/logic-apps-schema-2015-08-01.md)
@@ -50,11 +50,5 @@ Per spostare le app per la logica esistenti nel nuovo schema, seguire questa pro
 
 
 
-
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

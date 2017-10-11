@@ -1,6 +1,6 @@
 ---
-title: Come iniziare una verifica dell&quot;accesso | Microsoft Docs
-description: "Informazioni su come creare una verifica dell&quot;accesso per le identità con privilegi con l&quot;applicazione Azure Privileged Identity Management."
+title: Come iniziare una verifica dell'accesso | Microsoft Docs
+description: "Informazioni su come creare una verifica dell'accesso per le identità con privilegi con l'applicazione Azure Privileged Identity Management."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8c9bac62a92947ea888f1ccdbd300f5b40cb3e07
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 2b516e2f05aa883c5e37f5864e5ee8a2b37d3a46
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Come avviare una verifica dell'accesso in Azure AD Privileged Identity Management
 Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi con privilegi di cui non necessitano più. Per ridurre il rischio associato alle assegnazioni dei ruoli obsolete, gli amministratori dei ruoli con privilegi devono esaminare periodicamente i ruoli assegnati agli utenti. Questo documento illustra i passaggi per l'avvio di una verifica dell'accesso in Azure AD Privileged Identity Management (PIM).
@@ -88,4 +87,3 @@ Fino al termine del periodo di verifica, è possibile ricordare agli utenti di c
 [2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
 [3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
 [4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
-

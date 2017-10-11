@@ -15,12 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 4735a1789c33b7cc51896e26ec8e079f9b0de7d9
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 0518519da6c5e62a863a47d6743ab7b7c5923acf
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Applicazione Web Ruby on Rails in una macchina virtuale di Azure
 Questa esercitazione mostra come ospitare un sito Web Ruby on Rails usando una macchina virtuale Linux.  
@@ -156,4 +155,3 @@ Per usare servizi di Azure dall'applicazione Ruby, vedere:
 [endpoints]:./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
 [new-endpoint]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
-

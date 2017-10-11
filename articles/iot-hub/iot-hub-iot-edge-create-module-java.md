@@ -11,12 +11,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: junyi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 682feb4d889ecd881abe1a70d36e0a5a4df3d910
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 0c430272225d79737baec2be15ed7c93991cdeac
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>Creare un modulo Azure IoT Edge con Java
 
@@ -299,5 +298,4 @@ Se si vuole terminare l'applicazione, premere `<Enter>`.
 
 > [!IMPORTANT]
 > Non è consigliabile usare Ctrl + C per terminare l'applicazione gateway IoT Edge, poiché questa azione può determinare un arresto anomalo del processo.
-
 

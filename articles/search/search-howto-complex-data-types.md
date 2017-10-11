@@ -15,13 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Come modellare tipi di dati complessi in Ricerca di Azure
 I set di dati esterni usati per popolare un indice di Ricerca di Azure includono talvolta sottostrutture gerarchiche o annidate che non vengono suddivise con precisione in un set di righe tabulare. Gli esempi di strutture di questo tipo possono includere più ubicazioni e numeri di telefono per un singolo cliente, più colori e dimensioni per un singolo SKU, più autori di un singolo libro e così via. In termini di modellazione, queste strutture possono essere definite, ad esempio, *tipi di dati complessi*, *tipi di dati composti*, *tipi di dati compositi* o *tipi di dati aggregati*.
@@ -139,5 +137,4 @@ Un esempio dell'indicizzazione di un set di dati JSON complesso in Ricerca di Az
 
 ## <a name="next-step"></a>Passaggio successivo
 [Votare per il supporto nativo di tipi di dati complessi](https://feedback.azure.com/forums/263029-azure-search) nella pagina UserVoice relativa a Ricerca di Azure e fornire eventuali input aggiuntivi da prendere in considerazione in merito all'implementazione di questa funzionalità. È anche possibile contattare direttamente @liamca su Twitter.
-
 

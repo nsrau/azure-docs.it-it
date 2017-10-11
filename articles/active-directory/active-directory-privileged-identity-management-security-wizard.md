@@ -1,6 +1,6 @@
 ---
 title: Procedura guidata relativa alla sicurezza di Azure AD Privileged Identity Management
-description: Quando si usa l&quot;estensione Azure Active Directory Privileged Identity Management per la prima volta, viene visualizzata una procedura guidata sulla sicurezza. Questo articolo descrive i passaggi della procedura guidata.
+description: Quando si usa l'estensione Azure Active Directory Privileged Identity Management per la prima volta, viene visualizzata una procedura guidata sulla sicurezza. Questo articolo descrive i passaggi della procedura guidata.
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 02/27/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: ba06eb7e9f3f09e2d1d04cb4118dd81b9e66853e
-ms.contentlocale: it-it
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 260d178f3d8158411b3ad266e3b0d15edbebc722
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Uso della procedura guidata relativa alla sicurezza di Azure AD Privileged Identity Management 
 Se si è il primo utente a eseguire Azure Privileged Identity Management (PIM) per l'organizzazione, viene visualizzata una procedura guidata. La procedura guidata offre informazioni sui rischi di sicurezza delle identità con privilegi e su come usare PIM per ridurre tali rischi. Se si vuole farlo in seguito, non è necessario apportare modifiche alle assegnazioni dei ruoli esistenti nella procedura guidata.
@@ -43,5 +42,4 @@ Dopo aver apportato le modifiche, la procedura guidata non verrà più visualizz
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

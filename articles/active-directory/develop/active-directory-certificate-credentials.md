@@ -1,6 +1,6 @@
 ---
 title: Credenziali del certificato in Azure AD | Microsoft Docs
-description: Questo articolo illustra la registrazione e l&quot;uso delle credenziali del certificato per l&quot;autenticazione dell&quot;applicazione
+description: Questo articolo illustra la registrazione e l'uso delle credenziali del certificato per l'autenticazione dell'applicazione
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -15,15 +15,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 08bb5140bb35bbd120aaa506afeab8ad247f81e1
-ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="certificate-credentials-for-application-authentication"></a>Credenziali del certificato per l'autenticazione dell'applicazione
 
 Azure Active Directory consente a un'applicazione di usare le proprie credenziali per l'autenticazione, ad esempio, nel flusso di concessione delle credenziali client di OAuth 2.0 e nel flusso on-behalf-of.
@@ -105,4 +102,3 @@ Nella registrazione dell'app di Azure per l'applicazione client aprire il manife
 ```
 
 Salvare le modifiche apportate al manifesto dell'applicazione e caricare in Azure AD. La proprietà keyCredentials è multivalore, quindi è possibile caricare più certificati per una gestione delle chiavi più completa.
-

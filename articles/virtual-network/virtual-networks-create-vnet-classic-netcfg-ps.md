@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d4484ea46095f1969db0b01bdef69c212da8acdd
 ms.openlocfilehash: a67c3f73d9e56ab0081836ba5db62f5a01c7b6bc
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>Creare una rete virtuale (modello di distribuzione classica) usando un file di configurazione di rete con PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -35,5 +33,4 @@ In questo documento viene illustrata la creazione di una rete virtuale utilizzan
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-classic-netcfg-ps-include](../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md)]
-
 

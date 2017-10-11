@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/01/2017
 ms.author: BernardoAMunoz
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 040d58a81a9b41fe660e4276d698bf884f90bb6c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="azure-resource-health-overview"></a>Panoramica su Integrità risorse di Azure
  
@@ -91,7 +90,6 @@ Per aprire Integrità risorse per una risorsa
 Per altre informazioni su Integrità risorse, vedere:
 -  [Tipi di risorse e controlli di integrità in Integrità risorse di Azure](resource-health-checks-resource-types.md)
 -  [Domande frequenti su Integrità risorse di Azure](resource-health-faq.md)
-
 
 
 

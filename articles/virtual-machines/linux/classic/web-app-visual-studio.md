@@ -15,17 +15,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 136a82084d06227a71e1ad7632a31b9d764fda58
-ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 9110211578a04514a14bdd1256a5efe6e3e5e749
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="creating-a-virtual-machine-for-a-web-application-with-visual-studio"></a>Creazione di una macchina virtuale per un’applicazione web con Visual Studio
 > [!IMPORTANT] 
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 [!INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]
-
 

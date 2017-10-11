@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2017
+ms.date: 09/11/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: f17bf3e475a33cfc617e8a026e9606b3792101f3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: c813dbc0e703c20c869a8f6fc2bb70c2b0e7a807
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="configure-route-filters-for-microsoft-peering"></a>Configurare i filtri di route per il peering Microsoft
@@ -113,6 +113,10 @@ Nell'elenco a discesa è possibile selezionare i servizi a cui si intende connet
 È possibile associare il filtro di route a un circuito facendo clic sul pulsante "Aggiungi circuito" e selezionando il circuito ExpressRoute nell'elenco a discesa.
 
 ![Creare un filtro di route](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
+
+Se il provider di connettività configura il peering del circuito ExpressRoute, aggiornare il circuito ExpressRoute dal pannello del circuito ExpressRoute prima di selezionare il pulsante "Aggiungi circuito".
+
+![Creare un filtro di route](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
 
 ## <a name="getproperties"></a>Per ottenere le proprietà di un filtro di route
 

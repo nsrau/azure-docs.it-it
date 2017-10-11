@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: f5a97fc8df978dd55a73ae53516a82f884c14bec
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Esercitazione: Integrazione di Azure Active Directory con EverBridge
 
@@ -137,7 +135,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. Nella casella di testo **Name** (Nome) digitare il nome del provider di identità (ad esempio, il nome della propria società).
+    a. Nella casella di testo **Nome** digitare il nome del provider di identità (ad esempio, il nome della propria società).
    
     b. Nella casella di testo **API Name** (Nome API) digitare il nome dell'API.
    
@@ -248,5 +246,4 @@ Quando si fa clic sul riquadro Everbridge nel pannello di accesso, si dovrebbe a
 [201]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_203.png
-
 

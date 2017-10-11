@@ -52,8 +52,8 @@
 #### [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
-## Automatizzare
-### [Distribuire e gestire hub di notifica tramite PowerShell](notification-hubs-deploy-and-manage-powershell.md)
+## Automazione
+### [Distribuire e gestire hub di notifica tramite Azure PowerShell](notification-hubs-deploy-and-manage-powershell.md)
 ### [Inviare notifiche pianificate](notification-hubs-send-push-notifications-scheduled.md)
 
 ## Risolvere i problemi
@@ -61,7 +61,7 @@
 
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 

@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/03/2017
+ms.date: 09/21/2017
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 7e34f47f09466a40993b4cc797ff1cad2bdaeafe
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 08d61f95fb38962402142c0ccd0a5a2f3a7e802a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Pianificare cluster Hadoop aggiunti a un dominio di Azure in HDInsight
@@ -30,15 +29,42 @@ Il cluster Hadoop tradizionale è un cluster a utente singolo, adatto alla maggi
 
 Anziché compilare autenticazione e autorizzazione multiutente proprie, HDInsight si basa sul provider di identità più diffuso, ovvero Active Directory (AD). La funzionalità di sicurezza di AD permette di gestire l'autorizzazione multiutente in HDInsight. Integrando HDInsight con AD, è possibile comunicare con i cluster usando le credenziali di AD. Poiché HDInsight esegue il mapping di un utente AD a un utente Hadoop locale, tutti i servizi in esecuzione in HDInsight, come Ambari, server Hive, Ranger, server Thrift Spark e altri, funzionano senza problemi per l'utente autenticato.
 
-## <a name="integrate-hdinsight-with-ad-and-ad-on-iaas-vm"></a>Integrazione di HDInsight con AD e AD nella macchina virtuale IaaS
+## <a name="integrate-hdinsight-with-active-directory"></a>Integrare HDInsight con Active Directory
 
-L'integrazione di HDInsight con Azure AD o AD nella macchina virtuale IaaS consente di aggiungere i nodi del cluster HDInsight a un dominio. HDInsight crea entità servizio per i servizi Hadoop in esecuzione nel cluster e le inserisce in un'unità organizzativa (OU) specificata in Azure AD o in AD nella macchina virtuale IaaS. HDInsight crea anche mapping con DNS inverso nel dominio per gli indirizzi IP dei nodi che vengono aggiunti al dominio.
+L'integrazione di HDInsight con Active Directory permette di aggiungere i nodi del cluster HDInsight a un dominio di Active Directory. HDInsight crea le entità servizio per i servizi Hadoop in esecuzione nel cluster e le inserisce in un'unità organizzativa (OU) specificata nel dominio. HDInsight crea anche mapping con DNS inverso nel dominio per gli indirizzi IP dei nodi che vengono aggiunti al dominio.
+
+Ci sono due opzioni di distribuzione per Active Directory:
+* **[Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md):** questo servizio fornisce un dominio di Active Directory gestito che è completamente compatibile con Windows Server Active Directory. Microsoft si occupa della gestione, dell'applicazione di patch e del monitoraggio del dominio AD. È possibile distribuire il cluster senza doversi preoccupare di gestire i controller di dominio. Utenti, gruppi e password vengono sincronizzati da Azure Active Directory, per consentire agli utenti di accedere al cluster usando le credenziali aziendali.
+
+* **Dominio di Windows Server Active Directory in macchine virtuali IaaS di Azure:** in questo caso, si distribuisce e si gestisce il proprio dominio di Windows Server Active Directory in macchine virtuali IaaS di Azure. 
 
 È possibile eseguire questa configurazione usando più architetture. È possibile scegliere tra le seguenti architetture.
 
-**HDInsight integrato con Active Directory in esecuzione in Azure IaaS**
 
-Si tratta dell'architettura più semplice per l'integrazione di HDInsight con Active Directory. Il controller di dominio AD viene eseguito in una o più macchine virtuali in Azure, che in genere si trovano in una rete virtuale. È necessario configurare un'altra rete virtuale per il cluster HDInsight. Per fare in modo che HDInsight comunichi con Active Directory, è necessario eseguire il peering delle reti virtuali usando il [peering tra reti virtuali](../virtual-network/virtual-network-create-peering.md). Se il servizio Active Directory viene creato in ARM, è possibile creare Active Directory e HDInsight nella stessa rete virtuale e non è necessario eseguire il peering. 
+### <a name="hdinsight-integrated-with-an-azure-ad-domain-services-managed-ad-domain"></a>HDInsight integrato con un dominio AD gestito di Azure AD Domain Services
+È possibile distribuire un dominio gestito di [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS). Azure Active Directory Domain Services fornisce un dominio AD gestito in Azure, che viene gestito, aggiornato e monitorato da Microsoft. Crea due controller di dominio per garantire la disponibilità elevata e include i servizi DNS. È quindi possibile integrare il cluster HDInsight con questo dominio gestito. Con questa opzione di distribuzione, non è necessario preoccuparsi della gestione, dell'applicazione di patch, dell'aggiornamento e del monitoraggio dei controller di dominio.
+
+![Topologia del cluster HDInsight aggiunto a un dominio](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
+
+Prerequisiti per l'integrazione con Azure AD Domain Services:
+
+* [Effettuare il provisioning di un dominio gestito di Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-getting-started.md).
+* Creare un'[unità organizzativa](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) in cui inserire le macchine virtuali del cluster HDInsight e le entità servizio usate dal cluster.
+* Configurare [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) durante la configurazione di Azure Active Directory Domain Services. Il certificato usato per configurare LDAPS deve essere rilasciato da un'autorità di certificazione pubblica e non deve essere un certificato autofirmato.
+* Creare zone con DNS inverso nel dominio gestito per l'intervallo di indirizzi IP della subnet HDInsight, ad esempio 10.2.0.0/24 nella figura precedente.
+* Configurare la [sincronizzazione degli hash delle password necessari per l'autenticazione NTLM e Kerberos](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) da Azure al dominio gestito di Azure Active Directory Domain Services.
+* È necessario un account del servizio o un account utente. Usare questo account per creare il cluster HDInsight. L'account deve avere le autorizzazioni seguenti:
+
+    - Autorizzazioni per creare oggetti entità servizio e oggetti computer nell'unità organizzativa
+    - Autorizzazioni per creare regole proxy per DNS inverso.
+    - Autorizzazioni per aggiungere computer al dominio di Azure AD
+
+
+### <a name="hdinsight-integrated-with-windows-server-ad-running-on-azure-iaas"></a>HDInsight integrato con Windows Server AD in esecuzione in soluzioni IaaS Azure
+
+È possibile distribuire il ruolo Active Directory Domain Services di Windows Server in una (o più) macchine virtuali (VM) in Azure e alzarle di livello in modo da farle diventare controller di dominio. Queste macchine virtuali controller di dominio possono essere distribuite tramite il modello di distribuzione Resource Manager nella stessa rete virtuale del cluster HDInsight. Se i controller di dominio vengono distribuiti in una rete virtuale diversa, è necessario eseguire il peering di queste reti virtuali tramite il [peering da rete virtuale a rete virtuale](../virtual-network/virtual-network-create-peering.md). 
+
+[Altre informazioni - Distribuzione di Windows Server Active Directory in macchine virtuali di Azure](../active-directory/virtual-networks-windows-server-active-directory-virtual-machines.md)
 
 ![Topologia del cluster HDInsight aggiunto a un dominio](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_1.png)
 
@@ -46,7 +72,7 @@ Si tratta dell'architettura più semplice per l'integrazione di HDInsight con Ac
 > In questa architettura non è possibile usare Azure Data Lake Store con il cluster HDInsight.
 
 
-Prerequisiti per Active Directory:
+Prerequisiti per l'integrazione con Windows Server Active Directory in macchine virtuali di Azure:
 
 * È necessario creare un'[unità organizzativa](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) in cui inserire le macchine virtuali del cluster HDInsight e le entità servizio usate dal cluster.
 * È necessario configurare [Lightweight Directory Access Protocol](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAP) per comunicare con AD. Il certificato usato per configurare i protocolli LDAP deve essere un certificato reale (non un certificato autofirmato).
@@ -57,28 +83,6 @@ Prerequisiti per Active Directory:
     - Autorizzazioni per creare regole proxy per DNS inverso.
     - Autorizzazioni per aggiungere computer al dominio di Active Directory
 
-**HDInsight integrato con Azure AD solo cloud**
-
-Per Azure AD solo cloud, configurare un controller di dominio in modo che HDInsight possa essere integrato con Azure AD. A tale scopo è possibile usare [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md). Active Directory Domain Services crea i controller di dominio nel cloud e ne fornisce gli indirizzi IP. Per garantire disponibilità elevata, crea due controller di dominio.
-
-Attualmente, Azure Active Directory Domain Services esiste solo in reti virtuali classiche ed è accessibile unicamente usando il portale di Azure classico. La rete virtuale HDInsight si trova nel portale di Azure, di cui è necessario eseguire il peering con la rete virtuale classica usando il peering tra reti virtuali.
-
-> [!NOTE]
-> Per poter eseguire il peering tra una rete virtuale classica e una rete virtuale di Azure Resource Manager, entrambe le reti virtuali devono trovarsi nella stessa area e nella stessa sottoscrizione di Azure.
-
-![Topologia del cluster HDInsight aggiunto a un dominio](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
-
-Prerequisiti per Azure AD:
-
-* È necessario creare un'[unità organizzativa](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) in cui inserire le macchine virtuali del cluster HDInsight e le entità servizio usate dal cluster.
-* I protocolli [LDAP](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) devono essere impostati durante la configurazione di Azure Active Directory Domain Services. Il certificato usato per configurare i protocolli LDAP deve essere un certificato reale (non un certificato autofirmato).
-* È necessario creare zone con DNS inverso nel dominio per l'intervallo di indirizzi IP della subnet HDInsight, ad esempio 10.2.0.0/24 nella figura precedente.
-* Gli [hash delle password](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) devono essere sincronizzati tra Azure AD e Azure Active Directory Domain Services.
-* È necessario un account del servizio o un account utente. Usare questo account per creare il cluster HDInsight. L'account deve avere le autorizzazioni seguenti:
-
-    - Autorizzazioni per creare oggetti entità servizio e oggetti computer nell'unità organizzativa
-    - Autorizzazioni per creare regole proxy per DNS inverso.
-    - Autorizzazioni per aggiungere computer al dominio di Azure AD
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per configurare un cluster HDInsight aggiunto al dominio, vedere [Configurare i cluster HDInsight aggiunti al dominio](hdinsight-domain-joined-configure.md).

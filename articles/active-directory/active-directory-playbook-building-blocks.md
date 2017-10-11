@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 671f2d386aca23bc5c02d0e0ab23e6d9d79a8693
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
@@ -340,7 +340,7 @@ Se per l'applicazione è abilitato il provisioning, può essere necessario atten
 | Passaggio | Risorse |
 | --- | --- |
 | Rimuovere l'utente dal gruppo di cui è assegnata l'applicazione | [Gestire l'appartenenza al gruppo per gli utenti nel tenant di Azure Active Directory](active-directory-groups-members-azure-portal.md) |
-| Attendere alcuni minuti il completamento del deprovisioning | [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory: Come funziona il provisioning automatizzato?](active-directory-saas-app-provisioning.md#how-does-automated-provisioning-work) |
+| Attendere alcuni minuti il completamento del deprovisioning | [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory: Come funziona il provisioning automatizzato?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | In una sessione separata del browser accedere come l'Information Worker al portale delle app personali e verificare se il riquadro è mancante | http://myapps.microsoft.com |
 
 

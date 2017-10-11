@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: ec4b06a341f74e021a8745bfb324358c0a12b6ec
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: adb00e28b0b204858a763f83836ee2ac96f8f9e4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Monitorare la sicurezza delle macchine virtuali con il Centro sicurezza di Azure
 
@@ -91,7 +90,7 @@ Man mano che i dati vengono raccolti, i dati relativi all'integrità delle risor
 
 Per visualizzare l'integrità risorse:
 
-1.  Nel dashboard del Centro sicurezza in **Resource security health** (Integrità della sicurezza delle risorse) selezionare **Calcolo**. 
+1.  Nel dashboard del Centro sicurezza, in **Integrità della sicurezza delle risorse** selezionare **Calcolo**. 
 2.  Nel pannello **Calcolo** selezionare **Macchine virtuali**. Questa visualizzazione riepiloga lo stato della configurazione di tutte le macchine virtuali.
 
 ![Stato del calcolo](./media/tutorial-azure-security/compute-health.png)
@@ -149,4 +148,3 @@ Passare all'esercitazione successiva per imparare a creare una pipeline CI/CD co
 
 > [!div class="nextstepaction"]
 > [Pipeline CI/CD di Visual Studio Team Services](./tutorial-vsts-iis-cicd.md)
-

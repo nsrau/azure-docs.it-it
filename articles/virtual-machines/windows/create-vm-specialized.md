@@ -21,7 +21,6 @@ ms.openlocfilehash: b315a37f72f34d45bb55c2bbe6be20cca8c42424
 ms.contentlocale: it-it
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk"></a>Creare una macchina virtuale Windows da un disco specializzato
 
@@ -129,7 +128,7 @@ New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
 Creare il nuovo disco del sistema operativo dal disco rigido virtuale caricato. 
 
 ```powershell
-$sourceUri = https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
+$sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `

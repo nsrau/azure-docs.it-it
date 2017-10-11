@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 5792346788b6635a517af6c9fda1b896039e29e6
-ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
-
+ms.openlocfilehash: ece09277d26fafb7c0eebf62730031c4dc01bfe0
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Creazione di entità ContentKey mediante REST
 > [!div class="op_single_selector"]
@@ -258,5 +257,4 @@ Risposta:
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

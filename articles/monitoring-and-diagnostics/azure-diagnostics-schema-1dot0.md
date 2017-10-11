@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
-ms.openlocfilehash: c749a0929d292913e03fa7340bbbebad411fb44d
-ms.contentlocale: it-it
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: a8fdfb52d5091d3fc9779657737c7430fcfada51
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schema di configurazione di Diagnostica di Azure 1.0
 > [!NOTE]
@@ -276,4 +274,3 @@ Attributi:
 |Attributo|Tipo|Descrizione|  
 |---------------|----------|-----------------|  
 |**nome**|string|Obbligatorio. Espressione XPath che specifica il log da raccogliere.|  
-

@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: f3ac9545a341fc24ca12c9f2547805d6956cd98a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Failover su un dispositivo StorSimple serie 8000 fisico
 
 ## <a name="overview"></a>Panoramica
 
-Questa esercitazione descrive i passaggi necessari per eseguire il failover di un dispositivo StorSimple serie 8000 fisico su un altro dispositivo fisico StorSimple in caso di emergenza. StorSimple usa la funzionalità di failover del dispositivo per migrare i dati da un dispositivo fisico di origine nel data center a un altro dispositivo fisico. Le indicazioni fornite in questa esercitazione si applicano ai dispositivi fisici e virtuali StorSimple serie 8000 che eseguono l'aggiornamento 3 e versioni successive.
+Questa esercitazione descrive i passaggi necessari per eseguire il failover di un dispositivo StorSimple serie 8000 fisico su un altro dispositivo fisico StorSimple in caso di emergenza. StorSimple usa la funzionalità di failover del dispositivo per migrare i dati da un dispositivo fisico di origine nel data center a un altro dispositivo fisico. Le indicazioni fornite in questa esercitazione si applicano ai dispositivi fisici StorSimple serie 8000 in cui sono installate le versioni software Update 3 e successive.
 
 Per altre informazioni sul failover del dispositivo e su come usarlo per il ripristino di emergenza, passare a [Failover e ripristino di emergenza per dispositivi StorSimple serie 8000](storsimple-8000-device-failover-disaster-recovery.md).
 
@@ -35,7 +33,7 @@ Per eseguire il failover di un dispositivo fisico StorSimple su un'appliance clo
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Verificare di aver esaminato le considerazioni per il failover del dispositivo. Per altre informazioni, leggere [Considerazioni per il failover del dispositivo](storsimple-8000-device-failover-disaster-recovery.md).
+- Assicurarsi di aver esaminato le considerazioni relative al failover dei dispositivi. Per altre informazioni, leggere [Considerazioni per il failover del dispositivo](storsimple-8000-device-failover-disaster-recovery.md).
 
 - È necessario disporre di un dispositivo fisico StorSimple serie 8000 distribuito nel data center. Il dispositivo deve eseguire l'aggiornamento 3 o versione successiva di software. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md).
 
@@ -86,6 +84,5 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo f
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Dopo aver eseguito un failover, può essere necessario [disattivare o eliminare il dispositivo StorSimple](storsimple-8000-deactivate-and-delete-device.md).
-* Per informazioni sull'uso del servizio Gestione dispositivi StorSimple, leggere l'articolo relativo all'[utilizzo del servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
+* Per informazioni sull'uso del servizio Gestione dispositivi StorSimple, vedere [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md) (Usare il servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple).
 

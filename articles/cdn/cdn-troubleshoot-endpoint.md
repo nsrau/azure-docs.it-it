@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53fdf1fe661167b468ef602634528e4d4173f606
-
-
+ms.openlocfilehash: f59fbd18413fb44026d8c92b7f6940ed2f8a00a8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-cdn-endpoints-returning-404-statuses"></a>Risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404
 Questo articolo consente di risolvere i problemi relativi agli [endpoint della rete CDN](cdn-create-new-endpoint.md) che restituiscono errori 404.
@@ -97,10 +97,4 @@ Infine è necessario verificare il **Percorso dell'origine**.  Per impostazione 
 Ad esempio, nell'endpoint di esempio si vuole che tutte le risorse nell'account di archiviazione siano disponibili, quindi **Percorso dell'origine** è stato lasciato vuoto.  Di conseguenza, una richiesta a `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` determina una connessione dall'endpoint a `cdndocdemo.core.windows.net` che richiede `/publicblob/lorem.txt`.  Analogamente, una richiesta per `https://cdndocdemo.azureedge.net/donotcache/status.png` genera la richiesta di `/donotcache/status.png` da parte dell'endpoint all'origine.
 
 Cosa accade se si vuole usare la rete CDN per ogni percorso nell'origine?  Si supponga di voler esporre solo il percorso `publicblob` .  Se si immette */publicblob* nel campo **Percorso dell'origine**, l'endpoint inserirà */publicblob* prima di ogni richiesta all'origine.  Di conseguenza, la richiesta per `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` userà di fatto la parte della richiesta dell'URL, `/publicblob/lorem.txt`, aggiungendo `/publicblob` all'inizio. Ciò comporta una richiesta per `/publicblob/publicblob/lorem.txt` dall'origine.  Se tale percorso non viene risolto in un file effettivo, l'origine restituirà uno stato 404.  L'URL corretto per recuperare lorem.txt in questo esempio sarà in effetti `https://cdndocdemo.azureedge.net/lorem.txt`.  Si noti che non è incluso il percorso */publicblob*, perché la parte della richiesta dell'URL è `/lorem.txt` e l'endpoint aggiunge `/publicblob`, con il conseguente passaggio della richiesta `/publicblob/lorem.txt` all'origine.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: Uso dell&quot;archivio query nel database SQL di Azure
-description: Informazioni su come usare l&quot;archivio query nel database SQL di Azure
+title: Uso dell'archivio query nel database SQL di Azure
+description: Informazioni su come usare l'archivio query nel database SQL di Azure
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: bonova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 46d33a7b2dbaeb447452d8c94e897e59ec915dcc
-ms.openlocfilehash: 104a2d91ee9ca657fcc431d947d6a4be5d57a056
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: c76934d96530889f529eb887469e05d5a6a45e1e
 ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Uso dell'archivio query nel database SQL di Azure
@@ -39,7 +38,7 @@ Questa sezione descrive impostazioni di configurazione predefinite ottimali prog
 
 | Configurazione | Descrizione | Default | Commento |
 | --- | --- | --- | --- |
-| MAX_STORAGE_SIZE_MB |Specifica il limite per lo spazio dati che l'archivio query occupa all'interno del database del cliente z |100 |Applicato per i nuovi database |
+| MAX_STORAGE_SIZE_MB |Specifica il limite per lo spazio dati che Query Store occupa all'interno del database del cliente |100 |Applicato per i nuovi database |
 | INTERVAL_LENGTH_MINUTES |Definisce la dimensione dell'intervallo di tempo durante il quale le statistiche di runtime raccolte per i piani di query vengono aggregate e rese persistenti. Tutti i piani di query attivi hanno al massimo una riga per un periodo di tempo definito con questa configurazione |60 |Applicato per i nuovi database |
 | STALE_QUERY_THRESHOLD_DAYS |Criterio di pulizia basato sul tempo che controlla il periodo di memorizzazione delle statistiche di runtime persistenti e delle query inattive |30 |Applicato per i nuovi database e i database con un'impostazione predefinita precedente (367) |
 | SIZE_BASED_CLEANUP_MODE |Specifica se la pulizia automatica dei dati viene eseguita quando la dimensione dati dell'archivio query si avvicina al limite |AUTO |Applicato per tutti i database |

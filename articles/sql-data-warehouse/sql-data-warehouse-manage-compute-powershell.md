@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: b2b87ed07a26fa30e49a19e34ca8b06b283da9b3
-ms.contentlocale: it-it
-ms.lasthandoff: 03/28/2017
-
-
+ms.openlocfilehash: 6a185d96447c2e1b0b463439dd062081e783da5f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-powershell"></a>Gestire la potenza di calcolo in Azure SQL Data Warehouse (PowerShell)
 > [!div class="op_single_selector"]
@@ -124,7 +122,7 @@ Get-AzureRmSqlDatabase [-ResourceGroupName] <String> [-ServerName] <String> [[-D
 
 Verrà visualizzato un risultato simile al seguente: 
 
-```powershell    
+```powershell   
 ResourceGroupName             : nytrg
 ServerName                    : nytsvr
 DatabaseName                  : nytdb
@@ -170,4 +168,3 @@ Per altre attività di gestione, vedere [Panoramica della gestione][Management o
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
-

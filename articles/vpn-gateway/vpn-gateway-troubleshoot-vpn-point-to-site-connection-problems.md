@@ -9,16 +9,16 @@ editor:
 tags: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/23/2017
+ms.date: 08/23/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: de37c8ffd47a2b8e201d18e3a20b5325d528ad59
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: f6e068e60e8c7b3b095e10cb7e109eb68a483de4
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
@@ -39,9 +39,17 @@ Questo problema si verifica se il certificato client non è presente in **Certif
 
 ### <a name="solution"></a>Soluzione
 
-Verificare che il certificato client sia installato nel percorso seguente dell'archivio certificati (Certmgr.msc):
- 
-**Certificati - Utente corrente\Personale\Certificati**
+Per risolvere il problema, seguire questa procedura:
+
+1. Verificare che i certificati seguenti siano nel percorso corretto:
+
+    | Certificate | Località |
+    | ------------- | ------------- |
+    | AzureClient.pfx  | Utente corrente\Personale\Certificati |
+    | Azuregateway-*GUID*.cloudapp.net  | Utente corrente\Autorità di certificazione radice attendibili|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Computer locale\Autorità di certificazione radice attendibili|
+
+2. Passare a Utenti\<NomeUtente>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, installare manualmente il certificato (file con estensione cer) nell'archivio dell'utente e del computer.
 
 Per altre informazioni su come installare il certificato client, vedere [Generare ed esportare i certificati per le connessioni da punto a sito](vpn-gateway-certificates-point-to-site.md).
 

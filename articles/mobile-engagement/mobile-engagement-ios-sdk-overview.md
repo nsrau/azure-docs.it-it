@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>iOS SDK per Azure Mobile Engagement
 Da qui, è possibile visualizzare tutti i dettagli su come integrare Azure Mobile Engagement in un'app per iOS. Se si vuole fare prima una prova, eseguire l' [esercitazione di 15 minuti](mobile-engagement-ios-get-started.md).
@@ -184,4 +183,3 @@ Se, ad esempio, è stata implementata la Proposta 1 precedente:
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
-

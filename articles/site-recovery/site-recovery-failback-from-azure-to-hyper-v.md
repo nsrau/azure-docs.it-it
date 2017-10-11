@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 3116e2c15242ea7be8eeb77281b40bc4b38b846e
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -38,6 +38,9 @@ Quando si avvia un failover, il pannello indica la direzione del processo. Se la
 ## <a name="why-is-there-only-a-planned-failover-gesture-to-failback"></a>Perché esiste una sola azione di failover pianificata per il failback?
 Azure è un ambiente a elevata disponibilità e le macchine virtuali saranno sempre disponibili. Il failback è un'attività pianificata in cui si decide di accettare un breve tempo di inattività in modo che i carichi di lavoro possano iniziare di nuovo a essere eseguiti in locale. Non è prevista alcuna perdita di dati. Pertanto è disponibile una sola azione di failover pianificata, che disattiva le VM in Azure, scarica le modifiche più recenti e verifica che non vi sia alcuna perdita di dati.
 
+## <a name="do-i-need-a-process-server-in-azure-to-failback-to-hyper-v"></a>È necessario un server di elaborazione in Azure per eseguire il failback in Hyper-v?
+No, il server di elaborazione è necessario solo quando si proteggono le macchine virtuali VMware. Non sono necessari componenti aggiuntivi da distribuire quando si protegge o si esegue il failback di macchine virtuali Hyper-v.
+
 ## <a name="initiate-failback"></a>Avviare il failback
 Dopo il failover dalla posizione primaria alla posizione secondaria, le macchine virtuali replicate non sono protette da Site Recovery e la posizione secondaria funge da posizione attiva. Utilizzare queste procedure per eseguire il failback al sito primario originale. Questa procedura descrive come eseguire un failover pianificato per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina nella scheda **Macchine virtuali** .
 
@@ -53,10 +56,6 @@ Dopo il failover dalla posizione primaria alla posizione secondaria, le macchine
 
     >[!NOTE]
     >È consigliabile scegliere questa opzione se si usa Azure da molto tempo (un mese o più) o se la macchina virtuale locale è stata eliminata. Questa opzione non esegue alcun calcolo del checksum.
-    >
-    >
-
-
 
 
 4. Se la crittografia dei dati è abilitata per il cloud, in **Chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM.
@@ -85,9 +84,13 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 
     > [!NOTE]
     > Se si annulla il processo di failback durante la fase di sincronizzazione dei dati, la macchina virtuale locale ne risulterà corrotta. Questo avviene perché la sincronizzazione dei dati copia i dati più recenti dai dischi della macchina virtuale di Azure sui dischi di dati locali e, fino al completamento della sincronizzazione, il disco dati potrebbe non trovarsi in uno stato coerente. La macchina virtuale locale potrebbe non avviarsi dopo aver annullato la sincronizzazione dei dati. Riattivare il failover per completare la sincronizzazione dei dati.
-    >
-    >
 
+## <a name="time-taken-to-failback"></a>Tempo richiesto per il failback
+Il tempo richiesto per completare la sincronizzazione dei dati e avviare la macchina virtuale dipende da diversi fattori. Per approfondire l'argomento relativo al tempo necessario, viene descritto cosa accade durante la sincronizzazione dei dati.
+
+La sincronizzazione dei dati crea uno snapshot dei dischi della macchina virtuale, avvia il controllo blocco per blocco e calcola il checksum. Il checksum calcolato viene inviato in locale per confrontarlo con il checksum locale dello stesso blocco. In caso di corrispondenza tra i checksum, il blocco di dati non viene trasferito. Se non c'è corrispondenza, il blocco di dati viene trasferito in locale. Il tempo di trasferimento dipende dalla larghezza di banda disponibile. La velocità del checksum è pochi GB al minuto. 
+
+Per velocizzare il download dei dati, è possibile configurare l'agente MARS affinché usi più thread per eseguire i download in parallelo. Consultare il [documento qui](https://support.microsoft.com/en-us/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) su come modificare i thread di download nell'agente.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

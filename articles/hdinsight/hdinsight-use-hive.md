@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 08/03/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 6b3ee17141f773bec07cf40e0b6d63363e9b5164
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 90422088897fd5aa10ebd6e76910c74ad5718b07
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Cosa sono Apache Hive e HiveQL in Azure HDInsight
@@ -32,7 +32,7 @@ Hive consente di proiettare la struttura su dati principalmente non strutturati.
 
 HDInsight offre diversi tipi di cluster ottimizzati per carichi di lavoro specifici. I tipi di cluster usati più di frequente per le query Hive sono i seguenti:
 
-* __Interactive Hive__: un cluster Hadoop che offre la funzionalità [Low Latency Analytical Processing (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) per migliorare i tempi di risposta per le query interattive. Per altre informazioni, vedere il documento su come [iniziare a usare Interactive Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md).
+* __Interactive Query__: un cluster Hadoop che offre la funzionalità [Low Latency Analytical Processing (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) per migliorare i tempi di risposta per le query interattive. Per altre informazioni, vedere il documento su come [iniziare a usare Interactive Query in HDInsight](hdinsight-hadoop-use-interactive-hive.md).
 
 * __Hadoop__: un cluster Hadoop che è ottimizzato per carichi di lavoro di elaborazione batch. Per altre informazioni, vedere il documento su come [iniziare a usare Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -194,7 +194,7 @@ Per facilitare il debug di processi eseguiti mediante Tez, HDInsight fornisce le
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (o Live Long and Process) è una nuova funzionalità di Hive 2.0 che consente di mettere in cache le query in memoria. LLAP rende molto più veloci le query Hive, in alcuni casi fino a [26 volte più veloci rispetto a Hive 1.x](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 
-HDInsight offre LLAP nel tipo di cluster Interactive Hive. Per altre informazioni, vedere il documento su come [iniziare a usare Interactive Hive](hdinsight-hadoop-use-interactive-hive.md).
+HDInsight offre LLAP nel tipo di cluster Interactive Query. Per altre informazioni, vedere il documento su come [iniziare a usare Interactive Query](hdinsight-hadoop-use-interactive-hive.md).
 
 ## <a name="hive-jobs-and-sql-server-integration-services"></a>Processi di Hive e SQL Server Integration Services
 

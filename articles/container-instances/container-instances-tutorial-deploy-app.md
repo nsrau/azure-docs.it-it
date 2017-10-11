@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: d8c2056734bc1fdea71543157debd089a9ca743d
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
 ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 08/08/2017
 Questa è l'ultima di un'esercitazione in tre parti. Nelle sezioni precedenti, [un'immagine del contenitore è stata creata](container-instances-tutorial-prepare-app.md) e [inserita in un'istanza di Registro contenitori di Azure](container-instances-tutorial-prepare-acr.md). Questa sezione completa l'esercitazione distribuendo il contenitore in Istanze di contenitore di Azure. I passaggi completati comprendono:
 
 > [!div class="checklist"]
-> * Definizione di un gruppo di contenitori usando un modello di Azure Resource Manager
-> * Distribuzione del gruppo di contenitori tramite l'interfaccia della riga di comando di Azure
+> * Distribuzione del contenitore da Registro contenitori di Azure tramite l'interfaccia della riga di comando di Azure
+> * Visualizzazione dell'applicazione nel browser
 > * Visualizzare i log dei contenitori
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Distribuire il contenitore tramite l'interfaccia della riga di comando di Azure

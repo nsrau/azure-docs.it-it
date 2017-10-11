@@ -1,6 +1,6 @@
 ---
-title: Espandere il disco del sistema operativo in una macchina virtuale Linux con l&quot;interfaccia della riga di comando 1.0 di Azure | Microsoft Docs
-description: Informazioni su come espandere il disco virtuale del sistema operativo di una macchina virtuale Linux tramite l&quot;interfaccia della riga di comando 1.0 di Azure e il modello di distribuzione di Resource Manager
+title: Espandere il disco del sistema operativo in una macchina virtuale Linux con l'interfaccia della riga di comando 1.0 di Azure | Microsoft Docs
+description: Informazioni su come espandere il disco virtuale del sistema operativo di una macchina virtuale Linux tramite l'interfaccia della riga di comando 1.0 di Azure e il modello di distribuzione di Resource Manager
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Espandere il disco del sistema operativo in una macchina virtuale Linux con l'interfaccia della riga di comando 1.0 di Azure
 Le dimensioni predefinite del disco rigido virtuale per il sistema operativo sono in genere di 30 GB in una VM Linux in Azure. È possibile [aggiungere dischi dati](add-disk.md) per aumentare lo spazio di archiviazione, ma è anche possibile espandere il disco del sistema operativo. Questo articolo illustra come espandere il disco del sistema operativo di una macchina virtuale Linux usando i dischi non gestiti con l'interfaccia della riga di comando 1.0 di Azure.
 
@@ -78,4 +75,3 @@ Negli esempi seguenti sostituire i nomi dei parametri di esempio con i valori de
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se è necessario altro spazio di archiviazione, è possibile [aggiungere dischi dati a una VM Linux](add-disk.md). Per altre informazioni sulla crittografia del disco, vedere [Crittografare i dischi di una VM Linux usando l'interfaccia della riga di comando di Azure](encrypt-disks.md).
-

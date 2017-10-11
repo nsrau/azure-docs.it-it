@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5b26aecc7b9797d7bf604ea5e3d8bdece5bea17b
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 68ccc1cac22e593b099729fe68c6bee63df44d9b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics"></a>Creare una VM (classica) con più schede di interfaccia di rete
 È possibile creare macchine virtuali (VM) in Azure e collegare più interfacce di rete (NIC) a ciascuna delle macchine virtuali. L'uso di più schede di interfaccia di rete è un requisito per molti dispositivi virtuali di rete, ad esempio le soluzioni di ottimizzazione WAN e la distribuzione di applicazioni. Più schede di interfaccia di rete forniscono anche l'isolamento del traffico tra le schede.
@@ -228,5 +227,4 @@ Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento pre
 ## <a name="next-steps"></a>Passaggi successivi
 * Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione di Gestione risorse](virtual-network-deploy-multinic-arm-template.md).
 * Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione classica](virtual-network-deploy-multinic-classic-ps.md).
-
 

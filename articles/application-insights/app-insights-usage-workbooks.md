@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 4e7ca1f4b3ca7734b00f4d9ce60b466ecf2aeb3f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 75028b4fbda43d90f56690a33c7eb624fce049c8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>Analizzare e condividere i dati di utilizzo con cartelle di lavoro interattive in Application Insights
 
 Le cartelle di lavoro combinano le visualizzazioni dei dati di [Azure Application Insights](app-insights-overview.md), le [query di Analisi](app-insights-analytics.md) e il testo in documenti interattivi. Le cartelle di lavoro possono essere modificate da altri membri del team con accesso alla stessa risorsa di Azure. Ciò significa che le query e i controlli usati per creare una cartella di lavoro sono disponibili ad altri utenti che leggono la cartella di lavoro semplificandone l'esplorazione, l'estensione e la ricerca di errori.
@@ -127,4 +125,3 @@ Per aggiungere un collegamento in una cartella di lavoro in un dashboard di Azur
     - [Flussi degli utenti](app-insights-usage-flows.md)
     - [Aggiungere il contesto utente](app-insights-usage-send-user-context.md)
     
-

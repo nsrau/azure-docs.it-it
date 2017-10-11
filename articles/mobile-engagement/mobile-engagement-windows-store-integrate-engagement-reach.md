@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8fc1faac88cab0e3d3755fdf16fe3d7188169961
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Integrazione di Reach SDK per app universali di Windows
 Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento [Integrazione di Mobile Engagement SDK per app di Windows universali](mobile-engagement-windows-store-integrate-engagement.md) .
@@ -280,7 +279,7 @@ Per implementare il callback, in App.xaml.cs in "Public App(){}" aggiungere:
 > 
 > 
 
-## <a name="a-idpush-channel-sharinga-push-channel-sharing"></a><a id="push-channel-sharing"></a> Condivisione del canale push
+## <a id="push-channel-sharing"></a> Condivisione del canale push
 Se si usano notifiche push per altri scopi all'interno dell'applicazione, è necessario usare la funzione di condivisone del canale push di Engagement SDK, in modo da evitare la perdita di notifiche push.
 
 * È possibile specificare il canale push desiderato durante la procedura di inizializzazione di Engagement Reach. In questo modo, l'SDK userà il canale specificato anziché richiederne uno nuovo.
@@ -338,5 +337,4 @@ Per usare questo protocollo modificare `App.xaml.cs` con il metodo `OnActivated`
                 }
               }
               #endregion
-
 

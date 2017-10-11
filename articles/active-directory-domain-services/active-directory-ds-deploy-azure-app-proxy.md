@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 5121a810badcaa9c66a9f5d85bd83b9f522b9665
-ms.openlocfilehash: 449499ebed1b455af012ec97976d04604a320941
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuire il proxy di applicazione di Azure AD in un dominio gestito di Azure AD Domain Services
 Il proxy dell'applicazione di Azure Active Directory (AD) consente di supportare lavoratori remoti pubblicando applicazioni locali in modo che siano accessibili tramite Internet. Azure AD Domain Services ora consente di trasferire in modalità lift-and-shift le applicazioni legacy in esecuzione in locale nei servizi di infrastruttura di Azure. È quindi possibile pubblicare queste applicazioni con il proxy di applicazione di Azure AD per garantire l'accesso remoto sicuro agli utenti dell'organizzazione.
 
@@ -131,4 +129,3 @@ Se sono stati distribuiti più connettori del proxy di applicazione nel dominio 
 * [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Configurare la delega vincolata Kerberos in un dominio gestito](active-directory-ds-enable-kcd.md)
 * [Panoramica della delega vincolata Kerberos](https://technet.microsoft.com/library/jj553400.aspx)
-

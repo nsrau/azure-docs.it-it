@@ -1,6 +1,6 @@
 ---
 title: Configurare indirizzi IP privati per le VM (classica) - interfaccia della riga di comando 1.0 di Azure | Documentazione Microsoft
-description: Informazioni su come configurare gli indirizzi IP privati per le macchine virtuali (classica) usando l&quot;interfaccia della riga di comando di Azure 1.0.
+description: Informazioni su come configurare gli indirizzi IP privati per le macchine virtuali (classica) usando l'interfaccia della riga di comando di Azure 1.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: ed0fe2fea20671063395b9ff089599853278989d
-ms.lasthandoff: 03/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Configurare gli indirizzi IP privati per una macchina virtuale (classica) usando l'interfaccia della riga di comando 1.0 di Azure
 
@@ -120,5 +119,4 @@ Output previsto:
 * Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md) .
 * Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
 

@@ -7,8 +7,12 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Creare l'istanza di contenitore
+    - name: Creare contenitori - interfaccia della riga di comando
       href: container-instances-quickstart.md
+    - name: Creare contenitori - Portale
+      href: container-instances-quickstart-portal.md
+    - name: Creare contenitori - PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: Esercitazioni
   items:
     - name: Creare e distribuire un contenitore
@@ -39,8 +43,12 @@
       href: container-instances-troubleshooting.md
 - name: riferimento
   items:
-    - name: Interfaccia della riga di comando di Azure 2.0
+    - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/container
+    - name: REST
+      href: /rest/api/container-instances
+    - name: PowerShell
+      href: '/powershell/module/azurerm.containerinstance#container_instances'
 - name: Risorse
   items:
     - name: Roadmap per Azure

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 5047635555a6b4592c0714677c2b942e50bad344
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-database-security-checklist"></a>Elenco di controllo per la sicurezza del database di Azure
 
 Per contribuire al miglioramento della sicurezza, il database di Azure include una serie di controlli di sicurezza predefiniti che è possibile usare per limite e controllare l'accesso.
@@ -57,7 +55,7 @@ Si consiglia di leggere l'articolo [Azure Database Security Best Practices](http
 |<br>Centro sicurezza di Azure| <ul><li>Il [Monitoraggio dati](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-auditing-on-sql-databases) usa il centro sicurezza di Azure come soluzione di monitoraggio di sicurezza centralizzato per SQL e altri servizi di Azure.</li></ul>|     
 
 ## <a name="conclusion"></a>Conclusione
-Il database di Azure è una piattaforma di database affidabile, con una gamma completa di funzionalità di sicurezza che soddisfano molti requisiti normativi e aziendali. È possibile proteggere facilmente i dati controllando l'accesso fisico agli stessi, e tramite un'ampia gamma di opzioni per la protezione dei dati a livello di file, di colonna o di riga con Transparent Data Encryption, Cell-Level Encryption o Row-Level Encryption. Always Encrypted consente anche operazioni sui dati crittografati, semplificando il processo di aggiornamenti dell'applicazione. A sua volta, l'accesso ai log di controllo dell'attività del Database SQL fornisce le informazioni che necessarie, consentendo di sapere come e quando accedere ai dati.
+Il database di Azure è una piattaforma di database affidabile, con una gamma completa di funzionalità di sicurezza che soddisfano molti requisiti normativi e aziendali. È possibile proteggere facilmente i dati controllando l'accesso fisico agli stessi, e tramite un'ampia gamma di opzioni per la protezione dei dati a livello di file, di colonna o di riga con Transparent Data Encryption, Cell-Level Encryption o Row-Level Encryption. Always Encrypted consente anche operazioni sui dati crittografati, semplificando il processo di aggiornamenti dell'applicazione. A sua volta, l'accesso ai log di controllo dell'attività del database SQL fornisce le informazioni necessarie, consentendo di sapere come e quando viene eseguito l'accesso ai dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile migliorare la protezione del database contro utenti malintenzionati o accessi non autorizzati con pochi semplici passaggi. In questa esercitazione si apprenderà come:
@@ -65,5 +63,4 @@ Il database di Azure è una piattaforma di database affidabile, con una gamma co
 - Configurare le [regole del firewall](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) per il server e/o il database.
 - Proteggere i dati con la [crittografia](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/sql-server-encryption).
 - Abilitare il [controllo del database SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing).
-
 

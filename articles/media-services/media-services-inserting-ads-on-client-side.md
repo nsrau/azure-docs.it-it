@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
 Questo argomento contiene informazioni su come inserire diversi tipi di annunci sul lato client.
@@ -792,5 +791,4 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 
 ## <a name="see-also"></a>Vedere anche
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
-
 

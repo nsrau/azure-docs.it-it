@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e1fe2b94d462a30f09cb23ab905542aa121ba46b
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c4723a7d174991f5bf679bf3e8c97fe2338926a2
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>Usare il portale di Azure per ripristinare macchine virtuali
@@ -95,7 +95,7 @@ Il ripristino di una macchina virtuale o di tutti i dischi dal backup della macc
 ## <a name="choosing-a-vm-restore-configuration"></a>Scelta di una configurazione di ripristino per la macchina virtuale
 Dopo aver selezionato il punto di ripristino, scegliere una configurazione per la macchina virtuale di ripristino. È possibile configurare la macchina virtuale ripristinata tramite il portale di Azure o PowerShell.
 
-1. Se non è già aperto, passare al pannello **Ripristina** . Assicurarsi di aver selezionato un [punto di ripristino](#select-restore-point-for-restore), quindi fare clic su **Configurazione di ripristino** per aprire il pannello **Configurazione recupero**.
+1. Se non è già aperto, passare al pannello **Ripristina** . Assicurarsi di aver [selezionato un punto di ripristino](#select-restore-point-for-restore) e quindi fare clic su **Configurazione di ripristino** per aprire il pannello **Configurazione di ripristino**.
 
     ![Configurazione guidata del ripristino configurata](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. Nel pannello **Restore configuration** (Configurazione di ripristino) sono possibili due opzioni:
@@ -164,7 +164,7 @@ Per visualizzare l'operazione durante l'elaborazione oppure per visualizzarla do
 Una volta [completata l'operazione di ripristino dei dischi](#Track-the-restore-operation), è possibile usare il modello che viene generato come parte dell'operazione di ripristino per creare una nuova macchina virtuale con una configurazione diversa dalla configurazione del backup o per personalizzare i nomi delle risorse create al momento della creazione di una nuova macchina virtuale dal punto di ripristino. 
 
 > [!NOTE]
-> Verranno aggiunti i modelli come parte dell'operazione di ripristino dei dischi per i punti di ripristino creati dopo il 1° marzo 2017. Sono applicabili alle macchine virtuali del disco non crittografato e non gestito. Il supporto per le macchine virtuali crittografate e le macchine virtuali del disco gestito verrà fornito nelle versioni future. 
+> Verranno aggiunti i modelli come parte dell'operazione di ripristino dei dischi per i punti di ripristino creati dopo il 1° marzo 2017. Sono applicabili alle macchine virtuali con disco non gestito. Il supporto per le macchine virtuali con disco gestito verrà fornito nelle versioni future. 
 >
 >
 

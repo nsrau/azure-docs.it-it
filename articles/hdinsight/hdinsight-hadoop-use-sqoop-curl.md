@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 0975aedf58c6e110726dd3308eae5f9ad3907cc7
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 5aa47b4b12dc136a3f6ba66688804859f9eb5446
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Esecuzione di processi Sqoop con Hadoop in HDInsight mediante Curl
@@ -30,17 +30,12 @@ Informazioni su come usare Curl per l'esecuzione di processi Sqoop in un cluster
 
 Curl viene usato per illustrare come è possibile interagire con HDInsight tramite richieste HTTP non elaborate per eseguire, monitorare e recuperare i risultati di processi Sqoop. Ciò avviene mediante l'API REST WebHCat, nota in precedenza come Templeton, fornita dal cluster HDInsight.
 
-> [!NOTE]
-> Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md).
-> 
-> 
-
 ## <a name="prerequisites"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
-* Un cluster Hadoop in HDInsight (basato su Linux o su Windows)
-* [Curl](http://curl.haxx.se/)
-* [jq](http://stedolan.github.io/jq/)
+* Completare la procedura [Usare Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) per configurare un ambiente con un cluster HDInsight e un database SQL di Azure.
+* [Curl](http://curl.haxx.se/). Curl è uno strumento per il trasferimento di dati da o verso un cluster HDInsight.
+* [jq](http://stedolan.github.io/jq/). L'utilità jq viene usata per elaborare i dati JSON restituiti dalle richieste REST.
 
 ## <a name="submit-sqoop-jobs-by-using-curl"></a>Inviare processi Sqoop mediante Azure Curl
 > [!NOTE]
@@ -53,12 +48,16 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 > 
 
 1. Da una riga di comando usare il comando seguente per verificare che sia possibile connettersi al cluster HDInsight:
-   
-        curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
-   
+
+    ```bash   
+    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```
+
     Dovrebbe essere visualizzato un messaggio simile al seguente:
-   
-        {"status":"ok","version":"v1"}
+
+    ```json   
+    {"status":"ok","version":"v1"}
+    ```
    
     I parametri usati in questo comando sono i seguenti:
    
@@ -68,7 +67,9 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
      L'inizio dell'URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sarà uguale per tutte le richieste. Il percorso, **/status**, indica che la richiesta deve restituire uno stato di WebHCat (noto anche come Templeton) per il server. 
 2. Usare quanto segue per inviare un processo sqoop:
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
+    ```bash
+    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /example/data/sample.log --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/data/sqoop/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
+    ```
 
     I parametri usati in questo comando sono i seguenti:
 
@@ -80,34 +81,27 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
         * **statusdir** : la directory in cui verrà scritto lo stato del processo.
 
-    Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo.
+    Questo comando restituisce un ID processo utilizzabile per verificare lo stato del processo.
 
+        ```json
         {"id":"job_1415651640909_0026"}
+        ```
 
-1. Per verificare lo stato del processo, usare il seguente comando. Sostituire **JOBID** con il valore restituito nel passaggio precedente. Se ad esempio il valore restituito è `{"id":"job_1415651640909_0026"}`, **JOBID** sarà `job_1415651640909_0026`.
-   
-        curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
-   
+3. Per verificare lo stato del processo, usare il seguente comando. Sostituire **JOBID** con il valore restituito nel passaggio precedente. Se ad esempio il valore restituito è `{"id":"job_1415651640909_0026"}`, **JOBID** sarà `job_1415651640909_0026`.
+
+    ```bash
+    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    ```
+
     Se il processo è stato completato, lo stato sarà **SUCCEEDED**.
    
    > [!NOTE]
    > Questa richiesta curl restituisce un documento JSON (JavaScript Object Notation) con informazioni sul processo. jq viene usato per recuperare il valore di stato.
    > 
    > 
-2. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso **wasb:///example/curl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/curl** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
+4. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso, **wasb:///example/data/sqoop/curl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/data/sqoop/curl** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
    
-    È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md). Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando:
-   
-        azure storage blob list <container-name> example/curl
-   
-    Per scaricare un file, usare il comando seguente:
-   
-        azure storage blob download <container-name> <blob-name> <destination-file>
-   
-   > [!NOTE]
-   > È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**. Vedere <a href="hdinsight-upload-data.md" target="_blank" per altre informazioni.
-   > 
-   > 
+    È possibile usare il portale di Azure per accedere ai BLOB stderr e stdout.  È anche possibile usare Microsoft SQL Server Management Studio per controllare i dati che vengono caricati nella tabella log4jlogs.
 
 ## <a name="limitations"></a>Limitazioni
 * Esportazione di massa: con HDInsight basato su Linux, attualmente il connettore Sqoop, usato per esportare dati in Microsoft SQL Server o nel database SQL di Azure, non supporta inserimenti di massa.
@@ -129,30 +123,13 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
+Per altri articoli su HDInsight relativi a curl:
+ 
+* [Creare i cluster Hadoop tramite l'API REST di Azure](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
+* [Eseguire query Hive con Hadoop in HDInsight tramite REST](hdinsight-hadoop-use-hive-curl.md)
+* [Eseguire processi MapReduce con Hadoop in HDInsight tramite REST](hdinsight-hadoop-use-mapreduce-curl.md)
+* [Eseguire processi Pig con Hadoop in HDInsight mediante cUrl](hdinsight-hadoop-use-pig-curl.md)
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-
-
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
-
-
-
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 
 

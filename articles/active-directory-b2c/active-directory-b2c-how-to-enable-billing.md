@@ -1,6 +1,6 @@
 ---
 title: Come collegare una sottoscrizione di Azure ad Azure AD B2C | Documentazione Microsoft
-description: Guida dettagliata all&quot;abilitazione della fatturazione per tenant Azure AD B2C in una sottoscrizione di Azure.
+description: Guida dettagliata all'abilitazione della fatturazione per tenant Azure AD B2C in una sottoscrizione di Azure.
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: rojasja
@@ -12,13 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
-ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Collegamento di una sottoscrizione di Azure a un tenant di Azure B2C per pagare gli addebiti per l'utilizzo
 
@@ -77,4 +75,3 @@ Facendo clic sulla risorsa Tenant B2C è possibile:
 Dopo aver completato questa procedura per ogni tenant B2C, i costi vengono addebitati alla sottoscrizione di Azure in base al Contratto Enterprise o Azure Direct.
 - Esaminare l'utilizzo e la fatturazione all'interno della sottoscrizione di Azure selezionata
 - Esaminare i report dettagliati sull'utilizzo giornaliero con l'[API di segnalazione dell'utilizzo](active-directory-b2c-reference-usage-reporting-api.md)
-

@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -269,10 +269,6 @@ Molti dei connettori gestiti delle app per la logica offrono una connettività s
 #### <a name="azure-api-management"></a>Gestione API di Azure
 
 [Gestione API di Azure](https://azure.microsoft.com/services/api-management/) dispone di numerose opzioni di connettività locale, tra cui l'integrazione ExpressRoute e VPN da sito a sito per la protezione del proxy e la comunicazione con i sistemi locali. Nella finestra di progettazione delle app per la logica è possibile selezionare rapidamente un'API esposta da Gestione API di Azure all'interno di un flusso di lavoro, in modo da offrire accesso rapido ai sistemi locali.
-
-#### <a name="hybrid-connections-from-azure-app-service"></a>Connessioni ibride dai servizi app di Azure
-
-È possibile usare la funzionalità di connessione ibrida locale per consentire la comunicazione tra l'API di Azure e le App Web.  Informazioni dettagliate sulle connessioni ibride e su come configurarle sono disponibili [in questo articolo](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un modello di distribuzione](logic-apps-create-deploy-template.md)  

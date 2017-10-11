@@ -1,6 +1,6 @@
 ---
-title: Creare e gestire macchine virtuali in DevTest Labs con l&quot;interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come usare Azure DevTest Labs per creare e gestire le macchine virtuali con l&quot;interfaccia della riga di comando di Azure 2.0
+title: Creare e gestire macchine virtuali in DevTest Labs con l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come usare Azure DevTest Labs per creare e gestire le macchine virtuali con l'interfaccia della riga di comando di Azure 2.0
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: lisawong19
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: liwong
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 42b0448c1bcdfa909715abd5075353d63cab8389
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a3af12ba0598d60b55b3714ae1690fe3e5b54a42
 ms.contentlocale: it-it
-ms.lasthandoff: 05/20/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Creare e gestire macchine virtuali con DevTest Labs tramite l'interfaccia della riga di comando di Azure
@@ -39,7 +38,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 > Inserire il nome del **gruppo di risorse lab** nel parametro --resource-group.
 >
 
-Se si vuole creare una macchina virtuale tramite una formula, usare il parametro --formula in [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#create).
+Se si vuole creare una macchina virtuale tramite una formula, usare il parametro --formula in [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
 
 
 Verificare che la VM sia disponibile.

@@ -1,6 +1,6 @@
 ---
 title: Uso di SAP in macchine virtuali Windows | Microsoft Docs
-description: Informazioni sull&quot;uso di SAP in macchine virtuali (VM) Windows in Microsoft Azure
+description: Informazioni sull'uso di SAP in macchine virtuali (VM) Windows in Microsoft Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: MSSedusch
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 1d6326d5f79ea4e975abd1aa90b0d4a635f4c31a
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-sap-on-windows-virtual-machines-in-azure"></a>Uso di SAP su macchine virtuali Windows in Azure
 Cloud computing è un termine ampiamente diffuso che sta assumendo un'importanza sempre più rilevante nel settore IT, dalle piccole imprese fino alle grandi aziende e alle multinazionali. Microsoft Azure è la piattaforma di servizi cloud di Microsoft che offre un'ampia gamma di nuove possibilità. I clienti possono infatti effettuare rapidamente il provisioning e il deprovisioning di applicazioni come servizi cloud, senza essere soggetti a eventuali limiti tecnici o di budget. Anziché investire tempo e denaro nell'infrastruttura hardware, le aziende possono concentrarsi sull'applicazione, sui processi aziendali e sui vantaggi per clienti e utenti.
@@ -38,5 +37,4 @@ Riepilogo: Questo documento descrive come usare SIOS DataKeeper per definire una
 Ultimo aggiornamento: agosto 2015
 
 [Scaricare la guida](http://go.microsoft.com/fwlink/?LinkId=613056)
-
 

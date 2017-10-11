@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: jhubbard
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f2f2b2ab37d84865c049253be7c30da0d98fd992
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 7f45b8b654691063823c13bee61e9bb874a6a13a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gestire i database SQL usando Automazione di Azure
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione dei database SQL.
@@ -52,5 +50,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 * [Il primo runbook](../automation/automation-first-runbook-graphical.md)
 * [Mappa di apprendimento di Automazione di Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
 * [Automazione di Azure: SQL Agent nel cloud](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
-
 

@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Menlo Security | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Menlo Security.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Menlo Security.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 75366abafa551d21630b0edddb65db23b9ea9d42
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Esercitazione: Integrazione di Azure Active Directory con Menlo Security
 
@@ -246,5 +244,4 @@ Aprire una finestra del browser in modalità "InPrivate" o "In incognito" per at
 [201]: ./media/active-directory-saas-menlosecurity-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-menlosecurity-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-menlosecurity-tutorial/tutorial_general_203.png
-
 

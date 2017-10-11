@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
 > [!div class="op_single_selector"]
@@ -165,11 +164,11 @@ Lo scaffolding Yeoman include uno script Gradle per compilare l'applicazione e s
 $ gradle
 ```
 
-Si ottiene un pacchetto dell'applicazione di Service Fabric che può essere distribuito tramite l'interfaccia della riga di comando di Service Fabric.
+Questa operazione genera un pacchetto dell'applicazione Service Fabric che può essere distribuito tramite l'interfaccia della riga di comando di Service Fabric.
 
-### <a name="deploy-with-service-fabric-cli"></a>Distribuzione con l'interfaccia della riga di comando di Service Fabric
+### <a name="deploy-with-service-fabric-cli"></a>Distribuire con l'interfaccia della riga di comando di Service Fabric
 
-Lo script install.sh contiene i comandi dello script install.sh contiene i comandi dell'interfaccia della riga di comando di Service Fabric necessari per distribuire il pacchetto dell'applicazione. Eseguire lo script install.sh per distribuire l'applicazione.
+Lo script install.sh contiene i comandi dell'interfaccia della riga di comando di Service Fabric necessari per distribuire il pacchetto dell'applicazione. Eseguire lo script install.sh per distribuire l'applicazione.
 
 ```bash
 $ ./install.sh
@@ -178,4 +177,3 @@ $ ./install.sh
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
-

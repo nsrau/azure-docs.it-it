@@ -1,5 +1,5 @@
 ---
-title: Ricerche log in OMS Log Analytics| Microsoft Docs
+title: Ricerche log in Azure Log Analytics| Microsoft Docs
 description: "Una ricerca log è necessaria per recuperare qualsiasi tipo di dati da Log Analytics.  Questo articolo descrive come vengono usate le nuove ricerche log in Log Analytics e illustra i concetti con cui occorre avere familiarità prima di crearne una."
 services: log-analytics
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 0f27db7018e398f71a8d7bd0b86e643367b15875
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Informazioni sulle ricerche log in Log Analytics
@@ -33,9 +33,9 @@ Una ricerca log è necessaria per recuperare qualsiasi tipo di dati da Log Analy
 
 Di seguito sono indicati alcuni dei vari modi in cui verranno usate le ricerche log in Log Analytics:
 
-- **Portali.** È possibile eseguire un'analisi interattiva dei dati nel repository con il [portale per la ricerca log](log-analytics-log-search-log-search-portal.md) o il [portale Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587).  In questo modo è possibile modificare le query e analizzare i risultati in una vasta gamma di formati e visualizzazioni.  Per la maggior parte delle query create si inizia in uno dei portali, per poi copiarle dopo aver verificato che il funzionamento corrisponde alle esigenze.
+- **Portali.** È possibile eseguire un'analisi interattiva dei dati nel repository nel portale di Azure o nel [portale Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587).  In questo modo è possibile modificare le query e analizzare i risultati in una vasta gamma di formati e visualizzazioni.  Per la maggior parte delle query create si inizia in uno dei portali, per poi copiarle dopo aver verificato che il funzionamento corrisponde alle esigenze.
 - **Regole di avviso.** Le [regole di avviso](log-analytics-alerts.md) consentono di identificare in modo proattivo i problemi dai dati nell'area di lavoro.  Ogni regola di avviso è basata su una ricerca log che viene eseguita automaticamente a intervalli regolari.  I risultati vengono esaminati per determinare se è necessario creare un avviso.
-- **Visualizzazioni.**  È possibile creare visualizzazioni dei dati da includere nei dashboard degli utenti con [Progettazione viste](log-analytics-view-designer.md).  Le ricerche log forniscono i dati usati dai [riquadri](log-analytics-view-designer-tiles.md) e dalle [parti della visualizzazione](log-analytics-view-designer-parts.md) in ogni visualizzazione.  È possibile eseguire il drill-down dalle parti della visualizzazione nel portale per la ricerca log per eseguire ulteriori analisi dei dati.
+- **Visualizzazioni.**  È possibile creare visualizzazioni dei dati da includere nei dashboard degli utenti con [Progettazione viste](log-analytics-view-designer.md).  Le ricerche log forniscono i dati usati dai [riquadri](log-analytics-view-designer-tiles.md) e dalle [parti della visualizzazione](log-analytics-view-designer-parts.md) in ogni visualizzazione.  È possibile eseguire il drill-down dalle parti della visualizzazione nella pagina Ricerca log per eseguire altre analisi dei dati.
 - **Esportazione.**  Quando si esportano dati dall'area di lavoro di Log Analytics in Excel o [Power BI](log-analytics-powerbi.md), si crea una ricerca log per definire i dati da esportare.
 - **PowerShell.** È possibile eseguire uno script di PowerShell da una riga di comando o un runbook di Automazione di Azure che usa [Get AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) per recuperare dati da Log Analytics.  Questo cmdlet richiede una query per determinare i dati da recuperare.
 - **API di Log Analytics.**  L'[API di ricerca log di Log Analytics](log-analytics-log-search-api.md) consente a qualsiasi client API REST di recuperare dati da un'area di lavoro.  La richiesta dell'API include una query eseguita su Log Analytics per determinare i dati da recuperare.
@@ -43,7 +43,7 @@ Di seguito sono indicati alcuni dei vari modi in cui verranno usate le ricerche 
 ![Ricerche log](media/log-analytics-log-search-new/log-search-overview.png)
 
 ## <a name="how-log-analytics-data-is-organized"></a>Organizzazione dei dati di Log Analytics
-Quando si compila una query, è necessario innanzitutto determinare quali tabelle contengono i dati da cercare. Ogni [origine dati](log-analytics-data-sources.md) e [soluzione](../operations-management-suite/operations-management-suite-solutions.md) archivia i dati in tabelle dedicate nell'area di lavoro di Log Analytics.  La documentazione per ogni origine dati e soluzione include il nome del tipo di dati che crea e una descrizione di ciascuna delle relative proprietà.     Molte query richiedono solo dati da singole tabelle, ma altre possono usare un'ampia gamma di opzioni per includere dati da più tabelle.
+Quando si compila una query, è necessario innanzitutto determinare quali tabelle contengono i dati da cercare. Ogni [origine dati](log-analytics-data-sources.md) e [soluzione](../operations-management-suite/operations-management-suite-solutions.md) archivia i dati in tabelle dedicate nell'area di lavoro di Log Analytics.  La documentazione per ogni origine dati e soluzione include il nome del tipo di dati che crea e una descrizione di ciascuna delle relative proprietà.  Molte query richiedono solo dati da singole tabelle, ma altre possono usare un'ampia gamma di opzioni per includere dati da più tabelle.
 
 ![Tabelle](media/log-analytics-log-search-new/queries-tables.png)
 
@@ -78,10 +78,17 @@ Potrebbe anche essere utile un grafico a linee con l'utilizzo del processore per
 
 Da questi semplici esempi è possibile notare che la struttura della query è simile, indipendentemente dal tipo di dati in uso.  È possibile suddividerla in passaggi distinti, in cui i dati risultanti da un comando vengono inviati tramite la pipeline al comando successivo.
 
+È anche possibile eseguire query sui dati nelle aree di lavoro di Log Analytics nella sottoscrizione.
+
+    union Update, workspace("contoso-workspace").Update
+    | where TimeGenerated >= ago(1h)
+    | summarize dcount(Computer) by Classification 
+
+
 Per una documentazione completa sul linguaggio di query di Azure Log Analytics, incluse esercitazioni e informazioni di riferimento sul linguaggio, vedere la [documentazione del linguaggio di query di Azure Log Analytics](https://docs.loganalytics.io/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere le informazioni sui [portali usati per creare e modifiche le ricerche log](log-analytics-log-search-portals.md).
-- Vedere un'[esercitazione sulla scrittura di query](https://go.microsoft.com/fwlink/?linkid=856078) con il nuovo linguaggio di query.
+- Vedere un'[esercitazione sulla scrittura di query](log-analytics-tutorial-viewdata.md) con il nuovo linguaggio di query.
 

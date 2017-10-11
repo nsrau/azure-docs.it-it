@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: aa438680348748a771f9016ecdcc68372c6c5e86
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: ae7f0bce452a0a86f6f1e4d9b0c93a0fa1727f21
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Disinstallare i componenti dei processi di database elastici
 **Processi di database elastici** possono essere disinstallati utilizzando il portale o PowerShell.
@@ -63,6 +61,5 @@ Per reinstallare i processi di database elastici, vedere [Installazione del serv
 Per ulteriori informazioni sui processi dei database elastici, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
-
 
 

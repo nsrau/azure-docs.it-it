@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: foglio informativo PDF sulle query SQL dell'API di DocumentDB
 Il **foglio informativo sulle query SQL dell'API di DocumentDB per Azure Cosmos DB** consente di scrivere rapidamente query per i dati dell'API di DocumentDB visualizzando query di database, parole chiave, funzioni predefinite e operatori comuni in un foglio di riferimento PDF facile da stampare. 
@@ -43,5 +42,4 @@ Cosmos DB supporta l'esecuzione di query relazionali, gerarchiche e spaziali su 
 
 ## <a name="release-notes"></a>Note sulla versione
 Aggiornata il 29/7/2016 per includere TOP.
-
 

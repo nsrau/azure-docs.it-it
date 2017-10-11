@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Microsoft Azure StorSimple Data Manager | Documentazione Microsoft
-description: L&quot;articolo fornisce una panoramica del servizio StorSimple Data Manager (anteprima privata)
+description: L'articolo fornisce una panoramica del servizio StorSimple Data Manager (anteprima privata)
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 32fcca540c1db317c5f11e94b2ee3359cadcc806
 ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="storsimple-data-manager-overview-private-preview"></a>Panoramica di StorSimple Data Manager (anteprima privata)
 
 ## <a name="overview"></a>Overview
@@ -72,8 +72,3 @@ StorSimple Data Manager è in modalità di anteprima privata. Per iscriversi a u
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Usare l'interfaccia utente di StorSimple Data Manager per la trasformazione dei dati](storsimple-data-manager-ui.md).
-
-
-<!--HONumber=Nov16_HO4-->
-
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 58908d65fdebd651e5cfab2b668574bdf7ab6085
-ms.contentlocale: it-it
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
 Il servizio di sincronizzazione Azure AD Connect si basa sul provisioning dichiarativo introdotto inizialmente in Forefront Identity Manager 2010. Consente di implementare la logica di business completa per l'integrazione delle identità senza dover scrivere codice compilato.
@@ -82,7 +81,7 @@ Le funzioni possono essere usate con gli attributi a valore singolo e multivalor
 
 Ad esempio   
 `Trim([proxyAddresses])` esegue un trimming di ogni valore nell'attributo proxyAddress.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"` Per ogni valore con un carattere @-sign,, sostituire il dominio con @contoso.com.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"`Per ogni valore con un @-sign, sostituire il dominio con @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Cercare l'indirizzo SIP e rimuoverlo dai valori.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -98,5 +97,4 @@ Ad esempio
 **Argomenti di riferimento**
 
 * [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 5efb78c2c514bd0b21be842ddee5465fe4e4dcf9
-ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.openlocfilehash: eaa6a21a08bd9068b5335a8167f54c2aa387e0e5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connect-your-microsoft-azure-iot-raspberry-pi-3-starter-kit-to-the-remote-monitoring-solution"></a>Connettere lo Starter Kit di Microsoft Azure IoT per Raspberry Pi 3 alla soluzione di monitoraggio remoto
 

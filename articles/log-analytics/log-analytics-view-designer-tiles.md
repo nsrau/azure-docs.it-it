@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Informazioni di riferimento sui riquadri per Progettazione viste di Log Analytics
 Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate.
@@ -180,4 +179,3 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per supportare le query nei riquadri.
 * Aggiungere [parti della visualizzazione](log-analytics-view-designer-parts.md) per la vista personalizzata.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Panoramica su gestione e monitoraggio della sicurezza di Azure
 Azure offre meccanismi di sicurezza utili per la gestione e il monitoraggio dei servizi cloud e delle macchine virtuali di Azure. Questo articolo offre una panoramica dei servizi e delle funzionalità di sicurezza di base. Per ottenere maggiori informazioni, sono disponibili collegamenti ad articoli contenenti informazioni dettagliate su ogni funzionalità.
@@ -130,4 +129,3 @@ Altre informazioni:
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

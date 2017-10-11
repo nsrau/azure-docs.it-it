@@ -1,6 +1,6 @@
 ---
 title: Hosting di zone DNS di ricerca inversa in DNS Azure | Microsoft Docs
-description: Informazioni su come usare DNS Azure per l&quot;hosting delle zone DNS di ricerca inversa per gli intervalli di indirizzi IP
+description: Informazioni su come usare DNS Azure per l'hosting delle zone DNS di ricerca inversa per gli intervalli di indirizzi IP
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 3e10b25d2f9b91c96af2958fef6dc6a4fdbff301
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="hosting-reverse-dns-lookup-zones-in-azure-dns"></a>Hosting di zone DNS di ricerca inversa in DNS Azure
 
 Questo articolo illustra come eseguire l'hosting delle zone DNS di ricerca inversa per gli intervalli di indirizzi IP assegnati in DNS Azure. Gli intervalli di indirizzi IP rappresentati dalle zone di ricerca inversa devono essere assegnati all'organizzazione, in genere dal provider di servizi Internet.
@@ -119,7 +117,7 @@ Per le zone di ricerca diretta il processo di delega di una zona DNS è illustra
 
 L'esempio seguente illustra la procedura di creazione di un record PTR in una zona del DNS inverso in DNS Azure. Per altri tipi di record e per modificare i record esistenti, vedere [Gestire record e set di record DNS con il portale di Azure](dns-operations-recordsets-portal.md).
 
-1.    Nella parte superiore del pannello **Zona DNS** selezionare **+ Record set** (Aggiungi set di record) per aprire il pannello **Aggiungi set di record**.
+1.  Nella parte superiore del pannello **Zona DNS** selezionare **+ Record set** (Aggiungi set di record) per aprire il pannello **Aggiungi set di record**.
 
  ![Zona DNS](./media/dns-reverse-dns-hosting/figure4.png)
 
@@ -269,4 +267,3 @@ Per altre informazioni, vedere [Importare ed esportare un file di zona DNS usand
 Per altre informazioni sul DNS inverso, vedere [Risoluzione DNS inversa su Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Informazioni su come [gestire i record di DNS inverso per i servizi di Azure](dns-reverse-dns-for-azure-services.md).
-

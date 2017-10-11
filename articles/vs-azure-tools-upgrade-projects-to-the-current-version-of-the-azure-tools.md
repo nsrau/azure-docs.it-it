@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e346640f6cbf7969bf373b84d8a20a24a74f654e
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 9a35de7ca0e7161468181b21709e1bd9915d566f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-upgrade-projects-to-the-current-version-of-the-azure-tools-for-visual-studio"></a>Come aggiornare i progetti alla versione attuale degli strumenti di Microsoft Azure per Visual Studio
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Dopo avere installato la versione corrente degli strumenti di Azure (o successiva alla versione 1.6), eventuali progetti creati mediante una versione precedente alla 1.6 (novembre 2011) verranno automaticamente aggiornati all'apertura. Se sono stati creati progetti con la versione 1.6 (novembre 2011) di questi strumenti e la versione è ancora installata, è possibile aprire i progetti nella versione precedente e decidere in seguito se aggiornarli.
 
 ## <a name="how-your-project-changes-when-you-upgrade-it"></a>Modifiche apportate al progetto durante l'aggiornamento
@@ -47,5 +46,4 @@ Se un progetto viene aggiornato automaticamente o si specifica di volerlo aggior
     La scheda **Applicazione** indica la versione degli strumenti associata al progetto. Se viene visualizzata la versione corrente degli strumenti di Azure, il progetto è già stato aggiornato. Se è stata installata una versione più recente degli strumenti rispetto a quella indicata nella scheda, viene visualizzato il pulsante **Aggiorna** .
 3. Scegliere il pulsante **Aggiorna** per aggiornare un progetto alla versione corrente degli strumenti.
 4. Creare il progetto, quindi trovare eventuali errori risultanti dalle modifiche API. Per informazioni su come modificare il codice per la nuova versione, vedere la documentazione per l'API specifica.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
 ms.openlocfilehash: 62e2d214d6d685c7f27c8c45cae161eb25ed1cbd
-ms.lasthandoff: 04/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="about-azure-devtest-labs"></a>Informazioni su Azure DevTest Labs
 ## <a name="overview"></a>Panoramica
@@ -50,5 +49,4 @@ E’ possibile sfruttare plug-in già pronti oppure l’API per effettuare il pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Concetti di Lab di sviluppo e test](devtest-lab-concepts.md)
-
 

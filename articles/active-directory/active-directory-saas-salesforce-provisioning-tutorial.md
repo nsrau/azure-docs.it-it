@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: a573a7ef79e28c50ae0923849a88f88af40f21be
-ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Salesforce per il provisioning utenti automatico
 
@@ -110,4 +108,4 @@ Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi asse
 
 * [Gestione del provisioning degli account utente per app aziendali](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-* [Configura accesso Single Sign-On](active-directory-saas-salesforce-tutorial.md)
+* [Configurare l'accesso Single Sign-On](active-directory-saas-salesforce-tutorial.md)

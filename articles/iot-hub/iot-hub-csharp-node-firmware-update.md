@@ -1,6 +1,6 @@
 ---
-title: Aggiornamento firmware del dispositivo con l&quot;hub IoT di Azure (.NET/Node) | Documentazione Microsoft
-description: Come usare la gestione dei dispositivi nell&quot;hub IoT di Azure per avviare un aggiornamento del firmware del dispositivo. Usare Azure IoT SDK per dispositivi per Node.js per implementare un&quot;app per dispositivo simulato e Azure IoT SDK per servizi per .NET per implementare un&quot;app di servizio che attiva l&quot;aggiornamento del firmware.
+title: Aggiornamento firmware del dispositivo con l'hub IoT di Azure (.NET/Node) | Documentazione Microsoft
+description: Come usare la gestione dei dispositivi nell'hub IoT di Azure per avviare un aggiornamento del firmware del dispositivo. Usare Azure IoT SDK per dispositivi per Node.js per implementare un'app per dispositivo simulato e Azure IoT SDK per servizi per .NET per implementare un'app di servizio che attiva l'aggiornamento del firmware.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -12,19 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2017
+ms.date: 08/30/2017
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: c2192328a152e955d182c4a07b391c98a5960964
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 157f112869f0042e330e6b281367632ca015e890
+ms.contentlocale: it-it
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>Usare la gestione dei dispositivi per avviare un aggiornamento del firmware del dispositivo (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-## <a name="introduction"></a>Introduzione
 Nell'esercitazione [Introduzione alla gestione dei dispositivi][lnk-dm-getstarted] è stato illustrato come usare il [dispositivo gemello][lnk-devtwin] e le primitive dei [metodi diretti][lnk-c2dmethod] per riavviare un dispositivo in modalità remota. Questa esercitazione usa le stesse primitive dell'hub IoT e illustra come eseguire un aggiornamento del firmware simulato completo.  Questo modello viene usato nell'implementazione dell'aggiornamento del firmware per l'[esempio di implementazione del dispositivo Raspberry Pi][lnk-rpi-implementation].
 
 Questa esercitazione illustra come:
@@ -41,7 +40,7 @@ Al termine dell'esercitazione saranno disponibili un'app per il dispositivo cons
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Visual Studio 2015 o Visual Studio 2017.
-* Node.js 0.12.x o versione successiva. <br/>  [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
+* Node.js 4.0.x o versione successiva. <br/>  [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
 Vedere l'articolo [Introduzione alla gestione dei dispositivi](iot-hub-csharp-node-device-management-get-started.md) per creare l'hub IoT e ottenere la stringa di connessione relativa.
@@ -121,7 +120,7 @@ A questo punto è possibile eseguire le app.
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. In Visual Studio, fare clic con il pulsante destro del mouse sul progetto **TriggerFWUpdate**. Eseguire l'app console C# quindi scegliere **Debug** e **Avvia nuova istanza**.
+2. In Visual Studio fare clic con il pulsante destro del mouse sul progetto **TriggerFWUpdate**, selezionare **Debug** e **Avvia nuova istanza**.
 
 3. Nella console viene visualizzata la risposta del dispositivo al metodo diretto.
 

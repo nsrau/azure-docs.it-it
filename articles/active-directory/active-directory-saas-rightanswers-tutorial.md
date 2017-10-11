@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con RightAnswers | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e RightAnswers.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e RightAnswers.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: e5985831598a0e5b1277d2c6cd02b03c919aad4d
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Esercitazione: Integrazione di Azure Active Directory con RightAnswers

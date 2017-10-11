@@ -1,5 +1,5 @@
 ---
-title: Installare MongoDB in una VM Linux usando l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+title: Installare MongoDB in una VM Linux usando l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
 description: Informazioni su come installare e configurare MongoDB su una macchina virtuale Linux in Azure usando il modello di distribuzione di Resource Manager.
 services: virtual-machines-linux
 documentationcenter: 
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
-ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Come installare e configurare MongoDB in una VM Linux usando l'interfaccia della riga di comando di Azure 1.0
 [MongoDB](http://www.mongodb.org) è un diffuso database NoSQL open source a prestazioni elevate. Questo articolo illustra come installare e configurare MongoDB su una VM Linux in Azure usando il modello di distribuzione di Resource Manager. Alcuni esempi illustrano in dettaglio come fare a:
@@ -186,5 +184,4 @@ In questi esempi si effettua la connessione all'istanza di MongoDB locale dalla 
 Per altre informazioni sulla creazione tramite modelli, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 I modelli di Azure Resource Manager usano l'estensione dello script personalizzata per scaricare ed eseguire script nelle VM. Per altre informazioni, vedere [Using the Azure Custom Script Extension with Linux Virtual Machines](extensions-customscript.md) (Usare l'estensione dello script personalizzata di Azure con macchine virtuali Linux).
-
 

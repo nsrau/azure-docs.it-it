@@ -12,22 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: ded80330ad323a0019ad59ac54d076a78b70f521
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 79d2f5265c05a1e5f83325295d3d750e1796e1cc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
 Questo articolo risponde ad alcune domande frequenti relative all'autenticazione pass-through di Azure Active Directory (Azure AD). Visitare questa pagina regolarmente per nuovi contenuti.
-
->[!IMPORTANT]
->La funzionalità di autenticazione pass-through è attualmente in fase di anteprima.
 
 ## <a name="which-of-the-azure-ad-sign-in-methods---pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs---should-i-choose"></a>Quale dei metodi di accesso di Azure AD, tra l'autenticazione pass-through, la sincronizzazione dell'hash delle password e Active Directory Federation Services (AD FS), è preferibile usare?
 
@@ -100,11 +97,11 @@ Se ADFS è stato configurato come metodo di accesso _esternamente_ alla procedur
 
 Sì. Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste AD e se il routing del suffisso del nome è configurato correttamente.
 
-## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>Gli agenti di autenticazione pass-through includono la funzionalità di bilanciamento del carico?
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Quanti agenti di autenticazione pass-through è necessario installare?
 
-No, l'installazione di più agenti di autenticazione pass-through assicura la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) ma non il bilanciamento del carico. Uno o due degli agenti di autenticazione possono finire per gestire la maggior parte delle richieste di accesso.
+L'installazione di più agenti di autenticazione pass-through garantisce la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), ma non il bilanciamento del carico. Uno o due degli agenti di autenticazione possono finire per gestire la maggior parte delle richieste di accesso.
 
-Le richieste di convalida delle password che gli agenti di autenticazione devono gestire sono leggere. I carichi medio e di punta per la maggior parte dei clienti sono pertanto facilmente gestibili con due o tre agenti di autenticazione in totale.
+Considerare il carico massimo e medio di richieste di accesso previsto nel tenant. Come benchmark, un singolo agente di autenticazione può gestire da 300.000 a 400.000 autenticazioni al secondo in un server standard con CPU a 4 core e 16 GB di RAM. Per la maggior parte dei clienti, un totale di due o tre agenti di autenticazione è sufficiente ai fini della capacità e della disponibilità elevata.
 
 È consigliabile installare gli agenti di autenticazione vicino al controller di dominio per migliorare la latenza di accesso.
 
@@ -132,8 +129,8 @@ Eseguire nuovamente la procedura guidata Azure AD Connect e scegliere un metodo 
 Se si disinstalla un agente di autenticazione pass-through in un server, il server non accetta più richieste di accesso. Prima di eseguire questa operazione, verificare che un altro agente di autenticazione sia in esecuzione per evitare di interrompere l'accesso utente nel tenant.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) (Limitazioni correnti): questa funzionalità è attualmente in anteprima. Informazioni su quali scenari sono supportati e quali non lo sono.
-- [**Guida introduttiva**](active-directory-aadconnect-pass-through-authentication-quick-start.md): informazioni per configurare e usare l'autenticazione pass-through di Azure AD.
+- [**Limitazioni correnti**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): informazioni su quali scenari sono supportati e quali non lo sono.
+- [**Guida introduttiva**](active-directory-aadconnect-pass-through-authentication-quick-start.md): avvio ed esecuzione dell'autenticazione pass-through di Azure AD.
 - [**Approfondimento tecnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
 - [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
 - [**Seamless Single Sign-On di Azure AD**](active-directory-aadconnect-sso.md): altre informazioni su questa funzionalità complementare.

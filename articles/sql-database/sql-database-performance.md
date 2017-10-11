@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
-ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorare e migliorare le prestazioni
 Il database SQL di Azure identifica potenziali problemi in un database e propone azioni che consentono di migliorare le prestazioni del carico di lavoro tramite azioni e raccomandazioni per l'ottimizzazione intelligente.
@@ -78,5 +76,4 @@ Altre informazioni su questa pagina sono disponibili nell'articolo **[Usare Info
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md)
 * [Quando usare un pool elastico](sql-database-elastic-pool-guidance.md)
-
 

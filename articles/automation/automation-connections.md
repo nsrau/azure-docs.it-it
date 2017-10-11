@@ -1,9 +1,9 @@
 ---
 title: Asset di tipo connessione in Automazione di Azure | Microsoft Docs
-description: Gli asset di connessione di Automazione di Azure contengono le informazioni necessarie per la connessione a un servizio esterno o a un&quot;applicazione da un Runbook o una connessione DSC. Questo articolo illustra nel dettaglio le connessioni e spiega come usarle nella creazione testuale e grafica.
+description: Gli asset di connessione di Automazione di Azure contengono le informazioni necessarie per la connessione a un servizio esterno o a un'applicazione da un Runbook o una connessione DSC. Questo articolo illustra nel dettaglio le connessioni e spiega come usarle nella creazione testuale e grafica.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bfb479020238bb4c2763f439c744aeddf97c8908
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 00f0b370a05b29c44d0df8f7e9db115ff998b710
+ms.contentlocale: it-it
+ms.lasthandoff: 09/13/2017
 
 ---
 
 # <a name="connection-assets-in-azure-automation"></a>Asset di connessione in Automazione di Azure
 
-Un asset di connessione di Automazione contiene le informazioni necessarie per la connessione a un servizio esterno o a un'applicazione da un Runbook o una configurazione DSC. ad esempio le informazioni necessarie per l'autenticazione, quali nome utente e password, oltre alle informazioni di connessione quali un URL o una porta. Il valore di una connessione consiste nel mantenere tutte le proprietà per la connessione a un'applicazione specifica in un singolo asset, invece di creare più variabili. L'utente può modificare i valori per una connessione in un'unica posizione e può passare il nome di una connessione a un Runbook o a una configurazione DSC in un singolo parametro. È possibile accedere alle proprietà per una connessione nel Runbook o nella configurazione DSC con l'attività **Get-AutomationConnection** .
+Un asset di connessione di Automazione contiene le informazioni necessarie per la connessione a un servizio esterno o a un'applicazione da un Runbook o una configurazione DSC. ad esempio le informazioni necessarie per l'autenticazione, quali nome utente e password, oltre alle informazioni di connessione quali un URL o una porta. Il valore di una connessione consiste nel mantenere tutte le proprietà per la connessione a un'applicazione specifica in un singolo asset, invece di creare più variabili. L'utente può modificare i valori per una connessione in un'unica posizione e può passare il nome di una connessione a un Runbook o a una configurazione DSC in un singolo parametro. È possibile accedere alle proprietà per una connessione nel Runbook o nella configurazione DSC con l'attività **Get-AutomationConnection** . 
 
 Quando si crea una connessione, è necessario specificare un *tipo di connessione*. Il tipo di connessione è un modello che definisce un set di proprietà. La connessione definisce i valori per ogni proprietà definita nel rispettivo tipo di connessione. I tipi di connessione vengono aggiunti ad Automazione di Azure nei moduli di integrazione oppure creati con l'[API di Automazione di Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx) se il modulo di integrazione include un tipo di connessione e viene importato nell'account di Automazione. In caso contrario, sarà necessario creare un file di metadati per specificare un tipo di connessione di Automazione.  Per ulteriori informazioni, vedere [Moduli di integrazione](automation-integration-modules.md).  
 
@@ -52,6 +53,17 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle conn
 >[!NOTE] 
 >È consigliabile evitare di usare le variabili con il parametro –Name di **Get- AutomationConnection** , poiché ciò può complicare l'individuazione delle dipendenze tra i Runbook o configurazioni DSC e gli asset di connessione durante la fase di progettazione.
 
+ 
+## <a name="python2-functions"></a>Funzioni Python2 
+La funzione nella tabella seguente viene usata per accedere alle connessioni in un runbook Python2. 
+
+| Funzione | Descrizione | 
+|:---|:---| 
+| automationassets.get_automation_connection | Recupera una connessione. Restituisce un dizionario con le proprietà della connessione. | 
+
+> [!NOTE] 
+> È necessario importare il modulo "automationassets" nella parte superiore del runbook Python per poter accedere alle funzioni dell'asset.
+
 ## <a name="creating-a-new-connection"></a>Creazione di una nuova connessione
 
 ### <a name="to-create-a-new-connection-with-the-azure-portal"></a>Per creare una nuova connessione con il portale di Azure
@@ -74,7 +86,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle conn
 
 Creare una nuova connessione con Windows PowerShell usando il cmdlet [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection). Questo cmdlet ha un parametro denominato **ConnectionFieldValues** che prevede una [tabella hash](http://technet.microsoft.com/library/hh847780.aspx) che definisce i valori per ogni proprietà definita dal tipo di connessione.
 
-Se si ha familiarità con l'automazione [account RunAs](automation-sec-configure-azure-runas-account.md) per autenticare i runbook usando l'entità servizio, è possibile usare lo script di PowerShell fornito come alternativa alla creazione dell'account RunAs dal portale per creare un nuovo asset di connessione tramite i semplici comandi seguenti.  
+Se si ha familiarità con l'[account RunAs](automation-sec-configure-azure-runas-account.md) di Automazione per autenticare i runbook usando l'entità servizio, è possibile usare lo script di PowerShell fornito come alternativa alla creazione dell'account RunAs dal portale per creare un nuovo asset di connessione tramite i semplici comandi seguenti.  
 
     $ConnectionAssetName = "AzureRunAsConnection"
     $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
@@ -102,6 +114,47 @@ Per aggiungere un'attività **Get-AutomationConnection** a un Runbook grafico, f
 La figura seguente mostra un esempio dell'uso di una connessione in un Runbook grafico.  Si tratta dello stesso esempio mostrato in precedenza per l'autenticazione usando l'account RunAs con un Runbook testuale.  In questo esempio viene usato il set di dati **Valore costante** per l'attività **Get RunAs Connection** (Ottieni connessione RunAs) che usa un oggetto di connessione per l'autenticazione.  Viene usato un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow) , poiché il parametro ServicePrincipalCertificate impostato prevede un singolo oggetto.
 
 ![](media/automation-connections/automation-get-connection-object.png)
+
+### <a name="python2-runbook-sample"></a>Esempio di runbook Python2
+L'esempio seguente illustra come eseguire l'autenticazione tramite la connessione Run As in un runbook Python2.
+
+    """ Tutorial to show how to authenticate against Azure resource manager resources """
+    import azure.mgmt.resource
+    import automationassets
+
+
+    def get_automation_runas_credential(runas_connection):
+        """ Returns credentials to authenticate against Azure resoruce manager """
+        from OpenSSL import crypto
+        from msrestazure import azure_active_directory
+        import adal
+
+        # Get the Azure Automation Run As service principal certificate
+        cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+        pks12_cert = crypto.load_pkcs12(cert)
+        pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
+
+        # Get Run As connection information for the Azure Automation service principal
+        application_id = runas_connection["ApplicationId"]
+        thumbprint = runas_connection["CertificateThumbprint"]
+        tenant_id = runas_connection["TenantId"]
+
+        # Authenticate with service principal certificate
+        resource = "https://management.core.windows.net/"
+        authority_url = ("https://login.microsoftonline.com/" + tenant_id)
+        context = adal.AuthenticationContext(authority_url)
+        return azure_active_directory.AdalAuthentication(
+            lambda: context.acquire_token_with_client_certificate(
+                resource,
+                application_id,
+                pem_pkey,
+                thumbprint)
+        )
+
+
+    # Authenticate to Azure using the Azure Automation Run As service principal
+    runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
+    azure_credential = get_automation_runas_credential(runas_connection)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

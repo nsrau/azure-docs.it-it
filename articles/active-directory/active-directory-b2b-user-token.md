@@ -15,16 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Informazioni sui token utente in Collaborazione B2B di Azure AD
 
 Se si vuole conoscere l'aspetto del token per un utente di collaborazione B2B, di seguito sono riportati i dettagli del token di connessione e del contenuto del token per Azure Active Directory (Azure AD) Guest e un account di Microsoft Guest nel tenant delle risorse per tenantid 04dcc6ab-388a-4559-b527-fbec656300ea. Per vedere i contenuti del token JSON Web (JWT), usare [https://jwt.io/](https://jwt.io/) o [http://calebb.net](http://calebb.net/).
@@ -54,4 +50,3 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
-

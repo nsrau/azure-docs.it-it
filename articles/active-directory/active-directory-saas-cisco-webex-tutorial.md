@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Cisco Webex | Documentazione Microsoft'
-description: Informazioni su come usare Cisco Webex con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare Cisco Webex con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: ada8ffbbdc5565a517f5a06cb640a36aaf8879b4
 ms.openlocfilehash: b44b1a5b3e988a51db3325ec8a181651fa84e768
-ms.lasthandoff: 02/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Esercitazione: Integrazione di Azure Active Directory con Cisco Webex
 Questa esercitazione descrive l'integrazione di Azure e Cisco Webex.  
@@ -67,7 +66,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Cisc
 
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Cisco Webex tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
 
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base&64;. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
 **Per configurare l'accesso Single Sign-On, seguire questa procedura:**
 
@@ -96,12 +95,12 @@ Come parte di questa procedura, verrà richiesto di creare un file di certificat
    
    ![Federated SSO Configuration](./media/active-directory-saas-cisco-webex-tutorial/IC777623.png "Federated SSO Configuration")  
    1. Nell'elenco **Federation Protocol** (Protocollo federazione) selezionare **SAML 2.0**.
-   2. Creare un file **con codifica Base&64;** dal certificato scaricato.  
+   2. Creare un file **con codifica Base 64** dal certificato scaricato.  
     >[!TIP]
     >Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
     >  
-   3. Aprire il certificato con codifica Base&64; nel Blocco note e quindi copiarne il contenuto.
-   4. Fare clic su **Import SAML Metadata**e quindi incollare il certificato con codifica Base&64;.
+   3. Aprire il certificato con codifica Base 64 nel Blocco note e quindi copiarne il contenuto.
+   4. Fare clic su **Import SAML Metadata**e quindi incollare il certificato con codifica Base 64.
    5. Nella finestra di dialogo **Configura accesso Single Sign-On in Cisco Webex** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Issuer for SAML (IdP ID)** (Autorità di certificazione per SAML - ID IdP).
    6. Nella finestra di dialogo **Configura accesso Single Sign-On in Cisco Webex** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Customer SSO Service Login URL** (URL di accesso al servizio clienti SSO).
    7. Nell'elenco **NameID Format** (Formato NameID) selezionare **Email address** (Indirizzo di posta elettronica).
@@ -149,5 +148,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    ![Sì](./media/active-directory-saas-cisco-webex-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
 

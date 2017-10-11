@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Esempi di mapping di un servizio Web esistente in OData tramite CSDL
 > [!IMPORTANT]
@@ -164,5 +162,4 @@ Utilizzare il paging RESTful implementato tramite i dati con GET.  Il paging pre
 * Per apprendere il processo di mapping generale e lo scopo di OData , leggere questo articolo [Mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping.md) per esaminare le definizioni, le strutture e le istruzioni.
 * Per ricevere formazione e informazioni sui nodi specifici e i relativi parametri, leggere questo articolo [Nodi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) per le definizioni e le spiegazioni e per esempi e casi di utilizzo contestuali.
 * Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere l'articolo di [guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
-
 

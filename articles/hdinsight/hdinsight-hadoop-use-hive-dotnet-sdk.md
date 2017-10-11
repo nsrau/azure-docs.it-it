@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 09/15/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 7b1a5f7ea3b2bda438727dc75a85557ea7930280
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: eb83a681df1a1836dbf970c4de14937aaea6b2f5
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Eseguire query Hive con HDInsight .NET SDK
@@ -30,13 +30,15 @@ Informazioni su come inviare query Hive tramite HDInsight .NET SDK. Si scrive un
 
 > [!NOTE]
 > I passaggi descritti in questo articolo devono essere eseguiti da un client Windows. Per informazioni sull'uso di un client Linux, OS X o Unix con Hive, usare il selettore di schede visualizzato all'inizio dell'articolo.
-> 
-> 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo sono necessari gli elementi seguenti:
 
 * **Un cluster Hadoop in HDInsight**. Vedere [Introduzione all'uso di Hadoop basato su Linux in HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
+
+    > [!WARNING]
+    > A partire dal 15 settembre 2017, HDInsight .NET SDK supporta solo i risultati della query Hive in restituzione dagli account di Archiviazione di Microsoft Azure. Se si usa questo esempio con un cluster HDInsight che usa Azure Data Lake Store come archiviazione primaria, non è possibile recuperare i risultati della ricerca tramite .NET SDK.
+
 * **Visual Studio 2013/2015/2017**.
 
 ## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>Inviare query Hive con HDInsight .NET SDK
@@ -69,7 +71,8 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
                 private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
                 private const string ExistingClusterUsername = "<Cluster Username>";
                 private const string ExistingClusterPassword = "<Cluster User Password>";
-   
+                
+                // Only Azure Storage accounts are supported by the SDK
                 private const string DefaultStorageAccountName = "<Default Storage Account Name>";
                 private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
                 private const string DefaultStorageContainerName = "<Default Blob Container Name>";

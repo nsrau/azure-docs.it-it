@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 5b2abb76fc2bfcf719292db1fdafc8b353d13a3c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.openlocfilehash: 25eab41c3f0c986bcce33123f86f4c9638b77191
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di contenitore di Azure
 
 La risorsa di livello principale in Istanze di contenitore di Azure consiste in un gruppo di contenitori. Questo articolo descrive le caratteristiche dei gruppi di contenitori e i tipi di scenari possibili.

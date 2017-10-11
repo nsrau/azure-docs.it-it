@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configurare CHAP per il dispositivo StorSimple
 
@@ -171,6 +169,5 @@ Se la configurazione di CHAP non è corretta, è probabile che venga visualizzat
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-8000-security.md).
-* Altre informazioni sull'[utilizzo del servizio Gestione dispositivi StorSimple per la gestione del dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
+* Altre informazioni sull'[uso del servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

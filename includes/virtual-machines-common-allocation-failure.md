@@ -6,15 +6,15 @@ Se il problema di Azure non viene risolto in questo articolo, visitare il [forum
 Questi passaggi possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali:
 
 * Ridimensionare la macchina virtuale con una dimensione diversa della macchina virtuale.<br>
-   Fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > macchina virtuale > **Impostazioni** > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [Ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
+    Fare clic su **Esplora tutto** > **Macchine virtuali (versione classica)** > macchina virtuale > **Impostazioni** > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [Ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 * Eliminare tutte le VM dal servizio cloud e ricrearle.<br>
-   Fare clic su **Esplora tutto** > ** > Macchine virtuali (classico)** > macchina virtuale > **Elimina**. Fare quindi clic su **Nuovo** > **Calcolo** > [immagine macchina virtuale].
+    Fare clic su **Esplora tutto** > **Macchine virtuali (versione classica)** > macchina virtuale > **Elimina**. Fare quindi clic su **Nuovo** > **Calcolo** > [immagine macchina virtuale].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Risolvere i problemi relativi a errori comuni di allocazione nel modello di distribuzione di Gestione risorse di Azure
 Questi passaggi possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali:
 
 * Arrestare (deallocare) tutte le VM nello stesso set di disponibilità, quindi riavviarle tutte.<br>
-   Per arrestare: fare clic su **Gruppi di risorse** > gruppo di risorse > **Risorse** > set di disponibilità > **Macchine virtuali** > macchina virtuale personale > **Arresta**.
+    Per arrestare: fare clic su **Gruppi di risorse** > gruppo di risorse > **Risorse** > set di disponibilità > **Macchine virtuali** > macchina virtuale personale > **Arresta**.
   
     Dopo l'arresto di tutte le VM, selezionare la prima e fare clic su **Avvia**.
 
@@ -99,7 +99,7 @@ Se è accettabile usare un indirizzo VIP diverso, eliminare le VM arrestate (dea
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Scenario di allocazione: distribuzioni di gestione temporanea/produzione (solo Platform-as-a-Service)
 **Errore**
 
-New_General *o New_VMSizeNotSupported*
+New_General* o New_VMSizeNotSupported*
 
 **Causa del blocco su un cluster**
 
@@ -112,7 +112,7 @@ Eliminare la prima distribuzione e il servizio cloud originale, quindi ridistrib
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Scenario di allocazione: gruppo di affinità (prossimità di VM o servizi)
 **Errore**
 
-New_General *o New_VMSizeNotSupported*
+New_General* o New_VMSizeNotSupported*
 
 **Causa del blocco su un cluster**
 
@@ -125,7 +125,7 @@ Se un gruppo di affinità non è necessario, non usare un gruppo di affinità o 
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Scenario di allocazione: rete virtuale basata su gruppi di affinità
 **Errore**
 
-New_General *o New_VMSizeNotSupported*
+New_General* o New_VMSizeNotSupported*
 
 **Causa del blocco su un cluster**
 
@@ -151,7 +151,7 @@ In generale, finché l'errore non indica che le dimensioni della VM richieste no
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Scenario di allocazione: ridimensionare una VM o aggiungere VM a un set di disponibilità esistente
 **Errore**
 
-Upgrade_VMSizeNotSupported *o GeneralError*
+Upgrade_VMSizeNotSupported* o GeneralError*
 
 **Causa del blocco su un cluster**
 
@@ -188,6 +188,8 @@ La deallocazione completa significa che sono state arrestate (deallocate) tutte 
 **Soluzione alternativa**
 
 Selezionare una nuova dimensione di VM da allocare. Se non funziona, riprovare in seguito.
+
+<a name="Error string lookup"></a>
 
 ## <a name="error-string-lookup"></a>Ricerca della stringa di errore
 **New_VMSizeNotSupported***

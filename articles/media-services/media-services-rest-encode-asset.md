@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 4ec324d94717fa1f93eda6f24d9dbd9fc0cdc455
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: 796f3b5a4dd56a0160986600cbbcf38faf8add56
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Come codificare un asset mediante Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -278,4 +277,3 @@ Dopo aver spiegato il processo per la codifica di un asset, si può passare all'
 
 ## <a name="see-also"></a>Vedere anche
 [Ottenere processori di contenuti multimediali](media-services-rest-get-media-processor.md)
-

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 8bb32588579a0d40b9ae7e0f823c6daab21c856e
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Esercitazione: Integrazione di Azure Active Directory con Cornerstone OnDemand
 
@@ -233,5 +231,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_203.png
-
 

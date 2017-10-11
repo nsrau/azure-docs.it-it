@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione sul Registro del servizio contenitore di Azure
+metadata:
+  title: 'Documentazione di Registro contenitori di Azure: esercitazioni | Microsoft Docs'
+  description: 'Registro contenitori di Azure permette di archiviare e gestire immagini per qualsiasi tipo di distribuzione di contenitori. Questo articolo contiene informazioni su come usare Registro contenitori di Azure con guide introduttive, esercitazioni ed esempi.'
+  services: container-registry
+  author: czeumault
+  manager: carolz
+  ms.service: container-registry
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: 'Registro contenitori di Azure permette di archiviare e gestire immagini per qualsiasi tipo di distribuzione di contenitori. Questo articolo contiene informazioni su come usare Registro contenitori di Azure con guide introduttive, esercitazioni ed esempi.'
+sections:
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: Informazioni su come distribuire un'istanza di Registro contenitori di Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: Interfaccia della riga di comando di Azure
+            href: /azure/container-registry/container-registry-get-started-azure-cli
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
+            text: Portale di Azure
+            href: /azure/container-registry/container-registry-get-started-portal
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: /azure/container-registry/container-registry-get-started-powershell
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: Informazioni su come usare Registro contenitori di Azure con Istanze di contenitore di Azure e il servizio contenitore di Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Registro contenitori con Istanze di contenitore di Azure</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Registro contenitori con il servizio contenitore di Azure</a>
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: <p><a href="/cli/azure/acr">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/containerregistry">Informazioni di riferimento sulle API REST</a></p>

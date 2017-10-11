@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 6f3477b67b27a30e6b69f6015e9063bfa27834f7
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: d18ef1f747aee2fa01cef9891432d0461031ee4c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Esercitazione: Introduzione all'estensione di U-SQL con Python
 
 Le estensioni Python per U-SQL consentono agli sviluppatori di effettuare esecuzioni parallele elevate del codice Python. L'esempio seguente illustra i passaggi di base:
@@ -100,5 +98,4 @@ A ogni vertice è assegnata una quantità di memoria limitata, che attualmente c
 * [Panoramica di Analisi Data Lake di Microsoft Azure](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-use-window-functions.md)
-
 

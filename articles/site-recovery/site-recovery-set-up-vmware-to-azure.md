@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a2fabc56463c8cbf0b8a76b7a84369ed8e535486
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 49cc01e54158b68e440f1efbfe2f8b0d076a5692
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -37,7 +37,11 @@ Nell'articolo si presuppone che siano già stati creati gli elementi seguenti:
 - Macchina virtuale nella quale installare il server di configurazione.
 
 ## <a name="configuration-server-minimum-requirements"></a>Requisiti minimi per il server di configurazione
-Il software per il server di configurazione deve essere distribuito in una macchina virtuale VMware a disponibilità elevata. La tabella seguente elenca i requisiti minimi hardware, software e di rete per un server di configurazione.
+La tabella seguente elenca i requisiti minimi hardware, software e di rete per un server di configurazione.
+
+> [!IMPORTANT]
+> Quando si distribuisce un server di configurazione per la protezione di macchine virtuali VMware, è consigliabile distribuirlo come macchina virtuale a **disponibilità elevata**.
+
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]

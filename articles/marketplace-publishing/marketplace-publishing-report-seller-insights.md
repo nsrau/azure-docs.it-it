@@ -1,6 +1,6 @@
 ---
-title: Informazioni sui report basati sull&quot;uso di Azure Marketplace e sui report sulle informazioni dettagliate del venditore | Documentazione Microsoft
-description: "In qualità di venditore in Azure Marketplace, comprendere i report basati sull&quot;utilizzo, detti anche report sulle informazioni dettagliate del venditore"
+title: Informazioni sui report basati sull'uso di Azure Marketplace e sui report sulle informazioni dettagliate del venditore | Documentazione Microsoft
+description: "In qualità di venditore in Azure Marketplace, comprendere i report basati sull'utilizzo, detti anche report sulle informazioni dettagliate del venditore"
 services: Azure Marketplace
 documentationcenter: na
 author: v-jeana
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 408394e529c262c0a47aae680c8f6ea1bc8eb7c6
-ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: e098e27e32f7b7ae2009580a430f262aa7225206
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="understand-your-seller-insights-report"></a>Descrizione del report sulle informazioni dettagliate del venditore
 **Quali sono le informazioni dettagliate del venditore?**
@@ -116,4 +114,3 @@ In caso di domande relative ai report e alle informazioni dettagliate, contattar
 [8]: ./media/marketplace-publishing-report-seller-insights/selectpublisherstab.png
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
-

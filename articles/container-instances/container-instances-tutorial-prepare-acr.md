@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -40,7 +40,7 @@ Nelle esercitazioni successive si distribuirà il contenitore dal registro priva
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Questa esercitazione richiede che sia in esecuzione l'interfaccia della riga di comando di Azure 2.0.12 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Distribuire il Registro contenitori di Azure
 
@@ -62,7 +62,7 @@ Nella parte restante di questa esercitazione si usa `<acrname>` come segnaposto 
 
 ## <a name="container-registry-login"></a>Accesso al registro contenitori
 
-È necessario accedere all'istanza del Registro contenitori di Azure prima di eseguire il push di immagini in essa. Usare il comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) per completare l'operazione. È necessario specificare il nome univoco assegnato al registro contenitori al momento della creazione.
+È necessario accedere all'istanza del Registro contenitori di Azure prima di eseguire il push di immagini in essa. Usare il comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) per completare l'operazione. È necessario specificare il nome univoco assegnato al registro contenitori al momento della creazione.
 
 ```azurecli
 az acr login --name <acrName>

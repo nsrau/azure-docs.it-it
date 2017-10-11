@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
 ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-azure-search-index"></a>Creare un indice di Ricerca di Azure
 > [!div class="op_single_selector"]
@@ -41,8 +41,8 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 | *Edm.String* |Testo facoltativamente soggetto a tokenizzazione per la ricerca full-text (suddivisione delle parole, stemming e così via). |
 | *Collection(Edm.String)* |Elenco di stringhe facoltativamente soggette a tokenizzazione per la ricerca full-text. Non esiste alcun limite superiore teorico al numero di elementi in una raccolta, ma alle raccolte si applica il limite massimo di 16 MB di dimensioni del payload. |
 | *Edm.Boolean* |Contiene valori true/false. |
-| *Edm.Int32* |Valori integer a&32; bit. |
-| *Edm.Int64* |Valori integer a&64; bit. |
+| *Edm.Int32* |Valori integer a 32 bit. |
+| *Edm.Int64* |Valori integer a 64 bit. |
 | *Edm.Double* |Dati numerici a precisione doppia. |
 | *Edm.DateTimeOffset* |Valori di ora rappresentati in formato OData V4 (ad esempio `yyyy-MM-ddTHH:mm:ss.fffZ` o `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Punto che rappresenta una località geografica del mondo. |
@@ -65,10 +65,4 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 Durante la progettazione dell'indice, dedicare alla fase di pianificazione il tempo necessario per valutare attentamente ogni decisione. È importante tenere in considerazione l'esperienza di ricerca dell'utente e le esigenze aziendali quando si progetta l'indice, perché a ogni campo devono essere assegnati gli [attributi appropriati](https://docs.microsoft.com/rest/api/searchservice/Create-Index). La modifica di un indice dopo la distribuzione comporta la ricompilazione e il ricaricamento dei dati.
 
 Se i requisiti per l'archiviazione dei dati cambiano nel tempo, è possibile aumentare o ridurre la capacità aggiungendo o spostando le partizioni. Per informazioni dettagliate, vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) o [Limiti dei servizi](search-limits-quotas-capacity.md) in Ricerca di Azure.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l&quot;Utilità di pianificazione di Azure"
-description: "Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l&quot;Utilità di pianificazione di Azure"
+title: "Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure"
+description: "Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
 ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.contentlocale: it-it
-ms.lasthandoff: 05/19/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure
 ## <a name="overview"></a>Overview
@@ -110,9 +108,9 @@ La tabella seguente illustra come *startTime* controlla la modalità di esecuzio
 
 È possibile esaminare lo scenario che prevede un valore per *startTime* nel passato, un oggetto *recurrence* ma nessun oggetto *schedule*.  Si supponga che l'ora corrente sia 2015-04-08 13:00, *startTime* sia 2015-04-07 14:00 e *recurrence* sia pari a ogni 2 giorni, in base a *frequency*: day e *interval*: 2. Si noti che il valore di *startTime* è nel passato e si verifica prima dell'ora corrente.
 
-In base a queste condizioni, la *prima esecuzione* verrà avviata il giorno 2015-04-09 alle ore 14:00\. Il motore dell'Utilità di pianificazione calcola le ricorrenze dell'esecuzione a partire dall'ora di inizio.  Vengono eliminate tutte le istanze in passato. Il motore utilizza l'istanza successiva che si verifica in futuro.  In questo caso, quindi, il valore per *startTime* è 2015-04-07 alle 14:00, quindi l'istanza successiva viene eseguita due giorni dopo tale orario, ovvero il giorno 2015-04-09 alle 14:00.
+In queste condizioni, il *prima esecuzione* sarà 2015-04-09 alle 14:00\. Il motore dell'utilità di pianificazione calcola le occorrenze dall'ora di inizio dell'esecuzione.  Vengono eliminate tutte le istanze in passato. Il motore utilizza l'istanza successiva che si verifica in futuro.  In questo caso, quindi, il valore per *startTime* è 2015-04-07 alle 14:00, quindi l'istanza successiva viene eseguita due giorni dopo tale orario, ovvero il giorno 2015-04-09 alle 14:00.
 
-Si noti che la prima esecuzione rimane invariata anche se il valore di startTime è 2015-04-05 14:00 o 2015-04-01 14:00\. Dopo la prima esecuzione vengono calcolate le esecuzioni successive sulla base della pianificazione. In questo caso le esecuzioni successive verranno avviate il giorno 2015-04-11 alle 14:00, quindi il giorno 2015-04-13 alle 14:00, il giorno 2015-04-15 alle 14:00 e così via.
+Si noti che la prima esecuzione potrebbe essere la stessa anche se la proprietà startTime 2015-04-05 14:00 o 14:00\ 2015-04-01. Dopo la prima esecuzione, le esecuzioni successive vengono calcolate secondo la pianificazione – per cui sono il 2015-04-11 alle 14:00, poi il 2015-04-13 alle 14:00, poi il  2015-04-15 alle 14:00, e così via.
 
 Infine, quando un processo ha una pianificazione, se non sono impostate ore e/o minuti nella pianificazione, per impostazione predefinita vengono usate le ore e/o minuti della prima esecuzione.
 
@@ -136,7 +134,7 @@ La tabella seguente illustra in modo dettagliato gli elementi dell'oggetto *sche
 ## <a name="examples-recurrence-schedules"></a>Esempi: Pianificazioni di ricorrenza
 Di seguito sono riportati diversi esempi di pianificazioni di ricorrenza – concentrarsi sull'oggetto pianificazione e i relativi elementi secondari.
 
-Tutte le pianificazioni seguenti presuppongono che *interval* sia impostato su 1\. È anche necessario configurare la frequenza corretta in base al valore di *schedule*. Non è ad esempio possibile usare un valore "day" per la frequenza con la modifica "monthDays" nell'oggetto schedule. Tali limitazioni sono state descritte in precedenza.
+Le pianificazioni sotto tutti presuppongono che il *intervallo* è impostato su 1\. Inoltre, uno necessario considerare la frequenza di invio in base al contenuto il *pianificazione* : ad esempio, uno non è possibile utilizzare frequenza "day" e una modifica "giorni mese" nella pianificazione. Tali limitazioni sono state descritte in precedenza.
 
 | **Esempio** | **Descrizione** |
 |:--- |:--- |
@@ -190,5 +188,4 @@ Tutte le pianificazioni seguenti presuppongono che *interval* sia impostato su 1
  [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
-
 

@@ -16,10 +16,10 @@ ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: dfb1abd4eefdb2baea8cdbd497bc8fcc95d200e6
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bd4e629e522fb9acea5601be8eac7c70ae61d042
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -76,7 +76,7 @@ Prima di configurare il processo in Jenkins, è necessario un piano di servizio 
 
 
 1. Creare un piano di servizio app di Azure con il piano tariffario **GRATUITO** usando il comando dell'interfaccia della riga di comando [az appservice plan create](/cli/azure/appservice/plan#create). Il piano di servizio app definisce le risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono queste risorse, per poter consentire un risparmio sui costi quando si ospitano più app.
-2. Creare un'app Web. È possibile usare il [portale di Azure](/azure/app-service-web/web-sites-configure) o il seguente comando Az dell'interfaccia della riga di comando:
+2. Creare un'app Web. È possibile usare il [portale di Azure](/azure/app-service/web-sites-configure) o il seguente comando Az dell'interfaccia della riga di comando:
 ```azurecli-interactive 
 az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 ```
@@ -142,7 +142,7 @@ Web App in Linux supporta anche modalità tradizionali come Git e FTP, ma solo p
 
 Prima di configurare il processo in Jenkins, è necessario un servizio app di Azure su Linux. Per archiviare e gestire immagini del contenitore Docker private è necessario anche un registro contenitori. È possibile usare DockerHub; per questo esempio viene usato Registro contenitori di Azure.
 
-* Seguire la procedura indicata [qui](/azure/app-service-web/app-service-linux-how-to-create-web-app) per creare un'app Web in Linux. 
+* Seguire la procedura indicata [qui](../app-service/containers/quickstart-nodejs.md) per creare un'app Web in Linux. 
 * Registro contenitori di Azure è un servizio gestito di [registri Docker] (https://docs.docker.com/registry/) basato sull'applicazione open source Docker Registry versione 2.0. Seguire la procedura [qui] (/azure/container-registry/container-registry-get-started-azure-cli) per altro materiale sussidiario utile per eseguire questa operazione. È anche possibile usare DockerHub.
 
 ### <a name="to-deploy-using-docker"></a>Per eseguire la distribuzione usando Docker:

@@ -1,6 +1,6 @@
 ---
-title: Come creare un&quot;app Web con la cache Redis | Microsoft Docs
-description: Informazioni su come creare un&quot;app Web con la cache Redis
+title: Come creare un'app Web con la cache Redis | Microsoft Docs
+description: Informazioni su come creare un'app Web con la cache Redis
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f23f71cc01eccf17d36885f786de9a7517606803
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Come creare un'app Web con la cache Redis
@@ -71,7 +70,7 @@ Se è disponibile Visual Studio 2013, è possibile [scaricare la versione più r
 
     Assicurarsi che per l'impostazione **Autenticazione** sia specificato **Nessuna autenticazione**. A seconda della versione di Visual Studio, il valore predefinito può essere diverso. Per modificarlo, fare clic su **Modifica autenticazione** e selezionare **Nessuna autenticazione**.
 
-    Se si usa Visual Studio 2015, deselezionare la casella di controllo **Ospita nel cloud**. Nei passaggi successivi dell'esercitazione si [effettuerà il provisioning delle risorse di Azure](#provision-the-azure-resources) e si [pubblicherà l'applicazione in Azure](#publish-the-application-to-azure). Per un esempio di provisioning di un'app Web del servizio app da Visual Studio con l'opzione **Ospita nel cloud** selezionata, vedere [Introduzione alle app Web nel servizio app di Azure con ASP.NET e Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
+    Se si usa Visual Studio 2015, deselezionare la casella di controllo **Ospita nel cloud**. Nei passaggi successivi dell'esercitazione si [effettuerà il provisioning delle risorse di Azure](#provision-the-azure-resources) e si [pubblicherà l'applicazione in Azure](#publish-the-application-to-azure). Per un esempio di provisioning di un'app Web del servizio app da Visual Studio con l'opzione **Ospita nel cloud** selezionata, vedere [Introduzione alle app Web nel servizio app di Azure con ASP.NET e Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
    
     ![Seleziona modello progetto][cache-select-template]
 4. Fare clic su **OK** per creare il progetto.
@@ -827,7 +826,7 @@ Dopo la selezione o la creazione della cache da usare, passare alla cache nel po
 * Per altri esempi di creazione di un'app Web ASP.NET nel servizio app, vedere [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Creare e distribuire un'app Web ASP.NET nel sevizio app di Azure) per la [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) di Connect 2015.
   * Per altre guide introduttive della demo HealthClinic.biz, vedere [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)(Guide introduttive agli strumenti di sviluppo di Azure).
 * Altre informazioni sull'approccio [Code First per un nuovo database](https://msdn.microsoft.com/data/jj193542) per Entity Framework usato in questa esercitazione.
-* Altre informazioni sulle [app Web nel servizio app di Azure](../app-service-web/app-service-web-overview.md).
+* Altre informazioni sulle [app Web nel servizio app di Azure](../app-service/app-service-web-overview.md).
 * Altre informazioni sul [monitoraggio](cache-how-to-monitor.md) della cache nel portale di Azure.
 * Esplorare le funzionalità Premium della cache Redis di Azure
   

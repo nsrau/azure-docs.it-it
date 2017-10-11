@@ -1,9 +1,7 @@
 
 <a name="cs_0_csharpprogramexample_h2"/>
 
-<a id="c-program-example" class="xliff"></a>
-
-## Esempio di programma C#
+## <a name="c-program-example"></a>Esempio di programma C#
 
 Le sezioni successive di questo articolo presentano un programma C# che usa ADO.NET per inviare istruzioni Transact-SQL al database SQL. Il programma C# esegue le azioni seguenti:
 
@@ -21,14 +19,12 @@ Il programma C# contiene:
 - Metodi che restituiscono il codice sorgente di T-SQL.
 - Due metodi che inviano il codice T-SQL al database.
 
-<a id="to-compile-and-run" class="xliff"></a>
-
-#### Per la compilazione e l'esecuzione
+#### <a name="to-compile-and-run"></a>Per la compilazione e l'esecuzione
 
 Questo programma C# è costituito logicamente da un file con estensione cs. In questo caso il programma è suddiviso fisicamente in diversi blocchi di codice, in modo da semplificare la visualizzazione e la comprensione di ogni blocco. Per compilare ed eseguire questo programma, seguire questa procedura:
 
 1. Creare un progetto C# in Visual Studio.
-    - Il tipo di progetto deve essere un'applicazione *console*, da un elemento simile alla gerarchia seguente: **Modelli** > **Visual C#** > **Desktop classico di Windows** > **App console (.NET Framework)**.
+    - Il tipo di progetto deve essere un *console* un'applicazione, da un elemento come la seguente gerarchia: **modelli** > **Visual c#** >  **Windows Desktop classico** > **Console App (.NET Framework)**.
 3. Nel file **Program.cs** cancellare le brevi righe iniziali del codice.
 3. In Program.cs copiare e incollare ogni blocco seguente nella stessa sequenza riportata.
 4. In Program.cs modificare i valori seguenti nel metodo **Main**:
@@ -47,9 +43,7 @@ Questo programma C# è costituito logicamente da un file con estensione cs. In q
 >
 
 <a name="cs_1_connect"/>
-<a id="c-block-1-connect-by-using-adonet" class="xliff"></a>
-
-### Blocco C# 1: Connessione tramite ADO.NET
+### <a name="c-block-1-connect-by-using-adonet"></a>Blocco C# 1: Connessione tramite ADO.NET
 
 - [Avanti](#cs_2_createtables)
 
@@ -105,9 +99,7 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
-<a id="c-block-2-t-sql-to-create-tables" class="xliff"></a>
-
-### Blocco C# 2: T-SQL per la creazione di tabelle
+### <a name="c-block-2-t-sql-to-create-tables"></a>Blocco C# 2: T-SQL per la creazione di tabelle
 
 - [Indietro](#cs_1_connect) &nbsp; / &nbsp; [Avanti](#cs_3_insert)
 
@@ -139,9 +131,7 @@ CREATE TABLE tabEmployee
       }
 ```
 
-<a id="entity-relationship-diagram-erd" class="xliff"></a>
-
-#### Diagramma entità-relazione
+#### <a name="entity-relationship-diagram-erd"></a>Diagramma entità-relazione
 
 Le istruzioni CREATE TABLE precedenti usano la parola chiave **REFERENCES** per creare una relazione *chiavi esterne* tra le due tabelle.  Se si usa tempdb, impostare come commento la parola chiave `--REFERENCES` usando una coppia di trattini iniziali.
 
@@ -151,9 +141,7 @@ Il diagramma entità-relazione mostra la relazione tra le due tabelle. I valori 
 
 
 <a name="cs_3_insert"/>
-<a id="c-block-3-t-sql-to-insert-data" class="xliff"></a>
-
-### Blocco C# 3: T-SQL per l'inserimento di dati
+### <a name="c-block-3-t-sql-to-insert-data"></a>Blocco C# 3: T-SQL per l'inserimento di dati
 
 - [Indietro](#cs_2_createtables) &nbsp; / &nbsp; [Avanti](#cs_4_updatejoin)
 
@@ -185,9 +173,7 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-<a id="c-block-4-t-sql-to-update-join" class="xliff"></a>
-
-### Blocco C# 4: T-SQL per l'aggiornamento tramite join
+### <a name="c-block-4-t-sql-to-update-join"></a>Blocco C# 4: T-SQL per l'aggiornamento tramite join
 
 - [Indietro](#cs_3_insert) &nbsp; / &nbsp; [Avanti](#cs_5_deletejoin)
 
@@ -215,9 +201,7 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-<a id="c-block-5-t-sql-to-delete-join" class="xliff"></a>
-
-### Blocco C# 5: T-SQL per l'eliminazione tramite join
+### <a name="c-block-5-t-sql-to-delete-join"></a>Blocco C# 5: T-SQL per l'eliminazione tramite join
 
 - [Indietro](#cs_4_updatejoin) &nbsp; / &nbsp; [Avanti](#cs_6_selectrows)
 
@@ -249,9 +233,7 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-<a id="c-block-6-t-sql-to-select-rows" class="xliff"></a>
-
-### Blocco C# 6: T-SQL per la selezione di righe
+### <a name="c-block-6-t-sql-to-select-rows"></a>Blocco C# 6: T-SQL per la selezione di righe
 
 - [Indietro](#cs_5_deletejoin) &nbsp; / &nbsp; [Avanti](#cs_6b_datareader)
 
@@ -279,9 +261,7 @@ SELECT
 
 
 <a name="cs_6b_datareader"/>
-<a id="c-block-6b-executereader" class="xliff"></a>
-
-### Blocco C# 6b: ExecuteReader
+### <a name="c-block-6b-executereader"></a>Blocco C# 6b: ExecuteReader
 
 - [Indietro](#cs_6_selectrows) &nbsp; / &nbsp; [Avanti](#cs_7_executenonquery)
 
@@ -317,9 +297,7 @@ Questo metodo è progettato per l'esecuzione dell'istruzione T-SQL SELECT compil
 
 
 <a name="cs_7_executenonquery"/>
-<a id="c-block-7-executenonquery" class="xliff"></a>
-
-### Blocco C# 7: ExecuteNonQuery
+### <a name="c-block-7-executenonquery"></a>Blocco C# 7: ExecuteNonQuery
 
 - [Indietro](#cs_6b_datareader) &nbsp; / &nbsp; [Avanti](#cs_8_output)
 
@@ -357,9 +335,7 @@ Questo metodo viene chiamato per operazioni che modificano il contenuto dei dati
 
 
 <a name="cs_8_output"/>
-<a id="c-block-8-actual-test-output-to-the-console" class="xliff"></a>
-
-### Blocco C# 8: Output del test effettivo nella console
+### <a name="c-block-8-actual-test-output-to-the-console"></a>Blocco C# 8: Output del test effettivo nella console
 
 - [Indietro](#cs_7_executenonquery)
 

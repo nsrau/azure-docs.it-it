@@ -1,6 +1,6 @@
 ---
-title: Gestione di un&quot;immagine di macchina virtuale in Azure Marketplace | Microsoft Docs
-description: Guida dettagliata su come gestire l&quot;immagine della macchina virtuale in Azure Marketplace dopo la pubblicazione iniziale
+title: Gestione di un'immagine di macchina virtuale in Azure Marketplace | Microsoft Docs
+description: Guida dettagliata su come gestire l'immagine della macchina virtuale in Azure Marketplace dopo la pubblicazione iniziale
 services: Azure Marketplace
 documentationcenter: 
 author: HannibalSII
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guida di post-produzione per le offerte di macchine virtuali in Azure Marketplace
 Questo articolo spiega come aggiornare un'offerta di macchine virtuali attiva in Azure Marketplace. L'articolo illustra il processo di aggiunta di uno o più nuovi SKU a un'offerta esistente. Illustra anche il processo di rimozione dell'offerta attiva di una macchina virtuale o di una SKU dal Marketplace.
@@ -28,7 +26,7 @@ Questo articolo spiega come aggiornare un'offerta di macchine virtuali attiva in
 Dopo che un'offerta/uno SKU è passato al [Portale di Azure](http://portal.azure.com), non è possibile modificare le seguenti caselle di testo:
 
 * **Offer Identifier** (Identificatore offerta): nel portale di pubblicazione, passare a **Macchine virtuali** e selezionare l'offerta. Quindi fare clic su **Immagini VM** > **Offer Identifier** (Identificatore offerta).
-* **SKU Identifier** (Identificatore SKU): nel portale di pubblicazione, passare a **macchine virtuali** e selezionare l'offerta. Quindi fare clic su **SKU** > **Aggiungere uno SKU**.
+* **SKU Identifier** (Identificatore SKU): nel portale di pubblicazione, passare a **Macchine virtuali** e selezionare l'offerta. Quindi fare clic su **SKU** > **Aggiungere uno SKU**.
 * **Publisher Namespace** (Spazio dei nomi dell'entità di pubblicazione): nel portale di pubblicazione, passare a **macchine virtuali** > **Procedura dettagliata** > **Informazioni sull'azienda**, (disponibile in "Step 2 Register Your Company" (Passaggio 2 Registrazione dell'azienda)) > **Publisher Namespace** (Spazio dei nomi dell'entità di pubblicazione)  > **Spazio dei nomi**.
 
 Dopo che un'offerta/uno SKU è elencato nel [Marketplace](http://azure.microsoft.com/marketplace), non è possibile modificare le seguenti caselle di testo:
@@ -338,4 +336,3 @@ Per ripristinare l'impostazione di visibilità di uno SKU elencato al valore di 
 * [Ottenere supporto come editore](marketplace-publishing-get-publisher-support.md)
 * [Sviluppare l'immagine di una macchina virtuale in locale per Azure Marketplace](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Creare una macchina virtuale con Windows nel portale di anteprima di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

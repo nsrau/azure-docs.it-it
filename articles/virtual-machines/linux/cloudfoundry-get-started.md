@@ -16,14 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: fd51bf9e965d2efd5a6bea9de142ab2ec8d27836
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 94fbde7707ea9a91076780fdefc3f5a827e0e7b2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry in Azure
 
 Cloud Foundry è una piattaforma distribuita come servizio (PaaS) open source per la compilazione, la distribuzione e l'uso di applicazioni a 12 fattori sviluppate in una vasta gamma di linguaggi e framework. Questo documento descrive le opzioni disponibili per eseguire Cloud Foundry in Azure e come iniziare.

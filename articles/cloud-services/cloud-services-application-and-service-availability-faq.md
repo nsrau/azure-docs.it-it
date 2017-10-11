@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 8aa00757ff11ed9086cd178e4c7190b93ee62701
-ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: a893a6d009dd018ad440964419e0a5a1963084b4
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di disponibilità di applicazioni e servizi per Servizi cloud di Azure: domande frequenti
 
@@ -47,4 +46,3 @@ I documenti seguenti sono utili per comprendere e attenuare questo problema:
 Se si vuole modificare il comportamento predefinito di IIS, è necessario usare le attività di avvio, poiché se si applicano manualmente le modifiche alle istanze del ruolo Web, queste potrebbero andare perse.
 
 Per altre informazioni, vedere [Come configurare ed eseguire attività di avvio per un servizio cloud](cloud-services-startup-tasks.md).
-

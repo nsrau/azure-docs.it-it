@@ -1,6 +1,6 @@
 ---
-title: Usare Caffe in Azure HDInsight Spark per l&quot;apprendimento avanzato distribuito | Microsoft Docs
-description: Usare Caffe in Azure HDInsight Spark per l&quot;apprendimento avanzato distribuito
+title: Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito | Microsoft Docs
+description: Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
 services: hdinsight
 documentationcenter: 
 author: xiaoyongzhu
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 14b7808c9534bce3049422d6bce1e8914b2c2fbc
-ms.lasthandoff: 03/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
 
@@ -307,5 +306,4 @@ Questo documento ha illustrato come installare CaffeOnSpark tramite l'esecuzione
 
 ### <a name="manage-resources"></a>Gestire risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-site-recovery"></a>Che cos'è Site Recovery?
 
@@ -79,4 +78,3 @@ Site Recovery può gestire la replica per:
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [supporto dei carichi di lavoro](site-recovery-workload.md)
 * Introduzione alla [replica di VM di Azure tra aree](site-recovery-azure-to-azure.md), [replica VMware in Azure](vmware-walkthrough-overview.md) o [replica Hyper-V in Azure](hyper-v-site-walkthrough-overview.md).
-

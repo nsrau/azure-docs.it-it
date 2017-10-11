@@ -1,11 +1,11 @@
 ---
-title: Ripristinare un database SQL di Azure in un&quot;app multi-tenant | Microsoft Docs
-description: Informazioni su come ripristinare un database SQL a tenant singolo dopo l&quot;eliminazione accidentale di dati
+title: Ripristinare un database SQL di Azure in un'app SaaS multi-tenant | Microsoft Docs
+description: Informazioni su come ripristinare un database SQL a tenant singolo dopo l'eliminazione accidentale di dati
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -16,15 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 792476849e796695dde3f2ec80b56431a17e8fc0
 ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>Ripristinare un database SQL a tenant Wingtip SaaS
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Ripristinare un database SQL di Azure a tenant singolo in un'app SaaS multi-tenant
 
 L'applicazione SaaS Wingtip viene compilata usando un modello database per ogni tenant, in cui ogni tenant dispone di un proprio database. Uno dei vantaggi di questo modello è che è facile ripristinare i dati di un singolo tenant in isolamento senza alcun impatto sugli altri tenant.
 

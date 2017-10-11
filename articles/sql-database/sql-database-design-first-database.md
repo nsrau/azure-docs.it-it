@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 63833db74eb5889611d4aeb45d00542217730910
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 3a58c50d1187b9cca9490ad725b14617b4a98efe
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -76,14 +76,14 @@ Per creare un database SQL vuoto, attenersi alla procedura seguente.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Server name** (Nome server) | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Regole di denominazione e restrizioni). | 
    | **Nome di accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database).|
-   | **Password** | Qualsiasi password valida | La password deve almeno 8 caratteri e contenere caratteri inclusi in tre delle categorie seguenti: caratteri maiuscoli, caratteri minuscoli, numeri e caratteri non alfanumerici. |
+   | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
    | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
 
    ![Creare il server di database](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Fare clic su **Seleziona**.
 
-6. Fare clic su **Piano tariffario** per specificare il livello di servizio, il numero di DTU e la quantità di risorse di archiviazione. Esplorare le opzioni relative alla quantità di DTU e di risorse di archiviazione disponibile per ogni livello di servizio. 
+6. Fare clic su **Piano tariffario** per specificare il livello di servizio, il numero di DTU e la quantità di risorse di archiviazione. Esplorare le opzioni relative al numero di DTU e di risorse di archiviazione disponibile per ogni livello di servizio. 
 
 7. Per questa esercitazione selezionare il livello di servizio **Standard** e quindi usare il dispositivo di scorrimento per selezionare **100 DTU (S3)** e **400** GB di archiviazione.
 
@@ -157,7 +157,7 @@ Usare [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
    | Impostazione       | Valore consigliato | Descrizione | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo di server | Motore di database | Questo valore è obbligatorio |
-   | Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver20170313.database.windows.net**. |
+   | Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver20170824.database.windows.net**. |
    | Autenticazione | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
    | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
    | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |

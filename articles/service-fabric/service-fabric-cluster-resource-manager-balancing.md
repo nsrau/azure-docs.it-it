@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: dfe0de1bc4cdfcbc0d175f1a3268601bde4da21a
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Bilanciamento del carico nel cluster di Service Fabric
@@ -175,6 +175,10 @@ Tramite ClusterConfig.json per le distribuzioni autonome o Template.json per clu
 ```
 
 Si noti che le soglie di bilanciamento e di attività sono entrambe legate a una metrica specifica. Il bilanciamento del carico viene attivato solo se vengono superate entrambe le soglie di bilanciamento e di attività per la stessa metrica.
+
+> [!NOTE]
+> Se omessa, la soglia di bilanciamento del carico per una metrica è 1, mentre la soglia di attività è 0. Ciò significa che Cluster Resource Manager tenterà di mantenere tale metrica perfettamente bilanciata per un determinato carico. Se si usano metriche personalizzate, è consigliabile definire le soglie di bilanciamento del carico e delle attività in modo esplicito per le metriche. 
+>
 
 ## <a name="balancing-services-together"></a>Bilanciamento composto dei servizi
 Che il cluster sia bilanciato o no è una decisione a livello di cluster. Viene, tuttavia, corretto spostando le singole repliche e le istanze dei servizi. Questo approccio ha senso, giusto? Uno stack di memoria in un nodo può ricevere contributi da più repliche o istanze. Per correggere lo sbilanciamento potrebbe essere necessario spostare una delle repliche con stato o delle istanze senza stato che usano la metrica sbilanciata.

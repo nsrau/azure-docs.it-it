@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 90d55bbac6e113d6add848ace67cf0749e26342b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-classic-portal"></a>Come configurare la scalabilità automatica per un servizio cloud nel portale classico
 > [!div class="op_single_selector"]
 > * [Portale di Azure](cloud-services-how-to-scale-portal.md)
@@ -141,4 +139,3 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database utilizz
 [scale_schedules]: ./media/cloud-services-how-to-scale/schedules.png
 [scale_popup]: ./media/cloud-services-how-to-scale/schedules-dialog.png
 [linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
-

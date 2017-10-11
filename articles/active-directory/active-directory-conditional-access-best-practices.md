@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 09/16/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 74b97ac263dcc45f7a8dd7461cbdb23d9fd5e6fd
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
@@ -98,28 +98,90 @@ Nell'ambiente, è necessario evitare le seguenti configurazioni:
 - **Blocca accesso**: questa configurazione consente di bloccare l'intera organizzazione. Un'idea chiaramente non buona.
 
 
-## <a name="common-scenarios"></a>Scenari comuni
 
-### <a name="requiring-multi-factor-authentication-for-apps"></a>Richiesta dell'autenticazione a più fattori per le app
+## <a name="policy-migration"></a>Migrazione dei criteri
 
-Diversi ambienti hanno app che richiedono un livello di protezione maggiore delle altre,
-ad esempio, app che hanno accesso a dati sensibili.
-Per aggiungere un altro livello di protezione a queste app, è possibile configurare un criterio di accesso condizionale che richiede l'autenticazione a più fattori quando gli utenti accedono a queste app.
+Se nel portale di Azure classico sono configurati dei criteri, è opportuno eseguirne la migrazione nel portale di Azure per i motivi seguenti:
 
 
-### <a name="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted"></a>Richiesta dell'autenticazione a più fattori per l'accesso da reti non considerate attendibili
+- Un utente per cui sono configurati criteri nel portale di Azure classico e nel portale di Azure deve soddisfare i requisiti per entrambi i criteri 
 
-Questo scenario è simile a quello precedente perché aggiunge un requisito per l'autenticazione a più fattori.
-La differenza principale è tuttavia la condizione per questo requisito.  
-Mentre l'elemento essenziale dello scenario precedente sono le app con accesso a dati sensibili, in questo scenario l'elemento essenziale sono le località attendibili.  
-In altre parole, è possibile avere un requisito per l'autenticazione a più fattori se un'app è accessibile a un utente da una rete non considerata attendibile.
+- Se non si esegue la migrazione dei criteri esistenti, non si potranno implementare i criteri che concedono l'accesso
 
 
-### <a name="only-trusted-devices-can-access-office-365-services"></a>Solo i dispositivi attendibili possono accedere ai servizi di Office 365
+### <a name="migration-from-the-azure-classic-portal"></a>Migrazione dal portale di Azure classico
 
-Se si usa Intune nell'ambiente, è possibile iniziare immediatamente a usare l'interfaccia del criterio di accesso condizionale nella console Azure.
+In questo scenario: 
 
-Molti clienti Intune usano l'accesso condizionale per assicurarsi che solo i dispositivi attendibili possano accedere a Office 365. Di conseguenza i dispositivi mobili vengono registrati con Intune e soddisfano i requisiti dei criteri di conformità e i PC Windows vengono aggiunti e un dominio locale. Un importante miglioramento consiste nel fatto che non è necessario impostare lo stesso criterio per ogni servizio di Office 365.  Quando si crea un nuovo criterio, configurare le app per cloud per includere ogni app di O365 che si vuole proteggere con l'accesso condizionale.
+- Nel [portale di Azure classico](https://manage.windowsazure.com) sono configurati:
+
+    - SharePoint Online
+
+    ![Accesso condizionale](./media/active-directory-conditional-access-best-practices/14.png)
+
+    - Criteri di accesso condizionale basato su dispositivo
+
+    ![Accesso condizionale](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Si vuole eseguire la configurazione di criteri di accesso condizionale con gestione di applicazioni mobili nel portale di Azure 
+ 
+
+#### <a name="configuration"></a>Configurazione 
+
+- Esaminare i criteri di accesso condizionale basato su dispositivo
+
+- Eseguirne la migrazione nel portale di Azure 
+
+- Aggiungere criteri di accesso condizionale con gestione di applicazioni mobili
+
+
+### <a name="migrating-from-intune"></a>Migrazione da Intune 
+
+In questo scenario:
+
+- In [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ) sono configurati criteri di accesso condizionale con gestione di applicazioni mobili per Exchange Online o SharePoint Online
+
+    ![Accesso condizionale](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Si vuole eseguire la migrazione in modo da usare l'accesso condizionale con gestione di applicazioni mobili nel portale di Azure
+
+
+#### <a name="configuration"></a>Configurazione 
+ 
+- Esaminare i criteri di accesso condizionale basato su dispositivo
+
+- Eseguirne la migrazione nel portale di Azure 
+
+- Esaminare i criteri di accesso condizionale con gestione di applicazioni mobili configurati per Exchange Online o SharePoint Online in Intune
+
+- Aggiungere il controllo per **richiedere applicazioni approvate** oltre al controllo basato su dispositivo 
+ 
+
+### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migrazione dal portale di Azure classico e Intune
+
+In questo scenario:
+
+- Sono configurati i criteri seguenti:
+
+    - **Portale di Azure classico:** criteri di accesso condizionale basato su dispositivo 
+
+    - **Intune:** criteri di accesso condizionale con gestione di applicazioni mobili 
+    
+- Si vuole eseguire la migrazione di entrambi i criteri in modo da usare l'accesso condizionale con gestione di applicazioni mobili nel portale di Azure
+
+
+#### <a name="configuration"></a>Configurazione
+
+- Esaminare i criteri di accesso condizionale basato su dispositivo
+
+- Eseguirne la migrazione nel portale di Azure 
+
+- Esaminare i criteri di accesso condizionale con gestione di applicazioni mobili configurati per Exchange Online o SharePoint Online in Intune
+
+- Aggiungere il controllo per **richiedere applicazioni approvate** oltre a quello basato su dispositivo 
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

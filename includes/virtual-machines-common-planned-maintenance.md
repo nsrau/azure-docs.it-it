@@ -8,6 +8,8 @@ Questa pagina descrive come Microsoft Azure esegue entrambi i tipi di manutenzio
 
 Le applicazioni in esecuzione in una macchina virtuale possono raccogliere informazioni sugli aggiornamenti futuri usando il servizio metadati di Azure per [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) o [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
 
+Per informazioni sulle procedure di gestione della manutenzione pianificata, vedere "Gestire gli avvisi relativi alla manutenzione pianificata" per [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) o [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+
 ## <a name="in-place-vm-migration"></a>Migrazione di una VM sul posto
 
 Quando gli aggiornamenti non richiedono un riavvio completo, viene usata una migrazione in tempo reale sul posto. Durante l'aggiornamento la macchina virtuale viene sospesa per circa 30 secondi, mantenendo la memoria nella RAM, mentre l'ambiente host applica gli aggiornamenti e le patch necessari. La macchina virtuale viene quindi ripresa e l'orologio della macchina virtuale viene sincronizzato automaticamente.

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro
 
@@ -281,4 +280,3 @@ Microsoft invita i clienti alle anteprime private in diversi modi a seconda dell
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni di gestione.
-

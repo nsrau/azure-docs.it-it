@@ -1,6 +1,6 @@
 ---
 title: 'Hub di notifica: architettura push aziendale'
-description: Indicazioni sull&quot;uso di Hub di notifica di Azure in un ambiente aziendale
+description: Indicazioni sull'uso di Hub di notifica di Azure in un ambiente aziendale
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae7c1c9644ecfe7fe4ad6e332cc0683a3b5df22f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
+ms.contentlocale: it-it
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guida all'architettura push aziendale
@@ -262,12 +263,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 [Servizi mobili di Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
 [bus di servizio di Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [Come usare gli argomenti e le sottoscrizioni del bus di servizio]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[Web di Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
+[Web di Azure]: ../app-service/web-sites-create-web-jobs.md
 [Introduzione ad Hub di notifica - Esercitazione per Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [portale di Azure classico]: https://manage.windowsazure.com/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

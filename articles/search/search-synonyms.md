@@ -1,6 +1,6 @@
 ---
 pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: "Documentazione preliminare per la funzionalità relativa ai sinonimi (anteprima) esposta nell&quot;API REST di Ricerca di Azure."
+description: "Documentazione preliminare per la funzionalità relativa ai sinonimi (anteprima) esposta nell'API REST di Ricerca di Azure."
 services: search
 documentationCenter: 
 authors: mhko
@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Sinonimi in Ricerca di Azure (anteprima)
 
@@ -166,4 +165,3 @@ Le espansioni dei sinonimi non si applicano ai termini di ricerca con caratteri 
 - Se si ha un indice esistente in un ambiente di sviluppo (non di produzione), provare con un piccolo dizionario per vedere come l'aggiunta di sinonimi cambia l'esperienza di ricerca, compreso l'impatto sui profili di punteggio, l'evidenziazione dei risultati e i suggerimenti.
 
 - [Abilitare l'analisi del traffico di ricerca](search-traffic-analytics.md) e usare i report predefiniti di Power BI per ottenere informazioni su quali termini sono più utilizzati e quali non restituiscono documenti. In base a queste informazioni, modificare il dizionario per includere i sinonimi per le query improduttive che devono risolversi in documenti nell'indice.
-

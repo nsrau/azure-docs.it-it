@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Jobbadmin | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Jobbadmin.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Jobbadmin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 848a6d6d0f072bc3f697ff57756714fc45e7dcc4
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Esercitazione: Integrazione di Azure Active Directory con Jobbadmin
 
@@ -231,5 +229,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-jobbadmin-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jobbadmin-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jobbadmin-tutorial/tutorial_general_203.png
-
 

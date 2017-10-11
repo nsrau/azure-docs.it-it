@@ -1,9 +1,9 @@
 ---
 title: Asset credenziali in Automazione di Azure | Documentazione Microsoft
-description: Gli asset credenziali in Automazione di Azure includono le credenziali di sicurezza che possono essere usate per l&quot;autenticazione nelle risorse a cui accede il Runbook o la configurazione DSC. Questo articolo illustra come creare asset credenziali e usarli in un Runbook o in una configurazione DSC.
+description: Gli asset credenziali in Automazione di Azure includono le credenziali di sicurezza che possono essere usate per l'autenticazione nelle risorse a cui accede il Runbook o la configurazione DSC. Questo articolo illustra come creare asset credenziali e usarli in un Runbook o in una configurazione DSC.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 3209bf73-c208-425e-82b6-df49860546dd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6a62f7f70982a07646248188da8293c88fbe1b52
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 540362e27e0552780d61038cf8285d934795129c
+ms.contentlocale: it-it
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="credential-assets-in-azure-automation"></a>Asset credenziali in Automazione di Azure
@@ -46,8 +46,16 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle cred
 
 > [!NOTE]
 > È consigliabile evitare di usare le variabili nel parametro –Name di Get-AutomationPSCredential, poiché ciò può complicare l'individuazione delle dipendenze tra i Runbook o configurazioni DSC e gli asset credenziali durante la fase di progettazione.
-> 
-> 
+
+## <a name="python2-functions"></a>Funzioni Python2
+La funzione nella tabella seguente viene usata per accedere alle credenziali in un runbook Python2.
+
+| Funzione | Descrizione |
+|:---|:---|
+| automationassets.get_automation_credential | Recupera informazioni riguardo un asset credenziali. |
+
+> [!NOTE]
+> È necessario importare il modulo "automationassets" nella parte superiore del runbook Python per poter accedere alle funzioni dell'asset.
 
 ## <a name="creating-a-new-credential-asset"></a>Creazione di un nuovo asset credenziali
 
@@ -96,10 +104,22 @@ La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafi
 ## <a name="using-a-powershell-credential-in-dsc"></a>Uso di credenziali PowerShell in DSC
 Anche se le configurazioni DSC in Automazione di Azure possono fare riferimento ad asset credenziali con **Get-AutomationPSCredential**, gli asset credenziali possono essere passati anche con i parametri, se necessario. Per ulteriori informazioni vedere [Compilazione di configurazioni in Azure Automation DSC](automation-dsc-compile.md#credential-assets).
 
+## <a name="using-credentials-in-python2"></a>Uso delle credenziali in Python2
+L'esempio seguente illustra un esempio di accesso alle credenziali dei runbook Python2.
+
+    import automationassets
+    from automationassets import AutomationAssetNotFound
+
+    # get a credential
+    cred = automationassets.get_automation_credential("credtest")
+    print cred["username"]
+    print cred["password"]
+
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sui collegamenti nella creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md#links-and-workflow)
 * Per comprendere i diversi metodi di autenticazione con Automazione, vedere [Sicurezza in Automazione di Azure](automation-security-overview.md)
 * Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md)
 * Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md) 
+* Per iniziare a usare i runbook di Python2, vedere [Il primo runbook Python2](automation-first-runbook-textual-python2.md) 
 
 

@@ -6,107 +6,135 @@ documentationcenter:
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 2c98a4aa-8d9f-4a0a-b764-214dbe8ed009
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 09/08/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: a4cac5834c667976b0a2d1f2748e4309a166d16a
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-template-deploy.md)
-> * [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
-> * [Portale](resource-group-template-deploy-portal.md)
-> * [API REST](resource-group-template-deploy-rest.md)
-> 
-> 
 
 Questo argomento illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per distribuire le risorse di Azure. Per altre informazioni sulla gestione delle risorse, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
 
-Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [grafico della disponibilità del portale di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
-
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
-1. Per creare un gruppo di risorse vuoto, selezionare **Nuovo** > **Gestione** > **Gruppo di risorse**.
-   
-    ![creare un gruppo di risorse vuoto](./media/resource-group-template-deploy-portal/create-empty-group.png)
-2. Assegnare un nome e un percorso e, se necessario, selezionare una sottoscrizione. È necessario specificare un percorso per il gruppo di risorse perché nel gruppo di risorse vengono archiviati i metadati delle risorse. Per motivi di conformità può essere opportuno specificare dove vengono archiviati i metadati. In generale è consigliabile specificare un percorso in cui risiederà la maggior parte delle risorse. Usando lo stesso percorso è possibile semplificare il modello.
-   
-    ![impostare i valori del gruppo](./media/resource-group-template-deploy-portal/set-group-properties.png)
+
+1. Per creare un gruppo di risorse vuoto, selezionare **Gruppi di risorse**.
+
+   ![Selezionare i gruppi di risorse](./media/resource-group-template-deploy-portal/select-resource-groups.png)
+
+1. In Gruppi di risorse selezionare **Aggiungi**.
+
+   ![Aggiungere il gruppo di risorse](./media/resource-group-template-deploy-portal/add-resource-group.png)
+
+1. Assegnare un nome e un percorso e, se necessario, selezionare una sottoscrizione. È necessario specificare un percorso per il gruppo di risorse perché nel gruppo di risorse vengono archiviati i metadati delle risorse. Per motivi di conformità può essere opportuno specificare dove vengono archiviati i metadati. In generale è consigliabile specificare un percorso in cui risiederà la maggior parte delle risorse. Usando lo stesso percorso è possibile semplificare il modello.
+
+   ![Impostare i valori del gruppo](./media/resource-group-template-deploy-portal/set-group-properties.png)
+
+   Al termine dell'operazione di impostazione delle proprietà selezionare **Crea**.
+
+1. Per visualizzare il nuovo gruppo di risorse, selezionare **Aggiorna**.
+
+   ![Aggiornare i gruppi di risorse](./media/resource-group-template-deploy-portal/refresh-resource-groups.png)
 
 ## <a name="deploy-resources-from-marketplace"></a>Distribuire le risorse da Marketplace
+
 Dopo aver creato il gruppo di risorse, è possibile distribuire le risorse da Marketplace. Marketplace fornisce soluzioni predefinite per scenari comuni.
 
-1. Per avviare una distribuzione, selezionare **Nuovo** e il tipo di risorsa da distribuire. Dopodiché, cercare la versione specifica della risorsa che si desidera distribuire.
-   
-    ![distribuire risorse](./media/resource-group-template-deploy-portal/deploy-resource.png)
-2. Se la specifica soluzione che si desidera distribuire non è visualizzata, è possibile cercarla nel Marketplace.
-   
-    ![cercare nel Marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
-3. A seconda del tipo di risorsa selezionato, sarà necessario impostare una serie di proprietà pertinenti prima della distribuzione. Le opzioni non sono visualizzate in questo articolo, perché variano in base al tipo di risorsa. Per tutti i tipi è necessario selezionare un gruppo di risorse di destinazione. L'immagine seguente mostra come creare un'app Web e distribuirla nel gruppo di risorse creato.
-   
-    ![Creare un gruppo di risorse](./media/resource-group-template-deploy-portal/select-existing-group.png)
-   
-    In alternativa, è possibile decidere di creare un gruppo di risorse durante la distribuzione delle risorse. Selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
-   
-    ![creare un nuovo gruppo di risorse](./media/resource-group-template-deploy-portal/select-new-group.png)
-4. La distribuzione ha inizio. La distribuzione può richiedere alcuni minuti. Al termine della distribuzione verrà visualizzata una notifica.
-   
-    ![visualizzare notifiche](./media/resource-group-template-deploy-portal/view-notification.png)
-5. Dopo aver distribuito le risorse, è possibile aggiungerne altre al gruppo di risorse usando il comando **Aggiungi** nel pannello del gruppo corrispondente.
-   
-    ![aggiungere una risorsa](./media/resource-group-template-deploy-portal/add-resource.png)
+1. Per avviare una distribuzione, selezionare **Nuovo**.
+
+   ![Nuova risorsa](./media/resource-group-template-deploy-portal/new-resources.png)
+
+1. Trovare il tipo di risorsa che si vuole distribuire.
+
+   ![Selezionare il tipo di risorsa](./media/resource-group-template-deploy-portal/select-resource-type.png)
+
+1. Se la specifica soluzione che si desidera distribuire non è visualizzata, è possibile cercarla nel Marketplace. Ad esempio, per trovare una soluzione Wordpress, iniziare a digitare **Wordpress** e selezionare l'opzione desiderata.
+
+   ![Cercare nel Marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
+
+1. A seconda del tipo di risorsa selezionato, sarà necessario impostare una serie di proprietà pertinenti prima della distribuzione. Per tutti i tipi è necessario selezionare un gruppo di risorse di destinazione. L'immagine seguente mostra come creare un'app Web e distribuirla nel gruppo di risorse creato.
+
+   ![Creare un gruppo di risorse](./media/resource-group-template-deploy-portal/select-existing-group.png)
+
+   In alternativa, è possibile decidere di creare un gruppo di risorse durante la distribuzione delle risorse. Selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
+
+   ![Creare un nuovo gruppo di risorse](./media/resource-group-template-deploy-portal/select-new-group.png)
+
+1. La distribuzione ha inizio. La distribuzione può richiedere alcuni minuti. Al termine della distribuzione verrà visualizzata una notifica.
+
+   ![Visualizzare la notifica](./media/resource-group-template-deploy-portal/view-notification.png)
+
+1. Dopo avere distribuito le risorse, è possibile aggiungerne altre al gruppo di risorse selezionando il comando **Aggiungi**.
+
+   ![Aggiungere una risorsa](./media/resource-group-template-deploy-portal/add-resource.png)
 
 ## <a name="deploy-resources-from-custom-template"></a>Distribuire risorse da un modello personalizzato
-Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace, è possibile creare un modello personalizzato che definisce l'infrastruttura per la soluzione. Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 
-1. Per distribuire un modello personalizzato tramite il portale, selezionare **Nuovo** e quindi iniziare a digitare **Distribuzione modello** nella casella di ricerca fino a quando non è selezionabile nelle opzioni.
-   
-    ![cercare la distribuzione del modello](./media/resource-group-template-deploy-portal/search-template.png)
-2. Selezionare **Distribuzione modello** nelle risorse disponibili.
-   
-    ![selezionare la distribuzione del modello](./media/resource-group-template-deploy-portal/select-template.png)
-3. Dopo aver avviato la distribuzione del modello, aprire il modello vuoto disponibile per la personalizzazione.
-   
-    ![creare un modello](./media/resource-group-template-deploy-portal/show-custom-template.png)
-   
-    Nell'editor, aggiungere la sintassi JSON che definisce le risorse da distribuire. Al termine, selezionare **Salva** . Per indicazioni sulla scrittura della sintassi JSON, vedere [Procedura dettagliata per un modello di Resource Manager](resource-manager-template-walkthrough.md).
-   
-    ![modificare un modello](./media/resource-group-template-deploy-portal/edit-template.png)
-4. In alternativa, è possibile selezionare un modello preesistente dai [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/). Questi modelli sono forniti dalla community. I modelli sono relativi a molti scenari comuni ed è possibile che qualcuno abbia aggiunto un modello simile a quello che si sta provando a distribuire. È possibile eseguire ricerche nei modelli per trovare aspetti corrispondenti al proprio scenario.
-   
-    ![selezionare un modello di Guida introduttiva](./media/resource-group-template-deploy-portal/select-quickstart-template.png)
-   
-    È possibile visualizzare il modello selezionato nell'editor.
-5. Dopo aver fornito tutti gli altri valori, selezionare **Crea** per distribuire il modello. 
-   
-    ![distribuire un modello](./media/resource-group-template-deploy-portal/create-custom-deploy.png)
+Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace, è possibile creare un modello personalizzato che definisce l'infrastruttura per la soluzione. Per informazioni sulla creazione di modelli, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
+
+1. Per distribuire un modello personalizzato tramite il portale, selezionare **Nuovo** e quindi cercare **Distribuzione modello** fino a quando non è selezionabile nelle opzioni.
+
+   ![Cercare la distribuzione del modello](./media/resource-group-template-deploy-portal/search-template.png)
+
+1. Selezionare **Crea**.
+
+   ![Selezionare Crea](./media/resource-group-template-deploy-portal/show-template-option.png)
+
+1. Verranno visualizzate diverse opzioni per la creazione di un modello. Selezionare **Creare un modello personalizzato nell'editor**.
+
+   ![Visualizzare le opzioni](./media/resource-group-template-deploy-portal/see-options.png)
+
+1. È disponibile un modello vuoto che è possibile personalizzare.
+
+   ![Creare il modello](./media/resource-group-template-deploy-portal/blank-template.png)
+
+1. È possibile modificare manualmente la sintassi JSON o selezionare un modello predefinito dalla [raccolta di modelli di avvio rapido](https://azure.microsoft.com/resources/templates/). Per questo articolo usare tuttavia l'opzione **Aggiungi risorsa**.
+
+   ![Modifica del modello](./media/resource-group-template-deploy-portal/select-add-resource.png)
+
+1. Fornire **Account di archiviazione** e fornire un nome. Dopo avere fornito i valori, selezionare **OK**.
+
+   ![Selezionare l'account di archiviazione](./media/resource-group-template-deploy-portal/add-storage-account.png)
+
+1. L'editor aggiunge automaticamente JSON per il tipo di risorsa. Si noti che include un parametro per la definizione del tipo di account di archiviazione. Selezionare **Salva**.
+
+   ![Mostrare il modello](./media/resource-group-template-deploy-portal/show-json.png)
+
+1. A questo punto è possibile distribuire le risorse definite nel modello. Per eseguire la distribuzione, accettare i termini e le condizioni e selezionare **Acquista**.
+
+   ![Distribuire il modello](./media/resource-group-template-deploy-portal/provide-custom-template-values.png)
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Distribuire risorse da un modello salvato nel proprio account
+
 Il portale consente di salvare un modello nel proprio account Azure e di ridistribuirlo in un secondo momento. Per altre informazioni sull'uso dei modelli salvati, vedere [Introduzione ai modelli privati nel portale di Azure](../marketplace-consumer/mytemplates-getstarted.md).
 
-1. Per trovare i modelli salvati, selezionare **Esplora** > **Modelli**.
-   
-    ![esplorare i modelli](./media/resource-group-template-deploy-portal/browse-templates.png)
-2. Nell'elenco dei modelli salvati nel proprio account selezionare quello che si desidera utilizzare.
-   
-    ![modelli salvati](./media/resource-group-template-deploy-portal/saved-templates.png)
-3. Selezionare **Distribuisci** per ridistribuire il modello salvato.
-   
-    ![distribuire un modello salvato](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
+1. Per trovare i modelli salvati, selezionare **Altri servizi**.
+
+   ![Altri servizi](./media/resource-group-template-deploy-portal/more-services.png)
+
+1. Cercare i **modelli** e selezionare questa opzione.
+
+   ![Cercare i modelli](./media/resource-group-template-deploy-portal/find-templates.png)
+
+1. Nell'elenco dei modelli salvati nel proprio account selezionare quello che si desidera utilizzare.
+
+   ![Modelli salvati](./media/resource-group-template-deploy-portal/saved-templates.png)
+
+1. Selezionare **Distribuisci** per ridistribuire il modello salvato.
+
+   ![Distribuire il modello salvato](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare i log di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
 * Per risolvere gli errori di distribuzione, vedere [View deployment operations](resource-manager-deployment-operations.md) (Visualizzare le operazioni di distribuzione).
 * Per recuperare un modello da un gruppo di risorse o di distribuzione, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
 

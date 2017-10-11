@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: 7dafb491cec908ffbb3683991919654f3d3eb452
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="create-change-or-delete-a-network-interface"></a>Creare, modificare o eliminare un'interfaccia di rete
 
 Informazioni su come creare, modificare le impostazioni ed eliminare un'interfaccia di rete. Un'interfaccia di rete consente a una macchina virtuale di Azure di comunicare con Internet, Azure e le risorse locali. Quando si crea una macchina virtuale tramite il portale di Azure, il portale crea automaticamente un'interfaccia di rete con le impostazioni predefinite. È invece possibile scegliere di creare interfacce di rete con impostazioni personalizzate e aggiungere una o più interfacce di rete a una macchina virtuale durante il processo di creazione. È anche possibile modificare le impostazioni predefinite di un'interfaccia di rete esistente. Questo articolo spiega come creare un'interfaccia di rete con impostazioni personalizzate, modificare le impostazioni esistenti, ad esempio l'assegnazione del filtro di rete (gruppi di sicurezza di rete), l'assegnazione di subnet, le impostazioni di server DNS e l'inoltro IP, ed eliminare le interfaccia di rete.
@@ -191,4 +189,3 @@ Per creare una macchina virtuale con più interfacce di rete o indirizzi IP, ved
 |Creare una macchina virtuale con più NIC|[Interfaccia della riga di comando](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Creare una macchina virtuale con una singola scheda di interfaccia di rete e più indirizzi IPv4|[Interfaccia della riga di comando](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Creare una macchina virtuale con una singola scheda di interfaccia di rete con un indirizzo IPv6 privato (dietro un Azure Load Balancer)|[Interfaccia della riga di comando](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Modello di Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-

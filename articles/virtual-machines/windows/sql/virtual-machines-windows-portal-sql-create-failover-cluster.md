@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 09/26/2017
 ms.author: mikeray
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 439353b7d22fb7376049ea8e1433a8d5840d3e0f
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -427,19 +427,37 @@ Per creare il servizio di bilanciamento del carico:
 
 Impostare il parametro della porta probe del cluster in PowerShell.
 
-Per impostare tale parametro, aggiornare le variabili nello script seguente in base all'ambiente in uso.
+Per impostare tale parametro, aggiornare le variabili nello script seguente con i valori dell'ambiente in uso. Rimuovere le parentesi acute `<>` dallo script. 
 
-  ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <59999>
+   ```PowerShell
+   $ClusterNetworkName = "<Cluster Network Name>"
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+   $ILBIP = "<n.n.n.n>" 
+   [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
+Nello script precedente impostare i valori per l'ambiente in uso. L'elenco seguente offre una descrizione dei valori.
+
+   - `<Cluster Network Name>`: nome del cluster di failover di Windows Server per la rete. In **Gestione cluster di failover** > **Reti** fare clic con il pulsante destro del mouse sulla rete e scegliere **Proprietà**. Il valore corretto è riportato in **Nome** nella scheda **Generale**. 
+
+   - `<SQL Server FCI IP Address Resource Name>`: nome della risorsa indirizzo IP dell'istanza del cluster di failover di SQL Server. In **Gestione cluster di failover** > **Ruoli** fare clic con il pulsante destro del mouse sulla risorsa indirizzo IP sotto **Nome server** nel ruolo dell'istanza del cluster di failover di SQL Server e quindi scegliere **Proprietà**. Il valore corretto è riportato in **Nome** nella scheda **Generale**. 
+
+   - `<ILBIP>`: indirizzo IP ILB. Questo indirizzo è configurato nel portale di Azure come indirizzo ILB front-end ed è anche l'indirizzo IP dell'istanza del cluster di failover di SQL Server. È riportato in **Gestione cluster di failover** nella stessa pagina delle proprietà in cui si trova `<SQL Server FCI IP Address Resource Name>`.  
+
+   - `<nnnnn>`: porta probe configurata nel probe di integrità del servizio di bilanciamento del carico. È valida qualsiasi porta TCP inutilizzata. 
+
+>[!IMPORTANT]
+>La subnet mask per il parametro del cluster deve essere l'indirizzo di broadcast IP TCP: `255.255.255.255`.
+
+Dopo aver configurato il probe del cluster, è possibile visualizzare tutti i parametri del cluster in PowerShell. Eseguire lo script seguente:
+
+   ```PowerShell
+   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
+  ```
 
 ## <a name="step-7-test-fci-failover"></a>Passaggio 7: Eseguire il failover dell'istanza del cluster di failover
 

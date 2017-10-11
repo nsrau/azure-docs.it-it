@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: f4324a59b5fa4c2e1ab5b1d7fc7e5fe986ea80f8
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 04c402709560775592e5500362b0d9a4ccbf5a6f
 ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
@@ -50,15 +49,15 @@ I criteri di controllo possono essere definiti per un database specifico o come 
 
 * I criteri server si applicano a tutti i database nuovi ed esistenti in un server.
 
-* Se abilitato, il *controllo BLOB del server* *si applica sempre al database*. Il controllo verrà quindi eseguito sul database indipendentemente dalle impostazioni di controllo del database.
+* Se *il controllo BLOB del server è abilitato*, *si applica sempre al database*. Il database verrà controllato, indipendentemente dalle impostazioni di controllo del database.
 
-* L'abilitazione del controllo BLOB nel database in aggiunta all'abilitazione nel server *non* sostituisce o modifica le impostazioni del controllo BLOB del server. I due controlli coesisteranno. In altre parole, il database verrà controllato due volte in parallelo, una volta con i criteri del server e una volta con i criteri del database.
+* L'abilitazione del controllo BLOB nel database in aggiunta all'abilitazione nel server *non* sostituisce o modifica le impostazioni del controllo BLOB del server. I due controlli coesisteranno. In altre parole, il database viene controllato due volte in parallelo, una volta con i criteri del server e una volta con i criteri del database.
 
    > [!NOTE]
    > È consigliabile evitare di abilitare contemporaneamente il controllo BLOB del server e il controllo BLOB del database ad eccezione dei casi seguenti:
     > * Si vuole usare un *account di archiviazione* o un *periodo di conservazione* diverso per un database specifico.
-    > * Per un database specifico si vogliono controllare tipi o categorie di eventi diversi da quelli controllati per gli altri database nel server. Ad esempio, potrebbe essere necessario controllare gli inserimenti di tabella solo per un database specifico.
-   > 
+    > * Per un database specifico si vogliono controllare tipi o categorie di eventi diversi dagli altri database nel server. Ad esempio, potrebbe essere necessario controllare gli inserimenti di tabella solo per un database specifico.
+   >
    > Negli altri casi, è consigliabile abilitare solo il controllo BLOB a livello di server e lasciare disabilitato il controllo a livello di database per tutti i database.
 
 
@@ -68,24 +67,22 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare al pannello **Impostazioni** del database o del server SQL che si vuole controllare. Nel pannello **Impostazioni** selezionare **Controllo e rilevamento minacce**.
 
-    <a id="auditing-screenshot"></a>
-    ![Riquadro di spostamento][1]
-3. Se si preferisce configurare criteri di controllo del server, che verranno applicati a tutti i database nuovi ed esistenti nel server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nel pannello relativo al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server.
+    <a id="auditing-screenshot"></a> ![Riquadro di spostamento][1]
+3. Se si preferisce configurare un criterio di controllo del server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nel pannello relativo al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server. I criteri di controllo del server si applicano a tutti i database esistenti e ai nuovi database creati in questo server.
 
     ![Riquadro di spostamento][2]
-4. Se si preferisce abilitare il controllo BLOB a livello di database, in aggiunta o in sostituzione del controllo a livello di server, selezionare **SÌ** per **Controllo** e **BLOB** per **Tipo di controllo**.
+4. Se si preferisce abilitare il controllo BLOB a livello di database, per **Controllo** selezionare **Sì** e per **Tipo di controllo** selezionare **BLOB**.
 
-    Se il controllo BLOB del server è abilitato, il controllo configurato del database coesisterà con il controllo BLOB del server.  
+    Se il controllo BLOB del server è abilitato, il controllo configurato del database coesisterà con il controllo BLOB del server.
 
     ![Riquadro di spostamento][3]
-5. Per aprire il pannello **Archiviazione dei log di controllo** selezionare **Dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi il periodo di conservazione al termine del quale verranno eliminati i log meno recenti. Fare quindi clic su **OK**. 
-   >[!TIP] 
-   >Per sfruttare al massimo i modelli di report di controllo, usare lo stesso account di archiviazione per tutti i database controllati. 
+5. Per aprire il pannello **Archiviazione dei log di controllo** selezionare **Dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. I log meno recenti verranno eliminati. Fare quindi clic su **OK**.
+   >[!TIP]
+   >Per sfruttare al massimo i modelli di report di controllo, usare lo stesso account di archiviazione per tutti i database controllati.
 
-    <a id="storage-screenshot"></a>
-    ![Riquadro di spostamento][4]
-6. Per personalizzare gli eventi controllati, è possibile usare PowerShell o l'API REST. Per altre informazioni, vedere la sezione [Automazione (API REST/PowerShell)](#subheading-7).
-7. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altri dettagli, vedere l'[introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
+    <a id="storage-screenshot"></a> ![Riquadro di spostamento][4]
+6. Per personalizzare gli eventi controllati, è possibile usare PowerShell o l'API REST. 
+7. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 8. Fare clic su **Salva**.
 
 
@@ -97,7 +94,7 @@ I log di controllo vengono aggregati nell'account di archiviazione di Azure sele
 
 I log del controllo BLOB vengono salvati come raccolta di file BLOB in un contenitore denominato **sqldbauditlogs**.
 
-Per altri dettagli sulla gerarchia della cartella di archiviazione dei log del controllo BLOB, le convenzioni di denominazione dei BLOB e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB (download di file con estensione docx)](https://go.microsoft.com/fwlink/?linkid=829599).
+Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
 
 Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
 
@@ -115,26 +112,26 @@ Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
 * Usare la funzione di sistema **sys.fn_get_audit_file** (T-SQL) per tornare ai dati dei log di controllo in formato tabulare. Per altre informazioni su questa funzione, vedere la [documentazione su sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 
-* Usare **Unisci file di controllo** in SQL Server Management Studio (a partire da SSMS 17):  
+* Usare **Unisci file di controllo** in SQL Server Management Studio (a partire da SSMS 17):
     1. Dalla barra dei menu di SSMS selezionare **File** > **Apri** > **Unisci file di controllo**.
 
         ![Riquadro di spostamento][9]
-    2. Verrà visualizzata la finestra di dialogo **Aggiunti file di controllo**. Selezionare una delle opzioni **Aggiungi** per scegliere se unire i file di controllo da un disco locale oppure importarli da Archiviazione di Azure (sarà necessario specificare i dettagli e la chiave dell'account di archiviazione di Azure).
+    2. Verrà visualizzata la finestra di dialogo **Aggiunti file di controllo**. Selezionare una delle opzioni **Aggiungi** per scegliere se unire i file di controllo da un disco locale oppure importarli da Archiviazione di Azure. È necessario specificare i dettagli e la chiave dell'account di Archiviazione di Azure.
 
     3. Dopo aver aggiunto tutti i file da unire, fare clic su **OK** per completare l'operazione di unione.
 
     4. Il file unito verrà aperto in SSMS, dove potrà essere visualizzato, analizzato ed esportato in un file XEL o CSV o in una tabella.
 
-* Usare l'[applicazione di sincronizzazione](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) che è stata creata. L'applicazione viene eseguita in Azure e utilizza le API pubbliche di Operations Management Suite (OMS) Log Analytics per effettuare il push dei log di controllo SQL in OMS, per l'utilizzo tramite il dashboard di OMS Log Analytics. 
+* Usare l'[applicazione di sincronizzazione](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) che è stata creata. L'applicazione viene eseguita in Azure e utilizza le API pubbliche di Operations Management Suite (OMS) Log Analytics per effettuare il push dei log di controllo SQL in OMS, per l'utilizzo tramite il dashboard di OMS Log Analytics.
 
 * Usare Power BI. È possibile visualizzare e analizzare i dati dei log di controllo in Power BI. Per altre informazioni, vedere il post di blog su [Power BI e l'accesso a un modello scaricabile](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Scaricare i file di log dal contenitore BLOB del servizio di archiviazione di Azure tramite il portale o con uno strumento come [Azure Storage Explorer](http://storageexplorer.com/).
     * Dopo aver scaricato un file di log in locale, è possibile fare doppio clic sul file per aprire, visualizzare e analizzare i log in SSMS.
-    * È anche possibile scaricare più file contemporaneamente tramite Azure Storage Explorer. Fare clic con il pulsante destro del mouse su una sottocartella specifica, ad esempio una sottocartella contenente tutti i file di log per una determinata data, e scegliere **Salva con nome** per salvarla in una cartella locale.
+    * È anche possibile scaricare più file contemporaneamente tramite Azure Storage Explorer. Fare clic con il pulsante destro del mouse su una sottocartella specifica e scegliere **Salva con nome** per salvarla in una cartella locale.
 
 * Altri metodi:
-   * Dopo aver scaricato diversi file (o una sottocartella contenente i file di log per un intero giorno, come descritto nella voce precedente di questo elenco), è possibile unirli in locale come descritto nelle istruzioni relative all'unione di file di controllo in SSMS riportate sopra.
+   * Dopo avere scaricato diversi file o una sottocartella contenente i file di log, è possibile unirli in locale come descritto nelle istruzioni relative all'unione di file di controllo in SSMS riportate in precedenza.
 
    * Visualizzare i log del controllo BLOB a livello di codice:
 
@@ -148,17 +145,16 @@ Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
 <!--The description in this section refers to preceding screen captures.-->
 
 ### <a id="subheading-6">Controllo dei database con replica geografica</a>
-Se si usano database con replica geografica, è possibile configurare il controllo nel database primario, nel database secondario o in entrambi, a seconda del tipo di controllo.
+Con i database con replica geografica, quando si abilita il controllo nel database primario il database secondario disporrà di un criterio di controllo identico. È anche possibile impostare il controllo nel database secondario abilitando il controllo nel **server secondario**, in modo indipendente dal database primario.
 
-Seguire le istruzioni di seguito, tenendo presente che il controllo BLOB può essere attivato o disattivato solo dalle impostazioni di controllo del database primario:
+* A livello di server (**consigliato**): attivare il controllo sia nel **server primario** che nel **server secondario**. I database primari e secondari saranno controllati in modo indipendente in base ai rispettivi criteri a livello di server.
 
-* **Database primario**. Attivare il controllo BLOB nel server o nel database stesso, come descritto nella sezione [Configurare il controllo per il database](#subheading-2).
-* **Database secondario**. Attivare il controllo BLOB nel database primario, come descritto nella sezione [Configurare il controllo per il database](#subheading-2). 
+* A livello di database: il controllo a livello di database per i database secondari può essere configurato solo mediante le impostazioni di controllo del database primario.
    * Il controllo BLOB deve essere abilitato nello *stesso database primario* e non nel server.
    * Dopo che il controllo BLOB è stato abilitato nel database primario, verrà abilitato anche nel database secondario.
 
      >[!IMPORTANT]
-     >Per impostazione predefinita, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario, e causano traffico tra le aree. È possibile evitare questo problema abilitando il controllo BLOB nel server secondario e configurando una risorsa di archiviazione locale nelle impostazioni di archiviazione del server secondario. In questo modo verrà ignorato il percorso di archiviazione per il database secondario e di conseguenza ogni database salverà i propri log di controllo in una risorsa di archiviazione locale.  
+     >In caso di controllo a livello di database, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario, e causano traffico tra le aree. È consigliabile abilitare solo il controllo a livello di server e lasciare disabilitato il controllo a livello di database per tutti i database.
 <br>
 
 ### <a id="subheading-6">Rigenerazione delle chiavi di archiviazione</a>
@@ -173,20 +169,21 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 3. Tornare al pannello di configurazione del controllo, modificare la chiave di accesso alle risorse di archiviazione da secondaria a primaria e quindi fare clic su **OK**. Fare quindi clic su **Salva** nella parte superiore del pannello di configurazione del controllo.
 4. Tornare al pannello di configurazione dell'archiviazione e rigenerare la chiave di accesso secondaria, in preparazione al successivo ciclo di aggiornamento della chiave.
 
-## <a id="subheading-7"></a>Automazione (API REST/PowerShell)
-È possibile configurare il controllo nel database SQL di Azure anche con gli strumenti di automazione seguenti.
+## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Gestire il controllo del database SQL usando Azure PowerShell
+
 
 * **Cmdlet di PowerShell**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
+   * [Get-AzureRMSqlDatabaseAuditing][101]
+   * [Get-AzureRMSqlServerAuditing][102]
    * [Remove-AzureRMSqlDatabaseAuditing][103]
    * [Remove-AzureRMSqlServerAuditing][104]
-   * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
+   * [Set-AzureRMSqlDatabaseAuditing][105]
+   * [Set-AzureRMSqlServerAuditing][106]
 
    Per un esempio di script, vedere [Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## <a name="manage-sql-database-auditing-using-rest-api"></a>Gestire il controllo del database SQL usando l'API REST
 
 * **API REST per il controllo BLOB**:
 
@@ -204,7 +201,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation (PowerShell / REST API)]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)  
+[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -218,11 +215,10 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
 [103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
 

@@ -1,6 +1,6 @@
 ---
 title: Tasti di scelta rapida per il portale di Azure | Documentazione Microsoft
-description: "Questo articolo includerà sempre un elenco aggiornato dei tasti di scelta rapida disponibili nel portale di Azure. È possibile che i singoli servizi abbiano tasti di scelta rapida specializzati."
+description: Informazioni sui tasti di scelta rapida disponibili nel portale di Azure.
 services: azure-portal
 documentationcenter: 
 author: flanakin
@@ -12,43 +12,38 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/07/2016
+ms.date: 08/24/2017
 ms.author: micflan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 764bcf22809a2d613b405f6fb75c7a148a1b3fb9
-
-
+ms.custom: accessibility
+ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="azure-portal-keyboard-shortcuts"></a>Tasti di scelta rapida per il portale di Azure
-## <a name="open-hubs"></a>Hub aperti
-| Tasto di scelta rapida | Azione |
+# <a name="keyboard-shortcuts-in-the-azure-portal"></a>Tasti di scelta rapida nel portale di Azure
+Questo articolo riporta i tasti di scelta rapida disponibili nel portale di Azure. È possibile che i singoli servizi abbiano tasti di scelta rapida.
+
+## <a name="actions"></a>Azioni
+|Per |Premere |
 | --- | --- |
-| N |Notifiche |
-| / |Esplorazione dei servizi |
-| A |Sessioni attive |
-| B |Fatturazione |
-| C |Creazione |
+|Creare una nuova risorsa|G+N|
+|Aprire il riquadro "Altri servizi"|G+B|
+|Cercare risorse|G+/| 
+|Cercare voci di menu delle risorse|CTRL+/ |
+|Spostare l'elemento del riquadro di sinistra selezionato verso l'alto |ALT+MAIUSC+FRECCIA SU|
+|Spostare l'elemento del riquadro di sinistra selezionato verso il basso |ALT+MAIUSC+FRECCIA GIÙ|
 
 ## <a name="navigation"></a>Navigazione
-| Tasto di scelta rapida | Azione |
+|Per |Premere |
 | --- | --- |
-| H |Dashboard di avvio di Azure |
-| F |Primo pannello aperto |
-| J |Pannello precedente aperto |
-| K |Pannello successivo aperto |
-| L |Ultimo pannello aperto |
-| - |Riduce a icona il pannello o ripristina da un pannello ingrandito |
-| + |Ingrandisce un pannello o ripristina da un pannello ridotto a icona |
-| # |Chiude il pannello corrente |
-| ¦ |Chiude tutti i pannelli |
-| , |Sposta lo stato attivo sulla barra dei comandi |
-| . |Sposta lo stato attivo sulla barra di navigazione |
-| ? |Visualizza i tasti di scelta rapida |
+|Sposta lo stato attivo sulla barra dei comandi |G+, |
+|Alternare lo stato attivo tra la barra superiore e la barra laterale | G+. |
 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+## <a name="go-to"></a>Passare a
+|Per |Premere |
+| --- | --- |
+|Passare al dashboard |G+D |
+|Passare a tutte le risorse|G+A |
+|Passare ai gruppi di risorse|G+R |
+|Aprire l'elemento del riquadro sinistro in questa posizione |G+numero|

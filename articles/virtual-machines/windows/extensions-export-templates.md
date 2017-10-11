@@ -15,13 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: cc3c705f1c9123de75ced016a5b39eb1a86b0f73
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Esportazione di gruppi di risorse contenenti estensioni macchina virtuale
 
 I gruppi di risorse di Azure possono essere esportati in un nuovo modello di Resource Manager ridistribuibile. Il processo di esportazione interpreta le risorse esistenti e crea un modello di Resource Manager che quando viene distribuito diventa un gruppo di risorse simile. Quando si utilizza l'opzione di esportazione del gruppo di risorse su un gruppo di risorse contenente le estensioni macchina virtuale, diversi elementi dovranno essere considerati come compatibilità dell'estensione e impostazioni protette.
@@ -165,4 +164,3 @@ Nell'esempio dell'estensione `IaasDiagnostic`, i parametri seguenti devono esser
 ```
 
 A questo punto, il modello può essere distribuito utilizzando qualsiasi metodo di distribuzione del modello.
-

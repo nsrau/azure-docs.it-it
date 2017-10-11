@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b17251f8e88dc02ddf792da41121fe2730bc50e8
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 3a2af043feddb4a1d6d63f50e838c8a39035449f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="connect-with-power-bi"></a>Connettersi con Power BI
 
@@ -59,5 +58,4 @@ Dopo aver creato un server in Azure e aver distribuito un modello tabulare nel s
 ## <a name="see-also"></a>Vedere anche
 [Connettersi ad Azure Analysis Services](analysis-services-connect.md)   
 [Librerie client](analysis-services-data-providers.md)
-
 

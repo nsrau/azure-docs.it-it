@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 0651f497de446bd6b66f8eaccd7114d262925afd
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 3a768c30cb874d42d7b4fbd2eeaa6c0e23904e10
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-kerberos-constrained-delegation"></a>Come configurare un'applicazione proxy dell'applicazione per l'uso della delega vincolata Kerberos
 
 I metodi disponibili per ottenere l'accesso SSO alle applicazioni pubblicate possono in qualche modo variare da un'applicazione all'altra e una delle opzioni predefinite del proxy dell'applicazione Azure è la delega vincolata Kerberos (KCD). È qui che un host del connettore viene configurato per eseguire l'autenticazione Kerberos vincolata nelle applicazioni back-end per conto degli utenti.
@@ -171,4 +169,3 @@ Se il problema persiste, il supporto è a disposizione per fornire assistenza e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurare la delega vincolata Kerberos (KCD) in un dominio gestito](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
-

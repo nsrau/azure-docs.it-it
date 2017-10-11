@@ -12,15 +12,12 @@ ms.devlang: na
 ms.topic: landing - page
 ms.date: 7/06/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f246c6d1355220314a2f56aa91634625ec352c69
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
-
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Risolvere i problemi usando Azure HDInsight
 
 | Carico di lavoro Apache | Domande principali |
@@ -38,6 +35,5 @@ ms.lasthandoff: 08/23/2017
 | --- | --- |
 | HDInsight in Linux e ottimizzazione | - [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md)<br>- [Risoluzione dei problemi di memoria e prestazioni di Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) (Prestazioni delle query Hive) |
 | Log e dump | - [Accedere ai log applicazioni di Hadoop YARN in Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Abilitare i dump dell'heap per i servizi di Hadoop in Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Analizzare i log di HDInsight](hdinsight-debug-jobs.md)|
-| Errori | - [Comprendere e risolvere gli errori di WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Impostazioni di Hive per la risoluzione dell'errore OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
+| Errors | - [Comprendere e risolvere gli errori di WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Impostazioni di Hive per la risoluzione dell'errore OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Strumenti | - [Usare le visualizzazioni di Ambari per il debug di processi Tez](hdinsight-debug-ambari-tez-view.md)<br>- [Ottimizzare le query Hive](hdinsight-hadoop-optimize-hive-query.md) |
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: dbd70bdbb17d99c5025018e76ea756b1b1528a3e
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: d555f7a93a980a35c6b50d480c43de6bdc5c86df
 ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
@@ -31,6 +31,15 @@ ms.lasthandoff: 08/23/2017
 È possibile risolvere gli errori rilevati durante l'uso di Backup di Azure con le informazioni elencate nella tabella seguente.
 
 ## <a name="backup"></a>Backup
+
+### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Errore: la configurazione di disco specificata non è supportata
+
+Attualmente Backup di Azure non supporta dischi di dimensioni [maggiori di 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- Se la dimensione dei dischi è maggiore di 1 TB, [collegare nuovi dischi](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) di dimensione inferiore a 1 TB <br>
+- Copiare quindi i dati dal disco di dimensione superiore a 1 TB nei dischi appena creati di dimensione inferiore a 1 TB. <br>
+- Verificare che tutti i dati siano stati copiati e rimuovere i dischi di dimensione superiore a 1 TB
+- Avviare il backup.
+
 | Dettagli errore | Soluzione alternativa |
 | --- | --- |
 | Impossibile eseguire l'operazione perché la VM non esiste più. Arrestare la protezione della macchina virtuale senza eliminare i dati del backup. Per altre informazioni visitare la pagina Web http://go.microsoft.com/fwlink/?LinkId=808124 |Questo si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale per il backup. Per correggere l'errore:  <ol><li> Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse [nome del servizio cloud],<br>OPPURE</li><li> Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. [Altre informazioni](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

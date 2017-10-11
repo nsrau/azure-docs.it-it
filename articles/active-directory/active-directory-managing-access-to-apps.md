@@ -1,5 +1,5 @@
 ---
-title: Gestione dell&quot;accesso alle app con Azure AD | Documentazione Microsoft
+title: Gestione dell'accesso alle app con Azure AD | Documentazione Microsoft
 description: Descrive come Azure Active Directory consente alle organizzazioni di specificare le app a cui ha accesso ogni utente.
 services: active-directory
 documentationcenter: 
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d08131936f856ed671a2358867918d5ba40a5897
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: 46e001b440802e0d5d16b7cf75344c7b9ce6fad3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-access-to-apps"></a>Gestione dell'accesso alle app
 La gestione dell'accesso, la valutazione dell'utilizzo e la creazione di report durante l'utilizzo continuano a rappresentare una sfida dopo l'integrazione di un'app nel sistema di identità dell'organizzazione. Nella maggior parte dei casi, gli amministratori IT o l'helpdesk devono assumere un ruolo attivo nella gestione dell'accesso alle app. In alcuni casi, l'assegnazione viene eseguita da un team IT generale o di reparto. Spesso, la decisione di assegnazione deve essere delegata al responsabile aziendale, di cui è richiesta l'approvazione prima che l'IT esegua l'assegnazione.  Altre organizzazioni investono nell'integrazione mediante sistemi automatizzati esistenti di gestione dell'accesso e dell'identità, quali il controllo degli accessi in base al ruolo (RBAC) o il controllo degli accessi in base all'attributo (ABAC). Lo sviluppo mediante integrazione e regole tende a essere specializzato e costoso. Il monitoraggio o la creazione di report in entrambi gli approcci di gestione è di per sé un investimento isolato, complesso e costoso.
@@ -71,5 +69,4 @@ Le funzionalità di Azure AD che consentono la condivisione di account includono
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access.md)
 * [Gestione di gruppi self-service/SSAA](active-directory-accessmanagement-self-service-group-management.md)
-
 

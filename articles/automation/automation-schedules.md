@@ -1,6 +1,6 @@
 ---
 title: Pianificazioni in Automazione di Azure | Documentazione Microsoft
-description: Le pianificazioni di Automazione di Azure vengono usate per pianificare l&quot;esecuzione automatica dei runbook in Automazione di Azure. Illustra come creare e gestire una pianificazione in modo da poter avviare automaticamente un runbook a una determinata ora o in base a una pianificazione ricorrente.
+description: Le pianificazioni di Automazione di Azure vengono usate per pianificare l'esecuzione automatica dei runbook in Automazione di Azure. Illustra come creare e gestire una pianificazione in modo da poter avviare automaticamente un runbook a una determinata ora o in base a una pianificazione ricorrente.
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -19,7 +19,6 @@ ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 140bea93c4563666e8cfdf356eaf87500c1aca8e
 ms.contentlocale: it-it
 ms.lasthandoff: 06/14/2017
-
 
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Pianificazione di un runbook in Automazione di Azure

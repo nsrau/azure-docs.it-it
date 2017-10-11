@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 0ee19b46a0e882571f6193471be69fa097d98936
-ms.contentlocale: it-it
-ms.lasthandoff: 05/22/2017
-
+ms.openlocfilehash: f51fa4639aaa60686cc349683713c6e5f9732bb9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separazione della telemetria da sviluppo, test e produzione
 
@@ -161,4 +160,3 @@ Se si usa Visual Studio Team Services, è possibile [aggiungere un marcatore di 
 
 * [Risorse condivise da più ruoli](app-insights-monitor-multi-role-apps.md)
 * [Creare un inizializzatore di telemetria per distinguere le varianti A|B](app-insights-api-filtering-sampling.md#add-properties)
-

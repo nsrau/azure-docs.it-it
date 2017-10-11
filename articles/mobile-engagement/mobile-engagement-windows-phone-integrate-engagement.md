@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 29b18aecff783cebf617995e2a19f16f0b68b51b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Integrazione di Mobile Engagement SDK per Windows Phone Silverlight
 > [!div class="op_single_selector"]
@@ -247,5 +246,4 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 > La soglia di burst non può essere configurata per un periodo inferiore a un secondo. Se si tenta di impostare un valore minore, l'SDK mostrerà una traccia con l'errore e verrà ripristinato automaticamente il valore predefinito, ovvero zero secondi. In questo modo verrà attivato l'SDK per la segnalazione dei log in tempo reale.
 > 
 > 
-
 

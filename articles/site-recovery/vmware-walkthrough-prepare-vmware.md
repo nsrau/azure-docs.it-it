@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>Passaggio 6: Preparare la replica dell'ambiente VMware locale in Azure
 
@@ -65,4 +64,3 @@ Se si vuole usare l'installazione push, è necessario preparare un account che S
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 7: Creare un insieme di credenziali](vmware-walkthrough-create-vault.md)
-

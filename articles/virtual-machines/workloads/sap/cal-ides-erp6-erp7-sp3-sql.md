@@ -22,7 +22,6 @@ ms.openlocfilehash: 91eed294077ff72d0760018b10c98f32db88f3be
 ms.contentlocale: it-it
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure
 Questo articolo descrive come distribuire un sistema SAP IDES in esecuzione con SQL Server e il sistema operativo Windows in Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Gli screenshot illustrano il processo in dettaglio. Per distribuire una soluzione diversa, seguire la stessa procedura.

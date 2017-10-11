@@ -1,6 +1,6 @@
 ---
-title: "Usare l&quot;unità D come unità dati in una macchina virtuale Windows | Microsoft Docs"
-description: "Descrive come modificare le lettere di unità per una VM Windows, in modo da poter usare l&quot;unità D: come unità dati."
+title: "Usare l'unità D come unità dati in una macchina virtuale Windows | Microsoft Docs"
+description: "Descrive come modificare le lettere di unità per una VM Windows, in modo da poter usare l'unità D: come unità dati."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Usare l'unità D come unità dati in una macchina virtuale Windows
 Se l'applicazione deve usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per usare una lettera di unità diversa per il disco temporaneo. Non utilizzare mai il disco temporaneo per archiviare i dati da conservare.
@@ -66,5 +64,4 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale. Per
 
 ## <a name="next-steps"></a>Passaggi successivi
 * È possibile aumentare la memoria disponibile per la macchina virtuale [collegando un disco dati aggiuntivo](attach-managed-disk-portal.md).
-
 

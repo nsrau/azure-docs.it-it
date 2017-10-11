@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: bf46da35a55608d7e4656c9dd3ad9d5f2253e225
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Esercitazione: Integrazione di Azure Active Directory con Mimecast Personal Portal
 
@@ -111,14 +110,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: 
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente: 
     | |     
     | ----------------------------------------|
     | `https://webmail-uk.mimecast.com`|
     | `https://webmail-us.mimecast.com`|
     | |
    
-    b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente:
+    b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
 
     | |     
     | --- |
@@ -308,5 +307,4 @@ Quando si fa clic sul riquadro Mimecast Personal Portal nel pannello di accesso,
 [201]: ./media/active-directory-saas-mimecast-personal-portal-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-mimecast-personal-portal-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-mimecast-personal-portal-tutorial/tutorial_general_203.png
-
 

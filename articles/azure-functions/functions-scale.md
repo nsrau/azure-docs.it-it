@@ -1,13 +1,13 @@
 ---
-title: Piani a consumo e piani di servizio app di Funzioni di Azure | Microsoft Docs
-description: "Informazioni sulla scalabilità di Funzioni di Azure per soddisfare le esigenze dei carichi di lavoro basati su eventi."
+title: Confronto di piani di hosting per Funzioni di Azure | Microsoft Docs
+description: Informazioni su come scegliere tra il piano di utilizzo di Funzioni di Azure e piano di servizio app.
 services: functions
 documentationcenter: na
 author: lindydonna
 manager: cfowler
 editor: 
 tags: 
-keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
+keywords: funzioni di azure, funzioni, piano di utilizzo, piano di servizio app, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -18,13 +18,13 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 41ebbe944213373c028b7410baa86e6c55db0d8c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="azure-functions-consumption-and-app-service-plans"></a>Piani a consumo e piani di servizio app di Funzioni di Azure 
+# <a name="azure-functions-hosting-plans-comparison"></a>Confronto di piani di hosting per Funzioni di Azure
 
 ## <a name="introduction"></a>Introduzione
 
@@ -56,7 +56,7 @@ Il piano a consumo è l'impostazione predefinita e offre i vantaggi seguenti:
 
 ## <a name="app-service-plan"></a>Piano di servizio app
 
-Nel piano di servizio app, le app per le funzioni vengono eseguite in macchine virtuali dedicate in SKU Basic, Standard e Premium, analogamente alle app Web. Le macchine virtuali dedicate vengono allocate alle app del servizio app, ovvero l'host di funzioni è sempre in esecuzione.
+Nel piano di servizio app le app per le funzioni vengono eseguite in macchine virtuali dedicate in SKU Basic, Standard, Premium e Isolati, analogamente alle app Web. Le macchine virtuali dedicate vengono allocate alle app del servizio app, ovvero l'host di funzioni è sempre in esecuzione.
 
 Prendere in considerazione un piano di servizio app nei casi seguenti:
 - Sono presenti macchine virtuali sottoutilizzate, che eseguono già altre istanze del servizio app.
@@ -67,7 +67,7 @@ Prendere in considerazione un piano di servizio app nei casi seguenti:
 
 Una macchina virtuale separa il costo per tempo di esecuzione e dimensioni della memoria. Non si pagherà quindi più del costo dell'istanza di macchina virtuale allocata. Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Con un piano di servizio app, è possibile aumentare manualmente il numero di istanze aggiungendo altre istanze di macchine virtuali oppure abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service-web/web-sites-scale.md). Se si prevede di eseguire funzioni JavaScript in un piano di servizio app, è necessario scegliere un piano con un minor numero di core. Per altre informazioni, vedere le [informazioni di riferimento su JavaScript per le funzioni](functions-reference-node.md#choose-single-core-app-service-plans).  
+Con un piano di servizio app, è possibile aumentare manualmente il numero di istanze aggiungendo altre istanze di macchine virtuali oppure abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service/web-sites-scale.md). Se si prevede di eseguire funzioni JavaScript in un piano di servizio app, è necessario scegliere un piano con un minor numero di core. Per altre informazioni, vedere le [informazioni di riferimento su JavaScript per le funzioni](functions-reference-node.md#choose-single-core-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>

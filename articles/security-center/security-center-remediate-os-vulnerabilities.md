@@ -1,6 +1,6 @@
 ---
 title: "Correggere le vulnerabilità del sistema operativo nel Centro sicurezza di Azure | Microsoft Docs"
-description: "In questo documento viene illustrato come implementare l&quot;indicazione del Centro sicurezza di Azure **Risolvere le vulnerabilità del sistema operativo**."
+description: "Questo documento illustra come implementare la raccomandazione **Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)** del Centro sicurezza di Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e6b251d5b97c57b3b6f79d14e53fbed5ca37ecb0
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Risolvere le vulnerabilità del sistema operativo in Centro sicurezza di Azure
-Il Centro sicurezza di Azure analizza ogni giorno le configurazioni del sistema operativo delle macchine virtuali (VM) che potrebbero rendere la VM più vulnerabile agli attacchi e suggerisce le modifiche di configurazione per risolvere tali problemi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo della VM non corrisponde alle regole di configurazione consigliate.
+Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo non corrisponde alle regole di configurazione consigliate e suggerisce di modificare la configurazione per risolvere le vulnerabilità.
 
 > [!NOTE]
 > Per altre informazioni sulle configurazioni specifiche monitorate, vedere l'[elenco delle regole di configurazione consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
@@ -31,46 +30,67 @@ Il Centro sicurezza di Azure analizza ogni giorno le configurazioni del sistema 
 >
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
+La correzione delle vulnerabilità del sistema operativo viene presentata sotto forma di suggerimento nel Centro sicurezza. Questa indicazione verrà visualizzata in **Raccomandazioni** e in **Calcolo**.
 
-> [!NOTE]
-> Il documento introduce il servizio usando una distribuzione di esempio.  Questo argomento non costituisce una guida dettagliata.
->
->
+In questo esempio verrà esaminata la raccomandazione **Correggi le vulnerabilità del sistema operativo (di Microsoft)** in **Calcolo**.
+1. Selezionare **Calcolo** nel menu principale del Centro sicurezza.
 
-1. Nel pannello **Indicazioni** selezionare **Correggi le vulnerabilità del sistema operativo**.
    ![Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)][1]
 
-    Viene aperto il pannello **Correggi le vulnerabilità del sistema operativo**, in cui sono elencate le VM con configurazioni del sistema operativo che non corrispondono alle regole di configurazione consigliate.  Per ogni VM, il pannello identifica:
+2. In **Calcolo** selezionare **Correggi le vulnerabilità del sistema operativo (di Microsoft)**. Si apre il dashboard **Mancata corrispondenza di vulnerabilità del sistema operativo (di Microsoft)**.
 
-   * **REGOLE NON RIUSCITE** : il numero di regole non riuscite nella configurazione del sistema operativo della VM.
-   * **ORA DELL'ULTIMA ANALISI** : data e ora dell'ultima volta in cui il Centro sicurezza ha verificato la configurazione del sistema operativo della VM.
-   * **STATO** : stato corrente della vulnerabilità:
+   ![Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)][2]
 
-     * Aperta: la vulnerabilità non è ancora stata applicata
-     * In corso: l'applicazione della vulnerabilità in corso e non è richiesta alcuna azione da parte dell'utente
-     * Risolta: la vulnerabilità è già stata risolta. Dopo che il problema è stato risolto, la voce viene visualizzata in grigio
-   * **GRAVITÀ** : tutte le vulnerabilità sono impostate su un livello di gravità bassa, vale a dire che è necessario gestire una vulnerabilità ma non è necessaria un'attenzione immediata.
+  Nella parte superiore del dashboard sono presenti:
 
-2. Selezionare una macchina virtuale. Si apre un pannello per la VM, in cui sono visualizzate le regole non riuscite.
-   ![Regole di configurazione non riuscite][2]
+  - Il numero totale di regole per gravità non riuscite nella configurazione del sistema operativo delle macchine virtuali e del computer.
+  - Il numero totale di regole per tipo non riuscite nella configurazione del sistema operativo delle macchine virtuali e del computer.
+  - Il numero totale di regole non riuscite nelle configurazioni del sistema operativo Windows e Linux.
 
-3. Selezionare una regola. In questo esempio selezioniamo **Le password devono essere conformi ai requisiti di complessità**. Verrà visualizzato un pannello che descrive la regola non riuscita e l'impatto. Esaminare i dettagli e valutare come verranno applicate le configurazioni del sistema operativo.
-  ![Descrizione della regola non riuscita][3]
+  Nella parte inferiore del dashboard vengono elencate tutte le regole non riuscite nelle macchine virtuali e nei computer e la gravità dell'aggiornamento mancante. L'elenco include:
 
-  Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci per le regole di configurazione. In questo pannello sono disponibili le informazioni seguenti:
+  - **CCIED**: identificatore univoco di CCE per la regola. Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci per le regole di configurazione.
+  - **NOME**: nome della regola non riuscita
+  - **TIPO DI REGOLA**: chiave del Registro di sistema, criteri di sicurezza o criteri di controllo
+  - **N. DI MACCHINE VIRTUALI E COMPUTER**: numero totale di macchine virtuali e computer a cui si applica la regola non riuscita
+  - **GRAVITÀ DELLA REGOLA**: valore della gravità di CCE a livello critico, importante o di avviso
+  - **STATO**: stato attuale della raccomandazione:
+
+    - **Aperta**: la raccomandazione non è ancora stata risolta.
+    - **In corso**: la raccomandazione viene applicata alle risorse e non è richiesta alcuna azione da parte dell'utente
+    - **Risolta**: la raccomandazione è stata già completata. Quando il problema è stato risolto, la voce viene visualizzata in grigio.
+
+3. Selezionare una regola non riuscita nell'elenco per visualizzare i dettagli.
+
+   ![Regole di configurazione non riuscite][3]
+
+  In questo pannello sono disponibili le informazioni seguenti:
 
   - NOME: nome della regola
-  - GRAVITÀ: valore della gravità di CCE a livello critico, importante o di avviso
   - CCIED: identificatore univoco di CCE per la regola
-  - DESCRIZIONE: descrizione della regola
+  - Versione del sistema operativo: versione del sistema operativo del computer o della macchina virtuale
+  - GRAVITÀ DELLA REGOLA: valore della gravità di CCE a livello critico, importante o di avviso
+  - DESCRIZIONE COMPLETA: descrizione della regola
   - VULNERABILITÀ: spiegazione della vulnerabilità o del rischio in caso di mancata applicazione della regola
-  - IMPATTO: impatto sull'azienda quando viene applicata la regola
+  - IMPATTO POTENZIALE: impatto sull'azienda quando viene applicata la regola
+  - CONTROMISURA: procedura di correzione
   - VALORE PREVISTO: valore previsto quando il Centro sicurezza analizza la configurazione del sistema operativo della VM rispetto alla regola
-  - OPERAZIONE DI REGOLA: operazione di regola usata dal Centro sicurezza durante l'analisi della configurazione del sistema operativo della VM rispetto alla regola
   - VALORE EFFETTIVO: valore restituito dopo l'analisi della configurazione del sistema operativo della VM rispetto alla regola
-  - RISULTATO DELLA VALUTAZIONE: risultati dell'analisi: riuscita, non riuscita
+  - OPERAZIONE DI REGOLA: operazione di regola usata dal Centro sicurezza durante l'analisi della configurazione del sistema operativo della VM rispetto alla regola
 
-## <a name="see-also"></a>Vedere anche
+4. Selezionare l'icona **Cerca** nella barra multifunzione superiore. Si apre la ricerca che elenca le aree di lavoro contenenti le macchine virtuali e i computer con la vulnerabilità del sistema operativo selezionata. Questo pannello di selezione dell'area di lavoro viene visualizzato solo se la regola selezionata si applica a più macchine virtuali connesse a diverse aree di lavoro.
+
+  ![Aree di lavoro elencate][4]
+
+5. Selezionare un'area di lavoro. Consente di aprire una query di ricerca di Log Analytics filtrata nell'area di lavoro con la vulnerabilità del sistema operativo.
+
+  ![Area di lavoro con vulnerabilità del sistema operativo][5]
+
+6. Selezionare un computer dall'elenco per avere maggiori informazioni. Verrà visualizzata un'altra finestra di risultati della ricerca contenente le informazioni filtrate solo per quel computer.
+
+  ![Filtrate per quel computer][6]
+
+## <a name="next-steps"></a>Passaggi successivi
 Questo documento illustra come implementare la raccomandazione "Remediate OS vulnerabilities" (Risolvi vulnerabilità del sistema operativo) del Centro sicurezza. È possibile esaminare il set di regole di configurazione [qui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci per le regole di configurazione. Per altre informazioni, vedere la pagina relativa alla enumerazione [CCE](https://nvd.nist.gov/cce/index.cfm) .
 
 Per altre informazioni sul Centro sicurezza, vedere le risorse seguenti:
@@ -85,7 +105,10 @@ Per altre informazioni sul Centro sicurezza, vedere le risorse seguenti:
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-remediate-os-vulnerabilities/recommendation.png
-[2]:./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
+[1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png
+[2]:./media/security-center-remediate-os-vulnerabilities/os-vulnerabilities.png
 [3]: ./media/security-center-remediate-os-vulnerabilities/vulnerability-details.png
+[4]: ./media/security-center-remediate-os-vulnerabilities/search.png
+[5]: ./media/security-center-remediate-os-vulnerabilities/log-search.png
+[6]: ./media/security-center-remediate-os-vulnerabilities/search-results.png
 

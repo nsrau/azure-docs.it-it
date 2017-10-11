@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
 Questo studio consente di:
@@ -81,7 +80,7 @@ La condizione di trasferimento impossibile è difficile da simulare perché l'al
 5. Accedere ad [https://myapps.microsoft.com](https://myapps.microsoft.com) con le stesse credenziali usate in precedenza ed entro pochi minuti dall'accesso precedente.
 
 L’accesso verrà visualizzato nel dashboard Identity Protection entro 2-4 ore.<br>
-A causa dei complessi modelli di Machine Learning coinvolti, potrebbe non essere rilevato.<br>  Potrebbe essere utile ripetere questi passaggi per più account Azure AD.
+A causa dei complessi modelli di Machine Learning coinvolti, potrebbe non essere rilevato.<br> Potrebbe essere utile ripetere questi passaggi per più account Azure AD.
 
 ## <a name="simulating-vulnerabilities"></a>Simulazione di vulnerabilità
 Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere sfruttati da un utente malintenzionato. In Azure AD Identity Protection sono attualmente visibili 3 tipi di vulnerabilità che consentono di sfruttare altre funzionalità di Azure AD. Tali vulnerabilità verranno visualizzate automaticamente nel dashboard Identity Protection dopo aver impostato le funzionalità seguenti.
@@ -120,7 +119,7 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 2. Passare a **Identity Protection**.
 3. Nel pannello principale di **Azure AD Identity Protection** fare clic su **Impostazioni**. 
 4. Nel pannello **Impostazioni del portale** in **Regole di sicurezza** fare clic su **Rischio di accesso**.
-5. Nel pannello **Rischio di accesso** selezionare **Sì** in **Abilita regola**. 
+5. Nel * * Accedi rischio * * pannello seleziona **su** in **Abilita regola**. 
 6. Selezionare una delle opzioni seguenti:
    
    a. Per bloccare, selezionare **Medio** in **Blocca l'accesso**
@@ -137,5 +136,4 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 
 ## <a name="see-also"></a>Vedere anche
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
 

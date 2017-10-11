@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: maheshu
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Servizi di dominio Azure AD - Contatto
 ## <a name="contact-the-product-team"></a>Contattare il team del prodotto
@@ -36,4 +35,3 @@ Perché sia possibile analizzare il problema, assicurarsi di indicare i dati seg
 È possibile inviare commenti e suggerimenti su Servizi di dominio Azure AD tramite il **[sito dedicato di Azure Active Director](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
 
 Per contattare Microsoft, assicurarsi di anteporre alla domanda o al commento/suggerimento le parole **"AADDS"**.
-

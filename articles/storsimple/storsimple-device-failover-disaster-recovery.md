@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Failover e ripristino di emergenza per il dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -178,10 +178,4 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un p
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver eseguito un failover, può essere necessario [disattivare o eliminare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 * Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

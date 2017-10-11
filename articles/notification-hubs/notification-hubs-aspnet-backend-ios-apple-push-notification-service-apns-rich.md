@@ -1,6 +1,6 @@
 ---
 title: Push avanzato degli hub di notifica di Azure
-description: Informazioni su come inviare notifiche push complesse a un&quot;app per iOS da Azure. Gli esempi di codice sono scritti in Objective-C e C#.
+description: Informazioni su come inviare notifiche push complesse a un'app per iOS da Azure. Gli esempi di codice sono scritti in Objective-C e C#.
 documentationcenter: ios
 services: notification-hubs
 author: ysxu
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 394efdc2dfaff0666bc23d8a448b0a00d414da99
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push avanzato degli hub di notifica di Azure
 ## <a name="overview"></a>Panoramica
@@ -355,9 +355,3 @@ Dopo avere modificato il back-end del app per poter inviare solo l' *id* di una 
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

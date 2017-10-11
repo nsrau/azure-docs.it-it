@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: ce043e53d64a79c0ba37b500f8af9231e5372044
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: e60e2295484873ea15d52108b7d619319a57827f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni
 La classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) consente alle applicazioni ADO.NET di rilevare e correggere facilmente le eventuali incoerenze tra la mappa globale partizioni e la mappa locale partizioni in un ambiente di database partizionato. 
@@ -170,5 +168,4 @@ L'esempio segue questa procedura:
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
-
 

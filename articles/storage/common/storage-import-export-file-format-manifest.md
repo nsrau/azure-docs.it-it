@@ -1,6 +1,6 @@
 ---
 title: Formato dei file manifesto del servizio Importazione/Esportazione di Azure | Documentazione Microsoft
-description: "Informazioni sul formato del file manifesto dell&quot;unità che descrive il mapping tra i BLOB nell&quot;archiviazione BLOB di Azure e i file su un disco in un processo di importazione o esportazione nel servizio Importazione/Esportazione."
+description: "Informazioni sul formato del file manifesto dell'unità che descrive il mapping tra i BLOB nell'archiviazione BLOB di Azure e i file su un disco in un processo di importazione o esportazione nel servizio Importazione/Esportazione."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
-ms.lasthandoff: 04/25/2017
-
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-importexport-service-manifest-file-format"></a>Formato del file manifesto del servizio Importazione/Esportazione di Azure
 Il file manifesto dell'unità descrive il mapping tra i BLOB nell'archiviazione Blob di Azure e i file nell'unità che comprende un processo di importazione o esportazione. Per un'operazione di importazione, il file manifesto viene creato come parte del processo di preparazione dell'unità e viene archiviato nell'unità prima che questa venga inviata al data center di Azure. Durante un'operazione di esportazione, il manifesto viene creato e archiviato nell'unità dal servizio Importazione/Esportazione di Azure.  
   
@@ -137,4 +135,3 @@ Nella tabella seguente vengono specificati gli elementi di dati e gli attributi 
 ## <a name="next-steps"></a>Passaggi successivi
  
 * [Storage Import/Export REST API](/rest/api/storageimportexport/) (API REST di importazione/esportazione dell'archiviazione)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 25fbbe97d26491fc421f4821315761c18e523ec8
+ms.translationtype: HT
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizzare i log dei siti Web con Azure Data Lake Analytics
@@ -36,9 +35,7 @@ Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in par
 
   * [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * **Account Analisi Data Lake.**  Vedere la sezione relativa alla [creazione di un account di Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
-* **Caricare i dati di esempio nell'account Analisi Data Lake.** Vedere [Per copiare file di dati di esempio](data-lake-analytics-get-started-portal.md).
-
-    Per eseguire un processo di Analisi Data Lake, sanno necessari alcuni dati. Anche se Data Lake Tools supporta il caricamento di dati, si userà il portale per caricare i dati di esempio e seguire più facilmente questa esercitazione.
+* **Installare i dati di esempio.** Nel portale di Azure aprire l'account Data Lake Analytics e fare clic su **Script di esempio** nel menu a sinistra, quindi fare clic su **Copia dati di esempio**. 
 
 ## <a name="connect-to-azure"></a>Connect to Azure
 Prima di poter compilare e testare qualsiasi script U-SQL, è necessario connettersi ad Azure.

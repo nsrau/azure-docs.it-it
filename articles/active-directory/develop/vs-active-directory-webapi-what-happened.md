@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 8ca3234e54d8736aa187195640a103ac6eb145e7
-ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 086e5a9622cad681cd282345d97e0c28ee7de2fa
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Cosa è successo a un progetto WebApi (servizio connesso a Visual Studio Azure Active Directory)?
 > [!div class="op_single_selector"]
@@ -111,5 +110,4 @@ L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-
 

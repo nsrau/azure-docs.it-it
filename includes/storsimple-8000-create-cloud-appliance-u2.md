@@ -20,7 +20,7 @@
    7. Selezionare la casella di controllo per indicare di avere compreso che i dati archiviati nell'appliance cloud vengono ospitati in un data center Microsoft.
        * Quando si utilizza soltanto un dispositivo fisico, la chiave di crittografia viene conservata nel dispositivo; di conseguenza, Microsoft non può decrittografarli.
 
-       * Quando si usa un'appliance cloud, la chiave di crittografia e la chiave di decrittografia vengono archiviate in Microsoft Azure. Per altre informazioni, vedere le [considerazioni relative alla sicurezza per l'uso di un'appliance cloud](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       * Quando si usa un'appliance cloud, la chiave di crittografia e la chiave di decrittografia vengono archiviate in Microsoft Azure. Per altre informazioni, vedere le [considerazioni relative alla sicurezza per l'uso di un'appliance cloud](../articles/storsimple/storsimple-security.md).
    8. Fare clic su **Crea** per effettuare il provisioning di un'appliance cloud. Il provisioning del dispositivo potrebbe durare circa 30 minuti. Al termine della creazione dell'appliance cloud, viene inviata una notifica all'utente. Passare al pannello Dispositivi. L'elenco di dispositivi viene aggiornato per visualizzare l'appliance cloud. Lo stato dell'appliance è **Pronto per la configurazione**.
       
       ![L'appliance cloud StorSimple è pronta per la configurazione](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)

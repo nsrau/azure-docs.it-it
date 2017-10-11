@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 06bfb75a07b7902fcf245271def5d40e9941a89e
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 36df5bc0a019f4197d40fd6fa5a2a9957820c8b4
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizzare i processi di Application Insights con app per la logica
 
 Ci si trova spesso a eseguire ripetutamente le stesse query sui dati di telemetria per verificare il corretto funzionamento del servizio? Si vuole automatizzare queste query per trovare tendenze e anomalie e creare quindi flussi di lavoro basati su queste informazioni? Il connettore di Azure Application Insights (anteprima) per le app per la logica è lo strumento ideale.
@@ -139,7 +137,6 @@ Quando l'app per la logica è in esecuzione, i destinatari specificati nell'elen
 
 
 <!--Link references-->
-
 
 
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="add-disable-enable-or-delete-endpoints"></a>Aggiungere, disabilitare, abilitare o eliminare gli endpoint
 
 La funzionalità App Web nell’Azure App Service offre già funzionalità di routing del traffico failover e round robin per i siti Web che si trovano all'interno di un data center, indipendentemente dalla modalità del sito Web. Gestione traffico di Azure consente di specificare il routing del traffico failover e round robin per i siti Web e i servizi cloud che si trovano in data center diversi. Il primo passaggio necessario a fornire tale funzionalità consiste nell'aggiungere l'endpoint del servizio cloud o del sito Web a Gestione traffico.
@@ -45,8 +43,8 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
     5. In **Priorità** selezionare **1**. In questo modo tutto il traffico viene instradato a questo endpoint se è integro.
     6. Mantenere deselezionata l'opzione **Aggiungi come disabilitato**.
     7. Fare clic su **OK**
-6.    Ripetere i passaggi 4 e 5 per aggiungere l'endpoint di Azure successivo. Assicurarsi di aggiungerlo con il valore di **Priorità** impostato su **2**.
-7.    Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati nel pannello **Profilo di gestione traffico** insieme al relativo stato di monitoraggio **Online**.
+6.  Ripetere i passaggi 4 e 5 per aggiungere l'endpoint di Azure successivo. Assicurarsi di aggiungerlo con il valore di **Priorità** impostato su **2**.
+7.  Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati nel pannello **Profilo di gestione traffico** insieme al relativo stato di monitoraggio **Online**.
 
 > [!NOTE]
 > Dopo aver aggiunto o rimosso un endpoint da un profilo tramite il metodo di routing del traffico *Failover*, non è più possibile ordinare l'elenco priorità failover come desiderato. È possibile modificare l'ordine dell'Elenco priorità failover nella pagina di configurazione. Per ulteriori informazioni, vedere [Configurare il routing del traffico failover](traffic-manager-configure-failover-routing-method.md).
@@ -85,5 +83,4 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 * [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
 * [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
 * [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
 

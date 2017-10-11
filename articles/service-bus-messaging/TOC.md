@@ -36,12 +36,24 @@
 ### [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 ### [App che usano le code](service-bus-create-queues.md)
 ### [App che usano argomenti/sottoscrizioni](service-bus-create-topics-subscriptions.md)
+### [Messaggi, payload e serializzazione](service-bus-messages-payloads.md)
 ### [Autenticazione e autorizzazione](service-bus-authentication-and-authorization.md)
+#### [Eseguire la migrazione da Servizio di controllo di accesso a firma di accesso condiviso](service-bus-migrate-acs-sas.md)
 #### [Autenticazione con firme di accesso condiviso](service-bus-sas.md)
 ### [Code e argomenti partizionati](service-bus-partitioning.md)
 ### [Code di messaggi non recapitabili](service-bus-dead-letter-queues.md)
 ### [Elaborazione di transazioni](service-bus-transactions.md)
+### [Rilevamento di messaggi duplicati](duplicate-detection.md)
 ### [Log di diagnostica](service-bus-diagnostic-logs.md)
+### [Implementazione dello spazio dei nomi associato](service-bus-paired-namespaces.md)
+### [Differimento di messaggi](message-deferral.md)
+### [Sessioni di messaggistica](message-sessions.md)
+### [Sequenze e timestamp dei messaggi](message-sequencing.md)
+### [Esplorazione dei messaggi](message-browsing.md)
+### [Trasferimenti, blocchi e compensazioni dei messaggi](message-transfers-locks-settlement.md)
+### [Scadenza del messaggio (durata)](message-expiration.md)
+### [Filtri e azioni degli argomenti](topic-filters.md)
+### [Sospendere e riattivare entità di messaggistica](entity-suspend.md)
 ### AMQP
 #### [Panoramica di AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
@@ -59,13 +71,14 @@
 #### [Creare una regola di autorizzazione per lo spazio dei nomi e la coda](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Creare uno spazio dei nomi con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [Uso di PowerShell per il provisioning delle entità](service-bus-manage-with-ps.md)
+### [Uso di Azure PowerShell per il provisioning delle entità](service-bus-manage-with-ps.md)
 
-# Riferimenti
+# riferimento
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Eccezioni](service-bus-messaging-exceptions.md)
 ## [Quote](service-bus-quotas.md)

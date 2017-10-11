@@ -20,7 +20,6 @@ ms.openlocfilehash: f3f4a2e721b1a75a5b92a5c17a9939c7013340d4
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Panoramica dell'API .NET Standard per Connessioni ibride di Inoltro di Azure

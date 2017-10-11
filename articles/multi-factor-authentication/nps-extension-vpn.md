@@ -17,10 +17,10 @@ ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 3dfcf25856ede50266336c2ebb057dd3f7b8897e
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -100,12 +100,12 @@ L'estensione NPS richiede Windows Server 2008 R2 SP1 o versione successiva con i
 
 ### <a name="libraries"></a>Librerie
 
-Sono necessarie le due librerie seguenti:
+Queste librerie vengono installate automaticamente con l'estensione.
 
-* [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-* _Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0_ o successiva. Per la versione più recente e le istruzioni di installazione, vedere [Microsoft Azure Active Directory PowerShell Module Version Release History](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx) (Cronologia delle versioni del modulo di Microsoft Azure Active Directory per Windows PowerShell).
+-   [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-Queste librerie non sono incluse con i file di installazione dell'estensione NPS (versione 0.9.1.2), anche se nella documentazione esistente viene affermato il contrario. È necessario installare almeno Visual C++ Redistributable Package per Visual Studio 2013. Il modulo di Microsoft Azure Active Directory per Windows PowerShell viene installato, se non è già presente, tramite uno script di configurazione eseguito come parte del processo di installazione. Non è necessario installare il modulo in anticipo, se non è già installato.
+Il modulo di Microsoft Azure Active Directory per Windows PowerShell viene installato, se non è già presente, tramite uno script di configurazione eseguito come parte del processo di installazione. Non è necessario installare il modulo in anticipo, se non è già installato.
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory con sincronizzazione con Active Directory locale 
 
@@ -208,7 +208,7 @@ In questa sezione si configura il server VPN per l'uso dell'autenticazione RADIU
 
  ![Routing e accesso remoto](./media/nps-extension-vpn/image14.png)
  
-4. Nella finestra di dialogo **Proprietà di [Nome server] (locale)** fare clic sulla scheda **Sicurezza**. 
+4. Nella finestra di dialogo **Proprietà di [Nome server} \(locale)** fare clic sulla scheda **Sicurezza**. 
 5. Nella scheda **Sicurezza**, nella sezione Provider di autenticazione, fare clic su **Autenticazione RADIUS** e quindi su **Configura**.
 
  ![Autenticazione RADIUS](./media/nps-extension-vpn/image15.png)

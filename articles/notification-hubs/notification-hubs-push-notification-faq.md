@@ -15,12 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
 ## <a name="general"></a>Generale
@@ -220,4 +219,3 @@ Hub di notifica di Azure consente la visualizzazione di dati di telemetria nel [
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App per dispositivi mobili]: https://azure.microsoft.com/services/app-service/mobile/
 [Servizio app Prezzi]: https://azure.microsoft.com/pricing/details/app-service/
-

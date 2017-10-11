@@ -14,16 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a69951ed60edab8ae20374ab3869b468979c4907
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 7772381e9796ddc2e0db215bab4f230473eaa462
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Come usare Docker Machine per creare host in Azure
-Questa articolo illustra come usare [Docker Machine](https://docs.docker.com/machine/) per creare host in Azure. Il comando `docker-machine` crea una macchina virtuale (VM) Linux in Azure e quindi installa Docker. Ciò consentirà di gestire gli host Docker in Azure usando gli stessi strumenti e flussi di lavoro locali.
+Questa articolo illustra come usare [Docker Machine](https://docs.docker.com/machine/) per creare host in Azure. Il comando `docker-machine` crea una macchina virtuale (VM) Linux in Azure e quindi installa Docker. Ciò consentirà di gestire gli host Docker in Azure usando gli stessi strumenti e flussi di lavoro locali. Per usare docker-machine in Windows 10, è necessario usare la bash di Linux.
 
 ## <a name="create-vms-with-docker-machine"></a>Creare VM con Docker Machine
 Ottenere prima di tutto l'ID sottoscrizione di Azure con [az account show](/cli/azure/account#show) nel modo seguente:
@@ -34,13 +33,14 @@ sub=$(az account show --query "id" -o tsv)
 
 Le macchine virtuali host Docker vengono create in Azure con `docker-machine create` specificando *azure* come driver. Per altre informazioni, vedere la [documentazione del driver di Azure per Docker](https://docs.docker.com/machine/drivers/azure/)
 
-Nell'esempio seguente viene creata una macchina virtuale denominata *myVM*, viene creato un account utente denominato *azureuser* e viene aperta la porta *80* sulla macchina virtuale host. Seguire le istruzioni visualizzate per accedere all'account Azure e concedere a Docker Machine le autorizzazioni necessarie per creare e gestire le risorse.
+Nell'esempio seguente viene creata una macchina virtuale denominata *myVM*, in base al piano "Standard D2 v2", viene creato un account utente denominato *azureuser* e viene aperta la porta *80* sulla macchina virtuale host. Seguire le istruzioni visualizzate per accedere all'account Azure e concedere a Docker Machine le autorizzazioni necessarie per creare e gestire le risorse.
 
 ```bash
 docker-machine create -d azure \
     --azure-subscription-id $sub \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
+    --azure-size "Standard_D2_v2 \
     myvm
 ```
 

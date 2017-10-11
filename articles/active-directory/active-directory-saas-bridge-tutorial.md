@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: d2b7fd6f73f1b782cfe6337d13f9f22f9c70d389
-ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridge"></a>Esercitazione: Integrazione di Azure Active Directory con Bridge
 
@@ -226,5 +224,4 @@ Quando si fa clic sul riquadro Bridge nel pannello di accesso, si accederà auto
 [201]: ./media/active-directory-saas-bridge-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-bridge-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-bridge-tutorial/tutorial_general_203.png
-
 

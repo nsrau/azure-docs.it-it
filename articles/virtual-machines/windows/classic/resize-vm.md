@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 4277bc8394c7ba140291e9dc776162e87deab96b
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>Ridimensionare una VM Windows creata nel modello di distribuzione classico
 Questo articolo illustra come ridimensionare una VM Windows creata nel modello di distribuzione classico usando Azure PowerShell.
@@ -69,5 +68,4 @@ Uno script di esempio per l'eliminazione e la nuova creazione di un servizio clo
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Ridimensionare una VM creata nel modello di distribuzione Resource Manager](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

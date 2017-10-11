@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: genemi
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 082abf57b139b9f7d44774dce3a80e20b97f0e3b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Librerie di connettività e framework per Microsoft SQL Server
 
@@ -57,4 +56,3 @@ La tabella seguente elenca alcuni esempi di framework ORM (Object Relational Map
 - [Connettersi al database SQL tramite Java](sql-database-connect-query-java.md)
 - [Connettersi al database SQL tramite Python](sql-database-connect-query-python.md)
 - [Connettersi al database SQL tramite Ruby](sql-database-connect-query-ruby.md)
-

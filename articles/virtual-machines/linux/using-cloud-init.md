@@ -1,6 +1,6 @@
 ---
 title: Usare cloud-init per personalizzare una macchina virtuale Linux | Documentazione Microsoft
-description: Come usare cloud-init per personalizzare una VM Linux durante la creazione con l&quot;interfaccia della riga di comando di Azure 2.0
+description: Come usare cloud-init per personalizzare una VM Linux durante la creazione con l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: a7a6daad34525683579e25b9591ed28f2bf29c04
 ms.contentlocale: it-it
 ms.lasthandoff: 05/11/2017
-
 
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation"></a>Usare cloud-init per personalizzare una VM Linux durante la creazione

@@ -1,9 +1,9 @@
 ---
-title: "Bilanciamento del carico in più configurazioni IP in Azure | Documentazione Microsoft"
+title: "Bilanciamento del carico in più configurazioni IP in Azure | Microsoft Docs"
 description: Bilanciamento del carico tra configurazioni IP primarie e secondarie.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: cf1e68c7b37b2506de007bdf24eea63a27187a33
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8c0fc8d11a872b99fee2efa3a32a9e1ccce67f3c
+ms.contentlocale: it-it
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,7 +29,9 @@ ms.lasthandoff: 03/22/2017
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-Questo articolo illustra l'uso di Azure Load Balancer con più indirizzi IP su un'interfaccia di interfaccia di rete secondaria (NIC). Per questo scenario sono disponibili due macchine virtuali che eseguono Windows, ognuna con una scheda di interfaccia di rete primaria e secondaria. Ogni scheda di interfaccia di rete secondaria dispone di due configurazioni di IP. Ogni macchina virtuale ospita entrambi i siti Web: contoso.com e fabrikam.com. Ogni sito Web è associato a una delle configurazioni IP della scheda di interfaccia di rete secondaria. Azure Load Balancer viene usato per esporre due indirizzi IP front-end, uno per ogni sito Web, per distribuire il traffico alla rispettiva configurazione IP per il sito Web. Questo scenario usa lo stesso numero di porta per entrambi i front-end, nonché per entrambi gli indirizzi IP del pool back-end.
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
+Questo articolo illustra l'uso di Azure Load Balancer con più indirizzi IP su un'interfaccia di interfaccia di rete secondaria (NIC). Per questo scenario sono disponibili due macchine virtuali che eseguono Windows, ognuna con una scheda di interfaccia di rete primaria e secondaria. Ogni scheda di interfaccia di rete secondaria dispone di due configurazioni di indirizzo IP. Ogni macchina virtuale ospita entrambi i siti Web: contoso.com e fabrikam.com. Ogni sito Web è associato a una delle configurazioni IP della scheda di interfaccia di rete secondaria. Azure Load Balancer viene usato per esporre due indirizzi IP front-end, uno per ogni sito Web, per distribuire il traffico alla rispettiva configurazione IP per il sito Web. Questo scenario usa lo stesso numero di porta per entrambi i front-end, nonché per entrambi gli indirizzi IP del pool back-end.
 
 ![Immagine dello scenario LB](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
@@ -39,7 +42,7 @@ Questo esempio presuppone che sia disponibile un gruppo di risorse, denominato *
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Procedura per il bilanciamento del carico in più configurazioni IP
 
-Per ottenere lo scenario descritto in questo articolo, seguire questa procedura:
+Per ottenere lo scenario descritto in questo articolo completare la procedura seguente:
 
 ### <a name="step-1-configure-the-secondary-nics-for-each-vm"></a>PASSAGGIO 1: Configurare le schede di interfaccia di rete secondarie per ogni macchina virtuale
 
@@ -81,7 +84,7 @@ Configurare il pool di indirizzi IP front-end per ogni sito Web (Contoso e Fabri
 3. Nel portale fare clic su **Altri servizi** > digitare **bilanciamento del carico** nella casella del filtro e quindi fare clic su **Servizio di bilanciamento del carico**.  
 4. Selezionare il bilanciamento del carico (*mylb*) in cui si vuole aggiungere il pool di indirizzi IP front-end.
 5. In **Impostazioni** selezionare **Pool front-end**. Successivamente fare clic su **Aggiungi** nella parte superiore del pannello visualizzato.
-6. Digitare un nome per l'indirizzo IP front-end (*farbikamfe* o **contosofe*).
+6. Digitare un nome per l'indirizzo IP front-end, ad esempio *farbikamfe* o *contosofe*.
 7. Fare clic su **Indirizzo IP** e nel pannello **Scegli indirizzo IP pubblico** selezionare gli indirizzi IP per il front-end (*PublicIP1* o *PublicIP2*).
 8. Ripetere i passaggi da 3 a 7 all'interno di questa sezione per creare il secondo indirizzo IP front-end.
 9. Una volta completata la configurazione del pool di indirizzi IP front-end, entrambi gli indirizzi IP front-end vengono visualizzati nel pannello **Pool di indirizzi IP front-end** del bilanciamento del carico. 
@@ -119,7 +122,7 @@ Configurare le regole di bilanciamento del carico (*HTTPc* e *HTTPf*) per ogni s
 4. Per la **porta** e la **porta back-end** mantenere il valore predefinito **80**.
 5. Per **IP mobile (Direct Server Return)** fare clic su **Abilitato**.
 6. Fare clic su **OK**.
-7. Ripetere i passaggi da 1 a 6 all'interno di questa sezione per creare la seconda regola di bilanciamento del carico.
+7. Ripetere i passaggi da 1 a 6 all'interno di questa sezione per creare la seconda regola del servizio di bilanciamento del carico.
 8. Quando la configurazione delle regole di bilanciamento del carico è stata completata, entrambe le regole (*HTTPc* e *HTTPf*) vengono visualizzate nel pannello **Regole di bilanciamento del carico** del servizio di bilanciamento del carico.
 
 ### <a name="step-7-configure-dns-records"></a>PASSAGGIO 7: Configurare i record DNS
@@ -127,5 +130,5 @@ Infine è necessario configurare i record risorsa DNS in modo che puntino all'in
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su come combinare i servizi di bilanciamento del carico di Azure sono disponibili in [Uso dei servizi di bilanciamento del carico in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Informazioni su come è possibile usare diversi tipi di log in Azure per gestire e risolvere i problemi di bilanciamento del carico in [Analisi dei log per Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Le informazioni su come usare diversi tipi di log per gestire e risolvere i problemi di bilanciamento del carico sono disponibili in [Analisi dei log per il servizio di bilanciamento del carico di Azure](../load-balancer/load-balancer-monitor-log.md).
 

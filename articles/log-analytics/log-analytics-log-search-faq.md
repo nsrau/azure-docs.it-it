@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: d7bd0d780c265cc15ad09a73ede8c5a886005e37
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -59,6 +59,18 @@ Di seguito viene riportata una query di esempio per creare un nuovo gruppo di co
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Domanda: Perché i risultati della query non sono ordinati?
 Nel nuovo linguaggio di query, i risultati non sono ordinati per impostazione predefinita.  Usare il comando [Operatore sort](https://go.microsoft.com/fwlink/?linkid=856079) per ordinare i risultati in base a una o più proprietà.
 
+### <a name="question-where-did-minify-go-after-i-upgraded"></a>Domanda: Dove è stata spostata la funzionalità minify dopo l'aggiornamento?
+Minify è una funzionalità che offre una visualizzazione riepilogata dei risultati della ricerca.  Dopo l'aggiornamento,l'opzione Minify non viene più visualizzata nel portale Ricerca log.  È possibile ottenere funzionalità simili con il nuovo linguaggio di ricerca tramite [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) o [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
+
+
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problema noto: I risultati della ricerca in un elenco possono includere proprietà senza dati
 I risultati della ricerca log in un elenco possono includere proprietà senza dati.  Prima dell'aggiornamento, queste proprietà non sono incluse.  Questo problema verrà corretto in modo che le proprietà vuote non vengano visualizzate.
 
@@ -68,7 +80,7 @@ Prima dell'aggiornamento, selezionando un valore in un grafico verrà restituito
 ## <a name="log-search-api"></a>API di ricerca nei log
 
 ### <a name="question-does-the-log-search-api-get-updated-after-i-upgrade"></a>Domanda: L'API di ricerca log viene aggiornata dopo l'aggiornamento?
-L'[API di ricerca log](log-analytics-log-search-api.md) non è ancora stata aggiornata al nuovo linguaggio di ricerca.  Continuare a usare il linguaggio di query legacy con questa API, anche dopo l'aggiornamento dell'area di lavoro.  La documentazione aggiornata verrà resa disponibile per l'API di ricerca log una volta aggiornata.
+L'[API di ricerca log](log-analytics-log-search-api.md) legacy non funzionerà più quando si aggiorna l'area di lavoro.  Vedere [API REST di Azure Log Analytics](https://dev.loganalytics.io/) per informazioni dettagliate sulla nuova API.
 
 
 ## <a name="portals"></a>Portali
@@ -125,11 +137,11 @@ Tutte le soluzioni continueranno a funzionare in un'area di lavoro aggiornata, a
 ### <a name="known-issue-capacity-and-performance-solution"></a>Problema noto: Soluzione Capacità e prestazioni
 Alcune parti della vista [Capacità e prestazioni](log-analytics-capacity.md) possono risultare vuote.  Una soluzione a questo problema sarà disponibile a breve.
 
-### <a name="known-issue-device-health-solution"></a>Problema noto: Soluzione Integrità del dispositivo
-La [soluzione Integrità del dispositivo](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) non raccoglie alcun dato in un'area di lavoro aggiornata.  Una soluzione a questo problema sarà disponibile a breve.
-
 ### <a name="known-issue-application-insights-connector"></a>Problema noto: Connettore di Application Insights
 Le prospettive nella [soluzione Connettore di Application Insights](log-analytics-app-insights-connector.md) non sono attualmente supportate in un'area di lavoro aggiornata.  Una soluzione per questo problema è attualmente in fase di analisi.
+
+### <a name="known-issue-backup-solution"></a>Problema noto: soluzione Backup
+La soluzione Backup non raccoglie dati in un'area di lavoro aggiornata. A breve verrà annunciata una nuova soluzione Backup che usa le aree di lavoro aggiornate.
 
 ## <a name="upgrade-process"></a>Processo di aggiornamento
 

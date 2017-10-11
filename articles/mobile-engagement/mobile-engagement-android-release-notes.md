@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: c179c39a43da0aa35e945acceacbf27fe8e328f3
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="release-notes"></a>Note sulla versione
 
@@ -89,5 +88,4 @@ ms.lasthandoff: 07/21/2017
 * L'API non riceve e non invia più messaggi tra i dispositivi.
 * Sono stati introdotti miglioramenti per la sicurezza.
 * È stata rimossa la verifica per Google Play e SmartAd.
-
 

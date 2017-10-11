@@ -13,14 +13,12 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-azure-file-shares-with-windows-vms"></a>Usare le condivisioni file di Azure con le macchine virtuali Windows 
 
 Le condivisioni file di Azure possono essere usate per archiviare file e accedervi da una macchina virtuale. Ad esempio, è possibile archiviare uno script o il file di configurazione di un'applicazione che si intende condividere con tutte le macchine virtuali. In questo argomento verrà illustrato come creare e montare una condivisione file di Azure e come caricare e scaricare file.
@@ -76,4 +74,3 @@ In questa sezione si presuppone che la condivisione file a cui si desidera conne
 ## <a name="next-steps"></a>Passaggi successivi
 
 Le condivisioni file possono essere create e gestite anche usando PowerShell. Per altre informazioni, vedere [Introduzione ad Archiviazione file di Azure in Windows](../../storage/files/storage-dotnet-how-to-use-files.md).
-

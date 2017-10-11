@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9e62713be30a07ae00dac07de21009d2c379d609
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 6234473d9f7f0eb18ea85e52273eb82a9ce04da5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -55,17 +55,17 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#list) | Elenca gli account di archiviazione |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#check-name) | Verifica che un nome di account di archiviazione sia valido e che non esista già |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) | Elenca le chiavi per gli account di archiviazione |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#exists) | Controlla se il BLOB esiste |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#create) | Crea un contenitore in un account di archiviazione. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#upload) | Crea un BLOB nel contenitore caricando il disco rigido virtuale. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#list) | Usato con `--query`, controlla se il nome della macchina virtuale è in uso. | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Crea le macchine virtuali. |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#set-linux-user) | Reimposta la chiave SSH per consentire all'utente corrente di accedere alla macchina virtuale. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | Ottiene l'indirizzo IP della macchina virtuale creata. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Elenca gli account di archiviazione |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Verifica che un nome di account di archiviazione sia valido e che non esista già |
+| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#az_storage_account_keys_list) | Elenca le chiavi per gli account di archiviazione |
+| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Controlla se il BLOB esiste |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Crea un contenitore in un account di archiviazione. |
+| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Crea un BLOB nel contenitore caricando il disco rigido virtuale. |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Usato con `--query`, controlla se il nome della macchina virtuale è in uso. | 
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Crea le macchine virtuali. |
+| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | Reimposta la chiave SSH per consentire all'utente corrente di accedere alla macchina virtuale. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Ottiene l'indirizzo IP della macchina virtuale creata. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

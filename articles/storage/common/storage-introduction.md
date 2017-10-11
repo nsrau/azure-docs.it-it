@@ -3,7 +3,7 @@ title: Introduzione ad Archiviazione di Azure | Documentazione Microsoft
 description: Introduzione ad Archiviazione di Azure, la risorsa di archiviazione dei dati Microsoft sul cloud.
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 163f35682a4fdaa971f715c7429153bfdcf6a584
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a854a0033c365336c5ab13fb65524d84da92618c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-<!-- this is the same version that is in the MVC branch -->
+
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduzione ad Archiviazione di Microsoft Azure
 
 Archiviazione di Microsoft Azure è un servizio cloud gestito da Microsoft che offre risorse di archiviazione a disponibilità, sicurezza, durabilità, scalabilità e ridondanza elevate. Microsoft si occupa della manutenzione e gestisce i problemi critici per conto dell'utente. 
@@ -37,13 +37,9 @@ In questo articolo sono disponibili informazioni sugli argomenti seguenti:
 * Trasferimento di dati verso e dalle risorse di archiviazione
 * Numerose librerie client di archiviazione disponibili 
 
-
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
-
+Per diventare rapidamente operativi con Archiviazione di Azure, vedere una delle guide introduttive seguenti:
+* [Creare un account di archiviazione tramite PowerShell](storage-quickstart-create-storage-account-powershell.md)
+* [Creare un account di archiviazione tramite l'interfaccia della riga di comando](storage-quickstart-create-storage-account-cli.md)
 
 ## <a name="introducing-the-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure
 
@@ -55,8 +51,7 @@ I BLOB sono essenzialmente file simili a quelli archiviati nel computer o nel ta
 
 Dopo l'archiviazione dei file nell'archivio BLOB, è possibile accedere a tali file ovunque ci si trovi, tramite URL, interfaccia REST o una delle librerie client di archiviazione di Azure SDK. Le librerie client di archiviazione sono disponibili per molti linguaggi, tra cui Node.js, Java, PHP, Ruby, Python e .NET. 
 
-Esistono tre tipi di BLOB, ovvero i BLOB in blocchi, i BLOB di aggiunta
-e i BLOB di pagine (usati per i file VHD).
+Esistono tre tipi di BLOB, ovvero BLOB in blocchi, BLOB di accodamento e BLOB di pagine, usati per i file VHD.
 
 * I BLOB in blocchi vengono usati per contenere file normali con dimensioni fino a 4,7 TB. 
 * I BLOB di pagine vengono usati per contenere file ad accesso casuale con dimensioni fino a 8 TB. Vengono usati per i file VHD su cui si basano le VM.
@@ -64,11 +59,10 @@ e i BLOB di pagine (usati per i file VHD).
 
 Se sono presenti set di dati molto grandi e i vincoli della rete ne impediscono il caricamento o il download in archivi BLOB tramite una connessione, è possibile spedire un set di unità disco rigido a Microsoft per importare o esportare i dati direttamente dal data center. Vedere [Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](../storage-import-export-service.md).
 
-## <a name="file-storage"></a>Archiviazione file
+## <a name="azure-files"></a>File di Azure
+[File di Azure](../files/storage-files-introduction.md) consente di configurare condivisioni file di rete a disponibilità elevata a cui è possibile accedere usando il protocollo Server Message Block (SMB) standard. Più VM possono quindi condividere gli stessi file con accesso sia in lettura che in scrittura. È possibile leggere i file usando l'interfaccia REST o le librerie dei client di archiviazione. 
 
-Il servizio File di Azure consente di configurare condivisioni file di rete a disponibilità elevata a cui è possibile accedere usando il protocollo Server Message Block (SMB) standard. Più VM possono quindi condividere gli stessi file con accesso sia in lettura che in scrittura. È possibile leggere i file usando l'interfaccia REST o le librerie dei client di archiviazione. 
-
-Una delle differenze tra Archiviazione file di Azure e i file in una condivisione file aziendale è la possibilità di accedere ai file da qualsiasi parte del mondo usando un URL che punta al file e include un token di firma di accesso condiviso. È possibile generare token di firma di accesso condiviso, che consentono l'accesso specifico a un asset privato per un periodo di tempo specifico. 
+Una delle differenze tra File di Azure e i file in una condivisione file aziendale è la possibilità di accedere ai file da qualsiasi parte del mondo usando un URL che punta al file e include un token di firma di accesso condiviso. È possibile generare token di firma di accesso condiviso, che consentono l'accesso specifico a un asset privato per un periodo di tempo specifico. 
 
 Le condivisioni file possono essere usate per molti scenari comuni: 
 
@@ -86,14 +80,13 @@ Il servizio di accodamento di Azure viene usato per archiviare e recuperare i me
 
 Si supponga ad esempio che si voglia consentire ai clienti di caricare immagini e che si voglia creare un'anteprima per ogni immagine. È possibile creare le anteprime lasciando in attesa il cliente durante il caricamento delle immagini oppure usare una coda. Quando il cliente completa il caricamento, viene scritto un messaggio alla coda. Funzioni di Azure recupera quindi il messaggio dalla coda e crea le anteprime. Ogni parte di questa elaborazione può essere ridimensionata separatamente, offrendo un maggiore controllo per l'ottimizzazione ai fini dell'utilizzo.
 
-<!-- this bookmark is used by other articles; you'll need to update them before this goes into production ROBIN-->
 ## <a name="table-storage"></a>Archiviazione tabelle
-<!-- add a link to the old table storage to this paragraph once it's moved -->
-L'archiviazione tabelle di Azure Standard è ora inclusa in Cosmos DB. Sono anche disponibili tabelle Premium per l'archiviazione tabelle di Azure, che offrono tabelle ottimizzate per la velocità effettiva, distribuzione globale e indici secondari automatici. Per altre informazioni e per provare la nuova esperienza Premium, vedere [Azure Cosmos DB: API di tabella](https://aka.ms/premiumtables).
+
+L'archiviazione tabelle di Azure Standard è ora inclusa in Cosmos DB. Per la documentazione, vedere [Panoramica di Archiviazione tabelle di Azure](../../cosmos-db/table-storage-overview.md). Sono anche disponibili tabelle Premium per l'archiviazione tabelle di Azure, che offrono tabelle ottimizzate per la velocità effettiva, distribuzione globale e indici secondari automatici. Per altre informazioni e per provare la nuova esperienza Premium, vedere [Azure Cosmos DB: API di tabella](https://aka.ms/premiumtables).
 
 ## <a name="disk-storage"></a>Archiviazione su disco
 
-Il team di Archiviazione di Azure è proprietario anche dei dischi, incluse tutte le funzionalità dei dischi gestiti e non gestiti usate dalle macchine virtuali. Per altre informazioni su queste funzionalità, vedere la [documentazione sul servizio di calcolo](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Archiviazione di Azure include anche le funzionalità di dischi gestiti e non gestiti usate dalle macchine virtuali. Per altre informazioni su queste funzionalità, vedere la [documentazione sul servizio di calcolo](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Tipi di account di archiviazione 
 
@@ -146,21 +139,21 @@ Sono disponibili alcuni tipi di crittografia di base per i servizi di archiviazi
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi 
 
-È possibile abilitare Crittografia del servizio di archiviazione nel servizio file (anteprima) o nel servizio BLOB per un account di archiviazione di Azure. Se questa opzione è abilitata, tutti i dati scritti nel servizio specifico vengono crittografati prima della scrittura. In caso di lettura, i dati vengono crittografati prima della restituzione. 
+È possibile abilitare Crittografia del servizio di archiviazione nel servizio file (anteprima) o nel servizio BLOB per un account di archiviazione di Azure. Se questa opzione è abilitata, tutti i dati scritti nel servizio specifico vengono crittografati prima della scrittura. In caso di lettura, i dati vengono decrittografati prima della restituzione. 
 
 ### <a name="client-side-encryption"></a>Crittografia lato client
 
 Le librerie client di archiviazione includono metodi che possono essere chiamati per crittografare i dati a livello di codice prima del transito dal client ad Azure. I dati vengono archiviati crittografati, ovvero sono crittografati anche quando inattivi. Durante la lettura dei dati, le informazioni vengono decrittografate dopo la ricezione. 
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Crittografia in transito con le condivisioni file di Azure
+### <a name="encryption-in-transit-with-azure-file-shares"></a>Crittografia in transito con le condivisioni di File di Azure
 
 Per altre informazioni sulle firme di accesso condiviso, vedere [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) (Uso di firme di accesso condiviso). Per altre informazioni sull'accesso sicuro all'account di archiviazione, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md) e [Autenticazione per i servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx).
 
-Per altre informazioni sulla protezione dell'account di archiviazione e sulla crittografia, vedere [Azure Storage security guide](storage-security-guide.md) (Guida alla sicurezza di Archiviazione di Azure).
+Per altre informazioni sulla protezione dell'account di archiviazione e sulla crittografia, vedere [Guida alla sicurezza di Archiviazione di Azure](storage-security-guide.md).
 
 ## <a name="replication"></a>Replica
 
-Per assicurare che i dati siano durevoli, Archiviazione di Azure può mantenere e gestire più copie dei dati. Questo approccio viene definito replica o ridondanza. Quando si configura l'account di archiviazione, si seleziona il tipo di replica. Nella maggior parte dei casi questa impostazione può essere modificata dopo la configurazione dell'account di archiviazione. 
+Per assicurare che i dati siano durevoli, Archiviazione di Azure può mantenere e gestire più copie dei dati. Questo approccio viene definito replica o ridondanza. Quando si configura l'account di archiviazione, si seleziona un tipo di replica. Nella maggior parte dei casi questa impostazione può essere modificata dopo la configurazione dell'account di archiviazione. 
 
 Tutti gli account di archiviazione hanno l'**archiviazione con ridondanza locale**. Tre copie dei dati vengono quindi gestite da Archiviazione di Azure nel data center specificato durante la configurazione dell'account di archiviazione. Quando viene eseguito il commit delle modifiche in una copia, le altre due copie vengono aggiornate prima della restituzione dell'esito positivo. Le tre repliche sono quindi sempre sincronizzate. Le tre copie si trovano inoltre in domini di errore e domini di aggiornamento separati e sono quindi disponibili anche in caso di errore o spostamento offline per aggiornamento di un nodo di archiviazione che include i dati. 
 
@@ -228,11 +221,9 @@ Le risorse di archiviazione di Azure sono accessibile da qualsiasi linguaggio in
 * [Learn more about Blob storage (Altre informazioni sull'archiviazione file)](../storage-files-introduction.md)
 * [Learn more about Blob storage (Altre informazioni sull'archiviazione code)](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+Per diventare rapidamente operativi con Archiviazione di Azure, vedere una delle guide introduttive seguenti:
+* [Creare un account di archiviazione tramite PowerShell](storage-quickstart-create-storage-account-powershell.md)
+* [Creare un account di archiviazione tramite l'interfaccia della riga di comando](storage-quickstart-create-storage-account-cli.md)
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
@@ -274,9 +265,6 @@ To learn more about Azure Storage, explore these resources:
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### <a name="for-administrators"></a>Per amministratori
@@ -285,15 +273,15 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-net-developers"></a>Per sviluppatori .NET
 * [Introduzione all'archiviazione BLOB di Azure con .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Eseguire lo sviluppo per File di Azure con .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Introduzione all'archiviazione tabelle di Azure con .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Introduzione all'archiviazione code di Azure con .NET](../storage-dotnet-how-to-use-queues.md)
-* [Introduzione ad Archiviazione file di Azure in Windows](../storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>Per sviluppatori Java/Android
 * [Come usare l'archiviazione BLOB da Java](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Eseguire lo sviluppo per File di Azure con Java](../files/storage-java-how-to-use-file-storage.md)
 * [Come usare l'archiviazione tabelle da Java](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Come usare l'archiviazione di accodamento da Java](../storage-java-how-to-use-queue-storage.md)
-* [Come usare l'archiviazione file da Java](../storage-java-how-to-use-file-storage.md)
 
 ### <a name="for-nodejs-developers"></a>Per sviluppatori Node.js
 * [Come usare l'archiviazione BLOB da Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
@@ -312,7 +300,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-python-developers"></a>Per sviluppatori Python
 * [Come usare l'archiviazione BLOB da Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Eseguire lo sviluppo per File di Azure con Python](../files/storage-python-how-to-use-file-storage.md)
 * [Come usare l'archiviazione tabelle da Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Come usare l'archiviazione di accodamento da Python](../storage-python-how-to-use-queue-storage.md)   
-* [Come usare l'archiviazione file da Python](../storage-python-how-to-use-file-storage.md) 
--->
+* [Come usare l'archiviazione di accodamento da Python](../storage-python-how-to-use-queue-storage.md)

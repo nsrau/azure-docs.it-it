@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="actor-timers-and-reminders"></a>Timer e promemoria degli attori
 Gli attori possono pianificare il relativo lavoro periodico registrando timer o promemoria. Questo articolo illustra come usare timer e promemoria e ne spiega le differenze.
@@ -232,4 +230,3 @@ Come mostrato in precedenza, il metodo `UnregisterReminderAsync`(C#) o `unregist
 Acquisire informazioni sugli eventi e sulla rientranza di Reliable Actor:
 * [Eventi relativi agli attori](service-fabric-reliable-actors-events.md)
 * [Rientranza di Reliable Actors](service-fabric-reliable-actors-reentrancy.md)
-

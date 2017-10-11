@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.lasthandoff: 03/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recupero delle informazioni sullo stato per un processo di Importazione/Esportazione di Azure
 È possibile chiamare l'operazione [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) per recuperare informazioni su entrambi i processi: importazione ed esportazione. Le informazioni restituite includono:
 
@@ -94,4 +92,3 @@ Quando un processo o un'unità non procede regolarmente nel ciclo di vita previs
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
-

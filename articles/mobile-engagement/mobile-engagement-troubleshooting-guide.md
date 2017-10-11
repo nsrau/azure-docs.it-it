@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1947600f6167dff6ec4fa104b0f98200bcf2a2e1
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement---troubleshooting-guide"></a>Azure Mobile Engagement - Guida alla risoluzione dei problemi
 ## <a name="introduction"></a>Introduzione
@@ -77,7 +76,7 @@ Ecco altre istruzioni per la risoluzione dei problemi specifiche per le piattafo
    
    * Assicurarsi che i certificati siano validi e non siano scaduti per le notifiche push iOS. 
    * Assicurarsi che un certificato di *produzione* sia configurato correttamente nell'app Mobile Engagement. 
-   * Assicurarsi di eseguire il test su un *dispositivo fisico reale.*  Il simulatore iOS non è in grado di elaborare i messaggi push.
+   * Assicurarsi di eseguire il test su un *dispositivo fisico reale.* Il simulatore iOS non è in grado di elaborare i messaggi push.
    * Assicurarsi che l'identificatore del bundle sia configurato correttamente nell'app per dispositivi mobili. Le istruzioni sono disponibili [qui](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
    * Durante il test, utilizzare la distribuzione "Ad Hoc" nel profilo di provisioning per dispositivi mobili. Non sarà possibile ricevere una notifica se l'applicazione viene compilata con "Debug"
 2. **Android**
@@ -115,5 +114,4 @@ Se non si riesce a risolvere il problema autonomamente, sono disponibili le opzi
    * ID dispositivo
    * Versione di Mobile Engagement SDK (ad esempio Android SDK v2.1.0)
    * Dettagli dell'errore con messaggio di errore esatto e scenario
-
 

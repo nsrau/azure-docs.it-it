@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
-
-
+ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Gestire la prima API in Gestione API di Azure
 ## <a name="overview"> </a>Panoramica
@@ -254,9 +254,3 @@ La sezione **Analisi** include le quattro schede seguenti:
 [api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

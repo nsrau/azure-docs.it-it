@@ -14,18 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 9a364adad3342b211a647eb743776a47812b75f4
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-bus-quotas"></a>Quote del bus di servizio
 In questa sezione vengono elencate le quote di base e le soglie di limitazione della messaggistica del bus di servizio di Microsoft Azure.
 
 ## <a name="messaging-quotas"></a>Quote di messaggistica
 [!INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
-
 

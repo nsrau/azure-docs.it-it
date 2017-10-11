@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: 51aed908208b7a40ea2ab710dffe84370b573991
-ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Esercitazione: Integrazione di Azure Active Directory con Deputy
 
@@ -112,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_url1.png)
 
-    a. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il criterio seguente:
     |  |
     | ----|
     | `https://<subdomain>.<region>.au.deputy.com` |
@@ -312,5 +310,4 @@ Quando si fa clic sul riquadro Deputy nel pannello di accesso, si dovrebbe acced
 [201]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_203.png
-
 

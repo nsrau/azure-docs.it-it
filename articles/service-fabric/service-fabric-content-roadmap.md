@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/14/2017
+ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a5ccfa671e6780a3d4305d4e3238c55de8e577c
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbad2e501acf024fb5b7f5c62ebe5fa81e19cce7
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Informazioni su Service Fabric
@@ -58,7 +57,7 @@ Dopo aver creato un'applicazione denominata, è possibile creare un'istanza di u
 
 Sono disponibili due tipi di servizi: con e senza stato. I servizi senza stato archiviano lo stato permanente in un servizio di archiviazione esterno, ad esempio Archiviazione di Azure, database SQL di Azure o Azure Cosmos DB. Usare un servizio senza stato nei casi in cui il servizio non prevede alcun tipo di archivio permanente. Un servizio con stato usa Service Fabric per gestire lo stato del servizio tramite i modelli di programmazione Reliable Collections o Reliable Actors. 
 
-Quando si crea un servizio denominato, è necessario specificare uno schema di partizione. I servizi con grandi quantità di stato suddividono i dati tra partizioni. Ogni partizione è responsabile di una parte dello stato completo del servizio, che verrà distribuito tra i nodi del cluster. All'interno di una partizione, per i servizi denominati senza stato sono presenti istanze mentre per i servizi denominati con stato sono presenti repliche. In genere i servizi denominati senza stato avranno sempre una sola partizione, dal momento che non hanno uno stato interno. I servizi denominati con stato gestiscono il proprio stato all'interno delle repliche e ogni partizione contiene un set di repliche dedicato. Le operazioni di lettura e scrittura vengono eseguite in una replica (denominata replica primaria). I cambiamenti di stato dovuti a operazioni di scrittura vengono replicati in altre repliche (denominate repliche secondarie attive). 
+Quando si crea un servizio denominato, è necessario specificare uno schema di partizione. I servizi con grandi quantità di stato suddividono i dati tra partizioni. Ogni partizione è responsabile di una parte dello stato completo del servizio, che verrà distribuito tra i nodi del cluster.  
 
 Il diagramma seguente illustra la relazione tra applicazioni e istanze di servizi, partizioni e repliche.
 
@@ -94,7 +93,10 @@ Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi com
 [Reliable Actor](service-fabric-reliable-actors-introduction.md), basato su Reliable Services, è un framework applicazione che implementa il criterio Actor virtuale, basato a sua volta sul modello di progettazione dell'attore. Il framework Reliable Actor usa unità di calcolo e di stato indipendenti con esecuzione a thread singolo chiamate attori. Il framework Reliable Actors offre la comunicazione integrata per gli attori nonché configurazioni di mantenimento dello stato e scalabilità preimpostate.
 
 ### <a name="aspnet-core"></a>ASP.NET Core
-Service Fabric è integrato con [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) come modello di programmazione di prima classe per la creazione di applicazioni Web e API
+Service Fabric è integrato con [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) come modello di programmazione di prima classe per la creazione di applicazioni Web e API.  ASP.NET Core può essere usato in due modi diversi in Service Fabric:
+
+- Ospitato come eseguibile guest. Questa modalità viene usata principalmente per eseguire applicazioni ASP.NET Core esistenti in Service Fabric senza apportare modifiche al codice.
+- Eseguito in un servizio Reliable Services. Questa modalità offre una migliore integrazione con il runtime di Service Fabric e consente servizi ASP.NET Core con stato.
 
 ### <a name="guest-executables"></a>Eseguibili guest
 Un [eseguibile guest](service-fabric-deploy-existing-app.md) è un eseguibile arbitrario esistente, scritto in un qualsiasi linguaggio, ospitato in un cluster di Service Fabric insieme ad altri servizi. Gli eseguibili guest non si integrano direttamente con le API di Service Fabric. Tuttavia sfruttano le funzionalità offerte dalla piattaforma, quali report di integrità e caricamento personalizzati e individuabilità dei servizi mediante chiamate ad API REST. Gli eseguibili guest dispongono anche di supporto completo del ciclo di vita dell'applicazione. 
@@ -137,9 +139,9 @@ L'esecuzione dei cluster di Service Fabric in Azure offre l'integrazione con alt
 
 È possibile creare un cluster in Azure tramite il [portale di Azure](service-fabric-cluster-creation-via-portal.md), da un [modello](service-fabric-cluster-creation-via-arm.md) o da [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-L'anteprima di Service Fabric su Linux, consente di compilare, distribuire e gestire applicazioni a disponibilità e scalabilità elevata in tale ambiente proprio come in Windows. I framework di Service Fabric (Reliable Services e Reliable Actors) sono disponibili in Java su Linux in aggiunta a C# (.NET Core). È anche possibile compilare [servizi eseguibili guest](service-fabric-deploy-existing-app.md) con qualsiasi linguaggio o framework. L'anteprima, inoltre, supporta contenitori Docker di orchestrazione, che possono eseguire eseguibili guest o servizi nativi di Service Fabric, che usano i framework di Service Fabric. Per altre informazioni, vedere [Service Fabric in Linux](service-fabric-linux-overview.md).
+Service Fabric su Linux consente di compilare, distribuire e gestire applicazioni a disponibilità e scalabilità elevata in tale ambiente proprio come in Windows. I framework di Service Fabric (Reliable Services e Reliable Actors) sono disponibili in Java su Linux in aggiunta a C# (.NET Core). È anche possibile compilare [servizi eseguibili guest](service-fabric-deploy-existing-app.md) con qualsiasi linguaggio o framework. È supportata anche l'orchestrazione di contenitori Docker. che possono eseguire eseguibili guest o servizi nativi di Service Fabric, che usano i framework di Service Fabric. Per altre informazioni, vedere [Service Fabric in Linux](service-fabric-deploy-anywhere.md).
 
-Poiché Service Fabric in Linux è un'anteprima, alcune funzionalità sono supportate in Windows, ma non in Linux. Per altre informazioni, vedere [Differenze tra Service Fabric in Linux e in Windows](service-fabric-linux-windows-differences.md).
+Alcune funzionalità sono supportate in Windows, ma non in Linux. Per altre informazioni, vedere [Differenze tra Service Fabric in Linux e in Windows](service-fabric-linux-windows-differences.md).
 
 ### <a name="standalone-clusters"></a>Cluster autonomi
 Service Fabric offre un pacchetto di installazione per creare cluster autonomi di Service Fabric in locale o con qualsiasi provider di cloud. I cluster autonomi offrono la libertà di ospitare un cluster ovunque si voglia. Se i dati sono soggetti a vincoli normativi o di conformità o si vuole mantenere i dati locali, è possibile ospitare il proprio cluster e le applicazioni. Le applicazioni Service Fabric possono essere eseguite in più ambienti di hosting senza modifiche, pertanto le competenze di creazione di applicazioni sono trasferibili da un ambiente di hosting all'altro. 

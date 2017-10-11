@@ -1,5 +1,5 @@
 ---
-title: 'Esempio di rete perimetrale di Azure: Creare una rete perimetrale semplice con gruppi di sicurezza di rete | Documentazione Microsoft'
+title: 'Esempio di rete perimetrale di Azure: Creare una rete perimetrale semplice con gruppi di sicurezza di rete | Microsoft Docs'
 description: Creare una rete perimetrale con gruppi di sicurezza di rete
 services: virtual-network
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-translationtype: Human Translation
-ms.sourcegitcommit: cb2e480a45871ad0c956dc976de955ca48ecdfd0
 ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Esempio 1: Creare una rete perimetrale semplice usando gruppi di sicurezza di rete con un modello di Azure Resource Manager
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -41,7 +41,7 @@ Una sottoscrizione in questo esempio include le risorse seguenti:
 * Un unico gruppo di risorse
 * Una rete virtuale con due subnet: front-end e back-end
 * Un gruppo di sicurezza di rete applicato a entrambe le subnet
-* Un server Windows che rappresenta un server Web applicazioni ("IIS01").
+* Un server Windows che rappresenta un server Web applicazioni ("IIS01")
 * Due server Windows che rappresentano i server applicazioni back-end ("AppVM01", "AppVM02")
 * Un server Windows che rappresenta un server DNS ("DNS01")
 * Un indirizzo IP pubblico associato al server Web applicazioni
@@ -235,7 +235,7 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
   3. Regola gruppo di sicurezza di rete 3 (da Internet a firewall), non applicabile, passa alla regola successiva.
   4. Regola gruppo di sicurezza di rete 4 (da IIS01 ad AppVM01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 9. AppVM01 riceve la query SQL e risponde.
-10. Non essendoci regole in uscita sulla subnet back-end, la risposta è consentita.
+10. Non essendoci regole in uscita sulla subnet back-end, la risposta è consentita
 11. La subnet front-end inizia l'elaborazione delle regole in ingresso:
   1. Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
   2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
@@ -275,7 +275,7 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
 12. IIS01 riceve la risposta da DNS01.
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Consentito*) Il server Web richiede l'accesso a un file in AppVM01
-1. IIS01 richiede un file su AppVM01.
+1. IIS01 richiede un file in AppVM01.
 2. Non sono impostate regole in uscita sulla subnet front-end, il traffico è consentito.
 3. La subnet back-end inizia l'elaborazione delle regole in ingresso:
   1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
@@ -283,7 +283,7 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
   3. Regola gruppo di sicurezza di rete 3 (da Internet a IIS01) non applicabile, passa alla regola successiva.
   4. Regola gruppo di sicurezza di rete 4 (da IIS01 ad AppVM01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 4. AppVM01 riceve la richiesta e risponde con il file (presupponendo che l'accesso sia autorizzato).
-5. Non essendoci regole in uscita sulla subnet back-end, la risposta è consentita.
+5. Non essendoci regole in uscita sulla subnet back-end, la risposta è consentita
 6. La subnet front-end inizia l'elaborazione delle regole in ingresso:
   1. Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
   2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
@@ -319,7 +319,7 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
 4. Il traffico raggiunge l'indirizzo IP interno di IIS01 (10.0.1.5).
 5. IIS01 non è in ascolto sulla porta 1433, pertanto la richiesta non ottiene risposta.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 Questo esempio consente di isolare la subnet back-end dal traffico in ingresso in un modo relativamente semplice e diretto.
 
 Altri esempi e una panoramica dei limiti di sicurezza della rete sono disponibili [qui][HOME].
@@ -364,8 +364,3 @@ Dopo la corretta esecuzione del modello è possibile configurare il server Web e
 [HOME]: ../best-practices-network-security.md
 [Template]: https://github.com/Azure/azure-quickstart-templates/tree/master/301-dmz-nsg
 [SampleApp]: ./virtual-networks-sample-app.md
-
-
-<!--HONumber=Jan17_HO1-->
-
-

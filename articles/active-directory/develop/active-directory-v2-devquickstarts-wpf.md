@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: d0602a61b0335ef2bb92e27051c286852bc08d35
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: 7389f55ee6fef9548abb0ca4ac1bbd0399868d47
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Aggiungere l'accesso a un'applicazione Desktop di Windows
 Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app desktop con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione.  Consente inoltre all'app di comunicare in modo sicuro con un'API Web back-end, con [Microsoft Graph](https://graph.microsoft.io) e con alcune [API unificate di Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -262,5 +260,4 @@ Per altre risorse, vedere:
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
 

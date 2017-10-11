@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 72ec71814d3c56d1f1df947329eaf66b7dc8f1cf
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Perché scegliere Servizi cloud
@@ -28,7 +28,7 @@ Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi mo
 <a name="tellmecs"></a>
 
 ## <a name="tell-me-about-cloud-services"></a>Informazioni sui servizi cloud
-Servizi cloud è un esempio di [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) . Analogamente al [servizio app](../app-service-web/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come un servizio app, i servizi cloud sono ospitati su VM, tuttavia il controllo sulle VM è maggiore. È possibile installare il software personalizzato nelle macchine virtuali del servizio cloud ed accedervi in remoto.
+Servizi cloud è un esempio di [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) . Analogamente al [servizio app](../app-service/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come un servizio app, i servizi cloud sono ospitati su VM, tuttavia il controllo sulle VM è maggiore. È possibile installare il software personalizzato nelle macchine virtuali del servizio cloud ed accedervi in remoto.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
 

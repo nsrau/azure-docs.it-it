@@ -1,6 +1,6 @@
 ---
 title: Integrare la sicurezza nei progetti di architettura di Azure | Documentazione Microsoft
-description: " In questo articolo consente di comprendere l&quot;architettura di applicazioni e servizi in Azure per semplificare l&quot;integrazione della sicurezza nella progettazione e nell&quot;implementazione. "
+description: " In questo articolo consente di comprendere l'architettura di applicazioni e servizi in Azure per semplificare l'integrazione della sicurezza nella progettazione e nell'implementazione. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
-ms.lasthandoff: 03/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="application-architecture-on-azure"></a>Architettura delle applicazioni in Azure
 Per proteggere le soluzioni basate sul cloud in Microsoft Azure, è fondamentale avere un'architettura affidabile. Architetti, progettisti e responsabili dell'implementazione beneficiano di una conoscenza avanzata dell'architettura di applicazioni e servizi. Queste informazioni fondamentali permettono di comprendere tutti i componenti delle soluzioni basate sul cloud e semplificano l'integrazione della sicurezza in tutti gli aspetti della progettazione e dell'implementazione.
@@ -56,4 +55,3 @@ Il modello è anche disponibile al di fuori del corso.
 * [Visualizzare prima il video di training](http://aka.ms/3dBlueprintTemplateVideo) in modo da sapere quali operazione eseguire
 * Scaricare [Microsoft 3D Blueprint Visio Template](http://aka.ms/3DBlueprintTemplate)
 * Scaricare i [simboli di Cloud ed Enterprise](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) da usare con il modello 3D
-

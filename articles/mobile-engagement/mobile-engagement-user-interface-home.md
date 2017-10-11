@@ -1,6 +1,6 @@
 ---
 title: Interfaccia utente di Azure Mobile Engagement - Home
-description: Informazioni su come gestire l&quot;applicazione e i progetti esistenti usando Azure Mobile Engagement
+description: Informazioni su come gestire l'applicazione e i progetti esistenti usando Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1e3e4825d06486e6e8dfa874271ec82d203f7a7b
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>Come gestire l'applicazione e i progetti esistenti
 In questo articolo viene descritta la pagina **Home** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement** . 
@@ -165,4 +164,3 @@ Fare clic su un progetto per visualizzare tutte le applicazioni che ne fanno par
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-

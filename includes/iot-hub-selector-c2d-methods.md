@@ -12,9 +12,6 @@ Questa esercitazione illustra come:
 * Creare un'app per dispositivo simulato che ha un metodo diretto che può essere chiamato dal cloud.
 * Creare un'app console che chiama un metodo diretto nell'app per dispositivo simulato tramite l'hub IoT.
 
-> [!NOTE]
-> Al momento i metodi diretti sono supportati solo sui dispositivi che si connettono all'hub IoT usando il protocollo MQTT. Per istruzioni su come convertire l'app per dispositivo esistente in modo che usi MQTT, vedere l'articolo [Supporto di MQTT][lnk-devguide-mqtt].
-
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md

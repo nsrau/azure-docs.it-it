@@ -1,6 +1,6 @@
 ---
 title: Gestire i gruppi di sicurezza di rete - interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: Informazioni su come gestire i gruppi di sicurezza di rete usando l&quot;interfaccia della riga di comando di Azure 2.0.
+description: Informazioni su come gestire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure 2.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: dcb0455fe223e99b4f1b0035b1d1109ecf5ee268
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Gestire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure 2.0
 
@@ -352,5 +351,4 @@ Nell'output il valore della chiave `networkSecurityGroup` è simile al seguente:
     ```
 ## <a name="next-steps"></a>Passaggi successivi
 * [Abilitare la registrazione](virtual-network-nsg-manage-log.md) per gli NSG.
-
 

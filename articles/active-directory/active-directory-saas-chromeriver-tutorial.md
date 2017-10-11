@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Chromeriver | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Chromeriver.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Chromeriver.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 6ee3316a8258ee27e4fa4ec22badbf4fe047a844
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>Esercitazione: Integrazione di Azure Active Directory con Chromeriver
 
@@ -231,5 +229,4 @@ Quando si fa clic sul riquadro Canvas nel pannello di accesso, si dovrebbe acced
 [201]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_203.png
-
 

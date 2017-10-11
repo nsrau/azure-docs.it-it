@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: elioda
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 633c9fd4f8a1d017d93148f8c2e860ccba14238c
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: d7c257553d25694005bced745f793951cc9f8951
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="get-started-with-device-twins-node"></a>Introduzione ai dispositivi gemelli (Node)
@@ -129,10 +129,6 @@ Nella sezione successiva si crea un'app per dispositivo che segnala le informazi
 ## <a name="create-the-device-app"></a>Creare l'app per dispositivo
 In questa sezione si crea un'app console Node.js che si connette all'hub come **myDeviceId** e quindi aggiorna le proprietà segnalate del dispositivo gemello per poter contenere le informazioni relative alla connessione usando una rete cellulare.
 
-> [!NOTE]
-> Al momento i dispositivi gemelli sono accessibili solo dai dispositivi che si connettono all'hub IoT tramite il protocollo MQTT. Per istruzioni su come convertire l'app per dispositivo esistente in modo che usi MQTT, vedere l'articolo [Supporto di MQTT][lnk-devguide-mqtt].
-> 
-> 
 
 1. Creare una nuova cartella vuota denominata **reportconnectivity**. Nella cartella **reportconnectivity** creare un nuovo file package.json immettendo il comando seguente al prompt dei comandi. Accettare tutte le impostazioni predefinite:
    

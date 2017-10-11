@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Studio del modello di soluzione Cortana Intelligence per la previsione della domanda di energia
 ## <a name="executive-summary"></a>Sunto
@@ -401,5 +400,4 @@ Il diagramma seguente illustra una tipica architettura basata su Cortana Intelli
 ![Architettura di distribuzione end-to-end](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 Per altre informazioni su ognuno dei componenti e sull'intera architettura, vedere il modello di soluzione energetica.
-
 

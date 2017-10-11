@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad2c6d585eef5450f7f0912ffa4753fe80d86b37
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 21229ad7277ce03e5276fe965d73b5e5eba12424
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gestire in blocco le identità dei dispositivi dell'hub IoT
@@ -71,7 +71,7 @@ while(true)
 
 ## <a name="export-devices"></a>Esportare dispositivi
 
-Usare il metodo **ExportDevicesAsync** per esportare un intero registro delle identità di un hub IoT in un contenitore BLOB di [Archiviazione di Azure](../storage/index.md) con una [firma di accesso condiviso](../storage/common/storage-security-guide.md#data-plane-security).
+Usare il metodo **ExportDevicesAsync** per esportare un intero registro delle identità di un hub IoT in un contenitore BLOB di [Archiviazione di Azure](../storage/index.yml) con una [firma di accesso condiviso](../storage/common/storage-security-guide.md#data-plane-security).
 
 Questo metodo consente di creare backup affidabili delle informazioni sui dispositivi in un contenitore BLOB che si controlla.
 
@@ -196,7 +196,7 @@ Prestare attenzione quando si usa il metodo **ImportDevicesAsync** in quanto, ol
 
 Il metodo **ImportDevicesAsync** usa due parametri:
 
-* Una *stringa* che contiene un URI di un contenitore BLOB di [Archiviazione di Azure](../storage/index.md) come *input* del processo. Questo URI deve contenere un token di firma di accesso condiviso che concede l'accesso in lettura al contenitore. Questo contenitore deve includere un BLOB con il nome **devices.txt** che contiene i dati serializzati del dispositivo da importare nel registro delle identità. I dati di importazione devono contenere informazioni sul dispositivo nello stesso formato JSON usato dal processo **ExportImportDevice** quando viene creato il BLOB **devices.txt**. Il token di firma di accesso condiviso deve includere queste autorizzazioni:
+* Una *stringa* che contiene un URI di un contenitore BLOB di [Archiviazione di Azure](../storage/index.yml) come *input* del processo. Questo URI deve contenere un token di firma di accesso condiviso che concede l'accesso in lettura al contenitore. Questo contenitore deve includere un BLOB con il nome **devices.txt** che contiene i dati serializzati del dispositivo da importare nel registro delle identità. I dati di importazione devono contenere informazioni sul dispositivo nello stesso formato JSON usato dal processo **ExportImportDevice** quando viene creato il BLOB **devices.txt**. Il token di firma di accesso condiviso deve includere queste autorizzazioni:
 
    ```csharp
    SharedAccessBlobPermissions.Read

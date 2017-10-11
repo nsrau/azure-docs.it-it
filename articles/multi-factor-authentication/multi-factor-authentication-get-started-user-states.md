@@ -15,14 +15,12 @@ ms.date: 06/26/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 1869b7a4ef42536a3cd909ba2983ae0fe97185a9
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Come richiedere la verifica in due passaggi per un utente o un gruppo
 
 Sono disponibili due modi per richiedere la verifica in due passaggi. Il primo prevede l'abilitazione di ogni singolo utente per Azure Multi-Factor Authentication (MFA). Gli utenti abilitati singolarmente devono sempre eseguire la verifica in due passaggi (con alcune eccezioni, ad esempio se accedono da indirizzi IP attendibili o se è attiva la funzionalità relativa ai dispositivi memorizzati). Il secondo modo prevede la configurazione di criteri di accesso condizionale che richiedano la verifica in due passaggi in presenza di determinate condizioni.

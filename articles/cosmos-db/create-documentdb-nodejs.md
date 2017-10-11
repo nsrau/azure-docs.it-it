@@ -34,7 +34,8 @@ Questa guida di avvio rapido mostra come creare un account, un database di docum
     * [Node.js](https://nodejs.org/en/) 0.10.29 o versione successiva
     * [Git](http://git-scm.com/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 5ff7c4ee612fd1261d85870be4d6fcbd66b64735
-ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: a767c93fb271f3aa33d9556c69c511bcac7cb0d5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio
 Tramite Azure Active Directory (Azure AD), è possibile supportare Single Sign-On (SSO) per le applicazioni Web ASP.NET MVC o l'autenticazione di Active Directory nei servizi Web API. Con l'autenticazione Azure Active Directory, gli utenti possono usare gli account da Azure Active Directory per connettersi alle applicazioni Web. I vantaggi dell'autenticazione di Azure Active Directory con l'API Web comprendono la protezione avanzata dei dati quando si espone un'API da un'applicazione Web. Con Azure AD, non è necessario gestire un sistema di autenticazione distinto con la gestione di account e utente.
@@ -59,5 +58,4 @@ Quando si esegue la procedura guidata, Visual Studio aggiunge Azure Active Direc
 * [Forum MSDN su Azure Active Directory](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 * [Documentazione di Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Post di blog: Introduzione ad Azure Active Directory](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
-
 

@@ -11,14 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: markscu
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)
 
 Usando l'interfaccia della riga di comando di Azure è possibile eseguire processi di Batch senza scrittura del codice.
@@ -265,4 +263,3 @@ Provare l'estensione Batch per l'interfaccia della riga di comando di Azure e fo
 
 - Vedere il post del blog sui modelli di Batch: [Processi in esecuzione di Azure Batch che usano l'interfaccia della riga di comando di Azure: non è richiesto alcun codice](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
 - Documentazione dettagliata su installazione e utilizzo, esempi e codice sorgente sono disponibili nel [repository GitHub di Azure](https://github.com/Azure/azure-batch-cli-extensions).
-

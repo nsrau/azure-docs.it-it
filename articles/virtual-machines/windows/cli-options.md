@@ -1,6 +1,6 @@
 ---
-title: Uso dell&quot;interfaccia della riga di comando di Azure su Windows | Documentazione Microsoft
-description: Uso dell&quot;interfaccia della riga di comando di Azure su Windows
+title: Uso dell'interfaccia della riga di comando di Azure su Windows | Documentazione Microsoft
+description: Uso dell'interfaccia della riga di comando di Azure su Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: be02ad0d7752cb08f092deeb5a86dcd126403237
-ms.lasthandoff: 04/18/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 0ac4aa10db43fb84119ab97cf78b2d5592cfd277
+ms.contentlocale: it-it
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -61,7 +62,7 @@ Al termine, verrà avviata una sessione Bash precaricata con gli strumenti dell'
 
 [Esempio di interfaccia della riga di comando per macchine virtuali di Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Esempi di interfaccia della riga di comando per App Web di Azure](../../app-service-web/app-service-cli-samples.md)
+[Esempi di interfaccia della riga di comando per App Web di Azure](../../app-service/app-service-cli-samples.md)
 
 [Esempi di interfaccia della riga di comando per Azure SQL](../../sql-database/sql-database-cli-samples.md)
 

@@ -3,7 +3,7 @@ title: Obiettivi di ridimensionamento e prestazioni di Archiviazione di Azure | 
 description: "Scopri gli obiettivi di scalabilità e prestazioni di Archiviazione di Azure, incluse la capacità, la velocità di richiesta e la larghezza di banda in entrata e in uscita sia per gli account di archiviazione standard che premium. Comprendere obiettivi di prestazioni per le partizioni all'interno di ciascun servizio Archiviazione di Azure."
 services: storage
 documentationcenter: na
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 47a1d2b87269d40716b3dae02276207060b41c24

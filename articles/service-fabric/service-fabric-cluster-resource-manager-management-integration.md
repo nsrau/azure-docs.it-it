@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric
@@ -188,7 +188,7 @@ Cluster Resource Manager potrebbe dover comprimere un paio di repliche in un dom
 Se l'ambiente è configurato correttamente tutti i vincoli vengono completamente rispettati anche durante gli aggiornamenti. L'elemento fondamentale è che Cluster Resource Manager controlla i vincoli. Quando rileva una violazione la segnala immediatamente e tenta di risolvere il problema.
 
 ## <a name="the-preferred-location-constraint"></a>Il vincolo di posizione preferita
-Il vincolo PreferredLocation è leggermente diverso, perché ha due diversi usi. Un uso di questo vincolo avviene durante gli aggiornamenti dell'applicazione. Cluster Resource Manager gestisce automaticamente questo vincolo durante gli aggiornamenti. Viene usato per assicurare che quando gli aggiornamenti vengono completati le repliche tornino alle posizioni iniziali. L'altro uso del vincolo PreferredLocation è per il `PreferredPrimaryDomain`criterio di selezione](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) [. Entrambi sono ottimizzazioni e il vincolo PreferredLocation è l'unico vincolo impostato su "Optimization" per impostazione predefinita.
+Il vincolo PreferredLocation è leggermente diverso, perché ha due diversi usi. Un uso di questo vincolo avviene durante gli aggiornamenti dell'applicazione. Cluster Resource Manager gestisce automaticamente questo vincolo durante gli aggiornamenti. Viene usato per assicurare che quando gli aggiornamenti vengono completati le repliche tornino alle posizioni iniziali. L'altro uso del vincolo PreferredLocation è per il [`PreferredPrimaryDomain` criterio di selezione](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Entrambi sono ottimizzazioni e il vincolo PreferredLocation è l'unico vincolo impostato su "Optimization" per impostazione predefinita.
 
 ## <a name="upgrades"></a>Aggiornamenti
 Cluster Resource Manager facilita le cose anche durante gli aggiornamenti di applicazioni e cluster, quando ha due compiti:

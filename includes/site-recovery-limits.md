@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
 ms.openlocfilehash: e0694aa8c5226b794be59358e73751cc493a7e95
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 Le seguenti limitazioni si applicano a Azure Site Recovery:
 
@@ -29,5 +29,4 @@ Le seguenti limitazioni si applicano a Azure Site Recovery:
 | Numero di piani di ripristino per Azure archivio |Nessun limite |
 | Numero di server per il gruppo protezione dati |Nessun limite |
 | Numero di server per il piano di ripristino |50 |
-
 

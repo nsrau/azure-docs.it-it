@@ -15,22 +15,20 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: LADocs; stepsic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ae5ce7d16ac9ed3a06c313ff3c48e8cbf79c54
-ms.openlocfilehash: f1bf19e6dfbcf187635730a53c93162244c17c6a
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 35d7a56d5607dcc18a4407c65b92962d3d0dcd1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Aggiornamenti dello schema per App per la logica di Azure: anteprima del 1° agosto 2015
 
 La nuova versione dello schema e dell'API per App per la logica di Azure include importanti miglioramenti che rendono le app per la logica più affidabili e facili da usare:
 
-*    Il tipo di azione **APIApp** viene aggiornato e sostituito con un nuovo tipo di azione [**APIConnection**](#api-connections).
-*    **Repeat** viene rinominato come [**Foreach**](#foreach).
-*    L'[app per le API **Listener HTTP**](#http-listener) non è più necessaria.
-*    La chiamata a flussi di lavoro figlio usa un [nuovo schema](#child-workflows).
+*   Il tipo di azione **APIApp** viene aggiornato e sostituito con un nuovo tipo di azione [**APIConnection**](#api-connections).
+*   **Repeat** viene rinominato come [**Foreach**](#foreach).
+*   L'[app per le API **Listener HTTP**](#http-listener) non è più necessaria.
+*   La chiamata a flussi di lavoro figlio usa un [nuovo schema](#child-workflows).
 
 <a name="api-connections"></a>
 ## <a name="move-to-api-connections"></a>Passare alle connessioni API
@@ -480,4 +478,3 @@ Verranno aggiunti a breve altri tipi di contenuti, quindi la funzione `parse()` 
 ## <a name="coming-soon-enterprise-integration-apis"></a>Presto disponibile: API Enterprise Integration
 
 Non sono ancora disponibili versioni gestite delle API Enterprise Integration, ad esempio AS2. Per il momento è possibile usare le API di BizTalk distribuite tramite l'azione HTTP. Per informazioni dettagliate, vedere "Using your already deployed API apps" (Uso delle app per le API già distribuite) nella [guida di orientamento all'integrazione](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
-

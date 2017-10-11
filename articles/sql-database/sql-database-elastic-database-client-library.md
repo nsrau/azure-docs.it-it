@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 509a77a5059a39f964a1d89099998a07fd2cbfd5
-ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 0128b333f04847ab646dcb0759fcef5f7e86ffd9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Creazione di database cloud scalabili
 La scalabilità orizzontale dei database può essere ottenuta facilmente con gli strumenti e le funzionalità scalabili per il database SQL di Azure. In particolare, è possibile usare la **libreria client dei database elastici** per creare e gestire i database con scalabilità orizzontale. Questa funzionalità consente di sviluppare con facilità applicazioni partizionate usando centinaia o anche migliaia di database SQL Azure. [processi elastici](sql-database-elastic-jobs-powershell.md) possono quindi essere usati per facilitare la gestione di questi database.
@@ -74,5 +72,4 @@ La libreria è disponibile come software open source in [GitHub](https://github.
 <!--Anchors-->
 <!--Image references-->
 [1]:./media/sql-database-elastic-database-client-library/glossary.png
-
 

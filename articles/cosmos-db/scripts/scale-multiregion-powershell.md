@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a115140269eb39eb0e61e0f1a92f3fbdb80d06c7
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 3a469ba43e6c601f5eb0e13d588cd0bd4a0f8683
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>Replicare l'account di database di Azure Cosmos DB in più aree e configurare le priorità di failover mediante PowerShell
 
 Questo esempio replica qualsiasi tipo di database di Azure Cosmos DB in più aree e configura le priorità di failover mediante PoweShell. 

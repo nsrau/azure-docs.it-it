@@ -1,6 +1,6 @@
 ---
-title: Aggiungere informazioni di accesso a un&quot;applicazione iOS usando l&quot;endpoint 2.0 di Azure AD | Documentazione Microsoft
-description: Come compilare un&quot;app per iOS che consente agli utenti di accedere con un account Microsoft personale, aziendale o dell&quot;istituto di istruzione usando librerie di terze parti.
+title: Aggiungere informazioni di accesso a un'applicazione iOS usando l'endpoint 2.0 di Azure AD | Documentazione Microsoft
+description: Come compilare un'app per iOS che consente agli utenti di accedere con un account Microsoft personale, aziendale o dell'istituto di istruzione usando librerie di terze parti.
 services: active-directory
 documentationcenter: 
 author: brandwe
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: 36c83ad9424c7c1e0bc096696148dda801bc4257
-ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: cf1455dc3d55ea3581195f7a315556d134c23a26
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Aggiungere informazioni di accesso a un'app iOS usando una libreria di terze parti con l'API Graph mediante l'endpoint v2.0
 La piattaforma delle identità Microsoft usa standard aperti, ad esempio OAuth2 e OpenID Connect. Gli sviluppatori possono usare qualsiasi libreria che desiderano integrare ai servizi. Per aiutare gli sviluppatori a usare la piattaforma con altre librerie, sono state scritte alcune procedure dettagliate come questa, che illustrano come configurare le librerie di terze parti per connettersi alla piattaforma delle identità Microsoft. La maggior parte delle librerie che implementano [la specifica OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) possono connettersi alla piattaforma delle identità Microsoft.
@@ -571,5 +569,4 @@ Se è stata usata la struttura o si è seguita la procedura dettagliata, l'appli
 
 ## <a name="get-security-updates-for-our-product"></a>Ottenere aggiornamenti della sicurezza per il prodotto
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [Security TechCenter](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
 

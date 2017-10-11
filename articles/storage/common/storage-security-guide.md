@@ -3,7 +3,7 @@ title: Guida alla sicurezza di Archiviazione di Azure | Microsoft Docs
 description: Descrive in dettaglio i vari metodi di protezione di Archiviazione di Azure, incluse ad esempio Crittografia del servizio di archiviazione, crittografia lato client, SMB 3.0 e Crittografia dischi di Azure.
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e71d9baf36ea7acb8dc8fa1daf9ddde3a2856f85
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c4a0b047ce5c6706b51e96e8cc160c610625869e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
@@ -157,11 +157,14 @@ Nota: è consigliabile usare solo una delle chiavi in tutte le applicazioni cont
   Questo articolo illustra come usare Active Directory per controllare l'accesso alle chiavi di archiviazione di Azure nell'insieme di credenziali delle chiavi di Azure. Illustra anche come usare un processo di Automazione di Azure per rigenerare le chiavi su base oraria.
 
 ## <a name="data-plane-security"></a>Sicurezza del piano dati
-La sicurezza del piano dati riguarda i metodi usati per proteggere gli oggetti dati archiviati in Archiviazione di Azure: BLOB, code, tabelle e file. Sono stati esaminati i metodi per crittografare i dati e per la sicurezza durante la trasmissione di dati, ora si vedrà come fare per consentire l'accesso agli oggetti stessi.
+La sicurezza del piano dati riguarda i metodi usati per proteggere gli oggetti dati archiviati in Archiviazione di Azure: BLOB, code, tabelle e file. Sono stati esaminati i metodi per crittografare i dati e per la sicurezza durante la trasmissione di dati, ora si vedrà come fare per controllare l'accesso agli oggetti stessi.
 
-Esistono essenzialmente due metodi per controllare l'accesso agli oggetti dati. Il primo consiste nel controllare l'accesso alle chiavi dell'account di archiviazione, mentre il secondo usa firme di accesso condiviso per concedere l'accesso a oggetti dati specifici per un determinato periodo di tempo.
+Esistono due metodi per autorizzare l'accesso agli oggetti dati. Essi consistono nel controllare l'accesso alle chiavi dell'account di archiviazione o nell'usare firme di accesso condiviso per concedere l'accesso a oggetti dati specifici per un determinato periodo di tempo.
 
-Un'eccezione importante riguarda la possibilità di consentire l'accesso pubblico ai BLOB impostando di conseguenza il livello di accesso per il contenitore che contiene i BLOB. Se si imposta l'accesso per un contenitore su BLOB o Contenitore, sarà consentito l'accesso pubblico in lettura ai BLOB in quel contenitore. Ciò significa che chiunque abbia un URL che punta a un BLOB in quel contenitore potrà aprirlo in un browser senza usare una firma di accesso condiviso o con le chiavi dell'account di archiviazione.
+Per l'archiviazione BLOB è possibile consentire anche l'accesso pubblico ai BLOB impostando di conseguenza il livello di accesso per il contenitore che contiene i BLOB. Se si imposta l'accesso per un contenitore su BLOB o Contenitore, sarà consentito l'accesso pubblico in lettura ai BLOB in quel contenitore. Ciò significa che chiunque abbia un URL che punta a un BLOB in quel contenitore potrà aprirlo in un browser senza usare una firma di accesso condiviso o con le chiavi dell'account di archiviazione.
+
+Oltre a limitare l'accesso tramite autorizzazione, è possibile usare anche [Firewall e reti virtuali](storage-network-security.md) per limitare l'accesso all'account di archiviazione in base alle regole di rete.  Questo approccio consente di negare l'accesso al traffico internet pubblico e di concedere l'accesso solo a determinati intervalli di indirizzi IP di reti virtuali di Azure o reti internet pubbliche.
+
 
 ### <a name="storage-account-keys"></a>Chiavi dell'account di archiviazione
 Le chiavi dell'account di archiviazione sono stringhe a 512 bit create da Azure che, insieme al nome dell'account di archiviazione, possono essere usate per accedere agli oggetti dati archiviati nell'account di archiviazione.
@@ -243,15 +246,7 @@ Per informazioni più dettagliate sull'uso di firme di accesso condiviso e crite
   * [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con il servizio BLOB](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Questo articolo contiene una spiegazione del modello di firma di accesso condiviso, esempi di firme di accesso condiviso e suggerimenti per la procedura consigliata da usare per le firme di accesso condiviso. È descritta anche la revoca dell'autorizzazione concessa.
-* Limitazione dell'accesso con un indirizzo IP (ACL IP)
 
-  * [Che cos'è un elenco di controllo di accesso (ACL) di endpoint?](../../virtual-network/virtual-networks-acl.md)
-  * [Creazione di una firma di accesso condiviso del servizio](https://msdn.microsoft.com/library/azure/dn140255.aspx)
-
-    Questo è un articolo di riferimento per la firma di accesso condiviso a livello di servizio. Include un esempio di ACL di IP.
-  * [Creazione di una firma di accesso condiviso dell'account](https://msdn.microsoft.com/library/azure/mt584140.aspx)
-
-    Questo è un articolo di riferimento per la firma di accesso condiviso a livello di account. Include un esempio di ACL di IP.
 * Autenticazione
 
   * [Autenticazione per i servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
@@ -268,22 +263,21 @@ Per avere un canale di comunicazione sicuro, è consigliabile usare sempre HTTPS
 È possibile imporre l'uso di HTTPS quando si chiamano le API REST per accedere a oggetti negli account di archiviazione abilitando l'opzione [Trasferimento sicuro obbligatorio](../storage-require-secure-transfer.md) per l'account di archiviazione. Una volta abilitata l'opzione, le connessioni che usano il protocollo HTTP verranno rifiutate.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Uso della crittografia durante la trasmissione con condivisioni file di Azure
-Il servizio di archiviazione file di Azure supporta HTTPS quando si usa l'API REST, ma è più comunemente usato come una condivisione file SMB collegata a una VM. SMB 2.1 non supporta la crittografia, quindi le connessioni sono consentite solo all'interno della stessa area in Azure. Tuttavia, SMB 3.0 supporta la crittografia ed è disponibile in Windows Server 2012 R2, Windows 8, Windows 8.1 e Windows 10, consentendo l'accesso tra aree e anche l'accesso sul desktop.
+Il servizio File di Azure supporta HTTPS quando si usa l'API REST, ma è più comunemente usato come una condivisione file SMB collegata a una VM. SMB 2.1 non supporta la crittografia, quindi le connessioni sono consentite solo all'interno della stessa area in Azure. Tuttavia, SMB 3.0 supporta la crittografia ed è disponibile in Windows Server 2012 R2, Windows 8, Windows 8.1 e Windows 10, consentendo l'accesso tra aree e anche l'accesso sul desktop.
 
 Si noti che mentre le condivisioni file Azure possono essere usate con Unix, il client SMB Linux non supporta ancora la crittografia, quindi l'accesso è consentito solo all'interno di un'area di Azure. Il supporto della crittografia per Linux fa parte del programma degli sviluppatori Linux responsabili della funzionalità di SMB. Quando verrà aggiunta la crittografia, si avrà la stessa possibilità di accesso a una condivisione file di Azure in Linux, come avviene per Windows.
 
 È possibile imporre l'uso della crittografia con il servizio File di Azure abilitando l'opzione [Trasferimento sicuro obbligatorio](../storage-require-secure-transfer.md) per l'account di archiviazione. Se si usano le API REST, è necessario usare il protocollo HTTPS. Per SMB, solo le connessioni SMB che supportano la crittografia saranno stabilite correttamente.
 
 #### <a name="resources"></a>Risorse
-* [Come usare Archiviazione file di Azure con Linux](../storage-how-to-use-files-linux.md)
+* [Introduzione a File di Azure](../files/storage-files-introduction.md)
+* [Introduzione a File di Azure in Windows](../files/storage-how-to-use-files-windows.md)
+
+  Questo articolo fornisce una panoramica delle condivisioni file di Azure e di come montarle e usarle su Windows.
+
+* [Come usare File di Azure con Linux](../files/storage-how-to-use-files-linux.md)
 
   Questo articolo illustra come montare una condivisione file di Azure in un sistema Linux e caricare o scaricare file.
-* [Introduzione ad Archiviazione file di Azure in Windows](../storage-dotnet-how-to-use-files.md)
-
-  Questo articolo fornisce una panoramica delle condivisioni file di Azure e come montarle e usarle con PowerShell e .NET.
-* [Analisi di archiviazione file di Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-
-  Questo articolo annuncia la disponibilità a livello generale di Archiviazione file di Azure e fornisce dettagli tecnici sulla crittografia in SMB 3.0.
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Uso della crittografia lato client per proteggere i dati inviati alla risorsa di archiviazione
 Un'altra opzione che consente di assicurarsi che i dati siano protetti durante il trasferimento tra un'applicazione client e la risorsa di archiviazione è la crittografia lato client. I dati vengono crittografati prima di essere trasferiti nell'archiviazione di Azure. Quando si recuperano i dati dall'archiviazione di Azure, vengono decrittografati dopo la ricezione sul lato client. Anche se i dati vengono crittografati mentre sono in transito, è consigliabile usare anche HTTPS, perché incorpora controlli di integrità dei dati che contribuiscono a ridurre gli errori di rete che interessano l'integrità dei dati.
@@ -350,7 +344,7 @@ La soluzione non supporta gli scenari, le funzionalità e la tecnologia seguenti
 * Disabilitazione della crittografia in un'unità del sistema operativo per le VM IaaS Linux
 * Macchine virtuali IaaS create usando il metodo di creazione classico per le macchine virtuali
 * Integrazione con il servizio di gestione delle chiavi locale.
-* Archiviazione file di Azure (file system condiviso), file system di rete (NFS, Network File System), volumi dinamici e macchine virtuali Windows configurate con sistemi RAID basati su software
+* File di Azure (file system condiviso), file system di rete (NFS, Network File System), volumi dinamici e macchine virtuali Windows configurate con sistemi RAID basati su software
 
 
 > [!NOTE]

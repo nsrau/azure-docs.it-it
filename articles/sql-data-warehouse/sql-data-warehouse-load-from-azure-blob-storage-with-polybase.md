@@ -1,6 +1,6 @@
 ---
 title: Caricare dati da un archivio BLOB di Azure ad Azure Data Warehouse | Documentazione Microsoft
-description: Informazioni su come utilizzare PolyBase per caricare i dati dall&quot;archivio BLOB di Azure in SQL Data Warehouse. Caricare alcune tabelle dai dati pubblici nello schema del Data Warehouse di Contoso Retail.
+description: Informazioni su come utilizzare PolyBase per caricare i dati dall'archivio BLOB di Azure in SQL Data Warehouse. Caricare alcune tabelle dai dati pubblici nello schema del Data Warehouse di Contoso Retail.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,14 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: 348605fed8101cf83cbcfb559c71f34407692f7a
-ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
-
-
+ms.openlocfilehash: 2859c1144f72fd685af89f83024df1409902ab0c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Caricare dati dall’archiviazione BLOB di Azure in un SQL Data Warehouse (PolyBase)
 > [!div class="op_single_selector"]
@@ -381,4 +378,3 @@ Per caricare i dati completi del data warehouse di Contoso Retail, usare lo scri
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
-

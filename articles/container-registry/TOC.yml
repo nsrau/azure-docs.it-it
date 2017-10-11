@@ -1,0 +1,51 @@
+- name: Registro di sistema del contenitore di Azure
+  href: ./index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sul registro contenitori
+      href: container-registry-intro.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: 'Registro contenitori: interfaccia della riga di comando'
+      href: container-registry-get-started-azure-cli.md
+    - name: 'Registro contenitori: portale'
+      href: container-registry-get-started-portal.md
+    - name: 'Registro contenitori: PowerShell'
+      href: container-registry-get-started-powershell.md
+- name: Esercitazioni
+  items:
+    - name: Istanze di contenitore di Azure
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Servizio contenitore di Azure
+      href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+- name: Guide alle procedure
+  items:
+    - name: Effettuare il push e il pull di un'immagine
+      href: container-registry-get-started-docker-cli.md
+    - name: Visualizzare i repository
+      href: container-registry-repositories.md
+    - name: Creare un’entità servizio
+      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
+    - name: Eseguire l'autenticazione con un Registro di sistema
+      href: container-registry-authentication.md
+    - name: Usare i webhook ACR
+      href: ./container-registry-webhook.md
+- name: riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/acr
+    - name: REST
+      href: /rest/api/containerregistry
+    - name: PowerShell
+      href: /powershell/module/azurerm.containerregistry
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Aree di disponibilità
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'

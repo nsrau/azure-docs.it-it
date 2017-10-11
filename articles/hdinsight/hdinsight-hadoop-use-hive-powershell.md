@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: e1cb2e4a1fc82fb43082e79a5feba71b81b3eaa8
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 74571fc6e1a0b2d6a903cdd992a247f4d5dfa700
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-hive-queries-using-powershell"></a>Esecuzione di query Hive usando PowerShell
@@ -48,12 +48,12 @@ Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remot
 
 Durante l'esecuzione di query Hive in un cluster HDInsight remoto, vengono usati i seguenti cmdlet:
 
-* **Add-AzureRmAccount**: autentica Azure PowerShell nella sottoscrizione di Azure
+* **Add-AzureRmAccount**: autentica Azure PowerShell nella sottoscrizione di Azure.
 * **New-AzureRmHDInsightHiveJobDefinition**: crea una *definizione del processo* usando le istruzioni HiveQL specificate.
-* **Start-AzureRmHDInsightJob**: invia la definizione del processo a HDInsight, avvia il processo e restituisce un oggetto *job* che può essere usato per verificare lo stato del processo.
+* **Start-AzureRmHDInsightJob**: invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo*.
 * **Wait-AzureRmHDInsightJob**: usa l'oggetto job per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.
 * **Get-AzureRmHDInsightJobOutput**: viene usato per recuperare l'output del processo.
-* **Invoke-AzureRmHDInsightHiveJob**: viene usato per eseguire istruzioni HiveQL. Questo cmdlet blocca il completamento della query, quindi restituisce i risultati
+* **Invoke-AzureRmHDInsightHiveJob**: viene usato per eseguire istruzioni HiveQL. Questo cmdlet blocca il completamento della query, quindi restituisce i risultati.
 * **Use-AzureRmHDInsightCluster**: imposta il cluster corrente per l'uso per il comando **Invoke-AzureRmHDInsightHiveJob**.
 
 La seguente procedura illustra come usare questi cmdlet per eseguire un processo nel cluster HDInsight:
@@ -94,7 +94,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se al termine del processo non vengono restituite informazioni, potrebbe essersi verificato un errore durante l'elaborazione. Per visualizzare informazioni relative all'errore per questo processo, aggiungere quanto segue alla fine del file **hivejob.ps1** , salvare il file, quindi eseguirlo nuovamente.
+Se al termine del processo non viene restituita alcuna informazione, visualizzare i log degli errori. Per visualizzare informazioni relative all'errore per questo processo, aggiungere quanto segue alla fine del file **hivejob.ps1** , salvare il file, quindi eseguirlo nuovamente.
 
 ```powershell
 # Print the output of the Hive job.
@@ -105,7 +105,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Questo cmdlet restituisce le informazioni scritte in STDERR nel server durante l'esecuzione del processo.
+Questo cmdlet restituisce le informazioni scritte in STDERR durante l'esecuzione del processo.
 
 ## <a name="summary"></a>Riepilogo
 

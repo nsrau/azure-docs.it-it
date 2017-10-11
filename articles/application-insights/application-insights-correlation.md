@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c48dc5cb5dd6dfa09ff9718e78f8d560886851be
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 747c00842f4df9c7fbd816c99771ba8a267106a4
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -111,4 +110,3 @@ La versione iniziale di Application Insights SDK `2.4.0-beta1` usa DiagnosticsSo
 - Caricare tutti i componenti del microservizio in Application Insights. Controllare le [piattaforme supportate](app-insights-platforms.md).
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](application-insights-data-model.md).
 - Informazioni su come [estendere e filtrare i dati di telemetria](app-insights-api-filtering-sampling.md).
-

@@ -20,7 +20,6 @@ ms.openlocfilehash: 48e2f606ff676ca1c3217ac4fcca75db0d283616
 ms.contentlocale: it-it
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell
 
@@ -46,6 +45,8 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un modello dal compu
 
 ```powershell
 Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `

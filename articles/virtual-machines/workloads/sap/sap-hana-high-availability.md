@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Disponibilità elevata di SAP HANA in Macchine virtuali di Azure (VM) | Microsoft Docs"
 description: "Configurare la disponibilità elevata di SAP HANA in Macchine virtuali di Azure (VM)."
 services: virtual-machines-linux
@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
 ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.contentlocale: it-it
-ms.lasthandoff: 07/31/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Disponibilità elevata di SAP HANA in Macchine virtuali di Azure (VM)
 
@@ -645,4 +644,3 @@ crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 * [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md). 
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement - Integrazione di API
 In un sistema marketing automatizzato, vengono eseguite automaticamente anche la creazione e l'attivazione delle campagne di marketing. A questo scopo, Azure Mobile Engagement permette la creazione di tali campagne marketing automatizzate anche mediante le API. 
@@ -201,7 +200,6 @@ Questo esempio ha creato una semplice campagna di tipo annuncio, specificando pr
 [3]: ./media/mobile-engagement-sample-backend-integration-sharepoint/new-announcement.png
 [4]: ./media/mobile-engagement-sample-backend-integration-sharepoint/activate-announcement.png
 [5]: ./media/mobile-engagement-sample-backend-integration-sharepoint/diagram.png
-
 
 
 

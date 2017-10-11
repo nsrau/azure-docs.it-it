@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 75cafa6868d54f9d8a7e0dbe9f2a9e85ed43f16f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -200,6 +200,16 @@ Questo output di esempio mostra l'inizio dell'elaborazione, tutte le modifiche u
 >[!TIP]
 > Facendo clic sugli elementi correlati a *Change user license* (Modifica licenza utente) verranno visualizzati i dettagli delle modifiche di licenza applicate a ciascun utente.
 
+## <a name="deleting-a-group-with-an-assigned-license"></a>Eliminazione di un gruppo con una licenza assegnata
+
+Non è possibile eliminare un gruppo con una licenza attiva assegnata. Un amministratore può eliminare un gruppo senza avere la consapevolezza che questa operazione implica la rimozione delle licenze dagli utenti; per questo motivo viene richiesto di rimuovere le licenze dal gruppo prima di poter eliminare il gruppo.
+
+Quando si tenta di eliminare un gruppo nel portale di Azure, è possibile che venga visualizzata una notifica di errore simile alla seguente: ![schermata con eliminazione del gruppo non riuscita.](media/active-directory-licensing-group-advanced/groupdeletionfailed.png)
+
+Passare alla scheda **Licenze** per il gruppo e verificare se sono presenti licenze assegnate. In caso affermativo, rimuovere le licenze e provare di nuovo a eliminare il gruppo.
+
+È possibile che vengano visualizzati errori simili quando si tenta di eliminare il gruppo tramite PowerShell o l'API Graph. Se si usa un gruppo sincronizzato da locale, Azure AD Connect può segnalare errori se non riesce a eliminare il gruppo in Azure AD. In tutti questi casi verificare se sono presenti licenze assegnate al gruppo e procedere prima alla rimozione.
+
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 
 Se si usano le licenze basate sui gruppi, è consigliabile acquisire familiarità con l'elenco di limitazioni e problemi noti che segue.
@@ -213,6 +223,8 @@ Se si usano le licenze basate sui gruppi, è consigliabile acquisire familiarit�
 - Quando un utente viene rimosso da un gruppo e perde la licenza, i piani di servizio di tale licenza, ad esempio SharePoint Online, vengono impostati su **Sospeso**. I piani di servizio non sono impostati su uno stato disabilitato finale. Questa precauzione evita la rimozione accidentale di dati dell'utente se un amministratore commette un errore nella gestione delle appartenenze al gruppo.
 
 - L'assegnazione o la modifica delle licenze di un gruppo di grandi dimensioni (ad esempio 100.000 utenti) potrebbe influire sulle prestazioni. In particolare, il volume delle modifiche generato tramite l'automazione di Azure AD potrebbe compromettere le prestazioni della sincronizzazione della directory tra Azure AD e i sistemi locali.
+
+- In alcune situazioni di carico elevato, l'elaborazione delle licenze può essere ritardata e l'elaborazione di modifiche, quali l'aggiunta/rimozione di una licenza di gruppo o l'aggiunta/rimozione di utenti dal gruppo, potrebbe richiedere molto tempo. Se l'elaborazione delle modifiche impiega più di 24 ore, [aprire un ticket di supporto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) per consentire a Microsoft di analizzare il problema. Le prestazioni di questa funzionalità verranno migliorate prima che raggiunga la *disponibilità generale*.
 
 - L'automazione della gestione delle licenze non reagisce automaticamente a tutti i tipi di modifiche nell'ambiente. Ad esempio, se le licenze sono esaurite, alcuni utenti potrebbero riscontrare uno stato di errore. Per liberare il numero di postazioni disponibili è possibile rimuovere alcune licenze assegnate direttamente ad altri utenti. Il sistema tuttavia non reagisce automaticamente a questa modifica correggendo lo stato di errore degli utenti.
 

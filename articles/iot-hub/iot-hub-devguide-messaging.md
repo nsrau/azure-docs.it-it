@@ -1,6 +1,6 @@
 ---
 title: Informazioni sulla messaggistica hub IoT di Azure | Microsoft Docs
-description: Guida per gli sviluppatori - Messaggistica da dispositivo a cloud e da cloud a dispositivo con l&quot;hub IoT. Include informazioni sui formati dei messaggi e sui protocolli di comunicazione supportati.
+description: Guida per gli sviluppatori - Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT. Include informazioni sui formati dei messaggi e sui protocolli di comunicazione supportati.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/14/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: f54398d7ac46bf178d2bb603669b399d25370736
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT

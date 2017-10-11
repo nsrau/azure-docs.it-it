@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: f8a08ef4f90d5cb98e7648ae6001055a3f4696e8
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>Esercitazione: Integrazione di Azure Active Directory con RunMyProcess
 
@@ -114,7 +113,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://live.runmyprocess.com/live/<tenant id>`
 
     > [!NOTE] 
-    > Poiché non è il valore reale. aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto client di RunMyProcess](mailto:support@runmyprocess.com). 
+    > Poiché non è reale, aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto client di RunMyProcess](mailto:support@runmyprocess.com). 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -269,5 +268,4 @@ Quando si fa clic sul riquadro RunMyProcess nel pannello di accesso, si dovrebbe
 [201]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_203.png
-
 

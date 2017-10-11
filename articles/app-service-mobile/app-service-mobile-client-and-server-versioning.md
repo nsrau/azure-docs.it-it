@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
-ms.contentlocale: it-it
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
 La versione più recente di Servizi mobili di Azure è la funzionalità **App per dispositivi mobili** del Servizio app di Azure.
@@ -80,7 +79,7 @@ Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazio
 ### <a name="mobile-services-server-sdks"></a>SDK del server di *Servizi* mobili
 | Piattaforma server | Versione | Intestazione della versione accettata |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nessuna intestazione di versione ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |* * Nessuna intestazione di versione * * |
 | Node.js |(Presto disponibile) |**Nessuna intestazione di versione** |
 
 <!-- TODO: add Node npm version -->
@@ -130,4 +129,3 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Eseguire la migrazione di un servizio mobile al servizio app di Azure]: app-service-mobile-migrating-from-mobile-services.md
-

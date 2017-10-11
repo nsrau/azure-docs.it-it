@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con ServiceChannel | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e ServiceChannel.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ServiceChannel.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 7e1dad18ff0ae9a9102b789b2cb32e7b96ed3d38
 ms.contentlocale: it-it
 ms.lasthandoff: 05/09/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Esercitazione: Integrazione di Azure Active Directory con ServiceChannel
@@ -122,7 +121,7 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 4. L'applicazione ServiceChannel prevede le asserzioni SAML in un formato specifico. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra un esempio relativo a questa operazione. **NameIdentifier (User Identifier)** è l'unica attestazione obbligatoria e il valore predefinito è **user.userprincipalname** ma ServiceChannel prevede che questo valore sia mappato con **user.mail**. Se si intende abilitare il provisioning di utenti JIT, è necessario aggiungere le attestazioni seguenti come illustrato di seguito. È necessario eseguire il mapping dell'attestazione **Ruolo** a **user.assignedroles** che contiene il ruolo dell'utente.  
 
     Per altre istruzioni sulle attestazioni, fare riferimento alla guida di ServiceChannel [qui](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example).
-      
+    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 

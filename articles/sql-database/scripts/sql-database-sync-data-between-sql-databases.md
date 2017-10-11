@@ -17,17 +17,17 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: ac4dde8c175b1632de8c309f01f8dac7fde6426b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 3a2fe08706ea5bea10da0c8f42188397a2f9f2f4
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>Usare PowerShell per sincronizzare più database SQL di Azure
  
 Questo esempio di Azure PowerShell permette di configurare la sincronizzazione dei dati per sincronizzare più database SQL di Azure.
 
-Questo esempio richiede il modulo Azure PowerShell 4.2 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
+Questo esempio richiede il modulo Azure PowerShell 4.2 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
 Eseguire `Login-AzureRmAccount` per creare una connessione con Azure. 
 
@@ -139,7 +139,7 @@ New-AzureRmSqlSyncMember   -ResourceGroupName $ResourceGroupName `
                             -Name $SyncMemberName `
                             -MemberDatabaseCredential $Credential `
                             -MemberDatabaseName $MemberDatabaseName `
-                            -MemberServerName ($MemberServerName + ".database.windows.net" `
+                            -MemberServerName ($MemberServerName + ".database.windows.net") `
                             -MemberDatabaseType $MemberDatabaseType `
                             -SyncDirection $SyncDirection
 

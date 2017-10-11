@@ -1,6 +1,6 @@
 ---
-title: Indicizzazione di BLOB JSON con l&quot;indicizzatore di BLOB di Ricerca di Azure
-description: Indicizzazione di BLOB JSON con l&quot;indicizzatore di BLOB di Ricerca di Azure
+title: Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure
+description: Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/10/2017
+ms.date: 09/07/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
-ms.lasthandoff: 04/11/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: bf4d3a517e1308a142d21cffff64f3c6e104eb62
+ms.contentlocale: it-it
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -48,7 +49,7 @@ In alternativa, quando i BLOB contengono una **matrice di oggetti JSON**, è con
 È possibile popolare l'indice di Ricerca di Azure con 3 documenti separati, ognuno con i campi "id" e "text".
 
 > [!IMPORTANT]
-> La funzionalità di analisi delle matrici JSON è attualmente disponibile in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
+> La funzionalità di analisi delle matrici JSON è attualmente disponibile in anteprima. È disponibile solo nell'API REST con la versione **2016-09-01-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 >
 >
 

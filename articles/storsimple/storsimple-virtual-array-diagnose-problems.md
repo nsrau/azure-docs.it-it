@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi relativi all&quot;array virtuale StorSimple | Documentazione Microsoft
-description: "Descrive la capacità diagnostica di Gestione dispositivi StorSimple e illustra come usarla per la risoluzione dei problemi relativi all&quot;array virtuale StorSimple."
+title: Risoluzione dei problemi relativi all'array virtuale StorSimple | Documentazione Microsoft
+description: "Descrive la capacità diagnostica di Gestione dispositivi StorSimple e illustra come usarla per la risoluzione dei problemi relativi all'array virtuale StorSimple."
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: a75e68c84a50977b162ca4d3a4a02936ca78cb6b
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per eseguire la risoluzione dei problemi relativi all'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica
@@ -42,10 +43,4 @@ L'impostazione **Diagnostica e risoluzione dei problemi** nel pannello di riepil
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [registrare un ticket di supporto](storsimple-virtual-array-log-support-ticket.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

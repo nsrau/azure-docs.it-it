@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 6df1b27ce76de7a781ecc40af8430114d80b20d6
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs-update-2"></a>Utilizzare il servizio StorSimple Manager per visualizzare e gestire i processi di StorSimple (aggiornamento 2)
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
@@ -82,5 +80,4 @@ Questo processo ora viene annullato.
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [gestire i criteri di backup di StorSimple](storsimple-manage-backup-policies.md).
 * Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

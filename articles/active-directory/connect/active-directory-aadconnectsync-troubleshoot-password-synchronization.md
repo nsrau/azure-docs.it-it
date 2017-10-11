@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione della password con il servizio di sincronizzazione Azure AD Connect
 In questo argomento viene descritta la procedura per risolvere i problemi di sincronizzazione della password. Se le password non vengono sincronizzate come previsto, il problema può riguardare un subset di utenti o tutti gli utenti. Per la distribuzione di Azure Active Directory (Azure AD) Connect versione 1.1.524.0 o successiva è ora disponibile un cmdlet di diagnostica che è possibile usare per risolvere i problemi di sincronizzazione delle password:
@@ -270,7 +269,7 @@ I valori possibili per la colonna dello stato sono i seguenti:
 | TargetNotExportedToDirectory |L'oggetto nello spazio connettore di Azure AD non è stato ancora esportato. |
 | MigratedCheckDetailsForMoreInfo |La voce di log è stata creata prima della compilazione 1.0.9125.0 e viene visualizzata nello stato precedente. |
 | Errore |Il servizio ha restituito un errore sconosciuto. |
-| Sconosciuto |Si è verificato un errore durante il tentativo di elaborare un batch degli hash delle password.  |
+| Sconosciuto |Si è verificato un errore durante il tentativo di elaborare un batch di hash delle password.  |
 | MissingAttribute |Gli attributi specifici (ad esempio hash Kerberos) richiesti da Azure AD Domain Services non sono disponibili. |
 | RetryRequestedByTarget |Gli attributi specifici (ad esempio hash Kerberos) richiesti da Azure AD Domain Services non erano disponibili in precedenza. Viene effettuato un tentativo di risincronizzare l'hash della password dell'utente. |
 
@@ -354,4 +353,3 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 * [Implementazione della sincronizzazione password con il servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)
 * [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-

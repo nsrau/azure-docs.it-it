@@ -4,31 +4,34 @@
 ## [Zone e record DNS](dns-zones-records.md)
 ## [Delega DNS con DNS di Azure](dns-domain-delegation.md)
 ## [Domande frequenti sui DNS](dns-faq.md)
+## [Uso delle zone DNS private](private-dns-overview.md)
 
 # Attività iniziali
 
 ## Creare una zona e un record DNS
-### [Portale](dns-getstarted-portal.md)
-### [PowerShell](dns-getstarted-powershell.md)
+### [Portale di Azure](dns-getstarted-portal.md)
+### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Interfaccia della riga di comando di Azure 1.0](dns-getstarted-cli-nodejs.md)
-### [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-cli.md)
+### [Interfaccia della riga di comando di Azure](dns-getstarted-cli.md)
 
+## Creare una zona privata e un record DNS
+### [PowerShell](private-dns-getstarted-powershell.md)
 ## [Delegare il dominio al servizio DNS di Azure](dns-delegate-domain-azure-dns.md)
 ## [Creare record DNS personalizzati per un'app Web](dns-web-sites-custom-domain.md)
 
 # Procedure
 
 ## Gestire le zone DNS
-### [Portale](dns-operations-dnszones-portal.md)
-### [PowerShell](dns-operations-dnszones.md)
+### [Portale di Azure](dns-operations-dnszones-portal.md)
+### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Interfaccia della riga di comando di Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
-### [Interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md)
+### [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
 
 ## Gestire i record DNS
-### [Portale](dns-operations-recordsets-portal.md)
-### [PowerShell](dns-operations-recordsets.md)
+### [Portale di Azure](dns-operations-recordsets-portal.md)
+### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Interfaccia della riga di comando di Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
-### [Interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md)
+### [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 
 ## Gestire il DNS inverso
 ### [Panoramica](dns-reverse-dns-overview.md)
@@ -46,7 +49,7 @@
 
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
-## [PowerShell](/powershell/module/azurerm.dns)
+## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
@@ -61,7 +64,7 @@
 ## [Macchina virtuale](/azure/virtual-machines/)
 ## [Bilanciamento del carico](/azure/load-balancer/)
 ## [Gestione traffico](/azure/traffic-manager/)
-## [App Web](/azure/app-service-web/)
+## [App Web](/azure/app-service/)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=networking)

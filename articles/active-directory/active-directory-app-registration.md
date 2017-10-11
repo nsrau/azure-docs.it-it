@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
-ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registrare l'applicazione nel tenant di Azure Active Directory
 
 È possibile usare il portale di Azure per registrare l'applicazione nel tenant di Azure Active Directory (Azure AD), in modo da creare un ID per l'applicazione e consentire all'applicazione di ricevere token.
@@ -64,4 +62,3 @@ ms.lasthandoff: 03/29/2017
 
 1. Per procedure dettagliate relative all'autenticazione delle applicazioni tramite Azure AD, vedere le [Guide introduttive](active-directory-developers-guide.md).
 2. Per un elenco completo di esempi di codice, vedere [GitHub](https://github.com/azure-samples).
-

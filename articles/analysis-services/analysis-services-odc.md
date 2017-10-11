@@ -15,29 +15,28 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 530f3b5c9e90cb45ffb6e12d0d08a35f8d687471
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-an-office-data-connection-file"></a>Creare un file Office Data Connection
 
-Questo articolo descrive come creare un file Office Data Connection per connettersi a un server di Azure Analysis Services da Excel 2016, con numero di versione 16.0.7369.2117 o versioni precedenti, o da Excel 2013. È richiesta anche la versione aggiornata del [provider MSOLAP.7](analysis-services-data-providers.md).
+Questo articolo descrive come creare un file Office Data Connection per connettersi a un server Azure Analysis Services da Excel 2016, numero di versione 16.0.7369.2117 o precedente, o da Excel 2013. È richiesta anche la versione aggiornata del [provider MSOLAP.7](analysis-services-data-providers.md).
 
 
-1. Copiare il file di connessione seguente e incollarlo in un editor di testo. 
+1. Copiare il file di connessione di esempio seguente e incollarlo in un editor di testo. 
 
-2. In `odc:ConnectionString`, modificare le proprietà seguenti:
+2. In `odc:ConnectionString` modificare le proprietà seguenti:
 
-    *   In `Data Source=asazure://<region>.asazure.windows.net/<servername>;` modificare `<region>` all'area del server Analysis Services e `<servername>` al nome del server.
+    *   In `Data Source=asazure://<region>.asazure.windows.net/<servername>;` modificare `<region>` nell'area del server Analysis Services e `<servername>` nel nome del server.
 
-    *   In `Initial Catalog=<database>;` modificare `<database>` al nome del database.
+    *   In `Initial Catalog=<database>;` modificare `<database>` nel nome del database.
 
-3. In `<odc:CommandText>Model</odc:CommandText>` modificare `Model` al nome del modello o prospettiva. 
+3. In `<odc:CommandText>Model</odc:CommandText>` modificare `Model` nel nome del modello o della prospettiva. 
 
-4. Salvare il file con estensione `.odc` nell'unità C:\Utenti\\*nome utente*\Documenti\Origini dati utente.
+4. Salvare il file con estensione `.odc` nella cartella C:\Utenti\\*nome utente*\Documenti\My Data Sources.
 
 5. Fare clic con il pulsante destro sul file e quindi su **Apri in Excel**. In alternativa, da Excel, nella barra multifunzione **Dati** fare clic su **Connessioni esistenti**, selezionare il file e quindi fare clic su **Apri**.
 
@@ -152,7 +151,6 @@ function init() {
 </html>
 
 ```
-
 
 
 

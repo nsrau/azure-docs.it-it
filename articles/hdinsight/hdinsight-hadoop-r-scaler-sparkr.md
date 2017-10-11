@@ -16,14 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Uso combinato di ScaleR e SparkR in HDInsight
 
 In questo articolo viene illustrato come stimare i ritardi dei voli di arrivo usando un modello di regressione logistica **ScaleR** sui ritardi dei voli e il meteo associato a **SparkR**. Questo scenario dimostra le capacità di ScaleR per la manipolazione dei dati in Spark con Microsoft R Server ai fini dell'analisi. La combinazione di queste tecnologie consente di applicare le più recenti funzionalità di elaborazione distribuita.
@@ -561,4 +559,3 @@ Per altre informazioni sull'uso di SparkR, vedere:
 - [Documento Apache SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)
 
 - [Panoramica di SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) di Databricks
-

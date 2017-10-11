@@ -1,8 +1,10 @@
 # Panoramica
 ## [Che cos'è il servizio di bilanciamento del carico?](load-balancer-overview.md)
+## [Informazioni su Load Balancer Standard](load-balancer-standard-overview.md)
 ## [Servizio di bilanciamento del carico Internet](load-balancer-internet-overview.md)
 ## [Servizio di bilanciamento del carico interno](load-balancer-internal-overview.md)
 ## [Informazioni sui probe di bilanciamento del carico](load-balancer-custom-probe-overview.md)
+## [Informazioni sulle porta a disponibilità elevata](load-balancer-ha-ports-overview.md)
 ## [Supporto per Azure Resource Manager](load-balancer-arm.md)
 ## [Supporto per IPv6](load-balancer-ipv6-overview.md)
 ## [Indirizzi VIP multipli](load-balancer-multivip-overview.md)
@@ -24,14 +26,17 @@
 ### [Configurare il servizio di bilanciamento del carico con connessione Internet (interfaccia della riga di comando)](load-balancer-get-started-internet-arm-cli.md)
 ### [Configurare il servizio di bilanciamento del carico con connessione Internet (modello)](load-balancer-get-started-internet-arm-template.md)
 
-## [Configurare il servizio di bilanciamento del carico con connessione Internet (portale classico)](load-balancer-get-started-internet-classic-portal.md)
+## [Configurare il servizio di bilanciamento del carico con connessione Internet (PowerShell classico)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configurare il servizio di bilanciamento del carico con connessione Internet (cloud classico)](load-balancer-get-started-internet-classic-cloud.md)
-### [Configurare il servizio di bilanciamento del carico con connessione Internet (PowerShell classico)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configurare il servizio di bilanciamento del carico con connessione Internet (interfaccia della riga di comando classica)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Creare un servizio di bilanciamento del carico Internet con IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Creare un servizio di bilanciamento del carico Internet con IPv6 (interfaccia della riga di comando)](load-balancer-ipv6-internet-cli.md)
 ### [Creare un servizio di bilanciamento del carico Internet con IPv6 (modello)](load-balancer-ipv6-internet-template.md)
+
+## [Creare uno standard del bilanciamento del carico pubblico con ridondanza della zona](load-balancer-get-started-internet-az-portal.md)
+### [Creare uno standard del bilanciamento del carico pubblico con ridondanza della zona con PowerShell](load-balancer-get-started-internet-az-powershell.md)
+### [Creare uno standard del bilanciamento del carico pubblico con ridondanza della zona con l'interfaccia della riga di comando](load-balancer-get-started-internet-az-cli.md)
 
 # Procedure
 ## [Configurare il timeout di inattività TCP per il servizio di bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
@@ -44,13 +49,17 @@
 ### [Uso di più configurazioni IP (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Analisi dei log per Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configurazione di DHCPv6 per VM Linux](load-balancer-ipv6-for-linux.md)
+## [Configurare le porte a disponibilità elevata per il servizio di bilanciamento del carico interno](load-balancer-configure-ha-ports.md)
+## [Creare un indirizzo IP pubblico in una zona di disponibilità](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [Creare un indirizzo IP pubblico in una zona di disponibilità con PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [Creare un indirizzo IP pubblico in una zona di disponibilità con l'interfaccia della riga di comando](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## Risoluzione dei problemi
 ### [Risoluzione dei problemi di Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
-## [PowerShell](/powershell/module/azurerm.network)
-## [Interfaccia della riga di comando di Azure 2.0](/cli/azure/network/lb)
+## [Azure PowerShell](/powershell/module/azurerm.network)
+## [Interfaccia della riga di comando di Azure per Azure](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)

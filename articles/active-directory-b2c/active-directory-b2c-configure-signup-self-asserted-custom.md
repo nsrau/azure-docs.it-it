@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: modificare l&quot;iscrizione nei criteri personalizzati e configurare il provider di autocertificazione'
-description: Procedura dettagliata relativa all&quot;aggiunta di attestazioni all&quot;iscrizione e alla configurazione dell&quot;input utente
+title: 'Azure Active Directory B2C: modificare l''iscrizione nei criteri personalizzati e configurare il provider di autocertificazione'
+description: Procedura dettagliata relativa all'aggiunta di attestazioni all'iscrizione e alla configurazione dell'input utente
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja

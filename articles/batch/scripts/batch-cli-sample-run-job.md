@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Eseguire un processo con Batch | Documentazione Microsoft
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Eseguire un processo con Batch
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire un processo con Batch | Documentazione Microsoft
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire un processo con Batch
 services: batch
 documentationcenter: 
 author: annatisch
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 5fe1e3595d9459e60b2fd54d6f17f6822731f453
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -51,13 +51,13 @@ Questo script usa i comandi seguenti per creare un processo Batch e le relative 
 
 | Comando | Note |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Eseguire l'autenticazione con un account Batch.  |
-| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#create) | Crea un processo Batch.  |
-| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#set) | Aggiorna le proprietà di un processo Batch.  |
-| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#show) | Recupera i dettagli di un processo Batch specificato.  |
-| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#create) | Aggiunge un'attività al processo Batch specificato.  |
-| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#show) | Recupera i dettagli di un'attività dal processo Batch specificato.  |
-| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#list) | Elenca le attività associate al processo specificato.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Eseguire l'autenticazione con un account Batch.  |
+| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Crea un processo Batch.  |
+| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Aggiorna le proprietà di un processo Batch.  |
+| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Recupera i dettagli di un processo Batch specificato.  |
+| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Aggiunge un'attività al processo Batch specificato.  |
+| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Recupera i dettagli di un'attività dal processo Batch specificato.  |
+| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_list) | Elenca le attività associate al processo specificato.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Utilizzare le emoticon Emoji all&quot;interno di Mobile Engagement di Azure
+title: Utilizzare le emoticon Emoji all'interno di Mobile Engagement di Azure
 description: Informazioni su come usare emoticon Emoji nelle notifiche push
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: bbb7ce5e95b229a7505c5e97b6866d5a302a1d27
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-emoji-emoticon-within-push-notifications"></a>Usare emoticon Emoji nelle notifiche push
 È possibile includere emoticon Emoji nelle notifiche push con pochi e semplici passaggi: 
@@ -47,5 +46,4 @@ ms.lasthandoff: 03/01/2017
 [5]: ./media/mobile-engagement-use-emoji-with-push/WindowsPhone_Emoji.png
 [6]: ./media/mobile-engagement-use-emoji-with-push/Mac_SelectEmoji.png
 [7]: ./media/mobile-engagement-use-emoji-with-push/Windows_SelectEmoji.png
-
 

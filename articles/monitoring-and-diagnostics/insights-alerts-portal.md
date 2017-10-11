@@ -1,6 +1,6 @@
 ---
 title: Creare avvisi per i servizi di Azure - Portale di Azure | Documentazione Microsoft
-description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l&quot;automazione quando vengono soddisfatte le condizioni specificate.
+description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni specificate.
 author: rboucher
 manager: carmonm
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 745a9c016bd037f1051025a2c5a468c3935e4550
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
+ms.contentlocale: it-it
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creare avvisi sulle metriche in Monitoraggio di Azure per i servizi di Azure: portale di Azure
@@ -30,12 +30,12 @@ ms.lasthandoff: 03/31/2017
 >
 
 ## <a name="overview"></a>Panoramica
-Questo articolo descrive come impostare gli avvisi sulle metriche di Azure tramite il portale di Azure.   
+Questo articolo descrive come impostare gli avvisi sulle metriche di Azure tramite il portale di Azure. 
 
 È possibile ricevere avvisi basati su metriche di monitoraggio o eventi nei servizi Azure.
 
 * **Valori metrici** : l'avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata per eccesso o difetto. Vale a dire che si attiva sia quando la condizione viene inizialmente soddisfatta e successivamente quando tale condizione non è più soddisfatta.    
-* **Eventi del log attività**: è possibile attivare un avviso per *ogni* evento o solo quando si verifica un determinato evento. Per altre informazioni sugli avvisi sui log attività [fare clic qui](monitoring-activity-log-alerts.md)
+* **Eventi del log attività**: è possibile attivare un avviso per *ogni* evento o solo quando si verifica un determinato evento. Altre informazioni sugli [avvisi del log attività](monitoring-activity-log-alerts.md).
 
 È possibile configurare un avviso sulle metriche affinché esegua queste operazioni al momento dell'attivazione:
 
@@ -43,6 +43,11 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
 * inviare un messaggio di posta elettronica ad altri indirizzi specificati
 * chiamare un webhook
 * avviare l'esecuzione di un runbook di Azure (solo dal portale di Azure)
+
+> [!NOTE]
+> Monitoraggio di Azure ora supporta gli avvisi delle metriche quasi in tempo reale in anteprima pubblica. Vengono usati i gruppi di azioni. Altre informazioni sugli [avvisi delle metriche quasi in tempo reale](monitoring-near-real-time-metric-alerts.md).
+>
+>
 
 È possibile configurare e ottenere informazioni sulle regole degli avvisi sulle metriche tramite
 
@@ -64,7 +69,7 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
 
 4. Assegnare alla regola di avviso un **Nome** e scegliere una **Descrizione**, che viene visualizzata anche nella notifica inviata tramite posta elettronica.
 
-5. Selezionare la **Metrica** da monitorare e quindi scegliere una **Condizione** e un valore **Soglia**. Scegliere inoltre il **Periodo** di tempo entro il quale la metrica deve essere soddisfatta prima dell'attivazione dell'avviso. Ad esempio, se si usa il periodo "PT5M" e l'avviso deve rilevare una CPU superiore all'80%, l'avviso si attiva quando la CPU resta costantemente sopra all'80% per 5 minuti. Dopo la prima attivazione, l'avviso si attiverà di nuovo quando la CPU resta al di sotto dell'80% per 5 minuti. La CPU viene misurata ogni minuto.   
+5. Selezionare la **Metrica** da monitorare e quindi scegliere una **Condizione** e un valore **Soglia**. Scegliere inoltre il **Periodo** di tempo entro il quale la regola della metrica deve essere soddisfatta prima dell'attivazione dell'avviso. Ad esempio, se si usa il periodo "Negli ultimi 5 minuti" e l'avviso deve rilevare una CPU superiore all'80%, l'avviso si attiva quando la CPU resta costantemente sopra all'80% per 5 minuti. Dopo la prima attivazione, l'avviso si attiverà di nuovo quando la CPU resta al di sotto dell'80% per 5 minuti. La misurazione delle metriche CPU avviene ogni minuto.
 
 6. Selezionare la casella di controllo **Invia messaggio a proprietari, collaboratori e lettori** se si desidera che gli amministratori e i coamministratori ricevano un messaggio di posta elettronica quando si attiva l'avviso.
 
@@ -87,6 +92,7 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Leggere una panoramica del monitoraggio di Azure](monitoring-overview.md) che include anche i tipi di informazioni che è possibile raccogliere e monitorare.
+* Altre informazioni sugli [avvisi delle metriche quasi in tempo reale (anteprima)](monitoring-near-real-time-metric-alerts.md).
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](insights-webhooks-alerts.md).
 * Altre informazioni sulla [configurazione di avvisi sugli eventi del log attività](monitoring-activity-log-alerts.md).
 * Altre informazioni sui [runbook di automazione di Azure](../automation/automation-starting-a-runbook.md).

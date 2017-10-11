@@ -16,10 +16,10 @@ ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
@@ -67,8 +67,8 @@ Per usare l'interfaccia della riga di comando di Azure con Batch, è necessario 
 
 Per accedere ad Azure è possibile procedere in diversi modi, descritti nel dettaglio nell'articolo [Accedere con l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
-1. [Accedere modo interattivo](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Accedere in modo interattivo quando si eseguono comandi dell'interfaccia della riga di comando di Azure direttamente dalla riga di comando.
-2. [Accedere con un'entità servizio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal). Accedere con un'entità servizio quando si eseguono comandi dell'interfaccia della riga di comando di Azure da uno script o un'applicazione.
+1. [Accedere modo interattivo](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Accedere in modo interattivo quando si eseguono comandi dell'interfaccia della riga di comando di Azure direttamente dalla riga di comando.
+2. [Accedere con un'entità servizio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Accedere con un'entità servizio quando si eseguono comandi dell'interfaccia della riga di comando di Azure da uno script o un'applicazione.
 
 Ai fini di questo articolo, viene illustrato come accedere ad Azure in modo interattivo. Digitare [az login](https://docs.microsoft.com/cli/azure/#login) nella riga di comando:
 
@@ -85,7 +85,7 @@ Gli esempi riportati nella sezione [Script della shell di esempio](#sample-shell
 
 ### <a name="log-in-to-your-batch-account"></a>Accedere all'account Batch
 
-Per usare l'interfaccia della riga di comando di Azure per gestire le risorse di Batch, come pool, processi e attività, è necessario accedere all'account Batch ed eseguire l'autenticazione. Per accedere al servizio Batch, usare il comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login). 
+Per usare l'interfaccia della riga di comando di Azure per gestire le risorse di Batch, come pool, processi e attività, è necessario accedere all'account Batch ed eseguire l'autenticazione. Per accedere al servizio Batch, usare il comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login). 
 
 Per l'autenticazione con l'account Batch è possibile procedere in due modi:
 
@@ -99,7 +99,7 @@ Per l'autenticazione con l'account Batch è possibile procedere in due modi:
 
     L'autenticazione con Azure AD è necessaria se l'account Azure Batch è stato creato con la modalità di allocazione pool impostata su "Sottoscrizione utente". 
 
-    Per accedere all'account Batch con Azure AD, chiamare il comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login): 
+    Per accedere all'account Batch con Azure AD, chiamare il comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

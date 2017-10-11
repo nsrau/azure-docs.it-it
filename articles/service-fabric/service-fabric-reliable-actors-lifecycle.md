@@ -1,6 +1,6 @@
 ---
 title: Panoramica del ciclo di vita dei microservizi Azure basati su attori | Documentazione Microsoft
-description: Descrive il ciclo di vita di Service Fabric Reliable Actors, la Garbage Collection e l&quot;eliminazione manuale di attori e del relativo stato
+description: Descrive il ciclo di vita di Service Fabric Reliable Actors, la Garbage Collection e l'eliminazione manuale di attori e del relativo stato
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: amanbha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 0d942fa9f4a3b9094d8122e4745c0450f507ea16
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 75b7b77a0bef2051599a4f61183109cfb2ffff3b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo di vita degli attori, Garbage Collection automatica ed eliminazione manuale
 Un attore viene attivato la prima volta che viene effettuata una chiamata a uno dei suoi metodi. Un attore viene disattivato (tramite Garbage Collection del runtime di Actors) se rimane inutilizzato per un periodo di tempo configurabile. Un attore e il relativo stato possono essere eliminati manualmente in qualsiasi momento.
@@ -157,4 +155,3 @@ Si noti che un attore non può chiamare un'operazione di eliminazione su se stes
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
-

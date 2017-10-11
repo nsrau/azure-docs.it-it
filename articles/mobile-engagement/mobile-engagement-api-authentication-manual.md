@@ -1,6 +1,6 @@
 ---
-title: Eseguire l&quot;autenticazione con le API REST di Mobile Engagement - installazione manuale
-description: Descrive come configurare manualmente l&quot;autenticazione per le API REST di Mobile Engagement
+title: Eseguire l'autenticazione con le API REST di Mobile Engagement - installazione manuale
+description: Descrive come configurare manualmente l'autenticazione per le API REST di Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 9d6132e1a01be489b8e8e28a0219cf8a0b50b318
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Eseguire l'autenticazione con le API REST di Mobile Engagement - installazione manuale
 Questo è un documento in appendice per [eseguire l'autenticazione con le API REST di Mobile Engagement](mobile-engagement-api-authentication.md). Leggerlo prima per capire il contesto. Il documento descrive un modo alternativo per eseguire l'installazione singola al fine di configurare l'autenticazione per le API REST di Mobile Engagement tramite il portale di Azure. 
@@ -132,11 +132,5 @@ Ora la configurazione di AAD necessaria è terminata e tutto è pronto per le ch
 [20]: ./media/mobile-engagement-api-authentication-manual/add-user-select.png
 [21]: ./media/mobile-engagement-api-authentication-manual/add-access-final.png
 
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 4eb0e7bcc14722010121c2a5945509d6ed736f4f
 ms.contentlocale: it-it
 ms.lasthandoff: 06/14/2017
 
-
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Inviare eventi a Hub eventi di Azure usando .NET Framework
 

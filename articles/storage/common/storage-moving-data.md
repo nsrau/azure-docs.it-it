@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Spostamento dei dati da e verso Archiviazione di Azure
 Esistono modi diversi per spostare i dati locali in Archiviazione di Azure (o viceversa). Quale sia il metodo adatto dipende dallo scenario. Questo articolo offre informazioni generali su diversi scenari e la soluzione appropriata per ciascuno.
@@ -78,4 +77,3 @@ Per altre informazioni, vedere [Azure Site Recovery](../../site-recovery/site-re
 ### <a name="moving-data-faq"></a>Domande frequenti sullo spostamento di dati:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>È possibile migrare i dischi rigidi virtuali da un'area a un'altra senza eseguire una copia?
 L'unico modo per copiare i dischi rigidi virtuali tra aree diverse consiste nel copiare i dati tra gli account di archiviazione di ogni area. A questo scopo è possibile usare AZCopy. Per altre informazioni, vedere Trasferire dati con l'utilità della riga di comando AzCopy . Per grandi quantità di dati è possibile anche usare il servizio Importazione/Esportazione di Azure. Per altre informazioni, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) .
-

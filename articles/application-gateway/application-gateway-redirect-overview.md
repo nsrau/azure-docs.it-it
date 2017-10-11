@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: ea9ae8373ff67bf9557b06bbc8a4b0d82a03e2d0
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="application-gateway-redirect-overview"></a>Panoramica del reindirizzamento nel gateway applicazione
 
 Uno scenario comune per molte applicazioni Web è il supporto del reindirizzamento automatico da HTTP a HTTPS per assicurare che tutte le comunicazioni tra l'applicazione e gli utenti avvengano tramite un percorso crittografato. In passato, i clienti hanno usato tecniche come la creazione di un pool back-end dedicato il cui unico scopo è quello di reindirizzare le richieste ricevute su HTTP a HTTPS.  Il gateway applicazione ora consente di reindirizzare il traffico sul gateway applicazione. In questo modo semplifica la configurazione dell'applicazione, ottimizza l'utilizzo delle risorse e supporta i nuovi scenari di reindirizzamento, tra cui il reindirizzamento globale e basato sul percorso. Il supporto del reindirizzamento nel gateway applicazione non è limitato al solo reindirizzamento HTTP -> HTTPS. Questo è un meccanismo di reindirizzamento generico, che consente il reindirizzamento del traffico ricevuto in un listener a un altro listener nel gateway applicazione. Supporta anche il reindirizzamento a un sito esterno. Il supporto del reindirizzamento nel gateway applicazione offre le funzionalità seguenti:
@@ -37,4 +35,3 @@ Con questa modifica, i clienti dovranno creare un nuovo oggetto di configurazion
 ### <a name="next-steps"></a>Passaggi successivi
 
 [Configure URL redirection on an application gateway (Configurare il reindirizzamento dell'URL in un gateway applicazione)](application-gateway-configure-redirect-powershell.md)
-

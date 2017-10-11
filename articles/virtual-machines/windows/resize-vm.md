@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resize-a-windows-vm"></a>Ridimensionare una VM Windows
 Questo articolo illustra come ridimensionare una VM Windows creata nel modello di distribuzione Resource Manager usando Azure PowerShell.
@@ -104,5 +103,4 @@ Se la nuova dimensione di una VM inclusa in un set di disponibilità non è disp
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una maggiore scalabilità, eseguire più istanze di VM e la scalabilità orizzontale. Per altre informazioni, vedere [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
-
 

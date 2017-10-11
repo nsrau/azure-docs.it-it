@@ -64,7 +64,7 @@ Ad esempio, se un'applicazione client Web deve leggere le informazioni del calen
 
 Il framework di consenso è basato su OAuth 2.0 e i relativi flussi diversi, come la concessione del codice di autorizzazione e delle credenziali utente, mediante client pubblici o riservati. Tramite OAuth 2.0 Azure AD consente di compilare molti tipi diversi di applicazioni client, ad esempio su un telefono, un tablet, un server o un'applicazione Web, e di ottenere l'accesso alle risorse necessarie.
 
-Per informazioni più dettagliate sul framework di consenso, vedere [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md) e per altre informazioni su come ottenere l'accesso ad Office 365 usando Microsoft Graph, vedere [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview) (Autenticazione di app con Microsoft Graph).
+Per informazioni più dettagliate sul framework di consenso, vedere [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) e [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md); per informazioni su come ottenere l'accesso autorizzato a Office 365 usando Microsoft Graph, vedere [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview) (Autenticazione di app con Microsoft Graph).
 
 #### <a name="example-of-the-consent-experience"></a>Esempio dell'esperienza di autorizzazione
 I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per lo sviluppatore e l'utente dell'applicazione.

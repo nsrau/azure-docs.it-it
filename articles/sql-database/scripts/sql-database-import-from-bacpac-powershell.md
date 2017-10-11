@@ -1,5 +1,5 @@
 ---
-title: Esempio di PowerShell - Importare un file BACPAC in un database SQL di Azure | Microsoft Docs
+title: Esempio di PowerShell per l'importazione di un file BACPAC in un database SQL di Azure | Microsoft Docs
 description: Script di esempio di Azure PowerShell per importare un file BACPAC in un database SQL
 services: sql-database
 documentationcenter: sql-database
@@ -16,17 +16,17 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ba477c19a7c7bd6809aa3b78c0ef23e9cc7d5497
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 815ba6e1eb775399e747514843dbd0f201156a3e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
-# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Usare PowerShell per importare un file BACPAC in un database SQL di Azure
+# <a name="use-powershell-to-import-a-pacpac-file-into-an-azure-sql-database"></a>Usare PowerShell per importare un file BACPAC in un database SQL di Azure
 
-Questo esempio di script di PowerShell importa un database da un file **BACPAC** in un database SQL di Azure.  
+Questo esempio di script di PowerShell importa un database da un file BACPAC in un database SQL di Azure.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -39,7 +39,7 @@ Questo esempio di script di PowerShell importa un database da un file **BACPAC**
 Dopo l'esecuzione dello script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse ad esso associate.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script

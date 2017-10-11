@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 5f0b470bd46cfeaf00b3092dbe9db507ed50f622
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="deploy-a-spring-boot-application-on-linux-in-the-azure-container-service"></a>Distribuire un'applicazione Spring Boot in Linux nel servizio contenitore di Azure
 
 **[Spring Framework]** è una soluzione open source che consente agli sviluppatori Java di creare applicazioni di livello enterprise. Uno dei progetti più comuni che si basa su questa piattaforma è [Spring Boot], che fornisce un approccio semplificato per la creazione di applicazioni Java autonome.
@@ -315,4 +313,3 @@ Per altri esempi sull'uso delle immagini personalizzate di Docker con Azure, ved
 [LX01]: ./media/container-service-deploy-spring-boot-app-on-linux/LX01.png
 [LX02]: ./media/container-service-deploy-spring-boot-app-on-linux/LX02.png
 [LX03]: ./media/container-service-deploy-spring-boot-app-on-linux/LX03.png
-

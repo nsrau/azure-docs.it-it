@@ -1,6 +1,6 @@
 ---
 title: Eseguire il provisioning di nuovi tenant in un'app multi-tenant che usa il database SQL di Azure | Microsoft Docs
-description: Informazioni su come eseguire il provisioning di nuovi tenant e catalogarli nell'app SaaS Wingtip
+description: Informazioni su come effettuare il provisioning di nuovi tenant e catalogarli in un'app SaaS multi-tenant del database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 8fa4c4f95386a92c8c818eef1a5b4de5a086fe07
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: febf9d9f8a32a95ae61734cc2d3632bb74f6c8f5
 ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
+# <a name="learn-how-to-provision-and-catalog-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant, catalogarli e registrarli nel catalogo
 
 Questa esercitazione consente di acquisire informazioni sui modelli SaaS di provisioning e catalogo e sulle modalità di implementazione di questi nell'applicazione SaaS Wingtip. Verranno creati e inizializzati nuovi database tenant, che verranno registrati nel catalogo dei tenant dell'applicazione. Il catalogo è un database che gestisce il mapping tra i molti tenant dell'applicazione SaaS e i relativi dati. Il catalogo gioca un ruolo importante indirizzando le richieste dell'applicazione al database corretto.  
 

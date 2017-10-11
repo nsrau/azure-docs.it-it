@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Creare ricerche log in Azure Log Analytics tramite il portale per la ricerca log
 
@@ -165,4 +164,3 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 - Altre informazioni sul linguaggio di query di Log Analytics sono disponibili in [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856079) (Introduzione al portale di Analytics).
 - Eseguire un'esercitazione con il [portale Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587) che consente di eseguire le stesse query e accedere agli stessi dati del portale per la ricerca log.
-

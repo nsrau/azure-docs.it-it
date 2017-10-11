@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 08/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 9944cbd2b1b7c4acb18d37da1394c0bbc170f77d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Introduzione all'API di creazione report di Azure Active Directory
 
@@ -43,6 +42,5 @@ Per le domande frequenti, fare clic [qui](https://docs.microsoft.com/en-us/azure
    * [Utilizzo delle informazioni di riferimento sull'API di creazione report sull'attività di accesso](active-directory-reporting-api-sign-in-activity-reference.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si desidera vedere tutti gli endpoint disponibili dell'API Graph di Azure AD,utilizzare questo link: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
-
+Se si desidera vedere tutti gli endpoint disponibili dell'API Graph di Azure AD, usare questo link: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
 

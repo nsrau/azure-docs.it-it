@@ -1,5 +1,5 @@
 ---
-title: "Panoramica sulle funzionalità di database SQL di Azure | Documentazione Microsoft"
+title: "Panoramica sulle funzionalità di database SQL di Azure | Microsoft Docs"
 description: "Questa pagina fornisce una panoramica dei database e server logici del database SQL di Azure e include una matrice di supporto delle funzionalità con collegamenti per ogni funzionalità elencata."
 services: sql-database
 documentationcenter: na
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/25/2017
+ms.date: 09/22/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 4ef119d5218c844f3949bf4fc17fb320a7cbf7b4
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 59bb9778c89142212708b660fb200de3f0f1f9d4
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
+
 # <a name="azure-sql-database-features"></a>Funzionalità di database SQL di Azure
 
 Il database SQL di Azure condivide con SQL Server una base codici comune e, a livello di database, supporta la maggior parte delle stesse funzionalità. La differenza più rilevante tra il database SQL di Azure e SQL Server è a livello di istanza. 
@@ -93,7 +94,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | No |
 | [Gestione basata su criteri](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No |
 | [Predicati](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Supportati per la maggior parte. Vedere i singoli predicati |
-| [Servizi R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | No |
+| [Servizi R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Versione di anteprima; vedere [Novità di Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  |
 | [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | No |
 | [Istruzioni RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | 
 | [Ripristino del database da backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Solo da backup predefiniti. Vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md) |
@@ -109,7 +110,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Controllo di SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No. Vedere [Controllo del database SQL](sql-database-auditing.md) |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | No. Vedere [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sì |
-| SQL Server Profiler | [Supportato](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No. Vedere [Eventi estesi](sql-database-xevent-db-diff-from-svr.md) |
+| [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No. Vedere [Eventi estesi](sql-database-xevent-db-diff-from-svr.md) |
 | [Replica di SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Solo per iscritti alla replica transazionale e snapshot](sql-database-cloud-migrate.md) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No |
 | [Stored procedure](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Sì |
@@ -120,7 +121,6 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Partizionamento delle tabelle](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Sì. Solo filegroup primari |
 | [Tabelle temporanee](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#temporary-tables) | Solo tabelle temporanee locali e globali con ambito database |
 | [Tabelle temporali](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Sì |
-| [Transazioni](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) | No |
 | [Variabili](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Sì | 
 | [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Sì |
 | [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | No. Vedere [Gruppi di failover e replica geografica attiva](sql-database-geo-replication-overview.md) |

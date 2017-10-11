@@ -1,6 +1,6 @@
 ---
-title: "Introduzione all&quot;Utilità di pianificazione di Azure nel portale di Azure | Documentazione di Microsoft"
-description: "Introduzione all&quot;Utilità di pianificazione di Azure nel portale di Azure"
+title: "Introduzione all'Utilità di pianificazione di Azure nel portale di Azure | Documentazione di Microsoft"
+description: "Introduzione all'Utilità di pianificazione di Azure nel portale di Azure"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -19,7 +19,6 @@ ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
 ms.contentlocale: it-it
 ms.lasthandoff: 12/08/2016
-
 
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introduzione all'Utilità di pianificazione di Azure nel portale di Azure

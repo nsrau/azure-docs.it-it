@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 80b920dc99619795cbc86e8cb2e3ac2a78a71932
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-postbeyond"></a>Esercitazione: Integrazione di Azure Active Directory con PostBeyond
 
@@ -227,5 +225,4 @@ Quando si fa clic sul riquadro PostBeyond nel pannello di accesso, verrà visual
 [201]: ./media/active-directory-saas-postbeyond-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-postbeyond-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-postbeyond-tutorial/tutorial_general_203.png
-
 

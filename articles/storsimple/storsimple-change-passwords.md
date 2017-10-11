@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>Utilizzare il servizio StorSimple Manager per modificare la password di StorSimple
 ## <a name="overview"></a>Panoramica
@@ -56,10 +56,4 @@ La password di StorSimple Snapshot Manager ora deve essere aggiornata.
 * Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 * [Ulteriori informazioni su come modificare la configurazione del dispositivo](storsimple-modify-device-config.md).
 * Ulteriori informazioni sull’ [utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

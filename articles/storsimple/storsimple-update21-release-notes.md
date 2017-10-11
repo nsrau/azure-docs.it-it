@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione dell&quot;aggiornamento 2.2 di StorSimple serie 8000 | Documentazione Microsoft
-description: "Illustra le nuove funzionalità, i problemi e le soluzioni alternative per l&quot;aggiornamento 2.2 per StorSimple serie 8000."
+title: Note sulla versione dell'aggiornamento 2.2 di StorSimple serie 8000 | Documentazione Microsoft
+description: "Illustra le nuove funzionalità, i problemi e le soluzioni alternative per l'aggiornamento 2.2 per StorSimple serie 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c9bdd0862397dcac0a48375476002b42e6a8e331
-
-
+ms.openlocfilehash: 3793df974175a5c41b83800f73748c52c8223572
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Note sulla versione dell'aggiornamento 2.2 di StorSimple serie 8000
 ## <a name="overview"></a>Panoramica
@@ -95,10 +95,4 @@ Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà ne
 
 ## <a name="next-step"></a>Passaggio successivo
 Informazioni su come [Installare l'aggiornamento 2.2](storsimple-install-update-21.md) nel dispositivo StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: da517c096357bb8db4334715fa46aa209c273f22
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
 ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opzioni di accesso utente di Azure AD Connect
@@ -26,14 +26,14 @@ Azure Active Directory (Azure AD) Connect consente agli utenti di accedere alle 
 
 Se si è già acquisita familiarità con il modello di identità di Azure AD e si desiderano altre informazioni su un metodo specifico, fare clic sul collegamento appropriato:
 
-* [Sincronizzazione delle password](#password-synchronization) con [accesso Single Sign-On (SSO)](active-directory-aadconnect-sso.md)
-* [Autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md)
+* [Sincronizzazione dell'hash delle password](#password-synchronization) con [accesso Single Sign-On facile](active-directory-aadconnect-sso.md)
+* [Autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md) con [accesso Single Sign-On facile](active-directory-aadconnect-sso.md)
 * [SSO federato (con Active Directory Federation Services, AD FS)](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Scelta di un metodo di accesso utente per l'organizzazione
-Per la maggior parte delle organizzazioni che desiderano semplicemente abilitare l'accesso utente a Office 365, alle applicazioni SaaS e ad altre risorse basate su Azure AD, è consigliabile l'opzione di sincronizzazione password predefinita. Alcune organizzazioni, tuttavia, potrebbero non essere in grado di usare questa opzione per vari motivi. Queste organizzazioni possono scegliere un'opzione di accesso federato come AD FS oppure l'autenticazione pass-through. Usare la tabella seguente per determinare la scelta ideale.
+Per la maggior parte delle organizzazioni che vogliono semplicemente abilitare l'accesso utente a Office 365, alle applicazioni SaaS e ad altre risorse basate su Azure AD, è consigliabile l'opzione di sincronizzazione dell'hash delle password predefinita. Alcune organizzazioni, tuttavia, potrebbero non essere in grado di usare questa opzione per vari motivi. Queste organizzazioni possono scegliere un'opzione di accesso federato come AD FS oppure l'autenticazione pass-through. Usare la tabella seguente per determinare la scelta ideale.
 
-Esigenza | PS con SSO| PA con SSO| AD FS |
+Esigenza | PHS con SSO| PTA con SSO| AD FS |
  --- | --- | --- | --- |
 Sincronizzare automaticamente nel cloud nuovi account utente, di contatto o di gruppo in Active Directory locale.|x|x|x|
 Configurare il tenant per scenari ibridi di Office 365.|x|x|x|
@@ -42,19 +42,16 @@ Implementare l'accesso Single Sign-On usando le credenziali aziendali.|x|x|x|
 Assicurarsi che le password non vengono archiviate nel cloud.||x*|x|
 Abilitare soluzioni di autenticazione a più fattori locali.|||x|
 
-* Tramite un connettore leggero.
+* Tramite un agente leggero.
 
->[!NOTE]
-> L'autenticazione pass-through presenta attualmente alcune limitazioni con i rich client. Per altre informazioni, vedere [Autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md).
+### <a name="password-hash-synchronization"></a>Sincronizzazione dell'hash delle password
+Con la sincronizzazione dell'hash delle password, gli hash delle password degli utenti vengono sincronizzati da Active Directory locale ad Azure AD. Quando le password vengono modificate o reimpostate localmente, i nuovi hash delle password vengono sincronizzati immediatamente in Azure AD in modo che gli utenti possano usare sempre la stessa password per le risorse cloud, come avviene localmente. Le password non vengono mai inviate ad Azure AD né archiviate in Azure AD in testo non crittografato. La sincronizzazione dell'hash delle password può essere usata insieme al writeback delle password per consentire la reimpostazione autonoma delle password del servizio in Azure AD.
 
-### <a name="password-synchronization"></a>Sincronizzazione delle password
-Con la sincronizzazione delle password, gli hash delle password degli utenti vengono sincronizzati da Active Directory locale ad Azure AD. Quando le password vengono modificate o reimpostate localmente, le nuove password vengono sincronizzate immediatamente in Azure AD in modo che gli utenti possano usare sempre la stessa password per le risorse cloud come avviene localmente. Le password non vengono mai inviate ad Azure AD né archiviate in Azure AD in testo non crittografato. La sincronizzazione delle password può essere usata insieme al writeback delle password per consentire la reimpostazione autonoma delle password del servizio in Azure AD.
+È possibile abilitare l'[accesso Single Sign-On facile](active-directory-aadconnect-sso.md) anche per gli utenti di computer aggiunti al dominio presenti nella rete aziendale. Con l'accesso Single Sign-On, gli utenti abilitati possono accedere in modo sicuro alle risorse cloud immettendo solo un nome utente.
 
-È possibile abilitare l'[accesso Single Sign-On](active-directory-aadconnect-sso.md) anche per gli utenti di computer aggiunti al dominio presenti nella rete aziendale. Con l'accesso Single Sign-On, gli utenti abilitati possono accedere in modo sicuro alle risorse cloud immettendo solo un nome utente.
+![Sincronizzazione dell'hash delle password](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-![Sincronizzazione delle password](./media/active-directory-aadconnect-user-signin/passwordhash.png)
-
-Per informazioni dettagliate, vedere l'articolo sulla [sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md).
+Per altre informazioni, vedere l'articolo sulla [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md).
 
 ### <a name="pass-through-authentication"></a>Autenticazione pass-through
 Con l'autenticazione pass-through, la password dell'utente viene convalidata rispetto al controller di Active Directory locale e non è necessario che sia presente in Azure AD in alcuna forma. In questo modo, durante l'autenticazione nei servizi cloud possono essere valutati criteri locali come le restrizioni relative all'ora di accesso.
@@ -140,7 +137,7 @@ Si consiglia di mantenere l'attributo userPrincipalName predefinito. Se questo a
 
 Per le informazioni seguenti, si supponga di usare il suffisso UPN contoso.com nella directory locale come parte dell'UPN, ad esempio user@contoso.com.
 
-###### <a name="express-settingspassword-synchronization"></a>Impostazioni rapide / Sincronizzazione delle password
+###### <a name="express-settingspassword-hash-synchronization"></a>Impostazioni rapide/Sincronizzazione dell'hash delle password
 | Stato | Effetto sull'esperienza di accesso degli utenti in Azure |
 |:---:|:--- |
 | Non aggiunto |In questo caso non è stato aggiunto alcun dominio personalizzato per contoso.com nella directory di Azure AD. Gli utenti che usano UPN locali con suffisso @contoso.com non potranno usare il proprio UPN locale per effettuare l'accesso ad Azure. Dovranno invece usare un nuovo UPN disponibile in Azure AD aggiungendo il suffisso per la directory predefinita di Azure AD. Ad esempio, se si sincronizzano gli utenti con la directory di Azure AD azurecontoso.onmicrosoft.com, all'utente locale user@contoso.com verrà assegnato l'UPN user@azurecontoso.onmicrosoft.com. |
@@ -159,7 +156,7 @@ Se si seleziona l'opzione di accesso utente come **Federazione con AD FS**, è n
 | Verified |In questo caso è possibile procedere con la configurazione senza ulteriori azioni. |
 
 ## <a name="changing-the-user-sign-in-method"></a>Modifica del metodo di accesso utente
-È possibile modificare il metodo di accesso utente da Federazione a Sincronizzazione password o Autenticazione pass-through usando le attività disponibili in Azure AD Connect dopo la configurazione iniziale di Azure AD Connect con la procedura guidata. Eseguire nuovamente la procedura guidata di Azure AD Connect; verrà visualizzato un elenco di attività che è possibile eseguire. Selezionare **Cambia l'accesso utente** dall'elenco di attività.
+È possibile modificare il metodo di accesso utente da Federazione a Sincronizzazione dell'hash delle password o Autenticazione pass-through usando le attività disponibili in Azure AD Connect dopo la configurazione iniziale di Azure AD Connect con la procedura guidata. Eseguire nuovamente la procedura guidata di Azure AD Connect; verrà visualizzato un elenco di attività che è possibile eseguire. Selezionare **Cambia l'accesso utente** dall'elenco di attività.
 
 ![Cambia l'accesso utente](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -172,7 +169,7 @@ Nella pagina **Accesso utente** selezionare il tipo di accesso utente desiderato
 ![Connettersi ad Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
-> Se si passa solo temporaneamente alla sincronizzazione delle password, selezionare l'opzione **Non convertire gli account utente**. Se l'opzione non viene selezionata, ogni utente verrà convertito in federato, operazione che potrà richiedere diverse ore.
+> Se si passa solo temporaneamente alla sincronizzazione dell'hash delle password, selezionare l'opzione **Non convertire gli account utente**. Se l'opzione non viene selezionata, ogni utente verrà convertito in federato, operazione che potrà richiedere diverse ore.
 >
 >
 

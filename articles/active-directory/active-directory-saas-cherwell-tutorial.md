@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Cherwell | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Cherwell.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Cherwell.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 27fedb9caa1ef27693b2267df285d62aab78bc24
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Esercitazione: Integrazione di Azure Active Directory con Cherwell
 
@@ -233,5 +231,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 [201]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_203.png
-
 

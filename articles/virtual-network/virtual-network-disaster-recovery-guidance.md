@@ -1,6 +1,6 @@
 ---
-title: Operazioni da eseguire se si verifica un&quot;interruzione di un servizio di Azure con impatto sulle reti virtuali di Azure | Documentazione Microsoft
-description: Informazioni sulle operazioni da eseguire in caso di un&quot;interruzione del servizio Azure con impatto sulle reti virtuali di Azure.
+title: Operazioni da eseguire se si verifica un'interruzione di un servizio di Azure con impatto sulle reti virtuali di Azure | Documentazione Microsoft
+description: Informazioni sulle operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sulle reti virtuali di Azure.
 services: virtual-network
 documentationcenter: 
 author: NarayanAnnamalai
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dbb749b056c36f16e921933fb8345211e3eaa697
-
-
+ms.openlocfilehash: 4e125406d2e798138c45e3fbbf61a610afab69fc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="virtual-network--business-continuity"></a>Rete virtuale - Continuità aziendale
 ## <a name="overview"></a>Panoramica
@@ -46,10 +46,4 @@ Le istruzioni per la creazione di una rete virtuale sono disponibili [qui](virtu
 R: Sì, è possibile creare in anticipo due reti virtuali usando lo stesso spazio di indirizzi IP privati e le stesse risorse in due aree diverse. Se il cliente stava ospitando servizi con connessione Internet nella rete virtuale, potrebbe aver impostato Gestione traffico in modo da distribuire a livello geografico il traffico all'area attiva. Tuttavia, un cliente non può connettere due reti virtuali con lo stesso spazio di indirizzi a una rete locale perché ciò comporterebbe problemi di routing. Al momento di un'emergenza e della perdita di una rete virtuale in un'area, il cliente può connettere alla rete locale l'altra rete virtuale nell'area disponibile con lo stesso spazio di indirizzi.
 
 Le istruzioni per la creazione di una rete virtuale sono disponibili [qui](virtual-networks-create-vnet-arm-pportal.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

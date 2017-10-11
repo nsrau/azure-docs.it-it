@@ -20,7 +20,6 @@ ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="scheduler-outbound-authentication"></a>Autenticazione in uscita dell'Utilità di pianificazione
 I processi dell'Utilità di pianificazione potrebbero richiedere servizi che necessitano di autenticazione. In questo modo, un servizio richiamato può determinare se l'utilità di pianificazione può accedere alle sue risorse. Alcuni di questi servizi includono altri servizi di Azure, Salesforce.com, Facebook e siti Web custom protetti.

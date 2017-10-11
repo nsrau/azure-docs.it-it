@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: nberdy
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 9bf02ff15d973ea2c9f00815558507c66c049159
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 76f1d32b4afeacae1488b4cf28be6c8cf7f4ea37
 ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-direct-methods-netnode"></a>Usare metodi diretti (.NET/Node)
@@ -37,7 +37,7 @@ In questa esercitazione verrà sviluppata un'app console Node.js e .NET:
 Per completare questa esercitazione, sono necessari:
 
 * Visual Studio 2015 o Visual Studio 2017.
-* Node.js 0.10.x o versione successiva.
+* Node.js 4.0.x o versione successiva.
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]

@@ -15,12 +15,11 @@ ms.workload8: na
 ms.date: 08/07/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: bc543cdf3d375076af5b5f17f8ca216dd5bf72b0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-log-integration-faq"></a>Domande frequenti sull'integrazione dei log di Azure
 Questo articolo contiene le risponde alle domande frequenti sull'integrazione dei log di Azure. 
@@ -133,4 +132,3 @@ Azure Network Watcher genera grandi quantità di informazioni di registrazione. 
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
-

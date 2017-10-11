@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2017
 ms.author: kdotchko
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1a8dd3d024fbe1e85a43c5b4f98901ab59c5797f
-ms.openlocfilehash: e0a7c813da53bc6ab49a456f13227b62725c5fc4
-ms.contentlocale: it-it
-ms.lasthandoff: 02/17/2017
-
+ms.openlocfilehash: b2ad2c6f5eeec2f803e2d2f5f98831b551efa8b1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # Supportare altri protocolli per l'hub IoT
 L'hub IoT di Azure supporta in modo nativo la comunicazione tramite i protocolli MQTT, AMQP e HTTP. In alcuni casi i dispositivi o gateway campo potrebbero non essere in grado di utilizzare uno di questi protocolli standard e richiederanno l'adattamento del protocollo. In questi casi, è possibile utilizzare un gateway personalizzato. Un gateway personalizzato può abilitare l’adattamento del protocollo per gli endpoint dell’hub IoT con il bridging del traffico da e verso l’hub IoT. È possibile usare il [gateway del protocollo Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) come gateway personalizzato per consentire l'adattamento del protocollo per l'hub IoT.
@@ -50,4 +49,3 @@ Per altre informazioni sulla pianificazione della distribuzione dell'hub IoT, ve
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-

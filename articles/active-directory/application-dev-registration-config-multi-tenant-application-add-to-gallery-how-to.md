@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9f3caff0e998d670ce82b847525a63f2a85572d3
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 208f0d40bd7a8e8f35f16e1fcb09c305d833dbb2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-add-a-multi-tenant-application-to-the-azure-ad-application-gallery"></a>Come aggiungere un'applicazione multi-tenant alla raccolta di applicazioni di Azure AD
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Definizione della raccolta di applicazioni di Azure AD
@@ -40,4 +38,3 @@ Anche se l'applicazione non supporta una di queste modalità, è comunque possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
-

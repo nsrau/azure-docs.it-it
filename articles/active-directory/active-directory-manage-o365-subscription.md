@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Gestire la directory per la sottoscrizione di Office 365 in Azure
 Questo articolo descrive come gestire una directory creata per una sottoscrizione di Office 365 con il portale di Azure classico. Per accedere al portale di Azure classico, è necessario essere l'amministratore del servizio o un coamministratore di una sottoscrizione di Azure. Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita di 30 giorni](https://azure.microsoft.com/trial/get-started-active-directory/) e distribuire la prima soluzione cloud in meno di 5 minuti, usando questo collegamento. Usare l'account aziendale o dell'istituto di istruzione usato per accedere a Office 365.
@@ -70,4 +69,3 @@ Si supponga ora che Jane Doe debba amministrare le risorse di database e di siti
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla relazione tra sottoscrizioni e directory, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
-

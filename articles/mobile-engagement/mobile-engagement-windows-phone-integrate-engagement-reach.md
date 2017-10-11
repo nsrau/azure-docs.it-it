@@ -1,5 +1,5 @@
 ---
-title: Integrazione dell&quot;SDK di Reach per Windows Phone Silverlight
+title: Integrazione dell'SDK di Reach per Windows Phone Silverlight
 description: Come integrare il servizio Reach di Azure Mobile Engagement con le app per Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 72f69e334172ad69bedb9c8fc4d270a607d1598f
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 0738f33df94d14fbb393bfaaf09e94c6560213cc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-reach-sdk-integration"></a>Integrazione dell'SDK di Reach per Windows Phone Silverlight
 Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento [Integrazione di Mobile Engagement SDK per Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) .
@@ -283,5 +282,4 @@ Per implementare il callback:
 [criteri relativi alle applicazioni]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [requisiti aggiuntivi per tipi di applicazione specifici]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
-
 

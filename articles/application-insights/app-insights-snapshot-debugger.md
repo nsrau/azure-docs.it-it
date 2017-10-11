@@ -3,7 +3,7 @@ title: Snapshot Debugger di Azure Application Insights per app .NET | Microsoft 
 description: Gli snapshot di debug vengono raccolti automaticamente quando vengono generate eccezioni nelle app di produzione .NET
 services: application-insights
 documentationcenter: 
-author: qubitron
+author: pharring
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bb6c93557ea26bed721315dc82da917e4727b5f9
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 0761339dfdaaaed418a1414472393ce8e0f37b9c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
@@ -68,26 +68,13 @@ La raccolta di snapshot è disponibile per:
 
 1. [Abilitare Application Insights nell'app Web ASP.NET Core](app-insights-asp-net-core.md) se non è ancora stato fatto.
 
+> [!NOTE]
+> Verificare che l'applicazione faccia riferimento alla versione 2.1.1 o più recente del pacchetto Microsoft.ApplicationInsights.AspNetCore.
+
 2. Includere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
 
-3. Modificare il metodo `ConfigureServices` nella classe `Startup` dell'applicazione per aggiungere il processore di telemetria dell'agente di raccolta snapshot. Il codice da aggiungere dipende dalla versione referenziata del pacchetto Microsoft.ApplicationInsights.ASPNETCore NuGet.
+3. Modificare il metodo `ConfigureServices` nella classe `Startup` dell'applicazione per aggiungere il processore di telemetria dell'agente di raccolta snapshot.
 
-   Per Microsoft.ApplicationInsights.AspNetCore 2.1.0 aggiungere:
-   ```C#
-   using Microsoft.ApplicationInsights.SnapshotCollector;
-   ...
-   class Startup
-   {
-       // This method is called by the runtime. Use it to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
-           // TODO: Add any other services your application needs here.
-       }
-   }
-   ```
-
-   Per Microsoft.ApplicationInsights.AspNetCore 2.1.1 aggiungere:
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
    ...
@@ -175,7 +162,7 @@ Lo snapshot scaricato contiene tutti file di simboli trovati nel server applicaz
 
 ## <a name="how-snapshots-work"></a>Funzionamento degli snapshot
 
-All'avvio dell'applicazione viene creato un processo di caricamento degli snapshot separato che monitora le richieste di snapshot nell'applicazione. Quando viene richiesto uno snapshot, viene creata una copia shadow del processo in esecuzione in circa 10-20 minuti. Il processo shadow viene quindi analizzato e viene creato uno snapshot mentre il processo principale rimane in esecuzione e continua a gestire il traffico verso gli utenti. Lo snapshot viene quindi caricato in Application Insights insieme agli eventuali file di simboli pertinenti (con estensione pdb) che sono necessari per visualizzare lo snapshot.
+All'avvio dell'applicazione viene creato un processo di caricamento degli snapshot separato che monitora le richieste di snapshot nell'applicazione. Quando viene richiesto uno snapshot, viene creata una copia shadow del processo in esecuzione in circa 10-20 millisecondi. Il processo shadow viene quindi analizzato e viene creato uno snapshot mentre il processo principale rimane in esecuzione e continua a gestire il traffico verso gli utenti. Lo snapshot viene quindi caricato in Application Insights insieme agli eventuali file di simboli pertinenti (con estensione pdb) che sono necessari per visualizzare lo snapshot.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 

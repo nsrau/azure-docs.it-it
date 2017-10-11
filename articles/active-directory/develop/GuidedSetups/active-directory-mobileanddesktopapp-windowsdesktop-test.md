@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 972cc48057c13271d725b0c973c3ccf651ad27c4
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 ## <a name="test-your-code"></a>Testare il codice
 
@@ -55,7 +53,6 @@ Nella casella Token Info (Informazioni sul token) vengono visualizzate anche inf
 L'API Graph richiede l'ambito `user.read` per leggere il profilo utente. Per impostazione predefinita, questo ambito viene aggiunto automaticamente in ogni applicazione registrata nel portale di registrazione. Altre API Graph e alcune API personalizzate per il server back-end richiedono anche altri ambiti. Graph, ad esempio, richiede l'ambito `Calendars.Read` per elencare i calendari degli utenti. Per poter accedere al calendario dell'utente nel contesto di un'applicazione, è necessario aggiungere le informazioni di registrazione dell'applicazione delegata `Calendars.Read` e aggiungere `Calendars.Read` alla chiamata `AcquireTokenAsync`. Con l'aumentare del numero di ambiti è possibile che all'utente venga chiesto di esprimere anche altri tipi di consenso.
 
 <!--end-collapse-->
-
 
 
 

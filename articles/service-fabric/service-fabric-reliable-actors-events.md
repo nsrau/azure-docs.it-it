@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: amanbha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: eef9c1ab69153d3a2e4d8e7363108703819823a7
-ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
-
-
+ms.openlocfilehash: d936670c548ff709fc2e935d3f28d94e4bde8a04
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="actor-events"></a>Eventi relativi agli attori
 Gli eventi relativi agli attori consentono l'invio di notifiche il più possibile accurate dall'attore ai client. Tali eventi sono stati progettati per la comunicazione tra attore e client e non è consigliabile usarli per la comunicazione tra attori.
@@ -116,4 +114,3 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [Codice di esempio C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Codice di esempio di base C# .NET](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
 * [Codice di esempio Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
-

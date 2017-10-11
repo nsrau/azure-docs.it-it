@@ -14,14 +14,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 23a6e09d410616b135506df778d6fdd5ed68bb41
-ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-automation-dsc-overview"></a>Panoramica della piattaforma DSC di Automazione di Azure
 
 Automation DSC per Azure è un servizio di Azure che consente di scrivere, gestire e compilare [configurazioni](https://msdn.microsoft.com/powershell/dsc/configurations) PowerShell DSC (Desired State Configuration), importare [risorse DSC](https://msdn.microsoft.com/powershell/dsc/resources) e assegnare configurazioni ai nodi di destinazione, il tutto nel cloud.
@@ -67,4 +65,4 @@ Si preferisce guardare che leggere? Guardare il video di seguito del maggio 2015
 * Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Automation DSC per Azure](automation-dsc-compile.md)
 * Per informazioni di riferimento sui cmdlet di PowerShell per Automation DSC per Azure, vedere [Azure Automation DSC cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet di Automation DSC per Azure)
 * Per informazioni sui prezzi, vedere [Prezzi di Automation DSC per Azure](https://azure.microsoft.com/pricing/details/automation/)
-* Per visualizzare un esempio dell'uso di Automation DSC per Azure in una pipeline di distribuzione continua, vedere  [Distribuzione continua in macchine virtuali IaaS tramite Automation DSC per Azure e Chocolatey](automation-dsc-cd-chocolatey.md)
+* Per un esempio di utilizzo di Automation DSC per Azure in una pipeline di distribuzione continua, vedere [distribuzione continua per IaaS macchine virtuali utilizzando Automation DSC per Azure e Chocolatey](automation-dsc-cd-chocolatey.md)

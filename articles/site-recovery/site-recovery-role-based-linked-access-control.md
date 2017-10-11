@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: manayar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 9dd74014bf05234a83c7678b67b42b96cd8b8d64
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Usare il controllo degli accessi in base al ruolo per gestire le distribuzioni di Azure Site Recovery
 
@@ -84,4 +82,3 @@ Per completare la replica di una nuova macchina virtuale, un utente deve avere l
   * [Interfaccia della riga di comando di Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [API REST](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Risoluzione dei problemi del controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
-

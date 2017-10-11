@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 8/31/2017
 ms.author: arijitt
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: cfed5f0f4f703821e83e3d365810c0e5ad22f035
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 84b78fe4eb60162f3cad0ae4ae7f98864d5bbf2b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -213,12 +213,12 @@ La causa più probabile per questa eccezione è costituita dall'allocazione di m
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    Per ottenere il valore relativo alla memoria totale usata da tutti gli executor, eseguire il comando seguente: 
+    Per calcolare la memoria totale usata da tutti gli esecutori: 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-    Per ottenere il valore relativo alla memoria totale usata dal driver, eseguire il comando seguente:
+   Per calcolare la memoria totale usata dal driver:
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead

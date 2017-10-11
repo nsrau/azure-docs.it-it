@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 09/25/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ef586191f0b89dca89810644d45503fe42538635
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="failover-in-site-recovery"></a>Failover in Site Recovery
@@ -28,6 +27,13 @@ Questo articolo descrive come eseguire il failover di macchine virtuali e server
 ## <a name="prerequisites"></a>Prerequisiti
 1. Prima di eseguire un failover, eseguire un [failover di test](site-recovery-test-failover-to-azure.md) per verificare che tutto funzioni come previsto.
 1. [Preparare la rete](site-recovery-network-design.md) nel percorso di destinazione prima di eseguire un failover.  
+
+Usare la tabella seguente per informazioni sulle opzioni di failover fornite da Azure Site Recovery. Queste opzioni sono anche elencate per diversi scenari di failover.
+
+| Scenario | Requisito di ripristino dell'applicazione | Flusso di lavoro per Hyper-V | Flusso di lavoro per VMware
+|---|--|--|--|
+|Failover pianificato dovuto a un imminente tempo di inattività del data center| Nessuna perdita di dati per l'applicazione quando viene eseguita un'attività pianificata| Per Hyper-V, ASR replica i dati con una frequenza di copia specificata dall'utente. Il failover pianificato viene usato per eseguire l'override della frequenza e replicare le modifiche finali prima dell'avvio di un failover. <br/> <br/> 1.    Pianificare una finestra di manutenzione in base al processo di gestione del cambiamento dell'azienda. <br/><br/> 2. Informare gli utenti dell'imminente tempo di inattività. <br/><br/> 3. Portare offline l'applicazione rivolta all'utente.<br/><br/>4. Avviare il failover pianificato tramite il portale di ASR. La macchina virtuale locale si arresta automaticamente.<br/><br/>Perdita di dati effettiva dell'applicazione = 0 <br/><br/>Viene anche fornito un giornale di registrazione di punti di recupero all'interno di un periodo di conservazione qualora un utente intendesse usare un punto di recupero precedente (24 ore di conservazione per Hyper-V).| Per VMware, ASR replica i dati continuamente tramite CDP. È inclusa un'opzione che consente all'utente di eseguire il failover nei dati più recenti (inclusi quelli dopo l'arresto dell'applicazione).<br/><br/> 1. Pianificare una finestra di manutenzione in base al processo di gestione del cambiamento. <br/><br/>2. Informare gli utenti dell'imminente tempo di inattività. <br/><br/>3.  Portare offline l'applicazione rivolta all'utente. <br/><br/>4.  Tramite il portale di ASR, avviare un failover pianificato nel punto più recente da quando l'applicazione è offline. Usare l'opzione di failover non pianificato del portale e selezionare il punto più recente per il failover. La macchina virtuale locale si arresta automaticamente.<br/><br/>Perdita di dati effettiva dell'applicazione = 0 <br/><br/>Viene fornito un giornale di registrazione di punti di recupero all'interno di un periodo di conservazione qualora un utente intendesse usare un punto di recupero precedente (72 ore di conservazione per VMware).
+|Failover dovuto a un tempo di inattività non pianificato del data center (disastro naturale o IT) | Perdita di dati minima per l'applicazione | 1. Avviare il piano BCP dell'organizzazione. <br/><br/>2. Tramite il portale di ASR, avviare un failover non pianificato nel punto più recente o in un punto all'interno del periodo di conservazione (giornale di registrazione).| 1. Avviare il piano BCP dell'organizzazione. <br/><br/>2.  Tramite il portale di ASR, avviare un failover non pianificato nel punto più recente o in un punto all'interno del periodo di conservazione (giornale di registrazione).
 
 
 ## <a name="run-a-failover"></a>Eseguire un failover
@@ -38,7 +44,7 @@ Questa procedura descrive come eseguire un failover per un [piano di ripristino]
 
 1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover**.
 2. Nella schermata **Failover** selezionare un **punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
-    1.  **Più recente** (opzione predefinita): con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni macchina virtuale e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso, perché la macchina virtuale creata dopo il failover contiene tutti i dati che sono stati replicati nel servizio Site Recovery all'attivazione del failover.
+    1.  **Più recente** (predefinita): questa opzione avvia il processo elaborando prima tutti i dati inviati al servizio Site Recovery. L'elaborazione dei dati crea un punto di ripristino per ogni macchina virtuale. Questo punto di ripristino viene usato dalla macchina virtuale durante il failover. Questa opzione offre il valore RPO (Recovery Point Objective) più basso, perché la macchina virtuale creata dopo il failover contiene tutti i dati che sono stati replicati nel servizio Site Recovery all'attivazione del failover.
     1.  **Punto di ripristino elaborato più recente**: con questa opzione viene eseguito il failover di tutte le macchine virtuali del piano di ripristino nell'ultimo punto di ripristino elaborato dal servizio Site Recovery. Quando si esegue il failover di test di una macchina virtuale, viene visualizzato anche il timestamp del punto di ripristino elaborato più recente. Se si esegue il failover di un piano di ripristino, per ottenere tali informazioni è possibile passare alla singola macchina virtuale ed esaminare il riquadro **Latest Recovery Points** (Punti di ripristino più recenti). Dato che non viene impiegato tempo per elaborare dati non elaborati, questa opzione offre un failover con valore RTO (Recovery Time Objective) basso.
     1.  **Punto di ripristino più recente coerente con l'applicazione**: con questa opzione viene eseguito il failover di tutte le macchine virtuali del piano di ripristino nell'ultimo punto di ripristino coerente con l'applicazione elaborato dal servizio Site Recovery. Quando si esegue il failover di test di una macchina virtuale, viene visualizzato anche il timestamp del punto di ripristino coerente con l'app più recente. Se si esegue il failover di un piano di ripristino, per ottenere tali informazioni è possibile passare alla singola macchina virtuale ed esaminare il riquadro **Latest Recovery Points** (Punti di ripristino più recenti).
     1.  **Latest multi-VM processed** (Più recente coerente tra più VM elaborato): questa opzione è disponibile solo per i piani di ripristino con almeno una macchina virtuale in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di recupero coerente tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di recupero più recente elaborato.  
@@ -56,16 +62,16 @@ Questa procedura descrive come eseguire un failover per un [piano di ripristino]
 1. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo.  
 
     > [!NOTE]
-    > Se si usano macchine virtuali Hyper-V, l'opzione prova anche a sincronizzare i dati locali che non sono ancora stati inviati al servizio prima di attivare il failover.
+    > Se le macchine virtuali Hyper-V sono protette, l'opzione di arresto prova anche a sincronizzare i dati locali che non sono ancora stati inviati al servizio prima di attivare il failover.
     >
     >
 
 1. Nella pagina **Processi** è possibile seguire lo stato del failover. Anche se si verificano errori durante un failover non pianificato, il piano di ripristino viene eseguito fino al completamento.
 1. Dopo il failover, convalidare la macchina virtuale eseguendo l'accesso ad essa. Per passare a un altro punto di ripristino per la macchina virtuale, è possibile usare l'opzione **Modifica punto di ripristino**.
-1. Quando la macchina virtuale sottoposta a failover è pronta, è possibile eseguire il **commit** del failover. Questa operazione elimina tutti i punti di ripristino disponibili con il servizio e l'opzione **Modifica punto di ripristino** non sarà disponibile.
+1. Quando la macchina virtuale sottoposta a failover è pronta, è possibile eseguire il **commit** del failover. Il commit elimina tutti i punti di ripristino disponibili con il servizio e l'opzione **Modifica punto di ripristino** non sarà disponibile.
 
 ## <a name="planned-failover"></a>Failover pianificato
-Oltre al failover, le macchine virtuali Hyper-V protette con Site Recovery supportano anche il **failover pianificato**. Si tratta di un'opzione di failover senza alcuna perdita di dati. Quando viene attivato un failover pianificato, prima le macchine virtuali di origine vengono arrestate, vengono sincronizzati i dati non ancora sincronizzati e quindi viene attivato il failover.
+Le macchine virtuali e i server fisici protetti con Site Recovery supportano anche il **failover pianificato**. Il failover pianificato è un'opzione di failover senza alcuna perdita di dati. Quando viene attivato un failover pianificato, prima le macchine virtuali di origine vengono arrestate, vengono sincronizzati i dati non ancora sincronizzati e quindi viene attivato il failover.
 
 > [!NOTE]
 > Quando si esegue il failover di macchine virtuali Hyper-V da un sito locale a un altro sito locale, per tornare al sito locale primario è prima necessario **eseguire la replica inversa** della macchina virtuale nel sito primario e quindi attivare il failover. Se la macchina virtuale primaria non è disponibile, prima di avviare la **replica inversa** è necessario ripristinare la macchina virtuale da un backup.   
@@ -89,7 +95,7 @@ L'attivazione di un failover comporta l'esecuzione dei passaggi riportati di seg
 
 ## <a name="time-taken-for-failover-to-azure"></a>Tempo impiegato per il failover in Azure
 
-Il failover di macchine virtuali richiede in alcuni casi un passaggio aggiuntivo intermedio che in genere viene completato in circa 8-10 minuti. Questi casi sono i seguenti:
+Il failover di macchine virtuali richiede in alcuni casi un passaggio aggiuntivo intermedio che in genere viene completato in circa 8-10 minuti. Nei casi seguenti, il tempo impiegato per eseguire il failover sarà superiore al consueto:
 
 * Macchine virtuali VMware che usano una versione del servizio di mobilità precedente alla 9.8
 * Server fisici 
@@ -118,7 +124,9 @@ In tutti gli altri casi questo passaggio intermedio non è necessario e il tempo
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver eseguito il failover delle macchine virtuali e aver accertato la disponibilità del data center locale, è necessario [**riproteggere**](site-recovery-how-to-reprotect.md) le macchine virtuali VMware nel data center locale.
+
+> [!WARNING]
+> Dopo aver eseguito il failover delle macchine virtuali e aver accertato la disponibilità del data center locale, è necessario [**riproteggere**](site-recovery-how-to-reprotect.md) le macchine virtuali VMware nel data center locale.
 
 Usare l'opzione [**Failover pianificato**](site-recovery-failback-from-azure-to-hyper-v.md) per eseguire il **failback** delle macchine virtuali Hyper-V in locale da Azure.
 

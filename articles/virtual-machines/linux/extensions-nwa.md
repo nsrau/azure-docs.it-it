@@ -1,6 +1,6 @@
 ---
 title: Estensione macchina virtuale Azure Network Watcher Agent per Linux | Microsoft Docs
-description: Distribuire Network Watcher Agent in una macchina virtuale Linux usando un&quot;estensione macchina virtuale.
+description: Distribuire Network Watcher Agent in una macchina virtuale Linux usando un'estensione macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: 
 author: dennisg
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-translationtype: Human Translation
-ms.sourcegitcommit: 2de3e6d205dd126e1c3d9606ea1419669056d7f1
 ms.openlocfilehash: eaadd531b9e05a54446e61f98584ae9d75470a5f
-ms.lasthandoff: 02/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale Network Watcher Agent per Linux
 
@@ -114,4 +113,3 @@ L'output dell'esecuzione dell'estensione viene registrato nei file presenti nell
 ### <a name="support"></a>Supporto
 
 Per ricevere assistenza più approfondita su qualsiasi punto dell'articolo, fare riferimento alla documentazione su Network Watcher o contattare gli esperti di Azure nei [forum di Azure su MSDN e Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/en-us/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/en-us/support/faq/).
-

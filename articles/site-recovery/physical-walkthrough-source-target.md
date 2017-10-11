@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: e89bbf5a2c1d71852e49da43d3106a05ebfc28a8
-ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-7-set-up-the-source-and-target-for-physical-server-replication-to-azure"></a>Passaggio 7: Configurare l'origine e la destinazione per la replica del server fisico in Azure
 
@@ -74,4 +72,3 @@ Prima di configurare l'ambiente di destinazione, verificare di aver configurato 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare al [Passaggio 8: Configurare i criteri di replica](physical-walkthrough-replication.md)
-

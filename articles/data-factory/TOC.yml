@@ -1,0 +1,230 @@
+- name: Documentazione di Data Factory versione 2
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Introduzione al servizio Data factory
+      href: introduction.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Creare un'istanza di Data Factory
+      items:
+        - name: PowerShell
+          href: quickstart-create-data-factory-powershell.md
+        - name: .NET
+          href: quickstart-create-data-factory-dot-net.md
+        - name: Python
+          href: quickstart-create-data-factory-python.md
+        - name: REST
+          href: quickstart-create-data-factory-rest-api.md
+        - name: di Microsoft Azure
+          href: quickstart-create-data-factory-portal.md
+- name: Esercitazioni
+  items:
+    - name: 1 - Distribuire i pacchetti SSIS in Azure
+      href: tutorial-deploy-ssis-packages-azure.md
+    - name: 2 - Copiare i dati nel cloud
+      href: tutorial-copy-data-dot-net.md
+    - name: 3 - Copiare i dati locali nel cloud
+      href: tutorial-hybrid-copy-powershell.md
+    - name: 4 - Copiare i dati nel bulk
+      href: tutorial-bulk-copy.md
+    - name: 5 - Copiare i dati in modo incrementale
+      href: tutorial-incremental-copy-powershell.md
+    - name: 6 - Trasformare i dati nel cloud
+      href: tutorial-transform-data-spark-powershell.md
+    - name: 7 - Trasformare i dati nella rete virtuale
+      href: tutorial-transform-data-hive-virtual-network.md
+    - name: 8 - Flusso di controllo
+      href: tutorial-control-flow.md
+- name: Esempi
+  items:
+    - name: Esempi di codice
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
+    - name: PowerShell
+      href: samples-powershell.md
+- name: Concetti
+  items:
+    - name: Pipeline e attività
+      href: concepts-pipelines-activities.md
+    - name: Set di dati e i servizi collegati
+      href: concepts-datasets-linked-services.md
+    - name: Esecuzione e trigger della pipeline
+      href: concepts-pipeline-execution-triggers.md
+    - name: Runtime di integrazione
+      href: concepts-integration-runtime.md
+- name: Guide alle procedure
+  items:
+    - name: Spostare dati
+      items:
+        - name: Panoramica dell'attività di copia
+          href: copy-activity-overview.md
+        - name: Connettori
+          items:
+            - name: Amazon Redshift
+              href: connector-amazon-redshift.md
+            - name: Amazon S3
+              href: connector-amazon-simple-storage-service.md
+            - name: Archiviazione BLOB di Azure
+              href: connector-azure-blob-storage.md
+            - name: Azure Cosmos DB
+              href: connector-azure-cosmos-db.md
+            - name: Archivio Azure Data Lake
+              href: connector-azure-data-lake-store.md
+            - name: Ricerca di Azure
+              href: connector-azure-search.md
+            - name: Database SQL di Azure
+              href: connector-azure-sql-database.md
+            - name: Azure SQL Data Warehouse
+              href: connector-azure-sql-data-warehouse.md
+            - name: Archiviazione tabelle di Azure
+              href: connector-azure-table-storage.md
+            - name: Cassandra
+              href: connector-cassandra.md
+            - name: DB2
+              href: connector-db2.md
+            - name: Dynamics 365
+              href: connector-dynamics-crm-office-365.md
+            - name: Dynamics CRM
+              href: connector-dynamics-crm-office-365.md
+            - name: File system
+              href: connector-file-system.md
+            - name: FTP
+              href: connector-ftp.md
+            - name: HDFS
+              href: connector-hdfs.md
+            - name: HTTP
+              href: connector-http.md
+            - name: MongoDB
+              href: connector-mongodb.md
+            - name: MySQL
+              href: connector-mysql.md
+            - name: OData
+              href: connector-odata.md
+            - name: ODBC
+              href: connector-odbc.md
+            - name: Oracle
+              href: connector-oracle.md
+            - name: PostgreSQL
+              href: connector-postgresql.md
+            - name: Salesforce
+              href: connector-salesforce.md
+            - name: SAP Business Warehouse
+              href: connector-sap-business-warehouse.md
+            - name: SAP HANA
+              href: connector-sap-hana.md
+            - name: SFTP
+              href: connector-sftp.md
+            - name: SQL Server
+              href: connector-sql-server.md
+            - name: Sybase
+              href: connector-sybase.md
+            - name: Teradata
+              href: connector-teradata.md
+            - name: WebTable
+              href: connector-web-table.md
+        - name: Formato e supporto della compressione
+          href: supported-file-formats-and-compression-codecs.md
+        - name: Schema e i mapping dei tipi
+          href: copy-activity-schema-and-type-mapping.md
+        - name: Tolleranza di errore
+          href: copy-activity-fault-tolerance.md
+        - name: Prestazioni e ottimizzazione
+          href: copy-activity-performance.md
+    - name: Trasformare i dati
+      href: transform-data.md
+      items:
+        - name: Attività Hive di HDInsight
+          href: transform-data-using-hadoop-hive.md
+        - name: Attività Pig di HDInsight
+          href: transform-data-using-hadoop-pig.md
+        - name: Attività MapReduce di HDInsight
+          href: transform-data-using-hadoop-map-reduce.md
+        - name: Attività di streaming di HDInsight
+          href: transform-data-using-hadoop-streaming.md
+        - name: Attività HDInsight Spark
+          href: transform-data-using-spark.md
+        - name: Attività di esecuzione batch di ML
+          href: transform-data-using-machine-learning.md
+        - name: Attività della risorsa di aggiornamento di ML
+          href: update-machine-learning-models.md
+        - name: Attività stored procedure
+          href: transform-data-using-stored-procedure.md
+        - name: Attività U-SQL di Data Lake
+          href: transform-data-using-data-lake-analytics.md
+        - name: Attività personalizzata
+          href: transform-data-using-dotnet-custom-activity.md
+        - name: Servizi collegati di calcolo
+          href: compute-linked-services.md
+    - name: Flusso di controllo
+      items:
+        - name: Attività Web
+          href: control-flow-web-activity.md
+        - name: Attività di ricerca
+          href: control-flow-lookup-activity.md
+        - name: Ottenere attività di metadati
+          href: control-flow-get-metadata-activity.md
+        - name: Eseguire l'attività di pipeline
+          href: control-flow-execute-pipeline-activity.md
+        - name: Per ogni attività
+          href: control-flow-for-each-activity.md
+        - name: Linguaggio di espressione
+          href: control-flow-expression-language-functions.md
+        - name: Variabili di sistema
+          href: control-flow-system-variables.md
+    - name: Sicurezza
+      items:
+        - name: Considerazioni relative alla sicurezza per lo spostamento dei dati
+          href: data-movement-security-considerations.md
+        - name: Archiviare le credenziali in Azure Key Vault
+          href: store-credentials-in-key-vault.md
+        - name: Crittografare le credenziali per il runtime di integrazione self-hosted
+          href: encrypt-credentials-self-hosted-integration-runtime.md
+    - name: Monitorare e gestire
+      items:
+        - name: Usare .NET
+          href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
+        - name: Usare Monitoraggio di Azure
+          href: monitor-using-azure-monitor.md
+        - name: Gestire il runtime di integrazione SSIS di Azure
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Monitorare il runtime di integrazione
+          href: monitor-integration-runtime.md
+    - name: Creare il runtime di integrazione
+      items:
+        - name: Runtime di integrazione di Azure
+          href: create-azure-integration-runtime.md
+        - name: Runtime di integrazione self-hosted
+          href: create-self-hosted-integration-runtime.md
+        - name: Runtime di integrazione SSIS di Azure
+          href: create-azure-ssis-integration-runtime.md
+        - name: Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+- name: riferimento
+  items:
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.datafactory
+    - name: PowerShell
+      href: /powershell/module/azurerm.datafactoryv2/
+    - name: API REST
+      href: /rest/api/datafactory
+    - name: Python
+      href: /python/api/overview/azure/datafactory?view=azure-python
+- name: Risorse
+  items:
+    - name: domande frequenti
+      href: frequently-asked-questions.md
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
+    - name: Richiedere una funzionalità
+      href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
+    - name: Aree di disponibilità
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Opzioni di supporto
+      href: 'https://azure.microsoft.com/support/options/'

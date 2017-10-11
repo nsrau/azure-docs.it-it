@@ -1,6 +1,6 @@
 ---
 title: Schemi di rilevamento AS2 per il monitoraggio B2B - App per la logica di Azure | Documenti di Microsoft
-description: Utilizzare gli schemi di rilevamento AS2 per il monitoraggio dei messaggi B2B dalle transazioni nell&quot;account di integrazione di Azure.
+description: Utilizzare gli schemi di rilevamento AS2 per il monitoraggio dei messaggi B2B dalle transazioni nell'account di integrazione di Azure.
 author: padmavc
 manager: anneta
 editor: 
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: e9c9cfda4dda1ec3f1b002016118bd49d540e90a
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 31bd296dc5ed5ac6998a6c05ee80fd38b12d662c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Avviare o attivare il rilevamento dei messaggi AS2 e di MDN per monitorare il completamento dell'operazione, gli errori e le proprietà dei messaggi
 È possibile utilizzare questi schemi di rilevamento AS2 nell'account di integrazione di Azure per monitorare le transazioni business-to-business (B2B):
@@ -139,4 +137,3 @@ ms.lasthandoff: 03/01/2017
 * Altre informazioni sugli [schemi di rilevamento B2B personalizzati](logic-apps-track-integration-account-custom-tracking-schema.md).   
 * Altre informazioni sugli [schemi di rilevamento X12](logic-apps-track-integration-account-x12-tracking-schema.md).   
 * Altre informazioni sul [rilevamento dei messaggi B2B nel portale di Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
-

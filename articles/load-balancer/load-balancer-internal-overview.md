@@ -3,7 +3,7 @@ title: Panoramica del bilanciamento del carico interno | Documentazione Microsof
 description: "Panoramica del bilanciamento del carico interno e delle relative funzionalità. Modalità di funzionamento del bilanciamento del carico di Azure e possibili scenari per la configurazione di endpoint interni"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: 36065bfe-0ef1-46f9-a9e1-80b229105c85
@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
-ms.lasthandoff: 04/13/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ec07c77119c2da408da21fbdc7877d0b43d16556
+ms.contentlocale: it-it
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="internal-load-balancer-overview"></a>Panoramica del bilanciamento del carico interno
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 A differenza del bilanciamento del carico Internet, il bilanciamento del carico interno indirizza il traffico solo alle risorse all'interno del servizio cloud o che accedono all'infrastruttura di Azure tramite una rete VPN. L'infrastruttura limita l'accesso agli indirizzi IP virtuali con carico bilanciato di un servizio cloud o una rete virtuale, senza esposizione diretta a un endpoint Internet. Ciò consente di eseguire le applicazioni line-of-business (LOB) interne in Azure e di accedervi dal cloud o dalle risorse locali.
 

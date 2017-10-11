@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: c56c1c262aa1a88e3f7a3d6638176cb9f97011d3
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reference-topics-for-sql-data-warehouse"></a>Argomenti di riferimento per SQL Data Warehouse
 Questi articoli contengono informazioni di riferimento per SQL Data Warehouse.
@@ -44,4 +43,3 @@ Per informazioni relative allo sviluppo, vedere la [panoramica sullo sviluppo][d
 
 
 <!--MSDN references-->
-

@@ -1,0 +1,11 @@
+L'archiviazione con ridondanza locale (LRS) replica i dati tre volte all'interno di un'unità di scala di archiviazione, che è ospitata in un data center nell'area in cui è stato creato l'account di archiviazione. Una richiesta di scrittura viene restituita correttamente dopo che è stata scritta in tutte e tre le repliche. Queste tre repliche risiedono ognuna in domini di errore e domini di aggiornamento distinti all'interno di un'unità di scala di archiviazione.
+
+Un'unità di scala di archiviazione è una raccolta di rack di nodi di archiviazione. Un dominio di errore è un gruppo di nodi che rappresentano un'unità di errore fisica e possono essere considerati come nodi appartenenti allo stesso rack fisico. Un dominio di aggiornamento è un gruppo di nodi che vengono aggiornati contemporaneamente durante il processo di aggiornamento del servizio (implementazione). Le tre repliche vengono distribuite tra domini di aggiornamento e domini di errore all'interno di un'unità di scala di archiviazione per assicurare la disponibilità dei dati anche in caso di errori hardware che influiscono su un singolo rack o quando i nodi vengono aggiornati durante un'implementazione.
+
+L'archiviazione con ridondanza locale è l'opzione più economica e offre meno durata rispetto alle altre opzioni. In caso di emergenza a livello di data center (incendio, saturazione e così via) tutte e tre le repliche potrebbero essere perse o non essere recuperabili. Per ridurre questo rischio, per la maggior parte delle applicazioni è consigliabile l'archiviazione con ridondanza geografica (GRS).
+
+L'archiviazione con ridondanza locale potrebbe comunque essere utile in determinati scenari:
+
+* Fornisce la larghezza di banda massima più alta delle opzioni di replica di Archiviazione di Azure.
+* Se l'applicazione archivia dati che possono essere ricostruiti facilmente, è consigliabile scegliere l'archiviazione con ridondanza locale.
+* Per alcune applicazioni è necessario replicare i dati solo all'interno di un paese a causa di requisiti di governance dei dati. Un'area abbinata può trovarsi in un altro paese. Per altre informazioni sulle coppie di aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).

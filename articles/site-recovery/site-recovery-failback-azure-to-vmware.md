@@ -14,12 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: dde0bb6b4f6bc10afdd7d40adc6689d42b37de81
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Eseguire il failback di server fisici e macchine virtuali VMware nel sito locale
 
@@ -244,4 +243,3 @@ Al termine della riprotezione, la VM viene replicata in Azure ed è possibile es
 
 * La connessione ExpressRoute deve essere configurata nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 * I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. Per consentire l'uso di ExpressRoute da parte della replica di Site Recovery, configurare il peering pubblico in ExpressRoute specificando il data center di destinazione.
-

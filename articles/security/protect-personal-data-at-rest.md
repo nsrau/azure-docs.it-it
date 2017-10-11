@@ -1,4 +1,4 @@
-Cu--- titolo: Azure - Proteggere i dati personali inattivi con la crittografia | Microsoft Docs descrizione: Questo articolo fa parte di una serie che descrive come usare Azure per proteggere i dati personali servizi: sicurezza documentationcenter: ND autore: Barclayn responsabile: MBaldwin editor: TomSh
+titolo: Azure - Proteggere i dati personali inattivi con la crittografia | Microsoft Docs descrizione: Questo articolo fa parte di una serie che descrive come usare Azure per proteggere i dati personali servizi: sicurezza documentationcenter: ND autore: Barclayn responsabile: MBaldwin editor: TomSh
 
 ms.assetid: ms.service: security ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
 
@@ -37,7 +37,7 @@ Come parte di una strategia di sicurezza con difesa avanzata a più livelli, l'o
 
 I servizi di Azure offrono più strumenti e tecnologie per semplificare la protezione dei dati personali inattivi tramite la crittografia.
 
-### <a name="azure-key-vault"></a>Azure Key Vault
+### <a name="azure-key-vault"></a>Insieme di credenziali chiave Azure
 
 [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) offre archiviazione sicura per le chiavi usate per crittografare dati inattivi nei servizi di Azure ed è la soluzione di gestione e archiviazione delle chiavi consigliata. La gestione delle chiavi di crittografia è essenziale per proteggere i dati archiviati.
 

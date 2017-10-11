@@ -1,5 +1,5 @@
 ---
-title: Procedure di aggiornamento dell&quot;SDK per Windows Phone Silverlight
+title: Procedure di aggiornamento dell'SDK per Windows Phone Silverlight
 description: Procedure di aggiornamento di Azure Mobile Engagement SDK per Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f87f65788075c7f4067e77946e1bcbc8f3709317
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Procedure di aggiornamento dell'SDK per Windows Phone Silverlight
 Se è già stata eseguita l'integrazione di una versione precedente dell'SDK nell'applicazione, sarà necessario tenere in considerazione gli aspetti seguenti durante l'aggiornamento dell'SDK.
@@ -132,7 +131,7 @@ Se si desidera specificarla in fase di esecuzione, è possibile chiamare il meto
 La stringa di connessione per l'applicazione viene visualizzata nel portale di Azure classico.
 
 ### <a name="items-name-change"></a>Modifica del nome di elementi
-Tutti gli elementi denominati *capptain* sono stati rinominati con *engagement*. Lo stesso vale per *Capptain*, che è stato denominato *Engagement*.
+Tutti gli elementi denominati *capptain* sono stati rinominati in *engagement*. Lo stesso vale per *Capptain*, che è stato ridenominato in *Engagement*.
 
 Esempi di elementi di Capptain di uso comune:
 
@@ -143,5 +142,4 @@ Esempi di elementi di Capptain di uso comune:
 * GetCapptainPageName è diventato GetEngagementPageName
 
 Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
-
 

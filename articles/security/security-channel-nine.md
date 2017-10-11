@@ -1,6 +1,6 @@
 ---
 title: Video sulla sicurezza di Azure su Channel 9 | Microsoft Docs
-description: "L&quot;articolo offre un elenco dettagliato delle presentazioni sulla sicurezza di Azure su Channel 9. Channel 9 è una community che mette in contatto chi crea i prodotti con chi li usa."
+description: "L'articolo offre un elenco dettagliato delle presentazioni sulla sicurezza di Azure su Channel 9. Channel 9 è una community che mette in contatto chi crea i prodotti con chi li usa."
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
 ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Video sulla sicurezza di Azure su Channel 9
 [Channel 9](https://channel9.msdn.com/) è una community che presenta le persone che sviluppano i prodotti Microsoft e le mette in contatto con i clienti.
@@ -78,9 +78,3 @@ Azure Active Directory (AD) Privileged Identity Management è una funzionalità 
 [Insieme di credenziali delle chiavi di Azure con Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
 In questo video Amit Bapat presenta a Scott l'insieme di credenziali delle chiavi di Azure. Con l'insieme di credenziali delle chiavi di Azure è possibile crittografare chiavi e dati segreti, ad esempio le password, tramite chiavi archiviate in moduli di protezione hardware. La gestione dei segreti per Microsoft Azure è basata su cloud e hardware.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-

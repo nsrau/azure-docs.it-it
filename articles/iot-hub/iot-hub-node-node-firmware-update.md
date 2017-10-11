@@ -1,6 +1,6 @@
 ---
-title: Aggiornamento firmware del dispositivo con l&quot;hub IoT di Azure (Node) | Documentazione Microsoft
-description: Come usare la gestione dei dispositivi nell&quot;hub IoT di Azure per avviare un aggiornamento del firmware del dispositivo. Usare Azure IoT SDK per Node.js per implementare un&quot;app per dispositivo simulato e un&quot;app di servizio che attiva l&quot;aggiornamento del firmware.
+title: Aggiornamento firmware del dispositivo con l'hub IoT di Azure (Node) | Documentazione Microsoft
+description: Come usare la gestione dei dispositivi nell'hub IoT di Azure per avviare un aggiornamento del firmware del dispositivo. Usare Azure IoT SDK per Node.js per implementare un'app per dispositivo simulato e un'app di servizio che attiva l'aggiornamento del firmware.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -12,20 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 09/07/2017
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
-ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: e169367592b25ea45c3d1017937316a3b3b538b8
 ms.contentlocale: it-it
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Usare la gestione dei dispositivi per avviare un aggiornamento del firmware del dispositivo (Node/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-## <a name="introduction"></a>Introduzione
 Nell'esercitazione [Introduzione alla gestione dei dispositivi][lnk-dm-getstarted] è stato illustrato come usare il [dispositivo gemello][lnk-devtwin] e le primitive dei [metodi diretti][lnk-c2dmethod] per riavviare un dispositivo in modalità remota. Questa esercitazione usa le stesse primitive dell'hub IoT, offre indicazioni e illustra come eseguire un aggiornamento del firmware simulato completo.  Questo schema viene usato nell'implementazione dell'aggiornamento del firmware per il dispositivo di esempio Intel Edison.
 
 Questa esercitazione illustra come:
@@ -41,7 +39,7 @@ Al termine di questa esercitazione si avranno due app console Node.js:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Node.js 0.12.x o versione successiva. <br/>  [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
+* Node.js 4.0.x o versione successiva. <br/>  [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
 Vedere l'articolo [Introduzione alla gestione dei dispositivi](iot-hub-node-node-device-management-get-started.md) per creare l'hub IoT e ottenere la stringa di connessione relativa.
@@ -58,7 +56,7 @@ In questa sezione viene creata un'app console Node.js che avvia un aggiornamento
     ```
     npm init
     ```
-2. Al prompt dei comandi nella cartella **triggerfwupdateondevice** eseguire il comando seguente per installare il pacchetto SDK per dispositivi **azure-iothub** e il pacchetto **azure-iot-device-mqtt**:
+2. Eseguire questo comando al prompt dei comandi nella cartella **triggerfwupdateondevice** per installare il pacchetto **azure-iot-hub**:
    
     ```
     npm install azure-iothub --save

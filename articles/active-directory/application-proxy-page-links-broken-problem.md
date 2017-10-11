@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 165536dcaa7a5db1c913121895634659d70d5c9c
-ms.openlocfilehash: e4b2556533fcb22556ca526d5815908fdefb0788
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 83c4261fab0498541591c01f9bb692b396c7b751
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>I collegamenti nella pagina non funzionano per un'applicazione proxy di applicazione
 
 Questo articolo semplifica la risoluzione dei problemi di funzionamento dei collegamenti nell'applicazione proxy di applicazione di Azure Active Directory.
@@ -48,5 +46,4 @@ Di conseguenza, è consigliabile usare la soluzione con [domini personalizzati](
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Usare server proxy locali esistenti](application-proxy-working-with-proxy-servers.md)
-
 

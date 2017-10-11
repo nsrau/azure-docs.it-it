@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 7a82e58d9ff9208130c43fcd11d03dcc3238696a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-vmware-to-azure-replication"></a>Passaggio 2: Esaminare i prerequisiti per la replica VMware in Azure
 
 Leggere i prerequisiti riepilogati nella tabella seguente.
@@ -54,4 +52,3 @@ Assicurarsi di comprendere le limitazioni riepilogate nella tabella prima di ese
 
 - Se si sta eseguendo una distribuzione completa, andare a [Passaggio 3: Pianificare la capacità](vmware-walkthrough-capacity.md)
 - Se si sta eseguendo una distribuzione di test semplice, andare a [Passaggio 4: Pianificare la rete](vmware-walkthrough-network.md).
-

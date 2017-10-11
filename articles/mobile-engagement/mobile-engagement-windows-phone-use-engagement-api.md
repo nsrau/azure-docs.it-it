@@ -1,6 +1,6 @@
 ---
-title: Come usare l&quot;API di Engagement in Windows Phone Silverlight
-description: Come usare l&quot;API di Engagement in Windows Phone Silverlight
+title: Come usare l'API di Engagement in Windows Phone Silverlight
+description: Come usare l'API di Engagement in Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f8ed91048ecfb1e7d19bb000216618b4e0c4b381
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: ec8b6c13ea052c8063dfde4321cdd286ab6cb817
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-phone-silverlight"></a>Come usare l'API di Engagement in Windows Phone Silverlight
 Questo documento è complementare all'articolo [Come integrare Mobile Engagement in un'app per Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). Fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
@@ -293,7 +292,7 @@ Ogni chiave dell'oggetto deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, numeri o caratteri di sottolineatura (\_).
 
 #### <a name="size"></a>Dimensione
 I dati aggiuntivi sono limitati a **1024** caratteri per chiamata.
@@ -321,7 +320,7 @@ Ogni chiave dell'oggetto deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, numeri o caratteri di sottolineatura (\_).
 
 #### <a name="size"></a>Dimensione
 Le informazioni sull'applicazione sono limitate a **1024** caratteri per chiamata.
@@ -337,4 +336,3 @@ Questi log non sono abilitati per impostazione predefinita. Per eseguire una per
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
-

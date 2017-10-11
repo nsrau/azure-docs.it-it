@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5036ce23e602c7723f5fafef60ab45d533c1fe7d
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 8e782e45b706cadec66e7404dd9abc2e01dea917
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria delle richieste: modello di dati di Application Insights
 
@@ -85,4 +84,3 @@ Altre informazioni sui codici di stato e dei risultati della richiesta sono disp
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](application-insights-data-model.md).
 - Informazioni su come [configurare un'applicazione ASP.NET Core](app-insights-asp-net.md) con Application Insights.
 - Verificare quali [piattaforme](app-insights-platforms.md) supportano Application Insights.
-

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/10/2017
+ms.date: 08/31/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 5a81dbf6a088e824277275ef13067bdba006d3a9
+ms.sourcegitcommit: 3f130c7718e204ba2e826c2500d8935a6285f71f
+ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure
@@ -49,12 +49,20 @@ Questo articolo riepiloga le configurazioni e i componenti supportati per Azure 
 **Spostamento servizi di calcolo, archiviazione e rete tra gruppi di risorse** | Non supportate |Se si sposta una macchina virtuale (o i componenti associati come archiviazione e rete) dopo aver abilitato la replica, è necessario disabilitarla e riabilitarla per la macchina virtuale.
 
 
+
 ## <a name="support-for-deployment-models"></a>Supporto per modelli di distribuzione
 
 **Modello di distribuzione** | **Supportato / Non supportato** | **Osservazioni**  
 --- | --- | ---
 **Classico** | Supportato | È possibile eseguire la replica di una macchina virtuale classica e ripristinarla solo come macchina virtuale classica. Non è possibile ripristinarla come macchina virtuale di Resource Manager. Non è possibile distribuire una macchina virtuale classica senza una rete virtuale e direttamente in un'area di Azure.
 **Gestione risorse** | Supportato |
+
+>[!NOTE]
+>
+> 1. La replica delle macchine virtuali di Azure da una sottoscrizione a un'altra per scenari di ripristino di emergenza non è supportata.
+> 2. La migrazione di macchine virtuali di Azure tra sottoscrizioni non è supportata.
+> 3. La migrazione di macchine virtuali di Azure nella stessa regione non è supportata.
+> 4. La migrazione di macchine virtuali di Azure dal modello di distribuzione Classic al modello di distribuzione di Resource Manager non è supportata.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Supporto per le versioni dei sistemi operativi dei computer replicati
 

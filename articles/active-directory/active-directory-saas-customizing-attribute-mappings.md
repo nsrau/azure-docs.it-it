@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 06/17/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 6ca2fdc9c68ea0030d938eeaebd57aafa0e2790f
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 Microsoft Azure AD fornisce supporto per il provisioning degli utenti in applicazioni SaaS di terze parti, ad esempio Salesforce, Google Apps e altre. Se è abilitato il provisioning degli utenti per un'applicazione SaaS di terze parti, il portale di gestione di Azure controlla i relativi valori di attributo tramite una configurazione denominata "mapping degli attributi".
@@ -97,5 +95,4 @@ Microsoft Azure AD offre un'implementazione efficiente di un processo di sincron
 [5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
 [6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
 [7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
-
 

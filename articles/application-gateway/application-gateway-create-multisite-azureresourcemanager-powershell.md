@@ -1,6 +1,6 @@
 ---
-title: "Creare un gateway applicazione per l&quot;hosting di più siti | Microsoft Docs"
-description: "Questa pagina contiene istruzioni per creare e configurare un gateway applicazione di Azure per l&quot;hosting di più applicazioni Web nello stesso gateway."
+title: "Creare un gateway applicazione per l'hosting di più siti | Microsoft Docs"
+description: "Questa pagina contiene istruzioni per creare e configurare un gateway applicazione di Azure per l'hosting di più applicazioni Web nello stesso gateway."
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
-ms.lasthandoff: 04/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Creare un gateway applicazione per l'hosting di più applicazioni Web
 
@@ -282,5 +281,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come proteggere i siti Web con [Gateway applicazione: firewall applicazione Web](application-gateway-webapplicationfirewall-overview.md)
-
 

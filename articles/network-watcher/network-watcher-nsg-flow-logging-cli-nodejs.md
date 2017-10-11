@@ -1,9 +1,9 @@
 ---
 title: Gestire i log di flusso del gruppo di sicurezza di rete con Azure Network Watcher - Interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
-description: Questa pagina illustra come gestire i log di flusso del gruppo di sicurezza di rete in Azure Network Watcher con l&quot;interfaccia della riga di comando di Azure 1.0
+description: Questa pagina illustra come gestire i log di flusso del gruppo di sicurezza di rete in Azure Network Watcher con l'interfaccia della riga di comando di Azure 1.0
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 2ea8543857c062e76f96da99fb295ce831c3c5f2
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 

@@ -15,12 +15,11 @@ ums.workload: na
 ms.date: 07/26/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: a5c51817688140cc2778602b4c1d5184ae4729a0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.openlocfilehash: 9d39ecd513386b75b4b640721f80991caaf9ade8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integrazione dei log di Azure con la registrazione di Diagnostica di Azure e l'inoltro di eventi di Windows
 Integrazione log di Azure (AzLog) consente di integrare log non elaborati delle risorse di Azure nei sistemi di gestione di informazioni ed eventi di sicurezza locali. Questa integrazione consente di avere un dashboard di sicurezza unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza associati alle applicazioni.
@@ -185,4 +184,3 @@ Per altre informazioni su Integrazione log di Azure, vedere i documenti seguenti
 * [Domande frequenti sull'integrazione dei log di Azure](security-azure-log-integration-faq.md) - Queste domande frequenti riguardano l'integrazione dei log di Azure.
 * [Integrazione degli avvisi del Centro sicurezza con l'integrazione dei log di Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) - Questo documento mostra come sincronizzare gli avvisi del Centro sicurezza di Azure, insieme agli eventi di sicurezza delle macchine virtuali raccolti da Diagnostica di Azure e dai log attività di Azure, con la propria soluzione SIEM o di analisi dei log.
 * [Nuove funzionalità per Diagnostica di Azure e i log di controllo di Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) - Questo post di blog presenta i log di controllo di Azure e altre funzionalità che consentono di ottenere informazioni dettagliate sulle operazioni delle risorse di Azure.
-

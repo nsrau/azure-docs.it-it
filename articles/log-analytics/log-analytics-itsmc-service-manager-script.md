@@ -1,6 +1,6 @@
 ---
 title: Script automatico per la creazione di app Web di Service Manager per eseguire la connessione con IT Service Management Connector in OMS | Microsoft Docs
-description: Creare un&quot;app Web di Service Manager usando uno script automatizzato per eseguire la connessione con IT Service Management Connector in OMS e monitorare e gestire in modo centralizzato gli elementi di lavoro ITSM.
+description: Creare un'app Web di Service Manager usando uno script automatizzato per eseguire la connessione con IT Service Management Connector in OMS e monitorare e gestire in modo centralizzato gli elementi di lavoro ITSM.
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Creare un'app Web di Service Manager con lo script automatizzato (Anteprima)
 
 Usare lo script seguente per creare l'app Web per l'istanza di Service Manager. Altre informazioni sulla connessione di Service Manager sono reperibili qui: [Service Manager Web app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service) (App Web di Service Manager)
@@ -323,4 +320,3 @@ if(!$err)
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurazione della connessione ibrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
-

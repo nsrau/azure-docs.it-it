@@ -3,7 +3,7 @@ title: Panoramica del bilanciamento del carico Internet | Documentazione Microso
 description: "Panoramica del bilanciamento del carico Internet e delle relative funzionalità. Modalità di funzionamento del bilanciamento del carico per Azure con macchine virtuali e servizi cloud."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: 529b37aa-a45c-41d1-8877-fee8cc1fa375
@@ -12,23 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c420b38fbe8054bc4b701f89ebc417677ca47a27
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5b9ffeadf6b1ffc4eaf4f49b85ba752c27da0e46
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="internet-facing-load-balancer-overview"></a>Panoramica del bilanciamento del carico Internet
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Il bilanciamento del carico di Azure esegue il mapping dell'indirizzo IP pubblico e del numero di porta del traffico in ingresso all'indirizzo IP privato e al numero di porta della macchina virtuale e viceversa per il traffico di risposta proveniente dalla macchina virtuale. Le regole di bilanciamento del carico consentono di distribuire tipi di traffico specifici tra più macchine virtuali o servizi. È ad esempio possibile dividere il carico del traffico delle richieste Web tra più server Web o ruoli Web.
 
 Per un servizio cloud contenente istanze di ruoli Web o ruoli di lavoro, è possibile definire un endpoint pubblico nel file di definizione del servizio (con estensione csdef).
 
 Il file *servicedefinition.csdef* contiene la configurazione dell'endpoint e, se sono presenti più istanze per la distribuzione di un ruolo Web o di lavoro, il bilanciamento del carico verrà configurato di conseguenza. La modalità di aggiunta di istanze alla distribuzione cloud comporta la modifica del numero di istanze nel file di configurazione del servizio (con estensione csfg).
+
+## <a name="example-of-an-internet-facing-load-balancer"></a>Esempio di servizio di bilanciamento del carico con connessione Internet
 
 La figura seguente mostra un endpoint con carico bilanciato per il traffico Web condiviso tra tre macchine virtuali per la porta TCP 80, pubblica e privata. Queste tre macchine virtuali appartengono a un set con carico bilanciato.
 

@@ -1,6 +1,6 @@
 ---
 title: "Creare una VM con più schede di interfaccia di rete - interfaccia della riga di comando 1.0 di Azure| Documentazione Microsoft"
-description: "Informazioni su come creare una VM con più schede di interfaccia di rete usando l&quot;interfaccia della riga di comando 1.0 di Azure"
+description: "Informazioni su come creare una VM con più schede di interfaccia di rete usando l'interfaccia della riga di comando 1.0 di Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: b95bcb38664718bf25ec6981c803415790c6da3d
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-the-azure-cli-10"></a>Creare una VM con più schede di interfaccia di rete usando l'interfaccia della riga di comando 1.0 di Azure
 
@@ -358,5 +357,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-2.vhd
         info:    Updating VM "DB2"
         info:    vm disk attach-new command OK
-
 

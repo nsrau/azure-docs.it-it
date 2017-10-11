@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 00b2f08ef40266ad4b99adfa9c8632bd817f9a81
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ee8e282feacfb6b5db2f746b468fe2cd26cb0a52
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake
@@ -175,7 +174,7 @@ Questa sezione descrive come usare AdlCopy per copiare i dati da un'origine (nel
 
 ## <a name="performance-considerations-for-using-adlcopy"></a>Considerazioni sulle prestazioni per l'uso di AdlCopy
 
-AdlCopy supporta la copia dei dati che contengono migliaia di file e cartelle. Se si verificano problemi con la copia di un set di dati di grandi dimensioni, è comunque possibile distribuire file e cartelle in sottocartelle più piccole. AdlCopy è stato creato per copie ad hoc. Se si tenta di copiare dati su base periodica, è consigliabile usare [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) che consente gestire completamente le operazioni di copia.
+AdlCopy supporta la copia dei dati che contengono migliaia di file e cartelle. Se si verificano problemi con la copia di un set di dati di grandi dimensioni, è comunque possibile distribuire file e cartelle in sottocartelle più piccole. AdlCopy è stato creato per copie ad hoc. Se si tenta di copiare dati su base periodica, è consigliabile usare [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) che consente gestire completamente le operazioni di copia.
 
 ## <a name="release-notes"></a>Note sulla versione
 * 1.0.13 - Se si copiano dati nello stesso account Azure Data Lake Store tramite più comandi adlcopy, non è più necessario immettere di nuovo le credenziali per ogni esecuzione. Adlcopy memorizza ora nella cache queste informazioni tra le diverse esecuzioni.

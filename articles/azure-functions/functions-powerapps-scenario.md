@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 89d9fa8f11a4c6ae3860b91e246716aad071870f
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -30,6 +30,8 @@ La piattaforma [PowerApps](https://powerapps.microsoft.com) è progettata per co
 In questo argomento si crea un'app basata su uno scenario di manutenzione per le turbine eoliche. L'argomento mostra come chiamare la funzione definita in [Creare una definizione OpenAPI per una funzione](functions-openapi-definition.md). La funzione determina se una riparazione urgente di una turbina eolica è conveniente.
 
 ![App finita in PowerApps](media/functions-powerapps-scenario/finished-app.png)
+
+Per informazioni sulla chiamata alla stessa funzione da Microsoft Flow, vedere [Call a function from Microsoft Flow](functions-flow-scenario.md) (Chiamare una funzione da Microsoft Flow).
 
 In questo argomento si apprenderà come:
 
@@ -52,12 +54,12 @@ In questo argomento si apprenderà come:
 ## <a name="prepare-sample-data-in-excel"></a>Preparare i dati di esempio in Excel
 Prima di tutto, preparare i dati di esempio usati nell'app. Copiare la tabella seguente in Excel. 
 
-| Title      | Latitude  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
+| Titolo      | Latitudine  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
 |------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
-| Turbine 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | Yes             | 6               | This is the second issue this month.       |
-| Turbine 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | Yes             | 6               |                                            |
+| Turbine 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | Sì             | 6               | This is the second issue this month.       |
+| Turbine 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | Sì             | 6               |                                            |
 | Turbine 33 | 47.428229 | -121.404641 | 6/20/2017       | 2800      |                 |                 |                                            |
-| Turbine 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | Yes             | 7               |                                            |
+| Turbine 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | Sì             | 7               |                                            |
 | Turbine 46 | 47.471993 | -121.298949 | 3/2/2017        | 1200      |                 |                 |                                            |
 | Turbine 47 | 47.484059 | -121.311171 | 8/2/2016        | 3350      |                 |                 |                                            |
 | Turbine 55 | 47.438403 | -121.383767 | 10/2/2016       | 2400      | Sì             | 40               | We have some parts coming in for this one. |
@@ -74,32 +76,7 @@ Prima di tutto, preparare i dati di esempio usati nell'app. Copiare la tabella s
 
 1. Salvare la cartella di lavoro di Excel.
 
-## <a name="export-an-api-definition"></a>Esportare una definizione API
-Si ha una definizione OpenAPI per la funzione, ottenuta in [Creare una definizione OpenAPI per una funzione](functions-openapi-definition.md). Il passaggio successivo di questo processo consiste nell'esportare la definizione API in modo che PowerApps e Microsoft Flow possano usarla in un'API personalizzata.
-
-> [!IMPORTANT]
-> Tenere presente che è necessario essere connessi ad Azure con le stesse credenziali usate per i tenant di PowerApps e Microsoft Flow. In questo modo, Azure può creare l'API personalizzata e renderla disponibile sia per PowerApps che per Microsoft Flow.
-
-1. Fare clic sul nome dell'app per le funzioni (ad esempio **function-demo-energy**) > **Funzionalità della piattaforma** > **Definizione API**.
-
-    ![Definizione API](media/functions-powerapps-scenario/api-definition.png)
-
-1. Fare clic su **Esporta in PowerApps e Microsoft Flow**.
-
-    ![Origine della definizione API](media/functions-powerapps-scenario/export-api-1.png)
-
-1. Nel riquadro destro usare le impostazioni specificate nella tabella.
-
-    |Impostazione|Descrizione|
-    |--------|------------|
-    |**Modalità di esportazione**|Selezionare **Rapida** per generare automaticamente l'API personalizzata. Se si seleziona **Manuale**, la definizione API viene esportata, ma è quindi necessario importarla manualmente in PowerApps e Microsoft Flow.|
-    |**Ambiente**|Selezionare l'ambiente in cui salvare l'API personalizzata. Per altre informazioni, vedere [Panoramica degli ambienti](https://powerapps.microsoft.com/tutorials/environments-overview/).|
-    |**Nome dell'API personalizzata**|Immettere un nome, ad esempio `Turbine Repair`.|
-    |**Nome chiave API**|Immettere il nome che i creatori di app e flussi vedranno nell'interfaccia utente dell'API personalizzata. Si noti che l'esempio include informazioni utili.|
- 
-    ![Origine della definizione API](media/functions-powerapps-scenario/export-api-2.png)
-
-1. Fare clic su **OK**. L'API personalizzata viene ora creata e aggiunta all'ambiente specificato.
+[!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
 ## <a name="add-a-connection-to-the-api"></a>Aggiungere una connessione all'API
 L'API personalizzata (nota anche come connettore personalizzato) è disponibile in PowerApps, ma è prima necessario stabilire una connessione all'API per poterla usare in un'app.
@@ -276,4 +253,4 @@ In questo argomento si è appreso come:
 
 Per altre informazioni su PowerApps, vedere [Introduzione a PowerApps](https://powerapps.microsoft.com/tutorials/getting-started/).
 
-Per informazioni su un altro scenario interessante che usa Funzioni di Azure, vedere [Creare una funzione che si integra con le app per la logica di Azure](functions-twitter-email.md).
+Per informazioni su un altro scenario interessante che usa Funzioni di Azure, vedere [Call a function from Microsoft Flow](functions-flow-scenario.md) (Chiamare una funzione da Microsoft Flow) e [Creare una funzione che si integra con le app per la logica di Azure](functions-twitter-email.md).

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: b9b0f1970a5c7edeb9986c0d60c8bc249c50f2ac
-ms.contentlocale: it-it
-ms.lasthandoff: 01/31/2017
-
-
+ms.openlocfilehash: bc3430624844cdeb92958433fba295f67a8ae0ff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Informazioni generali sull'integrazione aziendale con file flat
 
@@ -86,5 +84,4 @@ A questo punto la configurazione del connettore di decodifica file flat è compl
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack").  
-
 

@@ -1,6 +1,6 @@
 ---
 title: Connettersi ad Azure SQL Data Warehouse con sqlcmd | Documentazione Microsoft
-description: "Usare l&quot;utilità della riga di comando [sqlcmd][sqlcmd] per connettersi ed eseguire query in un&quot;istanza di Azure SQL Data Warehouse."
+description: "Usare l'utilità della riga di comando [sqlcmd][sqlcmd] per connettersi ed eseguire query in un'istanza di Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: antvgski
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3508cdf6dcfa3d7122e1e3b635f3cd37863dbf62
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 5a3fe1046c3417070ba8ff5bd18a0485e2152eff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Connettersi a SQL Data Warehouse con sqlcmd
 > [!div class="op_single_selector"]
@@ -100,4 +98,3 @@ Per altre informazioni sulle opzioni disponibili in sqlcmd, vedere la [documenta
 [Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->
-

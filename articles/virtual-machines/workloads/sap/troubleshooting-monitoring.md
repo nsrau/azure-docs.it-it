@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: ee5be707b443cbe42bf4a492d79390e534d4b91f
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Come risolvere i problemi e monitorare SAP HANA (istanze di grandi dimensioni) in Azure

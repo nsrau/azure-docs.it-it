@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: a74d767d57eb5ce2b3a716f9ba908a451f25f538
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="event-hubs-features-overview"></a>Panoramica delle funzionalità di Hub eventi
 
 Hub eventi di Azure è una servizio di elaborazione degli eventi scalabile che inserisce ed elabora grandi volumi di eventi e dati, con bassa latenza e affidabilità elevata. Vedere [Che cos'è Hub eventi?](event-hubs-what-is-event-hubs.md) per una panoramica generale del servizio.
@@ -173,4 +171,3 @@ Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Esempi di Hub eventi]: https://github.com/Azure/azure-event-hubs/tree/master/samples
-

@@ -6,7 +6,7 @@
 
 # Procedure
 ## Integrare
-### [App Web](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [App Web](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Servizi cloud](cdn-cloud-service-with-cdn.md)
 ### [Archiviazione](cdn-create-a-storage-account-with-cdn.md)
 ### [Condivisione di risorse tra le origini](cdn-cors.md)
@@ -19,7 +19,7 @@
 ####[Accelerazione sito dinamico](cdn-dynamic-site-acceleration.md)
  
 ## Gestisci
-### [Gestire con PowerShell](cdn-manage-powershell.md)
+### [Gestire con Azure PowerShell](cdn-manage-powershell.md)
 ### Configurare la durata (TTL)
 #### [Contenuto App Web/Servizi cloud, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Contenuto del servizio BLOB del servizio di archiviazione](cdn-manage-expiration-of-blob-content.md)
@@ -37,11 +37,13 @@
 ### [Supporto HTTP/2](cdn-http2.md)
 
 ## Analizzare
-### [Analizzare i modelli di utilizzo](cdn-analyze-usage-patterns.md)
-### [Generare report HTTP avanzati](cdn-advanced-http-reports.md)
-### [Visualizzare statistiche in tempo reale](cdn-real-time-stats.md)
-### [Analizzare le prestazioni del nodo perimetrale](cdn-edge-performance.md)
-### [Esportare le metriche con i log di diagnostica](cdn-log-analysis.md)
+### [Analizzare i modelli di utilizzo della rete CDN di Azure](cdn-log-analysis.md)
+#### [Report principali da Verizon](cdn-analyze-usage-patterns.md)
+#### [Log di diagnostica di Azure](cdn-azure-diagnostic-logs.md)
+### Strumenti di analisi per la rete CDN di Azure da Verizon
+#### [Generare report HTTP avanzati](cdn-advanced-http-reports.md)
+#### [Visualizzare statistiche in tempo reale](cdn-real-time-stats.md)
+#### [Analizzare le prestazioni del nodo perimetrale](cdn-edge-performance.md)
 
 ## Sviluppare
 ### [.NET](cdn-app-dev-net.md)
@@ -53,7 +55,7 @@
 
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

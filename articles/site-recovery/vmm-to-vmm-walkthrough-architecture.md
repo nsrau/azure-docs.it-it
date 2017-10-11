@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>Passaggio 1: Esaminare l'architettura per la replica Hyper-V in un sito secondario
 
@@ -65,4 +64,3 @@ Di seguito sono indicati i componenti necessari per la replica di macchine virtu
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 2: Esaminare i prerequisiti e le limitazioni](vmm-to-vmm-walkthrough-prerequisites.md).
-

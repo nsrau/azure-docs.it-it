@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e3528d490cd11fab3fb10126713f81694d7e2d0
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a99b3d7336c3dc1a1f249915d6971a49f4b69be6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple
 
@@ -62,5 +60,4 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Scaricare Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
-
 

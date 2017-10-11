@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: d15855bb05666961da56ff2dd5e0e473e7f7b123
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 2a5418ff61e07793fceca5a8207c1c5aa18847b4
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronizzazione di Azure AD Connect: gestione degli errori LargeObject causati dall'attributo userCertificate
 
 Azure AD applica un limite massimo di **15** valori del certificato nell'attributo **userCertificate**. Se Azure AD Connect esporta un oggetto con più di 15 valori in Azure AD, Azure AD restituisce un errore **LargeObject** con il messaggio:
@@ -181,5 +179,4 @@ Dopo aver risolto il problema, abilitare nuovamente l'utilità di pianificazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: dcb58fb00cfaa891825930cf5c34c9dab1c15dec
-ms.contentlocale: it-it
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: faf66f19ab1fe5c38273b22c1ff8aeff4d26f1ea
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="sync-service-manager-metaverse-search"></a>Ricerca metaverse di Synchronization Service Manager
 
@@ -30,7 +29,6 @@ La scheda Metaverse Search (Ricerca metaverse) è utile per la risoluzione dei p
 Nei risultati della ricerca selezionare un oggetto e **Properties** (Proprietà) per visualizzare le [proprietà dell'oggetto metaverse](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-

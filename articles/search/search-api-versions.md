@@ -1,5 +1,5 @@
 ---
-title: Versioni dell&quot;API di Ricerca di Azure | Microsoft Azure | API di ricerca
+title: Versioni dell'API di Ricerca di Azure | Microsoft Azure | API di ricerca
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
 services: search
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="api-versions-in-azure-search"></a>Versioni API in Ricerca di Azure
 Il servizio Ricerca di Azure Search distribuisce regolarmente aggiornamenti delle funzionalità. A volte, ma non sempre, questi aggiornamenti richiedono la pubblicazione di una nuova versione dell'API per mantenere la compatibilità con le versioni precedenti. Questa pubblicazione consente di controllare come e quando integrare gli aggiornamenti del servizio di ricerca nel codice.
 
@@ -63,9 +63,3 @@ Tuttavia, poiché le funzionalità di anteprima sono soggette a modifiche, è co
 Per .NET SDK: le linee guida per la migrazione del codice sono disponibili nell'articolo sull' [aggiornamento di .NET SDK](search-dotnet-sdk-migration.md).
 
 Con disponibilità a livello generale si intende che Ricerca di Azure è ora soggetta al contratto di servizio (SLA). Il contratto di servizio è reperibile in [Contratto di Servizio per Ricerca](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

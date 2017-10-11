@@ -1,6 +1,6 @@
 ---
-title: Installazione del server iSCSI dell&quot;array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
-description: Viene illustrato come eseguire l&quot;installazione iniziale, registrare il server iSCSI StorSimple e completare l&quot;installazione del dispositivo.
+title: Installazione del server iSCSI dell'array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
+description: Viene illustrato come eseguire l'installazione iniziale, registrare il server iSCSI StorSimple e completare l'installazione del dispositivo.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: d72ff7449a87dfa9223b7c5e77446de23502eb84
 ms.openlocfilehash: 076df176d7cd40c009aea27004fe0f4415999c80
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurarlo come server iSCSI tramite il portale di Azure
 
@@ -214,7 +214,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 12. Assegnare una lettera di unità al volume e quindi fare clic su **Avanti**.
     
     ![procedura guidata nuovo volume 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/image30.png)
-13. Immettere i parametri per formattare il volume. **In Windows Server, è supportato solo NTFS.** Impostare le dimensioni delle unità di allocazione su 64K. Specificare un'etichetta per il volume. La procedura consigliata prevede che questo nome sia identico al nome del volume specificato nell'array virtuale StorSimple. Fare clic su **Next**.
+13. Immettere i parametri per formattare il volume. **In Windows Server, è supportato solo NTFS.** Impostare le dimensioni delle unità di allocazione su 64K. Specificare un'etichetta per il volume. La procedura consigliata prevede che questo nome sia identico al nome del volume specificato nell'array virtuale StorSimple. Fare clic su **Avanti**.
     
     ![procedura guidata nuovo volume 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/image31.png)
 14. Controllare i valori del volume e quindi fare clic su **Fine**.
@@ -243,7 +243,6 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
 
 
 

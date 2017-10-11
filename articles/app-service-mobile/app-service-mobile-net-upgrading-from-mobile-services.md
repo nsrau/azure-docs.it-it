@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 596bcd2f38a39cc1404d422214ab49ae79df744c
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
 ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Aggiornare il servizio mobile .NET di Azure esistente al servizio app
@@ -267,7 +267,7 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Utilità di pianificazione di Azure]: /en-us/documentation/services/scheduler/
-[processo Web]: ../app-service-web/websites-webjobs-resources.md
+[processo Web]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [Come usare l'SDK del server .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md

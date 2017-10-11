@@ -1,5 +1,5 @@
 ---
-title: Eseguire processi Sqoop usando PowerShell e Azure HDInsight | Documentazione Microsoft
+title: Eseguire processi Sqoop tramite PowerShell e Azure HDInsight | Microsoft Docs
 description: Informazioni su come usare Azure PowerShell da una workstation per eseguire importazioni ed esportazioni con Sqoop tra un cluster Hadoop e un database SQL di Azure.
 editor: cgronlun
 manager: jhubbard
@@ -17,32 +17,30 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 87af5baeeb1b3132a17085db7cbf275ae86da53b
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 9ccb191335e8a0d2984599e822bc10db6dba9f2d
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/19/2017
 
 ---
-# <a name="run-sqoop-jobs-using-azure-powershell-for-hadoop-in-hdinsight"></a>Eseguire processi Sqoop con Azure PowerShell per Hadoop in HDInsight
+# <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>Eseguire processi Sqoop tramite Azure PowerShell per Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Informazioni su come usare Azure PowerShell per eseguire processi Sqoop in HDInsight per importazioni ed esportazioni tra un cluster HDInsight e un database SQL di Azure o un database SQL Server.
+Informazioni su come usare Azure PowerShell per eseguire processi Sqoop in HDInsight di Azure per importazioni ed esportazioni tra un cluster HDInsight e un database SQL di Azure o un database SQL Server.
 
 > [!NOTE]
-> La procedura illustrata in questo articolo può essere usata con un cluster HDInsight basato su Windows o su Linux, ma funziona solo se eseguita da un client Windows. Per altri metodi di invio di un processo, fare clic sul selettore di schede all'inizio dell'articolo.
+> Anche se le procedure illustrate in questo articolo possono essere usate sia con un cluster HDInsight basato su Windows che con uno basato su Linux, funzionano solo se eseguite da un client Windows. Per scegliere altri metodi, usare il selettore di schede all'inizio di questo articolo. 
 > 
 > 
 
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
-* **Workstation con Azure PowerShell**.
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-* **Un cluster Hadoop in HDInsight**. Vedere le informazioni su come [creare un cluster e un database SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Workstation con Azure PowerShell.
+* Un cluster Hadoop in HDInsight. Per altre informazioni, vedere [Creare un cluster e un database SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## <a name="run-sqoop-using-powershell"></a>Eseguire Sqoop tramite PowerShell
-Lo script di PowerShell seguente pre-elabora il file di origine e lo esporta in un database SQL di Azure:
+## <a name="run-sqoop-by-using-powershell"></a>Eseguire Sqoop tramite PowerShell
+Lo script di PowerShell seguente pre-elabora il file di origine e poi lo esporta in un database SQL di Azure:
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $hdinsightClusterName = "<HDInsightClusterName>"
@@ -167,15 +165,18 @@ Lo script di PowerShell seguente pre-elabora il file di origine e lo esporta in 
     #endregion
 
 ## <a name="limitations"></a>Limitazioni
-* Esportazione di massa: con HDInsight basato su Linux, attualmente il connettore Sqoop, usato per esportare dati in Microsoft SQL Server o nel database SQL di Azure, non supporta inserimenti di massa.
-* Invio in batch: con HDInsight basato su Linux, quando si usa il comando `-batch` durante gli inserimenti, Sqoop esegue più inserimenti invece di suddividere in batch le operazioni di inserimento.
+HDInsight basato su Linux prevede le limitazioni seguenti:
+
+* Esportazione in blocco: il connettore Sqoop usato per esportare dati in Microsoft SQL Server o nel database SQL di Azure non supporta al momento gli inserimenti in blocco.
+
+* Invio in batch: usando l'opzione `-batch` durante gli inserimenti, Sqoop esegue più inserimenti invece di inviare in batch le operazioni di inserimento. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, vedere:
 
 * [Usare Oozie con HDInsight](hdinsight-use-oozie.md): usare un'azione di Sqoop nel flusso di lavoro di Oozie.
-* [Analizzare i dati sui ritardi dei voli usando HDInsight](hdinsight-analyze-flight-delay-data.md): usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
-* [Caricare i dati in HDInsight](hdinsight-upload-data.md): per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
+* [Analizzare i dati sui ritardi dei voli tramite HDInsight](hdinsight-analyze-flight-delay-data.md): usare Hive per analizzare i dati sui ritardi dei voli e quindi usare Sqoop per esportare dati in un database SQL di Azure.
+* [Caricare i dati in HDInsight](hdinsight-upload-data.md): trovare altri metodi per caricare i dati in HDInsight o in Archiviazione BLOB di Azure.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 

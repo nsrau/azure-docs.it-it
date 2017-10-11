@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
-ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
 Questa pagina illustra i flussi di lavoro di provisioning del servizio e configurazione del routing a livello generale.
@@ -117,5 +115,4 @@ Se invece è impostato lo stato *validation needed* , la sessione BGP non è abi
   * [Creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Configurare il routing](expressroute-howto-routing-arm.md)
   * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
 

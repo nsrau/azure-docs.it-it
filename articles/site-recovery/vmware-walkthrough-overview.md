@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: db6f5f95929503e82a529dba26b56af1edb0767f
-ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replicate-vmware-vms-to-azure-with-site-recovery"></a>Replicare VM VMware in Azure con Site Recovery
 
@@ -112,4 +110,3 @@ Andare a [Passaggio 11: Abilitare la replica](vmware-walkthrough-enable-replicat
 Dopo il completamento della replica iniziale e con la replica differenziale in esecuzione, è possibile eseguire un failover di test per verificare che tutto funzioni come previsto.
 
 Andare a [Passaggio 12: Eseguire un failover di test](vmware-walkthrough-test-failover.md)
-

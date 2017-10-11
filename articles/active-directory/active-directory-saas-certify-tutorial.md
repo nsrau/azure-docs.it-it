@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: bbb2357d17535de438555a0b1f8256b134c8a40e
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>Esercitazione: Integrazione di Azure Active Directory con Certify
 
@@ -126,7 +124,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-certify-tutorial/tutorial_certify_configure.png) 
 
-7. Per configurare l'accesso Single Sign-On sul lato **Certify**, è necessario inviare il file **Certificato (base)** scaricato e l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di Certify](mailto:support@certify.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+7. Per configurare l'accesso Single Sign-On sul lato **Certify**, è necessario inviare il file **Certificato (base)** scaricato e l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di Certify](mailto:support@certify.com). L’impostazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -228,5 +226,4 @@ Quando si fa clic sul riquadro Certify nel pannello di accesso, si dovrebbe acce
 [201]: ./media/active-directory-saas-certify-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-certify-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-certify-tutorial/tutorial_general_203.png
-
 

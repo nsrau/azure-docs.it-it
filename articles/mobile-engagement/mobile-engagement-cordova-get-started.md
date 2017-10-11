@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Azure Mobile Engagement per Cordova/Phonegap
-description: "Informazioni sull&quot;uso di Azure Mobile Engagement con le funzionalità di analisi e notifiche push per le app per Cordova/Phonegap."
+description: "Informazioni sull'uso di Azure Mobile Engagement con le funzionalità di analisi e notifiche push per le app per Cordova/Phonegap."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
+ms.contentlocale: it-it
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Introduzione ad Azure Mobile Engagement per Cordova/Phonegap

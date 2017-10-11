@@ -1,6 +1,6 @@
 ---
 title: Distribuire un contenitore Docker ASP.NET Core Linux in un host Docker remoto | Documentazione Microsoft
-description: Informazioni su come usare Visual Studio Tools per Docker per distribuire un&quot;app Web ASP.NET Core in un contenitore Docker in esecuzione in una macchina virtuale Linux host Docker di Azure
+description: Informazioni su come usare Visual Studio Tools per Docker per distribuire un'app Web ASP.NET Core in un contenitore Docker in esecuzione in una macchina virtuale Linux host Docker di Azure
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
 ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
-ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Distribuire un contenitore ASP.NET in un host Docker remoto
 ## <a name="overview"></a>Panoramica
@@ -88,4 +86,3 @@ La procedura seguente illustra la creazione di un'app ASP.NET Core di base che v
 [1]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
 [2]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
-

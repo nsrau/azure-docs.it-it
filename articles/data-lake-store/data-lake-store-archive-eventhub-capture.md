@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: a9e69576958ae96d22a4eb03d0df429f0b307298
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Usare Azure Data Lake Store per acquisire dati da Hub eventi
 
@@ -124,4 +123,3 @@ Una volta che i dati si trovano in Data Lake Store, è possibile eseguire proces
 ## <a name="see-also"></a>Vedere anche
 * [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 * [Copiare i dati da BLOB di archiviazione di Azure ad Archivio Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
-

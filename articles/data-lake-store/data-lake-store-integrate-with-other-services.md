@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 0230ec0e4fc4ff7fe98a7c3e82f252bd8dd66d16
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrazione di Data Lake Store con altri servizi di Azure
@@ -41,7 +41,7 @@ Per istruzioni su come usare Data Lake Analytics con Data Lake Store, vedere [In
 ## <a name="use-data-lake-store-with-azure-data-factory"></a>Usare Archivio Data Lake con Data factory di Azure
 È possibile usare [Data factory di Azure](https://azure.microsoft.com/services/data-factory/) per inserire dati da tabelle di Azure, database SQL di Azure, data warehouse SQL di Azure, BLOB di archiviazione di Azure e database locali. Essendo un elemento di primo piano nell'ecosistema Azure, Data factory di Azure può essere usato per gestire l'inserimento di dati da queste origini nel servizio Data Lake Store di Azure.
 
-Per istruzioni su come usare Data factory di Azure con Data Lake Store, vedere [Spostare dati da e verso Data Lake Store mediante Data factory](../data-factory/data-factory-azure-datalake-connector.md).
+Per istruzioni su come usare Data factory di Azure con Data Lake Store, vedere [Spostare dati da e verso Data Lake Store mediante Data factory](../data-factory/connector-azure-data-lake-store.md).
 
 ## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake
 Archivio Data Lake di Azure fornisce uno strumento da riga di comando, AdlCopy, che consente di copiare dati da Archiviazione BLOB di Azure a un account di Archivio Data Lake. Per altre informazioni, vedere [Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake](data-lake-store-copy-data-azure-storage-blob.md).

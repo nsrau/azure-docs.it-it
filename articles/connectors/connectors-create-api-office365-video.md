@@ -1,6 +1,6 @@
 ---
 title: Usare il connettore Office 365 Video nelle app per la logica | Microsoft Azure
-description: Introduzione all&quot;uso del connettore Office 365 Video (connettore) nelle app per la logica del Servizio app di Microsoft Azure
+description: Introduzione all'uso del connettore Office 365 Video (connettore) nelle app per la logica del Servizio app di Microsoft Azure
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Introduzione al connettore Office 365 Video
 Connettersi a Office 365 Video per ottenere informazioni su un video di Office 365, recuperare un elenco di video e altro ancora. Con Office 365 Video è possibile:

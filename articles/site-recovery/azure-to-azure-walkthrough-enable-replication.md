@@ -36,7 +36,7 @@ Dopo aver configurato un [insieme di credenziali di Servizi di ripristino](azure
 > La replica di macchine virtuali di Azure è attualmente in anteprima.
 
 
-## <a name="select-the-source"></a>Selezionare l'origine 
+## <a name="select-the-source"></a>Selezionare l'origine
 
 1. In Insiemi di credenziali dei servizi di ripristino fare clic sul nome dell'insieme di credenziali e quindi selezionare **+Replica**.
 2. In **Origine** selezionare **Azure - ANTEPRIMA**.
@@ -62,18 +62,18 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 Site Recovery esegue il provisioning delle impostazioni predefinite per l'area di destinazione (in base alle impostazioni dell'area di origine) e dei criteri di replica:
 
    - **Percorso di destinazione**: area di destinazione da usare per il ripristino di emergenza. È consigliabile che il percorso di destinazione corrisponda al percorso dell'insieme di credenziali di Site Recovery.
-   - **Gruppo di risorse di destinazione**: gruppo di risorse al quale apparterranno le macchine virtuali di Azure nell'area di destinazione dopo il failover. Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione con suffisso "asr". 
-   - **Rete virtuale di destinazione**: rete in cui verranno collocate le VM di Azure nell'area di destinazione dopo il failover. Per impostazione predefinita, Site Recovery crea una nuova rete virtuale e subnet nell'area di destinazione con suffisso "asr". Questa rete è mappata alla rete di origine. Si noti che è possibile assegnare un indirizzo IP specifico dopo il failover di una macchina virtuale, se è necessario mantenere lo stesso indirizzo IP nei percorsi di origine e destinazione. 
-   - **Account di archiviazione della cache**: Site Recovery usa un account di archiviazione nell'area di origine. Le modifiche apportate nelle macchine virtuali di origine vengono inviate a questo account prima della replica nel percorso di destinazione. 
+   - **Gruppo di risorse di destinazione**: gruppo di risorse al quale apparterranno le macchine virtuali di Azure nell'area di destinazione dopo il failover. Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione con suffisso "asr".
+   - **Rete virtuale di destinazione**: rete in cui verranno collocate le VM di Azure nell'area di destinazione dopo il failover. Per impostazione predefinita, Site Recovery crea una nuova rete virtuale e subnet nell'area di destinazione con suffisso "asr". Questa rete è mappata alla rete di origine. Si noti che è possibile assegnare un indirizzo IP specifico dopo il failover di una macchina virtuale, se è necessario mantenere lo stesso indirizzo IP nei percorsi di origine e destinazione.
+   - **Account di archiviazione della cache**: Site Recovery usa un account di archiviazione nell'area di origine. Le modifiche apportate nelle macchine virtuali di origine vengono inviate a questo account prima della replica nel percorso di destinazione.
    - **Account di archiviazione di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione nell'area di destinazione, per eseguire il mirroring dell'account di archiviazione macchina virtuale di origine.
-   -  **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con suffisso "asr". 
+   -  **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con suffisso "asr".
    - **Nome del criterio di replica**: nome del criterio.
    - **Conservazione del punto di ripristino**: per impostazione predefinita, Site Recovery conserva i punti di ripristino per 24 ore. È possibile configurare un valore compreso tra 1 e 72 ore.
    - **Frequenza snapshot coerenti con l'app**: per impostazione predefinita, Site Recovery accetta uno snapshot coerente con l'app ogni 4 ore. È possibile configurare un valore compreso tra 1 e 12 ore. I dati vengono replicati in modo continuo:
     - I punti di ripristino coerenti con l'arresto anomalo conservano un ordine di scrittura dati coerente, se creati. Questo tipo di punto di ripristino è in genere sufficiente se l'app è progettata per il ripristino da un arresto anomalo senza incoerenze dei dati
     - I punti di ripristino coerenti con l'arresto anomalo vengono generati ogni pochi minuti. L'uso di questi punti di ripristino per il failover e il ripristino delle macchine virtuali fornisce un obiettivo del punto di ripristino (RPO) nell'ordine di minuti.
     - I punti di ripristino coerenti con l'app, oltre alla coerenza dell'ordine di scrittura, assicurano che le app in esecuzione completino tutte le operazioni e scarichino i buffer nel disco (disattivazione dell'applicazione). È consigliabile usare questi punti di ripristino per le app di database come Exchange, Oracle e SQL Server.
-        
+
     ![Configurare le impostazioni](./media/azure-to-azure-walkthrough-enable-replication/settings.png)
 
 
@@ -87,7 +87,7 @@ Se si vogliono modificare le impostazioni dei criteri di replica e della destina
     ![Configurare le impostazioni](./media/azure-to-azure-walkthrough-enable-replication/customize-target.png)
 
 3. Per eseguire l'override delle impostazioni di replica per i punti di ripristino e gli snapshot coerenti con l'app, fare clic su **Personalizza** accanto a **Criteri di replica**.
- 
+
     ![Configurare le impostazioni](./media/azure-to-azure-walkthrough-enable-replication/customize-policy.png)
 
 4. Per avviare il provisioning delle risorse di destinazione, fare clic su **Create target resources** (Crea risorse di destinazione). Il provisioning richiede circa un minuto. Non chiudere il pannello durante il provisioning, altrimenti sarà necessario ripetere l'operazione.

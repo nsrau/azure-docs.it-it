@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/24/2017
+ms.date: 09/13/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 597c3eb49bc3d4f9b2311f232e4280027636266c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
@@ -140,6 +140,12 @@ Dopo aver configurato l'account di archiviazione per i report usando l'insieme d
 
    Sì, è possibile configurare lo stesso account di archiviazione per vari insiemi di credenziali per visualizzare i report tra loro. È anche possibile configurare lo stesso account di archiviazione per gli insiemi di credenziali nelle sottoscrizioni. È quindi possibile usare questo account di archiviazione durante la connessione al pacchetto di contenuto di Backup di Azure in Power BI per visualizzare i report. L'account di archiviazione selezionato deve tuttavia trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
    
+## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
+| Dettagli errore | Risoluzione |
+| --- | --- |
+| Dopo avere configurato l'account di archiviazione per i report di Backup, **Account di archiviazione** rimane impostato su **Non configurato**. | Se l'account di archiviazione è stato configurato correttamente, i dati fluiranno nonostante questo problema. Per risolvere il problema, passare al portale di Azure > Altri servizi > Impostazioni di diagnostica > Insieme di credenziali dei servizi di ripristino > Modifica impostazione. Eliminare l'impostazione precedentemente configurata e crearne una nuova dallo stesso pannello. Questa volta impostare il campo **Nome** su **servizio**. Questa operazione dovrebbe determinare la visualizzazione dell'account di archiviazione configurato. |
+|Al termine dell'importazione del pacchetto di contenuto di Backup di Azure in Power BI, viene visualizzato l'errore **404 - Contenitore non trovato**. | Come indicato in questo documento, è necessario attendere 24 ore dopo la configurazione dei report nell'insieme di credenziali dei Servizi di ripristino per poterli visualizzare correttamente in Power BI. Se si tenta di accedere ai report prima di 24 ore, verrà visualizzato questo errore perché non sono ancora presenti i dati completi per visualizzare report validi. |
+
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver configurato l'account di archiviazione e importato il pacchetto di contenuto Backup di Azure, il passaggio successivo consiste nel personalizzare questi report e usare il modello di dati per creare report. Per maggiori dettagli, consultare gli articoli seguenti.
 

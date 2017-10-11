@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 58194b71b22b63f7d4a2a6bf0f4e66f456a96d03
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
+ms.contentlocale: it-it
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 03/22/2017
 
 Questo articolo descrive come sia possibile creare un profilo con tipo di routing **Priorità** per instradare gli utenti a due endpoint di App Web di Azure. Con il tipo di routing **Priorità** tutto il traffico viene instradato al primo endpoint mentre il secondo viene mantenuto come backup. Gli utenti possono essere così instradati al secondo endpoint se il primo diventa non integro.
 
-In questo articolo, due endpoint di App Web di Azure creati in precedenza vengono associati a questo nuovo profilo di Gestione traffico. Per altre informazioni su come creare endpoint di App Web di Azure, visitare la [pagina della documentazione di App Web di Azure](https://docs.microsoft.com/azure/app-service-web/). È possibile aggiungere qualsiasi endpoint che ha un nome DNS ed è raggiungibile sulla rete Internet pubblica. In questo articolo vengono usati endpoint di App Web di Azure a titolo di esempio.
+In questo articolo, due endpoint di App Web di Azure creati in precedenza vengono associati a questo nuovo profilo di Gestione traffico. Per altre informazioni su come creare endpoint di App Web di Azure, visitare la [pagina della documentazione di App Web di Azure](https://docs.microsoft.com/azure/app-service/). È possibile aggiungere qualsiasi endpoint che ha un nome DNS ed è raggiungibile sulla rete Internet pubblica. In questo articolo vengono usati endpoint di App Web di Azure a titolo di esempio.
 
 ### <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 1. Da un browser accedere al [portale di Azure](http://portal.azure.com). Se non si ha già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita della durata di un mese](https://azure.microsoft.com/free/). 
@@ -54,13 +55,13 @@ In questo articolo, due endpoint di App Web di Azure creati in precedenza vengon
     5. In **Priorità** selezionare **1**. In questo modo tutto il traffico viene instradato a questo endpoint se è integro.
     6. Mantenere deselezionata l'opzione **Aggiungi come disabilitato**.
     7. Fare clic su **OK**
-5.    Ripetere i passaggi 3 e 4 per il successivo endpoint di App Web di Azure. Assicurarsi di aggiungerlo con il valore di **Priorità** impostato su **2**.
-6.    Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati nel pannello **Profilo di gestione traffico** insieme al relativo stato di monitoraggio **Online**.
+5.  Ripetere i passaggi 3 e 4 per il successivo endpoint di App Web di Azure. Assicurarsi di aggiungerlo con il valore di **Priorità** impostato su **2**.
+6.  Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati nel pannello **Profilo di gestione traffico** insieme al relativo stato di monitoraggio **Online**.
 
     ![Aggiungere un endpoint di Gestione traffico](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Usare il profilo di Gestione traffico
-1.    Nella barra di ricerca del portale cercare il nome del **Profilo di Gestione traffico** creato nella sezione precedente. Fare clic sul profilo di Gestione traffico nei risultati visualizzati.
+1.  Nella barra di ricerca del portale cercare il nome del **Profilo di Gestione traffico** creato nella sezione precedente. Fare clic sul profilo di Gestione traffico nei risultati visualizzati.
 2. Nel pannello **Profilo di Gestione traffico** fare clic su **Informazioni generali**.
 3. Il pannello **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Questo nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) per essere instradato all'endpoint corretto in base al tipo di routing. In questo caso, tutte le richieste vengono instradate al primo endpoint e se Gestione traffico rileva che tale endpoint non è integro, viene eseguito automaticamente il failover del traffico sull'endpoint successivo.
 

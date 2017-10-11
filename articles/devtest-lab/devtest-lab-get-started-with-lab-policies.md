@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Gestire i criteri di base di un lab in Azure DevTest Labs
 
 Azure DevTest Labs consente di gestire i criteri (impostazioni) in ogni lab, in modo da controllare i costi e ridurre al minimo gli sprechi. Questo articolo è una guida introduttiva ai criteri per configurare due dei più importanti criteri: la limitazione del numero di macchine virtuali che un singolo utente può creare o attestare e la configurazione di arresto automatico. Per vedere come impostare ogni criterio del lab, fare riferimento all'articolo [Definire i criteri di lab in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
@@ -92,4 +89,3 @@ I criteri di avvio automatico consentono di specificare l'ora in cui devono esse
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Definire i criteri di lab in Azure DevTest Labs](devtest-lab-set-lab-policy.md) - Informazioni su come modificare altri criteri di lab 
-

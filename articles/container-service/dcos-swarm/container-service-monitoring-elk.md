@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 6abad7d9d501a1fdead83a1a678f1b053ee70a25
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: fcfa277cdd0f3cebc0fbbb23e771fb23ffbe2ca6
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Monitorare un cluster del servizio contenitore di Azure con ELK
 Questo articolo descrive come distribuire lo stack ELK (Elasticsearch, Logstash, Kibana) in un cluster DC/OS nel servizio contenitore di Azure. 
@@ -70,5 +69,4 @@ Per accedere al dashboard di Kibana distribuito nella porta 5601, è necessario 
 * Per filtrare i log, vedere [Filtering Logs with ELK](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/) (Filtrare i log con ELK). 
 
  
-
 

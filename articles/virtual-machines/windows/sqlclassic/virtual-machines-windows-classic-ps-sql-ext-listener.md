@@ -1,6 +1,6 @@
 ---
 title: "Configurare un listener esterno per i gruppi di disponibilità AlwaysOn | Microsoft Docs"
-description: "Questa esercitazione illustra in dettaglio la procedura per creare un listener del gruppo di disponibilità AlwaysOn in Azure accessibile dall&quot;esterno con l&quot;indirizzo IP virtuale pubblico del servizio cloud associato."
+description: "Questa esercitazione illustra in dettaglio la procedura per creare un listener del gruppo di disponibilità AlwaysOn in Azure accessibile dall'esterno con l'indirizzo IP virtuale pubblico del servizio cloud associato."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,13 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure
 > [!div class="op_single_selector"]
@@ -134,5 +132,4 @@ Se le repliche AlwaysOn si trovano in subnet diverse, i client devono specificar
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-
 

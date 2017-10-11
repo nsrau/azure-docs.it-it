@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: f97be571d104e3cc1c6ee732886fa7133ba0dc83
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 688f57de662fec6a04227c35d6578097c795c6da
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-app-service-plans-in-depth-overview"></a>Panoramica approfondita dei piani di servizio app di Azure
@@ -31,22 +31,36 @@ I piani di servizio app definiscono:
 - Area (Stati Uniti occidentali, Stati Uniti orientali e così via)
 - Numero di scala (una, due, tre istanze e così via)
 - Dimensione dell'istanza (Small, Medium, Large)
-- SKU (Gratuito, Condiviso, Basic, Standard, Premium)
+- SKU: Free, Shared, Basic, Standard, Premium, PremiumV2, Isolated.
 
 Nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) le app Web, le app per dispositivi mobili, le app per le API e le app per le funzioni (o Funzioni) vengono tutte eseguite in un piano di servizio app.  Le app appartenenti alla stessa sottoscrizione e area possono condividere lo stesso piano di servizio app. 
 
 Tutte le applicazioni assegnate a un **piano di servizio app**  condividono le risorse definite dal piano, in modo da consentire un risparmio sui costi quando si ospitano più app in un unico piano di servizio app.
 
-Il **piano di servizio app** può essere ridimensionato da SKU **Free** e **Shared** a SKU **Basic**, **Standard** e **Premium** fornendo anche l'accesso ad altre risorse e funzionalità.
+Il **piano di servizio app** può passare dai livelli **Free** e **Shared** ai livelli **Basic**, **Standard**,  **Premium**, e **Isolated**. Ogni livello superiore consente di accedere a più risorse e funzionalità.
 
-Se il piano di servizio app è impostato sullo SKU **Basic** o superiore, è possibile controllare le **dimensioni** e il numero di scala delle VM.
+Se il piano di servizio app è impostato sul livello **Basic** o superiore, è possibile controllare le **dimensioni** e il numero di scala delle VM.
 
-Se il piano è configurato per usare due istanze "piccole" nel livello di servizio Standard, ad esempio, tutte le app associate al piano vengono eseguite in entrambe le istanze e hanno accesso alle funzionalità previste dal livello di servizio Standard. Le istanze del piano in cui vengono eseguite le app sono completamente gestite e a disponibilità elevata.
+Se il piano è configurato per usare due istanze "piccole" nel livello **Standard**, ad esempio, tutte le app del piano vengono eseguite in entrambe le istanze. Le app hanno anche accesso alle funzionalità previste dal livello **Standard**. Le istanze del piano in cui vengono eseguite le app sono completamente gestite e a disponibilità elevata.
 
 > [!IMPORTANT]
-> L'unità **SKU** e la **scalabilità** del piano di servizio app determina il costo e non il numero di app ospitate nel piano.
+> Il piano tariffario del piano di servizio app determina il costo e non il numero di app ospitate nel piano.
 
-Questo articolo illustra le principali caratteristiche, come livello e scalabilità, di un piano di servizio app e il modo in cui queste caratteristiche influiscono sulla gestione delle app.
+L'articolo illustra le caratteristiche principali di un piano di servizio app, come il piano tariffario e la scalabilità, e il modo in cui contribuiscono alla gestione delle app.
+
+## <a name="new-pricing-tier-premiumv2"></a>Nuovo piano tariffario: PremiumV2
+
+Il nuovo piano tariffario **PremiumV2** offre [VM della serie Dv2](../virtual-machines/windows/sizes-general.md#dv2-series) con processori più veloci, archiviazione SSD e un rapporto doppio tra memoria e core rispetto al livello **Standard**. **PremiumV2** supporta anche una scalabilità superiore tramite un numero di istanze incrementato, offrendo al tempo stesso tutte le funzionalità avanzate disponibili nel piano Standard. Tutte le funzionalità disponibili nel livello **Premium** esistente sono incluse in **PremiumV2**.
+
+Analogamente ad altri livelli dedicati, per questo livello sono disponibili tre dimensioni di macchina virtuale:
+
+- Small (1 core CPU, 3,5 GiB di memoria) 
+- Medium (2 core di CPU, 7 GiB di memoria) 
+- Large (4 core CPU, 14 GiB di memoria)  
+
+Per informazioni sui prezzi di [PremiumV2](/pricing/details/app-service/), vedere **Prezzi del servizio app**.
+
+Per un'introduzione al nuovo piano tariffario **PremiumV2**, vedere [Configurare il livello PremiumV2](app-service-configure-premium-tier.md).
 
 ## <a name="apps-and-app-service-plans"></a>App e piani di servizio app
 
@@ -64,9 +78,7 @@ Ad esempio, un'app a disponibilità elevata in esecuzione in due aree include al
 
 ## <a name="create-an-app-service-plan-or-use-existing-one"></a>Creare un piano di servizio app o usare quello esistente
 
-Quando si crea un'app, è consigliabile creare anche un gruppo di risorse. D'altra parte, se l'app è un componente di un'applicazione più grande, l'app deve essere creata nel gruppo di risorse allocato per tale applicazione.
-
-Sia che l'app sia completamente nuova o faccia parte di un'applicazione più grande, si può scegliere di usare un piano esistente per l'hosting o di crearne uno nuovo. La decisione dipende principalmente dalla capacità e dal carico previsto.
+Quando si crea una nuova app Web nel servizio app, è possibile condividere le risorse di hosting inserendo l'app in un piano di servizio app esistente. Per determinare se la nuova app avrà le risorse adeguate, è necessario valutare la capacità del piano di servizio app esistente e il carico previsto per la nuova app. L'allocazione eccessiva di risorse può potenzialmente causare tempi di inattività per le app nuove ed esistenti.
 
 Si consiglia di isolare l'app in un nuovo piano di servizio app nei casi seguenti:
 
@@ -79,9 +91,9 @@ In questo modo è possibile allocare un nuovo set di risorse per l'app e ottener
 ## <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
 > [!TIP]
-> Se è disponibile un ambiente del servizio app, vedere la documentazione specifica per gli ambienti del servizio app in [Creare un piano di servizio app](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
+> Se è disponibile l'opzione Ambiente del servizio app di Azure, vedere [Creare un'app Web in un ambiente del servizio app](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
 
-È possibile creare un piano di servizio app vuoto dalla funzionalità di esplorazione dei piani di servizio app o durante la creazione di un'app.
+È possibile creare un piano di servizio app vuoto o come parte della creazione di app.
 
 Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** > **Web e dispositivi mobili** e quindi selezionare **App Web** o un altro tipo di app del servizio app.
 
@@ -95,7 +107,7 @@ Per creare un piano di servizio app, fare clic su **[+] Crea nuovo**, digitare i
 
 ## <a name="move-an-app-to-a-different-app-service-plan"></a>Spostare un'app in un piano di servizio app diverso
 
-È possibile spostare un'app in un piano di servizio app diverso nel [portale di Azure](https://portal.azure.com). Le app possono essere spostate tra i piani solo se i piani si trovano nello stesso gruppo di risorse e nella stessa area geografica.
+È possibile spostare un'app in un piano di servizio app diverso nel [portale di Azure](https://portal.azure.com). Le app possono essere spostate tra i piani solo se i piani si trovano _nello stesso gruppo di risorse e nella stessa area geografica_.
 
 Per spostare un'applicazione in un altro piano:
 
@@ -103,16 +115,7 @@ Per spostare un'applicazione in un altro piano:
 - Nel **Menu** cercare la sezione **Piano di servizio app**.
 - Selezionare **Cambia il piano di servizio app** per avviare il processo.
 
-**Cambia il piano di servizio app** apre il selettore **Piano di servizio app**. A questo punto, è possibile scegliere un piano esistente in cui spostare l'app.
-
-> [!IMPORTANT]
-> L'interfaccia utente del piano di servizio app selezionato viene filtrato in base ai criteri seguenti:
-> - È presente nello stesso gruppo di risorse
-> - È presente nella stessa area geografica
-> - È presente nello stesso spazio Web
->
-> Uno spazio Web è un costrutto logico all'interno del servizio app che definisce un raggruppamento di risorse del server. Un'area geografica (ad esempio Stati Uniti occidentali) contiene molti spazi Web per allocare i clienti che usano il servizio app. Attualmente le risorse del servizio app non possono essere spostate tra spazi Web.
->
+**Cambia il piano di servizio app** apre il selettore **Piano di servizio app**. A questo punto, è possibile scegliere un piano esistente in cui spostare l'app. Vengono visualizzati solo i piani nello stesso gruppo di risorse e nella stessa area.
 
 ![Pannello di selezione Piano di servizio app.][change]
 
@@ -125,7 +128,7 @@ Se si vuole spostare l'app in un'area diversa, in alternativa consiste nel clona
 **Clona app** è disponibile nella sezione **Strumenti di sviluppo** del menu.
 
 > [!IMPORTANT]
-> La clonazione presenta alcune limitazioni, illustrate nell'articolo [Clonazione di app del servizio app di Azure con il portale di Azure](../app-service-web/app-service-web-app-cloning-portal.md).
+> La clonazione presenta alcune limitazioni, illustrate nell'articolo [Clonare un'app](app-service-web-app-cloning.md).
 
 ## <a name="scale-an-app-service-plan"></a>Scalare un piano di servizio app
 
@@ -144,7 +147,7 @@ Sono disponibili tre modi per ridimensionare un piano:
 > [!IMPORTANT]
 > Anche i **piani di servizio app** a cui non sono associate app vengono addebitati, in quanto continuano a riservare la capacità di calcolo.
 
-Per evitare costi imprevisti, dopo aver eliminato l'ultima app ospitata in un piano di servizio app, viene eliminato anche il piano di servizio app vuoto risultante.
+Per evitare costi imprevisti, dopo aver eliminato l'ultima app ospitata in un piano di servizio app, per impostazione predefinita viene eliminato anche il piano di servizio app vuoto risultante.
 
 ## <a name="summary"></a>Riepilogo
 

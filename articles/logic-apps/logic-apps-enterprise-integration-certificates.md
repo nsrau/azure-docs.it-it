@@ -1,4 +1,3 @@
-
 ---
 title: Uso dei certificati con Enterprise Integration Pack | Documentazione Microsoft
 description: Informazioni su come usare i certificati con Enterprise Integration Pack| App per la logica di Azure
@@ -15,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c8cfe5fb933cf9056b971d3e524f3c9ebc910215
-ms.openlocfilehash: b494d5abfdd4045776b408cbb8ec99ee3905cf72
-ms.contentlocale: it-it
-ms.lasthandoff: 02/04/2017
-
-
+ms.openlocfilehash: 0570aab14283b38f9efcc50636f0c0c1c8e3ed13
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Informazioni sui certificati ed Enterprise Integration Pack
 ## <a name="overview"></a>Overview
@@ -99,5 +96,4 @@ Ecco i passaggi dettagliati per caricare i certificati privati nell'account di i
 
 * [Creare un contratto B2B](logic-apps-enterprise-integration-agreements.md)  
 * [Altre informazioni sull'insieme di credenziali delle chiavi](../key-vault/key-vault-get-started.md "Informazioni sull'insieme di credenziali delle chiavi")  
-
 

@@ -20,17 +20,12 @@ ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
 ms.contentlocale: it-it
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-service-bus-topics" class="xliff"></a>
-
-# Introduzione agli argomenti del bus di servizio
+# <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Contenuto dell'esercitazione
+## <a name="what-will-be-accomplished"></a>Contenuto dell'esercitazione
 
 Questa esercitazione illustra i passaggi seguenti:
 
@@ -40,26 +35,20 @@ Questa esercitazione illustra i passaggi seguenti:
 4. Scrivere un'applicazione console per inviare un messaggio all'argomento.
 5. Scrivere un'applicazione console per ricevere tale messaggio dalla sottoscrizione.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. [Visual Studio 2015 o versione successiva](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
 2. Una sottoscrizione di Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Creare uno spazio dei nomi tramite il portale di Azure
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Creare uno spazio dei nomi tramite il portale di Azure
 
 Se è già stato creato uno spazio dei nomi di messaggistica del bus di servizio, passare alla sezione [Creare un argomento usando il portale di Azure](#2-create-a-topic-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-topic-using-the-azure-portal" class="xliff"></a>
-
-## 2. Creare un argomento usando il portale di Azure
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Creare un argomento usando il portale di Azure
 
 1. Accedere al [portale di Azure][azure-portal].
 2. Nel riquadro di spostamento a sinistra del portale, fare clic su **Bus di servizio** (se non viene visualizzato **Bus di servizio**, fare clic su **Altri servizi**).
@@ -74,9 +63,7 @@ Se è già stato creato uno spazio dei nomi di messaggistica del bus di servizio
     ![Selezionare Nuovo][createtopic3]
 6. Fare clic su **Crea**nella parte inferiore del pannello.
 
-<a id="3-create-a-subscription-to-the-topic" class="xliff"></a>
-
-## 3. Creare una sottoscrizione all'argomento
+## <a name="3-create-a-subscription-to-the-topic"></a>3. Creare una sottoscrizione all'argomento
 
 1. Nel riquadro delle risorse del portale fare clic sullo spazio dei nomi creato nel passaggio 1, quindi fare clic sul nome dell'argomento creato nel passaggio 2.
 2. Nella parte superiore del riquadro della panoramica fare clic sul segno più accanto a **Sottoscrizione** per aggiungere una sottoscrizione a questo argomento.
@@ -85,30 +72,22 @@ Se è già stato creato uno spazio dei nomi di messaggistica del bus di servizio
 
 3. Immettere un nome per la sottoscrizione. Lasciare invariati i valori predefiniti delle altre opzioni.
 
-<a id="4-send-messages-to-the-topic" class="xliff"></a>
-
-## 4. Inviare messaggi all'argomento
+## <a name="4-send-messages-to-the-topic"></a>4. Inviare messaggi all'argomento
 
 Per inviare messaggi all'argomento, si scrive un'applicazione console C# in Visual Studio.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Creare un'applicazione console
+### <a name="create-a-console-application"></a>Creare un'applicazione console
 
 Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Aggiungere il pacchetto NuGet del bus di servizio
+### <a name="add-the-service-bus-nuget-package"></a>Aggiungere il pacchetto NuGet del bus di servizio
 
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
 2. Fare clic sulla scheda **Esplora**, cercare **Bus di servizio di Microsoft Azure** e quindi selezionare l'elemento **WindowsAzure.ServiceBus**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
    
     ![Selezionare un pacchetto NuGet][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-topic" class="xliff"></a>
-
-### Scrivere il codice per inviare un messaggio all'argomento
+### <a name="write-some-code-to-send-a-message-to-the-topic"></a>Scrivere il codice per inviare un messaggio all'argomento
 
 1. Aggiungere l'istruzione `using` seguente all'inizio del file Program.cs.
    
@@ -170,9 +149,7 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
    
       ![Dimensioni dei messaggi][topic-message]
 
-<a id="5-receive-messages-from-the-subscription" class="xliff"></a>
-
-## 5. Ricevere messaggi dalla sottoscrizione
+## <a name="5-receive-messages-from-the-subscription"></a>5. Ricevere messaggi dalla sottoscrizione
 
 1. Per ricevere uno o più messaggi inviati, creare una nuova applicazione console e aggiungere un riferimento al pacchetto NuGet del bus di servizio, come per l'applicazione mittente precedente.
 2. Aggiungere l'istruzione `using` seguente all'inizio del file Program.cs.
@@ -233,9 +210,7 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
 
 Congratulazioni. Sono stati creati un argomento e una sottoscrizione ed è stato inviato un messaggio che è stato quindi ricevuto.
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Vedere il [repository GitHub con esempi](https://github.com/Azure/azure-service-bus/tree/master/samples) che illustrano alcune delle funzionalità più avanzate della messaggistica del bus di servizio.
 

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 43ed4b0e96c583d8fd9da57eec40ddd2e96fee2f
-ms.contentlocale: it-it
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 916238ba402a2555bac620d7f08e02799d981ae0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-assign-users-to-applications"></a>Come assegnare gli utenti alle applicazioni
 
 Questo articolo consente di comprendere come vengono assegnati gli utenti a un'applicazione nel tenant.
@@ -61,4 +59,3 @@ Un utente deve prima essere assegnato a un'applicazione per potervi accedere. L'
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
-

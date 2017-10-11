@@ -11,17 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 1ab6a2b949101f60d6eef1ba7603d1c2cf81f90a
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 3b37033e0c96e01c73bef15af1b85116f404c354
 ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
+
+
+
+**D: Come si registra un dispositivo macOS?**
+
+**R:** Per registrare un dispositivo macOS:
+
+1.  [Creare i criteri di conformità del dispositivo](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [Definire i criteri di accesso condizionale per i dispositivi macOS](active-directory-conditional-access-azure-portal.md) 
+
+**Osservazioni:**
+
+- Gli utenti che vengono inclusi nei criteri di accesso condizionale necessitano di una [versione di Office supportata per macOS](active-directory-conditional-access-technical-reference.md#client-apps-condition) per accedere alle risorse. 
+
+- Durante il primo tentativo di accesso, agli utenti viene richiesto di registrare il dispositivo tramite il portale aziendale.
+
+---
 
 **D: Di recente è stato registrato un dispositivo. Perché non viene visualizzato nelle informazioni dell'utente all'interno del portale di Azure?**
 

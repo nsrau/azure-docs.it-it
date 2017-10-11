@@ -25,16 +25,21 @@
 ### [Integrare funzioni UDF di JavaScript](stream-analytics-javascript-user-defined-functions.md)
 ### [Integrare API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Creare output](stream-analytics-define-outputs.md)
-### [Output in Funzioni di Azure](stream-analytics-functions-redis.md)
 ### [Output in Data Lake Store](stream-analytics-data-lake-output.md)
-### [Output in DocumentDB](stream-analytics-documentdb-output.md)
+### [Output in Cosmos DB](stream-analytics-documentdb-output.md)
+
+## Usare gli strumenti di Visual Studio
+### [Installare](stream-analytics-tools-for-visual-studio-install.md)
+### [Introduzione](stream-analytics-tools-for-visual-studio.md)
+### [Configurare pipeline CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Monitorare e ottimizzare
 ### [Aggiungere avvisi](stream-analytics-set-up-alerts.md)
 ### [Monitorare i processi](stream-analytics-monitoring.md)
 ### [Monitorare i processi a livello di codice](stream-analytics-monitor-jobs.md)
 ### [Monitorare i processi con PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Ottimizzare le unità di streaming](stream-analytics-streaming-unit-consumption.md)
+### [Informazioni e modifica delle unità di streaming](stream-analytics-streaming-unit-consumption.md)
+### [Sfruttare i vantaggi della parallelizzazione delle query](stream-analytics-parallelization.md)
 ### [Ridimensionare la capacità per aumentare la velocità effettiva](stream-analytics-scale-jobs.md)
 ### [Ridimensionare la capacità per le funzioni di Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
 
@@ -52,13 +57,12 @@
 ### [Log di diagnostica](stream-analytics-job-diagnostic-logs.md)
 
 ## Automazione
-### [Strumenti per Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Usare .NET SDK per la gestione](stream-analytics-dotnet-management-sdk.md)
-### [PowerShell con un solo clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
+### [Azure PowerShell con un clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
-## [PowerShell](/powershell/module/azurerm.streamanalytics)
+## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Linguaggio di query](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)

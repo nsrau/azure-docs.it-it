@@ -212,8 +212,3 @@ Per un elenco completo dei comandi per creare e gestire macchine virtuali, usare
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-
-
-<!--HONumber=Jan17_HO5-->
-
-

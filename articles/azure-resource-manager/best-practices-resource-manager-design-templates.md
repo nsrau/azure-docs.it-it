@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Modelli di progettazione per modelli di Azure Resource Manager durante la distribuzione di soluzioni complesse
 Usando un approccio flessibile basato sui modelli di Azure Resource Manager, è possibile distribuire topologie complesse in modo rapido e coerente. È possibile adattare facilmente queste distribuzioni man mano che le offerte principali cambiano o inserire varianti per scenari o clienti esterni.
@@ -347,5 +346,4 @@ Se si desidera pubblicare il modello nel marketplace, occorre stabilire copie di
 ## <a name="next-steps"></a>Passaggi successivi
 * Per ulteriori informazioni sulla condivisione dello stato all'interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bedcbc3218022b36cc9f961c7621db3c5a639828
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (Windows PowerShell script)
 Consente di distribuire un'applicazione Web in una macchina virtuale. Se non sono presenti, lo script crea le risorse necessarie nella sottoscrizione di Azure.
@@ -80,7 +79,7 @@ Se true, consente l'utilizzo di certificati che non sono firmati da un'autorità
 | Caratteri jolly accettati? |false |
 
 ### <a name="vmpassword"></a>VMPassword
-Le credenziali per l'account della macchina virtuale. Esempio: -VMPassword @{Name = "admin"; Password = "password"}
+Le credenziali per l'account della macchina virtuale. Esempio: - VMPassword @{nome = "admin"; Password = "password"}
 
 | Alias | nessuno |
 | --- | --- |
@@ -91,7 +90,7 @@ Le credenziali per l'account della macchina virtuale. Esempio: -VMPassword @{Nam
 | Caratteri jolly accettati? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
-Le credenziali del database SQL in Azure. Esempio: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
+Le credenziali del database SQL in Azure. Esempio: - DatabaseServerPassword @{nome = "admin"; Password = "password"}
 
 | Alias | nessuno |
 | --- | --- |
@@ -185,5 +184,4 @@ Il file di configurazione JSON specifica i dettagli degli elementi da distribuir
 ```
 
 È possibile modificare il file di configurazione JSON per cambiare gli elementi del provisioning. Una macchina virtuale e un servizio cloud sono necessari, ma la sezione del database è facoltativa.
-
 

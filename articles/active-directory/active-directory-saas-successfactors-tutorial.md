@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
-ms.openlocfilehash: a0a101c34ffd4adb6816d9db8313d10b0ffbb3ae
-ms.contentlocale: it-it
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: e85a38ccbe25263ac42bc76351416b023fb77c87
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Esercitazione: Integrazione di Azure Active Directory con SuccessFactors
 Questa esercitazione descrive l'integrazione di SuccessFactors con Azure Active Directory (Azure AD).
@@ -331,4 +330,3 @@ Quando si fa clic sul riquadro SuccessFactors nel pannello di accesso, verrà es
 [27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
 [28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
-

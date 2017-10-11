@@ -77,8 +77,8 @@ Considerare i seguenti punti importanti per questo scenario di distribuzione:
 * Assicurarsi che l'applicazione usi nome utente e password per l'autenticazione. L'autenticazione basata su certificati/smart card non è supportata da Servizi di dominio Azure AD.
 * Non è possibile modificare direttamente le password nel dominio gestito. Gli utenti finali possono modificare le password tramite il meccanismo di reimpostazione della password self-service o nella directory locale. Queste modifiche vengono automaticamente sincronizzate e rese disponibili nel dominio gestito.
 
-## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Distribuzioni dei servizi desktop remoto di Windows Server in Azure
-È possibile utilizzare Azure Active Directory Domain Services per fornire servizi di dominio AD gestiti ai server di desktop remoti distribuiti in Azure.
+## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Distribuzioni di Servizi Desktop remoto di Windows Server in Azure
+È possibile usare Azure AD Domain Services per fornire servizi di dominio AD gestiti ai server di desktop remoto distribuiti in Azure.
 
-Per ulteriori informazioni su questo scenario di distribuzione, vedere come [integrare Azure AD Domain Services con la distribuzione di Servizi Desktop remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
+Per altre informazioni su questo scenario di distribuzione, vedere come [integrare Azure AD Domain Services con la distribuzione di Servizi Desktop remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
 

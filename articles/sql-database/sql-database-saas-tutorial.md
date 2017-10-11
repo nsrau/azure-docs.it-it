@@ -1,11 +1,11 @@
 ---
-title: Distribuire ed esplorare un'applicazione SaaS Wingtip multi-tenant che usa il database SQL di Azure | Microsoft Docs
+title: Distribuire ed esplorare un'applicazione SaaS multi-tenant che usa il database SQL di Azure | Microsoft Docs
 description: Distribuire ed esplorare l'applicazione SaaS Wingtip multi-tenant, che illustra i modelli di SaaS utilizzando il database SQL di Azure.
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: b09bfa8a5bc22a092e963f351e99c16d0e9a57ba
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 14d2fd007e88c9cb20cf2b4a24262e2bebc42d63
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Distribuire ed esplorare un'applicazione multi-tenant che utilizza il database SQL di Azure - SaaS Wingtip

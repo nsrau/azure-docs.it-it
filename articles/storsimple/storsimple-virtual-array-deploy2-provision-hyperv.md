@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
 ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
-ms.lasthandoff: 03/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -130,7 +130,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image13.png)
 15. Nella pagina **Before you begin** (Prima di iniziare) della Creazione guidata disco rigido virtuale fare clic su **Avanti**.
-16. Nella pagina **Selezione formato disco** accettare l'opzione di formato predefinita **VHDX**. Fare clic su **Next**. Se si esegue Windows Server 2008 R2, questa schermata non viene visualizzata.
+16. Nella pagina **Selezione formato disco** accettare l'opzione di formato predefinita **VHDX**. Fare clic su **Avanti**. Se si esegue Windows Server 2008 R2, questa schermata non viene visualizzata.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
 17. Nella pagina **Selezione tipo di disco** impostare il tipo di disco rigido virtuale su **A espansione dinamica** (consigliato). Il funzionamento di un disco **A dimensione fissa** è garantito, ma può comportare tempi lunghi di attesa. Si consiglia di non usare l'opzione **Differenze** . Fare clic su **Avanti**. In Windows Server 2012 R2 e Windows Server 2012 l'opzione predefinita è **A espansione dinamica**, mentre in Windows Server 2008 R2 il valore predefinito è **A dimensione fissa**.
@@ -216,4 +216,3 @@ In presenza di altri errori durante la configurazione iniziale con l'interfaccia
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare StorSimple Virtual Array come file server](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurare StorSimple Virtual Array come server iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
-

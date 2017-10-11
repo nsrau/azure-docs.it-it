@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 8d701f4a459da2e08510e8001adca0847b08e924
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 3fa6f4f850fc67d41f619d46bd61a19fe890b0fb
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
@@ -59,7 +59,7 @@ Prima di preparare l'ambiente, è importante capire le limitazioni.
 * Il backup delle macchine virtuali con dischi dati maggiori di 1023 GB non è supportato.
 * Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
 * Il backup di macchine virtuali crittografate solo con BEK non è supportato. Il backup delle macchine virtuali Linux crittografate con la crittografia LUKS non è supportato.
-* Il backup delle VM nelle configurazioni di file server scalabili orizzontalmente non è consigliato.
+* Il backup di macchine virtuali contenenti una configurazione Volumi condivisi cluster o File server di scalabilità orizzontale non è consigliata, perché richiede il coinvolgimento di tutte le macchine virtuali incluse nella configurazione del cluster durante l'attività di snapshot. Backup di Azure non supporta la coerenza tra più macchine virtuali. 
 * I dati di backup non includono le unità di rete montate collegate alla macchina virtuale.
 * La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. Se si tenta di ripristinare una macchina virtuale che esiste, l'operazione di ripristino non viene eseguita.
 * L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.

@@ -1,6 +1,6 @@
 ---
 title: Panoramica delle zone e dei record DNS - DNS di Azure | Documentazione Microsoft
-description: Panoramica del supporto per l&quot;hosting di zone e record DNS in DNS di Microsoft Azure.
+description: Panoramica del supporto per l'hosting di zone e record DNS in DNS di Microsoft Azure.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -15,14 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="overview-of-dns-zones-and-records"></a>Panoramica delle zone e dei record DNS
 
 Questa pagina presenta i concetti principali relativi a domini, zone DNS e record e set di record DNS, nonché il modo in cui vengono supportati in DNS di Azure.
@@ -140,4 +138,3 @@ Quando si usa DNS di Azure, si applicano i limiti predefiniti seguenti:
 
 * Per iniziare a usare DNS di Azure, è necessario sapere come [creare una zona DNS](dns-getstarted-create-dnszone-portal.md) e come [creare record DNS](dns-getstarted-create-recordset-portal.md).
 * Per eseguire la migrazione di una zona DNS esistente, è necessario saper [importare ed esportare un file di zona DNS](dns-import-export.md).
-

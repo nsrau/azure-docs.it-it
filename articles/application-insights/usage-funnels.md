@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2b25ffd844507074a8467b1135b1331feb9d3ed7
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.openlocfilehash: 59c4dfafc102b26e3b9873f433065715f4aec9ec
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Informazioni sulle modalità di utilizzo dell'applicazione da parte dei clienti attraverso gli imbuti di Application Insights
 
 Per un'azienda è di primaria importanza analizzare l'utilizzo del software da parte dei clienti. Se l'applicazione implica più fasi, è necessario sapere se la maggior parte dei clienti prosegue lungo l'intero processo o se lo termina in un determinato punto. L'avanzamento attraverso una serie di passaggi in un'applicazione Web è noto come "imbuto". È possibile usare gli imbuti di Application Insights per ottenere informazioni approfondite sugli utenti e per monitorare i tassi di conversione a ogni passaggio. 
@@ -50,4 +48,3 @@ La figura seguente mostra i dati generati dal pannello Imbuti. Da qui i propriet
   * [Conservazione](app-insights-usage-retention.md)
   * [Cartelle di lavoro](app-insights-usage-workbooks.md)
   * [Aggiungere il contesto utente](app-insights-usage-send-user-context.md)
-

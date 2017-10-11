@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
-ms.contentlocale: it-it
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: adb174526bc377f484be5fb0a71b28e8daaaa6fd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>Documentazione tecnica sul connettore Generic LDAP
 Questo articolo descrive il connettore Generic LDAP ed è applicabile ai prodotti seguenti:
@@ -270,4 +269,3 @@ Per le directory con un log delle modifiche differenziali basato su data/ora, è
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 * Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
-

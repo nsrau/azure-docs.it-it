@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: venkatja
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Inviare eventi a un ambiente Time Series Insights tramite un hub eventi
 
@@ -238,4 +237,3 @@ Un oggetto JSON con una matrice JSON annidata che contiene due oggetti JSON. Que
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Visualizzare l'ambiente nel [portale di Time Series Insights](https://insights.timeseries.azure.com)
-

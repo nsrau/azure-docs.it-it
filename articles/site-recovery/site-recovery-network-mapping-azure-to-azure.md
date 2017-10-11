@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 34f5caa13aa94dc982ed497d7c8ddeceed61a6d8
-ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Mapping di rete tra due aree di Azure
 
@@ -99,4 +98,3 @@ Se la subnet di origine e la subnet di destinazione hanno spazi di indirizzi div
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sulle [indicazioni sulla rete per la replica di VM di Azure](site-recovery-azure-to-azure-networking-guidance.md).
-

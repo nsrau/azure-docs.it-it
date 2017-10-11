@@ -14,15 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 9847bcfcc139a769847678c1cca6a8b9c3a30e93
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Informazioni sui criteri personalizzati dello starter pack di Azure AD B2C
 
 Questa sezione elenca tutti gli elementi principali del criterio B2C_1A_base disponibile nello **starter pack**, che può essere sfruttato per creare i propri criteri tramite l'ereditarietà del *criterio B2C_1A_base_extensions*.
@@ -40,9 +37,9 @@ Gli elementi principali del *criterio B2C_1A_base* sono tipi di attestazioni, tr
 
 Questo schema delle attestazioni è diviso in tre sezioni:
 
-1.    Una prima sezione che elenca le attestazioni minime necessarie per il corretto funzionamento dei percorsi utente.
-2.    Una seconda sezione che elenca le attestazioni necessarie per i parametri della stringa di query e altri speciali parametri da passare ad altri provider di attestazioni, in particolare login.microsoftonline.com per l'autenticazione. **Non modificare queste attestazioni**.
-3.    Infine una terza sezione che elenca altre attestazioni facoltative che possono essere raccolte dall'utente, archiviate nella directory e inviate in token durante l'accesso. In questa sezione possono essere aggiunti nuovi tipi di attestazioni che devono essere raccolte dall'utente e/o inviate nel token.
+1.  Una prima sezione che elenca le attestazioni minime necessarie per il corretto funzionamento dei percorsi utente.
+2.  Una seconda sezione che elenca le attestazioni necessarie per i parametri della stringa di query e altri speciali parametri da passare ad altri provider di attestazioni, in particolare login.microsoftonline.com per l'autenticazione. **Non modificare queste attestazioni**.
+3.  Infine una terza sezione che elenca altre attestazioni facoltative che possono essere raccolte dall'utente, archiviate nella directory e inviate in token durante l'accesso. In questa sezione possono essere aggiunti nuovi tipi di attestazioni che devono essere raccolte dall'utente e/o inviate nel token.
 
 > [!IMPORTANT]
 > Lo schema delle attestazioni contiene le limitazioni relative a determinate attestazioni, ad esempio password e nomi utente. Il criterio del framework attendibilità considera Azure AD come qualsiasi altro provider di attestazioni e tutte le limitazioni sono modellate nel criterio premium. Un criterio può essere modificato per aggiungere altre limitazioni o usare un altro provider di attestazioni per la risorsa di archiviazione delle credenziali che avrà le proprie limitazioni.
@@ -220,4 +217,3 @@ Questa sezione illustra i percorsi utente già dichiarati nel criterio *B2C_1A_b
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |
-

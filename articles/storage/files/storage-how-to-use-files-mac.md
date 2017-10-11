@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc3d67745afb8bbffe7ec3462e995104daff9632
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montare una condivisione file di Azure tramite SMB con macOS
-[Archiviazione file di Azure](../storage-dotnet-how-to-use-files.md) è un servizio di Microsoft che consente di creare e usare condivisioni file di rete in Azure usando lo standard di settore. Le condivisioni file di Azure possono essere montate in macOS Sierra (10.12) ed El Capitan (10.11). Questo articolo illustra due diversi modi di montare una condivisione file di Azure in macOS con l'interfaccia utente del Finder e usando il terminale.
+[File di Azure](storage-files-introduction.md) è un servizio di Microsoft che consente di creare e usare condivisioni file di rete in Azure usando lo standard di settore. Le condivisioni file di Azure possono essere montate in macOS Sierra (10.12) ed El Capitan (10.11). Questo articolo illustra due diversi modi di montare una condivisione file di Azure in macOS con l'interfaccia utente del Finder e usando il terminale.
 
 > [!Note]  
 > Prima di montare una condivisione file di Azure tramite SMB, è consigliabile disabilitare la firma dei pacchetti SMB. In caso contrario, si potrebbe verificare una riduzione delle prestazioni quando si accede alla condivisione file di Azure da macOS. La connessione SMB verrà crittografata e la sicurezza della connessione non risulterà compromessa. Dal terminale i comandi seguenti disabiliteranno la firma dei pacchetti SMB, come illustrato da questo [articolo del supporto Apple sulla disabilitazione della firma dei pacchetti SMB](https://support.apple.com/HT205926):  
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/21/2017
     ![Snapshot della condivisione file di Azure montata](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione file di Azure.
+Vedere questi collegamenti per altre informazioni su File di Azure.
 
 * [Articolo del supporto Apple: Come connettersi con Condivisione file sul Mac](https://support.apple.com/HT204445)
 * [Domande frequenti](../storage-files-faq.md)

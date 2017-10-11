@@ -1,31 +1,31 @@
 
-1. Fare clic sul pulsante **Servizi app** e selezionare il back-end delle app per dispositivi mobili, quindi **Avvio rapido** e infine la piattaforma client (iOS, Android, Xamarin o Cordova).
+1. Fare clic su di **servizi App** pulsante, selezionare l'App per dispositivi mobili di back-end, **Guida introduttiva**, quindi selezionare la piattaforma (iOS, Android, Xamarin, Cordova) dei client.
 
-    ![Portale di Azure con Avvio rapido per le app per dispositivi mobili evidenziato][quickstart]
+    ![Portale di Azure con avvio rapido di applicazioni mobili evidenziato][quickstart]
 
-2. Se non è configurata la connessione a un database, crearne una seguendo questa procedura:
+2. Se non è configurata una connessione al database, crearne uno attenendosi alla seguente:
 
-    ![Portale di Azure con connessione a un database per le app per dispositivi mobili][connect]
+    ![Portale di Azure con App Mobile Connect al database][connect]
 
-    a. Creare un nuovo server e un nuovo database SQL.
+    a. Creare un nuovo database SQL e server.
 
-    ![Portale di Azure con creazione di un nuovo database e un nuovo server per le app per dispositivi mobili][server]
+    ![Portale di Azure con applicazioni per dispositivi mobili creare server e un nuovo database][server]
 
     b. Attendere la creazione della connessione dati.
 
-    ![Notifica del completamento della creazione della connessione dati nel portale di Azure][notification]
+    ![Notifica del portale di Azure di creazione della connessione dati][notification]
 
     c. La connessione dati deve avere esito positivo.
 
-    ![Notifica "Esiste già una connessione dati" nel portale di Azure][already-connection]
+    ![Notifica del portale di Azure, "già disponibile una connessione dati"][already-connection]
 
 3. In **2. Creare un'API di tabella** selezionare Node.js per **Linguaggio back-end**. 
  
-4. Accettare l'acknowledgment e quindi selezionare **Crea tabella TodoItem**.  
-    Con questa azione viene creata una nuova tabella di attività nel database. 
+4. Accettare il riconoscimento e quindi selezionare **tabella TodoItem creare**.  
+    Questa azione crea una nuova tabella elemento attività da eseguire nel database. 
 
     >[!IMPORTANT]
-    > Il passaggio di un back-end esistente a Node.js sovrascrive tutto il contenuto. Per creare invece un back-end .NET, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure][instructions].
+    > Il passaggio di un back-end esistente a Node.js sovrascrive tutti i contenuti. Per creare invece un back-end .NET, vedere [di lavoro con il server back-end .NET SDK per App per dispositivi mobili][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

@@ -3,7 +3,7 @@ title: 'Gestire le acquisizioni di pacchetti con Azure Network Watcher: portale 
 description: "Questa pagina illustra come gestire la funzionalità di acquisizione di pacchetti di Network Watcher usando il portale di Azure"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 33390532cc4fc1129a4f960d589f41bc95e5a1ff

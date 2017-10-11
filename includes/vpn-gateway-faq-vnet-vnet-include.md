@@ -24,6 +24,10 @@ No. Le reti virtuali possono essere nelle sottoscrizioni uguale o diverse.
 
 No.
 
+### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>È possibile usare la connettività da rete virtuale a rete virtuale per connettere reti virtuali in istanze separate di Azure? 
+
+No. La connettività da rete virtuale a rete virtuale supporta la connessione di reti virtuali nella stessa istanza di Azure. Non è ad esempio possibile creare una connessione tra istanze pubbliche di Azure e istanze di Azure cinesi/tedesche/US Gov. Per questi scenari, considerare la possibilità di usare una connessione VPN da sito a sito.
+
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>È possibile usare la connessione da rete virtuale a rete virtuale insieme alle connessioni multisito?
 
 Sì. La connettività di rete virtuale può essere usata contemporaneamente con VPN multisito,

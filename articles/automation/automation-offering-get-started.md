@@ -3,7 +3,7 @@ title: Introduzione ad Automazione di Azure | Microsoft Docs
 description: Questo articolo offre una panoramica del servizio Automazione di Azure e illustra i dettagli di progettazione e implementazione per prepararsi a caricare l'offerta da Azure Marketplace.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -170,8 +170,7 @@ Il metodo consigliato per caricare Automazione prevede la selezione dell'offerta
    - Specificare un nome per la nuova **area di lavoro OMS**.
    - Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
    - Per il **gruppo di risorse**, è possibile selezionare un gruppo di risorse esistente o crearne uno.  
-   - Selezionare un **percorso**.  Le uniche località attualmente disponibili sono l'**Australia sud-orientale**, gli **Stati Uniti orientali**, l'**Asia sud-orientale**, gli **Stati Uniti centrali** e l'**Europa occidentale**.
-   - Selezionare un **Piano tariffario**.  Per la soluzione sono disponibili due livelli, quello gratuito e il livello Per nodo (OMS).  Il livello gratuito presenta un limite per la quantità di dati raccolti al giorno, il periodo di memorizzazione e i minuti di esecuzione dei processi dei runbook.  Il livello Per nodo (OMS) non ha limiti per la quantità di dati raccolti al giorno.  
+   - Selezionare un **percorso**.  Per altre informazioni, vedere le [are in cui è disponibile Automazione di Azure](https://azure.microsoft.com/regions/services/).  Le soluzioni sono offerte in due livelli, ovvero quello gratuito e il livello Per nodo (OMS).  Il livello gratuito presenta un limite per la quantità di dati raccolti al giorno, il periodo di memorizzazione e i minuti di esecuzione dei processi dei runbook.  Il livello Per nodo (OMS) non ha limiti per la quantità di dati raccolti al giorno.  
    - Selezionare **Account di Automazione**.  Se si sta creando una nuova area di lavoro OMS, viene richiesto di creare anche un account di Automazione da associare alla nuova area di lavoro OMS specificata in precedenza, nonché l'area, il gruppo di risorse e la sottoscrizione di Azure.  È possibile selezionare **Crea un account di Automazione** e specificare le informazioni seguenti nel pannello **Account di Automazione**: 
   - Nel campo **Nome** immettere il nome dell'account di Automazione.
 

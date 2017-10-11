@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: 526666301aad1e5284c621024649d9cd52c92d18
-ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-configuring-linkedin-elevate-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di LinkedIn Elevate per il provisioning automatico di utenti
 
 
@@ -48,9 +46,9 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Suggerimenti importanti per l'assegnazione di utenti a LinkedIn Elevate
 
-*    È consigliabile assegnare un singolo utente di Azure AD a LinkedIn Elevate per testare la configurazione di provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+*   È consigliabile assegnare un singolo utente di Azure AD a LinkedIn Elevate per testare la configurazione di provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-*    Quando si assegna un utente a LinkedIn Elevate, è necessario selezionare il ruolo **Utente** nella finestra di dialogo di assegnazione. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
+*   Quando si assegna un utente a LinkedIn Elevate, è necessario selezionare il ruolo **Utente** nella finestra di dialogo di assegnazione. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Configurazione del provisioning di utenti in LinkedIn Elevate
@@ -92,9 +90,9 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
 
 8) Se LinkedIn Elevate è già stato configurato per l'accesso Single Sign-On, cercare l'istanza di LinkedIn Elevate usando il campo di ricerca. Selezionare in caso contrario **Aggiungi** e cercare **LinkedIn Elevate** nella raccolta di applicazioni. Selezionare LinkedIn Elevate nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
-9)    Selezionare l'istanza di LinkedIn Elevate e quindi selezionare la scheda **Provisioning**.
+9)  Selezionare l'istanza di LinkedIn Elevate e quindi selezionare la scheda **Provisioning**.
 
-10)    Impostare **Modalità di provisioning** su **Automatico**.
+10) Impostare **Modalità di provisioning** su **Automatico**.
 
 ![Provisioning di LinkedIn Elevate](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
@@ -125,4 +123,3 @@ Verrà avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi ass
 
 * [Gestione del provisioning degli account utente per app aziendali](active-directory-enterprise-apps-manage-provisioning.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-

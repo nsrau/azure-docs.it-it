@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 922774c2482737537b64787ae473231ec1fbb68e
-ms.contentlocale: it-it
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 336b945929f80e1a566f7cf71b40fd799a98c12d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Come concedere autorizzazioni a un'applicazione personalizzata
 
 Se si vuole concedere in modo preventivo il consenso per l'app in uso o si verifica un errore che indica che non è stato fornito il consenso a un'app, seguire questa procedura.
@@ -46,4 +44,3 @@ Questa operazione consente di fornire all'applicazione il consenso per tutti gli
 [Consenso e concessione delle autorizzazioni per le app con convergenza di Azure Active Directory v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [Azure AD in Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

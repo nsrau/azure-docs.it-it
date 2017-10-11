@@ -1,6 +1,6 @@
 ---
 title: Panoramica dei dati fondamentali del bus di servizio di Azure | Microsoft Docs
-description: Introduzione all&quot;uso del bus di servizio per connettere le applicazioni Azure ad altri software.
+description: Introduzione all'uso del bus di servizio per connettere le applicazioni Azure ad altri software.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="azure-service-bus"></a>Bus di servizio di Azure

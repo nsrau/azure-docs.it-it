@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: 2dea669f03c893632c08d30feeb3173efc2d8243
-ms.contentlocale: it-it
-ms.lasthandoff: 06/24/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>Esercitazione: Integrazione di Azure Active Directory con Lucidchart
 
@@ -247,5 +245,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-lucidchart-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-lucidchart-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-lucidchart-tutorial/tutorial_general_203.png
-
 

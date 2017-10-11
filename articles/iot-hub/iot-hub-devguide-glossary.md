@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5631484bd2106ab5abff79dd3cbbf539c62bb164
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
@@ -44,7 +44,7 @@ IoT Edge consente di scrivere applicazioni che permettono ai dispositivi conness
 Sono disponibili _SDK per servizi_ per più linguaggi che consentono di creare [app back-end](#back-end-app) che interagiscono con un hub IoT. Le esercitazioni su Hub IoT illustrano come usare questi SDK per servizi. Il codice sorgente e altre informazioni sugli SDK per servizi sono disponibili in questo [repository](https://github.com/Azure/azure-iot-sdks) GitHub.
 
 ## <a name="azure-portal"></a>Portale di Azure
-Il [portale di Microsoft Azure](https://portal.azure.com) è una posizione centrale in cui è possibile effettuare il provisioning e gestire le risorse di Azure. Organizza il contenuto usando i _pannelli_. In alcune esercitazioni su Hub IoT è possibile che venga chiesto di usare il [portale di Azure classico](https://manage.windowsazure.com).
+Il [portale di Microsoft Azure](https://portal.azure.com) è una posizione centrale in cui è possibile effettuare il provisioning e gestire le risorse di Azure. Organizza il contenuto usando i _pannelli_.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) è una raccolta di cmdlet che è possibile usare per gestire Azure con Windows PowerShell. È possibile utilizzare i cmdlet per creare, testare, distribuire e gestire soluzioni e servizi offerti tramite la piattaforma Azure.

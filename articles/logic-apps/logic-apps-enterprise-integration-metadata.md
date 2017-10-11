@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ca8537a7e35e44efafb9b0a9d6ddefe069067475
-ms.openlocfilehash: de55bf7d9e68146745c90b96f280c8a71e27b2f9
-ms.contentlocale: it-it
-ms.lasthandoff: 03/02/2017
-
+ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Gestire i metadati degli elementi dagli account di integrazione per le app per la logica
 
 È possibile definire i metadati personalizzati per gli elementi negli account di integrazione e recuperarli durante il runtime per l'app per la logica. Ad esempio, è possibile specificare i metadati per elementi quali partner, contratti, schemi e mappe; in tutti i casi i metadati vengono archiviati con coppie chiave-valore. Attualmente, gli elementi non possono creare metadati tramite interfaccia utente, ma è possibile usare le API REST per creare i metadati. Per aggiungere metadati quando si crea o si seleziona un partner, un contratto o uno schema nel Portale di Azure, scegliere **Modifica come JSON**. Per recuperare i metadati degli elementi nelle app per la logica, è possibile usare la funzionalità di ricerca elemento dell'account di integrazione.
@@ -33,7 +31,7 @@ ms.lasthandoff: 03/02/2017
 
 2. Aggiungere un elemento all'account di integrazione, ad esempio, un [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), un [contratto](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) o uno [schema](logic-apps-enterprise-integration-schemas.md).
 
-3.    Selezionare l'elemento, scegliere **Modifica come JSON** e immettere i dettagli dei metadati.
+3.  Selezionare l'elemento, scegliere **Modifica come JSON** e immettere i dettagli dei metadati.
 
     ![Immettere i metadati](media/logic-apps-enterprise-integration-metadata/image1.png)
 
@@ -45,7 +43,7 @@ ms.lasthandoff: 03/02/2017
 
 3. Nella finestra di progettazione di app per la logica aggiungere un trigger come *richiesta* o *HTTP* all'app per la logica.
 
-4.    Scegliere **Passaggio successivo** > **Aggiungi un'azione**. Cercare *integrazione* in modo da trovare e quindi selezionare **Account di integrazione - Ricerca elemento dell'account di integrazione**.
+4.  Scegliere **Passaggio successivo** > **Aggiungi un'azione**. Cercare *integrazione* in modo da trovare e quindi selezionare **Account di integrazione - Ricerca elemento dell'account di integrazione**.
 
     ![Selezionare Ricerca elemento dell'account di integrazione](media/logic-apps-enterprise-integration-metadata/image2.png)
 
@@ -70,4 +68,3 @@ I metadati del partner sono caratterizzati dai seguenti dettagli `routingUrl`:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sui contratti](logic-apps-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")  
-

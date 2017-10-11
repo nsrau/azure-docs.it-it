@@ -15,14 +15,12 @@ ms.date: 07/02/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: ea97fdc8d146ed524a932018b572ceda0982738b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="enable-application-proxy-in-the-classic-portal-and-download-connectors"></a>Abilitare il proxy di applicazione nel portale classico e scaricare i connettori
 Questo articolo illustra la procedura per abilitare il proxy di applicazione di Microsoft Azure AD per la directory cloud in Azure AD.
 
@@ -97,4 +95,3 @@ Per disinstallare il connettore, disinstallare sia il servizio connettore che il
 È ora possibile [pubblicare applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md).
 
 Se sono presenti applicazioni in reti separate o posizioni diverse, è possibile usare gruppi di connettori per organizzare i diversi connettori in unità logiche. Per altre informazioni, vedere [Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori](active-directory-application-proxy-connectors.md).
-

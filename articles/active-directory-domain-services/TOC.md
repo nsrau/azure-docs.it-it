@@ -6,27 +6,26 @@
 ## [Funzionamento della sincronizzazione](active-directory-ds-synchronization.md)
 ## [Software di terze parti compatibile](active-directory-ds-compatible-software.md)
 
-# Introduzione
-## Portale di Azure (anteprima)
-### [Attività 1: Configurare le impostazioni di base](active-directory-ds-getting-started.md)
-### [Attività 2: Configurare le impostazioni di rete](active-directory-ds-getting-started-network.md)
-### [Attività 3: Configurare un gruppo di amministratori e abilitare Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
-### [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale](active-directory-ds-getting-started-dns.md)
-### [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
+# Attività iniziali
+## [Attività 1: Configurare le impostazioni di base](active-directory-ds-getting-started.md)
+## [Attività 2: Configurare le impostazioni di rete](active-directory-ds-getting-started-network.md)
+## [Attività 3: Configurare un gruppo di amministratori e abilitare Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+## [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale](active-directory-ds-getting-started-dns.md)
+## [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
 
 # Procedure
 ## Aggiungere un dominio gestito
-### [Aggiungere una VM Windows Server](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Aggiungere una VM Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Aggiungere una VM Windows tramite PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Aggiungere una VM Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Amministrare un dominio gestito
 ### [Amministrare un dominio gestito](active-directory-ds-admin-guide-administer-domain.md)
 ### [Amministrare DNS in un dominio gestito](active-directory-ds-admin-guide-administer-dns.md)
 ### Configurare l'accesso LDAP sicuro per un dominio gestito
 #### [Attività 1: Ottenere un certificato per l'accesso LDAP sicuro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Attività 2: Esportare il certificato LDAP sicuro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito tramite il portale di Azure classico](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito tramite il portale di Azure (anteprima)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito tramite il portale di Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Creare un'unità organizzativa in un dominio gestito](active-directory-ds-admin-guide-create-ou.md)
 ### [Amministrare criteri di gruppo in un dominio gestito](active-directory-ds-admin-guide-administer-group-policy.md)
@@ -38,7 +37,6 @@
 ## Risolvere problemi
 ### [Domande frequenti](active-directory-ds-faqs.md)
 ### [Guida per la risoluzione dei problemi](active-directory-ds-troubleshooting.md)
-### [Abilitare l'anteprima dell'esperienza del portale di Azure](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Risolvere gli errori relativi ai tenant non corrispondenti](active-directory-ds-mismatched-tenant-error.md)
 
 # riferimento

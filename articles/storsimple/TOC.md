@@ -36,6 +36,7 @@
 #### [Gestire i processi](storsimple-virtual-array-manage-jobs.md)
 #### [Modificare la password del dispositivo](storsimple-virtual-array-change-device-admin-password.md)
 #### [Configurare MPIO in un host Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Monitorare con gli avvisi](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnosi e risoluzione dei problemi](storsimple-virtual-array-diagnose-problems.md)
 #### [Registrare una richiesta di supporto](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [In cosa consiste la soluzione?](storsimple-overview.md)
 ### [Mappa di apprendimento per StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Considerazioni relative alla sicurezza](storsimple-8000-security.md)
+### [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md)
 
 ## Attività iniziali
 
@@ -162,6 +164,7 @@
 ##### [Creare un pacchetto per il supporto](storsimple-8000-create-manage-support-package.md)
 
 ### Migrazione
+#### [Sottoscrizioni e account di archiviazione](storsimple-8000-migrate-classic-azure-portal.md)
 #### [Da altri dispositivi di archiviazione](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Aggiornare

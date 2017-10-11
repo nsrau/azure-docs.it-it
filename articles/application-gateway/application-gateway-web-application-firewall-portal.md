@@ -3,7 +3,7 @@ title: Creare o aggiornare un gateway applicazione con un web application firewa
 description: Informazioni su come creare un gateway applicazione con un web application firewall tramite il portale
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: e747d4777bdf515e8b7bd54f44ff48b8539ed765

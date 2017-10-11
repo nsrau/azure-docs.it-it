@@ -24,9 +24,13 @@ sections:
         style: icon48
         items:
           - image:
-              src: /azure/container-instances/media/container-instances.svg
-            text: Creare l'istanza di contenitore
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: Interfaccia della riga di comando di Azure
             href: /azure/container-instances/container-instances-quickstart
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portale di Azure
+            href: /azure/container-instances/container-instances-quickstart-portal
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
@@ -43,5 +47,7 @@ sections:
         style: cards
         className: cardsD
         items:
-          - title: Interfaccia della riga di comando di Azure
-            html: <p><a href="/cli/azure/container">Interfaccia della riga di comando di Azure 2.0</a></p>
+          - title: Riga di comando
+            html: '<p><a href="/cli/azure/container">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/container-instances">Informazioni di riferimento sulle API REST</a></p>

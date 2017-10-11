@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5db1a6f8b3ff0369817e69abaa4d95af843cd7f2
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: fd687bb74a22b0483225c509171edaa67f1c49d4
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-connect-to-data-sources"></a>Come connettersi a origini dati
 ## <a name="introduction"></a>Introduzione
@@ -70,4 +69,3 @@ La registrazione di un'origine dati con il **Azure Data Catalog** rende più sem
 
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione ad Azure Data Catalog](data-catalog-get-started.md) .
-

@@ -3,7 +3,7 @@ title: Ruoli di lavoro ibridi per runbook di Automazione di Azure | Microsoft Do
 description: "Questo articolo fornisce informazioni sull'installazione e l'uso di Hybrid Runbook Workers, una funzionalità di Automazione di Azure che consente di eseguire i runbook nei computer del centro dati locale o del provider cloud."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee

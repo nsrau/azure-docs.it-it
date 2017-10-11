@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
 ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
+ms.contentlocale: it-it
 ms.lasthandoff: 04/10/2017
-
 
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Introduzione al connettore webhook

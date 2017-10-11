@@ -17,10 +17,10 @@ ms.date: 08/09/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: ed5284b5a265840c43dbc9890082a7c038d22975
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: c62520846ebdc102204e42b50e52383167c6aa14
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Creare un'applicazione Web Python Flask con Azure Cosmos DB
@@ -48,12 +48,11 @@ Seguendo questa esercitazione, si creerà una semplice applicazione di voto che 
 ## <a name="database-tutorial-prerequisites"></a>Prerequisiti per l'esercitazione del database
 Prima di seguire le istruzioni di questo articolo, verificare che siano disponibili i seguenti elementi:
 
-* Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
- 
-    OPPURE 
+* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-    Un'installazione locale dell'[emulatore Azure Cosmos DB](local-emulator.md).
-* [Microsoft Visual Studio Community 2017](http://www.visualstudio.com/).  
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.  
 * [Python Tools for Visual Studio](https://github.com/Microsoft/PTVS/).  
 * [Microsoft Azure SDK per Python 2.7](https://azure.microsoft.com/downloads/). 
 * [Python 2.7.13](https://www.python.org/downloads/windows/). 

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 873df52da976597ddfaa8f777b90382bfa7723fc
-ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
-ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 67bcb3c7fe33341103f28bc70e8cc2acbb924cae
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-shard-querying"></a>Esecuzione di query su più partizioni
 ## <a name="overview"></a>Panoramica
@@ -77,5 +75,4 @@ Le query su più partizioni non verificano se gli shardlet presenti nel database
 Classi e metodi **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)**.
 
 Gestire le partizioni con la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Comprende uno spazio dei nomi denominato [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx), che consente di eseguire query su più partizioni usando una singola query con un unico risultato. Fornisce l'astrazione delle query su una raccolta di partizioni, nonché criteri di esecuzione alternativi, in particolare risultati parziali, per la gestione degli errori quando si eseguono query su molte partizioni.  
-
 

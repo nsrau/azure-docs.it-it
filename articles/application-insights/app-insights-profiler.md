@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ddfed2be315ae261e9c3015aa21d0b44405d6109
 ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Profilatura delle app Web di Azure attive con Application Insights
@@ -25,7 +25,7 @@ ms.lasthandoff: 06/29/2017
 
 Determinare il tempo impiegato in ogni metodo nell'applicazione Web attiva usando lo strumento di profilatura di [Azure Application Insights](app-insights-overview.md). Consente di visualizzare profili dettagliati delle richieste attive che sono state servite dall'app ed evidenzia il 'percorso ricorrente' che usa più tempo. Seleziona automaticamente esempi con tempi di risposta diversi. Il profiler usa varie tecniche per ridurre il sovraccarico.
 
-Il profiler è valido attualmente solo per le applicazioni Web ASP.NET in esecuzione nel Servizio app di Azure, in almeno il piano tariffario Basic. 
+Il profiler è valido attualmente solo per le applicazioni Web ASP.NET in esecuzione nel Servizio app di Azure, in almeno il piano tariffario Basic.
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Abilitare il profiler
@@ -50,6 +50,7 @@ Usare i pulsanti *Enable Profiler* (Abilita profiler) o *Disable Profiler* (Disa
 
 ![Pannello Configura][linked app services]
 
+## <a name="disable-the-profiler"></a>Disabilitare Profiler
 Per arrestare o riavviare il profiler per una singola istanza del servizio app, è possibile trovarlo nella **risorsa del servizio app** in **Processi Web**. Per eliminarlo, cercare in **Estensioni**.
 
 ![Disabilitare il profiler per un processo Web][disable-profiler-webjob]
@@ -65,11 +66,17 @@ Quando si [abilita Application Insights per i servizi app di Azure in fase di es
 Esiste una [versione di anteprima del profiler per le risorse di calcolo di Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
-## <a name="limits"></a>Limiti
+## <a name="limitations"></a>Limitazioni
 
 La conservazione predefinita dei dati è di 5 giorni. Massimo 10 GB inseriti al giorno.
 
 Non è previsto alcun addebito per il servizio profiler. L'app Web deve essere ospitata almeno al livello di base dei servizi app.
+
+## <a name="overhead-and-sampling-algorithm"></a>Overhead e algoritmo di campionamento
+
+Il profiler viene eseguito in modo casuale per 2 minuti ogni ora in ogni macchina virtuale che ospita l'applicazione con il profiler abilitato per acquisire le tracce. Quando il profiler è in esecuzione, aggiunge al server tra il 5 e il 15% di overhead della CPU.
+Maggiore è il numero di server disponibili per ospitare l'applicazione, minore l'impatto del profiler sulle prestazioni complessive dell'applicazione. Questo accade perché l'algoritmo di campionamento fa sì che il profiler venga eseguito in qualsiasi momento solo sul 5% dei server e un maggior numero di server sarà disponibile per elaborare le richieste Web di scartare i server con overhead dal profiler.
+
 
 ## <a name="viewing-profiler-data"></a>Visualizzazione dei dati del profiler
 
@@ -85,9 +92,13 @@ Le colonne nella tabella sono:
 * **Conteggio**: il numero di queste richieste nell'intervallo di tempo del pannello.
 * **Mediana**: il tempo tipico che l'app impiega per rispondere a una richiesta. La metà di tutte le risposte è più veloce rispetto a questo valore.
 * **95° percentile**: il 95% delle risposte ha una velocità superiore rispetto a questo valore. Se questo valore è molto diverso da quello mediano, potrebbe essersi verificato un problema intermittente con l'app. In alternativa la causa potrebbe essere una funzione di progettazione, ad esempio la memorizzazione nella cache.
-* **Esempi**: un'icona indica che il profiler ha acquisito le analisi dello stack per questa operazione.
+* **Tracce Profiler**: un'icona indica che il profiler ha acquisito le analisi dello stack per questa operazione.
 
-Fare clic sull'icona degli esempi per aprire l'Explorer di analisi, che mostra alcuni esempi acquisiti dal profiler, classificati in base al tempo di risposta.
+Fare clic sul pulsante Visualizza per aprire l'Explorer di analisi, che mostra alcuni esempi acquisiti dal profiler, classificati in base al tempo di risposta.
+
+Se si usa il pannello di anteprima delle prestazioni, passare alla sezione **Take Actions** (Esegui azioni) nell'angolo inferiore destro per visualizzare le tracce del profiler. Fare clic sul pulsante Tracce Profiler.
+
+![Pannello di anteprima delle prestazioni per Tracce Profiler in Application Insights][performance-blade-v2-examples]
 
 Selezionare un esempio per mostrare i dettagli a livello di codice del tempo impiegato per l'esecuzione della richiesta.
 
@@ -152,6 +163,10 @@ Si tratta di una visualizzazione della variazione nel tempo degli esempi INCLUSI
 
 ## <a id="troubleshooting"></a>Risoluzione dei problemi
 
+### <a name="too-many-active-profiling-sessions"></a>Troppe sessioni di profilatura attive
+
+È attualmente possibile abilitare il profiler su un massimo di 4 app Web di Azure e di slot di distribuzione in esecuzione nello stesso piano di servizio. Se il processo Web del profiler segnala un numero eccessivo di sessioni di profilatura attive, è necessario spostare alcune app Web in un piano di servizio diverso.
+
 ### <a name="how-can-i-know-whether-application-insights-profiler-is-running"></a>Come è possibile verificare se il profiler di Application Insights è in esecuzione?
 
 Il profiler viene eseguito come processo Web continuo in App Web. È possibile aprire la risorsa App Web in https://portal.azure.com e controllare lo stato di "ApplicationInsightsProfiler" nel pannello dei processi Web. Se non è in esecuzione, aprire **Log** per altre informazioni.
@@ -192,6 +207,18 @@ Quando sono presenti thread in parallelo nelle analisi, è necessario determinar
 
 Archiviare un ticket di supporto dal portale. Includere l'ID di correlazione dal messaggio di errore.
 
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Errore di distribuzione Directory non vuota 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+
+Se si intende ridistribuire l'app Web a una risorsa di Servizi app con il profiler abilitato, può essere visualizzato un errore simile al seguente: Directory non vuota 'D:\\home\\site\\wwwroot\\App_Data\\jobs'. Questo errore viene generato se si esegue Distribuzione Web da script o nella pipeline di distribuzione di Visual Studio Team Services.
+Per risolvere questo problema aggiungere i seguenti parametri di distribuzione all'attività di Distribuzione Web:
+
+```
+-skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
+```
+
+Ciò elimina la cartella usata da App Insights Profiler e sblocca il processo di ridistribuzione. Non ha impatto sull'istanza del profiler attualmente in esecuzione.
+
+
 ## <a name="manual-installation"></a>Installazione manuale
 
 Quando si configura il profiler, gli aggiornamenti seguenti vengono eseguiti nelle impostazioni dell'App Web. È possibile eseguire queste operazioni manualmente se l'ambiente lo richiede, ad esempio se l'applicazione viene eseguita nell'ambiente del servizio app di Azure:
@@ -216,6 +243,7 @@ L'applicazione ASP.NET Core deve installare il pacchetto NuGet Microsoft.Applica
 
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
+[performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
 [trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
 [trace-explorer-toolbar]: ./media/app-insights-profiler/trace-explorer-toolbar.png
 [trace-explorer-hint-tip]: ./media/app-insights-profiler/trace-explorer-hint-tip.png

@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
 ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Invio di notifiche push ad Android con Hub di notifica di Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -59,7 +59,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 A questo punto, l'hub di notifica è configurato per l'uso con GCM e sono disponibili le stringhe di connessione per registrare l'app per l'invio e la ricezione di notifiche push.
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Connettere l'app all'hub di notifica
+## <a id="connecting-app"></a>Connettere l'app all'hub di notifica
 ### <a name="create-a-new-android-project"></a>Creare un nuovo progetto Android
 1. In Android Studio avviare un nuovo progetto Android Studio.
    
@@ -669,9 +669,3 @@ Per altre informazioni generali sull'uso di Hub di notifica, vedere [Hub di noti
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [portale di Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

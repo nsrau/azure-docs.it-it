@@ -1,0 +1,84 @@
+- name: Panoramica della gestione dell'accesso
+  href: manage-access-to-azure-resources.md
+- name: Accesso alle risorse in Azure
+  href: active-directory-understanding-resource-access.md
+- name: Controllo degli accessi in base al ruolo
+  href: role-based-access-control-what-is.md
+  items:
+    - name: Gestire le assegnazioni di accesso
+      items:
+        - name: Per utente
+          href: role-based-access-control-manage-assignments.md
+        - name: Per risorsa
+          href: role-based-access-control-configure.md
+    - name: Ruoli predefiniti
+      href: role-based-access-built-in-roles.md
+    - name: Ruoli personalizzati
+      href: role-based-access-control-custom-roles.md
+    - name: Assegnare ruoli personalizzati per utenti interni ed esterni
+      href: role-based-access-control-create-custom-roles-for-internal-external-users.md
+    - name: Creazione di report
+      href: role-based-access-control-access-change-history-report.md
+    - name: Altri modi per gestire i ruoli
+      items:
+        - name: Con l'interfaccia della riga di comando di Azure
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: Con PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: Con REST
+          href: role-based-access-control-manage-access-rest.md
+    - name: Elevare l'accesso al tenant con privilegi di amministratore
+      href: role-based-access-control-tenant-admin-access.md
+    - name: Risoluzione dei problemi
+      href: role-based-access-control-troubleshooting.md
+    - name: Operazioni del provider di risorse
+      href: role-based-access-control-resource-provider-operations.md
+- name: Privileged Identity Management (PIM) per il controllo degli accessi in base al ruolo
+  href: pim-azure-resource.md
+- name: Accesso condizionale per la gestione di Azure
+  href: conditional-access-azure-management.md
+- name: Identità dei servizi gestiti
+  href: msi-overview.md
+  items:
+    - name: Come accedere o acquisire un token
+      href: msi-how-to-get-access-token-using-msi.md
+    - name: Configurare MSI per macchine virtuali di Azure
+      items:
+        - name: Con il portale di Azure
+          href: msi-qs-configure-portal-windows-vm.md
+        - name: Con PowerShell
+          href: msi-qs-configure-powershell-windows-vm.md
+        - name: Con l'interfaccia della riga di comando di Azure
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: Con un modello di Azure Resource Manager
+          href: msi-qs-configure-template-windows-vm.md
+        - name: Con Azure SDK
+          href: msi-qs-configure-sdk-windows-vm.md
+    - name: Assegnare un accesso tramite MSI a una risorsa di Azure
+      items:
+        - name: Con il portale di Azure
+          href: msi-howto-assign-access-portal.md
+        - name: Con PowerShell
+          href: msi-howto-assign-access-powershell.md
+        - name: Con l'interfaccia della riga di comando di Azure
+          href: msi-howto-assign-access-cli.md
+    - name: Usare MSI per accedere ad Azure Resource Manager
+      items:
+        - name: Con una VM Windows
+          href: msi-tutorial-windows-vm-access-arm.md
+        - name: Con una VM Linux
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Usare MSI per accedere all'archiviazione di Azure
+      items:
+        - name: Con una VM Windows
+          href: msi-tutorial-windows-vm-access-storage.md
+        - name: Con una VM Linux
+          href: msi-tutorial-linux-vm-access-storage.md
+    - name: Usare MSI per accedere a una risorsa non di Azure AD
+      items:
+        - name: Con una VM Windows
+          href: msi-tutorial-windows-vm-access-nonaad.md
+        - name: Con una VM Linux
+          href: msi-tutorial-linux-vm-access-nonaad.md
+    - name: Domande frequenti e problemi noti
+      href: msi-known-issues.md

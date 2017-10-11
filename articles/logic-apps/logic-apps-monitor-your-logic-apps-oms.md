@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 0e9f0ef3c87b5c0da1cc4ad16d37178c8f5c9625
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -133,7 +133,7 @@ Se Log Analytics è già stato attivato al momento della creazione dell'app per 
      ![Visualizzare azioni e i dettagli per un'esecuzione dell'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
 
      Nella pagina di Azure Log Analytics è possibile aggiornare le query e visualizzare i risultati dalla tabella. 
-     Questa query usa [il linguaggio di query Kusto](https://docs.loganalytics.io/learn/tutorials/getting_started_with_queries.html), che può essere modificato se si preferisce visualizzare risultati diversi. 
+     Questa query usa [il linguaggio di query Kusto](https://docs.loganalytics.io/docs/Language-Reference), che può essere modificato se si preferisce visualizzare risultati diversi. 
 
      ![Azure Log Analytics - Visualizzazione Query](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

@@ -19,7 +19,6 @@ ms.openlocfilehash: f6ed2d362f7b027bfdc38ba2fdaa03948ff5632c
 ms.contentlocale: it-it
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>Esercitazione: Integrazione di Azure Active Directory con JobScore
 

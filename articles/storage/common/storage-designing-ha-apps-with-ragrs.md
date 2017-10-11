@@ -3,7 +3,7 @@ title: "Progettazione di applicazioni a disponibilità elevata con l'archiviazio
 description: "Informazioni su come usare l'archiviazione RA-GRS di Azure per progettare un'applicazione a disponibilità elevata con flessibilità sufficiente per la gestione delle interruzioni."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
@@ -12,52 +12,61 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
-ms.author: robinsh
+ms.date: 9/06/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: c52065ea02c0d755ccd96532ac2aba060ee0c94e
-ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 57f458770ea5d57b4c155adf4fa793867f392c3b
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
 
-Una funzionalità comune delle infrastrutture basate su cloud è che offrono una piattaforma a disponibilità elevata per l'hosting di applicazioni. Gli sviluppatori di applicazioni basate su cloud devono valutare attentamente il modo in cui sfruttare questa piattaforma per fornire applicazioni a disponibilità elevata agli utenti. Questo articolo è incentrato specificamente sul modo in cui gli sviluppatori possono usare l'archiviazione con ridondanza geografica e accesso in lettura di Azure (RA-GRS) per aumentare la disponibilità delle applicazioni.
+Una funzionalità comune delle infrastrutture basate su cloud come Archiviazione di Azure è che offrono una piattaforma a disponibilità elevata per l'hosting di applicazioni. Gli sviluppatori di applicazioni basate su cloud devono valutare attentamente il modo in cui sfruttare questa piattaforma per fornire applicazioni a disponibilità elevata agli utenti. Questo articolo è incentrato sul modo in cui gli sviluppatori possono usare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) per garantire la disponibilità elevata delle applicazioni di Archiviazione di Azure.
 
-Sono disponibili quattro opzioni di ridondanza: archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). Questo articolo tratta l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. Con l'archiviazione con ridondanza geografica, vengono mantenute tre copie dei dati nell'area primaria selezionata durante la configurazione dell'account di archiviazione. Altre tre copie vengono mantenute in modo asincrono in un'area secondaria specificata da Azure. L'archiviazione con ridondanza geografica e accesso in lettura è uguale all'archiviazione con ridondanza geografica, fatta eccezione per l'accesso in lettura alla copia secondaria. Per altre informazioni sulle opzioni di ridondanza di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy). L'articolo sulla replica illustra anche le associazioni tra aree primarie e secondarie.
+Archiviazione di Azure offre quattro scelte per la ridondanza dei dati nell'account di archiviazione:
+
+Archiviazione con ridondanza locale (LRS)
+- Archiviazione con ridondanza della zona (ZRS) 
+- Archiviazione con ridondanza geografica (GRS)
+- Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) 
+
+Questo articolo è incentrato sull'archiviazione con ridondanza geografica (GRS) e su quella con ridondanza geografica e accesso in lettura (RA-GRS). Con l'archiviazione con ridondanza geografica, vengono mantenute tre copie dei dati nell'area primaria selezionata durante la configurazione dell'account di archiviazione. Altre tre copie vengono mantenute in modo asincrono in un'area secondaria specificata da Azure. L'archiviazione con ridondanza geografica e accesso in lettura è uguale all'archiviazione con ridondanza geografica, fatta eccezione per l'accesso in lettura alla copia secondaria. Per altre informazioni sulle opzioni di ridondanza di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-redundancy). L'articolo sulla replica illustra anche le associazioni tra aree primarie e secondarie.
 
 Questo articolo include frammenti di codice e un collegamento a un esempio completo alla fine che è possibile scaricare ed eseguire.
 
 ## <a name="key-features-of-ra-grs"></a>Funzionalità principali dell'archiviazione con ridondanza geografica e accesso in lettura
 
-Prima di descrivere come usare l'archiviazione con ridondanza geografica e accesso in lettura, verranno esaminati il comportamento e le proprietà.
+Tener conto dei punti chiave seguenti quando si progetta un'applicazione per l'archiviazione con ridondanza geografica e accesso in lettura:
 
 * Archiviazione di Azure conserva in un'area secondaria una copia di sola lettura dei dati archiviati nell'area primaria. Come indicato in precedenza, il servizio di archiviazione determina la posizione dell'area secondaria.
 
 * La copia di sola lettura ha [coerenza finale](https://en.wikipedia.org/wiki/Eventual_consistency) con i dati dell'area primaria.
 
-* Per BLOB, tabelle e code è possibile eseguire query nell'area secondaria per trovare un valore *Ora ultima sincronizzazione* che indica quando è stata eseguita l'ultima replica dall'area primaria all'area secondaria. Questa operazione non è supportata per Archiviazione file di Azure, che non ha attualmente l'archiviazione con ridondanza geografica e accesso in lettura.
+* Per BLOB, tabelle e code è possibile eseguire query nell'area secondaria per trovare un valore *Ora ultima sincronizzazione* che indica quando è stata eseguita l'ultima replica dall'area primaria all'area secondaria. Questa operazione non è supportata per File di Azure, che non ha attualmente l'archiviazione con ridondanza geografica e accesso in lettura.
 
 * È possibile usare la libreria client di archiviazione per interagire con i dati nell'area primaria o secondaria. È anche possibile reindirizzare automaticamente le richieste di lettura all'area secondaria in caso di timeout della richiesta di lettura per l'area primaria.
 
 * Se si verifica un problema grave che interessa l'accessibilità dei dati nell'area primaria, il team di Azure può attivare un failover geografico; le voci DNS che puntano all'area primaria verranno quindi modificate per puntare all'area secondaria.
 
-* Se si verifica un failover geografico, Azure selezionerà una nuova posizione secondaria e replicherà i dati in tale posizione, puntandovi quindi le voci DNS secondarie. L'endpoint secondario non sarà disponibile fino al termine della replica dell'account di archiviazione. Per altre informazioni, vedere [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-disaster-recovery-guidance).
+* Se si verifica un failover geografico, Azure selezionerà una nuova posizione secondaria e replicherà i dati in tale posizione, puntandovi quindi le voci DNS secondarie. L'endpoint secondario non sarà disponibile fino al termine della replica dell'account di archiviazione. Per altre informazioni, vedere [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>Considerazioni sulla progettazione di applicazioni quando si usa l'archiviazione con ridondanza geografica e accesso in lettura
 
-Lo scopo principale di questo articolo è illustrare come progettare un'applicazione che continuerà a funzionare anche nel caso di emergenza grave nel data center primario, anche se con capacità limitata. A tale scopo, configurare l'applicazione in modo che gestisca problemi temporanei o prolungati passando alla lettura dell'area secondaria mentre il problema è presente e tornando all'area primaria quando questa è nuovamente disponibile.
+Lo scopo di questo articolo è illustrare come progettare un'applicazione che continuerà a funzionare anche nel caso di un'emergenza grave nel data center primario, anche se con capacità limitata. È possibile progettare l'applicazione in modo che gestisca problemi temporanei o prolungati passando alla lettura dall'area secondaria in caso di problemi che interferiscono con la lettura dall'area primaria. Quando l'area primaria è nuovamente disponibile, l'applicazione può tornare alla lettura dall'area primaria.
 
 ### <a name="using-eventually-consistent-data"></a>Uso di dati con coerenza finale
 
-Questa soluzione proposta presuppone che sia accettabile restituire eventuali dati non aggiornati all'applicazione chiamante. Poiché i dati secondari hanno coerenza finale, è possibile che i dati siano stati scritti nell'area primaria, ma che la replica dell'aggiornamento nell'area secondaria non fosse ancora terminata quando l'area primaria è diventata inaccessibile.
+La soluzione proposta presuppone che sia accettabile restituire dati potenzialmente non aggiornati all'applicazione chiamante. Poiché i dati nell'area secondaria hanno coerenza finale, è possibile che l'area primaria diventi inaccessibile prima del termine della replica di un aggiornamento nell'area secondaria.
 
-È ad esempio possibile che il cliente invii un aggiornamento completato correttamente, ma che successivamente l'area primaria diventi non disponibile prima che l'aggiornamento venga propagato all'area secondaria. In questo caso, se il cliente chiede di leggere nuovamente i dati riceverà dati non aggiornati al posto di quelli aggiornati. È necessario stabilire se ciò sia accettabile e in tal caso come informare il cliente. Più avanti nell'articolo verrà illustrato come verificare l'ora dell'ultima sincronizzazione sui dati secondari per determinare se l'area secondaria è aggiornata.
+Si supponga ad esempio che un cliente invii un aggiornamento completato correttamente, ma che l'area primaria diventi non disponibile prima che l'aggiornamento venga propagato all'area secondaria. Quando il cliente chiede di leggere nuovamente i dati, riceverà dati non aggiornati dall'area secondaria al posto di quelli aggiornati. Quando si progetta un'applicazione, è necessario stabilire se ciò sia accettabile e, in tal caso, come informare il cliente. 
+
+Più avanti nell'articolo verrà illustrato come controllare l'ora dell'ultima sincronizzazione per i dati secondari per verificare se l'area secondaria è aggiornata.
 
 ### <a name="handling-services-separately-or-all-together"></a>Gestione separata o collettiva dei servizi
 
-Anche se improbabile, è possibile che un servizio diventi indisponibile mentre gli altri servizi rimangono pienamente funzionali. È possibile gestire i tentativi e la modalità di sola lettura per ogni servizio separatamente (BLOB, code, tabelle) oppure gestire i tentativi in modo generico e collettivamente per tutti i servizi di archiviazione.
+Anche se improbabile, è possibile che un servizio diventi non disponibile mentre gli altri servizi rimangono pienamente funzionali. È possibile gestire i tentativi e la modalità di sola lettura per ogni servizio separatamente (BLOB, code, tabelle) oppure gestire i tentativi in modo generico e collettivamente per tutti i servizi di archiviazione.
 
 Se ad esempio si usano code e BLOB nell'applicazione, si può decidere di inserire codice separato per gestire gli errori non irreversibili per ognuno di essi. Se quindi si riceve un tentativo dal servizio BLOB, ma il servizio di accodamento funziona ancora, sarà interessata solo la parte dell'applicazione che gestisce i BLOB. Se si decide di gestire tutti i tentativi dei servizi di archiviazione in modo generico e una chiamata al servizio BLOB restituisce un errore non irreversibile, saranno interessate le richieste al servizio BLOB e le richieste al servizio di accodamento.
 
@@ -75,11 +84,11 @@ Di seguito sono indicate le altre considerazioni che verranno illustrate nella p
 
 ## <a name="running-your-application-in-read-only-mode"></a>Esecuzione dell'applicazione in modalità di sola lettura
 
-Per usare l'archiviazione con ridondanza geografica e accesso in lettura si devono poter gestire sia le richieste di lettura non riuscite che le richieste di aggiornamento non riuscite. In questo caso, per "aggiornamento" si intendono inserimenti, aggiornamenti ed eliminazioni. In caso di errore del data center primario, le richieste di lettura possono essere reindirizzate al data center secondario, ma questa operazione non può essere eseguita per le richieste di aggiornamento perché il data center secondario è di sola lettura. Per questo motivo è necessario un modo per eseguire l'applicazione in modalità di sola lettura.
+Per usare l'archiviazione con ridondanza geografica e accesso in lettura si devono poter gestire sia le richieste di lettura non riuscite che le richieste di aggiornamento non riuscite. In questo caso, per "aggiornamento" si intendono inserimenti, aggiornamenti ed eliminazioni. In caso di errore del data center primario, le richieste di lettura possono essere reindirizzate al data center secondario. Le richieste di aggiornamento non possono essere tuttavia reindirizzate al data center secondario poiché è di sola lettura. Per questo motivo, è necessario progettare l'applicazione per l'esecuzione in modalità di sola lettura.
 
-È ad esempio possibile impostare un flag che verrà verificato prima di inviare le richieste di aggiornamento al servizio di archiviazione. Alla ricezione di una delle richieste di aggiornamento, è possibile ignorare la richiesta e restituire una risposta appropriata al cliente. È anche possibile disabilitare completamente determinate funzionalità finché il problema è risolto e informare gli utenti che tali funzionalità sono temporaneamente non disponibili.
+È ad esempio possibile impostare un flag che viene verificato prima che le richieste di aggiornamento siano inviate ad Archiviazione di Azure. Alla ricezione di una delle richieste di aggiornamento, è possibile ignorare la richiesta e restituire una risposta appropriata al cliente. È anche possibile disabilitare completamente determinate funzionalità finché il problema è risolto e informare gli utenti che tali funzionalità sono temporaneamente non disponibili.
 
-Se si decide di gestire gli errori separatamente per ogni servizio, è anche necessario gestire la possibilità di eseguire l'applicazione in modalità di sola lettura per ogni servizio. È possibile abilitare o disabilitare flag di sola lettura per ogni servizio e gestire il flag appropriato nel punto corrispondente del codice.
+Se si decide di gestire gli errori separatamente per ogni servizio, è anche necessario gestire la possibilità di eseguire l'applicazione in modalità di sola lettura per ogni servizio. Ad esempio, è possibile abilitare o disabilitare flag di sola lettura per ogni servizio e gestire il flag nei punti appropriati del codice.
 
 La possibilità di eseguire l'applicazione in modalità di sola lettura offre un altro vantaggio: consente di garantire funzionalità limitate durante un aggiornamento principale dell'applicazione. È possibile impostare l'applicazione in modo che venga eseguita in sola lettura e punti al data center secondario, impedendo così l'accesso ai dati nell'area primaria durante gli aggiornamenti.
 
@@ -145,7 +154,7 @@ La soglia degli errori usata per determinare quando passare alla modalità di so
 
 Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativi nell'area primaria per determinare quando passare all'area secondaria e attivare la modalità di sola lettura per l'applicazione.
 
-*   Aggiungere un gestore per l'evento [**Retrying** ](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) nell'oggetto [ **OperationContext** ](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.aspx) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
+*   Aggiungere un gestore per l'evento [**Retrying** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) nell'oggetto [ **OperationContext** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -156,7 +165,7 @@ Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativ
     };
     ```
 
-*   Nel metodo [**Evaluate**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) in un criterio di tentativi personalizzato è possibile eseguire codice personalizzato ogni volta che viene eseguito un tentativo. Oltre a registrare l'esecuzione di un tentativo, il metodo consente di modificare il comportamento dei tentativi.
+*   Nel metodo [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) in un criterio di tentativi personalizzato è possibile eseguire codice personalizzato ogni volta che viene eseguito un tentativo. Oltre a registrare l'esecuzione di un tentativo, il metodo consente di modificare il comportamento dei tentativi.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -164,12 +173,12 @@ Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativ
     {
         var statusCode = retryContext.LastRequestResult.HttpStatusCode;
         if (retryContext.CurrentRetryCount >= this.maximumAttempts
-        || ((statusCode &gt;= 300 && statusCode &lt; 500 && statusCode != 408)
-        || statusCode == 501 // Not Implemented
-        || statusCode == 505 // Version Not Supported
+            || ((statusCode >= 300 && statusCode < 500 && statusCode != 408)
+            || statusCode == 501 // Not Implemented
+            || statusCode == 505 // Version Not Supported
             ))
         {
-        // Do not retry
+            // Do not retry
             return null;
         }
 
@@ -232,7 +241,7 @@ Se le soglie per il passaggio dell'applicazione alla modalità di sola lettura s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sull'archiviazione con ridondanza geografica e accesso in lettura, incluso un altro esempio di impostazione di LastSyncTime, vedere [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Opzioni di ridondanza di archiviazione di Windows Azure e archiviazione con ridondanza geografica e accesso in lettura).
+* Per altre informazioni sull'archiviazione con ridondanza geografica e accesso in lettura, incluso un altro esempio di impostazione di LastSyncTime, vedere [Windows Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Opzioni di ridondanza di Archiviazione di Microsoft Azure e archiviazione con ridondanza geografica e accesso in lettura).
 
 * Per un esempio completo che illustra come attivare il passaggio dall'endpoint primario all'endpoint secondario e viceversa, vedere [Esempi di Azure: uso del modello a interruttore con l'archiviazione con ridondanza geografica e accesso in lettura](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
 

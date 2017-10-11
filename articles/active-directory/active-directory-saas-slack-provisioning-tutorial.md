@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3c339de98250f43c71f7dd9706888c6715ca2ef
-ms.openlocfilehash: e39f2202e83cdf66b85f1cc02a9320ec9e31472e
-ms.contentlocale: it-it
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 3cb49a4abb26c34a938c963c4cf326b5ccd490de
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Slack per il provisioning utenti automatico
 
 
@@ -116,4 +114,3 @@ Verrà così eseguita la sincronizzazione completa da Azure AD a Slack di tutti 
 
 * [Gestione del provisioning degli account utente per app aziendali](active-directory-enterprise-apps-manage-provisioning.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-

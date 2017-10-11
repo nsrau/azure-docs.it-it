@@ -17,14 +17,12 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: sasubram
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: dfef32c05af157ae8d3a5434016f87f488a35051
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Linee guida sulla Collaborazione B2B di Azure Active Directory
 
 È possibile usare le funzionalità di Collaborazione B2B di Azure AD per invitare utenti guest nel tenant di Azure AD e consentire a tali utenti di accedere ai servizi di Azure AD e ad altre risorse dell'organizzazione. Se si vuole fornire l'accesso alle funzionalità a pagamento di Azure AD, gli utenti guest di Collaborazione B2B devono avere le licenze appropriate di Azure AD. 
@@ -86,4 +84,3 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2017
+ms.date: 09/25/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d9849b5e061dd7f2ae0744a3522dc2eb1fb37035
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 84bddd0cb6e53786d3aafb3f7acde34b7e19f83b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -120,22 +120,22 @@ Se il file non è ancora disponibile, attendere ancora qualche minuto che cloud-
 Aprire un Web browser e passare a `http://<publicIps>:8080`. Completare la configurazione iniziale di Jenkins come segue:
 
 - Immettere la password *initialAdminPassword* ottenuta dalla macchina virtuale nel passaggio precedente.
-- Fare clic su **Select plugins to install** (Seleziona plug-in da installare).
+- Scegliere **Select plugins to install** (Selezionare il plug-in da installare)
 - Cercare *GitHub* nella casella di testo nella parte superiore, selezionare il *plug-in GitHub* e quindi fare clic su **Install** (Installa).
 - Per creare un account utente di Jenkins, compilare il modulo secondo le esigenze. Dal punto di vista della sicurezza, è consigliabile creare questo primo utente Jenkins anziché continuare con l'account amministratore predefinito.
-- Al termine, fare clic su **Start using Jenkins** (Inizia a usare Jenkins).
+- Al termine, selezionare **Start using Jenkins** (Inizia a usare Jenkins).
 
 
 ## <a name="create-github-webhook"></a>Creare webhook di GitHub
-Per configurare l'integrazione con GitHub, aprire l'[app di esempio Node.js Hello World](https://github.com/Azure-Samples/nodejs-docs-hello-world) dal repository di esempi di Azure. Per creare il fork del repository nel proprio account GitHub, fare clic sul pulsante **Fork** nell'angolo superiore destro.
+Per configurare l'integrazione con GitHub, aprire l'[app di esempio Node.js Hello World](https://github.com/Azure-Samples/nodejs-docs-hello-world) dal repository di esempi di Azure. Per creare il fork del repository nel proprio account GitHub, selezionare il pulsante **Fork** nell'angolo superiore destro.
 
 Creare un webhook all'interno del fork creato:
 
-- Fare clic su **Settings** (Impostazioni) e quindi selezionare **Integrations & services** (Integrazioni e servizi) sul lato sinistro.
-- Fare clic su **Add service** (Aggiungi servizio) e quindi immettere *Jenkins* nella casella del filtro.
+- Selezionare **Settings** (Impostazioni) e quindi **Integrations & services** (Integrazioni e servizi) sul lato sinistro.
+- Scegliere **Add service** (Aggiungi servizio) e quindi immettere *Jenkins* nella casella del filtro.
 - Selezionare *Jenkins (GitHub plugin)* (Jenkins (plug-in GitHub)).
 - In **Jenkins hook URL** (URL hook Jenkins) immettere `http://<publicIps>:8080/github-webhook/`. Assicurarsi di includere la barra finale (/).
-- Fare clic su **Add service** (Aggiungi servizio).
+- Selezionare **Add service** (Aggiungi servizio)
 
 ![Aggiunta del webhook di GitHub al repository con fork](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -143,28 +143,28 @@ Creare un webhook all'interno del fork creato:
 ## <a name="create-jenkins-job"></a>Creare un processo di Jenkins
 Per fare in modo che Jenkins risponda a un evento in GitHub, ad esempio l'esecuzione del commit di codice, creare un processo di Jenkins. 
 
-Nel sito Web di Jenkins fare clic su **Create new jobs** (Crea nuovi processi) dalla home page:
+Nel sito Web di Jenkins selezionare **Create new jobs** (Crea nuovi processi) dalla home page:
 
 - Immettere *HelloWorld* come nome del processo. Scegliere **Freestyle project** (Progetto Freestyle) e quindi selezionare **OK**.
 - Nella sezione **General** (Generale) selezionare il progetto **GitHub** e immettere l'URL del repository con fork, ad esempio *https://github.com/iainfoulds/nodejs-docs-hello-world*.
 - Nella sezione **Source code management** (Gestione del codice sorgente) selezionare **Git** e immettere l'URL *.git* del repository con fork, ad esempio *https://github.com/iainfoulds/nodejs-docs-hello-world.git*.
 - Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
 - Nella sezione **Build** (Compilazione) scegliere **Add build step** (Aggiungi istruzione di compilazione). Selezionare **Execute shell** (Esegui shell) e quindi immettere `echo "Testing"` nella finestra di comando.
-- Fare clic su **Save** (Salva) nella parte inferiore della finestra dei processi.
+- Selezionare **Save** (Salva) nella parte inferiore della finestra dei processi.
 
 
 ## <a name="test-github-integration"></a>Testare l'integrazione di GitHub
 Per testare l'integrazione di GitHub con Jenkins, eseguire il commit di una modifica nel fork. 
 
-Nell'interfaccia utente Web di GitHub selezionare il repository con fork e quindi fare clic sul file **index.js**. Fare clic sull'icona a forma di matita per modificare il file in modo che la riga 6 corrisponda a:
+Nell'interfaccia utente Web di GitHub selezionare il repository con fork e quindi fare clic sul file **index.js**. Selezionare l'icona a forma di matita per modificare il file in modo che la riga 6 corrisponda a:
 
 ```nodejs
 response.end("Hello World!");
 ```
 
-Per eseguire il commit delle modifiche, fare clic sul pulsante **Commit changes** (Esegui il commit delle modifiche) nella parte inferiore.
+Per eseguire il commit delle modifiche, selezionare il pulsante **Commit changes** (Esegui il commit delle modifiche) nella parte inferiore.
 
-In Jenkins viene avviata una nuova compilazione nella sezione **Build history** (Cronologia compilazione) nell'angolo inferiore sinistro della pagina del processo. Fare clic sul collegamento del numero di build e selezionare **Console output** (Output console) sul lato sinistro. È possibile visualizzare i passaggi eseguiti in Jenkins mentre viene eseguito il pull del codice da GitHub e l'azione di compilazione genera il messaggio `Testing` nella console. Ogni volta che si esegue un'operazione di commit in GitHub, il webhook contatta Jenkins e attiva una nuova compilazione in questo modo.
+In Jenkins viene avviata una nuova compilazione nella sezione **Build history** (Cronologia compilazione) nell'angolo inferiore sinistro della pagina del processo. Scegliere il collegamento del numero di build e selezionare **Console output** (Output console) sul lato sinistro. È possibile visualizzare i passaggi eseguiti in Jenkins mentre viene eseguito il pull del codice da GitHub e l'azione di compilazione genera il messaggio `Testing` nella console. Ogni volta che si esegue un'operazione di commit in GitHub, il webhook contatta Jenkins e attiva una nuova compilazione in questo modo.
 
 
 ## <a name="define-docker-build-image"></a>Definire l'immagine di compilazione di Docker
@@ -195,10 +195,10 @@ Questo file Dockerfile usa l'immagine di base Node.js con Alpine Linux, espone l
 ## <a name="create-jenkins-build-rules"></a>Creare regole di compilazione di Jenkins
 In un passaggio precedente è stata creata una regola di compilazione di base di Jenkins che genera un messaggio nella console. Ora è necessario creare l'istruzione di compilazione per usare il file Dockerfile ed eseguire l'app.
 
-Nell'istanza di Jenkins selezionare il processo creato in un passaggio precedente. Fare clic su **Configure** (Configura) sul lato sinistro e scorrere fino alla sezione **Build** (Compilazione):
+Nell'istanza di Jenkins selezionare il processo creato in un passaggio precedente. Selezionare **Configure** (Configura) sul lato sinistro e scorrere fino alla sezione **Build** (Compilazione):
 
-- Rimuovere l'istruzione di compilazione `echo "Test"` esistente. Fare clic sulla croce rossa nell'angolo superiore destro della casella dell'istruzione di compilazione esistente.
-- Fare clic su **Add build step** (Aggiungi istruzione di compilazione) e quindi selezionare **Execute shell** (Esegui shell).
+- Rimuovere l'istruzione di compilazione `echo "Test"` esistente. Selezionare la croce rossa nell'angolo superiore destro della casella dell'istruzione di compilazione esistente.
+- Scegliere **Add build step** (Aggiungi istruzione di compilazione) e quindi selezionare **Execute shell** (Esegui shell).
 - Nella casella **Command** (Comando) immettere i comandi Docker seguenti, quindi selezionare **Save** (Salva):
 
   ```bash
@@ -211,7 +211,7 @@ Le istruzioni di compilazione Docker creano un'immagine contrassegnata con il nu
 
 
 ## <a name="test-your-pipeline"></a>Testare la pipeline
-Per visualizzare l'intera pipeline in azione, modificare nuovamente il file *index.js* nel repository GitHub con fork e fare clic su **Commit change** (Esegui il commit della modifica). Viene avviato un nuovo processo in Jenkins in base al webhook per GitHub. Potrebbero essere necessari alcuni secondi per creare l'immagine Docker e avviare l'app in un nuovo contenitore.
+Per visualizzare l'intera pipeline in azione, modificare nuovamente il file *index.js* nel repository GitHub con fork e selezionare **Commit change** (Esegui il commit della modifica). Viene avviato un nuovo processo in Jenkins in base al webhook per GitHub. Potrebbero essere necessari alcuni secondi per creare l'immagine Docker e avviare l'app in un nuovo contenitore.
 
 Se necessario, ottenere nuovamente l'indirizzo IP pubblico della macchina virtuale:
 

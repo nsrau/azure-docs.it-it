@@ -1,6 +1,6 @@
 ---
 title: Profili di punteggio (API REST di Ricerca di Azure versione 28/02/2015 Anteprima) | Microsoft Docs
-description: "Ricerca di Azure è un servizio di ricerca ospitato sul cloud  che supporta l&quot;ottimizzazione dei risultati in base ai profili di punteggio definiti dall&quot;utente."
+description: "Ricerca di Azure è un servizio di ricerca ospitato sul cloud  che supporta l'ottimizzazione dei risultati in base ai profili di punteggio definiti dall'utente."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a67637d149a84313270c03d21acf8a9c1870be05
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scoring-profiles-azure-search-rest-api-version-2015-02-28-preview"></a>Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)
 > [!NOTE]
 > Questo articolo descrive i profili di punteggio in [2015-02-28-Preview](search-api-2015-02-28-preview.md). Attualmente non esiste alcuna differenza tra la `2016-09-01` versione documentata in [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e `2015-02-28-Preview` la versione descritta qui. Questo documento è comunque disponibile per garantire la copertura completa dell'API dal punto di vista della documentazione.
@@ -275,8 +274,7 @@ Le interpolazioni permettono di definire il coefficiente angolare in base al qua
 * `Quadratic`: rispetto all'interpolazione lineare che prevede un aumento di priorità costantemente decrescente, l'interpolazione quadratica presenterà una riduzione iniziale a ritmo più ridotto e una riduzione di intervallo molto più elevato in prossimità della fine. Questa opzione di interpolazione non è consentita nelle funzioni di assegnazione di punteggio in base a tag.
 * `Logarithmic`: rispetto all'interpolazione lineare che prevede un aumento di priorità costantemente decrescente, l'interpolazione logaritmica presenterà una riduzione iniziale a ritmo più elevato e una riduzione di intervallo molto più ridotto in prossimità della fine. Questa opzione di interpolazione non è consentita nelle funzioni di assegnazione di punteggio in base a tag.
 
-<a name="Figure1"></a>
- ![][1]
+<a name="Figure1"></a> ![][1]
 
 <a name="bkmk_boostdur"></a>
 
@@ -303,4 +301,3 @@ Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML 
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-

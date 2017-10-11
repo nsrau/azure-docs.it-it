@@ -8,14 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3d655766b4f2a5efb0c8c29ffa81a89f84b3e17c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine personalizzata per creare un pool di macchine virtuali
 
 Quando si crea un pool di macchine virtuali in Azure Batch, è necessario specificare l'immagine di macchina virtuale (VM) che fornisce il sistema operativo per ogni nodo di calcolo nel pool. È possibile creare un pool di macchine virtuali usando un'immagine di Azure Marketplace oppure fornendo un'immagine di disco rigido virtuale personalizzata preparata. Quando si fornisce un'immagine personalizzata, è possibile controllare il modo in cui viene configurato il sistema operativo al momento del provisioning di ogni nodo di calcolo. L'immagine personalizzata può includere anche applicazioni e dati di riferimento che diventano disponibili nel nodo di calcolo non appena viene effettuato il provisioning.

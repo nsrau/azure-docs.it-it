@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 23f38693939ef0dc893ef77267811b176d3083d1
-ms.contentlocale: it-it
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 8c319d0dcbe8b95af11b8be2368a9348b260446c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Salvare le ricerche e aggiungere gli asset di dati in Azure Data Catalog
 ## <a name="introduction"></a>Introduzione
@@ -85,4 +84,3 @@ La home page del portale di Data Catalog include una sezione **Asset personali**
 
 ## <a name="summary"></a>Riepilogo
 Azure Data Catalog offre funzionalità che semplificano l'individuazione delle origini dati necessarie, in modo che tutti i membri dell'organizzazione possano dedicare meno tempo alla ricerca dei dati e concentrarsi invece sull'uso dei dati. Le ricerche salvate e gli asset di dati aggiunti si basano su queste funzionalità di base, in modo che gli utenti possano identificare con facilità le origini dati con cui lavorano ripetutamente.
-

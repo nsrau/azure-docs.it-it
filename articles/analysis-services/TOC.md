@@ -8,7 +8,7 @@
 
 # Attività iniziali
 ## [Creare un server nel portale di Azure](analysis-services-create-server.md)
-## [Creare un server con PowerShell](analysis-services-create-powershell.md)
+## [Creare un server con Azure PowerShell](analysis-services-create-powershell.md)
 ## [Distribuire un modello da Visual Studio](analysis-services-deploy.md)
 ## [Creare un modello nel portale di Azure (anteprima)](analysis-services-create-model-portal.md)
 
@@ -16,6 +16,7 @@
 ## [Gestire un server](analysis-services-manage.md)
 ## [Gestire gli utenti di database](analysis-services-database-users.md)
 ## [Gestire gli amministratori di server](analysis-services-server-admins.md)
+## [Monitorare le metriche del server](analysis-services-monitor.md)
 ## [Installare e configurare un gateway dati locale](analysis-services-gateway-install.md)
 ## [Ottenere le librerie client](analysis-services-data-providers.md)
 ## [Backup e ripristino](analysis-services-backup.md)
@@ -42,7 +43,7 @@
 ### [Lezione supplementare: Gerarchie incomplete](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # riferimento
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)

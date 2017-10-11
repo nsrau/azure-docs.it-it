@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 13155da09127c4ebe43ac77fdd196777ab884a1d
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 573fa7e9017e0b7746e40639370e68a2b7bb8548
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-configuring-or-registering-my-application"></a>Problemi di configurazione o di registrazione dell'applicazione
 
 
@@ -46,4 +44,3 @@ ms.lasthandoff: 04/17/2017
   * [I am confused about how application consent works](https://docs.microsoft.com/azure/active-directory/application-dev-consent-framework/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav) (Informazioni sul funzionamento del consenso dell'applicazione)
   * [I don't know how to grant permissions to my application](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-grant-permissions-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav) (Come concedere autorizzazioni all'applicazione)
   * [I don't understand the difference between delegated and application permissions](https://docs.microsoft.com/azure/active-directory/application-dev-delegated-and-app-perms/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav) (Differenza tra autorizzazioni delegate e dell'applicazione)
-

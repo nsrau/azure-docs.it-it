@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: bae6cf7f5025936deba301dc4fd05f6fd5fd8fa6
 ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-dns-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di DNS di Azure
 
 Questa pagina fornisce informazioni sulla risoluzione dei problemi comuni di DNS di Azure.
@@ -49,7 +49,7 @@ Per risolvere i problemi comuni, provare le procedure seguenti:
 
 1.  Esaminare i log di controllo di DNS di Azure per determinare le cause dell'errore.
 2.  Il set di record esiste già?  Il servizio DNS di Azure gestisce i record usando *set* di record, ovvero una raccolta di record dello stesso nome e dello stesso tipo. Se esiste già un record con lo stesso nome e dello stesso tipo, per aggiungere un altro record identico è consigliabile modificare il set di record esistente.
-3.  Si sta tentando di creare un record al vertice della zona DNS (la "radice" della zona)? In questo caso, la convenzione DNS è quella di usare il carattere ‘@’ come nome del record. Tenere presente inoltre che gli standard DNS non consentono record CNAME al vertice della zona.
+3.  Si sta tentando di creare un record al vertice della zona DNS (la "radice" della zona)? In questo caso, la convenzione DNS è quella di usare il carattere "@" come nome del record. Tenere presente inoltre che gli standard DNS non consentono record CNAME al vertice della zona.
 4.  Si è verificato un conflitto CNAME?  Gli standard DNS non consentono un record CNAME con lo stesso nome di un record di un altro tipo. Se si ha già un record CNAME, la creazione di un record con lo stesso nome e di tipo diverso avrà esito negativo.  Analogamente, la creazione di un record CNAME avrà esito negativo se il nome corrisponde a un record esistente di tipo diverso. Per eliminare il conflitto, rimuovere l'altro record o scegliere un nome di record diverso.
 5.  È stato raggiunto il limite relativo al numero di set di record consentiti in una zona DNS? Il numero corrente di set di record e il numero massimo di set di record vengono visualizzati nel portale di Azure, nella sezione delle proprietà relative alla zona. Se è stato raggiunto il limite, eliminare alcuni set di record oppure contattare il supporto tecnico di Azure per innalzare il numero massimo di set di record per la zona e riprovare. 
 
@@ -104,10 +104,4 @@ Nomi di record SRV di esempio ("sip" indica il nome del servizio, "tcp" il proto
 * Informazioni sulle [zone e sui record di DNS di Azure](dns-zones-records.md)
 * Per iniziare a usare DNS di Azure, è necessario sapere come [creare una zona DNS](dns-getstarted-create-dnszone-portal.md) e come [creare record DNS](dns-getstarted-create-recordset-portal.md).
 * Per eseguire la migrazione di una zona DNS esistente, è necessario saper [importare ed esportare un file di zona DNS](dns-import-export.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

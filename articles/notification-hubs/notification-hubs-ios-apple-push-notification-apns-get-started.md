@@ -1,6 +1,6 @@
 ---
 title: Invio di notifiche push a iOS con Hub di notifica di Azure | Documentazione Microsoft
-description: In questa esercitazione si apprende come usare Hub di notifica di Azure per inviare notifiche push a un&quot;applicazione iOS.
+description: In questa esercitazione si apprende come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione iOS.
 services: notification-hubs
 documentationcenter: ios
 keywords: notifica push,notifiche push,notifiche push ios
@@ -15,11 +15,11 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
 ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Invio di notifiche push a iOS con Hub di notifica di Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -70,7 +70,7 @@ Questa sezione illustra come creare un nuovo hub di notifica e configurare l'aut
 <p>Assicurarsi di selezionare la modalità <b>Sandbox</b>, destinata allo sviluppo. Usare la modalità <b>Produzione</b> solo se si vuole inviare notifiche push agli utenti che hanno acquistato l'app dallo Store.</p>
 </li>
 </ol>
-&emsp;&emsp;&emsp;&emsp;![Configurare il servizio APN nel portale di Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;&emsp;&emsp;![Configurare APNS nel portale di Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
 &emsp;&emsp;&emsp;&emsp;![Configurare il certificato APN nel portale di Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
@@ -482,9 +482,3 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [portale di Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

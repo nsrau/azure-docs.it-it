@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: ae0261134b8d4a934048f58d6c679a48a904950b
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 316bb96f06140c651f410411e3ce2e9eebf1d64d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funzioni numeriche per i modelli di Azure Resource Manager
@@ -30,8 +30,8 @@ Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 * [div](#div)
 * [float](#float)
 * [int](#int)
-* [min](#min)
 * [max](#max)
+* [min](#min)
 * [mod](#mod)
 * [mul](#mul)
 * [sub](#sub)
@@ -56,7 +56,7 @@ Un intero che contiene la somma dei parametri.
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente aggiunge due parametri.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) seguente aggiunge due parametri.
 
 ```json
 {
@@ -89,11 +89,23 @@ L'esempio seguente aggiunge due parametri.
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json 
+```
 
 <a id="copyindex" />
 
@@ -159,7 +171,7 @@ Un intero che rappresenta la divisione.
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente mostra come dividere un parametro per un altro parametro.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) seguente mostra come dividere un parametro per un altro parametro.
 
 ```json
 {
@@ -192,11 +204,23 @@ L'esempio seguente mostra come dividere un parametro per un altro parametro.
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json 
+```
 
 <a id="float" />
 
@@ -224,12 +248,12 @@ L'esempio seguente illustra come usare float per passare parametri a un'app per 
     "properties": {
         ...
         "parameters": {
-        "custom1": {
-            "value": "[float('3.0')]"
-        },
-        "custom2": {
-            "value": "[float(3)]"
-        },
+            "custom1": {
+                "value": "[float('3.0')]"
+            },
+            "custom2": {
+                "value": "[float(3)]"
+            },
 ```
 
 <a id="int" />
@@ -251,7 +275,7 @@ Un intero del valore convertito.
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente converte il valore del parametro fornito dall'utente in intero.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) seguente converte il valore del parametro fornito dall'utente in intero.
 
 ```json
 {
@@ -274,64 +298,23 @@ L'esempio seguente converte il valore del parametro fornito dall'utente in inter
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
-<a id="min" />
-
-## <a name="min"></a>Min
-`min (arg1)`
-
-Restituisce il valore minimo di una matrice di numeri interi o di un elenco di numeri interi delimitato da virgole.
-
-### <a name="parameters"></a>Parametri
-
-| Parametro | Obbligatorio | Tipo | Descrizione |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
-
-### <a name="return-value"></a>Valore restituito
-
-un intero che rappresenta il valore minimo dalla raccolta.
-
-### <a name="example"></a>Esempio
-
-L'esempio seguente mostra come usare la funzione min con una matrice e un elenco di numeri interi:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
-    }
-}
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+Per distribuire questo modello di esempio con PowerShell, usare:
 
-| Nome | Tipo | Valore |
-| ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
+```
 
 <a id="max" />
 
@@ -352,7 +335,7 @@ Un intero che rappresenta il valore massimo dalla raccolta.
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente mostra come usare la funzione max con una matrice e un elenco di numeri interi:
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) seguente mostra come usare la funzione max con una matrice e un elenco di numeri interi:
 
 ```json
 {
@@ -385,6 +368,82 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
 
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+<a id="min" />
+
+## <a name="min"></a>Min
+`min (arg1)`
+
+Restituisce il valore minimo di una matrice di numeri interi o di un elenco di numeri interi delimitato da virgole.
+
+### <a name="parameters"></a>Parametri
+
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
+
+### <a name="return-value"></a>Valore restituito
+
+un intero che rappresenta il valore minimo dalla raccolta.
+
+### <a name="example"></a>Esempio
+
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) seguente mostra come usare la funzione min con una matrice e un elenco di numeri interi:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": [0,3,2,5,4]
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "int",
+            "value": "[min(parameters('arrayToTest'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[min(0,3,2,5,4)]"
+        }
+    }
+}
+```
+
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
 <a id="mod" />
 
 ## <a name="mod"></a>mod
@@ -404,7 +463,7 @@ Un intero che rappresenta il resto.
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente restituisce il resto della divisione di un parametro per un altro parametro.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) seguente restituisce il resto della divisione di un parametro per un altro parametro.
 
 ```json
 {
@@ -437,11 +496,23 @@ L'esempio seguente restituisce il resto della divisione di un parametro per un a
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+```
 
 <a id="mul" />
 
@@ -463,7 +534,7 @@ Un intero che rappresenta la moltiplicazione.
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente mostra come moltiplicare un parametro per un altro parametro.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) seguente mostra come moltiplicare un parametro per un altro parametro.
 
 ```json
 {
@@ -496,11 +567,23 @@ L'esempio seguente mostra come moltiplicare un parametro per un altro parametro.
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+```
 
 <a id="sub" />
 
@@ -521,7 +604,7 @@ Un intero che rappresenta la sottrazione.
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente mostra come sottrarre un parametro da un altro parametro.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) seguente mostra come sottrarre un parametro da un altro parametro.
 
 ```json
 {
@@ -554,11 +637,23 @@ L'esempio seguente mostra come sottrarre un parametro da un altro parametro.
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).

@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con 360 Online | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e 360 Online.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e 360 Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 629c7db04b0f9c880da6dfa8eac7fe14ecd8a215
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Esercitazione: Integrazione di Azure Active Directory con 360 Online
 
@@ -112,10 +110,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-360online-tutorial/tutorial_360online_url.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<company name>.public360online.com`.
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<company name>.public360online.com`
 
     > [!NOTE] 
-    > Poiché non è il valore reale, aggiornarlo con l'URL di accesso effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di 360 Online](mailto:360online@software-innovation.com). 
+    > Poiché non è reale, aggiornarlo con l'URL di accesso effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di 360 Online](mailto:360online@software-innovation.com). 
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -220,5 +218,4 @@ Quando si fa clic sul riquadro 360 Online nel riquadro di accesso, si dovrebbe a
 [201]: ./media/active-directory-saas-360online-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-360online-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-360online-tutorial/tutorial_general_203.png
-
 

@@ -17,10 +17,10 @@ ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2eed74ae9bd173b0944ec190dfe5d9a4bdc54c37
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 871731adc849c575d97ed6735b87457811668ed5
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -46,8 +46,10 @@ Questa esercitazione illustra le attività seguenti usando l'[API .NET DocumentD
 Assicurarsi di disporre di quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
-    * In alternativa è possibile usare l'[emulatore Azure Cosmos DB](local-emulator.md) per questa esercitazione, se si intende usare un ambiente locale che emula il servizio Azure DocumentDB per lo sviluppo.
-* [Visual Studio](http://www.visualstudio.com/)
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Creare un account Azure Cosmos DB
 

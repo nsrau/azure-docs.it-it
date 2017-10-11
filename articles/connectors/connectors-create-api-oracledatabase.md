@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
 
@@ -136,4 +135,3 @@ Il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forum
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) e scoprire i connettori disponibili in App per la logica nell'[elenco di API](apis-list.md).
-

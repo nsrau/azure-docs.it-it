@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 61d62cde5311c8e447acf8890e0a32339585bb42
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 3e43494721f03ce8e56cb069638ad24df7222386
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI ha usato Azure per accelerare il ciclo di sviluppo e migliorare i servizi al cliente e le prestazioni
 ![Logo Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -96,5 +94,4 @@ Il database SQL di Azure non rappresenta solo un enorme vantaggio per i clienti 
 * Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute).    
 * Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
 * Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md).
-
 

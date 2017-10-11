@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9541cd195e8afa6e692a5a0214b0d614e429c33b
-ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
+ms.translationtype: HT
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
 ms.contentlocale: it-it
-ms.lasthandoff: 12/20/2016
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
@@ -26,7 +26,6 @@ Questa funzionalità è stata introdotta nella build 1.1.105.0 rilasciata nel me
 
 ## <a name="overview"></a>Overview
 La funzionalità per l' **aggiornamento automatico** semplifica al massimo la verifica dell'aggiornamento dell'installazione di Azure AD Connect. Questa funzionalità è abilitata per impostazione predefinita per le installazioni rapide e gli aggiornamenti di DirSync. Quando viene rilasciata una nuova versione, l'installazione viene aggiornata automaticamente.
-
 L'aggiornamento automatico è abilitato per impostazione predefinita per gli scenari seguenti:
 
 * Impostazioni rapide e aggiornamenti di DirSync.
@@ -45,6 +44,7 @@ Lo stato corrente dell'aggiornamento automatico può essere visualizzato con il 
 Per passare da **Enabled** a **Disabled**, è possibile usare `Set-ADSyncAutoUpgrade`. Lo stato **Suspended**deve essere impostato solo dal sistema.
 
 L'aggiornamento automatico usa Azure AD Connect Health per l'infrastruttura di aggiornamento. Per il corretto funzionamento dell'aggiornamento automatico, assicurarsi di avere aperto gli URL nel server proxy per **Azure AD Connect Health** , come documentato in [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
 
 Se l'interfaccia utente di **Synchronization Service Manager** è in esecuzione nel server, l'aggiornamento viene sospeso fino alla chiusura dell'interfaccia utente.
 
@@ -87,6 +87,7 @@ Ecco un elenco dei messaggi più comuni. L'elenco non include tutti i messaggi, 
 | UpgradeAbortedSyncExeInUse |L' [interfaccia utente di Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) è aperta nel server. |
 | UpgradeAbortedSyncOrConfigurationInProgress |L'installazione guidata è in esecuzione o è stata pianificata una sincronizzazione al di fuori dell'utilità di pianificazione. |
 | **UpgradeNotSupported** | |
+| UpgradeNotSupportedAdfsSignInMethod | È stato selezionato Adfs come metodo di accesso. | 
 | UpgradeNotSupportedCustomizedSyncRules |Sono state aggiunte regole personalizzate alla configurazione. |
 | UpgradeNotSupportedDeviceWritebackEnabled |È stata abilitata la funzionalità di [writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md) . |
 | UpgradeNotSupportedGroupWritebackEnabled |È stata abilitata la funzionalità di [writeback dei gruppi](active-directory-aadconnect-feature-preview.md#group-writeback) . |
@@ -95,6 +96,8 @@ Ecco un elenco dei messaggi più comuni. L'elenco non include tutti i messaggi, 
 | UpgradeNotSupportedMultiForestSetup |Viene stabilita la connessione a più foreste. L'installazione rapida si connette a una sola foresta. |
 | UpgradeNotSupportedNonLocalDbInstall |Non si sta usando un database LocalDB di SQL Server Express. |
 | UpgradeNotSupportedNonMsolAccount |L'[account AD Connect](active-directory-aadconnect-accounts-permissions.md#active-directory-account) non è più l'account MSOL_ predefinito. |
+| UpgradeNotSupportedNotConfiguredSignInMethod | Durante la configurazione di AAD Connect, nella selezione del metodo di accesso si è scelto *Non configurare*. | 
+| UpgradeNotSupportedPtaSignInMethod | È stata selezionato Autenticazione pass-through come metodo di accesso. |
 | UpgradeNotSupportedStagingModeEnabled |Il server è in [modalità di staging](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |È stata abilitata la funzionalità di [writeback degli utenti](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 

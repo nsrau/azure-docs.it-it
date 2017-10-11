@@ -1,6 +1,6 @@
 ---
 title: Uso di viste T-SQL in Azure SQL Data Warehouse | Documentazione Microsoft
-description: Suggerimenti per l&quot;uso di viste Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per l'uso di viste Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 902929fba9e2486d97323ab52505ba6db3fe0aab
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d2a03be810bd7f792876607ec735eb578b65a3b5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="views-in-sql-data-warehouse"></a>Viste in SQL Data Warehouse
 Le viste sono particolarmente utili in SQL Data Warehouse. Risultano utili in molti modi diversi per migliorare la qualità della soluzione.  Questo articolo contiene alcuni esempi che illustrano come migliorare la soluzione con le viste e le limitazioni da prendere in considerazione.
@@ -80,4 +79,3 @@ Per la sintassi di `CREATE VIEW`, vedere [CREATE VIEW][CREATE VIEW].
 [CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
 
 <!--Other Web references-->
-

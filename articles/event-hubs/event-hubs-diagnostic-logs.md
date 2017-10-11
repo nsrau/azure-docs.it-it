@@ -21,7 +21,6 @@ ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Log di diagnostica di Hub eventi
 

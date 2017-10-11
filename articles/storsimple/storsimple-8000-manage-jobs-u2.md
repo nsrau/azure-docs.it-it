@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: bf8038b7171053b75eeb9aed88bff4246e65a8a8
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire i processi (Aggiornamento 3 e successivi)
 
@@ -89,5 +87,4 @@ Eseguire la procedura seguente per annullare un processo in esecuzione.
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [gestire i criteri di backup di StorSimple](storsimple-8000-manage-backup-policies-u2.md).
 * Informazioni su come [usare il servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

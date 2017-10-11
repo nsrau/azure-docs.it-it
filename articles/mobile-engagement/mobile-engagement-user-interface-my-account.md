@@ -1,6 +1,6 @@
 ---
 title: Interfaccia utente di Azure Mobile Engagement - Account personale
-description: Informazioni su come gestire il profilo dell&quot;account e i dispositivi di test usando Azure Mobile Engagement
+description: Informazioni su come gestire il profilo dell'account e i dispositivi di test usando Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-manage-your-account-profile-and-test-devices"></a>Come gestire il profilo dell'account e i dispositivi di test
 Questo articolo descrive la **Home** page del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. 
@@ -155,7 +154,6 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 
 
 

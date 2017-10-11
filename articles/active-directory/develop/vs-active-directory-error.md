@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/05/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: fef47d27bc68e5b11b06dc6b67d7afdb088bad15
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: 4f29f62b2996cae98b02c1ed5fcb59eca09301ef
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Diagnosi degli errori con Connessione guidata di Azure Active Directory
 Durante il rilevamento di codice di autenticazione precedente, la procedura guidata ha rilevato un tipo di autenticazione non compatibile.   

@@ -1,4 +1,4 @@
-Creare un'[app Web](../articles/app-service-web/app-service-web-overview.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp#create). 
+In Cloud Shell creare un'[app Web](../articles/app-service/app-service-web-overview.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp#create). 
 
 L'app Web fornisce uno spazio host per il codice e un URL per visualizzare l'app distribuita.
 

@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 04/10/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ab77fe512d275a92da19bb5dc03da347922238a5
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: fadad88be94552dd1db061146d8dfab86d797f61
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introduzione all'archiviazione tabelle di Azure con .NET
@@ -469,7 +469,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 * Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio tabelle:
 * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 * [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
-* Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
+* Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
 * [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) .
 * Per archiviare i dati relazionali, vedere [Connettersi al database SQL tramite .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md).

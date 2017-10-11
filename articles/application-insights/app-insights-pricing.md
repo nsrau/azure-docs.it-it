@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 311cee724fc77256748153b5167d2a38ccba9775
-ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 65d11d30e23cd7671b769c3c17e4aba32c432340
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gestire volumi di dati e prezzi in Application Insights
 
@@ -187,5 +186,4 @@ In ogni record conservato, `itemCount` indica il numero di record originali che 
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-
 

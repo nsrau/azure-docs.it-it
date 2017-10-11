@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
 ms.contentlocale: it-it
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Analizzare le schede Dashboard, Monitor, Scala, Configura e Connessione ibrida
@@ -332,8 +331,6 @@ Imposta Stato backup su Nessuno o Automatico. Se è impostato su Nessuno, non ve
 
 ## <a name="HybridConnections"></a>Connessioni ibride
 Le connessioni ibride consentono la connessione di un'applicazione Azure, come App Web o App per dispositivi mobili nel servizio app di Azure, a una risorsa locale che usa una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP e la maggior parte dei servizi Web personalizzati. Le connessioni ibride vengono gestite in Servizi BizTalk nel portale di Azure classico.
-
-Per creare connessioni ibride nel servizio app di Azure, vedere [Accedere alle risorse locali usando connessioni ibride nel servizio app di Azure](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 Per creare o gestire connessioni ibride in Siti Web di Azure, vedere l'articolo relativo alle [Connessioni ibride](integration-hybrid-connection-overview.md).
 

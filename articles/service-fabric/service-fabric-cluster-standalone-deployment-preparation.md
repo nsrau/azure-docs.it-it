@@ -1,9 +1,9 @@
 ---
 title: Preparazione alla distribuzione del cluster autonomo di Azure Service Fabric | Documentazione Microsoft
-description: Documentazione relativa alla preparazione dell&quot;ambiente e alla creazione della configurazione del cluster, da esaminare prima di distribuire un cluster progettato per gestire un carico di lavoro di produzione.
+description: Documentazione relativa alla preparazione dell'ambiente e alla creazione della configurazione del cluster, da esaminare prima di distribuire un cluster progettato per gestire un carico di lavoro di produzione.
 services: service-fabric
 documentationcenter: .net
-author: maburlik
+author: dkkapur
 manager: timlt
 editor: 
 ms.service: service-fabric
@@ -11,44 +11,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: maburlik;chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f332193f9a53260173a1010b8bf9f08726bea427
-ms.lasthandoff: 03/31/2017
-
+ms.date: 9/12/2017
+ms.author: dekapur;maburlik;chackdan
+ms.translationtype: HT
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 67d47739c27081c4e10bf11988ed121ff02d8bb0
+ms.contentlocale: it-it
+ms.lasthandoff: 09/27/2017
 
 ---
 
 <a id="preparemachines"></a>
 
-## <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Pianificare e preparare la distribuzione del cluster autonomo di Service Fabric
+# <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Pianificare e preparare la distribuzione del cluster autonomo di Service Fabric
 I passaggi seguenti devono essere eseguiti prima di creare il cluster.
 
-### <a name="step-1-plan-your-cluster-infrastructure"></a>Passaggio 1: pianificazione dell’infrastruttura del cluster
-Prima di creare un cluster di Service Fabric sui propri computer, è possibile stabilire da quali tipi di errore il cluster non deve essere compromesso. Ad esempio, sono necessarie linee di alimentazione o connessioni Internet separate per queste macchine? È necessario inoltre considerare la sicurezza fisica di tali macchine. Dove si trovano le macchine e chi ha bisogno di accedervi? Dopo aver preso queste decisioni, è possibile eseguire il mapping logico delle macchine ai vari domini di errore (vedere il passaggio 4). La pianificazione dell'infrastruttura per i cluster di produzione è più complicata rispetto ai cluster di test.
+## <a name="plan-your-cluster-infrastructure"></a>Pianificazione dell'infrastruttura del cluster
+Prima di creare un cluster di Service Fabric sui propri computer, è possibile stabilire da quali tipi di errore il cluster non deve essere compromesso. Ad esempio, sono necessarie linee di alimentazione o connessioni Internet separate per queste macchine? È necessario inoltre considerare la sicurezza fisica di tali macchine. Dove si trovano le macchine e chi ha bisogno di accedervi? Dopo aver preso queste decisioni, è possibile eseguire il mapping logico delle macchine ai vari domini di errore (vedere il passaggio successivo). La pianificazione dell'infrastruttura per i cluster di produzione è più complicata rispetto ai cluster di test.
 
-### <a name="step-2-prepare-the-machines-to-meet-the-prerequisites"></a>Passaggio 2: preparare le macchine con i prerequisiti
-Prerequisiti per ogni macchina da aggiungere al cluster:
-
-* Consigliati minimo 16 GB di RAM.
-* Consigliati minimo 40 GB di spazio disponibile su disco.
-* Consigliata una CPU 4 core o superiore.
-* Connessione a una o più reti protette per tutte le macchine.
-* Windows Server 2012 R2 o Windows Server 2016. 
-* [.NET Framework 4.5.1 o versione successiva](https://www.microsoft.com/download/details.aspx?id=40773), installazione completa.
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell).
-* Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere eseguito in tutti i computer.
-
-L'amministratore del cluster che distribuisce e configura il cluster deve disporre dei [privilegi di amministratore](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) in ogni computer. Non è possibile installare Service Fabric in un controller di dominio.
-
-### <a name="step-3-determine-the-initial-cluster-size"></a>Passaggio 3: determinare le dimensioni iniziali del cluster
-In ogni nodo di un cluster di Service Fabric autonomo è distribuito il runtime di Service Fabric. Tutti i nodi sono membri del cluster. In una distribuzione di produzione tipica è presente un nodo per istanza (fisica o virtuale) del sistema operativo. La dimensione del cluster viene determinata in base alle esigenze aziendali. È tuttavia necessario avere una dimensione minima del cluster di tre nodi (computer o macchine virtuali).
-A scopi di sviluppo è possibile configurare più di un nodo in una macchina specifica. In un ambiente di produzione, il Service Fabric supporta solo un nodo per ogni macchina virtuale o fisica.
-
-### <a name="step-4-determine-the-number-of-fault-domains-and-upgrade-domains"></a>Passaggio 4: identificazione del numero di domini di errore e di aggiornamento
-Un *dominio di errore* è un'unità fisica di errore ed è direttamente correlato all'infrastruttura fisica nei data center. È costituito da componenti hardware (computer, commutatori, rete e altro) che condividono un singolo punto di guasto. Sebbene non sia presente una mappatura 1:1 tra domini di errore e rack, ogni rack può essere considerato in senso lato un dominio di errore. Quando si esaminano i nodi nel cluster è consigliabile distribuire i nodi tra gli ultimi tre domini di errore.
+## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Identificazione del numero di domini di errore e di aggiornamento
+Un [*dominio di errore*](service-fabric-cluster-resource-manager-cluster-description.md) è un'unità fisica di errore ed è direttamente correlato all'infrastruttura fisica nei data center. È costituito da componenti hardware (computer, commutatori, rete e altro) che condividono un singolo punto di guasto. Sebbene non sia presente una mappatura 1:1 tra domini di errore e rack, ogni rack può essere considerato in senso lato un dominio di errore.
 
 Quando si specificano domini di errore nel file ClusterConfig.json, è possibile scegliere il nome di ogni dominio di errore. Il Service Fabric supporta i domini di errore gerarchici, in modo che possano rispecchiare la topologia infrastrutturale.  Di seguito sono riportati esempi di domini di errore validi:
 
@@ -69,10 +51,33 @@ Quando si specificano domini di aggiornamento nel file ClusterConfig.json è pos
 
 Per informazioni più dettagliate sui domini di aggiornamento e di errore, vedere [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-### <a name="step-5-download-the-service-fabric-standalone-package-for-windows-server"></a>Passaggio 5: scaricare il pacchetto autonomo Service Fabric per Windows Server
+Affinché sia supportato in un ambiente di produzione, in un cluster di produzione devono essere configurati almeno tre domini di errore, se si ha il controllo completo sui nodi di manutenzione e gestione, ad esempio si è responsabili dell'aggiornamento e della sostituzione dei computer. Per i cluster in esecuzione in ambienti come le istanze di macchine virtuali di Amazon Web Services, in cui non si ha il controllo completo sui computer, il cluster deve prevedere un minimo di cinque domini di errore. Ogni dominio di errore può presentare uno o più nodi. Ciò evita i problemi causati dall'aggiornamento dei computer che, a seconda della durata, può interferire con l'esecuzione di applicazioni e servizi nel cluster.
+
+## <a name="determine-the-initial-cluster-size"></a>Determinare le dimensioni iniziali del cluster
+
+In genere, il numero di nodi nel cluster è determinato in base alle esigenze aziendali, ad esempio il numero di servizi e i contenitori che vengono eseguiti nel cluster e il volume di risorse necessarie a sostenere i carichi di lavoro. Nei cluster di produzione è consigliabile configurare almeno cinque nodi nel cluster, estesi su cinque domini di errore. Tuttavia, come descritto prima, se si ha il controllo completo sui nodi e un'estensione su almeno tre domini di errore, tre nodi possono essere sufficienti.
+
+Nei cluster di test che eseguono carichi di lavoro con stato è consigliabile configurare almeno tre nodi, mentre i cluster di test che eseguono solo carichi di lavoro senza stato richiedono un solo nodo. Va inoltre sottolineato che, a scopo di sviluppo, è possibile configurare più di un nodo in un computer specifico. In un ambiente di produzione Service Fabric supporta solo un nodo per ogni macchina virtuale o fisica.
+
+## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>Preparare i computer che fungono da nodi
+
+Di seguito sono indicate le specifiche per ogni computer da aggiungere al cluster:
+
+* Un minimo di 16 GB di RAM
+* Un minimo di 40 GB di spazio disponibile su disco
+* CPU 4 core o superiore
+* Connessione a una o più reti protette per tutti i computer
+* Windows Server 2012 R2 o Windows Server 2016
+* [.NET Framework 4.5.1 o versione successiva](https://www.microsoft.com/download/details.aspx?id=40773), installazione completa
+* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere eseguito in tutti i computer.
+
+L'amministratore del cluster che distribuisce e configura il cluster deve disporre dei [privilegi di amministratore](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) in ogni computer. Non è possibile installare Service Fabric in un controller di dominio.
+
+## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Scaricare il pacchetto autonomo Service Fabric per Windows Server
 [Collegamento per il download - Pacchetto autonomo di Service Fabric - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690); decomprimere il pacchetto in un computer di distribuzione non appartenente al cluster o in uno dei computer che faranno parte del cluster.
 
-### <a name="step-6-modify-cluster-configuration"></a>Passaggio 6: modificare la configurazione del cluster
+## <a name="modify-cluster-configuration"></a>Modificare la configurazione del cluster
 Per creare un cluster autonomo, è necessario creare un file ClusterConfig.json di configurazione del cluster autonomo che descrive la specifica del cluster. È possibile basare il file di configurazione sui modelli disponibili nel collegamento seguente. <br>
 [Configurazioni di cluster autonomi](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
@@ -88,7 +93,7 @@ Dopo che tutte le impostazioni sono state configurate per l'ambiente nella confi
 
 <a id="environmentsetup"></a>
 
-### <a name="step-7-environment-setup"></a>Passaggio 7. Configurazione dell'ambiente
+## <a name="environment-setup"></a>Configurazione dell'ambiente
 
 Quando un amministratore di cluster configura un cluster autonomo di Service Fabric, l'ambiente deve essere configurato con i criteri seguenti: <br>
 1. L'utente che ha creato il cluster deve disporre dei privilegi di sicurezza a livello di amministratore per tutti i computer elencati come nodi nel file di configurazione del cluster.
@@ -104,8 +109,8 @@ Quando un amministratore di cluster configura un cluster autonomo di Service Fab
 3. Nessuna delle macchine ai nodi del cluster deve essere un controller di dominio.
 4. Se il cluster da distribuire è protetto, convalidare che i prerequisiti di sicurezza necessari siano corretti e che siano stati configurati correttamente in base alla configurazione.
 5. Se i computer del cluster non sono accessibili da Internet, impostare quanto segue nella configurazione del cluster:
-* Disabilitare la telemetria: in *properties* impostare   *"enableTelemetry": false*
-* Disabilitare le notifiche e il download automatici della versione di Service Fabric relativi alla condizione che la versione corrente del cluster sta per raggiungere il termine del supporto: in *properties* impostare   *"fabricClusterAutoupgradeEnabled": false*
+* Disabilitare la telemetria: in *properties* impostare *"enableTelemetry": false*
+* Disabilitare le notifiche e il download automatici della versione di Service Fabric relativi alla condizione che la versione corrente del cluster sta per raggiungere il termine del supporto: in *properties* impostare *"fabricClusterAutoupgradeEnabled": false*
 * In alternativa, se l'accesso a Internet dalla rete è limitato ai domini consentiti, è necessario l'aggiornamento automatico dei domini seguenti: go.microsoft.com download.microsoft.com
 
 6. Impostare le esclusioni antivirus di Service Fabric appropriate:
@@ -131,7 +136,7 @@ Quando un amministratore di cluster configura un cluster autonomo di Service Fab
 | FabricRM.exe |
 | FileStoreService.exe |
 
-### <a name="step-8-validate-environment-using-testconfiguration-script"></a>Passaggio 8. Convalidare l'ambiente con lo script TestConfiguration
+## <a name="validate-environment-using-testconfiguration-script"></a>Convalidare l'ambiente con lo script TestConfiguration
 Lo script TestConfiguration.ps1 è incluso nel pacchetto autonomo. Viene usato come Best Practices Analyzer per convalidare alcuni criteri indicati sopra e deve essere usato come verifica di integrità per convalidare se un cluster può essere distribuito in un determinato ambiente. In caso di errore vedere l'elenco in [Configurazione dell'ambiente](service-fabric-cluster-standalone-deployment-preparation.md) per la risoluzione dei problemi. 
 
 Questo script può essere eseguito su qualsiasi macchina con accesso amministrativo a tutte le macchine elencate come nodi nel file di configurazione del cluster. La macchina in cui viene eseguito lo script non deve necessariamente far parte del cluster.

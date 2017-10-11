@@ -1,6 +1,6 @@
 ---
 title: Estensione Script personalizzato per una macchina virtuale di Windows | Microsoft Docs
-description: "Automatizzare le attività di configurazione della macchina virtuale di Azure utilizzando l&quot;estensione dello Script personalizzato per eseguire gli script di PowerShell in una macchina virtuale di Windows remota"
+description: "Automatizzare le attività di configurazione della macchina virtuale di Azure utilizzando l'estensione dello Script personalizzato per eseguire gli script di PowerShell in una macchina virtuale di Windows remota"
 services: virtual-machines-windows
 documentationcenter: 
 author: neilpeterson
@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 986ab1025dc188cd7fa1cf8b131a9d4b859be8f3
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Estensione script personalizzata per Windows usando il modello di distribuzione classico
 
 > [!IMPORTANT] 

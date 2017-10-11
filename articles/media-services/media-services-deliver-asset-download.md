@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 19f6ea37f892054ee5d7bf793a32364dff264058
-ms.contentlocale: it-it
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Procedura: Distribuire un asset mediante download
 Questo argomento illustra le opzioni per la distribuzione di asset di file multimediali caricati in Servizi multimediali. È possibile distribuire contenuti di Servizi multimediali in numerosi scenari di applicazione. È possibile scaricare asset di file multimediali oppure accedervi mediante un localizzatore. I contenuti multimediali possono essere inviati a un'altra applicazione o un altro provider di contenuti. Per ottenere livelli più elevati di prestazioni e scalabilità, è anche possibile distribuire contenuti usando una rete per la distribuzione di contenuti (CDN).
@@ -88,5 +87,4 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 
 ## <a name="see-also"></a>Vedere anche
 [Distribuire contenuti in streaming](media-services-deliver-streaming-content.md)
-
 

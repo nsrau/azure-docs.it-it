@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore DB2 alle app per la logica | Microsoft Docs
-description: Panoramica del connettore DB2 con i parametri dell&quot;API REST
+description: Panoramica del connettore DB2 con i parametri dell'API REST
 services: 
 documentationcenter: 
 author: gplarsen
@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introduzione al connettore DB2
 Microsoft Connector for DB2 connette le app per la logica alle risorse archiviate in un database IBM DB2. Il connettore include un client Microsoft per comunicare con computer server DB2 remoti su una rete TCP/IP, tra cui: database cloud, ad esempio IBM Bluemix dashDB o IBM DB2 per Windows in esecuzione nella virtualizzazione Azure, e database locali tramite il gateway dati locale. Vedere l'[elenco](connectors-create-api-db2.md#supported-db2-platforms-and-versions) delle piattaforme e delle versioni di IBM DB2 supportate (in questo argomento).
@@ -284,5 +282,4 @@ Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali lim
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
-
 

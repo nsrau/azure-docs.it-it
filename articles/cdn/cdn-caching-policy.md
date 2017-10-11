@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: fba5384acae53ac416d91ae30840c6cfa04e7c68
 ms.openlocfilehash: 0c479a58f4158bb1a72dc43432507160f65d2791
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure
 Servizi multimediali di Azure fornisce lo streaming adattivo e il download progressivo basati su HTTP. Lo streaming basato su HTTP è altamente scalabile con i vantaggi della cache nei livelli proxy e di rete CDN, nonché della cache sul lato client. Gli endpoint di streaming forniscono funzionalità di streaming generale e configurazione per le intestazioni di cache HTTP. Gli endpoint di streaming impostano le intestazioni HTTP Cache-Control: max-age ed Expires. È possibile ottenere ulteriori informazioni per le intestazioni della cache HTTP da [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -45,10 +45,4 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.mic
 1. Il valore della cache configurato di Servizi multimediali di Azure sostituisce il valore predefinito.
 2. Se non è presente alcuna configurazione manuale, vengono applicati i valori predefiniti.
 3. Per impostazione predefinita si applicano le intestazioni di cache di 2 secondi, a prescindere dalla configurazione di servizi multimediali di Azure o archiviazione di Azure, e l'override di questo valore non è disponibile.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

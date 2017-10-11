@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 73e50a593c41e841dcaf184abb895406ff5001e9
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="set-resource-location-in-azure-resource-manager-templates"></a>Impostare la posizione delle risorse nei modelli di Azure Resource Manager
 Quando si distribuisce un modello, è necessario fornire la posizione per ogni risorsa. In questo argomento viene illustrato come determinare le posizioni disponibili per la sottoscrizione per ogni tipo di risorsa.
@@ -101,5 +100,4 @@ Se è necessario impostare come hardcoded la posizione del modello, specificare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altri suggerimenti su come creare i modelli, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](resource-manager-template-best-practices.md).
-
 

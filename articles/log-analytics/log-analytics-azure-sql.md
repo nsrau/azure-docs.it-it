@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: banders
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: cab45cc6dd621eb4a95ef5f1842ec38c25e980b6
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 0b0d91b130172eb3506fdebb9547ab6ba5cc3780
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -45,7 +45,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 | [Agenti Linux](log-analytics-linux-agents.md) | No | Gli agenti Linux diretti non vengono usati dalla soluzione. |
 | [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No | Una connessione diretta dall'agente SCOM a Log Analytics non viene usata dalla soluzione. |
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No | Log Analytics non legge i dati da un account di archiviazione. |
-| [Diagnostica di Azure](log-analytics-azure-storage.md) | Sì | I dati relativi alle metriche di Azure vengono inviati a Log Analytics direttamente da Azure. |
+| [Diagnostica di Azure](log-analytics-azure-storage.md) | Sì | I dati relativi alle metriche e ai log vengono inviati a Log Analytics direttamente da Azure. |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -63,9 +63,9 @@ Eseguire questa procedura per aggiungere la soluzione Analisi SQL di Azure all'a
 3. Nell'elenco **Monitoraggio e gestione** fare clic su **Visualizza tutto**.
 4. Nell'elenco **Consigliati** fare clic su **Altro** e quindi nel nuovo elenco trovare **Azure SQL Analytics (anteprima)** e selezionarlo.  
     ![Soluzione Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. Nel pannello **Azure SQL Analytics (anteprima)** fare clic su **Crea**.  
+5. Nel riquadro **Analisi SQL di Azure (anteprima)** fare clic su **Crea**.  
     ![Creare](./media/log-analytics-azure-sql/portal-create.png)
-6. Nel pannello **Crea nuova soluzione** selezionare l'area di lavoro che si vuole aggiungere alla soluzione e quindi fare clic su **Crea**.  
+6. Nel riquadro **Crea nuova soluzione** selezionare l'area di lavoro che si vuole aggiungere alla soluzione e quindi fare clic su **Crea**.  
     ![Aggiunta all'area di lavoro](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -85,39 +85,71 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>Uso della soluzione
 
+>[!NOTE]
+> Aggiornare l'area di lavoro di Log Analytics per ottenere la versione più recente di Analisi SQL di Azure.
+>
+
 Quando si aggiunge la soluzione all'area di lavoro, il riquadro Azure SQL Analytics viene aggiunto all'area di lavoro e visualizzato in Panoramica. Il riquadro mostra il numero di database SQL di Azure e di pool elastici SQL a cui la soluzione è connessa.
 
 ![Riquadro Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Visualizzazione dei dati di Analisi SQL di Azure
 
-Fare clic sul riquadro **Analisi SQL di Azure** per aprire il dashboard Analisi SQL di Azure. Il dashboard include i pannelli definiti di seguito. Ogni pannello elenca un massimo di 15 risorse (sottoscrizione, server, pool elastico e database). Fare clic su una delle risorse per aprire il dashboard per una risorsa specifica. Pool elastico o Database contengono i grafici con le metriche per una risorsa selezionata. Fare clic su un grafico per aprire la finestra di dialogo Ricerca log.
+Fare clic sul riquadro **Analisi SQL di Azure** per aprire il dashboard Analisi SQL di Azure. Il dashboard include la panoramica di tutti i database monitorati tramite prospettive diverse. Per potere usare diverse prospettive, è necessario abilitare le metriche o i log appropriati nelle risorse SQL di cui deve essere eseguito lo streaming nell'area di lavoro di Azure Log Analytics. 
 
-| Pannello | Descrizione |
-|---|---|
-| Sottoscrizioni | Elenco delle sottoscrizioni con numero di server, pool e database connessi. |
-| Server | Elenco dei server con numero di pool e database connessi. |
-| Pool elastici | Elenco di pool elastici connessi con numero massimo di GB ed eDTU nel periodo osservato. |
-|Database | Elenco di database connessi con numero massimo di GB e DTU nel periodo osservato.|
+![Panoramica di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
+La selezione di uno dei riquadri consente di visualizzare un report drill-down nella prospettiva specifica.
+
+![Timeout di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+
+Ogni prospettiva fornisce riepiloghi relativi a sottoscrizione, server, pool elastico e livello di database. Ogni prospettiva mostra inoltre un report specifico della prospettiva a destra. La selezione di una sottoscrizione, un server, un pool o un database dall'elenco continua il drill-down.
+
+| Prospettiva | Descrizione |
+| --- | --- |
+| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. Il drill-down fornisce il riepilogo delle metriche relative a DTU e GB. |
+| Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights. Altre informazioni su Intelligent Insights. |
+| Errors | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. |
+| Timeout | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. |
+| Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. |
+| Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |
+| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. |
+| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. |
+
+### <a name="intelligent-insights-report"></a>Report di Intelligent Insights
+
+È possibile visualizzare e accedere a tutti i dati di Intelligent Insights raccolti tramite la prospettiva di Intelligent Insights. [Per altre informazioni su Intelligent Insights fare clic qui](../sql-database/sql-database-intelligent-insights.md)
+
+![Informazioni dettagliate di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
+
+### <a name="elastic-pool-and-database-reports"></a>Report relativi a pool elastici e database
+
+I pool elastici e i database sono associati a report specifici, che mostrano tutti i dati raccolti per la risorsa nel periodo di tempo specificato.
+
+![Database di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
+
+![Pool elastico di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
+
+### <a name="query-reports"></a>Report delle query
+
+Tramite la prospettiva relativa a durata e attese delle query, è possibile correlare le prestazioni di qualsiasi query tramite il report della query. Questo report confronta le prestazioni della query in database diversi e semplifica l'individuazione dei database che eseguono la query selezionata in modo ottimale, rispetto ai database lenti.
+
+![Query di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>Analizzare i dati e creare avvisi
 
 È possibile creare facilmente avvisi con i dati provenienti dalle risorse del database SQL di Azure. Di seguito sono riportati due query utili di [ricerca nei log](log-analytics-log-searches.md) che è possibile usare per gli avvisi:
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
-
-
 *Elevato utilizzo di DTU nel database SQL di Azure*
 
 ```
-Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
 *Elevato utilizzo di DTU nel pool elastico del database SQL di Azure*
 
 ```
-Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
 È possibile usare queste query basate su avvisi per creare avvisi per soglie specifiche sia per i database SQL di Azure che per i pool elastici. Per configurare un avviso per l'area di lavoro OMS:
@@ -132,25 +164,6 @@ Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"*
 ![Creare un avviso nella ricerca](./media/log-analytics-azure-sql/create-alert01.png)
 6. Nella pagina **Aggiungi regola di avviso** configurare le proprietà necessarie e le soglie specifiche desiderate e quindi fare clic su **Salva**.  
 ![Aggiungere una regola di avviso](./media/log-analytics-azure-sql/create-alert02.png)
-
-### <a name="act-on-azure-sql-analytics-data"></a>Agire sui dati di Analisi SQL di Azure
-
-Ad esempio, una delle query più utili che è possibile eseguire è confrontare l'utilizzo DTU per tutti i pool elastici SQL di Azure in tutte le sottoscrizioni di Azure. L'unità elaborata di database (DTU, Database Throughput Unit) consente di descrivere la capacità relativa di un livello delle prestazioni dei database e dei pool Basic, Standard e Premium. Le unità DTU sono basate su una misura combinata di CPU, memoria, operazioni di lettura e di scrittura. Quando le unità DTU aumentano, aumenta anche la potenza offerta dal livello delle prestazioni. Un livello delle prestazioni con 5 DTU, ad esempio, ha cinque volte la potenza di un livello delle prestazioni con 1 DTU. A ogni server e pool elastico viene applicata una quota massima di DTU.
-
-Eseguendo la query di ricerca log seguente, è possibile capire facilmente se si sta sottoutilizzando o sovrautilizzando i pool elastici SQL Azure.
-
-```
-Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
-```
-
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
->
->`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
-
-Nell'esempio seguente è possibile osservare che un pool elastico ha un utilizzo elevato, prossimo al 100% dell'unità DTU, mentre gli altri hanno un utilizzo molto basso. È possibile eseguire un'indagine più approfondita per risolvere i problemi delle potenziali modifiche recenti dell'ambiente usando i log attività di Azure.
-
-![Risultati della ricerca log: utilizzo elevato](./media/log-analytics-azure-sql/log-search-high-util.png)
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: strumento di supporto per la personalizzazione dell&quot;interfaccia utente della pagina | Documentazione Microsoft'
-description: "Strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell&quot;interfaccia utente della pagina in Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: strumento di supporto per la personalizzazione dell''interfaccia utente della pagina | Documentazione Microsoft'
+description: "Strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina in Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: f9c1e41c423cc0d638d5c1d273d58b2fe713fa1c
-ms.openlocfilehash: 2aeb1f20255264ca97b8aff6bd506b5fa1832e28
-
-
+ms.openlocfilehash: e0c2d827553567ddbc7d006192dc35574e66f1cd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina
 Questo articolo è complementare all' [articolo principale sulla personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. I passaggi seguenti descrivono come verificare la funzionalità di personalizzazione dell'interfaccia utente delle pagine usando il contenuto HTML e CSS di esempio fornito.
@@ -86,10 +86,4 @@ Nello stesso repository decomprimere `B2CAzureStorageClient.zip` ed eseguire il 
 Dopo aver caricato il contenuto di esempio nell'account di archiviazione, è necessario modificare il criterio di iscrizione in modo che faccia riferimento a tale contenuto. Ripetere i passaggi a partire dalla sezione ["Personalizzare il criterio"](#customize-your-policy) più indietro, questa volta usando gli URL del proprio account di archiviazione. Il percorso del file `unified.html` sarà ad esempio `<url-of-your-container>/wingtip/unified.html`.
 
 È ora possibile usare il pulsante **Esegui adesso** o la propria applicazione per eseguire nuovamente il criterio. Il risultato dovrebbe essere lo stesso, poiché in entrambi i casi sono stati usati gli stessi file HTML e CSS di esempio. I criteri tuttavia fanno ora riferimento alla propria istanza di archiviazione BLOB di Azure e si è liberi di modificare e caricare di nuovo i file in base alle proprie esigenze. Per altre informazioni sulla personalizzazione dei file HTML e CSS, fare riferimento all' [articolo principale sulla personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

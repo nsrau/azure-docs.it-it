@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: manayar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Supporto multi-tenant in Azure Site Recovery per replicare le macchine virtuali VMware in Azure tramite CSP
 
@@ -222,4 +220,3 @@ I partner possono anche aggiungere un nuovo utente alla sottoscrizione del tenan
     ![Aggiungere un utente](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
     Per la maggior parte delle operazioni di gestione è sufficiente il ruolo *Collaboratore*. Gli utenti con questo livello di accesso possono eseguire qualsiasi operazione su una sottoscrizione, tranne modificare i livelli di accesso. Per questa operazione è infatti richiesto il livello di accesso *Proprietario*. È inoltre possibile ritoccare i livelli di accesso in base alle esigenze.
-

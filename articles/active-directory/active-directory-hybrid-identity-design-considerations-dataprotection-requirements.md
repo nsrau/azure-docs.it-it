@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 69f7b49fd82e4d34b1d54718cfbd2f4dedd2ae47
-ms.openlocfilehash: bfa6413bd939b6082de4a88195b1f35cf8210375
-ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Pianificare il potenziamento della sicurezza dei dati attraverso soluzioni d’identità avanzate
 La prima azione da compiere per garantire la protezione dei dati è identificare gli utenti che possono accedere ad essi. Nell'ambito di questo processo, è necessario disporre di una soluzione di gestione delle identità in grado di integrarsi con l'infrastruttura aziendale per poter fornire funzionalità di autenticazione e autorizzazione. L'autenticazione e l'autorizzazione vengono spesso confuse e i rispettivi ruoli fraintesi. Come illustrato nella figura seguente, rappresentano in realtà due concetti piuttosto diversi:
@@ -85,5 +84,4 @@ Le regole, le norme e i requisiti di conformità alle normative variano in base 
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

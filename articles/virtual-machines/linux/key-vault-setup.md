@@ -1,6 +1,6 @@
 ---
 title: Configurare Azure Key Vault per le macchine virtuali Linux | Microsoft Docs
-description: Come configurare Azure Key Vault da usare con una macchina virtuale di Azure Resource Manager con l&quot;interfaccia della riga di comando 2.0.
+description: Come configurare Azure Key Vault da usare con una macchina virtuale di Azure Resource Manager con l'interfaccia della riga di comando 2.0.
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 846941ae095a7d6f428bd0d189abc9f0c1848aa8
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 2cc9b4c978e9a4deb0c8443c4b0f9e301a7cf492
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Come configurare Key Vault per le macchine virtuali con l'interfaccia della riga di comando 2.0
 
@@ -61,4 +60,3 @@ Se si usa un modello è necessario impostare come segue la proprietà `enabledFo
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi usando i modelli vedere [Crea un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
-

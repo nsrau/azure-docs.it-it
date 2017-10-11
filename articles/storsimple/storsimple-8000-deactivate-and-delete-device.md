@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
-ms.contentlocale: it-it
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Disattivare ed eliminare un dispositivo StorSimple
 
@@ -121,5 +120,4 @@ Dopo la disattivazione dell'appliance cloud, è possibile eliminarla dall'elenco
 * Per ripristinare il dispositivo disattivato sulle impostazioni predefinite di fabbrica, passare a [Reimposta il dispositivo sulle impostazioni predefinite](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Per assistenza tecnica, [contattare il supporto Microsoft](storsimple-8000-contact-microsoft-support.md).
 * Per altre informazioni sull'uso del servizio Gestione dispositivi StorSimple, vedere l'articolo relativo all'[uso di Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

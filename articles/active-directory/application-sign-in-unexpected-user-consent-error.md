@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 21dabdcf0697b38ad3598ee8126a1bd62007efb5
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: fd500fdd4c8642bad96dcf71eebcf1fad461a35f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Errore imprevisto durante la richiesta di consenso per un'applicazione
 
 Questo articolo descrive gli errori che possono verificarsi quando si tenta di ottenere il consenso per un'applicazione. Per risolvere i problemi relativi a richieste di consenso impreviste che non contengono messaggi di errore, vedere [Scenari di autenticazione per Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
@@ -78,6 +76,5 @@ Tutti questi errori si verificano quando l'applicazione per la quale un utente s
 [App, autorizzazioni e consenso in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 
 [Ambiti, autorizzazioni e consenso in Azure Active Directory (endpoint v2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
 
 

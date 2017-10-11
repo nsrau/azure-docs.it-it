@@ -1,6 +1,6 @@
 ---
-title: Gestire record DNS in DNS di Azure usando l&quot;interfaccia della riga di comando 1.0 | Microsoft Docs
-description: Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi dell&quot;interfaccia della riga di comando 1.0 per le operazioni sui set di record e i record.
+title: Gestire record DNS in DNS di Azure usando l'interfaccia della riga di comando 1.0 | Microsoft Docs
+description: Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi dell'interfaccia della riga di comando 1.0 per le operazioni sui set di record e i record.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/20/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 307b327e4c04a0461e39930114eb193791cbda9a
-ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-dns-records-in-azure-dns-using-the-azure-cli-10"></a>Gestire record DNS in DNS di Azure con l'interfaccia della riga di comando 1.0
 
 > [!div class="op_single_selector"]
@@ -298,4 +296,3 @@ Viene chiesto di confermare l'operazione di eliminazione. Per eliminare la richi
 Altre informazioni su [zone e record nel servizio DNS di Azure](dns-zones-records.md).
 <br>
 Informazioni su come [proteggere zone e record](dns-protect-zones-recordsets.md) quando si usa il servizio DNS di Azure.
-

@@ -1,6 +1,6 @@
 ---
 title: 'Backup di Azure: backup coerente con le applicazioni di VM Linux | Microsoft Docs'
-description: Usare gli script per garantire backup coerenti con l&quot;applicazione in Azure, per le macchine virtuali Linux. Gli script si applicano solo alle VM Linux in una distribuzione di Resource Manager, non si applicano alle VM di Windows o alle distribuzioni di Service Manager. In questo articolo vengono illustrati i passaggi per configurare gli script, inclusa la risoluzione dei problemi.
+description: Usare gli script per garantire backup coerenti con l'applicazione in Azure, per le macchine virtuali Linux. Gli script si applicano solo alle VM Linux in una distribuzione di Resource Manager, non si applicano alle VM di Windows o alle distribuzioni di Service Manager. In questo articolo vengono illustrati i passaggi per configurare gli script, inclusa la risoluzione dei problemi.
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/12/2017
 ms.author: anuragm;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Backup coerente con le applicazioni di VM Linux di Azure (anteprima)
 
 Questo articolo illustra il framework degli script di pre e post-backup di Linux e il relativo uso per eseguire backup coerenti con le applicazioni di VM Linux di Azure.
@@ -87,11 +84,11 @@ Accertarsi di aggiungere le funzioni di log appropriate negli script di pre e po
 
 | Errore | Messaggio di errore | Azione consigliata |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |Lo script di pre-backup ha restituito un errore perciò il backup potrebbe non essere coerente con le applicazioni.    | Controllare i log di errore dello script per risolvere il problema.|  
-|    Post-ScriptExecutionFailed |    Lo script di post-backup ha restituito un errore che potrebbe compromettere lo stato dell'applicazione. |    Controllare i log di errore dello script per risolvere il problema e verificare lo stato dell'applicazione. |
-| Pre-ScriptNotFound |    Lo script di pre-backup non è stato trovato nel percorso specificato nel file di configurazione **VMSnapshotScriptPluginConfig.json**. |    Assicurarsi che lo script di pre-backup sia presente nel percorso specificato nel file di configurazione per garantire un backup coerente con le applicazioni.|
-| Post-ScriptNotFound |    Lo script di post-backup non è stato trovato nel percorso specificato nel file di configurazione **VMSnapshotScriptPluginConfig.json**. |    Assicurarsi che lo script di post-backup sia presente nel percorso specificato nel file di configurazione per garantire un backup coerente con le applicazioni.|
-| IncorrectPluginhostFile |    Il file **Pluginhost** incluso con l'estensione VmSnapshotLinux è danneggiato perciò non è possibile eseguire gli script di pre e post-backup e il backup non sarà coerente con le applicazioni.    | Disinstallare l'estensione **VmSnapshotLinux** che sarà automaticamente reinstallata con il backup successivo per risolvere il problema. |
+| Pre-ScriptExecutionFailed |Lo script di pre-backup ha restituito un errore perciò il backup potrebbe non essere coerente con le applicazioni.   | Controllare i log di errore dello script per risolvere il problema.|  
+|   Post-ScriptExecutionFailed |    Lo script di post-backup ha restituito un errore che potrebbe compromettere lo stato dell'applicazione. |    Controllare i log di errore dello script per risolvere il problema e verificare lo stato dell'applicazione. |
+| Pre-ScriptNotFound |  Lo script di pre-backup non è stato trovato nel percorso specificato nel file di configurazione **VMSnapshotScriptPluginConfig.json**. |   Assicurarsi che lo script di pre-backup sia presente nel percorso specificato nel file di configurazione per garantire un backup coerente con le applicazioni.|
+| Post-ScriptNotFound | Lo script di post-backup non è stato trovato nel percorso specificato nel file di configurazione **VMSnapshotScriptPluginConfig.json**. |   Assicurarsi che lo script di post-backup sia presente nel percorso specificato nel file di configurazione per garantire un backup coerente con le applicazioni.|
+| IncorrectPluginhostFile | Il file **Pluginhost** incluso con l'estensione VmSnapshotLinux è danneggiato perciò non è possibile eseguire gli script di pre e post-backup e il backup non sarà coerente con le applicazioni. | Disinstallare l'estensione **VmSnapshotLinux** che sarà automaticamente reinstallata con il backup successivo per risolvere il problema. |
 | IncorrectJSONConfigFile | Il file **VMSnapshotScriptPluginConfig.json** non è corretto, perciò non è possibile eseguire gli script di pre e post-backup e il backup non sarà coerente con le applicazioni. | Scaricare la copia da [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) ed eseguirne di nuovo la configurazione. |
 | InsufficientPermissionforPre-Script | Per eseguire gli script, l'utente "root" deve essere il proprietario del file e il file deve avere le autorizzazioni "700" (ovvero solo il "proprietario" deve possedere le autorizzazioni di "lettura", "scrittura" ed "esecuzione"). | Assicurarsi che l'utente "root" sia il "proprietario" del file di script e che solo il "proprietario" abbia le autorizzazioni di "lettura", "scrittura" ed "esecuzione". |
 | InsufficientPermissionforPost-Script | Per eseguire gli script, l'utente root deve essere il proprietario del file e il file deve avere le autorizzazioni "700" (ovvero solo il "proprietario" deve possedere le autorizzazioni di "lettura", "scrittura" ed "esecuzione"). | Assicurarsi che l'utente "root" sia il "proprietario" del file di script e che solo il "proprietario" abbia le autorizzazioni di "lettura", "scrittura" ed "esecuzione". |
@@ -100,4 +97,3 @@ Accertarsi di aggiungere le funzioni di log appropriate negli script di pre e po
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurare il backup di una VM in un insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
-

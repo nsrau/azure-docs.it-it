@@ -1,6 +1,6 @@
 ---
 title: Collegare un disco dati a una macchina virtuale Linux | Microsoft Docs
-description: Come collegare un disco dati nuovo o esistente a una macchina virtuale Linux nel portale di Azure tramite il modello di distribuzione di Resource Manager.
+description: Usare il portale per collegare il disco dati nuovo o esistente a una macchina virtuale Linux.
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 09/25/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1599ee241c3d9fb3623ebd89ae30f2795cae1930
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 787f729732accd74c212b3be9520af50a2f04261
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/27/2017
 
 ---
-# <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>Come collegare un disco dati a una macchina virtuale Linux nel portale di Azure
-In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È possibile scegliere di usare Azure Managed Disks o dischi non gestiti. La funzionalità Managed Disks viene gestita dalla piattaforma Azure e non richiede alcuna pianificazione o alcuna posizione per l'archiviazione. I dischi non gestiti richiedono un account di archiviazione e presentano alcune [quote e limiti applicati](../../azure-subscription-service-limits.md#storage-limits). Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overview](../windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).
+# <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
+In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Prima di collegare i dischi alla macchina virtuale, leggere i seguenti suggerimenti:
 
@@ -34,19 +34,16 @@ Prima di collegare i dischi alla macchina virtuale, leggere i seguenti suggerime
 
 ## <a name="find-the-virtual-machine"></a>Trovare la macchina virtuale
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Scegliere **Macchine virtuali**dal menu Hub.
+2. Nel menu a sinistra fare clic su **Macchine virtuali**.
 3. Selezionare la macchina virtuale dall'elenco.
-4. Nel pannello Macchine virtuali di **Essentials** fare clic su **Dischi**.
+4. Nella pagina Macchine virtuali fare clic su **Dischi** in **Informazioni di base**.
    
     ![Aprire le impostazioni del disco](./media/attach-disk-portal/find-disk-settings.png)
 
-Continuare seguendo le istruzioni per il collegamento di un [disco gestito](#use-azure-managed-disks) o di un [disco non gestito](#use-unmanaged-disks).
 
-## <a name="use-azure-managed-disks"></a>Usare Azure Managed Disks
+## <a name="attach-a-new-disk"></a>Collegare un nuovo disco
 
-### <a name="attach-a-new-disk"></a>Collegare un nuovo disco
-
-1. Nel pannello **Dischi** fare clic su **+ Add data disk** (+ Aggiungi disco dati).
+1. Nel riquadro **Dischi** fare clic su **+ Aggiungi disco dati**.
 2. Fare clic sul menu a discesa **Nome** e selezionare **Crea disco**:
 
     ![Creare un disco gestito Azure](./media/attach-disk-portal/create-new-md.png)
@@ -63,8 +60,8 @@ Continuare seguendo le istruzioni per il collegamento di un [disco gestito](#use
 
    ![Disco gestito Azure nel gruppo di risorse](./media/attach-disk-portal/view-md-resource-group.png)
 
-### <a name="attach-an-existing-disk"></a>Collegare un disco esistente
-1. Nel pannello **Dischi** fare clic su **+ Add data disk** (+ Aggiungi disco dati).
+## <a name="attach-an-existing-disk"></a>Collegare un disco esistente
+1. Nel riquadro **Dischi** fare clic su **+ Aggiungi disco dati**.
 2. Fare clic sul menu a discesa **Nome** per visualizzare un elenco di dischi gestiti esistenti a cui è possibile accedere con la sottoscrizione di Azure. Selezionare il disco gestito da collegare:
 
    ![Collegare il disco gestito di Azure](./media/attach-disk-portal/select-existing-md.png)
@@ -75,29 +72,8 @@ Continuare seguendo le istruzioni per il collegamento di un [disco gestito](#use
 
 4. Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
 
-## <a name="use-unmanaged-disks"></a>Usare i dischi non gestiti
-
-### <a name="attach-a-new-disk"></a>Collegare un nuovo disco
-
-1. Nel pannello **Dischi** fare clic su **+ Add data disk** (+ Aggiungi disco dati).
-2. Esaminare le impostazioni predefinite, aggiornare se necessario e quindi fare clic su **OK**.
-   
-   ![Esaminare le impostazioni del disco](./media/attach-disk-portal/attach-new.png)
-3. Dopo che Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dati**.
-
-### <a name="attach-an-existing-disk"></a>Collegare un disco esistente
-1. Nel pannello **Dischi** fare clic su **+ Add data disk** (+ Aggiungi disco dati).
-2. In **Collega un disco esistente** fare clic su **File VHD**.
-   
-   ![Collegare un disco esistente](./media/attach-disk-portal/attach-existing.png)
-3. In **Account di archiviazione**, selezionare l'account e un contenitore che contiene il file con estensione vhd.
-   
-   ![Individuare il percorso di un VHD](./media/attach-disk-portal/find-storage-container.png)
-4. Selezionare il file con estensione vhd.
-5. In **Collega un disco esistente** il file appena selezionato è elencato in **File VHD**. Fare clic su **OK**.
-6. Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver aggiunto il disco, è necessario prepararlo per l'uso. Per ulteriori informazioni, vedere [Procedura: inizializzare un nuovo disco dati in Linux](add-disk.md).
+È anche possibile [collegare un disco dati](add-disk.md) usando l'interfaccia della riga di comando di Azure.
 

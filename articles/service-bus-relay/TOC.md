@@ -9,10 +9,13 @@
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
 ## [Inoltro WCF](relay-wcf-dotnet-get-started.md)
+## [Esercitazione sull'inoltro WCF](service-bus-relay-tutorial.md)
+## [Esercitazione su REST per l'inoltro WCF](service-bus-relay-rest-tutorial.md)
 
 # Procedure
 ## Pianificare e progettare
 ### [Autenticazione e protezione](relay-authentication-and-authorization.md)
+#### [Eseguire la migrazione da Servizio di controllo di accesso a firma di accesso condiviso](relay-migrate-acs-sas.md)
 ### [Protocollo per connessioni ibride](relay-hybrid-connections-protocol.md)
 ## Sviluppare
 ### [API disponibili](relay-api-overview.md)

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: v-sharos
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 5bfbeb038dbedae2bf77016abbc19458c3dc22c9
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -119,5 +118,4 @@ Per sostituire o riassegnare i VIP per qualsiasi interfaccia di rete, procedere 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Configurare MPIO per il dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 * Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

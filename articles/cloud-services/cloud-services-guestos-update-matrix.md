@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 9/14/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: be0092e62033da249015b211db148da57bb82765
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
@@ -38,6 +38,8 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 Non si è certi di quale sia il sistema operativo guest o di come funzionano i rilasci del sistema operativo guest? Leggere [questa](#how-it-works) sezione.
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+###### <a name="september-14-2017"></a>**14 settembre 2017**
+L'implementazione del sistema operativo guest di settembre è iniziata il 14 settembre e dovrebbe essere rilasciata il 9 ottobre.
 
 ###### <a name="august-24-2017"></a>**24 agosto 2017**
 È stato rilasciato il sistema operativo guest di agosto.
@@ -65,12 +67,6 @@ L'implementazione del sistema operativo guest di maggio è iniziata il 12 maggio
 
 ###### <a name="april-18-2017"></a>**18 aprile 2017**
 L'implementazione del sistema operativo guest di aprile è iniziata il 18 aprile e il rilascio è previsto per il 9 maggio.
-
-###### <a name="april-10-2017"></a>**10 aprile 2017**
-L'implementazione del sistema operativo guest di marzo è iniziata il 14 marzo 2017 ed è stata rilasciata il 10 aprile 2017.
-
-###### <a name="january-10-2017"></a>**10 gennaio 2017**
-Il sistema operativo guest di gennaio contiene patch che influiscono solo sulla famiglia di sistemi operativi 2 (Windows 2008 R2 Server). Microsoft ha rilasciato pertanto solo l'immagine del sistema operativo della famiglia 2 (WA-GUEST-OS-2.59_201701-01) per questo mese. Per tutte le altre famiglie di sistemi operativi, il sistema operativo di dicembre (201612-01) rimane la versione più aggiornata.
 
 
 ## <a name="releases"></a>Rilasci
@@ -250,5 +246,5 @@ I criteri relativi al supporto e al ritiro del sistema operativo guest sono desc
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[correzioni]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[correzione]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
 

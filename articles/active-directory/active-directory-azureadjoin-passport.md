@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b10fc7c51d9fee306b0e71d405f0fd7ec7a6816
-ms.openlocfilehash: 9270df5e880cc9a512ae673c1c25449376d8a7b4
-ms.contentlocale: it-it
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 62adf8a9fd4400a056e2c0f59c79431acbad5865
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="authenticating-identities-without-passwords-through-windows-hello-for-business"></a>Autenticazione delle identità senza password con Windows Hello for Business
 Gli attuali metodi di autenticazione basati solo su password non sono sufficienti a garantire la protezione degli utenti. Gli utenti riutilizzano e dimenticano le password. Le password possono causare violazioni della protezione, phishing, oltre ad essere facilmente violabili. Sono inoltre difficili da ricordare e più soggette ad attacchi di tipo "[pass-the-hash](https://technet.microsoft.com/dn785092.aspx)".
@@ -72,5 +70,4 @@ Per istruzioni dettagliate sulla distribuzione, vedere [Abilitare Windows Hello 
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
-
 

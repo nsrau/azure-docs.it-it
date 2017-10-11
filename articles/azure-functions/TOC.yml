@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Funzioni
       href: functions-overview.md
-    - name: 'Scegliere tra Flow, App per la logica, Funzioni e Processi Web'
+    - name: Confronto senza server
       href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Guide introduttive
   expanded: true
@@ -17,21 +17,23 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Trigger
       items:
+        - name: Archiviazione BLOB
+          href: functions-create-storage-blob-triggered-function.md
+        - name: Azure Cosmos DB
+          href: functions-create-cosmos-db-triggered-function.md
         - name: Timer
           href: functions-create-scheduled-function.md
         - name: Webhook generico
           href: functions-create-generic-webhook-triggered-function.md
         - name: Webhook di GitHub
           href: functions-create-github-webhook-triggered-function.md
-        - name: Archiviazione BLOB
-          href: functions-create-storage-blob-triggered-function.md
         - name: Archiviazione code
           href: functions-create-storage-queue-triggered-function.md
     - name: Integrare
       items:
         - name: Archiviazione
           href: functions-integrate-storage-queue-output-binding.md
-        - name: Cosmos DB
+        - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Esercitazioni
   items:
@@ -41,6 +43,8 @@
       href: functions-create-serverless-api.md
     - name: 3. Creare una definizione OpenAPI
       href: functions-openapi-definition.md
+    - name: 4 - Ridimensionamento di immagine con Griglia di eventi
+      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -100,16 +104,20 @@
         - name: Creare una definizione OpenAPI 2.0
           href: functions-api-definition-getting-started.md
         - name: Esportare in PowerApps e Microsoft Flow
-          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: app-service-export-api-to-powerapps-and-flow.md
         - name: Chiamare una funzione da PowerApps
           href: functions-powerapps-scenario.md
+        - name: Chiamare una funzione da Microsoft Flow
+          href: functions-flow-scenario.md
+        - name: Usare l'identità dei servizi gestiti
+          href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: riferimento
   items:
     - name: Associazioni
       items:
         - name: Archiviazione BLOB
           href: functions-bindings-storage-blob.md
-        - name: Cosmos DB
+        - name: Azure Cosmos DB
           href: functions-bindings-documentdb.md
         - name: Hub eventi
           href: functions-bindings-event-hubs.md
@@ -119,6 +127,8 @@
           href: functions-bindings-external-table.md
         - name: HTTP e webhook
           href: functions-bindings-http-webhook.md
+        - name: Microsoft Graph
+          href: functions-bindings-microsoft-graph.md
         - name: App per dispositivi mobili
           href: functions-bindings-mobile-apps.md
         - name: Hub di notifica
@@ -135,6 +145,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
+    - name: Informazioni di riferimento su host.json
+      href: functions-host-json.md
+    - name: Informazioni di riferimento sulle impostazioni dell'app
+      href: functions-app-settings.md
     - name: Informazioni di riferimento su OpenAPI
       href: functions-api-definition.md
 - name: Risorse
@@ -147,6 +161,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Video
+      href: 'https://www.youtube.com/c/AzureFunctions'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
     - name: Stack Overflow

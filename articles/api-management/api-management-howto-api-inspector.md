@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
 Gestione API fornisce uno strumento per il controllo delle API per aiutare gli sviluppatori ad eseguire il debug e la risoluzione dei problemi correlati alle API. È possibile usare Controllo API sia a livello di codice sia direttamente dal portale per sviluppatori. 
@@ -263,11 +264,5 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 [api-management-send-results]: ./media/api-management-howto-api-inspector/api-management-send-results.png
 
 
-
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

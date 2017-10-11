@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b7e0e1a689ff6caa4142959818a70bc4a6b65af
-
-
+ms.openlocfilehash: 7d9377bb8f3cb8c587823c2d71d61dfb9b50f52f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs"></a>Utilizzare il servizio StorSimple Manager per visualizzare e gestire i processi di StorSimple.
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 La pagina **processi** fornisce un unico portale centralizzato per la visualizzazione e la gestione di processi avviati sui dispositivi connessi al servizio StorSimple Manager. È possibile visualizzare i processi pianificati, in esecuzione, completati e non riusciti per più dispositivi. I risultati vengono presentati in un formato tabulare. 
 
 ![Pagina dei processi](./media/storsimple-manage-jobs/HCS_JobsPage.png)
@@ -74,10 +74,4 @@ Questo processo ora viene annullato.
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [gestire i criteri di backup di StorSimple](storsimple-manage-backup-policies.md).
 * Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

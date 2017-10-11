@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 0c627802ccfba230dcde2dafffee26cb1c895791
-ms.contentlocale: it-it
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="create-an-application-express"></a>Creare un'applicazione (Rapida)
 È ora necessario registrare l'applicazione nel *portale di registrazione delle applicazioni Microsoft*:
 1. Registrare l'applicazione tramite il [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)
@@ -57,4 +55,3 @@ Sostituire `redirectUri` con l'URL SSL del progetto
 </li>
 </ol>
 <!-- End Docs -->
-

@@ -1,6 +1,6 @@
 ---
 title: Uso dei dati geospaziali in Azure Cosmos DB | Microsoft Docs
-description: Informazioni su come creare, indicizzare ed eseguire query su oggetti spaziali con Azure Cosmos DB e l&quot;API di DocumentDB.
+description: Informazioni su come creare, indicizzare ed eseguire query su oggetti spaziali con Azure Cosmos DB e l'API di DocumentDB.
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: d5785c81fb597e7d30eb7d3a880e7194d8358ed5
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Uso dei dati geospaziali e dei dati località GeoJSON in Azure Cosmos DB
 Questo articolo offre un'introduzione alla funzionalità geospaziale in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
@@ -400,5 +398,4 @@ Ora che si è appreso come iniziare a usare il supporto geospaziale in Azure Cos
 * Usare le query geospaziali in [Query Playground di Azure Cosmos DB](http://www.documentdb.com/sql/demo#geospatial)
 * Altre informazioni sulle [query di Azure Cosmos DB](documentdb-sql-query.md)
 * Altre informazioni sui [criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md)
-
 

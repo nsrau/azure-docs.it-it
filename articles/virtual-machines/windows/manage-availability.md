@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 408d030a7c26fea47669a690b0487e0868fbc2c9
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gestire la disponibilità delle macchine virtuali Windows in Azure 
 
@@ -35,5 +34,4 @@ Per istruzioni sulla creazione e l'uso dei set di disponibilità con il modello 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul bilanciamento del carico delle macchine virtuali, vedere [Bilanciamento del traffico di Azure per macchine virtuali](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;istanza di SQL Data Warehouse con PowerShell | Documentazione Microsoft
-description: Creare un&quot;istanza di SQL Data Warehouse con PowerShell
+title: Creare un'istanza di SQL Data Warehouse con PowerShell | Documentazione Microsoft
+description: Creare un'istanza di SQL Data Warehouse con PowerShell
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 58ba34f8f99b7cd2b6a9a199bc70d79431405100
-ms.contentlocale: it-it
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: a763f1c600c1a3f37cb565a8eb7db3c3f27dcf75
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-sql-data-warehouse-using-powershell"></a>Creare SQL Data Warehouse con PowerShell
 > [!div class="op_single_selector"]
@@ -111,4 +109,3 @@ Per altre informazioni su come gestire SQL Data Warehouse a livello di codice, v
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

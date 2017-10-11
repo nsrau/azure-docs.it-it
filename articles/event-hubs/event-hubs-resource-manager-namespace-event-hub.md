@@ -1,6 +1,6 @@
 ---
 title: Creare un gruppo di consumer e lo spazio dei nomi di Hub eventi di Azure usando un modello | Documentazione Microsoft
-description: Creare uno spazio dei nomi dell&quot;hub eventi con Hub eventi e un gruppo di consumer usando i modelli di Azure Resource Manager
+description: Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando i modelli di Azure Resource Manager
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 10/09/2017
 ms.author: sethm;shvija
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: eb9a80eec0326aaa605cb8b21aecbaeec94ff212
 ms.contentlocale: it-it
 ms.lasthandoff: 06/13/2017
-
 
 ---
 
@@ -139,7 +138,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-```cli
+```azurecli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]

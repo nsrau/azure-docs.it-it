@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/22/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 8496bd61d0133a428ce8e522faef5b538f19d4fc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d152444f38e7a09b97ce7cb9778d8c67a0a5a421
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -44,13 +44,14 @@ Per creare una regola di bilanciamento del carico, è necessario raccogliere le 
 - Porta interna.
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+Per creare una regola di bilanciamento del carico con l'**interfaccia della riga di comando di Azure** è sufficiente un solo comando. Per creare una nuova regola è necessario sapere solo il nome del servizio di bilanciamento del carico e quello del gruppo di risorse.
+
 >[!NOTE]
 >Se è necessario determinare il nome del servizio di bilanciamento del carico, usare questo comando per ottenere rapidamente un elenco di tutti i servizi di bilanciamento del carico e i gruppi di risorse associati.
 >
 >`az network lb list --query "[].{ResourceGroup: resourceGroup, Name: name}"`
 >
 
-Per creare una regola di bilanciamento del carico con l'**interfaccia della riga di comando di Azure** è sufficiente un solo comando. Per creare una nuova regola è necessario sapere solo il nome del servizio di bilanciamento del carico e quello del gruppo di risorse.
 
 ```azurecli
 az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol Tcp --lb-name LB-svcfab3 -g svcfab_cli -n my-app-rule
@@ -63,8 +64,8 @@ Il comando dell'interfaccia della riga di comando di Azure include alcuni parame
 | `--backend-port`  | Porta su cui è in ascolto l'applicazione di Service Fabric. |
 | `--frontend-port` | Porta esposta dal servizio di bilanciamento del carico per le connessioni esterne. |
 | `-lb-name` | Nome del servizio di bilanciamento del carico da modificare. |
-| `-g`       | Gruppo di risorse che include sia il servizio di bilanciamento del carico che il cluster di Service Fabric. |
-| `-n`       | Nome scelto per la regola. |
+| `-g`       | Gruppo di risorse che include sia il servizio di bilanciamento del carico sia il cluster di Service Fabric. |
+| `-n`       | Nome desiderato per la regola. |
 
 
 >[!NOTE]
@@ -72,17 +73,17 @@ Il comando dell'interfaccia della riga di comando di Azure include alcuni parame
 
 ## <a name="powershell"></a>PowerShell
 
->[!NOTE]
->Se è necessario determinare il nome del servizio di bilanciamento del carico, usare questo comando per ottenere rapidamente un elenco di tutti i servizi di bilanciamento del carico e i gruppi di risorse associati.
->
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
-
-PowerShell è un po' più complesso rispetto all'interfaccia della riga di comando di Azure. A livello concettuale, per creare una regola è necessario completare i passaggi seguenti.
+PowerShell è un po' più complesso rispetto all'interfaccia della riga di comando di Azure. Per creare una regola seguire questi passaggi concettuali:
 
 1. Recuperare il servizio di bilanciamento del carico da Azure.
 2. Creare una regola.
 3. Aggiungere la regola al servizio di bilanciamento del carico.
 4. Aggiornare il servizio di bilanciamento del carico.
+
+>[!NOTE]
+>Se è necessario determinare il nome del servizio di bilanciamento del carico, usare questo comando per ottenere rapidamente un elenco di tutti i servizi di bilanciamento del carico e i gruppi di risorse associati.
+>
+>`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
@@ -106,4 +107,6 @@ Nel comando `New-AzureRmLoadBalancerRuleConfig`, `-FrontendPort` rappresenta la 
 >[!NOTE]
 >Per altre informazioni in merito, vedere l'articolo su come [creare un servizio di bilanciamento del carico con PowerShell](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
 
+## <a name="next-steps"></a>Passaggi successivi
 
+Altre informazioni sulla [rete in Service Fabric](service-fabric-patterns-networking.md).

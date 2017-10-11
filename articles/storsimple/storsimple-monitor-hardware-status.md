@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
-
-
+ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>Utilizzare il servizio StorSimple Manager per monitorare le componenti hardware e lo stato
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In questo articolo vengono descritti i vari componenti fisici e logici del dispositivo StorSimple in locale. Viene inoltre spiegato come monitorare lo stato di componente del dispositivo utilizzando la pagina **Manutenzione** nel servizio StorSimple Manager. 
 
 Nella pagina **Manutenzione** è indicato lo stato dell'hardware di tutti i componenti del dispositivo StorSimple. 
@@ -87,7 +87,7 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 | Pool di archiviazione di unità SSD |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo SSD. |
 | Controller [0-1] [stato] |I/O |Fisico |Controller |Sì |Visualizza lo stato del controller e se è in modalità attiva o standby all'interno dello chassis. |
 | Sensori di temperatura nel controller |I/O |Fisico |Controller |No |Numerosi sensori di temperatura, ad esempio modulo I/O, temperatura CPU, sensori DIMM e PCIe hanno lo stato visualizzato, che indica se la temperatura rilevata è compresa o meno nella tolleranza. |
-| ﻿Espansore SAS |I/O |Fisico |Controller |No |Indica lo stato dell'espansore SCSI associato seriale (SAS), che viene utilizzato per connettere al controller l'archiviazione integrata. |
+| Espansore SAS |I/O |Fisico |Controller |No |Indica lo stato dell'espansore SCSI associato seriale (SAS), che viene utilizzato per connettere al controller l'archiviazione integrata. |
 | Connettore SAS [0-1] |I/O |Fisico |Controller |No |Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS. |
 | Interconnessione piano intermedio SBB |I/O |Fisico |Controller |No |Indica lo stato del connettore del piano intermedio, che viene utilizzato per connettere ogni controller al piano intermedio. |
 | Core del processore |I/O |Fisico |Controller |No |Indica lo stato dei core del processore all'interno di ogni controller. |
@@ -116,7 +116,7 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 | Archiviazione locale [HDD] |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD. |
 | Controller [0-1] [stato] |I/O |Fisico |Controller |Sì |Visualizza lo stato dei controller nel modulo EBOD. |
 | Sensori di temperatura in EBOD |I/O |Fisico |Controller |No |Numerosi sensori di temperatura di ogni controller hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
-| ﻿Espansore SAS |I/O |Fisico |Controller |No |Indica lo stato dell'espansore SAS, che viene utilizzato per connettere al controller l'archiviazione integrata. |
+| Espansore SAS |I/O |Fisico |Controller |No |Indica lo stato dell'espansore SAS, che viene utilizzato per connettere al controller l'archiviazione integrata. |
 | Connettore SAS [0-2] |I/O |Fisico |Controller |No |Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS. |
 | Interconnessione piano intermedio SBB |I/O |Fisico |Controller |No |Indica lo stato del connettore del piano intermedio, che viene utilizzato per connettere ogni controller al piano intermedio. |
 | Alimentatore elettronica dello chassis |I/O |Fisico |Controller |No |Indica lo stato del sistema di alimentazione dello chassis. |
@@ -128,10 +128,4 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 * Se è necessario risolvere i problemi relativi a un componente del dispositivo con lo stato danneggiato o guasto, fare riferimento a [Indicatori di monitoraggio di StorSimple](storsimple-monitoring-indicators.md). 
 * Per sostituire un componente hardware guasto, vedere la [Guida alla sostituzione di componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 * Se si continuano a riscontrare problemi nei dispositivi, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

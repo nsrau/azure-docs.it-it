@@ -1,6 +1,6 @@
 ---
 title: Accesso condizionale - Database SQL di Azure e Azure SQL Data Warehouse | Microsoft Docs
-description: Informazioni su come configurare l&quot;accesso condizionale per il database SQL di Azure e Azure SQL Data Warehouse.
+description: Informazioni su come configurare l'accesso condizionale per il database SQL di Azure e Azure SQL Data Warehouse.
 services: sql-database
 author: BYHAM
 manager: jhubbard
@@ -9,15 +9,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 0dcec61c03a84197e2c351761c743683caa98a06
-ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Accesso condizionale (MFA) con il database SQL di Azure e Azure SQL Data Warehouse  
 
 Sia il database SQL che SQL Data Warehouse supportano l'accesso condizionale Microsoft. La procedura seguente mostra come configurare il database SQL per applicare un criterio di accesso condizionale.  
@@ -51,4 +48,3 @@ Per domande sul database SQL di Azure o su Azure SQL Data Warehouse in relazione
 ## <a name="next-steps"></a>Passaggi successivi  
 
 Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md).
-

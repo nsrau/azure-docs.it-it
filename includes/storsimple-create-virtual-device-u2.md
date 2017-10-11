@@ -21,7 +21,7 @@
       > 
    7. Fare clic sul segno di spunta per indicare di aver compreso che i dati archiviati nel dispositivo virtuale verranno ospitati in un datacenter Microsoft. Quando si utilizza soltanto un dispositivo fisico, la chiave di crittografia viene conservata nel dispositivo; di conseguenza, Microsoft non può decrittografarli. 
       
-       Quando si utilizza un dispositivo virtuale, sia la chiave di crittografia che la chiave di decrittografia vengono archiviate in Microsoft Azure. Per altre informazioni, vedere le [considerazioni relative alla sicurezza per l'uso di un dispositivo virtuale](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       Quando si utilizza un dispositivo virtuale, sia la chiave di crittografia che la chiave di decrittografia vengono archiviate in Microsoft Azure. Per altre informazioni, vedere le [considerazioni relative alla sicurezza per l'uso di un dispositivo virtuale](../articles/storsimple/storsimple-security.md).
    8. Fare clic sull'icona del segno di spunta per creare il dispositivo virtuale. Il provisioning del dispositivo potrebbe durare circa 30 minuti.
       
       ![Dispositivo virtuale StorSimple fase di creazione](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)

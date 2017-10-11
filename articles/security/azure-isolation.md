@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9e6331df4a8a07c3f2524891caf77bbaab3bff0b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -58,7 +58,7 @@ Il concetto di tenancy di Azure (sottoscrizione di Azure) si riferisce a una rel
 
 Gli utenti, i gruppi e le applicazioni da tale directory possono gestire le risorse nella sottoscrizione di Azure. È possibile assegnare questi diritti di accesso tramite il portale di Azure, gli strumenti da riga di comando di Azure o le API Gestione di Azure. Un tenant di Azure AD viene isolato in modo logico usando limiti di sicurezza in modo che nessun cliente possa accedere agli altri tenant e comprometterli, intenzionalmente o accidentalmente. Azure AD viene eseguito nei server "bare metal" isolati in un segmento di rete separato, in cui il filtraggio dei pacchetti a livello di host e Windows Firewall bloccano connessioni e traffico indesiderati.
 
-- L'accesso ai dati in Azure AD richiede l'autenticazione degli utenti tramite un [servizio token di sicurezza](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization). Le informazioni relative a esistenza, stato abilitato e ruolo dell'utente vengono usate dal sistema di autorizzazione per determinare se l'accesso richiesto al tenant di destinazione è autorizzato per l'utente corrente in questa sessione.
+- L'accesso ai dati in Azure AD richiede l'autenticazione utente tramite un servizio token di sicurezza. Le informazioni relative a esistenza, stato abilitato e ruolo dell'utente vengono usate dal sistema di autorizzazione per determinare se l'accesso richiesto al tenant di destinazione è autorizzato per l'utente corrente in questa sessione.
 
 ![Tenancy di Azure](./media/azure-isolation/azure-isolation-fig1.png)
 

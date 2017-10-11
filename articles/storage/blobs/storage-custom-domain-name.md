@@ -3,7 +3,7 @@ title: Configurare un nome di dominio personalizzato per l'endpoint dell'archivi
 description: Usare il portale di Azure per eseguire il mapping del proprio nome canonico (CNAME) all'endpoint di archiviazione BLOB in un account di archiviazione di Azure.
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67a197ffa04d284e9251d7f79b36a86d03637fd9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: e05f9428b0e0ef94bb499a3caa2e1f9f02d475d3
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB
@@ -119,7 +119,7 @@ Dopo aver rimosso correttamente il dominio personalizzato, verrà visualizzata u
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Usare il comando [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#update) dell'interfaccia della riga di comando e specificare una stringa vuota (`""`) per il valore dell'argomento `--custom-domain` per rimuovere la registrazione di un dominio personalizzato.
+Usare il comando [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) dell'interfaccia della riga di comando e specificare una stringa vuota (`""`) per il valore dell'argomento `--custom-domain` per rimuovere la registrazione di un dominio personalizzato.
 
 * Formato del comando:
 

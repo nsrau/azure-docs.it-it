@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 243c1cd5ebf34f2d8a8fda234fa3875298390336
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="microsoft-cloud-services-and-network-security"></a>Servizi cloud Microsoft e sicurezza di rete
 I Servizi cloud Microsoft offrono servizi e infrastruttura su scala elevata, capacità di livello aziendale e molte opzioni per la connettività ibrida. I clienti possono scegliere di accedere a questi servizi tramite Internet o con Azure ExpressRoute, che offre connettività di rete privata. La piattaforma Microsoft Azure consente ai clienti di estendere con facilità la propria infrastruttura nel cloud e di sviluppare architetture a più livelli. Inoltre, le terze parti possono abilitare capacità avanzate offrendo servizi di sicurezza e appliance virtuali. Questo white paper offre una panoramica dei problemi relativi a sicurezza e architettura che i clienti dovrebbero tenere in considerazione quando usano i Servizi cloud Microsoft con accesso tramite ExpressRoute. Il documento illustra anche come creare servizi più sicuri sulle reti virtuali di Azure.
 
@@ -79,7 +77,7 @@ Prima che il traffico Internet possa raggiungere le reti virtuali di Azure, sono
 
 1.    **Protezione DDoS**: la protezione DDoS è un livello della rete fisica di Azure che protegge la piattaforma Azure stessa da attacchi su larga scala basati su Internet. Per questi attacchi vengono usati più nodi "bot" nel tentativo di sovraccaricare un servizio Internet. Azure vanta una solida rete di protezione DDoS su tutta la connettività Internet in ingresso, in uscita e tra le aree di Azure. Questo livello di protezione DDoS non dispone di attributi configurabili dall'utente e non è accessibile al cliente. Il livello di protezione DDoS protegge Azure dagli attacchi su larga scala e monitora il traffico in uscita e tra aree di Azure. Usando le appliance di rete virtuali nella rete virtuale, l'utente può configurare livelli di resilienza aggiuntivi per far fronte ad attacchi di scala minore che non attraversano la protezione a livello di piattaforma. Un esempio di DDoS in azione: se un indirizzo IP Internet subisce un attacco DDoS su larga scala, Azure rileva le origini degli attacchi ed elimina il traffico problematico prima che raggiunga la destinazione prevista. Nella quasi totalità dei casi, l'attacco non ha conseguenze sull'endpoint attaccato. Nei rari casi in cui un endpoint subisce danni, il traffico diretto agli altri endpoint non viene alterato. Pertanto altri clienti e servizi non subiranno alcun effetto di tale attacco. È fondamentale notare che il livello DDoS di Azure monitora solo gli attacchi su larga scala. È possibile che il servizio specifico risulti sovraccarico prima che siano superate le soglie di protezione a livello di piattaforma. Ad esempio, un sito Web in un singolo server IIS A0 potrebbe essere danneggiato da un attacco DDoS prima che la protezione DDoS a livello di piattaforma di Azure rilevi la minaccia.
 
-2.    **Indirizzi IP pubblici**: gli indirizzi IP pubblici (abilitati tramite endpoint del servizio, indirizzi IP pubblici, gateway applicazione e altre funzionalità di Azure che presentano un indirizzo IP pubblico a Internet instradato alla risorsa) consentono ai servizi cloud o ai gruppi di risorse di esporre gli indirizzi IP pubblici e le porte Internet. L'endpoint usa il processo NAT (Network Address Translation) per instradare il traffico fino all'indirizzo e alla porta interni nella rete virtuale di Azure. È questa la modalità primaria che consente al traffico esterno di passare attraverso la rete virtuale. Gli indirizzi IP pubblici possono essere configurati per determinare il traffico autorizzato a passare e come/dove viene convertito nella rete virtuale.
+2.  **Indirizzi IP pubblici**: gli indirizzi IP pubblici (abilitati tramite endpoint del servizio, indirizzi IP pubblici, gateway applicazione e altre funzionalità di Azure che presentano un indirizzo IP pubblico a Internet instradato alla risorsa) consentono ai servizi cloud o ai gruppi di risorse di esporre gli indirizzi IP pubblici e le porte Internet. L'endpoint usa il processo NAT (Network Address Translation) per instradare il traffico fino all'indirizzo e alla porta interni nella rete virtuale di Azure. È questa la modalità primaria che consente al traffico esterno di passare attraverso la rete virtuale. Gli indirizzi IP pubblici possono essere configurati per determinare il traffico autorizzato a passare e come/dove viene convertito nella rete virtuale.
 
 Quando il traffico raggiunge la rete virtuale, sono disponibili molte funzionalità. Le reti virtuali di Azure costituiscono la base a cui i clienti collegano i rispettivi carichi di lavoro e a cui si applica la sicurezza a livello di rete di base. Si tratta di una rete privata (un overlay di rete virtuale) in Azure per i clienti, che offre le funzionalità e le caratteristiche seguenti:
 
@@ -552,4 +550,3 @@ L'aggiunta di una connessione di rete con peering privato di ExpressRoute può e
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
-

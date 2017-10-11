@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7884032fd4b5a72ca7e2f2dc2830b0a7c2220e94
-ms.openlocfilehash: 5d8ddd4449d3b160dbca7496c801e75dcf4a44e5
-ms.contentlocale: it-it
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Convalida XML con gli schemi per le app per la logica di Azure ed Enterprise Integration Pack
 
@@ -60,11 +58,11 @@ La procedura dipende dal livello di accesso del contenitore BLOB, ovvero **Pubbl
 
 **Per determinare il livello di accesso**
 
-1.    Aprire **Azure Storage Explorer** (Esplora archivi di Azure). 
+1.  Aprire **Azure Storage Explorer** (Esplora archivi di Azure). 
 
-2.    In **Contenitori Blob**, selezionare il contenitore di blob desiderato. 
+2.  In **Contenitori Blob**, selezionare il contenitore di blob desiderato. 
 
-3.    Selezionare **Sicurezza**, **Livello di accesso**.
+3.  Selezionare **Sicurezza**, **Livello di accesso**.
 
 Se il livello di accesso di sicurezza del BLOB è **Pubblico**, seguire questa procedura.
 
@@ -134,5 +132,4 @@ In Azure viene visualizzato il messaggio che lo schema è stato caricato corrett
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack").  
-
 

@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 3e1f7617bf2fc52ee4c15598f51a46276f4dc57d
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 951e4fe32e8074817ad20972925f2f0e9f91b4c8
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -34,11 +34,11 @@ Il Registro contenitori di Azure è un registro privato basato su Azure per le i
 > * Assegnazione di tag a un'immagine del contenitore per Registro contenitori di Azure
 > * Caricamento dell'immagine in Registro contenitori di Azure
 
-Nelle esercitazioni successive, questa istanza del registro contenitori di Azure viene integrata con un cluster Kubernetes del servizio contenitore di Azure, per eseguire in modo sicuro le immagini del contenitore. 
+Nelle esercitazioni successive, questa istanza del Registro contenitori di Azure viene integrata con un cluster Kubernetes del servizio contenitore di Azure. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nell'[esercitazione precedente](./container-service-tutorial-kubernetes-prepare-app.md) è stata creta un'immagine del contenitore per una semplice applicazione Azure Voting. In questa esercitazione viene eseguito il push di questa immagine in un'istanza di Registro contenitori di Azure. Se l'immagine dell'app Azure Vote non è stata creata, tornare all'[Esercitazione 1 - Creare immagini del contenitore](./container-service-tutorial-kubernetes-prepare-app.md). In alternativa, la procedura illustrata di seguito funziona con qualsiasi immagine del contenitore.
+Nell'[esercitazione precedente](./container-service-tutorial-kubernetes-prepare-app.md) è stata creta un'immagine del contenitore per una semplice applicazione Azure Voting. Se l'immagine dell'app Azure Vote non è stata creata, tornare all'[Esercitazione 1 - Creare immagini del contenitore](./container-service-tutorial-kubernetes-prepare-app.md).
 
 Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
@@ -46,7 +46,7 @@ Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4
 
 Prima di distribuire un Registro contenitori di Azure, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *westeurope*.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). In questo esempio viene creato un gruppo di risorse denominato `myResourceGroup` nell'area `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -58,11 +58,11 @@ Creare un Registro contenitori di Azure con il comando [az acr create](/cli/azur
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Nella parte restante di questa esercitazione si usa "acrname" come segnaposto per il nome del registro contenitori scelto.
+Nella parte restante di questa esercitazione si usa `<acrname>` come segnaposto per il nome del registro contenitori.
 
 ## <a name="container-registry-login"></a>Accesso al registro contenitori
 
-È necessario accedere all'istanza del Registro contenitori di Azure prima di eseguire il push di immagini in essa. Usare il comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) per completare l'operazione. È necessario specificare il nome univoco assegnato al registro contenitori al momento della creazione.
+Usare il comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) per accedere all'istanza del Registro contenitori di Azure. È necessario specificare il nome univoco assegnato al registro contenitori al momento della creazione.
 
 ```azurecli
 az acr login --name <acrName>
@@ -71,8 +71,6 @@ az acr login --name <acrName>
 Al termine, il comando restituisce un messaggio di accesso riuscito.
 
 ## <a name="tag-container-images"></a>Assegnare tag alle immagini del contenitore
-
-Ogni immagine del contenitore deve essere contrassegnata con il nome del server di accesso del registro. Questo tag viene usato per il routing quando si esegue il push delle immagini del contenitore nel registro delle immagini.
 
 Per visualizzare un elenco di immagini correnti, usare il comando [docker images](https://docs.docker.com/engine/reference/commandline/images/).
 
@@ -89,13 +87,15 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
+Ogni immagine del contenitore deve essere contrassegnata con il nome del server di accesso del registro. Questo tag viene usato per il routing quando si esegue il push delle immagini del contenitore nel registro delle immagini.
+
 Per ottenere il nome loginServer, eseguire questo comando.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer --output table
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Applicare ora all'immagine *azure-vote-front* il tag loginServer del registro contenitori. Aggiungere anche `:redis-v1` alla fine del nome dell'immagine. Questo tag indica la versione dell'immagine.
+Applicare ora il tag loginServer del registro contenitori all'immagine `azure-vote-front`. Aggiungere anche `:redis-v1` alla fine del nome dell'immagine. Questo tag indica la versione dell'immagine.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
@@ -119,7 +119,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Eseguire il push delle immagini nel registro
 
-Eseguire il push dell'immagine *azure-vote-front* nel registro. 
+Eseguire il push dell'immagine `azure-vote-front` nel registro. 
 
 Nell'esempio seguente sostituire il nome del loginServer del Registro contenitori di Azure con il loginServer dell'ambiente in uso.
 

@@ -1,6 +1,6 @@
 ---
 title: Analizzare le statistiche di utilizzo con i report HTTP avanzati della rete CDN di Azure | Documentazione Microsoft
-description: "Informazioni su come creare report HTTP avanzati nella rete CDN di Microsoft Azure. Questi report forniscono informazioni dettagliate sull&quot;attività della rete CDN."
+description: "Informazioni su come creare report HTTP avanzati nella rete CDN di Microsoft Azure. Questi report forniscono informazioni dettagliate sull'attività della rete CDN."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analizzare le statistiche di utilizzo con i report HTTP avanzati della rete CDN di Azure
 ## <a name="overview"></a>Panoramica
@@ -203,10 +203,4 @@ Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per 
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
 * [Analizzare delle prestazioni edge](cdn-edge-performance.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: Inviare processi a un cluster HPC Pack in Azure | Microsoft Docs
-description: Informazioni su come configurare un computer locale per l&quot;invio di processi a un cluster HPC Pack in Azure
+description: Informazioni su come configurare un computer locale per l'invio di processi a un cluster HPC Pack in Azure
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: d5953f1e1dd2deb4d871bd67352a6a5b2ae13dbf
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Inviare i processi HPC da un computer locale a un cluster HPC Pack distribuito in Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -174,4 +173,3 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
-

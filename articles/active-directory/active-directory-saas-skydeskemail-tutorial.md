@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 0ffcca4161fc836192fc9c9871a905f36ea76b32
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Esercitazione: Integrazione di Azure Active Directory con SkyDesk Email
 
@@ -45,7 +44,7 @@ Per configurare l'integrazione di Azure AD con SkyDesk Email, sono necessari gli
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese: [offerta prova](https://azure.microsoft.com/pricing/free-trial/).
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese: [offerta prova](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
@@ -114,7 +113,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE] 
-    > Poiché non è il valore reale. aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto client di SkyDesk Email](https://www.skydesk.sg/support/). 
+    > Poiché non è reale, aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto client di SkyDesk Email](https://www.skydesk.sg/support/). 
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -163,7 +162,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
-    a. Nella casella di testo **URL di accesso** incollare il valore dell'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure.
+    a. Nella casella di testo **Login URL** (URL di accesso) incollare il valore dell'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure.
    
     b. Nella casella di testo **URL di disconnessione** incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
 
@@ -278,5 +277,4 @@ Quando si fa clic sul riquadro SkyDesk Email nel pannello di accesso, si dovrebb
 [201]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_203.png
-
 

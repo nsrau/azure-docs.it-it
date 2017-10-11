@@ -1,6 +1,6 @@
 ---
 title: Architettura di Operations Management Suite (OMS) | Documentazione di Microsoft
-description: "Microsoft Operations Management Suite (OMS) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l&quot;infrastruttura locale e cloud.  Questo articolo identifica i diversi servizi di OMS e include collegamenti al contenuto dettagliato."
+description: "Microsoft Operations Management Suite (OMS) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud.  Questo articolo identifica i diversi servizi di OMS e include collegamenti al contenuto dettagliato."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: df1a5b2c200b7fa69961247ac036ee35fd14f54d
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="oms-architecture"></a>Architettura di OMS
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) è una raccolta di servizi basati sul cloud per la gestione di ambienti locali e cloud.  Questo articolo descrive i diversi componenti locali e cloud di OMS e la relativa architettura di cloud computing di alto livello.  Per altre informazioni, è possibile fare riferimento alla documentazione relativa a ogni servizio.
@@ -84,5 +83,4 @@ Azure Site Recovery prevede tre scenari di replica fondamentali.
 * Informazioni su [Automazione di Azure](https://azure.microsoft.com/documentation/services/automation)
 * Informazioni su [Backup di Azure](http://azure.microsoft.com/documentation/services/backup)
 * Informazioni su [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery)
-
 

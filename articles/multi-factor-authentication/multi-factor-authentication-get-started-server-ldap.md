@@ -1,6 +1,6 @@
 ---
 title: Autenticazione LDAP e Azure MFA Server | Documentazione Microsoft
-description: "Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili per distribuire l&quot;autenticazione LDAP e il server Azure Multi-Factor Authentication."
+description: "Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili per distribuire l'autenticazione LDAP e il server Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 740624a048e97217767956f3994b6566acce4786
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Autenticazione LDAP e server Azure Multi-Factor Authentication

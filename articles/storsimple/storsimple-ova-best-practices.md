@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica
@@ -285,5 +284,4 @@ Può essere necessario distribuire più array virtuali per tenere conto di un wo
 
 ## <a name="see-also"></a>Vedere anche
 Informazioni su come [amministrare l'array virtuale StorSimple](storsimple-virtual-array-manager-service-administration.md) usando il servizio StorSimple Manager.
-
 

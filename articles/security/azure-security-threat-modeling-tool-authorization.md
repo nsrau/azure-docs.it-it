@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="security-frame-authorization--mitigations"></a>Infrastruttura di sicurezza: autorizzazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
@@ -462,4 +460,3 @@ public class CustomController : ApiController
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
 | **Passaggi** | Il gateway sul campo deve autorizzare il chiamante per verificare se il chiamante è in possesso delle autorizzazioni necessarie per eseguire l'azione richiesta. Devono essere ad esempio disponibili autorizzazioni diverse per un'interfaccia/API di utente amministratore usata per configurare un gateway sul campo rispetto ai dispositivi che si connettono al gateway.|
-

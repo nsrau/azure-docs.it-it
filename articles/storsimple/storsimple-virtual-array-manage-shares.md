@@ -1,6 +1,6 @@
 ---
-title: Gestire le condivisioni sull&quot;array virtuale StorSimple | Documentazione Microsoft
-description: Descrive Gestione dispositivi StorSimple e illustra come usare questo servizio per gestire le condivisioni sull&quot;array virtuale StorSimple.
+title: Gestire le condivisioni sull'array virtuale StorSimple | Documentazione Microsoft
+description: Descrive Gestione dispositivi StorSimple e illustra come usare questo servizio per gestire le condivisioni sull'array virtuale StorSimple.
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-translationtype: Human Translation
-ms.sourcegitcommit: 19177fe13db2aefcef7fcf37ea8fef2fa99c728f
 ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare le condivisioni sull'array virtuale StorSimple
 
@@ -142,10 +143,4 @@ Completare la procedura seguente per eliminare una condivisione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [clonare una condivisione StorSimple](storsimple-virtual-array-clone.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

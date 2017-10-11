@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6e6e12f3d6d95002b223ad0fcb11d72bd920cdaf
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
-
+ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Segnalare ai pazienti le modifiche delle cartelle cliniche HL7 FHIR utilizzando le App per la logica e Azure Cosmos DB
 
 Howard Edidin, Azure MVP, è stato recentemente contattato da un'organizzazione del settore di sanitario che desiderava aggiungere una nuova funzionalità al proprio portale dei pazienti. L'organizzazione aveva bisogno di inviare notifiche ai pazienti in caso di aggiornamenti ai loro record sanitari. I pazienti dovevano anche essere in grado di iscriversi a tali aggiornamenti. 
@@ -233,6 +230,5 @@ L'immagine seguente mostra tutti i servizi di Azure per questa soluzione in esec
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Azure Cosmos DB, vedere la [relativa home page](https://azure.microsoft.com/services/cosmos-db/). Per altre informazioni sulle App per la logica, vedere [App per la logica](https://azure.microsoft.com/services/logic-apps/).
-
 
 

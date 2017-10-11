@@ -8,9 +8,10 @@
 # Attività iniziali
 
 ## [Esercitazione per principianti](sql-data-warehouse-get-started-tutorial.md)
-## [procedure consigliate](sql-data-warehouse-best-practices.md)
+## [Esercitazione sulla query elastica](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+## [Procedure consigliate](sql-data-warehouse-best-practices.md)
 ## [Gestire](sql-data-warehouse-overview-manage.md)
-## [Ottenere supporto](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 
 # Procedure
@@ -20,7 +21,7 @@
 ### [Panoramica del servizio Backup](sql-data-warehouse-backups.md)
 ### [Panoramica del servizio di ripristino](sql-data-warehouse-restore-database-overview.md)
 #### [Portale di Azure](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Connettere
@@ -34,7 +35,7 @@
 
 ## Create
 ### [Portale di Azure](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Sviluppare
@@ -79,6 +80,8 @@
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Visualizzazione di Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Analisi di flusso](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [Query elastica con database SQL e SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## Caricamento
 
@@ -139,18 +142,22 @@
 # Riferimento
 
 ## [Limiti di capacità](sql-data-warehouse-service-capacity-limits.md)
-## [Elementi del linguaggio T-SQL](sql-data-warehouse-reference-tsql-language-elements.md)
-## [Istruzioni T-SQL](sql-data-warehouse-reference-tsql-statements.md)
-## [Viste di sistema T-SQL](sql-data-warehouse-reference-tsql-system-views.md)
+## T-SQL
+### [Informazioni di riferimento complete](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [Elementi del linguaggio SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md)
+### [Istruzioni di SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md)
+## [Viste di sistema](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Cmdlet di PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=databases)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Richieste di funzionalità](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Supporto](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partner

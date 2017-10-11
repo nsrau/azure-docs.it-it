@@ -1,6 +1,6 @@
 ---
 title: Ricerche salvate e avvisi nelle soluzioni OMS | Microsoft Docs
-description: Le soluzioni in OMS includeranno in genere ricerche salvate di Log Analytics per l&quot;analisi dei dati raccolti dalla soluzione.  Potranno anche definire avvisi per la notifica all&quot;utente o per eseguire automaticamente un&quot;azione in risposta a un problema critico.  Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un modello di Azure Resource Manager in modo da consentirne l&quot;inclusione nelle soluzioni di gestione.
+description: Le soluzioni in OMS includeranno in genere ricerche salvate di Log Analytics per l'analisi dei dati raccolti dalla soluzione.  Potranno anche definire avvisi per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico.  Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un modello di Azure Resource Manager in modo da consentirne l'inclusione nelle soluzioni di gestione.
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,15 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione in OMS (anteprima)
 
 > [!NOTE]
@@ -511,5 +508,4 @@ Il file di parametri seguente offre valori di esempio per la soluzione.
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere viste](operations-management-suite-solutions-resources-views.md) alla soluzione di gestione.
 * [Aggiungere runbook di automazione e altre risorse](operations-management-suite-solutions-resources-automation.md) alla soluzione di gestione.
-
 

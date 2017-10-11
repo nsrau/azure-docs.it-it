@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 27d05c1681f7d7b3090fc7abd4a6b15d1c030e2c
+ms.translationtype: HT
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: a81b956107ef82f40ad5304808068a7573ca7d27
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure
@@ -62,6 +61,8 @@ Le tecnologie HADR di SQL Server supportate in Azure includono:
 | **Gruppi di disponibilità** |Repliche di disponibilità in esecuzione tra più data center nelle macchine virtuali di Azure per il ripristino di emergenza. Questa soluzione per più aree protegge dalla completa interruzione dell'alimentazione del sito. <br/> ![Gruppi di disponibilità](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Nell'ambito di un'area tutte le repliche dovranno risiedere nello stesso servizio cloud e nella stessa rete virtuale. Poiché ogni area sarà caratterizzata da una rete virtuale separata, queste soluzioni richiedono la connettività da rete virtuale a rete virtuale. Per altre informazioni, vedere [Configurare una connessione da rete virtuale a rete virtuale con il portale di Azure](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Per istruzioni dettagliate, vedere [Configurare un gruppo di disponibilità SQL Server in macchine virtuali di Azure in aree diverse](virtual-machines-windows-portal-sql-availability-group-dr.md).|
 | **Mirroring del database** |Tutti i server principali, mirror e di controllo in esecuzione in diversi data center per il ripristino di emergenza. È necessario eseguire la distribuzione usando certificati del server perché un dominio di Active Directory non può essere esteso a più data center.<br/>![Mirroring del database](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Backup e ripristino con il servizio di archiviazione BLOB di Azure** |Il backup dei database di produzione viene eseguito direttamente nell'archiviazione BLOB in un data center diverso per il ripristino di emergenza.<br/>![Backup e ripristino](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Per altre informazioni, vedere [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md). |
+| **Replica e failover di SQL Server in Azure con Azure Site Recovery** |La replica dell'istanza di produzione di SQL Server di un data center di Azure viene eseguita direttamente in Archiviazione di Azure in un diverso data center di Azure per il ripristino di emergenza.<br/>![Replica con Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>Per altre informazioni, vedere [Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
+
 
 ## <a name="hybrid-it-disaster-recovery-solutions"></a>IT ibrido: soluzioni di ripristino di emergenza
 È possibile disporre di una soluzione di ripristino di emergenza per i database di SQL Server in un ambiente IT ibrido tramite i gruppi di disponibilità, il mirroring del database, il log shipping e funzionalità di backup e ripristino con l'archiviazione BLOB di Azure.
@@ -72,6 +73,7 @@ Le tecnologie HADR di SQL Server supportate in Azure includono:
 | **Mirroring del database** |Un partner in esecuzione in una macchina virtuale di Azure e l'altro in esecuzione in locale per il ripristino di emergenza tra siti usando certificati del server. I partner non devono essere nello stesso dominio di Active Directory e non è richiesta alcuna connessione VPN.<br/>![Mirroring del database](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Un altro scenario di mirroring del database include un partner in esecuzione in una VM di Azure e l'altro in esecuzione in locale nello stesso dominio di Active Directory per il ripristino di emergenza tra siti. È necessaria una [connessione VPN tra la rete virtuale di Azure e la rete locale](../../../vpn-gateway/vpn-gateway-site-to-site-create.md).<br/><br/>Per il corretto ripristino di emergenza dei database, è inoltre opportuno installare un controller di dominio di replica nel sito di ripristino di emergenza. |
 | **Log shipping** |Un server in esecuzione in una macchina virtuale di Azure e l'altro in esecuzione in locale per il ripristino di emergenza tra siti. Il log shipping dipende dalla condivisione dei file di Windows, pertanto è richiesta una connessione VPN tra la rete virtuale di Azure e la rete locale.<br/>![Log shipping](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>Per il corretto ripristino di emergenza dei database, è inoltre opportuno installare un controller di dominio di replica nel sito di ripristino di emergenza. |
 | **Backup e ripristino con il servizio di archiviazione BLOB di Azure** |Il backup dei database di produzione locali viene eseguito direttamente nell'archiviazione BLOB di Azure per il ripristino di emergenza.<br/>![Backup e ripristino](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>Per altre informazioni, vedere [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md). |
+| **Replica e failover di SQL Server in Azure con Azure Site Recovery** |La replica dell'istanza di produzione locale di SQL Server viene eseguita direttamente in Archiviazione di Azure per il ripristino di emergenza.<br/>![Replica con Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_standalone_sqlserver-asr.png)<br/>Per altre informazioni, vedere [Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 
 ## <a name="important-considerations-for-sql-server-hadr-in-azure"></a>Considerazioni importanti per HADR di SQL Server in Azure
 La macchina virtuale, l'archiviazione e la rete di Azure hanno caratteristiche operative diverse rispetto a un'infrastruttura IT locale non virtualizzata. Per una corretta implementazione di una soluzione HADR di SQL Server in Azure è necessario capire queste differenze e progettare una soluzione adeguata.

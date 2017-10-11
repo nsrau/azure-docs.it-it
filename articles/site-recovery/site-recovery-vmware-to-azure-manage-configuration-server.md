@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 36da8c7d0f3ace194522e5288f26069cf46d470e
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: ba236ad1327a7f3419d7c8cf7effc889a90dde61
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -26,15 +26,19 @@ ms.lasthandoff: 06/30/2017
 
 Il server di configurazione funge da coordinatore tra i servizi di Site Recovery e l'infrastruttura locale in uso. Questo articolo illustra come impostare, configurare e gestire il server di configurazione.
 
-## <a name="prerequisites"></a>Prerequisiti
-La tabella seguente elenca i requisiti minimi hardware, software e di rete richiesti per impostare un server di configurazione.
-
 > [!NOTE]
 > La [pianificazione della capacità](site-recovery-capacity-planner.md) è un passaggio importante per assicurarsi di distribuire un server di configurazione con una configurazione adatta ai requisiti di carico. Per altre informazioni, vedere la sezione [Requisiti di dimensione per un server di configurazione](#sizing-requirements-for-a-configuration-server).
+
+
+## <a name="prerequisites"></a>Prerequisiti
+La tabella seguente elenca i requisiti minimi hardware, software e di rete richiesti per impostare un server di configurazione.
+> [!IMPORTANT]
+> Quando si distribuisce un server di configurazione per la protezione di macchine virtuali VMware, è consigliabile distribuirlo come macchina virtuale a **disponibilità elevata**.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="downloading-the-configuration-server-software"></a>Download del software del server di configurazione
+
 1. Accedere al portale di Azure e passare all'insieme di credenziali di Servizi di ripristino.
 2. Passare a **Infrastruttura di Site Recovery** > **Server di configurazione** (in For VMware & Physical Machines (Computer VMware e fisici)).
 
@@ -107,6 +111,17 @@ ProxyPassword="Password"
   >[!WARNING]
   Se sono presenti server di elaborazione con scalabilità orizzontale associati a questo server di configurazione, è necessario [correggere le impostazioni del proxy in tutti i server di elaborazione con scalabilità orizzontale](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) nella distribuzione.
 
+## <a name="modify-user-accounts-and-passwords"></a>Modificare account utente e password
+
+CSPSConfigTool.exe consente di gestire gli account utente usati per l'**individuazione automatica delle macchine virtuali VMware** ed eseguire l'**installazione push del servizio Mobility in macchine virtuali protette**. 
+
+1. Accedere al server di configurazione.
+2. Avviare CSPSConfigtool.exe facendo clic sul collegamento disponibile sul desktop.
+3. Fare clic sulla scheda **Gestisci account**.
+4. Selezionare l'account per il quale si deve modificare la password e fare clic sul pulsante **Modifica**.
+5. Immettere la nuova password e fare clic su **OK**
+
+
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>Registrare un server di configurazione con lo stesso insieme di credenziali di Servizi di ripristino
   1. Accedere al server di configurazione.
   2. Avviare il file cspsconfigtool.exe usando il relativo collegamento sul desktop.
@@ -128,13 +143,17 @@ ProxyPassword="Password"
   Se sono presenti server di elaborazione con scalabilità orizzontale associati a questo server di configurazione, è necessario [registrare di nuovo tutti i server di elaborazione con scalabilità orizzontale](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) nella distribuzione.
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Registrazione di un server di configurazione con un insieme di credenziali di Servizi di ripristino diverso.
+
+> [!WARNING]
+> Il set di passaggi seguente rimuove l'associazione tra la configurazione e l'insieme di credenziali corrente e la replica di tutte le macchine virtuali protette nel server di configurazione verrà arrestata.
+
 1. Accedere al server di configurazione.
 2. Al prompt dei comandi dell'amministratore, eseguire il comando
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. Avviare il file cspsconfigtool.exe usando il relativo collegamento.
 4. Fare clic sulla scheda **Vault Registration** (Registrazione dell'insieme di credenziali).
 5. Scaricare un nuovo file di registrazione dal portale e fornirlo come input allo strumento.
@@ -149,6 +168,17 @@ net stop dra
     net stop obengine
     net start obengine
     ```
+
+## <a name="updating-a-configuration-server"></a>Aggiornamento di un server di configurazione
+
+> [!WARNING]
+> Gli aggiornamenti sono supportati solo fino alla versione N-4th. Ad esempio, se la versione più recente sul mercato è la 9.11, è possibile eseguire l'aggiornamento dalla versione 9.10, 9.9, 9.8 o 9.7 direttamente alla versione 9.11. Ma ci si trova in qualsiasi versione minore o uguale alla 9.6, sarà necessario eseguire l'aggiornamento almeno alla versione 9.7 prima di applicare gli aggiornamenti più recenti al server di configurazione. I collegamenti per il download della versione precedente sono reperibili in [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) (Aggiornamenti del servizio Azure Site Recovery)
+
+1. Scaricare il programma di installazione dell'aggiornamento nel server di configurazione.
+2. Avviare il programma di installazione facendo doppio clic su esso.
+3. Il programma di installazione rileva la versione dei componenti di Site Recovery presenti nel computer e chiede una conferma. 
+4. Fare clic sul pulsante OK per confermare e continuare con l'aggiornamento.
+
 
 ## <a name="decommissioning-a-configuration-server"></a>Rimozione delle autorizzazioni per un server di configurazione
 Prima di iniziare a rimuovere le autorizzazioni per il server di configurazione, assicurarsi di eseguire queste operazioni.
@@ -212,6 +242,17 @@ La validità del certificato SSL per tutte le installazioni eseguite prima di ma
 
   >[!TIP]
   Se al posto del pulsante **Renew Now** (Rinnova ora) viene visualizzato un pulsante **Upgrade Now** (Aggiorna ora). Significa che esistono alcuni componenti nell'ambiente che non sono stati ancora aggiornati alla versione 9.4.xxxx.x o versioni successive.
+
+## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>Riattivare un server di configurazione se il certificato SSL (Server Secure Socket Layer) è scaduto
+
+1. Aggiornare il server di configurazione alla [versione più recente](http://aka.ms/unifiedinstaller)
+2. Se sono presenti server di elaborazione con scalabilità orizzontale, server di destinazione master di failback e server di elaborazione di failback, aggiornarli alla versione più recente
+3. Aggiornare alla versione più recente il servizio Mobility di tutte le macchine virtuali protette.
+4. Accedere al server di configurazione e aprire un prompt dei comandi con privilegi di amministratore.
+5. Passare alla cartella %ProgramData%\ASR\home\svsystems\bin
+6. Eseguire RenewCerts.exe per rinnovare il certificato SSL nel server di configurazione.
+7. Se il processo ha esito positivo, verrà visualizzato un messaggio che indica che il certificato è stato rinnovato
+
 
 ## <a name="sizing-requirements-for-a-configuration-server"></a>Requisiti di dimensione per un server di configurazione
 

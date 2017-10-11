@@ -1,6 +1,6 @@
 ---
-title: Uso dell&quot;estensione della VM Docker per Linux in Azure
-description: Descrive Docker e le estensioni di Macchine virtuali di Azure e mostra come creare a livello di codice le macchine virtuali in Azure che siano host Docker dalla riga di comando usando l&quot;interfaccia della riga di comando di Azure.
+title: Uso dell'estensione della VM Docker per Linux in Azure
+description: Descrive Docker e le estensioni di Macchine virtuali di Azure e mostra come creare a livello di codice le macchine virtuali in Azure che siano host Docker dalla riga di comando usando l'interfaccia della riga di comando di Azure.
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Uso dell’estensione della VM Docker dall’interfaccia della riga di comando di Azure (Azure CLI)
 > [!IMPORTANT] 
@@ -182,4 +181,3 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 [guida dell'utente di Docker]:https://docs.docker.com/userguide/
 
 [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure]:../docker-compose-quickstart.md
-

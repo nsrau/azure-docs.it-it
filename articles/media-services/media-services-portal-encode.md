@@ -1,6 +1,6 @@
 ---
-title: Codificare un asset mediante Media Encoder Standard con il portale di Azure | Microsoft Docs
-description: Questa esercitazione descrive le operazioni di codifica di un asset mediante Media Encoder Standard con il portale di Azure.
+title: Codificare un asset mediante Media Encoder Standard sul portale di Azure | Documentazione Microsoft
+description: Questa esercitazione descrive le operazioni di codifica di un asset mediante Media Encoder Standard sul portale di Azure.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,47 +15,48 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: efe7db8a36273b4755dd057139bb1c673af868d3
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: ae5f4fd391cbf62b41d1a65f1d8107cefe3a5df3
 ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
-# <a name="encode-an-asset-using-media-encoder-standard-with-the-azure-portal"></a>Codificare un asset mediante Media Encoder Standard con il portale di Azure
+# <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Codificare un asset mediante Media Encoder Standard sul portale di Azure
+
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali supporta le tecnologie di streaming a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH. Per preparare i video per lo streaming a bitrate adattivo, è necessario codificare il video di origine in file a più bitrate. Per codificare i video, è consigliabile usare il codificatore **Media Encoder Standard** .  
+Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali supporta le tecnologie di streaming a bitrate adattivo seguenti: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming over HTTP, denominato anche MPEG-DASH). Per preparare i video per lo streaming a bitrate adattivo, codificare prima il video di origine in file a più bitrate. È possibile usare Azure Media Encoder Standard per codificare i video.  
 
-Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire file MP4 a bitrate multipli nei formati MPEG-DASH, HLS e Smooth Streaming, senza dover ricreare i pacchetti in questi formati di streaming. Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
+Servizi multimediali consente la creazione dinamica dei pacchetti. Con creazione dinamica dei pacchetti, è possibile recapitare MP4s a più bitrate in HLS, Smooth Streaming e MPEG-DASH, senza riassemblaggio in tali formati di streaming. Quando si usa la creazione dinamica dei pacchetti consente di archiviare e pagare i file in un solo formato di archiviazione. Servizi multimediali creerà e fornirà la risposta appropriata in base alle richieste del client.
 
-Per sfruttare i vantaggi della creazione dinamica dei pacchetti, è necessario codificare il file di origine in un set di file MP4 a bitrate multipli. La procedura per la codifica è descritta più avanti in questa esercitazione.
+Per sfruttare i vantaggi della creazione dinamica dei pacchetti è necessario codificare il file di origine in un set di file MP4 a bitrate multipli. I passaggi della codifica vengono illustrati più avanti in questo articolo.
 
-Per ridimensionare l'elaborazione multimediale, vedere [questo](media-services-portal-scale-media-processing.md) argomento.
+Per informazioni su come ridimensionare l'elaborazione di contenuti multimediali, vedere [Ridimensionare l'elaborazione di contenuti multimediali tramite il portale di Azure](media-services-portal-scale-media-processing.md).
 
-## <a name="encode-with-the-azure-portal"></a>Eseguire la codifica con il portale di Azure
-Questa sezione descrive la procedura per la codifica di contenuti con Media Encoder Standard.
+## <a name="encode-in-the-azure-portal"></a>Codifica nel portale di Azure
+
+Per codificare il contenuto tramite Media Encoder Standard:
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Nella finestra **Impostazioni** selezionare **Asset**.  
-3. Nella finestra **Asset** selezionare la risorsa che si vuole codificare.
-4. Fare clic sul pulsante **Codifica** .
-5. Nella finestra **Codifica un asset** selezionare il processore "Media Encoder Standard" e un set di impostazioni. Per informazioni sui set di impostazioni, vedere [Generare automaticamente un bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) e [Set di impostazioni delle attività MES](media-services-mes-presets-overview.md). Se si prevede di controllare il set di impostazioni di codifica usato, tenere presente che è importante selezionare il set di impostazioni più appropriato per il video di input. Ad esempio, se è noto che il video di input ha una risoluzione di 1920x1080 pixel, è possibile usare il set di impostazioni "Codec video H.264 a bitrate multiplo con risoluzione 1080p". Se il video disponibile è a bassa risoluzione (640x360), non usare il set di impostazioni "Codec video H.264 a bitrate multiplo con risoluzione 1080p".
+2. Selezionare **Impostazioni** > **Asset**. Selezionare l'asset da codificare.
+3. Selezionare il pulsante **Codifica**.
+4. Nel riquadro **Codifica un asset** selezionare il processore **Media Encoder Standard** e un set di impostazioni. Per informazioni sui set di impostazioni, vedere [Generare automaticamente una tabella di coppie bitrate-risoluzione](media-services-autogen-bitrate-ladder-with-mes.md) e [Set di impostazioni delle attività MES (Media Encoder Standard)](media-services-mes-presets-overview.md). È importante scegliere il set di impostazioni più idoneo per i video di input. Se ad esempio è noto che il video di input ha una risoluzione di 1920 × 1080 pixel, è possibile scegliere il set di impostazioni **Codec video H.264 a bitrate multiplo con risoluzione 1080p**. Se il video disponibile è a bassa risoluzione (640 × 360), non usare il set di impostazioni **Codec video H.264 a bitrate multiplo con risoluzione 1080p**.
    
-   Per una gestione più semplice, è possibile modificare il nome dell'asset di output e il nome del processo.
+   Per una gestione più semplice delle risorse è possibile modificare il nome dell'asset di output e il nome del processo.
    
    ![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-6. Fare clic su **Crea**.
-
-## <a name="next-step"></a>Passaggio successivo
-È possibile monitorare lo stato del processo di codifica con il portale di Azure, come descritto in [questo](media-services-portal-check-job-progress.md) articolo.  
+5. Selezionare **Crea**.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+## <a name="next-steps"></a>Passaggi successivi
+* [Monitorare lo stato di avanzamento del processo di codifica](media-services-portal-check-job-progress.md) nel portale di Azure.  
 
 

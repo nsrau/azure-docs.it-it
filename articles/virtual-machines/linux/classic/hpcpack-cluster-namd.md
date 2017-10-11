@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e31845f3d7aa08357b0e8a1b3b77d97302442ac3
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure
@@ -29,8 +29,6 @@ In questo articolo viene illustrato un modo per eseguire un carico di lavoro hig
 
 * **NAMD** (ovvero programma Nanoscale Molecular Dynamics) è un pacchetto di dinamica molecolare parallela progettato per una simulazione a prestazioni elevate di grandi sistemi biomolecolari contenenti fino a milioni di atomi. Esempi di questi sistemi includono virus, strutture di celle e proteine di grandi dimensioni. NAMD è scalabile fino a centinaia di core per simulazioni tipiche e fino a più di 500.000 core per le simulazioni più grandi.
 * **Microsoft HPC Pack** fornisce le funzionalità necessarie per eseguire applicazioni HPC e parallele su larga scala in cluster di computer locali o macchine virtuali di Azure. Sviluppato originariamente come soluzione per i carichi di lavoro HPC di Windows, HPC Pack supporta ora le applicazioni HPC che eseguono Linux su macchine virtuali del nodo di calcolo Linux distribuite in un cluster HPC Pack. Per una panoramica, vedere [Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](hpcpack-cluster.md) .
-
-Per altre opzioni relative all'esecuzione di carichi di lavoro HPC in Linux e in Azure, vedere [Risorse tecniche per batch e high performance computing](../../../batch/batch-hpc-solutions.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Cluster HPC Pack con nodi di calcolo Linux**: distribuire un cluster HPC Pack con nodi di calcolo Linux in Azure usando un [modello di Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o uno [script di Azure PowerShell](hpcpack-cluster-powershell-script.md). Per i prerequisiti e i passaggi di entrambe le opzioni, vedere [Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](hpcpack-cluster.md) . Se si sceglie l'opzione di distribuzione mediante uno script di PowerShell, vedere il file di configurazione di esempio al termine dell'articolo. Questo file consente di configurare un cluster HPC Pack basato su Azure costituito da un nodo head di Windows Server 2012 R2 e quattro nodi di calcolo CentOS 6.6 di grandi dimensioni. Personalizzare questo file in base all'ambiente in uso.

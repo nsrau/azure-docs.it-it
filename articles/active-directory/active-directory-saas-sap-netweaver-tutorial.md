@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con SAP NetWeaver | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e SAP NetWeaver.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SAP NetWeaver.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: ad4140eb1183094a67822ad92eabcd35101360b6
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Esercitazione: Integrazione di Azure Active Directory con SAP NetWeaver
 
@@ -117,7 +115,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<your company instance of SAP NetWeaver>`
 
-    c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:  `https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
+    c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
      
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. In questo caso è consigliabile usare in Identificatore il valore univoco della stringa. Per ottenere questi valori, contattare il [team di supporto clienti di SAP NetWeaver](https://www.sap.com/support.html). 
@@ -229,5 +227,4 @@ Quando si fa clic sul riquadro SAP NetWeaver nel pannello di accesso, si dovrebb
 [201]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_203.png
-
 

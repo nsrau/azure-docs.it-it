@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 09/12/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Panoramica di SQL Server in macchine virtuali di Azure
@@ -27,34 +26,8 @@ Questo argomento descrive le opzioni per eseguire SQL Server in macchine virtual
 
 > [!NOTE]
 > Se si ha già familiarità con SQL Server e si vuole sapere come distribuire una VM di SQL Server, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md).
-> 
-> 
 
-## <a name="overview"></a>Panoramica
-Le VM di Azure consentono agli amministratori di database e agli sviluppatori di spostare le applicazioni e i carichi di lavoro di SQL Server locali nel cloud. Il video seguente offre una panoramica tecnica delle VM di SQL Server Azure.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-Il video copre le aree seguenti:
-
-| Time | Area |
-| --- | --- |
-| 00:21 |Informazioni sulle VM di Azure |
-| 01:45 |Sicurezza |
-| 02:50 |Connettività |
-| 03:30 |Affidabilità e prestazioni delle risorse di archiviazione |
-| 05:20 |Dimensioni delle macchine virtuali |
-| 05:54 |Disponibilità elevata e contratto di servizio |
-| 07:30 |Supporto per la configurazione |
-| 08:00 |Monitoraggio |
-| 08:32 |Demo: creare una VM di SQL Server 2016 |
-
-> [!NOTE]
-> Il video è incentrato su SQL Server 2016, ma Azure offre immagini di VM per diverse versioni di SQL Server, tra cui le versioni 2012, 2014 e 2016. 
-> 
-> 
+Le VM di Azure consentono agli amministratori di database e agli sviluppatori di spostare le applicazioni e i carichi di lavoro di SQL Server locali nel cloud.
 
 ## <a name="scenarios"></a>Scenari
 È possibile scegliere l'hosting dei dati in Azure per numerosi motivi. Se l'applicazione viene spostata in Azure, spostare anche i dati migliora le prestazioni. Esistono tuttavia altri vantaggi. Si ha automaticamente accesso a più data center per una presenza globale e il ripristino di emergenza e i dati sono altamente protetti e durevoli.
@@ -126,7 +99,7 @@ Le macchine virtuali di Azure possono usare l' [applicazione automatica delle pa
 ### <a name="customer-experience-improvement-program-ceip"></a>Analisi utilizzo software
 Il programma Analisi utilizzo software è abilitato per impostazione predefinita. Invia periodicamente report a Microsoft per contribuire a migliorare SQL Server. Non sono necessarie attività di gestione per il programma Analisi utilizzo software, a meno che non lo si voglia disabilitare dopo il provisioning. È possibile personalizzare o disabilitare Analisi utilizzo software connettendosi alla VM con Desktop remoto. Eseguire quindi l'utilità **Segnalazione errori e utilizzo funzionalità di SQL Server** . Seguire le istruzioni per disabilitare il reporting. 
 
-Per altre informazioni, vedere la sezione relativa ad Analisi utilizzo software nell'argomento [Accettazione delle condizioni di licenza](https://msdn.microsoft.com/library/ms143343.aspx). 
+Per altre informazioni sulla raccolta di dati, vedere l'[informativa sulla privacy di SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

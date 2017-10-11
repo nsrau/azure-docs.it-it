@@ -16,10 +16,10 @@ ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 5ca8338d4bf343f08fe70081cff755fa76a126a9
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -184,7 +184,7 @@ Ora che si è appreso come usare l'interfaccia della riga di comando di Azure ne
 
 L'app Web in Linux supporta un modo diverso di esecuzione della distribuzione, che consiste nell'usare Docker. Per la distribuzione è necessario fornire un Dockerfile che include l'app Web in runtime di servizio in un'immagine Docker. Il plug-in compilerà l'immagine, la inserirà in un registro Docker e la distribuirà nell'app Web.
 
-* Seguire i passaggi indicati [qui](/azure/app-service-web/app-service-linux-how-to-create-web-app) per creare un'app Web di Azure in esecuzione in Linux.
+* Seguire i passaggi indicati [qui](../app-service/containers/quickstart-nodejs.md) per creare un'app Web di Azure in esecuzione in Linux.
 * Installare Docker nell'istanza Jenkins seguendo le istruzioni riportate in questo [articolo](https://docs.docker.com/engine/installation/linux/ubuntu/).
 * Creare un registro contenitori nel portale di Azure seguendo i passaggi indicati [qui](/azure/container-registry/container-registry-get-started-azure-cli).
 * Nello stesso repository [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) con fork modificare il file **Jenkinsfile2**:

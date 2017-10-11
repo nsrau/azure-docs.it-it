@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Teamwork | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Teamwork.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Teamwork.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 92ff0b4b7664ad2d33b54d02290c55a213d4e610
 ms.openlocfilehash: edd2f9446515531f1147a8abf99295b618b89b25
-ms.lasthandoff: 02/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamwork"></a>Esercitazione: Integrazione di Azure Active Directory con Teamwork
 
@@ -121,7 +120,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)     
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)   
 
 5. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una **data di scadenza**. Fare quindi clic sul pulsante **Salva**.
 

@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore Informix alle app per la logica | Documentazione Microsoft
-description: Panoramica del connettore Informix con i parametri dell&quot;API REST
+description: Panoramica del connettore Informix con i parametri dell'API REST
 services: 
 documentationcenter: 
 author: gplarsen
@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introduzione al connettore Informix
 Microsoft Connector for Informix connette le app per la logica alle risorse archiviate in un database IBM Informix. Il connettore Informix include un client Microsoft per comunicare con computer server Informix remoti su una rete TCP/IP, tra cui: database cloud, ad esempio IBM Informix per Windows in esecuzione nella virtualizzazione Azure, e database locali tramite il gateway dati locale. Vedere l'[elenco](connectors-create-api-informix.md#supported-informix-platforms-and-versions) delle piattaforme e delle versioni di IBM Informix supportate (in questo argomento).
@@ -279,5 +277,4 @@ Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali lim
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
-
 

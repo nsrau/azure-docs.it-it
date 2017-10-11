@@ -1,6 +1,6 @@
 ---
 title: Sviluppare app per Azure AD | Documentazione Microsoft
-description: Scritto per i professionisti IT, questo articolo include linee guida per l&quot;integrazione delle applicazioni di Azure in Active Directory.
+description: Scritto per i professionisti IT, questo articolo include linee guida per l'integrazione delle applicazioni di Azure in Active Directory.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: aa3c83f82d1a60253f70350e88aa96fb285ef3d9
-ms.contentlocale: it-it
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 6b119be9c06d8c1ccc8e747168429e6c2d2e7a8f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Sviluppare app line-of-business per Azure Active Directory
 Questa guida offre una panoramica dello sviluppo di applicazioni line-of-business (LoB) per Azure Active Directory (AD) ed è rivolta agli amministratori globali di Active Directory/Office 365.
@@ -82,4 +81,3 @@ Per altre informazioni sul consenso dell'utente e l'esperienza di consenso in Az
 * [Anteprima dell'accesso condizionale di Azure per app SaaS](active-directory-conditional-access-azuread-connected-apps.md)
 * [Gestione dell'accesso alle app tramite Azure AD](active-directory-managing-access-to-apps.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-

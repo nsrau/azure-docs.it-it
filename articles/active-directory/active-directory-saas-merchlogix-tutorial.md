@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
 ms.openlocfilehash: 44fc8226480cafc130720fbe78aa85ee95caec6c
-ms.contentlocale: it-it
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
 ms.lasthandoff: 08/18/2017
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Esercitazione: Integrazione di Azure Active Directory con Merchlogix
 
@@ -124,7 +123,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-merchlogix-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Merchlogix** fare clic su **Configura Merchlogix** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML**  e l'**URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+6. Nella sezione **Configurazione di Merchlogix** fare clic su **Configura Merchlogix** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID entità SAML**  e l'**URL del servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
 
     ![Configurazione di Merchlogix](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_configure.png) 
 
@@ -227,5 +226,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-merchlogix-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-merchlogix-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-merchlogix-tutorial/tutorial_general_203.png
-
 

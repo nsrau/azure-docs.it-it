@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: c4634e3d8efb1745fffcfe3e647e43d867038716
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Proteggere le comunicazioni per i servizi in Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -121,4 +119,3 @@ Verrà usato un [esempio](service-fabric-reliable-services-communication-remotin
     CompletableFuture<String> message = client.getHelloWorld();
 
     ```
-

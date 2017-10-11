@@ -1,6 +1,6 @@
 ---
 title: Codec video H.264 a bitrate multipli con risoluzione 16x9 SD e audio 5.1 | Documentazione Microsoft
-description: "Questo argomento contiene una panoramica del set di impostazioni di attività **Codec video H264 a bitrate multipli con risoluzione 16x9 SD e audio 5.1**."
+description: "Questo argomento offre una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate multipli con risoluzione 16x9 SD e audio 5.1**."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 63e51feb8c88c6c294fb7b712c3cede10e7253d8
-ms.contentlocale: it-it
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: 52b8c9073f89279cb4509bcdf872ef0d6d1d709b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="h264-multiple-bitrate-16x9-sd-audio-51"></a>Codec video H.264 a bitrate multipli con risoluzione 16x9 SD e audio 5.1
 `Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui codificare il file multimediale oppure creare set di impostazioni basati su JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi dei set di impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni di attività per Media Encoder Standard).  
   
@@ -234,4 +232,3 @@ ms.lasthandoff: 01/11/2017
   ]  
 }  
 ```
-

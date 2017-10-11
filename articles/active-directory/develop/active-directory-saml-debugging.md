@@ -15,12 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 245c2de65ca771cdc0e6371010246725c407ae11
-ms.contentlocale: it-it
-ms.lasthandoff: 01/18/2017
-
+ms.openlocfilehash: 31447d597296bac57481dc2acb4a95ee3a104161
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory
 Durante il debug di un'integrazione di applicazioni basate su SAML, è spesso utile utilizzare uno strumento come [Fiddler](http://www.telerik.com/fiddler) per visualizzare la richiesta SAML, la risposta SAML e il token SAML reale emesso per l'applicazione. Esaminando il token SAML, è possibile garantire che tutti gli attributi richiesti, il nome utente nell’oggetto SAML e l'URI dell'autorità emittente vengano ricevuti come previsto.

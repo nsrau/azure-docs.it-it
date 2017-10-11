@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: d9ec4556d57ff1975a93d806237ad0c7416b9988
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opzioni e prestazioni disponibili per il database per MySQL di Azure: identificare gli elementi disponibili in ogni piano tariffario
 Quando si crea un database di Azure per il server MySQL, si può scegliere tra tre opzioni principali per configurare le risorse allocate per tale server. Queste scelte influenzano le prestazioni e la scalabilità del server.
@@ -104,4 +103,3 @@ La durata dell'intero processo di ridimensionamento dipende dalle dimensioni e d
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sulle unità di calcolo, vedere [Descrizione delle unità di calcolo](concepts-compute-unit-and-storage.md)
 - Informazioni su come [Monitorare e scalare un singolo server MySQL tramite l'interfaccia della riga di comando di Azure](scripts/sample-scale-server.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: b9b3bd0f2184ac85261166d5fe2ab67e1bf319d4
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Eseguire la migrazione di una rete virtuale (classica) da un gruppo di affinità in un'area
 
@@ -62,4 +61,3 @@ L'uso dei gruppi di affinità non è consigliabile in generale. Oltre che come r
 
 ## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>Come procedere se si ha una macchina virtuale (classica) in un gruppo di affinità
 Le macchine virtuali (classiche) attualmente incluse in un gruppo di affinità non devono essere rimosse dal gruppo. Quando si esegue la distribuzione, una macchina virtuale viene distribuita in una singola unità di scala. I gruppi di affinità possono limitare il set di dimensioni di macchine virtuali disponibili per una nuova distribuzione, ma qualsiasi macchina virtuale esistente che venga distribuita è già limitata al set di dimensioni disponibile nell'unità di scala in cui avviene la distribuzione. Poiché la macchina virtuale è già distribuita in un'unità di scala, la rimozione di una macchina virtuale da un gruppo di affinità non incide in alcun modo sulla macchina virtuale.
-

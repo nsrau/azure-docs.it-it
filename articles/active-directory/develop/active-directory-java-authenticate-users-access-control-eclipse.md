@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e0f8d92495c976040113f8edc0d4c789920c549
-ms.openlocfilehash: e22dca7b666720edfcbfd1b871d98b9468441fbd
-ms.contentlocale: it-it
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse
 In questa guida verrà descritto come usare il Servizio di controllo di accesso di Azure (ACS) nel plug-nel Toolkit di Azure per Eclipse. Per altre informazioni su ACS, vedere la sezione [Passaggi successivi](#next_steps) .
@@ -299,5 +297,4 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-
 

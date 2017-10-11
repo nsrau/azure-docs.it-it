@@ -1,6 +1,6 @@
 ---
 title: Informazioni su come usare il connettore Twitter nelle app per la logica | Documentazione Microsoft
-description: Panoramica del connettore Twitter con i parametri dell&quot;API REST
+description: Panoramica del connettore Twitter con i parametri dell'API REST
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Introduzione al connettore Twitter

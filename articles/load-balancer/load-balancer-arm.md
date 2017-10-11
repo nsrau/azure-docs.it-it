@@ -3,7 +3,7 @@ title: Supporto di Azure Resource Manager per il bilanciamento del carico | Docu
 description: Usare PowerShell per il bilanciamento del carico con Azure Resource Manager. Uso di modelli per il bilanciamento del carico
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: d0394f11-ee5a-4407-9d86-79c936297265
@@ -12,15 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
-ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6ba329e55f03cf984ae795c1d3a509e196064e2a
+ms.contentlocale: it-it
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Usare il supporto di Azure Resource Manager per Azure Load Balancer
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Resource Manager è il framework di gestione preferito dei servizi in Azure. È ora possibile gestire Azure Load Balancer con API e strumenti basati su Azure Resource Manager.
 
@@ -29,9 +33,9 @@ Azure Resource Manager è il framework di gestione preferito dei servizi in Azur
 Con Resource Manager, Azure Load Balancer contiene le seguenti risorse figlio:
 
 * Configurazione IP front-end: un bilanciamento del carico può includere uno o più indirizzi IP front-end, anche noti come IP virtuali (indirizzi VIP). Questi indirizzi IP vengono usati come ingresso per il traffico.
-* Pool di indirizzi back-end: indirizzi IP associati alle schede di interfaccia di rete della macchina virtuale a cui viene distribuito il carico.
+* Pool di indirizzi back-end: indirizzi IP associati alla scheda di interfaccia di rete della macchina virtuale a cui viene distribuito il carico.
 * Regole di bilanciamento del carico: una proprietà della regola esegue il mapping di una specifica combinazione di IP e porte front-end a un set di combinazioni di indirizzi IP e porte back-end. Un bilanciamento del carico singolo può avere più regole di bilanciamento del carico. Ogni regola è una combinazione di un IP e una porta front-end e un IP e una porta back-end associata alle VM.
-* Probe: le probe consentono di tenere traccia dell'integrità delle istanze della macchina virtuale. Se la probe di integrità non riesce, l'istanza della macchina virtuale viene esclusa automaticamente dalla rotazione.
+* Probe: le probe consentono di tenere traccia dell'integrità delle istanze della macchina virtuale. Se un probe di integrità non riesce, l'istanza della macchina virtuale viene esclusa automaticamente dalla rotazione.
 * Regole NAT in ingresso: regole NAT che definiscono il traffico in ingresso che attraversa l'IP front-end e viene distribuito all'IP back-end.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
@@ -46,7 +50,7 @@ I modelli possono includere definizioni per macchine virtuali, reti virtuali, se
 
 [Altre informazioni sulle risorse di rete](../virtual-network/resource-groups-networking.md)
 
-I modelli di avvio rapido che usano Azure Load Balancer sono disponibili in un [repository GitHub](https://github.com/Azure/azure-quickstart-templates) che ospita un set di modelli generati dalla community.
+Per i modelli di avvio rapido che usano Azure Load Balancer, vedere il [repository GitHub](https://github.com/Azure/azure-quickstart-templates) che ospita un set di modelli generati dalla community.
 
 Esempi di modelli:
 
@@ -68,9 +72,4 @@ Introduzione ai cmdlet, agli strumenti da riga di comando e alle API REST di Azu
 È anche possibile [iniziare a creare un bilanciamento del carico con connessione Internet](load-balancer-get-started-internet-arm-ps.md) e configurare il tipo di [modalità di distribuzione](load-balancer-distribution-mode.md) per il comportamento specifico del traffico di rete per il bilanciamento del carico.
 
 Informazioni su come gestire [le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Questo è importante quando l'applicazione deve mantenere le connessioni attive per i server di bilanciamento del carico.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usare un provider di identità (IdP) SAML 2.0 per l'accesso Single Sign-On
 
 Questo argomento contiene informazioni sull'uso di un provider di identità basato sul profilo SP-Lite conforme a SAML 2.0 come servizio token di sicurezza/provider di identità preferito. Si tratta di un'opzione utile quando si hanno già una directory di utenti e un archivio di password locali a cui è possibile accedere con SAML 2.0. La directory di utenti esistente può essere usata per l'accesso a Office 365 e ad altre risorse protette da Azure AD. Il profilo SP-Lite SAML 2.0 si basa sul diffuso standard di identità federate Security Assertion Markup Language (SAML) per fornire un framework di accesso e scambio degli attributi.
@@ -271,4 +269,3 @@ Per verificare che l'accesso Single Sign-On sia stato configurato correttamente,
 - [Gestione e personalizzazione di Active Directory Federation Services con Azure AD Connect](active-directory-aadconnect-federation-management.md)
 - [Elenco di compatibilità di federazione di Azure AD](active-directory-aadconnect-federation-compatibility.md)
 - [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-

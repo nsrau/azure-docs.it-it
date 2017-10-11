@@ -12,13 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/02/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 068adc72976ec8429312f1909d0fd65460b73e98
-ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: 8f5703d15766f221517cd89352d41685652d32d6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C: gestire la personalizzazione dei token e SSO con i criteri personalizzati
 L'uso dei criteri personalizzati offre lo stesso controllo sulle configurazioni di token, sessioni e Single Sign-On (SSO) dei criteri predefiniti.  Per informazioni sulle singole impostazioni, vedere la documentazione [qui](#active-directory-b2c-token-session-sso).
@@ -93,4 +91,3 @@ Per modificare il comportamento della sessione e le configurazioni SSO, è neces
 **Durata della sessione dell'app Web (minuti)** Per cambiare la durata della sessione dell'app Web, è necessario modificare il valore dell'elemento `<SessionExpiryInSeconds>`.  Il valore predefinito nei criteri predefiniti è pari a 86400 secondi (1440 minuti).
 
 **Timeout della sessione dell'app Web** Per cambiare il timeout della sessione dell'app Web, è necessario modificare il valore di `<SessionExpiryType>`.  I valori applicabili sono `Absolute` e `Rolling`.
-

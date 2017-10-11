@@ -14,23 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-<a id="handle-errors-and-exceptions-in-azure-logic-apps" class="xliff"></a>
-
-# Gestire errori ed eccezioni in App per la logica di Azure
+# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
 App per la logica di Azure offre un set completo di strumenti e modelli per garantire la solidità e la resilienza delle integrazioni dell'utente in caso di errori. In qualsiasi architettura di integrazione, una delle sfide è garantire che i tempi di inattività o i problemi dei sistemi dipendenti vengano gestiti in modo appropriato. App per la logica ottimizza la gestione degli errori offrendo gli strumenti necessari per intervenire in caso di eccezioni ed errori nei flussi di lavoro.
 
-<a id="retry-policies" class="xliff"></a>
-
-## Criteri di ripetizione dei tentativi
+## <a name="retry-policies"></a>Criteri di ripetizione dei tentativi
 
 Il tipo più semplice di gestione degli errori e delle eccezioni è costituito dai criteri di ripetizione. Tali criteri definiscono se l'azione dovrà essere ripetuta in caso di timeout o esito negativo (con restituzione di una risposta 429 o 5xx) della richiesta iniziale. Per impostazione predefinita, tutte le azioni vengono ripetute altre 4 volte a intervalli di 20 secondi. Se la prima richiesta ha ricevuto una risposta `500 Internal Server Error`, il motore del flusso di lavoro viene sospeso per 20 secondi e quindi ripete la richiesta. Se dopo tutti i tentativi la risposta è ancora un'eccezione o un errore, il flusso di lavoro continua e contrassegna l'azione con lo stato `Failed`.
 
@@ -65,9 +59,7 @@ Se si vuole che l'azione HTTP venga ripetuta 4 volte con un'attesa di 10 minuti 
 
 Per altre informazioni sulla sintassi supportata, vedere la [sezione relativa ai criteri di ripetizione dei tentativi in Azioni e trigger del flusso di lavoro][retryPolicyMSDN].
 
-<a id="catch-failures-with-the-runafter-property" class="xliff"></a>
-
-## Rilevare gli errori con la proprietà runAfter
+## <a name="catch-failures-with-the-runafter-property"></a>Rilevare gli errori con la proprietà runAfter
 
 Ogni azione di un'app per la logica dichiara le azioni che devono essere completate prima del proprio avvio. Si ottiene così una sorta di ordinamento dei passaggi del flusso di lavoro. Tale ordinamento è costituito dalla proprietà `runAfter` nella definizione dell'azione, un oggetto che descrive le azioni e gli stati delle azioni che determineranno l'esecuzione dell'azione. Per impostazione predefinita, tutte le azioni aggiunte tramite la finestra di progettazione di app per la logica vengono impostate per essere eseguite dopo il passaggio precedente (`runAfter`) se il passaggio precedente risulta `Succeeded`. È possibile personalizzare questo valore per attivare le azioni quando lo stato delle azioni precedenti è `Failed`, `Skipped` o un possibile insieme di questi valori. Se si vuole aggiungere un elemento a un argomento del bus di servizio designato dopo l'esito negativo di una specifica azione `Insert_Row`, usare la configurazione `runAfter` seguente:
 
@@ -110,17 +102,13 @@ Si noti che la proprietà `runAfter` è impostata per essere attivata se l'azion
 > [!TIP]
 > Le azioni eseguite dopo l'esito negativo di un'azione precedente e completate correttamente vengono contrassegnate come `Succeeded`. Con questo comportamento, se tutti gli errori in un flusso di lavoro vengono rilevati l'esecuzione stessa verrà contrassegnata come `Succeeded`.
 
-<a id="scopes-and-results-to-evaluate-actions" class="xliff"></a>
-
-## Ambiti e risultati per la valutazione delle azioni
+## <a name="scopes-and-results-to-evaluate-actions"></a>Ambiti e risultati per la valutazione delle azioni
 
 Così come è possibile configurare l'esecuzione dopo singole azioni, è anche possibile raggruppare insieme le azioni all'interno di un [ambito](../logic-apps/logic-apps-loops-and-scopes.md), che fungerà da raggruppamento logico delle azioni. Gli ambiti sono utili sia per organizzare le azioni delle app per la logica sia per eseguire valutazioni aggregate sullo stato di un ambito. L'ambito in sé riceve uno stato dopo che sono state completate tutte le azioni al suo interno. Lo stato dell'ambito è determinato con gli stessi criteri usati per un'esecuzione: se l'azione finale in un ramo di esecuzione è `Failed` o `Aborted`, lo stato è `Failed`.
 
 È possibile usare `runAfter` dopo che è un ambito è stato contrassegnato come `Failed` per attivare azioni specifiche per gli eventuali errori verificatisi all'interno dell'ambito. L'esecuzione dopo l'esito negativo di un ambito consente di creare una singola azione per rilevare gli errori in caso di esito negativo di *qualsiasi* azione all'interno dell'ambito.
 
-<a id="getting-the-context-of-failures-with-results" class="xliff"></a>
-
-### Recupero del contesto degli errori con i risultati
+### <a name="getting-the-context-of-failures-with-results"></a>Recupero del contesto degli errori con i risultati
 
 Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto per comprendere esattamente quali azioni hanno avuto esito negativo e tutti gli errori o i codici di stato restituiti. La funzione `@result()` del flusso di lavoro offre il contesto relativo al risultato di tutte le azioni all'interno di un ambito.
 
@@ -216,16 +204,12 @@ Come riferimento, di seguito è riportato un esempio di un singolo elemento `@re
 
 Le espressioni riportate sopra possono essere usate per eseguire diversi modelli di gestione delle eccezioni. È possibile scegliere di eseguire una singola azione di gestione delle eccezioni all'esterno dell'ambito che accetta l'intera matrice filtrata degli errori e rimuovere `foreach`. È anche possibile includere altre proprietà utili della risposta `@result()` illustrata sopra.
 
-<a id="azure-diagnostics-and-telemetry" class="xliff"></a>
-
-## Diagnostica e telemetria di Azure
+## <a name="azure-diagnostics-and-telemetry"></a>Diagnostica e telemetria di Azure
 
 I modelli precedenti sono un ottimo modo per gestire gli errori e le eccezioni in un'esecuzione, ma è possibile anche identificare e rispondere agli errori indipendentemente dall'esecuzione. 
 [Diagnostica di Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) consente di inviare in modo semplice tutti gli eventi del flusso di lavoro (inclusi tutti gli stati delle esecuzioni e delle azioni) a un account di archiviazione di Azure o un hub eventi di Azure. Per valutare gli stati delle esecuzioni è possibile monitorare i log e le metriche o pubblicarli nello strumento di monitoraggio preferito. Una possibile opzione consiste nel trasmettere tutti gli eventi tramite un hub eventi di Azure ad [Analisi di flusso](https://azure.microsoft.com/services/stream-analytics/). In Analisi di flusso è possibile scrivere query dinamiche per qualsiasi anomalia, media o errore dei log di diagnostica. Analisi di flusso può facilmente inviare output ad altre origini dati come query, argomenti, SQL, Cosmos DB e Power BI.
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come un cliente ha implementato una solida gestione delle eccezioni con App per la logica di Azure](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Altri esempi e scenari di app per la logica](../logic-apps/logic-apps-examples-and-scenarios.md)
@@ -234,4 +218,3 @@ I modelli precedenti sono un ottimo modo per gestire gli errori e le eccezioni i
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9
-

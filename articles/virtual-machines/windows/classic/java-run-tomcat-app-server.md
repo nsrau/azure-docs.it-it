@@ -1,6 +1,6 @@
 ---
 title: Eseguire server applicazioni Java in una macchina virtuale di Azure classica | Documentazione Microsoft
-description: Questa esercitazione usa le risorse create con il modello di distribuzione classica e illustra come creare una macchina virtuale di Windows e configurarla per eseguire il server dell&quot;applicazione Apache Tomcat.
+description: Questa esercitazione usa le risorse create con il modello di distribuzione classica e illustra come creare una macchina virtuale di Windows e configurarla per eseguire il server dell'applicazione Apache Tomcat.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
@@ -15,12 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.lasthandoff: 03/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Come eseguire un server di applicazione di Java in una macchina virtuale creata con il modello di distribuzione classica.
 > [!IMPORTANT]
@@ -121,7 +120,7 @@ Per vedere Tomcat in esecuzione da macchine esterne, è necessario creare un end
 10. Nella schermata **Nome** specificare un nome per la regola, come **HttpIn** (non è tuttavia necessario che il nome della regola coincida con quello dell'endpoint), quindi fare clic su **Fine**.  
     ![Nome della nuova regola connessioni in entrata][NewRuleName]
 
-A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno. Nella finestra dell'indirizzo del browser digitare un URL nel formato **http://*nome\_DNS\_in uso*.cloudapp.net**, dove***nome\_DNS\_in uso*** è il nome DNS specificato durante la creazione della macchina virtuale.
+A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno. Nella finestra di indirizzi del browser, digitare un URL nel formato  **http://*il\_DNS\_nome*. cloudapp.net**, in cui ***il\_DNS\_nome*** è il nome DNS specificato al momento della creazione della macchina virtuale.
 
 ## <a name="application-lifecycle-considerations"></a>Considerazioni sul ciclo di vita delle applicazioni
 * È possibile creare il proprio archivio di applicazioni Web (WAR) e aggiungerlo alla cartella **webapps** . Ad esempio, creare un progetto Web dinamico di una pagina JSP (Java Service Page) di base ed esportarlo come file con estensione WAR. Successivamente, copiare il file con estensione WAR nella cartella **webapps** di Apache Tomcat nella macchina virtuale e quindi eseguirlo in un browser.
@@ -159,4 +158,3 @@ Per informazioni su altri servizi, ad esempio Archiviazione, Service Bus e Datab
 6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
 7. In the **New endpoint details** dialog box:
 -->
-

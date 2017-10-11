@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bd8957f1257a5fdd867658be9c708bbdc8717f36
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Guida introduttiva a Storage Explorer (anteprima)
@@ -68,7 +68,7 @@ Inoltre, è possibile usare gli account di archiviazione in Azure globale e nazi
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Connettersi a una sottoscrizione di Azure Stack
 
-Per informazioni sulla connessione a una sottoscrizione di Azure Stack, vedere [Connect Storage Explorer to an Azure Stack subscription](azure-stack/azure-stack-storage-connect-se.md) (Connettere Storage Explorer a una sottoscrizione di Azure Stack).
+Per informazioni sulla connessione a una sottoscrizione di Azure Stack, vedere [Connect Storage Explorer to an Azure Stack subscription](azure-stack/user/azure-stack-storage-connect-se.md) (Connettere Storage Explorer a una sottoscrizione di Azure Stack).
 
 ## <a name="work-with-local-development-storage"></a>Utilizzare la risorsa di archiviazione locale
 Storage Explorer (anteprima) consente di lavorare con la risorsa di archiviazione locale usando l'emulatore di archiviazione di Azure che consente di scrivere codice per la risorsa di archiviazione e di testarla senza necessariamente avere un account di archiviazione distribuito in Azure, perché l'account di archiviazione viene emulato dall'emulatore di archiviazione di Azure.

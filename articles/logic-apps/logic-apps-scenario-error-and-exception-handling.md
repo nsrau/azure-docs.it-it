@@ -16,26 +16,20 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-<a id="scenario-exception-handling-and-error-logging-for-logic-apps" class="xliff"></a>
-
-# Scenario: Gestione delle eccezioni e registrazione degli errori per le app per la logica
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Gestione delle eccezioni e registrazione degli errori per le app per la logica
 
 Questo scenario descrive come è possibile estendere un'app per la logica per supportare al meglio la gestione delle eccezioni. Si tratta di un caso d'uso reale che risponde alla domanda "Le app per la logica di Azure supportano la gestione di errori ed eccezioni?".
 
 > [!NOTE]
 > Lo schema corrente delle app per la logica di Azure offre un modello standard per le risposte alle azioni, che include le risposte per gli errori e la convalida interna restituite da un'app per le API.
 
-<a id="scenario-and-use-case-overview" class="xliff"></a>
-
-## Panoramica su scenario e caso d'uso
+## <a name="scenario-and-use-case-overview"></a>Panoramica su scenario e caso d'uso
 
 Questa è la storia riportata nel caso d'uso per lo scenario: 
 
@@ -49,9 +43,7 @@ Il progetto prevedeva due requisiti principali:
 > [!TIP]
 > Per un video dettagliato su questo progetto, andare alla pagina di [Integration User Group](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
 
-<a id="how-we-solved-the-problem" class="xliff"></a>
-
-## Come è stato risolto il problema
+## <a name="how-we-solved-the-problem"></a>Come è stato risolto il problema
 
 Come repository per i record di log e di errore è stato scelto [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB"), in cui i record sono definiti documenti. Dato che le app per la logica di Azure includono un modello standard per tutte le risposte, non è stato necessario creare uno schema personalizzato. È stato possibile creare un'app per le API per l'**inserimento** e la **query** per i record di errore e di log. È stato anche possibile definire uno schema per ognuno all'interno dell'app per le API.  
 
@@ -60,17 +52,13 @@ Un altro requisito era ripulire i record dopo una certa data. Cosmos DB include 
 > [!IMPORTANT]
 > Per completare questa esercitazione, è necessario creare un database Cosmos DB e due raccolte, per la registrazione e gli errori.
 
-<a id="create-the-logic-app" class="xliff"></a>
-
-## Creare l'app per la logica
+## <a name="create-the-logic-app"></a>Creare l'app per la logica
 
 Il primo passaggio consiste nel creare l'app per la logica e aprirla nella finestra di progettazione di app per la logica. In questo esempio vengono usate app per la logica padre-figlio. Partendo dal presupposto di aver già creato l'elemento padre, si procederà alla creazione di un'app per la logica figlio.
 
 Dato che si prevede di registrare il record proveniente da Dynamics CRM Online, si inizierà dal principio. È necessario usare un trigger di **richiesta**, perché l'app per la logica padre attiva questo elemento figlio.
 
-<a id="logic-app-trigger" class="xliff"></a>
-
-### Trigger dell'app per la logica
+### <a name="logic-app-trigger"></a>Trigger dell'app per la logica
 
 Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
 
@@ -110,9 +98,7 @@ Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
 ````
 
 
-<a id="steps" class="xliff"></a>
-
-## Passi
+## <a name="steps"></a>Passi
 
 È necessario registrare l'origine (richiesta) del record del paziente dal portale Dynamics CRM Online.
 
@@ -135,22 +121,16 @@ Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
 
    ![Condizione](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
-<a id="logic-app-source-code" class="xliff"></a>
-
-## Codice sorgente dell'app per la logica
+## <a name="logic-app-source-code"></a>Codice sorgente dell'app per la logica
 
 > [!NOTE]
 > Quelli riportati di seguito sono solo esempi. Dato che l'esercitazione è basata su un'implementazione attualmente in produzione, il valore di un **nodo di origine** potrebbe non mostrare le proprietà correlate alla pianificazione di un appuntamento.> 
 
-<a id="logging" class="xliff"></a>
-
-### Registrazione
+### <a name="logging"></a>Registrazione
 
 L'esempio di codice dell'app per la logica seguente illustra come gestire la registrazione.
 
-<a id="log-entry" class="xliff"></a>
-
-#### Voce di log
+#### <a name="log-entry"></a>Voce di log
 
 Questo è il codice sorgente dell'app per la logica per l'inserimento di una voce di log.
 
@@ -178,9 +158,7 @@ Questo è il codice sorgente dell'app per la logica per l'inserimento di una voc
 }
 ```
 
-<a id="log-request" class="xliff"></a>
-
-#### Richiesta di log
+#### <a name="log-request"></a>Richiesta di log
 
 Questo è il messaggio di richiesta di log inviato all'app per le API.
 
@@ -200,9 +178,7 @@ Questo è il messaggio di richiesta di log inviato all'app per le API.
 ```
 
 
-<a id="log-response" class="xliff"></a>
-
-#### Risposta di log
+#### <a name="log-response"></a>Risposta di log
 
 Questo è il messaggio di risposta di log proveniente dall'app per le API.
 
@@ -240,15 +216,11 @@ Questo è il messaggio di risposta di log proveniente dall'app per le API.
 
 Verranno ora esaminati i passaggi della gestione degli errori.
 
-<a id="error-handling" class="xliff"></a>
-
-### Gestione degli errori
+### <a name="error-handling"></a>Gestione degli errori
 
 L'esempio di codice di app per la logica seguente illustra come è possibile implementare la gestione degli errori.
 
-<a id="create-error-record" class="xliff"></a>
-
-#### Creare record di errore
+#### <a name="create-error-record"></a>Creare record di errore
 
 Questo è il codice sorgente dell'app per la logica per la creazione di un record di errore.
 
@@ -285,9 +257,7 @@ Questo è il codice sorgente dell'app per la logica per la creazione di un recor
 }             
 ```
 
-<a id="insert-error-into-cosmos-db--request" class="xliff"></a>
-
-#### Inserire l'errore in Cosmos DB: richiesta
+#### <a name="insert-error-into-cosmos-db--request"></a>Inserire l'errore in Cosmos DB: richiesta
 
 ``` json
 
@@ -310,9 +280,7 @@ Questo è il codice sorgente dell'app per la logica per la creazione di un recor
 }
 ```
 
-<a id="insert-error-into-cosmos-db--response" class="xliff"></a>
-
-#### Inserire l'errore in Cosmos DB: risposta
+#### <a name="insert-error-into-cosmos-db--response"></a>Inserire l'errore in Cosmos DB: risposta
 
 ``` json
 {
@@ -351,9 +319,7 @@ Questo è il codice sorgente dell'app per la logica per la creazione di un recor
 }
 ```
 
-<a id="salesforce-error-response" class="xliff"></a>
-
-#### Risposta di errore di Salesforce
+#### <a name="salesforce-error-response"></a>Risposta di errore di Salesforce
 
 ``` json
 {
@@ -382,15 +348,11 @@ Questo è il codice sorgente dell'app per la logica per la creazione di un recor
 
 ```
 
-<a id="return-the-response-back-to-parent-logic-app" class="xliff"></a>
-
-### Restituire la risposta all'app per la logica padre
+### <a name="return-the-response-back-to-parent-logic-app"></a>Restituire la risposta all'app per la logica padre
 
 Dopo aver ottenuto la risposta, è possibile trasmetterla all'app per la logica padre.
 
-<a id="return-success-response-to-parent-logic-app" class="xliff"></a>
-
-#### Restituire la risposta di esito positivo all'app per la logica padre
+#### <a name="return-success-response-to-parent-logic-app"></a>Restituire la risposta di esito positivo all'app per la logica padre
 
 ``` json
 "SuccessResponse": {
@@ -412,9 +374,7 @@ Dopo aver ottenuto la risposta, è possibile trasmetterla all'app per la logica 
 }
 ```
 
-<a id="return-error-response-to-parent-logic-app" class="xliff"></a>
-
-#### Restituire la risposta di errore all'app per la logica padre
+#### <a name="return-error-response-to-parent-logic-app"></a>Restituire la risposta di errore all'app per la logica padre
 
 ``` json
 "ErrorResponse": {
@@ -438,15 +398,11 @@ Dopo aver ottenuto la risposta, è possibile trasmetterla all'app per la logica 
 ```
 
 
-<a id="cosmos-db-repository-and-portal" class="xliff"></a>
-
-## Portale e repository di Cosmos DB
+## <a name="cosmos-db-repository-and-portal"></a>Portale e repository di Cosmos DB
 
 In questa soluzione sono state aggiunte funzionalità con [Cosmos DB](https://azure.microsoft.com/services/documentdb).
 
-<a id="error-management-portal" class="xliff"></a>
-
-### Portale di gestione degli errori
+### <a name="error-management-portal"></a>Portale di gestione degli errori
 
 Per consultare gli errori, è possibile creare un'app Web MVC per visualizzare i record di errore da Cosmos DB. Nella versione corrente sono incluse operazioni di tipo **Elenco**, **Dettagli**, **Modifica** ed **Elimina**.
 
@@ -455,34 +411,22 @@ Per consultare gli errori, è possibile creare un'app Web MVC per visualizzare i
 
 Questi sono esempi dei dettagli dell'app MVC creati con l'approccio precedentemente descritto.
 
-<a id="error-management-list" class="xliff"></a>
-
-#### Elenco di gestione degli errori
+#### <a name="error-management-list"></a>Elenco di gestione degli errori
 ![Elenco errori](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
-<a id="error-management-detail-view" class="xliff"></a>
-
-#### Visualizzazione dei dettagli di gestione degli errori
+#### <a name="error-management-detail-view"></a>Visualizzazione dei dettagli di gestione degli errori
 ![Dettagli errore](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)
 
-<a id="log-management-portal" class="xliff"></a>
-
-### Portale di gestione dei log
+### <a name="log-management-portal"></a>Portale di gestione dei log
 
 È stata creata un'app Web MVC anche per visualizzare i log. Questi sono esempi dei dettagli dell'app MVC creati con l'approccio precedentemente descritto.
 
-<a id="sample-log-detail-view" class="xliff"></a>
-
-#### Visualizzazione di dettagli dei log di esempio
+#### <a name="sample-log-detail-view"></a>Visualizzazione di dettagli dei log di esempio
 ![Visualizzare i dettagli dei log](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)
 
-<a id="api-app-details" class="xliff"></a>
+### <a name="api-app-details"></a>Dettagli dell'app per le API
 
-### Dettagli dell'app per le API
-
-<a id="logic-apps-exception-management-api" class="xliff"></a>
-
-#### API di gestione delle eccezioni di app per la logica
+#### <a name="logic-apps-exception-management-api"></a>API di gestione delle eccezioni di app per la logica
 
 L'app per le API di gestione delle eccezioni delle App per la logica di Azure offre le funzionalità descritte di seguito, sono presenti due controller:
 
@@ -532,25 +476,18 @@ L'API viene chiamata da un'app per la logica usando la sintassi seguente:
 
 L'espressione nell'esempio di codice precedente verifica la presenza dello stato **Non riuscito** di *Create_NewPatientRecord*.
 
-<a id="summary" class="xliff"></a>
-
-## Riepilogo
+## <a name="summary"></a>Riepilogo
 
 * È possibile implementare facilmente la registrazione e la gestione degli errori in un'app per la logica.
 * È possibile usare DocumentDB come repository per i record di log e di errore (documenti).
 * È possibile usare MVC per creare un portale per la visualizzazione dei record di log e di errore.
 
-<a id="source-code" class="xliff"></a>
-
-### Codice sorgente
+### <a name="source-code"></a>Codice sorgente
 
 Il codice sorgente dell'applicazione per le API di gestione delle eccezioni di app per la logica è disponibile in questo [repository GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API di gestione delle eccezioni dell'app per la logica").
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Visualizzare altri esempi e scenari di app per la logica](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Informazioni sul monitoraggio delle app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Creare modelli di distribuzione automatizzati per le app per la logica](../logic-apps/logic-apps-create-deploy-template.md)
-

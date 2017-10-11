@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9ceedb9940759427fc8cec74a1307e42472563a6
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Come usare Hub di notifica da Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -266,7 +266,7 @@ L'abilitazione della proprietà di debug durante l'inizializzazione di Hub di no
 
 L'URL HTTP della richiesta di invio a Hub di notifica viene aggiunto con una querystring "test" come risultato. 
 
-## <a name="a-namecomplete-tutorialacomplete-the-tutorial"></a><a name="complete-tutorial"></a>Completare l'esercitazione
+## <a name="complete-tutorial"></a>Completare l'esercitazione
 È ora possibile completare l'esercitazione introduttiva inviando la notifica da un back-end Python.
 
 Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'esercitazione [esercitazione introduttiva]:
@@ -322,7 +322,7 @@ Eseguendo il codice Python dovrebbe essere visualizzata una notifica sul disposi
 
 ## <a name="examples"></a>Esempi:
 ### <a name="enabling-debug-property"></a>Abilitazione della proprietà di debug
-Quando si abilita il flag di debug durante l'inizializzazione di Hub di notifica, verranno visualizzati una richiesta HTTP dettagliata e un dump di risposta, nonché un risultato di notifica simile a quello riportato di seguito, dove è possibile comprendere quali intestazioni HTTP vengono passate e quale risposta HTTP è stata ricevuta da Hub di notifica:        ![][1]
+Quando si abilita il flag di debug durante l'inizializzazione di Hub di notifica, verranno visualizzati una richiesta HTTP dettagliata e un dump di risposta, nonché un risultato di notifica simile a quello riportato di seguito, dove è possibile comprendere quali intestazioni HTTP vengono passate e quale risposta HTTP è stata ricevuta da Hub di notifica: ![][1]
 
 verrà visualizzato il risultato dettagliato di Hub di notifica, ad esempio: 
 
@@ -389,10 +389,4 @@ Questo argomento ha illustrato come creare un semplice client REST Python per Hu
 [3]: ./media/notification-hubs-python-backend-how-to/SendWithOneTag.png
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

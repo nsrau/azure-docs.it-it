@@ -38,7 +38,7 @@
 ## Gestisci
 ### Gestire Ricerca di Azure
 #### [Portale di Azure](search-manage.md)
-#### [PowerShell](search-manage-powershell.md)
+#### [Azure PowerShell](search-manage-powershell.md) di Azure
 ### [Monitorare l'utilizzo e le statistiche](search-monitor-usage.md)
 ### [Analisi del traffico di ricerca](search-traffic-analytics.md)
 ### [Prestazioni e ottimizzazione](search-performance-optimization.md)

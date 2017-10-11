@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e15784a662b1691774eb3d9cc8b3fbe66ac67385
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 44e344095352f2bc6b27e389fc8be2cdf3e368d8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD
 
 Per configurare il [provisioning utenti automatico](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) per un'app (se supportato), è necessario seguire istruzioni specifiche per preparare l'applicazione a questa operazione. Sarà quindi possibile usare il Portale di Azure per configurare il servizio di provisioning per sincronizzare gli account utente con l'applicazione.
@@ -70,4 +68,3 @@ Quando un utente viene visualizzato come "ignorato" nei log di controllo, è ess
 
 #<a name="next-steps"></a>Passaggi successivi
 [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
-

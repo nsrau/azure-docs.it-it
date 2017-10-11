@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 4f40ba0eb6ce3e55a1e5458bc6e83060fcf6624c
-ms.contentlocale: it-it
-
+ms.openlocfilehash: 3d195d0d67f8f82c9450ffd93767917698addee3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chiamare l'API di Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
@@ -47,4 +47,3 @@ Questa guida usa la libreria seguente:
 > *msal.js* specifica come destinazione l'*endpoint di Azure Active Directory v2*, che consente agli account personali, aziendali e dell'istituto di istruzione di eseguire l'accesso e di acquisire i token. L'*endpoint di Azure Active Directory v2* ha [alcune limitazioni](..\active-directory-v2-limitations.md). Se si è interessati solo ad account aziendali e dell'istituto di istruzione, usare *adal.js* e l'*endpoint V1*. Per conoscere le differenze tra gli endpoint v1 e v2, vedere il [confronto tra v1 e v2](..\active-directory-v2-compare.md).
 
 <!--end-collapse-->
-

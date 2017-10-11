@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;app per la logica usando un modello di Azure | Microsoft Docs
-description: Usare un modello di Azure Resource Manager per distribuire un&quot;app per la logica per la definizione dei flussi di lavoro.
+title: Creare un'app per la logica usando un modello di Azure | Microsoft Docs
+description: Usare un modello di Azure Resource Manager per distribuire un'app per la logica per la definizione dei flussi di lavoro.
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 1305fdc4cf87905eef701ec5471d6329006c2b5f
-ms.contentlocale: it-it
-ms.lasthandoff: 01/31/2017
-
-
+ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>Creare un'app per la logica usando un modello
 I modelli rappresentano un modo rapido per usare diversi connettori nell'app per la logica. Le app per la logica comprendono i modelli di Azure Resource Manager utili per creare un'app per la logica che può essere utilizzata per definire i flussi di lavoro aziendali. Questo consente di definire le risorse da distribuire e le modalità di definizione dei parametri specificati durante l'esecuzione della distribuzione. È possibile usare questo modello per il proprio scenario aziendale o personalizzarlo in base alle esigenze.
@@ -109,7 +107,6 @@ Questa particolare definizione viene eseguita una volta ogni ora e consente di e
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
-
 
 
 

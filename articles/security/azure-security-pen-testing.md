@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="pen-testing"></a>Test di penetrazione
 Uno dei maggiori vantaggi dell'uso di Microsoft Azure per il test e la distribuzione di applicazioni è che non è necessaria un'infrastruttura locale per sviluppare, testare e distribuire le applicazioni. I servizi della piattaforma Microsoft Azure gestiscono l'intera infrastruttura. Non è necessario richiedere, acquistare e installare il proprio hardware locale.
@@ -44,4 +43,3 @@ I test standard che è possibile eseguire includono:
 Tra i tipi di test che non è possibile eseguire sono incluse tutte le tipologie di attacco [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack), tra cui l'avvio di un attacco DoS vero e proprio o l'esecuzione di test correlati che possono determinare, dimostrare o simulare tutti i tipi di attacco DoS.
 
 Si è pronti a iniziare il test di penetrazione delle applicazioni ospitate in Microsoft Azure? Se la risposta è sì, andare alla pagina [Panoramica del test di penetrazione](https://technet.microsoft.com/library/mt784683.aspx) e fare clic sul pulsante per la creazione di una richiesta di test alla fine della pagina. Sono disponibili anche altre informazioni sui termini e sulle condizioni del test di penetrazione e utili collegamenti per poter segnalare i problemi di sicurezza correlati ad Azure o ad altri servizi Microsoft.
-

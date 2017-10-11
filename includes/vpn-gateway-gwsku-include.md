@@ -22,7 +22,7 @@ I nuovi SKU del gateway semplificano i set di funzionalità offerti nei gateway:
 
 | **SKU**| **Funzionalità**|
 | ---    | ---         |
-|**Basic**   | **VPN basata su route**: 10 tunnel con P2S<br><br>**VPN basata su criteri (IKEv1)**: 1 tunnel, nessuna connessione P2S|
+|**Basic**   | **VPN basate su route**: 10 tunnel con P2S; nessuna autenticazione RADIUS; nessun IKEv2<br>**VPN basata su criteri (IKEv1)**: 1 tunnel, nessuna connessione P2S|
 | **VpnGw1, VpnGw2 e VpnGw3** | **VPN basata su route**: fino a 30 tunnel (*), P2S, BGP, attivo-attivo, IPsec personalizzato/criterio IKE, coesistenza ExpressRoute/VPN |
 |        |             |
 

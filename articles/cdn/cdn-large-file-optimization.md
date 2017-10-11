@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Ottimizzazione del download di file di grandi dimensioni tramite la rete di distribuzione dei contenuti di Azure
 
-Le dimensioni di file dei contenuti distribuiti in Internet continua ad aumentare come conseguenza delle funzionalità avanzate, della grafica migliorata e della complessità dei contenuti multimediali. Questa crescita è determinata da diversi fattori: penetrazione della banda larga, dispositivi di archiviazione economici e con capacità maggiore, elevata diffusione di video ad alta definizione e dispositivi connessi a Internet (IoT). Un meccanismo di distribuzione rapido ed efficiente per file di grandi dimensioni è essenziale per garantire a ogni cliente un'esperienza uniforme e soddisfacente.
+Le dimensioni di file dei contenuti distribuiti in Internet continua ad aumentare come conseguenza delle funzionalità avanzate, della grafica migliorata e della complessità dei contenuti multimediali. Questa crescita dipende da numerosi fattori: penetrazione a banda larga, i dispositivi di archiviazione economica più grandi, generalizzata aumento dei dispositivi ad alta definizione video e connesso a Internet (IoT). Un meccanismo di recapito veloci ed efficienti per i file di grandi dimensioni è fondamentale per garantire un'esperienza uniforme e piacevole consumer.
 
 La distribuzione di file di grandi dimensioni pone diverse sfide. In primo luogo, il tempo medio per scaricare un file di grandi dimensioni può essere significativo, in quanto molte applicazioni potrebbero non scaricare tutti i dati in sequenza. In alcuni casi, le applicazioni potrebbero scaricare l'ultima parte di un file prima della prima. Quando è necessaria solo una piccola parte di un file o un utente sospende un download, il download può non riuscire. Il download può anche subire ritardi, finché la rete per la distribuzione di contenuti (rete CDN) non recupera l'intero file dal server di origine. 
 
@@ -127,4 +126,3 @@ Per questo tipo di ottimizzazione, tenere presenti gli aspetti aggiuntivi seguen
 ### <a name="azure-content-delivery-network-from-verizon"></a>Rete di distribuzione dei contenuti di Azure con tecnologia Verizon
 
 L'ottimizzazione basata sulla distribuzione Web generica è in grado di distribuire file di grandi dimensioni.
-

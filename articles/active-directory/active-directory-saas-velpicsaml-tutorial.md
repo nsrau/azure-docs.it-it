@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Velpic SAML| Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Velpic SAML.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Velpic SAML.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 5325f3cca00167e6b7b687509ce43435447ad2f4
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Esercitazione: Integrazione di Azure Active Directory con Velpic SAML
 
@@ -217,7 +216,7 @@ Accedere al sito aziendale di Velpic SAML come amministratore e seguire questa p
 
     e. Le informazioni rimanenti sono facoltative, se necessario si possono compilare.
     
-    f. Fare clic su **SAVE**.    
+    f. Fare clic su **SAVE**.  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
@@ -280,5 +279,4 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 [201]: ./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_203.png
-
 

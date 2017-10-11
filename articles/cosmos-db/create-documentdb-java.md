@@ -38,7 +38,8 @@ Questa guida introduttiva illustra come creare un database di documenti con gli 
 * [Git](https://www.git-scm.com/)
     * In Ubuntu è possibile eseguire `sudo apt-get install git` per installare Git.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 

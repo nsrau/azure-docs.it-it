@@ -1,6 +1,6 @@
 ---
 title: Creare ruoli personalizzati di controllo degli accessi in base al ruolo e assegnarli a utenti interni ed esterni in Azure | Microsoft Docs
-description: Assegnare ruoli personalizzati di controllo degli accessi in base al ruolo creati con PowerShell e l&quot;interfaccia della riga di comando per utenti interni ed esterni
+description: Assegnare ruoli personalizzati di controllo degli accessi in base al ruolo creati con PowerShell e l'interfaccia della riga di comando per utenti interni ed esterni
 services: active-directory
 documentationcenter: 
 author: andreicradu
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: d687f94bebfd0b6c1ec0690da798be5409640954
+ms.translationtype: HT
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: cccd0af0c991efe330567c2459717798d116e68f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 ## <a name="intro-on-role-based-access-control"></a>Introduzione al controllo degli accessi in base al ruolo
@@ -35,6 +34,7 @@ L'uso del controllo degli accessi in base al ruolo nell'ambiente di Azure richie
 * Il ruolo di proprietario della sottoscrizione di Azure
 * L'accesso al [portale di Azure](https://portal.azure.com)
 * Verificare che i provider di risorse seguenti siano registrati per la sottoscrizione dell'utente: **Microsoft.Authorization**. Per altre informazioni su come registrare i provider di risorse, vedere [Provider, aree, versioni API e schemi di Resource Manager](/azure-resource-manager/resource-manager-supported-services.md).
+<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found--->
 
 > [!NOTE]
 > Le sottoscrizioni di Office 365 o le licenze di Azure Active Directory, ad esempio l'accesso ad Azure Active Directory, fornite dal portale di Office 365 non danno diritto all'uso del controllo degli accessi in base al ruolo.
@@ -78,6 +78,7 @@ Dopo avere selezionato la sottoscrizione, l'utente amministratore deve fare clic
 ![aggiungere un nuovo utente nella funzione IAM di controllo di accesso nel portale di Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
 Il passaggio successivo consiste nel selezionare il ruolo da assegnare e l'utente a cui verrà assegnato il ruolo di controllo degli accessi in base al ruolo. Nel menu a discesa **Ruolo** l'utente amministratore vede solo i ruoli predefiniti di controllo degli accessi in base al ruolo disponibili in Azure. Per altre descrizioni di ogni ruolo e dei relativi ambiti assegnabili, vedere [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](/active-directory/role-based-access-built-in-roles.md).
+<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found--->
 
 L'utente amministratore deve quindi aggiungere l'indirizzo e-mail dell'utente esterno. Per l'utente esterno il comportamento previsto è quello di non essere visibile nel tenant esistente. Dopo che è stato invitato, l'utente esterno sarà visibile in **Sottoscrizioni > Controllo di accesso (IAM)** con tutti gli utenti correnti assegnati attualmente a un ruolo di controllo degli accessi in base al ruolo nell'ambito della sottoscrizione.
 
@@ -124,6 +125,7 @@ Nella visualizzazione **Utenti** in entrambi i portali gli utenti esterni posson
 * Il punto di origine diverso nel portale classico
 
 Tuttavia, la concessione dell'accesso come **Proprietario** o **Collaboratore** a un utente esterno nell'ambito della **sottoscrizione**, non consente l'accesso alla directory dell'utente amministratore, a meno che ciò non sia consentito dall'opzione di **amministrazione globale**. Nelle proprietà dell'utente è possibile identificare il **tipo di utente** che dispone di due parametri comuni, **Membro** e **Guest**. Un membro è un utente registrato nella directory, mentre un utente guest è un utente invitato nella directory da un'origine esterna. Per altre informazioni, vedere [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](/active-directory/active-directory-b2b-admin-add-users).
+<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
 
 > [!NOTE]
 > Assicurarsi che dopo avere immesso le credenziali nel portale, l'utente esterno selezioni la directory corretta a cui accedere. Lo stesso utente può avere accesso a più directory e selezionarne una facendo clic sul nome utente nella parte superiore destra nel portale di Azure e quindi scegliere la directory appropriata nell'elenco a discesa.

@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: ea42b7135d0695b66d569095e70bb3d9f8b9594b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="sql-data-warehouse-restore"></a>Ripristino di SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -107,4 +106,3 @@ Per eseguire il ripristino di un data warehouse, eseguire il ripristino con:
 
 
 <!--Other Web references-->
-

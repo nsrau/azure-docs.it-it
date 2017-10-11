@@ -1,6 +1,6 @@
 ---
-title: Integrazione degli avvisi del Centro sicurezza di Azure con l&quot;integrazione dei log di Azure | Microsoft Docs
-description: Questo articolo consente di iniziare a usare gli avvisi del Centro sicurezza con l&quot;integrazione dei log di Azure.
+title: Integrazione degli avvisi del Centro sicurezza di Azure con l'integrazione dei log di Azure | Microsoft Docs
+description: Questo articolo consente di iniziare a usare gli avvisi del Centro sicurezza con l'integrazione dei log di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Integrazione degli avvisi del Centro sicurezza di Azure con l'integrazione dei log di Azure
 Molti team dedicati alle operazioni di sicurezza e alla risposta ai problemi fanno affidamento su una soluzione SIEM (Security Information and Event Management) come punto di partenza per la valutazione e l'analisi degli avvisi di sicurezza. Con l'integrazione dei log di Azure è possibile integrare gli avvisi del Centro sicurezza di Azure con la soluzione SIEM in uso.
@@ -90,4 +89,3 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : informazioni e notizie aggiornate sulla sicurezza di Azure.
-

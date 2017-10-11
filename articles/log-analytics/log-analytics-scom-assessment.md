@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
-ms.contentlocale: it-it
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Ottimizzare l'ambiente con la soluzione System Center Operations Manager Assessment (Anteprima)
 
 ![Simbolo di Valutazione System Center Operations Manager](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
@@ -292,4 +290,3 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Eseguire ricerche nei log](log-analytics-log-searches.md) per visualizzare raccomandazioni e dati dettagliati di System Center Operations Manager Assessment.
-

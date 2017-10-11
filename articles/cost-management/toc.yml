@@ -1,0 +1,31 @@
+- name: Documentazione di Gestione dei costi di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Definizione di gestione dei costi di Azure
+      href: overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Visualizzare i dati di costo
+      href: quick-register-azure-sub.md
+    - name: Visualizzare i dati di costo - EA
+      href: quick-register-ea.md
+    - name: Visualizzare i dati di costo - CSP
+      href: quick-register-csp.md
+- name: Esercitazioni
+  items:
+    - name: 1 - Esaminare l'uso e i costi
+      href: tutorial-review-usage.md
+    - name: 2 - Controllo degli accessi ai dati
+      href: tutorial-user-access.md
+    - name: 3 - Previsione della spesa
+      href: tutorial-forecast-spending.md
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+    - name: Disponibilità a livello di area
+      href: 'https://azure-staging.microsoft.com/en-us/regions/services/'

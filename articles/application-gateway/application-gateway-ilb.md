@@ -3,7 +3,7 @@ title: Uso di un gateway applicazione di Azure con un servizio di bilanciamento 
 description: Questa pagina fornisce le istruzioni per configurare un servizio Gateway applicazione di Azure con un endpoint con carico bilanciato interno
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 7403d28e-909f-46a2-b282-43a8e942f53c
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: davidmu
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)
@@ -222,10 +223,5 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 
 * [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

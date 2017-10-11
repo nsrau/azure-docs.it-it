@@ -1,6 +1,6 @@
 ---
-title: Come eseguire l&quot;integrazione con Azure Active Directory | Documentazione Microsoft
-description: Guida ai vantaggi e alle risorse per l&quot;integrazione con Azure Active Directory.
+title: Come eseguire l'integrazione con Azure Active Directory | Documentazione Microsoft
+description: Guida ai vantaggi e alle risorse per l'integrazione con Azure Active Directory.
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 32c236c7082e48990f41a1a9069cea53d0cab96f
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrazione con Azure Active Directory
@@ -34,7 +33,7 @@ Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi.  Fare r
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Supportare Azure AD per l'accesso all'applicazione
 **Ridurre i problemi di accesso e i costi di supporto.** Grazie all'uso di Azure AD per l'accesso, gli utenti non avranno un nome utente e una password in più da ricordare.  Gli sviluppatori avranno invece una password in meno da archiviare e proteggere.  Anche il solo fatto di non dover gestire la reimpostazione delle password dimenticate costituisce un risparmio significativo.  Azure AD offre la tecnologia di accesso per alcune delle applicazioni cloud più diffuse al mondo, tra cui Office 365 e Microsoft Azure.  Con centinaia di milioni di utenti da milioni di organizzazioni, la probabilità che un utente abbia già eseguito l'accesso ad Azure AD è molto elevata.  Altre informazioni sull'[aggiunta del supporto per l'accesso ad Azure AD](active-directory-authentication-scenarios.md).
 
-**Semplificare l'iscrizione all'applicazione.**  Durante l'iscrizione all'applicazione, Azure AD può inviare le informazioni essenziali relative a un utente per precompilare il modulo di iscrizione o eliminarle completamente.  Gli utenti possono effettuare l'iscrizione all'applicazione usando l'account Azure AD tramite un'esperienza di consenso nota simile a quelle dei social media e delle applicazioni per dispositivi mobili.  Qualsiasi utente può iscriversi e accedere a un'applicazione integrata con Azure AD senza richiedere l'intervento del reparto IT.  Altre informazioni sulla [registrazione dell'applicazione per l'accesso con l'account Azure AD](../../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) .
+**Semplificare l'iscrizione all'applicazione.**  Durante l'iscrizione all'applicazione, Azure AD può inviare le informazioni essenziali relative a un utente per precompilare il modulo di iscrizione o eliminarle completamente.  Gli utenti possono effettuare l'iscrizione all'applicazione usando l'account Azure AD tramite un'esperienza di consenso nota simile a quelle dei social media e delle applicazioni per dispositivi mobili.  Qualsiasi utente può iscriversi e accedere a un'applicazione integrata con Azure AD senza richiedere l'intervento del reparto IT.  Altre informazioni sulla [registrazione dell'applicazione per l'accesso con l'account Azure AD](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) .
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Esplorare la directory per cercare utenti, gestire il provisioning degli utenti e controllare l'accesso all'applicazione
 **Esplorare la directory per cercare gli utenti.**  L'API Graph consente agli utenti di cercare altri utenti all'interno dell'organizzazione per invitarli o concedere loro l'accesso alle applicazioni in modo da non dover digitare gli indirizzi di posta elettronica.  Gli utenti possono esplorare la directory tramite un'interfaccia simile a una rubrica e possono visualizzare anche i dettagli della gerarchia all'interno dell'organizzazione.  Altre informazioni sull'[API Graph](active-directory-graph-api.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
+ms.contentlocale: it-it
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Esercitazione: DevOps con il portale di Azure
@@ -264,7 +264,7 @@ Questa esercitazione ha illustrato alcune potenzialità della piattaforma Azure 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Azure Resource Manager è importante per l'abilitazione di DevOps nella piattaforma Azure.  Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-* Per altre informazioni sulla distribuzione del servizio app di Azure, vedere [Distribuire l'app nel servizio app di Azure](../app-service-web/web-sites-deploy.md)
+* Per altre informazioni sulla distribuzione del servizio app di Azure, vedere [Distribuire l'app nel servizio app di Azure](../app-service/app-service-deploy-local-git.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png

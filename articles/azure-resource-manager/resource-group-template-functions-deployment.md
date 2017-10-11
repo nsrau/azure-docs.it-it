@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: d7e6bcd669d40cb19de44b646505856ecd8f51a0
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17fe2bc467acc5542d021961a066940dbecf6120
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funzioni di distribuzione per i modelli di Azure Resource Manager 
@@ -98,7 +98,7 @@ Quando l'oggetto viene passato come collegamento, come quando si usa il parametr
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente restituisce l'oggetto di distribuzione:
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) seguente restituisce l'oggetto di distribuzione:
 
 ```json
 {
@@ -138,9 +138,21 @@ L'esempio precedente restituisce l'oggetto seguente:
 }
 ```
 
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+```
+
 <a id="parameters" />
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parameters
 `parameters(parameterName)`
 
 Restituisce un valore di parametro. Il nome del parametro specificato deve essere definito nella sezione parameters del modello.
@@ -177,7 +189,7 @@ Per impostare i valori delle risorse, si usano in genere i parametri. Nell'esemp
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente mostra un uso semplificato della funzione parameters.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) seguente mostra un uso semplificato della funzione parameters.
 
 ```json
 {
@@ -232,7 +244,7 @@ L'esempio seguente mostra un uso semplificato della funzione parameters.
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Tipo | Valore |
 | ---- | ---- | ----- |
@@ -241,6 +253,18 @@ L'output dell'esempio precedente con i valori predefiniti è:
 | objectOutput | Oggetto | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
 
 <a id="variables" />
 
@@ -285,7 +309,7 @@ Per semplificare il modello creando valori complessi una sola volta, si usano in
 
 ### <a name="example"></a>Esempio
 
-Il modello di esempio restituisce valori di variabile diversi.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) seguente restituisce valori di variabile diversi.
 
 ```json
 {
@@ -323,7 +347,7 @@ Il modello di esempio restituisce valori di variabile diversi.
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Tipo | Valore |
 | ---- | ---- | ----- |
@@ -331,6 +355,18 @@ L'output dell'esempio precedente con i valori predefiniti è:
 | exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).

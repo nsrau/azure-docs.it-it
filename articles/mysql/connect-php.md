@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 07/12/2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 59da1ab9e76685d7ed0c4415ef99578c982e956c
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 92c34e7ac074ded1702e0df96298d33c60227ab3
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -27,7 +27,7 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-php"></a>Installare PHP
-Installare PHP nel server o creare un'[app Web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) di Azure che includa PHP.
+Installare PHP nel server o creare un'[app Web](../app-service/app-service-web-overview.md) di Azure che includa PHP.
 
 ### <a name="macos"></a>MacOS
 - Scaricare [PHP versione 7.1.4](http://php.net/downloads.php)
@@ -233,5 +233,5 @@ mysqli_close($conn);
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Creare un'app Web PHP e MySQL in Azure](../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
+> [Creare un'app Web PHP e MySQL in Azure](../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
 

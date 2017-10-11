@@ -10,14 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4cd77c4ae4d9487aad11ea790c5d88a4eaff6077
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server nel database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure
 
 Usare il database di Azure per PostgreSQL per ripristinare il database di un server a una data precedente che va dai 7 ai 35 giorni.
@@ -71,4 +69,3 @@ Al termine del ripristino, individuare il nuovo server creato per verificare che
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Raccolte connessioni per il Database di Azure per PostgreSQL](concepts-connection-libraries.md)
-

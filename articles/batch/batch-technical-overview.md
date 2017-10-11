@@ -1,6 +1,6 @@
 ---
 title: Azure Batch esegue soluzioni di calcolo parallele su larga scala nel cloud | Microsoft Docs
-description: Informazioni sull&quot;uso del servizio Azure Batch per carichi di lavoro HPC e paralleli su larga scala
+description: Informazioni sull'uso del servizio Azure Batch per carichi di lavoro HPC e paralleli su larga scala
 services: batch
 documentationcenter: 
 author: tamram
@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 8a850f8b1cccda631786f89f2c88647604fba9ed
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
 ms.contentlocale: it-it
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>Eseguire carichi di lavoro intrinsecamente paralleli con Batch
@@ -48,7 +47,7 @@ Di seguito sono riportati alcuni esempi di carichi di lavoro in genere elaborati
 
 Batch può anche eseguire calcoli paralleli con un passaggio di riduzione alla fine e carichi di lavoro HPC più complessi, ad esempio applicazioni [MPI (Message Passing Interface)](batch-mpi.md) .
 
-Per un confronto tra Batch e altre soluzioni HPC in Azure, vedere [Soluzioni Batch e HPC nel cloud di Azure](batch-hpc-solutions.md).
+Per un confronto tra Batch e altre soluzioni HPC in Azure, vedere [HPC, Batch, and Big Compute solutions](../virtual-machines/linux/high-performance-computing.md) (Soluzioni HPC, Batch e Big Compute).
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 

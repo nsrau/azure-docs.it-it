@@ -16,10 +16,10 @@ ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 257f661dbc5ff23db53591a1b2db59a8dbeac2dc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
@@ -29,10 +29,6 @@ I *dispositivi gemelli* sono documenti JSON nei quali vengono archiviate informa
 * La struttura del dispositivo gemello: *tag*, proprietà *desiderate* e *segnalate*.
 * Le operazioni che le app per dispositivo e i back-end possono eseguire sui dispositivi gemelli.
 
-> [!NOTE]
-> Al momento i dispositivi gemelli sono accessibili solo dai dispositivi che si connettono all'hub IoT tramite il protocollo MQTT. Per istruzioni su come convertire l'app per dispositivo esistente in modo che usi MQTT, vedere l'articolo [Supporto di MQTT][lnk-devguide-mqtt].
-> 
-> 
 
 ### <a name="when-to-use"></a>Quando usare le autorizzazioni
 Usare i dispositivi gemelli per:
@@ -219,10 +215,6 @@ Tutte le operazioni precedenti richiedono l'autorizzazione **DeviceConnect**, co
 
 [Azure IoT SDK per dispositivi][lnk-sdks] semplifica l'uso delle operazioni precedenti con linguaggi e piattaforme diversi. Altre informazioni sulle primitive dell'hub IoT per la sincronizzazione delle proprietà desiderate sono reperibili nella sezione [Flusso di riconnessione del dispositivo][lnk-reconnection].
 
-> [!NOTE]
-> Al momento i dispositivi gemelli sono accessibili solo dai dispositivi che si connettono all'hub IoT tramite il protocollo MQTT.
-> 
-> 
 
 ## <a name="reference-topics"></a>Argomenti di riferimento:
 Gli argomenti di riferimento seguenti offrono altre informazioni sul controllo dell'accesso all'hub IoT.

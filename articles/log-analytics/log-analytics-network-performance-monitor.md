@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
-ms.contentlocale: it-it
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Soluzione di monitoraggio delle prestazioni di rete in Log Analytics
 
@@ -315,4 +314,3 @@ Ora che è stata eseguita una panoramica sul monitoraggio delle prestazioni di r
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare una ricerca nei log](log-analytics-log-searches.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
-

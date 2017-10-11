@@ -16,12 +16,11 @@ ms.workload: identity
 ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: aaronsm
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: fc0d297598c334ca8f6f8a2bd3ae948c87956342
-ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS
 > [!div class="op_single_selector"]
@@ -75,7 +74,6 @@ Per le applicazioni SaaS disponibili nella raccolta delle app, Azure AD offre va
 
 Se l'app non è presente nella raccolta, è possibile [aggiungerla alla raccolta delle app di Azure AD come applicazione personalizzata](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 Vedere anche [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md).
-

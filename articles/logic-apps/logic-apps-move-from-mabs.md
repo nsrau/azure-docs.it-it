@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Spostare da Servizi BizTalk ad App per la logica
 
 Servizi BizTalk di Microsoft Azure (MABS) verrà ritirato. Usare questo argomento per spostare le soluzioni di integrazione MABS in App per la logica di Azure. 
@@ -31,8 +28,8 @@ Servizi BizTalk di Microsoft Azure (MABS) verrà ritirato. Usare questo argoment
 
 Servizi BizTalk è costituito da due servizi secondari:
 
-1.    Connessioni ibride di Servizi BizTalk di Microsoft
-2.    Integrazione basata su bridge di EAI ed EDI
+1.  Connessioni ibride di Servizi BizTalk di Microsoft
+2.  Integrazione basata su bridge di EAI ed EDI
 
 Se si intende spostare le connessioni ibride, [Connessioni ibride del Servizio app di Azure](../app-service/app-service-hybrid-connections.md) descrive le modifiche e le funzionalità di questo servizio. Connessioni ibride di Azure sostituisce Connessioni ibride di Servizi BizTalk. Connessioni ibride di Azure è disponibile con il Servizio app di Azure e viene offerto nel portale di Azure. Connessioni ibride di Azure offre anche una nuova gestione per la connessione ibrida che consente di gestire le connessioni ibride di Servizi BizTalk esistenti oltre alle nuove connessioni ibride create nel portale. Connessioni ibride di Servizio app di Azure è disponibile a livello generale.
 
@@ -132,4 +129,3 @@ Per ottenere una disponibilità elevata in Servizi BizTalk, è possibile usare p
 * [Informazioni sulle app per la logica](logic-apps-what-are-logic-apps.md)
 * [Creare la prima app per la logica](logic-apps-create-a-logic-app.md), oppure iniziare rapidamente usando un [modello predefinito](logic-apps-use-logic-app-templates.md)  
 * [Visualizzare tutti i connettori disponibili](../connectors/apis-list.md) che è possibile usare in un'app per la logica
-

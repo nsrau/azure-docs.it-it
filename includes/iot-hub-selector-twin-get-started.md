@@ -27,8 +27,6 @@ I dispositivi gemelli vengono archiviati in un hub IoT e contengono gli elementi
 Il back-end della soluzione può anche eseguire query sui dispositivi gemelli in base a tutti i dati sopra indicati.
 Vedere [Informazioni sui dispositivi gemelli][lnk-twins] per altre informazioni sui dispositivi gemelli e [Linguaggio di query per hub IoT][lnk-query] per informazioni sull'esecuzione di query.
 
-> [!NOTE]
-> Al momento i dispositivi gemelli sono accessibili solo dai dispositivi che si connettono all'hub IoT tramite il protocollo MQTT. Per istruzioni su come convertire l'app per dispositivo esistente in modo che usi MQTT, vedere l'articolo [Supporto di MQTT][lnk-devguide-mqtt].
 
 Questa esercitazione illustra come:
 

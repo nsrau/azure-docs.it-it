@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 087d5cda354f6e1780bddd3725859444177abd16
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Collegare un disco dati da una macchina virtuale di Windows creata con il modello di distribuzione classico.
 <!--
@@ -114,4 +113,3 @@ Se l'applicazione deve usare l'unità D: per archiviare i dati, è possibile [mo
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../../virtual-machines-linux-about-disks-vhds.md)
-

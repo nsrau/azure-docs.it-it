@@ -1,6 +1,6 @@
 ---
-title: Uso dell&quot;API REST degli avvisi di Log Analytics in OMS
-description: "L&quot;API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics, che è parte di OMS (Operations Management Suite).  In questo articolo vengono forniti i dettagli dell&quot;API e alcuni esempi per l&quot;esecuzione di diverse operazioni."
+title: Uso dell'API REST degli avvisi di Log Analytics in OMS
+description: "L'API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics, che è parte di OMS (Operations Management Suite).  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -20,7 +20,6 @@ ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
 ms.contentlocale: it-it
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creare e gestire regole di avviso in Log Analytics con l'API REST

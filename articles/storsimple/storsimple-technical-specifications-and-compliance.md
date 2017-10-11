@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: ac1f6fbd40770374f68d0d280fc1cc040e41b1ef
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -175,5 +173,4 @@ Per le interfacce di rete 10 GbE, DATA 2 e DATA 3, fare riferimento all' [elenco
 
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile iniziare la distribuzione di un dispositivo StorSimple nel data center. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).  
-
 

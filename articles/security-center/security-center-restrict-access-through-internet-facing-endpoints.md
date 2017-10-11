@@ -1,6 +1,6 @@
 ---
-title: Limitare l&quot;accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure | Documentazione Microsoft
-description: In questo documento viene illustrato come implementare l&quot;indicazione del Centro sicurezza di Azure **Limita l&quot;accesso tramite un endpoint con connessione Internet**.
+title: Limitare l'accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure | Documentazione Microsoft
+description: Questo documento illustra come implementare la raccomandazione **Restrict access through Internet facing endpoint** (Limita accesso tramite endpoint con connessione Internet) del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
 ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
-ms.lasthandoff: 02/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Limitare l'accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglia di limitare l'accesso tramite endpoint con connessione Internet se uno dei gruppi di sicurezza di rete contiene una o più regole in ingresso che consentono l'accesso da "qualsiasi" indirizzo IP di origine. L'accesso su "qualsiasi" origine potrebbe abilitare utenti malintenzionati ad accedere alle risorse. Il Centro sicurezza consiglierà di modificare queste regole in ingresso per limitare l'accesso agli indirizzi IP di origine che necessitano effettivamente dell'accesso.
@@ -75,4 +74,3 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [4]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/inbound-security-rules.png
 [5]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/default-rules.png
 [6]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/edit-inbound-rule.png
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 16cf05f62602e494affed49e466209b68413e53a
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
@@ -33,7 +33,6 @@ La migrazione trasforma il servizio mobile di Azure in un'app del [servizio app 
 È consigliabile eseguire la migrazione da Servizi mobili di Azure per sfruttare appieno tutte le funzionalità del servizio app di Azure, tra cui:
 
 * Nuove funzionalità host, come [Processi Web] e [nomi di dominio personalizzati].
-* Connettività alle risorse locali attraverso [reti virtuali] e [connessioni ibride].
 * Monitoraggio e risoluzione dei problemi con New Relic o [Application Insights].
 * Strumenti DevOps incorporati, tra cui [slot di staging], rollback e test nell'ambiente di produzione.
 * [Scalabilità automatica], bilanciamento del carico e [monitoraggio delle prestazioni].
@@ -374,7 +373,7 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Prezzi di Servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Prezzi del servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Scalabilità automatica]: ../app-service-web/web-sites-scale.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
@@ -389,7 +388,7 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [nomi di dominio personalizzati]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
 [disponibilità generale del servizio app di Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
-[connessioni ibride]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [registrazione]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Confronto tra Servizi mobili e il servizio app]: app-service-mobile-value-prop-migration-from-mobile-services.md
@@ -397,7 +396,7 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [monitoraggio delle prestazioni]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [slot di staging]: ../app-service-web/web-sites-staged-publishing.md
-[reti virtuali]: ../app-service-web/web-sites-integrate-with-vnet.md
+[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Processi Web]: ../app-service-web/websites-webjobs-resources.md
 [XDT transform samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [funzioni]: ../azure-functions/functions-overview.md

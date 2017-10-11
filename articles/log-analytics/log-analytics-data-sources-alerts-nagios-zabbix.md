@@ -1,6 +1,6 @@
 ---
 title: Raccogliere avvisi Nagios e Zabbix in Log Analytics di OMS | Microsoft Docs
-description: "Nagios e Zabbix sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad avvisi provenienti da altre origini.  Questo articolo descrive come configurare l&quot;agente OMS per Linux per raccogliere avvisi da questi sistemi."
+description: "Nagios e Zabbix sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad avvisi provenienti da altre origini.  Questo articolo descrive come configurare l'agente OMS per Linux per raccogliere avvisi da questi sistemi."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
-ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Log Analytics tramite l'agente OMS per Linux 
 [Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source.  È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](log-analytics-alerts.md).  Questo articolo descrive come configurare l'agente OMS per Linux per raccogliere avvisi da questi sistemi.
@@ -116,4 +114,3 @@ Nei record di avvisi raccolti da Zabbix, la proprietà **Tipo** è impostata su 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sugli [avvisi](log-analytics-alerts.md) in Log Analytics.
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
-

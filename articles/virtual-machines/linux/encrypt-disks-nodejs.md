@@ -1,6 +1,6 @@
 ---
-title: Crittografare dischi in una macchina virtuale Linux con l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Come crittografare i dischi di una macchina virtuale Linux tramite l&quot;interfaccia della riga di comando di Azure 1.0 e il modello di distribuzione di Resource Manager
+title: Crittografare dischi in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+description: Come crittografare i dischi di una macchina virtuale Linux tramite l'interfaccia della riga di comando di Azure 1.0 e il modello di distribuzione di Resource Manager
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
-ms.lasthandoff: 05/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>Crittografare i dischi di una VM Linux usando l'interfaccia della riga di comando di Azure 1.0
 Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (VM), i dischi virtuali in Azure possono essere crittografati a riposo. I dischi vengono crittografati usando chiavi di crittografia protette in un insieme di credenziali delle chiavi di Azure. È possibile controllare queste chiavi di crittografia e il loro uso. In questo articolo viene spiegato come crittografare i dischi virtuali di una VM Linux tramite l'interfaccia della riga di comando di Azure 1.0 e il modello di distribuzione di Resource Manager.
@@ -316,4 +315,3 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulla gestione dell'insieme di credenziali delle chiavi di Azure, tra cui come eliminare chiavi crittografiche e insiemi di credenziali, vedere [Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../../key-vault/key-vault-manage-with-cli2.md).
 * Per altre informazioni sulla crittografia del disco, tra cui come preparare una VM personalizzata con crittografia da caricare in Azure, vedere [Crittografia dischi di Azure](../../security/azure-security-disk-encryption.md).
-

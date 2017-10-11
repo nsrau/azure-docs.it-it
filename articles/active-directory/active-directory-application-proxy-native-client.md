@@ -11,27 +11,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: bdaa5af6ff5331bc310499586615b48a864c3c5e
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: e1f992aede3af99fa7c2ffa661bccbcac9f52ba9
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Come abilitare le app client native per l'interazione con le applicazioni proxy
 
-Oltre che per applicazioni Web, è possibile usare il proxy di applicazione di Azure Active Directory per pubblicare app client native. Le app client native si differenziano dalle app Web perché vengono installate su un dispositivo, mentre le app Web sono accessibili tramite un browser. 
+Oltre che per le applicazioni Web, è possibile usare il proxy di applicazione di Azure Active Directory per pubblicare app client native configurate con Azure AD Authentication Library (ADAL). Le app client native si differenziano dalle app Web perché vengono installate su un dispositivo, mentre le app Web sono accessibili tramite un browser. 
 
-Il proxy di applicazione supporta le app client native accettando token rilasciati da Azure AD e inviati in intestazioni HTTP Authorize standard.
+Il proxy di applicazione supporta le app client native accettando i token rilasciati da Azure AD e inviati nell'intestazione. Il servizio Proxy di applicazione esegue l'autenticazione per conto degli utenti. Questa soluzione non prevede l'utilizzo di token di applicazione per l'autenticazione. 
 
 ![Relazione tra utenti finali, Azure Active Directory e applicazioni pubblicate](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-Per pubblicare applicazioni native, usare Azure AD Authentication Library, che gestisce l'autenticazione e supporta molti ambienti client. Il proxy di applicazione si integra con [lo scenario Da applicazione nativa ad API Web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). Questo articolo illustra i quattro passaggi necessari per pubblicare un'applicazione nativa con il proxy di applicazione e Azure AD Authentication Library. 
+Per pubblicare applicazioni native, usare Azure AD Authentication Library, che gestisce l'autenticazione e supporta molti ambienti client. Il proxy di applicazione si integra con [lo scenario Da applicazione nativa ad API Web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
+
+Questo articolo illustra i quattro passaggi necessari per pubblicare un'applicazione nativa con il proxy di applicazione e Azure AD Authentication Library. 
 
 ## <a name="step-1-publish-your-application"></a>Passaggio 1: Pubblicare l'applicazione
 Pubblicare l'applicazione proxy come qualsiasi altra applicazione e assegnare agli utenti l'accesso all'applicazione. Per altre informazioni, vedere [Pubblicare applicazioni mediante il proxy di applicazione](active-directory-application-proxy-publish.md).
@@ -91,10 +93,11 @@ Le variabili nel codice di esempio devono essere sostituite come segue:
 * Il valore di **App ID of the Native app** è riportato nella pagina **Proprietà** dell'applicazione nativa.
 * Il valore di **Redirect URI of the native app** è riportato nella pagina **URI di reindirizzamento** dell'applicazione nativa.
 
+Dopo la modifica di ADAL con questi parametri, gli utenti dovrebbero essere in grado di eseguire l'autenticazione alle app client native, anche se si trovano all'esterno della rete aziendale. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul flusso delle applicazioni native, vedere [Da applicazione nativa ad API Web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+Ottenere informazioni su come configurare [l'accesso Single Sign-On per il proxy di applicazione](application-proxy-sso-overview.md)
 

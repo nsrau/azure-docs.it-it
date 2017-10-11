@@ -15,14 +15,14 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 2516c0eb8ce470577731db9b844d5b9038465477
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d3c85cde864d599871e195df2e81548180e647ba
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure
-Per risolvere gli errori di un servizio cloud di Azure o di una macchina virtuale di Azure, è possibile configurare Diagnostica di Azure con maggiore semplicità tramite Visual Studio. Diagnostica di Azure acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e nelle istanze di macchine virtuali che eseguono il servizio cloud e trasferisce i dati all'account di archiviazione scelto. Per altre informazioni sulla registrazione di diagnostica in Azure, vedere [Abilitare la registrazione diagnostica per le app Web del Servizio app di Azure](app-service-web/web-sites-enable-diagnostic-log.md).
+Per risolvere gli errori di un servizio cloud di Azure o di una macchina virtuale di Azure, è possibile configurare Diagnostica di Azure con maggiore semplicità tramite Visual Studio. Diagnostica di Azure acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e nelle istanze di macchine virtuali che eseguono il servizio cloud e trasferisce i dati all'account di archiviazione scelto. Per altre informazioni sulla registrazione di diagnostica in Azure, vedere [Abilitare la registrazione diagnostica per le app Web del Servizio app di Azure](app-service/web-sites-enable-diagnostic-log.md).
 
 Questo argomento illustra come abilitare e configurare la Diagnostica di Azure in Visual Studio, prima e dopo la distribuzione, oltre che nelle macchine virtuali di Azure. Illustra anche come selezionare i tipi di informazioni di diagnostica da raccogliere e come visualizzare le informazioni dopo la raccolta.
 
@@ -137,7 +137,7 @@ Dopo l'abilitazione della raccolta di dati di diagnostica, è possibile sceglier
 
   ![Log applicazioni](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
 
-  Per altre informazioni sui log applicazioni, vedere [Abilitare la registrazione diagnostica per le app Web del Servizio app di Azure](app-service-web/web-sites-enable-diagnostic-log.md).
+  Per altre informazioni sui log applicazioni, vedere [Abilitare la registrazione diagnostica per le app Web del Servizio app di Azure](app-service/web-sites-enable-diagnostic-log.md).
 
 ### <a name="windows-event-logs"></a>Registri eventi di Windows
 Per acquisire log eventi di Windows, selezionare la casella di controllo **Abilita il trasferimento dei log eventi di Windows** . È possibile aumentare o ridurre il numero di minuti per il trasferimento dei log eventi all'account di archiviazione cambiando il valore **Periodo di trasferimento (min)** . Selezionare le caselle di controllo per i tipi di eventi da tracciare.
@@ -301,6 +301,6 @@ I metodi di RoleEntryPoint vengono chiamati nel contesto di WAIISHost.exe, non I
 Nella finestra **Proprietà** impostare la proprietà **Copia nella directory di output** su **Copia sempre**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle registrazioni di diagnostica in Azure, vedere [Abilitazione di Diagnostica in Servizi cloud e Macchine virtuali di Azure](cloud-services/cloud-services-dotnet-diagnostics.md) e [Abilitare la registrazione diagnostica per le app Web del Servizio app di Azure](app-service-web/web-sites-enable-diagnostic-log.md).
+Per altre informazioni sulle registrazioni di diagnostica in Azure, vedere [Abilitazione di Diagnostica in Servizi cloud e Macchine virtuali di Azure](cloud-services/cloud-services-dotnet-diagnostics.md) e [Abilitare la registrazione diagnostica per le app Web del Servizio app di Azure](app-service/web-sites-enable-diagnostic-log.md).
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: informazioni di riferimento: personalizzare l&quot;interfaccia utente di un percorso utente con i criteri personalizzati | Microsoft Docs'
+title: 'Azure Active Directory B2C: informazioni di riferimento: personalizzare l''interfaccia utente di un percorso utente con i criteri personalizzati | Microsoft Docs'
 description: Argomento sui criteri personalizzati di Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
@@ -14,15 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 68f40aa638a687398512278a0b77d1ba392859cf
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -98,24 +95,24 @@ Come prerequisito, è necessario creare un account di archiviazione. Per creare 
 9. Selezionare **BLOB** come **Tipo di accesso**. Fare clic su **Crea**.
 10. Il contenitore appena creato verrà visualizzato nell'elenco nel pannello  **Servizio BLOB**.
 11. Chiudere il pannello **BLOB** .
-12.    Nel pannello **Account di archiviazione** fare clic sull'icona **Chiave**. Viene aperto un pannello **Chiavi di accesso**.  
-13.    Annotare il valore di **key1**. Questo valore più avanti verrà indicato come *key1*.
+12. Nel pannello **Account di archiviazione** fare clic sull'icona **Chiave**. Viene aperto un pannello **Chiavi di accesso**.  
+13. Annotare il valore di **key1**. Questo valore più avanti verrà indicato come *key1*.
 
 ## <a name="downloading-the-helper-tool"></a>Download dello strumento di supporto
 
-1.    [Scaricare lo strumento di supporto da ](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip)GitHub.
-2.    Salvare il file *B2C-AzureBlobStorage-Client-master.zip* nel computer locale.
-3.    Estrarre il contenuto del file B2C-AzureBlobStorage-Client-master.zip nel disco locale, ad esempio nella cartella **UI-Customization-Pack**. Verrà creata una cartella *B2C-AzureBlobStorage-Client-master*.
-4.    Aprire tale cartella ed estrarre il contenuto del file di archivio *B2CAzureStorageClient.zip*.
+1.  [Scaricare lo strumento di supporto da ](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip)GitHub.
+2.  Salvare il file *B2C-AzureBlobStorage-Client-master.zip* nel computer locale.
+3.  Estrarre il contenuto del file B2C-AzureBlobStorage-Client-master.zip nel disco locale, ad esempio nella cartella **UI-Customization-Pack**. Verrà creata una cartella *B2C-AzureBlobStorage-Client-master*.
+4.  Aprire tale cartella ed estrarre il contenuto del file di archivio *B2CAzureStorageClient.zip*.
 
 ## <a name="upload-the-ui-customization-pack-sample-files"></a>Caricare i file di esempio di UI-Customization-Pack
 
-1.    Usando Esplora risorse, passare alla cartella *B2C-AzureBlobStorage-Client-master* nella cartella *UI-Customization-Pack* creata nella sezione precedente.
-2.    Eseguire il file *B2CAzureStorageClient.exe*. Questo programma caricherà semplicemente tutti i file nella directory specificata per l'account di archiviazione e abiliterà l'accesso CORS per tali file.
-3.    Quando richiesto, specificare: a.    Il nome dell'account di archiviazione, *storageAccountName*, ad esempio *contoso369b2c*.
-    b.    La chiave di accesso primaria dell'archivio BLOB di Azure, *key1*, ad esempio *contoso369b2c*.
-    c.    Il nome del contenitore dell'archivio BLOB del servizio di archiviazione, *containerName*, ad esempio *b2c*.
-    d.    Il percorso dei file di esempio dello *starter pack*, ad esempio *..\B2CTemplates\wingtiptoys*.
+1.  Usando Esplora risorse, passare alla cartella *B2C-AzureBlobStorage-Client-master* nella cartella *UI-Customization-Pack* creata nella sezione precedente.
+2.  Eseguire il file *B2CAzureStorageClient.exe*. Questo programma caricherà semplicemente tutti i file nella directory specificata per l'account di archiviazione e abiliterà l'accesso CORS per tali file.
+3.  Quando richiesto, specificare: a.  Il nome dell'account di archiviazione, *storageAccountName*, ad esempio *contoso369b2c*.
+    b.  La chiave di accesso primaria dell'archivio BLOB di Azure, *key1*, ad esempio *contoso369b2c*.
+    c.  Il nome del contenitore dell'archivio BLOB del servizio di archiviazione, *containerName*, ad esempio *b2c*.
+    d.  Il percorso dei file di esempio dello *starter pack*, ad esempio *..\B2CTemplates\wingtiptoys*.
 
 Se la procedura precedente è stata eseguita, i file HTML5 e CSS di *UI-Customization-Pack* per la società fittizia **wingtiptoys** punteranno così all'account di archiviazione.  Per verificare che il contenuto sia stato caricato correttamente, aprire il pannello del contenitore correlato nel portale di Azure. In alternativa, per verificare che il contenuto sia stato caricato correttamente, accedere alla pagina da un browser. Per altre informazioni, vedere [Azure Active Directory B2C: strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
@@ -175,4 +172,3 @@ La tabella seguente descrive il set di ID definizione del contenuto riconosciuti
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni di riferimento: conoscere il funzionamento dei criteri personalizzati con il framework di esperienza di gestione delle identità in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: bfba2cf38a0624e8480a32bf153f391d820da5a1
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Uso del DNS interno per la risoluzione dei nomi di macchine virtuali in Azure
 
 Questo articolo illustra come impostare nomi DNS interni statici per macchine virtuali Linux usando schede di interfaccia di rete virtuale (VNic) e nomi di etichette DNS. Si ricorre ai nomi DNS statici per i servizi di infrastruttura permanenti, ad esempio per un server di compilazione Jenkins, usato per questo documento, o un server Git.
@@ -185,4 +183,3 @@ Usando i flag dell'interfaccia della riga di comando per chiamare le risorse esi
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una VM Linux in Azure usando i modelli](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

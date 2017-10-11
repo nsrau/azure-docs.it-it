@@ -1,9 +1,9 @@
 ---
-title: Creare l&quot;account RunAs di Automazione di Azure con PowerShell | Microsoft Docs
-description: "Questo articolo descrive come aggiornare l&quot;account di Automazione con PowerShell per creare gli account RunAs se questo passaggio non è stato eseguito durante la creazione iniziale nel portale."
+title: Creare l'account RunAs di Automazione di Azure con PowerShell | Microsoft Docs
+description: "Questo articolo descrive come aggiornare l'account di Automazione con PowerShell per creare gli account RunAs se questo passaggio non è stato eseguito durante la creazione iniziale nel portale."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: d34bb4a285f77f5c21a4af2d544bda3221d59e8d
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 ---

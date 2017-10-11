@@ -14,12 +14,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2a6daccdc70ff285a6993da0b2fdcfbe85e635cf
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Introduzione ad Automation DSC per Azure
 Questo argomento illustra come eseguire le attività più comuni in Automation DSC (Desired State Configuration) per Azure, come la creazione, l'importazione e la compilazione di configurazioni, il caricamento di computer per la gestione e la visualizzazione di report. Per una panoramica delle caratteristiche di Automation DSC per Azure, vedere [Panoramica della piattaforma DSC di Automazione di Azure](automation-dsc-overview.md). Per la documentazione di DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](https://msdn.microsoft.com/PowerShell/dsc/overview).
@@ -219,5 +218,4 @@ Se non si vuole più che un nodo venga gestito da Automation DSC per Azure, è p
 * [Panoramica di Windows PowerShell DSC (Desired State Configuration)](https://msdn.microsoft.com/powershell/dsc/overview)
 * [Cmdlet di Automation DSC per Azure](/powershell/module/azurerm.automation/#automation)
 * [Prezzi di Automation DSC per Azure](https://azure.microsoft.com/pricing/details/automation/)
-
 

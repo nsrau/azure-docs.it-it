@@ -1,5 +1,5 @@
 ---
-title: "Comandi dell&quot;interfaccia della riga di comando Azure in modalità Resource Manager | Documentazione Microsoft"
+title: "Comandi dell'interfaccia della riga di comando Azure in modalità Resource Manager | Documentazione Microsoft"
 description: "Comandi dell’interfaccia della riga di comando Azure (CLI) per gestire le risorse nel modello di distribuzione di gestione risorse"
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.lasthandoff: 04/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandi dell’interfaccia della riga di comando Azure in modalità Resource Manager
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell'interfaccia della riga di comando (CLI) di Azure usati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. Per informazioni generali su risorse e gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -969,7 +968,7 @@ Opzioni dei parametri:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    network lb address-pool delete [opzioni] <resource-group> <lb-name> <name>
+    pool di indirizzi di rete lb eliminare [opzioni] < gruppo risorse >< lb-name ><name>
 
 Rimuove la risorsa dell'intervallo pool di indirizzi IP back-end dal servizio/dispositivo di bilanciamento del carico.
 
@@ -1333,7 +1332,7 @@ Opzioni dei parametri:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    network public-ip list [opzioni] <resource-group> Elenca tutte le risorse IP pubblico all'interno di un gruppo di risorse.
+    network public-ip list [opzioni] &lt;resource-group&gt; Elenca tutte le risorse IP pubblico all'interno di un gruppo di risorse.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1354,7 +1353,7 @@ Opzioni dei parametri:
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    network public-ip show [opzioni] <resource-group> <name>
+    indirizzo ip pubblico di rete Mostra [opzioni] < gruppo risorse ><name>
 
 Visualizza le proprietà di una risorsa IP pubblico all'interno di un gruppo di risorse.
 
@@ -1784,4 +1783,3 @@ Opzioni dei parametri:
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
-

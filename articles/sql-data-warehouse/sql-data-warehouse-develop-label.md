@@ -1,6 +1,6 @@
 ---
 title: Usare etichette per instrumentare query in SQL Data Warehouse | Microsoft Docs
-description: Suggerimenti per l&quot;uso di etichette per instrumentare query in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per l'uso di etichette per instrumentare query in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 9e75bbe528a427724a623305fbd45e2277e9d0af
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Usare etichette per instrumentare query in SQL Data Warehouse
 SQL Data Warehouse supporta un concetto detto etichette di query. Prima di approfondire il concetto, eccone un esempio:
@@ -61,4 +60,3 @@ Per altri suggerimenti sullo sviluppo, vedere la [panoramica dello sviluppo][dev
 <!--MSDN references-->
 
 <!--Other Web references-->
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 0b28c5e93dc8f53597b1d2fa6f4ae154acf16068
 ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Distribuire un array virtuale StorSimple per il Cloud Solution Provider Program
 
 ## <a name="overview"></a>Panoramica
@@ -104,9 +104,3 @@ In alcuni casi, si potrebbe disporre di un cliente esistente e potrebbe essere n
 
 - Per altre domande su StorSimple per CSP, passare a [StorSimple per CSP: domande frequenti](storsimple-partner-csp-faq.md).
 - Se si è pronti a distribuire StorSimple, andare a [Distribuire StorSimple per CSP](storsimple-partner-csp-deploy.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

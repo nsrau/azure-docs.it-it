@@ -13,17 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/22/2017
 
 ---
-
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Come risolvere i problemi di reimpostazione della password self-service
 
 Se si verificano problemi di reimpostazione della password self-service, gli elementi che seguono possono aiutare a riprendere rapidamente il normale funzionamento.
@@ -152,17 +151,21 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 | 33008| ADPasswordPolicyError| Questo evento si verifica quando il servizio di writeback delle password tenta di impostare una password nella directory locale che non soddisfa i requisiti di validità, cronologia, complessità o filtro del dominio. <br> <br> Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0. <br> <br> Se sono abilitati requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime N volte, dove N è l'impostazione della cronologia delle password. Se si seleziona una password che è stata usata nelle ultime N volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia su 0. <br> <br> Se abilitati, tutti i requisiti di complessità della password vengono applicati quando l'utente tenta di modificare o reimpostare la password. <br> <br> Se sono abilitati i filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà.|
 | 33009| ADConfigurationError| Questo evento indica che si è verificato un problema durante la scrittura di una password nella directory locale, a causa di un problema di configurazione con Active Directory. Per altre informazioni sul tipo di errore, verificare se nel registro eventi dell'applicazione del computer che esegue Azure AD Connect sono presenti messaggi del servizio ADSync.|
 
-
 ## <a name="troubleshoot-password-writeback-connectivity"></a>Risolvere i problemi relativi alla connettività di writeback della password
 
 Se si verificano interruzioni del servizio con il componente di writeback della password di Azure AD Connect, ecco alcuni passaggi rapidi che è possibile eseguire per risolvere il problema:
 
+* [Verificare la connettività della rete](#confirm-network-connectivity)
 * [Riavviare il servizio di sincronizzazione di Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Disabilitare e riabilitare la funzionalità di writeback della password](#disable-and-re-enable-the-password-writeback-feature)
 * [Installare la versione più recente di Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [Risolvere i problemi relativi al writeback delle password](#troubleshoot-password-writeback)
 
 In generale, è consigliabile eseguire questi passaggi nell'ordine indicato per ripristinare il servizio nel modo più rapido.
+
+### <a name="confirm-network-connectivity"></a>Verificare la connettività della rete
+
+Il punto di errore più comune è che il firewall e/o le porte proxy e i timeout di inattività non sono configurati correttamente. Per altre informazioni, esaminare i requisiti di rete nell'articolo [Approfondimenti sulla reimpostazione della password self-service in Azure AD](active-directory-passwords-how-it-works.md#network-requirements).
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Riavviare il servizio di sincronizzazione di Azure AD Connect
 

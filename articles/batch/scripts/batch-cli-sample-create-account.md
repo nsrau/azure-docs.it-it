@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un account Batch | Documentazione Microsoft
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un account Batch
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account Batch | Documentazione Microsoft
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account Batch
 services: batch
 documentationcenter: 
 author: annatisch
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 698978fd717091c49a1375e222f46f4325431223
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -57,16 +57,16 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'account 
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#create) | Crea l'account Batch.  |
-| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#set) | Aggiorna le proprietà dell'account Batch.  |
-| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#show) | Recupera i dettagli dell'account Batch specificato.  |
-| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#list) | Recupera le chiavi d'accesso dell'account Batch specificato.  |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando.  |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Crea un account di archiviazione. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) | Crea un insieme di credenziali chiave. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | Aggiornare i criteri di sicurezza dell'insieme di credenziali delle chiavi specificato. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | Crea l'account Batch.  |
+| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | Aggiorna le proprietà dell'account Batch.  |
+| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | Recupera i dettagli dell'account Batch specificato.  |
+| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | Recupera le chiavi d'accesso dell'account Batch specificato.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando.  |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Crea un account di archiviazione. |
+| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Crea un insieme di credenziali chiave. |
+| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Aggiornare i criteri di sicurezza dell'insieme di credenziali delle chiavi specificato. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

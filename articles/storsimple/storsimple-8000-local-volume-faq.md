@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 857647e89b7ac5d9bc72bc4b2ace0ea7279353f9
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volumi aggiunti in locale di StorSimple: domande frequenti
 ## <a name="overview"></a>Panoramica
@@ -202,5 +200,4 @@ Sono disponibili altre informazioni sugli [failover e ripristino di emergenza de
 **D.** È possibile effettuare il failover di un contenitore di volumi con volumi aggiunti in locale nell'appliance cloud?
 
 **R.** Sì, Il failover dei volumi aggiunti in locale viene effettuato come volumi a livelli. Sono disponibili altre informazioni sugli [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
-
 

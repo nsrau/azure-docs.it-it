@@ -1,6 +1,6 @@
 ---
 title: "Pianificazione della capacità del cluster di Service Fabric | Documentazione Microsoft"
-description: "Considerazioni sulla pianificazione della capacità del cluster Service Fabric. Nodetypes, livelli di affidabilità e durata"
+description: "Considerazioni sulla pianificazione della capacità del cluster Service Fabric. Tipi di nodo, operazioni, livelli di affidabilità e durabilità"
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 09/12/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 36b96360fabdcc64ffd2356540c580594637d48e
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 04964175f06675a486fcf252f194f0d790acea4a
 ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
@@ -75,7 +75,7 @@ Questo privilegio viene espresso con i valori seguenti:
 * Bronze: nessun privilegio. Questa è la modalità predefinita. Usare solo questo livello di durabilità per i tipi di nodi che eseguono _solo_ carichi di lavoro senza stato. 
 
 > [!WARNING]
-> NodeTypes in esecuzione con durabilità Bronze _senza privilegi_. Ciò significa che i processi di infrastruttura che influiscono sui carichi di lavoro senza stato non verranno interrotti o posticipati. È possibile che tali processi possano ancora influire sui carichi di lavoro, provocando un tempo di inattività o altri problemi. Per qualsiasi tipo di carico di lavoro di produzione, è consigliata almeno l'esecuzione con Silver. 
+> NodeTypes in esecuzione con durabilità Bronze _senza privilegi_. Ciò significa che i processi di infrastruttura che influiscono sui carichi di lavoro senza stato non verranno interrotti o posticipati. È possibile che tali processi possano ancora influire sui carichi di lavoro, provocando un tempo di inattività o altri problemi. Per qualsiasi tipo di carico di lavoro di produzione, è consigliata almeno l'esecuzione con Silver. È necessario mantenere un numero minimo di 5 nodi per qualsiasi tipo di nodo con durabilità Gold o Silver. 
 > 
 
 È necessario scegliere il livello di durabilità per ogni tipo di nodo. Si può scegliere un livello di durabilità Gold o Silver per un tipo di nodo e il livello Bronze per un altro nello stesso cluster. **È necessario mantenere un conteggio minimo di 5 nodi per qualsiasi tipo di nodo con durabilità Gold o Silver**. 
@@ -99,14 +99,14 @@ Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi
 1. Mantenere sempre integri il cluster e le applicazioni e verificare che le applicazioni rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle), ad esempio al blocco della replica in compilazione.
 2. Adottare modi più sicuri per eseguire una modifica di uno SKU di VM (aumento/riduzione delle prestazioni): la modifica dello SKU di VM di un set di scalabilità di macchine virtuali è un'operazione intrinsecamente non sicura, pertanto dovrebbe essere evitata, se possibile. Di seguito è illustrato il processo che è possibile seguire per evitare i problemi comuni.
     - **Per i tipi di nodo non primari:** è consigliabile creare un nuovo set di scalabilità di macchine virtuali, modificare il vincolo di posizionamento del servizio per poter includere il nuovo tipo di nodo/set di scalabilità di macchine virtuali e quindi ridurre il numero di istanze del set di scalabilità di macchine virtuali precedente a 0, un nodo alla volta (perché la rimozione dei nodi non influisca sull'affidabilità del cluster).
-    - **Per il tipo di nodo primario:** è consigliabile non modificare il relativo SKU di VM. Se lo scopo del nuovo SKU è la capacità, è consigliabile aggiungere altre istanze o, se possibile, creare un nuovo cluster. Se non sono disponibili alternative, apportare modifiche alla definizione del modello del set di scalabilità di macchine virtuali in modo che rifletta il nuovo SKU. Se il cluster include un solo tipo di nodo, verificare che tutte le applicazioni con stato rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle), ad esempio al blocco della replica in compilazione, e che la durata della ricompilazione della replica del servizio sia inferiore a cinque minuti (per il livello di durabilità Silver). 
+    - **Per il tipo di nodo primario:** è consigliabile non modificare il relativo SKU di VM. La modifica dello SKU del tipo di nodo primario non è supportata. Se lo scopo del nuovo SKU è la capacità, è consigliabile aggiungere altre istanze. Se non è possibile, creare un nuovo cluster e [ripristinare lo stato dell'applicazione](service-fabric-reliable-services-backup-restore.md) (se applicabile) dal cluster precedente. Non è necessario ripristinare lo stato dei servizi di sistema, perché verrà ricreato quando si distribuiscono le applicazioni nel nuovo cluster. Se nel cluster venivano eseguite solo applicazioni senza stato, è sufficiente distribuire le applicazioni nel nuovo cluster, non sono necessarie operazioni di ripristino. Se si opta per la modalità non supportata e si vuole modificare lo SKU di VM, apportare le modifiche alla definizione del modello di set di scalabilità di macchine virtuali per riflettere il nuovo SKU. Se il cluster include un solo tipo di nodo, verificare che tutte le applicazioni con stato rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle), ad esempio al blocco della replica in compilazione, e che la durata della ricompilazione della replica del servizio sia inferiore a cinque minuti (per il livello di durabilità Silver). 
 
 
 > [!WARNING]
 > Non è consigliata la modifica delle dimensioni della SKU della macchina virtuale per i set di scalabilità di macchine virtuali in una durabilità che sia almeno Silver. La modifica delle dimensioni della SKU della macchina virtuale è un'operazione dell'infrastruttura sul posto distruttiva per i dati. Senza almeno la capacità di ritardare o monitorare questa modifica, è possibile che l'operazione possa causare una perdita di dati per i servizi con stato o provocare altri problemi operativi non previsti, anche per i carichi di lavoro senza stato. 
 > 
     
-3. Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con ruolo di gestione abilitato.
+3. Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con livello di durabilità Gold o Silver abilitato
 4. Non eliminare istanze di VM casuali. Usare sempre la funzionalità di riduzione delle prestazioni del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM causali può creare squilibri nella distribuzione delle istanze di VM tra domini di aggiornamento e domini di errore. Tale squilibrio potrebbe influire negativamente sulla capacità del sistema di bilanciare correttamente il carico tra istanze dei servizi e repliche dei servizi.
 6. Se si usa la scalabilità automatica, impostare le regole in modo che la riduzione del numero di istanze (ossia la rimozione di istanze di VM) venga eseguita un solo nodo alla volta. La riduzione delle prestazioni di più di un'istanza per volta non è sicura.
 7. Se si riducono le prestazioni di un tipo di nodo primario, è consigliabile non ridurle mai più di quanto consentito dal livello di affidabilità.
@@ -163,6 +163,9 @@ Per i carichi di lavoro di produzione
 - Gli SKU per VM con core parziali, ad esempio Standard A0, non sono supportati per i carichi di lavoro di produzione.
 - Lo SKU Standard A1 non è supportato per i carichi di lavoro di produzione per motivi di prestazioni.
 
+> [!WARNING]
+> La modifica delle dimensioni dello SKU di VM del nodo primario in un cluster in esecuzione non è attualmente supportata. Scegliere quindi lo SKU di VM del tipo di nodo primario con attenzione, tenendo conto delle future esigenze di capacità. Al momento, l'unica modalità supportata per trasferire il tipo di nodo primario in un nuovo SKU di VM (di dimensioni maggiori o minori) consiste nel creare un nuovo cluster con la capacità appropriata, distribuire le applicazioni nel cluster e quindi ripristinare lo stato dell'applicazione (se applicabile) dai [backup più recenti del servizio](service-fabric-reliable-services-backup-restore.md) del cluster precedente. Non è necessario ripristinare lo stato dei servizi di sistema, perché verrà ricreato quando si distribuiscono le applicazioni nel nuovo cluster. Se nel cluster venivano eseguite solo applicazioni senza stato, è sufficiente distribuire le applicazioni nel nuovo cluster, non sono necessarie operazioni di ripristino.
+> 
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Tipo di nodo non primario: guida alla capacità per carichi di lavoro con stato
 
@@ -211,7 +214,7 @@ Per i carichi di lavoro di produzione
 Dopo avere completato la pianificazione della capacità e configurato un cluster, vedere quanto segue:
 
 * [Sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md)
-* [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
+* [Pianificazione del ripristino di emergenza](service-fabric-disaster-recovery.md)
 * [Relazione tra i tipi di nodo di Service Fabric e i set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->

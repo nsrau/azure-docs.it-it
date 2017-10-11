@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b13861ce404b8c4215248a2498c5969fc19ad536
-ms.contentlocale: it-it
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: 0e88baed8188890e80d4c2e7ee9d510fdabf6e43
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="develop-video-player-applications"></a>Sviluppo di applicazioni di lettore video
 ## <a name="overview"></a>Panoramica
@@ -75,5 +74,4 @@ Per informazioni sul supporto di sottotitoli codificati e annunci nei video in s
 [Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js)
-
 

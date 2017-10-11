@@ -1,6 +1,6 @@
 ---
-title: Operazioni da eseguire in caso di interruzione di un servizio Azure con impatto sull&quot;insieme di credenziali delle chiavi di Azure | Microsoft Docs
-description: Informazioni sulle operazioni da eseguire in caso di un&quot;interruzione del servizio Azure con impatto sull&quot;insieme di credenziali delle chiavi di Azure.
+title: Operazioni da eseguire in caso di interruzione di un servizio Azure con impatto sull'insieme di credenziali delle chiavi di Azure | Microsoft Docs
+description: Informazioni sulle operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sull'insieme di credenziali delle chiavi di Azure.
 services: key-vault
 documentationcenter: 
 author: adamglick
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: sumedhb;aglick
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure
 L'insieme di credenziali delle chiavi di Azure dispone di più livelli di ridondanza, per garantire che le chiavi e i segreti rimangano disponibili per l'applicazione anche quando si verificano errori di singoli componenti del servizio.
@@ -48,5 +47,4 @@ Esistono alcune limitazioni che è necessario tenere presenti:
   * Sign
   * Backup
 * Dopo il failback di un failover, tutti i tipi di richiesta, ad esempio le richieste di lettura *e* scrittura, risultano disponibili.
-
 

@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: ecb4fb4608628f5a1bd54fac6af19fecfa4508f2
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-network-security-groups-using-the-azure-portal"></a>Gestire i gruppi di sicurezza di rete mediante il portale di Azure
 
@@ -95,5 +94,4 @@ Per creare il gruppo di sicurezza di rete **NSG-BackEnd** e associarlo alla subn
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [gestire i gruppi di sicurezza esistenti](virtual-network-manage-nsg-arm-portal.md)
 * [Abilitare la registrazione](virtual-network-nsg-manage-log.md) per i gruppi di sicurezza di rete.
-
 

@@ -9,12 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i registri
 
@@ -705,4 +704,3 @@ Vedere la relativa [documentazione di EventHubs](../../event-hubs/event-hubs-wha
 * Creare avvisi sulle metriche in [Monitoraggio di Azure](../../monitoring-and-diagnostics/insights-alerts-portal.md) per le metriche raccolte.
 * Creare [grafici di monitoraggio](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per le metriche.
 * Informazioni su come [creare un set di scalabilità di macchine virtuali](/azure/virtual-machines/linux/tutorial-create-vmss) con le metriche per controllare la scalabilità automatica.
-

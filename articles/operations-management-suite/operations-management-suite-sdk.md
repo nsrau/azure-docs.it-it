@@ -1,6 +1,6 @@
 ---
 title: Operations Management Suite (OMS) SDK | Documentazione Microsoft
-description: "Questo articolo elenca la documentazione e altre risorse disponibili per l&quot;accesso ai servizi OMS al di fuori dei portali OMS e Azure.  Ciò include l&quot;API REST per l&quot;accesso da varie interfacce di programmazione e motori di script come PowerShell"
+description: "Questo articolo elenca la documentazione e altre risorse disponibili per l'accesso ai servizi OMS al di fuori dei portali OMS e Azure.  Ciò include l'API REST per l'accesso da varie interfacce di programmazione e motori di script come PowerShell"
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
 ms.openlocfilehash: 03e0f5b6fa26806083cd7852e123495c898bcf0c
-ms.lasthandoff: 03/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="operations-management-suite-oms-sdk"></a>Operations Management Suite (OMS) SDK
 [Operations Management Suite (OMS)](operations-management-suite-overview.md) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud.  Questo articolo elenca la documentazione e altre risorse disponibili per l'accesso ai servizi OMS al di fuori dei portali OMS e Azure.  Ciò include l'API REST per l'accesso da varie interfacce di programmazione e motori di script come PowerShell. 
@@ -58,5 +57,4 @@ ms.lasthandoff: 03/03/2017
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle diverse opzioni per l'[integrazione con servizi OMS](operations-management-suite-integration.md).
 * Creare una [soluzione personalizzata in OMS](operations-management-suite-solutions-creating.md).
-
 

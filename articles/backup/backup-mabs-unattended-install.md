@@ -12,13 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/30/2017
 ms.author: markgal;masaran
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 91778a67f9ef523aa87b7918197e0d0ded0f5702
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Eseguire un'installazione automatica del server di Backup di Azure v2
 
@@ -72,4 +70,3 @@ Dopo aver installato il server di backup, leggere le informazioni su come prepar
 - [Usare il server di backup per eseguire il backup di un server VMware](backup-azure-backup-server-vmware.md)
 - [Usare il server di backup per eseguire il backup di SQL Server](backup-azure-sql-mabs.md)
 - [Aggiungere Modern Backup Storage al server di backup](backup-mabs-add-storage.md)
-

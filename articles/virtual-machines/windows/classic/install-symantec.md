@@ -1,6 +1,6 @@
 ---
 title: Installare Symantec Endpoint Protection in una macchina virtuale Windows in Azure | Documentazione Microsoft
-description: Informazioni su come installare e configurare l&quot;estensione di sicurezza Symantec Endpoint Protection in una macchina virtuale di Azure nuova o esistente creata con il modello di distribuzione classica.
+description: Informazioni su come installare e configurare l'estensione di sicurezza Symantec Endpoint Protection in una macchina virtuale di Azure nuova o esistente creata con il modello di distribuzione classica.
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: fea8d8dff9c98f928ed7c5ed2b130c7f614f3f9e
-ms.contentlocale: it-it
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 1603ebc7ee3c29277f30fbb802bdd8205b92d648
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows
 > [!IMPORTANT] 
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
@@ -84,4 +81,3 @@ Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia
 [Logon]:connect-logon.md
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
-

@@ -1,9 +1,9 @@
 ---
-title: Archiviare dati non strutturati tramite Funzioni di Azure e Cosmos DB
+title: Archiviare dati non strutturati usando Azure Cosmos DB e Funzioni | Microsoft Docs
 description: Archiviare dati non strutturati tramite Funzioni di Azure e Cosmos DB
 services: functions
 documentationcenter: functions
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -14,17 +14,17 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/03/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
 ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Archiviare dati non strutturati tramite Funzioni di Azure e Cosmos DB
+# <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Archiviare dati non strutturati usando Funzioni di Azure e Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) offre un approccio ottimale per archiviare dati non strutturati e JSON. Insieme a Funzioni di Azure, Cosmos DB semplifica e velocizza l'archiviazione dei dati con una quantità minore di codice rispetto a quella necessaria per l'archiviazione dei dati in un database relazionale.
 
@@ -54,10 +54,10 @@ Per completare questa esercitazione:
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nome del parametro del documento** | taskDocument | Nome che fa riferimento all'oggetto Cosmos DB nel codice. |
     | **Database name** (Nome database) | taskDatabase | Nome del database per il salvataggio dei documenti. |
-    | **Nome raccolta** | TaskCollection | Nome della raccolta di database di Cosmos DB. |
+    | **Nome raccolta** | TaskCollection | Nome della raccolta di database. |
     | **Se true, crea il database e la raccolta di Cosmos DB** | Selezionato | La raccolta non esiste ancora, quindi crearla. |
 
-4. Fare clic sul collegamento **Nuovo** accanto all'etichetta **Connessione dell'account Cosmos DB** e quindi selezionare **Crea nuovo**. 
+4. Fare clic sul collegamento **Nuovo** accanto all'etichetta **Connessione dell'account Azure Cosmos DB** e quindi selezionare **+ Crea nuovo**. 
 
 5. Usare quindi le impostazioni di **Nuovo account** specificate nella tabella: 
 
@@ -65,13 +65,13 @@ Per completare questa esercitazione:
 
     | Impostazione      | Valore consigliato  | Descrizione                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **ID** | Nome del database | ID univoco per il database Cosmos DB  |
+    | **ID** | Nome del database | ID univoco per il database di Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | Selezionare l'API del database di documenti.  |
     | **Sottoscrizione** | Sottoscrizione di Azure | Sottoscrizione di Azure  |
     | **Gruppo di risorse** | myResourceGroup |  Usare il gruppo di risorse esistente che contiene l'app per le funzioni. |
     | **Posizione**  | Europa occidentale | Selezionare una località nei pressi dell'app per le funzioni o di altre app che usano i documenti archiviati.  |
 
-6. Fare clic su **OK** per creare il database. La creazione del database può richiedere alcuni minuti. Dopo avere creato il database, la stringa di connessione del database viene archiviata come impostazione dell'app per le funzioni. Il nome di questa impostazione dell'app viene inserito nella **connessione dell'account Cosmos DB**. 
+6. Fare clic su **OK** per creare il database. La creazione del database può richiedere alcuni minuti. Dopo avere creato il database, la stringa di connessione del database viene archiviata come impostazione dell'app per le funzioni. Il nome di questa impostazione dell'app viene inserito nella **connessione dell'account di Azure Cosmos DB**. 
  
 8. Dopo aver impostato la stringa di connessione, selezionare **Salva** per creare il binding.
 
@@ -129,11 +129,13 @@ Questo esempio di codice legge le stringhe della query di richiesta HTTP e le as
 
     ![Cercare il servizio Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Selezionare il database creato e quindi selezionare **Esplora dati**. Espandere i nodi **Raccolte**, selezionare il nuovo documento e verificare che il documento contenga i valori della stringa di query, oltre ad alcuni metadati aggiuntivi. 
+2. Scegliere l'account di Azure Cosmos DB, quindi selezionare **Esplora dati**. 
+
+3. Espandere i nodi **Raccolte**, selezionare il nuovo documento e verificare che il documento contenga i valori della stringa di query, oltre ad alcuni metadati aggiuntivi. 
 
     ![Verificare la voce di Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-È stato aggiunto un binding al trigger HTTP che archivia dati non strutturati in un database Cosmos DB.
+È stato aggiunto un binding al trigger HTTP che archivia dati non strutturati in Azure Cosmos DB.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

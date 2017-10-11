@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 3756f1a039730bfd99b0375ce9bfeaf27178f2e0
+ms.translationtype: HT
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
 ms.contentlocale: it-it
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
@@ -30,7 +30,7 @@ La distribuzione continua è un'ottima opzione per i progetti in cui vengono int
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * Archivio esterno (Git o Mercurial)
-* [Archivio locale GIT](../app-service-web/app-service-deploy-local-git.md)
+* [Archivio locale GIT](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
@@ -148,4 +148,9 @@ Prima di poter scaricare i file dall'app per le funzioni con FTP o l'archivio GI
     Se richiesto inserire le [credenziali di distribuzione configurate](#credentials).  
 
 [GitHub]: https://github.com/
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Best Practices for Azure Functions](functions-best-practices.md) (Procedure consigliate per Funzioni di Azure)
 

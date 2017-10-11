@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per la sicurezza di Internet delle cose | Documentazione Microsoft
-description: L&quot;articolo fornisce un elenco completo di procedure consigliate per la sicurezza di Internet of Things e indicazioni generali.
+description: L'articolo fornisce un elenco completo di procedure consigliate per la sicurezza di Internet of Things e indicazioni generali.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cdb1436d33fed61210724d55ffbf06f653f24f7c
-
-
+ms.openlocfilehash: 8efc0053458e338ac1afe98d9ce970c1d5cbfa81
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>Procedure consigliate per la sicurezza di Internet delle cose
 La protezione dell'infrastruttura di Internet delle cose (IoT) è un'impresa considerevole per tutte le persone coinvolte nelle soluzioni IoT. Dato il numero di dispositivi coinvolti e la natura distribuita di questi dispositivi, l'impatto di un evento di sicurezza che può compromettere milioni di dispositivi IoT non è da sottovalutare perché le conseguenze possono essere enormi.
@@ -63,10 +63,4 @@ Si invitano gli operatori di soluzioni IoT a seguire le procedure consigliate ri
 * **Effettuare controlli regolari**: controllare la presenza di problemi di sicurezza all'infrastruttura IoT è un fattore chiave durante la risposta agli incidenti di sicurezza.
 * **Proteggere fisicamente l'infrastruttura IoT**: gli attacchi più dannosi per la sicurezza dell'infrastruttura IoT vengono lanciati tramite l'accesso fisico ai dispositivi.
 * **Proteggere le credenziali del cloud**: le credenziali per l'autenticazione nel cloud usate per la configurazione e il funzionamento di una distribuzione IoT costituiscono probabilmente il modo più semplice per accedere e compromettere un sistema IoT. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

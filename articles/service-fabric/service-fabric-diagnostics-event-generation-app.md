@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio dell&quot;applicazione Azure Service Fabric | Microsoft Docs
+title: Monitoraggio dell'applicazione Azure Service Fabric | Microsoft Docs
 description: Informazioni su log ed eventi a livello di servizio e applicazione usati per monitorare e diagnosticare i cluster di Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 3c472904641108b7383cd0f1416c47460f8de11a
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="application-and-service-level-event-and-log-generation"></a>Generazione di eventi e log a livello di applicazione e servizio
 
 ## <a name="instrumenting-the-code-with-custom-events"></a>Strumentazione del codice con eventi personalizzati
@@ -179,4 +176,3 @@ Se l'applicazione si basa sulle prestazioni elevate, **EventSource** è in gener
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver scelto il provider di accesso per instrumentare le applicazioni e i servizi, è necessario aggregare i log e gli eventi prima di inviarli a una piattaforma. Per meglio comprendere alcune delle opzioni consigliate leggere altre informazioni su [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [WAD](service-fabric-diagnostics-event-aggregation-wad.md).
-

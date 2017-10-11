@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: procedura per l&quot;esecuzione di query con l&quot;API DocumentDB | Microsoft Docs'
-description: Informazioni su come eseguire query con l&quot;API DocumentDB per Azure Cosmos DB
+title: 'Azure Cosmos DB: procedura per l''esecuzione di query con l''API DocumentDB | Microsoft Docs'
+description: Informazioni su come eseguire query con l'API DocumentDB per Azure Cosmos DB
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: feffc553a9aa931d96cec71c101674fce08a466b
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: procedura per l'esecuzione di query con l'API MongoDB
 
 L'[API per MongoDB](mongodb-introduction.md) supporta l'esecuzione di [query nella shell di MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
@@ -155,8 +152,7 @@ La query seguente restituisce tutte le famiglie registrate.
 **Query**
     
     db.families.find( { "isRegistered" : true })
-**Risultati**
-    Non viene restituito alcun documento. 
+**Risultati** non verrà restituito alcun documento. 
 
 ## <a id="examplequery4"></a>Query di esempio 4
 
@@ -316,5 +312,4 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="nextstepaction"]
 > [Distribuire i dati a livello globale](tutorial-global-distribution-documentdb.md)
-
 

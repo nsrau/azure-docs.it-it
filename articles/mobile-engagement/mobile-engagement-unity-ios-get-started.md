@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Azure Mobile Engagement per la distribuzione di Unity in iOS
-description: "Informazioni sull&quot;uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app Unity distribuite in dispositivi iOS."
+description: "Informazioni sull'uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app Unity distribuite in dispositivi iOS."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-ios-deployment"></a>Introduzione ad Azure Mobile Engagement per la distribuzione di Unity in iOS
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -37,10 +37,10 @@ Per completare questa esercitazione, è necessario disporre di:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Configurare Mobile Engagement per l'app iOS
+## <a id="setup-azme"></a>Configurare Mobile Engagement per l'app iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connettere l'app al back-end di Mobile Engagement
+## <a id="connecting-app"></a>Connettere l'app al back-end di Mobile Engagement
 ### <a name="import-the-unity-package"></a>Importare il pacchetto Unity
 1. Scaricare il [pacchetto Unity per Mobile Engagement](https://aka.ms/azmeunitysdk) e salvarlo nel computer locale. 
 2. Passare a **Assets -> Import Package -> Custom Package** (Asset -> Importa pacchetto -> Pacchetto personalizzato) e selezionare il pacchetto scaricato nel passaggio precedente. 
@@ -94,10 +94,10 @@ Per completare questa esercitazione, è necessario disporre di:
     ![][75]
 9. A questo punto, eseguire l'app in Xcode in modo che il pacchetto venga distribuito nel dispositivo connesso. Il gioco Unity dovrebbe essere disponibile nel telefono. 
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Connettere l'app con monitoraggio in tempo reale
+## <a id="monitor"></a>Connettere l'app con monitoraggio in tempo reale
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Abilitare le notifiche push e la messaggistica in-app
+## <a id="integrate-push"></a>Abilitare le notifiche push e la messaggistica in-app
 Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite notifiche push e messaggistica in-app nel contesto delle campagne. Questo modulo è denominato REACH nel portale di Mobile Engagement.
 Non è necessario eseguire altre operazioni di configurazione nell'app per ricevere notifiche, perché è già configurata.
 
@@ -116,9 +116,3 @@ Non è necessario eseguire altre operazioni di configurazione nell'app per ricev
 [73]: ./media/mobile-engagement-unity-ios-get-started/73.png
 [74]: ./media/mobile-engagement-unity-ios-get-started/74.png
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

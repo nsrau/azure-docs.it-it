@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: c581b1468630a9f28204592c936360b72f42f0d8
-ms.contentlocale: it-it
-ms.lasthandoff: 06/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Modificare l'algoritmo hash della firma relativo al trust della relying party di Office 365
 ## <a name="overview"></a>Panoramica
@@ -50,5 +48,4 @@ Dopo avere impostato l'algoritmo di firma con uno dei due processi seguenti, AD 
 
 ## <a name="also-read"></a>Vedere anche
 * [Ripristinare il trust di Office 365 con Azure AD Connect](connect/active-directory-aadconnect-federation-management.md#repairthetrust)
-
 

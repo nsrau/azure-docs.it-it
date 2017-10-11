@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: 4bb22c92ad7f6963be6ca15073f7f01da99ba2bb
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Esercitazione: Integrazione di Azure Active Directory con InTime
 
@@ -227,5 +226,4 @@ Quando si fa clic sul riquadro InTime nel pannello di accesso, dovrebbe essere v
 [201]: ./media/active-directory-saas-intime-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-intime-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-intime-tutorial/tutorial_general_203.png
-
 

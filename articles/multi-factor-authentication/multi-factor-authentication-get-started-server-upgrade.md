@@ -1,6 +1,6 @@
 ---
 title: Aggiornare PhoneFactor al server Azure MFA | Documentazione Microsoft
-description: Introduzione all&quot;uso del server Azure MFA quando si esegue l&quot;aggiornamento dalla versione precedente dell&quot;agente PhoneFactor.
+description: Introduzione all'uso del server Azure MFA quando si esegue l'aggiornamento dalla versione precedente dell'agente PhoneFactor.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 7ab7e693909f807781744ae53eed75d425096590
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: df7815ff16ac66531005f3a29550bdb419f3d052
 ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Aggiornare l'agente PhoneFactor al server Azure Multi-Factor Authentication

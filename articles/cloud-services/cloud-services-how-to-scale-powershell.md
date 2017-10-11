@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: mmccrory
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4acea8e7f4714754e6b3e54e9aaa622219ca9f7f
-ms.openlocfilehash: f16d981a0dc33295c1981d9c282beb1d3243d9ef
-ms.contentlocale: it-it
-ms.lasthandoff: 12/03/2016
-
-
+ms.openlocfilehash: a7ae8ff202d403dff19b8c9a6a09492235db27ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Come aumentare o ridurre il numero di istanze per un servizio cloud in PowerShell
 
@@ -81,4 +79,3 @@ In modo analogo, è possibile ridurre il numero di istanze per un ruolo rimuoven
 ## <a name="next-steps"></a>Passaggi successivi
 
 Non è possibile configurare la scalabilità automatica per i servizi cloud da PowerShell. Per eseguire questa operazione, vedere [Come configurare la scalabilità automatica di un servizio cloud](cloud-services-how-to-scale-portal.md).
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 100b9d8a55c2c163e7a04680f0f7d7963315ee73
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-4-plan-networking-for-hyper-v-to-azure-replication"></a>Passaggio 4: Pianificare la rete per la replica Hyper-V in Azure
 
 Questo articolo riepiloga le considerazioni relative alla pianificazione di rete quando si esegue la replica di VM Hyper-V locali (senza System Center VMM) in Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md).
@@ -91,4 +89,3 @@ Questo [post di blog](http://azure.microsoft.com/blog/2014/09/04/networking-infr
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare al [Passaggio 5: Preparare Azure](hyper-v-site-walkthrough-prepare-azure.md)
-

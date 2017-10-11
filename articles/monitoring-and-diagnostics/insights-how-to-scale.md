@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Scalare il conteggio delle istanze manualmente o automaticamente
 Nel [portale di Azure](https://portal.azure.com/)è possibile impostare manualmente il conteggio delle istanze del servizio oppure impostare i parametri per la scalabilità automatica in base alla domanda. Questa impostazione è definita in genere *aumento* o *riduzione del numero di istanze*.
@@ -128,5 +127,4 @@ Tuttavia, è possibile agire con maggiore decisione nei confronti della scalabil
 * [Monitorare le prestazioni dell'applicazione](../application-insights/app-insights-azure-web-apps.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
 * [Visualizzare eventi e registri attività](insights-debugging-with-events.md) per informazioni su tutti gli eventi che si sono verificati nel servizio.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
-
 

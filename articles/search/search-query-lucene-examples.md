@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/21/2017
 ms.author: liamca
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: bfd044f333087d8e3e9526820196be6eaec2f18f
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
 ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -41,7 +41,7 @@ Per eseguirle fare clic con il pulsante destro del mouse sugli URL degli esempi 
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>Come richiamare l'analisi completa di Lucene
 
-Tutti gli esempi in questo articolo specificano il parametro di ricerca **queryType=full**, che indica la sintassi completa gestita dal Parser per le query di ricerca Lucene. 
+Tutti gli esempi in questo articolo specificano il parametro di ricerca **queryType=full**, che indica che la sintassi completa viene gestita dal parser di query Lucene. 
 
 **Esempio 1** : fare clic con il pulsante destro del mouse sul frammento di query seguente per aprirlo in una nuova pagina del browser che carica JSFiddle ed esegue la query:
 

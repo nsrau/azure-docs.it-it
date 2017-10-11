@@ -1,6 +1,6 @@
 ---
 title: Importare dati in Ricerca di Azure nel portale | Documentazione Microsoft
-description: Usare la procedura guidata Importa dati di Ricerca di Azure nel portale di Azure per effettuare una ricerca per indicizzazione nel database Azure Cosmos DB NoSQL, nell&quot;archivio BLOB, nell&quot;archivio tabelle, nel database SQL e in SQL Server in macchine virtuali di Azure.
+description: Usare la procedura guidata Importa dati di Ricerca di Azure nel portale di Azure per effettuare una ricerca per indicizzazione nel database Azure Cosmos DB NoSQL, nell'archivio BLOB, nell'archivio tabelle, nel database SQL e in SQL Server in macchine virtuali di Azure.
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -15,13 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importare dati in Ricerca di Azure tramite il portale
 Il portale di Azure include una procedura guidata **Importa dati** nel dashboard di Ricerca di Azure che permette di caricare i dati in un indice. 
@@ -121,5 +119,4 @@ Per altre informazioni sugli indicizzatori, usare questi collegamenti:
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
-
 

@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: db2e0bd43161aad02ffce61b4cd9325892844dde
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 4a20091b59f2643ea71cce99c159a5075706e35d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
-
-
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Microservizi della versione canary con Vamp in un cluster DC/OS del servizio contenitore di Azure
 
 In questa procedura dettagliata viene configurato Vamp nel servizio contenitore di Azure con un cluster DC/OS. Viene rilasciata la versione canary del servizio demo "sava" di Vamp che risolvere un problema di incompatibilità del servizio con Firefox applicando filtri intelligenti al traffico. 
@@ -299,5 +296,4 @@ Sono state trattate anche alcune funzioni importanti di Vamp: l'unione di una nu
 * Creazione di script di automazione Vamp in Node.js ed esecuzione degli stessi come [flussi di lavoro di Vamp](http://vamp.io/documentation/tutorials/create-a-workflow/).
 
 * Vedere altre [esercitazioni su Vamp](http://vamp.io/documentation/tutorials/overview/).
-
 

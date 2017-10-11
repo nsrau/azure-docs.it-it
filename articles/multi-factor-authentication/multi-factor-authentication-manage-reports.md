@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: f76e726c6a67de4b0472c0e97f9e72c31c14c4f2
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 42a87adef740cc2c1d77c9f02eef8aaa5f207258
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication

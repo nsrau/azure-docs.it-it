@@ -1,6 +1,6 @@
 ---
 title: Pannello di riepilogo dispositivo array virtuale StorSimple | Documentazione Microsoft
-description: "Descrive il pannello di riepilogo dispositivo per Gestione dispositivi StorSimple e illustra come usarlo per monitorare l&quot;integrità dell&quot;array virtuale StorSimple."
+description: "Descrive il pannello di riepilogo dispositivo per Gestione dispositivi StorSimple e illustra come usarlo per monitorare l'integrità dell'array virtuale StorSimple."
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
-translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Usare il pannello di riepilogo dispositivo per il servizio Gestione dispositivi StorSimple connesso all'array virtuale StorSimple
 
@@ -55,5 +55,4 @@ L'area relativa alle informazioni di base riporta alcune proprietà importanti, 
 - [Gestire condivisioni su un array virtuale StorSimple](storsimple-virtual-array-manage-shares.md)
     
 - [Gestire volumi su un array virtuale StorSimple](storsimple-virtual-array-manage-volumes.md)
-
 

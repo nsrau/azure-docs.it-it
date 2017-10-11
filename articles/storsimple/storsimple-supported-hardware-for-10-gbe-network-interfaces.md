@@ -1,5 +1,5 @@
 ---
-title: Interfacce dell&quot;hardware per StorSimple 10 GbE | Microsoft Docs
+title: Interfacce dell'hardware per StorSimple 10 GbE | Microsoft Docs
 description: Vengono descritti i ricetrasmettitori collegabili small form factor (SFP), i cavi e gli switch supportati per le interfacce di rete 10 GbE sul dispositivo StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 85911fcc66dcedff0d43bd986bce4500a1a2f00b
-
-
+ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In questo articolo vengono fornite informazioni sull'hardware supplementare che funziona con il dispositivo StorSimple di Microsoft Azure.
 
 ## <a name="list-of-devices-tested-by-microsoft"></a>Elenco dei dispositivi testati da Microsoft
@@ -57,7 +57,7 @@ Questa sezione contiene l'elenco dei dispositivi che sono stati distribuiti corr
 | Versione sistema operativo switch |JunOS 12.3R9.4 |
 | Modello pannello |Porte caricate (PIC 0) |
 | Marca ricetrasmettitore |Juniper |
-| Modello ricetrasmettitore |Codice 740-021308  <br></br>  Codice 740-030658 |
+| Modello ricetrasmettitore |Codice 740-021308  <br></br> Codice 740-030658 |
 | Versione firmware ricetrasmettitore |Rev 01 Versione 0.0 (segnalato) |
 | Modello cavo |Ponticello duplex LC/LC 50/125µ, OM3, LSZH |
 | Modello StorSimple |8600 |
@@ -122,10 +122,4 @@ Nella tabella seguente sono elencati gli switch supportati da Mellanox. Non sono
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Ulteriori informazioni sui componenti hardware di StorSimple](storsimple-monitor-hardware-status.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

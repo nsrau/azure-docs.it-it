@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/11/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 59a834f32793e349d5639baf3c80dbcba274dfa8
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -28,7 +28,7 @@ Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare
 
 ![Modello funzionale di Griglia di eventi](./media/overview/event-grid-functional-model.png)
 
-Archiviazione Blob non è attualmente disponibile pubblicamente come server di pubblicazione.
+Archiviazione Blob non è attualmente disponibile pubblicamente come server di pubblicazione. È necessario registrarsi per la versione di anteprima per rispondere agli eventi di archiviazione BLOB. Per altre informazioni, [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato (anteprima)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 
 ## <a name="concepts"></a>Concetti
 
@@ -78,6 +78,7 @@ Attualmente i servizi di Azure seguenti hanno il supporto predefinito dei gestor
 * App per la logica
 * Automazione di Azure
 * Webhook
+* Microsoft Flow
 
 Quest'anno verranno aggiunti altri servizi di Azure.
 
@@ -119,7 +120,11 @@ Griglia di eventi costa $ 0,60 per milione di operazioni ($ 0,30 durante l'antep
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Create and subscribe to custom events (Creare e sottoscrivere eventi personalizzati)](custom-event-quickstart.md) È possibile iniziare subito a inviare gli eventi personalizzati agli endpoint usando la guida introduttiva di Griglia di eventi di Azure.
-* [Using Logic Apps as an Event Handler (Uso di App per la logica come gestore dell'evento)](monitor-virtual-machine-changes-event-grid-logic-app.md) Esercitazione sulla compilazione di un'app con App per la logica per reagire agli eventi di cui viene eseguito il push da Griglia di eventi.
+* [Create and subscribe to custom events](custom-event-quickstart.md) (Creare e sottoscrivere eventi personalizzati)  
+  È possibile iniziare subito a inviare gli eventi personalizzati agli endpoint usando l'avvio rapido della Griglia di eventi di Azure.
+* [Uso di App per la logica come gestore dell'evento](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+  Esercitazione sulla compilazione di un'app con App per la logica per rispondere agli eventi di cui viene eseguito il push da Griglia di eventi.
+* [Trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md)  
+  Un'esercitazione che usa Funzioni di Azure per eseguire il flusso di dati da Hub eventi a SQL Data Warehouse.
 * [Event Grid REST API reference (Informazioni di riferimento sulle API REST di Griglia di eventi)](/rest/api/eventgrid)  
   Offre informazioni più tecniche su Griglia di eventi di Azure e un riferimento per la gestione di sottoscrizioni agli eventi, routing e filtri.

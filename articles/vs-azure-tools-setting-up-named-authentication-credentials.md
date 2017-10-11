@@ -1,6 +1,6 @@
 ---
-title: Configurazione delle credenziali per l'autenticazione denominate | Documentazione Microsoft
-description: "Informazioni su come fornire le credenziali che Visual Studio può usare per l'autenticazione delle richieste inviate a Azure per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente. "
+title: Configurare credenziali per l'autenticazione denominate | Microsoft Docs
+description: "Informazioni su come fornire le credenziali che Visual Studio può usare per l'autenticazione delle richieste ad Azure per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente."
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -15,16 +15,16 @@ ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: c486676a70e195ec85ad40540ea4b7caaa86bc48
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="setting-up-named-authentication-credentials"></a>Configurazione delle credenziali per l'autenticazione denominate
-Per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente, è necessario fornire le credenziali che Visual Studio può usare per l'autenticazione delle richieste inviate a Azure. In Visual Studio è possibile fornire queste credenziali accedendo a più posizioni. Ad esempio, da Esplora server è possibile aprire il menu di scelta rapida per il nodo **Azure** e scegliere **Connessione alla sottoscrizione di Microsoft Azure**. Dopo l'accesso, le informazioni sulla sottoscrizione associate all'account Azure sono disponibili in Visual Studio. Non è necessario eseguire altre operazioni.
+# <a name="set-up-named-authentication-credentials"></a>Configurare credenziali per l'autenticazione denominate
+Per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente, è necessario fornire le credenziali che Visual Studio può usare per l'autenticazione delle richieste inviate a Azure. In Visual Studio è possibile fornire queste credenziali accedendo a più posizioni. Ad esempio, da Esplora server è possibile aprire il menu di scelta rapida per il nodo **Azure** e scegliere **Connessione alla sottoscrizione di Microsoft Azure**. Dopo l'accesso le informazioni sulla sottoscrizione associate all'account Azure diverranno disponibili in Visual Studio. Non è necessario eseguire altre operazioni.
 
-Gli strumenti di Azure supportano anche un modo meno recente di fornire le credenziali, attraverso il file di sottoscrizione, con estensione publishsettings. Questo argomento illustra tale metodo, ancora supportato in Azure SDK 2.2.
+Gli strumenti di Azure supportano anche un modo meno recente di fornire le credenziali, attraverso il file di sottoscrizione, con estensione publishsettings. Questo articolo illustra tale metodo, ancora supportato in Azure SDK 2.2.
 
 Per l'autenticazione in Azure sono richiesti gli elementi seguenti:
 
@@ -32,15 +32,15 @@ Per l'autenticazione in Azure sono richiesti gli elementi seguenti:
 * Un certificato X.509 v3 valido
 
 > [!NOTE]
-> La lunghezza della chiave del certificato X.509 v3 deve essere di almeno 2048 bit. Azure rifiuterà qualsiasi certificato che non soddisfa questo requisito o che sia non valido.
+> La lunghezza della chiave del certificato X.509 v3 deve essere di almeno 2.048 bit. Azure rifiuta qualsiasi certificato che non soddisfa questo requisito o che sia non valido.
 >
 >
 
 Visual Studio usa l'ID sottoscrizione e i dati del certificato come credenziali. Nel file di sottoscrizione, con estensione publishsettings, che contiene una chiave pubblica per il certificato, viene fatto riferimento alle credenziali appropriate. Il file di sottoscrizione può contenere le credenziali per più di una sottoscrizione.
 
-Per modificare le informazioni sulla sottoscrizione è possibile usare le finestre di dialogo **Nuova sottoscrizione e Modifica sottoscrizione** , come illustrato più avanti in questo argomento.
+Per modificare le informazioni sulla sottoscrizione è possibile usare la finestre di dialogo **Nuova sottoscrizione** o **Modifica sottoscrizione**, come illustrato più avanti in questo articolo.
 
-Se si vuole creare un certificato, vedere le istruzioni contenute in [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) e quindi caricare manualmente il certificato nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
+Se si vuole creare un certificato, vedere le istruzioni contenute in [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) e quindi caricare manualmente il certificato nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 > [!NOTE]
 > Le credenziali richieste da Visual Studio per gestire i servizi cloud non sono le stesse necessarie per autenticare una richiesta per i servizi di archiviazione di Azure.
@@ -48,19 +48,19 @@ Se si vuole creare un certificato, vedere le istruzioni contenute in [Creare e c
 >
 
 ## <a name="import-set-up-or-edit-authentication-credentials-in-visual-studio"></a>Importare, configurare o modificare le credenziali di autenticazione in Visual Studio
-È possibile importare, impostare o modificare le credenziali di autenticazione nella finestra di dialogo **Nuova sottoscrizione**, visualizzata dopo l'azione seguente:
 
-* In **Esplora server** aprire il menu di scelta rapida per il nodo **Azure**, scegliere **Gestisci e filtra sottoscrizioni**, scegliere la scheda **Certificati**, quindi procedere in uno dei modi seguenti:
+1. In Esplora server aprire il menu di scelta rapida per il nodo **Azure** e selezionare **Gestisci e filtra sottoscrizioni**.
+2. Selezionare la scheda **Certificati** e quindi usare un metodo tra i seguenti:
 
-    * Scegliere **Importa** per aprire la finestra di dialogo Importa sottoscrizioni Microsoft Azure, in cui è possibile scaricare il file delle sottoscrizioni per la sottoscrizione attualmente caricata, sfogliare il relativo percorso di download, quindi importarlo per l'uso in autenticazione.
-    * Scegliere **Nuovo** per aprire la finestra di dialogo Nuova sottoscrizione, in cui è possibile impostare una nuova sottoscrizione per l'uso in autenticazione.
-    * Scegliere **Modifica** (dopo aver scelto la sottoscrizione attiva) per aprire la finestra di dialogo Modifica sottoscrizione, in cui è possibile modificare una sottoscrizione esistente per l'uso in autenticazione. 
+    * Selezionare **Importa** per aprire la finestra di dialogo **Importa sottoscrizioni Microsoft Azure**. Qui è possibile scaricare il file delle sottoscrizioni per la sottoscrizione attualmente caricata, sfogliare il relativo percorso di download e quindi importarlo per l'uso in autenticazione.
+    * Selezionare **Nuovo** per aprire la finestra di dialogo **Nuova sottoscrizione**. Qui è possibile configurare una nuova sottoscrizione per l'uso nell'autenticazione.
+    * Selezionare **Modifica** (dopo aver scelto la sottoscrizione attiva) per aprire la finestra di dialogo **Modifica sottoscrizione**. Qui è possibile modificare una sottoscrizione esistente per l'uso nell'autenticazione. 
 
 La procedura riportata di seguito presuppone che la finestra di dialogo **Nuova sottoscrizione** sia visualizzata.
 
 ### <a name="to-set-up-authentication-credentials-in-visual-studio"></a>Per configurare le credenziali di autenticazione in Visual Studio
-1. Scegliere un certificato dall'elenco **Selezionare un certificato esistente per l'autenticazione** .
-2. Scegliere il collegamento **Copia il percorso completo**. Il percorso del certificato, ovvero il file con estensione cer, viene copiato negli Appunti.
+1. Scegliere un certificato dall'elenco **Selezionare un certificato esistente per l'autenticazione**.
+2. Selezionare il collegamento **Copia il percorso completo**. Il percorso del certificato, ovvero il file con estensione cer, viene copiato negli Appunti.
 
    > [!IMPORTANT]
    > Per pubblicare l'applicazione Azure da Visual Studio, è necessario caricare questo certificato nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -68,8 +68,16 @@ La procedura riportata di seguito presuppone che la finestra di dialogo **Nuova 
    >
 3. Per caricare il certificato nel portale di Azure:
 
-   1. Aprire il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-   2. Se richiesto, accedere al portale e quindi passare a **Impostazioni**, **Certificati di gestione**.
-   3. Nel riquadro Certificati di gestione, scegliere **Carica**.
-   4. Selezionare la sottoscrizione di Azure, incollare il percorso completo del file con estensione .cer appena creato e scegliere **Carica**.
+   a. Aprire il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+   
+   b. Se richiesto, accedere al portale e quindi passare a **Impostazioni** > **Certificati di gestione**.
+   
+   c. Nel riquadro **Certificati di gestione** selezionare **Carica**.
+   
+   d. Selezionare la sottoscrizione di Azure, incollare il percorso completo del file con estensione cer appena creato e scegliere **Carica**.
 
+## <a name="next-steps"></a>Passaggi successivi
+* [Panoramica di App Web](https://docs.microsoft.com/azure/app-service/)
+* [Distribuire l'app nel Servizio app di Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
+* [Distribuzione di processi Web usando Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
+* [Creare e distribuire un servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

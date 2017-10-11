@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: e15f3740fbf7cd97002b0b7efda34e968db4fe3c
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: b99037fc28eca1a3ebffefb9e99991e74f52c9a5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="account-provisioning-notifications"></a>Notifiche relative al provisioning dell'account
 Con il provisioning utente, è possibile automatizzare il processo di gestione degli utenti nelle applicazioni SaaS di terze parti. <br>
- Anche se si tratta di un processo automatizzato, l'interazione con questo processo è richiesta di tanto in tanto. <br>
- È il caso, ad esempio, quando scade la password dell'account configurato per lo scambio dei dati con un'applicazione SaaS di terze parti. 
+Anche se si tratta di un processo automatizzato, l'interazione con questo processo è richiesta di tanto in tanto. <br>
+È il caso, ad esempio, quando scade la password dell'account configurato per lo scambio dei dati con un'applicazione SaaS di terze parti. 
 
 Abilitando le notifiche di provisioning dell'account è possibile assicurarsi di ricevere notifiche relative ai problemi di provisioning utente che richiedono l'attenzione dell'utente.
 
@@ -52,4 +50,3 @@ Se sono state abilitate le notifiche di provisioning dell'account si riceveranno
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
-

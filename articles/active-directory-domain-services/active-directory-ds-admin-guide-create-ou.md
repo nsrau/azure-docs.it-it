@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Guida all&quot;amministrazione | Documentazione Microsoft'
-description: "Creare un&quot;unità organizzativa (OU) nei domini gestiti di Servizi di dominio Azure AD"
+title: 'Azure Active Directory Domain Services: Guida all''amministrazione | Documentazione Microsoft'
+description: "Creare un'unità organizzativa (OU) nei domini gestiti di Servizi di dominio Azure AD"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
-ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
-ms.lasthandoff: 02/08/2017
-
-
+ms.openlocfilehash: 017a8cabe81743af4c0cbb694098df799a904468
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Creare un'unità organizzativa (OU) in un dominio gestito di Servizi di dominio Azure AD
 I domini gestiti di Servizi di dominio Azure AD includono due contenitori predefiniti denominati rispettivamente "AADDC Computers" e "AADDC Users". Il contenitore "AADDC Computers" include oggetti computer per tutti i computer aggiunti al dominio gestito. Il contenitore "AADDC Users" include utenti e gruppi nel tenant Azure AD. In alcuni casi può essere necessario creare account del servizio nel dominio gestito per distribuire i carichi di lavoro. A questo scopo, è possibile creare un'unità organizzativa (OU) personalizzata nel dominio gestito e creare gli account del servizio nell'unità organizzativa. Questo articolo descrive come creare una OU nel dominio gestito.
@@ -65,7 +64,7 @@ Dopo aver installato gli strumenti di amministrazione di AD nella macchina virtu
     ![Centro di amministrazione di Active Directory - OU creata](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
 ## <a name="permissionssecurity-for-newly-created-ous"></a>Autorizzazioni/sicurezza per le OU appena create
-Per impostazione predefinita, all'utente, membro del gruppo "AAD DC Administrators", che ha creato l'unità organizzativa personalizzata verranno concessi privilegi amministrativi con controllo completo per l'unità organizzativa. L'utente può quindi procedere alla concessione di autorizzazioni ad altri utenti o al gruppo "AAD DC Administrators" secondo le esigenze. Come illustrato nello screenshot seguente, all'utente 'bob@domainservicespreview.onmicrosoft.com' che ha creato la nuova unità organizzativa "MyCustomOU" è concesso il controllo completo dell'unità organizzativa.
+Per impostazione predefinita, all'utente, membro del gruppo "AAD DC Administrators", che ha creato l'unità organizzativa personalizzata verranno concessi privilegi amministrativi con controllo completo per l'unità organizzativa. L'utente può quindi procedere alla concessione di autorizzazioni ad altri utenti o al gruppo "AAD DC Administrators" secondo le esigenze. Come illustrato nella schermata seguente, l'utente 'bob@domainservicespreview.onmicrosoft.com' che ha creato la nuova unità organizzativa 'MyCustomOU' viene concesso il controllo completo su di esso.
 
  ![Centro di amministrazione di Active Directory - Sicurezza della nuova OU](./media/active-directory-domain-services-admin-guide/create-ou-permissions.png)
 
@@ -82,4 +81,3 @@ Dopo avere creato un'unità organizzativa personalizzata, è possibile procedere
 * [Configurare criteri di gruppo in un dominio gestito](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Centro di amministrazione di Active Directory: Introduzione](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guida dettagliata agli account del servizio gestiti](https://technet.microsoft.com/library/dd548356.aspx)
-

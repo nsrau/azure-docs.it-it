@@ -13,13 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con Ricerca di Azure.
@@ -136,5 +134,4 @@ Questo metodo può essere usato per ottenere funzionalità di account utente div
 Ricerca di Azure è una scelta interessante per molte applicazioni: [altre informazioni sulle affidabili funzionalità del servizio sono disponibili qui](http://aka.ms/whatisazsearch). Quando si valutano i vari modelli di progettazione per le applicazioni multi-tenant, è opportuno considerare i [vari piani tariffari](https://azure.microsoft.com/pricing/details/search/) e i rispettivi [limiti del servizio](search-limits-quotas-capacity.md) per adattare al meglio Ricerca di Azure ad architettura o carichi di lavoro applicativi di tutte le dimensioni.
 
 Le domande su Ricerca di Azure e sugli scenari multi-tenant possono essere indirizzate ad azuresearch_contact@microsoft.com.
-
 

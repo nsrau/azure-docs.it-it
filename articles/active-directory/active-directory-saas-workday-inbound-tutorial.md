@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Configurazione di Workday per il provisioning utenti automatico con Active Directory locale e Azure Active Directory | Microsoft Docs'
-description: "Informazioni su come usare Workday come origine dei dati sull&quot;identità per Active Directory locale e Azure Active Directory."
+description: "Informazioni su come usare Workday come origine dei dati sull'identità per Active Directory locale e Azure Active Directory."
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: f9cc94ca1fc44d10af19debab49435b265bf6e7c
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
 ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Esercitazione: Configurazione di Workday per il provisioning utenti automatico con Active Directory locale e Azure Active Directory
@@ -63,9 +62,6 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Per il provisioning utenti in Active Directory, è necessario un server appartenente a un dominio con Windows Server 2012 o versione successiva per ospitare l'[agente di sincronizzazione locale](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) per la sincronizzazione tra Active Directory e Azure AD
 
-> [!NOTE]
-> Se il tenant di Azure AD si trova in Europa, vedere la sezione [Problemi noti](#known-issues) riportata di seguito.
-
 
 ### <a name="solution-architecture"></a>Architettura della soluzione
 
@@ -85,7 +81,7 @@ Dopo aver risposto a queste domande, è possibile pianificare la distribuzione d
 
 Azure Active Directory supporta connettori di provisioning preintegrati per Workday e molte altre applicazioni SaaS. 
 
-Un singolo connettore di provisioning si interfaccia con l'API di un singolo sistema di origine e consente di eseguire il provisioning dei dati in un singolo sistema di destinazione. La maggior parte dei connettori di provisioning supportati da Azure AD è destinata a un singolo sistema di origine e di destinazione (ad esempio, da Azure AD a ServiceNow) e può essere configurata semplicemente aggiungendo l'app in questione dalla raccolta di app di Azure AD (ad esempio, ServiceNow). 
+Un singolo connettore di provisioning si interfaccia con l'API di un singolo sistema di origine e consente di eseguire il provisioning dei dati in un singolo sistema di destinazione. La maggior parte dei connettori di provisioning supportati da Azure AD è destinata a un singolo sistema di origine e di destinazione (ad esempio, da Azure AD a ServiceNow) e può essere configurata aggiungendo l'app in questione dalla raccolta di app di Azure AD (ad esempio, ServiceNow). 
 
 È presente una relazione uno-a-uno tra le istanze dei connettori di provisioning e le istanze delle app in Azure AD:
 
@@ -340,7 +336,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 | **Fax**      | facsimileTelephoneNumber     |     |    Creazione e aggiornamento |
 | **FirstName**   | givenName       |     |    Creazione e aggiornamento |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Creazione e aggiornamento |
-| **Mobile**  |    mobile       |     |       Scritto solo al momento della creazione |
+| **Mobile**  |    mobile       |     |       Creazione e aggiornamento |
 | **EmailAddress**    | mail    |     |     Creazione e aggiornamento |
 | **ManagerReference**   | manager  |     |  Creazione e aggiornamento |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Creazione e aggiornamento |
@@ -350,7 +346,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 | **LastName**   |   sn   |     |  Creazione e aggiornamento |
 | **CountryRegionReference** |  st     |     | Creazione e aggiornamento |
 | **AddressLineData**    |  streetAddress  |     |   Creazione e aggiornamento |
-| **PrimaryWorkTelephone**  |  telephoneNumber   |     | Scritto solo al momento della creazione |
+| **PrimaryWorkTelephone**  |  telephoneNumber   |     | Creazione e aggiornamento |
 | **BusinessTitle**   |  title     |     |  Creazione e aggiornamento |
 | **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Creazione e aggiornamento                                                   
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Creazione e aggiornamento |
@@ -382,6 +378,10 @@ Dopo aver installato l'agente, eseguire i comandi di PowerShell riportati di seg
 
 * Input: nome utente e password di amministratore globale per il tenant di Azure AD
 
+>[!IMPORTANT]
+>Attualmente c'è un problema noto riguardante le credenziali di amministratore globale che non funzionano se usano un dominio personalizzato (esempio: admin@contoso.com). Per aggirare il problema, è possibile creare e usare un account amministratore globale con un dominio onmicrosoft.com (esempio: admin@contoso.onmicrosoft.com)
+
+
 **Comando 4**
 
 > Get-AdSyncAgentProvisioningTasks
@@ -410,8 +410,39 @@ Dopo aver installato l'agente, eseguire i comandi di PowerShell riportati di seg
 
 > net start aadsyncagent
 
+>[!TIP]
+>Oltre ai comandi "net" in Powershell, il servizio agente di sincronizzazione può essere avviato e arrestato anche usando **Services.msc**. Se si verificano errori durante l'esecuzione dei comandi di Powershell, assicurarsi che il l'**agente di provisioning di Microsoft Azure AD Connect** sia in esecuzione in **Services.msc**.
+
+![Services](./media/active-directory-saas-workday-inbound-tutorial/Services.png)  
+
+**Configurazione aggiuntiva per i clienti dell'Unione Europea**
+
+Se il tenant di Azure Active Directory si trova in uno dei data center in Europa, completare i passaggi aggiuntivi seguenti.
+
+1. Aprire **Services.msc** e arrestare il servizio **agente di provisioning di Microsoft Azure AD Connect**.
+2. Passare alla cartella di installazione dell'agente (ad esempio C:\Programmi\Microsoft Azure AD Connect Provisioning Agent).
+3. Aprire **SyncAgnt.exe.config** in un editor di testo.
+4. Sostituire https://manage.hub.syncfabric.windowsazure.com/Management con **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
+5. Sostituire https://provision.hub.syncfabric.windowsazure.com/Provisioning con **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
+6. Salvare il file **SyncAgnt.exe.config**.
+7. Aprire **Services.msc** e avviare il servizio **agente di provisioning di Microsoft Azure AD Connect**.
+
+**Risoluzione dei problemi dell'agente**
+
+Il [registro eventi di Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) nel computer Windows Server che ospita l'agente contiene gli eventi per tutte le operazioni eseguite dall'agente. Per visualizzare questi eventi:
+    
+1. Aprire **Eventvwr.msc**.
+2. Selezionare **Registri di Windows > Applicazione**.
+3. Visualizzare tutti gli eventi registrati sotto **AADSyncAgent**. 
+4. Controllare errori e avvisi.
+
+Se si verifica un problema di autorizzazioni con le credenziali di Active Directory o Azure Active Directory fornite nei comandi di Powershell, verrà visualizzato un errore come questo: 
+    
+![Log eventi](./media/active-directory-saas-workday-inbound-tutorial/Windows_Event_Logs.png) 
+
+
 ### <a name="part-4-start-the-service"></a>Parte 4: Avviare il servizio
-Dopo aver completato le parti 1-3, è possibile avviare il servizio di provisioning nel portale di gestione di Azure.
+Dopo aver completato le parti 1-3, è possibile avviare il servizio di provisioning nel portale di Azure.
 
 1.  Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
@@ -419,11 +450,12 @@ Dopo aver completato le parti 1-3, è possibile avviare il servizio di provision
 
 3. Verrà avviata la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti in Workday.
 
-4. I singoli eventi di sincronizzazione, ad esempio quali utenti vengono letti da Workday e successivamente aggiunti o aggiornati in Active Directory, possono essere visualizzati nella scheda **Log di controllo**. **[Vedere la guida alla creazione di report per il provisioning per istruzioni dettagliate su come leggere i log di controllo](active-directory-saas-provisioning-reporting.md)**
+4. In qualsiasi momento è possibile controllare la scheda **Log di controllo** nel portale di Azure per vedere le azioni che sono state eseguite dal servizio di provisioning. I log di controllo elencano tutti i singoli eventi di sincronizzazione eseguiti dal servizio di provisioning, ad esempio quali utenti vengono letti da Workday e successivamente aggiunti o aggiornati in Active Directory. **[Vedere la guida alla creazione di report per il provisioning per istruzioni dettagliate su come leggere i log di controllo](active-directory-saas-provisioning-reporting.md)**
 
-5.  Il registro applicazioni di Windows nel computer agente mostrerà tutte le operazioni eseguite tramite l'agente.
+5.  Controllare il [registro eventi di Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) nel computer Windows Server che ospita l'agente per eventuali nuovi errori o avvisi. Questi eventi possono essere visualizzati avviando **Eventvwr.msc** sul server e selezionando **Registri di Windows > Applicazione**. Tutti i messaggi correlati al provisioning vengono registrati sotto **AADSyncAgent**. 
+    
 
-6. Al termine, scriverà un report di riepilogo di controllo nella scheda  **Provisioning**, come illustrato di seguito.
+6. Al termine verrà scritto un report di riepilogo di controllo nella scheda **Provisioning**, come illustrato di seguito.
 
 ![Portale di Azure](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
 
@@ -468,7 +500,7 @@ Nelle sezioni seguenti viene descritta la configurazione di una connessione tra 
 
    * **Password di amministratore:** immettere la password dell'account del sistema di integrazione Workday
 
-   * **URL tenant:** immettere l'URL dell'endpoint dei servizi Web Workday per il tenant. Dovrebbe essere simile a: https://wd3-impl-services1.workday.com/ccx/service/contoso4, dove contoso4 è sostituito dal nome del tenant corretto e wd3-impl è sostituito dalla stringa di ambiente corretta (se necessario).
+   * **URL tenant:** immettere l'URL dell'endpoint dei servizi Web Workday per il tenant. Dovrebbe essere simile a: https://wd3-impl-services1.workday.com/ccx/service/contoso4, dove contoso4 è sostituito dal nome del tenant corretto e wd3-impl è sostituito dalla stringa di ambiente corretta. Se l'URL non è noto, determinare l'URL corretto da usare insieme al proprio partner di integrazione Workday o al supporto tecnico.
 
    * **Indirizzo di posta elettronica per le notifiche:** immettere l'indirizzo di posta elettronica e selezionare la casella di controllo "Invia una notifica di posta elettronica in caso di errore".
 
@@ -543,7 +575,7 @@ Dopo aver completato le parti 1-2, è possibile avviare il servizio di provision
 
 4. I singoli eventi di sincronizzazione possono essere visualizzati nella scheda **Log di controllo**. **[Vedere la guida alla creazione di report per il provisioning per istruzioni dettagliate su come leggere i log di controllo](active-directory-saas-provisioning-reporting.md)**
 
-5. Al termine, scriverà un report di riepilogo di controllo nella scheda  **Provisioning**, come illustrato di seguito.
+5. Al termine verrà scritto un report di riepilogo di controllo nella scheda **Provisioning**, come illustrato di seguito.
 
 
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Configurazione del writeback degli indirizzi di posta elettronica in Workday
@@ -604,11 +636,13 @@ Dopo aver completato le parti 1-2, è possibile avviare il servizio di provision
 
 4. I singoli eventi di sincronizzazione possono essere visualizzati nella scheda **Log di controllo**. **[Vedere la guida alla creazione di report per il provisioning per istruzioni dettagliate su come leggere i log di controllo](active-directory-saas-provisioning-reporting.md)**
 
-5. Al termine, scriverà un report di riepilogo di controllo nella scheda  **Provisioning**, come illustrato di seguito.
+5. Al termine verrà scritto un report di riepilogo di controllo nella scheda **Provisioning**, come illustrato di seguito.
 
 ## <a name="known-issues"></a>Problemi noti
 
-* **Log di controllo nelle impostazioni locali europee** - Al momento del rilascio di questa versione Technical Preview, è presente un problema noto relativo ai [log di controllo](active-directory-saas-provisioning-reporting.md), per cui le app dei connettori Workday non vengono visualizzate nel [portale di Azure](https://portal.azure.com) se il tenant di Azure AD si trova in un data center europeo. Presto sarà disponibile una correzione per questo problema. Informazioni aggiornate saranno pubblicate a breve in questa pagina. 
+* Quando si esegue il comando di Powershell **Add-ADSyncAgentAzureActiveDirectoryConfiguration**, attualmente c'è un problema noto riguardante le credenziali di amministratore globale che non funziona se usano un dominio personalizzato (esempio: admin@contoso.com) . Per aggirare il problema, è possibile creare e usare un account amministratore globale in Azure Active Directory con un dominio onmicrosoft.com (esempio: admin@contoso.onmicrosoft.com).
+
+* È stato risolto un problema precedente relativo ai log di controllo che non compaiono nei tenant di Azure Active Directory che si trovano nell'Unione Europea. Tuttavia è richiesta una configurazione aggiuntiva dell'agente per i tenant di Azure Active Directory che si trovano nell'Unione Europea. Per informazioni dettagliate, vedere [Parte 3: Configurare l'agente di sincronizzazione locale](#Part 3: Configure the on-premises synchronization agent)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Esercitazione sulla configurazione dell'accesso Single Sign-On tra Workday e Azure Active Directory](active-directory-saas-workday-tutorial.md)

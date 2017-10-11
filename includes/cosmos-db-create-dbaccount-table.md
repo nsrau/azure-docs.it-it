@@ -28,4 +28,4 @@
 
 6.  Al termine della distribuzione aprire il nuovo account dal riquadro Tutte le risorse. 
 
-    ![Account DocumentDB nel riquadro Tutte le risorse](./media/cosmos-db-create-dbaccount-table/all-resources.png)
+    ![Account Azure Cosmos DB nel riquadro Tutte le risorse](./media/cosmos-db-create-dbaccount-table/all-resources.png)

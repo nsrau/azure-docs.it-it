@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 7bfda602dbc0ea47828a7c9243b8b9b09ec78432
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Risoluzione dei problemi relativi allo strumento di importazione/esportazione di Azure
 Lo strumento Importazione/Esportazione di Microsoft Azure restituisce messaggi di errore in caso di problemi. Questo argomento elenca alcuni problemi comuni in cui possono incorrere gli utenti.  
   
@@ -45,4 +43,3 @@ Lo strumento Importazione/Esportazione di Microsoft Azure restituisce messaggi d
 * [Reviewing job status with copy log files](../storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)   
 * [Riparazione di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)
-

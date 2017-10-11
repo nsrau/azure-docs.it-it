@@ -6,16 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/18/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: ccef224ef1c2919a3e5469c1bbe0980c6963705b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
 Griglia di eventi di Azure ha tre tipi di autenticazione:
@@ -26,34 +25,33 @@ Griglia di eventi di Azure ha tre tipi di autenticazione:
 
 ## <a name="webhook-event-delivery"></a>Recapito eventi webhook
 
-I webhook sono uno dei modi per ricevere gli eventi in tempo reale da Griglia di eventi di Azure.
+I webhook sono uno dei modi per ricevere gli eventi in tempo reale da Griglia di eventi di Azure. Ogni volta che un nuovo evento è pronto per essere recapitato, il webhook della Griglia di eventi invia una richiesta HTTP all'endpoint HTTP configurato nel cui corpo è contenuto l'evento.
 
-Ogni volta che un nuovo evento è pronto per essere recapitato, Griglia di eventi invia al webhook una richiesta HTTP nel cui corpo è contenuto l'evento.
+Quando si registra l'endpoint del webhook con Griglia di eventi, viene inviata una richiesta POST con un semplice codice di convalida per dimostrare la proprietà dell'endpoint. È necessario che l'app risponda rimandando il codice di convalida. La Griglia di eventi non recapita gli eventi agli endpoint del webhook che non hanno superato la convalida.
 
-Quando si registra l'endpoint del webhook con Griglia di eventi, viene inviata una richiesta POST con un semplice codice di convalida per dimostrare la proprietà dell'endpoint. È necessario che l'app risponda rimandando il codice di convalida. Griglia di eventi non recapiterà gli eventi agli endpoint del webhook che non hanno superato la convalida.
- 
-### <a name="validation-details"></a>Informazioni di convalida:
+### <a name="validation-details"></a>Dettagli di convalida
 
 * In fase di creazione/aggiornamento della sottoscrizione dell'evento, Griglia di eventi pubblica un evento "SubscriptionValidationEvent" nell'endpoint di destinazione.
-* L'evento contiene un valore di intestazione "Event-Type: Validation".
+* L'evento contiene un valore di intestazione "Aeg-Event-Type: SubscriptionValidation".
 * Il corpo dell'evento ha lo stesso schema degli altri eventi di Griglia di eventi.
-* I dati dell'evento includono una proprietà "ValidationCode" con una stringa generata in modo casuale, ad esempio "ValidationCode: acb13…".
+* I dati dell'evento includono una proprietà "validationCode" con una stringa generata in modo casuale. ad esempio "validationCode: acb13…".
 
-Un esempio di SubscriptionValidationEvent è mostrato di seguito.
+Un esempio di SubscriptionValidationEvent è mostrato di seguito:
+
 ```json
 [{
-  "Id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
-  "Topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "Subject": "",
-  "Data": {
+  "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "subject": "",
+  "data": {
     "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
   },
-  "EventType": "Microsoft.EventGrid/SubscriptionValidationEvent",
-  "EventTime": "2017-08-06T22:09:30.740323Z"
+  "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
+  "eventTime": "2017-08-06T22:09:30.740323Z"
 }]
 ```
 
-Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida, ad esempio "validation_response: acb13…", di cui un esempio viene mostrato di seguito.
+Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida nella proprietà validationResponse, come mostrato nell'esempio seguente:
 
 ```json
 {
@@ -61,9 +59,8 @@ Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida, ad
 }
 ```
 
-Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida, ad esempio "ValidationResponse: acb13…".
-
 È infine importante notare che Griglia di eventi di Azure supporta solo endpoint di webhook HTTPS.
+
 ## <a name="event-subscription"></a>Sottoscrizione dell'evento
 
 Per sottoscrivere un evento, è necessaria l'autorizzazione **Microsoft.EventGrid/EventSubscriptions/Write** per la risorsa richiesta. Questa autorizzazione è necessaria perché si sta scrivendo una nuova sottoscrizione nell'ambito della risorsa. La risorsa necessaria è diversa a seconda del fatto che si sottoscriva un argomento di sistema o un argomento personalizzato. Entrambi i tipi sono descritti in questa sezione.
@@ -90,7 +87,7 @@ Il valore dell'autenticazione viene incluso nell'intestazione HTTP. Per la firma
 
 L'autenticazione della chiave è la forma più semplice di autenticazione. Usare il formato: `aeg-sas-key: <your key>`
 
-Ad esempio, passare una chiave con: 
+Ad esempio, passare una chiave con:
 
 ```
 aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
@@ -108,7 +105,7 @@ Un valore **aeg-sas-token** valido, ad esempio, è:
 
 ```http
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=a4oNHpRZygINC%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
-``` 
+```
 
 L'esempio seguente crea un token di firma di accesso condiviso per l'uso con Griglia di eventi:
 
@@ -120,7 +117,8 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
     const char Signature = 's';
 
     string encodedResource = HttpUtility.UrlEncode(resource);
-    string encodedExpirationUtc = HttpUtility.UrlEncode(expirationUtc.ToString());
+    var culture = CultureInfo.CreateSpecificCulture("en-US");
+    var encodedExpirationUtc = HttpUtility.UrlEncode(expirationUtc.ToString(culture));
 
     string unsignedSas = $"{Resource}={encodedResource}&{Expiration}={encodedExpirationUtc}";
     using (var hmac = new HMACSHA256(Convert.FromBase64String(key)))
@@ -136,17 +134,17 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Controllo di accesso per la gestione
 
-Griglia di eventi di Azure consente di controllare il livello di accesso assegnato ai diversi utenti per eseguire svariate operazioni di gestione, ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. Griglia di eventi utilizza a questo scopo il controllo degli accessi in base al ruolo di Azure.
+Griglia di eventi di Azure consente di controllare il livello di accesso assegnato ai diversi utenti per eseguire svariate operazioni di gestione, ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. La Griglia di eventi utilizza a questo scopo il controllo degli accessi in base al ruolo di Azure.
 
 ### <a name="operation-types"></a>Tipi di operazioni
 
 Griglia di eventi di Azure supporta le azioni seguenti:
 
-* Microsoft.EventGrid/*/read 
-* Microsoft.EventGrid/*/write 
-* Microsoft.EventGrid/*/delete 
-* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action 
-* Microsoft.EventGrid/topics/listKeys/action 
+* Microsoft.EventGrid/*/read
+* Microsoft.EventGrid/*/write
+* Microsoft.EventGrid/*/delete
+* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
+* Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
 Le ultime tre operazioni restituiscono informazioni potenzialmente riservate che vengono filtrate dalle normali operazioni di lettura. È consigliabile limitare l'accesso a queste operazioni. I ruoli personalizzati possono essere creati usando [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), [l'interfaccia della riga di comando di Azure (CLI)](../active-directory/role-based-access-control-manage-access-azure-cli.md) e la [API REST](../active-directory/role-based-access-control-manage-access-rest.md).
@@ -160,82 +158,82 @@ Usare i passaggi seguenti per applicare il controllo degli accessi in base al ru
 Le seguenti sono definizioni del ruolo di Griglia di eventi che consentono agli utenti di eseguire set diversi di azioni.
 
 **EventGridReadOnlyRole.json**: consente solo operazioni di sola lettura.
+
 ```json
-{ 
-  "Name": "Event grid read only role", 
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856", 
-  "IsCustom": true, 
-  "Description": "Event grid read only role", 
-  "Actions": [ 
-    "Microsoft.EventGrid/*/read" 
-  ], 
-  "NotActions": [ 
-  ], 
-  "AssignableScopes": [ 
-    "/subscriptions/<Subscription Id>" 
-  ] 
+{
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
 **EventGridNoDeleteListKeysRole.json**: consente le azioni di pubblicazione con restrizioni, ma non consente le azioni di eliminazione.
+
 ```json
-{ 
-  "Name": "Event grid No Delete Listkeys role", 
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174", 
-  "IsCustom": true, 
-  "Description": "Event grid No Delete Listkeys role", 
-  "Actions": [     
-    "Microsoft.EventGrid/*/write", 
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action" 
-    "Microsoft.EventGrid/topics/listkeys/action", 
-    "Microsoft.EventGrid/topics/regenerateKey/action" 
-  ], 
-  "NotActions": [ 
-    "Microsoft.EventGrid/*/delete" 
-  ], 
-  "AssignableScopes": [ 
-    "/subscriptions/<Subscription id>" 
-  ] 
+{
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
-**EventGridContributorRole.json**: consente tutte le azioni di Griglia di eventi.  
+**EventGridContributorRole.json**: consente tutte le azioni di Griglia di eventi.
+
 ```json
-{ 
-  "Name": "Event grid contributor role", 
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514", 
-  "IsCustom": true, 
-  "Description": "Event grid contributor role", 
-  "Actions": [ 
-    "Microsoft.EventGrid/*/write", 
-    "Microsoft.EventGrid/*/delete", 
-    "Microsoft.EventGrid/topics/listkeys/action", 
-    "Microsoft.EventGrid/topics/regenerateKey/action", 
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action" 
-  ], 
-  "NotActions": [], 
-  "AssignableScopes": [ 
-    "/subscriptions/d48566a8-2428-4a6c-8347-9675d09fb851" 
-  ] 
-} 
+{
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
+}
 ```
 
-#### <a name="install-and-login-to-azure-cli"></a>Installare e accedere all'interfaccia della riga di comando di Azure
-
-* Usare la versione 0.8.8 o successiva dell'interfaccia della riga di comando di Azure. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
-* Azure Resource Manager nell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con Resource Manager](../xplat-cli-azure-resource-manager.md)
-
-#### <a name="create-a-custom-role"></a>Creare un ruolo personalizzato
+#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Creare e assegnare un ruolo personalizzato con l'interfaccia della riga di comando di Azure
 
 Per creare un ruolo personalizzato, usare:
 
-    azure role create --inputfile <file path>
+```azurecli
+az role definition create --role-definition @<file path>
+```
 
-#### <a name="assign-the-role-to-a-user"></a>Assegnare il ruolo a un utente
+Per assegnare il ruolo a un utente, usare:
 
-
-    azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
-
+```azurecli
+az role assignment create --assignee <user name> --role "<name of role>"
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

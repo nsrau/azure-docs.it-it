@@ -15,13 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: georgewallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 0bca4fb6874bd265f0ae9faeb4219abeb4ffb6d4
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Esempi di Azure PowerShell per la rete
 
@@ -39,4 +37,3 @@ La tabella seguente include i collegamenti agli script creati usando Azure Power
 | [Eseguire il bilanciamento del carico per più siti Web sulle VM](./scripts/load-balancer-windows-powershell-load-balance-multiple-websites-vm.md?toc=%2fazure%2fnetworking%2ftoc.json) | Crea due VM con più configurazioni IP, unite a un set di disponibilità di Azure, accessibili tramite un servizio di bilanciamento del carico di Azure. |
 | [Dirigere il traffico su più aree per la disponibilità elevata delle applicazioni](./scripts/traffic-manager-powershell-websites-high-availability.md?toc=%2fazure%2fnetworking%2ftoc.json) |  Crea due piani di servizio app, due app Web, un profilo di gestione traffico e due endpoint di gestione traffico. |
 | | |
-

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: software di terze parti compatibili | Documentazione Microsoft'
+title: 'Azure Active Directory Domain Services: software di terze parti compatibili | Microsoft Docs'
 description: Software di terze parti che funziona con Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 553111d37543a0d5d6d3c89afab118b209704fec
-ms.openlocfilehash: b6ed4bd6898d54f6f9ef3206de38e2be6d2900be
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 1a4af8c9a5f30cf7ea24d587866d1b41ab9cfb2c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Software di terze parti compatibile con Azure AD Domain Services
 
 ## <a name="one-identity-authentication-services"></a>One Identity Authentication Services
@@ -39,7 +37,6 @@ One Identity Authentication Services consente ai sistemi operativi Unix, Linux e
 
 ![RedHat](./media/compatible-software-icons/RedHat.png)
 
-Red Hat Enterprise Linux è la piattaforma Linux enterprise più diffusa al mondo progettata per soddisfare le esigenze delle grandi imprese moderne di oggi. Red Hat Enterprise Linux è la scelta preferita per carichi di lavoro di macchine virtuali (VM) Linux enterprise in Microsoft Azure. Red Hat Enterprise Linux è una piattaforma aperta, affidabile e protetta progettata per i clienti che desiderano flessibilità nella distribuzione per i carichi di lavoro business-critical (dai data center al cloud Azure), sostenuta dal supporto di classe enterprise altamente integrato di Red Hat e Microsoft.
+Red Hat Enterprise Linux è la piattaforma Linux enterprise più diffusa al mondo progettata per soddisfare le esigenze delle grandi imprese moderne di oggi. Red Hat Enterprise Linux è la scelta preferita per carichi di lavoro di macchine virtuali (VM) Linux enterprise in Microsoft Azure. Red Hat Enterprise Linux è una piattaforma aperta, affidabile e sicura progettata per i clienti che desiderano flessibilità nella distribuzione per i carichi di lavoro business-critical (dai data center al cloud Azure), sostenuta dal supporto di classe enterprise altamente integrato di Red Hat e Microsoft.
 
-[Aggiungere una macchina virtuale RedHat Enterprise Linux 7.2 a Servizi di dominio di Azure Active Directory](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-
+[Aggiungere una macchina virtuale RedHat Enterprise Linux 7.2 aad Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

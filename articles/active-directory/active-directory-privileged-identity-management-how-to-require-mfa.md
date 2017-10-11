@@ -1,6 +1,6 @@
 ---
-title: Come richiedere l&quot;autenticazione MFA (Multi-Factor Authentication) | Documentazione Microsoft
-description: "Informazioni su come richiedere l&quot;autenticazione a più fattori (MFA, Multi-Factor Authentication) per identità con privilegi con l&quot;estensione Azure Active Directory Privileged Identity Management."
+title: Come richiedere l'autenticazione MFA (Multi-Factor Authentication) | Documentazione Microsoft
+description: "Informazioni su come richiedere l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per identità con privilegi con l'estensione Azure Active Directory Privileged Identity Management."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d36fb97f22802b040d2d527ccfd7a48327fe0cb4
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: b778774fa23be8219db3f716d79bac324a7de9d3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Come richiedere l'autenticazione MFA in Azure AD Privileged Identity Management
 È consigliabile richiedere l'autenticazione Multi-Factor Authentication (MFA) per tutti gli amministratori. Ciò consente di ridurre il rischio di attacchi causato da una password compromessa.
@@ -49,5 +48,4 @@ In alternativa, se gli utenti eseguono l'autenticazione in locale, è possibile 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

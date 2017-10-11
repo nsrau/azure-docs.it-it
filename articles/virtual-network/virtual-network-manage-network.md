@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Creare, modificare o eliminare una rete virtuale
 
@@ -199,4 +198,3 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 - Per filtrare il traffico di rete tra subnet all'interno di una rete virtuale, vedere [Creare gruppi di sicurezza di rete](virtual-networks-create-nsg-arm-pportal.md).
 - Per effettuare il peering di una rete virtuale con un'altra, vedere [Create a virtual network peering](virtual-network-create-peering.md#portal) (Creare un peering di reti virtuali).
 - Per informazioni sulle opzioni per la connessione di una rete virtuale a una rete locale, vedere [Informazioni sul gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
-

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e2ccb78da419b12a9845d720efb5b0229d4f455b
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 911b8f12472dcbda3e6bfeb8c97bf1d04a63e1dd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows
 > [!IMPORTANT]
@@ -98,4 +96,3 @@ Per l'avvio dell'agente sono necessari alcuni minuti dopo l'installazione. In se
 <!-- Link references -->
 [Come accedere a una macchina virtuale che esegue Windows Server]:connect-logon.md
 [Estensioni VM e funzionalità di Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
-

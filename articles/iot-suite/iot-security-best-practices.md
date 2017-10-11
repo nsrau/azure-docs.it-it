@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de7db3f353f1f6c815ee61cbdfbf9b2b38471a8d
-ms.openlocfilehash: 87647756be65f577850fe8209173280b89de15ea
-ms.contentlocale: it-it
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: dcab91856bcebb8f3bfab8cc69b63fad487f8ace
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="internet-of-things-security-best-practices"></a>Procedure consigliate per la sicurezza di Internet of Things
 Per proteggere un'infrastruttura Internet of Things (IoT) è richiesta una strategia di sicurezza rigorosa e approfondita. Questa strategia richiede la protezione dei dati nel cloud, dell'integrità dei dati in transito sulla rete internet pubblica e il provisioning sicuro dei dispositivi. Ogni livello crea maggiori garanzie di sicurezza dell'infrastruttura complessiva.
 
@@ -90,4 +87,3 @@ Informazioni sulla protezione dell'hub IoT sono disponibili in [Controllare l'ac
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
-

@@ -1,6 +1,6 @@
 ---
 title: Applicazione .NET multilivello con il bus di servizio di Azure | Documentazione Microsoft
-description: Un&quot;esercitazione .NET che consente di sviluppare un&quot;applicazione multilivello in Azure che usa le code di Bus di servizio per la comunicazione tra livelli.
+description: Un'esercitazione .NET che consente di sviluppare un'applicazione multilivello in Azure che usa le code di Bus di servizio per la comunicazione tra livelli.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Applicazione .NET multilivello che usa code del bus di servizio
 ## <a name="introduction"></a>Introduzione
@@ -395,4 +394,3 @@ Per altre informazioni sugli scenari multilivello, vedere:
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-

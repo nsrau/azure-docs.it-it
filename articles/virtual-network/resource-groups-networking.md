@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
 ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="network-resource-provider"></a>Provider di risorse di rete
 Un fattore essenziale per il successo di un'azienda è la possibilità di creare e gestire applicazioni presenti in rete su larga scala in modo agile, flessibile, sicuro e ripetibile. Azure Resource Manager consente di creare tali applicazioni come unica raccolta di risorse nei gruppi di risorse. Tali risorse vengono gestite tramite diversi provider in Resource Manager.
@@ -265,10 +265,4 @@ Il modello di esempio precedente usa la rete virtuale e le risorse della subnet.
 [Distribuzione Azure Resource Manager o classica](../azure-resource-manager/resource-manager-deployment-model.md)
 
 [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

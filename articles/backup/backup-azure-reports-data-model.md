@@ -15,13 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 06/26/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: efecbc9f1c410744f49795889c4ec3cc618f07e0
-ms.contentlocale: it-it
-ms.lasthandoff: 06/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modello di dati per i report di Backup di Azure
 Questo articolo descrive il modello di dati di Power BI usato per creare report di Backup di Azure. Con questo modello di dati è possibile filtrare report esistenti in base ai campi di interesse e, soprattutto, creare report personalizzati usando le tabelle e i campi del modello. 
@@ -199,4 +197,3 @@ Dopo aver rivisto il modello di dati per la creazione di report di Backup di Azu
 
 * [Creazione di report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
 * [Applicazione di filtri ai report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-

@@ -1,0 +1,234 @@
+- name: Documentazione del processo data science per i team
+- name: Panoramica
+  href: overview.md
+- name: Ciclo di vita
+  href: lifecycle.md
+  items:
+    - name: 1. Informazioni commerciali
+      href: lifecycle-business-understanding.md
+    - name: 2. Acquisizione e comprensione dei dati
+      href: lifecycle-data.md
+    - name: 3. Modellazione
+      href: lifecycle-modeling.md
+    - name: 4. Distribuzione
+      href: lifecycle-deployment.md
+    - name: 5. Accettazione del cliente
+      href: lifecycle-acceptance.md
+    - name: Con Azure ML
+      href: 'http://aka.ms/datascienceprocess'
+- name: Ruoli e attività
+  href: roles-tasks.md
+  items:
+    - name: Gestione di gruppo
+      href: group-manager-tasks.md
+    - name: Responsabile del team
+      href: team-lead-tasks.md
+    - name: Responsabile di progetto
+      href: project-lead-tasks.md
+    - name: Singolo collaboratore
+      href: project-ic-tasks.md
+- name: Struttura progetto
+  href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
+- name: Esecuzione del progetto
+  href: project-execution.md
+- name: Esercitazioni
+  href: walkthroughs.md
+  items:
+    - name: Azure Machine Learning Workbench
+      href: walkthroughs-aml-with-tdsp.md
+      items:
+        - name: Classificazione di reddito negli Stati Uniti
+          href: ../preview/scenario-tdsp-classifying-us-incomes.md
+          maintainContext: true
+        - name: Riconoscimento di entità biomediche
+          href: ../preview/scenario-tdsp-biomedical-recognition.md
+          maintainContext: true
+    - name: Spark con PySpark e Scala
+      href: walkthroughs-spark.md
+      items:
+        - name: Esplorazione dei dati
+          href: spark-data-exploration-modeling.md
+        - name: Modelli di assegnazione dei punteggi
+          href: spark-model-consumption.md
+        - name: Esplorazione avanzata dei dati
+          href: spark-advanced-data-exploration-modeling.md
+    - name: Hive con Hadoop di HDInsight
+      href: walkthroughs-hdinsight-hadoop.md
+    - name: U-SQL con Azure Data Lake
+      href: walkthroughs-azure-data-lake.md
+    - name: 'R, Python e T-SQL con SQL Server'
+      href: walkthroughs-sql-server.md
+    - name: T-SQL e Python con SQL DW
+      href: walkthroughs-sql-data-warehouse.md
+- name: Procedure
+  items:
+    - name: Usare TDSP in Azure ML
+      href: ../preview/how-to-use-tdsp-in-azure-ml.md
+      maintainContext: true
+    - name: Configurare gli ambienti data science
+      href: environment-setup.md
+      items:
+        - name: Account di archiviazione di Azure
+          href: ../../storage/common/storage-create-storage-account.md
+          maintainContext: true
+        - name: Strumenti e piattaforme
+          href: platforms-and-tools.md
+        - name: Personalizzare Hadoop
+          href: customize-hadoop-cluster.md
+        - name: Area di lavoro di Azure Machine Learning
+          href: ../studio/create-workspace.md
+          maintainContext: true
+        - name: Configurare le macchine virtuali
+          href: virtual-machines.md
+    - name: Analizzare le esigenze aziendali
+      items:
+        - name: Identificare lo scenario
+          href: plan-your-environment.md
+    - name: Acquisire e comprendere dati
+      items:
+        - name: Gestire la logistica dei dati
+          items:
+            - name: Panoramica
+              href: ingest-data.md
+            - name: Archiviazione BLOB
+              href: move-azure-blob.md
+            - name: Usare Storage Explorer
+              href: move-data-to-azure-blob-using-azure-storage-explorer.md
+            - name: Usare AzCopy
+              href: move-data-to-azure-blob-using-azcopy.md
+            - name: Usare Python
+              href: move-data-to-azure-blob-using-python.md
+            - name: Usare SSIS
+              href: move-data-to-azure-blob-using-ssis.md
+            - name: Passare a una macchina virtuale
+              href: move-sql-server-virtual-machine.md
+            - name: Passare al database SQL
+              href: move-sql-azure.md
+            - name: Caricare dati nelle tabelle Hive
+              href: move-hive-tables.md
+            - name: Caricare dati da SQL locale
+              href: move-sql-azure-adf.md
+            - name: Caricare dati da tabelle di partizione SQL
+              href: parallel-load-sql-partitioned-tables.md
+        - name: Esplorare e visualizzare i dati
+          items:
+            - name: Preparazione dei dati
+              href: prepare-data.md
+            - name: Esplorazione dei dati
+              items:
+                - name: Panoramica
+                  href: explore-data.md
+                - name: Usare Pandas
+                  href: explore-data-blob.md
+                - name: Usare una macchina virtuale SQL
+                  href: explore-data-sql-server.md
+                - name: Usare le tabelle Hive
+                  href: explore-data-hive-tables.md
+            - name: Dati di esempio
+              items:
+                - name: Panoramica
+                  href: sample-data.md
+                - name: Usare l'archiviazione BLOB
+                  href: sample-data-blob.md
+                - name: Usare SQL Server
+                  href: sample-data-sql-server.md
+                - name: Usare le tabelle Hive
+                  href: sample-data-hive.md
+            - name: Elaborazione dei dati
+              items:
+                - name: Accedere con Python
+                  href: python-data-access.md
+                - name: Elaborare i dati BLOB
+                  href: data-blob.md
+                - name: Usare Azure Data Lake
+                  href: data-lake-walkthrough.md
+                - name: Usare una macchina virtuale SQL
+                  href: sql-server-virtual-machine.md
+                - name: Usare la pipeline di dati
+                  href: automated-data-pipeline-cheat-sheet.md
+                - name: Usare Spark
+                  href: spark-overview.md
+                - name: Usare Scala e Spark
+                  href: scala-walkthrough.md
+    - name: Sviluppare modelli
+      items:
+        - name: Progettazione delle funzionalità
+          items:
+            - name: Panoramica
+              href: create-features.md
+            - name: Usare Pandas
+              href: create-features-blob.md
+            - name: Usare SQL e Python
+              href: create-features-sql-server.md
+            - name: Usare le query Hive
+              href: create-features-hive.md
+        - name: Selezione delle funzionalità
+          href: select-features.md
+        - name: Creare ed eseguire il training di modelli
+          items:
+            - name: Scegliere gli algoritmi
+              href: ../studio/algorithm-choice.md
+              maintainContext: true
+            - name: Foglio informativo sugli algoritmi
+              href: ../studio/algorithm-cheat-sheet.md
+              maintainContext: true
+    - name: Distribuire i modelli
+      items:
+        - name: Con un servizio Web
+          href: ../studio/publish-a-machine-learning-web-service.md
+          maintainContext: true
+        - name: Usare un servizio Web
+          href: ../studio/consume-web-services.md
+          maintainContext: true
+- name: Risorse correlate
+  items:
+    - name: Microsoft Cognitive Toolkit - CNTK
+      href: 'https://docs.microsoft.com/en-us/cognitive-toolkit/'
+      maintainContext: true
+    - name: Soluzioni partner di Cortana Intelligence
+      items:
+        - name: Cortana Intelligence Gallery
+          href: 'https://gallery.cortanaintelligence.com'
+        - name: Guida alla pubblicazione di Cortana Intelligence
+          href: cortana-intelligence-appsource-publishing-guide.md
+        - name: Strumento di valutazione delle soluzioni Cortana Intelligence
+          href: cortana-intelligence-appsource-evaluation-tool.md
+    - name: Cortana Analytics
+      items:
+        - name: API
+          items:
+            - name: Rilevamento anomalie
+              href: apps-anomaly-detection-api.md
+            - name: Servizi cognitivi
+              href: 'https://docs.microsoft.com/en-us/azure/cognitive-services/'
+            - name: Manutenzione predittiva
+              items:
+                - name: Panoramica
+                  href: cortana-analytics-playbook-predictive-maintenance.md
+                - name: Architettura
+                  href: cortana-analytics-architecture-predictive-maintenance.md
+                - name: Guida tecnica
+                  href: cortana-analytics-technical-guide-predictive-maintenance.md
+            - name: Telemetria dei veicoli
+              items:
+                - name: Panoramica
+                  href: cortana-analytics-playbook-vehicle-telemetry.md
+                - name: Studio
+                  href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
+                - name: Configurazione
+                  href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
+- name: Risorse
+  items:
+    - name: Strumenti e utilità TDSP - GitHub
+      href: 'https://github.com/Azure/Azure-TDSP-Utilities'
+      items:
+        - name: Utilità più recenti per il processo data science per i team
+          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/'
+    - name: Blog su Cortana Intelligence e Machine Learning
+      href: 'https://blogs.technet.microsoft.com/machinelearning/'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Video
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'

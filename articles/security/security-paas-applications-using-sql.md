@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 18509b3fc3a73118f67583a0b087c58f0e51993c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="securing-paas-databases-in-azure"></a>Protezione di database PaaS in Azure
 
@@ -92,4 +91,3 @@ In questo articolo sono state illustrate varie procedure consigliate per la prot
 
 - [Protezione delle distribuzioni PaaS](security-paas-deployments.md)
 - [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante i Servizi app di Azure](security-paas-applications-using-app-services.md)
-

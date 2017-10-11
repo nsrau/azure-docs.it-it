@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 09/29/2017
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a76acd67e9ba7822f2837b3c08e2ede389047f11
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f9f7449fbfc6a1f2fe96e19dd2b13845e602946d
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -55,7 +55,6 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Griglia di eventi di Azure](#azure-event-grid-limits)
 * [Cache Redis di Azure](#azure-redis-cache-limits)
-* [Azure RemoteApp](#azure-remoteapp-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [Servizi BizTalk](#biztalk-services-limits)
@@ -68,7 +67,8 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [DNS](#dns-limits)
 * [Hub eventi](#event-hubs-limits)
 * [Hub IoT](#iot-hub-limits)
-* [Insieme di credenziali di chiave](#key-vault-limits)
+* [Servizio Device Provisioning in hub IoT](#iot-hub-device-provisioning-service-limits)
+* [Insieme di credenziali delle chiavi](#key-vault-limits)
 * [Log Analytics/Operational Insights](#log-analytics-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
@@ -230,6 +230,9 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 ### <a name="iot-hub-limits"></a>Limiti relativi all'hub IoT
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
+### <a name="iot-hub-device-provisioning-service-limits"></a>Limiti relativi al servizio Device Provisioning in hub IoT
+[!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
+
 ### <a name="data-factory-limits"></a>Limiti relativi a Data factory
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
@@ -247,9 +250,6 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 
 ### <a name="azure-event-grid-limits"></a>Limiti relativi a Griglia di eventi di Azure
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
-
-### <a name="azure-remoteapp-limits"></a>Limiti relativi a RemoteApp di Azure
-[!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>Limiti relativi al sistema StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

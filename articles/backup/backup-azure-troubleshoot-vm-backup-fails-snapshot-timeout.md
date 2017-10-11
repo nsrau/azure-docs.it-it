@@ -1,6 +1,6 @@
 ---
 title: 'Risolvere un problema di Backup di Azure: stato dell''agente guest non disponibile | Microsoft Docs'
-description: "Sintomi, cause e soluzioni per i problemi di Backup di Azure correlati all'errore: Non è stato possibile comunicare con l'agente di macchine virtuali"
+description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correlati all'agente, all'estensione e ai dischi
 services: backup
 documentationcenter: 
 author: genlin
@@ -12,14 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/17/2017
+ms.topic: troubleshooting
+ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 6ed651bb8caafd18cec93e68ac70e27f92133e5c
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 1eb8c05f24fcf41f9c188e1153f96a53d8828a39
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -68,6 +68,13 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [non è possibile recuperare lo stato degli snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)
 
+## <a name="the-specified-disk-configuration-is-not-supported"></a>La configurazione di disco specificata non è supportata
+
+Attualmente Backup di Azure non supporta dischi di dimensioni [maggiori di 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- Se la dimensione dei dischi è maggiore di 1 TB, [collegare nuovi dischi](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) di dimensione inferiore a 1 TB <br>
+- Copiare quindi i dati dal disco di dimensione superiore a 1 TB nei dischi appena creati di dimensione inferiore a 1 TB. <br>
+- Verificare che tutti i dati siano stati copiati e rimuovere i dischi di dimensione superiore a 1 TB
+- Avviare il backup.
 
 ## <a name="causes-and-solutions"></a>Cause e soluzioni
 

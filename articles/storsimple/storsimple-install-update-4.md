@@ -1,6 +1,6 @@
 ---
-title: Installare l&quot;aggiornamento 4 nel dispositivo StorSimple | Microsoft Docs
-description: Illustra come installare l&quot;aggiornamento 4 di StorSimple serie 8000 in un dispositivo StorSimple serie 8000.
+title: Installare l'aggiornamento 4 nel dispositivo StorSimple | Microsoft Docs
+description: Illustra come installare l'aggiornamento 4 di StorSimple serie 8000 in un dispositivo StorSimple serie 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/30/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 7dc2f29db64218b9db17eaf555c43a7ad282ea07
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installare l'aggiornamento 4 nel dispositivo StorSimple
 
@@ -103,5 +101,4 @@ Eseguire i passaggi seguenti per scaricare e importare gli hotfix.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulla [versione dell'aggiornamento 4](storsimple-update4-release-notes.md).
-
 

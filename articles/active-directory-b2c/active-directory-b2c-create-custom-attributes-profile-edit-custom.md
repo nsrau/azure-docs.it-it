@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 67c9f6eca18e2dd77e00b8bc8c7bcc546ea3936e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f3e4eb6fedf850dbb827fd2a10593249d2f17ef1
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Creazione e utilizzo di attributi personalizzati in criteri personalizzati di modifica del profilo
@@ -62,7 +62,7 @@ Le proprietà di estensione esistono solo nel contesto di un'applicazione regist
 1. Selezionare **Crea. Il completamento dell'operazione viene visualizzato nella sezione **notifiche**
 1. Selezionare l'applicazione web appena creata: **WebApp-GraphAPI-DirectoryExtensions**
 1. Selezionare Impostazioni: **Autorizzazioni necessarie**
-1. Selezionare l'API **Windows Active Directory**
+1. Selezionare l'API **Windows Azure Active Directory**
 1. Inserire un segno di spunta in Autorizzazioni per l'applicazione: **Legge e scrive i dati della directory**, quindi **Salva**
 1. Selezionare **Concedere le autorizzazioni** e quindi fare clic su **Sì** per confermare.
 1. Copiare negli Appunti e salvare gli identificatori seguenti da WebApp-GraphAPI-DirectoryExtensions>Impostazioni>Proprietà>
@@ -235,7 +235,7 @@ Le proprietà di estensione esistono solo nel contesto di un'applicazione regist
 
 Il token ID inviato all'applicazione include la nuova proprietà di estensione come attestazione personalizzata, preceduta da extension_loyaltyId. Vedere l'esempio.
 
-```
+```json
 {
   "exp": 1493585187,
   "nbf": 1493581587,
@@ -254,8 +254,8 @@ Il token ID inviato all'applicazione include la nuova proprietà di estensione c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Aggiungere la nuova attestazione ai flussi per gli accessi con account di social networking modificando gli elementi TechnicalProfile elencati. Questi due elementi TechnicalProfile vengono usati per gli accessi con account di social networking/federati per scrivere e leggere i dati utente usando alternativeSecurityId come localizzatore dell'oggetto utente.
-```
+### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>Aggiungere la nuova attestazione ai flussi per gli accessi con account di social networking modificando gli elementi TechnicalProfile elencati di seguito. Questi due elementi TechnicalProfile vengono usati per gli accessi con account di social networking/federati per scrivere e leggere i dati utente usando alternativeSecurityId come localizzatore dell'oggetto utente.
+```xml
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

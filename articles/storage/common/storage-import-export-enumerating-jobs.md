@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 1977bfc0e516088310f45ecdd960287eeed2c2d8
-ms.lasthandoff: 03/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Enumerazione dei processi nel servizio Importazione/Esportazione di Azure
 Per enumerare tutti i processi in una sottoscrizione, chiamare l'operazione [List Jobs](/rest/api/storageimportexport/jobs#Jobs_List). `List Jobs` restituisce un elenco dei processi nonché gli attributi seguenti:
 
@@ -34,4 +32,3 @@ Per enumerare tutti i processi in una sottoscrizione, chiamare l'operazione [Lis
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
-

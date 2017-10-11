@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1e1b93c29dc28569e897c57d9b68622c1edbd636
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ebf35877dcd6f980af75f46b437070a6a29b7c54
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -40,9 +40,9 @@ Questa esercitazione, parte sette di sette, illustra le attività seguenti:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in immagini del contenitore, caricate poi nel Registro contenitori di Azure, ed è stato creato un cluster Kubernetes. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md) (Esercitazione 1: Creare immagini del contenitore). 
+Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in immagini del contenitore, caricate poi nel Registro contenitori di Azure, ed è stato creato un cluster Kubernetes. 
 
-Come requisito minimo, questa esercitazione richiede un cluster Kubernetes con nodi di agente di Linux, e un account di Operations Management Suite (OMS). Se necessario, registrarsi per una [versione di valutazione gratuita di OMS](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial).
+Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md) (Esercitazione 1: Creare immagini del contenitore). 
 
 ## <a name="get-workspace-settings"></a>Ottenere le impostazioni dell'area di lavoro
 
@@ -140,7 +140,7 @@ Nel portale di OMS cercare un riquadro di riepilogo dei **Contenitori** nel dash
 
 Analogamente, nel portale di Azure passare a **Log Analytics** e selezionare il nome della propria area di lavoro. Per visualizzare il riquadro di riepilogo dei **Contenitori**, fare clic su **Soluzioni** > **Contenitori**. Per visualizzare i dettagli, fare clic sul riquadro.
 
-Vedere la [Documentazione su Log Analytics](../../log-analytics/index.md) per istruzioni dettagliate sulla creazione di query e sull'analisi dei dati di monitoraggio.
+Vedere la [Documentazione su Log Analytics](../../log-analytics/index.yml) per istruzioni dettagliate sulla creazione di query e sull'analisi dei dati di monitoraggio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

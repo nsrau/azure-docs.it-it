@@ -1,6 +1,6 @@
 ---
-title: Come gestire Archiviazione file di Azure dal portale di Azure | Microsoft Docs
-description: Informazioni su come usare il portale di Azure per gestire Archiviazione file di Azure.
+title: Come gestire File di Azure dal portale di Azure | Microsoft Docs
+description: Informazioni su come usare il portale di Azure per gestire File di Azure.
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d5ffa7cff0a31e36f5a96aaa4b2d477fa39333fb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="how-to-use-azure-file-storage-from-the-azure-portal"></a>Come usare Archiviazione file di Azure dal portale di Azure
-Il [portale di Azure](https://portal.azure.com) fornisce un'interfaccia utente per la gestione di Archiviazione file di Azure. Dal Web browser è possibile eseguire le azioni seguenti:
+# <a name="how-to-use-azure-files-from-the-azure-portal"></a>Come usare File di Azure dal portale di Azure
+Il [portale di Azure](https://portal.azure.com) fornisce un'interfaccia utente per la gestione di File di Azure. Dal Web browser è possibile eseguire le azioni seguenti:
 
 * Creare una condivisione file
 * Caricare i file nella condivisione file e scaricarli.
@@ -49,7 +49,7 @@ Il [portale di Azure](https://portal.azure.com) fornisce un'interfaccia utente p
 
     ![Schermata che illustra come creare una condivisione file nel portale](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. Immettere il nome della condivisione e le dimensioni, fino a 5120 GB, per creare la prima condivisione file. Dopo che la condivisione file è stata creata, è possibile montarla da qualsiasi file system che supporti SMB 2.1 o SMB 3.0. È possibile fare clic su **Quota** nella condivisione file per modificare le dimensioni del file fino a 5120 GB. Vedere [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) per un preventivo dei costi di archiviazione relativi all'uso di Archiviazione file di Azure.
+6. Immettere il nome della condivisione e le dimensioni, fino a 5120 GB, per creare la prima condivisione file. Dopo che la condivisione file è stata creata, è possibile montarla da qualsiasi file system che supporti SMB 2.1 o SMB 3.0. È possibile fare clic su **Quota** nella condivisione file per modificare le dimensioni del file fino a 5120 GB. Vedere [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) per un preventivo dei costi di archiviazione relativi all'uso di File di Azure.
 
     ![Schermata che illustra come creare una condivisione file nel portale](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
@@ -63,7 +63,7 @@ Il [portale di Azure](https://portal.azure.com) fornisce un'interfaccia utente p
     ![Schermata che illustra come caricare file nel portale](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
 
 ## <a name="connect-to-file-share"></a>Connettersi alla condivisione file
--  Fare clic su **Connetti** per ottenere la riga di comando per montare la condivisione file da Windows e Linux. Gli utenti Linux possono vedere anche [Come usare Archiviazione file di Azure con Linux](../storage-how-to-use-files-linux.md) per altre istruzioni sul montaggio per le altre distribuzioni Linux.
+-  Fare clic su **Connetti** per ottenere la riga di comando per montare la condivisione file da Windows e Linux. Gli utenti Linux possono vedere anche [Come usare File di Azure con Linux](../storage-how-to-use-files-linux.md) per altre istruzioni sul montaggio per le altre distribuzioni Linux.
 
     ![Schermata che illustra come montare la condivisione file](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
 -  È possibile copiare i comandi per il montaggio della condivisione file in Windows o Linux ed eseguirla dalla VM di Azure o dal computer locale.
@@ -74,7 +74,7 @@ Il [portale di Azure](https://portal.azure.com) fornisce un'interfaccia utente p
 Per trovare la chiave di accesso dell'account di archiviazione per il montaggio, fare clic su **Visualizza chiavi di accesso per questo account di archiviazione** nella parte inferiore della pagina della connessione.
 
 ## <a name="see-also"></a>Vedere anche
-Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione file di Azure.
+Vedere questi collegamenti per altre informazioni su File di Azure.
 
 * [Domande frequenti](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      

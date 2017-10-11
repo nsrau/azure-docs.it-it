@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2016
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 01b798a25575b66f89057315ce80d6cc0cde53b5
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure
 [MySQL][MySQL] è un database SQL open source molto diffuso. Questa esercitazione illustra come creare una macchina virtuale che esegue OpenSUSE Linux, poi installa MySQL.
@@ -41,5 +40,4 @@ Per informazioni su MySQL, vedere la [documentazione di MySQL][MySQLDocs].
 
 [MySQLDocs]:http://dev.mysql.com/doc/index-topic.html
 [MySQL]:http://www.mysql.com
-
 

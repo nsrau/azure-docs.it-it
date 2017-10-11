@@ -1,5 +1,5 @@
 ---
-title: Personalizzare un'interfaccia utente tramite criteri personalizzati-Azure Active Directory B2C | Microsoft Docs
+title: Personalizzare un'interfaccia utente tramite criteri personalizzati - Azure AD B2C | Microsoft Docs
 description: Informazioni sulla personalizzazione di un'interfaccia utente con l'uso di criteri personalizzati in Azure AD B2C.
 services: active-directory-b2c
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d5a3c0a323b31696d39e3d2b36317dec3a2337d7
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configurare la personalizzazione dell'interfaccia utente in un criterio personalizzato
 
@@ -186,4 +185,3 @@ Nella sezione [Modificare i criteri personalizzati di iscrizione o di accesso](#
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sugli elementi dell'interfaccia utente che è possibile personalizzare, vedere la [guida di riferimento per la personalizzazione dell'interfaccia utente per i criteri predefiniti](active-directory-b2c-reference-ui-customization.md).
-

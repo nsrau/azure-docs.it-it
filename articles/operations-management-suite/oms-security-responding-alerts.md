@@ -21,7 +21,6 @@ ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Sicurezza e controllo di Operations Management Suite
 Questo documento illustra come usare la funzionalità di intelligence per le minacce disponibile nel dashboard Security and Audit (Sicurezza e controllo) di OMS per monitorare e gestire gli avvisi di sicurezza.

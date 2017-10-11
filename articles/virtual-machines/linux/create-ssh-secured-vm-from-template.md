@@ -1,10 +1,10 @@
 ---
 title: Creare una VM Linux in Azure da un modello | Microsoft Docs
-description: Procedura per usare l&quot;interfaccia della riga di comando 2.0 di Azure per creare una VM Linux da un modello di Resource Manager
+description: Procedura per usare l'interfaccia della riga di comando 2.0 di Azure per creare una VM Linux da un modello di Resource Manager
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
@@ -13,15 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 908a8a0c82b2d21fb25c9b33dbd714570d1ac272
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 938304efe5e4a13736a50348bd0531c475149aec
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Procedura per creare una macchina virtuale Linux con i modelli di Azure Resource Manager
@@ -60,7 +59,7 @@ az network public-ip show \
     --output tsv
 ```
 
-È quindi possibile usare la connessione SSH alla VM nel modo usuale:
+È quindi possibile usare la connessione SSH alla VM nel modo usuale. Fornire il proprio indirizzo IP pubblico dal comando precedente:
 
 ```bash
 ssh azureuser@<ipAddress>

@@ -1,6 +1,6 @@
 ---
-title: Effettuare l'iscrizione ad Azure Active Directory Premium
-description: Descrive come effettuare l'iscrizione ad Azure Active Directory Premium.
+title: Effettuare l'iscrizione ad Azure Active Directory Premium | Microsoft Docs
+description: Descrive come effettuare l'iscrizione ad Azure Active Directory Premium Edition
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Guida introduttiva: Effettuare l'iscrizione ad Azure Active Directory Premium
-Per iniziare a usare Azure Active Directory (Azure AD) Premium, è necessario acquistare licenze e associarle a una sottoscrizione di Azure. Se si crea una nuova sottoscrizione di Azure, è anche necessario attivare il piano di licenze e l'accesso al servizio Azure AD come descritto nelle sezioni seguenti. 
+Per iniziare a usare Azure Active Directory (Azure AD) Premium, è possibile acquistare le licenze e associarle alla sottoscrizione di Azure. Se si crea una nuova sottoscrizione di Azure, è anche necessario attivare il piano di licenze e l'accesso al servizio Azure AD come descritto nelle sezioni seguenti. 
 
 ## <a name="sign-up-for-active-directory-premium"></a>Effettuare l'iscrizione ad Active Directory Premium
 Sono disponibili diverse opzioni per l'iscrizione ad Active Directory Premium: 
+* Usare la sottoscrizione di Azure o l'abbonamento a Office 365
+* Usare un piano di licenza di Enterprise Mobility + Security
+* Usare un piano per contratti multilicenza Microsoft
 
 ### <a name="azure-or-office-365"></a>Azure o Office 365 
 Un sottoscrittore di Azure o di Office 365 può acquistare Azure Active Directory Premium online. 
@@ -48,10 +52,8 @@ Altre informazioni sulle opzioni di acquisto dei contratti multilicenza sono dis
 
 > [!NOTE]
 > Le edizioni Premium e Basic di Azure Active Directory sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
 
-Se sono già state acquistate e attivate licenze di Azure AD per la stessa sottoscrizione di Azure usata nei passaggi precedenti, le licenze verranno attivate automaticamente nella stessa directory. Non sarà necessario proseguire con i passaggi descritti nella parte restante di questo articolo.
+Se sono già state acquistate e attivate licenze di Azure AD per la stessa sottoscrizione di Azure usata nei passaggi precedenti, le licenze verranno attivate automaticamente nella stessa directory. In caso contrario, proseguire con i passaggi descritti nella parte restante di questo articolo.
 
 ## <a name="activate-your-license-plan"></a>Attivare un piano di licenze
 Se questo è il primo piano di licenze di Azure AD acquistato, verrà generato e inviato all'utente un messaggio di posta elettronica di conferma al completamento dell'acquisto, che è necessario per attivare il primo piano di licenze.
@@ -62,7 +64,7 @@ Se questo è il primo piano di licenze di Azure AD acquistato, verrà generato e
    
     ![pagina di accesso][1]
 
-    - Se è già disponibile un tenant, fare clic su **Accedi** per accedere con l'account amministratore esistente. Eseguire l'accesso con le credenziali di amministratore globale dalla directory in cui devono essere attivate le licenze.
+    - Se è già disponibile un tenant, fare clic su **Accedi** per accedere con l'account amministratore esistente. Eseguire l'accesso con credenziali di amministratore globale per il tenant in cui devono essere attivate le licenze.
 
     - Se si vuole creare un nuovo tenant di Azure AD da usare con il piano di licenze, fare clic su **Iscriviti** per aprire la finestra di dialogo **Creazione del profilo dell'account**.
 

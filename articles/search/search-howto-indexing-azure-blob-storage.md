@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/22/2017
 ms.author: eugenesh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 023c343122f872943fb3ab3eed7b4caedfae9ac4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -28,21 +28,7 @@ Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (
 ## <a name="supported-document-formats"></a>Formati di documento supportati
 L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 
-* PDF
-* Formati di Microsoft Office: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (messaggi di posta elettronica di Outlook)  
-* HTML
-* XML
-* ZIP
-* EML
-* RTF
-* File di testo normale (vedere anche [Indicizzazione di testo normale](#IndexingPlainText))
-* JSON (vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md))
-* CSV (vedere la funzionalità in anteprima [Indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md))
-
-> [!IMPORTANT]
-> Il supporto per gli array in formato CSV e JSON è attualmente in anteprima. Tali formati sono disponibili solo usando la versione **2016-09-01-Preview** dell'API REST o la versione 2.x-preview dell'SDK .NET. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
->
->
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="setting-up-blob-indexing"></a>Configurazione dell'indicizzazione BLOB
 È possibile impostare un indicizzatore dell'Archiviazione BLOB di Azure usando:

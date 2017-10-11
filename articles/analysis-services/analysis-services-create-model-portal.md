@@ -15,16 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/21/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bd58f1845dabf6afb47ce27236d14479677a8808
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-model-in-azure-portal"></a>Creare un modello nel portale di Azure
 
-La funzione di progettazione Web di Azure Analysis Services (anteprima) nel portale di Azure offre un modo semplice e rapido per creare e modificare modelli tabulari ed eseguire query nei dati dei modelli direttamente dal browser in uso. 
+La funzione finestra di progettazione Web di Azure Analysis Services (anteprima) nel portale di Azure offre un modo semplice e rapido per creare e modificare modelli tabulari ed eseguire query nei dati dei modelli direttamente dal browser in uso. 
 
 Tenere presente che la finestra di progettazione Web è in versione di **anteprima**. Anche se vengono aggiunte continuamente nuove funzionalità, nell'anteprima le funzionalità sono limitate. Per operazioni più avanzate di sviluppo e testing dei modelli, è consigliabile usare Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
 
@@ -72,6 +71,5 @@ Nel browser verrà visualizzato il nuovo modello. A questo punto è possibile:
 ## <a name="next-steps"></a>Passaggi successivi 
 [Gestire ruoli e utenti del database](analysis-services-database-users.md)  
 [Stabilire la connessione con Excel](analysis-services-connect-excel.md)  
-
 
 

@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 2d3046381892978e3aea12752f526d7cdf8184f5
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: f8718e240eaefb47b18b6098be083e335ccbc89d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Browser e dispositivi supportati per il portale di Azure
 È possibile eseguire il [portale di Azure](https://portal.azure.com) in tutti i moderni browser e dispositivi tablet e desktop.
@@ -37,5 +36,4 @@ Il portale di Azure viene eseguito correttamente nei moderni PC, Mac e tablet. S
 * Safari (versione più recente, solo Mac)
 * Chrome (versione più recente)
 * Firefox (versione più recente)
-
 

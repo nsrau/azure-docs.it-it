@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db677614c23a3447e3e40ae867711a754b06d0d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -290,7 +290,7 @@ I rilevatori di minacce per il database SQL fanno uso di una delle metodologie d
 
 ### <a name="application-gateway-web-application-firewall"></a>Web application firewall del gateway applicazione
 
-[Web application firewall](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) è una funzionalità del [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) che consente di proteggere le applicazioni Web che usano il gateway applicazione per funzioni standard di [controller per la distribuzione di applicazioni](https://kemptechnologies.com/in/application-delivery-controllers). Web application firewall protegge infatti le applicazioni dalla maggior parte delle [10 vulnerabilità Web OWASP più diffuse](https://www.owasp.org/index.php/Top_10_2010-Main).
+[Web application firewall](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) è una funzionalità del [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) che consente di proteggere le applicazioni Web che usano il gateway applicazione per funzioni standard di [controller per la distribuzione di applicazioni](https://kemptechnologies.com/in/application-delivery-controllers). Web application firewall protegge infatti le applicazioni dalla maggior parte delle [10 vulnerabilità Web OWASP più diffuse](https://www.owasp.org/index.php/Top_10_2010-Main).
 
 ![Web application firewall del gateway applicazione](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 

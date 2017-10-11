@@ -12,14 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 7072293d98526812cb42ce9c2f8e33bfcafaa149
-ms.contentlocale: it-it
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="pool-resize-complete-event"></a>Evento di completamento ridimensionamento pool
 
  Questo evento viene generato quando il ridimensionamento di un pool è stato completato o non è riuscito.

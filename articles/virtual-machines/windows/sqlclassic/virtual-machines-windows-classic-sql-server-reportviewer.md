@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e54c3bc484b0b3b81cc495e54c17e8ef448abe91
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: c4f7c829e6fe3890342bd973185e679dd3ea2df5
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Usare ReportViewer in un sito Web ospitato in Azure
@@ -78,7 +78,7 @@ In modalità di elaborazione remota il controllo ReportViewer usa gli assembly s
 ReportViewer deve usare le credenziali appropriate per l'autenticazione con il server di report e le credenziali devono essere autorizzate dal server di report per accedere ai report desiderati. Per informazioni sull'autenticazione, vedere il white paper [Controllo visualizzatore di report del servizio di creazione report e server di report basati sulle macchine virtuali di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Pubblicare l'applicazione Web ASP.NET in Azure
-Per istruzioni sulla pubblicazione di un'applicazione Web ASP.NET in Azure, vedere la [procedura per la migrazione e la pubblicazione di un'applicazione Web in Azure da Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e l'articolo di [introduzione alle app Web e ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
+Per istruzioni sulla pubblicazione di un'applicazione Web ASP.NET in Azure, vedere la [procedura per la migrazione e la pubblicazione di un'applicazione Web in Azure da Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e l'articolo di [introduzione alle app Web e ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Se il comando Aggiungi progetto di distribuzione di Azure o Aggiungi progetto di servizio cloud Azure non viene visualizzato nel menu di scelta rapida in Esplora soluzioni, potrebbe essere necessario modificare il framework di destinazione per il progetto in .NET Framework 4.

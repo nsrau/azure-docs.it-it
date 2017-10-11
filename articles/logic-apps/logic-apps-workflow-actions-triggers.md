@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: cc41bdb12cf11e60489e104af2df4dd0720dd91b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -148,23 +148,23 @@ I trigger HTTP eseguono il polling di un endpoint specificato e controllano la r
 |retryPolicy|No|Oggetto che consente di personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx.|Oggetto|  
 |authentication|No|Rappresenta il metodo con cui autenticare la richiesta. Per informazioni dettagliate su questo oggetto, vedere [Autenticazione in uscita dell'Utilità di pianificazione](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Oltre all'utilità di pianificazione, esiste un'altra proprietà supportata: `authority`. Per impostazione predefinita, questo valore è `https://login.windows.net` quando non viene specificato, ma è possibile usare un gruppo di destinatari diverso, ad esempio `https://login.windows\-ppe.net`|Oggetto|  
   
-Con il trigger HTTP, l'API HTTP deve essere conforme a un modello specifico per poter interagire correttamente con l'app per la logica. Sono necessari i campi seguenti:  
+Con il trigger HTTP, l'API HTTP deve essere conforme a un modello specifico per poter interagire correttamente con l'app per la logica. Essa riconosce le proprietà seguenti:  
   
-|Response|Descrizione|  
-|------------|---------------|  
-|Codice di stato|Il codice di stato 200 \(OK\) attiva un'esecuzione. Nessun altro codice di stato attiva un'esecuzione.|  
-|Intestazione Retry\-after|Numero di secondi prima che l'app per la logica esegua di nuovo il polling dell'endpoint.|  
-|Intestazione Location|URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale.|  
+|Response|Obbligatorio|Descrizione|  
+|------------|------------|---------------|  
+|Codice di stato|Sì|Il codice di stato 200 \(OK\) attiva un'esecuzione. Nessun altro codice di stato attiva un'esecuzione.|  
+|Intestazione Retry\-after|No|Numero di secondi prima che l'app per la logica esegua di nuovo il polling dell'endpoint.|  
+|Intestazione Location|No|URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale.|  
   
 Di seguito sono riportati alcuni esempi di comportamenti diversi a seconda del tipo di richiesta:  
   
 |Codice della risposta|Retry\-After|Comportamento|  
 |-----------------|----------------|------------|  
-|200|\(nessuna\)|Trigger non valido. Retry\-After è obbligatorio, altrimenti il motore non esegue mai il polling per la richiesta successiva.|  
-|202|60|Non attiva il flusso di lavoro. Verrà eseguito un altro tentativo entro un minuto.|  
+|200|\(nessuna\)|Esegue il flusso di lavoro e il controllo di più contenuti dopo la ricorrenza definita.|  
 |200|10|Esegue il flusso di lavoro e verifica di nuovo la disponibilità di altri contenuti entro 10 secondi.|  
-|400|\(nessuna\)|Richiesta non valida, non esegue il flusso di lavoro. Se non è definito alcun **criterio per i tentativi**, vengono usati i criteri predefiniti. Dopo che è stato raggiunto il numero di tentativi, il trigger non è più valido.|  
-|500|\(nessuna\)|Errore del server, non esegue il flusso di lavoro.  Se non è definito alcun **criterio per i tentativi**, vengono usati i criteri predefiniti. Dopo che è stato raggiunto il numero di tentativi, il trigger non è più valido.|  
+|202|60|Non attiva il flusso di lavoro. Il successivo tentativo viene eseguito dopo un minuto in base alla ricorrenza definita. Se la ricorrenza definita è inferiore a un minuto, intestazione retry-after ha la precedenza. In caso contrario viene seguita la ricorrenza definita.|  
+|400|\(nessuna\)|Richiesta non valida, non esegue il flusso di lavoro. Se non è definito alcun **criterio per i tentativi**, vengono usati i criteri predefiniti. Una volta raggiunto il numero di tentativi, il trigger cercherà nuovamente contenuti seguendo la ricorrenza definita.|  
+|500|\(nessuna\)|Errore del server, non esegue il flusso di lavoro.  Se non è definito alcun **criterio per i tentativi**, vengono usati i criteri predefiniti. Una volta raggiunto il numero di tentativi, il trigger cercherà nuovamente contenuti seguendo la ricorrenza definita.|  
   
 Gli output di un trigger HTTP sono simili a questo esempio:  
   

@@ -1,6 +1,6 @@
 ---
-title: Linee guida per l&quot;ottimizzazione delle prestazioni di Spark in Azure Data Lake Store | Documentazione Microsoft
-description: Linee guida per l&quot;ottimizzazione delle prestazioni di Spark in Azure Data Lake Store
+title: Linee guida per l'ottimizzazione delle prestazioni di Spark in Azure Data Lake Store | Documentazione Microsoft
+description: Linee guida per l'ottimizzazione delle prestazioni di Spark in Azure Data Lake Store
 services: data-lake-store
 documentationcenter: 
 author: stewu
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: 29d4a361f98c63dab30155855d603a809eb804c8
 ms.openlocfilehash: 2109744fb7ffdfafb7a86bbea355e119718af099
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-store"></a>Linee guida per l'ottimizzazione delle prestazioni di Spark in HDInsight e di Azure Data Lake Store
 
@@ -118,10 +118,4 @@ Si supponga di disporre di un cluster costituito da 8 nodi D4v2 che eseguono 2 a
     num-executors = Min (memory constraint, CPU constraint)
     num-executors = Min (16, 16)
     num-executors = 16    
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

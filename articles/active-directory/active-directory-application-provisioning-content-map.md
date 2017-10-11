@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4d33237833f34495e6049e348ad4518a2b70ee51
-ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 55c5abccb2472d653a4e355e39a19a224b979b85
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>Problemi di configurazione e provisioning degli utenti in un'applicazione
 
 
@@ -35,4 +33,3 @@ ms.lasthandoff: 04/17/2017
   * [I encountered a problem when configuring user provisioning to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Problema durante la configurazione del provisioning degli utenti in un'applicazione della raccolta di Azure AD)
   * [I've set up provisioning to my Azure AD Gallery application, but no users are being provisioned](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Dopo aver configurato il provisioning nell'applicazione della raccolta Azure AD non viene effettuato il provisioning di alcun utente)
   * [Provisioning to my Azure AD Gallery application is working, but the wrong set of users are being provisioned](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Viene effettuato il provisioning di un set di utenti non corretto nell'applicazione della raccolta Azure AD)
-

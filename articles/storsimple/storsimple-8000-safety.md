@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: e45b09a62f33fd9811714febd63a74149784980d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installazione sicura e funzionamento del dispositivo StorSimple
 ![Icona di avviso](./media/storsimple-safety/IC740879.png)
@@ -153,5 +151,4 @@ Dopo aver esaminato questi avvisi sulla sicurezza, i passaggi successivi sono pe
 ## <a name="next-steps"></a>Passaggi successivi
 * Per un dispositivo 8100, vedere [Installare il dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
 * Per un dispositivo 8600, vedere [Installare il dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
-
 

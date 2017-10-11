@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
 ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-nsgs-using-the-portal"></a>Gestire gruppi di sicurezza di rete usando il portale
 
@@ -199,9 +199,3 @@ Per associare di nuovo l'NSG **NSG-FrontEnd** alla subnet **FronEnd**, seguire q
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Abilitare la registrazione](virtual-network-nsg-manage-log.md) per gli NSG.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -17,10 +17,10 @@ ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 892d3481b4ec70fb8434cb25013c5cfd8ab85051
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -43,7 +43,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-linux-vm"></a>Creare una macchina virtuale Linux
 
-Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group#create) e creare una VM Linux con il comando [az vm create](https://docs.microsoft.com/cli/azure/vm#create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) e creare una VM Linux con il comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 L'esempio seguente usa l'interfaccia della riga di comando di Azure per creare un gruppo di risorse denominato *myResourceGroupMEAN* nella località *eastus*. Viene creata una VM denominata *myVM* con le chiavi SSH se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, usare l'opzione --ssh-key-value option.
 

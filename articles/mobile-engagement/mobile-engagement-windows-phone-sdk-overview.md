@@ -1,5 +1,5 @@
 ---
-title: Azure Mobile Engagement - Panortamica dell&quot;SDK per Azure Mobile Engagement | Documentazione Microsoft
+title: Azure Mobile Engagement - Panortamica dell'SDK per Azure Mobile Engagement | Documentazione Microsoft
 description: Panoramica di Azure Mobile Engagement SDK per Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Panoramica di Azure Mobile Engagement SDK per Windows Phone Silverlight
-Iniziare da qui per ottenere i dettagli su come integrare Azure Mobile Engagement in un'app per Windows Phone Silverlight. Se si vuole fare prima una prova, completare l' [esercitazione di&15; minuti](mobile-engagement-windows-phone-get-started.md).
+Iniziare da qui per ottenere i dettagli su come integrare Azure Mobile Engagement in un'app per Windows Phone Silverlight. Se si vuole fare prima una prova, completare l' [esercitazione di 15 minuti](mobile-engagement-windows-phone-get-started.md).
 
 Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-windows-phone-sdk-content.md)
 
@@ -52,10 +52,4 @@ I log della console generati da SDK possono essere abilitati/disattivati/filtrat
 
 ### <a name="upgrade-from-older-versions"></a>Eseguire l'aggiornamento da versioni precedenti
 Vedere [Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

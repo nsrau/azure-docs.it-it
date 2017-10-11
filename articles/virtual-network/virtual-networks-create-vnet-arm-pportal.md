@@ -17,15 +17,15 @@ ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: a31f0524a6fa1de45498f340a27b863a3c627e04
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>Creare una rete virtuale con più subnet
 
-Questa esercitazione spiega come creare una rete virtuale di Azure di base con subnet pubblica e privata separate. All'interno di una subnet è possibile creare risorse di Azure come macchine virtuali, ambienti del servizio app, set di scalabilità di macchine virtuali, Azure HDInsight e altri servizi cloud. Le risorse nelle reti virtuali possono comunicare tra loro e con le risorse di altre reti connesse a una rete virtuale.
+Questa esercitazione spiega come creare una rete virtuale di Azure di base con subnet pubblica e privata separate. Le risorse nelle reti virtuali possono comunicare tra loro e con le risorse di altre reti connesse a una rete virtuale. All'interno della stessa subnet i di subnet diverse in una rete virtuale è possibile creare risorse di Azure come macchine virtuali, ambienti del servizio app, set di scalabilità di macchine virtuali, Azure HDInsight e altri servizi cloud. La creazione di risorse in subnet diverse consente di filtrare il traffico di rete in ingresso e in uscita dalle subnet in modo indipendente con [gruppi di sicurezza di rete](virtual-networks-create-nsg-arm-pportal.md) e di [instradare il traffico tra varie subnet](virtual-network-create-udr-arm-ps.md) con appliance virtuali di rete, ad esempio un firewall. 
 
 Le sezioni seguenti includono la procedura da eseguire per creare una rete virtuale tramite il [Portale di Azure](#portal), l'[interfaccia della riga di comando di Azure](#azure-cli), [Azure PowerShell](#powershell)e un [modello di Azure Resource Manager](#resource-manager-template). Il risultato è lo stesso, indipendentemente dallo strumento usato per creare la rete virtuale. Fare clic sul collegamento relativo a uno strumento per passare alla sezione corrispondente dell'esercitazione. Altre informazioni su tutte le impostazioni relative alla [rete virtuale](virtual-network-manage-network.md) e alla [subnet](virtual-network-manage-subnet.md).
 
@@ -47,12 +47,13 @@ In questo articolo viene descritta la procedura per creare una rete virtuale tra
     |Sottoscrizione e località|Selezionare la sottoscrizione e la posizione.
 
     Se non si ha familiarità con Azure, acquisire altre informazioni su [gruppi di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [sottoscrizioni](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) e [località](https://azure.microsoft.com/regions), dette anche *aree*.
-4. Quando si crea una rete virtuale nel portale, è possibile creare una sola subnet. In questa esercitazione verrà creata una seconda subnet dopo la creazione della rete virtuale. Sarà quindi possibile in seguito creare risorse accessibili da Internet nella subnet **pubblica**. Sarà anche possibile creare risorse non accessibili da Internet in una subnet **privata**. Per creare la seconda subnet, nella casella **Cerca risorse** nella parte superiore della pagina immettere **myVnet**. Nei risultati della ricerca fare clic su **myVnet**. Se nella sottoscrizione sono presenti più reti virtuali con lo stesso nome, controllare i gruppi di risorse elencati per ogni rete virtuale. Assicurarsi di fare clic sul risultato della ricerca **myVnet** con il gruppo di risorse **myResourceGroup**.
+4. Quando si crea una rete virtuale nel portale, è possibile creare una sola subnet. In questa esercitazione verrà creata una seconda subnet dopo la creazione della rete virtuale. In seguito sarà quindi possibile creare risorse accessibili da Internet nella subnet **pubblica**. Sarà anche possibile creare risorse non accessibili da Internet in una subnet **privata**. Per creare la seconda subnet, nella casella **Cerca risorse** nella parte superiore della pagina immettere **myVnet**. Nei risultati della ricerca fare clic su **myVnet**. Se nella sottoscrizione sono presenti più reti virtuali con lo stesso nome, controllare i gruppi di risorse elencati per ogni rete virtuale. Assicurarsi di fare clic sul risultato della ricerca **myVnet** con il gruppo di risorse **myResourceGroup**.
 5. Nel pannello **myVnet**, in **IMPOSTAZIONI**, fare clic su **Subnet**.
 6. Nel pannello **myVnet - Subnet** fare clic su **+Subnet**.
 7. In **Nome** nel pannello **Aggiungi subnet** immettere **Private**. Come **Intervallo indirizzi** immettere **10.0.1.0/24**.  Fare clic su **OK**.
 8. Rivedere le subnet nel pannello **myVnet - Subnet**. Qui sono visibili le subnet **Public** e **Private** create.
-9. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-portal) in questo articolo.
+9. **Facoltativo:** completare le altre esercitazioni elencate in [Passaggi successivi](#next-steps) per filtrare il traffico di rete in ingresso e in uscita di ogni subnet con gruppi di sicurezza di rete, instradare il traffico tra varie subnet con un'appliance di rete virtuale oppure connettere la rete virtuale ad altre reti virtuali o reti locali.
+10. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare le risorse](#delete-portal).
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -90,7 +91,8 @@ I comandi dell'interfaccia della riga di comando di Azure sono gli stessi, indip
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
     ```
 
-5. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-cli) in questo articolo.
+5. **Facoltativo:** completare le altre esercitazioni elencate in [Passaggi successivi](#next-steps) per filtrare il traffico di rete in ingresso e in uscita di ogni subnet con gruppi di sicurezza di rete, instradare il traffico tra varie subnet con un'appliance di rete virtuale oppure connettere la rete virtuale ad altre reti virtuali o reti locali.
+6. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare le risorse](#delete-cli).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -128,13 +130,17 @@ I comandi dell'interfaccia della riga di comando di Azure sono gli stessi, indip
     $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
 
-5. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-powershell) in questo articolo.
+5. **Facoltativo:** completare le altre esercitazioni elencate in [Passaggi successivi](#next-steps) per filtrare il traffico di rete in ingresso e in uscita di ogni subnet con gruppi di sicurezza di rete, instradare il traffico tra varie subnet con un'appliance di rete virtuale oppure connettere la rete virtuale ad altre reti virtuali o reti locali.
+6. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare le risorse](#delete-powershell).
 
 ## <a name="resource-manager-template"></a>Modello di Resource Manager
 
 È possibile distribuire una rete virtuale usando un modello di Azure Resource Manager. Per altre informazioni sui modelli, vedere [Panoramica di Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). Per accedere al modello e conoscerne i parametri, vedere il modello [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) (Creare una rete virtuale con due subnet). È possibile distribuire il modello tramite il [portale](#template-portal), l'[interfaccia della riga di comando di Azure](#template-cli) o [PowerShell](#template-powershell).
 
-**Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in una delle sezioni secondarie di [Eliminare risorse](#delete) in questo articolo.
+Passaggi facoltativi dopo aver distribuito il modello:
+
+1. Completare le altre esercitazioni elencate in [Passaggi successivi](#next-steps) per filtrare il traffico di rete in ingresso e in uscita di ogni subnet con gruppi di sicurezza di rete, instradare il traffico tra varie subnet con un'appliance di rete virtuale oppure connettere la rete virtuale ad altre reti virtuali o reti locali.
+2. Per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare le risorse](#delete).
 
 ### <a name="template-portal"></a>Portale di Azure
 
@@ -227,8 +233,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sulle impostazioni delle reti virtuali e delle subnet, vedere [Gestire le reti virtuali](virtual-network-manage-network.md#view-vnet) e [Gestire le subnet di rete virtuali](virtual-network-manage-subnet.md#create-subnet). In un ambiente di produzione sono disponibili varie opzioni per l'uso di reti virtuali e subnet per soddisfare requisiti diversi.
-- Per filtrare il traffico delle subnet in ingresso e in uscita, creare e applicare [gruppi di sicurezza di rete](virtual-networks-nsg.md) alle subnet.
-- Creare una macchina virtuale [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e quindi connetterla alla rete virtuale esistente.
-- Per connettere due reti virtuali nella stessa località di Azure, creare un [peering reti virtuali](virtual-network-peering-overview.md) tra le reti virtuali.
+- Filtrare il traffico delle subnet in ingresso e in uscita creando e applicando [gruppi di sicurezza di rete](virtual-networks-nsg.md) alle subnet.
+- Instradare il traffico tra subnet con un'appliance virtuale di rete creando [route definite dall'utente](virtual-network-create-udr-arm-ps.md) e applicare le route a ogni subnet.
+- Creare una macchina virtuale [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) in una rete virtuale esistente.
+- Per connettere due reti virtuali, creare un [peering reti virtuali](virtual-network-peering-overview.md) tra le reti virtuali.
 - Connettere la rete virtuale a una rete locale tramite un [Gateway VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un circuito [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

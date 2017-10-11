@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 718bb3f890a246fb1688481efdaa9109b49ccad3
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: eabe7f667aab866b8513661110fa416a61988824
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
@@ -980,7 +980,7 @@ Lo scopo di questo scenario è caricare un file VHD, con o senza sistema operati
 * Accedere alla sottoscrizione con *az login*
 * Selezionare la propria sottoscrizione con *az account set --subscription `<subscription name or id`>*
 * Caricare il disco rigido virtuale con *az storage blob upload*. Vedere [Uso dell'interfaccia della riga di comando di Azure con archiviazione di Azure][storage-azure-cli]
-* (Opzionale) Creare un disco gestito dal disco rigido virtuale con *az disk create*; vedere https://docs.microsoft.com/cli/azure/disk#create
+* (Facoltativo) Creare un disco gestito dal disco rigido virtuale con *az disk create*. Vedere https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Creare una nuova VM specificando il disco rigido virtuale o il disco gestito caricato come disco del sistema operativo con *azure vm create* e il parametro *--attach-os-disk*
 * Aggiungere un disco dati a una nuova VM con *az vm disk attach* e il parametro *--new*
 
@@ -1009,7 +1009,7 @@ Per caricare una VM o un disco rigido virtuale esistente dalla rete locale per u
 * Accedere alla sottoscrizione con *az login*
 * Selezionare la propria sottoscrizione con *az account set --subscription `<subscription name or id`>*
 * Caricare il disco rigido virtuale con *az storage blob upload*. Vedere [Uso dell'interfaccia della riga di comando di Azure con archiviazione di Azure][storage-azure-cli]
-* (Opzionale) Creare un’immagine del disco gestito dal disco rigido virtuale con *az image create*; vedere https://docs.microsoft.com/cli/azure/image#create
+* (Facoltativo) Creare un'immagine del disco gestito dal disco rigido virtuale con *az image create*. Vedere https://docs.microsoft.com/cli/azure/image#az_image_create
 * Creare una nuova VM specificando l’immagine del disco rigido virtuale o del disco gestito caricato come disco del sistema operativo con *azure vm create* e il parametro *--image*
 
 **Modello**

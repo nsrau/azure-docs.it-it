@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
+ms.contentlocale: it-it
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.5.1
@@ -28,7 +29,7 @@ Di seguito sono riportate le nuove funzionalità e i nuovi aggiornamenti inclusi
 
 * Nuove funzionalità e scenari correlati alle **estensioni Strumenti Web**. 
   
-  * Siti Web di Azure è stato rinominato servizio app di Azure. Per altre informazioni, vedere [Azure App Service e i servizi di Azure esistenti](../app-service-web/app-service-changes-existing-services.md).
+  * Siti Web di Azure è stato rinominato servizio app di Azure. 
   * È stato aggiunto il supporto per le app per le API di Azure (anteprima) per consentire ai clienti di pubblicare progetti ASP.NET come app per le API e quindi usare il movimento del client Aggiungi > App per le API di Azure nei progetti C# per generare codice basato sulla struttura dell'app per le API distribuita. 
   * Il nodo Siti Web in Esplora server è stato deprecato in favore del nodo Servizio app di Azure, che contiene il supporto per il raggruppamento, basato sui gruppi di risorse, di app per le API, di app per dispositivi mobili e di app Web di Azure.
   * È stato aggiunto il supporto per le app per dispositivi mobili di Azure (anteprima) per consentire ai clienti di creare nuovi progetti di app per dispositivi mobili, di aggiungere controller per queste ultime, pubblicare i progetti ed eseguire il debug in modalità remota.
@@ -46,7 +47,7 @@ Di seguito sono riportate le nuove funzionalità e i nuovi aggiornamenti inclusi
     
     Per altre informazioni, vedere [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-## <a name="a-idknownissues251aazure-sdk-for-net-251-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Problemi noti e limitazioni di Azure SDK per .NET 2.5.1
+## <a id="known_issues_2_5_1"></a>Problemi noti e limitazioni di Azure SDK per .NET 2.5.1
 * App per le API di Azure è visibile come destinazione di sviluppo per app per dispositivi mobili. Le app Web dovrebbero essere l'unica destinazione per app per dispositivi mobili fino a una versione successiva. 
 * Il provisioning di app per le API può avere esito positivo ma l'aggiornamento dello stato di avanzamento nella finestra delle attività del servizio app di Azure potrebbe funzionare in modo intermittente. La soluzione alternativa consiste nel verificare lo stato della nuova app per le API di Azure nel portale di Azure. 
 * L'uso di File > Nuovo progetto > App per le API > F5 può dare luogo a un errore HTTP poiché non è presente un file /index.html predefinito. La soluzione alternativa consiste nell'individuazione manuale dell'URL di /api/values. 
@@ -62,10 +63,5 @@ Di seguito sono riportate le nuove funzionalità e i nuovi aggiornamenti inclusi
 * I progetti di app per le API non possono essere usati insieme a progetti di servizio cloud.
 * I modelli di progetti di app per le API sono disponibili solo in C#.
 * L'utilizzo di app per le API tramite il menu di scelta rapida "Aggiungi client di app per le API di Azure" è supportato solo in C#.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

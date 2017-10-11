@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;istanza di SQL Data Warehouse con TSQL | Documentazione Microsoft
-description: Informazioni su come creare un&quot;istanza di Azure SQL Data Warehouse con TSQL
+title: Creare un'istanza di SQL Data Warehouse con TSQL | Documentazione Microsoft
+description: Informazioni su come creare un'istanza di Azure SQL Data Warehouse con TSQL
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: it-it
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Creare un database di SQL Data Warehouse usando Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ Questo articolo illustra come creare un'istanza di SQL Data Warehouse usando T-S
 Per iniziare, è necessario:
 
 * **Account Azure**: per creare un account, vedere la [versione di valutazione gratuita][Azure Free Trial] o [MSDN Azure Credits][MSDN Azure Credits] (Crediti Azure MSDN).
-* **Server SQL di Azure**: per altre informazioni dettagliate, vedere [Create an Azure SQL Database logical server with the Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] \(Creare un server logico del database SQL di Azure con il portale di Azure) o [Creare un server logico del database SQL di Azure con PowerShell][Create an Azure SQL Database logical server with PowerShell].
+* **Server SQL Azure**: vedere [creare un server logico di Database SQL di Azure con il portale di Azure] [creare un server logico di Database SQL di Azure con il portale di Azure] o [creare un server logico di Database SQL di Azure con PowerShell] [creare SQL Azure Server logico di database con PowerShell] per ulteriori dettagli.
 * **Gruppo di risorse**: usare lo stesso gruppo di risorse del server di Azure SQL oppure vedere [Creare un gruppo di risorse][how to create a resource group].
 * **Ambiente per l'esecuzione di T-SQL**: per eseguire T-SQL, è possibile usare [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] o [SSMS][SSMS].
 
@@ -89,4 +87,3 @@ Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati d
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

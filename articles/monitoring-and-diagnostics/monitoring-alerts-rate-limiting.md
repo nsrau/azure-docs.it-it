@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: bde645624ab1860d19ba18470f55845855a7d1fb
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="rate-limiting-for-sms-messages-emails-and-webhook-posts"></a>Limitazione della frequenza per i messaggi SMS e di posta elettronica e per i post webhook
 La limitazione della frequenza è una sospensione delle notifiche che si verifica quando un numero eccessivo di notifiche viene inviato a un particolare numero telefono o indirizzo di posta elettronica. La limitazione assicura che gli avvisi siano gestibili ed eseguibili.
 
@@ -42,4 +40,3 @@ Non esiste alcuna limitazione della frequenza per webhook.
 * Altre informazioni sul [Comportamento degli avvisi SMS](monitoring-sms-alert-behavior.md).
 * Leggere una [panoramica degli avvisi del log attività](monitoring-overview-alerts.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica sull'integrità del servizio](monitoring-activity-log-alerts-on-service-notifications.md).
-

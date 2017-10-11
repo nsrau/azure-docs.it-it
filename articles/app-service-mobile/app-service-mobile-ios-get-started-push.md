@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a21ae4b13479f66ada053153834a2b3cc5687e5a
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 08a8c35b89386bd0dbe7bba406a6985a5a0d7eb8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Aggiungere notifiche push all'app iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -58,4 +57,3 @@ Se non si usa il progetto server di avvio rapido scaricato, sarà necessario agg
 
 <!-- URLs. -->
 [avvio rapido di iOS]: app-service-mobile-ios-get-started.md
-

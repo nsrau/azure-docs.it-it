@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 09/23/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1c05f68235aafd0fa098a3b0edaba1258df09380
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 616505d7884189ddee2edadc4114deb8f08f7475
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -84,7 +84,7 @@ mysql-cimprov | 1.0.1 | Monitoraggio delle prestazioni del server MySQL per OMI.
 docker-cimprov | 1.0.0 | Provider Docker per OMI. Installato se viene rilevato Docker.
 
 ### <a name="compatibility-with-system-center-operations-manager"></a>Compatibilità con System Center Operations Manager
-L'agente OMS per Linux condivide file binari dell'agente con l'agente System Center Operations Manager. Se si installa l'agente OMS per Linux in un sistema attualmente gestito da Operations Manager, i pacchetti OMI e SCX nel computer vengono aggiornati a una versione più recente. In questa versione gli agenti OMS e System Center 2016 - Operations Manager/Operations Manager 2012 R2 per Linux sono compatibili. 
+L'agente OMS per Linux condivide file binari dell'agente con l'agente System Center Operations Manager. Se si installa l'agente di OMS per Linux in un sistema attualmente gestito da Operations Manager, i pacchetti OMI e SCX nel computer vengono aggiornati a una versione più recente. In questa versione gli agenti OMS e System Center 2016 - Operations Manager/Operations Manager 2012 R2 per Linux sono compatibili. 
 
 > [!NOTE]
 > System Center 2012 SP1 e le versioni precedenti non sono attualmente compatibili o supportati con l'agente OMS per Linux.<br>
@@ -129,8 +129,8 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
-## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>Configurazione dell'agente per l'uso con un server proxy HTTP o un gateway OMS
-L'agente OMS per Linux supporta la comunicazione tramite un server proxy HTTP o HTTPS o un gateway OMS con il servizio OMS.  Sono supportate sia l'autenticazione anonima che quella di base (nome utente/password).  
+## <a name="configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway"></a>Configurazione dell'agente per l'uso con un server proxy o un gateway OMS
+L'agente OMS per Linux supporta la comunicazione tramite un server proxy o un gateway OMS con il servizio OMS usando il protocollo HTTPS.  Sono supportate sia l'autenticazione anonima che quella di base (nome utente/password).  
 
 ### <a name="proxy-configuration"></a>Configurazione proxy
 Il valore di configurazione proxy ha la sintassi seguente:
@@ -139,13 +139,13 @@ Il valore di configurazione proxy ha la sintassi seguente:
 
 Proprietà|Descrizione
 -|-
-Protocol|http o https
+Protocol|https
 user|Nome utente facoltativo per l'autenticazione proxy
 password|Password facoltativa per l'autenticazione proxy
 proxyhost|Indirizzo o FQDN del server proxy/gateway OMS
 port|Numero di porta facoltativo del server proxy/gateway OMS
 
-Ad esempio: `http://user01:password@proxy01.contoso.com:8080`
+Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 
 È possibile specificare il server proxy durante l'installazione o modificando il file di configurazione proxy.conf dopo l'installazione.   
 
@@ -153,13 +153,13 @@ Ad esempio: `http://user01:password@proxy01.contoso.com:8080`
 L'argomento `-p` o `--proxy` per il bundle di installazione di omsagent specifica la configurazione proxy da usare. 
 
 ```
-sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>Definire la configurazione proxy in un file
 La configurazione del proxy può essere impostata nei file `/etc/opt/microsoft/omsagent/proxy.conf` e `/etc/opt/microsoft/omsagent/conf/proxy.conf `. I file possono essere creati o modificati direttamente, ma le autorizzazioni devono essere aggiornate per concedere all'utente omiuser l'autorizzazione di lettura per i file. ad esempio:
 ```
-proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
+proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
 sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf  
@@ -240,7 +240,7 @@ I pacchetti dell'agente possono essere disinstallati eseguendo il file SH con l'
 1. Eseguire di nuovo l'onboarding nel servizio OMS con l'agente OMS per Linux usando il comando seguente con l'opzione `-v` abilitata. In questo modo l'output dettagliato dell'agente si connette tramite proxy al servizio OMS. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Vedere la sezione Configurazione dell'agente per l'uso con un server proxy HTTP(#configuring the-agent-for-use-with-a-http-proxy-server) per verificare di aver configurato correttamente l'agente per la comunicazione tramite un server proxy.    
+2. Vedere la sezione [Configurazione dell'agente per l'uso con un server proxy o un gateway OMS](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) per verificare di aver configurato correttamente l'agente per la comunicazione tramite un server proxy.    
 * Controllare che gli endpoint di servizio di OMS seguenti siano presenti nell'elenco elementi consentiti:
 
     |Risorsa agente| Porte |  
@@ -265,7 +265,7 @@ I pacchetti dell'agente possono essere disinstallati eseguendo il file SH con l'
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Viene visualizzato un errore 404 o 500 nel file di log subito dopo l'onboarding
 Si tratta di un problema noto che si verifica durante il primo caricamento dei dati di Linux in un'area di lavoro di OMS. Questo non influisce sui dati inviati o sull'esperienza d'uso del servizio.
 
-### <a name="issue--you-are-not-seeing-any-data-in-the-oms-portal"></a>Problema: Non vengono visualizzati dati nel portale di OMS
+### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>Problema: Non vengono visualizzati dati nel portale di OMS
 
 #### <a name="probable-causes"></a>Possibili cause
 
@@ -281,4 +281,5 @@ Si tratta di un problema noto che si verifica durante il primo caricamento dei d
 
     >[!NOTE]
     >Il problema è stato risolto nell'agente versione 1.1.0-28 e versioni successive.
-> 
+
+

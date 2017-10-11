@@ -24,7 +24,7 @@ sections:
         style: icon48
         items:
           - image:
-              src: /azure/app-service-api/media/index/cli.svg
+              src: /azure/event-grid/media/index/cli.svg
             text: Interfaccia della riga di comando di Azure
             href: /azure/event-grid/custom-event-quickstart
   - title: Esercitazioni dettagliate
@@ -35,12 +35,15 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorare le modifiche alle VM con le app per la logica</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Ridimensionare le immagini caricate</a>
   - title: riferimento
     items:
       - type: list
         style: cards
         className: cardsD
         items:
+          - title: Riga di comando
+            html: <p><a href="/cli/azure/eventgrid">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
           - title: API REST
             html: <p><a href="/rest/api/eventgrid">REST</a></p>
           - title: Schemi

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 27013ca9724cf2f57fc85f5f4ccb71921ca57a3b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Esercitazione: Integrazione di Azure Active Directory con Promapp
 
@@ -246,5 +245,4 @@ Quando si fa clic sul riquadro Promapp nel pannello di accesso, si dovrebbe acce
 [201]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_203.png
-
 

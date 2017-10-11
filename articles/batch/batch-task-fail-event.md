@@ -1,6 +1,6 @@
 ---
 title: "Evento di fallimento attività di Azure Batch | Microsoft Docs"
-description: "Riferimento per l&quot;evento di fallimento dell&quot;attività batch."
+description: "Riferimento per l'evento di fallimento dell'attività batch."
 services: batch
 author: tamram
 manager: timlt
@@ -12,14 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 08feb4ec34bb1635f8ea744b54a10b677b94ab3e
-ms.contentlocale: it-it
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="task-fail-event"></a>Evento di attività non riuscita
 
  Questo evento viene generato quando un'attività viene completata con un errore. Attualmente, tutti i codici di uscita diversi da zero vengono considerati come errori. Questo evento verrà generato *in aggiunta a* un evento di completamento attività e può essere usato per rilevare quando un'attività non è riuscita.
@@ -93,4 +91,3 @@ ms.lasthandoff: 04/22/2017
 |exitCode|Int32|Codice di uscita dell'attività.|
 |retryCount|Int32|Numero di tentativi di esecuzione dell'attività da parte del servizio Batch. L'attività viene ritentata se si conclude con un codice di uscita diverso da zero, fino al limite specificato in MaxTaskRetryCount.|
 |requeueCount|Int32|Numero di volte in cui l'attività è stata reinserita nella coda dal servizio Batch a seguito di una richiesta dell'utente.<br /><br /> Quando si rimuovono nodi da un pool (tramite ridimensionamento o riduzione del pool) o quando il processo viene disabilitato, l'utente può specificare che le attività in esecuzione sui nodi siano reinserite nella coda per l'esecuzione. Questo conteggio tiene traccia del numero di volte in cui l'attività è stata reinserita nella coda per questi motivi.|
-

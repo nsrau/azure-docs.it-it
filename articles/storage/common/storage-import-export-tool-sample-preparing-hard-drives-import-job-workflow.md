@@ -35,7 +35,7 @@ In questo esempio verranno importati i seguenti dati di un account di archiviazi
 |H:\Video\ |Una raccolta di video|12 TB|
 |H:\Photo\ |Una raccolta di foto|30 GB|
 |K:\Temp\FavoriteMovie.ISO|Un'immagine di disco Blu-ray™|25 GB|
-|\\\bigshare\john\music\|Una raccolta di file musicali in una condivisione di rete|10 GB|
+|\\\bigshare\john\music\ |Una raccolta di file musicali in una condivisione di rete|10 GB|
 
 ## <a name="storage-account-destinations"></a>Destinazioni degli account di archiviazione
 

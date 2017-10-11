@@ -8,17 +8,17 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 2488a28353f3cfe76dc5aa9f9a9159a37ee9901b
+ms.date: 09/15/2017
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Connessione di un servizio app di Azure esistente al Database di Azure per MySQL
-Questo documento descrive come connettere un servizio app di Azure esistente al Database di Azure per il server MySQL.
+Questo argomento descrive come connettere un Servizio app di Azure esistente al database di Azure per il server MySQL.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Accedere al [Portale di Azure](https://portal.azure.com). Creare un database di Azure per il server MySQL. Per informazioni dettagliate, vedere [Come creare il database di Azure per il server MySQL dal portale](quickstart-create-mysql-server-database-using-azure-portal.md) o [Come creare il database di Azure per il server MySQL con l'interfaccia della riga di comando](quickstart-create-mysql-server-database-using-azure-cli.md).
@@ -33,11 +33,11 @@ Per garantire la disponibilità del servizio app di Azure, è consigliabile usar
 > [!NOTE]
 > Microsoft sta lavorando a una soluzione a lungo termine per evitare che tutti gli indirizzi IP consentano ai servizi di Azure di connettersi al database di Azure per MySQL.
 
-1. Nel pannello del server MySQL fare clic su **Sicurezza connessione** sotto l'intestazione Impostazioni per aprire il pannello Sicurezza connessione per Database di Azure per MySQL.
+1. Nel pannello del server MySQL fare clic su **Sicurezza connessione** sotto l'intestazione Impostazioni per aprire il pannello Sicurezza connessione per il database di Azure per MySQL.
 
    ![Portale di Azure: fare clic su Sicurezza connessione](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. Compilare i campi **NOME REGOLA**, **INDIRIZZO IP INIZIALE** e **INDIRIZZO IP FINALE**. Fare quindi clic su **Salva**.
+2. Compilare i campi **NOME REGOLA**, **INDIRIZZO IP INIZIALE** e **INDIRIZZO IP FINALE**, quindi fare clic su **Salva**.
    - Nome regola: Allow-All-IPs
    - Indirizzo IP iniziale: 0.0.0.0
    - Indirizzo IP finale: 255.255.255.255
@@ -57,10 +57,10 @@ Per garantire la disponibilità del servizio app di Azure, è consigliabile usar
 
 3. Ricordarsi di **salvare** le regole del firewall.
 
-Sebbene il servizio app di Azure tenti di mantenere gli indirizzi IP costanti nel tempo, vi sono casi in cui gli indirizzi IP possono cambiare. Ad esempio, quando l'app ricicla o si effettua un'operazione di ridimensionamento, oppure quando vengono aggiunti nuovi data center nell'area di Azure per aumentare la capacità. Quando gli indirizzi IP cambiano, l'app potrebbe subire tempi di inattività nel caso in cui non riesca a connettersi al server MySQL. Considerare questa possibilità quando si sceglie una delle soluzioni precedenti.
+Sebbene il servizio app di Azure tenti di mantenere gli indirizzi IP costanti nel tempo, vi sono casi in cui gli indirizzi IP possono cambiare. Ciò può avvenire ad esempio quando l'app esegue un riciclo o si effettua un'operazione di ridimensionamento oppure quando vengono aggiunti nuovi computer ai data center nell'area di Azure per aumentare la capacità. Quando gli indirizzi IP cambiano, l'app potrebbe subire tempi di inattività nel caso in cui non riesca a connettersi al server MySQL. È bene considerare questo fatto quando si sceglie una delle soluzioni precedenti.
 
 ## <a name="ssl-configuration"></a>Configurazione SSL
-Il database di Azure per MySQL ha abilitato SSL per impostazione predefinita. Se l'applicazione non usa SSL per la connessione al database, è necessario disabilitarlo sul server MySQL. Per informazioni dettagliate su come configurare SSL, vedere [Uso di SSL con il database di Azure per MySQL](howto-configure-ssl.md).
+Il database di Azure per MySQL dispone dell'autenticazione SSL abilitata per impostazione predefinita. Se l'applicazione non usa l'autenticazione SSL per connettersi al database, è necessario disabilitare SSL nel server MySQL. Per informazioni dettagliate su come configurare l'autenticazione SSL, vedere [Uso di SSL con il database di Azure per MySQL](howto-configure-ssl.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle stringhe di connessione, vedere l'argomento relativo alle [stringhe di connessione](howto-connection-string.md).

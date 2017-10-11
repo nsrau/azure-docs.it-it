@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/21/2016
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
-ms.openlocfilehash: 7b9b222be1a131d2a80d37404cbdd309b61785f3
-ms.contentlocale: it-it
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 57178352e0a402f3559c94ce25f125dcbefd1374
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Informazioni generali sul benchmark del database SQL di Azure
 ## <a name="overview"></a>Panoramica
@@ -134,4 +132,3 @@ Il benchmark ASDB misura le prestazioni relative del database SQL di Azure in es
 [Livelli di servizio e livelli di prestazioni](sql-database-service-tiers.md)
 
 [Indicazioni sulle prestazioni per database singoli](sql-database-performance-guidance.md)
-

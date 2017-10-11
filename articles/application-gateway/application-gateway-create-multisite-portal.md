@@ -1,9 +1,9 @@
 ---
 title: "Hosting di più siti con il gateway applicazione di Azure | Microsoft Docs"
-description: "Questa pagina contiene istruzioni per configurare un gateway applicazione di Azure esistente per l&quot;hosting di più applicazioni Web nello stesso gateway con il portale di Azure."
+description: "Questa pagina contiene istruzioni per configurare un gateway applicazione di Azure esistente per l'hosting di più applicazioni Web nello stesso gateway con il portale di Azure."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 95f892f6-fa27-47ee-b980-7abf4f2c66a9
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: davidmu
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 84bd62ae17b7f7ba4cd815ef1f9880679607ebce
+ms.contentlocale: it-it
 ms.lasthandoff: 04/20/2017
-
 
 ---
 # <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>Configurare un gateway applicazione esistente per l'hosting di più applicazioni Web

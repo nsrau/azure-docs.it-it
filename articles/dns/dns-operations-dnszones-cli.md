@@ -1,6 +1,6 @@
 ---
 title: Gestire le zone DNS in DNS di Azure - Interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: "È possibile gestire le zone DNS usando l&quot;interfaccia della riga di comando Azure 2.0. Questo articolo illustra come aggiornare, eliminare e creare le zone DNS in DNS di Azure."
+description: "È possibile gestire le zone DNS usando l'interfaccia della riga di comando Azure 2.0. Questo articolo illustra come aggiornare, eliminare e creare le zone DNS in DNS di Azure."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
@@ -198,5 +196,4 @@ az network dns zone delete --resource-group myresourcegroup --name contoso.com
 Informazioni su come [gestire record e set di record](dns-getstarted-create-recordset-cli.md) nella zona DNS.
 
 Informazioni su come [delegare il dominio al servizio DNS di Azure](dns-domain-delegation.md).
-
 

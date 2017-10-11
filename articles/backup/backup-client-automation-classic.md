@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: a8e20356ae383ee4fa2158ea544d5d0905028124
-ms.contentlocale: it-it
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
 > [!div class="op_single_selector"]
@@ -611,4 +610,3 @@ Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 
 * [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 * [Backup di server Windows](backup-configure-vault.md)
-

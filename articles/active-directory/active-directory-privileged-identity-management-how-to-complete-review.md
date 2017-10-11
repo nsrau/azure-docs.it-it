@@ -1,5 +1,5 @@
 ---
-title: Come completare una verifica dell&quot;accesso | Documentazione Microsoft
+title: Come completare una verifica dell'accesso | Documentazione Microsoft
 description: "Dopo che è stata avviata una verifica di accesso in Azure AD Privileged Identity Management, leggere le informazioni su come completare la verifica e visualizzare i risultati"
 services: active-directory
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: kgremban
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
-ms.openlocfilehash: b31863124b4c1aa64951de5a9afb1d6d85d54ee0
-ms.contentlocale: it-it
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: ca2a1c7c287e4cf6b1b50cfb0068861b6f525596
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Come completare una verifica dell'accesso in Azure AD Privileged Identity Management
 Gli amministratori dei ruoli con privilegi possono esaminare l'accesso con privilegi dopo che è stata [avviata una verifica della sicurezza](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) invia automaticamente un messaggio di posta elettronica che richiede agli utenti di controllare l'accesso. Agli utenti che non hanno ricevuto il messaggio di posta elettronica, è possibile inviare le istruzioni descritte in [Come eseguire una verifica della sicurezza](active-directory-privileged-identity-management-how-to-perform-security-review.md).
@@ -60,4 +59,3 @@ Se la verifica non è più necessaria, eliminarla. Il pulsante **Elimina** rimuo
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png
-

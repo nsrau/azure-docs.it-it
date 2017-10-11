@@ -1,6 +1,6 @@
 ---
-title: Configurare l&quot;accesso WinRM per una macchina virtuale di Azure | Documentazione Microsoft
-description: Configurare l&quot;accesso WinRM per l&quot;uso con una macchina virtuale di Azure creata con il modello di distribuzione Resource Manager.
+title: Configurare l'accesso WinRM per una macchina virtuale di Azure | Documentazione Microsoft
+description: Configurare l'accesso WinRM per l'uso con una macchina virtuale di Azure creata con il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurare l'accesso WinRM per le macchine virtuali in Azure Resource Manager
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM nella gestione del servizio Azure e Azure Resource Manager
@@ -165,4 +164,3 @@ Per potersi connettere alla VM è necessario controllare di aver configurato il 
 Dopo avere completato l'installazione, è possibile connettersi alla VM utilizzando il comando seguente
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
-

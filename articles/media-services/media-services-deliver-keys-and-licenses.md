@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 69019f41bcc72b71bcc7d0bf8a66fe37d5243b7b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usare Servizi multimediali di Azure per distribuire licenze DRM o chiavi AES
 Servizi multimediali di Azure (AMS) consente di inserire contenuti, codificarli, aggiungere protezione ed eseguirne lo streaming. Per i dettagli, vedere [questo](media-services-protect-with-drm.md) articolo. Tuttavia, alcuni clienti vogliono usare AMS solo per distribuire licenze e/o chiavi ed eseguire codifica, crittografia e streaming tramite server locali. Questo articolo descrive come usare Servizi multimediali di Azure per distribuire licenze PlayReady e/o Widevine, usando server locali per tutte le altre operazioni. 
@@ -338,5 +337,4 @@ L'esempio di codice seguente illustra come creare una chiave simmetrica comune e
 [Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md)
 
 [Uso di partner per distribuire licenze Widevine a Servizi multimediali di Azure](media-services-licenses-partner-integration.md)
-
 

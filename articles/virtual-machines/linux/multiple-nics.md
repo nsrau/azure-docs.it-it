@@ -1,10 +1,10 @@
 ---
 title: "Creare una VM Linux in Azure con più schede di interfaccia di rete | Documentazione Microsoft"
-description: "Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate usando l&quot;interfaccia della riga di comando di Azure 2.0 o i modelli di Resource Manager."
+description: "Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate usando l'interfaccia della riga di comando di Azure 2.0 o i modelli di Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
@@ -12,14 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8a2931e462079c101c91497d459d7d3126234244
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 61d50f0abce0fb5c8d0b82652b488d9b79978ca8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
@@ -103,7 +102,7 @@ az vm create \
 ```
 
 ## <a name="add-a-nic-to-a-vm"></a>Aggiungere una scheda di interfaccia di rete a una VM
-I passaggi precedenti hanno consentito di creare una VM con più schede di interfaccia di rete. È anche possibile aggiungere schede di interfaccia di rete a una VM esistente con l'interfaccia della riga di comando di Azure 2.0. 
+I passaggi precedenti hanno consentito di creare una VM con più schede di interfaccia di rete. È anche possibile aggiungere schede di interfaccia di rete a una VM esistente con l'interfaccia della riga di comando di Azure 2.0. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza. Se necessario, è possibile [ridimensionare una VM](change-vm-size.md).
 
 Creare un'altra scheda di interfaccia di rete con [az network nic create](/cli/azure/network/nic#create). L'esempio seguente crea una scheda di interfaccia rete denominata *myNic3* connessa alla subnet back-end e al gruppo di sicurezza di rete creato nei passaggi precedenti:
 
@@ -117,6 +116,7 @@ az network nic create \
 ```
 
 Per aggiungere una scheda di interfaccia di rete a una VM esistente, deallocare prima di tutto la VM con [az vm deallocate](/cli/azure/vm#deallocate). L'esempio seguente dealloca la VM denominata *myVM*:
+
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -149,7 +149,7 @@ Rimuovere la scheda di interfaccia di rete con [az vm nic remove](/cli/azure/vm/
 ```azurecli
 az vm nic remove \
     --resource-group myResourceGroup \
-    --vm-name myVM 
+    --vm-name myVM \
     --nics myNic3
 ```
 
@@ -180,5 +180,78 @@ Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../
 
 È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+
+## <a name="configure-guest-os-for-multiple-nics"></a>Configurare il sistema operativo guest per più schede di rete
+Quando si aggiungono più schede di rete a una macchina virtuale Linux, è necessario creare regole di routing. Queste regole consentono alla VM di inviare e ricevere traffico appartenente a una scheda di rete specifica. In caso contrario, il traffico appartenente a *eth1*, ad esempio, non può essere elaborato correttamente dalla route predefinita specificata.
+
+Per correggere il problema di routing, aggiungere prima di tutto due tabelle di routing a */etc/iproute2/rt_tables*, come illustrato di seguito:
+
+```bash
+echo "200 eth0-rt" >> /etc/iproute2/rt_tables
+echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+```
+
+Per applicare e rendere permanente la modifica durante l'attivazione dello stack di rete, modificare */etc/sysconfig/network-scipts/ifcfg-eth0* e */etc/sysconfig/network-scipts/ifcfg-eth1*. Modificare la riga *"NM_CONTROLLED = yes"* in *"NM_CONTROLLED = no"*. Senza questo passaggio, le regole aggiuntive o il routing aggiuntivo non vengono applicati automaticamente.
+ 
+Estendere quindi le tabelle di routing. Si supponga che sia disponibile la configurazione seguente:
+
+*Routing*
+
+```bash
+default via 10.0.1.1 dev eth0 proto static metric 100
+10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
+10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
+168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
+169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+```
+
+*Interfacce*
+
+```bash
+lo: inet 127.0.0.1/8 scope host lo
+eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
+eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```
+
+Creare quindi i file seguenti e aggiungere le regole e le route appropriate a ogni file:
+
+- */etc/sysconfig/network-scripts/rule-eth0*
+
+    ```bash
+    from 10.0.1.4/32 table eth0-rt
+    to 10.0.1.4/32 table eth0-rt
+    ```
+
+- */etc/sysconfig/network-scripts/route-eth0*
+
+    ```bash
+    10.0.1.0/24 dev eth0 table eth0-rt
+    default via 10.0.1.1 dev eth0 table eth0-rt
+    ```
+
+- */etc/sysconfig/network-scripts/rule-eth1*
+
+    ```bash
+    from 10.0.1.5/32 table eth1-rt
+    to 10.0.1.5/32 table eth1-rt
+    ```
+
+- */etc/sysconfig/network-scripts/route-eth1*
+
+    ```bash
+    10.0.1.0/24 dev eth1 table eth1-rt
+    default via 10.0.1.1 dev eth1 table eth1-rt
+    ```
+
+Per applicare le modifiche, riavviare il servizio di *rete*, come indicato di seguito:
+
+```bash
+systemctl restart network
+```
+
+Le regole di routing sono state create correttamente ed è possibile connettersi alle interfacce, in base alle esigenze.
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 Quando si cerca di creare una macchina virtuale con più schede di rete, consultare [Dimensioni per le macchine virtuali di Linux](sizes.md). Prestare attenzione al numero massimo di schede di rete supportato per ogni dimensione della macchina virtuale. 
+

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3a5f06b7e9600c34ef690e025a0a2079f71f843e
-
-
+ms.openlocfilehash: 18faa88641623e1248d6a33bc2d87099e1c9f624
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="routing-and-tag-expressions"></a>Espressioni di routing e tag
 ## <a name="overview"></a>Panoramica
@@ -33,7 +33,7 @@ Il back-end dell'applicazione può scegliere le registrazioni da utilizzare come
 3. **Espressione tag**: tutte le registrazioni il cui set di tag corrisponde all'espressione specificata ricevono la notifica.
 
 ## <a name="tags"></a>Tag
-Un tag può essere qualsiasi stringa, fino a 120 caratteri, che contiene caratteri alfanumerici e i caratteri non alfanumerici seguenti: '_', '‘@’,', '#', '.', ':', '-'. Nell'esempio seguente viene illustrata un'applicazione da cui è possibile ricevere notifiche di tipo avviso popup su gruppi musicali specifici. In questo scenario, un modo semplice per instradare le notifiche è etichettare le registrazioni con tag che rappresentano i diversi gruppi musicali, come illustrato nell'immagine seguente.
+Un tag può essere qualsiasi stringa, fino a 120 caratteri alfanumerici e i seguenti caratteri non alfanumerici: '_', ' @', '#', '. ',':', '-'. Nell'esempio seguente viene illustrata un'applicazione da cui è possibile ricevere notifiche di tipo avviso popup su gruppi musicali specifici. In questo scenario, un modo semplice per instradare le notifiche è etichettare le registrazioni con tag che rappresentano i diversi gruppi musicali, come illustrato nell'immagine seguente.
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
@@ -102,9 +102,3 @@ Di seguito è riportato un esempio per l'invio di notifiche con espressioni tag 
     toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
     "You want info on the Red Socks</text></binding></visual></toast>";
     outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

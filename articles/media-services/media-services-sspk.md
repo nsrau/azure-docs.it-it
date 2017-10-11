@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 12c6bdf6986d57f20df9ce84a8b12a5e4c93b6ed
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenza per Microsoft® Smooth Streaming Client Porting Kit
 ## <a name="overview"></a>Panoramica
@@ -165,5 +164,4 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

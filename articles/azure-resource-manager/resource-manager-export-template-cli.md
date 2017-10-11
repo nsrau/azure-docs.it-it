@@ -1,6 +1,6 @@
 ---
-title: Esportare il modello di Resource Manager con l&quot;interfaccia della riga di comando di Azure | Microsoft Docs
-description: Usare Azure Resource Manager e l&quot;interfaccia della riga di comando di Azure per esportare un modello da un gruppo di risorse.
+title: Esportare il modello di Resource Manager con l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per esportare un modello da un gruppo di risorse.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -18,7 +18,6 @@ ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
 ms.contentlocale: it-it
 ms.lasthandoff: 05/03/2017
-
 
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando di Azure

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 3c4b7ad16e6a03fb605447def18f7475d502fdd1
-ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-9-set-up-a-replication-policy-for-vmware-vm-replication-to-azure"></a>Passaggio 9: Configurare criteri di replica per la replica di VM VMware in Azure
 
@@ -48,4 +46,3 @@ Ottenere una rapida panoramica video prima di iniziare:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 10: Installare il servizio Mobility](vmware-walkthrough-install-mobility.md)
-

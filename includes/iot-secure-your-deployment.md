@@ -29,7 +29,7 @@ Ogni hub IoT ha un [registro di identità][lnk-identity-registry] che può esser
 
 [L'hub IoT supporta protocolli quali MQTT, AMQP e HTTP][lnk-protocols]. Ognuno di questi protocolli utilizza i token di sicurezza dal dispositivo all'hub IoT in modo diverso:
 
-* AMQP: sicurezza basata su attestazioni AMQP e SASL PLAIN ({policyName}@sas.root.{iothubName} nel caso di token a livello di hub IoT; {deviceId} nel caso di token con ambito dispositivo.
+* AMQP: sicurezza basata su attestazioni AMQP e SASL PLAIN ({policyName}@sas.root.{iothubName} nel caso di token a livello di hub IoT; {deviceId} nel caso di token con ambito dispositivo).
 * MQTT: il pacchetto CONNECT usa {deviceId} come {ClientId}, {IoThubhostname}/{deviceId} nel campo **Nome utente** e un token di firma di accesso condiviso nel campo **Password**.
 * HTTP: il token valido è contenuto nell'intestazione della richiesta di autorizzazione.
 
@@ -82,7 +82,7 @@ L'hub IoT di Azure e altri servizi che possono essere parte della soluzione cons
 
 I dati inseriti dall'Hub IoT di Azure possono essere usati da una serie di servizi, ad esempio Analisi di flusso di Azure, Archiviazione BLOB e così via. Questi servizi consentono l'accesso di gestione. Ulteriori informazioni su questi servizi e sulle opzioni disponibili riportate di seguito:
 
-* [Azure DocumentDB][lnk-docdb]: un servizio di database scalabile e completamente indicizzato per i dati semistrutturati che gestiscono metadati per i dispositivi di cui si effettua il provisioning, ad esempio attributi, configurazione e proprietà di sicurezza. DocumentDB offre l'elaborazione ad alte prestazioni e velocità, indicizzazione dei dati senza schema e una ricca interfaccia di query SQL.
+* [Azure Cosmos DB][lnk-cosmosdb]: un servizio di database scalabile e completamente indicizzato per i dati semistrutturati che gestiscono metadati per i dispositivi di cui si effettua il provisioning, ad esempio attributi, configurazione e proprietà di sicurezza. Azure Cosmos DB offre elaborazione ad alte prestazioni e velocità effettiva elevata, indicizzazione dei dati senza schema e un'interfaccia avanzata di query SQL.
 * [Analisi di flusso di Azure][lnk-asa]: elaborazione del flusso in tempo reale nel cloud per sviluppare e distribuire rapidamente una soluzione di analisi a basso costo che consenta di rilevare informazioni approfondite in tempo reale da dispositivi, sensori, infrastruttura e applicazioni. I dati di questo servizio completamente gestito possono raggiungere qualsiasi volume anche in condizioni di velocità effettiva elevata, bassa latenza e resilienza.
 * [Servizi app di Azure][lnk-appservices]: piattaforma cloud per compilare efficaci app mobili e Web che si connettono ai dati ovunque si trovino: nel cloud o localmente. Creare app per dispositivi mobili coinvolgenti per iOS, Android e Windows. Eseguire l'integrazione con applicazioni Software as a Service (SaaS) e aziendali, grazie a connettività integrata a dozzine di applicazioni aziendali e servizi basati sul cloud. Scrivere codice usando IDE e il linguaggio preferito, .NET, Node.js, PHP, Python o Java, per creare app Web e API più rapidamente che mai.
 * [App per la logica][lnk-logicapps]: la funzionalità App per la logica del servizio app di Azure consente di integrare la soluzione IoT con i sistemi line-of-business esistenti e automatizzare i processi del flusso di lavoro. App per la logica consente agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi, regole e azioni che usano potenti connettori per l'integrazione con i processi aziendali. App per la logica offre connettività integrata per un vasto ecosistema di applicazioni SaaS, basate sul cloud e locali.
@@ -102,7 +102,7 @@ Questo articolo fornisce una panoramica a livello di implementazione per progett
 [lnk-use-x509]: ../articles/iot-hub/iot-hub-devguide-security.md
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246
 [lnk-service-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components
-[lnk-docdb]: https://azure.microsoft.com/services/documentdb/
+[lnk-cosmosdb]: https://azure.microsoft.com/services/cosmos-db/
 [lnk-asa]: https://azure.microsoft.com/services/stream-analytics/
 [lnk-appservices]: https://azure.microsoft.com/services/app-service/
 [lnk-logicapps]: https://azure.microsoft.com/services/app-service/logic/

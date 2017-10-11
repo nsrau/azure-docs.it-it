@@ -5,6 +5,7 @@
 ## Esercitazione sui runbook
 ### [Creare un runbook grafico](automation-first-runbook-graphical.md)
 ### [Creare un runbook PowerShell](automation-first-runbook-textual-powershell.md)
+### [Il primo runbook Python](automation-first-runbook-textual-python2.md)
 ### [Creare un runbook del flusso di lavoro di PowerShell](automation-first-runbook-textual.md)
 # Procedure
 ## Autenticazione e sicurezza
@@ -37,10 +38,14 @@
 ### [Passare un oggetto JSON a un runbook di Automazione di Azure](automation-pass-json-string.md)
 ## ruolo di lavoro ibrido per runbook
 ### [Distribuire il ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md)
+### [Ruolo di lavoro ibrido per runbook Windows di Automazione di Azure](automation-windows-hrw-install.md)
+### [Ruolo di lavoro ibrido per runbook Linux di Automazione di Azure](automation-linux-hrw-install.md)
 ### [Eseguire runbook nel ruolo di lavoro](automation-hrw-run-runbooks.md)
+### [Rimuovere ruoli di lavoro ibridi di Automazione di Azure](automation-remove-hrw.md)
 ## Distribuire la gestione della configurazione (DSC)
 ### [Panoramica su DSC (Desired State Configuration)](automation-dsc-overview.md)
 ### [Attività iniziali](automation-dsc-getting-started.md)
+### [Configurare i server allo stato desiderato e gestire gli orientamenti con Automazione di Azure](tutorial-configure-servers-desired-state.md)
 ### [Onboarding di computer per la gestione](automation-dsc-onboarding.md)
 ### [Compilazione di configurazioni DSC](automation-dsc-compile.md)
 ### [Distribuzione continua tramite Chocolatey](automation-dsc-cd-chocolatey.md)
@@ -64,8 +69,12 @@
 ### [Chiamare un runbook di Automazione di Azure da un avviso di Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Distribuire un modello di Azure Resource Manager in un runbook PowerShell di Automazione di Azure](automation-deploy-template-runbook.md)
 ## Soluzioni
-### [Rilevamento delle modifiche](../log-analytics/log-analytics-change-tracking.md)
 ### [Gestione degli aggiornamenti](../operations-management-suite/oms-solution-update-management.md)
+#### [Gestire gli aggiornamenti per più macchine virtuali](manage-update-multi.md)
+#### [Integrare SCCMr con la gestione degli aggiornamenti OMS](oms-solution-updatemgmt-sccmintegration.md)
+### [Rilevamento modifiche](../log-analytics/log-analytics-change-tracking.md)
+### [Tenere traccia delle modifiche nelle macchine virtuali](automation-vm-change-tracking.md)
+### [Gestire una macchina virtuale con la raccolta dell'inventario](automation-vm-inventory.md)
 ### [Avviare/arrestare le VM durante gli orari di minore attività](automation-solution-vm-management.md)
 ## Monitorare
 ### [Inoltrare dati dei processi di Automazione di Azure a Log Analytics](automation-manage-send-joblogs-log-analytics.md)
@@ -76,9 +85,9 @@
 ## Risolvere problemi
 ### [Risolvere problemi comuni](automation-troubleshooting-automation-errors.md)
 ### [Risolvere i problemi di un ruolo di lavoro ibrido per runbook](automation-troubleshooting-hybrid-runbook-worker.md)
-# Riferimento
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell (classico)](/powershell/module/azure/?view=azuresmps-3.7.0)
+# riferimento
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell (classico)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (classico)](https://msdn.microsoft.com/library/azure/mt163781)

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b422dd2cf23426de2f154a553b38509082536309
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>Eseguire la replica di macchine virtuali Hyper-V in cloud VMM in un sito VMM secondario
 
@@ -101,4 +100,3 @@ Andare al [Passaggio 9: Abilitare la replica](vmm-to-vmm-walkthrough-enable-repl
 Eseguire un failover di test per verificare che tutti gli elementi funzionino come previsto.
 
 Andare al [Passaggio 10: Eseguire un failover di test](vmm-to-vmm-walkthrough-test-failover.md).
-

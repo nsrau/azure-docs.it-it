@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Recapito continuo per Servizi cloud in Azure
 Nel processo descritto in questo articolo viene illustrato come configurare il recapito continuo per le app cloud di Azure. Questa procedura crea automaticamente e distribuisce pacchetti in Azure dopo ogni archiviazione di codice. Il processo di compilazione del pacchetto descritto in questo articolo è equivalente al comando **Pacchetto** di Visual Studio, mentre i passaggi per la pubblicazione equivalgono al comando **Pubblica** di Visual Studio.
@@ -530,4 +529,3 @@ Per abilitare il debug remoto durante l'uso della distribuzione continua, vedere
 [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
 [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
 [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
-

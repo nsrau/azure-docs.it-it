@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 06/29/2016
 ms.author: shigu;jrj
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: c16fef2f302dbc56f257eaf2f0d2b68b6a3c1852
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Panoramica delle tabelle in SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -304,4 +303,3 @@ Per altre informazioni, vedere gli articoli su [tipi di dati di una tabella][Dat
 [Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
 
 <!--Other Web references-->
-

@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 316f073019abef03227b741d9349d0ca75dda6bd
-ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 4f6806cde52ce965a8f78a5cce8a24c3d1248594
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>Linee guida sulla personalizzazione per le applicazioni
 Questo argomento descrive le linee guida sulla personalizzazione da seguire per lo sviluppo di applicazioni con Azure Active Directory (Azure AD). Queste linee guida consentiranno agli sviluppatori di fornire ai clienti le indicazioni più appropriate quando questi intendono usare l'account aziendale o dell'istituto di istruzione, gestito in Azure AD, o l'account personale per iscriversi e accedere all'applicazione.
@@ -90,5 +88,4 @@ Nell'app dovrà essere visualizzato un pulsante di accesso che indirizza gli ute
 
 ## <a name="navigation-dos-and-donts"></a>Azioni consentite e non consentite per la navigazione
 **FORNIRE** agli utenti un modo per disconnettersi e passare a un altro account utente. Quasi tutte le persone hanno in genere un singolo account per Microsoft, Facebook, Google e Twitter, ma sono spesso associate a più organizzazioni. Il supporto per l'accesso di più utenti sarà presto disponibile.
-
 

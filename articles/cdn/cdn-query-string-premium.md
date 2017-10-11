@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
 ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con stringhe di query: Premium
 > [!div class="op_single_selector"]
@@ -58,10 +58,4 @@ Sono disponibili tre modalità:
 > Le modifiche delle impostazioni non sono immediatamente visibili, perché la propagazione della registrazione nella rete CDN richiede tempo.  Per i profili della <b>rete CDN di Azure fornita da Verizon</b>, la propagazione in genere viene completata entro 90 minuti, ma in alcuni casi può richiedere più tempo.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

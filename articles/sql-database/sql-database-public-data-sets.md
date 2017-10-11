@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/20/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 53ae23dba61cf835c6a4826b528772b1cd2e1622
-ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: b6f8d327123fc0ebe13790cbb3760f6eba90f5b5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Set di dati pubblici per test e prototipi
 
@@ -60,4 +59,3 @@ In questo elenco di set di dati pubblici è possibile trovare dati da usare per 
 | [GitHub Archive](https://www.githubarchive.org/) | "Il progetto GitHub Archive ha lo scopo di registrare la sequenza temporale pubblica [degli eventi] di GitHub, archiviarla e renderla facilmente accessibile per analisi aggiuntive". | Scaricare gli archivi di eventi con codifica JSON in formato Gzip (con estensione gz) da un client Web. |
 | [Dati sull'attività di GitHub del progetto GHTorrent](http://ghtorrent.org/) | "Il progetto GHTorrent è un'iniziativa che ha lo scopo di creare un mirror di dati offline, scalabile e disponibile per query offerto tramite l'API REST GitHub. GHTorrent monitora la sequenza temporale pubblica degli eventi di GitHub. Per ogni evento, recupera il contenuto e le dipendenze, in modo esauriente". | I dump del database MySQL sono in formato CSV. |
 | [Dump dei dati di Stack Overflow](https://archive.org/details/stackexchange) | "Si tratta di un dump, reso anonimo, di tutti contenuti creati dagli utenti nella rete Stack Exchange [che include Stack Overflow]". | "Ogni sito [come Stack Overflow] viene formattato come archivio separato costituito da file XML compressi tramite 7-Zip, con compressione bzip2. L'archivio di ogni sito include post, utenti, voti, commenti, cronologia dei post e relativi collegamenti". |
-

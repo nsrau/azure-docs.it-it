@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bffa481a498b130ef1f2388a5ba856da5d164ee0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="backup-and-restore"></a>Backup e ripristino
 
 Il backup dei database modello tabulare in Azure Analysis Services è molto simile a quello di Analysis Services in locale. La differenza principale è dove vengono archiviati i file di backup. I file di backup devono essere salvati in un contenitore in un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). È possibile usare un account di archiviazione e un contenitore già esistenti, o è possibile crearne di nuovi durante la configurazione delle impostazioni di archiviazione per il server.
@@ -115,4 +113,3 @@ Usare il cmdlet [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-ser
 [Account di archiviazione di Azure](../storage/common/storage-create-storage-account.md)  
 [Disponibilità elevata](analysis-services-bcdr.md)     
 [Gestire Azure Analysis Services](analysis-services-manage.md)
-

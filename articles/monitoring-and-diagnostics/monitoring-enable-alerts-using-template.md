@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/21/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
-ms.contentlocale: it-it
-ms.lasthandoff: 12/22/2016
-
+ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 Questo articolo mostra come usare un [modello di Resource Manager di Azure](../azure-resource-manager/resource-group-authoring-templates.md) per configurare gli avvisi sulle metriche in Azure. Consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione, per assicurarsi che tutte le risorse siano correttamente monitorate.
@@ -404,5 +403,4 @@ In genere, un avviso in un modello di Resource Manager è più utile quando si c
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sugli avvisi](insights-receive-alert-notifications.md)
 * [Aggiungere impostazioni di diagnostica](monitoring-enable-diagnostic-logs-using-template.md) al modello di Resource Manager
-
 

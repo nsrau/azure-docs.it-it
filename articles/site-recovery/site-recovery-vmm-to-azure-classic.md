@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Replicare macchine virtuali Hyper-V nei cloud VMM in Azure
 > [!div class="op_single_selector"]
@@ -348,4 +347,3 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulla [configurazione dei piani di ripristino](site-recovery-create-recovery-plans.md) e sul [failover](site-recovery-failover.md).
-

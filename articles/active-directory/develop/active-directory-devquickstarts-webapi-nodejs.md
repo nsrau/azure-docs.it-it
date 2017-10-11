@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 707bb2b7cd9796e0e05234aa08002bbc1820f871
-ms.contentlocale: it-it
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 4f58177f540c14172d7ece8b4bc8c8a2b9787f8f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-web-apis-for-nodejs"></a>Introduzione alle API Web per Node.js
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -64,7 +62,7 @@ Per creare un'applicazione:
 
 3. Nel menu a sinistra selezionare **Altri servizi** e quindi scegliere **Azure Active Directory**.
 
-4. Selezionare **Registrazioni per l'app**, quindi scegliere **Aggiungi**.
+4. Selezionare **Registrazioni per l'app** , quindi scegliere **Aggiungi**.
 
 5. Seguire le istruzioni per creare una nuova **applicazione Web e/o API Web**.
 
@@ -720,8 +718,7 @@ Il modo più semplice per farlo consiste nell'usare Curl in una riga di comando.
 
 3. Quindi, passare alla directory e iniziare a usare Curl:
 
-    `$ cd azuread`
-    `$ node server.js`
+    `$ cd azuread` `$ node server.js`
 
     `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -893,8 +890,7 @@ Per verificare se la protezione OAuth2 per gli endpoint è attiva, usare nuovame
 
 2. Quindi, passare alla directory e iniziare a usare Curl.
 
-      `$ cd azuread`
-      `$ node server.js`
+      `$ cd azuread` `$ node server.js`
 
 3. Provare un'operazione POST di base.
 
@@ -924,4 +920,3 @@ Se si è interessati a proseguire l'esplorazione di ADAL, di seguito sono riport
 [ADAL per Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 175a2ad70b1f554d05846eb62fb685d4f259af7e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 14d969ecaf1f24a0bb34da4abe78d83f08627796
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Streaming Apache Spark: elaborare i dati dall'Hub eventi di Azure con il cluster Spark in HDInsight
@@ -367,17 +367,7 @@ I parametri nel file **inputHive.txt** sono definiti come segue:
 
 I parametri sono simili a quanto specificato per l'output di testo nei passaggi precedenti. Anche in questo caso non è necessario creare la tabella Hive di output (EventHiveTable10) o le cartelle di output (EventCheckpoint, EventCount/EventCount10) usate come parametri, perché vengono create automaticamente dall'applicazione di streaming. Si noti che le opzioni **jars** e **files** includono i percorsi per i file JAR e il file hive-site.xml copiato nell'account di archiviazione.
 
-Per verificare che la tabella Hive sia stata creata correttamente, è possibile usare SSH nel cluster ed eseguire query Hive. Per istruzioni, vedere [Usare Hive con Hadoop in HDInsight tramite SSH](hdinsight-hadoop-use-hive-ssh.md). Una volta connessi tramite SSH, è possibile eseguire il comando seguente per verificare che la tabella Hive, **EventHiveTable10**, venga creata.
-
-    show tables;
-
-L'output dovrebbe essere simile al seguente:
-
-    OK
-    eventhivetable10
-    hivesampletable
-
-È anche possibile eseguire una query SELECT per visualizzare il contenuto della tabella.
+Per verificare che la tabella Hive sia stata creata correttamente, usare la [vista Hive Ambari](hdinsight-hadoop-use-hive-ambari-view.md). Qui è possibile eseguire una query SELECT per visualizzare i contenuti della tabella.
 
     SELECT * FROM eventhivetable10 LIMIT 10;
 

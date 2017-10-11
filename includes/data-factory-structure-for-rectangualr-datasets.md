@@ -28,7 +28,7 @@ Attenersi alle linee guida seguenti per decidere quando includere informazioni s
     Come indicato in precedenza, le informazioni sul tipo sono facoltative nella sezione "structure". Per le origini strutturate, le informazioni sul tipo sono già disponibili come parte della definizione del set di dati nell'archivio dati, pertanto non è necessario includere le informazioni sul tipo quando si include la sezione "structure".
 * **Per gli schemi delle origini dati di lettura, in particolare BLOB di Azure**, è possibile scegliere di archiviare i dati senza memorizzare insieme ai dati informazioni sullo schema o sul tipo. Per questi tipi di origini dati è necessario includere la sezione "structure" nei 2 casi seguenti:
   * Si desidera eseguire il mapping di colonne.
-  * Quando il set di dati è un'origine in un'attività di copia, è possibile specificare informazioni sul tipo in "structure", che verranno usate da Data factory per la conversione a tipi nativi per il sink. Vedere l'articolo sullo [spostamento di dati da e verso BLOB di Azure](../articles/data-factory/data-factory-azure-blob-connector.md) per altre informazioni.
+  * Quando il set di dati è un'origine in un'attività di copia, è possibile specificare informazioni sul tipo in "structure", che verranno usate da Data factory per la conversione a tipi nativi per il sink. Vedere l'articolo sullo [spostamento di dati da e verso BLOB di Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) per altre informazioni.
 
 ### <a name="supported-net-based-types"></a>Tipi supportati basati su .NET
 Data factory supporta i valori di tipo basati su .NET conformi a CLS per specificare informazioni sul tipo nella sezione "structure" per lo schema su origini dati di lettura come BLOB di Azure.

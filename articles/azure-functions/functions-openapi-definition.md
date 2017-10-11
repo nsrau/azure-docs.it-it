@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: be871b1c5f131b0ff6de1f74ed3e6f12b7a482ce
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5aed57e69924f03221fc0d9909889358d80df9a4
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -113,7 +113,7 @@ A questo punto si ha una funzione che determina la convenienza delle riparazioni
 
 ## <a name="generate-the-openapi-definition"></a>Generare la definizione OpenAPI
 
-A questo punto si è pronti per generare la definizione OpenAPI. Questa definizione può essere usata da altre tecnologie Microsoft, ad esempio [App per le API](../app-service-api/app-service-api-dotnet-get-started.md), [PowerApps](functions-powerapps-scenario.md) e [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md), oltre che da strumenti di sviluppo di terze parti, come [Postman](https://www.getpostman.com/docs/importing_swagger) e [molti altri pacchetti](http://swagger.io/tools/).
+A questo punto si è pronti per generare la definizione OpenAPI. Questa definizione può essere usata da altre tecnologie Microsoft, ad esempio App per le API, [PowerApps](functions-powerapps-scenario.md) e [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), oltre che da strumenti di sviluppo di terze parti, come [Postman](https://www.getpostman.com/docs/importing_swagger) e [molti altri pacchetti](http://swagger.io/tools/).
 
 1. Selezionare solo i *verbi* supportati dall'API (in questo caso POST). In questo modo, la definizione API generata sarà più chiara.
 
@@ -175,20 +175,9 @@ A questo punto si è pronti per generare la definizione OpenAPI. Questa definizi
     Questa definizione è descritta come _modello_ perché richiede più metadati per essere una definizione OpenAPI completa. Nel passaggio successivo si modificherà la definizione.
 
 ## <a name="modify-the-openapi-definition"></a>Modificare la definizione OpenAPI
-Ora che si ha una definizione modello, si apportano modifiche per fornire metadati aggiuntivi sulle operazioni e sulle strutture dei dati dell'API. Per questa esercitazione, è sufficiente incollare la definizione modificata seguente nel riquadro **Definizione API** e fare clic su **Salva**.
+Ora che si ha una definizione modello, si apportano modifiche per fornire metadati aggiuntivi sulle operazioni e sulle strutture dei dati dell'API. In **Definizione API** eliminare la definizione generata da `post` fino alla parte inferiore della definizione, incollare il contenuto seguente e quindi fare clic su **Salva**.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -248,7 +237,7 @@ securityDefinitions:
     in: query
 ```
 
-Ciò detto, è importante comprendere i tipi di modifiche apportate al modello predefinito:
+In questo caso è sufficiente incollare metadati aggiornati, ma è importante comprendere i tipi di modifiche apportate al modello predefinito::
 
 + Si specifica che l'API produce e utilizza dati in un formato JSON.
 

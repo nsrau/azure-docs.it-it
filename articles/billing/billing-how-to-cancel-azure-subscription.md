@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 08/30/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c415fada30aa0b0bd9b9d1e416bc37ef30653f68
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 51fe2ab891e86ae4bd7402622231af47f35aa01d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Annullare la sottoscrizione di Azure
@@ -37,41 +36,21 @@ Se si annulla un [piano di supporto di Azure](https://azure.microsoft.com/suppor
 
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Annullare la sottoscrizione usando il portale di Azure
 
-1. Selezionare la sottoscrizione nella [pagina delle sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-
+1. Selezionare la sottoscrizione dalla [pagina Sottoscrizioni del portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Selezionare la sottoscrizione da annullare e fare clic su **Annulla sottoscrizione**.
 
     ![Screenshot che mostra il pulsante Annulla](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-
 1. Seguire le istruzioni e completare la procedura di annullamento.
-
-## <a name="cancel-subscription-using-the-azure-account-center"></a>Annullare la sottoscrizione usando il Centro account di Azure
-
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/subscriptions) come Amministratore account.
-
-1. In **Fare clic su una sottoscrizione per visualizzare i dettagli e l'utilizzo**selezionare la sottoscrizione che si vuole annullare.
-
-    ![Screenshot che mostra un esempio di sottoscrizione selezionata](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)
-
-1. Sul lato destro della pagina selezionare **Annulla sottoscrizione**.
-
-    ![Screenshot che mostra il pulsante Annulla sottoscrizione](./media/billing-how-to-cancel-azure-subscription/cancelsub.png)
-
-1. Selezionare **Sì, annulla la sottoscrizione**.
-
-    ![Screenshot che mostra la finestra di dialogo Annulla](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
-
-1. Fare clic su  ![pulsante con segno di spunta](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) per chiudere la finestra di dialogo e tornare alla pagina di sottoscrizione.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Cosa accade quando si annulla la sottoscrizione?
 
 Nel momento in cui viene annullata, la fatturazione viene interrotta immediatamente. Per essere visualizzata sul portale, tuttavia, è possibile che siano necessari fino a 10 minuti.
 
-Dopo questo intervallo, i servizi vengono disabilitati. Le macchine virtuali vengono quindi deallocate e gli indirizzi IP temporanei liberati e la risorsa di archiviazione diventa di sola lettura.
+Dopo questo intervallo, i servizi vengono disabilitati. Le macchine virtuali vengono deallocate, gli indirizzi IP temporanei vengono liberati e la risorsa di archiviazione diventa di sola lettura.
 
-A meno che non si stia usando una versione di valutazione gratuita o non si abbiano crediti disponibili, verrà addebitato l'importo corrispondente all'uso della sottoscrizione intercorso tra l'ultimo ciclo di fatturazione e la data di annullamento. Al termine del ciclo di fatturazione è possibile richiedere l'ultima fattura.
+Se si annulla la sottoscrizione nel corso di un periodo di fatturazione, la fattura finale verrà inviata alla normale data della fattura al termine del periodo. 
 
-Dopo aver annullato la sottoscrizione, Microsoft attenderà 90 giorni prima di eliminare definitivamente i dati, nel caso in cui fosse necessario accedervi o si cambiasse idea. Non verrà comunque addebitato alcun costo per questo servizio di conservazione dei dati. Per altre informazioni, vedere [Microsoft Trust Center - Come vengono gestiti i dati](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+Microsoft attenderà 90 giorni prima di eliminare definitivamente i dati, nel caso in cui fosse necessario accedervi o si cambiasse idea. Non verrà comunque addebitato alcun costo per questo servizio di conservazione dei dati. Per altre informazioni, vedere [Microsoft Trust Center - Come vengono gestiti i dati](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## <a name="reactivate-subscription"></a>Riattivare la sottoscrizione
 

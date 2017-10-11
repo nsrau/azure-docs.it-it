@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
-ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: e6202aa8665c906382666fe08a561421e50e0a8d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Come registrare un'app con l'endpoint v2.0
 Per creare un'app che consente di accedere tramite account Microsoft e Azure AD, è innanzitutto necessario registrare un'app con Microsoft.  Con gli account Azure AD o Microsoft non sarà possibile usare un'app esistente, ma è necessario crearne una nuova.
@@ -56,5 +54,4 @@ Facoltativamente, è possibile personalizzare l'aspetto della pagina di accesso 
 Dopo aver creato un'app Microsoft, è possibile completare una delle esercitazioni rapide v2.0.  Di seguito sono elencati alcuni suggerimenti:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
-
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/11/2017
+ms.date: 09/12/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c83d482eaf476388a174dfb02ae6ef53ebe921bc
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 246c89be85a4ccd2e8f7fab0ae8128e7285123a1
 ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione di un database SQL o di SQL Data Warehouse
@@ -69,7 +69,7 @@ Quando si usa l'autenticazione di Azure AD, sono disponibili due account amminis
 ## <a name="permissions"></a>Autorizzazioni
 Per creare nuovi utenti, è necessario avere l'autorizzazione `ALTER ANY USER` sul database. L'autorizzazione `ALTER ANY USER` può esser concessa a qualsiasi utente di database. L'autorizzazione `ALTER ANY USER` è assegnata anche agli account amministratore del server, agli utenti di database con l'autorizzazione `CONTROL ON DATABASE` o `ALTER ON DATABASE` per tale database e ai membri del ruolo del database `db_owner`.
 
-Per creare un utente di database indipendente nel database SQL di Azure o in SQL Data Warehouse, è necessario connettesi al database con un'identità di Azure AD. Per creare il primo utente di database indipendente, è necessario connettersi al database tramite un amministratore di Azure AD (che corrisponde al proprietario del database). Questa operazione è illustrata nei passaggi 4 e 5 di seguito. L'autenticazione di Azure AD è possibile unicamente se l'amministratore di Azure AD è stato creato per il server di database SQL di Azure o SQL Data Warehouse. Se l'amministratore di Azure Active Directory è stato rimosso dal server, gli utenti di Azure Active Directory esistenti creati in precedenza all'interno di SQL Server non possono più connettersi al database con le credenziali di Azure Active Directory.
+Per creare un utente di database indipendente nel database SQL di Azure o in SQL Data Warehouse, è necessario connettesi al database con un'identità di Azure AD. Per creare il primo utente di database indipendente, è necessario connettersi al database tramite un amministratore di Azure AD (che corrisponde al proprietario del database). Questa procedura è illustrata in [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL oppure con SQL Data Warehouse](sql-database-aad-authentication-configure.md). L'autenticazione di Azure AD è possibile unicamente se l'amministratore di Azure AD è stato creato per il server di database SQL di Azure o SQL Data Warehouse. Se l'amministratore di Azure Active Directory è stato rimosso dal server, gli utenti di Azure Active Directory esistenti creati in precedenza all'interno di SQL Server non possono più connettersi al database con le credenziali di Azure Active Directory.
 
 ## <a name="azure-ad-features-and-limitations"></a>Funzionalità e limitazioni di Azure AD
 È possibile eseguire il provisioning dei membri di Azure AD seguenti nel server di Azure SQL o in SQL Data Warehouse:
@@ -79,7 +79,6 @@ Per creare un utente di database indipendente nel database SQL di Azure o in SQL
 * Membri importati da altre istanze di Azure AD che sono membri nativi o del dominio federato.
 * Gruppi di Active Directory creati come gruppi di sicurezza.
 
-Gli account Microsoft, ad esempio outlook.com, hotmail.com, live.com, oppure altri account guest, ad esempio gmail.com, yahoo.com, non sono supportati. Se è possibile accedere a [https://login.live.com](https://login.live.com) con l'account e la password, si sta usando un account Microsoft che non è supportato per l'autenticazione di Azure AD per il database SQL di Azure o per Azure SQL Data Warehouse.
 
 ## <a name="connecting-using-azure-ad-identities"></a>Connettersi usando le identità di Azure AD
 

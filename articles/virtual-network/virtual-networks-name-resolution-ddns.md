@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 440a062e5fff73526b2d77d7d0a7c52ca72a66f1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Uso di DNS dinamico per registrare i nomi host nel proprio server DNS
 [Azure offre la risoluzione dei nomi](virtual-networks-name-resolution-for-vms-and-role-instances.md) per le macchine virtuali e le istanze del ruolo. Tuttavia, quando la risoluzione dei nomi offerta da Azure non è sufficiente, è possibile usare i propri server DNS. In questo modo è possibile personalizzare la soluzione DNS in base alle esigenze specifiche. Ad esempio, può essere necessario accedere a risorse locali tramite il controller di dominio Active Directory.
@@ -68,5 +67,4 @@ Quando si usa un server DNS Windows, è possibile usare l'autenticazione Kerbero
 Se necessario, aggiungere un suffisso di ricerca DNS alle VM. Il suffisso DNS è specificato nel file */etc/resolv.conf* . La maggior parte delle distribuzioni Linux gestiscono automaticamente il contenuto di questo file, quindi solitamente non può essere modificato. Tuttavia, è possibile ignorare il suffisso usando il comando *supersede* del client DHCP. A tale scopo, in */etc/dhcp/dhclient.conf*aggiungere:
 
         supersede domain-name <required-dns-suffix>;
-
 

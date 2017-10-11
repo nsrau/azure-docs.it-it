@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Central Desktop | Documentazione Microsoft'
-description: Informazioni su come usare Central Desktop con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare Central Desktop con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
 ms.openlocfilehash: fe32c1d68040ceb9d9de2ad6c4a6dc9ea93f5aef
-ms.lasthandoff: 02/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Esercitazione: Integrazione di Azure Active Directory con Central Desktop
 Questa esercitazione descrive l'integrazione di Azure e Central Desktop. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
@@ -64,12 +63,12 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Cent
 
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Central Desktop tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
 
-Come parte di questa procedura, verrà richiesto di caricare un file di certificato con codifica Base&64; nel tenant di Central Desktop.  
+Come parte di questa procedura, verrà richiesto di caricare un file di certificato con codifica Base 64 nel tenant di Central Desktop.  
 Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 **Per configurare l'accesso Single Sign-On, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Central Desktop** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1. Nel portale di Azure classico, nel **Central Desktop** pagina di integrazione dell'applicazione, fare clic su **configurare single sign-on** per aprire il * * configurare Single Sign-On * * finestra di dialogo.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "Configurare l'accesso Single Sign-On")
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Central Desktop** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
@@ -155,5 +154,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    ![Sì](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
 

@@ -10,12 +10,11 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: dd8b3d5b26f4a903f403e5c7e9dba645a14b3231
-ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 685aa4c2f75b7c3260ca737f7c786157480b2d90
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurare la connettività SSL nel Database di Azure per PostgreSQL
 Il Database di Azure per PostgreSQL preferisce connettere le applicazioni client al servizio di PostgreSQL usando la connettività SSL (Secure Sockets Layer). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
@@ -143,4 +142,3 @@ La configurazione di pgAdmin 4 per connettersi in modo sicuro tramite SSL richie
 
 ## <a name="next-steps"></a>Passaggi successivi
 Esaminare varie opzioni di connettività dell'applicazione secondo [Raccolte connessioni per il Database di Azure per PostgreSQL](concepts-connection-libraries.md)
-

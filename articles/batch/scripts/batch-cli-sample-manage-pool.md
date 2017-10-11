@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Gestione dei pool in Batch | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Gestione dei pool in Batch
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Gestione dei pool in Batch | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Gestione dei pool in Batch
 services: batch
 documentationcenter: 
 author: annatisch
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 2556b02459886390b803407c5cb828687229a44e
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -60,19 +60,19 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 
 | Comando | Note |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Eseguire l'autenticazione con un account Batch.  |
-| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#list) | Elencare le applicazioni disponibili nell'account Batch.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#create) | Creare un pool di macchine virtuali.  |
-| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#set) | Aggiornare le proprietà di un pool.  |
-| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#list) | Elencare gli SKU agente nodo disponibili e le informazioni dell'immagine.  |
-| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#resize) | Ridimensionare il numero di macchine virtuali in esecuzione nel pool specificato.  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#show) | Visualizzare le proprietà di un pool.  |
-| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#delete) | Eliminare il pool specificato.  |
-| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#enable) | Abilitare la scalabilità automatica in un pool e applicare una formula.  |
-| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#disable) | Disabilitare la scalabilità automatica in un pool.  |
-| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#list) | Elencare tutti i nodi di calcolo nel pool specificato.  |
-| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#reboot) | Riavviare il nodo di calcolo specificato.  |
-| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#delete) | Eliminare i nodi elencati dal pool specificato.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Eseguire l'autenticazione con un account Batch.  |
+| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#az_batch_application_summary_list) | Elencare le applicazioni disponibili nell'account Batch.  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_create) | Creare un pool di macchine virtuali.  |
+| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_set) | Aggiornare le proprietà di un pool.  |
+| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#az_batch_pool_node_agent_skus_list) | Elencare gli SKU agente nodo disponibili e le informazioni dell'immagine.  |
+| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_resize) | Ridimensionare il numero di macchine virtuali in esecuzione nel pool specificato.  |
+| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_show) | Visualizzare le proprietà di un pool.  |
+| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_delete) | Eliminare il pool specificato.  |
+| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) | Abilitare la scalabilità automatica in un pool e applicare una formula.  |
+| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_disable) | Disabilitare la scalabilità automatica in un pool.  |
+| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_list) | Elencare tutti i nodi di calcolo nel pool specificato.  |
+| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_reboot) | Riavviare il nodo di calcolo specificato.  |
+| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_delete) | Eliminare i nodi elencati dal pool specificato.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

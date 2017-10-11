@@ -1,5 +1,5 @@
 ---
-title: Panoramica dell&quot;elaborazione delle transazioni nel bus di servizio di Azure | Documentazione Microsoft
+title: Panoramica dell'elaborazione delle transazioni nel bus di servizio di Azure | Documentazione Microsoft
 description: Panoramica delle transazioni atomiche del bus di servizio di Azure e invia tramite
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/17/2017
 ms.author: clemensv;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: a88f2d81ab43e38c9363a67aaefc178b47bfb259
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Panoramica dell'elaborazione delle transazioni del bus di servizio
 Questo articolo descrive le funzionalità delle transazioni del bus di servizio. Gran parte della discussione si basa sull'[esempio delle transazioni atomiche con il bus di servizio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). Questo articolo si limita a una panoramica dell'elaborazione delle transazioni e della funzionalità *invia tramite* nel bus di servizio, invece l'esempio delle transazioni atomiche ha un ambito di riferimento più ampio e complesso.
@@ -82,5 +80,4 @@ Per altre informazioni sulle code del bus di servizio, vedere gli articoli segue
 * [Esempio di transazioni atomiche con il bus di servizio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
-
 

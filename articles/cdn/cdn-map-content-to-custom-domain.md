@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: cd6db44f7776859d1e6a893543cf0666182ca41a
-ms.lasthandoff: 04/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="map-azure-cdn-content-to-a-custom-domain"></a>Eseguire il mapping del contenuto della rete CDN a un dominio personalizzato
 È possibile eseguire il mapping di un dominio personalizzato a un endpoint della rete CDN per usare il proprio nome di dominio negli URL del contenuto memorizzato nella cache anziché un sottodominio di azureedge.net.
@@ -81,5 +80,4 @@ Dopo aver registrato il dominio personalizzato seguendo una delle procedure desc
 
 ## <a name="see-also"></a>Vedere anche
 [Come abilitare la rete per la distribuzione di contenuti (rete CDN) per Azure](cdn-create-new-endpoint.md)  
-
 

@@ -16,8 +16,8 @@
 #### [Automatico: con modello](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Manuale: prerequisiti](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Manuale: esercitazione](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Bilanciamento del carico: portale](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Bilanciamento del carico: PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Bilanciamento del carico - Portale di Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Bilanciamento del carico - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Più aree geografiche](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Istanza del cluster di failover
 #### [Configurare](virtual-machines-windows-portal-sql-create-failover-cluster.md)
@@ -35,8 +35,8 @@
 ## [Configurare lo spazio di archiviazione](virtual-machines-windows-sql-server-storage-configuration.md)
 ## [Modelli di applicazione](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
-# Riferimento
-## [PowerShell](/powershell/azure/overview)
+# riferimento
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Driver di SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)

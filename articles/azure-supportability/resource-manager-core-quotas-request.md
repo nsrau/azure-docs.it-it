@@ -7,15 +7,12 @@ ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2373cf227cbed4f6657e31088b11dca5223ce5fe
 ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="resource-manager-core-quota-increase-requests"></a>Richieste di aumento della quota di core per Resource Manager
 
 Le quote di core per Resource Manager sono imposte a livello di area e a livello di famiglia di SKU.
@@ -45,4 +42,3 @@ Per richiedere un aumento, creare una richiesta di supporto per la quota dei cor
 
 - Per rimuovere una riga, deselezionare lo SKU dall'elenco a discesa delle famiglie di SKU oppure fare clic sull'icona di eliminazione "x".
 Dopo aver immesso la quota desiderata per ogni famiglia di SKU, fare clic su "Avanti" nella pagina del passaggio del problema per procedere con la creazione della richiesta di supporto.
-

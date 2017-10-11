@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 08/30/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: f9ad730688433912a46d6e22bfc82063a9a60be3
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1f646016158c212747d7f9841449c348b41f9a15
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Linee guida sul ripristino di emergenza dei dati in Data Lake Store
@@ -31,7 +31,7 @@ I dati nell'account Azure Data Lake Store sono resilienti agli errori hardware t
 * [Indicazioni tecniche sulla resilienza di Azure](../resiliency/resiliency-technical-guidance.md)
 
 ### <a name="best-practices"></a>Procedure consigliate
-È consigliabile copiare i dati critici in un altro account Data Lake Store in un'altra area con una frequenza adatta alle esigenze del piano di ripristino di emergenza. Sono disponibili diversi metodi per copiare i dati, tra cui [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) o [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md). Azure Data Factory è un servizio utile per creare e distribuire pipeline di spostamento dati a intervalli ricorrenti.
+È consigliabile copiare i dati critici in un altro account Data Lake Store in un'altra area con una frequenza adatta alle esigenze del piano di ripristino di emergenza. Sono disponibili diversi metodi per copiare i dati, tra cui [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) o [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md). Azure Data Factory è un servizio utile per creare e distribuire pipeline di spostamento dati a intervalli ricorrenti.
 
 Se verifica un'interruzione a livello di area, sarà quindi possibile accedere ai dati nell'area in cui sono stati copiati. È possibile monitorare il [dashboard dell'integrità dei servizi di Azure](https://azure.microsoft.com/status/) per determinare lo stato dei servizi di Azure in tutto il mondo.
 
@@ -39,7 +39,7 @@ Se verifica un'interruzione a livello di area, sarà quindi possibile accedere a
 Anche se Azure Data Lake Store offre la resilienza dei dati tramite le repliche automatiche, ciò non impedisce all'applicazione o agli sviluppatori/utenti di danneggiare i dati o di eliminarli accidentalmente.
 
 ### <a name="best-practices"></a>Procedure consigliate
-Per evitare l'eliminazione accidentale, è consigliabile impostare prima di tutto i criteri di accesso corretti per l'account Data Lake Store.  Ciò include l'applicazione dei [blocchi di risorse di Azure](../azure-resource-manager/resource-group-lock-resources.md) per bloccare risorse importante e l'applicazione del controllo di accesso a livello di account e file usando le [funzionalità di sicurezza di Data Lake Store](data-lake-store-security-overview.md) disponibili. È anche opportuno creare regolarmente copie dei dati critici usando [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) o [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) in un altro account Data Lake Store, in una cartella o in una sottoscrizione di Azure.  Queste copie possono essere usate per il ripristino in seguito a un danneggiamento dei dati o un evento imprevisto di eliminazione. Azure Data Factory è un servizio utile per creare e distribuire pipeline di spostamento dati a intervalli ricorrenti.
+Per evitare l'eliminazione accidentale, è consigliabile impostare prima di tutto i criteri di accesso corretti per l'account Data Lake Store.  Ciò include l'applicazione dei [blocchi di risorse di Azure](../azure-resource-manager/resource-group-lock-resources.md) per bloccare risorse importante e l'applicazione del controllo di accesso a livello di account e file usando le [funzionalità di sicurezza di Data Lake Store](data-lake-store-security-overview.md) disponibili. È anche opportuno creare regolarmente copie dei dati critici usando [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) o [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) in un altro account Data Lake Store, in una cartella o in una sottoscrizione di Azure.  Queste copie possono essere usate per il ripristino in seguito a un danneggiamento dei dati o un evento imprevisto di eliminazione. Azure Data Factory è un servizio utile per creare e distribuire pipeline di spostamento dati a intervalli ricorrenti.
 
 Le organizzazioni possono anche abilitare la [registrazione diagnostica](data-lake-store-diagnostic-logs.md) per l'account Azure Data Lake Store per raccogliere gli audit trail di accesso ai dati che forniscono informazioni su chi potrebbe avere eliminato o aggiornato un file.
 

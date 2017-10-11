@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 587d73bc91aa10b79c1d1488f98f05b73801d8c8
+ms.translationtype: HT
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: a2487aac712542d86cb3a7f34c45e21c8d035496
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modello di dati di Application Insights Telemetry
@@ -31,7 +31,7 @@ Per monitorare l'esecuzione dell'applicazione si usano i tipi di dati di telemet
 
 * [**Richiesta**](application-insights-data-model-request-telemetry.md): tipo generato per registrare una richiesta ricevuta dall'applicazione. Ad esempio, la versione Web di Application Insights SDK genera automaticamente un elemento di telemetria di tipo richiesta per ogni richiesta HTTP ricevuta dall'app Web. 
 
-    Un'**operazione** è il thread di esecuzione che elabora una richiesta. È anche possibile [scrivere codice](app-insights-api-custom-events-metrics.md#trackrequest) per monitorare altri tipi di operazioni, ad esempio la "riattivazione" di un processo Web o di una funzione che periodicamente elabora i dati.  Ogni operazione presenta un ID. Questo ID può essere usato per [raggruppare] ((application-insights-correlation.md) tutti i dati di telemetria generati durante l'elaborazione della richiesta da parte dell'applicazione. Ogni operazione ha un esito positivo o negativo e una certa durata.
+    Un'**operazione** è il thread di esecuzione che elabora una richiesta. È anche possibile [scrivere codice](app-insights-api-custom-events-metrics.md#trackrequest) per monitorare altri tipi di operazioni, ad esempio la "riattivazione" di un processo Web o di una funzione che periodicamente elabora i dati.  Ogni operazione presenta un ID. Questo ID può essere usato per [raggruppare](application-insights-correlation.md) tutti i dati di telemetria generati durante l'elaborazione della richiesta da parte dell'app. Ogni operazione ha un esito positivo o negativo e una certa durata.
 * [**Eccezione**](application-insights-data-model-exception-telemetry.md): rappresenta in genere un'eccezione che causa l'esito negativo dell'operazione.
 * [**Dipendenza**](application-insights-data-model-dependency-telemetry.md): rappresenta una chiamata dall'applicazione a un servizio esterno o a una risorsa di archiviazione, ad esempio a un'API REST o a SQL. In ASP.NET le chiamate di dipendenza a SQL sono definite da `System.Data`. Le chiamate agli endpoint HTTP sono definite da `System.Net`. 
 

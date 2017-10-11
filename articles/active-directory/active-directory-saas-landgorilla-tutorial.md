@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Land Gorilla Client| Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Land Gorilla.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Land Gorilla.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 744c420aa0298c59c44e645b95a716ad876752de
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Esercitazione: Integrazione di Azure Active Directory con Land Gorilla Client
 
@@ -240,4 +239,3 @@ Quando si fa clic sul riquadro Land Gorilla Client nel Pannello di accesso, si d
 [201]: ./media/active-directory-saas-landgorilla-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-landgorilla-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-landgorilla-tutorial/tutorial_general_203.png
-

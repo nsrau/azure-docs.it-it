@@ -21,12 +21,9 @@ ms.openlocfilehash: 5e83171846517496e221f0a84565cdf7b77514df
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 
-<a id="add-the-applications-registration-information-to-your-app" class="xliff"></a>
-
-## Aggiungere le informazioni di registrazione dell'applicazione all'app
+## <a name="add-the-applications-registration-information-to-your-app"></a>Aggiungere le informazioni di registrazione dell'applicazione all'app
 In questo passaggio è necessario aggiungere l'ID applicazione al progetto.
 
 1.  Aprire `App.xaml.cs` e sostituire la riga contenente il `ClientId` con:
@@ -35,9 +32,7 @@ In questo passaggio è necessario aggiungere l'ID applicazione al progetto.
 private static string ClientId = "[Enter the application Id here]";
 ```
 
-<a id="what-is-next" class="xliff"></a>
-
-### Passaggi successivi
+### <a name="what-is-next"></a>Passaggi successivi
 
 [Test e convalida](active-directory-mobileanddesktopapp-windowsdesktop-test.md)
 

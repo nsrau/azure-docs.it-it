@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 091f0884417535427c52beee7bcdc5ed1dd83315
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Gestire un server VMware vCenter in Azure Site Recovery
 Questo articolo prende in esame le varie operazioni di Site Recovery che possono essere eseguite su un server VMware vCenter.
 
@@ -85,4 +83,3 @@ Site Recovery deve avere accesso a VMware per l'individuazione automatica delle 
 
 > [!NOTE]
 Se è necessario modificare l'indirizzo IP o FQDN dei server vCenter o i dettagli della porta è necessario eliminare il server vCenter e aggiungerlo di nuovo.
-

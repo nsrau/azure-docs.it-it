@@ -1,6 +1,4 @@
-<a id="use-the-azure-portal" class="xliff"></a>
-
-## Usare il portale di Azure
+## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 1. Selezionare la VM di cui si vuole eseguire di nuovo la distribuzione, quindi selezionare il pulsante *Ridistribuisci* nel pannello *Impostazioni*. Potrebbe essere necessario scorrere fino alla sezione **Supporto e risoluzione dei problemi** che contiene il pulsante "Ridistribuisci", come nell'esempio seguente:
    
     ![Pannello VM di Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)

@@ -1,6 +1,6 @@
 ---
-title: Informazioni sulla messaggistica da cloud a dispositivo dell&quot;hub IoT di Azure | Microsoft Docs
-description: 'Guida per gli sviluppatori: come usare la messaggistica da cloud a dispositivo con l&quot;hub IoT. Include informazioni sul ciclo di vita del messaggio e sulle opzioni di configurazione.'
+title: Informazioni sulla messaggistica da cloud a dispositivo dell'hub IoT di Azure | Microsoft Docs
+description: 'Guida per gli sviluppatori: come usare la messaggistica da cloud a dispositivo con l''hub IoT. Include informazioni sul ciclo di vita del messaggio e sulle opzioni di configurazione.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 04ac46498c912b0503036f70b7f3d0e28e5a82b8
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 706c9650a8deef941f9b39956021456053369e5e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Inviare messaggi da cloud a dispositivo dall'hub IoT
@@ -48,17 +47,28 @@ Un dispositivo può anche scegliere di:
 
 Un thread potrebbe non riuscire a elaborare un messaggio senza inviare una notifica all'hub IoT. In questo caso i messaggi passano automaticamente dallo stato **Invisibile** allo stato **Accodato** dopo un *timeout di visibilità o di blocco*. Il valore predefinito di questo timeout è un minuto.
 
-Un messaggio può passare dallo stato **Accodato** allo stato **Invisibile** e viceversa per il numero massimo di volte specificato nella proprietà **maxDeliveryCount** dell'hub IoT. Dopo il numero di transizioni specificato, l'hub IoT imposta lo stato del messaggio su **Non recapitabile**. Analogamente, l'hub IoT imposta lo stato di un messaggio su **Non recapitabile** dopo la relativa scadenza. Vedere la sezione [Scadenza del messaggio (durata)][lnk-ttl].
+Un messaggio può passare dallo stato **Accodato** allo stato **Invisibile** e viceversa per il numero massimo di volte specificato nella proprietà **maxdeliverycount** dell'hub IoT. Dopo il numero di transizioni specificato, l'hub IoT imposta lo stato del messaggio su **Non recapitabile**. Analogamente, l'hub IoT imposta lo stato di un messaggio su **Non recapitabile** dopo la relativa scadenza. Vedere la sezione [Scadenza del messaggio (durata)][lnk-ttl].
 
 L'esercitazione [Come inviare i messaggi da cloud a dispositivo con l'hub IoT][lnk-c2d-tutorial] illustra come inviare messaggi da cloud a dispositivo dal cloud e riceverli su un dispositivo.
 
-Generalmente, un dispositivo completa i messaggi da cloud a dispositivo quando la perdita del messaggio non influisce sulla logica dell'applicazione. Ad esempio, quando il dispositivo ha salvato in modo permanente il contenuto del messaggio in locale o ha eseguito correttamente un'operazione. Il messaggio potrebbe anche includere informazioni temporanee la cui perdita non influirebbe sulla funzionalità dell'applicazione. In alcuni casi, per le attività con esecuzione prolungata, è possibile completare il messaggio da cloud a dispositivo dopo aver salvato in modo permanente la descrizione dell'attività nell'archivio locale. È quindi possibile inviare al back-end della soluzione una notifica con uno o più messaggi da dispositivo a cloud in diverse fasi di avanzamento dell'attività.
+Generalmente, un dispositivo completa i messaggi da cloud a dispositivo quando la perdita del messaggio non influisce sulla logica dell'applicazione. Ad esempio, quando il dispositivo ha salvato in modo permanente il contenuto del messaggio in locale o ha eseguito correttamente un'operazione. Il messaggio potrebbe anche includere informazioni temporanee la cui perdita non influirebbe sulla funzionalità dell'applicazione. In alcuni casi, per le attività con esecuzione prolungata è possibile:
+
+* Completare il messaggio da cloud a dispositivo dopo aver salvato in modo permanente la descrizione dell'attività nell'archivio locale.
+* Inviare al back-end della soluzione una notifica con uno o più messaggi da dispositivo a cloud in diverse fasi di avanzamento dell'attività.
 
 ## <a name="message-expiration-time-to-live"></a>Scadenza del messaggio (durata)
 
-Ogni messaggio da cloud a dispositivo ha una scadenza. Questa durata viene impostata dal servizio, nella proprietà **ExpiryTimeUtc**, oppure dall'hub IoT, usando il valore di *durata (TTL)* predefinito specificato come proprietà dell'hub IoT. Vedere [Opzioni di configurazione da cloud a dispositivo][lnk-c2d-configuration].
+Ogni messaggio da cloud a dispositivo ha una scadenza. Tale scadenza viene impostata da uno degli elementi seguenti:
 
-Un modo comune per usare la scadenza del messaggio a proprio vantaggio ed evitare l'invio di messaggi a dispositivi disconnessi consiste nell'impostare valori di durata brevi. Questo approccio permette di ottenere lo stesso risultato che si ottiene mantenendo connesso il dispositivo, ma è più efficiente. Se si richiede l'acknowledgement dei messaggi, l'hub IoT invia una notifica per indicare quali dispositivi possono ricevere messaggi e quali sono offline o in stato di errore.
+* La proprietà **ExpiryTimeUtc** nel servizio.
+* Lo hub IoT che usa il valore *TTL* predefinito specificato come proprietà dello hub IoT.
+
+Vedere [Opzioni di configurazione da cloud a dispositivo][lnk-c2d-configuration].
+
+Un modo comune per usare la scadenza del messaggio a proprio vantaggio ed evitare l'invio di messaggi a dispositivi disconnessi consiste nell'impostare valori di durata brevi. Questo approccio permette di ottenere lo stesso risultato che si ottiene mantenendo connesso il dispositivo, ma è più efficiente. Quando si richiede l'acknowledgement dei messaggi, lo hub IoT informa che i dispositivi:
+
+* sono abilitati a ricevere messaggi.
+* sono offline, oppure l'operazione non è riuscita.
 
 ## <a name="message-feedback"></a>Commenti sui messaggi
 
@@ -66,8 +76,8 @@ Durante l'invio di messaggi da cloud a dispositivo, il servizio può richiedere 
 
 | Proprietà Ack | Comportamento |
 | ------------ | -------- |
-| **positive** | L'hub IoT genera un messaggio con commenti solo se il messaggio da cloud a dispositivo ha raggiunto lo stato **Completato**. |
-| **negative** | L'hub IoT genera un messaggio con commenti solo se il messaggio da cloud a dispositivo ha raggiunto lo stato **Deadlettered** (Recapitato). |
+| **positive** | Se il messaggio da cloud a dispositivo ha raggiunto lo stato **Completato**, l'hub IoT genera un messaggio con commenti. |
+| **negative** | Se il messaggio da cloud a dispositivo ha raggiunto lo stato **Deadlettered** (Recapitato), l'hub IoT genera un messaggio con commenti. |
 | **full**     | L'hub IoT genera un messaggio di commenti in entrambi i casi. |
 
 Se la proprietà **Ack** è impostata su **full** e non si riceve un messaggio con commenti, significa che il messaggio è scaduto. Il servizio non può sapere cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Il periodo di scadenza massimo è di due giorni ed è quindi disponibile un tempo sufficiente per ripristinare il servizio in caso di errore.

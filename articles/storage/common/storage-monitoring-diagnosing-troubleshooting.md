@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12db22d1444dc07a45db430c01407f9398e13bad
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1a9c9354b665294778886441cc6d7f02adb1163f
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
@@ -30,7 +30,7 @@ La diagnosi e la risoluzione dei problemi in un'applicazione distribuita ospitat
 Per gestire in modo efficace queste applicazioni, è necessario monitorarle attivamente e capire in che modo diagnosticare e risolvere i problemi correlati a tutti gli aspetti delle applicazioni e delle tecnologie dipendenti. L'utente dei servizi di archiviazione di Azure deve monitorare continuamente i servizi di archiviazione usati dall'applicazione per riscontrare eventuali cambiamenti inattesi nel comportamento, ad esempio tempi di risposta insolitamente lenti, e deve usare la registrazione per raccogliere dati più dettagliati e analizzare i problemi più in profondità. Le informazioni di diagnostica ottenute dal monitoraggio e dalla registrazione consentiranno di determinare la causa principale del problema riscontrato dall'applicazione. Sarà quindi possibile identificare il problema e determinare le misure appropriate per risolverlo. L'Archiviazione di Azure è uno dei principali servizi di Azure ed è un componente importante della maggior parte delle soluzioni distribuite dai client nell'infrastruttura Azure. Include funzionalità che consentono di semplificare le attività di monitoraggio, diagnostica e risoluzione dei problemi di archiviazione nelle applicazioni basate su cloud.
 
 > [!NOTE]
-> Archiviazione file di Azure attualmente non supporta la registrazione.
+> File di Azure attualmente non supporta la registrazione.
 > 
 
 Per una guida interattiva alla risoluzione dei problemi end-to-end in applicazioni di Archiviazione di Azure, vedere la pagina relativa alla [risoluzione dei problemi end-to-end usando Metriche e Registrazione di Archiviazione di Azure, AzCopy e Analizzatore messaggi](../storage-e2e-troubleshooting.md).
@@ -71,8 +71,8 @@ Per una guida interattiva alla risoluzione dei problemi end-to-end in applicazio
   * [Il problema è dovuto all'uso dell'emulatore di archiviazione per attività di sviluppo o test]
   * [Si stanno verificando problemi di installazione di Azure SDK per .NET]
   * [Si è verificato un problema diverso con un servizio di archiviazione]
-  * [Risoluzione dei problemi di archiviazione file di Azure in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
-  * [Risoluzione dei problemi di archiviazione file di Azure in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+  * [Risoluzione di problemi di File di Azure in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
+  * [Risoluzione di problemi di File di Azure in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Appendici]
   * [Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS]
   * [Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]
@@ -236,29 +236,29 @@ In molti casi, i dati di log provenienti dalla registrazione dell'archiviazione 
 La funzionalità di traccia end-to-end basata sull'utilizzo di una varietà di file di log è una tecnica utile per l'analisi dei potenziali problemi. È possibile usare le informazioni su data e ora estratte dai dati delle metriche come indicazione del punto da cui deve partire la ricerca nei file di log dei dettagli necessari per la risoluzione del problema.
 
 ### <a name="correlating-log-data"></a>Correlazione dei dati di log
-Quando si visualizzano i file di log delle applicazioni client, le tracce di rete e la registrazione dell'archiviazione lato server, è essenziale poter creare una correlazione delle richieste in tutti i file di log. I file di log includono diversi campi che possono essere utili come identificatori di correlazioni. Il campo dell'ID richiesta client è il più utile ai fini della correlazione delle voci nei diversi file di log. Tuttavia, in alcuni casi può essere utile utilizzare l'ID richiesta server o i timestamp. Le sezioni che seguono forniscono ulteriori dettagli su queste opzioni.
+Quando si visualizzano i file di log delle applicazioni client, le tracce di rete e la registrazione dell'archiviazione lato server, è essenziale poter creare una correlazione delle richieste in tutti i file di log. I file di log includono diversi campi che possono essere utili come identificatori di correlazioni. L'ID richiesta client è il campo più utile per usare le voci correlate nei vari log. Tuttavia, in alcuni casi può essere utile usare l'ID richiesta server o i timestamp. Le sezioni che seguono forniscono ulteriori dettagli su queste opzioni.
 
 ### <a name="client-request-id"></a>ID richiesta client
-Storage Client Library genera automaticamente un ID richiesta client univoco per ogni richiesta.
+La libreria client di archiviazione genera automaticamente un ID richiesta client univoco per ogni richiesta.
 
-* Nel file di log lato client creato da Storage Client Library, tale ID appare nel campo dell' **ID richiesta client** di ogni voce del file log correlato alla richiesta.
-* In una traccia di rete, ad esempio quella acquisita con Fiddler, l'ID richiesta client è visibile nei messaggi di richiesta come valore dell'intestazione HTTP **x-ms-client-request-id** .
-* Nel log di registrazione dell'archiviazione lato server, l'ID richiesta client appare nella colonna relativa a tale ID.
+* Nel log lato client creato dalla libreria client di archiviazione tale ID viene visualizzato nel campo **ID richiesta client** di ogni voce del log correlata alla richiesta.
+* In una traccia di rete come ad esempio quella acquisita con Fiddler, l'ID richiesta client è visibile nei messaggi di richiesta come valore dell'intestazione HTTP **x-ms-client-request-id**.
+* Nel log di registrazione dell'archiviazione lato server l'ID richiesta client viene visualizzato nella colonna relativa.
 
 > [!NOTE]
-> È possibile che più richieste condividano lo stesso ID richiesta client poiché il client può assegnare questo valore (benché Storage Client Library assegni automaticamente un nuovo valore). Nel caso di nuovi tentativi del client, tutti i tentativi condividono lo stesso id di richiesta del client. Nel caso di un batch inviato dal client, il batch ha un singolo id di richiesta del client.
+> È possibile che più richieste condividano lo stesso ID richiesta client poiché il client può assegnare questo valore. Ciononostante, la libreria client di archiviazione assegna automaticamente un nuovo valore. Nel caso di nuovi tentativi del client, tutti i tentativi condividono lo stesso ID richiesta client. Nel caso di un batch inviato dal client, il batch ha un singolo ID richiesta client.
 > 
 > 
 
 ### <a name="server-request-id"></a>ID richiesta server
 Il servizio di archiviazione genera automaticamente gli ID richiesta server.
 
-* Nel log di registrazione dell'archiviazione lato server, l'ID richiesta server appare nella colonna dell' **intestazione dell'ID richiesta** .
-* In una traccia di rete, ad esempio quella acquisita con Fiddler, l'ID richiesta server appare nei messaggi di risposta come valore dell'intestazione HTTP **x-ms-request-id** .
-* Nel log lato client creato da Storage Client Library, l'ID richiesta server appare nella colonna del **testo dell'operazione** per la voce del log che mostra i dettagli della risposta del server.
+* Nel log di registrazione dell'archiviazione lato server l'ID richiesta server viene visualizzato nella colonna **Request ID header** (Intestazione ID richiesta).
+* In una traccia di rete come ad esempio quella acquisita con Fiddler, l'ID richiesta server viene visualizzato nei messaggi di risposta come valore dell'intestazione HTTP **x-ms-request-id**.
+* Nel log lato client creato dalla libreria client di archiviazione l'ID richiesta server viene visualizzato nella colonna **Operation Text** (Testo dell'operazione) per la voce del log che visualizza i dettagli della risposta del server.
 
 > [!NOTE]
-> Il servizio di archiviazione assegna sempre un ID richiesta server univoco a ogni richiesta che riceve, quindi ogni tentativo ripetuto dal client e ogni operazione inclusa in un batch hanno un ID richiesta server univoco.
+> Il servizio di archiviazione assegna sempre un ID richiesta server univoco a ogni richiesta che riceve, quindi ogni nuovo tentativo del client e ogni operazione inclusa in un batch hanno un ID richiesta server univoco.
 > 
 > 
 
@@ -574,7 +574,7 @@ La tabella che segue mostra un esempio di messaggio del log lato server generato
 | Tipo di autenticazione| Sas                          |
 | Tipo di servizio       | BLOB                         |
 | URL richiesta        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | intestazione dell'ID richiesta  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID richiesta client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -653,7 +653,7 @@ La metrica **PercentSuccess** acquisisce la percentuale di operazioni eseguite c
 Per l'elenco dei codici di errore API REST che i servizi di archiviazione restituiscono più di frequente, vedere la pagina [Codici di errore comuni dell'API REST](http://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Le metriche della capacità indicano un aumento imprevisto dell'uso della capacità di archiviazione
-Se si riscontrano cambiamenti improvvisi e imprevisti dell'utilizzo della capacità nel proprio account di archiviazione, per scoprire quali sono le cause per prima cosa analizzare le metriche di disponibilità. Ad esempio, un aumento del numero di richieste di eliminazione non riuscite può determinare un aumento dell'archiviazione BLOB in uso perché le operazioni di pulizia specifiche dell'applicazione, che avrebbero dovuto liberare spazio, non funzionano come previsto (ad esempio perché i token SAS utilizzare per liberare spazio sono scaduti).
+Se si riscontrano cambiamenti improvvisi e imprevisti dell'utilizzo della capacità nell'account di archiviazione, per scoprire quali sono le cause per prima cosa analizzare le metriche di disponibilità. Ad esempio, un aumento del numero di richieste di eliminazione non riuscite può determinare un aumento dell'archiviazione BLOB in uso perché le operazioni di pulizia specifiche dell'applicazione, che avrebbero dovuto liberare spazio, non funzionano come previsto, ad esempio perché i token SAS usati per liberare spazio sono scaduti.
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>Si stanno verificando riavvii imprevisti delle macchine virtuali di Azure con un numero elevato di VHD allegati
 Se una macchina virtuale di Azure contiene numerosi dischi rigidi virtuali (VHD, Virtual Hard Disk) allegati nello stesso account di archiviazione, è possibile che vengano superati gli obiettivi di scalabilità dell'account di archiviazione determinando un errore della macchina virtuale. È consigliabile controllare le metriche al minuto per l'account di archiviazione (**TotalRequests**/**TotalIngress**/**TotalEgress**) per verificare se esistono picchi che superano gli obiettivi di scalabilità per un account di archiviazione. Vedere la sezione "[Le metriche indicano un aumento di PercentThrottlingError]" per sapere come si stabilisce se si è verificata una limitazione nell'account di archiviazione.
@@ -674,7 +674,7 @@ L'emulatore di archiviazione non supporta tutte le funzioni dei servizi di archi
 Per le funzioni non supportate dall'emulatore di archiviazione, usare il servizio di archiviazione Azure nel cloud.
 
 #### <a name="error-HTTP-header-not-correct-format"></a>Un messaggio indica che il valore di una delle intestazioni HTTP non è nel formato corretto quando si usa l'emulatore di archiviazione
-Si sta testando l'applicazione che utilizza Storage Client Library con l'emulatore di archiviazione locale e chiamate del metodo come **CreateIfNotExists** hanno esito negativo restituendo un errore dovuto al formato errato di una delle intestazioni HTTP. Ciò indica che la versione dell'emulatore di archiviazione non supporta la versione di Storage Client Library in uso. Storage Client Library aggiunge l'intestazione **x-ms-version** a tutte le richieste che effettua. Se l'emulatore di archiviazione non riconosce il valore nell'intestazione **x-ms-version** , rifiuta la richiesta.
+Si sta testando l'applicazione che usa la libreria client di archiviazione con l'emulatore di archiviazione locale e le chiamate del metodo come **CreateIfNotExists** hanno esito negativo e restituiscono un errore dovuto al formato errato di una delle intestazioni HTTP. Ciò indica che la versione dell'emulatore di archiviazione non supporta la versione di Storage Client Library in uso. Storage Client Library aggiunge l'intestazione **x-ms-version** a tutte le richieste che effettua. Se l'emulatore di archiviazione non riconosce il valore nell'intestazione **x-ms-version** , rifiuta la richiesta.
 
 Utilizzare i log di Storage Library Client per visualizzare il valore di **x-ms-version header** inviato. È inoltre possibile visualizzare il valore di **x-ms-version header** se si utilizza Fiddler per la traccia delle richieste provenienti dall'applicazione client.
 
@@ -756,7 +756,7 @@ WireShark evidenzia tutti gli errori presenti nella finestra **packetlist** . È
 
 ![][7]
 
-È anche possibile scegliere di visualizzare i dati TCP appena il livello dell'applicazione li vede, facendo clic con il pulsante destro del mouse sui dati TCP e selezionando **Follow TCP Stream**. Ciò è particolarmente utile se si acquisisce il dump senza un filtro di acquisizione. Per altre informazioni, vedere [Seguire i flussi TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+È anche possibile scegliere di visualizzare i dati TCP nello stesso modo in cui vengono visualizzati dal livello dell'applicazione, facendo clic con il pulsante destro del mouse sui dati TCP e selezionando **Follow TCP Stream** (Segui flusso TCP). Ciò è particolarmente utile se si acquisisce il dump senza un filtro di acquisizione. Per altre informazioni, vedere [Seguire i flussi TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
@@ -816,7 +816,7 @@ Nel passaggio 1 dell'**Importazione guidata testo**, selezionare **Punto e virgo
 * Assicurarsi che il servizio Web sia disponibile e reattivo. Indipendentemente dal fatto che l'applicazione sia un sito Web o un'app per dispositivo che usa un servizio Web, può testare l'URL a intervalli di pochi minuti da località di tutto il mondo e indicare se è presente un problema.
 * Diagnosticare rapidamente eventuali problemi di prestazioni o eccezioni del servizio Web. Sapere se la CPU o altre risorse vengono estese, ricavare analisi dello stack dalle eccezioni ed eseguire facilmente la ricerca delle tracce nei log. Se le prestazioni dell'app scendono al di sotto di limiti accettabili, verrà inviato un messaggio di posta elettronica. L'utente può monitorare i servizi Web sia .NET che Java.
 
-Ulteriori informazioni sono disponibili in [Informazioni su Azure Application Insights](../../application-insights/app-insights-overview.md).
+Per altre informazioni, vedere [Informazioni su Azure Application Insights](../../application-insights/app-insights-overview.md).
 
 <!--Anchors-->
 [Introduzione]: #introduction

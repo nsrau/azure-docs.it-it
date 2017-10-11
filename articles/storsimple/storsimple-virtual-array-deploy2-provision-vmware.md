@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
 ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.lasthandoff: 03/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -136,7 +136,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 20. Nella pagina **CPUs**, regolare **Number of virtual sockets** (Numero di prese virtuali) e **Number of cores per virtual socket** (Numero di core per presa virtuale) in modo che **Total number of cores** (Numero totale di core) sia almeno 4. Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image21.png)
-21. Nella pagina **Memory** , specificare 8 GB (o oltre) di RAM. Fare clic su **Next**.
+21. Nella pagina **Memory** , specificare 8 GB (o oltre) di RAM. Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image22.png)
 22. Nella pagina **Network** , specificare il numero delle interfacce di rete. Il requisito minimo è un'interfaccia di rete.
@@ -243,4 +243,3 @@ In presenza di altri errori durante la configurazione iniziale con l'interfaccia
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare StorSimple Virtual Array come file server](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurare StorSimple Virtual Array come server iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
-

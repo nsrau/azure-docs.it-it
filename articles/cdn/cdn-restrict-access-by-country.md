@@ -1,6 +1,6 @@
 ---
 title: Limitare il contenuto della rete CDN di Azure in base al paese | Documentazione Microsoft
-description: "Informazioni su come limitare l&quot;accesso al contenuto della rete CDN di Azure con la funzionalità Filtro geografico."
+description: "Informazioni su come limitare l'accesso al contenuto della rete CDN di Azure con la funzionalità Filtro geografico."
 services: cdn
 documentationcenter: 
 author: lichard
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Limitare il contenuto della rete CDN di Azure in base al paese
 
@@ -62,15 +62,9 @@ Per esempio, la regola di blocco /Photos/Strasbourg/ filtrerà i file tra cui:
 ### <a name="country-codes"></a>Codici paese
 La funzionalità **Filtro geografico** usa i codici paese per definire i paesi da cui una richiesta viene consentita o bloccata per una directory protetta. Gli indicativi paese sono disponibili nella pagina [Azure CDN Country Codes](https://msdn.microsoft.com/library/mt761717.aspx) (Indicativi paese della rete CDN di Azure). 
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>Considerazioni
+## <a id="considerations"></a>Considerazioni
 * Per rendere effettive le modifiche alla configurazione del filtro geografico possono essere necessari fino a 90 minuti per Verizon o un paio di minuti con Akamai.
 * Questa funzionalità non supporta i caratteri jolly (ad esempio, ‘*’).
 * La configurazione del filtro geografico associata al percorso relativo viene applicata in modo ricorsivo a tale percorso.
 * Può essere applicata solo una regola allo stesso percorso relativo (non è possibile creare più filtri di paese che puntano allo stesso percorso relativo). Tuttavia, una cartella potrebbe avere più filtri di paese. Ciò è dovuto alla natura ricorsiva dei filtri di paese. In altre parole, una sottocartella di una cartella configurata in precedenza può essere assegnata a un filtro di paese diverso.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

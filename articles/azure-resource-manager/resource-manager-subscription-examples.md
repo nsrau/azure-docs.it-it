@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c75d95ed554a78a02e5469915c21491e65edd8c2
 ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Esempi di implementazione di scaffold enterprise di Azure
@@ -196,10 +197,5 @@ Per soddisfare questi requisiti, Dave abilita il Centro sicurezza di Azure. Veri
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altri suggerimenti, vedere [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md) (Procedure consigliate per la creazione di modelli di Azure Resource Manager).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="azure-service-health"></a>Integrità dei servizi di Azure
 Integrità dei servizi di Azure offre informazioni tempestive e personalizzate quando nei servizi di Azure si verificano problemi che influiscono sui servizi.  Consente inoltre di preparare una manutenzione pianificata per il futuro.

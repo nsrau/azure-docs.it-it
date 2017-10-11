@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/06/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 0ca1ccd273317d67537d31724d566625a4eb2c85
-ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sql-database-access-control"></a>Controllo dell'accesso al database SQL di Azure
 Per garantire la sicurezza, il database SQL controlla l'accesso con regole del firewall che limitano la connettività in base all'indirizzo IP, meccanismi di autenticazione che richiedono agli utenti di dimostrare la propria identità e meccanismi di autorizzazione che consentono agli utenti di usufruire solo di azioni e dati specifici. 
@@ -68,4 +67,3 @@ In genere, solo gli amministratori hanno necessità di accedere al database `mas
 - Per informazioni su utenti e account di accesso, vedere l'articolo su come [gestire gli account di accesso](sql-database-manage-logins.md). 
 - Per informazioni sul monitoraggio proattivo, vedere [controllo del database ](sql-database-auditing.md) e [Rilevamento delle minacce nel database SQL](sql-database-threat-detection.md).
 - Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md).
-

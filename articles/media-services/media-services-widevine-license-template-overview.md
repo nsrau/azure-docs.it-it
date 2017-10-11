@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="widevine-license-template-overview"></a>Panoramica del modello di licenza Widevine
 ## <a name="overview"></a>Overview
@@ -199,5 +198,4 @@ L'esempio seguente mostra come usare le API .NET per configurare una licenza Wid
 
 ## <a name="see-also"></a>Vedere anche
 [Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-drm.md)
-
 

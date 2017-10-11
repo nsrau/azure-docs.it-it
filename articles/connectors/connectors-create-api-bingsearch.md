@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore di ricerca di Bing alle app per la logica | Microsoft Docs
-description: Panoramica del connettore di ricerca di Bing con i parametri dell&quot;API REST.
+description: Panoramica del connettore di ricerca di Bing con i parametri dell'API REST.
 services: 
 suite: 
 documentationcenter: 
@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>Introduzione al connettore di ricerca di Bing
 Connettersi alla funzionalità di ricerca di Bing per cercare notizie, video e così via. Con la ricerca di Bing è possibile: 
@@ -38,5 +36,4 @@ Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali lim
 
 ## <a name="more-connectors"></a>Altri connettori
 Tornare all' [elenco di API](apis-list.md).
-
 

@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 617da1cf41db08d319d6fe9fa7bc96b794a0001e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf1fc38d2b9fd54fe5b00db616224a0848179fe
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-load-balancer-overview"></a>Panoramica del servizio di bilanciamento del carico
 
 Il servizio di bilanciamento del carico di Azure offre elevati livelli di disponibilità e prestazioni di rete per le applicazioni. Si tratta di un servizio di bilanciamento del carico di livello 4 (TCP, UDP) che distribuisce il traffico in ingresso tra istanze integre di servizi definiti in un set con carico bilanciato.
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer può essere configurato per:
 
@@ -33,38 +35,6 @@ Azure Load Balancer può essere configurato per:
 * Inoltrare il traffico esterno a una specifica macchina virtuale.
 
 Tutte le risorse nel cloud richiedono un indirizzo IP pubblico per poter essere raggiungibili da Internet. L'infrastruttura cloud di Azure usa per le proprie risorse indirizzi IP non instradabili. Azure usa Network Address Translation (NAT) con indirizzi IP pubblici per comunicare con Internet.
-
-## <a name="azure-deployment-models"></a>Modelli di distribuzione di Azure
-
-È importante comprendere le differenze tra il [modello di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md)classica di Azure e quello di Azure Resource Manager. Azure Load Balancer viene configurato in modo diverso in ogni modello.
-
-### <a name="azure-classic-deployment-model"></a>Modello di distribuzione classica di Azure
-
-Le macchine virtuali distribuite entro il limite di un servizio cloud possono essere raggruppate per usare un servizio di bilanciamento del carico. In questo modello al servizio cloud vengono assegnati un indirizzo IP pubblico e un Fully Qualified Domain Name (FQDN). Il servizio di bilanciamento del carico esegue la conversione delle porte e bilancerà il traffico di rete, usando l'indirizzo IP pubblico per il servizio cloud.
-
-Il traffico con carico bilanciato è definito dagli endpoint. Gli endpoint di conversione delle porte hanno una relazione uno-a-uno tra la porta pubblica assegnata dell'indirizzo IP pubblico e la porta locale assegnata al servizio su una macchina virtuale specifica. Gli endpoint di bilanciamento del carico hanno una relazione uno-a molti tra l'indirizzo IP pubblico e le porte locali assegnate ai servizi sulle macchine virtuali nel servizio cloud.
-
-![Azure Load Balancer nel modello di distribuzione classica](./media/load-balancer-overview/asm-lb.png)
-
-Figura 1. Azure Load Balancer nel modello di distribuzione classica
-
-L'etichetta del dominio per l'indirizzo IP pubblico usato dal servizio di bilanciamento del carico per questo modello di distribuzione è \<nome servizio cloud\>.cloudapp.net. Il grafico seguente mostra Azure Load Balancer in questo modello.
-
-### <a name="azure-resource-manager-deployment-model"></a>Modello di distribuzione di Azure Resource Manager
-
-Nel modello di distribuzione di Resource Manager non è necessario creare un servizio cloud. Il bilanciamento del carico viene creato per instradare in modo esplicito il traffico tra più macchine virtuali.
-
-Un indirizzo IP pubblico è una singola risorsa con un'etichetta di dominio (nome DNS). In questo caso l'indirizzo IP pubblico è associato alla risorsa del servizio di bilanciamento del carico. Le regole del servizio di bilanciamento del carico e le regole NAT in ingresso usano l'indirizzo IP pubblico come endpoint Internet per le risorse che ricevono il traffico di rete con carico bilanciato.
-
-Un indirizzo IP privato o pubblico viene assegnato alla risorsa di interfaccia di rete collegata a una macchina virtuale. Quando un'interfaccia di rete viene aggiunta a un pool di indirizzi IP back-end del servizio di bilanciamento del carico, tale servizio inizia a inviare il traffico di rete con carico bilanciato in base alle regole di bilanciamento del carico create.
-
-Il grafico seguente mostra Azure Load Balancer in questo modello:
-
-![Azure Load Balancer in Resource Manager](./media/load-balancer-overview/arm-lb.png)
-
-Figura 2. Azure Load Balancer in Resource Manager
-
-Il servizio di bilanciamento del carico può essere gestito mediante modelli, API e strumenti basati su Azure Resource Manager. Per altre informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="load-balancer-features"></a>Funzionalità del bilanciamento del carico
 
@@ -76,7 +46,7 @@ Il servizio di bilanciamento del carico può essere gestito mediante modelli, AP
 
     ![Distribuzione basata su hash](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    Figura 3. Distribuzione basata su hash
+    Figura: distribuzione basata su hash
 
 * Port forwarding
 

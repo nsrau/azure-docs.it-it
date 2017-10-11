@@ -5,14 +5,14 @@
 ## [Governance per le sottoscrizioni](resource-manager-subscription-governance.md)
 ## [Applicazioni gestite](managed-application-overview.md)
 
-# Introduzione
+# Attività iniziali
 ## [Creare e distribuire il modello](resource-manager-create-first-template.md)
 ## [Estensione di Visual Studio Code per i modelli](resource-manager-vscode-extension.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Esempi
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Distribuire un modello](resource-manager-samples-powershell-deploy.md)
 
 ## Interfaccia della riga di comando di Azure
@@ -35,7 +35,7 @@
 
 
 ## Distribuire
-### PowerShell
+### Azure PowerShell
 #### [Distribuire un modello](resource-group-template-deploy.md)
 #### [Distribuire un modello privato con token SAS](resource-manager-powershell-sas-token.md)
 #### [Esportare il modello e ridistribuirlo](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [Distribuire un modello](resource-group-template-deploy-cli.md)
 #### [Distribuire un modello privato con token SAS](resource-manager-cli-sas-token.md)
 #### [Esportare il modello e ridistribuirlo](resource-manager-export-template-cli.md)
-### di Microsoft Azure
+### Portale di Azure
 #### [Distribuire le risorse](resource-group-template-deploy-portal.md)
 #### [Esportare il modello](resource-manager-export-template.md)
 ### [API REST](resource-group-template-deploy-rest.md)
@@ -51,10 +51,10 @@
 ### [Integrazione continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
 
-## Gestire
-### [PowerShell](powershell-azure-resource-manager.md)
+## Gestisci
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
-### [Portale](resource-group-portal.md)
+### [Portale di Azure](resource-group-portal.md)
 ### [API REST](resource-manager-rest-api.md)
 ### [Usare tag per organizzare le risorse](resource-group-using-tags.md)
 ### [Spostare le risorse in un nuovo gruppo o sottoscrizione](resource-group-move-resources.md)
@@ -62,16 +62,16 @@
 
 ## Controllare l'accesso
 ### Creare un'entità servizio
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Interfaccia della riga di comando di Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Interfaccia della riga di comando di Azure 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [Portale](resource-group-create-service-principal-portal.md)
+#### [Portale di Azure](resource-group-create-service-principal-portal.md)
 ### [API di autenticazione per accedere alle sottoscrizioni](resource-manager-api-authentication.md)
 ### [Bloccare le risorse](resource-group-lock-resources.md)
 
 ## Impostare i criteri delle risorse
 ### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
-### [Usare il portale per assegnare i criteri](resource-manager-policy-portal.md)
+### [Usare il portale di Azure per assegnare i criteri](resource-manager-policy-portal.md)
 ### [Usare gli script per assegnare i criteri](resource-manager-policy-create-assign.md)
 ### esempi
 #### [Tag](resource-manager-policy-tags.md)
@@ -95,12 +95,26 @@
 ## Risoluzione dei problemi
 ### [Errori di distribuzione comuni](resource-manager-common-deployment-errors.md)
 ### [Informazioni sugli errori di distribuzione](resource-manager-troubleshoot-tips.md)
-### [Errore RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Risolvere gli errori
+#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+#### [NotFound](resource-manager-not-found-errors.md)
+#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Errori di distribuzione delle macchine virtuali
-#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+#### Linux
+##### [Problemi di distribuzione](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+##### [Problemi di provisioning e allocazione](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+##### [Messaggi di errore comuni](../virtual-machines/linux/error-messages.md)
+#### Windows
+##### [Problemi di distribuzione](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+##### [Problemi di provisioning e allocazione](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+##### [Messaggi di errore comuni](../virtual-machines/windows/error-messages.md)
 
-# Riferimento
+# riferimento
 ## [Formato del modello](/azure/templates/)
 ## [Funzioni di modello](resource-group-template-functions.md)
 ### [Matrici e funzioni oggetto](resource-group-template-functions-array.md)

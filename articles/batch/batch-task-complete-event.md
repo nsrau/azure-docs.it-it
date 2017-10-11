@@ -1,6 +1,6 @@
 ---
 title: "Evento di completamento attività di Azure Batch | Microsoft Docs"
-description: "Riferimento per l&quot;evento di completamento dell&quot;attività batch."
+description: "Riferimento per l'evento di completamento dell'attività batch."
 services: batch
 author: tamram
 manager: timlt
@@ -12,14 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 015adf7dbc47c29a78df4e4889b2ee1ddcccdd8e
-ms.contentlocale: it-it
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="task-complete-event"></a>Evento di completamento attività
 
  Questo evento viene generato al completamento di un'attività, indipendentemente dal codice di uscita. Può essere usato per determinare la durata di un'attività, la posizione in cui è stata eseguita e se è stata tentata più volte.
@@ -92,4 +90,3 @@ ms.lasthandoff: 04/22/2017
 |exitCode|Int32|Codice di uscita dell'attività.|
 |retryCount|Int32|Numero di tentativi di esecuzione dell'attività da parte del servizio Batch. L'attività viene ritentata se si conclude con un codice di uscita diverso da zero, fino al limite specificato in MaxTaskRetryCount.|
 |requeueCount|Int32|Numero di volte in cui l'attività è stata reinserita nella coda dal servizio Batch a seguito di una richiesta dell'utente.<br /><br /> Quando si rimuovono nodi da un pool (tramite ridimensionamento o riduzione del pool) o quando il processo viene disabilitato, l'utente può specificare che le attività in esecuzione sui nodi siano reinserite nella coda per l'esecuzione. Questo conteggio tiene traccia del numero di volte in cui l'attività è stata reinserita nella coda per questi motivi.|
-

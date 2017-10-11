@@ -1,6 +1,6 @@
 ---
-title: "Usare le proprietà di un dispositivo gemello dell&quot;hub IoT di Azure (Node) | Documentazione Microsoft"
-description: "Come usare le proprietà di un dispositivo gemello dell&quot;hub IoT di Azure per configurare dispositivi. Usare Azure IoT SDK per Node.js per implementare un&quot;app per dispositivo simulato e un&quot;app di servizio che modifica la configurazione di un dispositivo usando un dispositivo gemello."
+title: "Usare le proprietà di un dispositivo gemello dell'hub IoT di Azure (Node) | Documentazione Microsoft"
+description: "Come usare le proprietà di un dispositivo gemello dell'hub IoT di Azure per configurare dispositivi. Usare Azure IoT SDK per Node.js per implementare un'app per dispositivo simulato e un'app di servizio che modifica la configurazione di un dispositivo usando un dispositivo gemello."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -12,14 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 09/07/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: f8a6705879905d5cf419fc8c5c2322cb5536d244
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6ff6f1c331d5a77e7ac0a47af6806f5d90fb0fdc
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-desired-properties-to-configure-devices-node"></a>Usare le proprietà desiderate per configurare i dispositivi (Node)
@@ -37,7 +36,7 @@ Al termine di questa esercitazione si avranno due app console Node.js:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Node.js 0.10.x o versione successiva.
+* Node.js 4.0.x o versione successiva.
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
 Se si è seguita l'esercitazione [Introduzione ai dispositivi gemelli][lnk-twin-tutorial] sono già disponibili un hub IoT e un'identità del dispositivo denominata **myDeviceId**. È quindi possibile saltare la sezione [Creare l'app per dispositivo simulato][lnk-how-to-configure-createapp].
@@ -170,7 +169,7 @@ In questa sezione si creerà un'app console Node.js che aggiorna le *proprietà 
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. Usando un editor di testo, creare un nuovo file **SetDesiredAndQuery.js** nella cartella **addtagsandqueryapp**.
+3. Con un editor di testo creare un nuovo file **SetDesiredAndQuery.js** nella cartella **setdesiredandqueryapp**.
 4. Aggiungere il codice seguente al file **SetDesiredAndQuery.js** e sostituire il segnaposto **{iot hub connection string}** con la stringa di connessione dell'hub IoT copiata quando è stato creato l'hub:
    
         'use strict';

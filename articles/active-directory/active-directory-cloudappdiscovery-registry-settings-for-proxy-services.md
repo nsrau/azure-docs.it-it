@@ -11,28 +11,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: 7f2a3c4bf8fda9dd235986be8b0ceaa8eb8313e0
+ms.translationtype: HT
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: b8584809b76d6be12a6f489f0bb819081d1803d2
 ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Impostazioni del Registro di sistema di Cloud App Discovery per i servizi proxy
-Per impostazione predefinita, l'agente Cloud App Discovery è configurato solo per l'uso delle porte 80 o 443. Se si prevede di installare Cloud App Discovery in un ambiente con un server proxy che usa una porta personalizzata (non la 80 né la 443), è necessario configurare gli agenti per l'uso di questa porta. La configurazione si basa su una chiave del Registro di sistema.
+Questo argomento illustra la procedura da seguire per impostare la porta necessaria sui computer che eseguono l'agente Cloud App Discovery. Per impostazione predefinita, l'agente Cloud App Discovery è configurato solo per l'uso delle porte 80 o 443. Se si prevede di installare Cloud App Discovery in un ambiente con un server proxy che usa una porta personalizzata (non la 80 né la 443), è necessario configurare gli agenti per l'uso di questa porta. La configurazione si basa su una chiave del Registro di sistema.
 
-Questo argomento illustra tutti i passaggi da eseguire per impostare la porta necessaria sui computer che eseguono l'agente Cloud App Discovery.
+> [!TIP] 
+> Osservare i miglioramenti del nuovo Cloud App Discovery senza agenti di Azure Active Directory (Azure AD), ottimizzati dall'[integrazione con Microsoft Cloud App Security](https://portal.cloudappsecurity.com).
 
-**Per modificare la porta usata dal computer che esegue l'agente Cloud App Discovery, eseguire la procedura seguente:**
+## <a name="modify-the-port-used-by-the-computer-running-the-cloud-app-discovery-agent"></a>Modificare la porta usata dal computer che esegue l'agente Cloud App Discovery
 
-1. Avviare l'Editor del Registro di sistema. <br> ![Esegui](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
-2. Passare alla chiave seguente del Registro di sistema oppure crearla:  <br> **HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint** 
-3. Creare un nuovo valore **multistringa** denominato **Ports**. ![Nuovo](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
-4. Per aprire la finestra di dialogo **Modifica multistringhe** , fare doppio clic sul valore Ports.
-5. Nella casella di testo Dati valore digitare i valori seguenti e aggiungere tutte le porte personalizzate usate dall'organizzazione:  <br><br>
+1. Avviare l'Editor del Registro di sistema.
+  ![Run](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
+2. Passare alla chiave del Registro di sistema seguente o crearla: **HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint**
+3. Creare un nuovo valore **multistringa** denominato **Ports**. 
+  ![Nuovo](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
+4. Per aprire la finestra di dialogo **Modifica multistringhe**, fare doppio clic sul valore **Porte**.
+5. In **Dati valore** digitare i valori seguenti e aggiungere tutte le porte personalizzate usate dall'organizzazione: <br><br>
    **80** <br>
    **8080** <br>
    **8118** <br>
@@ -48,7 +51,7 @@ Questo argomento illustra tutti i passaggi da eseguire per impostare la porta ne
    ![Modifica multistringhe](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
 6. Fare clic su **OK** per chiudere la finestra di dialogo **Modifica multistringhe**.
 
-**Risorse aggiuntive**
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md) 
 

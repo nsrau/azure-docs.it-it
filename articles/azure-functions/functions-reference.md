@@ -16,17 +16,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: chrande
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
 
-Questo articolo presuppone che sia già stata letta la [Panoramica di Funzioni di Azure](functions-overview.md) e si abbia familiarità con i [concetti di WebJobs SDK, ad esempio trigger, associazione e runtime JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). Funzioni di Azure si basa su WebJobs SDK. 
+Questo articolo presuppone che sia già stata letta la [Panoramica di Funzioni di Azure](functions-overview.md) e si abbia familiarità con i [concetti di WebJobs SDK, ad esempio trigger, associazione e runtime JobHost](https://github.com/Azure/azure-webjobs-sdk/wiki). Funzioni di Azure si basa su WebJobs SDK. 
 
 ## <a name="function-code"></a>Codice di funzione
 La *funzione* è il concetto primario in Funzioni di Azure. Il codice per una funzione viene scritto in un linguaggio di propria scelta, quindi il codice e i file di configurazione vengono salvati nella stessa cartella. La configurazione viene denominata `function.json`, che contiene i dati di configurazione JSON. I linguaggi supportati sono numerosi e quindi è possibile scegliere quello con cui si lavora meglio, in base alla propria esperienza. 
@@ -79,7 +79,7 @@ Quando si configura un progetto per la distribuzione di funzioni in un'app per l
 ## <a id="fileupdate"></a> Come aggiornare i file delle app per le funzioni
 L'editor funzioni incorporato nel portale di Azure consente di aggiornare il file *function.json* e il file di codice di una funzione. Per caricare o aggiornare altri file, ad esempio *package.json* o *project.json* o le relative dipendenze, è necessario usare altri metodi di distribuzione.
 
-Le app per le funzioni sono basate sul servizio app, quindi tutte le [opzioni di distribuzione disponibili per le app Web standard](../app-service-web/web-sites-deploy.md) sono disponibili anche per le app per le funzioni. Ecco alcuni metodi per caricare o aggiornare file delle app per le funzioni. 
+Le app per le funzioni sono basate sul servizio app, quindi tutte le [opzioni di distribuzione disponibili per le app Web standard](../app-service/app-service-deploy-local-git.md) sono disponibili anche per le app per le funzioni. Ecco alcuni metodi per caricare o aggiornare file delle app per le funzioni. 
 
 #### <a name="to-use-app-service-editor"></a>Per usare l'editor del servizio app
 1. Nel portale Funzioni di Azure fare clic su **Impostazioni dell'app per le funzioni**.

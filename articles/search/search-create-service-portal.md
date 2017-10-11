@@ -13,13 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creare un servizio di Ricerca di Azure nel portale
 
@@ -112,5 +110,4 @@ Dopo il provisioning di un servizio di Ricerca di Azure è possibile [definire u
 Per accedere al servizio dal codice o dallo script, specificare l'URL (*nome-servizio*.search.windows.net) e una chiave. Le chiavi di amministrazione concedono l'accesso completo; le chiavi di query concedono l'accesso in sola lettura. [Come usare Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) per iniziare.
 
 Vedere [Compilare ed eseguire una query del primo indice](search-get-started-portal.md) per una rapida esercitazione basata sul portale.
-
 

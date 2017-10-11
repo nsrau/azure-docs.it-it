@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako;cenkdin
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 0cf8031e0b103c05f12157e76727c698163f1193
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: 76d2721138668d9f0a908af3fa42840309b068ef
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure
 > [!div class="op_single_selector"]
@@ -340,5 +339,4 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 
 ## <a name="see-also"></a>Vedere anche
 [Filtri e manifesti dinamici](media-services-dynamic-manifest-overview.md)
-
 
