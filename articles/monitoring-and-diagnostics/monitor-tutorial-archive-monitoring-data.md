@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="archive-azure-monitoring-data"></a>Archiviare i dati di monitoraggio di Azure
 
 I diversi livelli dell'ambiente Azure producono dati di metrica e log che possono essere archiviati in un account di archiviazione di Azure. È consigliabile eseguire questa operazione per mantenere una cronologia dei dati di monitoraggio nel tempo in un archivio non ricercabile e poco costoso alla fine del periodo di conservazione dei dati in Log Analytics o in Monitoraggio di Azure. Questa esercitazione illustra il processo di configurazione dell'ambiente di Azure al fine di archiviare i dati in un account di archiviazione.
@@ -164,4 +162,3 @@ In questa esercitazione è stato descritto come configurare i dati di monitoragg
 
 > [!div class="nextstepaction"]
 > [Introduzione a Log Analytics](../log-analytics/log-analytics-get-started.md)
-

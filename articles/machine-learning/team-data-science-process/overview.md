@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d92c8df7ad8cf522079bdea86e7b33d8441452ab
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="team-data-science-process-overview"></a>Panoramica del processo di data science per i team
 
@@ -108,4 +107,3 @@ Introdurre processi nella maggior parte delle organizzazioni è complesso. Gli s
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Processo di data science per i team: ruoli e attività](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) descrive i ruoli del personale chiave e le relative attività associate per un team di data science che standardizza il processo. 
-

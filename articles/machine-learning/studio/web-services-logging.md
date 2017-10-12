@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: raymondl;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Abilitare la registrazione per i servizi Web di Machine Learning
 Questo documento include informazioni sulla capacità di registrazione dei servizi Web di Machine Learning. La registrazione offre informazioni aggiuntive per la risoluzione dei problemi delle API di Machine Learning, non soltanto un semplice codice di errore e un messaggio.  
@@ -86,5 +85,4 @@ Dove _Tipo di log_ corrisponde a uno dei valori seguenti:
 * o batch  
 * punteggio/richieste  
 * punteggio/init  
-
 

@@ -12,12 +12,11 @@ ms.topic: landing-page
 ms.date: 06/20/2017
 ms.author: carolz
 ms.custom: Jenkins
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: e2f5caf8c4d3eab600bb015db5a4403314a4f6e3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 <div class="content">
     <h1>Jenkins® in Azure</h1>
@@ -46,4 +45,3 @@ ms.lasthandoff: 08/31/2017
 <h4>      
 Jenkins® è un marchio registrato di Software in the Public Interest, Inc. Il [logo Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) è concesso su licenza con [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) dal [progetto Jenkins](https://jenkins.io).</h4>
 </div>
-

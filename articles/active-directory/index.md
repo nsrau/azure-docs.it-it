@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 8933c77013d7b0d886d3e309dc0b1a72026eb677
-ms.contentlocale: it-it
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: a0a9b69824829d0b7a07583210eaddb1f39bcf88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-documentation"></a>Documentazione di Azure Active Directory
 
 Informazioni sulla sincronizzazione di directory locali e abilitazione di Single Sign-On con Azure Active Directory (Azure AD). Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come integrare funzionalità di gestione delle identità, tra cui l'autenticazione a più fattori, la registrazione dei dispositivi, il controllo di accesso basato sui ruoli e le funzioni di monitoraggio e avvisi di sicurezza.
@@ -141,4 +139,3 @@ Informazioni sulla sincronizzazione di directory locali e abilitazione di Single
         </div>
     </li>
 </ul>
-

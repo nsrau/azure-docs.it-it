@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
 ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="pen-testing"></a>Test di penetrazione
 Uno dei maggiori vantaggi dell'uso di Microsoft Azure per il test e la distribuzione di applicazioni è che non è necessaria un'infrastruttura locale per sviluppare, testare e distribuire le applicazioni. I servizi della piattaforma Microsoft Azure gestiscono l'intera infrastruttura. Non è necessario richiedere, acquistare e installare il proprio hardware locale.

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
+ms.openlocfilehash: 37436f7be4f09c14febef6174faf956fa07255ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a>Specifica di plug-in di volume e driver di registrazione per il contenitore
 
 Service Fabric supporta la specifica di [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) e i [driver di registrazione Docker](https://docs.docker.com/engine/admin/logging/overview/) per il servizio di contenitore. I plug-in sono specificati nel manifesto dell'applicazione, come illustrato nel manifesto seguente:
@@ -76,5 +74,4 @@ Vedere gli articoli seguenti per distribuire i contenitori a un cluster Service 
 
 
 [Distribuire un contenitore in Service Fabric](service-fabric-deploy-container.md)
-
 

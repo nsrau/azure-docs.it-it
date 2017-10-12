@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
 ms.openlocfilehash: efb0cfa4b7950a2d9418282965a23498a67cbffc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-architecture-overview"></a>Panoramica dell'architettura della sicurezza
 Una solida architettura è uno degli elementi fondamentali per poter distribuire soluzioni sicure in Azure. Con questo obiettivo in mente, sarà possibile determinare più facilmente i requisiti necessari rispondendo in modo appropriato a domande mirate. Rispondere correttamente alle domande appropriate consente di ottimizzare la sicurezza delle distribuzioni.

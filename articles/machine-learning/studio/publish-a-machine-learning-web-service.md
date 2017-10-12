@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Distribuire un servizio Web di Azure Machine Learning
 Azure Machine Learning consente di compilare, testare e distribuire soluzioni di analisi predittiva.
@@ -191,4 +190,3 @@ Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il trainin
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service
-

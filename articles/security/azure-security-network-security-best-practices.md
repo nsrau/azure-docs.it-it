@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: TomSh
 ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Procedure consigliate per la sicurezza della rete di Azure
 Microsoft Azure consente di connettere macchine e dispositivi virtuali ad altri dispositivi di rete inserendoli in reti virtuali di Azure. Una rete virtuale di Azure è un costrutto di rete virtuale che consente di connettere le schede di rete virtuale a una rete virtuale per consentire le comunicazioni basate su TCP/IP tra i dispositivi abilitati per la rete. Le macchine virtuali di Azure connesse a una rete virtuale di Azure possono connettersi ai dispositivi nella stessa rete virtuale di Azure, in diverse reti virtuali di Azure, su Internet o persino in reti locali.

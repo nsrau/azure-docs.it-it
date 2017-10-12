@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: fc9c9b0a6292dab256997a86a6db16367fc48cd3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-search-reference"></a>Guida di riferimento alla ricerca in Log Analytics
 
@@ -221,7 +220,7 @@ SampleValue:0.3
 
 *field<value*
 
-*field>=value*
+*field&gt;=value*
 
 *field<=value*
 
@@ -890,4 +889,3 @@ Per altre informazioni sulle ricerche nei log:
 
 * Acquisire familiarità con le [ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni.
 * Usare i [campi personalizzati in Log Analytics](log-analytics-custom-fields.md) per estendere le ricerche nei log.
-

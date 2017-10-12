@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 084fdf2f9a65eed3e444851afb88390aacf33738
-ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configurazione delle impostazioni di Cluster Resource Manager per i servizi Service Fabric
 Cluster Resource Manager di Service Fabric consente un controllo con granularità fine sulle regole che disciplinano ogni singolo servizio denominato. Ogni servizio denominato può specificare regole per l'allocazione nel cluster. Ogni servizio denominato può anche definire il set di metriche di cui generare un report, incluso il relativo livello di importanza per tale servizio. La configurazione dei servizi prevede tre diverse attività:
@@ -48,4 +47,3 @@ Altre regole di posizionamento sono configurate tramite correlazioni o criteri.
 - Partire dall'inizio e vedere l' [introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 - Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
 - Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni a riguardo vedere l'articolo [Descrivere un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Connettere computer Windows al servizio Log Analytics in Azure
 
@@ -91,7 +90,7 @@ Nella tabella seguente vengono visualizzate le risorse necessarie per la comunic
     - Se si sceglie di connettersi ad Azure Log Analytics (OMS), incollare l'**ID area di lavoro** e la **chiave dell'area di lavoro (chiave primaria)** copiati nel Blocco note durante la procedura precedente e quindi fare clic su **Avanti**.  
         ![incollare ID area di lavoro e chiave primaria](./media/log-analytics-windows-agents/connect-workspace.png)
     - Se si sceglie di connettersi a Operations Manager, digitare il **nome del gruppo di gestione**, il nome del **server di gestione** e la **porta del server di gestione** e quindi fare clic su **Avanti**. Nella pagina Account azione agente scegliere l'Account di sistema locale o un account di dominio locale e quindi fare clic su **Avanti**.  
-        ![configurazione del gruppo di gestione](./media/log-analytics-windows-agents/oms-mma-om-setup01.png)![account azione agente](./media/log-analytics-windows-agents/oms-mma-om-setup02.png)
+        ![Configurazione del gruppo di gestione](./media/log-analytics-windows-agents/oms-mma-om-setup01.png)![agent action account](./media/log-analytics-windows-agents/oms-mma-om-setup02.png)
 
 6. Nella pagina Pronto per l'installazione rivedere le scelte effettuate e quindi fare clic su **Installa**.
 7. Nella pagina Configurazione completata fare clic su **Fine**.
@@ -320,4 +319,3 @@ Se si usa Operations Manager nell'infrastruttura IT, è anche possibile usare l'
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Aggiungere soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md) per aggiungere funzionalità e raccogliere i dati.
-

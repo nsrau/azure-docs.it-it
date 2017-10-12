@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
-ms.contentlocale: it-it
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric
 Cluster Resource Manager di Service Fabric non gestisce gli aggiornamenti in Service Fabric ma partecipa al processo. Il primo modo in cui Cluster Resource Manager facilita la gestione è monitorando lo stato desiderato del cluster e i servizi al suo interno. Cluster Resource Manager invia report di integrità quando non riesce ad attivare la configurazione del cluster desiderata. Se ad esempio la capacità è insufficiente, Cluster Resource Manager invia avvisi ed errori relativi all'integrità che indicano il problema. Un altro aspetto dell'integrazione ha a che fare con il funzionamento degli aggiornamenti. Durante gli aggiornamenti Cluster Resource Manager modifica leggermente il suo comportamento.  
@@ -210,4 +209,3 @@ In genere si vuole che l'aggiornamento sia completato anche se il cluster presen
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Partire dall'inizio e vedere l' [introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-

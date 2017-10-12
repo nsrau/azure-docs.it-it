@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 79b215eed38959efd630e21633d235cbc857abd8
 ms.openlocfilehash: dde9d9b8be1faede7d2e9e45597070e6ce51ac02
-ms.contentlocale: it-it
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="describing-a-service-fabric-cluster"></a>Descrizione di un cluster di Service Fabric
 Cluster Resource Manager di Service Fabric fornisce alcuni meccanismi per descrivere un cluster. Durante la fase di esecuzione, Cluster Resource Manager usa queste informazioni per assicurare la disponibilità elevata dei servizi in esecuzione sul cluster. Applicando queste regole importanti, tenta anche di ottimizzare il consumo di risorse all'interno del cluster.
 
@@ -382,7 +380,7 @@ Le metriche sono diverse dai vincoli di posizionamento e dalle proprietà del no
 
 È importante notare che, come per i vincoli di posizionamento e le proprietà del nodo, Cluster Resource Manager di Service Fabric non sa cosa significano i nomi delle metriche. I nomi delle metriche sono semplicemente stringhe. È consigliabile dichiarare l'unità come parte del nome della metrica creato quando potrebbe essere ambigua.
 
-## <a name="capacity"></a>Capacità
+## <a name="capacity"></a>Capacity
 Se si disattiva completamente il *bilanciamento*di tutte le risorse, Cluster Resource Manager di Service Fabric tenta comunque di assicurare che nessun nodo superi la propria capacità consentita. Gestire i sovraccarichi di capacità è possibile, a meno che il cluster non sia pieno o il carico di lavoro sia maggiore rispetto a qualsiasi altro nodo. La capacità è un altro *vincolo* usato da Cluster Resource Manager per conoscere la quantità di una risorsa posseduta da un nodo. La capacità rimanente verrà registrata anche per il cluster nel suo complesso. Sia la capacità che l'utilizzo a livello di servizio sono espressi in termini di metriche. Ad esempio la metrica potrebbe essere "ClientConnections" e un determinato nodo potrebbe avere una capacità "ClientConnections" di 32768. Gli altri nodi possono avere altri limiti. Alcuni servizi in esecuzione nel nodo possono dichiarare che esso consumi al momento 32256 della metrica "ClientConnections".
 
 In fase di esecuzione, Cluster Resource Manager tiene traccia delle capacità rimanenti nel cluster e nei nodi. A tal fine, sottrae quanto usato da ciascun servizio dalla capacità del nodo in cui esso viene eseguito. Queste informazioni consentono a Cluster Resource Manager di Service Fabric di individuare la posizione ottimale per l'inserimento o lo spostamento di repliche, in modo che i nodi non superino le rispettive capacità.
@@ -529,4 +527,3 @@ LoadMetricInformation     :
 [Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
 [Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
-

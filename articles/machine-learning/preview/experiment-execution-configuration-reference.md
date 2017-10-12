@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
+ms.openlocfilehash: e1356439385cc7fe66985bd2b84e4121386ec23d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 68958dd42ef2382caaa740c52fc4f20c1cd3eff0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-machine-learning-workbench-execution-configuration-files"></a>File di configurazione di esecuzione di Azure Machine Learning Workbench
 
 Quando si invia uno script per Azure Machine Learning (Azure ML) Workbench, il comportamento dell'esecuzione viene controllato dai file nella cartella **aml_config**. Questa cartella si trova sotto la radice della cartella di progetto. È importante comprendere il contenuto di questi file per ottenere il risultato desiderato per un'esecuzione ottimale.
@@ -113,7 +111,7 @@ packages:
 ## <a name="run-configuration"></a>Configurazione di esecuzione
 Per specificare una configurazione di esecuzione particolare, è necessaria una coppia di file. In genere questi file vengono generati usando un comando dell'interfaccia della riga di comando. È possibile tuttavia anche clonare file esistenti, rinominarli e modificarli.
 
-```shell
+```azurecli
 # create a compute target pointing to a VM via SSH
 $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
 
@@ -126,8 +124,8 @@ Questo comando crea una coppia di file in base alla destinazione di calcolo spec
 >[!NOTE]
 > I nomi _local_ o _docker_ per i file di configurazione di esecuzione sono arbitrari. Azure ML Workbench aggiunge queste due configurazioni di esecuzione quando si crea un progetto vuoto per comodità. È possibile rinominare i file "<run configuration name>.runconfig" forniti con il modello di progetto o creare nuovi file con il nome desiderato.
 
-### <a name="compute-target-namecompute"></a><compute target name>.compute
-Il file _<compute target name>.compute_ specifica le informazioni di connessione e configurazione per la destinazione di calcolo. È un elenco di coppie nome-valore. Di seguito sono riportate le impostazioni supportate.
+### <a name="compute-target-namecompute"></a>\<nome destinazione di calcolo>.compute
+Il file _\<nome destinazione di calcolo>.compute_ specifica le informazioni di connessione e configurazione per la destinazione di calcolo. È un elenco di coppie nome-valore. Di seguito sono riportate le impostazioni supportate.
 
 **type**: tipo di ambiente di calcolo. I valori supportati sono:
   - local
@@ -135,7 +133,7 @@ Il file _<compute target name>.compute_ specifica le informazioni di connessione
   - remotedocker
   - cluster
 
-**baseDockerImage**: immagine Docker usata per eseguire lo script Python/PySpark. Il valore predefinito è _microsoft/mmlspark:plus-0.7.dev7_2.gcfbc920_. È supportata anche un'altra immagine: _microsoft/mmlspark:plus-gpu-0.7.dev7_2.gcfbc920_, che consente l'accesso GPU al computer host, se GPU è presente.
+**baseDockerImage**: immagine Docker usata per eseguire lo script Python/PySpark. Il valore predefinito è _microsoft/mmlspark:plus-0.7.91_. È supportata anche un'altra immagine, _microsoft/mmlspark:plus-gpu-0.7.91_, che consente l'accesso a livello di GPU, se presente, nel computer host.
 
 **address**: l'indirizzo IP o FQDN (nome di dominio completo) della macchina virtuale o del nodo head del cluster HDInsight.
 
@@ -149,8 +147,8 @@ Il file _<compute target name>.compute_ specifica le informazioni di connessione
 
 **nativeSharedDirectory**: questa proprietà specifica la directory di base, ad esempio: _~/.azureml/share/_, in cui i file possono essere salvati per essere condivisi tra le esecuzioni nella stessa destinazione calcolo. Se questa impostazione viene usata durante l'esecuzione in un contenitore Docker, _sharedVolumes_ deve essere impostato su true. In caso contrario, l'esecuzione ha esito negativo.
 
-### <a name="run-configuration-namerunconfig"></a><run configuration name>.runconfig
-_<run configuration name>.runconfig_ specifica il comportamento di esecuzione di Azure ML Workbench. Specifica il comportamento di runconfiguration, ad esempio la verifica della cronologia di esecuzioni o la destinazione di calcolo da usare e molto altro. I nomi dei file di configurazione di esecuzione vengono usati per popolare l'elenco a discesa dei contesti di esecuzione nell'applicazione desktop di Azure ML Workbench.
+### <a name="run-configuration-namerunconfig"></a>\<nome configurazione esecuzione>.runconfig
+_\<nome configurazione esecuzione>.runconfig_ specifica il comportamento di esecuzione di Azure ML Workbench. È possibile configurare comportamenti di esecuzione come il rilevamento della cronologia di esecuzione o la destinazione di calcolo da usare e molto altro. I nomi dei file di configurazione di esecuzione vengono usati per popolare l'elenco a discesa dei contesti di esecuzione nell'applicazione desktop di Azure ML Workbench.
 
 **ArgumentVector**: in questa sezione viene specificato lo script da eseguire come parte di questa esecuzione e i parametri per lo script. È il caso, ad esempio, in cui nel file "<run configuration name>.runconfig" esiste il frammento seguente 
 
@@ -212,4 +210,5 @@ In base alla sostituzione precedente, l'esempio di codice seguente legge ora da 
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-
+## <a name="next-steps"></a>Passaggi successivi
+Altre informazioni sulla [configurazione dell'ambiente di esecuzione](experiment-execution-configuration.md)

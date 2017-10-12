@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>Assegnare più indirizzi IP a una macchina virtuale usando un modello di Azure Resource Manager
 

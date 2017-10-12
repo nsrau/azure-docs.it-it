@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Gestire le app per la logica con Visual Studio Cloud Explorer
 
 Sebbene il [portale di Azure](https://portal.azure.com/) rappresenti un ottimo modo per progettare e gestire le app per la logica di Azure, esiste anche Visual Studio Cloud Explorer per gestire le risorse di Azure, incluse le app per la logica. Visual Studio Cloud Explorer consente di esplorare, gestire, modificare e scaricare app per la logica pubblicate. Le attività di gestione includono l'abilitazione, la disabilitazione e la visualizzazione della cronologia delle esecuzioni. 
@@ -92,4 +90,3 @@ Per visualizzare la cronologia di esecuzione di un'istanza ed esaminare i risult
 * [Visualizzare esempi e scenari comuni](logic-apps-examples-and-scenarios.md)
 * [Video: Automate business processes with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) (Automatizzare i processi aziendali con App per la logica di Azure)
 * [Video: Integrate your systems with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462) (Integrare i sistemi con App per la logica di Azure)
-

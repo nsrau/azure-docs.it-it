@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
-ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creare e gestire regole di avviso in Log Analytics con l'API REST
 L’API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in OMS (Operations Management Suite)  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
@@ -323,5 +322,4 @@ Usare il metodo Put con un ID azione esistente per modificare un'azione di webho
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Utilizzare l’ [API REST per eseguire ricerche nei log](log-analytics-log-search-api.md) in Log Analytics.
-
 

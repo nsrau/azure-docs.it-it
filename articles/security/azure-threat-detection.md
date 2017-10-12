@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-advanced-threat-detection"></a>Rilevamento delle minacce avanzato in Azure
 ## <a name="introduction"></a>Introduzione
 
@@ -432,4 +430,3 @@ Le funzionalità di rilevamento avanzate del Centro sicurezza di Azure consenton
 - [Rilevamento delle minacce per il database SQL di Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/)
 
 Il rilevamento delle minacce per il database SQL di Azure consente di risolvere i problemi relativi a potenziali minacce per i database.
-

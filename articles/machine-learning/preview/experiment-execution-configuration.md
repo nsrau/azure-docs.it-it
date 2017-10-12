@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bb1c7d318939c42edb9a51e28dec31593f2485f9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-azure-machine-learning-experiment-execution-service"></a>Panoramica del servizio di esecuzione dell'esperimento di Azure Machine Learning
 Il servizio di esecuzione dell'esperimento di Azure ML (Azure Machine Learning) consente agli esperti di science data di svolgere i propri esperimenti tramite l'esecuzione di Azure ML e di eseguire le funzionalità di gestione. Fornisce un framework per la sperimentazione agile con iterazioni veloci. Il Workbench di Azure ML consente di avviare delle esecuzioni locali sul computer e un semplice percorso per la scalabilità verticale e orizzontale in altri ambienti, come ad esempio le macchine virtuali remote di data science con GPU o i cluster HDInsight che eseguono Spark.
 
@@ -254,4 +252,3 @@ Per eseguire gli script in GPU, è possibile seguire le indicazioni fornite in q
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare e installare istanze di Azure Machine Learning](quickstart-installation.md)
 * [Gestione modelli](model-management-overview.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 983a3d22c73721c643b8283679040a0b6f7beedf
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Esplorare i dati nel Processo di analisi scientifica dei dati per i team
 Questo documento illustra come esplorare i dati in quattro doversi ambienti di archiviazione, in genere usati nel Processo di analisi scientifica dei dati:
@@ -32,5 +31,4 @@ Questo documento illustra come esplorare i dati in quattro doversi ambienti di a
 Il **menu** seguente collega agli argomenti che descrivono come usare gli strumenti per esplorare i dati da vari ambienti di archiviazione. 
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
-
 

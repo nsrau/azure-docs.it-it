@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 88fe9673176cdade92faad4bbdcb2e1bd11f4a55
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>Eseguire il provisioning delle macchine virtuali di Data Science di Azure come server Notebook di IPython
 Vengono fornite istruzioni che descrivono come configurare una VM di Azure e una VM di Azure con il servizio SQL come server di IPython Notebook. La macchina virtuale Windows è configurata con strumenti di supporto come IPython Notebook, Azure Storage Explorer e AzCopy, nonché altre utilità per progetti di analisi scientifica dei dati. Ad esempio, Esplora archivi Azure e AzCopy forniscono modi efficaci per caricare dati nella memoria di Azure dal computer locale o per scaricarli dalla memoria nel computer locale. 
@@ -44,5 +43,4 @@ Dopo il provisioning e la configurazione, queste macchine virtuali possono esser
 > Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non subire addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)** dal [portale di Azure classico](http://manage.windowsazure.com/). Per istruzioni dettagliate su come deallocare la macchina virtuale, vedere [Arresto e deallocazione della macchina virtuale quando non in uso](../data-science-virtual-machine/setup-virtual-machine.md#shutdown).
 > 
 > 
-
 

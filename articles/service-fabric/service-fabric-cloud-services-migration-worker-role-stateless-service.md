@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
 ms.openlocfilehash: 4ab1f83e88b262b1752300b2786340d9abca8154
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
 Questo articolo descrive come eseguire la migrazione di ruoli di lavoro e Web di Servizi cloud a servizi senza stato di Service Fabric. Questo è il percorso di migrazione più semplice da Servizi cloud a Service Fabric per le applicazioni la cui architettura complessiva rimarrà approssimativamente la stessa.

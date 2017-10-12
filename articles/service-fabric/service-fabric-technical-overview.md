@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla terminologia di Azure Service Fabric | Microsoft Docs
+title: Informazioni sulla terminologia di Azure Service Fabric | Documentazione Microsoft
 description: Panoramica della terminologia di Service Fabric. Illustra i concetti chiave relativi alla terminologia e i termini usati nel resto della documentazione.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 204c415a6dc77af1be78f8b28a1a5cbcd2fa7883
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-terminology-overview"></a>Panoramica della terminologia di Service Fabric
 Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili. Questa argomento illustra la terminologia usata da Service Fabric per agevolare la comprensione dei termini usati nella documentazione.
@@ -103,5 +102,4 @@ Per altre informazioni su Service Fabric, vedere:
 * [Panoramica di Service Fabric](service-fabric-overview.md)
 * [Perché usare un approccio ai microservizi per la compilazione di applicazioni](service-fabric-overview-microservices.md)
 * [Scenari applicativi](service-fabric-application-scenarios.md)
-
 

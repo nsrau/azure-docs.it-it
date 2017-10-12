@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deep-learning-and-ai-frameworks"></a>Apprendimento avanzato e framework AI
 La [macchina virtuale per data science](http://aka.ms/dsvm) e la [macchina virtuale per l'apprendimento avanzato](http://aka.ms/dsvm/deeplearning) supportano diversi framework per consentire la creazione delle applicazioni di Intelligenza artificiale con analisi predittiva e funzionalità cognitive come comprensione delle immagini e del linguaggio. 
 
@@ -190,5 +188,4 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 | Edizioni supportate della macchina virtuale per data science      | Linux     |
 | Come viene configurato o installato sulla macchina virtuale per data science?  | Torch è installato in `/dsvm/tools/torch`. PyTorch viene installato in Python 2.7, _radice_, e nell'ambiente Python 3.5, _py35_.   |
 | Collegamenti agli esempi      | Gli esempi di Torch si trovano in `/dsvm/samples/torch`. Gli esempi di PyTorch si trovano in `/dsvm/samples/pytorch`.      |
-
 
