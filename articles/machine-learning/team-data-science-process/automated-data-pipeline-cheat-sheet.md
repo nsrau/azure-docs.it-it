@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Foglio informativo sulla pipeline di dati automatizzati per le stime di Azure Machine Learning
 Il **foglio informativo sulla pipeline di dati automatizzati per le stime di Microsoft Azure Machine Learning** consente di spostarsi tra la tecnologia che si può usare per ottenere i dati per il servizio Web Machine Learning, in cui  i dati stessi possono essere classificati dal modello di analisi predittiva.
@@ -43,5 +42,4 @@ Scaricare il foglio informativo qui: **[foglio informativo sulla pipeline di dat
 * Per una spiegazione di come usare un servizio Web di assegnazione dei punteggi, vedere [Come usare un servizio Web di Azure Machine Learning](../studio/consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

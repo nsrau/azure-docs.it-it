@@ -8,14 +8,12 @@ ms.author: darosa
 ms.date: 08/15/2017
 ms.topic: hero-article
 ms.service: event-grid
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: cd285471196f75f6a8c8ead0e2895fd71414f223
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-route-custom-events-with-azure-event-grid"></a>Creare e instradare eventi personalizzati con la griglia di eventi di Azure
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che risponde all'evento, ad esempio un webhook o una funzione di Azure. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un URL che si limita a raccoglie i messaggi. L'URL viene creato con [RequestBin](https://requestb.in/), uno strumento open source di terze parti.
@@ -122,4 +120,3 @@ Ora che si è appreso come creare argomenti e sottoscrizioni di eventi, è possi
 - [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato (anteprima)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Monitorare le modifiche alla macchina virtuale con la griglia di eventi di Azure e le app per la logica](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md)
-

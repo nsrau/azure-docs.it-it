@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 85cf9175bb4a5f253c7b47b2edc3ac8b00616ba2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning
 ## <a name="retraining-overview"></a>Panoramica sulla ripetizione del training
@@ -112,4 +111,3 @@ Per verificare in quale servizio Web si trova l'endpoint, visitare il portale di
 [image5]: ./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png
 [image6]: ./media/troubleshooting-retraining-a-model/retraining-output.png
 [image7]: ./media/troubleshooting-retraining-a-model/web-services-tab.png
-

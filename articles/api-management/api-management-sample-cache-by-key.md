@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 24cbe51ef5a453d06e9f70e1e2146479935c5bf5
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 4a41e4e0be44e855ead253ad76fe5a3af52070ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Memorizzazione nella cache personalizzata in Gestione API di Azure
 Il servizio Gestione API di Azure prevede il supporto incorporato per la [memorizzazione nella cache delle risposte HTTP](api-management-howto-cache.md) usando l'URL della risorsa come chiave. La chiave può essere modificata dalle intestazioni della richiesta usando le proprietà `vary-by` . Questo risulta utile per la memorizzazione nella cache di intere risposte HTTP (note anche come rappresentazioni), ma talvolta è utile memorizzare nella cache anche solo una parte di una rappresentazione. I nuovi criteri [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) e [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) consentono di archiviare e recuperare singoli dati arbitrari all'interno di definizioni dei criteri. Questa possibilità migliora anche il criterio [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) introdotto in precedenza, dal momento che ora è possibile memorizzare nella cache le risposte provenienti da servizi esterni.
@@ -281,5 +280,4 @@ La libertà di usare la cache di Gestione API di Azure per archiviare qualsiasi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se questi criteri hanno permesso di abilitare altri scenari o se si vuole realizzare scenari non ancora disponibili, è possibile lasciare i propri commenti e suggerimenti nel thread Disqus di questo argomento.
-
 

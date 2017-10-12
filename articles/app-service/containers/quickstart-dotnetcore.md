@@ -16,16 +16,15 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 47e7db5462ecf3a2211538b1f46ed0571980b15b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 3ae0f28272d70a63b74a9f249566ae789f07aad5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>Creare un'app Web .NET Core in un contenitore Linux in Azure
 
-[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web ad alta scalabilità e con correzione automatica basato sul sistema operativo Linux. Questa guida introduttiva mostra come creare un'app [.NET Core](https://docs.microsoft.com/aspnet/core/) in App Web di Azure per contenitori. È necessario creare l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e Git per distribuire il codice Node.js nell'app Web.
+[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web a scalabilità elevata con applicazione automatica delle patch basato sul sistema operativo Linux. Questa guida introduttiva mostra come creare un'app [.NET Core](https://docs.microsoft.com/aspnet/core/) in App Web di Azure per contenitori. È necessario creare l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e Git per distribuire il codice Node.js nell'app Web.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -186,4 +185,3 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 
 > [!div class="nextstepaction"]
 > [Compilare un'app Web .NET Core e database SQL in App Web di Azure per contenitori](tutorial-dotnetcore-sqldb-app.md)
-

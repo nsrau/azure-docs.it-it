@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 102e54627a8fee721d3ed85e86a8009e706bb5b1
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 63119978c59186a71e7e30438e8e37c0b2e1b454
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="work-with-azure-functions-proxies-preview"></a>Usare i proxy di Funzioni di Azure (anteprima)
 
@@ -218,4 +217,3 @@ Un esempio di configurazione apparirà come segue:
 [Usare le variabili]: #using-variables
 [parametri della richiesta del client originale]: #request-parameters
 [paramenti della risposta back-end]: #response-parameters
-

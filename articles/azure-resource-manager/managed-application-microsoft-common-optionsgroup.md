@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 6e147ed28c8248f7f17cb36fd7ae13468141dced
-ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: fe1edd96f16737459cc8befdad18f5f12ea6ed9d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elemento Microsoft.Common.OptionsGroup dell'interfaccia utente
 Controllo di selezione con una riga di opzioni disponibili. Usare questo elemento quando si [crea un'applicazione Azure gestita](managed-application-publishing.md).
@@ -65,4 +64,3 @@ Controllo di selezione con una riga di opzioni disponibili. Usare questo element
 * Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](managed-application-overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

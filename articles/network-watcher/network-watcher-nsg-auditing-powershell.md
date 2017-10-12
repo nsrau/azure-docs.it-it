@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
-ms.openlocfilehash: a91da330e677c85f16f6f4e506613576b6507d7c
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 57f2200e541eeb629f72d60ffa0acb2d8233c018
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizzare il controllo del gruppo di sicurezza di rete con la visualizzazione del gruppo di sicurezza di rete di Network Watcher di Azure
 
 I clienti devono spesso far fronte alla sfida posta dalla verifica del comportamento di sicurezza della propria infrastruttura. Lo stesso problema si pone per le macchine virtuali in Azure. È importante disporre di un profilo di sicurezza simile in base alle regole del gruppo di sicurezza di rete (NSG) applicate. Usando la visualizzazione del gruppo di sicurezza, è possibile ottenere l'elenco delle regole applicate a una macchina virtuale all'interno di un gruppo di sicurezza di rete. È possibile definire un profilo di sicurezza NSG elevato e avviare la visualizzazione del gruppo di sicurezza con frequenza settimanale, quindi confrontare l'output con il profilo elevato e creare un report. In questo modo è possibile identificare con facilità tutte le macchine virtuali che non sono conformi al profilo di protezione previsto.
@@ -190,7 +188,6 @@ SideIndicator            : <=
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se sono state modificate le impostazioni, vedere [Gestire gruppi di sicurezza di rete](../virtual-network/virtual-network-manage-nsg-arm-portal.md) per tenere traccia del gruppo di sicurezza di rete e delle regole di sicurezza in questione.
-
 
 
 

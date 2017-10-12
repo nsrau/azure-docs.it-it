@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: 2ae53d5aceab21b08ccdae5bf5192529cd7f09da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 595d611aac4f57b7ab5b7ab4e46edf1eff796185
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
 ## <a name="general"></a>Generale
@@ -329,4 +327,3 @@ Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul gateway applicazione, vedere la [panoramica del gateway applicazione](application-gateway-introduction.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: haining;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 809df66042f6c765ed56836db40f72a5cd8ca7f6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Domande frequenti sui concorsi Microsoft Cortana Intelligence
 **Informazioni sui concorsi Cortana Intelligence**
@@ -58,7 +57,7 @@ No. Sono invitati a partecipare gli appassionati di analisi scientifica dei dati
 
 * **Sviluppatori di dati**, **data scientist** e **professionisti di analisi** e **business intelligence**: sono responsabili della produzione di dati e contenuti di analisi utilizzati da altri utenti
 * **Amministratori dei dati**: hanno informazioni relative ai dati, al significato dei dati, al metodo d'uso e allo scopo
-* **Studenti**  &  **ricercatori**: studiano e acquisiscono competenze relative ai dati attraverso programmi universitari oppure partecipano a corsi aperti online su larga scala (MOOC)
+* **Studenti** & **ricercatori**: studiano e acquisiscono competenze relative ai dati attraverso programmi universitari oppure partecipano a corsi aperti online su larga scala (MOOC)
 
 **È possibile iscriversi con i colleghi come team?**
 
@@ -114,5 +113,4 @@ Attualmente la piattaforma del concorso supporta soltanto contributi inviati da 
 **Le soluzioni e i contributi ai concorsi degli utenti vengono conservati?**
 
 I contributi degli utenti vengono conservati unicamente a scopo di valutazione, per identificare le soluzioni vincenti. Per informazioni specifiche, vedere le [condizioni](http://aka.ms/comptermsandconditions) dei concorsi.
-
 

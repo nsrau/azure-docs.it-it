@@ -1,9 +1,9 @@
 ---
 title: Modifica di runbook testuali in Automazione di Azure
-description: In questo articolo vengono fornite procedure diverse per l&quot;uso di PowerShell e dei runbook del flusso di lavoro PowerShell in Automazione di Azure mediante l&quot;editor di testo.
+description: In questo articolo vengono fornite procedure diverse per l'uso di PowerShell e dei runbook del flusso di lavoro PowerShell in Automazione di Azure mediante l'editor di testo.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: 6f5b48fb-6f30-4e99-9e14-9061b5554b08
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 6aa34a19b15ae0c5c031f20a9c6c8e5ed3290b10
-
-
+ms.openlocfilehash: ae36342ab0f42c364dedd4107a59f5b0ffc20a0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Modifica di runbook testuali in Automazione di Azure
 L'editor di testo in Automazione di Azure può essere usato per modificare i [runbook di PowerShell](automation-runbook-types.md#powershell-runbooks) e i [runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Questo editor dispone delle funzionalità tipiche degli altri editor di codice, ad esempio IntelliSense e la codifica a colori con particolari funzionalità aggiuntive per semplificare l'accesso alle risorse comuni dei runbook.  In questo articolo vengono fornite procedure dettagliate per l'esecuzione delle diverse funzioni disponibili in questo editor.
@@ -131,9 +131,3 @@ I comandi di esempio seguenti mostrano come sostituire il contenuto di un runboo
 * [Credenziali](automation-credentials.md)
 * [Pianificazioni](automation-schedules.md)
 * [Variabili](automation-variables.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: b4d71cdfbab535b02542fbb26c7555265e5f9c37
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure
 In Gestione API i gruppi permettono di gestire quali prodotti sono visibili per gli sviluppatori. I prodotti vengono innanzitutto resi visibili ai gruppi, quindi gli sviluppatori in quei gruppi possono visualizzare e sottoscriversi ai prodotti associati ai gruppi. 
@@ -61,7 +61,7 @@ Il nuovo gruppo viene visualizzato nella scheda relativa ai gruppi. Per modifica
 
 Ora che il gruppo è stato creato, può essere associato a prodotti e sviluppatori.
 
-## <a name="associate-group-product"> </a>Associare un gruppo a un prodotto
+## <a name="associate-group-product"></a>Associare un gruppo a un prodotto
 Per associare un gruppo a un prodotto, fare clic su **Prodotti** dal menu **Gestione API** a sinistra, quindi fare clic sul nome del prodotto desiderato.
 
 ![Visibilità dei prodotti][api-management-add-group-to-product]

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-log-analytics"></a>Cos'è Log Analytics?
 Log Analytics è un servizio di [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md) che consente di monitorare gli ambienti cloud e locali per garantirne la disponibilità e le prestazioni.  Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini.  Questo articolo offre una breve descrizione del valore di Log Analytics, una panoramica del relativo funzionamento e collegamenti a contenuti più dettagliati per approfondire l'argomento.
@@ -80,5 +79,4 @@ Quando ci si [iscrive a Log Analytics](log-analytics-get-started.md), verrà cre
 * [Iscriversi per ottenere un account gratuito di Log Analytics](log-analytics-get-started.md) da testare nel proprio ambiente.
 * Per raccogliere i dati nel repository OMS visualizzare le diverse [origini dati](log-analytics-data-sources.md) disponibili.
 * [Esplorare le soluzioni disponibili nella Raccolta soluzioni](log-analytics-add-solutions.md) per aggiungere funzionalità a Log Analytics.
-
 

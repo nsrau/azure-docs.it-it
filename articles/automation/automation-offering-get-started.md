@@ -1,4 +1,4 @@
---- 
+---
 title: Introduzione ad Automazione di Azure | Microsoft Docs
 description: Questo articolo offre una panoramica del servizio Automazione di Azure e illustra i dettagli di progettazione e implementazione per prepararsi a caricare l'offerta da Azure Marketplace.
 services: automation
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>Introduzione ad Automazione di Azure
 
 Questa guida introduttiva presenta i concetti principali relativi alla distribuzione di Automazione di Azure. Se non si ha familiarità con Automazione di Azure o si ha esperienza con un software di flusso di lavoro di automazione come System Center Orchestrator, questa guida consente di acquisire le informazioni necessarie per preparare e caricare Automazione.  Successivamente, verranno fornite informazioni per iniziare a sviluppare i runbook necessari per soddisfare le esigenze di automazione del processo. 
@@ -162,7 +160,7 @@ Il metodo consigliato per caricare Automazione prevede la selezione dell'offerta
 
 2. Fare clic su **New**.<br><br> ![Selezionare l'opzione Nuovo nel portale di Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. Cercare **Automazione** e quindi nei risultati della ricerca selezionare **Automation & Control***.<br><br> ![Cercare e selezionare Automation & Control nel Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+3. Cercare **Automazione** e quindi nei risultati della ricerca selezionare **Automation & Control***.<br><br> ![Cercare e selezionare Automation &amp; Control nel Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 
 4. Dopo avere letto la descrizione dell'offerta, fare clic su **Crea**.  
 
@@ -191,6 +189,5 @@ Dopo il caricamento dell'offerta, è possibile iniziare a creare i runbook, usar
 ## <a name="next-steps"></a>Passaggi successivi
 * Per verificare che il nuovo account di Automazione possa eseguire l'autenticazione con le risorse di Azure, vedere [Test Azure Automation Run As account authentication](automation-verify-runas-authentication.md) (Testare l'autenticazione di un account RunAs di Automazione di Azure).
 * Prima di iniziare a creare i runbook, rivedere i [tipi di runbook di Automazione](automation-runbook-types.md) supportati e relative considerazioni.
-
 
 

@@ -11,14 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
 ms.openlocfilehash: 7c355e2feb5ebe5971d8391b326422a1abec1497
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="publish-multiple-versions-of-your-api-in-a-predictable-way"></a>Pubblicazione di più versioni dell'API in modo prevedibile
 Questa esercitazione descrive come impostare le versioni dell'API e scegliere il modo in cui vengono chiamate dagli sviluppatori di API.
 
@@ -34,7 +32,7 @@ In questa procedura dettagliata viene aggiunta una nuova versione a un'API esist
 ## <a name="add-a-new-version"></a>Aggiungere una nuova versione
 ![Menu di scelta rapida delle API - Aggiungere versione](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 1. Aprire la pagina delle **API** nel servizio di Gestione API nel portale di Azure.
-2. Selezionare **Conference API** (API Conferenza) nell'elenco di API, quindi selezionare il menu di scelta rapida (**... **) accanto.
+2. Selezionare **Conference API** (API Conferenza) nell'elenco di API, quindi selezionare il menu di scelta rapida (**...**) accanto.
 3. Selezionare **+ Aggiungi versione**.
 
     > [!TIP]
@@ -75,4 +73,3 @@ Affinché i chiamanti visualizzino la nuova versione, è necessario aggiungerla 
 3. Selezionare **v1**.
 4. Si noti l'**URL della richiesta** della prima operazione nell'elenco. Mostra che il percorso dell'URL dell'API include **v1**.
 ![Versione visualizzata sul portale per sviluppatori](media/api-management-getstarted-publish-versions/VersionDevPortal.PNG)
-

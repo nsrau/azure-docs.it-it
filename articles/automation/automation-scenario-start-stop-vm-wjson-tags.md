@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: af0bc6b24a403bd09092ac0a099c500d651d15b7
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Scenario di Automazione di Azure: uso di tag in formato JSON per creare una pianificazione per l'avvio e l'arresto di una macchina virtuale di Azure
 Spesso i clienti vogliono pianificare l'avvio e l'arresto delle macchine virtuali per ridurre i costi della sottoscrizione o supportare i requisiti aziendali e tecnici.
@@ -242,4 +241,3 @@ Il **Riepilogo processi** include i messaggi dai flussi di output, di avviso e d
 * Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)(Supporto di script PowerShell nativi in Automazione di Azure).
 * Per altre informazioni sulla registrazione e sull'output dei runbook, vedere [Output di runbook e messaggi in Automazione di Azure](automation-runbook-output-and-messages.md).
 * Per altre informazioni sull'account RunAs di Azure e su come usarlo per eseguire l'autenticazione dei runbook, vedere [Autenticare runbook con account RunAs di Azure](automation-sec-configure-azure-runas-account.md).
-

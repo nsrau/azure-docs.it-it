@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 415ceba02eb3c8da3de5ab3aa6980fbe5bae2db9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-exports-for-this-preview"></a>Esportazioni di dati supportate per questa anteprima 
 È possibile eseguire l'esportazione in diversi formati. Per conservare i risultati intermedi della preparazione dei dati prima dell'integrazione nel restante flusso di lavoro di Machine Learning, è possibile usare questi formati.
 
@@ -58,5 +56,4 @@ Unità disco rigido locale o posizione di archiviazione di rete mappata
 
 ### <a name="azure-blob"></a>BLOB Azure 
 Archiviazione di Azure (BLOB) richiede una sottoscrizione ad Azure
-
 

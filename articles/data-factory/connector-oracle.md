@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ad9807fc72e3a6e0a6d3916d2d9e042af1fa83ed
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -205,7 +204,7 @@ Per copiare dati in Oracle, impostare il tipo di sink nell'attività di copia su
 
 Quando si copiano dati da/in Oracle, vengono usati i mapping seguenti tra i tipi di dati di Oracle e i tipi di dati provvisori di Azure Data Factory. Vedere [Mapping dello schema e del tipo di dati](copy-activity-schema-and-type-mapping.md) per informazioni su come l'attività di copia esegue il mapping dello schema di origine e del tipo di dati al sink.
 
-| Tipo di dati di Oracle | Tipo di dati provvisori di Data Factory |
+| Tipo di dati Oracle | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[] |

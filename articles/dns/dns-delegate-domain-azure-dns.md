@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegare un dominio al servizio DNS di Azure
 
 DNS di Azure consente di ospitare una zona DNS e gestire i record DNS per un dominio in Azure. Per consentire l'esecuzione di query DNS in modo che un dominio raggiunga DNS di Azure, il dominio deve essere delegato a DNS di Azure dal dominio padre. Tenere presente che DNS di Azure non è il registrar. Questo articolo illustra come delegare il dominio al servizio DNS di Azure.
@@ -308,4 +306,3 @@ Per eliminare tutte le risorse create nell'esecuzione dell'esercizio, seguire qu
 [Gestire le zone DNS](dns-operations-dnszones.md)
 
 [Gestire i record DNS](dns-operations-recordsets.md)
-

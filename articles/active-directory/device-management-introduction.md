@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introduzione alla gestione dei dispositivi in Azure Active Directory
 
@@ -155,6 +154,5 @@ Come regola generale, è consigliabile usare:
     - Dispositivi Windows 10 registrati in Azure Active Directory, vedere [Come configurare dispositivi Windows 10 registrati in Azure Active Directory](device-management-azuread-registered-devices-windows10-setup.md)
     - Dispositivi aggiunti ad Azure Active Directory, vedere [Come configurare dispositivi aggiunti ad Azure Active Directory](device-management-azuread-joined-devices-setup.md)
     - Dispositivi aggiunti all'identità ibrida di Azure AD, vedere [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
-
 
 

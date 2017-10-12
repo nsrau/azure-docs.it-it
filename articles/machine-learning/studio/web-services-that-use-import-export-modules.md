@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 40e1dbf4fc1618deec5e7f85fb956f2881e08319
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Distribuzione di servizi di Web Azure ML che usano i moduli Import Data ed Export Data
 
@@ -147,5 +146,4 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
             }
         };
 10. Eseguire l'applicazione. 
-
 

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: bwren
+ms.openlocfilehash: 329f3c66bc131a9555f1778acfcae5dd9c761f56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 4955f90de06cd720d78c5bb60c0adcd7dc633245
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatizzare i processi di Log Analytics con il connettore per Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) consente di creare flussi di lavoro automatizzati che includono centinaia di azioni per un'ampia gamma di servizi. L'output di un'azione può essere usato come input per un'altra. È così possibile integrare servizi diversi.  Il connettore di Azure Log Analytics per Microsoft Flow consente di creare flussi di lavoro che includono dati recuperati da ricerche log in Log Analytics.
 
@@ -85,7 +83,6 @@ L'esercitazione descritta in questo articolo mostra come creare un flusso che in
 
 - Altre informazioni su [Ricerche log di Log Analytics](log-analytics-log-search-new.md).
 - Altre informazioni su [Microsoft Flow](https://ms.flow.microsoft.com).
-
 
 
 

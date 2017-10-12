@@ -9,14 +9,12 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Connessione di un servizio app di Azure esistente al Database di Azure per MySQL
 Questo argomento descrive come connettere un Servizio app di Azure esistente al database di Azure per il server MySQL.
 
@@ -64,4 +62,3 @@ Il database di Azure per MySQL dispone dell'autenticazione SSL abilitata per imp
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle stringhe di connessione, vedere l'argomento relativo alle [stringhe di connessione](howto-connection-string.md).
-

@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 63818878e01dd52a988e10a6e4f624638ea1cfae
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 511088156d3546e2e0f3ac40e72bf2b8e4ae2cb9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-self-service-signup-for-azure"></a>Informazioni sull'iscrizione self-service per Azure
 Questo argomento illustra il processo di iscrizione self-service e l'acquisizione della proprietà di un nome di dominio DNS.  
@@ -206,4 +205,3 @@ Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
-

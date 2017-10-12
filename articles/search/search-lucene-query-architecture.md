@@ -12,14 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
 
 Questo articolo si rivolge agli sviluppatori che hanno bisogno di una conoscenza più approfondita circa il funzionamento della ricerca full-text di Lucene in Ricerca di Azure. Per le query di testo, Ricerca di Azure fornirà i risultati previsti nella maggior parte degli scenari, ma in alcuni casi è possibile ottenere un risultato che sembrerà in qualche modo "strano". In questi casi, la presenza di uno sfondo nelle quattro fasi dell'esecuzione di query di Lucene (analisi delle query, analisi lessicale, abbinamento dei documenti, assegnazione dei punteggi) consente di identificare le modifiche specifiche per i parametri di query o per la configurazione di indice che garantirà il risultato desiderato. 
@@ -410,4 +408,3 @@ In questo articolo è stata illustrata la ricerca full-text nel contesto di Rice
 [2]: ./media/search-lucene-query-architecture/azSearch-queryparsing-should2.png
 [3]: ./media/search-lucene-query-architecture/azSearch-queryparsing-must2.png
 [4]: ./media/search-lucene-query-architecture/azSearch-queryparsing-spacious2.png
-

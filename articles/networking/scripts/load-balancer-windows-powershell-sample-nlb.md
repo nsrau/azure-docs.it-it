@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
 ms.openlocfilehash: c77def8906b151f2cc6e4bbc4188be8ecbeac732
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
 
@@ -31,7 +31,7 @@ Se necessario, installare Azure PowerShell usando l'istruzione presente nella [G
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Creazione rapida della macchina virtuale")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Quick Create VM")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 

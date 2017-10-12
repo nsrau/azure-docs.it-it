@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1e0d4a29f59e48cac675e567fd84384b1b60d35f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
 Questo articolo fornisce indicazioni per migliorare le prestazioni e l'affidabilità delle app per le funzioni. 
@@ -99,5 +97,4 @@ Per altre informazioni, vedere le seguenti risorse:
 
 Poiché Funzioni di Azure usa Servizio app di Azure, è consigliabile vedere anche le linee guida del servizio app.
 * [Schemi e procedure per le ottimizzazioni delle prestazioni HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-
 

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configurare dispositivi aggiunti ad Azure Active Directory
 
@@ -125,7 +124,6 @@ Per altre informazioni, vedere:
 - [Introduzione alla gestione dei dispositivi in Azure Active Directory](device-management-introduction.md)
 - [Gestione dei dispositivi tramite il portale di Azure](device-management-azure-portal.md)
 - 
-
 
 
 

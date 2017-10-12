@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
 ms.openlocfilehash: b05181d9252c0a804648e01b4058019278ae5abe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Eseguire l'autenticazione con le API REST di Mobile Engagement
 ## <a name="overview"></a>Panoramica
@@ -128,9 +128,9 @@ Ora che si dispone di un token valido, è possibile eseguire chiamate API.
    
     Per ottenere i parametri, fare clic sul nome dell'applicazione e quindi su Dashboard. Verrà visualizzata una pagina simile a quella riportata di seguito, con tutti e tre i parametri.
    
-   * **1** `{subscription-id}`
-   * **2** `{app-collection}`
-   * **3** `{app-resource-name}`
+   * **1**`{subscription-id}`
+   * **2**`{app-collection}`
+   * **3**`{app-resource-name}`
    * **4**Il nome del gruppo di risorse sarà **MobileEngagement** a meno che non ne sia stato creato uno nuovo. 
      
      ![Parametri URI API di Mobile Engagement][2]

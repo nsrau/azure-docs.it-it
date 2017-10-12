@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.contentlocale: it-it
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funzione Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) (anteprima)
 Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali.  In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità.
 
@@ -51,7 +49,7 @@ Seguire questa procedura per configurare Azure Active Directory Terms of Use (Co
 Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per aggiungerle.
 
 ### <a name="to-add-terms-of-use"></a>Per aggiungere le condizioni per l'utilizzo
-1. Passare al dashboard in [https://aka.ms/catou](https://aka.ms/catou)
+1. Passare al dashboard disponibile in [https://aka.ms/catou](https://aka.ms/catou)
 2. Fare clic su Aggiungi.</br>
 ![Aggiungere le condizioni per l'utilizzo](media/active-directory-tou/tou2.png)
 3. Immettere il **Nome** per le condizioni per l'utilizzo

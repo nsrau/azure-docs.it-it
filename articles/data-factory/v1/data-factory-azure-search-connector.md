@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d3ffa343a91aaad632705f24bcb357b7b20386d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Push dei dati in un indice di Ricerca di Azure con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1 - Disponibilità generale](data-factory-azure-search-connector.md)
@@ -298,4 +296,3 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 Vedere gli articoli seguenti:
 
 * [Esercitazione dell'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate della creazione di una pipeline con un'attività di copia.
-

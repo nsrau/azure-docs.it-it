@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>Distribuire un dispositivo StorSimple locale
 > [!div class="op_single_selector"]
@@ -283,5 +282,4 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup 
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare un [dispositivo virtuale](storsimple-virtual-device-u2.md).
 * Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
-
 

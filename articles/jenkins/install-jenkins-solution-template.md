@@ -10,14 +10,12 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Creare un server Jenkins in una VM Linux di Azure dal portale di Azure
 
 Questa guida introduttiva illustra come installare [Jenkins](https://jenkins.io) in una VM Ubuntu Linux con gli strumenti e i plug-in configurati per usare Azure. Al termine, si avrà un server Jenkins in esecuzione in Azure che compila un'app Java di esempio da [GitHub](https://github.com).
@@ -113,4 +111,3 @@ Passare a `complete/build/libs` e verificare che sia presente il file `gs-spring
 
 > [!div class="nextstepaction"]
 > [Aggiungere VM di Azure come agenti di Jenkins](jenkins-azure-vm-agents.md)
-

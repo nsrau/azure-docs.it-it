@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f919e1880f709b416867a29de14f1dcc63a165fe
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-powershell-to-manage-azure-files"></a>Come usare PowerShell per gestire File di Azure
 È possibile usare Azure PowerShell per creare e gestire le condivisioni file.
@@ -96,7 +95,7 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere questi collegamenti per altre informazioni su File di Azure.
+Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 
 * [Domande frequenti](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      

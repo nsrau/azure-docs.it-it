@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="split-column-by-example-transformation"></a>Trasformazione Split Column by Example (Dividi colonna in base all'esempio)
 Questa trasformazione divide in modo predittivo il contenuto di una colonna in base a limiti significativi senza richiedere l'input dell'utente. L'algoritmo di divisione seleziona i limiti dopo avere analizzato il contenuto della colonna. Questi limiti possono essere definiti da:
 * Un delimitatore predefinito
@@ -178,4 +176,3 @@ Nell'esempio seguente si vuole separare i valori del peso dalle unità di misura
 ## <a name="technical-notes"></a>Note tecniche
 
 La funzionalità della trasformazione di divisione si basa sulla tecnica **Program Synthesis predittiva**. Con questa tecnica i programmi di trasformazione dei dati vengono appresi automaticamente in base ai dati di input. I programmi vengono sintetizzati in un linguaggio specifico di dominio. Il linguaggio Domain-Specific Language è basato su delimitatori e campi presenti in specifici contesti di espressioni regolari. Altre informazioni su questa tecnologia sono disponibili in una [recente pubblicazione su questo argomento](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
-

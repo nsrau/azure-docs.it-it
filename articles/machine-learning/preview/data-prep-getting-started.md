@@ -7,15 +7,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: faf6e557914a33454229b5830419b9ef6f200a8c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="getting-started-with-data-preparation"></a>Introduzione alla preparazione dati
 
 Benvenuti alla guida introduttiva sulla preparazione dati. 
@@ -121,7 +118,7 @@ Al termine della preparazione dati, è possibile scrivere il flusso di dati in u
 [Appendice 6 - Esempio di espressioni filtro in Python](data-prep-appendix6-sample-filter-expressions-python.md)  
 [Appendice 7 - Esempio di trasformazione di espressioni del flusso di dati in Python](data-prep-appendix7-sample-transform-data-flow-python.md)  
 [Appendice 8 - Esempio di origini dati in Python](data-prep-appendix8-sample-source-connections-python.md)  
-[Appendice 9 - Esempio di connessioni di destinazione in Python](data-prep-appendix9-sample-destination-connections-python.md)  
+[Appendix 9 - Sample Destination Connections in Python](data-prep-appendix9-sample-destination-connections-python.md) (Appendice 9 - Esempio di connessioni di destinazione in Python)  
 [Appendice 10 - Esempio di trasformazioni di colonna in Python](data-prep-appendix10-sample-custom-column-transforms-python.md)  
 
 ## <a name="see-also"></a>Vedere anche

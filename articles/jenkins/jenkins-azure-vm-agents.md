@@ -11,14 +11,12 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: c6cfca299dabba253757d959411c0cac8f90fa2e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: a3bfa3a17f0d7300f9d1ceb529410bbbb7bb2fee
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Ridimensionare le distribuzioni di Jenkins per soddisfare la richiesta con agenti di macchine virtuali di Azure
 
 In questa esercitazione viene illustrato come usare il [plug-in di Agente di macchine virtuali di Azure](https://plugins.jenkins.io/azure-vm-agents) di Jenkins per aggiungere capacità su richiesta con macchine virtuali Linux in esecuzione in Azure.
@@ -147,5 +145,4 @@ Selezionare **Verify Template** (Verifica modello) per verificare la configurazi
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Integrazione continua e distribuzione continua per i Siti Web di Microsoft Azure](deploy-jenkins-app-service-plugin.md)
-
+> [Integrazione continua e distribuzione continua per i Siti Web di Microsoft Azure](java-deploy-webapp-tutorial.md)

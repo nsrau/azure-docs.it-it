@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
+ms.openlocfilehash: 42d1de8a27f8979db5662094e8bd74a6f5ccac55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: de46e5a6833809f8413d6a2de62a8cb9fe178130
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 Quali risorse è necessario pianificare quando si configura un ambiente per l'elaborazione dell'analisi avanzata su un set di dati? Questo articolo suggerisce una serie di domande che contribuiscono a identificare le attività e le risorse attinenti allo scenario. L'ordine dei passaggi generali per l'analisi predittiva è illustrato in [Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Ognuno di questi passaggi richiede risorse specifiche per le attività attinenti allo scenario specifico. Le domande principali per identificare lo scenario riguardano la logistica dei dati, le caratteristiche, la qualità dei set di dati e gli strumenti e linguaggi preferiti per eseguire l'analisi.
@@ -105,5 +104,4 @@ Sono disponibili numerose opzioni a seconda dei linguaggi e degli strumenti o am
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identificare lo scenario di analisi avanzata
 Dopo aver risposto alle domande nella sezione precedente, si è pronti per determinare quale scenario è più adatto al caso specifico. Gli scenari di esempio sono descritti in [Scenari per l'analisi avanzata in Azure Machine Learning](plan-sample-scenarios.md).
-
 

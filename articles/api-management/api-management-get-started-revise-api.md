@@ -11,14 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 212b163c49fdd133b0ed2d99b33035fcc391aec6
 ms.openlocfilehash: 0d67166a16ae4d640080ad83e7625e594b0dc246
-ms.contentlocale: it-it
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="make-non-breaking-changes-safely-using-revisions"></a>Apportare modifiche non di rilievo usando le revisioni in modo sicuro
 L'esercitazione descrive come apportare modifiche all'API in modo sicuro e come comunicare agli sviluppatori le modifiche apportate.
 
@@ -37,7 +35,7 @@ In questa procedura dettagliata viene aggiunta una nuova revisione e a questa un
 3. Selezionare **+ Aggiungi revisione**.
 
     > [!TIP]
-    > È anche possibile scegliere **Aggiungi revisione** nel menu di scelta rapida (**... **) dell'API.
+    > È anche possibile scegliere **Aggiungi revisione** nel menu di scelta rapida (**...**) dell'API.
 ![Menu Revisioni nella parte superiore dello schermo](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 4. Fornire una descrizione per la nuova revisione, per facilitare la comprensione dell'uso.
@@ -63,7 +61,7 @@ In questa procedura dettagliata viene aggiunta una nuova revisione e a questa un
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Rendere la revisione corrente e aggiungere una voce del registro modifiche
 1. Selezionare la scheda **Revisioni** dal menu nella parte superiore della pagina.
 ![Il menu Revisione nella schermata di revisione.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
-2. Aprire il menu di scelta rapida (**... **) per la **Revisione 2**.
+2. Aprire il menu di scelta rapida (**...**) per la **Revisione 2**.
 3. Selezionare **Make Current** (Imposta come corrente).
 ![Rendere la revisione corrente e inserire un post nel registro modifiche](media/api-management-getstarted-revise-api/MakeCurrent.PNG)
 4. Selezionare **Post to Public Change Log for this API**(Postare nel registro modifiche pubblico per questa API).

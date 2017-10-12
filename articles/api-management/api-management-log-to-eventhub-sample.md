@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: 70ee752c5639c90f77dde104ce85eec0a1062300
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Monitorare le API con Gestione API di Azure, Hub eventi e Runscope
 Il [servizio Gestione API](api-management-key-concepts.md) offre molte capacità per migliorare l'elaborazione di richieste HTTP inviate all'API HTTP. L'esistenza di richieste e risposte è tuttavia temporanea. La richiesta viene effettuata e passa attraverso al servizio Gestione API fino all'API back-end. L'API elabora la richiesta e una risposta viene restituita al consumer dell'API. Il servizio Gestione API mantiene alcune statistiche importanti sulle API da visualizzare nel dashboard del portale di pubblicazione, ma eventuali altri dettagli verranno eliminati.

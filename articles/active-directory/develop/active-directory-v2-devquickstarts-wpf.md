@@ -16,10 +16,10 @@ ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7389f55ee6fef9548abb0ca4ac1bbd0399868d47
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Aggiungere l'accesso a un'applicazione Desktop di Windows
 Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app desktop con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione.  Consente inoltre all'app di comunicare in modo sicuro con un'API Web back-end, con [Microsoft Graph](https://graph.microsoft.io) e con alcune [API unificate di Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -256,7 +256,7 @@ Ora è possibile passare ad argomenti più avanzati.  È possibile:
 Per altre risorse, vedere:  
 
 * [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
-* [StackOverflow: tag "msal" >>](http://stackoverflow.com/questions/tagged/msal)
+* [StackOverflow: tag "msal" &gt;&gt;](http://stackoverflow.com/questions/tagged/msal)
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.

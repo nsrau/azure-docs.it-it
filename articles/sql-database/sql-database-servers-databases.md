@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/13/2017
 ms.author: carlrab
+ms.openlocfilehash: 2ad643d5f099457018d02a43252db4c259f5b613
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5db3f6dc28da9a07d0193db58b37def8c03a8c46
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creare e gestire server e database del database SQL di Azure
 
 Un database SQL di Azure è un database gestito in Microsoft Azure che viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set definito di [risorse di calcolo e archiviazione per carichi di lavoro diversi](sql-database-service-tiers.md). Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure. 
@@ -220,7 +218,7 @@ Per creare e gestire server SQL, database e firewall usare queste richieste API 
 |[Database: elenca da pool elastico](/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
 |[Database: elenca da pool elastico consigliato](/rest/api/sql/databases/listbyrecommendedelasticpool)|Restituisce un elenco di database in un pool elastico consigliato.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
-|[Databases - Update](/api/sql/databases/update)|Aggiorna un database esistente.|
+|[Databases - Update](/rest/api/sql/databases/update)|Aggiorna un database esistente.|
 |[Firewall Rules - Create Or Update](/rest/api/sql/firewallrules/createorupdate)|Crea o aggiorna una regola del firewall.|
 |[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|Elimina una regola del firewall.|
 |[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|Ottiene una regola del firewall.|

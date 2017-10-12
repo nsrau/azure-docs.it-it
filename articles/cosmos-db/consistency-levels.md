@@ -17,10 +17,10 @@ ms.date: 06/16/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB
 Azure Cosmos DB è stato progettato da zero pensando alla distribuzione globale di tutti i modelli di dati. È pensato per offrire garanzie di bassa latenza stimabile, contratto di servizio con disponibilità al 99,99% e più modelli di coerenza ben definiti. Azure Cosmos DB offre attualmente cinque livelli di coerenza: assoluta, decadimento ristretto, sessione, prefisso coerente e finale. 

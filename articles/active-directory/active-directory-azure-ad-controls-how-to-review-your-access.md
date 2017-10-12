@@ -11,14 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7029eb7e4af3bb22dff3d841e28c5b348944cd17
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-review-your-access"></a>Come verificare l'accesso
 
 Azure Active Directory semplifica il modo in cui le aziende gestiscono l'accesso alle applicazioni e i membri dei gruppi in Azure AD e gli altri Microsoft Online Services, con una funzione denominata verifiche di accesso.  È possibile che si abbia ricevuto un messaggio di posta elettronica da Microsoft in cui viene richiesto di verificare l'accesso dei membri di un gruppo o degli utenti con accesso a un'applicazione. 
@@ -40,7 +38,6 @@ Il revisore potrebbe richiedere una giustificazione per l'approvazione dell'acce
 ## <a name="next-steps"></a>Passaggi successivi
 
 Si noti che l'accesso negato non viene rimosso immediatamente; per cambiare la risposta e indicare l'approvazione, reimpostare la risposta e scegliere una nuova risposta.  È possibile eseguire questa operazione finché non viene completata la verifica di accesso.
-
 
 
 

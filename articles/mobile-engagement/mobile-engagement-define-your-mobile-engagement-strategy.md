@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: db68bd3ebf7efde1d23820445f07c83c8c27dc20
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="define-your-mobile-engagement-strategy"></a>Definire la strategia di Mobile Engagement
 *Le app vengono scritte per un motivo ben preciso: essere usate dagli utenti.*
@@ -131,5 +130,4 @@ Tutti questi tipi di dati possono essere estesi con parametri (*informazioni agg
 <!-- URLs. -->
 [Concetti relativi a Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Esercitazioni]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
-
 

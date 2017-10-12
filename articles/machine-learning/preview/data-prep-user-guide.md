@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 22389ba85edb119acdd21b63f2deae2d71f31373
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-preparation-user-guide"></a>Guida dell'utente per la preparazione dati 
 L'esperienza di preparazione dei dati offre molte funzionalità avanzate. Si seguito sono riportate le parti fondamentali di tale esperienza.
@@ -101,13 +100,12 @@ Dopo un'operazione di unione a uno o più flussi di dati verrà fatto riferiment
 Qualsiasi operazione sul flusso di dati di riferimento richiede che il flusso di dati padre aggiorni il campione usato dal flusso di dati di riferimento. In tal caso una finestra di dialogo di conferma sostituisce la notifica di riferimento del flusso di dati nell'angolo inferiore destro. La finestra di dialogo conferma che è necessario aggiornare il flusso di dati per la sincronizzazione con le modifiche ai flussi di dati di qualsiasi dipendenza.
 
 ### <a name="list-of-appendices"></a>Elenco delle appendici 
-[Appendix 2 - Supported Data Sources](data-prep-appendix2-supported-data-sources.md) (Appendice 2 - Origini dati supportate)  
-[Appendix 3 - Supported Transforms](data-prep-appendix3-supported-transforms.md) (Appendice 3 - Trasformazioni supportate)  
-[Appendix 4 - Supported Inspectors](data-prep-appendix4-supported-inspectors.md) (Appendice 4 - Controlli supportati)  
-[Appendix 5 - Supported Destinations](data-prep-appendix5-supported-destinations.md) (Appendice 5 - Destinazioni supportate)  
-[Appendix 6 - Sample Filter Expressions in Python](data-prep-appendix6-sample-filter-expressions-python.md) (Appendice 6 - Esempio di espressioni filtro in Python)  
-[Appendix 7 - Sample Transform Dataflow Expressions in Python](data-prep-appendix7-sample-transform-data-flow-python.md) (Appendice 7 - Esempio di trasformazione di espressioni del flusso di dati in Python)  
-[Appendix 8 - Sample Data Sources in Python](data-prep-appendix8-sample-source-connections-python.md) (Appendice 8 - Esempio di origini dati in Python)  
+[Appendix 2 - Origini dati supportate](data-prep-appendix2-supported-data-sources.md)  
+[Appendix 3 - Trasformazioni supportate](data-prep-appendix3-supported-transforms.md)  
+[Appendice 4 - Controlli supportati](data-prep-appendix4-supported-inspectors.md)  
+[Appendice 5 - Destinazioni supportate](data-prep-appendix5-supported-destinations.md)  
+[Appendice 6 - Esempio di espressioni filtro in Python](data-prep-appendix6-sample-filter-expressions-python.md)  
+[Appendice 7 - Esempio di trasformazione di espressioni del flusso di dati in Python](data-prep-appendix7-sample-transform-data-flow-python.md)  
+[Appendice 8 - Esempio di origini dati in Python](data-prep-appendix8-sample-source-connections-python.md)  
 [Appendix 9 - Sample Destination Connections in Python](data-prep-appendix9-sample-destination-connections-python.md) (Appendice 9 - Esempio di connessioni di destinazione in Python)  
 [Appendix 10 - Sample Column Transforms in Python](data-prep-appendix10-sample-custom-column-transforms-python.md) (Appendice 10 - Esempio di trasformazioni di colonna in Python)  
-

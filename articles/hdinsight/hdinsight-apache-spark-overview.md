@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: maxluk
+ms.openlocfilehash: 9d66931e1c855788163d92f0c3f34f55c44615dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 6da4f2527e480b621f4d3a2d74ed3107c970d1b9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Introduzione a Spark in HDInsight
 
@@ -86,7 +85,7 @@ Apache Spark in HDInsight archivia i dati nell'Archiviazione di Azure o in Azure
 ### <a name="spark-machine-learning"></a>Machine Learning in Spark
 [Vedere l'esercitazione: Prevedere la temperatura dell'edificio con dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-[Vedere l'esercitazione: stima dei risultati di ispezione del cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+[Esaminare un'esercitazione: stima dei risultati di ispezione del cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
 Apache Spark include [MLlib](http://spark.apache.org/mllib/), una libreria di Machine Learning basata su Spark, che è possibile usare da un cluster Spark in HDInsight. Il cluster Spark in HDInsight include inoltre Anaconda, una distribuzione di Python con un'ampia gamma di pacchetti per l'apprendimento automatico. Aggiungendo il supporto incorporato per notebook Jupyter e Zeppelin si otterrà un ambiente di qualità elevata per la creazione di applicazioni di Machine Learning.
 
@@ -133,4 +132,3 @@ Iniziare con la creazione di un cluster Spark in HDInsight. Vedere [Guida introd
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 * [Problemi noti di Apache Spark in Azure HDInsight](hdinsight-apache-spark-known-issues.md).
-

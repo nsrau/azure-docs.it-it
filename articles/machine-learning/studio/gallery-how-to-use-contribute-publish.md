@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9da6cc9d306930fbec33ecebc85784d0d1e1532d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Condividere e scoprire risorse in Cortana Intelligence Gallery
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -92,6 +91,5 @@ La raccolta è stata concepita per essere creata dagli utenti per gli utenti. Pe
 
 ![Commenti e suggerimenti](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[VAI A CORTANA INTELLIGENCE GALLERY >>](http://gallery.cortanaintelligence.com)**
-
+**[VAI A CORTANA INTELLIGENCE GALLERY &gt;&gt;](http://gallery.cortanaintelligence.com)**
 

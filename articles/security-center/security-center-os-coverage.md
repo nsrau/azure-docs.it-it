@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c80e78b39b3fba4dcd9523e1e679822758822805
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Piattaforme supportate nel Centro sicurezza di Azure
 Il monitoraggio dello stato della sicurezza e le indicazioni in merito sono disponibili per le macchine virtuali create usando i modelli di distribuzione classica e Resource Manager.
@@ -63,4 +62,3 @@ Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Veng
 - [Avvisi di sicurezza per tipo nel Centro sicurezza di Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis): altre informazioni sull'analisi comportamentale della macchina virtuale e sull'analisi della memoria dump di arresto anomalo del sistema nel Centro sicurezza
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
-

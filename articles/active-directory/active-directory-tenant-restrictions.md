@@ -1,5 +1,5 @@
 ---
-title: Gestire l&quot;accesso alle app cloud limitando i tenant - Azure | Microsoft Docs
+title: Gestire l'accesso alle app cloud limitando i tenant - Azure | Microsoft Docs
 description: Come usare Restrizioni dei tenant per gestire gli utenti che possono accedere alle app in base ai tenant di Azure AD.
 services: active-directory
 documentationcenter: 
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 7288f8fa173f8018570cd17aa7274f56a4eead41
-ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usare Restrizioni dei tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -124,9 +122,9 @@ Se si desidera provare la funzionalità Restrizioni dei tenant prima di implemen
 
 Fiddler è un proxy di debug Web gratuito, utilizzabile per acquisire e modificare il traffico HTTP/HTTPS, incluso l'inserimento di intestazioni HTTP. Per configurare Fiddler per testare Restrizioni dei tenant, eseguire la procedura seguente:
 
-1.    [Scaricare e installare Fiddler](http://www.telerik.com/fiddler).
-2.    Configurare Fiddler per decrittografare il traffico HTTPS, come indicato nella [relativa documentazione di aiuto](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
-3.    Configurare Fiddler per inserire le intestazioni *Restrict-Access-To-Tenants* e *Restrict-Access-Context* con regole personalizzate:
+1.  [Scaricare e installare Fiddler](http://www.telerik.com/fiddler).
+2.  Configurare Fiddler per decrittografare il traffico HTTPS, come indicato nella [relativa documentazione di aiuto](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+3.  Configurare Fiddler per inserire le intestazioni *Restrict-Access-To-Tenants* e *Restrict-Access-Context* con regole personalizzate:
   1. Nello strumento Fiddler Web Debugger, selezionare il menu **Rules** (Regole) e selezionare **Customize Rules…** (Personalizza regole…) per aprire il file CustomRules.
   2. Aggiungere le righe seguenti all'inizio della funzione *OnBeforeRequest*. Sostituire il \<dominio del tenant\> con un dominio registrato con il proprio tenant, ad esempio contoso.onmicrosoft.com. Sostituire \<l'ID della directory\> con l'identificatore GUID di Azure AD del proprio tenant.
 
@@ -148,8 +146,8 @@ Dopo aver configurato Fiddler, è possibile acquisire il traffico accedendo al m
 
 A seconda delle funzionalità dell'infrastruttura di proxy, è possibile eseguire un'implementazione per fasi delle impostazioni agli utenti. Di seguito sono indicate due opzioni generali da tenere in considerazione:
 
-1.    Usare file PAC per indirizzare gli utenti di test a un'infrastruttura di proxy di test, mentre gli utenti normali continuano a utilizzare l'infrastruttura del proxy di produzione.
-2.    Alcuni server proxy possono supportare configurazioni diverse usando i gruppi.
+1.  Usare file PAC per indirizzare gli utenti di test a un'infrastruttura di proxy di test, mentre gli utenti normali continuano a utilizzare l'infrastruttura del proxy di produzione.
+2.  Alcuni server proxy possono supportare configurazioni diverse usando i gruppi.
 
 Fare riferimento alla documentazione del server proxy per i dettagli specifici.
 
@@ -158,4 +156,3 @@ Fare riferimento alla documentazione del server proxy per i dettagli specifici.
 - Informazioni sull'[autenticazione moderna aggiornata di Office 365](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
 
 - Vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-

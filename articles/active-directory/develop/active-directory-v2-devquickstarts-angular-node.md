@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 0e90171afd9c4c782fbb18375ab2d147497ef442
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---nodejs"></a>Aggiungere l'accesso a un'app a pagina singola AngularJS - NodeJS
 In questo articolo si aggiungerà l'accesso con account Microsoft a un'app AngularJS usando l'endpoint v2.0 di Azure Active Directory. L'endpoint v2.0 consente di eseguire un'unica integrazione nell'app e autenticare gli utenti con account personali e aziendali o dell'istituto di istruzione.
@@ -240,7 +240,7 @@ In un browser passare a `http://localhost:8080`.  Accedere con un account Micros
 
 Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori versione 2.0](active-directory-appmodel-v2-overview.md).  Per altre risorse, vedere:
 
-* [Esempi di Azure in GitHub >>](https://github.com/Azure-Samples)
+* [Esempi di Azure in GitHub &gt;&gt;](https://github.com/Azure-Samples)
 * [Azure AD in Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 * Documentazione di Azure AD in [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71c5a4f1b816fdcfe7ef267c20e6ed42e6cc51e6
-ms.openlocfilehash: 3c3fb275a7c980f71a3a30e6875b9515321bad99
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 199f0906f73d693d7cd4b73c928f23ae83b99596
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.9
 
@@ -91,5 +90,4 @@ In questa versione è stato aggiunto il supporto di [KeyVault](../azure-resource
 
 ## <a name="see-also"></a>Vedere anche
 [Post di annuncio di Azure SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
-
 

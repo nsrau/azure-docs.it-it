@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 411e10367f02846261f9fcc7717b5abb147b2c09
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 32311136a670261952d9bd0cf372e10a83cfe745
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights
 
 Azure Application Insights raccoglie i dati di telemetria dall'applicazione per consentire di analizzarne il funzionamento e le prestazioni.  È possibile usare queste informazioni per identificare i problemi che potrebbero verificarsi o per individuare i miglioramenti da apportare all'applicazione che potrebbero influire maggiormente sugli utenti.  Questa esercitazione illustra il processo di analisi delle prestazioni sia dei componenti server dell'applicazione che dalla prospettiva del client.  Si apprenderà come:
@@ -127,4 +125,3 @@ Dopo avere appreso come identificare i problemi di prestazioni, passare all'eser
 
 > [!div class="nextstepaction"]
 > [Avvisi sullo stato di integrità dell'applicazione](app-insights-tutorial-alert.md)
-

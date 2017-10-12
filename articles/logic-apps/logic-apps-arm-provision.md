@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
 ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>Creare un'app per la logica usando un modello
 I modelli rappresentano un modo rapido per usare diversi connettori nell'app per la logica. Le app per la logica comprendono i modelli di Azure Resource Manager utili per creare un'app per la logica che può essere utilizzata per definire i flussi di lavoro aziendali. Questo consente di definire le risorse da distribuire e le modalità di definizione dei parametri specificati durante l'esecuzione della distribuzione. È possibile usare questo modello per il proprio scenario aziendale o personalizzarlo in base alle esigenze.

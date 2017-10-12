@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Come importare la definizione di un'API con le operazioni in Gestione API di Azure
 In Gestione API è possibile creare nuove API e aggiungere manualmente le operazioni oppure è possibile importare l'API insieme alle operazioni in un unico passaggio.
@@ -30,7 +30,7 @@ Le API e le relative operazioni possono essere importate usando i seguenti forma
 
 In questa guida viene illustrato come creare una nuova API e importarne le operazioni in un unico passaggio. Per informazioni su come creare un'API e aggiungere le operazioni, vedere [Come creare le API][How to create APIs] e [Come aggiungere operazioni a un'API][How to add operations to an API].
 
-## <a name="import-api"> </a>Importare un'API
+## <a name="import-api"></a>Importare un'API
 Le API vengono create e configurate nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API. Se non è stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance] nell'esercitazione [Introduzione a Gestione API di Azure][Get started with Azure API Management].
 
 ![Portale di pubblicazione][api-management-management-console]
@@ -61,7 +61,7 @@ Dopo aver immesso tutti i valori, fare clic su **Salva** per creare l'API e le o
 > 
 > 
 
-## <a name="export-api"> </a> Esportare un'API
+## <a name="export-api"></a> Esportare un'API
 Oltre a importare nuove API, è possibile esportare le definizioni delle API dal portale di pubblicazione. Per farlo, fare clic su **Esporta API** dalla scheda **Riepilogo** dell'**API**.
 
 ![Esporta API][api-management-export-api]
@@ -70,7 +70,7 @@ Le API possono essere esportate con WADL o Swagger. Selezionare il formato desid
 
 ![Formato di esportazione API][api-management-export-api-format]
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato un'API ed importato le operazioni, è possibile rivedere e configurare tutte le impostazioni aggiuntive, aggiungere l'API a un prodotto e pubblicarla in modo che sia disponibile per gli sviluppatori. Per altre informazioni, vedere le seguenti guide.
 
 * [Come configurare le impostazioni API][How to configure API settings]

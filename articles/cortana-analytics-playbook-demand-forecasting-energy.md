@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
 ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Studio del modello di soluzione Cortana Intelligence per la previsione della domanda di energia
 ## <a name="executive-summary"></a>Sunto
@@ -360,7 +360,7 @@ L'errore di previsione può essere misurato e quantificato in vari modi. Questa 
 MAPE è l'acronimo di Mean Absolute Percentage Error, errore medio assoluto percentuale. Il MAPE permette di calcolare la differenza tra ogni punto previsto e il valore effettivo di tale punto. È quindi possibile quantificare l'errore per ogni punto calcolando la proporzione tra la differenza e il valore effettivo. L'ultimo passaggio consiste nel calcolare la media di questi valori. La formula matematica usata per il MAPE è la seguente:
 
 ![Formula MAPE](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
- *Dove A<sub>t</sub> è il valore effettivo, F<sub>t</sub> è il valore previsto e n è l'orizzonte di previsione.*
+*Dove A<sub>t</sub> è il valore effettivo, F<sub>t</sub> è il valore previsto e n è l'orizzonte di previsione.*
 
 ## <a name="deployment"></a>Distribuzione
 Dopo aver stabilito la fase di modellazione e convalidato le prestazioni del modello, è possibile iniziare la fase di distribuzione. In questo contesto, distribuzione significa permettere al cliente di utilizzare il modello per eseguire previsioni effettive su larga scala. Il concetto di distribuzione è fondamentale in Azure ML, perché l'obiettivo principale è richiamare continuamente le previsioni anziché ottenere semplicemente le informazioni dai dati. La fase di distribuzione è la parte in cui il modello viene abilitato per l'utilizzo su larga scala.

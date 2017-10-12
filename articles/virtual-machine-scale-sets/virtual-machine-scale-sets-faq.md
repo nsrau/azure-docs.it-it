@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 9/14/2017
 ms.author: negat
 ms.custom: na
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: cc5a0ba5474827cedc5b6a42651c206d5f2540b7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
 Risposte alle domande frequenti sui set di scalabilità di macchine virtuali in Azure.
@@ -703,5 +701,4 @@ La differenza principale tra l'eliminazione di una VM in un set di scalabilità 
 - Si vuole avviare un set di VM con una velocità maggiore rispetto all'aumento del numero di istanze di un set di scalabilità di macchine virtuali.
   - In relazione a questo scenario è stato creato un motore di ridimensionamento automatico proprio e si vuole ottenere una scalabilità end-to-end più rapida.
 - È presente un set di scalabilità di macchine virtuali distribuito in modo non uniforme nei domini di errore o nei domini di aggiornamento. Questo problema può essere stato causato dall'eliminazione selettiva di VM o dall'eliminazione di VM dopo l'overprovisioning. L'esecuzione di `stop deallocate` seguito da `start` nel set di scalabilità di macchine virtuali consente di distribuire uniformemente le VM nei domini di errore o nei domini di aggiornamento.
-
 

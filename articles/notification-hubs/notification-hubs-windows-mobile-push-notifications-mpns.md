@@ -1,6 +1,6 @@
 ---
 title: Invio di notifiche push con Hub di notifica di Azure in Windows Phone | Documentazione di Microsoft
-description: Questa esercitazione descrive come usare Hub di notifica di Azure per inviare notifiche push a un&quot;applicazione per Windows Phone 8 o Windows Phone 8.1 Silverlight.
+description: Questa esercitazione descrive come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Windows Phone 8 o Windows Phone 8.1 Silverlight.
 services: notification-hubs
 documentationcenter: windows
 keywords: notifica push, inviare notifiche push, push per windows phone
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Invio di notifiche push con Hub di notifica di Azure in Windows Phone
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -117,7 +117,7 @@ L'hub viene creato e configurato per l'invio di notifiche autenticate per Window
    > In questa esercitazione viene inviata una notifica di tipo avviso popup al dispositivo. Quando si invia una notifica di tipo riquadro, è invece necessario chiamare il metodo **BindToShellTile** sul canale. Per supportare sia la notifica di tipo riquadro che quella di tipo avviso popup, chiamare sia **BindToShellTile** che **BindToShellToast**.
    > 
    > 
-6. In Esplora soluzioni espandere **Proprietà`WMAppManifest.xml`, aprire il file **, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID__CAP__PUSH_NOTIFICATION** sia selezionata.
+6. In Esplora soluzioni espandere **Proprietà`WMAppManifest.xml`, aprire il file**, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID__CAP__PUSH_NOTIFICATION** sia selezionata.
    
        ![Visual Studio - Windows Phone App Capabilities][14]
    
@@ -217,16 +217,10 @@ Per ulteriori informazioni sull'utilizzo di Hub di notifica, vedere la pagina de
 <!-- URLs. -->
 [Visual Studio 2012 Express per Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
-[modalità di autenticazione con Servizio notifica push Microsoft]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
-[Usare Hub di notifica per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
+[MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [catalogo degli avvisi popup]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Esercitazione su Hub di notifica - Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

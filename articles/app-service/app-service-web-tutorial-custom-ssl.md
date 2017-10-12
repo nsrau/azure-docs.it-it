@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 1923a145d258e558811b610be9a6bb8ea0e4c933
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Associare un certificato SSL personalizzato esistente ad app Web di Azure
 
@@ -327,4 +326,3 @@ Passare all'esercitazione successiva per imparare a usare la rete di distribuzio
 
 > [!div class="nextstepaction"]
 > [Aggiungere una rete per la distribuzione di contenuti (CDN) a un servizio app di Azure](app-service-web-tutorial-content-delivery-network.md)
-

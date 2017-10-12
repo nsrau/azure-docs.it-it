@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-an-azure-subscription-or-management-group"></a>Trovare una sottoscrizione o un gruppo di gestione di Azure
 
 Se non si riesce a trovare una sottoscrizione o un gruppo di gestione in Azure, è possibile che si stia cercando nella directory sbagliata. Questo scenario potrebbe verificarsi se l'account è presente in più istanze di Azure Active Directory. Ogni [directory attiva è indipendente](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) e l'accesso non viene ereditato tra le directory.      
@@ -55,7 +53,6 @@ Contattare l'amministratore della sottoscrizione o dei gruppi di gestione per ot
 
 
  
-
 
 
 

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 155e29e467b9752d491f62973ffccc986041fcab
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 L'attività di copia di Azure Data Factory offre una soluzione di caricamento dei dati di primo livello in quanto a sicurezza, affidabilità e prestazioni. Consente di copiare decine di terabyte di dati ogni giorno in un'ampia gamma di archivi dati locali e cloud. Prestazioni di caricamento dei dati velocissime sono fondamentali per garantire di potersi concentrare sul problema centrale dei "big data": realizzare soluzioni avanzate di analisi e ricevere informazioni approfondite da tutti i dati.
@@ -409,4 +408,3 @@ Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione
 * Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * SQL Server locale: [Monitoraggio e ottimizzazione delle prestazioni](https://msdn.microsoft.com/library/ms189081.aspx)
 * File server locale: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
-

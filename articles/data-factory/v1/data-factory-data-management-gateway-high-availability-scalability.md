@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
 Questo articolo consente di configurare una soluzione di disponibilità elevata e scalabilità con Gateway di gestione dati.    
@@ -250,4 +249,3 @@ Dopo l'eliminazione fare clic su **Funzionalità in anteprima** nella stessa pag
 Vedere gli articoli seguenti:
 - [Gateway di gestione dati](data-factory-data-management-gateway.md): offre una panoramica dettagliata del gateway.
 - [Spostare dati tra archivi dati locali e cloud](data-factory-move-data-between-onprem-and-cloud.md): contiene una procedura dettagliata con le istruzioni per usare un gateway a nodo singolo. 
-

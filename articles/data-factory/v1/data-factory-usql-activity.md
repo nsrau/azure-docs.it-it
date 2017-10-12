@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: 3a0a097afa0ef5efe11cb5044bf9ea5d399e463f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4465694d02e56c774a5750a1455c2e66ecbda523
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -208,17 +207,18 @@ Il frammento JSON seguente definisce una pipeline con un'attività U-SQL di Data
 
 Nella tabella seguente vengono descritti i nomi e le descrizioni delle proprietà specifiche per questa attività. 
 
-| Proprietà | Descrizione | Obbligatorio |
-|:--- |:--- |:--- |
-| Tipo |La proprietà type deve essere impostata su **DataLakeAnalyticsU-SQL**. |Sì |
-| scriptPath |Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. |No (se si usa uno script) |
-| scriptLinkedService |Servizi collegati che collegano la risorsa di archiviazione contenente lo script alla Data factory |No (se si usa uno script) |
-| script |Specificare lo script inline anziché scriptPath e scriptLinkedService. Ad esempio: `"script": "CREATE DATABASE test"`. |No (se si usano le proprietà scriptPath e scriptLinkedService) |
-| degreeOfParallelism |Il numero massimo di nodi usati contemporaneamente per eseguire il processo. |No |
-| priority |Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. |No |
-| parameters |Parametri per lo script U-SQL |No |
-| runtimeVersion | Versione di runtime del motore di U-SQL da usare | No | 
-| compilationMode | <p>Modalità di compilazione di U-SQL. Deve essere uno dei valori seguenti:</p> <ul><li>**Semantic:** esegue solo controlli semantici e i controlli di integrità necessari.</li><li>**Full:** esegue la compilazione completa, inclusi il controllo della sintassi, l'ottimizzazione, la generazione di codice e così via.</li><li>**SingleBox:** esegue la compilazione completa, con TargetType impostato su SingleBox.</li></ul><p>Se per questa proprietà non si specifica alcun valore, il server determina la modalità di compilazione ottimale. </p>| No | 
+| Proprietà            | Descrizione                              | Obbligatorio                                 |
+| :------------------ | :--------------------------------------- | :--------------------------------------- |
+| Tipo                | La proprietà type deve essere impostata su **DataLakeAnalyticsU-SQL**. | Sì                                      |
+| linkedServiceName   | Riferimento all'istanza di Azure Data Lake Analytics registrata come servizio collegato in Data Factory | Sì                                      |
+| scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | No (se si usa uno script)                   |
+| scriptLinkedService | Servizi collegati che collegano la risorsa di archiviazione contenente lo script alla Data factory | No (se si usa uno script)                   |
+| script              | Specificare lo script inline anziché scriptPath e scriptLinkedService. Ad esempio: `"script": "CREATE DATABASE test"`. | No (se si usano le proprietà scriptPath e scriptLinkedService) |
+| degreeOfParallelism | Il numero massimo di nodi usati contemporaneamente per eseguire il processo. | No                                       |
+| priority            | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | No                                       |
+| parameters          | Parametri per lo script U-SQL          | No                                       |
+| runtimeVersion      | Versione di runtime del motore di U-SQL da usare | No                                       |
+| compilationMode     | <p>Modalità di compilazione di U-SQL. Deve essere uno dei valori seguenti:</p> <ul><li>**Semantic:** esegue solo controlli semantici e i controlli di integrità necessari.</li><li>**Full:** esegue la compilazione completa, inclusi il controllo della sintassi, l'ottimizzazione, la generazione di codice e così via.</li><li>**SingleBox:** esegue la compilazione completa, con TargetType impostato su SingleBox.</li></ul><p>Se per questa proprietà non si specifica alcun valore, il server determina la modalità di compilazione ottimale. </p> | No                                       |
 
 Per la definizione dello script, vedere la sezione [Definizione dello script SearchLogProcessing.txt](#sample-u-sql-script) . 
 
@@ -342,6 +342,5 @@ Nell'esempio di definizione di pipeline i parametri in e out vengono assegnati c
 ```
 
 In questo caso, i file di input vengono prelevati dalla cartella /datalake/input e i file di output vengono generati nella cartella /datalake/output. I nomi dei file sono dinamici e si basano sull'ora di inizio della sezione.  
-
 
 

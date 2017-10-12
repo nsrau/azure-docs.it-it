@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/24/2017
 ms.author: denlee
+ms.openlocfilehash: 090a786b77cbe7b228f42f98dcb5f066b6fe62a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 0273072c7c10e219ab8d6c85eb252badafc17147
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Creare un database a grafo con Java e il portale di Azure
 
@@ -175,7 +174,7 @@ La finestra del terminale mostra l'aggiunta dei vertici al grafo. Al termine del
 
    ![Cambiare la destinazione di un vertice in un grafo](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-10. Nella casella **Destinazione** digitare *rakesh* e nella casella **Edge label** (Etichetta bordo) digitare *knows*, quindi fare selezionare la casella di controllo.
+10. Nella casella **Destinazione** digitare *rakesh* e nella casella **Edge label** (Etichetta arco) digitare *knows*, quindi selezionare la casella di controllo.
 
    ![Aggiungere una connessione tra ashley e rakesh in Esplora dati](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
@@ -204,5 +203,4 @@ In questa guida di avvio rapido si è appreso come creare un account Azure Cosmo
 
 > [!div class="nextstepaction"]
 > [Eseguire query con Gremlin](tutorial-query-graph.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b031807073313e9e093dbc7576ecfd3d2a970abe
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creare un'app Web in un ambiente del servizio app (versione 1)
 
@@ -47,7 +46,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
     Se sono presenti più sottoscrizioni, ricordare che per creare un'app nell'ambiente del servizio app è necessario usare la stessa sottoscrizione usata per la creazione dell'ambiente. 
 3. Selezionare o creare un gruppo di risorse.
    
-    I *gruppi di risorse* consentono di gestire risorse di Azure correlate come un'unità e sono utili per stabilire le regole di *controllo degli accessi in base al ruolo * per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ResourceGroups]. 
+    I *gruppi di risorse* consentono di gestire risorse di Azure correlate come un'unità e sono utili per stabilire le regole di *controllo degli accessi in base al ruolo*  per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ResourceGroups]. 
 4. Selezionare o creare un piano di servizio app.
    
     *piani di servizio app* sono costituiti da set gestiti di app Web.  Quando si seleziona il prezzo, in genere l'importo addebitato viene applicato al piano di servizio app invece che alle singole app. Nell'ambiente del servizio app vengono addebitate le istanze di calcolo allocate all'ambiente e non quanto elencato nel piano di servizio app.  Per aumentare il numero di istanze di un'app Web, si aumentano le istanze del piano di servizio app e tale operazione influisce su tutte le app Web incluse nel piano.  Il piano può prevedere restrizioni relative alla quantità per alcune funzionalità, come gli slot di sito o l'integrazione della rete virtuale.  Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
@@ -113,4 +112,3 @@ Dopo aver creato l'app Web e il piano di servizio app, è consigliabile aumentar
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [ResourceGroups]: ../../azure-resource-manager/resource-group-overview.md
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
-

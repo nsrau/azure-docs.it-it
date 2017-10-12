@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: sama
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: daad3af089afdf76b930053728bb11a5cf4c2a92
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: criteri predefiniti
 
@@ -105,5 +104,4 @@ I criteri di accesso sono consigliati se non si desidera localizzare i criteri, 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md)
 * [Disabilitare la verifica della posta elettronica durante l'iscrizione dell'utente](active-directory-b2c-reference-disable-ev.md)
-
 

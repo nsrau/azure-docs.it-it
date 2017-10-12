@@ -18,10 +18,10 @@ ms.date: 03/23/2017
 ms.author: briar
 ms.custom: mvc
 ms.openlocfilehash: 2078d0694fc4dd6e83ecd2792588b4254980cd78
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="jenkins-integration-with-azure-container-service-and-kubernetes"></a>Integrazione di Jenkins con il servizio contenitore di Azure e Kubernetes 
 Questa esercitazione illustra il processo per impostare l'integrazione continuata di un'applicazione multi-contenitore nel servizio contenitore di Azure Kubernetes usando la piattaforma Jenkins. Il flusso di lavoro aggiorna l'immagine del contenitore in Docker Hub e i podcast Kubernetes implementando la distribuzione. 

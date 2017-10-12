@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9fc3b38b22c3a092dc2d932d2d7471872f5ba66d
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 1bb1546fb616131a1e1868a0d0610c4cad5d73e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-powershell"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito usando PowerShell
 > [!div class="op_single_selector"]
@@ -157,4 +156,3 @@ Di seguito è riportato lo script di esempio completo per creare la macchina vir
 ## <a name="related-content"></a>Contenuti correlati
 * [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
-

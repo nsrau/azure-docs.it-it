@@ -14,14 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f22089349e149d8e71df88d5c173869d2a5abad7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-the-maven-plugin-for-azure-web-apps-to-deploy-a-spring-boot-app-to-azure"></a>Come usare il plug-in Maven per App Web di Azure per distribuire un'app Spring Boot in Azure
 
 Il [plug-in Maven per App Web di Azure](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) disponibile per [Apache Maven](http://maven.apache.org/) consente una facile integrazione del servizio app di Azure nei progetti Maven e semplifica il processo con cui gli sviluppatori distribuiscono app Web nel servizio app di Azure.
@@ -287,4 +285,3 @@ Per altre informazioni sulle varie tecnologie illustrate in questo articolo, ved
 
 [AP01]: ./media/app-service-web-deploy-spring-boot-app-with-maven-plugin/AP01.png
 [AP02]: ./media/app-service-web-deploy-spring-boot-app-with-maven-plugin/AP02.png
-

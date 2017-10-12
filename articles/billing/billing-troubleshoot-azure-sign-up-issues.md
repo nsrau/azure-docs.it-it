@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 5f9d4e580b0d4d7c3ea39c53b1bf4067a59d4d52
-ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Risolvere i problemi di iscrizione per Azure
 Se non si riesce a iscriversi ad Azure, usare i suggerimenti in questo articolo per risolvere i problemi più comuni. In caso di problemi con la carta di credito durante l'iscrizione, vedere [La carta di credito o di debito viene rifiutata quando si tenta di eseguire l'iscrizione ad Azure](billing-credit-card-fails-during-azure-sign-up.md). Se si ha un account Azure, ma non è possibile accedere, vedere [Non è possibile accedere per gestire la sottoscrizione di Azure](billing-cannot-login-subscription.md).
@@ -91,4 +90,3 @@ Per creare una sottoscrizione di Azure in Open, è necessaria una chiave di atti
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-

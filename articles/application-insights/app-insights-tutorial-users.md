@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 7399de1df60d0583bc6efacd0074d3a00a086ff3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 079e561291e71502a5e9a2361c275a1edfacfda2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Usare Azure Application Insights per comprendere in che modo i clienti usano l'applicazione
 
 Azure Application Insights raccoglie informazioni sull'utilizzo che consentono di capire in che modo gli utenti interagiscono con l'applicazione.  Questa esercitazione illustra le diverse risorse disponibili per analizzare queste informazioni.  Si apprenderà come:

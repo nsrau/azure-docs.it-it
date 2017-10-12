@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>Eseguire il backup di macchine virtuali di Azure (portale classico)
 > [!div class="op_single_selector"]
@@ -200,4 +199,3 @@ In caso di problemi durante il backup della macchina virtuale, vedere l'articolo
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestire e monitorare il backup delle macchine virtuali di Azure](backup-azure-manage-vms.md)
 * [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
-

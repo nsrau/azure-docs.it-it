@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
+ms.openlocfilehash: e2c67bed2162773156ebf1f0f99593aeb2adf019
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: f9f7449fbfc6a1f2fe96e19dd2b13845e602946d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo l'elenco verrà ampliato e aggiornato in modo da coprire un maggior numero di servizi della piattaforma.
@@ -68,7 +67,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Hub eventi](#event-hubs-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Servizio Device Provisioning in hub IoT](#iot-hub-device-provisioning-service-limits)
-* [Insieme di credenziali delle chiavi](#key-vault-limits)
+* [Insieme di credenziali di chiave](#key-vault-limits)
 * [Log Analytics/Operational Insights](#log-analytics-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
@@ -290,5 +289,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Dimensioni per i servizi cloud](cloud-services/cloud-services-sizes-specs.md)
-
 

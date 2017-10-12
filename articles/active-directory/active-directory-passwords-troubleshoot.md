@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
-ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Come risolvere i problemi di reimpostazione della password self-service
 
@@ -280,4 +279,3 @@ I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazi
 * [**Creazione di report**](active-directory-passwords-reporting.md) - verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
 * [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
 * [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
-

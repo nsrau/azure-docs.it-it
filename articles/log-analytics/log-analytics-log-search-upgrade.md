@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte;bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>Aggiornare l'area di lavoro di Azure Log Analytics alla nuova ricerca log
 
 > [!NOTE]
@@ -84,4 +82,3 @@ Se si conosce già il linguaggio di query di Log Analytics precedente, è possib
 - Completare un'[esercitazione sul nuovo linguaggio](https://go.microsoft.com/fwlink/?linkid=856078).
 - Completare un'[esercitazione sull'uso del portale di ricerca log](log-analytics-log-search-log-search-portal.md) con il nuovo linguaggio di query.
 - Vedere un'introduzione al nuovo [portale Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587).
-

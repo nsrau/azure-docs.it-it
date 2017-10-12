@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: bb528c424bc71f0309439e741c30e16d0d13c7d7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Scalare i pod e l'infrastruttura Kubernetes
 
 Se sono state eseguite le esercitazioni, si ha un cluster Kubernetes in funzione nel servizio contenitore di Azure ed è stata distribuita l'app Azure Voting. 
@@ -160,5 +158,4 @@ Passare all'esercitazione successiva per apprendere come aggiornare l'applicazio
 
 > [!div class="nextstepaction"]
 > [Aggiornare un'applicazione in Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
-
 

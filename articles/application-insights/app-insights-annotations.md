@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2d568a38f66605da63054d1797ce23653e6204d4
-ms.openlocfilehash: ff5d64bc00bc5fb3617160db852c7d08f8b3677b
-ms.contentlocale: it-it
-ms.lasthandoff: 01/20/2017
-
+ms.openlocfilehash: f7eb2f3cba535eb64db5544c498289c9e895987a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
 Le annotazioni nei grafici di [Esplora metriche](app-insights-metrics-explorer.md) indicano dove è stata distribuita una nuova build o un altro evento significativo e consentono di verificare facilmente se le modifiche hanno avuto effetto sulle prestazioni dell'applicazione. Possono essere create automaticamente dal [sistema di compilazione di Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). È anche possibile [creare annotazioni da PowerShell](#create-annotations-from-powershell) per contrassegnare qualsiasi evento.
@@ -107,4 +106,3 @@ Fare clic su un marcatore di annotazione per visualizzare i dettagli sulla versi
 
 * [Creare elementi di lavoro](app-insights-diagnostic-search.md#create-work-item)
 * [Automazione con PowerShell](app-insights-powershell.md)
-

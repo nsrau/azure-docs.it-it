@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Come delegare la registrazione utente e la sottoscrizione ai prodotti
 La delega consente di usare il sito Web esistente per gestire l'accesso e l'iscrizione degli sviluppatori e la sottoscrizione ai prodotti invece di usare la funzionalità incorporata nel portale per sviluppatori. Ciò consente al sito Web di avere la proprietà dei dati utente e di eseguire la convalida di questi passaggi in modo personalizzato.
 
-## <a name="delegate-signin-up"> </a>Delega dell'accesso e dell'iscrizione degli sviluppatori
+## <a name="delegate-signin-up"></a>Delega dell'accesso e dell'iscrizione degli sviluppatori
 Per delegare l'accesso e l'iscrizione degli sviluppatori al sito Web esistente, è necessario creare un endpoint di delega speciale nel sito che funge da punto di ingresso per qualsiasi richiesta avviata dal portale per sviluppatori di Gestione API.
 
 Il flusso di lavoro finale sarà il seguente:
@@ -88,7 +88,7 @@ Oltre all'operazione **SignIn** , è anche possibile eseguire la gestione degli 
 * **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
 * **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 
-## <a name="delegate-product-subscription"> </a>Delega della sottoscrizione ai prodotti
+## <a name="delegate-product-subscription"></a>Delega della sottoscrizione ai prodotti
 La delega della sottoscrizione ai prodotti funziona in modo analogo alla delega dell'accesso o dell'iscrizione. Il flusso di lavoro finale sarà il seguente:
 
 1. Lo sviluppatore seleziona un prodotto nel portale per sviluppatori di Gestione API e fa clic sul pulsante Sottoscrivi.
@@ -126,7 +126,7 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
 3. Eseguire una qualsiasi elaborazione della sottoscrizione al prodotto in base al tipo di operazione richiesta in **operation** , ad esempio fatturazione, altre domande e così via.
 4. Dopo la corretta sottoscrizione al prodotto in locale, effettuare la sottoscrizione al prodotto in Gestione API [chiamando l'API REST per la sottoscrizione al prodotto].
 
-## <a name="delegate-example-code"> </a> Codice di esempio
+## <a name="delegate-example-code"></a> Codice di esempio
 I codici di esempio seguenti illustrano come usare la *chiave di convalida della delega*, impostata nella schermata Delega del portale di pubblicazione, per creare un HMAC che viene quindi usato per convalidare la firma, dimostrando la validità del returnUrl passato. Lo stesso codice funziona per productId e userId con leggeri modifiche.
 
 **Codice C# per generare l'hash di returnUrl**

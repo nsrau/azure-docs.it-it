@@ -15,10 +15,10 @@ ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.openlocfilehash: b8f0cfdb468094bc761d6b939ca318fcfbea3ea4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestione di applicazioni con Azure Active Directory
 Oltre alla gestione del flusso di lavoro o del contenuto effettivo, in generale le aziende prevedono due requisiti di base per tutte le applicazioni:

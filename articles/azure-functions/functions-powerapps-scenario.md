@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-a-function-from-powerapps"></a>Chiamare una funzione da PowerApps
 La piattaforma [PowerApps](https://powerapps.microsoft.com) è progettata per consentire agli esperti aziendali di creare app senza il tradizionale codice delle applicazioni. Gli sviluppatori professionisti possono usare Funzioni di Azure per estendere le funzionalità di PowerApps, evitando ai creatori di app PowerApps i dettagli tecnici.
 
@@ -54,12 +52,12 @@ In questo argomento si apprenderà come:
 ## <a name="prepare-sample-data-in-excel"></a>Preparare i dati di esempio in Excel
 Prima di tutto, preparare i dati di esempio usati nell'app. Copiare la tabella seguente in Excel. 
 
-| Titolo      | Latitudine  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
+| Title      | Latitude  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
 |------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
-| Turbine 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | Sì             | 6               | This is the second issue this month.       |
-| Turbine 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | Sì             | 6               |                                            |
+| Turbine 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | Yes             | 6               | This is the second issue this month.       |
+| Turbine 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | Yes             | 6               |                                            |
 | Turbine 33 | 47.428229 | -121.404641 | 6/20/2017       | 2800      |                 |                 |                                            |
-| Turbine 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | Sì             | 7               |                                            |
+| Turbine 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | Yes             | 7               |                                            |
 | Turbine 46 | 47.471993 | -121.298949 | 3/2/2017        | 1200      |                 |                 |                                            |
 | Turbine 47 | 47.484059 | -121.311171 | 8/2/2016        | 3350      |                 |                 |                                            |
 | Turbine 55 | 47.438403 | -121.383767 | 10/2/2016       | 2400      | Sì             | 40               | We have some parts coming in for this one. |
@@ -212,7 +210,7 @@ Si ha un'app che mostra i dati di riepilogo per ogni turbina, quindi è possibil
 
     + Cancella la *raccolta* `DetermineRepair` per rimuovere i dati delle chiamate precedenti. Una raccolta è una variabile tabulare.
 
-    + Assegna alla raccolta di dati restituiti chiamando la funzione `TurbineRepair.CalculateCosts()`. 
+    + Assegna alla raccolta i dati restituiti chiamando la funzione `TurbineRepair.CalculateCosts()`. 
     
         I valori passati alla funzione provengono dai campi **EstimatedEffort** e **MaxOutput** per l'elemento selezionato nella raccolta. Questi campi non vengono visualizzati nella raccolta, ma sono comunque disponibili per l'uso nelle formule.
 

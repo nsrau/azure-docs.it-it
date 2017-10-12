@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 00c4fe633a7ef76b20d2a9d1c704bb09da6b19a0
-ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
-
+ms.openlocfilehash: ed25b6abaacbdd44b718a1a5febce5a02dacc334
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automation-documentation"></a>Documentazione di Automazione
 
@@ -178,6 +177,5 @@ Informazioni su come usare l'Automazione per risparmiare tempo e aumentare l'aff
         </div>
     </li>
 </ul>
-
 
 

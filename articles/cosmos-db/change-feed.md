@@ -15,12 +15,11 @@ ms.devlang: rest-api
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
+ms.openlocfilehash: 16bd85065f77612ac342ae4a8b500e0c7fa2a078
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 160fbc98e0f3dcc7d17cbe0c7f7425811596a896
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Uso del supporto del feed delle modifiche in Azure Cosmos DB
 [Azure Cosmos DB](../cosmos-db/introduction.md) è un servizio di database con replica a livello globale rapido e flessibile, usato per archiviare volumi elevati di dati transazionali e operativi, con una latenza stimabile in pochissimi millisecondi a cifra singola per le operazioni di lettura e scrittura. Tutto questo lo rende particolarmente adatto per le applicazioni IoT, di videogiochi, del settore della vendita al dettaglio e di registrazioni di operazioni. Un modello di progettazione comune in tali applicazione consta nel tenere traccia delle modifiche apportate ai dati di Azure Cosmos DB, aggiornare le viste materializzate, eseguire analisi in tempo reale, memorizzare i dati nell'archiviazione offline sicura e attivare notifiche su determinati eventi in base a tali modifiche. Il **supporto del feed delle modifiche** in Azure Cosmos DB consente di creare soluzioni efficienti e scalabili per ognuno di questi modelli.
@@ -71,9 +70,9 @@ Il feed di modifiche di Azure Cosmos DB è abilitato per impostazione predefinit
 
 ![Elaborazione distribuita del feed delle modifiche di Azure Cosmos DB](./media/change-feed/changefeedvisual.png)
 
-Sono disponibili alcune opzioni per l'implementazione di un feed di modifiche nel codice client. Le sezioni immediatamente successive illustrano come implementare il feed di modifiche tramite l'API REST di Azure Cosmos DB e DocumentDB SDK. Per le applicazioni .NET è tuttavia consigliabile usare la nuova [Libreria del processore di feed di modifiche](#change-feed-processor) per l'elaborazione di eventi dal feed di modifiche, poiché semplifica la lettura delle modifiche tra le partizioni e abilita l'esecuzione in parallelo di più thread. 
+Sono disponibili alcune opzioni per l'implementazione di un feed di modifiche nel codice client. Le sezioni immediatamente successive illustrano come implementare il feed di modifiche tramite l'API REST di Azure Cosmos DB e gli SDK di DocumentDB. Per le applicazioni .NET è tuttavia consigliabile usare la nuova [Libreria del processore dei feed delle modifiche](#change-feed-processor) per l'elaborazione di eventi dal feed di modifiche, poiché semplifica la lettura delle modifiche tra le partizioni e abilita l'esecuzione in parallelo di più thread. 
 
-## <a id="rest-apis"></a>Uso dell'API REST e di DocumentDB SDK
+## <a id="rest-apis"></a>Uso dell'API REST e degli SDK di DocumentDB
 Azure Cosmos DB offre contenitori elastici di archiviazione e velocità effettiva chiamati **raccolte**. I dati nelle raccolte vengono raggruppati in modo logico tramite [chiavi di partizione](partition-data.md), per motivi di scalabilità e prestazioni. Azure Cosmos DB offre varie API per l'accesso ai dati, tra cui la ricerca per ID (Read/Get), le query e i feed di lettura (analisi). È possibile ottenere il feed delle modifiche popolando due nuove intestazioni di richiesta nell'API `ReadDocumentFeed` di DocumentDB. Il feed può essere elaborato in parallelo su più intervalli di chiavi di partizione.
 
 ### <a name="readdocumentfeed-api"></a>API ReadDocumentFeed
@@ -349,7 +348,7 @@ foreach (DeviceReading changedDocument in
 ```
 
 ## <a id="change-feed-processor"></a>Libreria del processore dei feed delle modifiche
-Un'altra opzione consiste nell'usare la [libreria del processore dei feed delle modifiche di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed), che può semplificare la distribuzione dell'elaborazione di eventi da un feed di modifiche in più consumer. La libreria è ottimale per la creazione di lettori di feed di modifiche nella piattaforma .NET. Di seguito sono elencati alcuni flussi di lavoro che risulterebbero semplificati tramite l'uso della libreria del processore dei feed delle modifiche rispetto ai metodi inclusi in altri Cosmos DB SDK: 
+Un'altra opzione consiste nell'usare la [libreria del processore dei feed delle modifiche di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed), che può semplificare la distribuzione dell'elaborazione di eventi da un feed di modifiche in più consumer. La libreria è ottimale per la creazione di lettori di feed di modifiche nella piattaforma .NET. Di seguito sono elencati alcuni flussi di lavoro che risulterebbero semplificati tramite l'uso della libreria del processore dei feed delle modifiche rispetto ai metodi inclusi in altri SDK di Cosmos DB: 
 
 * Pull degli aggiornamenti dal feed di modifiche quando i dati vengono archiviati in più partizioni
 * Spostamento o replica di dati da una raccolta a un'altra
@@ -372,14 +371,14 @@ L'implementazione del processore dei feed di modifiche prevede quattro component
 
 **Host del processore:** ogni host determina il numero di partizioni da elaborare in base al numero di istanze di host con lease attivi. 
 1.  Quando un host viene avviato, acquisisce lease per bilanciare il carico di lavoro in tutti gli host. Un host rinnova periodicamente i lease, in modo che i lease rimangano attivi. 
-2.  Un host imposta come checkpoint il token di continuazione più recente sul rispettivo lease per ogni lettura. Per assicurare la sicurezza della concorrenza, un host verifica il valore ETag per ogni aggiornamento di lease. Sono supportate anche altre strategie per i checkpoint.  
+2.  Un host imposta come checkpoint il token di continuazione più recente sul rispettivo lease per ogni lettura. Per garantire la sicurezza della concorrenza, un host verifica il valore ETag per ogni aggiornamento di lease. Sono supportate anche altre strategie per i checkpoint.  
 3.  All'arresto, un host rilascia tutti i lease ma mantiene le informazioni sulla continuazione, in modo che sia possibile riprendere la lettura dal checkpoint archiviato in un secondo momento. 
 
 Il numero di host non può attualmente essere superiore al numero di partizioni (lease).
 
 **Consumer:** i consumer, o processi di lavoro, sono thread che eseguono l'elaborazione del feed di modifiche avviata da ogni host. Ogni host di processori può includere più consumer. Ogni consumer legge il feed di modifiche dalla partizione a cui è assegnato e invia notifiche al rispettivo host in caso di modifiche e di lease scaduti.
 
-Per una migliore comprensione dell'interazione tra i quattro elementi del processore dei feed di modifiche, è consigliabile esaminare un esempio nel diagramma seguente. La raccolta monitorata archivia i documenti e usa il valore "city" come chiave di partizione. Come si può notare, la partizione blu contiene i documenti con i campo "city" compreso tra "A-E" e così via. Sono disponibili due host, ognuno con due consumer che leggono dalle quattro partizioni in parallelo. Le frecce mostrano i consumer che leggono da un punto specifico nel feed di modifiche. Nella prima partizione il colore blu scuro rappresenta le modifiche non lette, mentre il colore blu chiaro rappresenta le modifiche già lette nel feed di modifiche. Gli host usano la raccolta di lease per archiviare un valore di tipo "continuation" per tenere traccia della posizione di lettura corrente per ogni consumer. 
+Per una migliore comprensione dell'interazione tra i quattro elementi del processore dei feed di modifiche, è consigliabile esaminare un esempio nel diagramma seguente. La raccolta monitorata archivia i documenti e usa il valore "city" come chiave di partizione. Come si può notare, la partizione blu contiene i documenti con il campo "city" compreso tra "A-E" e così via. Sono disponibili due host, ognuno con due consumer che leggono dalle quattro partizioni in parallelo. Le frecce mostrano i consumer che leggono da un punto specifico nel feed di modifiche. Nella prima partizione il colore blu scuro rappresenta le modifiche non lette, mentre il colore blu chiaro rappresenta le modifiche già lette nel feed di modifiche. Gli host usano la raccolta di lease per archiviare un valore di tipo "continuation" per tenere traccia della posizione di lettura corrente per ogni consumer. 
 
 ![Uso dell'host del processore del feed delle modifiche di Azure Cosmos DB](./media/change-feed/changefeedprocessornew.png)
 
@@ -527,9 +526,8 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
         await host.UnregisterObserversAsync();
     }
 ```
-Con il passare del tempo, viene stabilito un equilibrio. Questa funzionalità dinamica consente il ridimensionamento automatico basato su CPU da applicare ai consumer per la scalabilità verticale e orizzontale. Se le modifiche sono disponibili in Azure Cosmos DB con velocità maggiore rispetto ai tempi di elaborazione dei consumer, è possibile usare l'aumento di CPU per i consumer per realizzare una scalabilità automatica sul numero di istanze del ruolo di lavoro.
+Con il passare del tempo, viene stabilito un equilibrio. Questa funzionalità dinamica consente il ridimensionamento automatico basato su CPU da applicare ai consumer per aumentare o ridurre la capacità. Se le modifiche sono disponibili in Azure Cosmos DB con velocità maggiore rispetto ai tempi di elaborazione dei consumer, è possibile usare l'aumento di CPU per i consumer per realizzare una scalabilità automatica sul numero di istanze del ruolo di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Provare gli [esempi di codice relativi al feed delle modifiche di Azure Cosmos DB in GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
-* Introduzione alla scrittura di codice con [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) o l'[API REST](/rest/api/documentdb/).
-
+* Introduzione alla scrittura di codice con gli [SDK di Cosmos DB](documentdb-sdk-dotnet.md) o l'[API REST](/rest/api/documentdb/).

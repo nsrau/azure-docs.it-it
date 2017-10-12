@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 6fd0e32374827b249f5aba1cbfc39117c88c6272
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 In questo argomento viene illustrato come usare Funzioni di Azure per creare un processo pianificato al fine di eseguire la pulizia delle righe in una tabella del database SQL di Azure. La nuova funzione C# viene creata in base a un modello predefinito di attivazione del timer nel portale di Azure. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione nell'app per le funzioni. Questo scenario esegue un'operazione in blocco sul database. Affinché la funzione elabori le singole operazioni CRUD in una tabella di un'app per dispositivi mobili, è necessario usare invece le [associazioni all'app per dispositivi mobili](functions-bindings-mobile-apps.md).
@@ -125,4 +124,3 @@ Per altre informazioni sulle funzioni, vedere gli argomenti seguenti:
   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
   Descrive diversi strumenti e tecniche per il test delle funzioni.  
-

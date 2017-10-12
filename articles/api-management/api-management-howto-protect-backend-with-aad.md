@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 0dfb4102904c2e972e6617fd3851fb1c50147357
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API
 Il video che segue illustra come compilare il back-end di un'API Web e proteggerlo usando il protocollo OAuth 2.0 con Azure Active Directory e Gestione API.  Questo articolo fornisce una panoramica e informazioni aggiuntive per le procedure illustrate nel video. Il video della durata di 24 minuti mostra come fare per:
@@ -564,4 +563,3 @@ Per un'altra dimostrazione relativa alla configurazione e all'uso di questi crit
 
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Manage your first API]: api-management-get-started.md
-

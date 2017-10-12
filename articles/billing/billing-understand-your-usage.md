@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0d4f2e19ec3417b7ca111f777e34b1ce66ddb32d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendere i dettagli degli addebiti basati sui dati di utilizzo dettagliato di Microsoft Azure 
 Il file CSV con gli addebiti basati sull'utilizzo dettagliato contiene gli addebiti sia a livello giornaliero sia a livello di contatore per il periodo di fatturazione corrente. 
@@ -90,4 +89,3 @@ I servizi esterni, noti anche come ordini Marketplace, sono erogati da fornitori
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?) per ottenere una rapida risoluzione del problema.
-

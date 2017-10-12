@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Copiare gli esperimenti di esempio per creare nuovi esperimenti di Machine Learning
 Questo articolo illustra come usare gli esperimenti di esempio di [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) invece di creare esperimenti di Machine Learning da zero. È possibile usare gli esempi per compilare la propria soluzione di Machine Learning.
@@ -69,4 +68,3 @@ Nell'area di lavoro di Machine Learning Studio verrà creato un nuovo esperiment
 * [Importare dati da diverse origini](import-data.md)
 * [Esercitazione con guida rapida per il linguaggio di programmazione R per Machine Learning](r-quickstart.md)
 * [Distribuire un servizio Web di Machine Learning](publish-a-machine-learning-web-service.md)
-

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: bwren
 ms.openlocfilehash: 457888b4d38875b912ad87d44e96ab727e3ee3ee
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrazione da Orchestrator ad Automazione di Azure (Beta)
 I runbook in [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) si basano su attività di Integration Pack scritte appositamente per Orchestrator, mentre i runbook di Automazione di Azure si basano su Windows PowerShell.  [Runbook grafici](automation-runbook-types.md#graphical-runbooks) di Automazione di Azure hanno un aspetto simile ai runbook di Orchestrator con attività che rappresentano i cmdlet di PowerShell, i runbook figlio e gli asset.

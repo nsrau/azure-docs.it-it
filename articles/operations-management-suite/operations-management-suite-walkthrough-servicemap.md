@@ -1,6 +1,6 @@
 ---
 title: Demo per la formazione autonoma sulla soluzione Service Map | Microsoft Docs
-description: "Service Map è una soluzione di Operations Management Suite (OMS) che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi.  Questa demo per la formazione autonoma illustra l&quot;uso di Service Map per identificare e diagnosticare un problema simulato in un&quot;applicazione Web."
+description: "Service Map è una soluzione di Operations Management Suite (OMS) che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi.  Questa demo per la formazione autonoma illustra l'uso di Service Map per identificare e diagnosticare un problema simulato in un'applicazione Web."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.lasthandoff: 04/13/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Demo per la formazione autonoma sulla soluzione Service Map in Operations Management Suite (OMS)
 Questa demo per la formazione autonoma illustra l'uso della [soluzione Service Map](operations-management-suite-service-map.md) in Operations Management Suite (OMS) per identificare e diagnosticare un problema simulato in un'applicazione Web.  L'elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi.  Consente di consolidare i dati raccolti da altri servizi OMS per agevolare l'analisi delle prestazioni e l'identificazione dei problemi.  Verranno anche usate le [ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md) per eseguire il drill-down sui dati raccolti e identificare il problema radice.
 

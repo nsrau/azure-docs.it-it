@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-1-review-the-architecture"></a>Passaggio 1: Esaminare l'architettura
 
@@ -60,8 +60,7 @@ Informazioni sui prerequisiti di distribuzione e i requisiti per ognuno di quest
 1. Dopo aver abilitato la protezione per una macchina virtuale Hyper-V, nel portale di Azure o in locale, viene avviato **Abilita protezione**.
 2. Il processo controlla se il computer è conforme ai prerequisiti, prima di richiamare [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), per impostare la replica con le impostazioni configurate.
 3. Il processo avvia la replica iniziale richiamando il metodo [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), per inizializzare una replica della macchina virtuale completa e inviare i dischi virtuali della VM ad Azure.
-4. Il processo può essere monitorato nella scheda **Processi**.
-        ![Elenco dei processi](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Abilitare protezione in dettaglio](media/vmm-to-azure-walkthrough-architecture/image2.png)
+4. Il processo può essere monitorato nella scheda **Processi**.      ![Elenco dei processi](media/vmm-to-azure-walkthrough-architecture/image1.png)![Abilitare protezione in dettaglio](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replicare i dati iniziali
 

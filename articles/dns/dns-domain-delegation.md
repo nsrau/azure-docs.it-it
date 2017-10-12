@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
 ms.openlocfilehash: 31a500502a4d3e729ecb79929ed6c1de156d6259
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delega di zone DNS con DNS di Azure
 

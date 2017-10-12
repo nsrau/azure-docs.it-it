@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 02e0ca96bff7781c242b4c5e965b229065e71725
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Matrice supportata per questa versione 
 Quando il codice carica i dati usando le origini dati o la preparazione dati, recuperando i dataframe di Pandas o Spark, sono supportate le combinazioni seguenti di ambienti di calcolo per la sperimentazione e le posizioni dei dati:
@@ -39,4 +38,3 @@ Azure Data Lake Store non è attualmente supportato per le destinazioni di calco
 **Usa il driver SQL Server JDBC di Maven 6.2.1. È necessario assicurarsi che questo pacchetto, o un pacchetto compatibile, sia incluso nel file spark_dependencies.yml per l'ambiente di calcolo.
 
 ***Supporta Database SQL di Azure, Azure SQL Data Warehouse o Microsoft SQL Server se il database può essere raggiunto dall'ambiente di calcolo. 
-

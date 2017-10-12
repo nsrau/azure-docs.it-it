@@ -15,14 +15,12 @@ ms.date: 08/15/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
+ms.openlocfilehash: e1e979319e53d222be33032acd0a79697dd09ab6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 6bcb6d9f7a1e9b241fa70690016b03d6eb5887ab
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introduzione all'app Microsoft Authenticator
 L'app Microsoft Authenticator offre un livello di sicurezza aggiuntivo in un account aziendale o dell'istituto di istruzione, ad esempio bsimon@contoso.com, o un account Microsoft, ad esempio bsimon@outlook.com.
 
@@ -109,4 +107,3 @@ Successivamente, ogni volta che verrà richiesto di verificare le informazioni d
 Dopo che l'account è stato aggiunto all'app, potrebbe essere chiesto di eseguire una verifica di prova per assicurarsi che la configurazione sia corretta. Dopo questa verifica, la procedura è terminata. Non è necessario fare altro fino al successivo accesso.
 
 Se si sceglie di usare codici di verifica nell'app, vengono prima visualizzati nella home page. Questi codici cambiano ogni 30 secondi in modo da riceverne sempre uno nuovo ogni volta che è necessario. Tuttavia, non è necessario fare altro finché non si accede e non viene chiesto di immettere un codice di verifica.  
-

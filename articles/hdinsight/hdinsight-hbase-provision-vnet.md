@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 77ddfc0210fdbd6aea44bc50e18406e4d9c285c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c78f1b16328c5b3a92f530ca06e6f5aeaeefca78
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creare cluster HBase su HDInsight nella rete virtuale di Azure
 Informazioni su come creare cluster HBase in Azure HDInsight in una [Rete virtuale di Azure][1].
@@ -48,7 +47,7 @@ In questa sezione viene creato un cluster HBase basato su Linux con l'account di
 > * **Versione del cluster**: 3.5
 > * **Cluster worker node count**: 2
 > * **Default storage account**: stringa univoca
-> * **Virtual network name**: &lt;Nome cluster>-vnet
+> * **Virtual network name**: &lt;Nome cluster&gt;-vnet
 > * **Virtual network address space**: 10.0.0.0/16
 > * **Subnet name**: subnet1
 > * **Subnet address range**: 10.0.0.0/24
@@ -252,7 +251,6 @@ In questa esercitazione si è appreso come creare un cluster HBase. Per altre in
 * [Configurare la replica di HBase in HDInsight](hdinsight-hbase-replication.md)
 * [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Introduzione all'uso di HBase con Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md)
-* [Analizzare i sentimenti Twitter con HBase in HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)
 * [Panoramica di Rete virtuale][vnet-overview]
 
 [1]: http://azure.microsoft.com/services/virtual-network/
@@ -260,7 +258,6 @@ In questa esercitazione si è appreso come creare un cluster HBase. Per altre in
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
 [vm-create]: ../virtual-machines/virtual-machines-windows-hero-tutorial.md
 
@@ -300,4 +297,3 @@ In questa esercitazione si è appreso come creare un cluster HBase. Per altre in
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usare azioni di script per personalizzare un cluster HBase"
 
 [azure-preview-portal]: https://portal.azure.com
-

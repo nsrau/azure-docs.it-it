@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.openlocfilehash: 9da76bb5f649817cd2f027f3d0eb46d58a996b4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Configurare cluster HDInsight aggiunti al dominio (anteprima) usando Azure PowerShell
 Informazioni su come configurare un cluster Azure HDInsight con Azure Active Directory (Azure AD) e [Apache Ranger](http://hortonworks.com/apache/ranger/) usando Azure PowerShell. Viene fornito uno script di Azure PowerShell per velocizzare la configurazione ed evitare errori. HDInsight aggiunto al dominio può essere configurato solo nei cluster basati su Linux. Per altre informazioni, consultare [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Introduzione ai cluster HDInsight aggiunti al dominio).
@@ -172,8 +172,8 @@ Un'altra opzione per creare un cluster HDInsight aggiunto al dominio consiste ne
    * **Cluster Worker Node count** (Numero nodi ruolo di lavoro cluster): selezionare il numero di nodi del ruolo di lavoro.
    * **Cluster login name and password**: il nome dell'account di accesso predefinito è **admin**.
    * **SSH username and password**: il nome utente predefinito è **sshuser**.  È possibile rinominarlo. 
-   * **ID rete virtuale**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>
-   * **Subnet rete virtuale**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
+   * **ID rete virtuale**: /subscriptions/&lt;SubscriptionID&gt;/resourceGroups/&lt;ResourceGroupName&gt;/providers/Microsoft.Network/virtualNetworks/&lt;VNetName&gt;
+   * **Subnet rete virtuale**: /subscriptions/&lt;SubscriptionID&gt;/resourceGroups/&lt;ResourceGroupName&gt;/providers/Microsoft.Network/virtualNetworks/&lt;VNetName&gt;/subnets/Subnet1
    * **Nome dominio**: contoso.onmicrosoft.com
    * **Organization Unit DN** (DN unità organizzativa): OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
    * **Cluster Users Group D Ns** (DN gruppo di utenti cluster): "\"CN=HiveUsers,OU=AADDC Users,DC=<DomainName>,DC=onmicrosoft,DC=com\""

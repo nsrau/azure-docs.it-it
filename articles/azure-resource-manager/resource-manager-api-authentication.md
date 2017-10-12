@@ -1,6 +1,6 @@
 ---
 title: Autenticazione di Azure Active Directory e Resource Manager | Microsoft Docs
-description: Guida per gli sviluppatori all&quot;autenticazione con l&quot;API di Azure Resource Manager e Azure Active Directory per l&quot;integrazione di un&quot;app con altre sottoscrizioni di Azure.
+description: Guida per gli sviluppatori all'autenticazione con l'API di Azure Resource Manager e Azure Active Directory per l'integrazione di un'app con altre sottoscrizioni di Azure.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
-ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Usare l'API di autenticazione di Resource Manager per accedere alle sottoscrizioni
 ## <a name="introduction"></a>Introduzione
@@ -363,4 +361,3 @@ Solo gli utenti con l'autorizzazione per la gestione degli accessi possono disco
 Il metodo [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) dell'app di esempio ASP.NET MVC implementa questa chiamata.
 
 Gli utenti ora possono connettere e gestire facilmente le sottoscrizioni di Azure con l'applicazione.
-

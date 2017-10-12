@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 921c8391fc18eca35d10c3ade158a98ae88df397
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Pianificare il ciclo di vita dell’identità ibrida
 L'identità rappresenta uno degli elementi fondamentali della strategia di mobilità aziendale e di accesso alle applicazioni. Quando si accede a un dispositivo mobile personale o a un'app SaaS, l'identità è la chiave con cui si ottiene l'accesso a tutti i componenti. A livello generale, una soluzione di gestione delle identità prevede il consolidamento e la sincronizzazione degli archivi di identità, nonché l'automazione e la centralizzazione del processo di provisioning delle risorse. La soluzione di identità, inoltre, deve essere un'identità centralizzata in locale e nel cloud e ricorrere a una forma di federazione delle identità per gestire l'autenticazione centralizzata e condividere e collaborare con aziende e utenti esterni in modo totalmente sicuro. Le risorse comprendono i sistemi operativi, le applicazioni e gli utenti appartenenti o affiliati a un'azienda. La struttura aziendale, inoltre, può essere modificata per soddisfare determinati criteri o procedure di provisioning.

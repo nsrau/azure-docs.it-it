@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 7202be4e0e9b8b28b5ec1443d6d248c1738da6fb
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: richiesta di token di accesso
 
@@ -132,4 +131,3 @@ Commenti e suggerimenti sono sempre graditi. In caso di difficoltà con questo a
 
 * Compilare un'API Web con [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 * Compilare un'API Web con [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
-

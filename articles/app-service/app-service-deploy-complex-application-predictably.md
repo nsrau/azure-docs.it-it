@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
+ms.openlocfilehash: 3719e037f1564411a8f94d1ca962ba1ef6b5d435
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 87592410e6471219d3262cdcc7b47ee1b0686961
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure
 Questa esercitazione illustra come effettuare il provisioning di un'applicazione costituita da [microservizi](https://en.wikipedia.org/wiki/Microservices) e come distribuirla nel [servizio app di Azure](/services/app-service/) come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell. 
@@ -89,7 +88,7 @@ Tutto ciò che si è appena visto in pochi minuti è un'applicazione di microser
 È possibile distribuire la stessa applicazione decine, centinaia o migliaia di volte e avere ogni volta esattamente la stessa configurazione. La ripetibilità e la prevedibilità di questo approccio consentono di distribuire applicazioni su vasta scala in modo semplice e affidabile.
 
 ## <a name="examine-or-edit-azuredeployjson"></a>Esaminare (o modificare) AZUREDEPLOY.JSON
-A questo punto si esaminerà come è stato configurato il repository GitHub. Si userà l'editor JSON incluso in Azure .NET SDK, quindi se [Azure .NET SDK 2.6](/downloads/)non è già installato, installarlo ora.
+A questo punto si esaminerà come è stato configurato il repository GitHub. Si userà l'editor JSON incluso in Azure .NET SDK, quindi se [Azure .NET SDK 2.6](https://azure.microsoft.com/downloads/)non è già installato, installarlo ora.
 
 1. Clonare il repository [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) con lo strumento git preferito. Nella schermata seguente questa operazione viene eseguita con Team Explorer in Visual Studio 2013.
    
@@ -269,5 +268,4 @@ In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita
 * [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy.md)
 * [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
-
 

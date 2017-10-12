@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: ab08256fbc3caca05bf23a12016ad2acf4fc7412
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>Come creare API in Gestione API di Azure
 Un'API in Gestione API rappresenta un set di operazioni che possono essere richiamate dalle applicazioni client. Le nuove API vengono create nel portale di pubblicazione e quindi vengono aggiunte le operazioni desiderate. Dopo l'aggiunta delle operazioni, l'API viene aggiunta a un prodotto e può essere pubblicata. Dopo la pubblicazione l'API può essere sottoscritta e usata dagli sviluppatori.
@@ -54,7 +54,7 @@ Dopo avere configurato i valori desiderati, fare clic su **Salva**. Una volta cr
 
 ![Riepilogo dell'API][api-management-api-summary]
 
-## <a name="configure-api-settings"> </a>Configurare le impostazioni API
+## <a name="configure-api-settings"></a>Configurare le impostazioni API
 È possibile usare la scheda **Impostazioni** per verificare e modificare la configurazione di un'API. **Titolo API Web**, **URL servizio Web** e **Suffisso dell'URL dell'API Web** vengono impostati inizialmente alla creazione dell'API e possono essere modificati in questa scheda. **Descrizione** fornisce una descrizione facoltativa e l'opzione **Schema URL API Web** determina il protocollo da usare per l'accesso all'API.
 
 ![Impostazioni API][api-management-api-settings]
@@ -67,7 +67,7 @@ La scheda **Sicurezza** può essere usata anche per configurare l'**Autorizzazio
 
 Fare clic su **Salva** per salvare le modifiche apportate alle impostazioni API.
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato un'API e configurato le impostazioni, i passaggi successivi consentono di aggiungere le operazioni all'API, aggiungere l'API a un prodotto e pubblicarla in modo che sia disponibile per gli sviluppatori. Per altre informazioni, vedere gli articoli seguenti.
 
 * [Come aggiungere operazioni a un'API][How to add operations to an API]

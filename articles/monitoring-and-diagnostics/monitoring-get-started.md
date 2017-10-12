@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Monitoraggio di Azure | Microsoft Docs
+title: Introduzione a Monitoraggio di Azure | Documentazione Microsoft
 description: Introduzione all'uso del monitoraggio di Azure per comprendere appieno il funzionamento delle risorse ed eseguire operazioni in base ai dati.
 author: johnkemnetz
 manager: orenr
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ba4e8fe0d54deb4a980174ff7d0904854c794d3d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-monitor"></a>Introduzione al monitoraggio di Azure
 Monitoraggio di Azure è il servizio di piattaforma che mette a disposizione un'unica origine per il monitoraggio delle risorse di Azure. Con Monitoraggio di Azure è possibile visualizzare, fare query, indirizzare, archiviare ed effettuare operazioni sulle metriche e sui log provenienti dalle risorse di Azure. È possibile usare questi dati tramite il pannello del portale di Monitoraggio di Azure, i [cmdlet di PowerShell di Monitoraggio di Azure](insights-powershell-samples.md), l'[interfaccia della riga di comando multi-piattaforma](insights-cli-samples.md) o le [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/dn931943.aspx). Questo articolo illustra alcuni componenti principali di Monitoraggio di Azure, usando il portale a scopo dimostrativo.
@@ -103,4 +102,3 @@ Seguendo questi passaggi e aggiungendo tutti i riquadri pertinenti a un dashboar
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Consultare [Panoramica del monitoraggio di Azure](monitoring-overview.md)
-

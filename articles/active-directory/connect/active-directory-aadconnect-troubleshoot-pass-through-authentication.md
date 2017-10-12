@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
 Questo articolo consente di trovare informazioni utili per risolvere i problemi comuni relativi all'autenticazione pass-through di Azure AD.
@@ -171,4 +169,3 @@ Un altro metodo per monitorare gli agenti di autenticazione consiste nel monitor
 
 >[!IMPORTANT]
 >L'autenticazione pass-through fornisce disponibilità elevata tramite più agenti di autenticazione, _senza_ il bilanciamento del carico. A seconda della configurazione, _non_ tutti gli agenti di autenticazione ricevono all'incirca un numero _uguale_ di richieste. È possibile che un agente di autenticazione specifico non riceva traffico del tutto.
-

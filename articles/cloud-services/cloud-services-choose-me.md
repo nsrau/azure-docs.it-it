@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Perché scegliere Servizi cloud
 Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applicazioni. Ognuno fornisce un diverso set di servizi, pertanto quello da scegliere dipende dalle attività che si tenta di eseguire.
@@ -63,5 +62,4 @@ L'utilizzo della tecnologia PaaS da parte di Servizi cloud comporta anche altre 
 [Creare un'app di servizio cloud in Node.js](cloud-services-nodejs-develop-deploy-app.md)  
 [Creare un'app di servizio cloud in PHP](../cloud-services-php-create-web-role.md)  
 [Creare un'app del servizio cloud in Python](cloud-services-python-ptvs.md)
-
 

@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-api-management"></a>Informazioni su Gestione API
 Gestione API consente alle organizzazioni di pubblicare API per consentire a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei rispettivi dati e servizi. Le aziende di tutto il mondo avvertono l'esigenza di estendere le proprie attività come piattaforma digitale, creando nuovi canali, trovando nuovi clienti e stimolando un coinvolgimento maggiore con quelli esistenti. Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione.
@@ -63,7 +63,7 @@ Per altre informazioni, vedere [Come creare e pubblicare un prodotto in Gestione
 > 
 > 
 
-## <a name="groups"> </a> Gruppi
+## <a name="groups"></a> Gruppi
 I gruppi permettono di gestire la visibilità dei prodotti agli sviluppatori. In Gestione API sono inclusi i gruppi di sistema non modificabili seguenti.
 
 * **Amministratori** : gli amministratori delle sottoscrizioni di Azure sono membri di questo gruppo. Gli amministratori gestiscono le istanze del servizio Gestione API e creano le API, le operazioni e i prodotti usati dagli sviluppatori.
@@ -74,14 +74,14 @@ Oltre a questi gruppi di sistema, gli amministratori possono creare gruppi perso
 
 Per altre informazioni, vedere [Come creare e usare i gruppi][How to create and use groups].
 
-## <a name="developers"> </a> Sviluppatori
+## <a name="developers"></a> Sviluppatori
 Gli sviluppatori rappresentano gli account utente nell'istanza del servizio Gestione API. Gli sviluppatori possono essere creati o invitati a partecipare dagli amministratori oppure possono iscriversi nel [portale per sviluppatori][Developer portal]. Ogni sviluppatore è membro di uno o più gruppi e può effettuare la sottoscrizione ai prodotti che concedono la visibilità a tali gruppi.
 
 Quando gli sviluppatori effettuano la sottoscrizione a un prodotto, viene concessa loro la chiave primaria e secondaria per il prodotto. Questa chiave viene usata per effettuare le chiamate alle API del prodotto.
 
 Per altre informazioni, vedere [Come creare o invitare sviluppatori][How to create or invite developers] e [Come associare gruppi a sviluppatori][How to associate groups with developers].
 
-## <a name="policies"> </a> Criteri
+## <a name="policies"></a> Criteri
 I criteri sono una potente funzionalità di Gestione API che consentono all'entità di pubblicazione di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare la quantità di chiamate in ingresso da uno sviluppatore, ma sono disponibili numerosi altri criteri.
 
 Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) e [set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) ed [Espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx) e guardare il video seguente.
@@ -96,7 +96,7 @@ Per un elenco completo dei criteri di Gestione API, vedere [Riferimenti per i cr
 > 
 > 
 
-## <a name="developer-portal"> </a> Portale per sviluppatori
+## <a name="developer-portal"></a> Portale per sviluppatori
 Il portale per sviluppatori consente agli sviluppatori di visualizzare informazioni sulle API, visualizzare e chiamare operazioni ed effettuare la sottoscrizione ai prodotti. I potenziali clienti possono visitare il portale per sviluppatori, visualizzare API e operazioni ed effettuare l'iscrizione. L'URL del portale per sviluppatori è disponibile nel dashboard del portale di Azure classico per l'istanza del servizio Gestione API.
 
 È possibile personalizzare l'aspetto del portale per sviluppatori aggiungendo contenuto personalizzato, personalizzando gli stili e aggiungendo il proprio logo.

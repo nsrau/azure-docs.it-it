@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Azure Active Directory Connect | Microsoft Docs
+title: Domande frequenti su Azure Active Directory Connect | Documentazione Microsoft
 description: Questa pagina contiene le domande frequenti su Azure AD Connect.
 services: active-directory
 documentationcenter: 
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -59,7 +58,7 @@ Usare le linee guida descritte nell'articolo relativo al [rinnovare i certificat
 No. La modifica del nome del server farà sì che il motore di sincronizzazione no sia in grado di connettersi al database SQL e il servizio non riuscirà ad avviarsi.
 
 ## <a name="identity-data"></a>Dati di identità
-**D: Perché l'attributo UPN (userPrincipalName) in Azure AD non corrisponde con l'UPN locale?**  
+**D: Perché l'attributo UPN (userPrincipalName) in Azure AD non corrisponde con l’UPN locale?**  
 Vedere i seguenti articoli:
 
 * [I nomi utente in Office 365, Azure o Intune non corrispondono agli ID di accesso o alternativi dell'UPN locale](https://support.microsoft.com/en-us/kb/2523192)
@@ -107,5 +106,4 @@ No.
 [Come ottenere supporto per Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 * Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
-
 

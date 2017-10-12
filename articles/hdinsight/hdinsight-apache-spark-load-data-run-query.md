@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: nitinme
+ms.openlocfilehash: 7853988f91372f2ab563481e441c0d6db4a7fd96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: ada1c3d1482c68834dbbf5eabbd045a7e0c01f9f
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Eseguire query interattive in un cluster HDInsight Spark
 
@@ -120,7 +119,6 @@ In questo articolo è stata illustrata la procedura per eseguire query interatti
 
 > [!div class="nextstepaction"]
 >[Spark BI usando gli strumenti di visualizzazione di dati con Azure HDInsight](hdinsight-apache-spark-use-bi-tools.md)
-
 
 
 

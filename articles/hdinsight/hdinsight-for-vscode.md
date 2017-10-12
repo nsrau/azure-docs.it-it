@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2017
 ms.author: jejiang
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: fdf1911f4f5b515592b6197ea738d808104cb43e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>Usare gli strumenti di Azure HDInsight per Visual Studio Code
 
 Informazioni su come usare gli strumenti di Azure HDInsight per Visual Studio Code (VSCode) per creare e inviare processi batch Hive, query Interactive Hive e script pySpark. Gli strumenti di Azure HDInsight possono essere installati sulle piattaforme supportate da VSCode, tra cui Windows, Linux e MacOS. Sono previsti prerequisiti specifici per le diverse piattaforme.
@@ -240,7 +238,7 @@ HDInsight per VSCode supporta le funzionalità seguenti:
 ### <a name="scenarios"></a>Scenari
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: Usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 * [Analisi dei log del sito Web mediante Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -251,7 +249,6 @@ HDInsight per VSCode supporta le funzionalità seguenti:
 ### <a name="managing-resources"></a>Gestione delle risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
-
 
 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end
 ## <a name="introduction"></a>Introduzione
@@ -438,4 +437,3 @@ Creare ora un'azione in **Se no, non fare nulla** .
 Per l'azione, scegliere **Office 365 - send email**. Compilare i campi per creare un messaggio di posta elettronica da inviare quando la condizione specificata restituisce **false**. Se non si ha Office 365 è possibile valutare alternative per ottenere lo stesso risultato.
 
 A questo punto è disponibile una pipeline end-to-end che controlla se sono disponibili nuovi log di controllo dell'insieme di credenziali delle chiavi ogni minuto. La pipeline effettua il push dei nuovi log trovati in una coda del bus di servizio. L'app per la logica viene attivata quando arriva un nuovo messaggio nella coda. Se l'*appid* all'interno dell'evento non corrisponde all'ID app dell'applicazione chiamante, invia un messaggio di posta elettronica.
-

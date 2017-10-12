@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="start-monitoring-your-nodejs-web-application"></a>Iniziare a monitorare l'applicazione Web Node.js
 
 Con Azure Application Insights, è possibile monitorare facilmente la disponibilità, le prestazioni e l'uso dell'applicazione Web. È anche possibile identificare e diagnosticare rapidamente gli errori nell'applicazione senza attendere che vengano segnalati da un utente. A partire dall'SDK versione 0.20 è possibile monitorare i pacchetti di terze parti più diffusi, tra cui MongoDB, MySQL e Redis.
@@ -138,4 +136,3 @@ Se si prevede di continuare a usare le guide introduttive o le esercitazioni suc
 
 > [!div class="nextstepaction"]
 > [Rilevare e diagnosticare i problemi di prestazioni](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 41cb5ffab9bd3a3bed75ffdb6a7383ca1690f810
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Gestire i log di flusso del gruppo di sicurezza di rete nel portale di Azure
 
 > [!div class="op_single_selector"]
@@ -110,4 +108,3 @@ Informazioni su come [visualizzare i log di flusso NSG con Power BI](network-wat
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
 [providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
-

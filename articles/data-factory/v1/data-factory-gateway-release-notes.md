@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 50406e50363054fb92a1783751ba62ca7b3455e4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Note sulla versione di Gateway di gestione dati
 Una delle maggiori difficoltà relative all'integrazione moderna dei dati consiste nello spostamento di dati da ambienti locali al cloud e viceversa. Data Factory esegue questa integrazione con Gateway di gestione dati, un agente che è possibile installare in locale per abilitare lo spostamento di dati ibridi.
@@ -252,4 +251,3 @@ Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione
 ### <a name="1051442"></a>1.0.5144.2
 
 *  Nessuna modifica che interessi gli scenari di Data factory di Azure.
-

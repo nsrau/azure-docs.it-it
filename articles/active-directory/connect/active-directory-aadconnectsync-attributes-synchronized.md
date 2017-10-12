@@ -1,5 +1,5 @@
 ---
-title: Attributi sincronizzati da Azure AD Connect | Microsoft Docs
+title: Attributi sincronizzati da Azure AD Connect | Documentazione Microsoft
 description: Fornisce l'elenco degli attributi sincronizzati con Azure Active Directory.
 services: active-directory
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 786cba7402d8a7e7ecf4667d30c4c393c8d6de5d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect.  
@@ -474,4 +473,3 @@ Gli oggetti dispositivo vengono creati in Active Directory. Questi oggetti posso
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-

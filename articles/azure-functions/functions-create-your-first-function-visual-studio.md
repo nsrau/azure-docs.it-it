@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 09/06/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
+ms.openlocfilehash: 3d9e7a4eb6d94067af6b5c64e71910694d5a6077
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 8baa8e950164de64d1cd91c0c5bb51d324bbc807
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creare la prima funzione con Visual Studio
 
@@ -108,5 +107,4 @@ Per poter pubblicare il progetto, è necessario che la sottoscrizione di Azure i
 + Per informazioni su come configurare il progetto per il supporto di altri tipi di trigger e binding, vedere la sezione [Configurare il progetto per lo sviluppo locale](functions-develop-vs.md#configure-the-project-for-local-development) in [Azure Functions Tools for Visual Studio](functions-develop-vs.md).
 + Per altre informazioni sul test e il debug in locale con Azure Functions Core Tools, vedere [Scrivere codice per le funzioni di Azure e testarle in locale](functions-run-local.md). 
 + Per altre informazioni sullo sviluppo di funzioni quali le librerie della classe .NET, vedere [Uso di librerie di classi .NET con Funzioni di Azure](functions-dotnet-class-library.md). 
-
 

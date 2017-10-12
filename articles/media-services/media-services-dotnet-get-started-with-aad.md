@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 78ca7eceb31396c748c4c20763d5c74575bbc8f4
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usare l'autenticazione di Azure AD per accedere all'API di Servizi multimediali di Azure con .NET
 
@@ -189,4 +188,3 @@ L'esempio seguente mostra come creare il token di Azure AD e il contesto:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Introduzione al [caricamento di file nell'account](media-services-dotnet-upload-files.md).
-

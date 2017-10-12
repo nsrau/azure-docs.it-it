@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d0c047c17608635b0d5fb0fb1353c6f8515d7a71
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usare modelli per creare entità di Azure Data Factory
 ## <a name="overview"></a>Panoramica
@@ -254,4 +253,3 @@ Se è necessario eseguire il pull di segreti dall'[Insieme di credenziali delle 
 > Attualmente l'esportazione di modelli per le data factory esistenti non è ancora supportata, ma è in via di realizzazione.
 >
 >
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi in Microsoft Azure?
 Questo articolo descrive le varie origini di avvisi in Microsoft Azure, lo scopo di tali avvisi, i vantaggi che offrono e un'introduzione sul loro utilizzo. L'articolo è incentrato in particolare su Monitoraggio di Azure, ma include indicazioni anche relative ad altri servizi. Gli avvisi rappresentano un metodo per eseguire il monitoraggio in Azure: è possibile configurare condizioni relative ai dati e ricevere una notifica qualora tali condizioni corrispondano ai dati di monitoraggio più recenti.
@@ -92,4 +91,3 @@ Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione 
 * Altre informazioni sugli [avvisi metrica quasi in tempo reale](monitoring-near-real-time-metric-alerts.md)
 * Altre informazioni sulle [notifiche del servizio](monitoring-service-notifications.md)
 * Altre informazioni sui [gruppi di azione](monitoring-action-groups.md)
-

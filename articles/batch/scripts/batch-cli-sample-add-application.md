@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="adding-applications-to-azure-batch-with-azure-cli"></a>Aggiunta di applicazioni ad Azure Batch con l'interfaccia della riga di comando di Azure
 
 Questo script illustra come configurare un'applicazione per l'uso con un pool è un'attività di Azure Batch. Per configurare un'applicazione, creare il pacchetto dell'eseguibile, insieme a eventuali dipendenze, come file .zip. In questo esempio il file zip eseguibile è chiamato "my-application-exe.zip".
@@ -33,7 +31,7 @@ Questo script illustra come configurare un'applicazione per l'uso con un pool è
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Aggiungi applicazione")]
+[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
 ## <a name="clean-up-application"></a>Pulizia dell'applicazione
 
@@ -60,4 +58,3 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando di Batch sono disponibili nella [documentazione dell'interfaccia della riga di comando di Azure Batch](../batch-cli-samples.md).
-

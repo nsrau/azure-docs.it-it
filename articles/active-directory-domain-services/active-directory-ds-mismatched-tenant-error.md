@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ca9ff29f5f91b8d796a29706ab49a82e417d1ecd
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 118773be1f03701246051b8832695c591d76b1e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti esistenti di Azure AD Domain Services
 Si dispone di un dominio gestito esistente che √® stato abilitato tramite il portale di Azure classico. Quando si passa al nuovo portale di Azure e si visualizza il dominio gestito, compare il messaggio di errore seguente:
@@ -64,4 +63,3 @@ Per risolvere l'errore di directory senza corrispondenza ci sono due possibilit√
 ## <a name="related-content"></a>Contenuti correlati
 * [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Guida alla risoluzione dei problemi: Azure AD Domain Services](active-directory-ds-troubleshooting.md)
-

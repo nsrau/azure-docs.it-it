@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: b4271d07858eacf2fa55e748f276c8252b0dedf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
 
 La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) permette di avviare e arrestare le macchine virtuali di Azure Resource Manager in base a una pianificazione definita dall'utente e, tramite OMS Log Analytics, fornisce informazioni approfondite sui processi di Automazione completati che avviano e arrestano le macchine virtuali.  
@@ -245,5 +243,4 @@ L'account di Automazione e l'area di lavoro OMS non vengono eliminati.  Se non s
 
 
    
-
 

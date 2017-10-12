@@ -63,7 +63,7 @@
 ### [Procedure consigliate per la sicurezza della gestione delle identità](azure-security-identity-management-best-practices.md)
 
 ## Servizi PaaS
-### [Proteggere distribuzioni PaaS](security-paas-deployments.md)
+### [Protezione delle distribuzioni PaaS](security-paas-deployments.md)
 #### [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante i Servizi app](security-paas-applications-using-app-services.md)
 #### [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante SQL](security-paas-applications-using-sql.md)
 ##### [Procedure consigliate per la sicurezza del database SQL](azure-database-security-best-practices.md)

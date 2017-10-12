@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
 ms.openlocfilehash: 7a8a853a93e3e9915f687a20c871444e6a0de50d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Abilitare il debug remoto con la distribuzione continua per la pubblicazione in Azure
 Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtuali, quando si usa la [distribuzione continua](cloud-services-dotnet-continuous-delivery.md) per la pubblicazione in Azure, eseguire la procedura seguente.

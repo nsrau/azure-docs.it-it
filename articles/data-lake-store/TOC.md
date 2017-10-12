@@ -67,7 +67,7 @@
 ### [Uso con Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Uso con Hub eventi di Azure](data-lake-store-archive-eventhub-capture.md)
 ### [Uso con Data Factory](../data-factory/connector-azure-data-lake-store.md)
-### [Usare Analisi di flusso](data-lake-store-stream-analytics.md)
+### [Uso con l'analisi di flusso](data-lake-store-stream-analytics.md)
 ### [Uso con Power BI](data-lake-store-power-bi.md)
 ### [Uso con Data Catalog](data-lake-store-with-data-catalog.md)
 ### [Uso con PolyBase in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)

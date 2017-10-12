@@ -10,15 +10,12 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 3eff97a9e7568566cd01a4eb3c7ee66806eac4cc
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="what-is-azure-database-for-mysql-service-introduction"></a>Database di Azure per MySQL: introduzione al servizio
 Database di Azure per MySQL è un servizio di database relazionale in Microsoft Cloud basato sul motore di database [MySQL Community Edition](https://www.mysql.com/products/community/).  Database di Azure per MySQL offre:
 
@@ -59,4 +56,3 @@ Dopo avere letto l'introduzione a Database di Azure per MySQL e avere ottenuto i
 - Vedere la pagina relativa ai prezzi per confrontare i costi e usare i calcolatori. [Prezzi](https://azure.microsoft.com/pricing/details/mysql/)
 - Per iniziare, creare il primo server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
 - Compilare la prima app in Python, PHP, Ruby, C\#, Java, Node.js: [Librerie di connettività usate per connettersi a Database di Azure per MySQL](concepts-connection-libraries.md)
-

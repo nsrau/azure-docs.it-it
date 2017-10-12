@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
+ms.openlocfilehash: bd5c81435c091d25bc14710589b7c043e9f56a25
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: bcb4a7a7d0b712ebe35a5a5bb063124be5095148
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Monitorare un cluster del servizio contenitore di Azure con Microsoft Operations Management Suite (OMS)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -75,8 +73,7 @@ Per altre informazioni sulla soluzione contenitore, consultare [Log Analytics de
 ## <a name="installing-oms-on-kubernetes"></a>Installazione di OMS in Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Ottenere l'ID e la chiave dell'area di lavoro
-Per consentire la comunicazione dell'agente OMS con il servizio, è necessario configurare il rispettivo ID e la rispettiva chiave dell'area di lavoro. Per ottenere l'ID e la chiave dell'area di lavoro è necessario creare un account OMS nel sito <https://mms.microsoft.com>.
-Attenersi alla procedura di creazione di un account. Al termine della creazione dell'account, è necessario ottenere l'ID e la chiave facendo clic su **Impostazioni**, quindi **Origini connesse** e infine **Server Linux**, come illustrato di seguito.
+Per consentire la comunicazione dell'agente OMS con il servizio, è necessario configurare il rispettivo ID e la rispettiva chiave dell'area di lavoro. Per ottenere l'ID e la chiave dell'area di lavoro è necessario creare un account OMS nel sito <https://mms.microsoft.com>. Attenersi alla procedura di creazione di un account. Al termine della creazione dell'account, è necessario ottenere l'ID e la chiave facendo clic su **Impostazioni**, quindi **Origini connesse** e infine **Server Linux**, come illustrato di seguito.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -131,4 +128,3 @@ Per proteggere l'ID dell'area di lavoro OMS e la chiave è possibile usare il se
 
 ### <a name="conclusion"></a>Conclusione
 L'operazione è terminata. Dopo qualche minuto dovrebbe essere visualizzato il flusso di dati verso il dashboard OMS.
-

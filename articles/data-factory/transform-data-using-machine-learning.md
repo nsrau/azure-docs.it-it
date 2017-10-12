@@ -13,16 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 413f12d301a0e2c47048d23b2d4fb7de6423256d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - GA](v1/data-factory-azure-ml-batch-execution-activity.md)
+> * [Versione 1 - Disponibilità generale](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Versione 2 - Anteprima](transform-data-using-machine-learning.md)
 
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) consente di compilare, testare e distribuire soluzioni di analisi predittiva. Da un punto di vista generale, questo avviene in tre passaggi:
@@ -32,7 +31,7 @@ ms.lasthandoff: 09/25/2017
 3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. È possibile inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.  
 
 > [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale (GA), vedere [Attività di esecuzione batch di Machine Learning versione 1](v1/data-factory-azure-ml-batch-execution-activity.md).
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale (GA), vedere [Attività di esecuzione batch di Machine Learning versione 1](v1/data-factory-azure-ml-batch-execution-activity.md).
 
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory e Machine Learning
@@ -229,7 +228,7 @@ Al termine della ripetizione del training, aggiornare il servizio Web di assegna
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli articoli seguenti che illustrano come trasformare i dati in altri modi: 
+Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati: 
 
 * [Attività U-SQL](transform-data-using-data-lake-analytics.md)
 * [Attività Hive](transform-data-using-hadoop-hive.md)
@@ -239,4 +238,3 @@ Vedere gli articoli seguenti che illustrano come trasformare i dati in altri mod
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
 * [Attività stored procedure](transform-data-using-stored-procedure.md)
-

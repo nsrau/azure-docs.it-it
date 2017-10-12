@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 4d7f05d626e6f718ca3597dff00715af4055f046
-ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 10963ab0b84b48c35df3022649363bbc8fc112a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -268,12 +267,11 @@ I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazi
 
 * [Collegamento ai log di controllo di gestione dell'utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit) - andare direttamente ai log di controllo di gestione dell'utente del tenant
 * [**Guida introduttiva**](active-directory-passwords-getting-started.md) - iniziare a usare la gestione self-service delle password di Azure AD 
-* [**Licenze**](active-directory-passwords-licensing.md) - configurare le licenze di Azure AD
-* [**Dati** ](active-directory-passwords-data.md) - informazioni sui dati necessari e su come vengono usati per la gestione delle password
-* [**Implementazione**](active-directory-passwords-best-practices.md) - pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
+* [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
+* [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
+* [**Implementazione**](active-directory-passwords-best-practices.md): pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
 * [**Personalizzazione**](active-directory-passwords-customize.md) - personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
 * [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md) - approfondimento sul funzionamento
-* [**Domande frequenti**](active-directory-passwords-faq.md) - come? Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande che si sarebbero sempre volute porre
+* [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
 * [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md) - informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
 * [**Criteri**](active-directory-passwords-policy.md) - comprendere e impostare i criteri password di Azure AD
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montare una condivisione file di Azure e accedere alla condivisione in Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows e Windows Server. Questo articolo illustra tre diversi modi per montare una condivisione file di Azure in Windows: con l'interfaccia utente di Esplora file, tramite PowerShell e tramite il prompt dei comandi. 
 
@@ -121,7 +119,7 @@ Per montare una condivisione file di Azure al di fuori dell'area di Azure in cui
 >   ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere questi collegamenti per altre informazioni su File di Azure.
+Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 
 * [Domande frequenti](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
@@ -137,12 +135,11 @@ Vedere questi collegamenti per altre informazioni su File di Azure.
 * [Risoluzione dei problemi di File di Azure - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Post di BLOG
-* [File di Azure è ora disponibile a livello generale](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Analisi di File di Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/) (File di Azure è ora disponibile a livello generale)
+* [Inside Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/) (Analisi di File di Azure)
 * [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migrating data to Azure File (Migrazione dei dati in File di Azure)](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
 ### <a name="reference"></a>Riferimento
 * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Riferimento API REST del servizio File](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-

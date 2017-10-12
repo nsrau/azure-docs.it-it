@@ -16,12 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: cb41fbd7ca931df52ba8e5304459bb04298a108c
-ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: 97df68d446755414cbd427d59f399d6430580f42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
 Single Sign-On indica la possibilità di accedere a tutte le applicazioni e risorse necessarie per svolgere attività commerciali, effettuando l'accesso solo una volta con un singolo account utente. Una volta effettuato l'accesso, è possibile accedere a tutte le applicazioni senza dover effettuare l’autenticazione (ad esempio, digitare una password) una seconda volta.
@@ -207,4 +206,3 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso
 [4]: ./media/active-directory-appssoaccess-whatis/officeapphub.png
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
-

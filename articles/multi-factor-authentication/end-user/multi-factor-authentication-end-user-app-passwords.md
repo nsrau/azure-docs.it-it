@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: fac7f969f943312fca1eacc41dca3b8e65cf2024
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: 4f343b4d4b5cb3c8be9605e9ab43200072b193e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Che cosa sono le password per le app in Azure Multi-Factor Authentication?
 Alcune applicazioni non basate su browser, come il client di posta elettronica di Apple, utilizzano Exchange Active Sync e attualmente non supportano l'autenticazione a più fattori. L’autenticazione a più fattori viene abilitata per singolo utente. Questo implica che, se un utente è stato abilitato per l'autenticazione a più fattori e tenta di utilizzare applicazioni non basate su browser, non potrà farlo. La password dell’app consente tale operazione.
@@ -116,4 +115,3 @@ Se non si è certi di come utilizzare Multi-Factor Authentication, è sempre pos
 - [Gestire le impostazioni della verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md)
 
 - Provare l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per verificare gli accessi con le notifiche delle app, invece di ricevere messaggi o chiamate.
-

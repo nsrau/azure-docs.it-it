@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 0ef256537bf095e2a5d582bd345a9c8dcede2095
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: caf6b470c334793931594df56ee13c4de9c8ba93
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Distribuire una soluzione di hosting di contenitori Docker usando il portale di Azure
 
@@ -212,4 +211,3 @@ Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti
 * [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
 * [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
 * [Uso del servizio contenitore di Azure e Kubernetes](../kubernetes/container-service-kubernetes-walkthrough.md)
-

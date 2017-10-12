@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Moxi Engage | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Moxi Engage.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Moxi Engage.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 25b5e377d8d0d504860ab9a8c4dac49c9ca5b104
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Esercitazione: Integrazione di Azure Active Directory con Moxi Engage
 
@@ -112,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-moxiengage-tutorial/tutorial_moxiengage_url.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://svc.<moxiworks-integration-domain>/service/v1/auth/inbound/saml/aad`.
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://svc.<moxiworks-integration-domain>/service/v1/auth/inbound/saml/aad`
 
     > [!NOTE] 
     > Poiché non è reale, aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto di Moxi Engage](mailto:support@moxiworks.com). 
@@ -223,5 +221,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-moxiengage-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-moxiengage-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-moxiengage-tutorial/tutorial_general_203.png
-
 

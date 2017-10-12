@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: 940440688ec770a4aeb932b574bd6be173f494d4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio
 > [!div class="op_single_selector"]

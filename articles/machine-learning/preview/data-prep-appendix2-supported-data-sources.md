@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0a77b31e07f118155094fab4d3393ffdb37c9c6f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-sources-for-this-release"></a>Origini dati supportate per questa versione 
 Il documento seguente illustra l'elenco di origini dati supportate attualmente nella preparazione dati.
 
@@ -90,5 +88,4 @@ Unità disco rigido locale o posizione di archiviazione di rete mappata
 
 ### <a name="azure-blob"></a>BLOB Azure
 Archiviazione di Azure (BLOB) richiede una sottoscrizione ad Azure
-
 

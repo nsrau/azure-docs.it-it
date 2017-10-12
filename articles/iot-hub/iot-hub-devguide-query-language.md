@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul linguaggio di query dell&quot;hub IoT di Azure | Documentazione Microsoft
-description: 'Guida per sviluppatori: descrizione del linguaggio di query dell&quot;hub IoT simile a SQL usato per recuperare informazioni su dispositivi gemelli e processi dall&quot;hub IoT.'
+title: Informazioni sul linguaggio di query dell'hub IoT di Azure | Documentazione Microsoft
+description: 'Guida per sviluppatori: descrizione del linguaggio di query dell''hub IoT simile a SQL usato per recuperare informazioni su dispositivi gemelli e processi dall''hub IoT.'
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/17
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 32d5baf404efddd2e3ce122b14ea8c256bf56299
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: a7650104eda58923558892f6f0f6666d16dbce28
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Riferimento: linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi
 
@@ -538,4 +536,3 @@ Informazioni su come eseguire query nelle app usando gli [SDK dell'hub IoT][lnk-
 [lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-

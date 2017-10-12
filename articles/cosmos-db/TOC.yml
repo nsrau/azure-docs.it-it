@@ -364,6 +364,8 @@
       items:
         - name: .NET
           href: table-sdk-dotnet.md
+        - name: Python
+          href: table-sdk-python.md
     - name: API Graph
       items:
         - name: .NET

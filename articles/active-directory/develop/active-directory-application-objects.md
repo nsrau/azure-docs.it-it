@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 09/26/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 53ab4c04901994982b451149c4a82a5b72c9fc82
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Oggetti applicazione e oggetti entità servizio in Azure Active Directory (Azure AD)
 Spesso il significato del termine "applicazione" può essere frainteso quando usato nel contesto di Azure AD. Questo articolo intende chiarire gli aspetti concettuali e concreti dell'integrazione dell'applicazione di Azure AD, con un esempio di registrazione e consenso per un'[applicazione multi-tenant](active-directory-dev-glossary.md#multi-tenant-application).
@@ -77,4 +76,3 @@ L'[Explorer Graph di Azure AD](https://graphexplorer.azurewebsites.net/) è util
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AZURE-Portal]: https://portal.azure.com
-

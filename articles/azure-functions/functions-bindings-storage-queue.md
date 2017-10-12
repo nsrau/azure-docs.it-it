@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
+ms.openlocfilehash: 8f7227071edc519e588d55a9f06b77aeaf31aa37
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f39f674bf576a2661a0e03710b9005b0515b3aa5
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Associazione dell'archiviazione code di Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -194,7 +193,7 @@ Nelle funzioni .NET è anche possibile eseguire l'output in uno dei tipi seguent
 * `out T`, serializzato come JSON
 * `out string`
 * `out byte[]`
-* `out` [`CloudQueueMessage`] 
+* `out`[`CloudQueueMessage`] 
 * `ICollector<T>`
 * `IAsyncCollector<T>`
 * [`CloudQueue`](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
@@ -292,5 +291,4 @@ Per un esempio di funzione che usa trigger e associazioni della coda, vedere [Cr
 
 <!-- LINKS -->
 
-[`CloudQueueMessage`]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
-
+["CloudQueueMessage"]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage

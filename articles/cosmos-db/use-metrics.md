@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: e6399831fe7c6cc727e92b13719df3b69e9981bf
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 
 Azure Cosmos DB offre metriche per velocità effettiva, archiviazione, coerenza, disponibilità e latenza. Il [portale di Azure](https://portal.azure.com) offre una vista aggregata di tali metriche; per metriche più granulari sono disponibili l'SDK del client e [i log di diagnostica](./logging.md).
@@ -101,4 +99,3 @@ Dopo aver appreso come monitorare ed eseguire il debug dei problemi con le metri
 
 * [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md)
 * [Suggerimenti sulle prestazioni per Azure Cosmos DB](performance-tips.md)
-

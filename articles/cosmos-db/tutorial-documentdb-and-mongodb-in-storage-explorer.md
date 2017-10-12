@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2cd3656156b77c71be85a1a18567232f4466fc68
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gestire Azure Cosmos DB in Azure Storage Explorer (anteprima)
 
@@ -153,5 +152,4 @@ Modificare il filtro documento immettendo una [query SQL](documentdb-sql-query.m
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che Azure Storage Explorer è connesso all'account Azure Cosmos DB, per visualizzare altre informazioni su Storage Explorer e connettersi a più servizi consultare la [Guida introduttiva a Storage Explorer (anteprima)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-
 

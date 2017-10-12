@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6ee3d1319e7727b1134472a1b62a3de7a3571997
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 1a5e97e2a6aca440c9643569014ffce41a614324
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>Password di Azure AD dimenticata
 
@@ -35,10 +34,10 @@ Se si dimentica la password, la si vuole modificare, il personale IT non l'ha ma
 
 Se è impossibile accedere al proprio account per una delle seguenti condizioni:
 
-* La password non funziona e si desidera ripristinarla.
+* La password non funziona e si desidera reimpostarla.
 * Si conosce la password, ma l'account è bloccato e si desidera sbloccare l'account.
 
-Eseguire i passaggi descritti di seguito per ripristinare la password self-service di Azure AD, procedura chiamata anche SSPR, e per poter effettuare nuovamente accesso all'account.
+Eseguire i passaggi descritti di seguito per reimpostare la password self-service di Azure AD, procedura chiamata anche SSPR, e per poter effettuare nuovamente accesso all'account.
 
 1. In qualsiasi pagina di accesso aziendale o dell'istituto di istruzione fare clic sul collegamento **Problemi di accesso all'account?** e quindi su **Account aziendale o dell'istituto di istruzione** oppure passare direttamente alla [pagina per la reimpostazione della password](https://passwordreset.microsoftonline.com/).
 
@@ -117,4 +116,3 @@ Usare questo metodo se in genere si accede alle applicazioni tramite il portale 
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Verificare i dati di autenticazione"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Cambiare la password"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "La password è stata reimpostata"
-

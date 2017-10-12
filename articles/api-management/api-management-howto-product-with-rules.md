@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
 ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Proteggere le API con limiti di frequenza usando Gestione API di Azure
 Questa guida illustra quanto sia semplice aggiungere la protezione all'API back-end configurando il limite di frequenza e i criteri di quota con Gestione API di Azure.
@@ -28,7 +27,7 @@ In questa esercitazione si creerà un prodotto API "Free Trial" che consente agl
 
 Per scenari di limitazione più avanzati che usano i criteri [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), vedere [Limitazione avanzata delle richieste con Gestione API di Azure](api-management-sample-flexible-throttling.md).
 
-## <a name="create-product"> </a>Per creare un prodotto
+## <a name="create-product"></a>Per creare un prodotto
 In questo passaggio si creerà un prodotto con una versione di valutazione gratuita che non richiede l'approvazione della sottoscrizione.
 
 > [!NOTE]
@@ -76,7 +75,7 @@ Per impostazione predefinita, i nuovi prodotti sono visibili agli utenti nel gru
 
 Selezionare la casella di controllo **Sviluppatori** e quindi fare clic su **Salva**.
 
-## <a name="add-api"> </a>Per aggiungere un'API al prodotto
+## <a name="add-api"></a>Per aggiungere un'API al prodotto
 In questo passaggio dell'esercitazione si aggiungerà l'API My Echo al nuovo prodotto Free Trial.
 
 > Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Gestire la prima API in Gestione API di Azure][Manage your first API in Azure API Management].
@@ -95,7 +94,7 @@ Selezionare **Echo API** (API Echo) e quindi fare clic su **Salva**.
 
 ![Add Echo API][api-management-add-echo-api]
 
-## <a name="policies"> </a>Per configurare i criteri relativi a limiti di frequenza e quota delle chiamate
+## <a name="policies"></a>Per configurare i criteri relativi a limiti di frequenza e quota delle chiamate
 I limiti di frequenza e le quote vengono configurate nell'editor dei criteri. In questa esercitazione verranno aggiunti i due criteri [Limit call rate per subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) (Limita frequenza delle chiamate per sottoscrizione) e [Set usage quota per subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) (Imposta quota di utilizzo per sottoscrizione). Questi criteri devono essere applicati nell'ambito del prodotto.
 
 Scegliere **Criteri** dal menu **Gestione API** a sinistra. Nell'elenco **Prodotto** fare clic su **Free Trial**.
@@ -197,7 +196,7 @@ Dopo avere configurato i criteri desiderati, fare clic su **Salva**.
 
 ![Save policy][api-management-policy-save]
 
-## <a name="publish-product"> </a> Per pubblicare il prodotto
+## <a name="publish-product"></a> Per pubblicare il prodotto
 A questo punto dopo aver aggiunto le API e aver configurato i criteri, il prodotto deve essere pubblicato per poter essere usato dagli sviluppatori. Scegliere **Prodotti** dal menu **Gestione API** a sinistra e quindi fare clic su **Free Trial** per configurare il prodotto.
 
 ![Configure product][api-management-configure-product]
@@ -236,7 +235,7 @@ Dopo aver fatto clic su **Sottoscrivi**, il prodotto verrà visualizzato nell'el
 
 ![Sottoscrizione aggiunta][api-management-subscription-added]
 
-## <a name="test-rate-limit"> </a>Per chiamare un'operazione e testare il limite di frequenza
+## <a name="test-rate-limit"></a>Per chiamare un'operazione e testare il limite di frequenza
 A questo punto, dopo aver configurato e pubblicato il prodotto Free Trial, è possibile chiamare alcune operazioni e testare i criteri relativi ai limiti di frequenza.
 Passare al portale per sviluppatori facendo clic su **Portale per sviluppatori** nel menu in alto a destra.
 
@@ -271,7 +270,7 @@ In **Contenuto della risposta** è indicato che l'intervallo residuo prima dei n
 
 Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minuto, le chiamate successive non verranno effettuate finché non trascorrono 60 secondi dalla prima delle 10 chiamate riuscite al prodotto precedenti al superamento del limite. In questo esempio l'intervallo residuo è di 54 secondi.
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Per una dimostrazione dell'impostazione dei limiti di frequenza e delle quote, vedere il video seguente.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
@@ -326,4 +325,3 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minut
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-

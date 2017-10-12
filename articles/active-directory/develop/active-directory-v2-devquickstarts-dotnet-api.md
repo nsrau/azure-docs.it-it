@@ -1,6 +1,6 @@
 ---
-title: Aggiungere informazioni di accesso a un&quot;API Web .NET MVC usando l&quot;endpoint 2.0 di Azure AD | Documentazione Microsoft
-description: Come creare un&quot;API Web .NET MVC che accetta token da account Microsoft personali, aziendali e dell&quot;istituto di istruzione.
+title: Aggiungere informazioni di accesso a un'API Web .NET MVC usando l'endpoint 2.0 di Azure AD | Documentazione Microsoft
+description: Come creare un'API Web .NET MVC che accetta token da account Microsoft personali, aziendali e dell'istituto di istruzione.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: d063ea881c82b158a196cb5f63e7514777732846
-ms.contentlocale: it-it
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: bb332196aef59a497a1f80b67ab5c1eeef3dee0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-an-mvc-web-api"></a>Proteggere un'API Web MVC
 Con l'endpoint v2.0 di Azure Active Directory è possibile proteggere un'API Web usando token di accesso [OAuth 2.0](active-directory-v2-protocols.md) in modo da consentire agli utenti di accedere all'API Web in modo sicuro con un account Microsoft personale, aziendale o dell'istituto di istruzione.
@@ -126,7 +124,7 @@ public class TodoListController : ApiController
 {
 ```
 
-* Quando un chiamante autorizzato riesce a chiamare una delle API `TodoListController` , l'azione potrebbe richiedere l'accesso alle informazioni relative al chiamante.  OWIN fornisce l'accesso alle attestazioni all'interno del token di connessione tramite l'oggetto `ClaimsPrincpal` .  
+* Quando un chiamante autorizzato riesce a chiamare una delle API `TodoListController` , l'azione potrebbe richiedere l'accesso alle informazioni relative al chiamante.  OWIN fornisce l'accesso alle attestazioni all'interno del token di connessione tramite l'oggetto `ClaimsPrincipal` .  
 
 ```C#
 public IEnumerable<TodoItem> Get()
@@ -161,13 +159,12 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile passare ad altri argomenti.  È possibile:
 
-[Chiamare un'API Web da un'app Web >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
+[Chiamare un'API Web da un'app Web &gt;&gt;](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
 Per altre risorse, vedere:
 
-* [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
+* [Guida per sviluppatori v2.0 &gt;&gt;](active-directory-appmodel-v2-overview.md)
 * [StackOverflow: tag "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-

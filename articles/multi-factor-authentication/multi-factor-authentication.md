@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: kgremban
+ms.openlocfilehash: 231028a7389dba50efe7d197837855b39826f9b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 6239e0affd778f8f64222abce769841b27d6be1d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Informazioni su Azure Multi-Factor Authentication
 La verifica in due passaggi è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. In genere richiede due o più dei metodi di verifica seguenti:
@@ -55,4 +54,3 @@ Azure multi-Factor Authentication è una soluzione semplice da usare, scalabile 
 - Informazioni su [come funziona Azure Multi-Factor Authentication](multi-factor-authentication-how-it-works.md)
 
 - Informazioni sulle diverse [versioni e i metodi di utilizzo per Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
-

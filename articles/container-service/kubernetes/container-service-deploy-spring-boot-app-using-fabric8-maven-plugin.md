@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: yuwzho;robmcm
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: d368e71866406f6011c5cfa75eba13461e8e4ca4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-spring-boot-app-using-the-fabric8-maven-plugin"></a>Distribuire un'app Spring Boot con il plug-in Maven Fabric8
 
 **[Fabric8]**  è una soluzione open source basata su  **[Kubernetes]** che consente agli sviluppatori di creare applicazioni in contenitori Linux.
@@ -547,4 +545,3 @@ Per altri esempi sull'uso delle immagini personalizzate di Docker con Azure, ved
 
 [SB01]: ./media/container-service-deploy-spring-boot-app-using-fabric8-maven-plugin/SB01.png
 [SB02]: ./media/container-service-deploy-spring-boot-app-using-fabric8-maven-plugin/SB02.png
-

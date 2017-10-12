@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d8ad132ec47a81971a3405970eeddab3b1598ff3
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
 Questo articolo offre informazioni sulla risoluzione dei problemi nell'uso del gateway di gestione dati.
@@ -127,7 +126,7 @@ Il gateway è stato registrato in precedenza in altri computer. Durante la regis
 Quando si ripristina il gateway in un computer host diverso, la registrazione guidata richiede questo certificato per decrittografare le credenziali crittografate in precedenza con questo certificato.  Senza questo certificato, le credenziali non possono essere decrittografate dal nuovo gateway e le successive attività di copia associate al nuovo gateway avranno esito negativo.  
 
 #### <a name="resolution"></a>Risoluzione
-Se il certificato delle credenziali è stato esportato dal computer gateway originale con il pulsante **Esporta** disponibile nella scheda** Impostazioni** di Gestione configurazione di Gateway di gestione dati, usare il certificato in quel computer.
+Se il certificato delle credenziali è stato esportato dal computer gateway originale con il pulsante **Esporta** disponibile nella scheda **Impostazioni** di Gestione configurazione di Gateway di gestione dati, usare il certificato in quel computer.
 
 Non è possibile ignorare questo passaggio quando si recupera un gateway. Se il certificato è mancante, è necessario eliminare il gateway dal portale e crearne uno nuovo.  Inoltre, tutti i servizi collegati relativi al gateway devono essere aggiornati immettendo di nuovo le credenziali.
 
@@ -287,4 +286,3 @@ Per informazioni dettagliate sui log del gateway, vedere il registro eventi di W
  Per risolvere i problemi correlati al gateway, cercare gli eventi a livello di errore nel Visualizzatore eventi.
 
 ![Gateway di gestione dati - Log nel Visualizzatore eventi](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
-

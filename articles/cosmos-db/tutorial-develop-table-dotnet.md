@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: mvc
+ms.openlocfilehash: 5322fa5cc8e841ecea97a69d15cf130a4426ad95
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 52cb5f2569b6c3a5301752b1e8bfb6cea13ff7f6
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: sviluppare con l'API Table in .NET
 
@@ -363,4 +362,3 @@ In questa esercitazione è stato illustrato come iniziare a usare Azure Cosmos D
 
 > [!div class="nextstepaction"]
 > [Eseguire query con l'API Table](tutorial-query-table.md)
-

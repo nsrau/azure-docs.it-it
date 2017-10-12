@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 23444297b5231e6a026bcd9ce3ee9f943bf05867
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 574f3c5b3a889733f47d729c795ec39009f2ef4a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Ibiza
 
 Un set di dati di riferimento è una raccolta di elementi che vengono integrati con gli eventi provenienti dall'origine evento. Il motore in ingresso di Time Series Insights esegue il join di un evento dell'origine evento con un elemento del set di dati di riferimento. Questo evento aumentato sarà quindi disponibile per le query. Questo join è basato sulle chiavi definite nel set di dati di riferimento.

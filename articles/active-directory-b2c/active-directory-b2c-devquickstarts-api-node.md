@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD B2C: proteggere un&quot;API Web usando Node.js | Microsoft Docs'
-description: Come compilare un&quot;API Web Node.js che accetta token da un tenant B2C
+title: 'Azure AD B2C: proteggere un''API Web usando Node.js | Microsoft Docs'
+description: Come compilare un'API Web Node.js che accetta token da un tenant B2C
 services: active-directory-b2c
 documentationcenter: 
 author: dstrockis
@@ -14,13 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
-ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
-ms.contentlocale: it-it
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: proteggere un'API Web usando Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -37,7 +35,7 @@ Azure Active Directory (Azure AD) B2C permette di proteggere un'API Web usando i
 Per questo esempio è necessario:
 
 1. Registrare un'applicazione con Azure AD.
-2. Configurare l'applicazione per l'uso del plug-in `azure-ad-passport` di Passport.
+2. Configurare l'applicazione per l'uso del plug-in `passport-azure-ad` di Passport.
 3. Configurare un'applicazione client per chiamare l'API Web To Do List.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Ottenere una directory di Azure AD B2C
@@ -762,4 +760,3 @@ L'errore 401 è la risposta prevista. Indica che il livello Passport sta provand
 Ora è possibile passare ad argomenti più avanzati, ad esempio:
 
 [Connettersi a un'API Web usando iOS con B2C &gt;&gt;](active-directory-b2c-devquickstarts-ios.md)
-

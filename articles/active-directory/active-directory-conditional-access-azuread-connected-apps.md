@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
-ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 1dd3088137b5bd4ff3407c5e5735d93de373ecd5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-active-directory-conditional-access"></a>Introduzione all'accesso condizionale di Azure Active Directory
 L'accesso condizionale di Azure Active Directory per app [SaaS](https://azure.microsoft.com/overview/what-is-saas/) e app connesse ad Azure AD consente di configurare l'accesso condizionale in base a un gruppo, una posizione e alla sensibilità dell'applicazione. 
@@ -87,5 +86,4 @@ Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve esser
 ## <a name="related-articles"></a>Articoli correlati
 * [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
 

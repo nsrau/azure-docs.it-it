@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 2aeaffdd5ab552e18677cbd1a24a748dd14bf172
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 687e5b65e89ae2a79d8e9aa5c4345c91b4943d3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-network-watcher-instance"></a>Creare un'istanza di Azure Network Watcher
 
 Network Watcher è un servizio a livello di area che permette di monitorare e diagnosticare le condizioni al livello di scenario di rete da, verso e all'interno di Azure. Il monitoraggio a livello di scenario permette di diagnosticare i problemi in una visualizzazione completa a livello di rete. Gli strumenti di visualizzazione e diagnostica di rete disponibili in Network Watcher permettono di comprendere, diagnosticare e ottenere informazioni dettagliate sulla rete in Azure.
@@ -90,7 +88,6 @@ Dopo aver creato un'istanza di Network Watcher, è possibile approfondire le fun
 Dopo aver creato un'istanza di Network Watcher, è possibile configurare l'acquisizione pacchetti in base a quanto indicato nell'articolo relativo alla [creazione dell'acquisizione pacchetti attivata da avvisi](network-watcher-alert-triggered-packet-capture.md)
 
 [1]: ./media/network-watcher-create/figure1.png
-
 
 
 

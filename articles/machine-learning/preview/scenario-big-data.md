@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b76253fad43be231591023c4d4466bf6e3f329a0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="server-workload-forecasting-on-terabytes-data"></a>Previsione del carico di lavoro del server con terabyte di dati
 
 Questo esempio illustra in che modo i data scientist possono usare Azure ML Workbench per sviluppare soluzioni che richiedono l'uso di Big Data. Viene illustrato in che modo un utente che usa Azure ML Workbench può seguire un semplice percorso e iniziare da un campione di un set di dati di grandi dimensioni, eseguire l'iterazione della preparazione dei dati, progettare funzionalità e usare l'apprendimento automatico e infine estendere il processo all'intero set di dati di grandi dimensioni. 
@@ -340,7 +338,7 @@ Scegliere una stringa univoca come ambiente per l'operazionalizzazione. Per rapp
 
         az ml env setup -c -n [unique] --location eastus2 --cluster -z 5 --yes
 
-   Si sceglie ora di usare il servizio contenitore di Azure come ambiente usando `--cluster` nel comando `az ml env setup`. Si sceglie di operazionalizzare il modello di apprendimento automatico nel [servizio contenitore di Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-intro-kubernetes) come se usasse [Kubernetes](https://kubernetes.io/) per l'automazione della distribuzione, la scalabilità e la gestione delle applicazioni in contenitore. Questo comando richiede circa 20 minuti per l'esecuzione. Usare 
+   Si sceglie ora di usare il servizio contenitore di Azure come ambiente usando `--cluster` nel comando `az ml env setup`. Si sceglie di operazionalizzare il modello di apprendimento automatico nel [servizio contenitore di Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-intro-kubernetes) come se usasse [Kubernetes](https://kubernetes.io/) per l'automazione della distribuzione, la scalabilità e la gestione delle applicazioni in contenitore. Questo comando richiede circa 20 minuti per l'esecuzione. Uso 
 
         az ml env show -g [unique]rg -n [unique]
 
@@ -433,4 +431,3 @@ Questo esempio illustra come usare Azure ML Workbench per il training di un mode
 
 Gli utenti possono estendere il codice per esplorare la convalida incrociata e l'ottimizzazione di iperparametri. Per altre informazioni sulla convalida incrociata e sull'ottimizzazione di iperparametri, visitare https://github.com/Azure/MachineLearningSamples-DistributedHyperParameterTuning.  
 Per altre informazioni sulla previsione in serie temporale, visitare https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting.
-

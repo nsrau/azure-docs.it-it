@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
 ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guida di post-produzione per le offerte di macchine virtuali in Azure Marketplace
 Questo articolo spiega come aggiornare un'offerta di macchine virtuali attiva in Azure Marketplace. L'articolo illustra il processo di aggiunta di uno o più nuovi SKU a un'offerta esistente. Illustra anche il processo di rimozione dell'offerta attiva di una macchina virtuale o di una SKU dal Marketplace.
@@ -210,7 +210,7 @@ Per aggiungere un nuovo SKU nell'offerta attiva, seguire la procedura seguente:
 4. Nella finestra di dialogo immettere un **Identificatore di SKU** in minuscolo. Selezionare la casella di controllo **Bring your own license (BYOL) billing model** (Modello di fatturazione Bring your own license (BYOL)) se si desidera pubblicare il nuovo SKU con tale modello. In caso contrario, deselezionare la casella di controllo. Selezionare il segno di spunta per creare un nuovo SKU. Se è stato scelto il modello di fatturazione BYOL, il modello di fatturazione viene impostato automaticamente ad ogni ora. Se si desidera la versione di prova gratuita di 30 giorni per il modello di fatturazione oraria, selezionare **Un mese** in **Is a free trial available?** (È disponibile una versione di valutazione gratuita?). In caso contrario, selezionare **Nessuna versione di prova**. (**Is a free trial available?** (È disponibile una versione di valutazione gratuita?) viene visualizzato solo se non è stato selezionato il metodo BYOL durante la creazione del nuovo SKU).
 
    > [!IMPORTANT]
-   > **Hide this SKU from the Marketplace because it should always be bought via a solution template** (Nascondi questo SKU da Marketplace perché deve essere sempre acquistato usando un modello di soluzione) deve essere contrassegnata come **Sì** *solo* se è stata ottenuta l'approvazione per la pubblicazione di un modello di soluzione. Diversamente, l'opzione deve essere sempre **No**.
+   > **Hide this SKU from the Marketplace because it should always be bought via a solution template** (Nascondi questo SKU da Marketplace perché deve essere sempre acquistato usando un modello di soluzione) deve essere contrassegnata come **Sì***solo* se è stata ottenuta l'approvazione per la pubblicazione di un modello di soluzione. Diversamente, l'opzione deve essere sempre **No**.
    >
    >
 4. Nel menu a sinistra fare clic sulla scheda **Immagini VM** e trovare il nuovo SKU che è stato creato.

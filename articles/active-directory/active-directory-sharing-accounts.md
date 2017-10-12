@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b689a0033103231d560c9ba4b349e675f304e35c
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: b5a6bad6eca3f0262d5cc2ac01fb3a4eb3676e5e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
 ## <a name="overview"></a>Overview
@@ -76,5 +75,4 @@ Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite M
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access.md)
 * [Gestione di gruppi self-service/SSAA](active-directory-accessmanagement-self-service-group-management.md)
-
 

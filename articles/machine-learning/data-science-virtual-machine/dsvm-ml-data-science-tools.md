@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="machine-learning-and-data-science-tools"></a>Strumenti per machine learning e data science
 La macchina virtuale per data science offre un ampio set di strumenti e librerie per machine learning disponibili nei linguaggi più diffusi, ad esempio Python, R, Julia. 
 
@@ -95,4 +93,3 @@ Ecco alcuni strumenti di machine learning e librerie nella macchina virtuale per
 | Strumenti correlati nella macchina virtuale per data science      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
 
 Esistono molte altre librerie ML sulla macchina virtuale per data science come il noto pacchetto `scikit-learn` incluso nella distribuzione Anaconda Python installata nella macchina virtuale per data science. Assicurarsi di controllare l'elenco dei pacchetti disponibili in Python, R e Julia eseguendo i rispettivi strumenti di gestione dei pacchetti. 
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: tamram
+ms.openlocfilehash: 87594d2688e3cd01f5e7db8f5be8ca513969e774
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 7a432a22c5c2c2fc5e42cfe000dd34262ba4c85e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Introduzione all'archivio BLOB di Azure con .NET
 
@@ -402,4 +401,3 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
 * [Trasferire dati con l'utilità della riga di comando AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Come usare l'archiviazione file di Azure](../files/storage-dotnet-how-to-use-files.md)
 * [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
-

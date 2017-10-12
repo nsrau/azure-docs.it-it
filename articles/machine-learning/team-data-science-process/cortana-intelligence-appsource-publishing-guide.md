@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
 ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guida alla pubblicazione di Cortana Intelligence in AppSource
 

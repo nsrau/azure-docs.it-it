@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 95b088d2fdc331dc33e973172d32892693fcb648
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Domande frequenti
 Questo articolo è valido per la versione 2 del servizio Azure Data Factory. Fornisce un elenco di domande frequenti (FAQ) e le relative risposte.  
@@ -27,22 +26,22 @@ Questo articolo è valido per la versione 2 del servizio Azure Data Factory. For
 ## <a name="what-is-azure-data-factory"></a>Che cos'è Azure Data Factory? 
 Data Factory è un servizio di integrazione dei dati completamente gestito e basato sul cloud che automatizza lo spostamento e la trasformazione dei dati. Analogamente a quanto avviene in uno stabilimento di produzione, in cui vengono usate attrezzature per trasformare le materie prime in prodotti finiti, Azure Data Factory orchestra i servizi esistenti che raccolgono i dati non elaborati e li trasforma in informazioni pronte per l'uso. Azure Data Factory consente di creare flussi di lavoro basati sui dati per spostare dati dagli archivi locali a quelli sul cloud e viceversa, nonché per elaborare o trasformare i dati usando servizi di calcolo come Azure HDInsight, Azure Data Lake Analytics e il runtime di esecuzione di SQL Server Integration Services (SSIS). Data Factory offre la possibilità di eseguire l'elaborazione dei dati in un servizio cloud basato su Azure oppure di utilizzare l'ambiente di calcolo self-hosted, ad esempio SSIS, SQL Server e Oracle. Dopo aver creato una pipeline che esegue l'azione necessaria, è possibile pianificarne l'esecuzione periodica (ogni ora, giorno, settimana e così via) oppure eseguire il trigger della pipeline all’occorrenza di un evento. Per altre informazioni, vedere l'[introduzione ad Azure Data Factory](introduction.md).
 
-## <a name="whats-different-in-version-2"></a>Quali sono le differenze nella versione 2?
+## <a name="whats-different-in-version-2"></a>Differenze nella versione 2
 Azure Data Factory versione 2 si basa sul servizio di trasformazione e spostamento di dati di Azure Data Factory originale, aggiungendo un set più ampio di scenari di integrazione dati cloud-first. Azure Data Factory versione 2 offre le funzionalità seguenti:
 
 - Flusso di controllo e scalabilità
 - Distribuzione ed esecuzione di pacchetti SSIS in Azure
 
-Dopo il rilascio della versione 1 è stato constatata la necessità dei clienti di progettare complessi scenari di integrazione di dati ibridi che richiedono sia lo spostamento dei dati sia l'elaborazione nel cloud, in locale e nelle macchine virtuali cloud. Questi requisiti hanno introdotto la necessità di trasferire ed elaborare i dati all'interno di ambienti di rete virtuale protetti e di scalare orizzontalmente con la potenza di elaborazione su richiesta.
+Dopo il rilascio della versione 1 è stato constatato che i clienti hanno la necessità di progettare complessi scenari di integrazione di dati ibridi che richiedono sia lo spostamento dei dati sia l'elaborazione nel cloud, in locale e nelle macchine virtuali cloud. Questi requisiti hanno introdotto la necessità di trasferire ed elaborare i dati all'interno di ambienti di rete virtuale protetti e di scalare orizzontalmente con la potenza di elaborazione su richiesta.
 
-Mano a mano che le pipeline di dati diventano una parte essenziale di una strategia di analisi business, è stato osservato che queste attività di dati critiche richiedono una pianificazione flessibile per supportare carichi di dati incrementali ed esecuzioni attivate da eventi. Infine, la crescente complessità di queste orchestrazioni implica anche l'aumento del requisito del servizio per supportare i paradigmi comuni del flusso di lavoro, inclusi la creazione di rami, i cicli e l'elaborazione condizionale.
+Mano a mano che le pipeline di dati diventano una parte essenziale della strategia di analisi business, è stato osservato che queste attività di dati critiche richiedono una pianificazione flessibile per supportare carichi di dati incrementali ed esecuzioni attivate da eventi. Infine, la crescente complessità di queste orchestrazioni implica anche l'aumento del requisito per il servizio di supportare i paradigmi comuni del flusso di lavoro, inclusi la creazione di rami, i cicli e l'elaborazione condizionale.
 
-Con la versione 2 è possibile anche migrare i pacchetti SQL Server Integration Services (SSIS) esistenti nel cloud per trasferire in modalità lift-and-shift SSIS come servizio Azure gestito all'interno del file di definizione dell'applicazione (ADF) usando una nuova funzionalità del "runtime di integrazione". Avviando un runtime di integrazione SSIS nella versione 2, è possibile eseguire, gestire, monitorare e compilare pacchetti SSIS nel cloud.
+Con la versione 2 è possibile anche migrare i pacchetti SQL Server Integration Services (SSIS) esistenti nel cloud per trasferire in modalità lift-and-shift SSIS come servizio Azure gestito all'interno del file di definizione dell'applicazione (ADF) usando una nuova funzionalità di "runtime di integrazione". Avviando un runtime di integrazione SSIS nella versione 2, è possibile eseguire, gestire, monitorare e compilare pacchetti SSIS nel cloud.
 
 ### <a name="control-flow-and-scale"></a>Flusso di controllo e scalabilità 
-Per supportare l'integrazione di flussi e criteri di integrazione diversi nel data warehouse moderno, Data Factory ha abilitato un nuovo modello di pipeline di dati che non è più associato con i dati delle serie temporali. Con questa versione, è possibile modellare le istruzioni condizionali e la creazione di rami nel flusso di controllo di una pipeline di dati e passare in modo esplicito i parametri all'interno e tra questi flussi.
+Per supportare l'integrazione di flussi e criteri di integrazione diversi nel data warehouse moderno, Data Factory ha abilitato un nuovo modello di pipeline di dati che non è più associato ai dati delle serie temporali. Con questa versione è possibile modellare le istruzioni condizionali e la creazione di rami nel flusso di controllo di una pipeline di dati e passare in modo esplicito i parametri all'interno dei flussi e tra i diversi flussi.
 
-Ora è possibile di modellare qualsiasi stile flusso necessario per l’integrazione di dati e inviato su richiesta o più volte in una pianificazione di clock. Alcuni flussi comuni ora abilitati che in precedenza non erano possibili sono:   
+Ora è possibile modellare qualsiasi stile di flusso necessario per l'integrazione di dati e definire l'invio su richiesta o ripetutamente in una pianificazione basata sul tempo. Alcuni flussi comuni, in precedenza non possibili, sono ora abilitati:   
 
 - Flusso di controllo:
     - Il concatenamento di attività in una sequenza all'interno di una pipeline
@@ -57,7 +56,7 @@ Ora è possibile di modellare qualsiasi stile flusso necessario per l’integraz
 - Flussi attivati da trigger
     - Le pipeline possono essere attivate su richiesta o con una pianificazione basata sul tempo reale
 - Flussi delta
-    - Utilizzare i parametri e definire il limite massimo per la copia delta durante lo spostamento delle tabelle di dimensione o di riferimento da un archivio relazionale a locale o nel cloud per caricare i dati nel lake 
+    - Usare i parametri e definire il limite massimo per la copia delta durante lo spostamento delle tabelle delle dimensioni o di riferimento da un archivio relazionale in locale o nel cloud per caricare i dati nel lake 
 
 Per altre informazioni, vedere [esercitazione: flusso di controllo](tutorial-control-flow.md).
 
@@ -102,7 +101,7 @@ Se si ha familiarità con Azure Data Factory, iniziare direttamente con la versi
 Una sottoscrizione di Azure può includere una o più istanze di Azure Data Factory (o data factory). Azure Data Factory è costituito da quattro componenti chiave che insieme forniscono la piattaforma nella quale è possibile comporre flussi di lavoro basati sui dati con passaggi per lo spostamento e la trasformazione dei dati stessi.
 
 ### <a name="pipeline"></a>Pipeline
-Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività per eseguire un'unità di lavoro. che insieme eseguono un'operazione. Una pipeline, ad esempio, può contenere un gruppo di attività che inserisce dati da un BLOB di Azure e quindi esegue una query Hive in un cluster HDInsight per partizionare i dati. La pipeline offre il vantaggio di poter gestire le attività come un set anziché singolarmente. Le attività in una pipeline possono essere concatenate per funzionare in modo sequenziale o operare indipendentemente in parallelo
+Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività per eseguire un'unità di lavoro. che insieme eseguono un'operazione. Una pipeline, ad esempio, può contenere un gruppo di attività che inserisce dati da un BLOB di Azure e quindi esegue una query Hive in un cluster HDInsight per partizionare i dati. La pipeline offre il vantaggio di poter gestire le attività come un set anziché singolarmente. Le attività in una pipeline possono essere concatenate per funzionare in modo sequenziale o indipendentemente in parallelo
 
 ### <a name="activity"></a>Attività
 Le attività rappresentano un passaggio di elaborazione in una pipeline. Ad esempio, è possibile usare un'attività Copia per copiare i dati da un archivio dati all'altro. Allo stesso modo, è possibile usare un'attività Hive che esegue una query Hive su un cluster Azure HDInsight per trasformare o analizzare i dati. Il servizio Data Factory supporta tre tipi di attività: attività di spostamento dei dati, attività di trasformazione dei dati e attività di controllo
@@ -123,7 +122,7 @@ I trigger rappresentano l'unità di elaborazione che determina quando deve esser
 
 
 ### <a name="pipeline-runs"></a>Esecuzioni di pipeline
-Un'esecuzione di pipeline è un'istanza dell'esecuzione della pipeline. Le istanze delle esecuzioni di pipeline vengono create in genere mediante il passaggio di argomenti ai parametri definiti nelle pipeline. Gli argomenti possono essere passati manualmente o all'interno della definizione di trigger
+Un'esecuzione di pipeline è un'istanza dell'esecuzione della pipeline. Le istanze delle esecuzioni di pipeline vengono create in genere passando gli argomenti ai parametri definiti nelle pipeline. Gli argomenti possono essere passati manualmente o all'interno della definizione di trigger
 
 ### <a name="parameters"></a>parameters
 I parametri sono coppie chiave-valore della configurazione di sola lettura.  I parametri vengono definiti nella pipeline e gli argomenti per i parametri definiti vengono passati durante l'esecuzione dal contesto di esecuzione creato da un trigger o da una pipeline eseguita manualmente. Le attività all'interno della pipeline usano i valori dei parametri.
@@ -132,12 +131,12 @@ Un set di dati è un parametro fortemente tipizzato e un'entità referenziabile/
 Inoltre, anche un servizio collegato è un parametro fortemente tipizzato contenente le informazioni di connessione a un archivio dati o a un ambiente di calcolo. È anche un'entità referenziabile/riutilizzabile.
 
 ### <a name="control-flow"></a>Flusso di controllo
-Orchestrazione delle attività della pipeline che include il concatenamento di attività in una sequenza, la creazione di rami, i parametri definibili a livello di pipeline e gli argomenti passati durante la chiamata della pipeline su richiesta o da un trigger. Include anche contenitori personalizzati di ciclo e passaggio stato, vale a dire iteratori per ogni ciclo.
+Orchestrazione delle attività della pipeline che include il concatenamento di attività in una sequenza, la creazione di rami, i parametri definibili a livello di pipeline e gli argomenti passati durante la chiamata della pipeline su richiesta o da un trigger. Include anche il passaggio di stati personalizzati e i contenitori di ciclo, vale a dire gli iteratori For-Each.
 
 
 Per altre informazioni sui concetti relativi a Data Factory, vedere gli articoli seguenti:
 
-- [Set di dati e i servizi collegati](concepts-datasets-linked-services.md)
+- [Set di dati e servizi collegati](concepts-datasets-linked-services.md)
 - [Pipeline e attività](concepts-pipelines-activities.md)
 - [Runtime di integrazione](concepts-integration-runtime.md)
 
@@ -194,5 +193,4 @@ Per istruzioni dettagliate per la creazione di una data factory della versione 2
 
 - [Guida introduttiva: creare una data factory](quickstart-create-data-factory-dot-net.md)
 - [Esercitazione: copiare i dati nel cloud](tutorial-copy-data-dot-net.md)
-
 

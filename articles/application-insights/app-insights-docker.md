@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: b082e345ca1bb3b12c548e05e699474d3aa9306c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: b0d98688518acd2157905fda6a9a847763e45ae7
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Monitoraggio di applicazioni Docker in Application Insights
 I contatori delle prestazioni e degli eventi del ciclo di vita da contenitori [Docker](https://www.docker.com/) possono essere disegnati in Application Insights. Installare l'immagine di [Application Insights](app-insights-overview.md) in un contenitore dell'host. Verranno visualizzati i contatori delle prestazioni per l'host e per le altre immagini.
@@ -130,4 +129,3 @@ Tempo di elaborazione e contatori delle prestazioni di memoria disponibile, arri
 * [Application Insights per Java](app-insights-java-get-started.md)
 * [Application Insights per Node.js](app-insights-nodejs.md)
 * [Application Insights per ASP.NET](app-insights-asp-net.md)
-

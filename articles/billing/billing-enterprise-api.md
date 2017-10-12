@@ -3,7 +3,7 @@ title: API per clienti Enterprise per la fatturazione di Azure | Microsoft Docs
 description: Informazioni sulle API di creazione di report che consentono ai clienti Enterprise di Azure di estrarre i dati sull'uso a livello di codice.
 services: 
 documentationcenter: 
-author: aedwin
+author: anandedwin
 manager: aedwin
 editor: 
 tags: billing
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
+ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: e3a5f9bcd6b54a51c29df649f1ae8ac185b153a1
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Panoramica delle API di creazione di report per i clienti Enterprise
 Le API di creazione di report consentono ai clienti Enterprise di Azure di estrarre i dati di fatturazione e sull'uso a livello di codice per inserirli negli strumenti di analisi preferiti. 
@@ -36,16 +35,16 @@ Le API di creazione di report consentono ai clienti Enterprise di Azure di estra
 ## <a name="consumption-apis"></a>API per l'uso
 Per le API descritte di seguito, [qui](https://consumption.azure.com/swagger/ui/index) è disponibile un endpoint Swagger che deve consentire una facile analisi dell'API e la possibilità di generare SDK client tramite [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](http://swagger.io/swagger-codegen/). I dati a partire dal 1° maggio 2014 sono disponibili tramite questa API. 
 
-* **Saldi e riepilogo** - L'[API per saldi e riepilogo](billing-enterprise-api-balance-summary.md) offre un riepilogo mensile delle informazioni su saldi, nuovi acquisti, addebiti per il servizio Azure Marketplace e spese per modifiche e da pagare in eccedenza.
+* **Saldi e riepilogo** - L'[API per saldi e riepilogo](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) offre un riepilogo mensile delle informazioni su saldi, nuovi acquisti, addebiti per il servizio Azure Marketplace e spese per modifiche e da pagare in eccedenza.
 
-* **Dettagli sull'uso** - L'[API per dettagli sull'uso](billing-enterprise-api-usage-detail.md) offre un'analisi giornaliera dettagliata delle quantità usate e delle spese stimate in relazione a una registrazione. Il risultato include anche informazioni su istanze, contatori e reparti. Le query sull'API possono essere eseguite in base al periodo di fatturazione oppure in base a un intervallo definito da date di inizio e di fine specificate. 
+* **Dettagli sull'uso** - L'[API per dettagli sull'uso](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) offre un'analisi giornaliera dettagliata delle quantità usate e delle spese stimate in relazione a una registrazione. Il risultato include anche informazioni su istanze, contatori e reparti. Le query sull'API possono essere eseguite in base al periodo di fatturazione oppure in base a un intervallo definito da date di inizio e di fine specificate. 
 
-* **Spese per Marketplace Store** - L'[API per spese per il Marketplace Store](billing-enterprise-api-marketplace-storecharge.md) restituisce le spese giornaliere dettagliate in base all'uso correlate al Marketplace per il periodo di fatturazione specificato o per le date di inizio e fine indicate (le spese una tantum non sono incluse).
+* **Spese per Marketplace Store** - L'[API per spese per il Marketplace Store](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) restituisce le spese giornaliere dettagliate in base all'uso correlate al Marketplace per il periodo di fatturazione specificato o per le date di inizio e fine indicate (le spese una tantum non sono incluse).
 
-* **Elenco prezzi** - L'[API elenco prezzi](billing-enterprise-api-pricesheet.md) offre la tariffa applicabile per ogni contatore per la registrazione e il periodo di fatturazione specificati. 
+* **Elenco prezzi** - L'[API elenco prezzi](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) offre la tariffa applicabile per ogni contatore per la registrazione e il periodo di fatturazione specificati. 
 
 ## <a name="helper-apis"></a>API di supporto
- **Elenco periodi di fatturazione** - L'[API per periodi di fatturazione](billing-enterprise-api-billing-periods.md) restituisce un elenco di periodi di fatturazione contenente i dati sull'uso per la registrazione specificata in ordine cronologico inverso. Ogni periodo contiene una proprietà che punta alla route API per i quattro set di dati, ovvero BalanceSummary, UsageDetails, MarketplaceCharges e PriceSheet.
+ **Elenco periodi di fatturazione** - L'[API per periodi di fatturazione](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) restituisce un elenco di periodi di fatturazione contenente i dati sull'uso per la registrazione specificata in ordine cronologico inverso. Ogni periodo contiene una proprietà che punta alla route API per i quattro set di dati, ovvero BalanceSummary, UsageDetails, MarketplaceCharges e PriceSheet.
 
 
 ## <a name="api-response-codes"></a>Codici di risposta dell'API  
@@ -56,7 +55,6 @@ Per le API descritte di seguito, [qui](https://consumption.azure.com/swagger/ui/
 |404| Non disponibile| Endpoint del report non trovato|
 |400| Bad Request| Parametri non validi (intervalli di date, numeri EA e così via)|
 |500| Errore del server| Errore imprevisto nell'elaborazione della richiesta| 
-
 
 
 

@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: dc3162ae8e6ce622139125c2e78fa45d2e90d534
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Chiamare un'API Web da un'applicazione Web .NET
 Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app Web e alle API Web con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione.  Di seguito viene creata un'app Web MVC che consente agli utenti di accedere tramite OpenID Connect e con l'aiuto del middleware OWIN di Microsoft.  L'applicazione Web otterrà i token di accesso OAuth 2.0 per un'api Web protetta da OAuth 2.0 che consente di creare, leggere ed eliminare le voci dell'elenco attività di un determinato utente.
@@ -194,7 +194,7 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre risorse, vedere:
 
-* [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
+* [Guida per sviluppatori v2.0 &gt;&gt;](active-directory-appmodel-v2-overview.md)
 * [StackOverflow: tag "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti

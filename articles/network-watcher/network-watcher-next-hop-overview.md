@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 864185e62fb6c3cef4116824b36ee7e5d3447662
-ms.contentlocale: it-it
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: bb2ca0486b3b3d27a77b70927cb3cbfbeac12c7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-next-hop-in-azure-network-watcher"></a>Introduzione all'hop successivo in Azure Network Watcher
 
 Il traffico proveniente da una macchina virtuale viene inviato a una destinazione in base alle route valide associate alla scheda di interfaccia di rete. L'hop successivo ottiene il tipo di hop successivo e l'indirizzo IP di un pacchetto da una macchina virtuale e una scheda di interfaccia di rete specifiche. Ciò consente di determinare se il pacchetto viene indirizzato a destinazione o se il traffico viene inviato a un black hole. Una configurazione errata delle route da parte dell'utente, in cui il traffico viene indirizzato a un percorso locale oppure a un dispositivo virtuale, può causare problemi di connettività. L'hop successivo restituisce anche la tabella di route associata all'hop successivo. Quando si eseguono query su un hop successivo, viene restituita la route, se definita dall'utente. In caso contrario l'hop successivo restituisce la route di sistema.
@@ -44,7 +42,6 @@ Per informazioni su come usare l'hop successivo per rilevare i problemi di conne
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png
-
 
 
 

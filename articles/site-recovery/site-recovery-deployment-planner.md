@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -612,4 +611,3 @@ L'anteprima pubblica di Azure Site Recovery Deployment Planner 1.0 presenta i pr
 * Lo strumento funziona solo per scenari da VMware ad Azure, non per distribuzioni da Hyper-V ad Azure. Per gli scenari da Hyper-V ad Azure, usare lo [strumento di pianificazione della capacità di Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * L'operazione GetThroughput non è supportata nelle aree US Government e Cina di Microsoft Azure.
 * Lo strumento non può profilare VM se il server vCenter ha due o più VM con lo stesso nome o indirizzo IP in host ESXi differenti. In questa versione, lo strumento ignora la profilatura di VM con nomi o indirizzi IP duplicati nel parametro VMListFile. La soluzione alternativa prevede di profilare le VM usando un host ESXi invece del server vCenter. È necessario eseguire una sola istanza per ogni host ESXi.
-

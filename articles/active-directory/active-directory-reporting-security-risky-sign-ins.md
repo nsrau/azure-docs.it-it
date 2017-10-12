@@ -13,12 +13,11 @@ ms.workload: identity
 ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Report degli accessi a rischio nel portale di Azure Active Directory
 
@@ -135,5 +134,4 @@ Verrà visualizzato il pannello **Dettagli** per questo evento di rischio. Nel p
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni in merito, vedere [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
-
 

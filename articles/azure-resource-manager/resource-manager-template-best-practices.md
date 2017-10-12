@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
 ms.openlocfilehash: a23301ba88279af3f7bf4d353ae808e9eeb0900d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Procedure consigliate per la creazione di modelli di Azure Resource Manager
 Le linee guida seguenti consentono di creare modelli di Azure Resource Manager affidabili e facili da usare; sono quindi da considerare solo come suggerimenti e non come requisiti assoluti, salvo diversa indicazione. I diversi scenari potrebbero richiedere una variazione rispetto agli approcci o esempi seguenti.

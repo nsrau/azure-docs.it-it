@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
+ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b0ab5a47e335998a7f1135b5715e9c50b89b6a68
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Bilanciare il carico dei contenitori in un cluster DC/OS del servizio contenitore di Azure
 Questo articolo illustra come creare un servizio di bilanciamento del carico interno in un servizio contenitore di Azure gestito di tipo DC/OS con Marathon-LB. Questa configurazione supporta la scalabilità orizzontale delle applicazioni e consente anche di sfruttare i cluster di agenti pubblici e privati inserendo i servizi di bilanciamento del carico nel cluster pubblico e i contenitori di applicazioni nel cluster privato. In questa esercitazione si apprenderà come:

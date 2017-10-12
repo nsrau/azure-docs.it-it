@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 6c65427fcd18e41a90dfb872aa9525f758b17b87
-ms.contentlocale: it-it
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: d384a1f6e0f6bf49cf94020265fe5675ffc0029d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
 Un *webhook* consente di avviare un Runbook specifico in Automazione di Azure tramite una singola richiesta HTTP. In questo modo, i servizi esterni come Visual Studio Team Services, GitHub o Microsoft Operations Management Suite Log Analytics o le applicazioni personalizzate possono avviare i runbook senza implementare una soluzione completa usando l'API di Automazione di Azure.  
@@ -267,4 +266,3 @@ Il seguente runbook di esempio viene attivato quando la regola dell'avviso diven
 * Per informazioni dettagliate sulle diverse modalità disponibili per l'avvio dei runbook, vedere [Avvio di un runbook](automation-starting-a-runbook.md).
 * Per informazioni sulla visualizzazione dello stato di un processo del runbook, vedere [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md).
 * Per informazioni su come usare Automazione di Azure per agire sugli avvisi di Azure, vedere [Soluzione di Automazione di Azure: risolvere gli avvisi delle macchine virtuali di Azure](automation-azure-vm-alert-integration.md).
-

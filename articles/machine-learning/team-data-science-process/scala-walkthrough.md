@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;deguhath
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f1d9ab5186684c4aac806ace4ebfd38ca1fb306
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analisi scientifica dei dati tramite Scala e Spark in Azure
 Questo articolo illustra come usare Scala per attività di Machine Learning con supervisione con la libreria MLlib scalabile per Spark e pacchetti Spark ML in un cluster Spark di Azure HDInsight. Vengono illustrate le attività che costituiscono il [processo di analisi scientifica dei dati](http://aka.ms/datascienceprocess), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione, la modellazione e l'uso dei modelli. I modelli in questo articolo includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti (GBT), oltre a due attività comuni di Machine Learning supervisionato:
@@ -1108,5 +1107,4 @@ Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle
 [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](walkthroughs.md) descrive altre procedure dettagliate end-to-end che illustrano i passaggi del processo di analisi scientifica dei dati per i team in scenari specifici. Le procedure dettagliate illustrano anche come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.
 
 [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](spark-model-consumption.md) illustra come usare il codice di Scala per caricare automaticamente nuovi set di dati e assegnare loro un punteggio con modelli di Machine Learning compilati in Spark e salvati nell'archiviazione BLOB di Azure. È possibile seguire le istruzioni illustrate nell'argomento e sostituire semplicemente il codice Python con il codice Scala indicato in questo articolo per abilitare l'uso automatico.
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: chackdan
+ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 6cc3be57ed283cafa686d46d4b376c69f06301ea
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure. I set di scalabilità possono essere usati per distribuire e gestire una raccolta di macchine virtuali come un set. Configurare un set di scalabilità di macchine virtuali separato per ogni tipo di nodo definito in un cluster di Azure Service Fabric. È possibile aumentare o ridurre in modo indipendente ogni nodo, avere diversi set di porte aperte e usare metriche per la capacità diverse.
@@ -150,4 +149,3 @@ Per modificare la password per tutti i nodi di un determinato tipo di nodo, comp
 [LBBlade]: ./media/service-fabric-cluster-nodetypes/LBBlade.png
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b783f7e8cfef991e7028ba4b4c7b1d0935397580
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-web-app-for-containers-faq"></a>Domande frequenti sulle app Web per contenitori del servizio app di Azure
 
@@ -138,4 +137,3 @@ Per le impostazioni dell'applicazione è possibile usare solo lettere (A-Z, a-z)
 * [Che cos'è App Web di Azure per contenitori?](app-service-linux-intro.md)
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Distribuzione continua con App Web di Azure per contenitori](./app-service-linux-ci-cd.md)
-

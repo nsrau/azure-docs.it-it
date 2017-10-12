@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-azure-backup-server-v2"></a>Installare il server di Backup di Azure v2
 
 Il server di Backup di Azure consente di proteggere macchine virtuali (VM), carichi di lavoro, file e cartelle, e altro ancora. Il server di Backup di Azure v2 si basa sul server di Backup di Azure v1 e offre nuove funzionalità che non sono disponibili nella v1. Per un confronto delle funzionalità fra la v1 e la v2, vedere [Matrice di protezione del server di Backup di Azure](backup-mabs-protection-matrix.md). 
@@ -288,5 +286,4 @@ Leggere le informazioni su come preparare il server o iniziare a proteggere un c
 - [Usare il server di backup per eseguire il backup di un server VMware](backup-azure-backup-server-vmware.md)
 - [Usare il server di backup per eseguire il backup di SQL Server](backup-azure-sql-mabs.md)
 - [Usare Modern Backup Storage con il server di backup](backup-mabs-add-storage.md)
-
 

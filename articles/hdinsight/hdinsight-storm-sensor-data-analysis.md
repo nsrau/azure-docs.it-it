@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/09/2017
 ms.author: larryfr
+ms.openlocfilehash: 3c66f9ea025a2d245cdf907be9f3c586f1ed45ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0d1cc959c87bd64ed728f8b56c9b9156fa492a8b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Analizzare i dati del sensore con Apache Storm, hub eventi e HBase in HDInsight (Hadoop)
 
@@ -176,7 +175,7 @@ eventhub.partitions: 2
 Prima di eseguire il test, è necessario avviare il dashboard per visualizzare l'output della topologia e generare i dati da archiviare nell'hub eventi.
 
 > [!IMPORTANT]
-> Il componente HBase di questa topologia non è attivo durante il test locale. L'API Java per il cluster HBase non è accessibile dall'esterno della rete virtuale di Azure che contiene i cluster.
+> Il componente HBase di questa topologia non è attivo durante il test locale, L'API Java per il cluster HBase non è accessibile dall'esterno della rete virtuale di Azure che contiene i cluster.
 
 ### <a name="start-the-web-application"></a>Avviare l'applicazione Web
 
@@ -524,4 +523,3 @@ Per altre informazioni sulla creazione di topologie in Java, vedere [Sviluppo di
 Per altre informazioni sulla creazione di topologie in .NET, vedere [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://portal.azure.com
-

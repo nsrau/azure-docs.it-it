@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: d42045b1c354b7bd5f9299181aefd6d98fda382b
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 270d1aec5855ee3bb9cc121526d311ab78d989c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-documentation"></a>Documentazione sull'hub IoT 
 
 Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Internet of Things) per monitorarli e controllarli. Esercitazioni, informazioni di riferimento sulle API, video e altri documenti in cui viene illustrato come distribuire comunicazioni affidabili e bidirezionali tra dispositivi IoT e un backend di soluzione. 
@@ -168,4 +166,3 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
         </div>
     </li>
 </ul>
-

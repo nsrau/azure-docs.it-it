@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 573e940c5390e7b990d889681eb37b73c5b253d9
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Informazioni di riferimento sull'API di controllo di Azure Active Directory
 Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory.  
@@ -241,5 +240,4 @@ non fa distinzione tra maiuscole e minuscole
 ## <a name="next-steps"></a>Passaggi successivi
 * Si desidera vedere esempi sulle attività di sistema filtrate? Vedere gli [esempi dell'API di controllo Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Si desiderano altre informazioni sull'API di creazione report di Azure AD? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
 

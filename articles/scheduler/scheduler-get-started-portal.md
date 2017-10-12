@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
 L'Utilità di pianificazione di Azure permette di creare facilmente processi pianificati. In questa esercitazione si apprenderà come creare un processo. Si apprenderanno anche le funzionalità di monitoraggio e gestione dell'Utilità di pianificazione.
@@ -43,7 +42,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
       ![][action-settings]
 5. Infine, definire una pianificazione. È possibile impostare il processo come unico, ma in questo esempio viene selezionata una pianificazione ricorrenza.
    
-   1. **Ricorrenza:** `Recurring`
+   1. **Ricorrenza:**`Recurring`
    2. **Inizia**: data odierna
    3. **Ricorre ogni:** `12 Hours`
    4. **Termina entro**: due giorni dalla data odierna  
@@ -153,4 +152,3 @@ Il controllo degli accessi in base al ruolo di Azure consente una gestione degli
 [13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
-

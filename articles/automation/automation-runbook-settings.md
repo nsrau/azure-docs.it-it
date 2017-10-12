@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ac8b5372aa06eac8c9a701f0621dbb675fbb565c
-ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 534ea7e3f2f8e5640db4d351c2bb3245f29b6eec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="runbook-settings"></a>Impostazioni dei runbook
 Ogni runbook in Automazione di Azure dispone di più impostazioni che consentono di identificarlo e di modificarne il comportamento di registrazione. Per ognuna di queste impostazioni, di seguito viene riportata una descrizione e vengono illustrate le procedure di modifica.
@@ -59,5 +58,4 @@ I comandi di esempio seguenti illustrano come impostare le proprietà di un runb
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come creare e recuperare l'output e i messaggi di errore da runbook, vedere [Messaggi e output del runbook](automation-runbook-output-and-messages.md). 
 * Per informazioni su come aggiungere un runbook già sviluppato dalla community o da un'altra origine o su come creare runbook propri, vedere [Creazione o importazione di un runbook](automation-creating-importing-runbook.md). 
-
 

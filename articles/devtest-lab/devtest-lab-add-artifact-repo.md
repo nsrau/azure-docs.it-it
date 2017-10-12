@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Aggiungere un repository Git per archiviare elementi personalizzati e modelli di Resource Manager
 
@@ -42,11 +41,11 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Ottenere l'URL clone dell'archivio GitHub e il token di accesso personale
 
 1. Andare alla home page del repository GitHub contenente le definizioni degli elementi o dei modelli di Resource Manager.
-2. Selezionare **Clone or download** (Clona o scarica).
+2. Selezionare **Clona o scarica**.
 3. Per copiare l'URL negli Appunti, fare clic sul pulsante**HTTPS clone url** (URL clone HTTPS). Salvare l'URL per usarlo in seguito.
 4. Nell'angolo superiore destro di GitHub selezionare l'immagine del profilo e quindi **Settings** (Impostazioni).
 5. Nel menu **Impostazioni personali** a sinistra selezionare **Token di accesso personali**.
-6. Selezionare **Generate new token** (Genera nuovo token).
+6. Selezionare **Genera nuovo token**.
 7. Nella pagina **New personal access token** (Nuovo token di accesso personale) immettere una descrizione in **Token description** (Descrizione token). Accettare gli elementi predefiniti in **Select scopes** (Selezione ambiti) e quindi selezionare **Generate Token** (Genera token).
 8. Salvare il token generato. Il token verrà usato in seguito.
 9. Chiudere GitHub.   
@@ -99,4 +98,3 @@ Dopo aver creato il repository Git privato, è possibile eseguire una o entrambe
 * [Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md). È quindi possibile archiviare i modelli nel repository privato.
 
 Quando si crea una VM, è possibile verificare che gli elementi o i modelli vengano aggiunti al repository Git. Saranno immediatamente disponibili nell'elenco di elementi o modelli. Il nome del repository privato è visualizzato nella colonna che specifica l'origine. 
-

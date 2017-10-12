@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 802aacb923f14758124fc02117a99a4fb58710fa
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Usare Sqoop con Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -93,7 +92,7 @@ Se si preferisce usare Azure PowerShell per creare il cluster e il database SQL,
     - **_artifacts Location Sas Token** (_Token di firma di accesso condiviso posizione elementi): lasciare vuoto.
     - **Bacpac File Name** (Nome file BACPAC): usare il valore predefinito, a meno che non si voglia usare un proprio file BACPAC.
      
-        I valori seguenti sono hardcoded nella sezione relativa alle variabili:The following values are hardcoded in the variables section:
+        I valori seguenti sono hardcoded nella sezione relativa alle variabili:
         
         |Nome|Valore|
         |----|-----|
@@ -650,4 +649,3 @@ Get-AzureRmHDInsightJobOutput `
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-

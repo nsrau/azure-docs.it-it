@@ -14,14 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 2962e30e5d9c60b8e786e2ba79647cabfc5925cd
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gestire record e recordset DNS in DNS di Azure con Azure PowerShell
 
 > [!div class="op_single_selector"]
@@ -223,7 +221,7 @@ Per aggiungere un record a un set di record esistente, seguire questa procedura 
     Set-AzureRmDnsRecordSet -RecordSet $rs
     ```
 
-`Set-AzureRmDnsRecordSet` *sostituisce* il set di record esistente nel servizio DNS di Azure, e tutti i record in esso contenuti, con il set di record specificato. I [controlli ETag](dns-zones-records.md#etags) vengono usati per fare in modo che le modifiche simultanee non vengano sovrascritte. È possibile usare l'opzione facoltativa `-Overwrite` per disattivare tali controlli.
+`Set-AzureRmDnsRecordSet`*sostituisce* il set di record esistente nel servizio DNS di Azure, e tutti i record in esso contenuti, con il set di record specificato. I [controlli ETag](dns-zones-records.md#etags) vengono usati per fare in modo che le modifiche simultanee non vengano sovrascritte. È possibile usare l'opzione facoltativa `-Overwrite` per disattivare tali controlli.
 
 Questa sequenza di operazioni può anche essere *inviata tramite pipe*, vale a dire che l'oggetto set di record può essere passato usando la pipe anziché come parametro:
 
@@ -392,4 +390,3 @@ Altre informazioni su [zone e record nel servizio DNS di Azure](dns-zones-record
 Informazioni su come [proteggere zone e record](dns-protect-zones-recordsets.md) quando si usa il servizio DNS di Azure.
 <br>
 Vedere la [documentazione di riferimento di PowerShell nel servizio DNS di Azure](/powershell/module/azurerm.dns).
-

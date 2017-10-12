@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](azure-diagnostics.md).
@@ -300,4 +299,3 @@ Nell'esperienza del portale per le macchine virtuali vengono visualizzati per im
 - Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non può correlare il contatore configurato e il contatore raccolto.
 
 **Prevenzione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. A tale scopo, selezionare **Pannello di controllo** > **Area geografica** > **Opzioni di amministrazione** > **Copia impostazioni**. Deselezionare quindi **Schermata iniziale e account di sistema** affinché la lingua personalizzata non venga applicata all'account di sistema. Assicurarsi anche di non usare caratteri jolly se si vuole usare il portale come esperienza di utilizzo principale.
-

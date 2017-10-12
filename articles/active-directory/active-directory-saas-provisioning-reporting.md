@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
 ms.openlocfilehash: 86b9a3d93745045904c6038583b9bc6ebac5667e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Esercitazione: creazione di report sul provisioning automatico degli account utente
 
@@ -48,7 +48,7 @@ Questo articolo usa i termini seguenti, qui definiti:
 
 Per ottenere le informazioni sui report del provisioning per una determinata applicazione, iniziare avviando il [portale di gestione di Azure](https://portal.azure.com) e passare all'applicazione aziendale per cui è configurato il provisioning. Ad esempio, se si esegue il provisioning di utenti in LinkedIn Elevate, il percorso di navigazione per i dettagli dell'applicazione è:
 
-**Azure Active Directory > Applicazioni aziendali > All applications (Tutte le applicazioni) > LinkedIn Elevate**
+**Azure Active Directory &gt; Applicazioni aziendali &gt; All applications (Tutte le applicazioni) &gt; LinkedIn Elevate**
 
 A questo punto, è possibile accedere al report di riepilogo del provisioning e ai log di controllo del provisioning, entrambi descritti di seguito.
 

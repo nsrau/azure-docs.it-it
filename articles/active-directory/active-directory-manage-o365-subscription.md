@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Gestire la directory per la sottoscrizione di Office 365 in Azure
 Questo articolo descrive come gestire una directory creata per una sottoscrizione di Office 365 con il portale di Azure classico. Per accedere al portale di Azure classico, è necessario essere l'amministratore del servizio o un coamministratore di una sottoscrizione di Azure. Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita di 30 giorni](https://azure.microsoft.com/trial/get-started-active-directory/) e distribuire la prima soluzione cloud in meno di 5 minuti, usando questo collegamento. Usare l'account aziendale o dell'istituto di istruzione usato per accedere a Office 365.
@@ -33,8 +34,8 @@ Se si ha già una sottoscrizione di Azure, il processo per gestire una directory
 
 | Subscription | Office 365 | Azure |
 | --- | --- | --- |
-|   Nome visualizzato |Contoso |Directory di Azure Active Directory (Azure AD) predefinita |
-|   Nome di dominio |contoso.com |msmithhotmail.onmicrosoft.com |
+|   Nome visualizzato | Contoso | Directory di Azure Active Directory (Azure AD) predefinita |
+|   Nome di dominio | contoso.com | msmithhotmail.onmicrosoft.com |
 
 Michael vuole gestire le identità utente nella directory Contoso mentre è connesso ad Azure con il suo account Microsoft per poter abilitare le funzionalità di Azure AD, come l'autenticazione a più fattori. Il diagramma seguente illustra meglio il processo.
 

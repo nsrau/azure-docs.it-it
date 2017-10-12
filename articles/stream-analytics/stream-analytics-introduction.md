@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-stream-analytics"></a>Che cos'è Analisi di flusso?
 
 Analisi di flusso di Azure è un motore di elaborazione di eventi completamente gestito che consente di configurare calcoli di analisi in tempo reale sui dati di streaming. I dati possono provenire da dispositivi, sensori, siti Web, feed di social media, applicazioni, sistemi di infrastruttura e altro ancora. 
@@ -99,5 +97,4 @@ Come servizio gestito nel cloud, Analisi di flusso contribuisce a evitare la per
 * Informazioni su come [ridimensionare i processi di Analisi di flusso](stream-analytics-scale-jobs.md). 
 * Informazioni su come [integrare Analisi di flusso e Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 * Trovare le risposte alle domande su Analisi di flusso nel [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
-
 

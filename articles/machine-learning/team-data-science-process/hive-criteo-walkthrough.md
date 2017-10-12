@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 13dc1b516946aadc9c8a57a55768113bc925e63e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
 
@@ -47,7 +46,7 @@ Di seguito è riportato un estratto delle prime 20 colonne di due osservazioni (
 
 Il set di dati presenta valori mancanti sia nelle colonne numeriche sia in quelle categoriche. Di seguito viene descritto un semplice metodo per la gestione dei valori mancanti. Altri dettagli relativi ai dati sono illustrati quando vengono archiviati nelle tabelle Hive.
 
-**Definizione:** *percentuale di click-through (CTR, Clickthrough Rate):* indica la percentuale di clic nei dati. In questo set di dati Criteo, il valore corrisponde circa al 3,3% o 0,033.
+**Definizione:***percentuale di click-through (CTR, Clickthrough Rate):* indica la percentuale di clic nei dati. In questo set di dati Criteo, il valore corrisponde circa al 3,3% o 0,033.
 
 ## <a name="mltasks"></a>Esempi di attività di stima
 Questa procedura dettagliata illustra due problemi di stima di esempio:
@@ -631,5 +630,4 @@ Si noti che la chiave API predefinita è stata sostituita con la chiave API del 
 Si noti che per i due esempi di test chiesti (nel framework JSON dello script Python) si ottengono le risposte nel formato "Scored Labels, Scored Probabilities". In questo caso, sono stati scelti i valori predefiniti forniti dal codice predefinito (0 per tutte le colonne numeriche e la stringa "value" per tutte le colonne categoriche).
 
 Con questa osservazione si conclude la procedura dettagliata end-to-end che mostra come gestire set di dati di grandi dimensioni con Azure Machine Learning. Partendo da un terabyte di dati, è stato creato un modello di previsione che è stato quindi distribuito come servizio Web nel cloud.
-
 

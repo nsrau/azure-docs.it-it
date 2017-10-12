@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
+ms.openlocfilehash: 6412445f4e7a9b639ae9a38a44ff51038c6fcc00
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b31d38fe2f7060597956a1ee9c66f43ce39d7240
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
 Gli SDK di Application Insights di Azure verificano automaticamente le richieste HTTP in ingresso e le chiamate ai servizi dipendenti, ovvero richieste HTTP, query SQL e così via. La verifica e la correlazione di richieste e dipendenze offre visibilità sui tempi di risposta e sull'affidabilità dell'intera applicazione in tutti i microservizi che combinano questa applicazione. 
@@ -477,4 +475,3 @@ public async Task RunMyTaskAsync()
 - Segnalare [metriche ed eventi](app-insights-api-custom-events-metrics.md) personalizzati ad Application Insights.
 - Estrarre la [configurazione](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) standard di una raccolta di proprietà di contesto.
 - Vedere [System.Diagnostics.Activity User Guide](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) (Guida dell'utente di System.Diagnostics.Activity) per informazioni su come correlare i dati di telemetria.
-

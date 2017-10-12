@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Risolvere le vulnerabilità del sistema operativo in Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo non corrisponde alle regole di configurazione consigliate e suggerisce di modificare la configurazione per risolvere le vulnerabilità.
@@ -111,4 +110,3 @@ Per altre informazioni sul Centro sicurezza, vedere le risorse seguenti:
 [4]: ./media/security-center-remediate-os-vulnerabilities/search.png
 [5]: ./media/security-center-remediate-os-vulnerabilities/log-search.png
 [6]: ./media/security-center-remediate-os-vulnerabilities/search-results.png
-

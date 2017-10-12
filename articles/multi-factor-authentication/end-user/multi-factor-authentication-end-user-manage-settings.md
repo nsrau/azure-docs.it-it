@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
-ms.openlocfilehash: 6ad91429794e465be7cb26963d032d9357143053
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 2328fe6e6b35ce523f8bf90cbe6159c7ba23d697
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gestire le impostazioni per la verifica in due passaggi
 Questo articolo risponde a domande su come aggiornare le impostazioni della verifica in due passaggi o della Multi-Factor Authentication. Se si sono verificati problemi di accesso all'account, vedere le informazioni relative ai [problemi con la verifica in due passaggi](multi-factor-authentication-end-user-troubleshoot.md) che potrebbero essere utili.
@@ -71,4 +70,3 @@ Quando si disinstalla l'app dal dispositivo o si ripristina il dispositivo, l'at
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere le informazioni di guida relative ai [problemi con la verifica in due passaggi](multi-factor-authentication-end-user-troubleshoot.md)
 * Impostare [password di app](multi-factor-authentication-end-user-app-passwords.md) per tutte le applicazioni che non supportano la verifica in due passaggi.
-

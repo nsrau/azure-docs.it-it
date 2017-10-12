@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a3e4c989c1dbb31b237115acfcc032aa2dee4f2a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Introduzione alla macchina virtuale per l'apprendimento avanzato - Azure
 
 ## <a name="why-deep-learning-virtual-machine"></a>Perché la macchina virtuale per l'apprendimento avanzato? 
@@ -40,4 +38,3 @@ Per iniziare con la macchina virtuale per l'apprendimento avanzato, eseguire i p
 * [Usare la macchina virtuale per l'apprendimento avanzato](use-deep-learning-dsvm.md)
 * [Riferimento agli strumenti](dsvm-deep-learning-ai-frameworks.md)
 * [Esempi](dsvm-samples-and-walkthroughs.md)
-

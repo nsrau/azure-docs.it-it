@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 3ccbaaf55d2bdfedffcdb5ca069798328e2d75fd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concetti relativi alla sicurezza del servizio Device Provisioning in hub IoT 
 
 Il servizio Device Provisioning in hub IoT è un servizio helper per l'hub IoT che consente di configurare il provisioning completamente automatico dei dispositivi in un hub IoT specifico. Con il servizio Device Provisioning è possibile effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile. Questo articolo fornisce una panoramica dei concetti relativi alla *sicurezza* in relazione al servizio Device Provisioning. L'articolo è di particolare interesse per tutte le persone coinvolte nella preparazione di un dispositivo per la distribuzione.
@@ -67,4 +65,3 @@ Un certificato intermedio è un certificato X.509 che è stato firmato dal certi
 ## <a name="leaf-certificate"></a>Certificato foglia
 
 Un certificato foglia o certificato dell'entità finale, viene usato per identificare il titolare del certificato e ha il certificato radice nella relativa catena di certificati. Il certificato foglia non viene usato per firmare altri certificati.
-

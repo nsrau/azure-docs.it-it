@@ -15,12 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: 33968b72d0da71577428937e5d293a40d62989f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: c8f54c81481ebced16ed259f07736b0a4bc80567
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-application-gateway"></a>Panoramica del gateway applicazione
 
@@ -107,4 +106,3 @@ Dopo aver acquisito familiarità con il gateway applicazione, è possibile [crea
 Per informazioni su come creare un gateway applicazione usando il routing del contenuto basato su URL, vedere [Creare un gateway applicazione con il routing basato su URL](application-gateway-create-url-route-arm-ps.md) .
 
 Per informazioni su alcune altre funzionalità di rete chiave di Azure, vedere [Rete di Azure](../networking/networking-overview.md).
-

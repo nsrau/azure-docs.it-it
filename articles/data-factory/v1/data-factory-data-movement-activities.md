@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3334230097c3c0932fd732ff3f4e9c0aa35dbcc0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>Spostare dati con l'attività di copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -216,4 +215,3 @@ Il mapping da un sistema di tipo nativo a un tipo .NET per un archivio dati è d
 ## <a name="next-steps"></a>Passaggi successivi
 * Per ulteriori informazioni sull'attività di copia, vedere [Copiare i dati dall'archiviazione BLOB di Azure al database SQL di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Per informazioni sullo spostamento dei dati da un archivio di dati locale a un archivio di dati cloud, vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
-

@@ -12,15 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 09/28/2017
 ms.author: rwike77
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 8208a1a41388a8cc36f3702bd0cad2bb82e16403
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 4523c63493bc9cb3f96713c4abbc1dd1da9130d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Applicazione dell'infrastruttura di servizi e fasi successive
 L'applicazione Service Fabric di Azure è stata creata. In questo articolo si descrive la costruzione del progetto e alcuni potenziali passaggi successivi.
@@ -85,4 +83,3 @@ Per informazioni su come impostare un processo di integrazione continua per l'ap
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 [aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
 [aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
-

@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 58ac7665abf7e75a43bb0b92bdf6f41005c3efe8
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applicazioni gestite di Azure nel marketplace
 
  Provider di servizi gestiti, fornitori di software indipendente e integratori di sistemi possono usare le applicazioni gestite per offrire le proprie soluzioni a tutti i clienti di Azure Marketplace. Tali soluzioni riducono l'overhead derivante da manutenzione e gestione per i clienti. Gli editori possono vendere l'infrastruttura e il software tramite il Marketplace. Possono collegare servizi e supporto operativo alle applicazioni gestite. Per altre informazioni, vedere [Panoramica delle applicazioni gestite di Azure](managed-application-overview.md).
@@ -279,4 +277,3 @@ Dopo avere completato tutte le sezioni, selezionare **Publish** (Pubblica) per a
 * Per informazioni sull'uso di un'applicazione gestita dal Marketplace, vedere [Consume Azure managed applications in the Marketplace](managed-application-consume-marketplace.md) (Uso delle applicazioni gestite di Azure nel Marketplace).
 * Per informazioni sulla pubblicazione di un'applicazione gestita del catalogo di servizi, vedere [Creare e pubblicare un'applicazione gestita del catalogo di servizi](managed-application-publishing.md).
 * Per informazioni sull'uso delle applicazioni gestite del catalogo di servizi, vedere [Utilizzare un'applicazione gestita di Azure](managed-application-consumption.md).
-

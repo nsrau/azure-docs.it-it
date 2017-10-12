@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 76037c7b4a2f7ada314a9360e3990245e6fbc06c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-node"></a>sfctl node
 Consente di gestire i nodi che formano un cluster.
@@ -59,7 +58,7 @@ Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione s
 |Argomento|Descrizione|
 | --- | --- |
 | --debug            | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h          | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose          | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -81,7 +80,7 @@ Attiva un nodo del cluster di Service Fabric che è attualmente disattivato. Una
 |Argomento|Descrizione|
 | --- | --- |
 | --debug            | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h          | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose          | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -104,7 +103,7 @@ Mostra l'integrità di un nodo di Service Fabric. Utilizzare EventsHealthStateFi
 |Argomento|Descrizione|
 | --- | --- |
 | --debug                  | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h                | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h                | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o              | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query                  | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose                | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -126,7 +125,7 @@ Mostra le informazioni su un nodo specifico del cluster di Service Fabric. La ri
 |Argomento|Descrizione|
 | --- | --- |
 | --debug            | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h          | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose          | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -149,7 +148,7 @@ L'endpoint dei nodi restituisce informazioni sui nodi nel cluster di Service Fab
 |Argomento|Descrizione|
 | --- | --- |
 | --debug          | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h        | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h        | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o      | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query          | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose        | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -171,7 +170,7 @@ Mostra le informazioni sul caricamento di un nodo di Service Fabric.
 |Argomento|Descrizione|
 | --- | --- |
 | --debug            | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h          | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose          | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -195,7 +194,7 @@ Riavvia un nodo del cluster di Service Fabric che è già stato avviato.
 |Argomento|Descrizione|
 | --- | --- |
 | --debug            | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h          | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose          | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -222,11 +221,11 @@ Per avviare un nodo, passare a "Start" per il parametro NodeTransitionType. Per 
 |Argomento|Descrizione|
 | --- | --- |
 | --debug                           | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h                         | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h                         | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                       | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.                       Predefinito: json.|
 | --query                           | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose                         | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose                         | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come utilizzare l’interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).

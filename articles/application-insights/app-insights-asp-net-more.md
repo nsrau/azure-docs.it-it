@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f9d586a140b27f672f8cff463ba0607e2bd844f
-ms.openlocfilehash: 6f2a184242f3f69bdc4a15ac02c095a45c723565
-ms.contentlocale: it-it
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 127fd6e3012bdb0788ed23ae5e8921df651d863b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="more-telemetry-from-application-insights"></a>Altri dati di telemetria da Application Insights
 Dopo aver [aggiunto Application Insights al codice ASP.NET](app-insights-asp-net.md), è possibile eseguire alcune operazioni per ottenere altri dati di telemetria. 
@@ -31,7 +30,6 @@ Dopo aver [aggiunto Application Insights al codice ASP.NET](app-insights-asp-net
 |[Assicurarsi che buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) sia generato da MSBuild|[Creare annotazioni nei grafici di metriche](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
 |[Scrivere eventi e metriche personalizzati](app-insights-api-custom-events-metrics.md)|Conteggiare eventi aziendali e metriche, tenere traccia dell'uso dettagliato e altro ancora.|
 |[Profilatura del sito live](https://aka.ms/AIProfilerPreview)|Intervalli di funzione dettagliati dall'app Web live|
-
 
 
 

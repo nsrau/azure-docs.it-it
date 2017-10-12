@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: adc0c4415e10ddd0b4994cecef17f026546e91a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-policy-reference"></a>Informazioni di riferimento per i criteri di Gestione API di Azure
 Questa sezione include un indice dei criteri disponibili in [Informazioni di riferimento per i criteri di Gestione API][API Management policy reference]. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API][Policies in API Management].

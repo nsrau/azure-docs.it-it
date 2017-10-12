@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f6d7c2a1a3e3bf78b568f2f6b079476e403b9911
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-programs-and-their-controls"></a>Gestire i programmi e i relativi controlli 
 
 Azure AD include verifiche di accesso dei membri del gruppo e dell'accesso alle applicazioni, che sono esempi di controlli che assicurano la supervisione degli utenti con accesso. Questi controlli consentono alle organizzazioni di gestire in modo efficiente la governance, i requisiti di conformità e la gestione dei rischi.  
@@ -37,5 +35,4 @@ Se un programma non è più necessario e non dispone di controlli collegati, è 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare una verifica di accesso per i membri di un gruppo o per l'accesso a un'applicazione](active-directory-azure-ad-controls-create-access-review.md)
-
 

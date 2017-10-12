@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 3c633d54e6b81576a2fbd1adfc69775ca1bdd09d
-ms.contentlocale: it-it
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 212e7ea7bb2ffea63c7ba210195df0da38aa8f0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-template-resources"></a>Risorse del modello Gestione API di Azure
 Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli del portale per sviluppatori.  
@@ -579,4 +578,3 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).
-

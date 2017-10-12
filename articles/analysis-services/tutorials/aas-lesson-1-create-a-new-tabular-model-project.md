@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: owend
+ms.openlocfilehash: d523e3e103b4c351d01af6f1eb3c396f9a63016a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ebd160372fc75c6d0fc323be9e948fa2475b71cf
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-1-create-a-tabular-model-project"></a>Lezione 1: Creare un progetto di modello tabulare
 
@@ -88,4 +87,3 @@ Esplorare alcune delle finestre di dialogo e individuare le posizioni delle vari
   
   
   
-

@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # Azure Active Directory v2.0 e il flusso di credenziali client OAuth 2.0
 La [concessione di credenziali client OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), anche detta *OAuth a due vie*, può essere usata per accedere alle risorse ospitate sul Web tramite l'identità di un'applicazione. Viene comunemente impiegata per le interazioni di tutti i server in esecuzione in background senza l'interazione immediata con un utente finale. Questo tipo di applicazioni vengono spesso definite *daemon* o *account di servizio*.

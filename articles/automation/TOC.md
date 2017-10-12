@@ -44,7 +44,7 @@
 ### [Rimuovere ruoli di lavoro ibridi di Automazione di Azure](automation-remove-hrw.md)
 ## Distribuire la gestione della configurazione (DSC)
 ### [Panoramica su DSC (Desired State Configuration)](automation-dsc-overview.md)
-### [Attività iniziali](automation-dsc-getting-started.md)
+### [Introduzione](automation-dsc-getting-started.md)
 ### [Configurare i server allo stato desiderato e gestire gli orientamenti con Automazione di Azure](tutorial-configure-servers-desired-state.md)
 ### [Onboarding di computer per la gestione](automation-dsc-onboarding.md)
 ### [Compilazione di configurazioni DSC](automation-dsc-compile.md)

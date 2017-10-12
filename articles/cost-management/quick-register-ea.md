@@ -10,15 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 5b2fa44eaf801715d50282b4c1460c58d3631637
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrare un Azure Enterprise Agreement e visualizzare i dati sui costi
 
 Usare Azure Enterprise Agreement per registrarsi in Gestione costi di Azure di Cloudyn. La registrazione consente di accedere al portale di Cloudyn. Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale. Descrive anche come iniziare a visualizzare da subito i dati sui costi.
@@ -29,8 +26,8 @@ Usare Azure Enterprise Agreement per registrarsi in Gestione costi di Azure di C
 
 ## <a name="create-a-trial-registration"></a>Creare una registrazione di valutazione
 
-1. Nel portale di Azure fare clic su **Cost Management + Billing** (Gestione costi e fatturazione) nell'elenco dei servizi.
-2. In **Panoramica** fare clic su **Gestione costi**  
+1. Nel portale di Azure fare clic su **Gestione dei costi e fatturazione** nell'elenco dei servizi.
+2. In **Panoramica** fare clic su **Gestione dei costi**  
     ![Pagina Gestione costi](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. Nella pagina **Gestione dei costi** fare clic su **Go to Cost Management** (Vai a Gestione costi) per aprire la pagina di registrazione di Cloudyn in una nuova finestra.
 4. Nella pagina della registrazione di valutazione del portale Cloudyn digitare il nome della società e quindi selezionare **Azure Enterprise Enrollment Administrator** (Amministratore delle registrazioni di Azure Enterprise).  
@@ -48,8 +45,7 @@ Usare Azure Enterprise Agreement per registrarsi in Gestione costi di Azure di C
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida rapida sono state usate le informazioni su Azure Enterprise Agreement per registrarsi in Gestione costi. È stato anche eseguito l'accesso al portale di Cloudyn e avviata la visualizzazione dei dati sui costo. Per altre informazioni su Gestione costi di Azure di Cloudyn, continuare l'esercitazione su Gestione costi.
+In questa guida rapida sono state usate le informazioni su Azure Enterprise Agreement per registrarsi in Gestione costi. È stato anche eseguito l'accesso al portale di Cloudyn e avviata la visualizzazione dei dati sui costo. Per altre informazioni su Gestione costi di Azure di Cloudyn, continuare l'esercitazione su Gestione dei costi.
 
 > [!div class="nextstepaction"]
 > [Visualizzare i dati sui costi](./tutorial-review-usage.md)
-

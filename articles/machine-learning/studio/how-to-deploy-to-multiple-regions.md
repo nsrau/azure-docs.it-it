@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8e616bd6f13c4f97886a3eae225e188afadb2305
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Procedura: Come distribuire un servizio Web in più aree
 I nuovi servizi Web di Azure consentono di distribuire facilmente un servizio Web in più aree, senza la necessità di più sottoscrizioni o aree di lavoro. 
@@ -49,5 +48,4 @@ I prezzi sono specifici per ogni area. È quindi necessario definire un piano di
 9. Nell'elenco a discesa **Storage account** (Account di archiviazione) selezionare un account di archiviazione in cui archiviare il servizio Web.
 10. Nell'elenco a discesa **Price Plan** (Piano tariffario) selezionare un piano nell'area scelta nel passaggio 8.
 11. Fare clic su **Copy**.
-
 

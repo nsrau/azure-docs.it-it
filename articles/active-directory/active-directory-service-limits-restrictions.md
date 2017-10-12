@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 2ec65409287bf55f2892e573131739cfca49dd9d
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: c387467dfd91e2904e6c1f043506280fc08c92e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Restrizioni e limiti del servizio Azure AD
 Questo articolo descrive i vincoli di utilizzo e altri limiti del servizio per il servizio Azure Active Directory (Azure AD). Se si sta cercando il set completo dei limiti del servizio Microsoft Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
@@ -31,4 +30,3 @@ Questo articolo descrive i vincoli di utilizzo e altri limiti del servizio per i
 ## <a name="whats-next"></a>Passaggi successivi
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Come vengono associate le sottoscrizioni di Azure e Azure AD](active-directory-how-subscriptions-associated-directory.md)
-

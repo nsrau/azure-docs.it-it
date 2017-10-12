@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: b701879464205860edd1c097651b532f87bae388
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 40706ca30795d72120ff3edd728087d025a8b6c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introduzione a una sandbox di Hadoop, un emulatore in una macchina virtuale
 
@@ -63,7 +62,7 @@ Per scaricare una versione precedente di sandbox HDP, espandere l'archivio:
    > Se non è stato installato un client SSH, è possibile usare l'SSH basato sul Web fornito dalla macchina virtuale all'indirizzo **http://localhost:4200/**.
    > 
    
-    Al primo collegamento tramite SSH viene richiesto di cambiare la password per l'account root. Immettere una nuova password da usare quando si accede tramite SSH.
+    Al primo collegamento tramite SSH viene richiesto di cambiare la password per l'account radice. Immettere una nuova password da usare quando si accede tramite SSH.
 
 2. Dopodiché immettere il comando seguente:
    
@@ -87,5 +86,4 @@ Per scaricare una versione precedente di sandbox HDP, espandere l'archivio:
 * [Informazioni su come utilizzare Visual Studio con Sandbox di Hortonworks](hdinsight-hadoop-emulator-visual-studio.md)
 * [Acquisire dimestichezza con Sandbox di Hortonworks](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Esercitazione di Hadoop: introduzione a HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
-
 

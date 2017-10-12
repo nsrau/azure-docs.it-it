@@ -3,7 +3,7 @@ title: Output e messaggi dei runbook in Automazione di Azure | Documentazione Mi
 description: Viene descritto come creare e recuperare l'output e i messaggi di errore da runbook in automazione di Azure.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 13a414f5-0e2c-4be2-9558-a3e3ec84b6b2
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 505834d7354fb920e7ebd931e3bb31d837a79077
-ms.openlocfilehash: 6f01f97e38aa271034741c8a5e2f8057ab61fcd7
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 212aa4ede83b7c9f3240f8f32073bb7b87bda06d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
 La maggior parte dei runbook di automazione Azure avrà qualche forma di output, ad esempio un messaggio di errore all'utente o un oggetto complesso destinato a essere utilizzato da un altro flusso di lavoro. Windows PowerShell fornisce [più flussi](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ciascuno di questi flussi in modo diverso ed è necessario seguire le procedure consigliate per utilizzarli quando si crea un runbook.
@@ -226,5 +225,4 @@ Per altre informazioni sulla configurazione dell'integrazione con Log Analytics 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per maggiori informazioni sull'esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere come tenere traccia del processo di un runbook in [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md)
 * Per informazioni come progettare e usare i runbook figlio, vedere [Runbook figlio in Automazione di Azure](automation-child-runbooks.md)
-
 

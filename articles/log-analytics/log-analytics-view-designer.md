@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.openlocfilehash: e3c463d749dc4179df58286b9bb75584880a6bc6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Usare Progettazione viste per creare viste personalizzate in Log Analytics
 Progettazione viste di [Log Analytics](log-analytics-overview.md) consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo è presentata una panoramica su Progettazione viste e sulle procedure per creare e modificare viste personalizzate.

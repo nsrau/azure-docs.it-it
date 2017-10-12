@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 9d7e2a390adf10cbf5d88dd0084ce09136987309
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows
 
@@ -90,5 +89,4 @@ ms.lasthandoff: 11/17/2016
 * [Ricerca diagnostica](app-insights-diagnostic-search.md)
 * [Esplorare le metriche](app-insights-metrics-explorer.md)
 * [Scrivere query di Analisi](app-insights-analytics.md)
-
 

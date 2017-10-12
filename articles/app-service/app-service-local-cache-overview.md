@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 75f2dcb80514105ed663ba1fe5f7adccc05af1fc
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 Il contenuto delle app Web di Azure viene memorizzato nell'archiviazione di Azure e presentato in modo permanente come condivisione del contenuto. Questa progettazione è concepita per consentire l'interazione con un'ampia gamma di app e ha gli attributi seguenti:  
@@ -115,4 +114,3 @@ La cache locale consente di evitare i riavvii dell'app Web correlati all'archivi
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>La cache locale impedisce la copia delle directory in un'unità locale più veloce?
 Nell'ambito del passaggio che copia il contenuto di archiviazione, qualsiasi cartella denominata repository viene esclusa. Questa soluzione è utile negli scenari in cui il contenuto del sito può contenere un repository di controllo di origine che potrebbe non essere necessario nel funzionamento quotidiano dell'App Web. 
-

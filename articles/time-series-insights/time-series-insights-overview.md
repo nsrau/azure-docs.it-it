@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: omravi
+ms.openlocfilehash: 1814459e47280af62450a4093140ab6ab9b765fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: abd66208ab7ac30831f3f1eddb2891ed7bcd3995
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-time-series-insights"></a>Informazioni su Azure Time Series Insights
 
 Azure Time Series Insights è un servizio cloud gestito con componenti di archiviazione, analisi e visualizzazione che rendono facile inserire, archiviare, esplorare e analizzare miliardi di eventi simultaneamente. Time Series Insights offre una visualizzazione globale dei dati e permette di convalidare rapidamente le soluzioni IoT ed evitare costosi tempi di inattività per i dispositivi, semplificando l'individuazione di tendenze nascoste e anomalie e l'esecuzione di analisi delle cause radice in tempo quasi reale. Time Series Insights inserisce i dati delle serie temporali da gestori eventi (ad esempio, hub IoT o Hub eventi), indicizza i dati e ritira i dati in base a criteri di conservazione configurabili. Gli utenti utilizzano i dati tramite un'esperienza utente intuitiva o le API REST di query.
@@ -51,4 +49,3 @@ Azure Time Series Insights è un servizio cloud gestito con componenti di archiv
 * **Ambiente**: un ambiente è una risorsa di Azure con capacità di inserimento e archiviazione.  I clienti effettuano il provisioning degli ambienti tramite il portale di Azure con la capacità necessaria.
 * **Origine evento**: un'origine evento deriva da un gestore eventi, ad esempio Hub eventi di Azure.  Time Series Insights si connette direttamente alle origini evento, inserendo il flusso dei dati senza scrivere codice. Time Series Insights supporta attualmente gli hub eventi di Azure e gli hub IoT di Azure.
 * **Dati di riferimento**: Time Series Insights consente agli utenti di aggiungere i dati delle serie temporali ai dati di riferimento.  I dati di riferimento possono includere i metadati sui dispositivi o altri dati statici che vengono modificati raramente. Time Series Insights aggiunge i dati di riferimento ai flussi di dati, consentendo agli utenti di visualizzare e analizzare questi dati in tempo quasi reale.
-

@@ -1,6 +1,6 @@
 ---
 title: Connettere computer a OMS usando il gateway OMS | Microsoft Docs
-description: "Connettere i dispositivi gestiti OMS e i computer monitorati da Operations Manager al gateway OMS per inviare dati al servizio OMS quando non è disponibile l&quot;accesso a Internet."
+description: "Connettere i dispositivi gestiti OMS e i computer monitorati da Operations Manager al gateway OMS per inviare dati al servizio OMS quando non è disponibile l'accesso a Internet."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: ce2f9311775389366c66323070254f721f0896ab
-ms.contentlocale: it-it
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: a4d3a45d4bf83754fba363cdb3f3688d7218baa4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Connettere computer senza accesso a Internet a OMS usando il gateway OMS
 
 Questo documento descrive in che modo i computer gestiti OMS e monitorati da System Center Operations Manager possono inviare dati al servizio OMS quando non è disponibile l'accesso a Internet. Il gateway OMS, che è un proxy di inoltro HTTP che supporta il tunneling HTTP con il comando HTTP CONNECT, può raccogliere dati e inviarli al servizio OMS per conto dei computer.  
@@ -212,13 +210,13 @@ Usare le tabelle seguenti per identificare l'URL di ogni località:
 
 Se il computer è registrato come ruolo di lavoro ibrido per runbook automaticamente, per l'applicazione di patch tramite la soluzione di gestione degli aggiornamenti, seguire questa procedura:
 
-1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway OMS. Ad esempio:  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway OMS. Ad esempio: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 2. Riavviare il servizio del gateway OMS usando il cmdlet di PowerShell seguente: `Restart-Service OMSGatewayService`
 
 Se il computer viene caricato in Automazione di Azure usando il cmdlet di registrazione del ruolo di lavoro ibrido per runbook, seguire questa procedura:
 
 1. Aggiungere l'URL di registrazione del servizio agente all'elenco di host consentiti nel gateway OMS. Ad esempio: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-2. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway OMS. Ad esempio:  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+2. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway OMS. Ad esempio: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 3. Riavviare il servizio del gateway OMS.
     `Restart-Service OMSGatewayService`
 
@@ -292,4 +290,3 @@ Per richiedere supporto, fare clic sul simbolo del punto interrogativo nell'ango
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere le origini dati](log-analytics-data-sources.md) per raccogliere i dati dalle origini connesse nell'area di lavoro di OMS e archiviarli nel repository OMS.
-

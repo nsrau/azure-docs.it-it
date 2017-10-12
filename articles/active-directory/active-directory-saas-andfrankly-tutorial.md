@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
 ms.openlocfilehash: ea18a9f9bff258337a3de6d7703b4c548efa37df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Esercitazione: Integrazione di Azure Active Directory con &frankly
 
@@ -96,7 +96,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con &frankly, è 
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale Azure e viene configurato l'accesso Single Sign-On nell'applicazione &frankly.
 
-**Per configurare Single Sign-On di Azure AD con &frankly, seguire questa procedura:**
+**Per configurare Single Sign-On di Azure AD con &amp;frankly, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **&frankly** del portale di Azure fare clic su **Single Sign-On**.
 
@@ -176,7 +176,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ![Assegna utente][200] 
 
-**Per assegnare Britta Simon a &frankly, seguire questa procedura:**
+**Per assegnare Britta Simon a &amp;frankly, seguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 

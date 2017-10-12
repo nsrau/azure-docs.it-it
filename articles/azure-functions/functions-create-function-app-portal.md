@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: 3e4eef12c1d19be6e0f1051caaa5cf2e98626aef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 85a88c537415cd6f2b6bc005cc18e3baaa29e9a4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Creare un'app per le funzioni dal portale di Azure
 
@@ -57,7 +56,6 @@ Per altre informazioni sui tipi di account di archiviazione, vedere l'[introduzi
 ## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
-
 
 
 

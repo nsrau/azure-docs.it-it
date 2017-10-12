@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integrare System Center Configuration Manager con Gestione aggiornamenti OMS [Anteprima]
 
 I clienti che hanno investito in System Center Configuration Manager per gestire PC, server e dispositivi mobili si affidano alle caratteristiche potenti e avanzate di questa soluzione anche per gestire gli aggiornamenti software come parte del loro ciclo di Gestione aggiornamenti software.  
@@ -56,5 +54,4 @@ Dopo aver completato la distribuzione di aggiornamenti con la soluzione OMS, i c
 Per gestire gli aggiornamenti per macchine virtuali Windows Server che sono client di Configuration Manager, è necessario configurare i criteri client per disabilitare la funzionalità Gestione aggiornamenti software per tutti i client gestiti da questa soluzione.  Per impostazione predefinita, le impostazioni client si applicano a tutti i dispositivi nella gerarchia.  Per altre informazioni su questa impostazione dei criteri e su come configurarla, vedere [Come configurare le impostazioni client in System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
 
 Dopo avere apportato questa modifica alla configurazione, creare una nuova distribuzione seguendo i passaggi descritti in [Creazione di una distribuzione degli aggiornamenti](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) e selezionare la raccolta appropriata di Configuration Manager rappresentata come gruppo di computer OMS nell'elenco a discesa. 
-
 

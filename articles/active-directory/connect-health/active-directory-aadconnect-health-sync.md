@@ -15,10 +15,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorare la sincronizzazione di Azure AD Connect con Azure AD Connect Health
 La documentazione seguente è specifica per il monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health.  Per informazioni sul monitoraggio di AD FS con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md).
@@ -67,8 +67,7 @@ Questa funzionalità offre un report sugli errori di sincronizzazione che posson
 * Il report contiene gli errori registrati dal client di sincronizzazione (Azure AD Connect versione 1.1.281.0 o successiva).
 * Include gli errori verificatisi nell'ultima operazione di sincronizzazione nel motore di sincronizzazione (operazione di esportazione nel connettore Azure AD).
 * Affinché il report includa i dati più recenti, l'agente di Azure AD Connect Health per la sincronizzazione deve avere la connettività in uscita agli endpoint necessari.
-* Il report viene **aggiornato ogni 30 minuti** usando i dati caricati dall'agente di Azure AD Connect Health per la sincronizzazione.
-  Offre le funzionalità chiave seguenti:
+* Il report viene **aggiornato ogni 30 minuti** usando i dati caricati dall'agente di Azure AD Connect Health per la sincronizzazione. Offre le funzionalità chiave seguenti:
 
   * Categorizzazione degli errori
   * Elenco degli oggetti con errore per categoria

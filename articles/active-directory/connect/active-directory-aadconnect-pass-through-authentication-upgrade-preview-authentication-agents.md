@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0a7293f2b3a366b25e780ee75601dfbb2b35ddaa
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticazione pass-through di Azure Active Directory - Aggiornare gli agenti di autenticazione di anteprima
 
 ## <a name="overview"></a>Panoramica
@@ -88,4 +86,3 @@ Eseguire la procedura seguente per aggiornare gli agenti di autenticazione su al
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
-

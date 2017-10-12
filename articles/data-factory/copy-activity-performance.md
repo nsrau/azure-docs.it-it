@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -403,4 +402,3 @@ Vedere gli altri articoli relativi all'attività di copia:
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
 - [Mapping dello schema dell'attività di copia](copy-activity-schema-and-type-mapping.md)
 - [Tolleranza di errore dell'attività di copia](copy-activity-fault-tolerance.md)
-

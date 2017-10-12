@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Ripetere il training di un servizio Web classico
 Il servizio Web predittivo distribuito è l'endpoint dei punteggi predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, quindi il modello con training per l'endpoint predefinito non può essere sostituito. Per ripetere il training del servizio Web è necessario aggiungere un nuovo endpoint al servizio Web. 
@@ -146,5 +145,4 @@ Usando le API per la ripetizione del training, è possibile aggiornare il modell
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning](troubleshooting-retraining-models.md)
-
 

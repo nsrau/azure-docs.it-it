@@ -7,18 +7,16 @@ ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/15/2017
+ms.openlocfilehash: 342e7dfd35ce890cda4a1d98613592353a63d7e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 481e2552e2a2cd91d026774438788143109b28df
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare Python per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database di Azure per PostgreSQL. Descrive anche come usare istruzioni SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database dalle piattaforme macOS, Ubuntu Linux e Windows. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per PostgreSQL.
 
@@ -211,4 +209,3 @@ conn.close()
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./howto-migrate-using-export-and-import.md)
-

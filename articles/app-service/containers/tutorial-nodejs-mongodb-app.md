@@ -15,16 +15,15 @@ ms.topic: tutorial
 ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e1bc68426f93717dcf466652d2481b6ab1db2a18
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-app-for-containers"></a>Compilare un'app Web Node.js e MongoDB in App Web di Azure per contenitori
 
-[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web ad alta scalabilità e con correzione automatica basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app Web Node.js e connetterla a un database MongoDB. Al termine, si avrà un'applicazione MEAN (MongoDB, Express, AngularJS e Node.js) in esecuzione in App Web per contenitori. Per semplicità, l'applicazione di esempio usa il [framework Web MEAN.js](http://meanjs.org/).
+[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web a scalabilità elevata con applicazione automatica delle patch basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app Web Node.js e connetterla a un database MongoDB. Al termine, si avrà un'applicazione MEAN (MongoDB, Express, AngularJS e Node.js) in esecuzione in App Web per contenitori. Per semplicità, l'applicazione di esempio usa il [framework Web MEAN.js](http://meanjs.org/).
 
 ![App MEAN.js in esecuzione nel Servizio app di Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -480,4 +479,3 @@ Passare all'esercitazione successiva per apprendere come eseguire il mapping di 
 
 > [!div class="nextstepaction"] 
 > [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../app-service-web-tutorial-custom-domain.md)
-

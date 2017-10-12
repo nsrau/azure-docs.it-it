@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 1a5922506a0db4277b205ba3390c9c30034c177d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Eccezioni della messaggistica di Hub eventi
 Questo articolo elenca alcune eccezioni generate dall'API di messaggistica del bus di servizio di Azure, che include Hub eventi. Il documento è soggetto a modifica ed è quindi opportuno controllare periodicamente la presenza di aggiornamenti.
@@ -98,4 +97,3 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
-

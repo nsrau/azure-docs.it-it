@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: d09f59715ac4dac1482e6ca5f79e8426f1f01ced
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-container-images-to-be-used-with-azure-container-service"></a>Creare immagini del contenitore da usare con il servizio contenitore di Azure
 
 In questa esercitazione, parte uno di sette, si prepara un'applicazione multi-contenitore per l'uso in Kubernetes. I passaggi completati comprendono:  
@@ -142,4 +140,3 @@ Passare alla prossima esercitazione per apprendere informazioni sull'archiviazio
 
 > [!div class="nextstepaction"]
 > [Eseguire il push delle immagini nel Registro contenitori di Azure](./container-service-tutorial-kubernetes-prepare-acr.md)
-

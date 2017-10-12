@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: b4cc2ce4d05b035829584a610d52e6079a13a9c1
-ms.contentlocale: it-it
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 7379b7f58563675f28d77928d933c0d9c7992e71
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sqlruleaction-syntax"></a>Sintassi di SQLRuleAction
 
 *SqlRuleAction* è un'istanza della [classe SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) e rappresenta un set di azioni scritto in una sintassi basata sul linguaggio SQL ed eseguito su una [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
@@ -226,4 +223,3 @@ La funzione `property(name)` restituisce il valore della proprietà a cui viene 
 
 - [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Classe SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-

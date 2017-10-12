@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cd73aed14f672351b72e09d682909a47c63b9026
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="group-manager-tasks"></a>Attività del responsabile del gruppo
 
 Questo argomento illustra le attività che un responsabile del gruppo deve completare per la propria organizzazione di data science. L'obiettivo è stabilire un ambiente di collaborazione per il gruppo, che viene standardizzato con il [processo di data science per i team](overview.md) (TDSP, Team Data Science Process). Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di data science, che vengono standardizzati con il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
@@ -55,9 +52,9 @@ Questa esercitazione usa nomi abbreviati per i repository e le directory. Queste
 
 ### <a name="pre-requisites-for-cloning-repositories-and-checking-code-in-and-out"></a>Prerequisiti per la clonazione dei repository e per l'archiviazione e l'estrazione del codice
  
-- Git deve essere installato nel computer. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice in Platforms and tools](platforms-and-tools.md#appendix) (Piattaforme e strumenti).  
-- Se si usa una **DSVM Windows**, è necessario che [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) sia installato nel computer. Nel file README.md scorrere verso il basso fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il programma di installazione EXE ed eseguirlo. 
-- Se si usa una **DSVM Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al server VSTS del gruppo. Per altre informazioni su SSH, vedere la sezione **Create SSH public key** (Creare una chiave pubblica SSH) nell'[appendice in Platforms and tools](platforms-and-tools.md#appendix) (Piattaforme e strumenti). 
+- Git deve essere installato nel computer. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).  
+- Se si usa una **DSVM per Windows**, è necessario avere installato [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) nel computer. Nel file README.md scorrere verso il basso fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il programma di installazione EXE ed eseguirlo. 
+- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al server VSTS del gruppo. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
 
 
 ## <a name="1-create-account-on-vsts-server"></a>1. Creare un account nel server VSTS
@@ -300,7 +297,7 @@ Passare infine alla directory **GitRepos\GroupCommon\GroupUtilities** ed eseguir
     git config --global user.name <your name>
     git config --global user.email <your email address>
  
->Se si esegue il commit in più repository Git, usare lo stesso nome e indirizzo di posta elettronica quando si esegue il commit in ognuno. L'uso dello stesso nome e indirizzo di posta elettronica si dimostra utile successivamente quando si compilano i dashboard di PowerBI per tenere traccia delle attività Git in più repository.
+>Se si esegue il commit in più repository Git, usare lo stesso nome e lo stesso indirizzo e-mail per eseguire il commit in ognuno. L'uso dello stesso nome e indirizzo di posta elettronica si dimostra utile successivamente quando si compilano i dashboard di PowerBI per tenere traccia delle attività Git in più repository.
 
 
 - Gli script hanno dato i risultati seguenti, in cui vengono usati i nomi dei repository abbreviati:

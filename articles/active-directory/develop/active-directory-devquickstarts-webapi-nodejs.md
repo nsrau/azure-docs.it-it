@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 4f58177f540c14172d7ece8b4bc8c8a2b9787f8f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-web-apis-for-nodejs"></a>Introduzione alle API Web per Node.js
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -718,7 +718,7 @@ Il modo più semplice per farlo consiste nell'usare Curl in una riga di comando.
 
 3. Quindi, passare alla directory e iniziare a usare Curl:
 
-    `$ cd azuread` `$ node server.js`
+    `$ cd azuread``$ node server.js`
 
     `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -890,7 +890,7 @@ Per verificare se la protezione OAuth2 per gli endpoint è attiva, usare nuovame
 
 2. Quindi, passare alla directory e iniziare a usare Curl.
 
-      `$ cd azuread` `$ node server.js`
+      `$ cd azuread``$ node server.js`
 
 3. Provare un'operazione POST di base.
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="running-jobs-on-azure-batch-with-azure-cli"></a>Eseguire processi in Azure Batch con l'interfaccia della riga di comando di Azure
 
 Questo script crea un processo Batch e aggiunge una serie di attività al processo. Dimostra inoltre come monitorare un processo e le relative attività. Infine viene illustrato come eseguire query sul servizio Batch in modo efficiente per informazioni sulle attività del processo.
@@ -35,7 +33,7 @@ Questo script crea un processo Batch e aggiunge una serie di attività al proces
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/batch/run-job/run-job.sh "Eseguire il processo")]
+[!code-azurecli[main](../../../cli_scripts/batch/run-job/run-job.sh "Run Job")]
 
 ## <a name="clean-up-job"></a>Pulire un processo
 
@@ -64,4 +62,3 @@ Questo script usa i comandi seguenti per creare un processo Batch e le relative 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando di Batch sono disponibili nella [documentazione dell'interfaccia della riga di comando di Azure Batch](../batch-cli-samples.md).
-

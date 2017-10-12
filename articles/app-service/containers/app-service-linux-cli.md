@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 5213bec66095d50ef29cc3bec0a7b6307614dc92
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure
 
@@ -38,7 +37,7 @@ Per creare un piano di servizio app Linux, è possibile utilizzare il comando se
 az appservice plan create -n appname -g rgname --islinux -l "South Central US" --sku S1 --number-of-workers 1
 ```
 
-## <a name="create-a-custom-docker-container-web-app"></a>Creare un contenitore Docker personalizzato App Web
+## <a name="create-a-custom-docker-container-web-app"></a>Creare un'app Web per contenitore Docker personalizzato
 
 Per creare un'app Web e configurarla per l'esecuzione di un contenitore Docker personalizzato, è possibile utilizzare il comando seguente:
 
@@ -64,7 +63,7 @@ az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
 
 ## <a name="using-docker-images-from-a-private-registry"></a>Utilizzo di immagini Docker da un registro privato
 
-È possibile configurare l'app per utilizzare le immagini da un registro di sistema privato. È necessario specificare l'url per il Registro di sistema, nome utente e password. È possibile fare ciò utilizzando il comando seguente:
+È possibile configurare l'app per utilizzare le immagini da un registro di sistema privato. È necessario specificare l'URL per il Registro di sistema, nome utente e password. È possibile fare ciò utilizzando il comando seguente:
 
 ```azurecli-interactive
 az webapp config container set -n sname1 -g rgname -c <container name> -r <server url> -u <username> -p <password>
@@ -72,7 +71,7 @@ az webapp config container set -n sname1 -g rgname -c <container name> -r <serve
 
 ## <a name="enable-continuous-deployments-for-custom-docker-images"></a>Abilitare la distribuzione continua per le immagini Docker personalizzate
 
-Con il comando seguente è possibile abilitare la funzionalità CD e ottenere l'url del webhook. Questo url consente di configurare il repository DockerHub o del Registro contenitori di Azure.
+Con il comando seguente è possibile abilitare la funzionalità CD e ottenere l'url del webhook. Questo URL consente di configurare i repository DockerHub o registro contenitori di Azure.
 
 ```azurecli-interactive
 az webapp deployment container config -n sname -g rgname -e true
@@ -94,7 +93,7 @@ Per modificare un'applicazione creata in precedenza, dalla versione del framewor
 az webapp config set -n sname -g rgname --linux-fx-version "node|6.11"
 ```
 
-## <a name="set-up-git-deployments-for-your-web-app"></a>Configurare le distribuzioni Git per l'App Web
+## <a name="set-up-git-deployments-for-your-web-app"></a>Configurare le distribuzioni Git per l'app Web
 
 Per configurare le distribuzioni Git per l'app, è possibile utilizzare il comando seguente:
 
@@ -109,4 +108,3 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [Azure Cloud Shell (anteprima)](../../cloud-shell/overview.md)
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Distribuzione continua con App Web di Azure per contenitori](app-service-linux-ci-cd.md)
-

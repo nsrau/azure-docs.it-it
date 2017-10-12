@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Come creare e configurare il runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per informazioni dettagliate sul runtime di integrazione, vedere [Integration Runtime Overview](concepts-integration-runtime.md) (Panoramica del runtime di integrazione). 
@@ -240,5 +239,4 @@ Se si sceglie di non aprire la porta 8060 nel computer del runtime di integrazio
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere l'esercitazione seguente per le istruzioni dettagliate: [Tutorial: copy on-premises data to cloud (Esercitazione: Copiare i dati locali nel cloud)](tutorial-hybrid-copy-powershell.md).
-
 

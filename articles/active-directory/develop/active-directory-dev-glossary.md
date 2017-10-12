@@ -16,10 +16,10 @@ ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossario per gli sviluppatori di Azure Active Directory
 Questo articolo contiene le definizioni di alcuni dei concetti di base per gli sviluppatori di Azure Active Directory (AD), utili per imparare a sviluppare applicazioni per Azure AD.
@@ -90,7 +90,7 @@ Un'applicazione client richiede l'[autorizzazione](#authorization) da un proprie
 Processo secondo cui un [proprietario di risorse](#resource-owner) concede l'autorizzazione a un'[applicazione client](#client-application) per accedere a risorse protette con specifiche [autorizzazioni](#permissions) per conto del proprietario delle risorse. A seconda delle autorizzazioni richieste dal client, verrà chiesto a un amministratore o a un utente di dare il consenso per permettere l'accesso, rispettivamente, ai dati dell'organizzazione o individuali. Si noti che in uno scenario [multi-tenant](#multi-tenant-application), l'[entità servizio](#service-principal-object) dell'applicazione viene registrata anche nel tenant dell'utente che dà il consenso.
 
 ## <a name="id-token"></a>token ID
-[Token di sicurezza](#security-token) [OpenID Connect][OpenIDConnect-ID-Token] fornito dall' [endpoint di autorizzazione](#authorization-endpoint) di un [server di autorizzazione](#authorization-server) che contiene [attestazioni](#claim) relative all'autenticazione di un [proprietario delle risorse](#resource-owner) utente finale. Così come i token di accesso, i token ID sono rappresentati anche come [token JSON Web (token JWT)][JWT] con firma digitale. A differenza di un token di accesso, tuttavia, le attestazioni di un token ID non vengono usate per scopi correlati all'accesso alle risorse e specificamente al controllo di accesso.
+[Token di sicurezza](#security-token)[OpenID Connect][OpenIDConnect-ID-Token] fornito dall' [endpoint di autorizzazione](#authorization-endpoint) di un [server di autorizzazione](#authorization-server) che contiene [attestazioni](#claim) relative all'autenticazione di un [proprietario delle risorse](#resource-owner) utente finale. Così come i token di accesso, i token ID sono rappresentati anche come [token JSON Web (token JWT)][JWT] con firma digitale. A differenza di un token di accesso, tuttavia, le attestazioni di un token ID non vengono usate per scopi correlati all'accesso alle risorse e specificamente al controllo di accesso.
 
 Per altri dettagli, vedere [Informazioni di riferimento sui token in Azure AD][AAD-Tokens-Claims].
 

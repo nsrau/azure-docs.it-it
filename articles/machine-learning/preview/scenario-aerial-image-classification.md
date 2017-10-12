@@ -8,14 +8,12 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 43b124fc3eb72adc5d299b218c9e16ec83d1a240
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="aerial-image-classification"></a>Classificazione delle immagini aeree
 
 Questo esempio illustra come usare Azure Machine Learning Workbench per coordinare l'addestramento distribuito e l'operazionalizzazione di modelli di classificazione delle immagini. Si usa il pacchetto [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) per definire le caratteristiche delle immagini usando modelli CNTK pre-addestrati e per addestrare i classificatori usando le caratteristiche derivate. Quindi si applicano i modelli addestrati in parallelo ad ampi set di immagini nel cloud. Questi passaggi sono eseguiti in un cluster [Azure HDInsight Spark](https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/) e ciò consente di ridimensionare la velocità di addestramento e operazionalizzazione aggiungendo o rimuovendo nodi di lavoro.
@@ -54,7 +52,7 @@ Le [istruzioni passo per passo](https://github.com/MicrosoftDocs/azure-docs-pr/t
 Le istruzioni seguenti consentono di eseguire il processo di configurazione dell'ambiente di esecuzione per questo esempio.
 
 ### <a name="prerequisites"></a>Prerequisiti
-- Un [account di Azure](https://azure.microsoft.com/en-us/free/) (sono disponibili account di prova gratuiti)
+- Un [account di Azure](https://azure.microsoft.com/en-us/free/) (sono disponibili versioni di valutazione gratuite).
     - Questo esempio crea un cluster HDInsight Spark con 40 nodi di lavoro (168 core in totale). Assicurarsi che l'account disponga di sufficienti core disponibili controllando la scheda "Utilizzo + quote" per la sottoscrizione nel portale di Azure.
     - Se si dispone di meno core, è possibile modificare il modello del cluster HDInsight per ridurre il numero di ruoli di lavoro di cui eseguire il provisioning. Le istruzioni per come procedere sono disponibili nella sezione "Creare il cluster HDInsight Spark".
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
@@ -70,7 +68,7 @@ Questo esempio richiede un cluster HDInsight Spark e un account di archiviazione
 
 Creare un nuovo progetto usando questo esempio come modello:
 1.  Aprire Azure Machine Learning Workbench
-2.  Nella pagina **Progetti** fare clic sul segno **+** e selezionare **Nuovo progetto**
+2.  Nella pagina **Projects** (Progetti) fare clic sul segno **+** e selezionare **New Project** (Nuovo progetto)
 3.  Nel riquadro **Crea nuovo progetto** specificare le informazioni per il nuovo progetto
 4.  Nella casella di ricerca **Cerca modelli di progetto** digitare "Classificazione immagini aeree" e selezionare il modello
 5.  Fare clic su **Crea**
@@ -270,4 +268,3 @@ To dive deeper into this example:
 - Examine the sample scripts for statements calling the `blob_service`. Check that you understand how trained models and predictions are stored and retrieved from the cloud.
 - Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.
 - Modify the training script to train a different MMLSpark model type or to change the model hyperparameters. Use the run history feature to determine whether your changes increased or decreased the model's accuracy.
-

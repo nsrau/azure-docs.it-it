@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6f11d4184b5edbcb80411f146ae01ecfe62b6e91
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiare i dati da MongoDB con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,14 +37,14 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 In particolare, il connettore MongoDB supporta:
 
 - MongoDB **versioni 2.4, 2.6, 3.0 e 3.2**.
-- Copia dei dati con l'autenticazione **Base** o **Anonima**.
+- La copia dei dati usando l'autenticazione **Di base** o **Anonima**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per copiare i dati da un database MongoDB non accessibile pubblicamente, è necessario configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md). Il runtime di integrazione offre un driver per MongoDB integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in MongoDB.
 
 ## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello di Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di data factory specifiche per il connettore MongoDB.
 
@@ -59,11 +58,11 @@ Per il servizio collegato di MongoDB sono supportate le proprietà seguenti:
 | server |Indirizzo IP o nome host del server MongoDB. |Sì |
 | port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |No (il valore predefinito è 27017) |
 | databaseName |Nome del database MongoDB a cui si vuole accedere. |Sì |
-| authenticationType | Tipo di autenticazione usato per connettersi al database MongoDB.<br/>I valori consentiti sono **Base** e **Anonimo**. |Sì |
+| authenticationType | Tipo di autenticazione usato per connettersi al database MongoDB.<br/>I valori consentiti sono: **Di base** e **Anonima**. |Sì |
 | username |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
 | password |Password per l'utente. Contrassegnare questo campo come SecureString. |Sì (se si usa l'autenticazione di base). |
 | authSource |Nome del database MongoDB che si vuole usare per controllare le credenziali di autenticazione. |No. Per l'autenticazione di base il valore predefinito usa l'account di amministrazione e il database specificati usando la proprietà databaseName. |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted se l'archivio dati è accessibile pubblicamente. Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 

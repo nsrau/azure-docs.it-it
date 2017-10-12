@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 4b88b5015fcf44e8979b8b1a3aa1eb26f0fbb704
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Domande frequenti sulla migrazione della piattaforma del Centro sicurezza
 All'inizio di giugno 2017 il Centro sicurezza di Azure ha iniziato a usare Microsoft Monitoring Agent per la raccolta e l'archiviazione dei dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Questa pagina fornisce risposte alle domande relative alla migrazione della piattaforma.
@@ -86,7 +85,7 @@ Per selezionare l'area di lavoro di Log Analytics esistente:
 2. Nel menu a discesa selezionare un'area di lavoro dove archiviare i dati raccolti.
 
    > [!NOTE]
-   > Nel menu a discesa vengono visualizzati solo le aree di lavoro a cui si ha accesso e che si trovano nella sottoscrizione di Azure.
+   > Nel menu a discesa vengono visualizzate solo le aree di lavoro a cui si ha accesso e che si trovano nella sottoscrizione di Azure.
    >
    >
 
@@ -195,4 +194,3 @@ Per altre informazioni sulla migrazione della piattaforma del Centro sicurezza, 
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
 [6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
-

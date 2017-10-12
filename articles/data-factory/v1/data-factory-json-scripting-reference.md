@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2424aa2cd5b6c7935338a593fa25a6a5772f4e62
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Informazioni di riferimento sugli script JSON
 Questo articolo fornisce gli schemi JSON ed esempi per la definizione di entità di Azure Data Factory (pipeline, attività, set di dati e servizi collegati).  
@@ -727,7 +726,7 @@ Se si copiano dati da Azure Data Lake Store, impostare il **tipo di origine** de
 Per altre informazioni, vedere [Connettore Azure Data Lake Store](data-factory-azure-datalake-connector.md#copy-activity-properties).
 
 ### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Sink Azure Data Lake Store in attività di copia
-Se si copiano dati in Azure Data Lake Store, impostare il **tipo di sink ** dell'attività di copia su **AzureDataLakeStoreSink**e specificare le proprietà seguenti nella sezione **sink**:
+Se si copiano dati in Azure Data Lake Store, impostare il **tipo di sink**  dell'attività di copia su **AzureDataLakeStoreSink**e specificare le proprietà seguenti nella sezione **sink**:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
@@ -1333,7 +1332,7 @@ Per definire un set di dati di Ricerca di Azure, impostare il **tipo** di set di
 Per altre informazioni, vedere [Connettore Ricerca di Azure](data-factory-azure-search-connector.md#dataset-properties).
 
 ### <a name="azure-search-index-sink-in-copy-activity"></a>Sink Indice di Ricerca di Azure in attività di copia
-Se si copiano dati in un indice di Ricerca di Azure, impostare il **tipo di sink ** dell'attività di copia su **AzureSearchIndexSink**e specificare le proprietà seguenti nella sezione **sink**:
+Se si copiano dati in un indice di Ricerca di Azure, impostare il **tipo di sink**  dell'attività di copia su **AzureSearchIndexSink**e specificare le proprietà seguenti nella sezione **sink**:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |

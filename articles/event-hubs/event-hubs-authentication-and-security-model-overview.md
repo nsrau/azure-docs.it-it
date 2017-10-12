@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: sethm;clemensv
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Panoramica sull’autenticazione di Hub eventi e sul modello di protezione
 
@@ -118,5 +117,4 @@ Per altre informazioni su Hub eventi, vedere gli argomenti seguenti:
 [Panoramica di Hub eventi]: event-hubs-what-is-event-hubs.md
 [Applicazioni di esempio che usano Hub eventi]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Panoramica delle firme di accesso condiviso]: ../service-bus-messaging/service-bus-sas.md
-
 

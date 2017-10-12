@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 990215d9e82b67256363ff195d2af9a91dc0706a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
@@ -49,7 +48,7 @@ In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realment
 Per visualizzare i registri eventi dell'app Web:
 
 1. Accedere al [sito Web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. Nel menu selezionare **Debug Console (Console di debug) ** > **CMD**.
+2. Nel menu selezionare **Debug Console (Console di debug)**  > **CMD**.
 3. Selezionare la cartella **LogFiles**.
 4. Per visualizzare i registri eventi, selezionare l'icona della matita accanto a **eventlog.xml**.
 5. Per scaricare i log, eseguire il cmdlet `Save-AzureWebSiteLog -Name webappname` di PowerShell.
@@ -144,7 +143,7 @@ Per abilitare la traccia delle richieste non riuscite:
     ```
 13. Per scaricare le tracce di richieste non riuscite, nel [portale](https://portal.azure.com) passare al sito Web.
 15. Select **Strumenti** > **Kudu** > **Vai**.
-18. Nel menu selezionare **Debug Console (Console di debug) ** > **CMD**.
+18. Nel menu selezionare **Debug Console (Console di debug)**  > **CMD**.
 19. Selezionare la cartella **LogFiles** e quindi la cartella con un nome che inizia con **W3SVC**.
 20. Per visualizzare il file XML, selezionare l'icona della matita.
 
@@ -190,4 +189,3 @@ Per altre informazioni sulle connessioni in uscita nell'app Web, vedere il post 
 ## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Come si usa Visual Studio per eseguire il debug remoto dell'app Web del servizio app?
 
 Per una procedura dettagliata che illustra come eseguire il debug dell'app Web usando Visual Studio, vedere [Remote debug your App Service web app](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/) (Eseguire il debug remoto dell'app Web del servizio app).
-

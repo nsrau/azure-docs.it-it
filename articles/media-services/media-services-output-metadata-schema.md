@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
 ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="output-metadata"></a>Metadati di output
 ## <a name="overview"></a>Panoramica
@@ -129,8 +129,8 @@ Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xm
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Indice in base zero della traccia audio. **Nota:** non corrisponde necessariamente al TrackID usato in un file MP4. |
-| **Codec** |**xs:string**  |Stringa del codec della traccia audio. |
-| **EncoderVersion** |**xs:string**  |Stringa facoltativa della versione del codificatore obbligatoria per EAC3. |
+| **Codec** |**xs:string** |Stringa del codec della traccia audio. |
+| **EncoderVersion** |**xs:string** |Stringa facoltativa della versione del codificatore obbligatoria per EAC3. |
 | **Channels**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Numero dei canali audio. |
 | **SamplingRate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Frequenza di campionamento dell'audio in campioni/sec o Hz. |
 | **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Velocità media in bit audio in bit al secondo, calcolata in base all'elemento AssetFile. Conta solo il payload del flusso elementare e non include il sovraccarico dovuto alla creazione di pacchetti. |

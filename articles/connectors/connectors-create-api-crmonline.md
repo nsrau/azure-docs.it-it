@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Connettersi a Dynamics 365 da flussi di lavoro di app per la logica
 
 Con il servizio App per la logica è possibile connettersi a Dynamics 365 (online) e creare flussi aziendali utili che restituiscono record, aggiornano elementi o restituiscono un elenco di record. Con il connettore Dynamics 365, è possibile:
@@ -174,4 +172,3 @@ Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali lim
 
 ## <a name="next-steps"></a>Passaggi successivi
 Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
-

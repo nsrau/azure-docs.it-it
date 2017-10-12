@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
 Per ogni sottoscrizione e tenant, Resource Manager definisce un limite di 15.000 richieste di lettura e 1.200 richieste di scrittura al giorno. Questi limiti si applicano a ogni istanza di Azure Resource Manager; sono presenti più istanze in ogni area di Azure e Azure Resource Manager viene distribuito a tutte le aree di Azure.  Pertanto, in pratica, i limiti sono effettivamente molto superiori a quelli elencati in precedenza, poiché le richieste utente sono in genere gestite da molte istanze diverse.

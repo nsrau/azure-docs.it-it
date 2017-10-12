@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 522e33b399f2648427464b439bc4405e9e8097cd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-azure-hdinsight-hadoop-clusters-for-the-team-data-science-process"></a>Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati per i team
 Questo articolo descrive come personalizzare un cluster Hadoop di HDInsight mediante l'installazione di Anaconda a 64 bit (Python 2.7) in ogni nodo quando viene eseguito il provisioning del cluster come servizio HDInsight. L'articolo illustra inoltre come accedere al nodo head per inviare i processi personalizzati al cluster. Questa personalizzazione rende molti moduli Python comuni, che sono inclusi in Anaconda, facilmente disponibili per l'uso nelle funzioni definite dall'utente (UDF) progettate per elaborare i record di Hive nel cluster. Per le istruzioni sulle procedure impiegate in questo scenario, vedere [Come inviare query Hive](move-hive-tables.md#submit).
@@ -89,5 +88,4 @@ Dopo aver abilitato l'accesso remoto, fare clic su **CONNETTI** nella parte infe
 I passaggi successivi del processo di analisi avanzata dei dati sono illustrati in [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e possono includere lo spostamento dei dati in HDInsight e le successive procedure di elaborazione e campionamento in preparazione dell'apprendimento dei dati con Azure Machine Learning.
 
 Vedere [Come inviare query Hive](move-hive-tables.md#submit) per istruzioni sull'accesso ai moduli di Python inclusi in Anaconda dal nodo head del cluster nelle funzioni definite dall'utente che consentono di elaborare i record di Hive archiviati nel cluster.
-
 
