@@ -48,10 +48,6 @@ No. Un client da punto a sito può connettersi solo alle risorse nella rete virt
 
 No. È possibile usare solo il client VPN nativo in Windows per SSTP e il client VPN nativo in Mac per IKEv2. Vedere l'elenco dei sistemi operativi client supportati.
 
-### <a name="can-i-access-the-internet-when-i-am-connected-over-p2s-vpn"></a>È possibile accedere a Internet quando si è connessi tramite VPN P2S?
-
-Sì, è possibile accedere a Internet mentre si è connessi a una rete VPN P2S.
-
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure supporta VPN IKEv2 con Windows?
 
 Gli utenti possono connettersi ad Azure utilizzando il client VPN di Windows integrato che supporta IKEv2. Tuttavia, le connessioni IKEv2 da un dispositivo Windows non funzionano nello scenario seguente:

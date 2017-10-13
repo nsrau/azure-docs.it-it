@@ -1,4 +1,4 @@
-Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure visualizza un output simile all'esempio seguente:
+Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mostra un output simile all'esempio seguente:
 
 ```json
 Local git is configured with url of 'https://<username>@<app name>.scm.azurewebsites.net/<app name>.git'
@@ -16,7 +16,7 @@ Local git is configured with url of 'https://<username>@<app name>.scm.azurewebs
 }
 ```
 
-Passare al sito per visualizzare l'app Web appena creata. Sostituire _&lt;nome app>_ con un nome app univoco.
+Passare al sito per visualizzare l'app Web appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
 
 ```bash
 http://<app name>.azurewebsites.net

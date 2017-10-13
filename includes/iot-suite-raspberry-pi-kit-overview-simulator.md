@@ -1,6 +1,6 @@
 ## <a name="overview"></a>Panoramica
 
-In questa esercitazione si completa questa procedura:
+In questa esercitazione si completa la procedura seguente:
 
 - Distribuire un'istanza della soluzione preconfigurata di monitoraggio remoto nella sottoscrizione di Azure. Questo passaggio distribuisce e configura automaticamente più servizi di Azure.
 - Configurare il dispositivo per la comunicazione con il computer e la soluzione di monitoraggio remoto.

@@ -15,8 +15,7 @@ Innanzitutto, è necessario che un'istanza di [Azure Active Directory](https://a
 
 Successivamente, registrare un'applicazione con AAD. In questo modo, è disponibile per l'utente un account dell'entità servizio con accesso all'insieme di credenziali delle chiavi necessario per la macchina virtuale. Nell'articolo sull'insieme di credenziali delle chiavi di Azure è possibile trovare questi passaggi nella sezione [Registrare un'applicazione con Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register). In alternativa, è possibile vedere i passaggi con gli screenshot nella sezione **Get an identity for the application** (Ottenere un'identità per l'applicazione) di [questo post di blog](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Prima di completare questi passaggi, si noti che è necessario raccogliere le informazioni seguenti durante la registrazione, utili in seguito quando si abilita l'integrazione dell'insieme di credenziali delle chiavi di Azure nella macchina virtuale di SQL.
 
-* Dopo aver aggiunto l'applicazione, trovare l'**ID CLIENT** nella scheda **CONFIGURA**. 
-    ![ID client di Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* Dopo aver aggiunto l'applicazione, trovare l'**ID CLIENT** nella scheda **CONFIGURA**.   ![ID client di Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
     L'ID client viene assegnato successivamente al parametro **$spName** (nome entità servizio) nello script di PowerShell, per abilitare l'integrazione dell'insieme di credenziali delle chiavi di Azure. 
 * Inoltre, durante questa procedura quando si crea la chiave, copiare il segreto della chiave come illustrato nella schermata seguente. Tale segreto della chiave viene assegnato successivamente al parametro **$spSecret** (segreto entità servizio) nello script di PowerShell.  

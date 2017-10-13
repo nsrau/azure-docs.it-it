@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/13/2017
+ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 2ad643d5f099457018d02a43252db4c259f5b613
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbc01dac6cf31916bef1cba9432e5653751dc625
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creare e gestire server e database del database SQL di Azure
 
@@ -144,25 +144,25 @@ Per creare e gestire server, database e firewall SQL di Azure con l'[interfaccia
 
 | Cmdlet | Descrizione |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |Crea un database|
-|[az sql db list](/cli/azure/sql/db#list)|Elenca tutti i database e i data warehouse in un server o tutti i database in un pool elastico|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Elenca gli obiettivi di servizio e i limiti di archiviazione disponibili|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|Restituisce gli utilizzi del database|
-|[az sql db show](/cli/azure/sql/db#show)|Recupera un database o un data warehouse|
-|[az sql db update](/cli/azure/sql/db#update)|Aggiorna un database|
-|[az sql db delete](/cli/azure/sql/db#delete)|Rimuove un database|
-|[az group create](/cli/azure/group#create)|Crea un gruppo di risorse|
-|[az sql server create](/cli/azure/sql/server#create)|Crea un server|
-|[az sql server list](/cli/azure/sql/server#list)|Elenca i server|
-|[az sql server list-usages](/cli/azure/sql/server#list-usages)|Restituisce gli utilizzi del server|
-|[az sql server show](/cli/azure/sql/server#show)|Ottiene un server|
-|[az sql server update](/cli/azure/sql/server#update)|Aggiorna un server|
-|[az sql server delete](/cli/azure/sql/server#delete)|Consente di eliminare un server|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#create)|Crea una regola del firewall del server|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#list)|Elenca le regole del firewall in un server|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#show)|Mostra i dettagli di una regola del firewall|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule#update)|Aggiorna una regola del firewall|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#delete)|Elimina una regola del firewall|
+|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Crea un database|
+|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Elenca tutti i database e i data warehouse in un server o tutti i database in un pool elastico|
+|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Elenca gli obiettivi di servizio e i limiti di archiviazione disponibili|
+|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Restituisce gli utilizzi del database|
+|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Recupera un database o un data warehouse|
+|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Aggiorna un database|
+|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Rimuove un database|
+|[az group create](/cli/azure/group#az_group_create)|Crea un gruppo di risorse|
+|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Crea un server|
+|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Elenca i server|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Restituisce gli utilizzi del server|
+|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Ottiene un server|
+|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Aggiorna un server|
+|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Consente di eliminare un server|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Crea una regola del firewall del server|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Elenca le regole del firewall in un server|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra i dettagli di una regola del firewall|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Aggiorna una regola del firewall|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina una regola del firewall|
 
 > [!TIP]
 > Per un'esercitazione introduttiva sull'interfaccia della riga di comando di Azure, vedere [Creare un singolo database SQL di Azure usando l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md). Per gli script di esempio dell'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando per creare un singolo database SQL di Azure e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-cli.md) e [Usare l'interfaccia della riga di comando per monitorare e ridimensionare un singolo database SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
