@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: bc520bd2ea54208889861a7a3b275e3008a05d53
-ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-10-install-the-mobility-service"></a>Passaggio 10: Installare il servizio Mobility
 
 
@@ -53,4 +51,3 @@ Leggere le informazioni sull'[installazione del servizio Mobility usando Configu
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 11: Abilitare la replica](vmware-walkthrough-enable-replication.md)
-

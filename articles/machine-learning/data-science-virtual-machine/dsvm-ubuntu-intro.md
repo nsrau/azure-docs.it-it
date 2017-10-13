@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu)
 
 La macchina virtuale per l'analisi scientifica dei dati per Linux è un'immagine di macchina virtuale basata su Ubuntu che consente di iniziare a usare in modo semplice l'apprendimento avanzato in Azure. Gli strumenti di apprendimento avanzato includono:
@@ -100,7 +98,7 @@ Di seguito sono elencati i passaggi per la creazione di un'istanza della macchin
    
    c. **Impostazioni**:
    
-   * **Tipo di disco**: se si preferisce un'unità a stato solido, scegliere **Premium**. In caso contrario, scegliere **Standard**. Le macchine virtuali GPU richiedono un disco Standard.
+   * **Tipo di disco**: se si preferisce un'unità SSD, scegliere **Premium**. In caso contrario, scegliere **Standard**. Le macchine virtuali GPU richiedono un disco Standard.
    * **Account di archiviazione**: è possibile creare un nuovo account di archiviazione di Azure nella sottoscrizione o usarne uno esistente nella stessa posizione scelta nel passaggio **Nozioni di base** della procedura guidata.
    * **Altri parametri**: nella maggior parte dei casi si usano semplicemente i valori predefiniti. Nel caso in cui si desideri usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni sui campi specifici.
    
@@ -123,7 +121,7 @@ Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali
 > 
 
 ## <a name="installing-and-configuring-x2go-client"></a>Installazione e configurazione del client X2Go
-Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è pronta per accettare connessioni client. Per connettersi al desktop con interfaccia grafica della VM Linux, è necessario completare la procedura seguente sul client:
+Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è pronta per accettare connessioni client. Per connettersi al desktop con interfaccia grafica della VM Linux, è necessario completare la procedura seguente nel client:
 
 1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Eseguire il client X2Go e selezionare **New Session**(Nuova sessione). Viene visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
@@ -344,7 +342,7 @@ Ecco alcune informazioni aggiuntive sui primi tre strumenti di Machine Learning 
 #### <a name="vowpal-wabbit"></a>Vowpal Wabbit
 Vowpal Wabbit è un sistema di apprendimento automatico che usa tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo.
 
-Per eseguire lo strumento su un esempio semplice, eseguire questi comandi:
+Per eseguire lo strumento su un esempio semplice, eseguire le operazioni seguenti:
 
     cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
     cd vwdemo
@@ -418,5 +416,4 @@ Ecco come è possibile continuare l'apprendimento e l'esplorazione:
 * Esaminare e provare i vari strumenti di analisi scientifica dei dati descritti in questo articolo nella VM di analisi scientifica dei dati. È anche possibile eseguire *dsvm-more-info* nella shell della macchina virtuale per un'introduzione di base e per visualizzare collegamenti ad altre informazioni sugli strumenti installati nella VM.  
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitare la pagina relativa a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) per esempi di Machine Learning e di analisi dei dati tramite Cortana Analytics Suite.
-
 

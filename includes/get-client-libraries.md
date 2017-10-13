@@ -15,7 +15,7 @@
     php composer.phar install
     ```
 
-In alternativa andare alla [libreria client PHP di Archiviazione di Microsoft Azure] [ php-sdk-github] su GitHub per clonare il codice sorgente.
+In alternativa andare alla [libreria client PHP di Archiviazione di Microsoft Azure][php-sdk-github] su GitHub per clonare il codice sorgente.
 
 [php-sdk-github]: https://github.com/Azure/azure-storage-php
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

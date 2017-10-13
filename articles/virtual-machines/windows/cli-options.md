@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0ac4aa10db43fb84119ab97cf78b2d5592cfd277
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-the-azure-cli-on-windows"></a>Uso dell'interfaccia della riga di comando di Azure su Windows
 
 L'interfaccia della riga di comando di Azure (CLI) fornisce una riga di comando e l'ambiente di scripting per la creazione e la gestione delle risorse di Azure. L'interfaccia della riga di comando di Azure è disponibile per i sistemi operativi macOS, Linux e Windows. In questi sistemi operativi i comandi dell'interfaccia della riga di comando sono identici. Tuttavia, la sintassi di scripting specifica del sistema operativo può differire.
@@ -65,4 +63,3 @@ Al termine, verrà avviata una sessione Bash precaricata con gli strumenti dell'
 [Esempi di interfaccia della riga di comando per App Web di Azure](../../app-service/app-service-cli-samples.md)
 
 [Esempi di interfaccia della riga di comando per Azure SQL](../../sql-database/sql-database-cli-samples.md)
-

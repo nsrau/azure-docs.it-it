@@ -1,5 +1,5 @@
 ---
-title: Modelli di pagina in Gestione API di Azure | Documentazione Microsoft
+title: Modelli di pagina in Gestione API di Azure | Microsoft Docs
 description: Informazioni su come personalizzare il contenuto delle pagine del portale per sviluppatori usando un set di modelli in Gestione API di Azure.
 services: api-management
 documentationcenter: 
@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: d3c947ec67a6acba3058afcef36a18bf5debd55d
-ms.contentlocale: it-it
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: aca44e14ab85fcfeb9d1eb3c3eadfff7831c372f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelli di pagina in Gestione API di Azure
-In Gestione API di Azure è possibile personalizzare le pagine del portale per sviluppatori usando un set di modelli che ne configurano il contenuto. La sintassi [DotLiquid](http://dotliquidmarkup.org/) usata insieme all'editor di propria scelta, quale [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e a un set di [risorse stringa](api-management-template-resources.md#strings), [risorse Glifo](api-management-template-resources.md#glyphs) e [controlli di pagina](api-management-page-controls.md) offre una grande flessibilità nella configurazione personalizzata del contenuto delle pagine attraverso questi modelli.  
+In Gestione API di Azure è possibile personalizzare le pagine del portale per sviluppatori usando un set di modelli che ne configurano il contenuto. La sintassi [DotLiquid](http://dotliquidmarkup.org/) usata insieme all'editor di propria scelta, ad esempio [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e a un set di [risorse stringa](api-management-template-resources.md#strings) localizzate, [risorse Glifo](api-management-template-resources.md#glyphs) e [controlli di pagina](api-management-page-controls.md) offre una grande flessibilità nella configurazione personalizzata del contenuto delle pagine attraverso questi modelli.  
   
  I modelli in questa sezione consentono di personalizzare il contenuto delle pagine di accesso, di iscrizione e Pagina non trovata del portale per sviluppatori.  
   
@@ -38,7 +37,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="SignIn"></a> Accesso  
  Il modello di **accesso** consente di personalizzare la pagina di accesso del portale per sviluppatori.  
   
- ![Pagina di accesso](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modelli della pagina di accesso APIM del portale per sviluppatori")  
+ ![Pagina di accesso](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modelli della pagina di accesso nel portale per sviluppatori di Gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -137,7 +136,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="SignUp"></a> Iscrizione  
  Il modello di **iscrizione** consente di personalizzare la pagina di iscrizione del portale per sviluppatori.  
   
- ![Pagina di iscrizione](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Modelli della pagina di iscrizione APIM del portale per sviluppatori")  
+ ![Pagina di iscrizione](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Modelli della pagina di iscrizione nel portale per sviluppatori di Gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -185,7 +184,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="PageNotFound"></a> Pagina non trovata  
  Il modello **Pagina non trovata** consente di personalizzare la pagina Pagina non trovata del portale per sviluppatori.  
   
- ![Pagina non trovata](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Modelli di Pagina non trovata APIM del portale per sviluppatori")  
+ ![Pagina non trovata](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Modelli di Pagina non trovata nel portale per sviluppatori di Gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -230,7 +229,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |errorCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
 |emailBody|string|Corpo del messaggio di posta elettronica generato se questa pagina viene visualizzata in seguito a un errore interno.|  
 |requestedUrl|string|URL richiesto quando la pagina non è stata trovata.|  
-|referrerUrl|string|URL di riferimento all'URL richiesto.|  
+|referrerUrl|string|URL del referrer all'URL richiesto.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   
@@ -245,4 +244,4 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).
+Per ulteriori informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).

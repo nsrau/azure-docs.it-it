@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 18541c68b02ae1b59ae4a6a85122dff614c9978c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure 
 
 Se si dispone di più sottoscrizioni, è possibile organizzarle in contenitori chiamati "gruppi di gestione" che consentono di gestire l'accesso, i criteri, i costi e la conformità tra le sottoscrizioni. Ad esempio, è possibile applicare i criteri a un gruppo di gestione che limita i tipi di risorsa che è possibile creare.
@@ -93,6 +90,5 @@ Gestione risorse consente di creare criteri personalizzati per gestire le risors
 
 > [!Note]
 > I criteri non vengono applicati nelle directory. 
-
 
 

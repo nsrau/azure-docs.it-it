@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.openlocfilehash: 7d0400c834767736f63bc30a7bc2495dc6ee6e36
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -605,7 +605,7 @@ Nel portale di Azure immettere i parametri seguenti per il modello:
       * [Archiviazione di Microsoft Azure][dbms-guide-2.3] in [Distribuzione DBMS di Macchine virtuali di Azure per SAP NetWeaver][dbms-guide]
       * [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure][storage-premium-storage-preview-portal]
       * [Introduzione ad Archiviazione di Microsoft Azure][storage-introduction]
-  * **User Image VHD URI** (URI del disco rigido virtuale dell'immagine utente) (solo modello per immagine disco non gestito): URI del disco rigido virtuale dell'immagine del sistema operativo privata, ad esempio https://&lt;nomeaccount>.blob.core.windows.net/vhds/userimage.vhd.
+  * **User Image VHD URI** (URI del disco rigido virtuale dell'immagine utente) (solo modello per immagine disco non gestito): URI del disco rigido virtuale dell'immagine del sistema operativo privata, ad esempio https://&lt;nomeaccount&gt;.blob.core.windows.net/vhds/userimage.vhd.
   * **User image storage account** (Account di archiviazione dell'immagine utente) (solo modello per immagine di disco non gestito): nome dell'account di archiviazione in cui è archiviata l'immagine privata del sistema operativo, ad esempio &lt;nomeaccount> in https://&lt;nomeaccount>.blob.core.windows.net/vhds/userimage.vhd.
   * **userImageId** (solo modello per immagine di disco gestito): ID dell'immagine del disco gestito da usare
   * **Nome utente amministratore** e **Password amministratore**: nome utente e password dell'amministratore.

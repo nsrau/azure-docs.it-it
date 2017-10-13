@@ -9,12 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Domande frequenti su Azure Machine Learning
 
@@ -230,4 +229,3 @@ Nel [centro di documentazione di Azure Machine Learning](./overview-what-is-azur
 **Come si ottiene il supporto per Azure Machine Learning?**
 
 Per ottenere supporto tecnico per Azure Machine Learning, accedere a Supporto tecnico di Azure e selezionare Machine Learning. Ad Azure Machine Learning è associata una community attiva in [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) contrassegnata con "Azure-Machine Learning" e monitorata dal team.  Le richieste di nuove funzionalità e i suggerimenti possono essere inviati al sito dei [commenti e suggerimenti di Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). 
-

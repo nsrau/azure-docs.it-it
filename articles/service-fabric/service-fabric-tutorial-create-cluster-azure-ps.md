@@ -15,14 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 86c01a55304c5f5179e0e94d67f318e42075fd48
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-cluster-in-azure-using-powershell"></a>Creare un cluster Windows in Azure con PowerShell
 Questa esercitazione illustra come creare un cluster di Service Fabric Windows in esecuzione in Azure. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni.
 
@@ -157,4 +155,3 @@ In questa esercitazione si è appreso come:
 Procedere con l'esercitazione seguente per scoprire come distribuire un'applicazione esistente.
 > [!div class="nextstepaction"]
 > [Distribuire un'app .NET tramite Docker Compose](service-fabric-host-app-in-a-container.md)
-

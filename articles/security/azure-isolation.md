@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 ##  <a name="introduction"></a>Introduzione
 ### <a name="overview"></a>Panoramica
@@ -348,5 +346,4 @@ Microsoft Azure offre numerosi servizi di calcolo basati sul cloud che includono
 - [Isolamento dell'archiviazione](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure separa tra loro il calcolo e l'archiviazione basati sulle VM. Questa separazione consente la scalabilità indipendente di calcolo e archiviazione, semplificando l'uso di multi-tenancy e isolamento. Il servizio Archiviazione di Azure viene quindi eseguito in hardware separato senza alcuna connettività di rete ai servizi di calcolo di Azure, ad eccezione di quella logica. Tutte le richieste vengono eseguite tramite HTTP o HTTPS in base alla scelta del cliente.
-
 

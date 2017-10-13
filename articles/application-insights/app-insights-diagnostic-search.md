@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
 ms.openlocfilehash: e2d12f807756b778a64920b12a66fba184a99844
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
 Ricerca è una funzionalità di [Application Insights](app-insights-overview.md) che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagine, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
@@ -68,7 +68,7 @@ I tipi di eventi sono i seguenti:
 
 * **Traccia**:  - [log di diagnostica](app-insights-asp-net-trace-logs.md) con chiamate TrackTrace, log4Net, NLog e System.Diagnostic.Trace.
 * **Richiesta**: richieste HTTP ricevute dall'applicazione server, tra cui pagine, script, immagini, file di stile e dati. Questi eventi vengono usati per creare grafici di panoramica di richieste e risposte.
-* **Visualizzazione pagina**: -  [i dati di telemetria inviati al client Web](app-insights-javascript.md), usati per creare report di visualizzazioni pagine. 
+* **Visualizzazione pagina**: - [i dati di telemetria inviati al client Web](app-insights-javascript.md), usati per creare report di visualizzazioni pagine. 
 * **Evento personalizzato**: se sono state inserite chiamate in TrackEvent() per [tenere traccia dell'utilizzo](app-insights-api-custom-events-metrics.md), è possibile cercarle qui.
 * **Eccezione**: [eccezioni non rilevate nel server](app-insights-asp-net-exceptions.md) e quelle che si registrano con TrackException().
 * **Dipendenza**:  - [chiamate dall'applicazione server](app-insights-asp-net-dependencies.md) ad altri servizi, ad esempio le API REST o i database, e chiamate AJAX dal [codice client](app-insights-javascript.md).

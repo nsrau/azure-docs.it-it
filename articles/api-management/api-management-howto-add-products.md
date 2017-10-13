@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 73bf4451ba1b71807e22440beecc73a7e8045c5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Come creare e pubblicare un prodotto in Gestione API di Azure
 In Gestione API di Azure un prodotto contiene una o più API, oltre a una quota di utilizzo e alle condizioni per l'utilizzo. Dopo la pubblicazione di un prodotto, gli sviluppatori possono eseguire la sottoscrizione al prodotto e iniziare a usare le API del prodotto. L'argomento include una guida per la creazione di un prodotto, l'aggiunta di un'API e la pubblicazione per gli sviluppatori.
@@ -73,7 +73,7 @@ Prima di pubblicare il prodotto, è necessario aggiungere una o più API. A tale
 
 Selezionare le API desiderate e fare clic su **Salva**.
 
-## <a name="add-description"> </a>Aggiungere informazioni descrittive a un prodotto
+## <a name="add-description"></a>Aggiungere informazioni descrittive a un prodotto
 La scheda **Impostazioni** consente di specificare informazioni dettagliate sul prodotto, ad esempio lo scopo, le API a cui fornisce l'accesso e altre informazioni utili. Il contenuto è indirizzato agli sviluppatori che chiameranno l'API e può essere scritto come testo normale o commenti HTML.
 
 ![Impostazioni prodotto][api-management-product-settings]
@@ -86,12 +86,12 @@ Per consentire agli account per sviluppatore di sottoscrivere più volte il prod
 
 Immettere eventualmente nel campo **Condizioni per l'utilizzo** la descrizione delle condizioni per l'utilizzo del prodotto che i sottoscrittori devono accettare per usare il prodotto.
 
-## <a name="publish-product"> </a>Pubblicare un prodotto
+## <a name="publish-product"></a>Pubblicare un prodotto
 Per poter chiamare le API in un prodotto, il prodotto deve essere pubblicato. Nella scheda **Riepilogo** del prodotto fare clic su **Pubblica**, quindi su **Sì, pubblica** per confermare. Per impostare come privato un prodotto pubblicato in precedenza, fare clic **Annulla pubblicazione**.
 
 ![Pubblicazione prodotto][api-management-publish-product]
 
-## <a name="make-visible"> </a>Rendere un prodotto visibile per gli sviluppatori
+## <a name="make-visible"></a>Rendere un prodotto visibile per gli sviluppatori
 La scheda **Visibilità** consente di scegliere i ruoli che possono visualizzare il prodotto nel portale per sviluppatori e sottoscrivere il prodotto.
 
 ![Visibilità prodotto][api-management-product-visiblity]
@@ -107,7 +107,7 @@ Nella scheda **Sottoscrittori** sono elencati gli sviluppatori che hanno sottosc
 
 ![Sviluppatori:][api-management-developer-list]
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Una volta che le API desiderate sono state aggiunte e il prodotto pubblicato, gli sviluppatori possono sottoscrivere il prodotto e iniziare a chiamare le API. Per una dimostrazione di questi elementi e della configurazione avanzata del prodotto, vedere l'esercitazione [Come creare e configurare le impostazioni avanzate del prodotto in Gestione API di Azure][How create and configure advanced product settings in Azure API Management].
 
 Per altre informazioni sull'uso dei prodotti, vedere il video seguente.

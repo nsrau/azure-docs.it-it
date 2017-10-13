@@ -15,12 +15,11 @@ ms.date: 08/22/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Guida introduttiva: Aggiungere nuovi utenti ad anteprima di Azure Active Directory
 In questo articolo viene illustrato come aggiungere nuovi utenti dell'organizzazione in Azure Active Directory (Azure AD) uno per volta, utilizzando il portale di Azure o sincronizzando i dati dell'account utente Windows Server Active Directory locale. 

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
+ms.openlocfilehash: d24139de04b36044bbb88d0e9b9a1feb6d8edfa8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 56c24eb26faf1729c33b025d5c9fcf5d13abd376
-ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-documentation"></a>Documentazione di Hub eventi
 
 Informazioni su come usare l'Hub eventi per raccogliere e gestire milioni di eventi al secondo da dispositivi e applicazioni IoT connessi. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare inserimenti scalabili degli eventi su un'ampia serie di piattaforme.
@@ -151,4 +149,3 @@ Informazioni su come usare l'Hub eventi per raccogliere e gestire milioni di eve
         </div>
     </li>
 </ul>
-

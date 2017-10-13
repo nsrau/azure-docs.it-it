@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
+ms.openlocfilehash: 7fdcff5ed93e56e4ac70dd9dcee0056a4cbef0bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fa07135d550bf9ea0f6d1e03089b988cf0d5dddc
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Usare Registro contenitori di Azure (ACR) con un cluster DC/OS per distribuire l'applicazione
 
@@ -130,7 +129,7 @@ A questo punto, da un computer di sviluppo o da qualsiasi altro sistema con Dock
 Creare un contenitore dall'immagine Ubuntu.
 
 ```azurecli-interactive
-docker run ubunut --name base-image
+docker run ubuntu --name base-image
 ```
 
 Ora è possibile acquisire il contenitore in una nuova immagine. È necessario che l'immagine includa il nome `loginServer` del registro contenitori nel formato `loginServer/imageName`.
@@ -208,4 +207,3 @@ In questa esercitazione è necessario configurare il controller di dominio/siste
 > * Configurare l'autenticazione del record di controllo di accesso in un cluster del controller di dominio/sistema operativo
 > * Caricare un'immagine nel Registro contenitori di Azure
 > * Eseguire un'immagine del contenitore dal Registro contenitori di Azure
-

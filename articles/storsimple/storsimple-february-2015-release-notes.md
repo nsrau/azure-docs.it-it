@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c059fd74854813615754e67547497b7ededbe4dd
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-update-03-release-notes---february-2015"></a>Note sulla versione dell'aggiornamento 0.3 di StorSimple serie 8000 - Febbraio 2015
 ## <a name="overview"></a>Panoramica
@@ -82,5 +81,4 @@ Questa versione non contiene aggiornamenti per il controller SAS (Serial Attache
 
 ## <a name="virtual-device-updates-in-the-february-release"></a>Aggiornamenti del dispositivo virtuale nella versione di febbraio 
 Questa versione non contiene aggiornamenti per il dispositivo virtuale. L’applicazione di tale aggiornamento non cambia la versione del software di un dispositivo virtuale.
-
 

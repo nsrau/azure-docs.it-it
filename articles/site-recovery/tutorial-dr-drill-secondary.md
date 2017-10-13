@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8737c2a22bd729cfc15d5448e1ec0becef643fd5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Configurare un'analisi di ripristino di emergenza per macchine virtuali Hyper-V nel sito locale secondario
 
@@ -46,7 +45,7 @@ In questa esercitazione viene illustrato come configurare un'analisi di ripristi
 ## <a name="run-a-test-failover-for-a-vm"></a>Eseguire un failover di test per una macchina virtuale
 
 1. In **Elementi replicati** fare clic sulla macchina virtuale e quindi su **Failover di test**.
-2. In **Failover di test** specificare come le macchine virtuali di test dovranno essere connesse alle reti dopo il failover di test. Si consiglia, ai fini di questa esercitazione, di consentire a Site Recovery di creare automaticamente una rete di test. [Altre informazioni](site-recovery-test-failover-vmm-to-vmm.md#network-options-in-site-recovery).
+2. In **Failover di test** specificare come le macchine virtuali di test dovranno essere connesse alle reti dopo il failover di test. Si consiglia, ai fini di questa esercitazione, di consentire a Site Recovery di creare automaticamente una rete di test. [Altre informazioni](site-recovery-test-failover-vmm-to-vmm.md#network-options-in-site-recovery)
 3. Fare clic su **OK** per iniziare il failover. Tenere traccia dell'avanzamento sulla scheda **Processi** .
 4. Dopo il completamento del failover verificare che le macchine virtuali di test vengano avviate correttamente.
 5. Al termine, fare clic su **Pulisci failover di test**. Questo comando consente di eliminare le macchine virtuali di test e le eventuali reti create durante il failover di test.
@@ -56,7 +55,6 @@ In questa esercitazione viene illustrato come configurare un'analisi di ripristi
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Eseguire un failover di produzione](tutorial-vmm-to-vmm-failover-failback.md)
-
 
 
 

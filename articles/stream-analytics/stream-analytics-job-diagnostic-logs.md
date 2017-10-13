@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: ea90a62ffee9c766985f76e1c0abc1585bebc69b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: c9772df2c216d465ca6e90e69bce011969dd4f02
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Risoluzione dei problemi di Analisi di flusso di Azure mediante i log di diagnostica
 
@@ -33,8 +32,7 @@ Analisi di flusso offre due tipi di log:
 * [Log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurabili). I log di diagnostica forniscono informazioni più complete su tutto ciò che accade con un processo. I log di diagnostica vengono avviati quando viene creato il processo e terminano quando il processo viene eliminato. Comprendono gli eventi di quando il processo viene aggiornato e di quando è in fase di esecuzione.
 
 > [!NOTE]
-> Per analizzare i dati non conformi è possibile usare servizi come Archiviazione di Azure, Hub eventi di Azure e Azure Log Analytics. Gli addebiti avvengono in base al modello di determinazione dei prezzi per questi 
-servizi.
+> Per analizzare i dati non conformi è possibile usare servizi come Archiviazione di Azure, Hub eventi di Azure e Azure Log Analytics. Gli addebiti avvengono in base al modello di determinazione dei prezzi per questi servizi.
 >
 
 ## <a name="turn-on-diagnostics-logs"></a>Attivare i log di diagnostica
@@ -128,4 +126,3 @@ ID correlazione | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identi
 * [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

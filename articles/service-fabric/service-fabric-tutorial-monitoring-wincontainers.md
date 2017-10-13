@@ -15,15 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 16c9926d44f972d2b38028cb6ab1420de6b60533
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Monitorare i contenitori di Windows in Service Fabric usando OMS
 
 Questa è la terza parte di un'esercitazione in cui si spiega come impostare OMS per monitorare i contenitori di Windows orchestrati in Service Fabric.
@@ -224,7 +221,7 @@ Verrà aperta l'area di lavoro nel portale di OMS, in cui è possibile visualizz
 * Fare clic su **Origini connesse** > **Server Windows** e verificare che siano presenti *5 computer Windows connessi*.
 * Fare clic su **Dati** > **Contatori delle prestazioni di Windows** per cercare e aggiungere nuovi contatori delle prestazioni. Qui viene visualizzato un elenco di contatori delle prestazioni consigliati da OMS da cui è possibile raccogliere dati. È inoltre possibile cercare altri contatori. Fare clic su **Aggiungi i contatori delle prestazioni selezionati** per avviare la raccolta delle metriche consigliate.
 
-    ![Contatori delle prestazioni](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
+    ![Perf counters](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
 
 Nel portale di Azure **aggiornare** la Soluzione Monitoraggio contenitori e in pochi minuti si dovrebbero iniziare a vedere i dati relativi alle *Prestazioni computer*. Questi dati consentono di capire come vengono usate le risorse. È possibile usare queste metriche anche per prendere decisioni appropriate sul ridimensionamento del cluster o per verificare se il bilanciamento del carico in un cluster avviene come previsto.
 

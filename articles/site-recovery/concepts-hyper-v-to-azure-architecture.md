@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 991c72352eaa4c3b12fcdc1e4112063fb698e772
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="hyper-v-to-azure-replication-architecture"></a>Architettura della replica da Hyper-V ad Azure
 
 
@@ -38,7 +35,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 **Componente** | **Requisito** | **Dettagli**
 --- | --- | ---
-**Azure** | Sono necessari una sottoscrizione di Azure, un account di archiviazione di Azure e una rete di Azure. | I dati replicati da carichi di lavoro di macchine virtuali locali vengono archiviati nell'account di archiviazione. Le macchine virtuali di Azure vengono create con i dati dei carichi di lavoro replicati durante il failover dal sito locale.<br/><br/> Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
+**Azzurro** | Sono necessari una sottoscrizione di Azure, un account di archiviazione di Azure e una rete di Azure. | I dati replicati da carichi di lavoro di macchine virtuali locali vengono archiviati nell'account di archiviazione. Le macchine virtuali di Azure vengono create con i dati dei carichi di lavoro replicati durante il failover dal sito locale.<br/><br/> Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
 **Hyper-V** | Durante la distribuzione di Site Recovery, è necessario raccogliere gli host e i cluster Hyper-V in siti Hyper-V. È necessario installare il provider di Azure Site Recovery e l'agente di Servizi di ripristino in ogni computer Hyper-V. | Il provider orchestra la replica con Site Recovery su Internet. L'agente di Servizi di ripristino gestisce la replica dei dati.<br/><br/> Le comunicazioni dal provider e dall'agente sono protette e crittografate. I dati replicati nell'archiviazione di Azure vengono anche crittografati.
 **VM Hyper-V** | Una o più macchine virtuali in esecuzione in Hyper-V. | Non è necessario installare in modo esplicito alcun componente nelle macchine virtuali.
 
@@ -55,7 +52,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 **Componente** | **Requisito** | **Dettagli**
 --- | --- | ---
-**Azure** | Sono necessari una sottoscrizione di Azure, un account di archiviazione di Azure e una rete di Azure. | I dati replicati da carichi di lavoro di macchine virtuali locali vengono archiviati nell'account di archiviazione. Quando si verifica un failover dal sito locale, vengono create le VM di Azure con i dati replicati.<br/><br/> Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
+**Azzurro** | Sono necessari una sottoscrizione di Azure, un account di archiviazione di Azure e una rete di Azure. | I dati replicati da carichi di lavoro di macchine virtuali locali vengono archiviati nell'account di archiviazione. Quando si verifica un failover dal sito locale, vengono create le VM di Azure con i dati replicati.<br/><br/> Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
 **Server VMM** | Il server VMM ha uno o più cloud contenenti host Hyper-V. | È necessario installare il provider di Site Recovery nel server VMM per orchestrare la replica con Site Recovery e registrare il server nell'insieme di credenziali di Servizi di ripristino.
 **Host Hyper-V** | Uno o più host/cluster Hyper-V gestiti da VMM. |  L'agente di Servizi di ripristino viene installato in ogni host o membro del cluster.
 **VM Hyper-V** | Una o più macchine virtuali in esecuzione in un server host Hyper-V. | Non è necessario installare esplicitamente alcun componente nelle macchine virtuali.
@@ -79,7 +76,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 1. Dopo aver abilitato la protezione per una macchina virtuale Hyper-V, nel portale di Azure o in locale, viene avviato **Abilita protezione**.
 2. Il processo controlla se il computer è conforme ai prerequisiti, prima di richiamare [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), per impostare la replica con le impostazioni configurate.
 3. Il processo avvia la replica iniziale richiamando il metodo [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), per inizializzare una replica della macchina virtuale completa e inviare i dischi virtuali della VM ad Azure.
-4. Il processo può essere monitorato nella scheda **Processi**.      ![Elenco dei processi](media/concepts-hyper-v-to-azure-architecture/image1.png) ![Abilitare protezione in dettaglio](media/concepts-hyper-v-to-azure-architecture/image2.png)
+4. Il processo può essere monitorato nella scheda **Processi**.      ![Elenco dei processi](media/concepts-hyper-v-to-azure-architecture/image1.png)![Abilitare protezione in dettaglio](media/concepts-hyper-v-to-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replica iniziale dei dati
@@ -154,5 +151,4 @@ Quando l'infrastruttura locale è di nuovo operativa, è possibile eseguire il f
 
 Esaminare la matrice di supporto Seguire l'esercitazione per abilitare la replica da Hyper-V ad Azure.
 Eseguire un failover e un failback.
-
 

@@ -1,4 +1,3 @@
-
 ---
 title: Matrice di supporto per la replica in un sito secondario con Azure Site Recovery | Documentazione Microsoft
 description: Riepiloga i sistemi operativi e componenti supportati per Azure Site Recovery
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matrice di supporto per la replica in un sito secondario con Azure Site Recovery
 
@@ -139,4 +137,3 @@ Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di r
 
 - [Eseguire la replica di VM Hyper-V nel cloud VMM in un sito secondario](site-recovery-vmm-to-vmm.md)
 - [Replicare VM VMware e server fisici in un sito secondario](site-recovery-vmware-to-vmware.md)
-

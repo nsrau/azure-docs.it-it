@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione con chiavi gestite dall'utente in Azure Key Vault
 
@@ -127,4 +126,3 @@ D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 *   Per altre informazioni sul set completo di funzionalità di sicurezza che consentono agli sviluppatori di creare applicazioni protette, vedere [Guida alla sicurezza di Archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
 *   Per informazioni generali su Azure Key Vault , vedere [Cos'è l'insieme di credenziali chiave di Azure?](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)
 *   Per la guida introduttiva di Azure Key Vault, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-get-started.md).
-

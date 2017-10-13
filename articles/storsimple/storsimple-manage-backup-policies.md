@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/10/2016
 ms.author: v-sharos
 ms.openlocfilehash: c1e9d5d0450bab5d371aafb40fd7c5920d39dfdb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-backup-policies"></a>Per gestire i criteri di backup, è possibile usare il servizio StorSimple Manager.
 [!INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
@@ -53,7 +53,7 @@ Aggiungere un criterio di backup per la pianificazione automatica dei backup. Es
 
 [!INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
-![Video disponibile](./media/storsimple-manage-backup-policies/Video_icon.png) **Video disponibile**
+![Video disponibile](./media/storsimple-manage-backup-policies/Video_icon.png)**Video disponibile**
 
 Per guardare un video che illustra come creare un criterio di backup cloud o locale, fare clic [qui](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 

@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Come monitorare e aggiornare una macchina virtuale Linux in Azure
 
@@ -231,7 +230,7 @@ Gestione aggiornamenti usa la gestione dei pacchetti esistente nella macchina vi
 
 ### <a name="view-results-of-an-update-deployment"></a>Visualizzare i risultati di una distribuzione di aggiornamenti
 
-Dopo aver avviato la distribuzione pianificata, è possibile visualizzare lo stato della distribuzione nella scheda **Distribuzioni di aggiornamenti** nella schermata **Gestione aggiornamenti**.
+Dopo avere avviato la distribuzione pianificata, è possibile visualizzare lo stato della distribuzione nella scheda **Distribuzioni di aggiornamenti** nella schermata **Gestione aggiornamenti**.
 Se la distribuzione è in corso, viene visualizzato lo stato **In corso**. Quando la distribuzione viene completata correttamente, lo stato diventa **Completato**.
 Se si verifica un errore in uno o più aggiornamenti della distribuzione, lo stato sarà **Non riuscito**.
 Fare clic sulla distribuzione di aggiornamenti completata per visualizzare il dashboard della distribuzione.
@@ -290,4 +289,3 @@ Passare all'esercitazione successiva per informazioni sul Centro sicurezza di Az
 
 > [!div class="nextstepaction"]
 > [Gestire la sicurezza delle VM](./tutorial-azure-security.md)
-

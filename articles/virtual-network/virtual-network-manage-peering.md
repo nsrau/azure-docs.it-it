@@ -15,21 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9fcfca3de6204581936a2bacfd86e84fd373190a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Creare, modificare o eliminare un peering reti virtuali
 
 Informazioni su come creare, modificare o eliminare un peering reti virtuali. Il peering di rete virtuale consente di connettere le reti virtuali tramite la rete backbone di Azure. Dopo aver eseguito il peering, le reti virtuali vengono ancora gestite come risorse separate. Se non si ha familiarità con il peering reti virtuali, è consigliabile leggere [Panoramica del peering reti virtuali](virtual-network-peering-overview.md) e completare l'esercitazione [Create a virtual network peering](virtual-network-create-peering.md) (Creare un peering reti virtuali), prima di completare le attività di questo articolo.
 
-Il peering di reti virtuali nella stessa area è generalmente disponibile. Il peering di reti virtuali in aree diverse è attualmente in anteprima negli Stati Uniti centro-occidentali, in Canada e negli Stati Uniti occidentali 2. È possibile [registrare la sottoscrizione per l'anteprima.](virtual-network-create-peering.md)
+Il peering reti virtuali nella stessa area è disponibile a livello generale. Il peering reti virtuali in aree diverse è attualmente in anteprima negli Stati Uniti centro-occidentali, nel Canada centrale e negli Stati Uniti occidentali 2. È possibile [registrare la sottoscrizione per l'anteprima.](virtual-network-create-peering.md)
 
 > [!WARNING]
-> I peering di rete virtuale creati in questo scenario potrebbero non avere lo stesso livello di disponibilità e affidabilità di quelli creati in scenari di rilascio con disponibilità generale. I peering di rete virtuale possono presentare funzionalità limitate e potrebbero non essere disponibili in tutte le aree di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato della funzionalità, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network) .
+> I peering reti virtuali creati in questo scenario potrebbero non avere lo stesso livello di disponibilità e affidabilità di quelli creati in scenari di rilascio con disponibilità generale. I peering reti virtuali possono presentare funzionalità limitate e potrebbero non essere disponibili in tutte le aree di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato della funzionalità, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network) .
 >
 
 ## <a name="before-you-begin"></a>Prima di iniziare
@@ -168,4 +167,3 @@ Altre informazioni sui [ruoli predefiniti](../active-directory/role-based-access
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come creare una [topologia di rete hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/29/2016
 ms.author: golive
-translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 0f2f25175e3988c58961be3d23e0e7aabcb0da8d
-
-
+ms.openlocfilehash: f23d7374a8954a0a95853fa9e00b54a8d9c468c4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Esempio di utilizzo: Distribuzione continua in macchine virtuali tramite Automation DSC e Chocolatey
 In un ambiente DevOps sono disponibili molti strumenti utili in diversi punti della pipeline di integrazione continua.  Automation DSC (Desired State Configuration) per Azure è una nuova aggiunta alle opzioni disponibili per i team DevOps.  Questo articolo illustra come configurare la distribuzione continua per un computer Windows.  La tecnica può essere facilmente estesa per includere nel ruolo, ad esempio un sito Web, tutti i computer Windows necessari, estendendola quindi anche ad altri ruoli.
@@ -77,7 +77,7 @@ In alternativa, è disponibile l'approccio manuale.  La struttura di cartelle di
 
 * Installare il modulo necessario nella workstation, come indicato di seguito:
   * Installare [Windows Management Framework versione 5](http://aka.ms/wmf5latest) (non necessario per Windows 10).
-  * `Install-Module –Name MODULE-NAME`    <—estrae il modulo da PowerShell Gallery 
+  * `Install-Module –Name MODULE-NAME`    &lt;—estrae il modulo da PowerShell Gallery 
 * Copiare la cartella del modulo da `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` in una cartella temporanea. 
 * Eliminare esempi e documentazione dalla cartella principale. 
 * Comprimere la cartella principale e denominare il file ZIP esattamente come la cartella. 
@@ -176,10 +176,4 @@ Il codice sorgente completo per questo esempio di utilizzo si trova in [questo p
 * [Panoramica della piattaforma DSC di Automazione di Azure](automation-dsc-overview.md)
 * [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

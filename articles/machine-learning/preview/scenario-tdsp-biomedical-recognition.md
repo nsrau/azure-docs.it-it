@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a13bbd5d32eaab96dfb97e60652dbe9bcbdfb1b1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Riconoscimento di entità biomediche con un modello di Team Data Science Process (TDSP)
 
 L'obiettivo di questo scenario reale è mostrare come usare Azure Machine Learning Workbench per risolvere una complessa attività di elaborazione del linguaggio naturale, ad esempio l'estrazione di entità da testo non strutturato:
@@ -212,7 +210,7 @@ Di seguito viene mostrata l'architettura del modello usata in tutto il codice pe
 
 ![Modello LSTM](./media/scenario-tdsp-biomedical-recognition/d-a-d-model.png)
 
-#### <a name="23-model-evaluation"></a>2.3. Valutazione del modello
+#### <a name="23-model-evaluation"></a>2.3. Valutazione del modello.
 Viene usato lo script di valutazione dall'[attività condivisa di riconoscimento delle entità biomediche in NLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html) per valutare la precisione, il richiamo e il punteggio F1 del modello. 
 
 #### <a name="in-domain-versus-generic-word-embedding-models"></a>Confronto tra modelli di rappresentazione distribuita delle parole generici e specifici di dominio
@@ -269,5 +267,4 @@ Sono state presentate informazioni dettagliate su come eseguire il training di u
 * [Recurrent Neural Networks](https://www.tensorflow.org/tutorials/recurrent) (Reti neurali ricorrenti)
 * [Problems encountered with Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/) (Problemi riscontrati con Spark ml Word2Vec)
 * [Spark Word2Vec: lessons learned](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/spark-word2vec-lessons-learned/) (Spark Word2Vec: lezioni apprese)
-
 

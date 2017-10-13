@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c2a3b9702afd99c29b64133a05515a1b5f395130
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Esercitazione: Classificazione di Iris tramite l'interfaccia della riga di comando
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
@@ -39,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
   >[!NOTE]
   >È sufficiente installare Azure Machine Learning Workbench in locale. È sufficiente seguire la procedura nella sezione sull'installazione di Azure Machine Learning Workbench, poiché la procedura per la creazione dell'account e di un nuovo progetto verrà eseguita dalla riga di comando in questo articolo.
  
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>introduttiva
 L'interfaccia della riga di comando di Azure Machine Learning consente di eseguire tutte le attività necessarie per un flusso di lavoro di data science end-to-end. È possibile accedere agli strumenti di interfaccia della riga di comando nei modi seguenti:
 
 ### <a name="option-1-launch-azure-ml-cli-from-azure-ml-workbench-log-in-dialog-box"></a>Opzione 1. Avviare l'interfaccia della riga di comando di Azure ML dalla finestra di dialogo di accesso di Azure Machine Learning Workbench
@@ -273,5 +271,4 @@ Questa esercitazione illustra come usare le funzionalità di anteprima di Azure 
 > * Creare un account di Gestione modelli per gestire il modello
 > * Creare un ambiente per distribuire un servizio Web
 > * Distribuire un servizio Web e assegnare un punteggio con nuovi dati
-
 

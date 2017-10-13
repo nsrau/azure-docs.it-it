@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 81d8a6e3015ddc4241cce8e888d51d6e2b2cb173
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-recovery-plans"></a>Creare piani di ripristino
 
@@ -80,7 +79,7 @@ Se si usa VMM nella distribuzione:
       * Modificare il valore **ScriptLibraryPath** e inserirlo come \\libserver2.contoso.com\share\. Specificare il nome di dominio completo. Fornire le autorizzazioni per il percorso di condivisione. Si noti che questo è il nodo radice della condivisione. **Per controllarlo, è possibile aprire e sfogliare la raccolta nel nodo della radice in VMM. Il percorso che verrà visualizzato sarà la radice del percorso, ovvero il percorso necessario da usare nella variabile**.
       * Assicurarsi di testare lo script con un account utente che disponga delle stesse autorizzazioni come account del servizio VMM. In questo modo si verifica che gli script testati autonomamente vengano eseguiti nello stesso modo in cui verrebbero eseguiti nei piani di ripristino. Nel server VMM, impostare i criteri di esecuzione in modo venga ignorato quanto segue:
         * Aprire la console di **Windows PowerShell a 64 bit** con privilegi elevati.
-        * Digitare: **Set-executionpolicy bypass**. [Altre informazioni](https://technet.microsoft.com/library/ee176961.aspx).
+        * Digitare: **Set-executionpolicy bypass**. [Altre informazioni](https://technet.microsoft.com/library/ee176961.aspx)
 
 > [!IMPORTANT]
 > È consigliabile impostare i criteri di esecuzione da ignorare solo in PowerShell a 64 bit. Se il valore impostato è PowerShell a 32 bit, gli script non verranno eseguiti.
@@ -109,4 +108,3 @@ Se si dispone di un sito di origine VMM, è possibile creare uno script nel serv
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Altre informazioni](site-recovery-failover.md) sull'esecuzione dei failover.
-

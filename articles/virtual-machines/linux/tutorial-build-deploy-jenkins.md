@@ -14,17 +14,15 @@ ms.workload: infrastructure
 ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
+ms.openlocfilehash: feaced0d0784b5724fb1e30be5e66cb7c808d77f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a40e26a8681df31fad664e4d1df4c1513311900d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-your-app-to-linux-vms-using-jenkins-and-team-services"></a>Distribuire l'app in macchine virtuali Linux usando Jenkins e Team Services
 
-Integrazione continua (CI) e distribuzione continua (CD) rappresentano una pipeline con cui è possibile compilare, rilasciare e distribuire codice. Team Services offre un set di strumenti completo per l'automazione CI/CD e la distribuzione in Azure. Jenkins è uno strumento di terze parti diffuso basato su server per CI/CD e offre anche l'automazione CI/CD. È possibile usare insieme entrambi gli strumenti per personalizzare la fornitura dell'app o del servizio cloud.
+Integrazione continua (CI) e distribuzione continua (CD) sono una pipeline con cui è possibile compilare, rilasciare e distribuire codice. Team Services offre un set di strumenti di automazione CI/CD completo per la distribuzione in Azure. Jenkins è uno strumento di terze parti diffuso basato su server per CI/CD che offre anche l'automazione CI/CD. È possibile usare insieme entrambi gli strumenti per personalizzare la fornitura dell'app o del servizio cloud.
 
 In questa esercitazione si userà Jenkins per creare un'**app Web Node.js** e Visual Studio Team Services per distribuirla in un [gruppo di distribuzione](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) contenente macchine virtuali Linux.
 
@@ -46,7 +44,7 @@ Si apprenderà come:
   > [!NOTE]
   > Per altre informazioni, vedere [Connettersi a Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-* Se non si dispone di un token di accesso personale nell'account di Team Services, crearne uno. Jenkins richiede queste informazioni per accedere all'account di Team Services.
+* Se non si dispone di un token di accesso personale nell'account di Team Services, crearne uno. Jenkins richiede questa informazione per accedere all'account di Team Services.
   Leggere [Come creare un token di accesso personale per Team Services e TFS](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) per informazioni su come generarne uno.
 
 ## <a name="get-the-sample-app"></a>Ottenere l'app di esempio
@@ -59,12 +57,12 @@ Per questa esercitazione, si consiglia di usare [questa app di esempio disponibi
 1. Rendere il fork **pubblico** per semplificare la connessione a GitHub in un secondo momento.
 
 > [!NOTE]
-> Per ulteriori informazioni, vedere la pagina relativa alla [biforcazione di un repository](https://help.github.com/articles/fork-a-repo/) e a come [rendere pubblico un repository privato](https://help.github.com/articles/making-a-private-repository-public/).
+> Per ulteriori informazioni, vedere [Fork a repo](https://help.github.com/articles/fork-a-repo/) (Biforcazione di un repository) e [Making a private repository public](https://help.github.com/articles/making-a-private-repository-public/) (Rendere pubblico un repository privato).
 
 > [!NOTE]
-> L'app è stata creata tramite [Yeoman](http://yeoman.io/learning/index.html); Usa **Express**, **bower** e **grunt** e ha alcuni pacchetti **npm** come dipendenze.
+> L'app è stata creata con [Yeoman](http://yeoman.io/learning/index.html), usa **Express**, **Bower** e **Grunt**, e ha alcuni pacchetti **npm** come dipendenze.
 > L'app di esempio contiene un set di [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) usati per creare in modo dinamico le macchine virtuali per la distribuzione in Azure. Questi modelli vengono usati dalle attività nella [definizione di versione di Team Services](https://www.visualstudio.com/docs/build/actions/work-with-release-definitions).
-> Il modello principale crea un gruppo di sicurezza di rete, una macchina virtuale e una rete virtuale. Assegna un indirizzo IP pubblico e apre la porta 80 in ingresso. Aggiunge anche un tag che viene usato dal gruppo di distribuzione per selezionare i computer che ricevono la distribuzione.
+> Il modello principale crea un gruppo di sicurezza di rete, una macchina virtuale e una rete virtuale. Assegna un indirizzo IP pubblico e apre la porta 80 in ingresso. Aggiunge anche un tag che viene usato dal gruppo di distribuzione per selezionare le macchine virtuali che ricevono la distribuzione.
 >
 > L'esempio contiene anche uno script che configura Nginx e distribuisce l'app. Viene eseguito su tutte le macchine virtuali. In particolare, lo script installa Noe, Nginx e PM2, configura Nginx e PM2 e quindi avvia l'app Node.
 
@@ -84,9 +82,9 @@ In primo luogo è necessario configurare due plug-in di Jenkins per **NodeJS** e
 
 ## <a name="configure-jenkins-build-for-nodejs"></a>Configurare la compilazione di Jenkins per Node.js
 
-In Jenkins, creare un nuovo progetto di compilazione e configurarlo come segue:
+In Jenkins creare un nuovo progetto di compilazione e configurarlo come segue:
 
-1. Nella scheda **General** (Generale), immettere un nome per il progetto di compilazione.
+1. Nella scheda **General** (Generale) immettere un nome per il progetto di compilazione.
 
 1. Nella scheda **Source Code Managament** (Gestione codice sorgente) selezionare **Git** e immettere i dettagli del repository e del ramo contenenti il codice dell'app.
 
@@ -99,13 +97,13 @@ In Jenkins, creare un nuovo progetto di compilazione e configurarlo come segue:
 
 1. Nella scheda **Build Environment** (Ambiente build) selezionare **Provide Node &amp; npm bin/ folder PATH** e immettere `NodeJS` per il valore Node JS Installation (Installazione Node JS). Lasciare **npmrc file** impostato su "use system default" (usa impostazioni predefinite di sistema).
 
-1. Nella scheda **Build** (Compila), immettere il comando `npm install` per assicurarsi che tutte le dipendenze siano aggiornate.
+1. Nella scheda **Build** (Compila) immettere il comando `npm install` per assicurarsi che tutte le dipendenze siano aggiornate.
 
 ## <a name="configure-jenkins-for-team-services-integration"></a>Configurare Jenkins per l'integrazione con Team Services
 
 1. Nella scheda **Post-build Actions** (Azioni post-compilazione) per **Files to archive** (File da archiviare) immettere `**/*` per includere tutti i file.
 
-1. Per **Trigger release in TFS/Team Services** (Rilascio trigger in TFS/Team Services), immettere l'URL completo dell'account, ad esempio `https://your-account-name.visualstudio.com`, il nome del progetto, un nome per la definizione di versione che verrà creata in un secondo momento e le credenziali per connettersi all'account.
+1. Per **Trigger release in TFS/Team Services** (Attiva versione in TFS/Team Services), immettere l'URL completo dell'account, ad esempio `https://your-account-name.visualstudio.com`, il nome del progetto, un nome per la definizione di versione che verrà creata in un secondo momento e le credenziali per connettersi all'account.
    Sono necessari il nome utente e il token di accesso personale creati in precedenza. 
 
    ![Configurazione delle azioni di post-compilazione in Jenkins](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
@@ -134,12 +132,12 @@ Un endpoint servizio consente a Team Services di connettersi a Jenkins.
 
 È necessario un [gruppo di distribuzione](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) per contenere le macchine virtuali.
 
-1. Aprire la scheda **Versioni** nell'hub **Build &amp; Versione**, quindi aprire la scehda **Gruppi di distribuzione** e scegliere **+ Nuovo**.
+1. Aprire la scheda **Versioni** nell'hub **Compilazione &amp; versione**, quindi aprire la scheda **Gruppi di distribuzione** e scegliere **+ Nuovo**.
 
 1. Immettere un nome per il gruppo di distribuzione e una descrizione facoltativa,
    quindi scegliere **Crea**.
 
-L'attività di distribuzione di un gruppo di risorse di Azure crea e registra le macchine virtuali quando viene eseguito con il modello di Azure Resource Manager.
+L'attività di distribuzione di un gruppo di risorse di Azure crea e registra le macchine virtuali quando viene eseguita con il modello di Azure Resource Manager.
 Non è necessario creare e registrare manualmente le macchine virtuali.
 
 ## <a name="create-a-release-definition"></a>Creare una definizione di versione
@@ -147,19 +145,19 @@ Non è necessario creare e registrare manualmente le macchine virtuali.
 Una definizione di versione specifica il processo eseguito da Team Services per distribuire l'app.
 Per creare una definizione di versione in Team Services:
 
-1. Aprire la scheda **Versioni** nell'hub **Build &amp; Versione**, aprire l'elenco a discesa **+** di definizioni di versione e scegliere **Crea definizione di versione**. 
+1. Aprire la scheda **Versioni** nell'hub **Compilazione &amp; versione**, aprire l'elenco a discesa **+** di definizioni di versione e scegliere **Crea definizione di versione**. 
 
 1. Selezionare il modello **Vuoto** e scegliere **Avanti**.
 
 1. Nella sezione **Elementi** fare clic su **Collega un elemento** e scegliere **Jenkins**. Selezionare la connessione all'endpoint servizio Jenkins, quindi selezionare il processo di origine Jenkins e scegliere **Crea**. 
 
-1. Nella nuova definizione di versione, scegliere **+ Aggiungi attività** e aggiungere un'attività **Distribuzione gruppo di risorse di Azure** per l'ambiente predefinito.
+1. Nella nuova definizione di versione scegliere **+ Aggiungi attività** e aggiungere un'attività **Distribuzione gruppo di risorse di Azure** per l'ambiente predefinito.
 
 1. Scegliere la freccia a discesa accanto al collegamento **+ Aggiungi attività** e aggiungere una fase di gruppo di distribuzione alla definizione.
 
    ![Aggiunta di una fase di gruppo di distribuzione](media/tutorial-build-deploy-jenkins/deployment-group-phase-in-release-definition.png) 
 
-1. Nel catalogo delle attività, aprire la sezione **Utilità** e aggiungere un'istanza dell'attività **Script della Shell**.
+1. Nel catalogo delle attività aprire la sezione **Utilità** e aggiungere un'istanza dell'attività **Script della Shell**.
 
 1. Il modello di parametri usato nell'attività Distribuzione gruppo di risorse di Azure imposta la password amministratore usata per connettersi alle macchine virtuali.
    Fornire la password con la variabile **$(adminpassword)**:
@@ -194,7 +192,7 @@ L'attività **Distribuzione gruppo di risorse di Azure** viene usata per creare 
 
 * **Abilita i prerequisiti**: `Configure with Deployment Group agent`
 
-* **Endpoint TFS/VSTS**: scegliere **Aggiungi** e, nella finestra di dialogo "Aggiungi nuova connessione Team Foundation Server/Team Services", selezionare **Autenticazione basata su Token**. Immettere un nome per la connessione e l'URL del progetto team. Quindi generare e immettere un [token di accesso personale]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) per autenticare la connessione al progetto team.
+* **Endpoint TFS/VSTS**: scegliere **Aggiungi** e, nella finestra di dialogo "Aggiungi nuova connessione Team Foundation Server/Team Services", selezionare **Autenticazione basata su token**. Immettere un nome per la connessione e l'URL del progetto team. Quindi generare e immettere un [token di accesso personale]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) per autenticare la connessione al progetto team.
 
   ![Creare un token di accesso personale](media/tutorial-build-deploy-jenkins/create-a-pat.png)
 
@@ -232,11 +230,11 @@ L'attività **Script della Shell** viene usata per fornire la configurazione di 
 
 1. Aprire la scheda **Log** per osservare l'output della console della versione.
 
-1. Nel browser, aprire l'URL di uno dei server aggiunti al gruppo di distribuzione. Ad esempio, immettere `http://{your-server-ip-address}`
+1. Nel browser aprire l'URL di uno dei server aggiunti al gruppo di distribuzione. Ad esempio, immettere `http://{your-server-ip-address}`
 
 ## <a name="start-a-cicd-deployment"></a>Avviare una distribuzione CI/CD
 
-1. Nella definizione di versione, deselezionare la casella di controllo **Abilitato** nella sezione **Opzioni di controllo** delle impostazioni dell'attività Distribuzione gruppo di risorse di Azure.
+1. Nella definizione di versione deselezionare la casella di controllo **Abilitato** nella sezione **Opzioni di controllo** delle impostazioni dell'attività Distribuzione gruppo di risorse di Azure.
    Per le distribuzioni future al gruppo di distribuzione esistente non è necessario eseguire nuovamente questa attività.
 
 1. Passare al repository Git di origine e di modificare il contenuto del titolo **h1** nel file [app/views/index.jade](https://github.com/azooinmyluggage/fabrikam-node/blob/master/app/views/index.jade).
@@ -247,7 +245,7 @@ L'attività **Script della Shell** viene usata per fornire la configurazione di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato automatizzata la distribuzione di un'app in Azure tramite la compilazione in Jenkins e Team Services per il rilascio. Si è appreso come:
+In questa esercitazione è stata automatizzata la distribuzione di un'app in Azure tramite la compilazione in Jenkins e Team Services per il rilascio. Si è appreso come:
 
 > [!div class="checklist"]
 > * Creare l'app in Jenkins

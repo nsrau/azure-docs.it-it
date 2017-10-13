@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c0fbd9b3e6f9f9f4f7a5d3e6bda18ce1312650e7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificazione dei redditi con un progetto di Team Data Science Process (TDSP)
 
 ## <a name="introduction"></a>Introduzione
@@ -36,7 +34,7 @@ La documentazione di riepilogo relativa all'esempio è disponibile [qui](https:/
 ### <a name="purpose"></a>Scopo
 Lo scopo principale di questo esempio è mostrare come creare un'istanza di un progetto di apprendimento automatico ed eseguire il progetto usando la struttura e i modelli di [Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP) in Azure Machine Learning. A questo scopo, vengono usati i ben noti [dati del censimento degli Stati Uniti del 1994 dal repository UCI per l'apprendimento automatico](https://archive.ics.uci.edu/ml/datasets/adult). L'attività di modellazione consiste nello stimare le classi di reddito annuale dalle informazioni del censimento degli Stati Uniti, ad esempio età, razza, livello di istruzione, paese di origine e così via.
 
-### <a name="scope"></a>Ambito
+### <a name="scope"></a>Scope
  * Esplorazione, training e distribuzione dei dati di un modello di apprendimento automatico che risolve il problema di stima descritto nella panoramica del caso d'uso. 
  * Esecuzione del progetto in Azure Machine Learning usando il modello di Team Data Science Process (TDSP) per questo progetto. Per l'esecuzione del progetto e la creazione del report, si userà il ciclo di vita di TDSP.
  * Operazionalizzazione della soluzione direttamente da Azure Machine Learning in servizi contenitore di Azure.
@@ -78,7 +76,7 @@ Creare un nuovo progetto usando questo esempio come modello:
 2.  Nella pagina **Projects** (Progetti) fare clic sul segno **+** e selezionare **New Project** (Nuovo progetto)
 3.  Nel riquadro **Create New Project** (Crea nuovo progetto) specificare le informazioni per il nuovo progetto
 4.  Nella casella di ricerca **Search Project Templates** (Cerca modelli di progetto) digitare "Classify US incomes - TDSP project" (Classificazione redditi Stati Uniti - Progetto di TDSP) e selezionare il modello
-5.  Fare clic su **Create** (Crea)
+5.  Fare clic su **Crea**
 
 Se si specifica un percorso di repository Git vuoto durante la creazione del progetto (nella casella appropriata), il repository verrà completato con la struttura del progetto e il contenuto dopo la creazione del progetto.
 
@@ -101,7 +99,7 @@ Questi dati sono stati estratti dal database dell'ufficio del censimento all'ind
 
 ## <a name="project-structure-execution-and-reporting"></a>Struttura del progetto, esecuzione e creazione di report
 
-### <a name="structure"></a>Struttura
+### <a name="structure"></a>Structure
 Per questo progetto, sono stati usati la struttura di cartelle e i modelli di documentazione di TDSP (di seguito), che seguono il [ciclo di vita di TDSP](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md). 
 
 Il progetto viene creato in base alle istruzioni fornite [qui](https://aka.ms/how-to-use-tdsp-in-aml). Dopo aver immesso il codice e gli elementi del progetto, la struttura è simile alla seguente (vedere la struttura del progetto all'interno del riquadro rosso nella figura).

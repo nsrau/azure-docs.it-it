@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c2c5aee3db11255be5a6fe405424c2cbb92c5b95
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Creare una verifica di accesso dei membri del gruppo o dell'accesso all'applicazione con Azure AD
 
 Le assegnazioni di accessi diventano "obsolete" quando gli utenti dispongono di accessi di cui non hanno più necessità.  Per ridurre i rischi associati alle assegnazioni di accesso obsolete, gli amministratori possono richiedere una verifica dei membri del gruppo o degli utenti assegnati a un'applicazione creando una verifica di accesso. Le guide alla [gestione dell'accesso utente](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) e alla [gestione dell'accesso guest](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md) forniscono altre informazioni su questi scenari.  
@@ -51,6 +49,5 @@ Si noti che se alcuni revisori sono guest, i guest riceveranno la notifica trami
 Quando è stata avviata una verifica di accesso, Azure AD invierà automaticamente ai revisori un messaggio di posta elettronica in cui si richiede di verificare l'accesso. Se un utente non ha ricevuto il messaggio di posta elettronica, è possibile inviargli le istruzioni su [come eseguire una verifica dell'accesso](active-directory-azure-ad-controls-perform-access-review.md).  
 
 Al termine della verifica di accesso o se l'amministratore ha interrotto la verifica, seguire la procedura descritta in [completamento di una verifica di accesso](active-directory-azure-ad-controls-complete-access-review.md) per esaminare e applicare i risultati.
-
 
 

@@ -9,14 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="document-collection-analysis"></a>Analisi delle raccolta di documenti
 
 Questo scenario dimostra la procedura per riepilogare e analizzare una vasta raccolta di documenti, incluse tecniche quali apprendimento della frase, modellazione dell'argomento e analisi del modello di argomento mediante Azure ML Workbench. Azure Machine Learning Workbench consente di affrontare facilmente vaste raccolte di documenti e fornisce meccanismi per addestrare e ottimizzare i modelli in un'ampia varietà di contesti di calcolo, che spaziano dal calcolo locale, alle macchine virtuali per data science, al cluster Spark. Lo sviluppo semplificato è fornito tramite notebook Jupyter all'interno di Azure Machine Learning Workbench.
@@ -67,7 +65,7 @@ I prerequisiti per eseguire questo esempio sono i seguenti:
 
 Creare un nuovo progetto usando questo esempio come modello:
 1.  Aprire Azure Machine Learning Workbench
-2.  Nella pagina **Progetti** fare clic sul segno **+** e selezionare **Nuovo progetto**
+2.  Nella pagina **Projects** (Progetti) fare clic sul segno **+** e selezionare **New Project** (Nuovo progetto)
 3.  Nel riquadro **Crea nuovo progetto** specificare le informazioni per il nuovo progetto
 4.  Nella casella di ricerca **Cerca modelli di progetto** digitare "Analisi raccolta documenti" e selezionare il modello
 5.  Fare clic su **Crea**
@@ -246,4 +244,3 @@ Questo scenario reale illustra come usare tecniche di analisi del testo note (in
 * **Timothy J. Hazen**, [_Latent Topic Modeling for Audio Corpus Summarization_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf) (Modellazione di argomenti latenti per il riepilogo di raccolte audio). Dodicesima conferenza annuale dell'Associazione Internazionale di Comunicazione Vocale. 2011.
 
 * **Michael Roder, Andreas Both, Alexander Hinneburg**, [_Exploring the Space of Topic Coherence Measures_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf) (Esplorazione dello spazio delle misure di coerenza degli argomenti). Procedimenti dell'ottava conferenza internazionale ACM sulla ricerca nel Web e il data mining. ACM, 2015.
-

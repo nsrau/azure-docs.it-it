@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 99c08a1efbc610959fb4ba824dcb0601efac5877
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="networking-guidance-for-replicating-azure-virtual-machines"></a>Materiale sussidiario del servizio di rete per la replica delle macchine virtuali di Azure
 
@@ -185,4 +184,3 @@ Seguire queste procedure consigliate per la configurazione di ExpressRoute:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Iniziare a proteggere i carichi di lavoro [replicando le macchine virtuali di Azure](site-recovery-azure-to-azure.md).
-

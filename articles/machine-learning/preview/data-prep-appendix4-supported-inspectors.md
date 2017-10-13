@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bc14c051fb0f518b1cff2236a61d24cb052700f0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-inspectors-for-this-preview"></a>Controlli supportati per questa anteprima
 Questo documento descrive il set di controlli disponibili in questa anteprima.
 
@@ -113,4 +111,3 @@ Una mappa con punti tracciati presupponendo che sono state specificate latitudin
 ### <a name="actions"></a>Azioni
 Questo controllo consente di filtrare con la selezione del punto sulla mappa. Premere il tasto CTRL, quindi fare clic e trascinare l'elemento con il mouse per formare un quadrato intorno ai punti. Applicare i filtri come descritto in precedenza.
 È possibile modificare rapidamente le dimensioni della mappa affinché mostri tutti i punti possibili premendo la **E** sul lato sinistro della mappa.
-

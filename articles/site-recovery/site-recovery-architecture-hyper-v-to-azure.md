@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 552794a2c7bba6f551ada5f431cacc236e7732a4
-ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Funzionamento della replica Hyper-V in Azure in Site Recovery
 
 
@@ -67,9 +64,7 @@ Informazioni sui prerequisiti di distribuzione e i requisiti per ognuno di quest
 1. Dopo aver abilitato la protezione per una macchina virtuale Hyper-V, nel portale di Azure o in locale, viene avviato **Abilita protezione**.
 2. Il processo controlla se il computer è conforme ai prerequisiti, prima di richiamare [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), per impostare la replica con le impostazioni configurate.
 3. Il processo avvia la replica iniziale richiamando il metodo [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), per inizializzare una replica della macchina virtuale completa e inviare i dischi virtuali della VM ad Azure.
-4. Il processo può essere monitorato nella scheda **Processi**.
-        ![Elenco dei processi](media/site-recovery-hyper-v-azure-architecture/image1.png)
-        ![Abilita protezione in dettaglio](media/site-recovery-hyper-v-azure-architecture/image2.png)
+4. Il processo può essere monitorato nella scheda **Processi**.      ![Elenco dei processi](media/site-recovery-hyper-v-azure-architecture/image1.png)![Abilitare protezione in dettaglio](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replicare i dati iniziali
 
@@ -126,4 +121,3 @@ Se si verifica un errore di replica, per impostazione predefinita viene effettua
 ## <a name="next-steps"></a>Passaggi successivi
 
 Rivedere la [matrice di supporto](site-recovery-support-matrix-to-azure.md)
-

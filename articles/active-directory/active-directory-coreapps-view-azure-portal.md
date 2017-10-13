@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 14b335d14d893640d469508d6f34b4e7ec6bee8b
-ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 13a45733b3b8d9ea0593e3b546b6ea58aa5f1a46
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Visualizzare tutte le app aziendali che è possibile gestire in Azure Active Directory
 È possibile gestire le applicazioni aziendali in Azure Active Directory (Azure AD). Sono incluse la visualizzazione di app che è possibile gestire, l'assegnazione di utenti o gruppi a un'app, la gestione delle proprietà per l'app, ad esempio il nome o il logo dell'applicazione, e persino la disabilitazione di un'applicazione in modo che gli utenti non possano accedervi.
@@ -39,4 +38,3 @@ ms.lasthandoff: 05/05/2017
 * [Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Disabilitare l'accesso degli utenti per un'app aziendale](active-directory-coreapps-disable-app-azure-portal.md)
 * [Modificare il nome o il logo di un'app aziendale](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-

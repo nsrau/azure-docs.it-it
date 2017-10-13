@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: ramoha
+ms.openlocfilehash: e80b69fa3e60618dbaccd612114200a941019854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 7608951ffb79d945ce3271792e7cf1a0d0b254b3
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-spark-streaming"></a>Panoramica di Spark Streaming
 
@@ -89,7 +88,7 @@ Avviare l'applicazione di streaming e proseguire l'esecuzione fino a quando non 
 
 Per informazioni dettagliate sull'API di Spark Streaming, nonché su origini degli eventi, trasformazioni e operazioni di output supportate, vedere [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html) (Guida a Spark Streaming per programmatori).
 
-L'applicazione di esempio seguente è indipendente e di conseguenza può essere eseguita all'interno di [Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md). Nell'esempio viene creata un'origine dati fittizia nella classe DummySource che restituisce il valore di un contatore e l'intervallo di tempo corrente in millisecondi ogni cinque secondi. Viene creato un nuovo oggetto StreamingContext associato a un intervallo di invio in batch di 30 secondi. Ogni volta che viene creato un batch, l'RDD generato viene esaminato e quindi convertito in un oggetto DataFrame Spark e quindi viene creata una tabella temporanea per DataFrame.
+L'applicazione di esempio seguente è indipendente e di conseguenza può essere eseguita all'interno di [Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md). Nell'esempio viene creata un'origine dati fittizia nella classe DummySource che restituisce il valore di un contatore e l'intervallo di tempo corrente in millisecondi ogni cinque secondi. Viene creato un nuovo oggetto StreamingContext associato a un intervallo di invio in batch di 30 secondi. Ogni volta che viene creato un batch, l'RDD generato viene esaminato e convertito in un oggetto DataFrame Spark, e quindi viene creata una tabella temporanea per DataFrame.
 
     class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 

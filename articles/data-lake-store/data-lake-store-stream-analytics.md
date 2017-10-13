@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ecf4f8594f7a274bec231fb74c4caa22c3cc354
-ms.openlocfilehash: b5f2ae124ca3276e15e0d1f75d655ec346bf8ee8
-ms.contentlocale: it-it
-ms.lasthandoff: 01/06/2017
-
-
+ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Trasmettere i dati dal BLOB di archiviazione di Azure ad Archivio Data Lake usando Analisi di flusso di Azure
 In questo articolo viene descritto come usare Archivio Azure Data Lake come output per un processo di Analisi di flusso di Azure. Questo articolo illustra uno scenario semplice in cui i dati vengono letti da un BLOB di Archiviazione di Azure (input) e scritti in Archivio Data Lake (output).
@@ -69,7 +67,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
     * Per **Account di archiviazione** selezionare l'account di archiviazione creato come parte dei prerequisiti. 
     * Per **Contenitore** selezionare il contenitore creato nell'account di archiviazione selezionato.
     * In **Formato di serializzazione eventi** scegliere **CSV**.
-    * Per **Delimitatore**selezionare **scheda**.
+    * Per **Delimitatore** selezionare **scheda**.
     * Per **Codifica** selezionare **UTF-8**.
 
     Fare clic su **Crea**. Il portale ora aggiunge l'input e verifica la connessione allo stesso.
@@ -98,7 +96,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
     * Per **Formato data**, se nel percorso di prefisso viene usato un token di data, è possibile selezionare il formato della data in cui sono organizzati i file.
     * Per **Formato ora**, se nel percorso di prefisso viene usato un token di ora, specificare il formato dell'ora in cui sono organizzati i file.
     * In **Formato di serializzazione eventi** scegliere **CSV**.
-    * Per **Delimitatore**selezionare **scheda**.
+    * Per **Delimitatore** selezionare **scheda**.
     * Per **Codifica** selezionare **UTF-8**.
     
     Fare clic su **Crea**. Il portale ora aggiunge l'output e verifica la connessione allo stesso.
@@ -129,4 +127,3 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
 
 ## <a name="see-also"></a>Vedere anche
 * [Creare un cluster HDInsight per usare Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-

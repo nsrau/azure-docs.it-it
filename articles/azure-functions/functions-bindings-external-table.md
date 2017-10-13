@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Binding di tabelle esterne in Funzioni di Azure (Anteprima)
 Questo articolo illustra come gestire i dati tabulari sul provider SaaS (ad esempio, Sharepoint, Dynamics) all'interno della funzione con binding incorporati. Funzioni di Azure supporta i binding di input e output per le tabelle esterne.
@@ -72,7 +71,7 @@ Quando si assegna un binding è possibile creare una nuova connessione API o usa
 
 Questo esempio si connette a una tabella denominata "Contatto" con le colonne Id, LastName e FirstName. Il codice elenca le entità Contatto nella tabella e registra i nomi e i cognomi.
 
-### <a name="bindings"></a>Binding
+### <a name="bindings"></a>Associazioni
 ```json
 {
   "bindings": [
@@ -200,4 +199,3 @@ dataSetName è "default".
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-

@@ -1,5 +1,5 @@
 ---
-title: Accesso a Macchine virtuali di Azure da Esplora server | Microsoft Docs
+title: Accesso a Macchine virtuali di Azure da Esplora server | Documentazione Microsoft
 description: Panoramica su come visualizzare, creare e gestire macchine virtuali di Azure (VM) in Esplora Server in Visual Studio.
 services: visual-studio-online
 documentationcenter: na
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/31/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 75dcc603327b50718b279f3ce055663ec0bc2596
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>Accesso alle macchine virtuali di Azure da Esplora server
 Con Esplora server in Visual Studio è possibile visualizzare informazioni sulle macchine virtuali ospitate da Azure.
@@ -52,5 +51,4 @@ Se ci sono macchine virtuali ospitate da Azure, è possibile accedervi in Esplor
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sull'utilizzo dei ruoli di Azure in Visual Studio, vedere [Utilizzo di Desktop remoto con i ruoli di Azure](vs-azure-tools-remote-desktop-roles.md).
-
 

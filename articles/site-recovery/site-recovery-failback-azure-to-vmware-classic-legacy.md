@@ -14,13 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e6d0539c35d403c24ddd5e0b5d49f4d6116eead
-ms.openlocfilehash: 86f7e0565fe30af613f06764a494cbb996abcabe
-ms.contentlocale: it-it
-ms.lasthandoff: 01/30/2017
-
-
+ms.openlocfilehash: 3053fc622c6343898e2007b8aaafbe1fa8e6934e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-legacy"></a>Failback di server fisici e macchine virtuali VMware da Azure a VMware con Azure Site Recovery (legacy)
 > [!div class="op_single_selector"]
@@ -119,7 +117,7 @@ Per ottenere l'ID SCSI per ogni disco rigido SCSI in una macchina virtuale Linux
 
 1. Arrestare la macchina virtuale.
 2. Fare clic con il pulsante destro del mouse sulla voce della VM nel pannello sinistro, quindi selezionare > **Modifica impostazioni**.
-3. Scegliere la scheda **Options (Opzioni)** . Selezionare **Avanzate\>Generale** > **Parametri di configurazione**. L'opzione **Configuration Parameters** è disponibile solo quando il computer viene arrestato.
+3. Scegliere la scheda **Options (Opzioni)** . Selezionare **Avanzate\>Generale**  > **Parametri di configurazione**. L'opzione **Configuration Parameters** è disponibile solo quando il computer viene arrestato.
 
     ![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 4. Controllare se esiste una riga con il valore **disk.EnableUUID** . Se esiste ed è impostata su **False**, impostarla su **True** (senza distinzione maiuscole/minuscole). Se il valore esiste ed è impostato su True, fare clic su **Cancel** e testare il comando SCSI nel sistema operativo guest dopo l'avvio. Se non esiste, fare clic su **Add Row**(Aggiungi riga).
@@ -356,4 +354,3 @@ Dopo avere completato il failback, è opportuno proteggere ancora le macchine vi
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni](site-recovery-vmware-to-azure-classic.md) sulla replica di server fisici e macchine virtuali VMware in Azure tramite la distribuzione avanzata.
-

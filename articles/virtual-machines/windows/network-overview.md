@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 1b27bd8fe9f473384f3753e0c52f622abce02109
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Reti virtuali e macchine virtuali in Azure 
 
 [!INCLUDE [virtual-machines-common-network-overview](../../../includes/virtual-machines-common-network-overview.md)]
-

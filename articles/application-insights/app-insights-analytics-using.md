@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: 49edbaad0af2eeef4b8c348b9fd34e37ba7e80e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 28d32d1e2d82519fc7b2ad4edca8435c3759594f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Uso di Analytics in Application Insights
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics.
@@ -135,7 +134,7 @@ In un grafico del tempo, se si verifica un picco o una variazione improvvisa dei
 ![Diagnostica di Analytics](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Aggiungi al dashboard
-Per aggiungere un diagramma o una tabella a uno dei [dashboard condivisi](app-insights-dashboards.md) , è sufficiente fare clic sulla puntina. Potrebbe essere necessario [aggiornare il pacchetto dei prezzi dell'app](app-insights-pricing.md) per attivare questa funzionalità. 
+Per aggiungere un diagramma o una tabella a uno dei [dashboard condivisi](app-insights-dashboards.md) , è sufficiente fare clic sulla puntina. 
 
 ![Fare clic sulla puntina](./media/app-insights-analytics-using/pin-01.png)
 
@@ -238,5 +237,4 @@ Se si usa [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-st
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
 

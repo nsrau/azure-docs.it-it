@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
+ms.openlocfilehash: e4ae8a3bd138da963d6d559b29484248b20b7075
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: ec1b34e4f539d2e95bb1f99fca3a6a0ec682ef51
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Creare una VM Linux usando l'interfaccia della riga di comando di Azure 1.0
 
@@ -208,4 +207,3 @@ Il comando `azure vm quick-create` consente di distribuire rapidamente una macch
 * [Creare una VM Linux usando un modello di Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 È anche possibile [usare il driver di Azure `docker-machine` con vari comandi per creare rapidamente una VM Linux come host docker](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

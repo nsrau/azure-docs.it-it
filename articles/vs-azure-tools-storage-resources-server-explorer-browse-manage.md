@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 456daea494ed1daed9bd809b68ae12fceb800299
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Esplorare e gestire le risorse di archiviazione con Esplora server
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -34,7 +33,7 @@ A partire da Azure SDK 2.7, è anche possibile usare Cloud Explorer per visualiz
 ## <a name="view-and-manage-storage-resources-in-visual-studio"></a>Visualizzare e gestire le risorse di archiviazione in Visual Studio
 Esplora server mostra automaticamente un elenco di BLOB, code e tabelle nell'account dell'emulatore di archiviazione. L'account dell'emulatore di archiviazione viene visualizzato come nodo denominato **Sviluppo** sotto il nodo **Archiviazione** in Esplora server.
 
-Per visualizzare le risorse dell'account dell'emulatore di archiviazione, espandere il nodo **Sviluppo**. Se l'emulatore di archiviazione non è stato avviato, verrà avviato automaticamente quando si espande il nodo **Sviluppo**. Ciò può richiedere alcuni secondi. Durante l'avvio dell'emulatore di archiviazione è possibile continuare a lavorare in altre aree di Visual Studio.
+Per visualizzare le risorse dell'account dell'emulatore di archiviazione, espandere il nodo **Sviluppo** . Se l'emulatore di archiviazione non è stato avviato, verrà avviato automaticamente quando si espande il nodo **Sviluppo** . Ciò può richiedere alcuni secondi. Durante l'avvio dell'emulatore di archiviazione è possibile continuare a lavorare in altre aree di Visual Studio.
 
 Per visualizzare le risorse in un account di archiviazione, espandere il nodo dell'account di archiviazione in Esplora server. Vengono visualizzati i sottonodi seguenti:
 
@@ -287,5 +286,4 @@ Se si elimina un account di archiviazione, anche le informazioni sulla chiave sa
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su come usare i servizi di archiviazione di Azure, vedere [Accesso ai servizi di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
-
 

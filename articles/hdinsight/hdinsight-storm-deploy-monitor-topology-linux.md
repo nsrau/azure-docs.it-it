@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 218e818f48adee0b4e7ecb0b184098a9e3273afd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Distribuire e gestire topologie Apache Storm in HDInsight
 
@@ -94,7 +93,7 @@ HDInsight Tools consente di inviare topologie C# o ibride al cluster Storm. Nei 
    >
    > L'esempio WordCount e altri esempi di avvio dell'utilità storm sono già inclusi nel cluster in `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-## <a name="submit-a-topology-programmatically"></a>Inviare una topologia: a livello di codice
+## <a name="submit-a-topology-programmatically"></a>Inviare una topologia: a livello di programmazione
 
 È possibile distribuire a livello di codice una topologia usando il servizio Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) è disponibile un'applicazione Java di esempio che illustra come distribuire e avviare una topologia tramite il servizio Nimbus.
 
@@ -176,38 +175,38 @@ L'interfaccia utente di Storm è inclusa nel cluster HDInsight e fornisce un'int
 
 Nella pagina principale dell'interfaccia utente di Storm sono disponibili le informazioni seguenti.
 
-* **Riepilogo del cluster**: informazioni di base sul cluster Storm.
-* **Riepilogo topologia**: elenco delle topologie in esecuzione. Usare i collegamenti disponibili in questa sezione per visualizzare ulteriori informazioni su topologie specifiche.
+* **Cluster summary**: informazioni di base sul cluster Storm.
+* **Topology summary**: elenco delle topologie in esecuzione. Usare i collegamenti disponibili in questa sezione per visualizzare ulteriori informazioni su topologie specifiche.
 * **Supervisor summary**: informazioni su Storm Supervisor.
 * **Nimbus configuration**: configurazione Nimbus per il cluster.
 
-### <a name="topology-summary"></a>Riepilogo topologia
+### <a name="topology-summary"></a>Topology summary
 
-Se si seleziona un collegamento nella sezione **Riepilogo topologia** , verranno visualizzate le informazioni seguenti sulla topologia.
+Se si seleziona un collegamento nella sezione **Topology summary** , verranno visualizzate le informazioni seguenti sulla topologia.
 
-* **Riepilogo topologia**: informazioni di base sulla topologia.
+* **Topology summary**: informazioni di base sulla topologia.
 * **Topology actions**: azioni di gestione che è possibile eseguire per la topologia.
 
-  * **Attiva**: riprende l'elaborazione di una topologia disattivata.
-  * **Disattiva**: sospende una topologia in esecuzione.
-  * **Ribilancia**: regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi del cluster. Questa operazione consente alla topologia di regolare il parallelismo per compensare l'aumento o la diminuzione del numero di nodi del cluster.
+  * **Activate**: riprende l'elaborazione di una topologia disattivata.
+  * **Deactivate**: sospende una topologia in esecuzione.
+  * **Rebalance**: regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi del cluster. Questa operazione consente alla topologia di regolare il parallelismo per compensare l'aumento o la diminuzione del numero di nodi del cluster.
 
     Per altre informazioni, vedere l'articolo relativo al <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">parallelismo di una topologia Storm</a>.
-  * **Termina**: termina una topologia Storm dopo il timeout specificato.
+  * **Kill**: termina una topologia Storm dopo il timeout specificato.
 * **Topology stats**: statistiche sulla topologia. Usare i collegamenti disponibili nella colonna **Finestra** per impostare l'intervallo di tempo per le rimanenti voci della pagina.
-* **Spout**: spout usati dalla topologia. Usare i collegamenti disponibili in questa sezione per visualizzare ulteriori informazioni su spout specifici.
-* **Bolt**: bolt usati nella topologia. Usare i collegamenti disponibili in questa sezione per visualizzare ulteriori informazioni su bolt specifici.
-* **Configurazione topologia**: configurazione della topologia selezionata.
+* **Spouts**: spout usati dalla topologia. Usare i collegamenti disponibili in questa sezione per visualizzare ulteriori informazioni su spout specifici.
+* **Bolts**: bolt usati nella topologia. Usare i collegamenti disponibili in questa sezione per visualizzare ulteriori informazioni su bolt specifici.
+* **Topology configuration**: configurazione della topologia selezionata.
 
 ### <a name="spout-and-bolt-summary"></a>Riepilogo di spout e bolt
 
 Se si seleziona un elemento nella sezione **Spouts** o **Bolts**, verranno visualizzate le informazioni seguenti:
 
-* **Riepilogo componente**: informazioni di base sullo spout o sul bolt.
+* **Component summary**: informazioni di base sullo spout o sul bolt.
 * **Spout/Bolt stats**: statistiche relative allo spout o al bolt. Usare i collegamenti disponibili nella colonna **Finestra** per impostare l'intervallo di tempo per le rimanenti voci della pagina.
-* **Statistiche di input** (solo bolt): informazioni sui flussi di input usati dal bolt.
+* **Input stats** (solo bolt): informazioni sui flussi di input usati dal bolt.
 * **Statistiche di output**: informazioni sui flussi generati dallo spout o dal bolt.
-* **Executor**: informazioni sulle istanze dello spout o del bolt. Selezionare la voce **Port** relativa a un esecutore specifico per visualizzare il log delle informazioni di diagnostica generate per questa istanza.
+* **Executors**: informazioni sulle istanze dello spout o del bolt. Selezionare la voce **Port** relativa a un esecutore specifico per visualizzare il log delle informazioni di diagnostica generate per questa istanza.
 * **Errori**: informazioni su eventuali errori dello spout o del bolt.
 
 ## <a name="monitor-and-manage-rest-api"></a>Monitorare e gestire: API REST
@@ -245,4 +244,3 @@ Le informazioni restituite dall'API REST possono essere usate solo nel cluster. 
 Leggere le informazioni su come [sviluppare topologie basate su Java con Maven](hdinsight-storm-develop-java-topology.md).
 
 Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm per Apache Storm in HDInsight](hdinsight-storm-example-topology.md).
-

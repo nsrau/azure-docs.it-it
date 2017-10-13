@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/27/2017
-ms.author: sethm;babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: bcc8427d57a001f73d321fbf35c5226a047b68d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Log di diagnostica di Hub eventi
 
@@ -29,6 +28,7 @@ ms.lasthandoff: 07/08/2017
 * **[Log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. È possibile configurare i log di diagnostica per una visualizzazione più completa di tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
 
 ## <a name="turn-on-diagnostic-logs"></a>Attivare i log di diagnostica
+
 I log di diagnostica sono disabilitati per impostazione predefinita. Per abilitare i log di diagnostica:
 
 1.  Nel [portale di Azure](https://portal.azure.com) in **Monitoraggio + Gestione** fare clic su **Log di diagnostica**.
@@ -136,5 +136,4 @@ Example:
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione a Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
-* [Introduzione all'Hub eventi](event-hubs-csharp-ephcs-getstarted.md)
-
+* [Introduzione all'Hub eventi](event-hubs-dotnet-standard-getstarted-send.md)

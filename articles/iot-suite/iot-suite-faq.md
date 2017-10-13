@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: corywink
+ms.openlocfilehash: 5039dd30f85278b4e3bbba938ef40077af2c5c75
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 85867fb8d18377637b3aa848555831a8d9b53512
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Domande frequenti su IoT Suite
 
@@ -31,7 +30,7 @@ Vedere anche le [domande frequenti](iot-suite-faq-cf.md) specifiche della factor
 Il codice sorgente è memorizzato nei repository di GitHub seguenti:
 * [Soluzione preconfigurata per il monitoraggio remoto][lnk-remote-monitoring-github]
 * [Soluzione preconfigurata di manutenzione predittiva][lnk-predictive-maintenance-github]
-* [Soluzione preconfigurata di factory connessa](https://github.com/Azure/azure-iot-connected-factory)
+* [Connected factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory) (Soluzione preconfigurata di connected factory)
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Come eseguire l'aggiornamento alla versione più recente della soluzione preconfigurata per il monitoraggio remoto che usa le funzionalità di gestione del dispositivo hub IoT?
 
@@ -102,7 +101,7 @@ Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di el
 È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
 
 * [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive-overview]
-* [Panoramica della soluzione preconfigurata di factory connessa](iot-suite-connected-factory-overview.md)
+* [Panoramica della soluzione preconfigurata di connected factory](iot-suite-connected-factory-overview.md)
 * [Sicurezza IoT sin dall'inizio][lnk-security-groundup]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
@@ -122,4 +121,3 @@ Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di el
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-predictive-maintenance-github]: https://github.com/Azure/azure-iot-predictive-maintenance
-

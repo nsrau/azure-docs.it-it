@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: cab1ce3694372c137667e0179caf8d3523147f7a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Esercitazione: Integrazione di Azure Active Directory con iQualify LMS
 
@@ -37,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con iQualify LMS, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
+- Sottoscrizione di Azure AD.
 - Sottoscrizione di iQualify LMS abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -168,7 +167,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento di download del certificato](./media/active-directory-saas-iqualify-tutorial/tutorial_iqualify_certificate.png) 
 
-8. Fare clic sul pulsante **Salva**.
+8. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-iqualify-tutorial/tutorial_general_400.png)
     
@@ -189,7 +188,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Icona SAML](./media/active-directory-saas-iqualify-tutorial/setting3.png)
 
-14. Nella finestra di dialogo **SAML Authentication Settings** (Impostazioni di autenticazione SAML) eseguire questa procedura:
+14. Nella finestra di dialogo **SAML Authentication Settings** (Impostazioni di autenticazione SAML) seguire questa procedura:
 
     ![Impostazioni di autenticazione SAML](./media/active-directory-saas-iqualify-tutorial/setting4.png)
 
@@ -201,7 +200,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d. In **LOGIN BUTTON LABEL** (ETICHETTA DEL PULSANTE DI ACCESSO) immettere il nome del pulsante da visualizzare nella pagina di accesso.
     
-    e. Fare clic su **SAVE** (SALVA).
+    e. Fare clic su **SAVE**.
 
     f. Fare clic su **UPDATE** (AGGIORNA).
 
@@ -228,7 +227,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Aggiungi](./media/active-directory-saas-iqualify-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** eseguire questa procedura:
+4. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/active-directory-saas-iqualify-tutorial/create_aaduser_04.png)
 
@@ -308,5 +307,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_203.png
-
 

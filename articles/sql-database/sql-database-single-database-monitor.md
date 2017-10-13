@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio delle prestazioni del database nel database SQL di Azure | Microsoft Docs
+title: Monitoraggio delle prestazioni del database nel database SQL di Azure | Documentazione Microsoft
 description: Informazioni sulle opzioni per il monitoraggio del database con gli strumenti di Azure e le viste a gestione dinamica.
 keywords: monitoraggio database, prestazioni database cloud
 services: sql-database
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 50d635191ff65f8b892595c954673b2820b22ecb
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitoraggio delle prestazioni del database nel database SQL di Azure
 Il monitoraggio delle prestazioni di un database SQL in Azure inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. Il monitoraggio consente di determinare se il database ha capacità in eccesso o se presenta problemi perché è stato superato il limite massimo di risorse e quindi decidere se è opportuno modificare il livello di prestazioni e il [livello di servizio](sql-database-service-tiers.md) del database. È possibile monitorare il database con strumenti grafici nel [portale di Azure](https://portal.azure.com) o con le [viste a gestione dinamica di SQL](https://msdn.microsoft.com/library/ms188754.aspx).
@@ -217,4 +216,3 @@ Per l'analisi del database SQL, è possibile anche ottenere dati statistici cron
 
 - Ottimizzare automaticamente gli indici di database e dei piani di esecuzione delle query usando [Ottimizzazione automatica del database SQL di Azure](sql-database-automatic-tuning.md).
 - Monitorare le prestazioni del database automaticamente usando [Intelligent Insights SQL di Azure](sql-database-intelligent-insights.md). Questa funzionalità offre informazioni di diagnostica e analisi della causa radice dei problemi di prestazioni.
-

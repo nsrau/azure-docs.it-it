@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="devtest-labs-concepts"></a>Concetti di Lab di sviluppo e test
 ## <a name="overview"></a>Panoramica
@@ -91,4 +90,3 @@ L'articolo [Comprendere la struttura e la sintassi dei modelli di Azure Resource
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un lab in Azure DevTest Labs](devtest-lab-create-lab.md)
-

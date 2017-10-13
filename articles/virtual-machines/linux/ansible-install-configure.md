@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 52b763274437961dccfc862c8a45fbd57ea9fc4e
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 3fabfee169c3ebedc7bca81a6a6d9a44171daf20
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installare e configurare Ansible per gestire le macchine virtuali in Azure
 Questo articolo descrive come installare Ansible e i moduli di Azure Python SDK necessari per alcune delle distribuzioni di Linux più comuni. È possibile installare Ansible in altre distribuzioni regolando i pacchetti installati per adattarli alla piattaforma specifica. Per creare le risorse di Azure in modo sicuro, si apprenderà anche come creare e definire le credenziali da usare con Ansible. 
 

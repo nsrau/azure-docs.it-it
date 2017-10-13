@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: c1c9217cf51cef450837bdd255f8c44c14a74ac0
-ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: f332fe51a9de8e83d17805e1279e69dee59ed791
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-quotas"></a>Quote di Hub eventi
 Questa sezione elenca le quote e i limiti di base di Hub eventi di Azure.
@@ -32,4 +31,3 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Aumento automatico di Hub eventi](event-hubs-auto-inflate.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
-

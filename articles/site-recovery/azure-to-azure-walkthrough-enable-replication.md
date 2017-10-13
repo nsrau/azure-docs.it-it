@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 8/01/2017
 ms.author: raynew
+ms.openlocfilehash: 8691ff9dbdb79ef445482b355b00859072d539e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: f426ba4341e61d3c7da820d7d5097b217e94ca0e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="step-5-enable-replication-for-azure-vms"></a>Passaggio 5: Abilitare la replica per le macchine virtuali di Azure
 
 
@@ -108,4 +105,3 @@ Se si vogliono modificare le impostazioni dei criteri di replica e della destina
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 6: Eseguire un failover di test](azure-to-azure-walkthrough-test-failover.md)
-

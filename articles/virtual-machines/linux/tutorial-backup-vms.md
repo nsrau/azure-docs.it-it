@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
+ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: d0cbf7883a8737bcb10e9dd251c9792a12993f77
-ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Eseguire il backup di macchine virtuali Linux in Azure
 
@@ -174,5 +173,4 @@ Passare all'esercitazione successiva per informazioni sul monitoraggio di macchi
 
 > [!div class="nextstepaction"]
 > [Monitorare le macchine virtuali](tutorial-monitoring.md)
-
 

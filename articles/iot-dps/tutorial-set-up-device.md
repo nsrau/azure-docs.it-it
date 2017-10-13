@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure
 
 Nell'esercitazione precedente è stato descritto come configurare il servizio Device Provisioning in hub IoT di Azure per effettuare automaticamente il provisioning dei dispositivi per l'hub IoT. Questa esercitazione include le istruzioni per configurare il dispositivo durante il processo di produzione, in modo che sia possibile configurare il servizio Device Provisioning per il dispositivo in base al relativo [modulo di protezione hardware (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security) e il dispositivo possa connettersi al servizio Device Provisioning la prima volta che viene avviato. Questa esercitazione illustra i processi per:
@@ -186,5 +184,4 @@ Passare all'esercitazione successiva per informazioni su come effettuare il prov
 
 > [!div class="nextstepaction"]
 > [Effettuare il provisioning del dispositivo nell'hub IoT](tutorial-provision-device-to-hub.md)
-
 

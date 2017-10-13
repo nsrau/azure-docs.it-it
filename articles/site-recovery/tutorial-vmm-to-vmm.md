@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9764e48e04eb0c83afea09934ce64d2485ab15d5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Configurare il ripristino di emergenza per macchine virtuali Hyper-V nel sito locale secondario
 
@@ -163,4 +162,3 @@ Prima di iniziare, assicurarsi che tutti gli host che usano i criteri abbiano lo
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Eseguire un'esercitazione sul ripristino di emergenza](tutorial-dr-drill-secondary.md)
-

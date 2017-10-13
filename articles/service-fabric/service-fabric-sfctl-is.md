@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 11c7a10c6448248ffacee2b519f48b6ca7e4e188
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sfctl-is"></a>sfctl is
 Consente di eseguire query e inviare comandi al servizio di infrastruttura.
 
@@ -51,7 +49,7 @@ Per i cluster che dispongono di una o più istanze del servizio di infrastruttur
 |Argomento|Descrizione|
 | --- | --- |
 | --debug          | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h        | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h        | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o      | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query          | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose        | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -74,11 +72,11 @@ Per i cluster che dispongono di una o più istanze del servizio di infrastruttur
 |Argomento|Descrizione|
 | --- | --- |
 | --debug          | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h        | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h        | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o      | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query          | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
-| --verbose        | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose        | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come utilizzare l’interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).

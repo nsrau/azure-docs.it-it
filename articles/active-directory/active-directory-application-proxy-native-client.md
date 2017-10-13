@@ -15,14 +15,12 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: e1f992aede3af99fa7c2ffa661bccbcac9f52ba9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Come abilitare le app client native per l'interazione con le applicazioni proxy
 
 Oltre che per le applicazioni Web, è possibile usare il proxy di applicazione di Azure Active Directory per pubblicare app client native configurate con Azure AD Authentication Library (ADAL). Le app client native si differenziano dalle app Web perché vengono installate su un dispositivo, mentre le app Web sono accessibili tramite un browser. 
@@ -100,4 +98,3 @@ Dopo la modifica di ADAL con questi parametri, gli utenti dovrebbero essere in g
 Per altre informazioni sul flusso delle applicazioni native, vedere [Da applicazione nativa ad API Web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
 Ottenere informazioni su come configurare [l'accesso Single Sign-On per il proxy di applicazione](application-proxy-sso-overview.md)
-

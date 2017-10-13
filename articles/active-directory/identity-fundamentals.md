@@ -13,12 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 52f05ee8a5c07fc008da40aef12d1ad8e8136429
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Concetti fondamentali sulla gestione delle identità di Azure
 Un numero crescente di risorse digitali aziendali si trova oggi all'esterno delle reti aziendali, nel cloud e nei dispositivi. Per questo motivo, una soluzione efficace di gestione degli accessi e delle identità, basata sul cloud è diventata imprescindibile. Le identità basate sul cloud rappresentano il modo migliore per mantenere il controllo e la visibilità sulle modalità e sui tempi di accesso ai dati e alle applicazioni aziendali da parte degli utenti.

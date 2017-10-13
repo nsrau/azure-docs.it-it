@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27.017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 2bbab5f1ac0efe9632ad6c818504584e2503cf15
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-1-review-the-architecture-for-vmware-replication-to-azure"></a>Passaggio 1: Esaminare l'architettura per la replica VMware in Azure
 
 Questo articolo illustra i componenti e i processi interessati durante la replica di macchine virtuali VMware locali in Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md).
@@ -59,7 +57,7 @@ La tabella riepiloga i componenti necessari.
 4. Il traffico viene replicato negli endpoint pubblici di archiviazione di Azure, tramite Internet. In alternativa, è possibile usare il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) di Azure ExpressRoute. La replica del traffico tramite una VPN da sito a sito da un sito locale ad Azure non è supportata.
 
 
-**Figura 2: Replica VMware in Azure**
+**Figura 2: Replica da VMware ad Azure**
 
 ![Avanzato](./media/vmware-walkthrough-architecture/v2a-architecture-henry.png)
 
@@ -87,4 +85,3 @@ Esistono alcuni requisiti per il failback:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 2: Esaminare i prerequisiti e le limitazioni](vmware-walkthrough-prerequisites.md)
-

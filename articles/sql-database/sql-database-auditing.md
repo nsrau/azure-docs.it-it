@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 04c402709560775592e5500362b0d9a4ccbf5a6f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e li registra in un log di controllo nell'account di archiviazione di Azure dell'utente. Inoltre, il servizio di controllo:
@@ -67,7 +66,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare al pannello **Impostazioni** del database o del server SQL che si vuole controllare. Nel pannello **Impostazioni** selezionare **Controllo e rilevamento minacce**.
 
-    <a id="auditing-screenshot"></a> ![Riquadro di spostamento][1]
+    <a id="auditing-screenshot"></a>![Riquadro di spostamento][1]
 3. Se si preferisce configurare un criterio di controllo del server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nel pannello relativo al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server. I criteri di controllo del server si applicano a tutti i database esistenti e ai nuovi database creati in questo server.
 
     ![Riquadro di spostamento][2]
@@ -80,7 +79,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
    >[!TIP]
    >Per sfruttare al massimo i modelli di report di controllo, usare lo stesso account di archiviazione per tutti i database controllati.
 
-    <a id="storage-screenshot"></a> ![Riquadro di spostamento][4]
+    <a id="storage-screenshot"></a>![Riquadro di spostamento][4]
 6. Per personalizzare gli eventi controllati, è possibile usare PowerShell o l'API REST. 
 7. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 8. Fare clic su **Salva**.
@@ -221,4 +220,3 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
 [105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
 [106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
-

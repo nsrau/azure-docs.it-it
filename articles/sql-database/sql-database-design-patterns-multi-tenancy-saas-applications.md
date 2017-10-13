@@ -17,10 +17,10 @@ ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
 ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Schemi progettuali per le applicazioni SaaS multi-tenant e il database SQL di Azure
 Questo articolo include informazioni sui requisiti e i modelli comuni di architettura dei dati delle applicazioni di database SaaS (Software-as-a-Service) multi-tenant in esecuzione in un ambiente cloud. Illustra anche i fattori da considerare e i compromessi tra i diversi modelli di progettazione. I pool e gli strumenti elastici nel database SQL di Azure consentono di soddisfare requisiti specifici senza compromettere altri obiettivi.

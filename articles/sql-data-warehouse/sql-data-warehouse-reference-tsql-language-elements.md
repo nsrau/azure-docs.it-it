@@ -16,10 +16,10 @@ ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="language-elements"></a>Elementi del linguaggio
 ## <a name="core-elements"></a>Elementi principali
@@ -61,9 +61,9 @@ ms.lasthandoff: 07/11/2017
 * [= (Uguale a)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Maggiore di)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Minore di)](https://msdn.microsoft.com/library/ms179873.aspx)
-* [>= (Maggiore o uguale a)](https://msdn.microsoft.com/library/ms181567.aspx)
-* [<= (Minore o uguale a)](https://msdn.microsoft.com/library/ms174978.aspx)
-* [<> (Diverso da)](https://msdn.microsoft.com/library/ms176020.aspx)
+* [&gt;= (Maggiore o uguale a)](https://msdn.microsoft.com/library/ms181567.aspx)
+* [&lt;= (Minore o uguale a)](https://msdn.microsoft.com/library/ms174978.aspx)
+* [&lt;&gt; (Diverso da)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [!= (Diverso da)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [AND](https://msdn.microsoft.com/library/ms188372.aspx)
 * [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
@@ -81,7 +81,7 @@ ms.lasthandoff: 07/11/2017
 * [~ (NOT bit per bit)](https://msdn.microsoft.com/library/ms173468.aspx)
 * [^= (OR EQUALS esclusivo bit per bit)](https://msdn.microsoft.com/library/cc627413.aspx)
 * [|= (OR EQUALS bit per bit)](https://msdn.microsoft.com/library/cc627409.aspx)
-* [&= (AND EQUALS bit per bit)](https://msdn.microsoft.com/library/cc627427.aspx)
+* [&amp;= (AND EQUALS bit per bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## <a name="functions"></a>Funzioni
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)

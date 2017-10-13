@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 2af6dff4ffcdf295731f2d61b5f9e35af40615e5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-store"></a>sfctl store
 Esegue operazioni base a livello di file nell'archivio immagini del cluster.
@@ -50,7 +49,7 @@ Elimina il contenuto dell’archivio immagini esistente trovato all'interno del 
 |Argomento|Descrizione|
 | --- | --- |
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h             | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -72,11 +71,11 @@ Restituisce le informazioni sul contenuto dell’archivio immagini al percorso d
 |Argomento|Descrizione|
 | --- | --- |
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h             | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose             | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come utilizzare l’interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).

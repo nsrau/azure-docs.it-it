@@ -12,15 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/16/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: df7c127f4ab140cb26c82e723964f1d99f03131a
-ms.contentlocale: it-it
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: 8ac4a10b9030a4d56824d1a42ed2729ebb2d208e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Modelli e scenari per Service Fabric
 Se si vogliono sviluppare microservizi su larga scala con Azure Service Fabric, può essere utile imparare dagli esperti che hanno progettato questa piattaforma distribuita come servizio (PaaS, Platform as a Service). Per iniziare occorre scegliere l'architettura appropriata, per poi imparare le procedure per ottimizzare le risorse per l'applicazione. Il corso [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) (Modelli e procedure consigliate per Service Fabric) offre le risposte alle domande più frequenti dei clienti reali sugli scenari di utilizzo e le aree applicative di Service Fabric.
@@ -101,4 +99,3 @@ Ottenere la risposta alla domanda "Perché usare i contenitori?" Informazioni su
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver raccolto informazioni dettagliate sui modelli e gli scenari di utilizzo di Service Fabric, è possibile procedere con la lettura e scoprire come [creare e gestire i cluster](service-fabric-deploy-anywhere.md), [eseguire la migrazione delle app di Servizi cloud a Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [configurare il recapito continuo](service-fabric-set-up-continuous-integration.md) e [distribuire i contenitori](service-fabric-containers-overview.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.contentlocale: it-it
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Ottimizzazione dello streaming multimediale tramite la rete per la distribuzione dei contenuti di Azure 
  
@@ -98,5 +97,4 @@ La condivisione della cache parziale consente alla rete per la distribuzione di 
 ### <a name="cache-fill-wait-time"></a>Tempo di attesa di riempimento della cache
 
  La funzionalità di tempo di attesa di riempimento della cache forza il server perimetrale a contenere le richieste successive per la stessa risorsa fino alla ricezione delle intestazioni di risposta HTTP da parte del server di origine. Se le intestazioni di risposta HTTP dal server di origine vengono ricevute prima della scadenza del timer, tutte le richieste messe in attesa verranno servite dalla cache con i dati in aumento. Allo stesso tempo la cache viene riempita con i dati provenienti dall'origine. Per impostazione predefinita, il tempo di attesa di riempimento della cache è 3.000 millisecondi. 
-
 

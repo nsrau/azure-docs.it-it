@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8274d48db034c8a2634ab28bd634c024b8ea055c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric
 
 Questa è la seconda di una serie di esercitazioni. In questa esercitazione viene usato uno strumento generatore di modelli (Yeoman) per generare una definizione di applicazione di Service Fabric. Questa applicazione può quindi essere usata per distribuire i contenitori in Service Fabric. In questa esercitazione si apprenderà come: 
@@ -216,7 +214,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 A questo punto dell'esercitazione il modello di un'applicazione del pacchetto di servizio è disponibile per la distribuzione in un cluster. Nell'esercitazione successiva questa applicazione viene distribuita ed eseguita in un cluster di Service Fabric.
 
 ## <a name="create-a-service-fabric-cluster"></a>Creare un cluster di Service Fabric
-Per distribuire l'applicazione in un cluster in Azure, usare il proprio cluster oppure usare un cluster di entità.
+Per distribuire l'applicazione in un cluster in Azure, usare il proprio cluster o un party cluster.
 
 I cluster di entità sono gratuiti e sono cluster di Service Fabric a tempo limitato ospitati in Azure. Gestito dal team di Service Fabric in cui tutti gli utenti possono distribuire le applicazioni e ottenere informazioni sulla piattaforma. Per ottenere l'accesso a un cluster di entità, [seguire le istruzioni](http://aka.ms/tryservicefabric). 
 
@@ -375,6 +373,5 @@ Passare alla prossima esercitazione per informazioni sul failover e il ridimensi
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
-
 
 

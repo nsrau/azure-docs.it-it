@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/14/2017
 ms.author: tedway;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4dbb1779bf36be74ee83aeed8e4940902915603a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning
 Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
@@ -91,4 +90,3 @@ In caso di domande, inserirle nella sezione seguente dedicata ai commenti o nel 
 [04]: ./media/excel-add-in-for-web-services/image4.png
 [05]: ./media/excel-add-in-for-web-services/image5.png
 [06]: ./media/excel-add-in-for-web-services/image6.png
-

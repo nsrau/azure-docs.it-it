@@ -1,5 +1,5 @@
 ---
-title: Uso dell'interfaccia della riga di comando 1.0 di Azure con Archiviazione di Azure | Microsoft Docs
+title: Uso dell'interfaccia della riga di comando 1.0 di Azure con Archiviazione di Azure | Documentazione Microsoft
 description: "Informazioni su come usare l'interfaccia della riga di comando 1.0 di Azure con Archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure. La CLI di Azure è uno strumento multipiattaforma"
 services: storage
 documentationcenter: na
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Uso dell'interfaccia della riga di comando 1.0 di Azure con Archiviazione di Azure
 
@@ -84,7 +83,7 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
 5. Nel computer locale, aprire l'editor di testo preferito (vim ad esempio). Digitare lo script precedente nell'editor di testo.
 6. A questo punto, è necessario aggiornare le variabili dello script in base alle impostazioni di configurazione.
 
-   * **<storage_account_name>**: usare il nome specificato nello script oppure immettere un nuovo nome per l'account di archiviazione. **Importante:** il nome dell'account di archiviazione deve essere univoco in Azure. Utilizzare caratteri minuscoli.
+   * **&lt;storage_account_name&gt;**: usare il nome specificato nello script oppure immettere un nuovo nome per l'account di archiviazione. **Importante:** il nome dell'account di archiviazione deve essere univoco in Azure. Utilizzare caratteri minuscoli.
    * **<storage_account_key>**: la chiave di accesso dell'account di archiviazione.
    * **<container_name>**: usare il nome specificato nello script oppure immettere un nuovo nome per il contenitore.
    * **<image_to_upload>**: immettere il percorso di un'immagine nel computer locale, ad esempio "~/images/HelloWorld.png".
@@ -242,4 +241,3 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 * [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure](../../cli-install-nodejs.md)
 
 È anche possibile provare l'[interfaccia della riga di comando di Azure 2.0](../storage-azure-cli.md), ovvero l'interfaccia della riga di comando di nuova generazione scritta in Python per il modello di distribuzione di Resource Manager.
-

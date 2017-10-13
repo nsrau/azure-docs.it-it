@@ -19,6 +19,7 @@
 # Procedure
 
 ## Criteri di sicurezza
+### [Panoramica](security-center-policies-overview.md)
 ### [Raccolta di dati](security-center-enable-data-collection.md)
 ### [Criteri di sicurezza](security-center-policies.md)
 ### [Notifiche tramite posta elettronica](security-center-provide-security-contact-details.md)
@@ -52,8 +53,7 @@
 #### [Abilita l'agente di macchine virtuali](security-center-enable-vm-agent.md)
 #### [Installa Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Riavvia dopo gli aggiornamenti del sistema](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [Risolvere le vulnerabilità del sistema operativo](security-center-remediate-os-vulnerabilities.md)
-#### [Risolvere gli avvisi sull'integrità della protezione degli endpoint](security-center-resolve-endpoint-protection-health-alerts.md)
+#### [Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)](security-center-remediate-os-vulnerabilities.md)
 #### [Aggiornare la versione sistema operativo](security-center-update-os-version.md)
 #### [La valutazione della vulnerabilità non è installata](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitorare l'integrità della sicurezza](security-center-monitoring.md)
