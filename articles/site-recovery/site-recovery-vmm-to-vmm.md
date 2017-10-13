@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 777bddea6b1cb325a6f8ede00196b18e1746d80c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-the-azure-portal"></a>Eseguire la replica di macchine virtuali Hyper-V in cloud VMM in un sito VMM secondario usando il portale di Azure
 > [!div class="op_single_selector"]
@@ -444,4 +443,3 @@ Questa tabella descrive come vengono riepilogati i dati in questo scenario:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver testato la distribuzione, leggere altre informazioni sugli altri tipi di [failover](site-recovery-failover.md)
-

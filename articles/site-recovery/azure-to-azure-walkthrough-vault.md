@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: e03d17992ee0b12049636e40188950bcc4a6f31e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-4-set-up-a-vault-for-azure-to-azure-replication"></a>Passaggio 4: Configurare un insieme di credenziali per la replica da Azure ad Azure
 
 Al termine della [pianificazione delle reti](azure-to-azure-walkthrough-network.md), usare questo articolo per configurare un insieme di credenziali per le macchine virtuali (VM) di Azure replicate in un'altra area di Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md) nel portale di Azure.
@@ -50,4 +48,3 @@ Al termine della [pianificazione delle reti](azure-to-azure-walkthrough-network.
 ## <a name="next-steps"></a>Passaggi successivi
 
 Andare a [Passaggio 5: Abilitare la replica](azure-to-azure-walkthrough-enable-replication.md)
-

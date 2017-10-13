@@ -12,12 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6a66528bfeb7249add9f589830293760c238e7db
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Eseguire il failover e il failback di macchine virtuali di Azure tra aree di Azure (anteprima)
 
@@ -73,4 +72,3 @@ Dopo aver eseguito il failover della macchina virtuale, è necessario proteggerl
 ## <a name="fail-back-to-the-primary-region"></a>Eseguire il failback nell'area primaria
 
 Dopo aver riprotetto le macchine virtuali, è possibile eseguirne il failback nell'area primaria, se necessario. A questo scopo, seguire le istruzioni di [failover](#run-a-failover).
-

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 09/01/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 8206cba416df4d43594678428632ff161a9564d6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrare un database SQL Server in un database SQL di Azure
 
 La migrazione di un database SQL Server a un database SQL di Azure è un'operazione semplice che prevede la creazione di un database SQL vuoto in Azure e quindi l'uso di [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) per l'importazione del database in Azure. In questa esercitazione si apprenderà come:
@@ -280,6 +278,5 @@ Passare all'esercitazione successiva per informazioni su come proteggere il data
 
 > [!div class="nextstepaction"]
 > [Proteggere il database SQL di Azure](sql-database-security-tutorial.md)
-
 
 
