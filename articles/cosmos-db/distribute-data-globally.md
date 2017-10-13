@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Come distribuire i dati a livello globale con Azure Cosmos DB
 Azure è ovunque, offre una copertura globale in oltre 30 aree geografiche ed è in continua espansione. Ciò consente ad Azure di offrire in esclusiva agli sviluppatori la possibilità di creare, distribuire e gestire applicazioni distribuite a livello globale con la massima semplicità. 
@@ -124,7 +123,7 @@ Azure Cosmos DB offre un modello di programmazione ben definito che consente di 
 
 Il contratto di servizio per la coerenza di Azure Cosmos DB garantisce che il 100% delle richieste di lettura soddisferà la garanzia di coerenza per il livello di coerenza necessario all'utente o il livello di coerenza predefinito per l'account del database o per il valore sostituito nella richiesta. Si considera che una richiesta abbia soddisfatto il contratto di servizio per la coerenza se sono state soddisfatte tutte le garanzie di coerenza associate al livello di coerenza. La tabella seguente mostra le garanzie di coerenza corrispondenti ai livelli di coerenza specifici offerti da Azure Cosmos DB.
 
-**Garanzie di coerenza associate ai livelli di coerenza specifici in Azure Cosmos DB**
+**Garanzie di coerenza associate ai livelli di coerenza specifici in Azure Cosmos DB** 
 
 <table>
     <tr>
@@ -179,7 +178,7 @@ Il Prof. Daniel Abadi ha proposto una variante più completa del teorema CAP den
 ### <a id="ConsistencyAndThroughput"></a>Relazione tra coerenza e velocità effettiva
 Poiché l'implementazione di un modello di coerenza specifico dipende dalla scelta di un [tipo di quorum](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), anche la velocità effettiva varia in base al tipo di coerenza scelto. In Azure Cosmos DB, ad esempio, la velocità effettiva con le letture con coerenza assoluta è pari alla metà di quella delle letture con coerenza finale. 
  
-**Relazione della capacità di lettura per un livello di coerenza specifico in Azure Cosmos DB**
+**Relazione della capacità di lettura per un livello di coerenza specifico in Azure Cosmos DB** 
 
 ![Relazione tra coerenza e velocità effettiva](./media/distribute-data-globally/consistency-and-throughput.png)
 
@@ -238,4 +237,3 @@ Azure Cosmos DB espone in modo trasparente le metriche per velocità effettiva, 
 7. Naor e Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) (Carico, capacità e disponibilità nei sistemi di quorum)
 8. Herlihy e Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) (Linearizzabilità: una condizione di correttezza per gli oggetti simultanei)
 9. [Contratto di servizio Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
-

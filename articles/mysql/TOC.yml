@@ -111,6 +111,8 @@
       items:
         - name: Portale di Azure
           href: howto-server-parameters.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-configure-server-parameters-using-cli.md
 - name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -119,6 +121,8 @@
       href: /rest/api/mysql
 - name: Risorse
   items:
+    - name: Modelli di distribuzione
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Prezzi

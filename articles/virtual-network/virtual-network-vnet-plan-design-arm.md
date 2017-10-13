@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Pianificare e progettare reti virtuali di Azure
 Creare una rete virtuale a scopi sperimentali è abbastanza semplice, ma è probabile che si distribuiscano più reti virtuali nel corso del tempo per supportare le esigenze di produzione dell'organizzazione. Con una pianificazione e una progettazione adeguate è possibile distribuire reti virtuali e connettere le risorse necessarie in modo più efficace. Se non si ha familiarità con le reti virtuali, è consigliabile [acquisire informazioni sulle reti virtuali](virtual-networks-overview.md) e su [come distribuirne](virtual-networks-create-vnet-arm-pportal.md) una prima di procedere.
@@ -253,4 +252,3 @@ In base a tali requisiti, è possibile aggiungere utenti del team responsabile d
 * Comprendere come [bilanciare il carico](../load-balancer/load-balancer-overview.md) delle VM IaaS e [gestire il routing in più aree di Azure](../traffic-manager/traffic-manager-overview.md).
 * Altre informazioni sui [gruppi di sicurezza di rete e su come pianificare e progettare](virtual-networks-nsg.md) una soluzione per gruppi di sicurezza di rete.
 * Altre informazioni sulle [opzioni di connettività cross-premise e della rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
-

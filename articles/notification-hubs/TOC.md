@@ -14,7 +14,7 @@
 
 # Procedure
 ## Pianificare e progettare
-### [Informazioni aggiuntive sull'architettura push aziendale](notification-hubs-enterprise-push-notification-architecture.md)
+### [Guida all'architettura push aziendale](notification-hubs-enterprise-push-notification-architecture.md)
 
 ## Sviluppare
 ### [Inviare notifiche push ad Android usando GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
@@ -27,7 +27,7 @@
 #### [Registrare l'utente corrente usando ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Inviare notifiche multipiattaforma](notification-hubs-aspnet-cross-platform-notification.md)
 ### Uso degli SDK del server
-#### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
+#### [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet)
 #### [Node.JS](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/07/2017
 ms.author: jonbeck
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 409d2df32906ee75eaa85042e8b1278dc31f0638
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: e23d96574afb9a8c60f88a2d6ff02fbb587f3f00
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="general-purpose-linux-vm-sizes"></a>Dimensioni delle macchine virtuali Linux per l'utilizzo generico
 
 
@@ -40,5 +38,4 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su come le [unità di calcolo di Azure](../windows/acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
-
 

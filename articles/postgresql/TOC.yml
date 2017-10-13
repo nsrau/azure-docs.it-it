@@ -107,6 +107,8 @@
       href: /rest/api/postgresql
 - name: Risorse
   items:
+    - name: Modelli di distribuzione
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Prezzi
@@ -124,4 +126,4 @@
     - name: Opzioni di supporto
       href: 'https://azure.microsoft.com/support/options/'
     - name: Casi di successo dei clienti
-      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL%20"'
+      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'

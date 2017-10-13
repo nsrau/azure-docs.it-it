@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/11/2017
 ms.author: jgao
+ms.openlocfilehash: 822c5f2302fb32d0d5a05ba69132282c050b7b8b
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 17fac0327c3c454a8ea5c4d91b2d3e23de71f4ce
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Usare Interactive Query in HDInsight
 Interactive Query (detto anche Hive LLAP o [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) è un [tipo di cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) di Azure HDInsight. Interactive Query supporta la memorizzazione nella cache in memoria, che rende le query Hive più veloci e molto più interattive. 
@@ -30,7 +29,6 @@ Interactive Query (detto anche Hive LLAP o [Live Long and Process](https://cwiki
 Un cluster Interactive Query è diverso da un cluster Hadoop in quanto contiene solo il servizio Hive. 
 
 > [!NOTE]
-> MapReduce, Pig, Sqoop, Oozie e altri servizi saranno presto rimossi da questo cluster.
 > È possibile accedere al servizio Hive nel cluster Interactive Query solo tramite la vista Hive di Ambari, Beeline e il driver Microsoft Hive Open Database Connectivity (Hive ODBC). Non è possibile accedervi tramite la console Hive, Templeton, lo strumento da riga di comando di Azure (Interfaccia della riga di comando di Azure) o Azure PowerShell. 
 > 
 > 
@@ -86,5 +84,4 @@ Per trovare la stringa di connessione JDBC (Java Database Connectivity):
 * Leggere le informazioni su come [usare la visualizzazione Hive con Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Leggere le informazioni su come [usare Beeline per inviare query Hive in HDInsight](hdinsight-hadoop-use-hive-beeline.md).
 * Leggere le informazioni su come [connettere Excel a Hadoop con il driver Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md).
-
 

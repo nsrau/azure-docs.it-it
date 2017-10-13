@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 06/06/2017
 ms.author: heidist
 ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
 Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazioni di esempio indicati di seguito.
@@ -73,7 +73,7 @@ Demo e laboratori multisessione per la Ricerca di Azure.
 
 | Collegamento | Rilasciata | Dettagli |
 | --- | --- | --- |
-| [Channel9 Build 2016: "Applications That Learn & Adapt: Azure Machine Learning + Search"](https://channel9.msdn.com/Events/Build/2016/P458) (Applicazioni che imparano e si adattano: Azure Machine Learning + Ricerca di Azure) |Maggio 2016 |17 minuti Liam Cavanagh illustra i vantaggi dell'aggiunta di funzionalità 'consigliate per l'utente' all'applicazione Ricerca di Azure e come ottenere informazioni sulle preferenze degli utenti da Machine Learning. |
+| [Channel9 Build 2016: "Applications That Learn &amp; Adapt: Azure Machine Learning + Search"](https://channel9.msdn.com/Events/Build/2016/P458) (Applicazioni che imparano e si adattano: Azure Machine Learning + Ricerca di Azure) |Maggio 2016 |17 minuti Liam Cavanagh illustra i vantaggi dell'aggiunta di funzionalità 'consigliate per l'utente' all'applicazione Ricerca di Azure e come ottenere informazioni sulle preferenze degli utenti da Machine Learning. |
 | [Channel9 Build 2016: "Intelligent Data Driven Applications that Learn and Adapt"](https://channel9.msdn.com/Events/Build/2016/B857) |Maggio 2016 |1 ora Informazioni su come Machine Learning e Ricerca di Azure possono essere usati insieme per creare applicazioni complesse guidate dai dati. |
 | [Dati esposti in Channel9: "Custom Analyzers, Search Analytics, & Portal Querying in Azure Search"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search) (Analizzatori personalizzati, analisi di ricerca ed esecuzione di query in Ricerca di Azure) |Gennaio 2016 |15 minuti Gli analizzatori personalizzati consentono la configurazione di tokenizer e filtri di token. L'analisi di ricerca fornisce informazioni sui termini di ricerca immessi dagli utenti e sull'efficacia dell'indice di ricerca. Esplora ricerche è uno strumento di query incorporato che consente di provare a eseguire query dall'interno del portale. |
 | [Dati esposti di Channel9: "miglioramenti di Ricerca di Azure"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements) |Novembre 2015 |17 minuti Inserimento dei dati di StackExchange. Compilare un indice nel portale di Azure. Informazioni su come gli indicizzatori eseguono una ricerca per indicizzazione nelle origini dati supportate per eseguire il pull dei dati in un indice di Ricerca di Azure. Analizzatori di linguaggi. Espressioni di query Lucene. |

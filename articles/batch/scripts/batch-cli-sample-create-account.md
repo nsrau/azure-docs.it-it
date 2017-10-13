@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-batch-account-with-the-azure-cli"></a>Creare un account Batch con l'interfaccia della riga di comando di Azure
 
 Questo script crea un account Batch di Azure e illustra come le varie proprietà dell'account possono essere sottoposte a query e aggiornate.
@@ -34,14 +32,14 @@ Installare l'interfaccia della riga di comando di Azure usando le istruzioni pre
 
 Quando si crea un account Batch, per impostazione predefinita i relativi nodi di calcolo sono assegnati internamente dal servizio Batch. I nodi di calcolo allocati saranno soggetti a una quota di memoria centrale separata e l'account può essere autenticato tramite le credenziali a chiave condivisa o un token di Azure Active Dirctory.
 
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Creare un account")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="batch-account-using-user-subscription-sample-script"></a>Account Batch con lo script di esempio della sottoscrizione utente
 
 È possibile anche fare in modo che Batch crei i nodi di calcolo nella propria sottoscrizione di Azure Batch.
 Gli account che allocano i nodi di calcolo nella propria sottoscrizione devono essere autenticati tramite un token di Azure Active Directory e i nodi di calcolo allocati verranno considerati ai fini della quota di sottoscrizione. Per creare un account in questa modalità, è necessario specificare un riferimento Key Vault durante la creazione dell'account.
 
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Creare un account mediante una sottoscrizione utente")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -73,4 +71,3 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'account 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando di Batch sono disponibili nella [documentazione dell'interfaccia della riga di comando di Azure Batch](../batch-cli-samples.md).
-

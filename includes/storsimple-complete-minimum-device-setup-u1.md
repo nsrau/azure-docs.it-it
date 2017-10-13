@@ -24,7 +24,7 @@
    Si ritornerà alla pagina **Avvio rapido** del dispositivo.
    
    > [!NOTE]
-   > È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura** .
+   > È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura** del dispositivo.
    > 
    > 
 

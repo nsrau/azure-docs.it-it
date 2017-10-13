@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 ms.openlocfilehash: 23c30c954875598ce3e01db137b0ef8cda9779f4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux
 > [!IMPORTANT] 
@@ -40,7 +40,7 @@ In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
 * **Interfaccia della riga di comando di Azure** : installare l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) più recente per caricare il VHD.
 
-<a id="prepimage"> </a>
+<a id="prepimage"></a>
 
 ## <a name="step-1-prepare-the-image-to-be-uploaded"></a>Passaggio 1: preparare l'immagine da caricare
 Azure supporta svariate distribuzioni di Linux (vedere la sezione [Distribuzioni approvate](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Gli articoli seguenti forniscono le istruzioni per preparare le diverse distribuzioni Linux supportate in Azure. Dopo aver eseguito le procedure nelle guide seguenti, tornare qui quando è disponibile un file VHD pronto per essere caricato in Azure:

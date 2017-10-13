@@ -18,10 +18,10 @@ ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 65236f527b62b4990b062fb6a54ce13b3c182e93
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure
 
@@ -701,9 +701,9 @@ _**Figura 11:** Impostare i parametri di Azure Resource Manager di disponibilit�
     * Cluster DBMS: <*SIDSistemaSAP*>-db-<*Numero*>
 
   * **Schede di rete per tutte le macchine virtuali, con gli indirizzi IP associati**:
-    * <*SIDSistemaSAP*>-nic-di-<*Numero*>
+    * <*SIDSistemaSAP*&gt;-nic-di-&lt;*Numero*>
     * <*SIDSistemaSAP*>-nic-ascs-<*Numero*>
-    * <*SIDSistemaSAP*>-nic-db-<*Numero*>
+    * <*SIDSistemaSAP*&gt;-nic-db-&lt;*Numero*>
 
   * **Account di archiviazione di Azure**
 
@@ -1643,7 +1643,7 @@ _**Figura 62:** In SIOS DataKeeper, replicare il volume locale dal nodo A al nod
 
   ![Figura 63: In Gestione cluster di failover, il gruppo di cluster <SID> SAP è in esecuzione nel nodo B del cluster][sap-ha-guide-figure-5002]
 
-  _**Figura 63**: In Gestione cluster di failover, il gruppo di cluster SAP <*SID*> è in esecuzione nel nodo B del cluster_
+  _**Figura 63**: In Gestione cluster di failover, il gruppo di cluster SAP &lt;*SID*&gt; è in esecuzione nel nodo B del cluster_
 
   Il disco condiviso è ora montato nel nodo B del cluster. SIOS DataKeeper replica i dati dall'unità S del volume di origine nel nodo B del cluster all'unità S del volume di destinazione nel nodo A del cluster, ad esempio da **pr1-ascs-1 [10.0.0.41]** a **pr1-ascs-0 [10.0.0.40]**.
 

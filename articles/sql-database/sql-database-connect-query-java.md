@@ -15,12 +15,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: andrela
+ms.openlocfilehash: 943e355ffcc6c0670585936ec2e559b7fb592ff5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 264a9e8f109ff77d8fbd81f01ba40d21aebea538
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Usare Java per eseguire query su un database SQL di Azure
 
@@ -161,5 +160,4 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 - [Progettare il primo database SQL di Azure](sql-database-design-first-database.md)
 - [Driver Microsoft JDBC per SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Segnalare problemi e porre domande](https://github.com/microsoft/mssql-jdbc/issues)
-
 

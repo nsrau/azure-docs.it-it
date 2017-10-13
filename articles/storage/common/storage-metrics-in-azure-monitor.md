@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
+ms.openlocfilehash: d30a99044e335723e5d2c4bbd71fab7e4fd51145
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: b9fac8796b9cb36418d4494eaaf8080744321e19
-ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure (anteprima)
 
 Le metriche di Archiviazione di Azure consentono di analizzare le tendenze di utilizzo, tenere traccia delle richieste e diagnosticare i problemi dell'account di archiviazione.
@@ -240,7 +238,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alle transazioni i
 
 | Nome della metrica | Descrizione |
 | ------------------- | ----------------- |
-| Transazioni | Numero di richieste effettuate in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: ResponseType, GeoType, ApiName ([definizione](#metrics-dimensions))<br/> Esempio di valore: 1024 |
+| Transazioni | Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: ResponseType, GeoType, ApiName ([definizione](#metrics-dimensions))<br/> Esempio di valore: 1024 |
 | Ingress | Quantità di dati in ingresso. Questo numero include i dati in ingresso da un client esterno verso Archiviazione di Azure, oltre ai dati in ingresso entro Azure. <br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: GeoType, ApiName ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
 | Egress | Quantità di dati in uscita. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita entro Azure. Questo numero non rispecchia quindi dati in uscita fatturabili. <br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: GeoType, ApiName ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
 | SuccessServerLatency | Tempo medio necessario per l'elaborazione di una richiesta con esito positivo da parte di Archiviazione di Azure. Questo valore non include la latenza di rete specificata in SuccessE2ELatency. <br/><br/> Unità: millisecondi <br/> Tipo di aggregazione: media <br/> Dimensioni applicabili: GeoType, ApiName ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
@@ -267,4 +265,3 @@ Le metriche legacy sono disponibili in parallelo rispetto alle metriche gestite 
 ## <a name="see-also"></a>Vedere anche
 
 * [Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview.md)
-

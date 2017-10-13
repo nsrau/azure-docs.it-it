@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 86b8300553caa0741e8aca3c0e7621ec80cc5b21
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
 ## <a name="overview"></a>Panoramica
@@ -216,7 +216,7 @@ Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati
 | Backup |Backup di destinazione primario |Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro |Aggiornamento 3 e successivi |
 | Backup |Backup di destinazione secondario |Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro |Aggiornamento 3 e successivi |
 
-*Sì&#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
+*Sì&amp;#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
 
 I carichi di lavoro seguenti non sono supportati dai dispositivi StorSimple della serie 8000. Se distribuiti in StorSimple, questi carichi di lavoro comportano una configurazione non supportata.
 
@@ -239,7 +239,7 @@ Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati 
 | Generale |Indicizzazione |Sì* |Per i volumi a più livelli, è supportata solo l'indicizzazione dei metadati (nessun dato).<br>Per i volumi aggiunti in locale, è supportata l'indicizzazione completa. |Tutte le versioni |
 | Generale |Anti-virus |Sì* |Per i volumi a più livelli, è supportata solo l'analisi in apertura e in chiusura.<br> Per i volumi aggiunti in locale, è supportata l'analisi completa. |Tutte le versioni |
 
-*Sì&#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
+*Sì&amp;#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
 
 Di seguito è riportato un elenco di altri prodotti software che vengono usati con StorSimple per compilare soluzioni.
 

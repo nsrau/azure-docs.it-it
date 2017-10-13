@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Graylog
 
 [I log di flusso dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md) contengono informazioni che è possibile usare per conoscere il traffico IP in ingresso e in uscita per le interfacce di rete di Azure. I log di flusso indicano i flussi in ingresso e in uscita in base a regole del gruppo di sicurezza, l'interfaccia di rete cui si applica il flusso, informazioni su 5 tuple relative al flusso (IP di origine/destinazione, porta di origine/destinazione, protocollo) e se il traffico è consentito o meno.
@@ -179,7 +177,7 @@ Dopo aver stabilito una connessione con i log di flusso tramite Logstash e confi
 2.  Per spostarsi sulla pagina di configurazione, selezionare il menu a discesa **System** (Sistema) nella barra di spostamento superiore a destra e quindi fare clic su **Inputs** (Input).
     In alternativa, accedere all'URL `http://<graylog-server-ip>:9000/system/inputs`
 
-    ![Introduzione](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
+    ![introduttiva](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
 3.  Per avviare il nuovo input, selezionare *GELF UDP* nel menu a discesa **Select input** (Seleziona input) e quindi compilare il modulo. GELF è l'acronimo di Graylog Extended Log Format. Il formato GELF viene sviluppato da Graylog. Per altre informazioni sui vantaggi relativi, vedere la [documentazione](http://docs.graylog.org/en/2.2/pages/gelf.html) di Graylog.
 
@@ -249,4 +247,3 @@ Grazie all'integrazione di Network Watcher con Graylog, è ora disponibile un mo
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come visualizzare i log di flusso dei gruppi di sicurezza di rete con Power BI, vedere [Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-

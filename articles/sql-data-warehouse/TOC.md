@@ -10,7 +10,7 @@
 ## [Esercitazione per principianti](sql-data-warehouse-get-started-tutorial.md)
 ## [Esercitazione sulla query elastica](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Procedure consigliate](sql-data-warehouse-best-practices.md)
-## [Gestire](sql-data-warehouse-overview-manage.md)
+## [Manage](sql-data-warehouse-overview-manage.md)
 
 
 
