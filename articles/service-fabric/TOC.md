@@ -240,6 +240,7 @@
 
 ### Distribuire o rimuovere applicazioni
 #### [Distribuire applicazioni in un cluster locale](service-fabric-get-started-with-a-local-cluster.md)
+#### [Gestione risorse di Azure](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -341,8 +342,8 @@
 # riferimento
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
-## [Interfaccia della riga di comando di Azure](/cli/azure/sf)
-## [Interfaccia della riga di comando di Service Fabric](service-fabric-sfctl.md)
+## [Interfaccia della riga di comando di Azure (az sf)](/cli/azure/sf)
+## [Interfaccia della riga di comando di Service Fabric (sfctl)](service-fabric-sfctl.md)
 ### [sfctl application](service-fabric-sfctl-application.md)
 ### [sfctl chaos](service-fabric-sfctl-chaos.md)
 ### [sfctl cluster](service-fabric-sfctl-cluster.md)

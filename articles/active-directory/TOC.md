@@ -6,7 +6,8 @@
 ## [Associare le sottoscrizioni di Azure](active-directory-how-subscriptions-associated-directory.md)
 ## [Domande frequenti](active-directory-faq.md)
 
-# Introduzione
+# Attività iniziali
+## [Inizia a usare Azure AD](get-started-azure-ad.md)
 ## [Iscriversi ad Azure AD Premium](active-directory-get-started-premium.md)
 ## [Aggiungere un nome di dominio personalizzato](add-custom-domain.md)
 ## [Configurare la personalizzazione aziendale](customize-branding.md)
@@ -22,7 +23,7 @@
 ### [Mapping di attestazioni in Azure Active Directory](active-directory-claims-mapping.md)
 #### Determinare i requisiti
 ##### [Identità](active-directory-hybrid-identity-design-considerations-business-needs.md)
-##### [Sincronizzazione della directory](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Directory sync](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md) (Sincronizzazione della directory)
 ##### [Multi-Factor Authentication](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 ##### [Strategia del ciclo di vita delle identità](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
 #### [Pianificare la sicurezza dei dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
@@ -137,7 +138,7 @@
 #### [Configurare i dispositivi Windows 10 registrati in Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Configurare i dispositivi aggiunti ad Azure AD](device-management-azuread-joined-devices-setup.md)
 #### [Configurare i dispositivi aggiunti all'istanza ibrida di Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### [Distribuire in locale](active-directory-device-registration-on-premises-setup.md)
+#### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md) (Distribuire in locale)
 #### [Aggiunta ad Azure AD durante il completamento dell'installazione in Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Risoluzione dei problemi
 #### [Dispositivi Windows 10 e Windows Server 2016 aggiunti ad Azure AD ibridi](device-management-troubleshoot-hybrid-join-windows-current.md)
@@ -204,7 +205,7 @@
 #### [Gestire l'accesso Single Sign-On per le app aziendali](active-directory-enterprise-apps-manage-sso.md)
 #### [Firma di certificati avanzata per app SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 
-### [Gestire l'accesso alle app](active-directory-managing-access-to-apps.md)
+### [Manage access to apps](active-directory-managing-access-to-apps.md) (Gestire l'accesso alle app)
 #### [Accesso self-service](active-directory-self-service-application-access.md)
 #### [Accesso SSO](active-directory-appssoaccess-whatis.md)
 #### [Certificati per SSO](active-directory-sso-certs.md)
@@ -234,7 +235,7 @@
 ##### [portale di Azure](active-directory-domains-manage-azure-portal.md)
 ##### [Portale classico](active-directory-add-manage-domain-names.md)
 ### [Amministrare la directory](active-directory-administer.md)
-### [Diverse directory](active-directory-licensing-directory-independence.md)
+### [Multiple directories](active-directory-licensing-directory-independence.md) (Diverse directory)
 ### [Directory di O365](active-directory-manage-o365-subscription.md)
 ### [Iscrizione self-service](active-directory-self-service-signup.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
@@ -276,9 +277,9 @@
 
 ## Delegare l'accesso alle risorse
 ### [Ruoli dell'amministratore](active-directory-assign-admin-roles.md)
-#### [Assegnare ruoli amministrativi](active-directory-users-assign-role-azure-portal.md)
+#### [Assign admin roles](active-directory-users-assign-role-azure-portal.md) (Assegnare ruoli amministrativi)
 ### [Unità amministrative](active-directory-administrative-units-management.md)
-### [Configurare la durata dei token](active-directory-configurable-token-lifetimes.md)
+### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md) (Configurare la durata dei token)
 
 ## Verifiche di accesso
 ### [Panoramica delle verifiche di accesso](active-directory-azure-ad-controls-access-reviews-overview.md)

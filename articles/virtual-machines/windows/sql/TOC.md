@@ -1,5 +1,5 @@
 # Panoramica
-## [Che cos'è SQL Server in macchine virtuali di Azure?](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [VM di SQL Server Windows](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [Prezzi](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [Domande frequenti](virtual-machines-windows-sql-server-iaas-faq.md)
  

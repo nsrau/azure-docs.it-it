@@ -114,6 +114,7 @@
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Gestisci
 ### Creare un hub IoT 
 #### [Usare il portale di Azure](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [Usare il portale di Azure](iot-hub-configure-file-upload.md)
 #### [Usare Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [Usare l'interfaccia della riga di comando di Azure](iot-hub-configure-file-upload-cli.md)
-### [Gestire in blocco i dispositivi IoT](iot-hub-bulk-identity-mgmt.md)
+### [Monitorare con la diagnostica](iot-hub-monitor-resource-health.md)
+#### [Eseguire la migrazione nelle impostazioni di diagnostica](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
 ### [Metriche di utilizzo](iot-hub-metrics.md)
-### [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
+### [Gestire in blocco i dispositivi IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Configurare il filtro IP](iot-hub-ip-filtering.md)
+
 ## Proteggere
 ### [Sicurezza sin dall'inizio](iot-hub-security-ground-up.md)
 ### [Procedure di sicurezza consigliate](iot-hub-security-best-practices.md)
 ### [Architettura di sicurezza](iot-hub-security-architecture.md)
 ### [Proteggere la distribuzione di IoT](iot-hub-security-deployment.md)
+### Proteggere tramite certificati X.509 dell'autorità di certificazione
+#### [Panoramica della sicurezza con certificati X.509 dell'autorità di certificazione](iot-hub-x509ca-overview.md)
+##### [Concetti relativi alla sicurezza con certificati X.509 dell'autorità di certificazione](iot-hub-x509ca-concept.md)
+#### [Introduzione alla sicurezza con certificati X.509 dell'autorità di certificazione](iot-hub-security-x509-get-started.md)
+##### [Creare certificati - PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Panoramica](iot-hub-iot-edge-overview.md)
 ### Attività iniziali

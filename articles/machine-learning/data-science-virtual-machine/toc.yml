@@ -1,6 +1,7 @@
 - name: Documentazione sulle macchine virtuali per data science
   items: null
 - name: Panoramica
+  expanded: true
   items:
     - name: Definizione di macchina virtuale di data science
       href: overview.md
@@ -25,7 +26,10 @@
     - name: Usare una macchina virtuale per l'apprendimento avanzato
       href: use-deep-learning-dsvm.md
 - name: riferimento
+  expanded: true
   items:
+    - name: Informazioni sulle macchine virtuali di data science
+      href: dsvm-tools-overview.md
     - name: Apprendimento avanzato e framework AI
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Strumenti di data science e ML
