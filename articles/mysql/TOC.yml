@@ -57,6 +57,8 @@
           href: concepts-servers.md
         - name: Versioni supportate
           href: concepts-supported-versions.md
+        - name: Log del server
+          href: concepts-server-logs.md
     - name: Risorse
       items:
         - name: Piani tariffari
@@ -113,6 +115,10 @@
           href: howto-server-parameters.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-configure-server-parameters-using-cli.md
+    - name: Accesso ai registri server
+      items:
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-configure-server-logs-in-cli.md
 - name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
