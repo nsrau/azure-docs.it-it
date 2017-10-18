@@ -13,15 +13,13 @@
 ## [Pianificazione e gestione](security-center-planning-and-operations-guide.md)
 ## [Autorizzazioni](security-center-permissions.md)
 ## [Piattaforme supportate](security-center-os-coverage.md)
-## [Integrazione di partner](security-center-partner-integration.md)
 ## [Domande frequenti](security-center-faq.md)
 
 # Procedure
-
-## Criteri di sicurezza
-### [Panoramica](security-center-policies-overview.md)
+## [Criteri di sicurezza](security-center-policies-overview.md)
 ### [Raccolta di dati](security-center-enable-data-collection.md)
 ### [Criteri di sicurezza](security-center-policies.md)
+### [Criteri di sicurezza con i criteri di Azure](security-center-azure-policy.md)
 ### [Notifiche tramite posta elettronica](security-center-provide-security-contact-details.md)
 ### [Piano tariffario](security-center-pricing.md)
 
@@ -30,6 +28,10 @@
 ## [Ricerca](security-center-search.md)
 
 ## Prevenzione
+### [Soluzioni di sicurezza](security-center-partner-integration.md)
+#### [Monitorare le soluzioni connesse](security-center-partner-solutions.md)
+#### [Connettere Microsoft Advanced Threat Analytics (ATA)](security-center-ata-integration.md)
+#### [Connettere Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Implementare le raccomandazioni sulla sicurezza](security-center-recommendations.md)
 ### [Raccomandazioni sulle applicazioni](security-center-application-recommendations.md)
 #### [Aggiungere un Web Application Firewall](security-center-add-web-application-firewall.md)
@@ -57,7 +59,6 @@
 #### [Aggiornare la versione sistema operativo](security-center-update-os-version.md)
 #### [La valutazione della vulnerabilità non è installata](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitorare l'integrità della sicurezza](security-center-monitoring.md)
-### [Monitorare le soluzioni dei partner](security-center-partner-solutions.md)
 ### [Identità e accesso](security-center-identity-access.md)
 
 ## Rilevare e rispondere

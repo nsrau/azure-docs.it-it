@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
 
@@ -25,11 +24,28 @@ L'interfaccia della riga di comando di Azure Service Fabric è un'utilità della
 
 Prima dell'installazione, verificare che nell'ambiente siano installati sia Python che pip. Per informazioni, vedere la [documentazione rapida di pip](https://pip.pypa.io/en/latest/quickstart/) e la [documentazione sull'installazione di Python](https://wiki.python.org/moin/BeginnersGuide/Download) ufficiale.
 
-Anche se sono supportati sia Python 2.7 che 3.6, è consigliabile usare Python 3.6. La sezione seguente illustra come installare i prerequisiti e l'interfaccia della riga di comando.
+L'interfaccia della riga di comando supporta Python versione 2.7, 3.5 e 3.6. Python 3.6 è la versione consigliata, perché Python 2.7 raggiungerà presto la fine del supporto.
+
+### <a name="service-fabric-target-runtime"></a>Runtime di destinazione di Service Fabric
+
+L'interfaccia della riga di comando di Service Fabric è progettata per supportare la versione runtime più recente di Service Fabric SDK. Usare la tabella seguente per determinare la versione dell'interfaccia della riga di comando da installare:
+
+| Versione dell'interfaccia della riga di comando   | Versione runtime supportata |
+|---------------|---------------------------|
+| Più recente (~=2)  | Più recente (~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+Facoltativamente, è possibile specificare una versione di destinazione dell'interfaccia della riga di comando da installare aggiungendo `==<version>` come suffisso al comando `pip install`. Per la versione 1.1.0, ad esempio, la sintassi sarà la seguente:
+
+```
+pip install -I sfctl==1.1.0
+```
+
+Sostituire il comando `pip install` seguente con il comando riportato in precedenza quando necessario.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>Installare pip, Python e l'interfaccia della riga di comando di Service Fabric
 
- È possibile installare pip e Python nella piattaforma in molti modi. Ecco alcune procedure per configurare rapidamente i sistemi operativi principali con Python 3.6 e pip.
+È possibile installare pip e Python nella piattaforma in molti modi. Ecco alcune procedure per configurare rapidamente i sistemi operativi principali con Python 3 e pip.
 
 ### <a name="windows"></a>Windows
 
@@ -52,47 +68,45 @@ pip --version
 
 Eseguire quindi il comando seguente per installare l'interfaccia della riga di comando di Service Fabric:
 
-```
+```bat
 pip install sfctl
 sfctl -h
 ```
 
-Se si verifica un errore che indica che `sfctl` non è stato trovato, eseguire i comandi seguenti:
+### <a name="ubuntu-and-windows-subsystem-for-linux"></a>Ubuntu e sottosistema Windows per Linux
+
+Per installare l'interfaccia della riga di comando di Service Fabric, eseguire questi comandi:
 
 ```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-### <a name="ubuntu"></a>Ubuntu
-
-Per Ubuntu 16.04 Desktop è possibile installare Python 3.6 tramite un pacchetto PPA (Personal Package Archive) di terze parti.
-
-Eseguire i comandi seguenti dal terminale:
-
-```bash
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python3-pip
+pip3 install sfctl
 ```
 
-Per installare l'interfaccia della riga di comando di Service Fabric solo per l'installazione di Python 3.6, eseguire questo comando:
+È quindi possibile testare l'installazione con:
 
 ```bash
-python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-Se si verifica un errore che indica che `sfctl` non è stato trovato, eseguire i comandi seguenti:
+Se viene visualizzato un errore che segnala che il comando non è stato trovato, ad esempio:
+
+`sfctl: command not found`
+
+Assicurarsi che `~/.local/bin` sia accessibile da `$PATH`:
 
 ```bash
 export PATH=$PATH:~/.local/bin
 echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```
 
-Questa procedura non influisce su Python 3.5 e 2.7 installati dal sistema. Non provare a modificare queste installazioni, a meno che non si abbia familiarità con Ubuntu.
+Se l'installazione nel sottosistema Windows per Linux ha esito negativo a causa di autorizzazioni non corrette per la cartella, potrebbe essere necessario riprovare con autorizzazioni elevate:
 
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
 
 Per MacOS è consigliabile usare la [gestione pacchetti HomeBrew](https://brew.sh). Installare HomeBrew, se non è già installato, eseguendo questo comando:
@@ -108,17 +122,6 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
-
-
-Se si verifica un errore che indica che `sfctl` non è stato trovato, eseguire i comandi seguenti:
-
-```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-
-Questa procedura non modifica l'installazione di sistema di Python 2.7.
 
 ## <a name="cli-syntax"></a>Sintassi dell'interfaccia della riga di comando
 
@@ -239,13 +242,11 @@ sfctl application create -h
 Per aggiornare l'interfaccia della riga di comando di Service Fabric, eseguire i comandi seguenti (sostituire `pip` con `pip3` a seconda della scelta eseguita durante l'installazione originale):
 
 ```bash
-pip uninstall sfctl 
-pip install sfctl 
+pip uninstall sfctl
+pip install sfctl
 ```
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Deploy an application with the Azure Service Fabric CLI (Distribuire un'applicazione con l'interfaccia della riga di comando di Azure Service Fabric)](service-fabric-application-lifecycle-sfctl.md)
 * [Introduzione a Service Fabric in Linux](service-fabric-get-started-linux.md)
-

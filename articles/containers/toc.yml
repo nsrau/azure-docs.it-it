@@ -1,0 +1,107 @@
+- name: Azure per contenitori
+  href: index.yml
+  items:
+    - name: Servizio contenitore
+      href: 'https://docs.microsoft.com/en-us/azure/container-service/'
+      expanded: true
+      items:
+        - name: kubernetes
+          href: 'https://docs.microsoft.com/azure/container-service/kubernetes/'
+          items:
+            - name: Panoramica - Introduzione al servizio contenitore di Azure per Kubernetes
+              href: 'https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-intro-kubernetes'
+            - name: Guida introduttiva - Distribuire cluster Kubernetes per contenitori Linux
+              href: 'https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
+        - name: Docker Swarm e DC/OS
+          href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/'
+          items:
+            - name: Guida introduttiva - Distribuire un cluster Docker Swarm
+              href: 'https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
+            - name: Guida introduttiva - Distribuire un cluster DC/OS
+              href: 'https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+    - name: Istanze di contenitore
+      href: 'https://docs.microsoft.com/en-us/azure/container-instances/'
+      items:
+        - name: Guida introduttiva - Creare l'istanza di contenitore
+          href: 'https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quickstart'
+        - name: Esercitazione - Creare e distribuire un contenitore
+          items:
+            - name: '1: Creare un''immagine del contenitore'
+              href: 'https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-app'
+            - name: '2: Creare un registro contenitori'
+              href: 'https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr'
+            - name: '3: Distribuire l''app'
+              href: 'https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-deploy-app'
+    - name: Registro contenitori
+      href: 'https://docs.microsoft.com/en-us/azure/container-registry/'
+      items:
+        - name: Creare un registro - Interfaccia della riga di comando
+          href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli'
+        - name: Procedure
+          items:
+            - name: Effettuare il push e il pull di un'immagine
+              href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli'
+            - name: Visualizzare i repository
+              href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-repositories'
+            - name: Creare un’entità servizio
+              href: 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal?toc=%2fazure%2fcontainer-registry%2ftoc.json'
+            - name: Eseguire l'autenticazione con un Registro di sistema
+              href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication'
+            - name: Usare i webhook ACR
+              href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook'
+    - name: App Web per i contenitori
+      href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro'
+      items:
+        - name: Uso di un'immagine Docker personalizzata per App Web di Azure per contenitori
+          href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image'
+    - name: Service Fabric
+      href: 'https://docs.microsoft.com/en-us/azure/service-fabric/'
+      items:
+        - name: Panoramica - Service Fabric e contenitori
+          href: 'https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-containers-overview'
+        - name: Procedure
+          items:
+            - name: Creare un host Docker
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension'
+            - name: Usare Docker Machine
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine'
+            - name: Usare Docker Compose
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart'
+    - name: Macchine virtuali (Linux)
+      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview'
+      items:
+        - name: Sviluppare ed eseguire i carichi di lavoro dei contenitori in Azure
+          href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/containers'
+        - name: Procedure
+          items:
+            - name: Creare un host Docker
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension'
+            - name: Usare Docker Machine
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine'
+            - name: Usare Docker Compose
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart'
+    - name: Macchine virtuali (Windows)
+      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview'
+      items:
+        - name: Guida introduttiva - Contenitori Windows in Windows Server
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
+        - name: Macchine virtuali e contenitori in Azure
+          href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/containers'
+        - name: Informazioni sui contenitori Windows
+          href: 'https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index'
+    - name: riferimento
+      items:
+        - name: Istanze di contenitore di Azure (az container)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/container'
+        - name: Servizio contenitore di Azure (az acs)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/acs'
+        - name: Registro contenitori di Azure (az acr)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/acr'
+        - name: App Web di Azure per contenitori (az appservice)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/appservice'
+        - name: App Web del servizio app di Azure (az webapp)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/webapp'
+        - name: Azure Service Fabric (az sf)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/sf'
+        - name: Macchine virtuali di Azure (az vm)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/vm'

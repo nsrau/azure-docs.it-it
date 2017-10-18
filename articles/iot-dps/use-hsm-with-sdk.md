@@ -1,6 +1,6 @@
 ---
-title: Procedure di Azure - Usare un modulo di protezione hardware diverso con Device Provisioning Service Client SDK | Microsoft Docs
-description: Procedure di Azure - Usare un modulo di protezione hardware diverso con dispositivi fisici e simulatori con Device Provisioning Service Client SDK
+title: Procedure di Azure - Come usare moduli di protezione hardware diversi con Device Provisioning Service Client SDK in Azure | Microsoft Docs
+description: Procedure di Azure - Come usare moduli di protezione hardware diversi con Device Provisioning Service Client SDK in Azure
 services: iot-dps
 keywords: 
 author: yzhong94
@@ -12,14 +12,12 @@ documentationcenter:
 manager: 
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 620d86b62cf43c3e1a5f7f5c724fcf00174f30e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: a5649ab873993d20803cb01a4b0ecc278c3ce16c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Come usare diversi moduli di protezione hardware con Device Provisioning Service Client SDK
 Queste procedure illustrano come usare un [modulo di protezione hardware](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) diverso con Device Provisioning Service Client SDK in C con un dispositivo fisico e un simulatore.  Il servizio di provisioning supporta due modalità di autenticazione: X**.**509 e Trusted Platform Module (TPM).
 
@@ -150,4 +148,3 @@ Dopo il provisioning del dispositivo con il servizio di provisioning, questa API
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

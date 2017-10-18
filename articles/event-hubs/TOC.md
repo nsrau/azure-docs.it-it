@@ -22,6 +22,7 @@
 
 # Procedure
 ## Pianificare e progettare
+### [Ripristino di emergenza geografico e replica geografica](event-hubs-geo-dr.md)
 ### [Hub eventi dedicati](event-hubs-dedicated-overview.md)
 ### [Panoramica sul modello di autenticazione e di protezione](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilità e coerenza](event-hubs-availability-and-consistency.md)

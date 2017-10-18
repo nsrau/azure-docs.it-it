@@ -17,10 +17,10 @@ ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Creare un database di SQL Data Warehouse usando Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Questo articolo illustra come creare un'istanza di SQL Data Warehouse usando T-S
 Per iniziare, è necessario:
 
 * **Account Azure**: per creare un account, vedere la [versione di valutazione gratuita][Azure Free Trial] o [MSDN Azure Credits][MSDN Azure Credits] (Crediti Azure MSDN).
-* **Server SQL Azure**: vedere [creare un server logico di Database SQL di Azure con il portale di Azure] [creare un server logico di Database SQL di Azure con il portale di Azure] o [creare un server logico di Database SQL di Azure con PowerShell] [creare SQL Azure Server logico di database con PowerShell] per ulteriori dettagli.
+* **Server SQL di Azure**: per altri dettagli, vedere [Creare un server logico di database SQL di Azure con il portale di Azure][Creare un server logico di database SQL di Azure con il portale di Azure] o [Creare un server logico di database SQL di Azure con PowerShell][Creare un server logico di database SQL di Azure con PowerShell].
 * **Gruppo di risorse**: usare lo stesso gruppo di risorse del server di Azure SQL oppure vedere [Creare un gruppo di risorse][how to create a resource group].
 * **Ambiente per l'esecuzione di T-SQL**: per eseguire T-SQL, è possibile usare [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] o [SSMS][SSMS].
 

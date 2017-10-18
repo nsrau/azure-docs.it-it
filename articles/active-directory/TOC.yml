@@ -44,41 +44,49 @@
       href: msi-how-to-get-access-token-using-msi.md
     - name: Configurare MSI per macchine virtuali di Azure
       items:
-        - name: Con il portale di Azure
+        - name: Uso del portale di Azure
           href: msi-qs-configure-portal-windows-vm.md
-        - name: Con PowerShell
+        - name: Tramite PowerShell
           href: msi-qs-configure-powershell-windows-vm.md
-        - name: Con l'interfaccia della riga di comando di Azure
+        - name: Utilizzare l'interfaccia della riga di comando di Azure
           href: msi-qs-configure-cli-windows-vm.md
-        - name: Con un modello di Azure Resource Manager
+        - name: Uso del modello di Azure Resource Manager
           href: msi-qs-configure-template-windows-vm.md
-        - name: Con Azure SDK
+        - name: Uso di Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Assegnare un accesso tramite MSI a una risorsa di Azure
+    - name: Concedere un accesso a Resource Manager con l'identità del servizio gestito della VM
       items:
-        - name: Con il portale di Azure
+        - name: Uso del portale di Azure
           href: msi-howto-assign-access-portal.md
-        - name: Con PowerShell
+        - name: Tramite PowerShell
           href: msi-howto-assign-access-powershell.md
-        - name: Con l'interfaccia della riga di comando di Azure
+        - name: Utilizzare l'interfaccia della riga di comando di Azure
           href: msi-howto-assign-access-cli.md
-    - name: Usare MSI per accedere ad Azure Resource Manager
+    - name: Usare un'identità del servizio gestito della VM per accedere ad Azure Resource Manager
       items:
-        - name: Con una VM Windows
+        - name: Da una VM Windows
           href: msi-tutorial-windows-vm-access-arm.md
-        - name: Con una VM Linux
+        - name: Da una VM Linux
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: Usare MSI per accedere all'archiviazione di Azure
+    - name: Usare un'identità del servizio gestito della VM per accedere ad Azure SQL
       items:
-        - name: Con una VM Windows
+        - name: Da una VM Windows
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Usare un'identità del servizio gestito della VM per accedere ad Archiviazione di Azure
+      items:
+        - name: Da una VM Windows usando una chiave di accesso
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: Con una VM Linux
+        - name: Da una VM Windows usando la firma di accesso condiviso
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: Da una VM Linux usando una chiave di accesso
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: Usare MSI per accedere a una risorsa non di Azure AD
+        - name: Da una VM Linux usando la firma di accesso condiviso
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Usare un'identità del servizio gestito di una VM per accedere ad Azure Key Vault
       items:
-        - name: Con una VM Windows
+        - name: Da una VM Windows
           href: msi-tutorial-windows-vm-access-nonaad.md
-        - name: Con una VM Linux
+        - name: Da una VM Linux
           href: msi-tutorial-linux-vm-access-nonaad.md
     - name: Domande frequenti e problemi noti
       href: msi-known-issues.md

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
 ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Uso del Centro sicurezza di Azure per rispondere a un evento imprevisto
 Molte organizzazioni imparano a rispondere agli eventi imprevisti della sicurezza solo dopo aver subito un attacco. Per ridurre i costi e i danni è importante implementare un piano di risposta agli eventi imprevisti prima di un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
@@ -83,7 +83,7 @@ Alice ha effettuato l'accesso al portale di Azure e si trova nella console del C
    > Ai fini di questo scenario, Alice eseguirà la valutazione dell'avviso riguardante attività SQL dannose, come illustrato nella figura precedente.
    >
    >
-2. Fare clic sul **attività SQL dannoso** avviso ed esaminare le risorse attaccate il **attività SQL dannoso** pannello: ![dettagli dell'evento imprevisto](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Fare clic sull'avviso **Malicious SQL Activity** (Attività SQL dannosa) ed esaminare le risorse che hanno subito l'attacco nel pannello **Malicious SQL Activity** (Attività SQL dannosa): ![Dettagli dell'evento imprevisto](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     In questo pannello Alice può vedere le risorse che hanno subito l'attacco, quante volte si è verificato l'attacco e quando è stato rilevato.
 3. Fare clic sulla **risorsa che ha subito l'attacco** per ottenere altre informazioni sull'attacco.

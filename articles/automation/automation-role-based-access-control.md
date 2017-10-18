@@ -3,7 +3,7 @@ title: Controllo degli accessi in base al ruolo in Automazione di Azure | Docume
 description: Il controllo degli accessi in base al ruolo consente di gestire gli accessi per le risorse di Azure. Questo articolo descrive come impostare il controllo degli accessi in base al ruolo in Automazione di Azure.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: controllo degli accessi in base al ruolo di Automazione, controllo degli accessi in base al ruolo, controllo degli accessi in base al ruolo di Azure
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 09/30/2016
 ms.author: magoedte;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
-
-
+ms.openlocfilehash: 946d80d40ac0566db72c787f260f2d4faff01e6d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
-Il controllo degli accessi in base al ruolo consente di gestire gli accessi per le risorse di Azure. Con il [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md)è possibile separare i compiti all'interno del team e concedere a utenti, gruppi e applicazioni solo il livello di accesso necessario per svolgere le proprie attività. L'accesso in base al ruolo può essere concesso agli utenti tramite il portale di Azure, gli strumenti da riga di comando di Azure o le API di gestione di Azure.
+Il controllo degli accessi in base al ruolo consente di gestire gli accessi per le risorse di Azure. Con il [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md)è possibile separare i compiti all'interno del team e concedere a utenti, gruppi e applicazioni solo il livello di accesso necessario per svolgere le proprie attività. È possibile concedere l'accesso in base al ruolo agli utenti tramite il portale di Azure, gli strumenti da riga di comando di Azure o le API di gestione di Azure.
 
 ## <a name="rbac-in-automation-accounts"></a>Controllo degli accessi in base al ruolo negli account di automazione
 In Automazione di Azure l'accesso viene concesso assegnando il ruolo Controllo degli accessi in base al ruolo appropriato a utenti, gruppi e applicazioni nell'ambito dell'account di automazione. Di seguito sono elencati i ruoli predefiniti supportati da un account di automazione:  
@@ -33,7 +33,7 @@ In Automazione di Azure l'accesso viene concesso assegnando il ruolo Controllo d
 | Proprietario |Il ruolo Proprietario consente l'accesso a tutte le risorse e le azioni in un account di automazione, inclusa la possibilità di concedere l'accesso ad altri utenti e gruppi e ad altre applicazioni per gestire l'account di automazione. |
 | Collaboratore |Il ruolo Collaboratore consente di gestire tutto, tranne la modifica delle autorizzazioni di accesso di altri utenti a un account di automazione. |
 | Lettore |Il ruolo Lettore consente di visualizzare tutte le risorse in un account di automazione, ma non di apportare modifiche. |
-| Operatore di automazione |Il ruolo Automation Operator consente di eseguire attività operative, ad esempio avviare, arrestare, sospendere, riprendere e pianificare i processi. Questo ruolo è utile per proteggere le risorse dell'account di automazione, come asset delle credenziali e runbook, dalla visualizzazione o dalla modifica, consentendo però ai membri dell'organizzazione di eseguire i runbook. |
+| Operatore di automazione |Il ruolo Operatore di automazione permette di eseguire attività operative, tra cui l'avvio, l'arresto, la sospensione, la ripresa e la pianificazione di processi. Questo ruolo è utile per proteggere le risorse dell'account di automazione, come asset delle credenziali e runbook, dalla visualizzazione o dalla modifica, consentendo però ai membri dell'organizzazione di eseguire i runbook. |
 | Amministratore accessi utente |Il ruolo Amministratore Accesso utenti consente di gestire l'accesso utente agli account di automazione di Azure. |
 
 > [!NOTE]
@@ -41,7 +41,7 @@ In Automazione di Azure l'accesso viene concesso assegnando il ruolo Controllo d
 > 
 > 
 
-Questo articolo illustra come configurare il controllo degli accessi in base al ruolo in Automazione di Azure. Verranno prima illustrate le singole autorizzazioni concesse ai ruoli Collaboratore, Lettore, Automation Operator e Amministratore Accesso utenti, per comprenderle a fondo prima di concedere diritti a qualcuno per l'account di automazione.  In caso contrario potrebbero verificarsi conseguenze impreviste o indesiderate.     
+Questo articolo descrive in modo dettagliato come configurare il controllo degli accessi in base al ruolo in Automazione di Azure. Prima di tutto, tuttavia, vengono esaminate le singole autorizzazioni concesse ai ruoli Collaboratore, Lettore, Operatore di automazione e Amministratore accessi utente per offrire una buona comprensione prima di iniziare a concedere diritti per l'account di Automazione agli utenti.  In caso contrario potrebbero verificarsi conseguenze impreviste o indesiderate.     
 
 ## <a name="contributor-role-permissions"></a>Autorizzazioni del ruolo Collaboratore
 La tabella seguente illustra le azioni specifiche che possono essere eseguite dal ruolo Collaboratore in Automazione.
@@ -126,9 +126,9 @@ La tabella seguente illustra le azioni specifiche che possono essere eseguite da
 | Processo di test della bozza di runbook di Automazione |![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
 | Webhook di automazione |![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
-## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Configurare il controllo degli accessi in base al ruolo per l'account di automazione tramite il portale di Azure
-1. Accedere al [portale di Azure](https://portal.azure.com/) e aprire l'account di automazione nel pannello Account di automazione.  
-2. Fare clic sul comando **Accesso** nell'angolo superiore destro. Verrà visualizzato il pannello **Utenti** in cui è possibile aggiungere nuovi utenti, gruppi e applicazioni per gestire il proprio account di automazione e visualizzare i ruoli esistenti che possono essere configurati per l'account di automazione.  
+## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Configurare il controllo degli accessi in base al ruolo per l'account di Automazione tramite il portale di Azure
+1. Accedere al [portale di Azure](https://portal.azure.com/) e aprire l'account di Automazione nella pagina Account di automazione.  
+2. Fare clic sul comando **Accesso** nell'angolo superiore destro. Verrà visualizzata la pagina **Utenti**, in cui è possibile aggiungere nuovi utenti, gruppi e applicazioni per gestire il proprio account di Automazione e visualizzare i ruoli esistenti che possono essere configurati per l'account di Automazione.  
    
    ![Pulsante Accesso](media/automation-role-based-access-control/automation-01-access-button.png)  
 
@@ -138,24 +138,24 @@ La tabella seguente illustra le azioni specifiche che possono essere eseguite da
 > 
 
 ### <a name="add-a-new-user-and-assign-a-role"></a>Aggiungere un nuovo utente e assegnare un ruolo
-1. Nel pannello Utenti fare clic su **Aggiungi** per aprire il pannello **Aggiungi accesso** dove è possibile aggiungere un utente, un gruppo o un'applicazione e assegnare un ruolo.  
+1. Nella pagina Utenti fare clic su **Aggiungi** per aprire la pagina **Aggiungi accesso**, in cui è possibile aggiungere un utente, un gruppo o un'applicazione cui assegnare un ruolo.  
    
    ![Add user](media/automation-role-based-access-control/automation-02-add-user.png)  
 2. Selezionare un ruolo dall'elenco di ruoli disponibili. Qui si sceglierà il ruolo **Lettore** , ma è possibile scegliere uno qualsiasi dei ruoli predefiniti disponibili supportati da un account di automazione oppure un ruolo personalizzato definito dall'utente.  
    
    ![Selezionare il ruolo](media/automation-role-based-access-control/automation-03-select-role.png)  
-3. Fare clic su **Aggiungi utenti** per aprire il pannello **Aggiungi utenti**. Se sono stati aggiunti utenti, gruppi o applicazioni per gestire la sottoscrizione, questi saranno elencati e si potranno selezionare per aggiungere l'accesso. Se non ci sono utenti elencati o se l'utente che si vuole aggiungere non è nell'elenco, fare clic su **Invita** per aprire il pannello **Invitare un utente guest** dove è possibile invitare un utente con un indirizzo di posta elettronica di un account Microsoft valido, ad esempio Outlook.com, OneDrive o ID di Xbox Live. Dopo aver immesso l'indirizzo di posta elettronica dell'utente, fare clic su **Seleziona** per aggiungere l'utente e quindi fare clic su **OK**. 
+3. Fare clic su **Aggiungi utenti** per aprire la pagina **Aggiungi utenti**. Se sono stati aggiunti utenti, gruppi o applicazioni per gestire la sottoscrizione, questi saranno elencati e si potranno selezionare per aggiungere l'accesso. Se non è elencato alcun utente o se l'utente che si vuole aggiungere non è nell'elenco, fare clic su **Invita** per aprire la pagina **Invitare un utente guest**, in cui è possibile invitare un utente con un indirizzo di posta elettronica di un account Microsoft valido, ad esempio Outlook.com, OneDrive o ID Xbox Live. Dopo aver immesso l'indirizzo di posta elettronica dell'utente, fare clic su **Seleziona** per aggiungere l'utente e quindi fare clic su **OK**. 
    
    ![Aggiungi utenti](media/automation-role-based-access-control/automation-04-add-users.png)  
    
-   L'utente aggiunto verrà visualizzato nel pannello **Utenti** con assegnato il ruolo **Lettore**.  
+   L'utente aggiunto verrà ora visualizzato nella pagina **Utenti** con il ruolo **Lettore** assegnato.  
    
    ![Elencare gli utenti](media/automation-role-based-access-control/automation-05-list-users.png)  
    
-   È anche possibile assegnare un ruolo all'utente dal pannello **Ruoli** . 
-4. Fare clic su **Ruoli** nel pannello Utenti per aprire il pannello **Ruoli**. In questo pannello è possibile visualizzare il nome del ruolo, il numero di utenti e i gruppi assegnati al ruolo.
+   È anche possibile assegnare un ruolo all'utente dalla pagina **Ruoli** . 
+4. Fare clic su **Ruoli** nella pagina Utenti per aprire la pagina **Ruoli**. Da qui è possibile visualizzare il nome del ruolo e il numero di utenti e gruppi assegnati al ruolo.
    
-    ![Assegnare un ruolo dal pannello Utenti](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
+    ![Assegnare un ruolo dalla pagina Utenti](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
    > [!NOTE]
    > Il controllo degli accessi in base al ruolo può essere impostato solo a livello di account di automazione e in nessun'altra risorsa al di sotto dell'account di automazione.
@@ -169,7 +169,7 @@ La tabella seguente illustra le azioni specifiche che possono essere eseguite da
 ### <a name="remove-a-user"></a>Rimuovere un utente
 È possibile rimuovere l'autorizzazione di accesso per un utente che non gestisce l'account di automazione o che non lavora più per l'organizzazione. Ecco la procedura da seguire per rimuovere un utente: 
 
-1. Nel pannello **Utenti** selezionare l'assegnazione del ruolo che si vuole rimuovere.
+1. Nella pagina **Utenti** selezionare l'assegnazione di ruolo che si vuole rimuovere.
 2. Fare clic sul pulsante **Rimuovi** nel pannello dei dettagli dell'assegnazione.
 3. Fare clic su **Sì** per confermare la rimozione. 
    
@@ -181,7 +181,7 @@ Quando un utente assegnato a un ruolo accede con l'account di automazione, può 
 ![Directory predefinita](media/automation-role-based-access-control/automation-09-default-directory-in-role-assigned-user.png)  
 
 ### <a name="user-experience-for-automation-operator-role"></a>Esperienza utente per il ruolo Automation Operator
-Quando un utente assegnato al ruolo Automation Operator visualizza l'account di automazione a cui è stato assegnato, può vedere solo l'elenco delle pianificazioni, dei runbook e dei processi di runbook creati nell'account di automazione, ma non le relative definizioni. L'utente può avviare, arrestare, sospendere, riprendere o pianificare il processo del runbook, ma non avrà accesso ad altre risorse di automazione, ad esempio configurazioni, gruppi di lavoro ibridi o nodi DSC.  
+Quando un utente assegnato al ruolo Automation Operator visualizza l'account di automazione a cui è stato assegnato, può vedere solo l'elenco delle pianificazioni, dei runbook e dei processi di runbook creati nell'account di automazione, ma non le relative definizioni. L'utente può avviare, arrestare, sospendere, riprendere o pianificare il processo del runbook, ma non avrà accesso ad altre risorse di Automazione, tra cui configurazioni, gruppi di lavoro ibridi o nodi DSC.  
 
 ![Nessun accesso alle risorse](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
 
@@ -229,10 +229,4 @@ Negli esempi precedenti sostituire l'**ID di accesso**, l'**ID sottoscrizione**,
 * Per informazioni sulle diverse modalità disponibili per configurare il controllo degli accessi in base al ruolo per Automazione di Azure, vedere [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
 * Per informazioni dettagliate sulle diverse modalità di avvio dei runbook, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 * Per informazioni sui diversi tipi di runbook, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

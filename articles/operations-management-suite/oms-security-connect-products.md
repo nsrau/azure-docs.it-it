@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
 ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Connessione dei prodotti per la sicurezza alla soluzione Sicurezza e controllo per Operations Management Suite (OMS) 
 Questo documento consente di connettere i prodotti per la sicurezza alla soluzione Sicurezza e controllo per OMS. Sono supportate le origini seguenti:
@@ -63,7 +63,7 @@ Nel computer agente gli eventi devono essere inviati dal daemon syslog alla port
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Scaricare il file *security_events.conf* e posizionarlo in */etc/opt/microsoft/omsagent/conf/omsagent.d/* nel computer agente OMS.
-4. Digitare il comando seguente per riavviare il daemon syslog: *per syslog-ng eseguire:*
+4. Digitare il comando seguente per riavviare il daemon syslog: *Per eseguire syslog-ng:*
     
     ```
     sudo service rsyslog restart

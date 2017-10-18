@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 166cebeb20ecc79b447dac25f243f07163a6d127
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>Informazioni su App per dispositivi mobili nel servizio app di Azure
 Il servizio app di Azure è un'offerta di [piattaforma distribuita come servizio ](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) interamente gestita per sviluppatori professionisti. Il servizio offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione. 
@@ -68,7 +67,7 @@ Le funzionalità della piattaforma seguenti sono utili per i siti di produzione 
 
 * **Distribuzione continua**. Il servizio app può integrarsi con i comuni sistemi di gestione della supply chain e consente così di distribuire automaticamente una nuova versione del back-end eseguendo il push in un ramo del sistema di gestione della supply chain.
 
-  Altre informazioni sulle [opzioni di distribuzione].
+  Altre informazioni sulle [opzioni di distribuzione](../app-service/app-service-deploy-local-git.md).
 
 * **Rete virtuale**. Il servizio app può connettersi alle risorse locali usando una rete virtuale, Azure ExpressRoute o connessioni ibride.
 
@@ -83,11 +82,10 @@ Le funzionalità della piattaforma seguenti sono utili per i siti di produzione 
 Per iniziare a usare App per dispositivi mobili nel servizio app di Azure, completare l'[esercitazione introduttiva]. L'esercitazione illustra le nozioni di base della creazione di un back-end e un client per dispositivi mobili di propria scelta, nonché l'integrazione dell'autenticazione, della sincronizzazione offline e delle notifiche push. È possibile completare l'esercitazione più volte, una per ogni applicazione client.
 
 Per altre informazioni su App per dispositivi mobili, vedere la [mappa di apprendimento].
-Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure].
+Per altre informazioni sulla piattaforma Servizio app di Azure, vedere [Servizio app di Azure].
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
 [esercitazione introduttiva]: app-service-mobile-ios-get-started.md
 [Archiviazione tabelle di Azure]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
@@ -100,12 +98,10 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [Xamarin.iOS, Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[scalabilità automatica]: ../app-service-web/web-sites-scale.md
-[ambienti di staging]: ../app-service-web/web-sites-staged-publishing.md
-[opzioni di distribuzione]: ../app-service-web/web-sites-deploy.md
+[scalabilità automatica]: ../app-service/web-sites-scale.md
+[ambienti di staging]: ../app-service/web-sites-staged-publishing.md
 [connessioni ibride]: ../biztalk-services/integration-hybrid-connection-overview.md
-[reti virtuali]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[ambienti del servizio app]: ../app-service-web/app-service-app-service-environment-intro.md
+[reti virtuali]: ../app-service/web-sites-integrate-with-vnet.md
+[ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
+[ambienti del servizio app]: ../app-service/environment/intro.md
 [mappa di apprendimento]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-

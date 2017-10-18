@@ -1,7 +1,7 @@
 ---
-title: Creare il primo flusso di lavoro tra app cloud e servizi cloud - App per la logica di Azure | Microsoft Docs
-description: Automatizzare i processi aziendali per scenari di integrazione di sistemi e di Enterprise Application Integration (EAI) creando ed eseguendo flussi di lavoro in App per la logica di Azure
-author: jeffhollan
+title: Creare il primo flusso di lavoro automatizzato tra sistemi e servizi cloud - App per la logica di Azure | Microsoft Docs
+description: Automatizzare i processi aziendali e i flussi di lavoro per scenari di integrazione di sistemi e di Enterprise Application Integration (EAI) creando ed eseguendo app per la logica
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,161 +13,221 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/31/2017
-ms.author: LADocs; jehollan; estfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.date: 09/18/2017
+ms.author: LADocs; estfan
+ms.openlocfilehash: d62255ba6e3d5bdfbd792a47f3a92d4c88876742
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-your-first-logic-app-for-automating-workflows-and-processes-through-the-azure-portal"></a>Creare la prima app per la logica per l'automazione di flussi di lavoro e processi con il portale di Azure
 
-# <a name="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services"></a>Creare il primo flusso di lavoro di app per la logica per automatizzare i processi tra app cloud e servizi cloud
+Senza scrivere codice, è possibile integrare sistemi e servizi creando ed eseguendo flussi di lavoro automatizzati con [App per la logica di Azure](../logic-apps/logic-apps-what-are-logic-apps.md). Per mostrare come è semplice automatizzare le attività con un flusso di lavoro, questa esercitazione consente di creare un'app per la logica di base che controlla un feed RSS per verificare se è presente nuovo contenuto in un sito Web e invia un messaggio di posta elettronica per ogni nuovo elemento nel feed. 
 
-Senza scrivere codice, è possibile automatizzare i processi aziendali in modo più semplice e rapido durante la creazione ed esecuzione di flussi di lavoro con [App per la logica di Azure](logic-apps-what-are-logic-apps.md). Questo primo esempio illustra come creare un flusso di lavoro di base per app per la logica che controlla un feed RSS alla ricerca di nuovi contenuti in un sito Web. Quando vengono visualizzati nuovi elementi nel feed del sito Web, l'app per la logica invia un messaggio di posta elettronica da un account Outlook o Gmail.
+![Panoramica - esempio di prima app per la logica](./media/logic-apps-create-a-logic-app/logic-app-overview.png)
 
-Per creare ed eseguire un'app per la logica, sono necessari questi elementi:
+In questa esercitazione si apprenderà come:
+
+> [!div class="checklist"]
+> * Creare un'app per la logica vuota.
+> * Aggiungere un trigger per avviare l'app per la logica quando viene pubblicato un elemento del feed RSS.
+> * Aggiungere un'azione per l'invio di un messaggio di posta elettronica con le informazioni sull'elemento del feed RSS.
+> * Eseguire e testare l'app per la logica.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/). In alternativa, è possibile [iscriversi per ottenere una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/pricing/purchase-options/).
 
-  La sottoscrizione di Azure viene usata per la fatturazione dell'utilizzo delle app per la logica. Per altre informazioni, vedere le pagine relative alla [misurazione dell'utilizzo](../logic-apps/logic-apps-pricing.md) e ai [prezzi](https://azure.microsoft.com/pricing/details/logic-apps) per App per la logica di Azure.
+* Un account di posta elettronica di [qualsiasi provider di posta elettronica supportato da App per la logica di Azure](../connectors/apis-list.md) per l'invio di notifiche. È ad esempio possibile usare Office 365 Outlook, Outlook.com, Gmail o un altro provider supportato. In questa esercitazione viene usato Office 365 Outlook.
 
-Questo esempio richiede anche gli elementi seguenti:
-
-* Account Outlook.com, Office 365 Outlook o Gmail
-
-    > [!TIP]
-    > Se si ha un [account Microsoft](https://account.microsoft.com/account) personale, si ha un account Outlook.com. Se invece si una un account Azure aziendale o dell'istituto di istruzione, si ha un account **Office 365 Outlook**.
+  > [!TIP]
+  > Se si ha un [account Microsoft](https://account.microsoft.com/account) personale, si ha un account Outlook.com. Se invece si ha un account aziendale o dell'istituto di istruzione di Azure, si ha un account Office 365 Outlook.
 
 * Un collegamento al feed RSS del sito Web. Questo esempio usa il [feed RSS delle notizie principali dal sito Web CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss): `http://rss.cnn.com/rss/cnn_topstories.rss`
 
-## <a name="add-a-trigger-that-starts-your-workflow"></a>Aggiungere un trigger che avvia il flusso di lavoro
-
-Un [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) è un evento che avvia il flusso di lavoro dell'app per la logica ed è il primo elemento necessario per l'app per la logica.
+## <a name="1-create-a-blank-logic-app"></a>1. Creare un'app per la logica vuota 
 
 1. Accedere al [Portale di Azure](https://portal.azure.com "Portale di Azure").
 
-2. Dal menu a sinistra scegliere **Nuovo** > **Enterprise Integration** > **App per la logica**, come mostrato qui:
+2. Dal menu principale di Azure scegliere **Nuovo** > **Enterprise Integration** > **App per la logica**.
 
-     ![Portale di Azure, Nuovo, Enterprise Integration, App per la logica](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
+   ![Portale di Azure, Nuovo, Enterprise Integration, App per la logica](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
-   > [!TIP]
-   > È anche possibile scegliere **Nuovo**, digitare `logic app` nella casella di ricerca e quindi premere INVIO. Scegliere quindi **App per la logica** > **Crea**.
+3. Creare l'app per la logica con le impostazioni specificate nella tabella.
 
-3. Assegnare un nome all'app per la logica e selezionare la sottoscrizione di Azure. Creare quindi o selezionare un gruppo di risorse di Azure, che consente di organizzare e gestire le risorse di Azure correlate. Selezionare infine la località del data center per l'hosting dell'app per la logica. Quando si è pronti, scegliere **Aggiungi al dashboard** e quindi **Crea**.
+   ![Specificare i dettagli dell'app per la logica](./media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
-     ![Dettagli dell'app per la logica](media/logic-apps-create-a-logic-app/logic-app-settings.png)
+   | Impostazione | Valore consigliato | Descrizione | 
+   | ------- | --------------- | ----------- | 
+   | **Nome** | *nome-app-per-la-logica* | Specificare un nome univoco per l'app per la logica. | 
+   | **Sottoscrizione** | *sottoscrizione-di-Azure* | Selezionare la sottoscrizione di Azure da usare. | 
+   | **Gruppo di risorse** | *gruppo-di-risorse-di-Azure* | Creare o selezionare un gruppo di risorse di Azure, per organizzare o gestire le risorse di Azure correlate. | 
+   | **Posizione** | *area-di-Azure* | Selezionare l'area del data center per la distribuzione dell'app per la logica. | 
+   |||| 
 
-   > [!NOTE]
-   > Quando si seleziona **Aggiungi al dashboard**, l'app per la logica viene visualizzata nel dashboard di Azure dopo la distribuzione e viene aperta automaticamente. Se l'app per la logica non viene visualizzata nel dashboard, nel riquadro **Tutte le risorse** scegliere **Vedi altri** e selezionare l'app per la logica. Dal menu a sinistra scegliere **More services** (Altri servizi). In **Enterprise Integration** scegliere **App per la logica**, quindi selezionare l'app per la logica.
+4. Al termine, selezionare **Aggiungi al dashboard** e quindi scegliere **Crea**.
 
-4. Quando si apre l'app per la logica per la prima volta, la finestra di progettazione dell'app per la logica mostra i modelli disponibili per iniziare. Per il momento, scegliere **App per la logica vuota**, per consentire la creazione di un'app per la logica completamente nuova.
+   È stata creata ora una risorsa di Azure per l'app per la logica. 
+   Al termine della distribuzione dell'app per la logica, Progettazione app per la logica mostra i modelli comuni disponibili per poter iniziare più rapidamente.
 
-    Viene aperta la finestra di progettazione dell'app per la logica, che mostra i servizi disponibili e i *trigger* che possono essere usati nell'app per la logica.
+   > [!NOTE] 
+   > Quando si seleziona **Aggiungi al dashboard**, l'app per la logica viene visualizzata nel dashboard di Azure dopo la distribuzione e viene aperta automaticamente in Progettazione app per la logica. In caso contrario, è possibile trovare e aprire manualmente l'app per la logica.
 
-5. Nella casella di ricerca digitare `RSS`, quindi selezionare questo trigger: **RSS - Quando viene pubblicato un elemento del feed** 
+5. Per il momento, in **Modelli** scegliere **App per la logica vuota** per poter creare l'app per la logica da zero.
 
-    ![Trigger di RSS](media/logic-apps-create-a-logic-app/rss-trigger.png)
+   ![Selezionare il modello dell'app per la logica](./media/logic-apps-create-a-logic-app/choose-logic-app-template.png)
 
-6. Immettere il collegamento per il feed RSS del sito Web di cui si vuole tenere traccia. 
+   Progettazione app per la logica mostra ora i [*connettori*](../connectors/apis-list.md) disponibili e i relativi [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), che è possibile usare per avviare il flusso di lavoro dell'app per la logica.
 
-     È anche possibile cambiare i valori per **Frequenza** e **Intervallo**. 
-     Queste impostazioni determinano la frequenza con cui l'app per la logica verifica la presenza di nuovi elementi e restituisce tutti gli elementi trovati durante tale periodo di tempo.
+   ![Trigger dell'app per la logica](./media/logic-apps-create-a-logic-app/logic-app-triggers.png)
 
-     Per questo esempio si controllano ogni giorno le notizie principali pubblicate nel sito Web della CNN.
+## <a name="2-add-a-trigger-for-starting-the-workflow"></a>2. Aggiungere un trigger per avviare il flusso di lavoro
 
-     ![Configurare un trigger con feed RSS, frequenza e intervallo](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
+Ogni app per la logica deve iniziare con un [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). Il trigger viene attivato quando si verifica un evento specifico o nuovi dati soddisfano la condizione che è stata impostata. Il motore di App per la logica crea quindi un'istanza di app per la logica per l'esecuzione del flusso di lavoro. Ogni volta che il trigger viene attivato, il motore crea un'altra istanza separata che esegue il flusso di lavoro dell'app per la logica.
 
-7. Salvare il lavoro, per il momento. Sulla barra dei comandi della finestra di progettazione scegliere **Salva**.
+1. Nella casella di ricerca digitare "rss" come filtro. Selezionare il trigger: **RSS - Quando viene pubblicato un elemento del feed** 
 
-   ![Salvare l'app per la logica](media/logic-apps-create-a-logic-app/save-logic-app.png)
+   ![Selezionare il trigger: "RSS - Quando viene pubblicato un elemento del feed"](./media/logic-apps-create-a-logic-app/rss-trigger.png)
 
-   Dopo il salvataggio, l'app per la logica viene resa disponibile, ma attualmente verifica solo la presenza di nuovi elementi nel feed RSS specificato. 
-   Per rendere più utile l'esempio, è possibile aggiungere un'azione eseguita dall'app per la logica dopo l'attivazione del trigger.
+2. Specificare il collegamento per il feed RSS del sito Web che si vuole monitorare, ad esempio `http://rss.cnn.com/rss/cnn_topstories.rss`. Impostare l'intervallo e la frequenza per la ricorrenza. In questo esempio impostare queste proprietà per controllare il feed ogni giorno. 
 
-## <a name="add-an-action-that-responds-to-your-trigger"></a>Aggiungere un'azione che risponde al trigger
+   ![Configurare un trigger con feed RSS, frequenza e intervallo](./media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
-Un'[*azione*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) è un'attività eseguita dal flusso di lavoro dell'app per la logica. Dopo avere aggiunto un trigger all'app per la logica, è possibile aggiungere un'azione per eseguire operazioni con i dati generati da tale trigger. Per questo esempio, viene ora aggiunta un'azione per l'invio di un messaggio di posta elettronica in caso di comparsa di nuovi elementi nel feed RSS del sito Web.
+3. Salvare il lavoro, per il momento. Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
+Per comprimere e nascondere i dettagli del trigger, scegliere la barra del titolo del trigger.
 
-1. Nella finestra di progettazione, scegliere **Nuovo passaggio** > **Aggiungi un'azione** sotto il trigger, come mostrato qui:
+   ![Salvare l'app per la logica](./media/logic-apps-create-a-logic-app/save-logic-app.png)
 
-   ![Aggiungere un'azione](media/logic-apps-create-a-logic-app/add-new-action.png)
+   L'app per la logica è ora attiva ma, fino a quando non si aggiungono azioni al flusso di lavoro, non esegue alcuna operazione oltre a verificare la presenza di nuovi elementi nel feed RSS. 
+
+## <a name="3-add-an-action-that-responds-to-the-trigger"></a>3. Aggiungere un'azione che risponde al trigger
+
+Aggiungere ora un'[*azione*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), ovvero un'attività eseguita dal flusso di lavoro dell'app per la logica. In questo esempio aggiungere un'azione per l'invio di un messaggio di posta elettronica in caso di comparsa di nuovi elementi nel feed RSS.
+
+1. In Progettazione app per la logica, sotto il trigger, scegliere **+ Nuovo passaggio** > **Aggiungi un'azione**.
+
+   ![Aggiungere un'azione](./media/logic-apps-create-a-logic-app/add-new-action.png)
 
    La finestra di progettazione mostra i [connettori disponibili](../connectors/apis-list.md), per consentire di selezionare un'azione da eseguire all'attivazione del trigger.
 
-2. In base all'account di posta elettronica, seguire la procedura per Outlook o Gmail.
+   ![Selezionare una voce nell'elenco di azioni](./media/logic-apps-create-a-logic-app/logic-app-actions.png)
 
-   * Per inviare messaggi di posta elettronica dall'account Outlook, nella casella di ricerca immettere `outlook`. In **Servizi** scegliere **Outlook.com** per gli account Microsoft personali oppure **Office 365 Outlook** per gli account Azure aziendali o dell'istituto di istruzione. 
-   In **Azioni** selezionare **Invia un messaggio di posta elettronica**.
+2. Nella casella di ricerca immettere "invia messaggio di posta elettronica" come filtro. Selezionare il connettore corrispondente al provider di posta elettronica in uso. Selezionare quindi l'azione di invio di un messaggio di posta elettronica relativa al connettore selezionato. ad esempio: 
 
-       ![Selezionare l'azione "Invia un messaggio di posta elettronica" di Outlook](media/logic-apps-create-a-logic-app/actions.png)
+   * Per un account aziendale o dell'istituto di istruzione di Azure, selezionare il connettore Office 365 Outlook. 
+   * Per gli account Microsoft personali, selezionare il connettore Outlook.com. 
+   * Per gli account Gmail, selezionare il connettore Gmail. 
 
-   * Per inviare messaggi di posta elettronica dall'account Gmail, nella casella di ricerca immettere `gmail`. 
-   In **Azioni** selezionare **Invia messaggio di posta elettronica**.
+   Si continuerà a usare il connettore Office 365 Outlook. 
+   Se si usa un provider diverso, la procedura rimane invariata ma è possibile che l'interfaccia utente abbia un aspetto diverso. 
 
-       ![Scegliere "Gmail - Invia messaggio di posta elettronica"](media/logic-apps-create-a-logic-app/actions-gmail.png)
+   ![Selezionare l'azione: "Office 365 Outlook - Invia un messaggio di posta elettronica"](./media/logic-apps-create-a-logic-app/actions.png)
 
 3. Quando vengono richieste le credenziali, accedere con il nome utente e la password per l'account di posta elettronica. 
 
-4. Specificare i dettagli per questa azione, ad esempio l'indirizzo di posta elettronica di destinazione, quindi scegliere i parametri per i dati da includere nel messaggio di posta elettronica, ad esempio:
+4. Fornire i dettagli specificati nella tabella e scegliere i campi da includere nel messaggio.
 
-   ![Selezionare i dati da includere nel messaggio di posta elettronica](media/logic-apps-create-a-logic-app/rss-action-setup.png)
+   | To | Passi | 
+   | -- | ----- | 
+   | Selezionare i campi disponibili per il flusso di lavoro. | Fare clic in una casella di modifica in modo che venga aperto l'elenco **Contenuto dinamico** oppure scegliere **Aggiungi contenuto dinamico**. | 
+   | Visualizzare altri campi disponibili. | Nell'elenco **Contenuto dinamico** scegliere **Vedi altro** per ogni sezione.  | 
+   | Aggiungere righe vuote in una casella di modifica. | Premere MAIUSC+INVIO. | 
+   | Chiudere l'elenco **Contenuto dinamico**. | Scegliere di nuovo **Aggiungi contenuto dinamico**. | 
+   ||| 
 
-    Se è stato scelto Outlook, l'app per la logica potrebbe avere un aspetto simile a questo esempio:
+   ![Selezionare i dati da includere nel messaggio di posta elettronica](./media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
-    ![App per la logica completata](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
+   | Impostazione | Valore consigliato | Descrizione | 
+   | ------- | --------------- | ----------- | 
+   | **To** | *indirizzo-posta-elettronica-destinatario* | Immettere l'indirizzo di posta elettronica del destinatario. AI fini del test delle app è possibile indicare il proprio indirizzo di posta elettronica. | 
+   | **Oggetto** | Nuovo post CNN: **Titolo feed** | Immettere il contenuto per l'oggetto del messaggio di posta elettronica. <p>Per questa esercitazione, immettere il testo suggerito e selezionare il campo **Titolo feed** del trigger, che mostra il titolo dell'elemento del feed. | 
+   | **Corpo** | Titolo: **Titolo feed** <p>Data di pubblicazione: **Data di pubblicazione del feed** <p>Collegamento: **Collegamento al feed primario** | Immettere il contenuto per il corpo del messaggio di posta elettronica. <p>Per questa esercitazione, immettere il testo suggerito e quindi selezionare i campi del trigger: <p>- **Titolo feed**, che mostra di nuovo il titolo dell'elemento del feed </br>- **Data di pubblicazione del feed**, che mostra la data e l'ora di pubblicazione dell'elemento </br>- **Collegamento al feed primario**, che mostra l'URL per l'elemento del feed | 
+   |||| 
 
-5.    Salvare le modifiche. Sulla barra dei comandi della finestra di progettazione scegliere **Salva**.
+   > [!NOTE] 
+   > Se si seleziona un campo che archivia una matrice, la finestra di progettazione aggiunge automaticamente un ciclo "For each" intorno all'azione che fa riferimento alla matrice. In questo modo, l'app per la logica esegue l'azione su ogni elemento della matrice.
 
-6. È ora possibile eseguire manualmente l'app per la logica per i test. Sulla barra dei comandi della finestra di progettazione scegliere **Esegui**. In alternativa, è possibile lasciare che l'app per la logica verifichi il feed RSS specificato in base alla pianificazione configurata.
+5. Al termine, salvare le modifiche. Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
-   Se l'app per la logica trova nuovi elementi, invia un messaggio di posta elettronica che include i dati selezionati. 
-   Se non vengono trovati nuovi elementi, l'app per la logica ignora l'azione di invio del messaggio di posta elettronica.
+   ![App per la logica completata](./media/logic-apps-create-a-logic-app/save-complete-logic-app.png)
 
-7. Per monitorare e controllare la cronologia di esecuzione e dei trigger dell'app per la logica, dal menu dell'app per la logica scegliere **Panoramica**.
+   Se a questo punto si vuole testare l'app per la logica, passare alla sezione successiva.
 
-   ![Monitorare e visualizzare la cronologia di esecuzione e dei trigger dell'app per la logica](media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
+## <a name="4-run-and-test-your-workflow"></a>4. Eseguire e testare il flusso di lavoro
+
+1. Per eseguire manualmente l'app per la logica per il test, sulla barra degli strumenti della finestra di progettazione scegliere **Esegui**. In alternativa, è possibile lasciare che l'app per la logica controlli il feed RSS specificato in base alla pianificazione configurata.
+
+   ![Eseguire l'app per la logica](./media/logic-apps-create-a-logic-app/run-complete-logic-app.png)
+
+   Se l'app per la logica trova nuovi elementi, invia un messaggio di posta elettronica che include i dati selezionati, ad esempio:
+
+   ![Messaggio di posta elettronica inviato per un nuovo elemento del feed RSS](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
+
+   Se l'app per la logica non trova alcun nuovo elemento, ignora l'azione di invio di un messaggio di posta elettronica e attende l'intervallo successivo prima di eseguire di nuovo il controllo. 
+
+2. Per rivedere la cronologia delle esecuzioni e dei trigger, scegliere **Panoramica** dal menu dell'app per la logica.
+Per visualizzare altri dettagli su un'esecuzione, scegliere la riga per tale esecuzione.
+
+   ![Monitorare e visualizzare la cronologia di esecuzione e dei trigger dell'app per la logica](./media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
 
    > [!TIP]
-   > Se non si trovano i dati previsti, provare a scegliere **Aggiorna** sulla barra dei comandi.
+   > Se non si trovano i dati previsti, provare a scegliere **Aggiorna** sulla barra degli strumenti.
 
-   Per altre informazioni sullo stato o sulla cronologia di esecuzione e dei trigger dell'app per la logica o per la diagnosi delle app per la logica, vedere [Risolvere i problemi dell'app per la logica](logic-apps-diagnosing-failures.md).
+   Indipendentemente dal fatto che l'esecuzione abbia avuto esito positivo o negativo, la visualizzazione Dettagli esecuzione mostra i passaggi riusciti o non riusciti. 
 
-      > [!NOTE]
-      > L'esecuzione dell'app per la logica continua fino alla disattivazione dell'app. Per disattivare temporaneamente l'app, dal menu dell'app per la logica scegliere **Panoramica**. Sulla barra dei comandi fare clic su **Disabilita**.
+   ![Visualizzare i dettagli per un'esecuzione dell'app per la logica](./media/logic-apps-create-a-logic-app/logic-app-run-details.png)
 
-La prima app per la logica è stata configurata ed eseguita. È stato anche illustrato come creare con facilità flussi di lavoro per l'automazione dei processi e integrare le app cloud e i servizi cloud, senza scrivere codice.
+   Per altre informazioni sullo stato o sulla cronologia delle esecuzioni e dei trigger dell'app per la logica oppure per la diagnosi dell'app, vedere [Risolvere i problemi dell'app per la logica](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="manage-your-logic-app"></a>Gestire l'app per la logica
+3. Per visualizzare gli input e gli output per ogni passaggio, espandere il passaggio da revisionare. Queste informazioni consentono di eseguire la diagnostica e il debug di problemi nell'app per la logica. ad esempio:
 
-Per gestire l'app, è possibile eseguire attività come la verifica dello stato, la modifica, la visualizzazione della cronologia, la disattivazione o l'eliminazione dell'app per la logica.
+   ![Visualizzare i dettagli del passaggio](./media/logic-apps-create-a-logic-app/logic-app-run-details-expanded.png)
 
-1. Accedere al [Portale di Azure](https://portal.azure.com "Portale di Azure").
+   Per altre informazioni, vedere [Monitorare l'app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-2. Dal menu a sinistra scegliere **More services** (Altri servizi). In **Enterprise Integration** scegliere **App per la logica**. Selezionare l'app per la logica. 
+La prima app per la logica di base è stata creata ed eseguita. Questo esempio mostra come è facile creare flussi di lavoro che automatizzano i processi per l'integrazione di sistemi e servizi, senza necessità di scrivere codice.
 
-   Nel menu dell'app per la logica sono disponibili queste attività di gestione delle app per la logica:
+> [!NOTE]
+> L'esecuzione dell'app per la logica continua fino alla disattivazione dell'app. Per disattivare temporaneamente l'app, continuare con la sezione successiva.
 
-   |Attività|Passi| 
-   |:---|:---| 
-   | Visualizzare lo stato, la cronologia di esecuzione e le informazioni generali dell'app| Scegliere **Panoramica**.| 
-   | Modificare l'app | Scegliere **Progettazione app per la logica**. | 
-   | Visualizzare la definizione JSON del flusso di lavoro dell'app | Scegliere **Visualizzazione codice app per la logica**. | 
-   | Visualizzare le operazioni eseguite nell'app per la logica | Scegliere **Log attività**. | 
-   | Visualizzare le versioni precedenti per l'app per la logica | Scegliere **Versioni**. | 
-   | Disattivare temporaneamente l'app | Scegliere **Panoramica** e quindi sulla barra dei comandi scegliere **Disabilita**. | 
-   | Eliminare l'app | Scegliere **Panoramica** e quindi sulla barra dei comandi scegliere **Elimina**. Immettere il nome dell'app per la logica e scegliere **Elimina**. | 
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-## <a name="get-help"></a>Ottenere aiuto
+In questa esercitazione vengono usate risorse ed eseguite azioni che potrebbero generare addebiti sulla sottoscrizione di Azure. Al termine dell'esercitazione e dei test, assicurarsi di disabilitare o eliminare le risorse per evitare di incorrere in addebiti.
 
-Per porre domande, fornire risposte e ottenere informazioni sulle attività degli altri utenti di App per la logica di Azure, vedere il [forum su App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+È possibile impedire l'esecuzione dell'app per la logica e l'invio di posta elettronica senza eliminare l'app. Scegliere **Panoramica** dal menu dell'app per la logica. Sulla barra degli strumenti scegliere **Disabilita**.
 
-Per contribuire al miglioramento delle App per la logica di Azure e dei connettori, votare o inviare idee al [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](http://aka.ms/logicapps-wish).
+![Disabilitare l'app per la logica](./media/logic-apps-create-a-logic-app/turn-off-disable-logic-app.png)
+
+## <a name="faq"></a>domande frequenti
+
+**D:** Cos'altro è possibile fare con un'app per la logica? </br>
+**R:** È possibile eseguire altre attività, come modificare, visualizzare la definizione JSON, esaminare il log attività o eliminare l'app per la logica.
+
+Per trovare altre attività di gestione dell'app per la logica, esaminare questi comandi nel menu dell'app per la logica:
+
+| Attività | Passi | 
+| ---- | ----- | 
+| Visualizzare lo stato dell'app, la cronologia delle esecuzioni e dei trigger e le informazioni generali | Scegliere **Panoramica**. | 
+| Modificare l'app | Scegliere **Progettazione app per la logica**. | 
+| Visualizzare la definizione JSON del flusso di lavoro dell'app | Scegliere **Visualizzazione codice app per la logica**. | 
+| Visualizzare le operazioni eseguite nell'app per la logica | Scegliere **Log attività**. | 
+| Visualizzare le versioni precedenti per l'app per la logica | Scegliere **Versioni**. | 
+| Disattivare temporaneamente l'app | Scegliere **Panoramica** e quindi sulla barra degli strumenti scegliere **Disabilita**. | 
+| Eliminare l'app | Scegliere **Panoramica** e quindi sulla barra degli strumenti scegliere **Elimina**. Immettere il nome dell'app per la logica e scegliere **Elimina**. | 
+||| 
+
+## <a name="get-support"></a>Supporto
+
+* Per domande su App per la logica di Azure, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+* Si vuole contribuire al miglioramento di App per la logica di Azure e dei connettori? Votare o inviare le idee nel [sito UserVoice di App per la logica di Azure](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-*  [Aggiungere condizioni ed eseguire flussi di lavoro](../logic-apps/logic-apps-use-logic-app-features.md)
-*     [Modelli di app per la logica](../logic-apps/logic-apps-use-logic-app-templates.md)
-*  [Creare app per la logica da modelli di Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md)
-
+* [Creare un'app per la logica con Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Aggiungere condizioni ed eseguire flussi di lavoro](../logic-apps/logic-apps-use-logic-app-features.md)
+*   [Modelli di app per la logica](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Creare app per la logica da modelli di Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md)
+* [Misurazione dell'utilizzo di App per la logica](../logic-apps/logic-apps-pricing.md) 
+* [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps)

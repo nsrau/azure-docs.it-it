@@ -9,6 +9,8 @@
   items:
     - name: Raccolta - Macchine virtuali di Azure
       href: log-analytics-quick-collect-azurevm.md
+    - name: Raccolta - Computer Linux
+      href: log-analytics-quick-collect-linux-computer.md
 - name: Esercitazioni
   items:
     - name: 1 - Analizzare i dati
@@ -53,6 +55,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Risorse di Azure
               href: log-analytics-azure-storage.md
+            - name: Dati di diagnostica o dei log dall'archiviazione di Azure
+              href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager
               href: log-analytics-om-agents.md
             - name: Gestione configurazione
@@ -92,6 +96,8 @@
           items:
             - name: Espressioni regolari
               href: log-analytics-log-searches-regex.md
+            - name: Ricerche tra aree di lavoro
+              href: log-analytics-cross-workspace-search.md
         - name: Intervenire dai risultati della ricerca
           href: log-analytics-log-search-takeaction.md
         - name: Gruppi di computer
@@ -229,6 +235,10 @@
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
+    - name: Informazioni di riferimento sul riquadro Progettazione viste
+      href: log-analytics-view-designer-tiles.md
+    - name: Informazioni di riferimento sulla parte di visualizzazione Progettazione viste
+      href: log-analytics-view-designer-parts.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

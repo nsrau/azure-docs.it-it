@@ -1,6 +1,6 @@
 ---
-title: Panoramica di Azure funzioni | Documenti Microsoft
-description: Sommario della Guida per una panoramica delle funzioni di Azure nel portale di Azure
+title: Panoramica di Funzioni di Azure | Microsoft Docs
+description: Contenuto della Guida per la panoramica di Funzioni di Azure nel portale di Azure
 services: functions
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: fa593eef1c01311d20216f3ab3af7ffcb54e12f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-documentation"></a>Documentazione di Funzioni di Azure
 
@@ -20,16 +20,16 @@ Funzioni di Azure è un servizio di calcolo senza server che consente di eseguir
 
 ## <a name="5-minute-quickstarts"></a>Guide introduttive di 5 minuti
 
-Informazioni su come creare una funzione di Hello World utilizzando:
+Informazioni su come creare una funzione Hello World tramite:
 
 - [Portale di Azure](/azure/azure-functions/functions-create-first-azure-function)
 - [Interfaccia della riga di comando di Azure](/azure/azure-functions/functions-create-first-azure-function-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>Esercitazioni dettagliate
 
-Informazioni su come creare e gestire le funzioni di Azure.
+Informazioni su come compilare e gestire Funzioni di Azure.
 
-- [Creare un dashboard senza social networking](/azure/azure-functions/functions-twitter-email)
+- [Creare un dashboard di social media senza server in Azure](/azure/azure-functions/functions-twitter-email)
 - [Creare un'API senza server mediante Funzioni di Azure](/azure/azure-functions/functions-create-serverless-api)
 
 ## <a name="samples"></a>Esempi
@@ -40,5 +40,5 @@ Trovare script per gestire le attività comuni.
 
 ## <a name="more"></a>Altro
 
-- [Documentazione per ulteriori informazioni visitare](/azure/app-functions/index)
-- [Informazioni su tutti i servizi di Azure](https://aka.ms/j3wr7y)
+- [Vedere la documentazione per altre informazioni](/azure/app-functions/index)
+- [Informazioni su tutti i servizi Azure](https://aka.ms/j3wr7y)

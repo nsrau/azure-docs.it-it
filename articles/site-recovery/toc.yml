@@ -51,6 +51,8 @@
       href: concepts-physical-to-azure-architecture.md
     - name: Architettura da Hyper-V a un sito secondario
       href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Matrice di supporto da Azure ad Azure
+      href: site-recovery-support-matrix-azure-to-azure.md
     - name: Matrice di supporto da locale ad Azure
       href: site-recovery-support-matrix-to-azure.md
     - name: Matrice di supporto da locale a sito secondario

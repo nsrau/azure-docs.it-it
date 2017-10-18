@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Valutazione baseline nella soluzione Sicurezza e controllo di Operations Management Suite
 Questo documento illustra come usare le funzionalità della valutazione baseline nella [Soluzione Sicurezza e controllo di Operations Management Suite (OMS)](operations-management-suite-overview.md) per accedere allo stato di protezione delle risorse monitorate.
@@ -40,7 +39,7 @@ Esistono tre tipi di regole:
 > 
 
 ## <a name="security-baseline-assessment"></a>Valutazione baseline sicurezza
-È possibile verificare la valutazione baseline sicurezza corrente per tutti i computer monitorati da Sicurezza e controllo di OMS usando il dashboard.  Seguire questa procedura per accedere al dashboard della valutazione baseline sicurezza:
+È possibile verificare la valutazione baseline sicurezza corrente per tutti i computer monitorati da Sicurezza e controllo di OMS usando il dashboard. Seguire questa procedura per accedere al dashboard della valutazione baseline sicurezza:
 
 1. Nel dashboard principale di **Microsoft Operations Management Suite** fare clic sul riquadro **Sicurezza e controllo**.
 2. Nel dashboard **Sicurezza e controllo** fare clic su **Valutazione baseline** in **Domini di sicurezza**. Il dashboard **Valutazione baseline sicurezza** viene visualizzato come mostrato nell'immagine seguente:
@@ -85,5 +84,4 @@ In questo documento sono disponibili informazioni sulla valutazione baseline del
 * [Panoramica di Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Operations Management Suite per la sicurezza e il controllo](oms-security-responding-alerts.md)
 * [Monitoraggio delle risorse nella soluzione Operations Management Suite per la sicurezza e il controllo](oms-security-monitoring-resources.md)
-
 

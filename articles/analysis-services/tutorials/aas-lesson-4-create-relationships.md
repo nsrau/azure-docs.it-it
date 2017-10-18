@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 70812790348bbf525c7ed6299c656f7dd8e83dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-4-create-relationships"></a>Lezione 4: Creare relazioni
 
@@ -34,7 +33,10 @@ Tempo previsto per il completamento della lezione: **10 minuti**
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 3: Contrassegnare come tabella data](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Esaminare le relazioni esistenti e aggiungere nuove relazioni  
-Quando sono stati importati i dati usando Recupera dati, dal database AdventureWorksDW2014 si sono ottenute sette tabelle. In genere, quando si importano dati da un'origine relazionale, le relazioni esistenti vengono importate automaticamente insieme ai dati. Tuttavia, prima di procedere alla creazione del modello è necessario verificare che le relazioni create tra le tabelle siano appropriate. Per gli scopi di questa esercitazione vengono aggiunte tre nuove relazioni.  
+Quando sono stati importati i dati usando Recupera dati, dal database AdventureWorksDW2014 si sono ottenute sette tabelle. In genere, quando si importano dati da un'origine relazionale, le relazioni esistenti vengono importate automaticamente insieme ai dati. Affinché la funzionalità Recupera dati crei automaticamente le relazioni nel modello di dati, deve esserci una relazione tra le tabelle nell'origine dati.
+
+Prima di procedere alla creazione del modello, verificare che tali relazioni tra tabelle siano state create in modo appropriato. Per questa esercitazione vengono aggiunte anche tre nuove relazioni.  
+
   
 #### <a name="to-review-existing-relationships"></a>Per esaminare le relazioni esistenti  
   
@@ -44,7 +46,10 @@ Quando sono stati importati i dati usando Recupera dati, dal database AdventureW
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    Includere il maggior numero di tabelle possibile usando i controlli mini mappa nell'angolo inferiore destro della finestra di progettazione dei modelli. È anche possibile fare clic e trascinare le tabelle in posizioni diverse, avvicinandole o disponendole in un ordine particolare. Lo spostamento delle tabelle non influisce sulle relazioni già esistenti tra le tabelle. Per visualizzare tutte le colonne in una determinata tabella, fare clic e trascinare un bordo della tabella per ingrandirla o ridurla.  
+    > [!NOTE]
+    > Se non è visibile alcuna relazione tra le tabelle, probabilmente significa che non ci sono relazioni tra tali tabelle nell'origine dati.
+
+    Includere il maggior numero di tabelle possibile usando i controlli mini mappa nell'angolo inferiore destro della finestra di progettazione dei modelli. È anche possibile fare clic e trascinare le tabelle in posizioni diverse, avvicinandole o disponendole in un ordine particolare. Lo spostamento delle tabelle non influisce sulle relazioni tra le tabelle. Per visualizzare tutte le colonne in una determinata tabella, fare clic e trascinare un bordo della tabella per ingrandirla o ridurla.  
   
 2.  Fare clic sulla linea continua tra la tabella **DimCustomer** e la tabella **DimGeography**. La linea continua tra queste due tabelle indica che questa relazione è attiva, vale a dire usata per impostazione predefinita durante il calcolo delle formule DAX.  
   
@@ -63,7 +68,7 @@ Quando sono stati importati i dati usando Recupera dati, dal database AdventureW
     |Sì|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Sì|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    Se mancano alcune relazioni, verificare che il modello includa le tabelle seguenti: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory e FactInternetSales. Se si importano tabelle dalla stessa connessione origine dati in momenti distinti, tutte le relazioni tra tali tabelle non vengono create e devono essere create manualmente.  
+    Se mancano alcune relazioni, verificare che il modello includa le tabelle seguenti: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory e FactInternetSales. Se si importano tabelle dalla stessa connessione origine dati in momenti distinti, le relazioni tra tali tabelle non vengono create e devono essere create manualmente. Se non è visualizzata alcuna relazione, significa che non ci sono relazioni nell'origine dati. È possibile crearle manualmente nel modello di dati.
 
 ### <a name="take-a-closer-look"></a>Dettagli del diagramma e delle relazioni
 Nella vista diagramma è possibile notare la presenza di una freccia, un asterisco e un numero sulle linee che mostrano la relazione tra le tabelle.
@@ -102,4 +107,3 @@ In alcuni casi, potrebbe essere necessario creare relazioni aggiuntive tra le ta
   
   
   
-

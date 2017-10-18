@@ -3,7 +3,7 @@ title: Panoramica di Azure Batch per sviluppatori | Microsoft Docs
 description: "Informazioni sulle funzionalità del servizio Batch e le relative API dal punto di vista dello sviluppatore."
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 06/28/2017
-ms.author: tamram
+ms.date: 010/04/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -46,7 +45,7 @@ Il flusso di lavoro generale seguente è proprio di quasi tutte le applicazioni 
 Le sezioni seguenti illustrano queste e altre risorse di Batch che abilitano lo scenario di calcolo distribuito.
 
 > [!NOTE]
-> Per usare il servizio Batch, è necessario un [account Batch](#account). La maggior parte delle soluzioni Batch usa anche un account di [Archiviazione di Azure][azure_storage] per il recupero e l'archiviazione dei file. Il servizio Batch supporta attualmente solo il tipo di account di archiviazione **per utilizzo generico**, come descritto nel passaggio 5 di [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
+> Per usare il servizio Batch, è necessario un [account Batch](#account). La maggior parte delle soluzioni Batch usa anche un account di [archiviazione di Azure][azure_storage] associato per il recupero e l'archiviazione dei file. 
 >
 >
 
@@ -71,44 +70,14 @@ Alcune delle risorse seguenti, ovvero account, nodi di calcolo, pool, processi e
 ## <a name="account"></a>Account
 Un account Batch è un'entità identificata in modo univoco all'interno del servizio Batch. Tutte le operazioni di elaborazione sono associata a un account Batch.
 
-È possibile creare un account Batch di Azure usando il [portale di Azure](batch-account-create-portal.md) o a livello di codice, ad esempio con la [libreria di gestione .NET per Batch](batch-management-dotnet.md). Quando si crea l'account, è possibile associarvi un account di archiviazione di Azure.
+È possibile creare un account Batch di Azure usando il [portale di Azure](batch-account-create-portal.md) o a livello di codice, ad esempio con la [libreria di gestione .NET per Batch](batch-management-dotnet.md). Quando si crea l'account, è possibile associare un account di archiviazione di Azure per l'archiviazione di applicazioni e dati di input e output correlati al processo.
 
-### <a name="pool-allocation-mode"></a>Modalità di allocazione pool
+È possibile eseguire più carichi di lavoro Batch in un solo account Batch o distribuire i carichi di lavoro tra gli account Batch nella stessa sottoscrizione, ma in aree di Azure diverse.
 
-Quando si crea un account Batch, è possibile specificare in che modo vengono allocati i [pool](#pool) di nodi di calcolo. È possibile scegliere di allocare pool di nodi di calcolo in una sottoscrizione gestita da Batch di Azure oppure è possibile allocarli nella propria sottoscrizione. La proprietà *Modalità di allocazione pool* per l'account determina la posizione in cui vengono allocati i pool. 
+> [!NOTE]
+> Quando si crea un account Batch, è in genere consigliabile scegliere la modalità **Servizio Batch** predefinita, in cui i pool vengono associati in background nelle sottoscrizioni gestite da Azure. Nella modalità **Sottoscrizione utente** alternativa, che non è più consigliata, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool.
+>
 
-La decisione sulla modalità di allocazione pool da usare si basa sulla valutazione dell'approccio ottimale per lo scenario specifico:
-
-* **Servizio Batch**: questa è la modalità di allocazione pool predefinita. I pool vengono allocati in background nelle sottoscrizioni gestite da Azure. Tenere presenti questi punti importanti relativi alla modalità di allocazione pool di tipo Servizio Batch:
-
-    - La modalità di allocazione pool di tipo Servizio Batch supporta pool del servizio cloud e di macchine virtuali.
-    - La modalità di allocazione pool di tipo Servizio Batch supporta l'autenticazione con chiave condivisa o l'[autenticazione di Azure Active Directory](batch-aad-auth.md) (Azure AD). 
-    - È possibile usare nodi di calcolo dedicati o con priorità bassa nei pool allocati con la modalità di allocazione pool di tipo Servizio Batch.
-    - Non usare la modalità di allocazione pool di tipo Servizio Batch se si prevede di creare pool di macchine virtuali di Azure da immagini di VM personalizzate o se si prevede di usare una rete virtuale. Creare invece l'account con la modalità di allocazione pool Sottoscrizione utente.
-    - I pool di macchine virtuali di cui viene effettuato il provisioning in un account creato con la modalità di allocazione pool di tipo Servizio Batch devono essere creati da immagini del [Marketplace per Macchine virtuali di Azure][vm_marketplace].
-
-* **Sottoscrizione utente**: con la modalità di allocazione pool di tipo Sottoscrizione utente, i pool di Batch vengono allocati nella sottoscrizione di Azure in cui viene creato l'account. Tenere presenti questi punti importanti relativi alla modalità di allocazione pool di tipo Sottoscrizione utente:
-     
-    - La modalità di allocazione pool di tipo Sottoscrizione utente supporta solo pool di macchine virtuali. Non supporta pool di Servizi cloud.
-    - Per creare pool di macchine virtuali da immagini di VM personalizzate o per usare una rete virtuale con i pool di macchine virtuali, è necessario usare la modalità di allocazione pool di tipo Sottoscrizione utente.  
-    - È necessario usare l'[autenticazione di Azure Active Directory](batch-aad-auth.md) con i pool allocati nella sottoscrizione utente. 
-    - È necessario configurare un'istanza di Azure Key Vault per l'account Batch se la modalità di allocazione pool è impostata su Sottoscrizione utente. 
-    - È possibile usare solo nodi di calcolo dedicati in pool nella modalità di allocazione pool di tipo Sottoscrizione utente. I nodi con priorità bassa non sono supportati.
-    - I pool di macchine virtuali di cui viene effettuato il provisioning in un account con la modalità di allocazione pool di tipo Sottoscrizione utente devono essere creati da immagini del [Marketplace per Macchine virtuali di Azure][vm_marketplace] o da immagini personalizzate.
-
-La tabella seguente confronta le modalità di allocazione pool di tipo Servizio Batch e Sottoscrizione utente.
-
-| **Modalità di allocazione pool**                 | **Servizio Batch**                                                                                       | **Sottoscrizione utente**                                                              |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Posizione di allocazione dei pool**               | Sottoscrizione gestita da Azure                                                                           | Sottoscrizione utente in cui viene creato l'account Batch                        |
-| **Configurazioni supportate**             | <ul><li>Configurazione di tipo servizio cloud</li><li>Configurazione di tipo macchina virtuale (Linux e Windows)</li></ul> | <ul><li>Configurazione di tipo macchina virtuale (Linux e Windows)</li></ul>                |
-| **Immagini delle VM supportate**                  | <ul><li>Immagini di Azure Marketplace</li></ul>                                                              | <ul><li>Immagini di Azure Marketplace</li><li>Immagini personalizzate</li></ul>                   |
-| **Tipi di nodi di calcolo supportati**         | <ul><li>Nodi dedicati</li><li>Nodi a priorità bassa</li></ul>                                            | <ul><li>Nodi dedicati</li></ul>                                                  |
-| **Autenticazione supportata**             | <ul><li>Chiave condivisa</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault necessario**             | No                                                                                                      | Sì                                                                                |
-| **Quota core**                           | Determinato dalla quota core del servizio Batch                                                                          | Determinato dalla quota core della sottoscrizione                                              |
-| **Supporto per le reti virtuali di Azure** | Pool creati con la configurazione di tipo servizio cloud                                                      | Pool creati con la configurazione di tipo macchina virtuale                               |
-| **Modello di distribuzione supportato per le reti virtuali**      | Reti virtuali create con il modello di distribuzione classica                                                             | Reti virtuali create con il modello di distribuzione classica o Azure Resource Manager |
 
 ## <a name="azure-storage-account"></a>Account di archiviazione di Azure
 
@@ -135,7 +104,7 @@ I pool di Azure Batch sono basati sulla piattaforma di calcolo Azure. Offrono al
 
 A ogni nodo aggiunto a un pool viene assegnato un nome univoco e un indirizzo IP. Quando un nodo viene rimosso da un pool, vengono perse tutte le modifiche apportate al sistema operativo o ai file e il relativo nome e indirizzo IP vengono rilasciati per uso futuro. Quando un nodo esce da un pool, la sua durata è terminata.
 
-Quando si crea un pool, è possibile specificare gli attributi seguenti. Alcune impostazioni sono diverse, a seconda della modalità di allocazione pool dell'[account](#account) Batch:
+Quando si crea un pool, è possibile specificare gli attributi seguenti:
 
 - Versione e sistema operativo dei nodi di calcolo
 - Tipo di nodo di calcolo e numero di nodi di destinazione
@@ -150,11 +119,9 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti. Alcune 
 Ognuna di queste sezioni è descritta in modo più dettagliato nelle sezioni seguenti.
 
 > [!IMPORTANT]
-> Gli account Batch creati con la modalità di allocazione pool Servizio Batch hanno una quota predefinita che limita il numero di core in un account Batch. Il numero di core corrisponde al numero di nodi di calcolo. Le quote predefinite e le istruzioni su come [aumentare una quota](batch-quota-limit.md#increase-a-quota) sono disponibili in [Quote e limiti del servizio Batch](batch-quota-limit.md). Se il pool non raggiungere il numero di nodi di destinazione, la causa potrebbe essere la quota di core.
+> Gli account Batch hanno una quota predefinita che limita il numero di core in ogni account. Il numero di core corrisponde al numero di nodi di calcolo. Le quote predefinite e le istruzioni su come [aumentare una quota](batch-quota-limit.md#increase-a-quota) sono disponibili in [Quote e limiti del servizio Batch](batch-quota-limit.md). Se il pool non raggiungere il numero di nodi di destinazione, la causa potrebbe essere la quota di core.
 >
->Gli account Batch creati con la modalità di allocazione pool di tipo Sottoscrizione utente non sono limitati dalle quote del servizio Batch. Condividono invece la quota di core per la sottoscrizione specificata. Per altre informazioni, vedere [Limiti relativi a Macchine virtuali](../azure-subscription-service-limits.md#virtual-machines-limits) in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
->
->
+
 
 ### <a name="compute-node-operating-system-and-version"></a>Versione e sistema operativo dei nodi di calcolo
 
@@ -174,41 +141,14 @@ Quando si crea un pool di Batch, è possibile specificare la configurazione dell
 
 Quando si crea un pool, è necessario selezionare il valore appropriato di **nodeAgentSkuId**, a seconda del sistema operativo dell'immagine di base del disco rigido virtuale. È possibile ottenere un mapping tra gli ID SKU dell'agente del nodo e i relativi riferimenti all'immagine del sistema operativo chiamando l'operazione di [elenco degli SKU degli agenti dei nodi supportati](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
 
-Vedere la sezione [Account](#account) per informazioni sull'impostazione della modalità di allocazione dei pool quando si crea un account Batch.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Immagini personalizzate per pool di macchine virtuali
 
-Per usare un'immagine personalizzata per il provisioning di pool di macchine virtuali, creare l'account Batch con la modalità di allocazione pool di tipo Sottoscrizione utente. Con questa modalità, i pool di Batch vengono allocati nella sottoscrizione in cui si trova l'account. Vedere la sezione [Account](#account) per informazioni sull'impostazione della modalità di allocazione dei pool quando si crea un account Batch.
+Per usare un'immagine personalizzata, sarà necessario preparare l'immagine generalizzandola. Per informazioni sulla preparazione di immagini Linux personalizzate da VM di Azure, vedere [Come creare un'immagine di una macchina virtuale o un disco rigido virtuale](../virtual-machines/linux/capture-image.md). Per informazioni sulla preparazione di immagini Windows personalizzate da macchine virtuali di Azure, vedere [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/capture-image-resource.md). 
 
-Per usare un'immagine personalizzata, sarà necessario preparare l'immagine generalizzandola. Per informazioni sulla preparazione di immagini di Linux personalizzate dalle macchine virtuali di Azure, vedere [Acquisire una VM Linux da usare come modello](../virtual-machines/linux/capture-image-nodejs.md). Per informazioni sulla preparazione di immagini di Windows personalizzate dalle macchine virtuali di Azure, vedere [Creare immagini personalizzate di VM con Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
+Per i requisiti e i passaggi dettagliati, vedere [Usare un'immagine personalizzata per creare un pool di macchine virtuali](batch-custom-images.md).
 
-> [!IMPORTANT]
-> Durante la preparazione dell'immagine personalizzata, tenere presente quanto segue:
-> - Assicurarsi che l'immagine del sistema operativo di base usata per il provisioning dei pool di Batch non includa alcuna estensione di Azure preinstallata, ad esempio l'estensione Script personalizzato. Se l'immagine contiene un'estensione preinstallata, è possibile che Azure rilevi problemi durante la distribuzione della VM.
-> - Assicurarsi che l'immagine del sistema operativo di base fornita usi l'unità temporanea predefinita, perché l'agente del nodo Batch prevede attualmente l'unità temporanea predefinita.
->
->
 
-Per creare un pool con l'opzione Configurazione macchina virtuale usando un'immagine personalizzata, sono necessari uno o più account di Archiviazione di Azure standard per archiviare le immagini del disco rigido virtuale personalizzate. Le immagini personalizzate vengono archiviate come BLOB. Per fare riferimento alle immagini personalizzate quando si crea un pool, specificare gli URI dei BLOB dei dischi rigidi virtuali delle immagini personalizzate per la proprietà [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) della proprietà [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
-
-Assicurarsi che gli account di archiviazione soddisfino i criteri seguenti:   
-
-- Gli account di archiviazione contenenti i BLOB dei dischi rigidi virtuali delle immagini personalizzate devono trovarsi nella stessa sottoscrizione dell'account Batch (la sottoscrizione utente).
-- Gli account di archiviazione specificati devono trovarsi nella stessa regione dell'account Batch.
-- Attualmente sono supportati solo gli account di archiviazione Standard per utilizzo generico. Il supporto per Archiviazione Premium di Azure verrà aggiunto in futuro.
-- È possibile specificare un account di archiviazione con più BLOB dei dischi rigidi virtuali personalizzati o più account di archiviazione ognuno con un singolo BLOB. È consigliabile usare più account di archiviazione per ottenere prestazioni migliori.
-- Un BLOB del disco rigido virtuale di un'immagine personalizzata univoco può supportare fino a 40 istanze di VM Linux o 20 istanze di VM Windows. Per creare pool con più VM, è necessario creare copie del BLOB del disco rigido virtuale. Un pool con 200 VM Windows richiede ad esempio 10 BLOB dei dischi rigidi virtuali univoci specificati per la proprietà **osDisk**.
-
-Per creare un pool da un'immagine personalizzata tramite il portale di Azure:
-
-1. Passare all'account Batch nel portale di Azure.
-2. Nel pannello **Impostazioni** selezionare la voce di menu **Pool**.
-3. Nel pannello **Pool** selezionare il comando **Aggiungi**. Verrà visualizzato il pannello **Aggiungi pool**.
-4. Selezionare **Immagine personalizzata (Linux/Windows)** nell'elenco a discesa **Tipo di immagine**. Nel portale verrà visualizzato lo strumento di selezione **Immagine personalizzata**. Scegliere uno o più dischi rigidi virtuali dello stesso contenitore e fare clic sul pulsante **Seleziona**. 
-    Il supporto per più dischi rigidi virtuali di account di archiviazione e contenitori diversi verrà aggiunto in futuro.
-5. Selezionare il valore appropriato per **Autore/Offerta/SKU** per i dischi rigidi virtuali personalizzati, selezionare la modalità **Caching** desiderata e quindi specificare tutti gli altri parametri per il pool.
-6. Per verificare se un pool è basato su un'immagine personalizzata, vedere la proprietà **Sistema operativo** nella sezione di riepilogo delle risorse del pannello **Pool**. Il valore di questa proprietà deve essere **Immagine di macchina virtuale personalizzata**.
-7. Tutti i dischi rigidi virtuali personalizzati associati a un pool vengono visualizzati nel pannello **Proprietà** del pool.
 
 ### <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo di nodo di calcolo e numero di nodi di destinazione
 
@@ -220,8 +160,7 @@ Quando si crea un pool, è possibile specificare i tipi di nodi di calcolo desid
 
     Può verificarsi il superamento dei nodi di calcolo con priorità bassa quando Azure ha capacità in eccesso insufficiente. In caso di superamento di un nodo durante l'esecuzione di attività, le attività vengono accodate ed eseguite di nuovo quando il nodo di calcolo torna disponibile. I nodi con priorità bassa sono utili per i carichi di lavoro con tempi di completamento del processo flessibili e in cui il lavoro è distribuito tra più nodi. Prima di scegliere di usare nodi con priorità bassa per lo scenario, assicurarsi che l'eventuale quantità di lavoro persa a causa del processo di prelazione sia minima e facile da ricreare.
 
-    I nodi di calcolo con priorità bassa sono disponibili solo per gli account Batch creati con la modalità di allocazione pool impostata su **Servizio Batch**.
-
+    
 Lo stesso pool può includere nodi di calcolo con priorità bassa e nodi di calcolo dedicati. Ogni tipo di nodo, con priorità bassa e dedicato, ha un'impostazione di destinazione propria, per cui è possibile specificare il numero desiderato di nodi. 
     
 Il numero di nodi di calcolo viene definito *numero di destinazione*, perché in alcuni casi il pool può non raggiungere il numero desiderato di nodi. Ad esempio, un pool potrebbe non realizzare la destinazione se prima raggiunge la [quota core](batch-quota-limit.md) per l'account Batch. Il pool potrebbe non realizzare la destinazione, inoltre, se al pool è stata applicata una formula di scalabilità automatica che limita il numero massimo di nodi.
@@ -449,32 +388,13 @@ Un approccio combinato viene in genere usato per la gestione di un carico variab
 
 Quando si effettua il provisioning di un pool di nodi di calcolo in Batch di Azure, è possibile associare il pool a una subnet di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. Per altre informazioni sulla creazione di una rete virtuale con subnet, vedere [Creare una rete virtuale di Azure con subnet](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
- * La rete virtuale associata a un pool deve:
+Requisiti per la rete virtuale:
 
-   * Essere nella stessa **area** di Azure dell'account di Azure Batch.
-   * Essere nella stessa **sottoscrizione** dell'account di Azure Batch.
+* La rete virtuale deve essere nella stessa **area** e nella stessa **sottoscrizione** di Azure dell'account Azure Batch.
 
-* Il tipo di rete virtuale supportato dipende dal modo in cui vengono allocati i pool per l'account Batch:
+* Per i pool creati con una configurazione di macchina virtuale, sono supportate solo le reti virtuali basate su Azure Resource Manager. Per i pool creati con una configurazione di servizi cloud, sono supportate sia le reti virtuali basate su Azure Resource Manager sia quelle classiche. 
 
-    - Se la modalità di allocazione pool dell'account Batch è impostata su Servizio Batch, è possibile assegnare una rete virtuale solo ai pool creati con la **configurazione di tipo servizio cloud**. La rete virtuale specificata deve inoltre essere creata con il modello di distribuzione classica. Le reti virtuali create con il modello di distribuzione di Azure Resource Manager non sono supportate.
- 
-    - Se la modalità di allocazione pool per l'account Batch è impostata su Sottoscrizione utente, è possibile assegnare una rete virtuale solo ai pool creati con la **configurazione macchina virtuale**. I pool creati con la **configurazione di tipo servizio cloud** non sono supportati. La rete virtuale associata può essere creata con il modello di distribuzione Azure Resource Manager o con il modello di distribuzione classica.
-
-    Per una tabella di riepilogo del supporto per le reti virtuali in base alla modalità di allocazione pool, vedere la sezione [Modalità di allocazione pool](#pool-allocation-mode).
-
-* Se la modalità di allocazione pool per l'account Batch è impostata su Servizio Batch, è necessario specificare le autorizzazioni per consentire all'entità servizio di Batch di accedere alla rete virtuale. La rete virtuale deve assegnare il ruolo [Controllo degli accessi in base al ruolo di tipo Collaboratore macchine virtuali classiche](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) all'entità servizio di Batch. Se il ruolo Controllo degli accessi in base al ruolo specificato non viene indicato, il servizio Batch restituisce 400 (Richiesta non valida). Per aggiungere il ruolo nel portale di Azure:
-
-    1. Selezionare la **Rete virtuale**, quindi **Controllo di accesso (IAM)** > **Ruoli** > **Collaboratore Macchina virtuale** > **Aggiungi**.
-    2. Nel pannello **Aggiungi autorizzazioni** selezionare il ruolo **Collaboratore Macchina virtuale**.
-    3. Nel pannello **Aggiungi autorizzazioni** cercare l'API Batch. Cercare ognuna di queste stringhe fino a trovare l'API:
-        1. **MicrosoftAzureBatch**.
-        2. **Microsoft Azure Batch**. I tenant di Azure AD più recenti potrebbero usare questo nome.
-        3. **ddbf3205-c6bd-46ae-8127-60eb93363864** è l'ID dell'API Batch. 
-    3. Selezionare l'entità servizio dell'API Batch. 
-    4. Fare clic su **Salva**.
-
-        ![Assegnare il ruolo Collaboratore Macchina virtuale all'entità servizio di Batch](./media/batch-api-basics/iam-add-role.png)
-
+* Per usare una rete basata su Azure Resource Manager, l'API client di Batch deve usare l'[autenticazione di Azure Active Directory](batch-aad-auth.md). Per usare una rete virtuale classica, l'entità servizio "MicrosoftAzureBatch" deve avere il ruolo di controllo degli accessi in base al ruolo "Classic Virtual Machine Contributor" per la rete virtuale specificata. 
 
 * La subnet specificata deve avere un numero sufficiente di **indirizzi IP** disponibili per contenere il numero totale di nodi di destinazione, ovvero la somma delle proprietà `targetDedicatedNodes` e `targetLowPriorityNodes` del pool. Se la subnet non ha sufficienti indirizzi IP liberi, il servizio Batch alloca parzialmente i nodi di calcolo nel pool e restituisce un errore di ridimensionamento.
 
@@ -666,4 +586,3 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-

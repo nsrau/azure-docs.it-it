@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
+ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f1f270b95a60e847ce7d29c2d7d60c57891924cc
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-2-build-a-model"></a>Classificazione di dati Iris - Parte 2: Creare un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di analisi scientifica dei dati e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
@@ -38,6 +36,10 @@ Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://
 
 ## <a name="prerequisites"></a>Prerequisiti
 È necessario completare la prima parte di questa serie di esercitazioni. Prima di eseguire i passaggi in questa esercitazione, seguire l'[esercitazione sulla preparazione dei dati](tutorial-classifying-iris-part-1.md) per creare le risorse di Azure Machine Learning e installare l'applicazione Azure Machine Learning Workbench.
+
+È possibile, se si vuole, eseguire esperimenti con gli script in esecuzione in un contenitore Docker locale. A questo scopo, sarà necessario un motore Docker (è sufficiente la Community Edition) installato e avviato localmente nel computer Windows o macOS. Altre informazioni sulle [istruzioni di installazione di Docker](https://docs.docker.com/engine/installation/).
+
+Se si vuole sperimentare l'invio di script per l'esecuzione in un contenitore Docker in una VM remota di Azure oppure in un cluster HDInsight Spark, è possibile seguire le [istruzioni per la creazione di una macchina virtuale di data science di Azure basata su Ubuntu o un cluster HDI](how-to-create-dsvm-hdi.md).
 
 ## <a name="review-irissklearnpy-and-configuration-files"></a>Esaminare iris_sklearn.py e i file di configurazione
 1. Avviare l'applicazione **Azure Machine Learning Workbench** e aprire il progetto **myIris** creato nella parte precedente di questa serie di esercitazioni.
@@ -102,7 +104,7 @@ A questo punto, è necessario preparare l'esecuzione dello script **iris_sklearn
 
 8. Fare clic sulla parola **Completed** (Completato) nel testo relativo allo stato del processo nel pannello dei processi. Verrà visualizzata una finestra popup con il testo di output standard (stdout) dello script in esecuzione. Per chiudere questo testo, fare clic sul pulsante **X** nell'angolo in alto a destra della finestra popup.
 
-9. Nello stato dello stesso processo nel pannello dei processi fare clic sul testo in blu **iris_sklearn.py [1]** subito sopra a **Completed** (Completato) e all'ora di avvio. Verrà visualizzata la pagina **Run Properties** (Proprietà esecuzione) con le informazioni relative alle proprietà di esecuzione, i file di **output**, eventuali **visualizzazioni** e i **log** per l'esecuzione specifica. 
+9. Nello stato dello stesso processo nel pannello dei processi fare clic sul testo in blu **iris_sklearn.py [n]** (_n_ indica il numero di esecuzione) subito sopra **Completed** (Completato) e all'ora di avvio. Verrà visualizzata la pagina **Run Properties** (Proprietà esecuzione) con le informazioni relative alle proprietà di esecuzione, i file di **output**, eventuali **visualizzazioni** e i **log** per l'esecuzione specifica. 
 
    Al termine dell'esecuzione, la finestra popup mostra i risultati seguenti:
 
@@ -196,7 +198,7 @@ Azure ML consente di configurare facilmente ambienti di esecuzione aggiuntivi, a
 
 5. Si proverà ora con Spark. L'immagine di base Docker contiene un'istanza di Spark preinstallata e configurata. Per questo motivo, è possibile eseguire al suo interno uno script PySpark. Si tratta di un modo semplice per sviluppare e testare il programma Spark senza dover dedicare tempo a installare e configurare Spark. 
 
-   Aprire il file `iris_pyspark.py`. Lo script carica il file di dati `iris.csv` e usa l'algoritmo di regressione logistica dalla libreria di apprendimento automatico Spark per classificare il set di dati Iris. Modificare ora l'ambiente di esecuzione in **docker-spark** e lo script in **iris_pyspark.py** ed avviare di nuovo l'esecuzione. Questa operazione richiede un po' più tempo perché è necessario creare una sessione di Spark e avviarla nel contenitore Docker. È anche possibile vedere che l'output standard (stdout) è diverso da quello di `iris_pyspark.py`.
+   Aprire il file `iris_pyspark.py` . Lo script carica il file di dati `iris.csv` e usa l'algoritmo di regressione logistica dalla libreria di apprendimento automatico Spark per classificare il set di dati Iris. Modificare ora l'ambiente di esecuzione in **docker-spark** e lo script in **iris_pyspark.py** ed avviare di nuovo l'esecuzione. Questa operazione richiede un po' più tempo perché è necessario creare una sessione di Spark e avviarla nel contenitore Docker. È anche possibile vedere che l'output standard (stdout) è diverso da quello di `iris_pyspark.py`.
 
 6. Provare con altre esecuzioni usando argomenti diversi. 
 
@@ -367,4 +369,3 @@ In questa seconda parte della serie di esercitazioni in tre parti si è appreso 
 
 > [!div class="nextstepaction"]
 > [Distribuire un modello](tutorial-classifying-iris-part-3.md)
-

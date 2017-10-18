@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-files-from-the-azure-portal"></a>Come usare File di Azure dal portale di Azure
 Il [portale di Azure](https://portal.azure.com) fornisce un'interfaccia utente per la gestione di File di Azure. Dal Web browser è possibile eseguire le azioni seguenti:
 
@@ -74,7 +72,7 @@ Il [portale di Azure](https://portal.azure.com) fornisce un'interfaccia utente p
 Per trovare la chiave di accesso dell'account di archiviazione per il montaggio, fare clic su **Visualizza chiavi di accesso per questo account di archiviazione** nella parte inferiore della pagina della connessione.
 
 ## <a name="see-also"></a>Vedere anche
-Vedere questi collegamenti per altre informazioni su File di Azure.
+Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 
 * [Domande frequenti](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      

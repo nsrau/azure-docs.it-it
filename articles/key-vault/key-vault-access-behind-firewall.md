@@ -1,6 +1,6 @@
 ---
 title: Accedere a un insieme di credenziali delle chiavi protetto da un firewall | Documentazione Microsoft
-description: Informazioni su come accedere a un insieme di credenziali delle chiavi di Azure da un&quot;applicazione protetta da un firewall
+description: Informazioni su come accedere a un insieme di credenziali delle chiavi di Azure da un'applicazione protetta da un firewall
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: da4d156132fba9efc98b3af441b6d095a4bb60ea
-ms.openlocfilehash: e0bc6e75fef1f3567940e30acf6f9f429258be12
-
-
+ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accedere a Insieme di credenziali delle chiavi di Azure protetto da firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>D: L'applicazione client dell'insieme di credenziali delle chiavi deve essere protetta da firewall. Quali porte, host o indirizzi IP è necessario aprire per consentire l'accesso a un insieme di credenziali delle chiavi?
@@ -38,8 +38,8 @@ Le applicazioni client dell'insieme di credenziali delle chiavi dovrà accedere 
 
 | Tipo di entità | Endpoint:porta |
 | --- | --- |
-| Utente che usa un account Microsoft<br> (ad esempio, user@hotmail.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login-us.microsoftonline.com:443<br><br>**Azure per la Germania:**<br>  login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
-| Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione con Azure AD (ad esempio, user@contoso.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login-us.microsoftonline.com:443<br><br>**Azure per la Germania:**<br>  login.microsoftonline.de:443 |
+| Utente che usa un account Microsoft<br> (ad esempio, user@hotmail.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login-us.microsoftonline.com:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
+| Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione con Azure AD (ad esempio, user@contoso.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login-us.microsoftonline.com:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443 |
 | Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione oltre ad Active Directory Federation Services (AD FS) o un altro endpoint federato (ad esempio, user@contoso.com) |Tutti gli endpoint per un account aziendale o dell'istituto di istruzione oltre ad AD FS o altri endpoint federati |
 
 Esistono altri possibili scenari complessi. Per altre informazioni, vedere [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/) (Flussi di autenticazione di Azure Active Directory), [Integrazione di applicazioni con Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) e [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) (Protocolli di autenticazione di Active Directory Authentication).  
@@ -49,8 +49,8 @@ Per la gestione dell'insieme di credenziali delle chiavi (CRUD e impostazione de
 
 | Tipo di operazione | Endpoint:porta |
 | --- | --- |
-| Operazioni del piano di controllo dell'insieme di credenziali delle chiavi<br>  tramite Azure Resource Manager |**Globale:**<br> management.azure.com:443<br><br> **Azure per la Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br>  management.microsoftazure.de:443 |
-| API Graph di Azure Active Directory |**Globale:**<br> graph.windows.net:443<br><br> **Azure per la Cina:**<br> graph.chinacloudapi.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> graph.windows.net:443<br><br> **Azure per la Germania:**<br>  graph.cloudapi.de:443 |
+| Operazioni del piano di controllo dell'insieme di credenziali delle chiavi<br> tramite Azure Resource Manager |**Globale:**<br> management.azure.com:443<br><br> **Azure per la Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> management.microsoftazure.de:443 |
+| API Graph di Azure Active Directory |**Globale:**<br> graph.windows.net:443<br><br> **Azure per la Cina:**<br> graph.chinacloudapi.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> graph.windows.net:443<br><br> **Azure per la Germania:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Operazioni dell'insieme di credenziali delle chiavi
 Per tutte le operazioni di gestione e crittografia degli oggetti (chiavi e segreti) dell'insieme di credenziali delle chiavi, il client dell'insieme di credenziali delle chiavi deve accedere all'endpoint dell'insieme stesso. Il suffisso DNS dell'endpoint varia a seconda della posizione dell'insieme di credenziali delle chiavi. Il formato dell'endpoint dell'insieme di credenziali delle chiavi è *nome-insiemecredenziali*.*suffisso-dns-area-geografica*, come descritto nella tabella seguente.  
@@ -64,10 +64,4 @@ Il servizio Insieme di credenziali delle chiavi usa altre risorse di Azure come 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In caso di domande sull'insieme di credenziali delle chiavi, visitare i [forum di Insieme di credenziali delle chiavi di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

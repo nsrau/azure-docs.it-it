@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
 ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectors-list"></a>Elenco dei connettori
 > [!TIP]
@@ -42,13 +42,13 @@ Migliaia di applicazioni e milioni di esecuzioni elaborano correttamente dati e 
 
 | |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][AzureBlobStorageicon]<br/>**Archiviazione BLOB<br/>di Azure**][AzureBlobStoragedoc] | Per automatizzare le attività relative all'account di archiviazione, è consigliabile usare questo connettore. Supporta le operazioni CRUD (Create, Read, Update, Delete). | [![API Icon][Azure-Functionsicon]<br/>**Funzioni di Azure**][azure-functionsdoc] | Creare funzioni che eseguono frammenti di codice C# o node.js personalizzati e quindi usare queste funzioni nelle app per la logica.  |
-| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Uno dei connettori più richiesti. Include trigger e azioni utili per automatizzare i flussi di lavoro con lead e altro ancora. | [![API Icon][Event-Hubs-icon]<br/>**Hub eventi**][event-hubs-doc] | Utilizzare e pubblicare eventi in un hub eventi. È ad esempio possibile ottenere output dall'app per la logica usando gli hub eventi e quindi inviare l'output a un provider di analisi in tempo reale. |
-| [![API Icon][FTPicon]<br/>**FTP**][FTPdoc] | Se il server FTP è accessibile da Internet, è possibile automatizzare i flussi di lavoro per lavorare con file e cartelle. <br/><br/>SFTP è disponibile anche con il connettore SFTP. | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | Usare le app per la logica per comunicare con qualsiasi endpoint su HTTP. |
-| [![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Numerosi trigger e molte azioni per usare la posta elettronica e gli eventi di Office 365 nei flussi di lavoro. <br/><br/>Questo connettore include un'azione di *messaggio di posta elettronica di approvazione* per approvare richieste di ferie, note spese e così via. <br/><br/>Gli utenti di Office 365 sono disponibili anche con il connettore Utenti di Office 365.| [![API Icon][HTTP-Requesticon]<br/>**Richiesta/risposta**][HTTP-Requestdoc] | Questo connettore fornisce un URL HTTPS. Quando riceve una richiesta per questo URL, l'app per la logica viene avviata. |
-| [![API Icon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | È possibile accedere con facilità con l'account Salesforce per ottenere l'accesso a oggetti quali i lead e altro ancora. |  [![API Icon][Service-Busicon]<br/>**Bus di servizio**][Service-Busdoc] | È il connettore più diffuso per le app per la logica e include trigger e azioni per la messaggistica asincrona e per la pubblicazione/sottoscrizione con code, sottoscrizioni e argomenti. |
-|  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Se si lavora con SharePoint e l'automazione potrebbe risultare utile, è consigliabile prendere in considerazione questo connettore. Può essere usato con SharePoint locale e SharePoint Online. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Uno dei connettori più usati, consente di connettersi a un'istanza locale di SQL Server e a un database SQL di Azure. | 
-| [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Accedere con facilità con un account Twitter e quindi avviare un flusso di lavoro quando viene inserito un nuovo tweet. Salvare quindi i tweet in un database SQL o in un elenco di SharePoint. | | | 
+| [![Icona API][AzureBlobStorageicon]<br/>**BLOB di Azure<br/>Archiviazione**][AzureBlobStoragedoc] | Per automatizzare le attività relative all'account di archiviazione, è consigliabile usare questo connettore. Supporta le operazioni CRUD (Create, Read, Update, Delete). | [![Icona API][Azure-Functionsicon]<br/>**Funzioni di Azure**][azure-functionsdoc] | Creare funzioni che eseguono frammenti di codice C# o node.js personalizzati e quindi usare queste funzioni nelle app per la logica.  |
+| [![Icona API][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Uno dei connettori più richiesti. Include trigger e azioni utili per automatizzare i flussi di lavoro con lead e altro ancora. | [![Icona API][Event-Hubs-icon]<br/>**Hub eventi**][event-hubs-doc] | Utilizzare e pubblicare eventi in un hub eventi. È ad esempio possibile ottenere output dall'app per la logica usando gli hub eventi e quindi inviare l'output a un provider di analisi in tempo reale. |
+| [![Icona API][FTPicon]<br/>**FTP**][FTPdoc] | Se il server FTP è accessibile da Internet, è possibile automatizzare i flussi di lavoro per lavorare con file e cartelle. <br/><br/>SFTP è disponibile anche con il connettore SFTP. | [![Icona API][HTTPicon]<br/>**HTTP**][httpdoc] | Usare le app per la logica per comunicare con qualsiasi endpoint su HTTP. |
+| [![Icona API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Numerosi trigger e molte azioni per usare la posta elettronica e gli eventi di Office 365 nei flussi di lavoro. <br/><br/>Questo connettore include un'azione di *messaggio di posta elettronica di approvazione* per approvare richieste di ferie, note spese e così via. <br/><br/>Gli utenti di Office 365 sono disponibili anche con il connettore Utenti di Office 365.| [![Icona API][HTTP-Requesticon]<br/>**Richiesta/Risposta**][HTTP-Requestdoc] | Questo connettore fornisce un URL HTTPS. Quando riceve una richiesta per questo URL, l'app per la logica viene avviata. |
+| [![Icona API][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | È possibile accedere con facilità con l'account Salesforce per ottenere l'accesso a oggetti quali i lead e altro ancora. |  [![Icona API][Service-Busicon]<br/>**Bus di servizio**][Service-Busdoc] | È il connettore più diffuso per le app per la logica e include trigger e azioni per la messaggistica asincrona e per la pubblicazione/sottoscrizione con code, sottoscrizioni e argomenti. |
+|  [![Icona API][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Se si lavora con SharePoint e l'automazione potrebbe risultare utile, è consigliabile prendere in considerazione questo connettore. Può essere usato con SharePoint locale e SharePoint Online. | [![Icona API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Uno dei connettori più usati, consente di connettersi a un'istanza locale di SQL Server e a un database SQL di Azure. | 
+| [![Icona API][Twittericon]<br/>**Twitter**][Twitterdoc] | Accedere con facilità con un account Twitter e quindi avviare un flusso di lavoro quando viene inserito un nuovo tweet. Salvare quindi i tweet in un database SQL o in un elenco di SharePoint. | | | 
 
 ## <a name="integration-account-connectors"></a>Connettori dell'account di integrazione 
 
@@ -56,9 +56,9 @@ Enterprise Integration Pack (EIP) include connettori noti alla community di BizT
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][as2icon]<br/>**Decodifica</br> AS2**][as2decode] | [![API Icon][as2icon]<br/>**Codifica</br> AS2**][as2encode] | [![API Icon][x12icon]<br/>**Decodifica</br> EDIFACT**][EDIFACTdecode] | [![API Icon][x12icon]<br/>**Codifica</br> EDIFACT**][EDIFACTencode] |
-[![API Icon][flatfileicon]<br/>**Codifica</br>file flat**][flatfiledoc] | [![API Icon][flatfileicon]<br/>**Decodifica</br>file flat**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Integrazione<br/>account**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**Trasforma<br/>XML**][xmltransformdoc] |
-| [![API Icon][x12icon]<br/>**Decodifica</br> X12**][x12decode] | [![API Icon][x12icon]<br/>**Codifica</br> X12**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**Convalida <br/>XML**][xmlvalidatedoc] | |
+| [![Icona API][as2icon]<br/>**Decodifica</br> AS2**][as2decode] | [![Icona API][as2icon]<br/>**Codifica</br> AS2**][as2encode] | [![Icona API][x12icon]<br/>**Decodifica</br> EDIFACT**][EDIFACTdecode] | [![Icona API][x12icon]<br/>**Codifica</br> EDIFACT**][EDIFACTencode] |
+[![Icona API][flatfileicon]<br/>**Codifica</br> file flat**][flatfiledoc] | [![Icona API][flatfiledecodeicon]<br/>**Decodifica</br> file flat**][flatfiledecodedoc] | [![Icona API][integrationaccounticon]<br/>**Account<br/> di integrazione**][integrationaccountdoc] | [![Icona API][xmltransformicon]<br/>**Trasformazione<br/>XML**][xmltransformdoc] |
+| [![Icona API][x12icon]<br/>**Decodifica</br> X12**][x12decode] | [![Icona API][x12icon]<br/>**Codifica</br> X12**][x12encode] | [![Icona API][xmlvalidateicon]<br/>**Convalida <br/>XML**][xmlvalidatedoc] | |
 
 ## <a name="enterprise-connectors"></a>Connettori aziendali
 
@@ -66,7 +66,7 @@ Enterprise Integration Pack (EIP) include connettori noti alla community di BizT
 
 |  |  |
 | --- | --- |
-|[![API Icon][MQicon]<br/>**MQ**][mqdoc]|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
+|[![Icona API][MQicon]<br/>**MQ**][mqdoc]|[![Icona API][SAPicon]<br/>**SAP**][sapconnector]|
 
 
 ## <a name="az"></a>Elenco completo dalla A alla Z
