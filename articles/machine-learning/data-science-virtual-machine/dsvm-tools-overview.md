@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conoscere la macchina virtuale per data science
 
-La macchina virtuale per data science ****include un elenco completo di strumenti comuni per data science, Machine Learning/IA e piattaforme di dati. Questi sono stati impostati in configurazioni rigorosamente testate da data scientist e sviluppatori di Microsoft, nonché dalla community di data science più grande per assicurare la stabilità e la redditività generale.
+La macchina virtuale per data science (**DSVM**) include un elenco completo di strumenti comuni per data science, Machine Learning/IA e piattaforme di dati. Questi sono stati impostati in configurazioni rigorosamente testate da data scientist e sviluppatori di Microsoft, nonché dalla community di data science più grande per assicurare la stabilità e la redditività generale.
 
 La macchina virtuale per data science include anche diverse procedure dettagliate ed esempi di codice sotto forma di blocchi appunti Jupyter che possono essere eseguiti in locale. È anche disponibile una documentazione per questi esempi, per facilitarne la comprensione. 
 

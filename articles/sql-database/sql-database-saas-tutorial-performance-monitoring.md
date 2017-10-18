@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
@@ -48,7 +47,7 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 
 La gestione delle prestazioni dei database comprende la compilazione e l'analisi dei dati sulle prestazioni, quindi l'adozione delle misure appropriate adattando i parametri in modo da mantenere tempi di risposta accettabili per l'applicazione. Quando si ospitano più tenant, i pool di database elastici rappresentano una soluzione conveniente per fornire e gestire le risorse per un gruppo di database con carichi di lavoro imprevedibili. Con determinati modelli di carico di lavoro, anche solo due database S3 possono trarre vantaggio dalla gestione in un pool.
 
-![diagramma](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
+![diagramma applicazioni](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
 
 I pool e i database nei pool devono essere monitorati per assicurarsi che rimangano entro intervalli di prestazioni accettabili. Ottimizzare la configurazione del pool per soddisfare le esigenze del carico di lavoro aggregato di tutti i database, assicurandosi che le unità eDTU del pool siano appropriate per il carico di lavoro complessivo. Impostare il minimo e il massimo per le unità eDTU per ogni database su valori appropriati per i requisiti specifici di ogni applicazione.
 
@@ -115,11 +114,11 @@ Osservare i grafici **Monitoraggio pool elastico** e **Monitoraggio database ela
 
 L'utilizzo delle risorse del pool è l'utilizzo aggregato di tutti i database nel pool. Il grafico relativo ai database mostra i cinque database principali:
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
+![grafico dei database](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
 Dato che il pool include altri database oltre ai primi cinque, l'utilizzo del pool mostra un livello di attività non rappresentato nel grafico per i primi cinque database. Per altri dettagli, fare clic su **Utilizzo risorse database**:
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
+![Utilizzo risorse database](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
 
 ## <a name="set-performance-alerts-on-the-pool"></a>Impostare avvisi sulle prestazioni per il pool
@@ -134,7 +133,7 @@ Impostare un avviso per il pool da attivare quando l'utilizzo è \>75%, come ind
 1. Specificare un nome, ad esempio **DTU elevate**.
 1. Impostare i valori seguenti:
    * **Metrica = Percentuale eDTU**
-   * **Condizione = maggiore di**.
+   * **Condizione = maggiore di** .
    * **Soglia = 75**.
    * **Periodo = Negli ultimi 30 minuti**.
 1. Aggiungere un indirizzo e-mail alla casella *Indirizzi di posta elettronica aggiuntivi dell'amministratore* e fare clic su **OK**.
@@ -249,4 +248,3 @@ In questa esercitazione si apprenderà come:
 * [Pool elastici SQL](sql-database-elastic-pool.md)
 * [Automazione di Azure](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Esercitazione sulla configurazione e l'uso di Log Analytics
-

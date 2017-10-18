@@ -4,7 +4,7 @@ description: Informazioni su come configurare il ripristino di emergenza di macc
 services: site-recovery
 documentationcenter: 
 author: nsoneji
-manager: jwhit
+manager: gauarvd
 editor: 
 ms.assetid: 68616d15-398c-4f40-8323-17b6ae1e65c0
 ms.service: site-recovery
@@ -12,14 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 10/11/2017
 ms.author: raynew
+ms.openlocfilehash: b182c00ac9a6956d07dece621d03c84788442085
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: da1df5546b7f99549a693c4e2df4eefb7a423c7f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurare il ripristino di emergenza di macchine virtuali VMware locali o server fisici in un sito secondario
 
@@ -59,22 +58,27 @@ Selezionare l'elemento da replicare e la posizione in cui replicarlo.
 
 Installare gli aggiornamenti come segue:
 
-1. Scaricare il file ZIP dell'[aggiornamento](https://aka.ms/asr-scout-update5). Il file contiene quanto segue:
+> [!NOTE]
+>È possibile che la versione dell'aggiornamento dei file di tutti i componenti Scout non corrisponda a quella disponibile nel file ZIP di aggiornamento. La versione meno recente indica che non sono state apportate modifiche al componente dopo l'aggiornamento precedente a quello attuale.
 
-   * RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-   * CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
-   * UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-   * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-   * vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe
-   * Bit per update4 dell'agente utente per RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-2. Estrarre i file ZIP.
-    - **Server RX**: copiare **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** nel server RX ed estrarlo. Nella cartella estratta eseguire **/Install**.
-    - **Server di configurazione e server di elaborazione**: copiare **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe** nel server di configurazione e in quello di elaborazione. Fare doppio clic per eseguirlo.<br>
-    - **Server di destinazione master Windows**: per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** nel server. Fare doppio clic per eseguirlo. L'agente unificato è applicabile anche per il server di origine. Se l'origine non è stata aggiornata alla versione Update 4, è consigliabile aggiornare l'agente unificato.
-    - **Server vContinuum**: copiare **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** nel server.  Assicurarsi che la procedura guidata vContinuum sia stata chiusa. Fare doppio clic sul file per eseguirlo.
-    - **Server di destinazione master Linux**: per aggiornare l'agente unificato, copiare **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** nel server di destinazione master ed estrarlo. Nella cartella estratta eseguire **/Install**.
-    - **Server di origine Windows**: se il server di origine esegue già Update 4 non è necessario installare l'agente Update 5. Per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** nel server di origine. Fare doppio clic sul file per eseguirlo.
-    - **Server di origine Linux**: per aggiornare l'agente unificato, copiare la versione corrispondente del file dell'agente unificato nel server Linux ed estrarlo. Nella cartella estratta eseguire **/Install**.  Esempio: per il server RHEL 6.7 a 64 bit, copiare **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** nel server ed estrarlo. Nella cartella estratta eseguire **/Install**.
+Scaricare il file ZIP dell'[aggiornamento](https://aka.ms/asr-scout-update6). Il file contiene i componenti seguenti: 
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+  - Bit per update4 dell'agente utente per RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+1. Estrarre i file ZIP.
+2. **Server RX**: copiare **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** nel server RX ed estrarlo. Nella cartella estratta eseguire **/Install**.
+3. **Server di configurazione e server di elaborazione**: copiare **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** nel server di configurazione e in quello di elaborazione. Fare doppio clic per eseguirlo.<br>
+4. **Server di destinazione master Windows**: per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** nel server. Fare doppio clic per eseguirlo. Lo stesso aggiornamento dell'agente unificato è applicabile anche per il server di origine. Se l'origine non è stata aggiornata alla versione Update 4, è consigliabile aggiornare l'agente unificato.
+  Non è necessario che l'aggiornamento venga applicato al server di destinazione master preparato con **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**, perché questo è un programma di installazione disponibile a livello generale che include tutte le modifiche più recenti.
+5. **Server vContinuum**: copiare **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** nel server.  Assicurarsi che la procedura guidata vContinuum sia stata chiusa. Fare doppio clic sul file per eseguirlo.
+    Non è necessario che l'aggiornamento venga applicato al server di destinazione master preparato con **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**, perché questo è un programma di installazione disponibile a livello generale che include tutte le modifiche più recenti.
+6. **Server di destinazione master Linux**: per aggiornare l'agente unificato, copiare **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** nel server di destinazione master ed estrarlo. Nella cartella estratta eseguire **/Install**.
+7. **Server di origine Windows**: per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** nel server di origine. Fare doppio clic sul file per eseguirlo. 
+    Non è necessario installare l'agente della versione Update 5 nel server di origine se è già stato aggiornato a Update 4 o se l'agente di origine è stato installato con il programma di installazione di base più recente **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
+8. **Server di origine Linux**: per aggiornare l'agente unificato, copiare la versione corrispondente del file dell'agente unificato nel server Linux ed estrarlo. Nella cartella estratta eseguire **/Install**.  Esempio: per il server RHEL 6.7 a 64 bit, copiare **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** nel server ed estrarlo. Nella cartella estratta eseguire **/Install**.
 
 ## <a name="enable-replication"></a>Abilitare la replica
 
@@ -89,10 +93,34 @@ Installare gli aggiornamenti come segue:
 
 ## <a name="updates"></a>Aggiornamenti
 
+### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
+Ultimo aggiornamento: 6 ottobre 2017
+
+Scout Update 6 è un aggiornamento cumulativo. Include tutte le correzioni apportate da Update 1 a Update 5 oltre alle nuove correzioni e ai miglioramenti indicati di seguito. 
+
+#### <a name="new-platform-support"></a>Supporto di nuove piattaforme
+* È stato aggiunto il supporto per Windows Server 2016 di origine
+* È stato aggiunto il supporto per i sistemi operativi Linux seguenti:
+    - Red Hat Enterprise Linux (RHEL) 6.9
+    - CentOS 6.9
+    - Oracle Linux 5.11
+    - Oracle Linux 6.8
+* È stato aggiunto il supporto per VMware Center 6.5
+
+> [!NOTE]
+> * Il programma di installazione di base dell'agente unificato per Windows è stato aggiornato per supportare Windows Server 2016. Il nuovo programma di installazione **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** è incluso nel pacchetto Scout di base disponibile a livello generale (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Lo stesso programma di installazione verrà usato per tutte le versioni di Windows supportate. 
+> * Il programma di installazione d base per Windows vContinuum e per il server di destinazione master è stato aggiornato per supportare Windows Server 2016. Il nuovo programma di installazione **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** è incluso nel pacchetto Scout di base disponibile a livello generale (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Lo stesso programma di installazione verrà usato per distribuire il server di destinazione master Windows 2016 e il server di destinazione master Windows 2012R2.
+> * Scaricare il pacchetto GA dal portale come descritto in [creare un insieme di credenziali](#create-a-vault).
+>
+
+#### <a name="bug-fixes-and-enhancements"></a>Correzioni di bug e miglioramenti
+- Gli errori di protezione failback per una VM Linux VM con un elenco di dischi da replicare sono vuoti alla fine del file di configurazione.
+
+
 ### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 è un aggiornamento cumulativo. Include tutte le correzioni apportate da Update 1 a Update 4 e le nuove correzioni indicate di seguito.
 - Le correzioni da Site Recovery Scout Update 4 a Update 5 sono specifiche per i componenti di destinazione master e vContinuum.
-- Se i server di origine e i server di destinazione master, di configurazione, di elaborazione e RX eseguono già Update 5, applicarlo solo nel server di destinazione master. 
+- Se i server di origine e i server di destinazione master, di configurazione, di elaborazione e RX eseguono già Update 4, applicarlo solo nel server di destinazione master. 
 
 #### <a name="new-platform-support"></a>Supporto di nuove piattaforme
 * SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
@@ -223,5 +251,4 @@ Update 1 include le correzioni di bug e le nuove funzionalità seguenti:
   * Nella procedura guidata vContinuum il disco viene deselezionato automaticamente quando si fa clic su **Dettagli** nella visualizzazione del disco durante la protezione delle macchine virtuali MSCS.
   * Nello scenario da macchina fisica a virtuale (P2V), i servizi HP obbligatori, ad esempio CIMnotify e CqMgHost, non vengono impostati su manuale nel ripristino della macchina virtuale. Questo problema determina un tempo di avvio aggiuntivo.
   * La protezione di macchine virtuali Linux ha esito negativo quando sono presenti più di 26 dischi nel server di destinazione master.
-
 
