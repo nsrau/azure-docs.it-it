@@ -425,4 +425,4 @@ Per altre informazioni, vedere le risorse seguenti:
 [Azure portal]: https://portal.azure.com  
 [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Blog del team di archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
-[Azure Storage SDK per riferimento all'API del nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html  
+[Riferimento per le API di Azure Storage SDK per Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  
