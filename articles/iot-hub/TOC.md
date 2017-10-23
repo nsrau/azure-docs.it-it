@@ -109,6 +109,7 @@
 ### Usare processi del dispositivo per aggiornarne il firmware
 #### [Back-end Node/Dispositivo Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-firmware-update.md)
 #### [Back-end Java/Dispositivo Java](iot-hub-java-java-firmware-update.md)
 ### Pianificare e trasmettere processi
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-schedule-jobs.md)

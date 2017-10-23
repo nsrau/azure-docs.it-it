@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/23/2017
 ms.author: carolz
-ms.openlocfilehash: 7cd894b9d9a8093fef42682fff91f2f4708627c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da4048b8233fd016ba0f9a0774772b8eff3f925d
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-machine-learning-studio-documentation"></a>Documentazione di Azure Machine Learning Studio
 
@@ -108,7 +108,7 @@ Esercitazioni, video e modelli di esempio in cui viene illustrato come usare Stu
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/powershell/module/azurerm.machinelearning/?view=azurermps-4.3.1">PowerShell (nuovo)</a></p>
+                        <p><a href="/powershell/module/azurerm.machinelearning/">PowerShell (nuovo)</a></p>
                         <p><a href="powershell-module.md">PowerShell (Classic)</a> (PowerShell (classico))</p>
                     </div>
                 </div>

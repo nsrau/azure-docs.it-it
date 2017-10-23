@@ -40,6 +40,7 @@
 ##### [Interfaccia della riga di comando di Azure 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### Route definite dall'utente
+#### [Portale di Azure](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [Interfaccia della riga di comando di Azure 2.0](virtual-network-create-udr-arm-cli.md)
 #### [Interfaccia della riga di comando di Azure 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
