@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 09/14/2017
 ms.author: terrylan
+ms.openlocfilehash: 3ff38892f198ab5dfb9e08c1c01b942810a40260
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2ebb930e877c5027f4d7b0a316a7f5ebe84471b1
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-partner-solutions-with-azure-security-center"></a>Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure
 Questo documento contiene informazioni dettagliate su come monitorare lo stato di integrità delle soluzioni dei partner nel Centro sicurezza di Azure.
@@ -30,15 +29,13 @@ Questo documento contiene informazioni dettagliate su come monitorare lo stato d
 >
 
 ## <a name="monitoring-partner-solutions"></a>Monitoraggio delle soluzioni dei partner
-Il riquadro **Soluzioni partner** nel pannello **Centro sicurezza** permette di monitorare in modo immediato lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure.
+Il riquadro **Soluzioni di sicurezza** in **Panoramica** permette di monitorare in modo immediato lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure.
 
 ![Riquadro Soluzioni partner][1]
 
-Il riquadro **Soluzioni partner** mostra il numero di soluzioni dei partner integrate con la sottoscrizione. Se non sono presenti soluzioni integrate, il riquadro visualizza il numero zero.
-
 Per visualizzare l'integrità delle soluzioni dei partner:
 
-1. Selezionare il riquadro **Soluzioni partner** . Viene visualizzato il pannello **Soluzioni partner** con un elenco di soluzioni dei partner connesse al Centro sicurezza.
+1. Selezionare il riquadro **Soluzioni di sicurezza**. Viene visualizzato **Soluzioni di sicurezza** contenente un elenco di soluzioni dei partner connesse al Centro sicurezza.
 
    ![Soluzioni partner][3]
 
@@ -50,7 +47,7 @@ Per visualizzare l'integrità delle soluzioni dei partner:
    * Sconosciuto (arancione): l'integrità della soluzione è attualmente sconosciuta, a causa di un processo di aggiunta di una nuova risorsa alla soluzione esistente non riuscito.
    * Non segnalato (grigio): la soluzione non ha ancora inviato alcuna segnalazione. Lo stato di una soluzione può non essere segnalato se la soluzione è stata connessa recentemente ed è ancora in fase di distribuzione.
 
-2. Selezionare una soluzione dei partner. In questo esempio viene selezionata la soluzione **Qualys**.  Viene visualizzato un pannello che mostra che lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione dei partner per questa soluzione.
+2. Selezionare una soluzione dei partner. Viene visualizzato un pannello che mostra che lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione dei partner per questa soluzione.
 
    ![Dettagli della soluzione di un partner][4]
 3. Tornare al pannello **Qualys** e selezionare **Collega la macchina virtuale**. Verrà visualizzato il pannello **Collega applicazioni** . In questo pannello è possibile connettere risorse alla soluzione del partner.
@@ -58,7 +55,9 @@ Per visualizzare l'integrità delle soluzioni dei partner:
    ![Collegare risorse alla soluzione di un partner][5]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questo documento ha presentato il riquadro **Soluzioni partner** del Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
+Questo documento ha presentato il riquadro **Soluzioni di sicurezza** del Centro sicurezza. Per altre informazioni sull'integrazione con i partner per migliorare la sicurezza complessiva, vedere [Integrazione di partner e soluzioni](security-center-partner-integration.md).
+
+Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md) : informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
@@ -72,4 +71,3 @@ Questo documento ha presentato il riquadro **Soluzioni partner** del Centro sicu
 [3]: ./media/security-center-partner-solutions/partner-solutions.png
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png
-

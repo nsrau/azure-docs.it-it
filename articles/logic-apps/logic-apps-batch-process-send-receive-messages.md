@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
+ms.openlocfilehash: c58cf6485a8a7248e5b8ffce0d279485a80f36ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 480ffce5dbe7c25181bb0ba5639de884e98ff4e6
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica
 
 Per elaborare i messaggi in gruppi, è possibile inviare elementi di dati o messaggi a un *batch* e quindi elaborarli come batch. Questo approccio è utile quando si desidera che gli elementi di dati vengano raggruppati secondo una modalità specifica ed elaborati insieme. 
@@ -62,11 +60,20 @@ Nelle app per la logica mittenti è necessario specificare dove inviare gli elem
 3. Specificare un nome per il batch e specificare i criteri per il rilascio del batch, ad esempio:
 
    * **Nome batch**: il nome usato per identificare il batch, in questo esempio "TestBatch".
+   * **Criteri di rilascio**: criteri di rilascio del batch, che possono essere basati sul numero di messaggi, su una pianificazione o su entrambi.
+   
+     ![Specificare i dettagli del trigger Batch](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+
    * **Numero messaggi**: il numero di messaggi da inserire in un batch prima del rilascio per l'elaborazione, in questo esempio "5".
 
-   ![Specificare i dettagli del trigger Batch](./media/logic-apps-batch-process-send-receive-messages/receive-batch-trigger-details.png)
+     ![Specificare i dettagli del trigger Batch](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
 
-4. Aggiungere un'altra azione che invia un messaggio di posta elettronica quando viene attivato il trigger Batch. Ogni volta che il batch contiene cinque elementi, l'app per la logica invia un messaggio di posta elettronica.
+   * **Pianificazione**: pianificazione del rilascio del batch per l'elaborazione, che corrisponde a ogni 5 minuti in questo esempio.
+
+     ![Specificare i dettagli del trigger Batch](./media/logic-apps-batch-process-send-receive-messages/receive-batch-schedule-based.png)
+
+
+4. Aggiungere un'altra azione che invia un messaggio di posta elettronica quando viene attivato il trigger Batch. Ogni volta che il batch contiene cinque elementi o sono trascorsi cinque minuti, l'app per la logica invia un messaggio di posta elettronica.
 
    1. Nel trigger batch scegliere **+ Nuovo passaggio** > **Aggiungi un'azione**.
 
@@ -194,4 +201,3 @@ L'app per la logica BatchSender viene eseguita ogni minuto, genera un numero cas
 * [Build on logic app definitions by using JSON](../logic-apps/logic-apps-author-definitions.md) (Compilare definizioni di app per la logica on JSON)
 * [Compilare un'app senza server in Visual Studio con App per la logica e Funzioni](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Gestione delle eccezioni e registrazione degli errori per le app per la logica](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
+ms.openlocfilehash: a56d48eaf335d9e78eeba99162cea7c61d96b7cb
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ef73f9036a91d5bac50597d1d96fe134225eef51
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica 
 Il database SQL di Azure può generare metriche e log di diagnostica per facilitare il monitoraggio. È possibile configurare il database SQL di Azure per archiviare l'utilizzo delle risorse, i ruoli di lavoro e sessioni e la connettività in una delle risorse di Azure seguenti:
@@ -48,11 +47,11 @@ Quando si abilitano le metriche e la registrazione diagnostica, è necessario sp
 
 - **[Metriche 1 minuto](sql-database-metrics-diag-logging.md#1-minute-metrics)**: contiene percentuale DTU, limite DTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, percentuale di archiviazione XTP
 - **[QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics)** - contiene le informazioni sulle statistiche di runtime delle query, ad esempio l'utilizzo della CPU, durata delle query e così via.
-- **[QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)**  -contiene le informazioni sulle statistiche di attesa delle query che indicano cosa hanno atteso le query, ad esempio la CPU, il LOG, il BLOCCO...
+- **[QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)** -contiene le informazioni sulle statistiche di attesa delle query che indicano cosa hanno atteso le query, ad esempio la CPU, il LOG, il BLOCCO...
 - **[Errors](sql-database-metrics-diag-logging.md#errors-dataset)**  - contiene le informazioni sugli errori SQL che si sono verificati in questo database.
 - **[DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset)** - contiene le informazioni su quanto tempo un database ha atteso nei diversi tipi di attesa.
 - **[Timeouts](sql-database-metrics-diag-logging.md#timeouts-dataset)** - contiene le informazioni su quanto tempo un database ha atteso nei diversi tipi di attesa.
-- **[Blockings](sql-database-metrics-diag-logging.md#blockings-dataset)**  - contiene le informazioni su eventi di blocco verificatisi in un database.
+- **[Blockings](sql-database-metrics-diag-logging.md#blockings-dataset)** - contiene le informazioni su eventi di blocco verificatisi in un database.
 - **[SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset)**  - contiene Intelligent Insights. [Altre informazioni su Intelligent Insights](sql-database-intelligent-insights.md)
 
 Se si specifica l'hub eventi o un account di archiviazione di Azure, è possibile indicare un criterio di conservazione per specificare che vengano eliminati i dati che superano un periodo di tempo selezionato. Se si specifica Log Analytics, i criteri di conservazione dipendono dal piano tariffario selezionato. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/). 
@@ -106,6 +105,17 @@ Per abilitare le metriche e la registrazione diagnostica tramite PowerShell, usa
    ```
 
 È possibile combinare questi parametri per abilitare più opzioni di output.
+
+### <a name="to-configure-multiple-azure-subscriptions"></a>Per configurare più sottoscrizioni di Azure
+
+Per supportare più sottoscrizioni, usare lo script di PowerShell contenuto in [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/) (Abilitare la registrazione delle metriche sulle risorse di Azure usando PowerShell). Specificare l'ID risorsa dell'area di lavoro come parametro quando si esegue lo script per inviare i dati di diagnostica dalle risorse in una sottoscrizione di Azure a un'area di lavoro in un'altra sottoscrizione di Azure.
+
+- Per configurare più sottoscrizioni di Azure, usare i comandi seguenti:
+
+    ```powershell
+    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
+    PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
+    ```
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -448,4 +458,3 @@ Vedere [Scaricare le metriche e i log di diagnostica da Archiviazione di Azure](
    - [Cosa sono gli hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md)?
    - [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Vedere [Scaricare le metriche e i log di diagnostica da Archiviazione di Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
-

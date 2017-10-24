@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: juanpere
+ms.openlocfilehash: ed93463153e3fba154aae733da27dea3e8d47689
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 6e4ca8ad0c444930f5e45eed0a024412de82dbb1
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Pianificare processi in più dispositivi
 ## <a name="overview"></a>Panoramica
@@ -33,7 +32,7 @@ Come descritto in articoli precedenti, l'hub IoT di Azure consente un numero di 
 * Richiamare metodi diretti
 
 ## <a name="job-lifecycle"></a>Ciclo di vita dei processi
-I processi vengono avviati dal back-end della soluzione e mantenuti dall'hub IoT.  È possibile avviare un processo tramite un URI del servizio (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) ed eseguire query riguardo allo stato di avanzamento in un processo in esecuzione tramite un URI del servizio (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`).  Dopo l'avvio del processo, l'esecuzione di query relative ai processi consente all'app back-end aggiornare lo stato dei processi in esecuzione.
+I processi vengono avviati dal back-end della soluzione e mantenuti dall'hub IoT.  È possibile avviare un processo tramite un URI del servizio (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) ed eseguire query riguardo allo stato di avanzamento in un processo in esecuzione tramite un URI del servizio (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Per aggiornare lo stato dei processi in esecuzione dopo l'avvio, eseguire query sui processi.
 
 > [!NOTE]
 > Quando si avvia un processo, i valori e i nomi di proprietà possono contenere solo caratteri alfanumerici US-ASCII stampabili, ad eccezione dei seguenti: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -44,7 +43,7 @@ I processi vengono avviati dal back-end della soluzione e mantenuti dall'hub IoT
 Gli argomenti di riferimento seguenti offrono altre informazioni sull'uso dei processi.
 
 ## <a name="jobs-to-execute-direct-methods"></a>Processi per eseguire metodi diretti
-Di seguito sono riportati i dettagli di una richiesta HTTP 1.1 per eseguire un [metodo diretto][lnk-dev-methods] in un set di dispositivi tramite un processo:
+Nel frammento di codice seguente sono riportati i dettagli della richiesta HTTPS 1.1 per l'esecuzione di un [metodo diretto][lnk-dev-methods] in un set di dispositivi tramite un processo:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -67,7 +66,7 @@ Di seguito sono riportati i dettagli di una richiesta HTTP 1.1 per eseguire un [
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
-La condizione di query può anche trovarsi in un ID dispositivo singolo o in un elenco di ID dispositivo, come illustrato di seguito.
+La condizione di query può anche trovarsi in un ID dispositivo singolo o in un elenco di ID dispositivo, come illustrato negli esempi seguenti:
 
 **esempi**
 ```
@@ -78,7 +77,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 [Linguaggio di query dell'hub IoT][lnk-query] illustra il linguaggio di query dell'hub IoT in maggiore dettaglio.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Processi per aggiornare le proprietà dei dispositivi gemelli
-Di seguito sono riportati i dettagli di una richiesta HTTP 1.1 per aggiornare le proprietà dei dispositivi gemelli tramite un processo:
+Nel frammento di codice seguente sono riportati i dettagli della richiesta HTTPS 1.1 per l'aggiornamento delle proprietà dei dispositivi gemelli tramite un processo:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -98,7 +97,7 @@ Di seguito sono riportati i dettagli di una richiesta HTTP 1.1 per aggiornare le
     ```
 
 ## <a name="querying-for-progress-on-jobs"></a>Esecuzione di query sull'avanzamento dei processi
-Di seguito sono riportati i dettagli di una richiesta HTTP 1.1 per [eseguire query sui processi][lnk-query]:
+Nel frammento di codice seguente sono riportati i dettagli della richiesta HTTPS 1.1 per [l'esecuzione di query sui processi][lnk-query]:
 
     ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -120,15 +119,15 @@ Di seguito è riportato un elenco di proprietà e corrispondenti descrizioni che
 | **startTime** |Ora di inizio fornita dall'applicazione (ISO 8601) per il processo. |
 | **endTime** |Data fornita dall'hub IoT (ISO 8601) per il completamento del processo. È valida solo quando il processo raggiunge lo stato di completamento. |
 | **type** |Tipi di processi: |
-| **scheduledUpdateTwin**: un processo usato per aggiornare un set di proprietà o tag desiderati. | |
-| **scheduledDeviceMethod**: un processo usato per richiamare un metodo di dispositivo in un set di dispositivi gemelli. | |
+| | **scheduledUpdateTwin**: un processo usato per aggiornare un set di proprietà o tag desiderati. |
+| | **scheduledDeviceMethod**: un processo usato per richiamare un metodo di dispositivo in un set di dispositivi gemelli. |
 | **Stato** |Stato corrente del processo. Valori possibili per lo stato: |
-| **pending**: processo pianificato e in attesa del prelievo da parte del servizio del processo. | |
-| **scheduled**: processo pianificato per un'ora futura. | |
-| **running**: processo attualmente attivo. | |
-| **cancelled**: processo annullato. | |
-| **failed**: processo non riuscito. | |
-| **completed**: processo completato. | |
+| | **pending**: processo pianificato e in attesa del prelievo da parte del servizio del processo. |
+| | **scheduled**: processo pianificato per un'ora futura. |
+| | **running**: processo attualmente attivo. |
+| | **canceled**: il processo è stato annullato. |
+| | **failed**: processo non riuscito. |
+| | **completed**: processo completato. |
 | **deviceJobStatistics** |Statistiche sull'esecuzione del processo. |
 
 Proprietà **deviceJobStatistics**.
@@ -167,4 +166,3 @@ Per provare alcuni dei concetti descritti in questo articolo, può essere utile 
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
-

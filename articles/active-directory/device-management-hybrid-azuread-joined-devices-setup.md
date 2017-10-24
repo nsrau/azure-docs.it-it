@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 3325aa48db36426a8cf1c9859390c357267ee5fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 4580075df9fce74664b22aa24065ba1885692384
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -133,8 +132,9 @@ Lo script seguente mostra un esempio dell'uso del cmdlet. In questo script, `$aa
 
 Il `Initialize-ADSyncDomainJoinedComputerSync` cmdlet esegue queste operazioni:
 
-- usa il modulo Active Directory PowerShell, che si basa sull'esecuzione di Servizi Web Active Directory in un controller di dominio. Il servizio Servizi Web Active Directory è supportato nei controller di dominio che eseguono Windows Server 2008 R2 e versioni successive.
+- usa il modulo Active Directory PowerShell e gli strumenti Active Directory Domain Services, che si basano sull'esecuzione di Servizi Web Active Directory in un controller di dominio. Il servizio Servizi Web Active Directory è supportato nei controller di dominio che eseguono Windows Server 2008 R2 e versioni successive.
 - È supportato solo per il **modulo MSOnline PowerShell versione 1.1.166.0**. Per scaricare questo modulo, utilizzare il [collegamento](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Se gli strumenti Active Directory Domain Services non sono installati `Initialize-ADSyncDomainJoinedComputerSync` avrà esito negativo.  Gli strumenti Active Directory Domain Services possono essere installati tramite Server Manager in Funzionalità - Strumenti di amministrazione remota del server - Strumenti di amministrazione ruoli.
 
 Per i controller di dominio che eseguono Windows Server 2008 o versioni precedenti, usare lo script seguente per creare il punto di connessione del servizio.
 
@@ -559,7 +559,7 @@ Per controllare l'implementazione degli attuali computer Windows, è consigliabi
 
 7. Selezionare **Abilitato** e quindi fare clic su **Applica**.
 8. Fare clic su **OK**.
-9. Collegare l'oggetto Criteri di gruppo a una posizione scelta. Ad esempio, è possibile collegarlo a una determinata unità organizzativa oppure a un determinato gruppo di sicurezza di computer che vengono automaticamente aggiunti ad Azure AD. Per impostare questi criteri per tutti i computer Windows 10 e Windows Server 2016 aggiunti a un dominio nell'organizzazione, collegare l'oggetto Criteri di gruppo al dominio.
+9. Collegare l'oggetto Criteri di gruppo a una posizione scelta. Ad esempio, è possibile collegarlo a una determinata unità organizzativa, oppure a un determinato gruppo di sicurezza di computer che vengono automaticamente aggiunti ad Azure AD. Per impostare questi criteri per tutti i computer Windows 10 e Windows Server 2016 aggiunti a un dominio nell'organizzazione, collegare l'oggetto Criteri di gruppo al dominio.
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Pacchetti di Windows Installer per i computer non Windows 10
 
@@ -583,4 +583,3 @@ L'output del cmdlet mostra i dispositivi registrati e aggiunti ad Azure AD. Per 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
-

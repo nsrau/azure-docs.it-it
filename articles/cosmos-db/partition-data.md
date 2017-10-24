@@ -12,17 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 6f272136d535dddd9c8213293841ace203c042a1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partizionamento e ridimensionamento in Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è un servizio di database multimodello distribuito a livello globale che consente di ottenere prestazioni rapide e prevedibile. È ridimensionabile contestualmente all'espansione dell'applicazione. Questo articolo offre una panoramica del funzionamento del partizionamento per tutti i modelli di dati in Azure Cosmos DB. Descrive anche come configurare contenitori Azure Cosmos DB per ridimensionare in modo efficace le applicazioni.
@@ -63,6 +61,12 @@ Azure Cosmos DB usa il partizionamento basato su hash. Quando si scrive un eleme
 >
 
 I contenitori di Azure Cosmos DB possono essere creati come *fissi* o *illimitati*. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Alcune API consentono di omettere la chiave di partizione per i contenitori a dimensione fissa. Per creare un contenitore illimitato, è necessario specificare una velocità effettiva minima di 2.500 UR/s.
+
+È consigliabile controllare la modalità di distribuzione dei dati nelle partizioni. Per eseguire il controllo nel portale, accedere al proprio account Azure Cosmos DB e fare clic su **Metrics** (Metriche) nella sezione **Monitoring** (Monitoraggio) e quindi nel riquadro destro fare clic sulla scheda **storage** (Archiviazione) per visualizzare come sono partizionati i dati nelle diverse partizioni fisiche.
+
+![Partizionamento delle risorse](./media/partition-data/partitionkey-example.png)
+
+L'immagine a sinistra mostra il risultato di una chiave di partizione non valida l'immagine a destra mostra il risultato di una chiave di partizione valida. Nell'immagine a sinistra è possibile vedere che i dati non sono distribuiti uniformemente tra le partizioni. È consigliabile distribuire i dati in modo che il grafico sia simile all'immagine di destra.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Partizionamento e velocità effettiva con provisioning
 Azure Cosmos DB è progettato per prestazioni prevedibili. Quando si crea un contenitore, la velocità effettiva viene riservata in termini di *[unità richiesta](request-units.md) (UR) al secondo*. A ogni richiesta viene assegnato un addebito delle UR proporzionato alla quantità di risorse di sistema, come CPU, memoria e I/O usati dall'operazione. La lettura di un documento di 1 KB con coerenza di sessione usa 1 UR. Un'operazione di lettura corrisponde a 1 RU indipendentemente dal numero di elementi archiviati o dal numero di richieste simultanee in esecuzione contemporaneamente. Elementi di dimensioni maggiori richiedono più UR a seconda delle dimensioni. Se si conoscono le dimensioni delle entità e il numero di letture che è necessario supportare per l'applicazione, è possibile eseguire il provisioning della quantità esatta di velocità effettiva necessaria per le esigenze di lettura dell'applicazione. 
@@ -208,7 +212,6 @@ In questo articolo è stata illustrata una panoramica di concetti e procedure co
 
 * Informazioni sulla [velocità effettiva con provisioning in Azure Cosmos DB](request-units.md).
 * Informazioni sulla [distribuzione globale in Azure Cosmos DB](distribute-data-globally.md).
-
 
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 122fa997ea11b369aae3c59edf0043ab19d21aea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: personalizzare l'interfaccia utente di Azure AD B2C
 
@@ -27,29 +27,30 @@ L'esperienza utente rappresenta l'aspetto più importante in un'applicazione riv
 > [!NOTE]
 > La funzionalità di personalizzazione dell'interfaccia utente delle pagine descritta in questo articolo non si applica al criterio di solo accesso, alla pagina di reimpostazione della password associata e ai messaggi di posta elettronica di verifica.  Queste funzionalità usano invece la [funzionalità di branding aziendale](../active-directory/active-directory-add-company-branding.md).
 >
+> Analogamente, se un utente avvia un criterio di modifica del profilo *prima* dell'accesso, l'utente verrà reindirizzato a una pagina che può essere personalizzata tramite la [funzionalità di branding aziendale](../active-directory/active-directory-add-company-branding.md).
 
 Questo articolo include gli argomenti seguenti:
 
-* Funzionalità di personalizzazione dell'interfaccia utente delle pagine.
+* Funzionalità di personalizzazione dell'interfaccia utente della pagina.
 * Strumento per il caricamento di contenuti HTML nell'archivio BLOB di Azure per l'uso con la funzionalità di personalizzazione dell'interfaccia utente delle pagine.
-* Elementi dell'interfaccia utente usati da Azure AD B2C che è possibile personalizzare usando Cascading Style Sheets (CSS).
+* Elementi dell'interfaccia utente utilizzati da Azure AD B2C che è possibile personalizzare utilizzando fogli CSS (Cascading Style Sheets).
 * Procedure consigliate per l'utilizzo di questa funzionalità.
 
 ## <a name="the-page-ui-customization-feature"></a>Funzionalità di personalizzazione dell'interfaccia utente della pagina
 
-È possibile personalizzare l'aspetto delle pagine di iscrizione, accesso, reimpostazione della password e modifica del profilo, tramite la configurazione di [criteri](active-directory-b2c-reference-policies.md). Gli utenti possono usufruire di un'esperienza fluida durante lo spostamento tra l'applicazione e le pagine gestite da Azure AD B2C.
+È possibile personalizzare l'aspetto delle pagine di iscrizione, accesso, reimpostazione della password e modifica del profilo visualizzate dagli utenti, tramite la configurazione di [criteri](active-directory-b2c-reference-policies.md). Gli utenti possono usufruire di un'esperienza fluida durante lo spostamento tra l'applicazione e le pagine gestite da Azure AD B2C.
 
-A differenza di altri servizi con opzioni di interfaccia utente, Azure AD B2C usa un approccio moderno e semplice per la personalizzazione dell'interfaccia utente.
+A differenza di altri servizi con opzioni dell'interfaccia utente, Azure AD B2C utilizza un approccio moderno e semplice per la personalizzazione dell'interfaccia utente.
 
-Ecco come funziona: Azure AD B2C esegue il codice nel browser del cliente e usa un approccio moderno denominato [Condivisione di risorse tra le origini (CORS)](http://www.w3.org/TR/cors/).  In fase di esecuzione, il contenuto viene caricato da un URL specificato in un criterio. È possibile specificare URL diversi per pagine diverse. Dopo che il contenuto caricato dall'URL viene unito con un frammento HTML inserito da Azure AD B2C, la pagina viene mostrata al cliente. Operazioni da eseguire:
+Ecco come funziona: Azure AD B2C esegue il codice nel browser del cliente e usa un approccio moderno denominato [Condivisione di risorse tra le origini (CORS)](http://www.w3.org/TR/cors/).  In fase di esecuzione, il contenuto viene caricato da un URL specificato in un criterio. È possibile specificare URL diversi per pagine diverse. Dopo che il contenuto dell'URL viene unito con un frammento HTML inserito da Azure AD B2C, la pagina viene visualizzata al cliente. Operazioni da eseguire:
 
-1. Creare contenuto HTML5 ben formato con un elemento `<div id="api"></div>` vuoto che si trova in un punto all'interno di `<body>`. Questo elemento corrisponde al punto in cui viene inserito il contenuto di Azure AD B2C.
-1. Ospitare il contenuto in un endpoint HTTPS in cui è consentita la condivisione CORS. Si noti che i metodi di richiesta GET e OPTIONS devono essere abilitati quando si configura CORS.
+1. Creare contenuto HTML5 ben formato con un elemento `<div id="api"></div>` vuoto, inserito all'interno di `<body>`. Questo elemento corrisponde al punto in cui viene inserito il contenuto di Azure AD B2C.
+1. Ospitare il contenuto in un endpoint HTTPS in cui è consentita la condivisione CORS. Notare che i metodi di richiesta GET e OPTIONS devono essere abilitati quando si configura CORS.
 1. Usare CSS per applicare uno stile agli elementi dell'interfaccia utente inseriti da Azure AD B2C.
 
-### <a name="a-basic-example-of-customized-html"></a>Esempio di codice HTML personalizzato di base
+### <a name="a-basic-example-of-customized-html"></a>Esempio di base di codice HTML personalizzato
 
-L'esempio seguente rappresenta il contenuto HTML di base che è possibile usare per testare questa funzionalità. Usare lo [strumento helper](active-directory-b2c-reference-ui-customization-helper-tool.md) per caricare e configurare il contenuto nell'archivio BLOB di Azure. È quindi possibile verificare che i pulsanti di base, senza stili e i campi del modulo in ogni pagina siano visualizzati e funzionali.
+L'esempio seguente rappresenta il contenuto HTML di base che è possibile usare per testare questa funzionalità. Utilizzare lo [strumento di supporto](active-directory-b2c-reference-ui-customization-helper-tool.md) per caricare e configurare il contenuto nell'archivio di BLOB di Azure. È quindi possibile verificare che i pulsanti di base, senza stili e i campi del modulo in ogni pagina siano visualizzati e funzionali.
 
 ```HTML
 <!DOCTYPE html>
@@ -65,19 +66,19 @@ L'esempio seguente rappresenta il contenuto HTML di base che è possibile usare 
 
 ## <a name="test-out-the-ui-customization-feature"></a>Provare la funzionalità di personalizzazione dell'interfaccia utente
 
-Si desidera provare le funzionalità di personalizzazione dell'interfaccia utente usando il codice HTML e il contenuto CSS?  È stato fornito uno [strumento helper](active-directory-b2c-reference-ui-customization-helper-tool.md) che carica e configura il contenuto di esempio nell'archivio BLOB di Azure.
+Si desidera provare le funzionalità di personalizzazione dell'interfaccia utente usando il codice HTML e il contenuto CSS?  È stato fornito uno [strumento di supporto](active-directory-b2c-reference-ui-customization-helper-tool.md) che carica e configura il contenuto di esempio nell'archiviazione BLOB di Azure.
 
 > [!NOTE]
-> È possibile ospitare il contenuto dell'interfaccia utente in qualsiasi punto: in server Web, reti CDN, AWS S3, sistemi di condivisione file e così via. A condizione che il contenuto sia ospitato in un endpoint HTTPS disponibile pubblicamente con CORS abilitato, è possibile iniziare. L'archivio BLOB di Azure viene usato solo a scopo illustrativo.
+> È possibile ospitare il contenuto dell'interfaccia utente in qualsiasi punto: in server Web, reti CDN, AWS S3, sistemi di condivisione file e così via. A condizione di avere contenuto ospitato in un endpoint HTTPS disponibile pubblicamente con CORS abilitato, è possibile iniziare. L'archivio BLOB di Azure viene usato solo a scopo illustrativo.
 >
 
 ## <a name="the-ui-fragments-embedded-by-azure-ad-b2c"></a>Frammenti dell'interfaccia utente incorporati da Azure AD B2C
 
-Le sezioni seguenti riportano i frammenti HTML5 che Azure AD B2C unisce nell'elemento `<div id="api"></div>` all'interno del contenuto. **Non inserire questi frammenti nel contenuto HTML5.** Il servizio Azure AD B2C li inserisce in fase di esecuzione. Usare questi frammenti come riferimento quando si progettano i propri Cascading Style Sheets (CSS).
+Nelle sezioni seguenti sono riportati i frammenti HTML5 che Azure AD B2C unisce nell'elemento `<div id="api"></div>` che si trova nel contenuto. **Non inserire questi frammenti nel contenuto HTML5.** Il servizio Azure AD B2C li inserisce in fase di esecuzione. Usare i frammenti come riferimento quando si progettano fogli CSS (Cascading Style Sheet) personalizzati.
 
-### <a name="fragment-inserted-into-the-identity-provider-selection-page"></a>Frammento inserito nella "pagina di selezione del provider di identità"
+### <a name="fragment-inserted-into-the-identity-provider-selection-page"></a>Frammento inserito nella "Pagina di selezione del provider di identità"
 
-Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di iscrizione o di accesso. Questi pulsanti includono i provider di identità basati su social network, ad esempio Facebook e Google+, o gli account locali (basati su indirizzo di posta elettronica o nome utente).
+Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di iscrizione o di accesso. Questi pulsanti includono provider di identità basati su social network, ad esempio Facebook e Google+, oppure account locali (basati sull'indirizzo di posta elettronica o sul nome utente).
 
 ```HTML
 <div id="api" data-name="IdpSelections">
@@ -103,7 +104,7 @@ Questa pagina contiene un elenco dei provider di identità che l'utente può sce
 
 ### <a name="fragment-inserted-into-the-local-account-sign-up-page"></a>Frammento inserito nella "pagina di iscrizione dell'account locale"
 
-Questa pagina contiene un modulo per eseguire l'iscrizione dell'account locale in base a un indirizzo di posta elettronica o a un nome utente. Il modulo può contenere diversi controlli di input, ad esempio caselle per l'immissione di testo, caselle per l'immissione della password, pulsanti di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla.
+Questa pagina contiene un modulo per eseguire l'iscrizione dell'account locale in base a un indirizzo e-mail o a un nome utente. Il modulo può contenere diversi controlli di input, ad esempio caselle per l'immissione di testo, caselle per l'immissione della password, pulsanti di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla.
 
 ```HTML
 <div id="api" data-name="SelfAsserted">
@@ -216,11 +217,11 @@ Questa pagina contiene un modulo per eseguire l'iscrizione dell'account locale i
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Frammento inserito nella "pagina di iscrizione all'account di social network"
+### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Frammento inserito nella "Pagina di iscrizione all'account di social networking"
 
-Questa pagina potrebbe essere visualizzata quando si effettua l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google+.  Viene usata quando è necessario raccogliere informazioni aggiuntive dall'utente finale attraverso un modulo di iscrizione. Questa pagina è simile alla pagina di iscrizione dell'account locale (mostrata nella sezione precedente), ad eccezione dei campi di immissione della password.
+Questa pagina potrebbe essere visualizzata quando si effettua l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google+.  Viene utilizzata quando è necessario raccogliere informazioni aggiuntive dall'utente finale con un modulo di iscrizione. Questa pagina è simile alla pagina di iscrizione dell'account locale (mostrata nella sezione precedente), ad eccezione dei campi di immissione della password.
 
-### <a name="fragment-inserted-into-the-unified-sign-up-or-sign-in-page"></a>Frammento inserito nella "pagina unificata per l'iscrizione o l'accesso"
+### <a name="fragment-inserted-into-the-unified-sign-up-or-sign-in-page"></a>Frammento inserito nella "Pagina unificata per l'iscrizione o l'accesso"
 
 Questa pagina gestisce sia l'iscrizione che l'accesso dei clienti, che possono usare provider di identità basati su social network, come Facebook o Google+, o account locali.
 
@@ -273,7 +274,7 @@ Questa pagina gestisce sia l'iscrizione che l'accesso dei clienti, che possono u
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-multi-factor-authentication-page"></a>Frammento inserito nella "pagina di autenticazione a più fattori"
+### <a name="fragment-inserted-into-the-multi-factor-authentication-page"></a>Frammento inserito nella "Pagina dell'autenticazione a più fattori"
 
 In questa pagina gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso.
 
@@ -317,7 +318,7 @@ In questa pagina gli utenti possono verificare il proprio numero di telefono (tr
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-error-page"></a>Frammento inserito nella "pagina di errore"
+### <a name="fragment-inserted-into-the-error-page"></a>Frammento inserito nella "Pagina di errore"
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">
@@ -334,7 +335,7 @@ In questa pagina gli utenti possono verificare il proprio numero di telefono (tr
 
 ## <a name="localizing-your-html-content"></a>Localizzazione del contenuto HTML
 
-È possibile localizzare il contenuto HTML attivando la ["personalizzazione della lingua"](active-directory-b2c-reference-language-customization.md).  L'abilitazione di questa funzionalità consente ad Azure AD B2C di inoltrare il parametro Open ID Connect, `ui-locales`, all'endpoint.  Il server di contenuti può usare questo parametro per fornire pagine HTML personalizzate specifiche della lingua.
+È possibile localizzare il contenuto HTML attivando la ["personalizzazione del linguaggio"](active-directory-b2c-reference-language-customization.md).  L'abilitazione di questa funzionalità consente ad Azure AD B2C di inoltrare il parametro Open ID Connect, `ui-locales`, all'endpoint.  Il server di contenuti può utilizzare questo parametro per fornire pagine HTML personalizzate specifiche del linguaggio.
 
 ## <a name="things-to-remember-when-building-your-own-content"></a>Aspetti da ricordare durante la fase di creazione del contenuto
 

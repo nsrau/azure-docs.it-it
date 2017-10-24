@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/14/2017
+ms.date: 10/6/2017
 ms.author: raiye
+ms.openlocfilehash: 7d3541e6c437212139553d975fa756084da4f757
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest di Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -30,14 +29,24 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 >
 
 
-> [!NOTE]
-> Il feed RSS è stato deprecato di recente. Tornare a visitare questa pagina per gli aggiornamenti su un nuovo feed presto disponibile.
+> [!TIP]
+>  Sottoscrivere il [feed RSS di aggiornamento del sistema operativo guest] per ricevere notifiche più tempestive su tutte le modifiche al sistema operativo guest.
+>
+>
+
+> [!IMPORTANT]
+> A partire dall'implementazione di novembre, solo le due versioni più recenti del sistema operativo Guest saranno supportate e disponibili nel portale di Azure.
 >
 >
 
 Non si è certi di quale sia il sistema operativo guest o di come funzionano i rilasci del sistema operativo guest? Leggere [questa](#how-it-works) sezione.
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+
+###### <a name="october-6-2017"></a>**6 ottobre 2017**
+È stato rilasciato il sistema operativo guest di settembre. Per questa versione di settembre di Windows Server 2016 netfx3 è abilitata per impostazione predefinita. I clienti devono aggiungere "dism /online /disable-feature /featurename:netfx3" in OnStart se il flusso di lavoro richiede l'esecuzione di un'app .NET 2.x con runtime 4.x o se è stata eseguita un'app .NET 2.x, gestito un errore e quindi eseguita un'app .NET 4.x.
+
 ###### <a name="september-14-2017"></a>**14 settembre 2017**
 L'implementazione del sistema operativo guest di settembre è iniziata il 14 settembre e dovrebbe essere rilasciata il 9 ottobre.
 
@@ -71,7 +80,7 @@ L'implementazione del sistema operativo guest di aprile è iniziata il 18 aprile
 
 ## <a name="releases"></a>Rilasci
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
-**Windows Server, 2016**
+**Windows Server 2016**
 
 Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
@@ -83,9 +92,10 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.11_201709-01 |6 ottobre 2017 |Post 5.13 |Da definire |
 | WA-GUEST-OS-5.10_201708-01 |24 agosto 2017 |Dopo la versione 5.12 |Da definire |
 | WA-GUEST-OS-5.9_201707-01 |3 agosto 2017 |Post 5.11 |Da definire |
-| WA-GUEST-OS-5.8_201706-01 |7 luglio 2017 |Post 5.10 |Da definire |
+|~~WA-GUEST-OS-5.8_201706-01~~ |7 luglio 2017 |6 ottobre 2017 |Da definire |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
@@ -105,9 +115,10 @@ Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.46_201709-01 |6 ottobre 2017 |Post 4.48 |Da definire |
 | WA-GUEST-OS-4.45_201708-01 |24 agosto 2017 |Dopo la versione 4.47 |Da definire |
 | WA-GUEST-OS-4.44_201707-01 |3 agosto 2017 |Post 4.46 |Da definire |
-| WA-GUEST-OS-4.43_201706-01 |7 luglio 2017 |Post 4.45 |Da definire |
+|~~WA-GUEST-OS-4.43_201706-01~~ |7 luglio 2017 |6 ottobre 2017 |Da definire |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
@@ -131,9 +142,10 @@ Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.53_201709-01 |6 ottobre 2017 |Post 3.55 |Da definire |
 | WA-GUEST-OS-3.52_201708-01 |24 agosto 2017 |Dopo la versione 3.54 |Da definire |
 | WA-GUEST-OS-3.51_201707-01 |3 agosto 2017 |Post 3.53 |Da definire |
-| WA-GUEST-OS-3.50_201706-01 |7 luglio 2017 |Post 3.52 |Da definire |
+|~~WA-GUEST-OS-3.50_201706-01~~ |7 luglio 2017 |6 ottobre 2017 |Da definire |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
@@ -157,9 +169,10 @@ Supporta .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.66_201709-01 |6 ottobre 2017 |Post 2.68 |Da definire |
 | WA-GUEST-OS-2.65_201708-01 |24 agosto 2017 |Dopo la versione 2.67 |Da definire |
 | WA-GUEST-OS-2.64_201707-01 |3 agosto 2017 |Post 2.66 |Da definire |
-| WA-GUEST-OS-2.63_201706-01 |7 luglio 2017 |Post 2.65 |Da definire |
+|~~WA-GUEST-OS-2.63_201706-01~~ |7 luglio 2017 |6 ottobre 2017 |Da definire |
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
@@ -228,6 +241,7 @@ Se si aggiorna manualmente il sistema operativo guest, vedere [Criteri relativi 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Criteri relativi al supporto e al ritiro del sistema operativo guest
 I criteri relativi al supporto e al ritiro del sistema operativo guest sono descritti [qui][retirepolicy].
 
+[feed RSS di aggiornamento del sistema operativo guest]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml (Feed RSS di aggiornamento del sistema operativo guest)
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -246,5 +260,4 @@ I criteri relativi al supporto e al ritiro del sistema operativo guest sono desc
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[correzione]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
-
+[correzioni]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

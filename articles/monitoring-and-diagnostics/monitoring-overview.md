@@ -1,6 +1,6 @@
 ---
 title: Monitoraggio in Microsoft Azure | Microsoft Docs
-description: Opzioni disponibili per monitorare qualsiasi elemento in Microsoft Azure. Monitoraggio di Azure, Application Insights, Log Analytics
+description: Opzioni disponibili per monitorare qualsiasi elemento in Microsoft Azure. Monitoraggio di Azure, Application Insights e Log Analytics
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,41 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 10/04/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: d4a94a92585420cf92018084437422fd0c66fa2d
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: e164cbd910ccc38610c7aef37d25ff1b4413038d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-monitoring-in-microsoft-azure"></a>Panoramica sul monitoraggio in Microsoft Azure
-Questo articolo offre una panoramica degli strumenti disponibili per il monitoraggio di Microsoft Azure. Si applica a: 
-- Applicazioni di monitoraggio eseguite in Microsoft Azure 
-- Strumenti/servizi eseguiti all'esterno di Azure che possono monitorare oggetti in Azure 
+Questo articolo offre una panoramica degli strumenti e dei servizi per il monitoraggio a livello globale di Microsoft Azure. Si applica a:
+- Uso dei servizi di Azure per monitorare le applicazioni e l'infrastruttura di Azure
+- Uso dei servizi di Azure per monitorare le applicazioni e l'infrastruttura ibride e non di Azure
+- Uso dei servizi non di Azure per monitorare le applicazioni e l'infrastruttura di Azure
 
 Illustra i vari prodotti e servizi disponibili e la relativa interazione. Può essere utile per determinare gli strumenti più appropriati nei diversi casi.  
 
-## <a name="why-use-monitoring-and-diagnostics"></a>Vantaggi del monitoraggio e della diagnostica
+## <a name="why-use-azures-monitoring-services"></a>Perché usare i servizi di monitoraggio di Azure?
 
-I problemi di prestazioni nell'app cloud possono avere un impatto sull'azienda. Con più componenti interconnessi e versioni frequenti, possono verificarsi in qualsiasi momento riduzioni delle prestazioni. Quando si sviluppa un'app, gli utenti in genere individuano problemi non trovati nei test. È consigliabile conoscere questi problemi immediatamente e avere gli strumenti per diagnosticarli e risolverli. Microsoft Azure offre diversi strumenti per identificare i problemi.
+I problemi di prestazioni nell'app cloud possono avere un impatto sull'azienda. Con più componenti interconnessi e versioni frequenti, possono verificarsi in qualsiasi momento riduzioni delle prestazioni. Quando si sviluppa un'app, gli utenti in genere individuano problemi non trovati nei test. È consigliabile conoscere questi problemi immediatamente e avere gli strumenti per diagnosticarli e risolverli. I problemi nelle applicazioni, inoltre, sono spesso dovuti all'infrastruttura sottostante in cui sono in esecuzione tali applicazioni e quindi una visione globale dell'applicazione e dell'infrastruttura è fondamentale per il monitoraggio dell'ambiente di Azure. Microsoft Azure offre diversi strumenti per identificare e risolvere tali problemi.
 
-## <a name="how-do-i-monitor-my-azure-cloud-apps"></a>Come monitorare le app cloud Azure
+## <a name="how-do-i-monitor-my-azure-environment"></a>Come si esegue il monitoraggio dell'ambiente di Azure?
 
-Per il monitoraggio delle applicazioni e dei servizi di Azure sono disponibili diversi strumenti, le cui funzionalità in parte si sovrappongono. Ciò è dovuto in parte a motivi storici e in parte alla commistione tra sviluppo e funzionamento di un'applicazione. 
+Ci sono diversi strumenti per il monitoraggio dell'ambiente di Azure, dal codice dell'applicazione in esecuzione in Azure ai servizi e all'infrastruttura che eseguono tale codice. Questi strumenti interagiscono per offrire funzionalità complete di monitoraggio cloud e includono:
 
-Di seguito sono riportati gli strumenti principali:
+-   **Monitoraggio di Azure**: il servizio di Azure che funziona come pipeline consolidata per tutti i dati di monitoraggio dei servizi di Azure. Consente l'accesso agli eventi e alle metriche delle prestazioni che descrivono il funzionamento dell'infrastruttura di Azure e dei servizi di Azure in uso. Monitoraggio di Azure è una pipeline di dati di monitoraggio per l'ambiente di Azure e fornisce i dati direttamente in Log Analytics, oltre che in strumenti di terze parti tramite cui è possibile ottenere informazioni dettagliate su tali dati e combinare tali informazioni con i dati di risorse locali o altre risorse cloud.
 
--   **Monitoraggio di Azure** è lo strumento di base per il monitoraggio dei servizi eseguiti in Azure. Offre dati a livello di infrastruttura sulla velocità effettiva di un servizio e l'ambiente circostante. Se si gestiscono tutte le app in Azure e si deve decidere se aumentare o ridurre le risorse, Monitoraggio di Azure offre un utile punto di partenza.
+-   **Application Insights**: il servizio di Azure che offre monitoraggio delle prestazioni delle applicazioni e analisi degli utenti. Esegue il monitoraggio del codice scritto e delle applicazioni distribuite in Azure oppure in locale o in altri cloud. Tramite la strumentazione dell'applicazione con Application Insights SDK, è possibile accedere a una gamma di dati, tra cui tempi di risposta delle dipendenze, tracce delle eccezioni, snapshot di debug e profili di esecuzione. Fornisce potenti strumenti per l'analisi della telemetria dell'applicazione durante lo sviluppo e il funzionamento dell'applicazione. Si integra strettamente con Visual Studio per consentire di individuare direttamente le righe di codice problematiche e correggerle e consente l'analisi di utilizzo, per analizzare l'utilizzo delle applicazioni da parte dei clienti, anche per i responsabili di prodotto.
 
--   **Application Insights** può essere usato per lo sviluppo e come soluzione di monitoraggio di produzione. Installa un pacchetto nell'app offrendo così una visione più interna delle attività eseguite. I dati includono i tempi di risposta delle dipendenze, le tracce delle eccezioni, gli snapshot per il debug e i profili di esecuzione. Vengono offerti strumenti intelligenti avanzati per analizzare tutti questi dati di telemetria ed eseguire così il debug di un'app e comprendere come viene usata dagli utenti. È possibile determinare se un picco nei tempi di risposta sia causato da un problema in un'app o da un problema esterno di allocazione delle risorse. In caso di errore nell'app, se si usa Visual Studio è possibile passare direttamente alle righe di codice problematiche per correggerlo.  
-
--   **Log Analytics** è destinato a chi deve ottimizzare le prestazioni e pianificare la manutenzione delle applicazioni eseguite in produzione. È basato su Azure e raccoglie e aggrega dati da diverse origini, anche se con un ritardo di 10-15 minuti. Offre una soluzione di gestione IT olistica per l'infrastruttura Azure, locale e basata sul cloud di terze parti (ad esempio, Amazon Web Services). Fornisce strumenti più avanzati per analizzare i dati in più origini, consente query complesse su tutti i log e può generare avvisi proattivi in condizioni specificate.  È anche possibile raccogliere dati personalizzati nel repository centrale per l'esecuzione di query e la visualizzazione. 
-
--   **System Center Operations Manager (SCOM)** è destinato alla gestione e al monitoraggio di installazioni cloud di grandi dimensioni. Può essere già noto come strumento di gestione per cloud locali basati su Windows Sever e Hyper-V, ma può anche essere integrato con app Azure e gestirle. Tra l'altro, può installare Application Insights in app attive esistenti.  L'eventuale inattività di un'app viene segnalata in pochi secondi. Si noti che Log Analytics non sostituisce SCOM, ma funziona bene insieme a questo strumento.  
-
+-   **Log Analytics**: noto in precedenza come OMS Log Analytics, è un servizio di Azure che inserisce dati di metrica e log da servizi di Azure (tramite Monitoraggio di Azure), macchine virtuali di Azure e infrastrutture locali o altre infrastrutture cloud e offre funzionalità di ricerca flessibile nei log e analisi dei dati. Fornisce strumenti avanzati per analizzare i dati in più origini, consente query complesse su tutti i log e può generare avvisi proattivi in condizioni specifiche.  È anche possibile raccogliere dati personalizzati nel repository centrale per l'esecuzione di query e la visualizzazione. È anche possibile sfruttare le soluzioni integrate di Log Analytics per ottenere immediatamente informazioni dettagliate sulla sicurezza e sulla funzionalità dell'infrastruttura.
 
 ## <a name="accessing-monitoring-in-the-azure-portal"></a>Accesso al monitoraggio nel portale di Azure
 Tutti i servizi di monitoraggio di Azure sono ora disponibili in un unico riquadro dell'interfaccia utente. Per altre informazioni su come accedere a quest'area, vedere [Introduzione a Monitoraggio di Azure](monitoring-get-started.md). 
@@ -88,7 +82,7 @@ Per altre informazioni, vedere l'articolo relativo al [debug di snapshot](../app
 > [!NOTE]
 > La funzionalità di profilatura di macchine virtuali, set di scalabilità di macchine virtuali, servizi cloud e Service Fabric è disponibile in anteprima.   
 
-Lo strumento Rilevamento intelligente, inoltre, invia notifiche proattive per posta elettronica relativamente a determinati tipi di errori, come tempi di caricamento pagina lenti.  Questo strumento non richiede alcuna configurazione. Per altre informazioni, vedere [Rilevamento intelligente: anomalie nelle prestazioni](../application-insights/app-insights-proactive-performance-diagnostics.md) e questo [post di blog](https://azure.microsoft.com/blog/Enhancments-ApplicationInsights-SmartDetection/preview) sullo stesso argomento.
+Lo strumento Rilevamento intelligente, inoltre, invia notifiche proattive per posta elettronica relativamente a determinati tipi di errori, come tempi di caricamento pagina lenti.  Questo strumento non richiede alcuna configurazione. Per altre informazioni, vedere [Rilevamento intelligente - prestazioni anomale](../application-insights/app-insights-proactive-performance-diagnostics.md).
 
 
 

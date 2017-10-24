@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
 ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandi dell’interfaccia della riga di comando Azure in modalità Resource Manager
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell'interfaccia della riga di comando (CLI) di Azure usati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. Per informazioni generali su risorse e gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -968,7 +968,7 @@ Opzioni dei parametri:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    pool di indirizzi di rete lb eliminare [opzioni] < gruppo risorse >< lb-name ><name>
+    network lb address-pool delete [opzioni] <resource-group> <lb-name> <name>
 
 Rimuove la risorsa dell'intervallo pool di indirizzi IP back-end dal servizio/dispositivo di bilanciamento del carico.
 
@@ -1353,7 +1353,7 @@ Opzioni dei parametri:
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    indirizzo ip pubblico di rete Mostra [opzioni] < gruppo risorse ><name>
+    network public-ip show [opzioni] <resource-group> <name>
 
 Visualizza le proprietà di una risorsa IP pubblico all'interno di un gruppo di risorse.
 

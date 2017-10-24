@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
 ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-logic-apps-features"></a>Usare le funzionalità delle app per la logica
 
@@ -120,7 +120,7 @@ Questo esempio illustra come aggiornare l'app per la logica esistente in modo ch
 2. Andare all'azione `When_a_feed-item_is_published`, trovare la sezione `queries` e sostituire il valore della query con `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
 
     Per unire due o più stringhe, è inoltre possibile usare la funzione `concat`. 
-    Ad esempio, `"@concat('#',parameters('currentFeedUrl'))"` funziona come sopra.
+    Ad esempio, `"@concat('#',parameters('currentFeedUrl'))"` funziona come indicato sopra.
 
 3.  Al termine dell'operazione, scegliere **Salva**. 
 

@@ -14,26 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 64852471a848cb42fd8a2e67622d309d5e050cfd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-compose"></a>sfctl compose
-Creare, eliminare e gestire applicazioni Docker Compose.
+Creare, eliminare e gestire distribuzioni Docker Compose.
 
 ## <a name="commands"></a>Comandi:
 
 |Comando|Descrizione|
 | --- | --- |
-|    create| Crea un'applicazione di Service Fabric da un file di composizione.|
-|    list  | Mostra l'elenco di applicazioni di composizione create nel cluster di Service Fabric.|
-|   remove| Elimina un'applicazione di composizione Service Fabric esistente dal cluster.|
-|   status| Mostra informazioni su un'applicazione di composizione Service Fabric.|
+|    create| Distribuisce un'applicazione di Service Fabric da un file di Compose.|
+|    list  | Mostra l'elenco di distribuzioni di composizione create nel cluster di Service Fabric.|
+|   remove| Elimina una distribuzione di composizione Service Fabric esistente dal cluster.|
+|   status| Mostra informazioni su una distribuzione di composizione Service Fabric.|
 |Aggiornamento       | Avvia l'aggiornamento di una distribuzione di composizione nel cluster di Service Fabric.|
-|    upgrade-status| Mostra i dettagli dell'aggiornamento più recente eseguito sulla distribuzione di composizione Service Fabric corrente.|
+|    upgrade-status| Mostra i dettagli dell'aggiornamento più recente eseguito sulla distribuzione Compose per Service Fabric corrente.|
 
 
 ## <a name="sfctl-compose-create"></a>sfctl compose create
@@ -44,18 +43,18 @@ Crea una distribuzione di composizione di Service Fabric.
 |Argomento|Descrizione|
 | --- | --- |
 | --file-path [Obbligatorio]| Percorso al file di destinazione Docker Compose.|
- |   --name      [Obbligatorio]| L'identità della distribuzione.|
-|    --encrypted-pass      | Anziché richiedere una password di registro contenitori, usare una passphrase già crittografata.|
-|    --has-pass            | Richiede una password al registro contenitori.|
-|    --timeout -t          | Timeout del server in secondi.  Predefinito: 60.|
- |   --user                | Nome utente per connettersi al registro contenitori.|
+ |   --deployment-name [Obbligatorio]| Nome della distribuzione.|
+|    --encrypted-pass             | Invece di richiedere una password di registro contenitori, usare una passphrase già crittografata.|
+|    --has-pass                   | Richiede una password al registro contenitori.|
+|    --timeout -t                 | Timeout del server in secondi.  Predefinito: 60.|
+ |   --user                       | Nome utente per connettersi al registro contenitori.|
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Descrizione|
 | --- | --- |
 | --debug                 | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h               | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h               | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o             | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito:             json.|
 | --query                 | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose               | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -78,7 +77,7 @@ Mostra lo stato delle distribuzioni di composizione che sono stati creati oppure
 |Argomento|Descrizione|
 | --- | --- |
 | --debug          | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h        | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h        | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o      | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query          | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose        | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -100,7 +99,7 @@ Elimina una distribuzione di composizione Service Fabric esistente dal cluster.
 |Argomento|Descrizione|
 | --- | --- |
 | --debug                 | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h               | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h               | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o             | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito:             json.|
 | --query                 | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose               | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -122,7 +121,7 @@ Restituisce lo stato di distribuzione di composizione che è stato creato o è i
 |Argomento|Descrizione|
 | --- | --- |
 | --debug                 | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h               | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h               | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o             | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito:             json.|
 | --query                 | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose               | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -136,7 +135,7 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della dis
 |Argomento|Descrizione|
 | --- | --- |
 |    --file-path        [Obbligatorio]| Percorso al file di destinazione Docker Compose.|
-|    --name             [Obbligatorio]| L'identità della distribuzione.|
+|    --deployment-name [Obbligatorio]| Nome della distribuzione.|
 |    --default-svc-type-health-map| Dizionario con codifica JSON che descrive i criteri di integrità usati per valutare l'integrità dei servizi.|
 |    --encrypted-pass             | Anziché richiedere una password di registro contenitori, usare una passphrase già crittografata.|
  |   --failure-action             | I valori possibili sono: 'Invalid', 'Rollback', 'Manual'.|
@@ -160,12 +159,12 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della dis
  |Argomento|Descrizione|
 | --- | --- |
 |   --debug                      | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-|    --help -h                    | Mostra questo messaggio della Guida e l’uscita.|
+|    --help -h                    | Mostra questo messaggio della Guida e l'uscita.|
  |   --output -o                  | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.
                                    Predefinito: json.|
  |   --query                      | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
- |   --verbose                    | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+ |   --verbose                    | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come utilizzare l’interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).

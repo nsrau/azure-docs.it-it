@@ -15,20 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
+ms.openlocfilehash: 3e54cb45cf002a183a5b0bd9b3082a235cd825f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 2219aeb725b207fd92ff3e7603d7ee9c78f2844c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="high-availability-ports-overview-preview"></a>Panoramica delle porte a disponibilità elevata (anteprima)
 
 Lo SKU Standard di Azure Load Balancer introduce le porte a disponibilità elevata, una funzionalità per la distribuzione del traffico da tutte le porte e per tutti i protocolli supportati. Durante la configurazione di un servizio di bilanciamento del carico interno, gli utenti possono configurare una regola per le porte a disponibilità elevata con cui impostare le porte front-end e back-end su **0** e il protocollo su **all**, consentendo in tal modo a tutto il traffico di passare dal servizio di bilanciamento del carico interno.
 
 >[!NOTE]
-> La funzionalità Porte a disponibilità elevata è attualmente disponibile in anteprima. Durante l'anteprima, la funzionalità potrebbe non avere lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La funzionalità Porte a disponibilità elevata è attualmente disponibile in anteprima con Load Balancer Standard. Durante l'anteprima, la funzionalità potrebbe non avere lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per usare la funzionalità Porte a disponibilità elevata con le risorse Load Balancer Standard è necessario iscriversi a Load Balancer Standard (anteprima). Seguire le istruzioni per l'iscrizione oltre all'[Anteprima Standard](https://aka.ms/lbpreview#preview-sign-up) di Load Balancer.
 
 L'algoritmo di bilanciamento del carico rimane lo stesso e la destinazione viene selezionata in base alle cinque tuple <Indirizzo IP di origine, Porta di origine, Indirizzo IP di destinazione, Porta di destinazione, Protocollo>. Questa configurazione tuttavia consente una sola regola di bilanciamento del carico per elaborare tutto il traffico disponibile e riduce la complessità della configurazione, ma anche i limiti imposti dal numero massimo di regole di bilanciamento del carico che è possibile aggiungere.
 
@@ -71,8 +69,13 @@ Per partecipare all'anteprima della funzionalità Porte a disponibilità elevata
 
     ```cli
     az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
-    ```
-## <a name="caveats"></a>Avvertenze
+    ```  
+
+
+>[!NOTE]
+>Per usare questa funzionalità, è necessario iscriversi all'[Anteprima Standard](https://aka.ms/lbpreview#preview-sign-up) di Load Balancer oltre alla funzionalità Porte a disponibilità elevata. La registrazione delle funzionalità Porte a disponibilità elevata o Load Balancer Standard (anteprima) potrebbe richiedere fino a un'ora.
+
+## <a name="limitations"></a>Limitazioni
 
 Di seguito sono elencate le configurazioni supportate o le eccezioni per le porte a disponibilità elevata:
 
@@ -86,5 +89,4 @@ Di seguito sono elencate le configurazioni supportate o le eccezioni per le port
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Configurare le porte a disponibilità elevata in un servizio di bilanciamento del carico interno](load-balancer-configure-ha-ports.md)
-
 

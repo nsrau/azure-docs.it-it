@@ -4,8 +4,8 @@ description: Informazioni su come configurare un firewall del database SQL con r
 keywords: firewall del database
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: craigg
+author: CarlRabeler
+manager: jhubbard
 editor: cgronlun
 tags: 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
@@ -15,20 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/15/2017
-ms.author: rickbyh
+ms.date: 10/11/2017
+ms.author: carlrab
+ms.openlocfilehash: a99ef3117cba8fea6a69e8f5cef15cf8fe711715
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a683481c9ebcdb8be6f9fefe442541e222482823
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Regole firewall a livello di server e di database per il database SQL di Azure 
 
 Il database SQL di Microsoft Azure fornisce un servizio di database relazionale per Azure e altre applicazioni basate su Internet. Per proteggere i dati, il firewall impedisce qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta.
 
-#### <a name="virtual-netowrk-rules-as-alternatives-to-ip-rules"></a>Regole della rete virtuale come alternative alle regole IP
+#### <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Regole della rete virtuale come alternativa alle regole IP
 
 Oltre alle regole IP, il firewall gestisce anche le *regole della rete virtuale*. Le regole della rete virtuale si basano sugli endpoint di servizio di Rete virtuale. In alcuni casi le regole della rete virtuale potrebbero essere preferibili alle regole IP. Per altre informazioni, vedere [Endpoint del servizio Rete virtuale e regole per il database SQL di Azure](sql-database-vnet-service-endpoint-rule-overview.md).
 
@@ -71,7 +70,7 @@ Per consentire alle applicazioni da Azure di stabilire la connessione al server 
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Creazione e gestione di regole del firewall
-La prima impostazione del firewall a livello di server può essere creata usando il [Portale di Azure](https://portal.azure.com/) o a livello di programmazione tramite [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [l'interfaccia della riga di comando di Azure](/cli/azure/sql/server/firewall-rule#create), o l'[API REST](https://docs.microsoft.com/rest/api/sql/firewallrules). Le regole del firewall a livello di server successive possono essere create e gestite utilizzando questi metodi e tramite Transact-SQL. 
+La prima impostazione del firewall a livello di server può essere creata usando il [Portale di Azure](https://portal.azure.com/) o a livello di programmazione tramite [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [l'interfaccia della riga di comando di Azure](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create), o l'[API REST](https://docs.microsoft.com/rest/api/sql/firewallrules). Le regole del firewall a livello di server successive possono essere create e gestite utilizzando questi metodi e tramite Transact-SQL. 
 
 > [!IMPORTANT]
 > Le regole del firewall a livello di database possono essere create e gestite solo con Transact-SQL. 
@@ -163,11 +162,11 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Gestire le regole del firewall con l'interfaccia della riga di comando di Azure
 | Cmdlet | Level | Descrizione |
 | --- | --- | --- |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Consente di creare una regola del firewall per consentire l'accesso a tutti i database SQL presenti sul server dall'intervallo di indirizzi IP immesso.|
-| [az sql server firewall delete](/cli/azure/sql/server/firewall-rule#delete)| Elimina una regola del firewall.|
-| [az sql server firewall list](/cli/azure/sql/server/firewall-rule#list)| Elenca le regole del firewall.|
-| [az sql server firewall rule show](/cli/azure/sql/server/firewall-rule#show)| Visualizza i dettagli di una regola del firewall.|
-| [ax sql server firewall rule update](/cli/azure/sql/server/firewall-rule#update)| Aggiorna una regola del firewall.
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Server|Crea una regola del firewall del server|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Server|Elenca le regole del firewall in un server|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Server|Mostra i dettagli di una regola del firewall|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Server|Aggiorna una regola del firewall|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Server|Elimina una regola del firewall|
 
 Nell'esempio seguente si imposta una regola del firewall a livello di server con l'interfaccia della riga di comando di Azure: 
 
@@ -227,4 +226,3 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
-

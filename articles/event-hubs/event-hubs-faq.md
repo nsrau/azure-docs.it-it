@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
-ms.author: sethm;shvija
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: c4faa071c4f2401fe3e852e787e3b7d4da0c7d44
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: e208e970de58505553802a4ed27d7f9da4070866
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
 ## <a name="general"></a>Generale
@@ -44,7 +42,7 @@ Le unità elaborate in Hub eventi vengono selezionate in modo esplicito tramite 
 * Fino a 2 MB al secondo di eventi in uscita (gli eventi utilizzati da un hub eventi).
 * Fino a 84 GB di archiviazione eventi (sufficienti per il periodo di conservazione di 24 ore predefinito).
 
-Le unità elaborate in Hub eventi vengono fatturate con tariffe orarie, in base al numero massimo di unità selezionate in una determinata ora.
+Le unità elaborate in Hub eventi vengono fatturate con tariffe orarie, in base al numero massimo di unità selezionate in una determinata ora. È possibile [aumentare il numero unità elaborate](event-hubs-auto-inflate.md) automaticamente man mano che aumenta l'utilizzo.
 
 ### <a name="how-are-event-hubs-throughput-unit-limits-enforced"></a>Come vengono applicati i limiti di unità elaborate in Hub eventi
 Se la velocità effettiva totale in ingresso o la frequenza degli eventi totali in ingresso fra tutti gli hub eventi in uno spazio dei nomi supera la capacità massima di unità elaborate aggregate, i mittenti vengono limitati e ricevono errori indicanti che è stata superata la quota in ingresso.
@@ -53,6 +51,8 @@ Se la velocità effettiva totale in uscita o la frequenza degli eventi totali in
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-selected"></a>Esiste un limite al numero di unità elaborate che possono essere selezionate?
 Esiste una quota predefinita di 20 unità elaborate per ogni spazio dei nomi. È possibile richiedere una quota maggiore di unità elaborate creando un ticket di supporto. Oltre il limite di 20 unità elaborate, sono disponibili bundle di 20 e 100 unità elaborate. Si noti che l'utilizzo di più di 20 unità di elaborate elimina la possibilità di modificare il numero di unità elaborate senza creare ticket di supporto.
+
+Usando la funzionalità [Aumento automatico](event-hubs-auto-inflate.md) è possibile aumentare automaticamente il numero unità elaborate man mano che aumenta l'utilizzo.
 
 ### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>È possibile usare una singola connessione AMQP per l'invio a e la ricezione da più hub eventi?
 Sì, purché tutti gli hub eventi si trovino nello stesso spazio dei nomi.
@@ -92,7 +92,7 @@ Gli eventi utilizzati da un hub eventi, nonché le operazioni di gestione e le c
 I costi di connessione si applicano solo quando viene usato il protocollo AMQP. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. Se si prevede di usare AMQP, ad esempio per ottenere un flusso di eventi più efficiente o consentire la comunicazione bidirezionale in scenari di comando e controllo IoT, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/) per i dettagli relativi al numero di connessioni incluse in ogni livello del servizio.
 
 ### <a name="how-is-event-hubs-capture-billed"></a>Come viene fatturata l'acquisizione di Hub eventi?
-L'acquisizione di Hub eventi è abilitata quando per qualsiasi hub eventi nello spazio dei nomi è abilitata l'opzione Acquisizione. L'acquisizione di Hub eventi viene fatturata su base oraria per le unità elaborate acquistate. Man mano che il numero di unità elaborate aumenta o diminuisce, queste variazioni si riflettono sulla fatturazione dell'acquisizione di Hub eventi in incrementi di ore intere. Per altre informazioni sulla fatturazione dell'acquisizione di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
+L'acquisizione di Hub eventi è abilitata quando per qualsiasi hub eventi nello spazio dei nomi è abilitata l'opzione Acquisizione. L'acquisizione di Hub eventi viene fatturata su base oraria per le unità di velocità effettiva acquistate. Man mano che il numero di unità elaborate aumenta o diminuisce, queste variazioni si riflettono sulla fatturazione dell'acquisizione di Hub eventi in incrementi di ore intere. Per altre informazioni sulla fatturazione dell'acquisizione di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="will-i-be-billed-for-the-storage-account-i-select-for-event-hubs-capture"></a>Come viene fatturato l'account di archiviazione selezionato per l'acquisizione di Hub eventi?
 L'acquisizione usa un account di archiviazione fornito dall'utente, quando la funzione è abilitata in un hub eventi. Poiché si tratta dell'account di archiviazione dell'utente, eventuali modifiche alla configurazione verranno fatturati sulla sua sottoscrizione di Azure.
@@ -120,4 +120,4 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
-
+* [Aumento automatico di Hub eventi](event-hubs-auto-inflate.md)

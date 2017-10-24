@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: curtand;jeffsta
+ms.date: 10/10/2017
+ms.author: curtand
+ms.reviewer: elkuzmen
+ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 2f5a41907e9fa304444b369311e182d3f00ef619
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
 Un nome di dominio è una parte importante dell'identificatore per numerose risorse directory: è parte di un nome utente o di un indirizzo di posta elettronica per un utente, parte dell'indirizzo per un gruppo e può essere parte dell'URI dell'ID app per un'applicazione. Una risorsa in Azure Active Directory (Azure AD) può includere un nome di dominio già verificato come di proprietà della directory contenente il servizio. Solo un amministratore globale può eseguire attività di gestione del dominio in Azure AD.
@@ -28,12 +28,12 @@ Un nome di dominio è una parte importante dell'identificatore per numerose riso
 Quando viene creata la directory, il nome di dominio iniziale, ad esempio "contoso.onmicrosoft.com", è anche il nome di dominio primario. Il dominio primario è il nome di dominio predefinito per un nuovo utente quando si crea un nuovo utente. Impostare un nome di dominio primario semplifica il processo di creazione di nuovi utenti nel portale da parte degli amministratori. Per cambiare il nome di dominio primario:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
-2. Selezionare **Altri servizi**, immettere **Azure Active Directory** nella casella di testo e quindi selezionare **Invio**.
+2. Selezionare **Azure Active Directory**.
    
    ![Apertura di Gestione utenti](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Nel pannello ***nome directory*** selezionare **Nomi di dominio**.
-4. Nel pannello ***nome directory* - Nomi di dominio** selezionare il nome di dominio che si vuole rendere il nome primario.
-5. Nel pannello del ***nome di dominio***, ossia nel pannello che viene visualizzato con il nuovo nome di dominio nel titolo, selezionare il comando **Imposta come primario**. Confermare la scelta quando viene richiesto.
+3. Selezionare **Nome di dominio**.
+4. Selezionare il nome del dominio che si vuole impostare come dominio primario.
+5. Selezionare il comando **Imposta come primario**. Confermare la scelta quando viene richiesto.
    
    ![Rendere primario un nome di dominio](./media/active-directory-domains-manage-azure-portal/make-primary.png)
 
@@ -67,5 +67,4 @@ La maggior parte delle attività di gestione per i nomi di dominio in Azure Acti
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere nomi di dominio personalizzati](add-custom-domain.md)
-
 

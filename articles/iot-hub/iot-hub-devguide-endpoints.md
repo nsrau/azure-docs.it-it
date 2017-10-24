@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 09/19/2017
 ms.author: dobett
+ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: a5753df2ff6874d9574e268953792cac9765cc54
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -38,9 +37,9 @@ L'hub IoT di Azure è un servizio multi-tenant che espone le proprie funzionalit
 L'elenco seguente offre una descrizione degli endpoint:
 
 * **Provider di risorse**. Il provider di risorse dell'hub IoT espone un'interfaccia [Azure Resource Manager][lnk-arm]. Questa interfaccia consente ai proprietari della sottoscrizione di Azure di creare ed eliminare gli hub IoT, nonché di aggiornare le proprietà degli hub IoT. Le proprietà dell'hub IoT disciplinano i [criteri di sicurezza a livello di hub][lnk-accesscontrol], in contrasto con il controllo di accesso a livello di dispositivo, e le opzioni funzionali per la messaggistica da cloud a dispositivo e da dispositivo a cloud. Il provider di risorse dell'hub IoT consente anche di [esportare le identità dei dispositivi][lnk-importexport].
-* **Gestione delle identità dei dispositivi**. Ogni hub IoT espone un set di endpoint REST HTTP per gestire le identità dei dispositivi (per operazioni di creazione, recupero, aggiornamento ed eliminazione). Le [identità dei dispositivi][lnk-device-identities] vengono usate per l'autenticazione dei dispositivi e il controllo di accesso.
-* **Gestione dei dispositivi gemelli**. Ogni hub IoT espone un set di endpoint HTTP REST orientati ai servizi per eseguire query e aggiornare [dispositivi gemelli][lnk-twins] (aggiornare tag e proprietà).
-* **Gestione dei processi**. Ogni hub IoT espone un set di endpoint HTTP REST orientati ai servizi per eseguire query e gestire i [processi][lnk-jobs].
+* **Gestione delle identità dei dispositivi**. Ogni hub IoT espone un set di endpoint REST HTTPS per gestire le identità dei dispositivi (per operazioni di creazione, recupero, aggiornamento ed eliminazione). Le [identità dei dispositivi][lnk-device-identities] vengono usate per l'autenticazione dei dispositivi e il controllo di accesso.
+* **Gestione dei dispositivi gemelli**. Ogni hub IoT espone un set di endpoint REST HTTPS orientati ai servizi per eseguire query e aggiornare [dispositivi gemelli][lnk-twins] (aggiornare tag e proprietà).
+* **Gestione dei processi**. Ogni hub IoT espone un set di endpoint REST HTTPS orientati ai servizi per eseguire query e gestire i [processi][lnk-jobs].
 * **Endpoint del dispositivo**. Per ogni dispositivo nel registro delle identità, l'hub IoT espone un set di endpoint:
 
   * *Invio di messaggi da dispositivo a cloud*. Un dispositivo uso questo endpoint per [inviare messaggi da dispositivo a cloud][lnk-d2c].
@@ -49,9 +48,9 @@ L'elenco seguente offre una descrizione degli endpoint:
   * *Recuperare e aggiornare le proprietà dei dispositivi gemelli*. Un dispositivo usa questo endpoint per accedere alle relative proprietà del [dispositivo gemello][lnk-twins].
   * *Ricezione di richieste di metodi diretti*. Un dispositivo usa questo endpoint per ascoltare le richieste di [metodi diretti][lnk-methods].
 
-    Questi endpoint vengono esposti con i protocolli [MQTT v3.1.1][lnk-mqtt], HTTP 1.1 e [AMQP 1.0][lnk-amqp]. AMQP è disponibile anche su [WebSocket][lnk-websockets] sulla porta 443.
+    Questi endpoint vengono esposti con i protocolli [MQTT v3.1.1][lnk-mqtt], HTTPS 1.1 e [AMQP 1.0][lnk-amqp]. AMQP è disponibile anche su [WebSocket][lnk-websockets] sulla porta 443.
 
-* **Endpoint di servizio**. Ogni hub IoT espone un set di endpoint per il back-end della soluzione per comunicare con i dispositivi. Con una eccezione, questi endpoint sono esposti solo tramite il protocollo [AMQP][lnk-amqp]. Tramite il protocollo HTTP viene esposto l'endpoint di chiamata del metodo.
+* **Endpoint di servizio**. Ogni hub IoT espone un set di endpoint per il back-end della soluzione per comunicare con i dispositivi. Con una eccezione, questi endpoint sono esposti solo tramite il protocollo [AMQP][lnk-amqp]. Tramite il protocollo HTTPS viene esposto l'endpoint di chiamata del metodo.
   
   * *Ricezione di messaggi da dispositivo a cloud*. Questo endpoint è compatibile con [Hub eventi di Azure][lnk-event-hubs] e può essere usato da un servizio back-end per leggere i [messaggi da dispositivo a cloud][lnk-d2c] inviati dai dispositivi. Oltre a questo endpoint predefinito, è possibile creare endpoint personalizzati sull'hub IoT.
   * *Invio di messaggi da cloud a dispositivo e ricezione di acknowledgement di recapito*. Questi endpoint consentono al back-end della soluzione di inviare [messaggi da cloud a dispositivo][lnk-c2d] affidabili e di ricevere gli acknowledgment di recapito o di scadenza corrispondenti.
@@ -69,6 +68,7 @@ Tutti gli endpoint dell'hub IoT usano il protocollo [TLS][lnk-tls] e non vengono
 
 Hub IoT supporta attualmente i servizi di Azure seguenti come endpoint aggiuntivi:
 
+* Contenitori di Archiviazione di Azure
 * Hub eventi
 * Code del bus di servizio
 * Argomenti del bus di servizio
@@ -77,10 +77,23 @@ Hub IoT richiede l'accesso in scrittura a questi endpoint di servizio affinché 
 
 Se un messaggio corrisponde a più percorsi che puntano allo stesso endpoint, hub IoT invia il messaggio a questo endpoint una sola volta. Pertanto, non è necessario configurare la deduplicazione nella coda o nell'argomento del bus di servizio. Nelle code partizionate, l'affinità della partizione garantisce l'ordinamento dei messaggi.
 
-> [!NOTE]
-> Nelle code e negli argomenti del bus di servizio usati come endpoint dell'hub IoT non devono essere abilitati le **sessioni** e il **rilevamento duplicati**. Se una di queste opzioni è abilitata, l'endpoint risulta **non raggiungibile** nel portale di Azure.
-
 Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas and throttling][lnk-devguide-quotas] (Quote e limitazioni).
+
+### <a name="when-using-azure-storage-containers"></a>Uso dei contenitori di Archiviazione di Azure
+
+L'hub IoT supporta solo la scrittura dei dati nei contenitori di Archiviazione di Azure come BLOB nel formato [Apache Avro](http://avro.apache.org/). L'hub IoT crea batch di messaggi e scrive i dati in un BLOB non appena raggiunge una determinata dimensione oppure dopo che è trascorso un determinato intervallo di tempo, a seconda dello scenario che si verifica per primo. L'hub IoT non scriverà un BLOB vuoto se non sono presenti dati da scrivere.
+
+Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente:
+
+```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
+```
+
+È possibile usare la convenzione di denominazione desiderata. È tuttavia necessario usare tutti i token elencati.
+
+### <a name="when-using-service-bus-queues-and-topics"></a>Uso di code e argomenti del bus di servizio
+
+Nelle code e negli argomenti del bus di servizio usati come endpoint dell'hub IoT non devono essere abilitati le **sessioni** e il **rilevamento duplicati**. Se una di queste opzioni è abilitata, l'endpoint risulta **non raggiungibile** nel portale di Azure.
 
 ## <a name="field-gateways"></a>Gateway sul campo
 
@@ -125,4 +138,3 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [lnk-operations-mon]: iot-hub-operations-monitoring.md
-

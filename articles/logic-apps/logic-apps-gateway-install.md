@@ -13,14 +13,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 07/13/2017
-ms.author: LADocs; dimazaid; estfan
+ms.date: 09/14/2017
+ms.author: LADocs; millopis; estfan
+ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 34e68ae7d35019848b35c785a2715ec458dc6e73
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per le app per la logica di Azure
 
@@ -52,6 +51,7 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 *   [Gateway dati locale di Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 <a name="requirements"></a>
+
 ## <a name="requirements"></a>Requisiti
 
 **Minimo**:
@@ -75,9 +75,12 @@ Non è possibile installare il gateway in un controller di dominio.
 
 * Non installare il gateway su un computer che si disattiva o che non può connettersi a Internet perché il gateway non può essere eseguito in tali circostanze. Le prestazioni del gateway possono anche diminuire su una rete wireless.
 
-* Durante l'installazione, è necessario accedere con un [account aziendale o dell'istituto di istruzione](https://docs.microsoft.com/azure/active-directory/sign-up-organization) gestito da Azure Active Directory (Azure AD), non con un account Microsoft. 
+* Durante l'installazione, è necessario accedere con un [account aziendale o dell'istituto di istruzione](https://docs.microsoft.com/azure/active-directory/sign-up-organization) gestito da Azure Active Directory (Azure AD), non con un account Microsoft.
 
-  È necessario usare successivamente lo stesso account aziendale o dell'istituto di istruzione nel portale di Azure quando si crea e si associa una risorsa di gateway all'installazione del gateway. Si seleziona quindi la risorsa del gateway quando si crea la connessione tra l'app per la logica e l'origine dati locale. [Perché è necessario usare un account di Azure AD aziendale o dell'istituto di istruzione?](#why-azure-work-school-account)
+  > [!TIP]
+  > Se si vuole usare un account Microsoft che ha un abbonamento a Visual Studio con MSDN, prima di tutto [creare una directory (tenant) in Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) con l'account Microsoft oppure usare la directory predefinita. Aggiungere un utente con una password per la directory e quindi concedere all'utente l'accesso alla sottoscrizione. Sarà quindi possibile accedere durante l'installazione del gateway con questo nome utente e questa password.
+
+  Successivamente sarà necessario usare lo stesso account aziendale o dell'istituto di istruzione nel portale di Azure quando si crea e si associa una risorsa gateway all'installazione del gateway. Si seleziona quindi la risorsa del gateway quando si crea la connessione tra l'app per la logica e l'origine dati locale. [Perché è necessario usare un account di Azure AD aziendale o dell'istituto di istruzione?](#why-azure-work-school-account)
 
   > [!TIP]
   > Se si è effettuata l'iscrizione a un'offerta di Office 365 senza fornire l'indirizzo di posta elettronica aziendale effettivo, l'indirizzo di accesso sarà simile a jeff@contoso.onmicrosoft.com. 
@@ -145,10 +148,20 @@ Per eseguire queste attività, è necessario disporre della chiave di ripristino
 
 4. Specificare la chiave di ripristino per il gateway di cui si vuole eseguire la migrazione o il ripristino o acquisire la proprietà.
 
+<a name="windows-service-account"></a>
+
+## <a name="windows-service-account"></a>Account del servizio Windows
+
+Il gateway dati locale viene eseguito come servizio di Windows ed è configurato per usare `NT SERVICE\PBIEgwService` come credenziali di accesso al servizio di Windows. Per impostazione predefinita, il gateway ha il diritto di "Accesso come servizio", per il computer in cui si installa il gateway. Per creare e gestire il gateway nel portale di Azure, l'account del servizio di Windows deve avere almeno autorizzazioni di **Collaboratore**. 
+
+> [!NOTE]
+> Questo account del servizio Windows è diverso dall'account usato per la connessione a origini dati locali e dall'account di Azure aziendale o dell'istituto di istruzione usato per accedere ai servizi cloud.
+
 <a name="restart-gateway"></a>
+
 ## <a name="restart-the-gateway"></a>Riavviare il gateway
 
-Il gateway viene eseguito come un servizio Windows. Come qualsiasi altro servizio Windows, può essere avviato e arrestato in diversi modi. Ad esempio, è possibile aprire un prompt dei comandi con autorizzazioni elevate nel computer in cui è in esecuzione il gateway e quindi eseguire uno dei comandi seguenti:
+Come qualsiasi altro servizio Windows, può essere avviato e arrestato in diversi modi. Ad esempio, è possibile aprire un prompt dei comandi con autorizzazioni elevate nel computer in cui è in esecuzione il gateway e quindi eseguire uno dei comandi seguenti:
 
 * Per arrestare il servizio, eseguire questo comando:
   
@@ -157,13 +170,6 @@ Il gateway viene eseguito come un servizio Windows. Come qualsiasi altro servizi
 * Per avviare il servizio, eseguire questo comando:
   
     `net start PBIEgwService`
-
-### <a name="windows-service-account"></a>Account del servizio Windows
-
-Il gateway dati locale è configurato per usare `NT SERVICE\PBIEgwService` come credenziale di accesso al servizio Windows. Per impostazione predefinita, il gateway ha il diritto di "Accesso come servizio", per il computer in cui si installa il gateway.
-
-> [!NOTE]
-> Questo account del servizio Windows è diverso dall'account usato per la connessione a origini dati locali e dall'account di Azure aziendale o dell'istituto di istruzione usato per accedere ai servizi cloud.
 
 ## <a name="configure-a-firewall-or-proxy"></a>Configurare un firewall o proxy
 
@@ -336,4 +342,3 @@ I log di Gateway di gestione dati e PowerBIGateway sono reperibili in **Registri
 * [Connessione al gateway dati locale per le app per la logica](../logic-apps/logic-apps-gateway-connection.md)
 * [Funzionalità di Enterprise Integration](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Connettori per App per la logica di Azure](../connectors/apis-list.md)
-

@@ -16,12 +16,11 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 10795d59b019d7c683abfeea611d5909b88891ec
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Usare un'immagine Docker personalizzata per App Web di Azure per contenitori
 
@@ -529,16 +528,16 @@ Il comando mostra due password che possono essere usate con il nome utente.
 }
 ```
 
-Dopo avere ottenuto le credenziali necessarie, accedere a Registro contenitori di Azure usando il comando `docker login`. Per accedere al registro, è necessario l'URL. Usare il formato `http://{azure-container-registry-name>.azurecr.io`.
+Dopo avere ottenuto le credenziali necessarie, accedere a Registro contenitori di Azure usando il comando `docker login`. Per l'accesso è necessario il nome del server. Usare il formato `{azure-container-registry-name>.azurecr.io`.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
-Verificare che l'accesso sia riuscito. Eseguire il push dell'immagine usando il comando `docker push` e contrassegnando l'immagine con l'URL completo del registro seguito dal nome dell'immagine e dal tag.
+Verificare che l'accesso sia riuscito. Eseguire il push dell'immagine usando il comando `docker push` e contrassegnando l'immagine con il nome del registro seguito dal nome dell'immagine e dal tag.
 
 ```bash
-docker push http://<azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
+docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
 Verificare che il push abbia aggiunto un contenitore al registro elencando i repository di record di controllo di accesso. 
@@ -623,4 +622,3 @@ Il comando mostra un output simile alla stringa JSON seguente, indicante che la 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](app-service-linux-faq.md)
-

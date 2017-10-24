@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
-ms.contentlocale: it-it
-ms.lasthandoff: 01/20/2017
-
+ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-query-action"></a>Introduzione all'azione di query
 Con l'azione di query è possibile usare batch e matrici per poter eseguire flussi di lavoro per:
@@ -49,6 +48,8 @@ Ecco come è possibile aggiungerla in un'app per la logica:
    
     L'azione genera una nuova matrice che contiene solo i risultati che soddisfano i requisiti del filtro.
 6. Fare clic sull'angolo in alto a sinistra della barra degli strumenti per salvare e pubblicare (attivare) l'app per la logica.
+
+\* Se si esegue la chiamata a un endpoint HTTP e si riceve una risposta JSON, usare l'azione _Analizza JSON_ per analizzare la risposta JSON. Senza questo passaggio, l'azione _Filtra matrice_ vedrà solo il corpo e non comprenderà la struttura del payload JSON.
 
 ## <a name="query-action"></a>Azione di query
 Ecco i dettagli per l'azione supportata da questo connettore. Il connettore supporta una sola azione possibile.
@@ -80,5 +81,4 @@ Di seguito sono riportati i dettagli di output per la risposta HTTP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
-
 

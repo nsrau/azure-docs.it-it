@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
+ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1d9ccc1c81260379b5e645d338cbf1fa265e18d4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Cosa fare se si verifica un'interruzione di Archiviazione di Azure
 Microsoft si impegna costantemente per verificare che i servizi siano sempre disponibili. A volte si verificano eventi al di fuori del controllo di Microsoft, che causano interruzioni non pianificate dei servizi in una o più aree. Per riuscire a gestire questi sporadici avvenimenti, viene fornita la guida generale seguente per i servizi di Archiviazione di Azure.
 
@@ -54,7 +52,7 @@ Quando un'emergenza locale colpisce l'area primaria, per prima cosa si cercherà
 È necessario tenere presenti alcuni aspetti relativi all'esperienza di failover geografico di archiviazione:
 
 * Il failover geografico di archiviazione verrà attivato solo dal team di Archiviazione di Azure. Non è necessaria alcuna azione da parte del cliente.
-* Gli endpoint di servizio di archiviazione esistenti per BLOB, tabelle, code e file rimarranno gli stessi dopo il failover. La voce DNS dovrà essere aggiornata per passare dall'area primaria all'area secondaria.
+* Gli endpoint di servizio di archiviazione esistenti per BLOB, tabelle, code e file resteranno inalterati dopo il failover. La voce DNS fornita da Microsoft dovrà essere aggiornata per passare dall'area primaria all'area secondaria.  Microsoft eseguirà questo aggiornamento automaticamente nell'ambito del processo di failover geografico.
 * Prima e durante il failover geografico, in conseguenza dell'emergenza non si avrà accesso in scrittura all'account di archiviazione, ma sarà possibile leggere dall'area secondaria se l'account di archiviazione è stato configurato come RA-GRS.
 * Dopo il completamento del failover geografico e la propagazione delle modifiche DNS, verrà ripristinato l'accesso in lettura e scrittura all'account di archiviazione, che punterà a quello che in precedenza era l'endpoint secondario. 
 * L'accesso in scrittura sarà disponibile se per l'account di archiviazione è configurata l'archiviazione con ridondanza geografica oppure l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). 
@@ -71,5 +69,4 @@ Esistono alcuni approcci consigliati per il backup periodico dei dati di archivi
 * File: usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) per copiare i file in un altro account di archiviazione in un'altra area.
 
 Per informazioni sulla creazione di applicazioni che sfruttano al meglio la funzionalità RA-GRS, vedere l'articolo relativo alla [progettazione di applicazioni a disponibilità elevata con archiviazione RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
-
 

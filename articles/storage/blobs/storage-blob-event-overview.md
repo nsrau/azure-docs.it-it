@@ -8,14 +8,12 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
+ms.openlocfilehash: c760cf5a9bdd4b64a60470fa48cb9b57ec4ab5fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b9b117bdeb62f5ebb2e4e3fbfe71572068927082
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="reacting-to-blob-storage-events-preview"></a>Reazione a eventi di archiviazione BLOB (anteprima)
 
 Gli eventi di archiviazione BLOB di Azure consentono alle applicazioni di reagire alla creazione e all'eliminazione di oggetti BLOB usando moderne architetture senza server e senza la necessità di usare codice complesso o servizi di polling costosi e inefficienti.  Gli eventi vengono invece inviati attraverso [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) ai sottoscrittori, ad esempio [Funzioni di Azure](https://azure.microsoft.com/services/functions/), [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/) o anche al listener http personalizzato in uso, e si paga solo ciò che si usa.
@@ -36,7 +34,7 @@ Le sottoscrizioni vengono aggiunte al programma di anteprima in base alla dispon
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-Quando lo stato della registrazione diventa "Registered" (Registrato), si è stati ammessi al programma di anteprima ed è possibile sottoscrivere gli eventi di archiviazione BLOB per gli account nell'area *Stati Uniti centro-occidentali*.  Per un rapido esempio, vedere [Route Blob storage events to a custom web endpoint](storage-blob-event-quickstart.md) (Indirizzare gli eventi di archiviazione BLOB verso un endpoint Web personalizzato).
+Quando lo stato della registrazione diventa "Registered" (Registrato), si è stati ammessi al programma di anteprima ed è possibile sottoscrivere gli eventi di archiviazione BLOB per gli account nelle aree ***Stati Uniti centro-occidentali*** o ***Stati Uniti occidentali 2***.  Per un rapido esempio, vedere [Route Blob storage events to a custom web endpoint](storage-blob-event-quickstart.md) (Indirizzare gli eventi di archiviazione BLOB verso un endpoint Web personalizzato).
 
 ## <a name="blob-storage-accounts"></a>Account di archiviazione BLOB
 Gli eventi di archiviazione BLOB sono disponibili negli [account di archiviazione BLOB](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) (e non negli account di archiviazione di uso generico).  Gli account di archiviazione BLOB sono account di archiviazione specializzati per l'archiviazione dei dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB.

@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 09/27/2017
 ms.author: juliako;
+ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 0d071129944fb9298e8f0a7b8f3bb1dd2fcc4bd4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure
 ## <a name="overview"></a>Panoramica
@@ -134,7 +133,7 @@ Esempio foo_IDList.txt
 
 ## <a name="blur-types"></a>Tipi di sfocature
 
-Nella modalità **Combined** o **Redact**, sono disponibili 5 modalità di sfocatura diverse tra cui scegliere tramite la configurazione di input JSON: **Low**, **Med**, **High**, **Debug** e **Black**. Per impostazione predefinita, viene usata **Med**.
+Nella modalità **Combined** o **Redact** sono disponibili 5 modalità di sfocatura diverse tra cui scegliere tramite la configurazione di input JSON: **Low**, **Med**, **High**, **Box** e **Black**. Per impostazione predefinita, viene usata **Med**.
 
 Di seguito sono riportati alcuni esempi dei tipi di sfocature.
 
@@ -154,9 +153,9 @@ Di seguito sono riportati alcuni esempi dei tipi di sfocature.
 
 ![Alto](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="debug"></a>Debug
+#### <a name="box"></a>Box
 
-![Debug](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Nero
 
@@ -353,5 +352,4 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

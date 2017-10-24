@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/19/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 13ff24c24a881297775fa5f65821e53ceb83c351
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 01e1e7447d6951d1b2c89f3b0ef726af9c03fd66
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Usare il servizio Gestione dispositivi StorSimple per modificare la configurazione del dispositivo StorSimple
 
@@ -138,14 +137,14 @@ Per ogni interfaccia di rete, vengono visualizzati i seguenti parametri:
 
 ### <a name="configure-data-0"></a>Configurare DATA 0
 
-DATA 0 è abilitata per il cloud per impostazione predefinita. Durante la configurazione di DATA 0, è inoltre necessario configurare due indirizzi IP fissi, uno per ogni controller. Questi indirizzi IP fissi possono essere utilizzati per accedere direttamente ai controller dei dispositivi e sono utili quando si installano gli aggiornamenti del dispositivo o quando si accede ai controller per la risoluzione dei problemi.
+DATA 0 è abilitata per il cloud per impostazione predefinita. Durante la configurazione di DATA 0, è inoltre necessario configurare due indirizzi IP fissi, uno per ogni controller. Questi indirizzi IP fissi possono essere usati per accedere direttamente ai controller dei dispositivi e sono utili quando si installano gli aggiornamenti del dispositivo, per il corretto funzionamento di Garbage Collection o quando si accede ai controller per la risoluzione dei problemi.
 
 È possibile riconfigurare i controller IP fissi usando il pannello delle impostazioni di DATA 0.
 
 ![Configurare l'interfaccia di rete - DATA 0](./media/storsimple-8000-modify-device-config/modify-network-settings2.png)
 
 > [!NOTE]
-> Gli indirizzi IP fissi per il controller vengono utilizzati per gestire gli aggiornamenti al dispositivo. Di conseguenza, gli indirizzi IP fissi devono essere instradabili e in grado di connettersi a Internet.
+> Gli indirizzi IP fissi per il controller vengono usati per gestire gli aggiornamenti al dispositivo e per il corretto funzionamento degli algoritmi di recupero dello spazio (Garbage Collection). Di conseguenza, gli indirizzi IP fissi devono essere instradabili e in grado di connettersi a Internet.
 
 ### <a name="configure-data-1---data-5"></a>Configurare DATA 1 - DATA 5
 
@@ -169,5 +168,4 @@ Per sostituire o riassegnare i VIP per qualsiasi interfaccia di rete, procedere 
 
 * Informazioni su come [Configurare MPIO per il dispositivo StorSimple](storsimple-8000-configure-mpio-windows-server.md).
 * Informazioni su come [usare il servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

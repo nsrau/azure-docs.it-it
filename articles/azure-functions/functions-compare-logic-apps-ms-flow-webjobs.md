@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/11/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: bc801ed3dac213dacac5ee14e1b4e73b87ecc7bd
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: cec9660ee068b33a114748813f0c7ffa3821d973
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Scegliere tra Flow, App per la logica, Funzioni e Processi Web
 Questo articolo mette a confronto i servizi seguenti, disponibili in Microsoft Cloud, ognuno dei quali consente di risolvere i problemi di integrazione e automatizzare i processi aziendali:
@@ -48,7 +47,7 @@ La tabella seguente consente di determinare se per una data integrazione è più
 
 |  | Flusso | App per la logica |
 | --- | --- | --- |
-| Destinatari |Impiegati, utenti aziendali |Professionisti IT, sviluppatori |
+| Audience |Impiegati, utenti aziendali |Professionisti IT, sviluppatori |
 | Scenari |Self-service |Cruciale |
 | Strumento di progettazione |Nel browser e app per dispositivi mobili, solo interfaccia utente |Nel browser e in [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md) è disponibile la [visualizzazione Codice](../logic-apps/logic-apps-author-definitions.md) |
 | DevOps |Ad hoc, sviluppo nell'ambiente di produzione |Controllo del codice sorgente, test, supporto, oltre ad automazione e gestibilità in [Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md) |
@@ -81,16 +80,18 @@ La tabella seguente riepiloga le differenze tra Funzioni e Processi Web:
 | Ridimensionamento |Ridimensionamento senza configurazione |Ridimensionamento con il piano di servizio app |
 | Prezzi |Pagamento a consumo o parte del piano di servizio app |Parte del piano di servizio app |
 | Tipo di esecuzione |Attivata, pianificata (da trigger timer) |Attivata, continua, pianificata |
-| Eventi di attivazione |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Hub eventi di Azure](functions-bindings-event-hubs.md), [HTTP/webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [App per dispositivi mobili del Servizio app di Azure](functions-bindings-mobile-apps.md), [Hub di notifica di Azure](functions-bindings-notification-hubs.md), [Bus di servizio di Azure](functions-bindings-service-bus.md), [Archiviazione di Azure](functions-bindings-storage-blob.md) |[Archiviazione di Azure](functions-bindings-storage-blob.md), [Bus di servizio di Azure](functions-bindings-service-bus.md) |
-| Sviluppo nel browser |supportato | non supportato |
-| Scripting Windows (.cmd, .bat) |sperimentale |supportato |
-| PowerShell |sperimentale |supportato |
-| C# |supportato |supportato |
-| F# |supportato |non supportato |
-| Bash |sperimentale |supportato |
-| PHP |sperimentale |supportato |
-| Python |sperimentale |supportato |
-| JavaScript |supportato |supportato |
+| Eventi di attivazione |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Hub eventi di Azure](functions-bindings-event-hubs.md), [HTTP/webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [App per dispositivi mobili del servizio app di Azure](functions-bindings-mobile-apps.md), [Hub di notifica di Azure](functions-bindings-notification-hubs.md), [Bus di servizio di Azure](functions-bindings-service-bus.md), [Archiviazione di Azure](functions-bindings-storage-blob.md) |[Archiviazione di Azure](functions-bindings-storage-blob.md), [Bus di servizio di Azure](functions-bindings-service-bus.md) |
+| Sviluppo nel browser |Supportato |Non supportato |
+| C# |Supportato |Supportato |
+| F# |Supportato |Non supportato |
+| JavaScript |Supportato |Supportato |
+| Java |Supportato | Non supportate |
+| Bash |Sperimentale |Supportato |
+| Scripting Windows (.cmd, .bat) |Sperimentale |Supportato |
+| PowerShell |Sperimentale |Supportato |
+| PHP |Sperimentale |Supportato |
+| Python |Sperimentale |Supportato |
+| TypeScript |Sperimentale |Non supportato |
 
 L'uso di Funzioni o di Processi Web dipende in definitiva dalle operazioni che già si svolgono con il servizio app. Se è disponibile un'app del servizio app per cui si vogliono eseguire frammenti di codice e avere la possibilità di gestirli insieme nello stesso ambiente DevOps, usare Processi Web. Usare Funzioni negli scenari seguenti.
 
@@ -123,5 +124,4 @@ In alternativa, è possibile ottenere altre informazioni su questi servizi di in
 * [Integrations Made Simple](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps Live Webcast](http://aka.ms/logicappslive)
 * [Microsoft Flow Frequently asked question](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-
 

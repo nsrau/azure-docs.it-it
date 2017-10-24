@@ -1,6 +1,6 @@
 ---
-title: .NET SDK e Risorse dell&quot;API Graph di Azure Cosmos DB | Documentazione Microsoft
-description: Tutte le informazioni sull&quot;API Graph di Azure Cosmos DB, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra tutte le versioni.
+title: .NET SDK e Risorse dell'API Graph di Azure Cosmos DB | Documentazione Microsoft
+description: Tutte le informazioni sull'API Graph di Azure Cosmos DB, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra tutte le versioni.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3185e006fa0448fe4eb7ddec612f302045c2d6cc
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: b84fe1036a50b5672f5b5f4d6df2f67a25a1be4e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>API .NET Graph di Azure Cosmos DB : Download e note sulla versione
 
@@ -30,10 +28,39 @@ ms.lasthandoff: 05/10/2017
 |**Documentazione sull'API**|[Documentazione di riferimento API .NET](https://aka.ms/acdbgraphapiref)|
 |**Guida introduttiva**|[Azure Cosmos DB: creare una graph app tramite .NET e l'API Graph](create-graph-dotnet.md)|
 |**Esercitazione**|[Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md) (CosmosDB di Azure: creare un contenitore con l'API Graph)|
-|**Framework attualmente supportato**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+|**Framework attualmente supportato**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+
 
 ## <a name="release-notes"></a>Note sulla versione
 
+### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-preview
+
+#### <a name="whats-new"></a>Novità
+* Aggiunta del supporto per `.netstandard 1.6`
+  * Richiede `Microsoft.Azure.DocumentDB.Core >= 1.5.1`
+* Aggiunta di un nuovo parser `gremlin-groovy` in sostituzione di un parser esistente. Questo parser supporta un subset della sintassi Tinkerpop `gremlin-groovy` e include:
+  * Prestazioni raddoppiate a livello di analisi
+  * Sono stati risolti alcuni problemi relativi ai caratteri di escape nelle stringhe, all'errata gestione dei valori letterali e altre irregolarità nel vecchio parser.
+* Aggiunta di ottimizzazioni per attraversamenti con predicati Edge.
+  *  Gli hop trasversali con filtri dovrebbero rilevare questo miglioramento, ad esempio: `g.V('1').outE().has('name', 'marko').inV()`.
+* Aggiunta di ottimizzazioni per attraversamenti con passaggio `limit()`.
+
+#### <a name="breaking-changes"></a>Modifiche di rilievo
+* Rimozione del supporto per .NET Framework 4.5.1
+
+* Il nuovo parser è conforme alla sintassi `gremlin-groovy`. Pertanto, alcune espressioni precedentemente funzionanti ora risultano ambigue per il nuovo parser. Di seguito viene illustrato un caso rilevante:
+  * `in` e `as` sono parole chiave riservate in `gremlin-groovy`. Per evitare errori di sintassi, questi passaggi devono pertanto essere qualificati mediante `.in()` o `.as()`. Ad esempio: `g.V().repeat(in()).times(2)` -> _genera un errore di sintassi_  
+ `g.V().repeat(__.in()).times(2)` -> _ha esito positivo_
+
+### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-preview
+
+### <a name="a-name022-preview022-preview"></a><a name="0.2.2-preview"/>0.2.2-preview
+
+### <a name="a-name021-preview021-preview"></a><a name="0.2.1-preview"/>0.2.1-preview
+
+### <a name="a-name020-preview020-preview"></a><a name="0.2.0-preview"/>0.2.0-preview
+
+### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 * Versione di anteprima iniziale.
 
 ## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro
@@ -42,6 +69,17 @@ Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK pe
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima. 
 
 Qualsiasi richiesta inviata a Cosmos DB di Azure con un SDK ritirato verrà rifiutata dal servizio.
+
+<br/>
+
+| Versione | Data di rilascio | Data di ritiro |
+| --- | --- | --- |
+| [0.3.0-preview](#0.3.0-preview) |2 ottobre 2017 |--- |
+| [0.2.4-preview](#0.2.4-preview) |4 agosto 2017 |--- |
+| [0.2.2-preview](#0.2.2-preview) |23 giugno 2017 |--- |
+| [0.2.1-preview](#0.2.2-preview) |8 giugno 2017 |--- |
+| [0.2.0-preview](#0.2.2-preview) |10 maggio 2017 |--- |
+| [0.1.0-preview](#0.1.0-preview) |8 maggio 2017 |--- |
 
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni sull'API Graph di Azure Cosmos DB, vedere [Introduction to Azure Cosmos DB: Graph API](graph-introduction.md) (Introduzione ad Azure Cosmos DB: API Graph). 

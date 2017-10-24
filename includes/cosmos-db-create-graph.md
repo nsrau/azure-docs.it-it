@@ -12,6 +12,6 @@
     Graph id (ID grafo)|sample-graph|ID del nuovo grafo. I nomi dei grafi presentano gli stessi requisiti relativi ai caratteri degli ID di database.
     Capacità di archiviazione| 10 GB|Lasciare il valore predefinito. Indica la capacità di archiviazione del database.
     Velocità effettiva|400 UR/s|Lasciare il valore predefinito. È possibile aumentare la velocità effettiva in un secondo momento se si desidera ridurre la latenza.
-    Chiave di partizione|/userId|Chiave di partizione che distribuisce i dati in modo uniforme a ogni partizione. Quando si crea un grafo ad alte prestazioni, è importante selezionare la chiave di partizione corretta. Per altre informazioni, vedere [Progettazione per il partizionamento](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    Chiave di partizione|/firstName|Chiave di partizione che distribuisce i dati in modo uniforme a ogni partizione. Quando si crea un grafo ad alte prestazioni, è importante selezionare la chiave di partizione corretta. Per altre informazioni, vedere [Progettazione per il partizionamento](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
 3. Dopo avere compilato il modulo, fare clic su **OK**.

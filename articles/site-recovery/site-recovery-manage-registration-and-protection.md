@@ -12,76 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/27/2017
+ms.date: 10/3/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: f57c88cbace41af233f542880c6199b3e278700e
-ms.openlocfilehash: c8d893dbac1a4f6cb3f05f857e186bca155e5865
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 471d68742668e2b1b1c72579cee9dd493f1bd042
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="remove-servers-and-disable-protection"></a>Rimuovere server e disabilitare la protezione
+Questo articolo descrive come annullare la registrazione di server da un insieme di credenziali dei servizi di ripristino e come disabilitare la protezione per i computer protetti da Site Recovery.
 
-Il servizio Azure Site Recovery contribuisce al miglioramento della strategia di continuità aziendale e ripristino di emergenza (BCDR), coordinando la replica, il failover e il ripristino di macchine virtuali e server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una rapida panoramica, leggere [Che cos'è Azure Site Recovery?](site-recovery-overview.md)
 
-Questo articolo descrive come annullare la registrazione di server dall'insieme di credenziali di Servizi di ripristino nel portale di Azure e come disabilitare la protezione per le macchine virtuali protette da Site Recovery.
-
-Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-## <a name="unregister-a-connected-configuration-server"></a>Annullare la registrazione di un server di configurazione connesso
-
-Se si replicano macchine virtuali VMware o server fisici Windows/Linux in Azure, è possibile annullare la registrazione di un server di configurazione connesso da un insieme di credenziali come indicato di seguito:
-
-1. Disabilitare la protezione delle macchine. In **Elementi protetti** > **Elementi replicati** fare clic sulla macchina > **Elimina**.
-2. Annullare l'associazione di tutti i criteri. In **Infrastruttura di Site Recovery** > **Per VMWare e computer fisici** > **Criteri di replica** fare doppio clic sui criteri associati. Fare doppio clic su server di configurazione > **Annulla associazione**.
-3. Rimuovere qualsiasi server di destinazione master o di elaborazione locale aggiuntivo. In **Infrastruttura di Site Recovery** > **Per VMWare e computer fisici** > **Server di configurazione** fare clic con il pulsante destro del mouse sul server > **Elimina**.
-4. Eliminare il server di configurazione.
-5. Disinstallare manualmente il servizio di mobilità in esecuzione nel server di destinazione master che sarà un server separato o in esecuzione nel server di configurazione.
-6. Disinstallare eventuali server di elaborazione aggiuntivi.
-7. Disinstallare il server di configurazione.
-8. Nel server di configurazione disinstallare l'istanza di MySQL installata da Site Recovery.
-9. Eliminare la chiave ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery`` nel Registro di sistema del server di configurazione.
-
-## <a name="unregister-a-unconnected-configuration-server"></a>Annullare la registrazione di un server di configurazione non connesso
+## <a name="unregister-a--configuration-server"></a>Annullare la registrazione di un server di configurazione
 
 Se si replicano macchine virtuali VMware o server fisici Windows/Linux in Azure, è possibile annullare la registrazione di un server di configurazione non connesso da un insieme di credenziali come indicato di seguito:
 
-1. Disabilitare la protezione delle macchine. In **Elementi protetti** > **Elementi replicati** fare clic sulla macchina > **Elimina**. Selezionare **Interrompi gestione della macchina virtuale**.
-2. Rimuovere qualsiasi server di destinazione master o di elaborazione locale aggiuntivo. In **Infrastruttura di Site Recovery** > **Per VMWare e computer fisici** > **Server di configurazione** fare clic con il pulsante destro del mouse sul server > **Elimina**.
-3. Eliminare il server di configurazione.
-4. Disinstallare manualmente il servizio di mobilità in esecuzione nel server di destinazione master che sarà un server separato o in esecuzione nel server di configurazione.
-5. Disinstallare eventuali server di elaborazione aggiuntivi.
-6. Disinstallare il server di configurazione.
-7. Nel server di configurazione disinstallare l'istanza di MySQL installata da Site Recovery.
-8. Eliminare la chiave ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery`` nel Registro di sistema del server di configurazione.
+1. [Disabilitare la protezione delle macchine virtuali](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)
+2. [Annullare l'associazione](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) ed [eliminare](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) tutti i criteri di replica
+3. [Eliminare il server di configurazione](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
-## <a name="unregister-a-connected-vmm-server"></a>Annullare la registrazione di un server VMM connesso
+## <a name="unregister-a-vmm-server"></a>Annullare la registrazione di un server VMM
 
-Come procedura consigliata, annullare la registrazione del server VMM quando è connesso ad Azure. In questo modo le impostazioni nei server VMM e in altri server VMM con cloud abbinati vengono rimosse correttamente. Si consiglia di rimuovere un server non connesso solo in caso di problema di connettività permanente. Se il server VMM non è connesso, è necessario eseguire manualmente uno script per rimuovere le impostazioni.
-
-1. Arrestare la replica delle VM nei cloud presenti sul server VMM da rimuovere.
-2. Eliminare i mapping di rete usati dai cloud nel server VMM da eliminare. In **Infrastruttura di Site Recovery** > **Per System Center VMM** > **Mapping di rete** fare clic con il pulsante destro del mouse sul mapping di rete > **Elimina**.
-3. Annullare l'associazione dei criteri di replica dai cloud nel server VMM da rimuovere.  In **Infrastruttura di Site Recovery** > **Per System Center VMM** >  **Criteri di replica** fare doppio clic sui criteri associati. Fare clic con il pulsante destro del mouse sul cloud > **Annulla associazione**.
-4. Eliminare il server VMM o il nodo VMM attivo. In **Infrastruttura di Site Recovery** > **Per System Center VMM** > **Server VMM** fare clic con il pulsante destro del mouse sul server > **Elimina**.
-5. Disinstallare manualmente il Provider nel server VMM. Se si dispone di un cluster, eseguire la rimozione da tutti i nodi.
-6. Se si esegue la replica in Azure, rimuovere manualmente l'agente di Servizi di ripristino di Microsoft dagli host Hyper-V nei cloud eliminati.
-
-
-
-### <a name="unregister-an-unconnected-vmm-server"></a>Annullare la registrazione di un server VMM non connesso
-
-1. Arrestare la replica delle VM nei cloud presenti sul server VMM da rimuovere.
+1. Arrestare la replica delle macchine virtuali nei cloud sul server VMM da rimuovere.
 2. Eliminare i mapping di rete usati dai cloud nel server VMM da eliminare. In **Infrastruttura di Site Recovery** > **Per System Center VMM** > **Mapping di rete** fare clic con il pulsante destro del mouse sul mapping di rete > **Elimina**.
 3. Prendere nota dell'ID del server VMM.
 4. Annullare l'associazione dei criteri di replica dai cloud nel server VMM da rimuovere.  In **Infrastruttura di Site Recovery** > **Per System Center VMM** >  **Criteri di replica** fare doppio clic sui criteri associati. Fare clic con il pulsante destro del mouse sul cloud > **Annulla associazione**.
 5. Eliminare il server VMM o il nodo attivo. In **Infrastruttura di Site Recovery** > **Per System Center VMM** > **Server VMM** fare clic con il pulsante destro del mouse sul server > **Elimina**.
-6. Nel server VMM scaricare ed eseguire lo [script di pulizia](http://aka.ms/asr-cleanup-script-vmm). Aprire PowerShell con l'opzione **Esegui come amministratore** per modificare i criteri di esecuzione per l'ambito predefinito (LocalMachine). Nello script specificare l'ID del server VMM da rimuovere. Lo script rimuove le informazioni sulla registrazione e l'associazione del cloud dal server.
-5. Eseguire lo script di pulizia in tutti gli altri server VMM che contengono cloud associati ai cloud nel server VMM da rimuovere.
+6. Se il server VMM si trovava in stato disconnesso, scaricare ed eseguire lo [script di pulizia](http://aka.ms/asr-cleanup-script-vmm) sul server VMM. Aprire PowerShell con l'opzione **Esegui come amministratore** per modificare i criteri di esecuzione per l'ambito predefinito (LocalMachine). Nello script specificare l'ID del server VMM da rimuovere. Lo script rimuove le informazioni sulla registrazione e l'associazione del cloud dal server.
+5. Eseguire lo script di pulizia su qualsiasi server VMM secondario.
 6. Eseguire lo script di pulizia in qualsiasi altro nodo cluster VMM passivo in cui è installato il Provider.
 7. Disinstallare manualmente il Provider nel server VMM. Se si dispone di un cluster, eseguire la rimozione da tutti i nodi.
-8. Se si esegue la replica in Azure, è possibile rimuovere manualmente l'agente di Servizi di ripristino di Microsoft dagli host Hyper-V nei cloud eliminati.
+8. Se la replica delle macchine virtuali veniva eseguita in Azure, è necessario disinstallare l'agente di Servizi di ripristino di Microsoft Azure dagli host Hyper-V nei cloud eliminati.
 
 ## <a name="unregister-a-hyper-v-host-in-a-hyper-v-site"></a>Annullare la registrazione di un host Hyper-V in un sito di Hyper-V
 
@@ -89,12 +51,13 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
 
 1. Disabilitare la replica per le VM Hyper-V presenti nell'host.
 2. Annullare l'associazione dei criteri per il sito Hyper-V. In **Infrastruttura di Site Recovery** > **Per siti Hyper-V** >  **Criteri di replica** fare doppio clic sui criteri associati. Fare clic con il pulsante destro del mouse sul cloud > **Annulla associazione**.
-3. Eliminare gli host Hyper-V. In **Infrastruttura di Site Recovery** > **Per System Center VMM** > **Host Hyper-V** fare clic con il pulsante destro del mouse sul server > **Elimina**.
-4. Eliminare il sito Hyper-V dopo che sono stati rimossi tutti gli host dal sito. In **Infrastruttura di Site Recovery** > **Per System Center VMM** > **Siti Hyper-V** fare clic con il pulsante destro del mouse sul sito > **Elimina**.
-5. Eseguire lo script seguente in ogni host Hyper-V che è stato rimosso. Lo script pulisce le impostazioni del server e ne annulla la registrazione dall'insieme di credenziali.
+3. Eliminare gli host Hyper-V. In **Infrastruttura di Site Recovery** > **For Hyper-V Sites** (Per siti Hyper-V) > **Hyper-V Hosts** (Host Hyper-V) fare clic con il pulsante destro del mouse sul server e quindi scegliere **Elimina**.
+4. Eliminare il sito Hyper-V dopo che sono stati rimossi tutti gli host dal sito. In **Infrastruttura di Site Recovery** > **For Hyper-V Sites** (Per siti Hyper-V) > **Siti Hyper-V** fare clic con il pulsante destro del mouse sul server e quindi scegliere **Elimina**.
+5. Se l'host Hyper-V si trovava nello stato **Disconnesso**, eseguire quindi lo script seguente in ogni host Hyper-V rimosso. Lo script pulisce le impostazioni del server e ne annulla la registrazione dall'insieme di credenziali.
 
 
-        `` pushd .
+
+        pushd .
         try
         {
              $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
@@ -172,69 +135,83 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
             $error[0]
             Write-Host "FAILED" -ForegroundColor "Red"
         }
-        popd``
+        popd
 
 
 
-## <a name="disable-protection-for-a-vmware-vm-or-physical-server"></a>Disabilitare la protezione per una VM VMware o un server fisico
+## <a name="disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure"></a>Disabilitare la protezione per una VM VMware o un server fisico (da VMware ad Azure)
 
-1. In **Elementi protetti** > **Elementi replicati** fare clic sulla macchina > **Elimina**.
-2. In **Rimuovi macchina virtuale** selezionare una delle opzioni seguenti:
-    - **Disabilita protezione per la macchina virtuale (impostazione consigliata)**. Usare questa opzione per arrestare la replica della macchina. Le impostazioni di Site Recovery verranno rimosse automaticamente. Questa opzione verrà visualizzata nelle circostanze seguenti:
-        - **Il volume della VM è stato ridimensionato**: quando si ridimensiona un volume, la macchina virtuale entra in uno stato critico. Selezionare questa opzione per disabilitare la protezione mantenendo i punti di ripristino in Azure. Quando si riabilita la protezione per la macchina virtuale, i dati per il volume ridimensionato verranno trasferiti in Azure.
-        - **È stato eseguito recentemente un failover**: dopo avere eseguito un failover per testare l'ambiente, selezionare questa opzione per ripristinare la protezione delle macchine locali. Viene disabilitata ogni macchina virtuale ed è quindi necessario riabilitare la protezione. La disabilitazione della macchina con questa impostazione non riguarda la macchina virtuale di replica in Azure. Non disinstallare il servizio Mobility dalla macchina virtuale.
-    - **Interrompi gestione della macchina virtuale**. Se si seleziona questa opzione, la macchina virtuale verrà rimossa solo dall'insieme di credenziali. Le impostazioni di protezione locali per la macchina virtuale non saranno interessate. Per rimuovere le impostazioni nella macchina e per rimuovere la macchina dalla sottoscrizione di Azure, è necessario rimuovere le impostazioni tramite la disinstallazione del servizio Mobility.
+1. In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e quindi scegliere **Disabilita replica**.
+2. Nella pagina **Disabilita replica** selezionare una di queste opzioni:
+    - **Disabilita la replica e rimuovi (scelta consigliata)**. Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nel server di configurazione viene rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
+    - **Rimuovi**. Questa opzione dovrebbe essere usata solo se l'ambiente di origine viene eliminato o non è accessibile (perché non connesso). L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nel server di configurazione **non** verrà rimossa. 
 
-## <a name="disable-protection-for-a-hyper-v-vm-in-a-vmm-cloud"></a>Disabilitare la protezione per una VM Hyper-V in un cloud VMM
+> [!NOTE]
+> Con entrambe le opzioni, il servizio Mobility non verrà disinstallato dai server protetti e dovrà essere disinstallato manualmente. Se si prevede di proteggere di nuovo il server usando lo stesso server di configurazione, si può omettere la disinstallazione del servizio Mobility.
 
-1. In **Elementi protetti** > **Elementi replicati** fare clic sulla macchina > **Elimina**.
-2. In **Rimuovi macchina virtuale** selezionare una delle opzioni seguenti:
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Disabilitare la protezione per una macchina virtuale Hyper-V (da Hyper-V ad Azure)
 
-    - **Disabilita protezione per la macchina virtuale (impostazione consigliata)**. Usare questa opzione per arrestare la replica della macchina. Le impostazioni di Site Recovery verranno rimosse automaticamente.
-    - **Interrompi gestione della macchina virtuale**. Se si seleziona questa opzione, la macchina virtuale verrà rimossa solo dall'insieme di credenziali. Le impostazioni di protezione locali per la macchina virtuale non saranno interessate. Per rimuovere le impostazioni nella macchina e per rimuovere la macchina dalla sottoscrizione di Azure è necessario pulire manualmente le impostazioni usando le istruzioni seguenti. Si noti che se si sceglie di eliminare la macchina virtuale e i relativi dischi rigidi, questi verranno rimossi dal percorso di destinazione.
+> [!NOTE]
+> Usare questa procedura se si esegue la replica di VM Hyper-V in Azure senza un server VMM. Se la replica delle macchine virtuali viene eseguita con lo scenario **da System Center VMM ad Azure**, seguire le istruzioni riportate in [Disabilitare la protezione per una macchina virtuale Hyper-V con replica in Azure con lo scenario da System Center VMM ad Azure](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario).
 
-### <a name="clean-up-protection-settings---replication-to-a-secondary-vmm-site"></a>Eseguire la pulizia delle impostazioni di protezione: replica in un sito VMM secondario
+1. In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e quindi scegliere **Disabilita replica**.
+2. In **Disabilita replica** è possibile selezionare le opzioni seguenti:
+     - **Disabilita la replica e rimuovi (scelta consigliata)**. Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nella macchina virtuale locale verrà rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
+    - **Rimuovi**. Questa opzione dovrebbe essere usata solo se l'ambiente di origine viene eliminato o non è accessibile (perché non connesso). L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nella macchina virtuale locale **non** verrà rimossa. 
 
-Se è stato selezionato **Interrompi gestione della macchina virtuale** e si sta eseguendo la replica in un sito secondario, eseguire questo script nel server primario per rimuovere le impostazioni per la macchina virtuale primaria. Nella console VMM fare clic sul pulsante PowerShell per aprire la console PowerShell di VMM. Sostituire SQLVM1 con il nome della macchina virtuale.
-
-         ``$vm = get-scvirtualmachine -Name "SQLVM1"
-         Set-SCVirtualMachine -VM $vm -ClearDRProtection``
-2. Nel server VMM secondario eseguire questo script per pulire le impostazioni per la macchina virtuale secondaria:
-
-        ``$vm = get-scvirtualmachine -Name "SQLVM1"
-        Remove-SCVirtualMachine -VM $vm -Force``
-3. Nel server VMM secondario aggiornare le macchine virtuali nel server host Hyper-V in modo che la VM secondaria venga rilevata di nuovo nella console VMM.
-4. I passaggi sopra descritti cancellano le impostazioni di replica nel server VMM. Se si vuole arrestare la replica per la macchina virtuale, eseguire lo script seguente nelle VM primarie e secondarie. Sostituire SQLVM1 con il nome della macchina virtuale.
-
-        ``Remove-VMReplication –VMName “SQLVM1”``
-
-### <a name="clean-up-protection-settings---replication-to-azure"></a>Eseguire la pulizia delle impostazioni di protezione: replica in Azure
-
-1. Se è stato selezionato **Interrompi gestione della macchina virtuale** e si esegue la replica in Azure, eseguire questo script nel server VMM di origine usando PowerShell dalla console VMM.
-        ``$vm = get-scvirtualmachine -Name "SQLVM1"
-        Set-SCVirtualMachine -VM $vm -ClearDRProtection``
-2. I passaggi sopra descritti cancellano le impostazioni di replica del server VMM. Per arrestare la replica per la macchina virtuale in esecuzione nel server host Hyper-V, eseguire questo script. Sostituire SQLVM1 con il nome della macchina virtuale e host01.contoso.com con il nome del server host Hyper-V.
-
-        ``$vmName = "SQLVM1"
-        $hostName  = "host01.contoso.com"
-        $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName
-        $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
-        $replicationService.RemoveReplicationRelationship($vm.__PATH)``
+    > [!NOTE]
+    > Se è stata scelta l'opzione **Rimuovi**, eseguire quindi il set di script seguente per la pulizia del server Hyper-V locale delle impostazioni di replica.
+1. Nel server host Hyper-V di origine, rimuovere la replica per la macchina virtuale. Sostituire SQLVM1 con il nome della macchina virtuale ed eseguire lo script da un'istanza amministrativa di PowerShell.
 
 
-## <a name="disable-protection-for-a-hyper-v-vm-in-a-hyper-v-site"></a>Disabilitare la protezione per una VM Hyper-V in un sito Hyper-V
+    
+    $vmName = "SQLVM1"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  $replicationService.RemoveReplicationRelationship($vm.__PATH)
+    
 
-Usare questa procedura se si esegue la replica di VM Hyper-V in Azure senza un server VMM.
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>Disabilitare la protezione per una macchina virtuale Hyper-V con replica in Azure con lo scenario da System Center VMM ad Azure
 
-1. In **Elementi protetti** > **Elementi replicati** fare clic sulla macchina > **Elimina**.
-2. In **Rimuovi macchina virtuale** è possibile selezionare le opzioni seguenti:
+1. In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e quindi scegliere **Disabilita replica**.
+2. In **Disabilita replica** selezionare una di queste opzioni:
 
-   - **Disabilita protezione per la macchina virtuale (impostazione consigliata)**. Usare questa opzione per arrestare la replica della macchina. Le impostazioni di Site Recovery verranno rimosse automaticamente.
-   - **Interrompi gestione della macchina virtuale**. Se si seleziona questa opzione, la macchina virtuale verrà rimossa solo dall'insieme di credenziali. Le impostazioni di protezione locali per la macchina virtuale non saranno interessate. Per rimuovere le impostazioni nella macchina e per rimuovere la macchina virtuale dalla sottoscrizione di Azure, è necessario pulire manualmente le impostazioni. Se si sceglie di eliminare la macchina virtuale e i relativi dischi rigidi, essi verranno rimossi dal percorso di destinazione.
-3. Se è stato selezionato **Interrompi gestione della macchina virtuale**, eseguire questo script nel server host Hyper-V di origine per rimuovere la replica per la macchina virtuale. Sostituire SQLVM1 con il nome della macchina virtuale.
+    - **Disabilita la replica e rimuovi (scelta consigliata)**. Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nella macchina virtuale locale viene rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
+    - **Rimuovi**. Questa opzione dovrebbe essere usata solo se l'ambiente di origine viene eliminato o non è accessibile (perché non connesso). L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nella macchina virtuale locale **non** verrà rimossa. 
 
-        $vmName = "SQLVM1"
-        $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
-        $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
-        $replicationService.RemoveReplicationRelationship($vm.__PATH)
+    > [!NOTE]
+    > Se è stata scelta l'opzione **Rimuovi**, eseguire quindi gli script seguenti per la pulizia del server VMM locale delle impostazioni di replica.
+3. Eseguire questo script nel server VMM di origine, usando PowerShell dalla console VMM. Sono necessari privilegi di amministratore. Sostituire il segnaposto **SQLVM1** con il nome della macchina virtuale.
+
+        $vm = get-scvirtualmachine -Name "SQLVM1"
+        Set-SCVirtualMachine -VM $vm -ClearDRProtection
+4. I passaggi sopra descritti cancellano le impostazioni di replica del server VMM. Per arrestare la replica per la macchina virtuale in esecuzione nel server host Hyper-V, eseguire questo script. Sostituire SQLVM1 con il nome della macchina virtuale e host01.contoso.com con il nome del server host Hyper-V.
+
+    
+    $vmName = "SQLVM1"  $hostName  = "host01.contoso.com"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName  $replicationService.RemoveReplicationRelationship($vm.__PATH)
+    
+       
+ 
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>Disabilitare la protezione per una macchina virtuale Hyper-V con replica in un server VMM secondario con lo scenario da System Center VMM a VMM
+
+1. In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e quindi scegliere **Disabilita replica**.
+2. In **Disabilita replica** selezionare una di queste opzioni:
+
+    - **Disabilita la replica e rimuovi (scelta consigliata)**. Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nella macchina virtuale locale viene rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
+    - **Rimuovi**. Questa opzione dovrebbe essere usata solo se l'ambiente di origine viene eliminato o non è accessibile (perché non connesso). L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nella macchina virtuale locale **non** verrà rimossa. Eseguire il set di script seguente per la pulizia delle macchine virtuali locali delle impostazioni di replica.
+> [!NOTE]
+> Se è stata scelta l'opzione **Rimuovi**, eseguire quindi gli script seguenti per la pulizia del server VMM locale delle impostazioni di replica.
+
+3. Eseguire questo script nel server VMM di origine, usando PowerShell dalla console VMM. Sono necessari privilegi di amministratore. Sostituire il segnaposto **SQLVM1** con il nome della macchina virtuale.
+
+         $vm = get-scvirtualmachine -Name "SQLVM1"
+         Set-SCVirtualMachine -VM $vm -ClearDRProtection
+4. Nel server VMM secondario eseguire questo script per la pulizia delle impostazioni per la macchina virtuale secondaria:
+
+        $vm = get-scvirtualmachine -Name "SQLVM1"
+        Remove-SCVirtualMachine -VM $vm -Force
+5. Nel server VMM secondario aggiornare le macchine virtuali nel server host Hyper-V in modo che la VM secondaria venga rilevata di nuovo nella console VMM.
+6. I passaggi sopra descritti cancellano le impostazioni di replica nel server VMM. Se si vuole arrestare la replica per la macchina virtuale, eseguire lo script seguente nelle VM primarie e secondarie. Sostituire SQLVM1 con il nome della macchina virtuale.
+
+        Remove-VMReplication –VMName “SQLVM1”
+
+
+
 

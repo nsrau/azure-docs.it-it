@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Assegnare più indirizzi IP alle macchine virtuali usando l'interfaccia della riga di comando di Azure 2.0
 
@@ -216,7 +216,7 @@ Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale
         --public-ip-address myPublicIP3
         ```
 
-    - **Associare la risorsa a una configurazione IP esistente** una risorsa di indirizzi IP pubblica può essere associata solo a una configurazione IP che non ha ancora associata. È possibile stabilire se una configurazione IP dispone di un indirizzo IP pubblico associato immettendo il comando seguente:
+    - **Associare la risorsa a una configurazione IP esistente** Una risorsa indirizzo IP pubblico può essere associata solo a una configurazione IP che non ha ancora una risorsa associata. È possibile stabilire se una configurazione IP dispone di un indirizzo IP pubblico associato immettendo il comando seguente:
 
         ```bash
         az network nic ip-config list \

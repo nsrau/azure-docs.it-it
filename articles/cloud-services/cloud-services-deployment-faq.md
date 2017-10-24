@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 9b788b1d95c821a4bb76cd4dea1d689d36e2f92b
-ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di distribuzione per Servizi cloud di Azure: domande frequenti
 
@@ -55,7 +54,7 @@ Per verificare le dimensioni disponibili nella propria area, vedere [Microsoft A
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Perché la distribuzione di un servizio cloud a volte non riesce a causa di limiti/quote/vincoli nella sottoscrizione o nel servizio?
 La distribuzione di un servizio cloud potrebbe non riuscire se le risorse che devono essere allocate superano la quota predefinita o massima consentita per il servizio a livello di area o di data center. Per altre informazioni, vedere [Limiti relativi a Servizi cloud](../azure-subscription-service-limits.md#cloud-services-limits).
 
-È anche possibile tenere traccia dell'utilizzo e della quota correnti per la sottoscrizione nel portale: Portale di Azure = > Sottoscrizioni = > \< sottoscrizione appropriata> = > "Utilizzo e quote".
+È anche possibile tenere traccia dell'utilizzo o della quota correnti per la sottoscrizione nel portale: Portale di Azure = > Sottoscrizioni = > \< sottoscrizione appropriata> = > "Utilizzo e quote".
 
 Le informazioni relative all'utilizzo e al consumo di risorse possono anche essere recuperate tramite le API di fatturazione di Azure. Vedere [API di utilizzo delle risorse di Azure (anteprima)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
@@ -64,5 +63,15 @@ Non è possibile modificare le dimensioni di una VM di un servizio cloud distrib
 
 Per altre informazioni, vedere [Come aggiornare un servizio cloud](cloud-services-update-azure-service.md).
 
- 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Perché non riesco a distribuire i Servizi Cloud tramite le API Gestione dei servizi o PowerShell quando uso l'account di archiviazione di Azure Resource Manager? 
 
+Poiché il servizio Cloud è una risorsa classica che non è direttamente compatibile con il modello di Azure Resource Manager, non è possibile associarlo con gli account di archiviazione di Azure Resource Manager. Di seguito sono riportate alcune opzioni: 
+ 
+- Distribuzione tramite l'API REST.
+
+    Quando si esegue la distribuzione tramite l'API REST di Gestione dei servizi, è possibile risolvere la limitazione specificando un URL SAS nell'archiviazione BLOB che funziona con l'account classico e con l'account di archiviazione di Azure Resource Manager. Altre informazioni sulla proprietà 'PackageUrl' sono reperibili [qui](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+  
+- Distribuzione tramite il [portale di Azure](https://portal.azure.com).
+
+    Questa tecnica funziona dal [portale di Azure](https://portal.azure.com) in quanto la chiamata passa attraverso un proxy/shim che consente la comunicazione tra le risorse di Azure Resource Manager e classiche. 
+ 

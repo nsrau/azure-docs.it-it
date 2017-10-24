@@ -16,14 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam
+ms.openlocfilehash: ab438f804c28d5528901c405311424e0344e00fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 54c75a4c22f094ca50ab2cbf5449c5fa115b32a7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 Funzioni di Azure consente di scrivere codice in risposta agli eventi in Azure e in altri servizi, tramite *trigger* e *associazioni*. In questo articolo viene fornita una panoramica concettuale di trigger e associazioni per tutti i linguaggi di programmazione supportati. Le funzionalità comuni a tutte le associazioni sono descritte di seguito.
 
@@ -43,21 +41,21 @@ La tabella seguente mostra i trigger e le associazioni supportate con le Funzion
 
 ### <a name="example-queue-trigger-and-table-output-binding"></a>Esempio: trigger di coda e tabella di associazione di output
 
-Si supponga di voler scrivere una nuova riga in archiviazione tabelle di Azure ogni volta che viene visualizzato un messaggio nuovo in archiviazione code di Azure. Questo scenario può essere implementato tramite un trigger della coda di Azure e una tabella di associazione di output. 
+Si supponga di voler scrivere una nuova riga in archiviazione tabelle di Azure ogni volta che viene visualizzato un messaggio nuovo in archiviazione code di Azure. Questo scenario può essere implementato tramite un trigger della coda di Azure e un'associazione di output di archiviazione tabelle di Azure. 
 
-Un trigger della coda richiede le informazioni seguenti nella scheda **Integrazione**:
+Un trigger di archiviazione code di Azure richiede le informazioni seguenti nella scheda **Integrazione**:
 
-* Il nome dell'impostazione dell'app che contiene la stringa di connessione dell'account di archiviazione per la coda
+* Il nome dell'impostazione dell'app che contiene la stringa di connessione dell'account di archiviazione di Azure per archiviazione code di Azure
 * Il nome della coda
 * L'identificatore nel codice per leggere il contenuto del messaggio in coda, ad esempio `order`.
 
 Per scrivere in archiviazione tabelle di Azure, usare un'associazione di output con i dettagli seguenti:
 
-* Il nome dell'impostazione dell'app che contiene la stringa di connessione dell'account di archiviazione per la tabella
+* Il nome dell'impostazione dell'app che contiene la stringa di connessione dell'account di archiviazione di Azure per archiviazione tabelle di Azure
 * Il nome della tabella
 * L'identificatore nel codice per creare elementi di output o il valore restituito dalla funzione.
 
-Le associazioni usano le impostazioni app per le stringhe di connessione per applicare la migliore pratica in base alla quale *function.json* non contiene i segreti di servizio.
+Le associazioni usano valori di stringhe di connessione archiviati nelle impostazioni dell'app per applicare la procedura consigliata in base alla quale *function.json* non contiene segreti del servizio ma semplicemente i nomi delle impostazioni dell'app.
 
 Quindi, usare gli identificatori che vengono forniti per l'integrazione con archiviazione di Azure nel codice.
 
@@ -168,7 +166,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
     log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    return Task.FromResult(json);
 }
 ```
 
@@ -191,7 +189,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## <a name="binding-datatype-property"></a>Proprietà Binding dataType
 
-In .NET usare i tipi per definire il tipo di dati per i dati di input. Ad esempio, usare `string` da associare al testo di un trigger di coda e una matrice di byte da leggere in formato binario.
+In .NET usare i tipi per definire il tipo di dati per i dati di input. Usare ad esempio `string` da associare al testo di un trigger di coda, una matrice di byte da leggere in formato binario e un tipo personalizzato per deserializzare un oggetto POCO.
 
 Per le lingue che vengono digitate in modo dinamico, ad esempio JavaScript, usare la proprietà `dataType` nella definizione di associazione. Ad esempio, per leggere il contenuto di una richiesta HTTP in formato binario, usare il tipo `binary`:
 
@@ -213,7 +211,7 @@ Le impostazioni dell'app sono utili anche ogni volta che si desidera modificare 
 
 Le impostazioni dell'app vengono risolte ogni volta che un valore è racchiuso tra simboli di percentuale, ad esempio `%MyAppSetting%`. Si noti che la proprietà `connection` di trigger e associazioni è un caso speciale e risolve automaticamente i valori come impostazioni dell'app. 
 
-L'esempio seguente è un trigger di coda che usa un'impostazione dell'app `%input-queue-name%` per definire la coda di trigger.
+L'esempio seguente è un trigger di archiviazione code di Azure che usa un'impostazione dell'app `%input-queue-name%` per definire la coda di trigger.
 
 ```json
 {
@@ -233,7 +231,7 @@ L'esempio seguente è un trigger di coda che usa un'impostazione dell'app `%inpu
 
 Oltre al payload dei dati offerto da un trigger (ad esempio, il messaggio di coda che ha attivato una funzione), molti trigger forniscono i valori dei metadati aggiuntivi. Questi valori possono essere usati come parametri di input in C# e F# o come proprietà nell'oggetto `context.bindings` in JavaScript. 
 
-Ad esempio, un trigger di coda supporta le proprietà seguenti:
+Un trigger di archiviazione code di Azure ad esempio supporta le proprietà seguenti:
 
 * QueueTrigge: attivazione del contenuto del messaggio, se una stringa valida
 * DequeueCount
@@ -245,7 +243,7 @@ Ad esempio, un trigger di coda supporta le proprietà seguenti:
 
 I dettagli delle proprietà dei metadati per ogni trigger sono descritti nell'argomento di riferimento corrispondente. La documentazione è disponibile anche nella scheda **Integrazione** del portale nella sezione **Documentazione** sotto l'area di configurazione dell'associazione.  
 
-Ad esempio, poiché i trigger BLOB presentano alcuni ritardi, è possibile usare un trigger della coda per l'esecuzione della funzione (vedere [Trigger del BLOB del servizio di archiviazione](functions-bindings-storage-blob.md#storage-blob-trigger). Il messaggio della coda contiene il filename del BLOB da attivare. Con l'uso della proprietà dei metadati `queueTrigger`, è possibile specificareper intero questo comportamento nella configurazione, invece che nel codice.
+Poiché ad esempio i trigger BLOB presentano alcuni ritardi, è possibile usare un trigger di coda per l'esecuzione della funzione (vedere [Trigger del BLOB del servizio di archiviazione](functions-bindings-storage-blob.md#storage-blob-trigger)). Il messaggio della coda contiene il filename del BLOB da attivare. Con l'uso della proprietà dei metadati `queueTrigger`, è possibile specificareper intero questo comportamento nella configurazione, invece che nel codice.
 
 ```json
   "bindings": [
@@ -428,4 +426,3 @@ Per altre informazioni su questi elementi, vedere gli articoli indicati di segui
 - [Hub di notifica](functions-bindings-notification-hubs.md)
 - [App per dispositivi mobili](functions-bindings-mobile-apps.md)
 - [File esterno](functions-bindings-external-file.md)
-

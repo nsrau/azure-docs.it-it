@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: Quando è già presente Azure AD | Documentazione Microsoft"
+title: "Azure AD Connect: Quando è già presente Azure AD | Microsoft Docs"
 description: "Questo argomento illustra come usare Connect quando è presente un tenant Azure AD."
 services: active-directory
 documentationcenter: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f59028a2f909914222236f3b3575afd0949b4277
-ms.openlocfilehash: c89e206462856d25a81729e7028065ac1cd13ef3
-ms.contentlocale: it-it
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: a62a3954d10e718f5d180ddb725c6a9c7cda56c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect con un tenant esistente
 La maggior parte degli argomenti che illustrano come usare Azure AD Connect presuppongono che si inizi con un nuovo tenant di Azure AD che non contiene utenti o altri oggetti. Questo argomento è utile se tuttavia si inizia con un tenant di Azure AD che contiene utenti e altri oggetti e si vuole usare Connect.
 
@@ -53,7 +51,7 @@ Se gli oggetti sono stati associati con una corrispondenza flessibile, verrà ag
 Per una nuova installazione di Connect, non esiste alcuna differenza pratica tra corrispondenza flessibile e corrispondenza rigida. La differenza emerge in una situazione di ripristino di emergenza. Se si è perso il server con Azure AD Connect, è possibile reinstallare una nuova istanza senza perdere i dati. Un oggetto con un attributo sourceAnchor viene inviato a Connect durante l'installazione iniziale. La corrispondenza può quindi essere valutata dal client (Azure AD Connect), che per l'operazione impiega molto meno tempo rispetto ad Azure AD. Una corrispondenza rigida viene valutata sia da Connect che da Azure AD. Una corrispondenza flessibile viene valutata solo da Azure AD.
 
 ### <a name="other-objects-than-users"></a>Oggetti diversi dagli utenti
-Gli utenti hanno in genere sia l'attributo userPrincipalName che l'attributo proxyAddresses, semplificando così la corrispondenza. Altri oggetti, ad esempio i gruppi di sicurezza, non hanno tuttavia questi attributi. In questo caso l'associazione è possibile solo con una corrispondenza rigida tramite l'attributo sourceAnchor. L'attributo sourceAnchor è sempre l'**objectGUID** convertito in Base64 in locale, quindi è necessario aggiornare il valore in Azure AD quando due oggetti devono corrispondere. Gli attributi sourceAnchor/immutableID possono essere aggiornati solo con PowerShell e non tramite i portali.
+Per i gruppi abilitati alla posta e ai contatti è possibile eseguire la corrispondenza flessibile in base a proxyAddresses. La corrispondenza rigida non è applicabile poiché è possibile aggiornare solo sourceAnchor o immutableID (tramite PowerShell) solo per Utenti. Per i gruppi che non sono abilitati per la posta non c'è attualmente alcun supporto per la corrispondenza rigida o per la corrispondenza flessibile.
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Creare una nuova istanza di Active Directory locale dai dati di Azure AD
 Alcuni clienti iniziano con una soluzione solo cloud con Azure AD e non hanno un'istanza di AD locale. In un secondo momento intendono usare risorse locali e creare un'istanza di AD locale basata sui dati di Azure AD. Azure AD Connect non potrà essere utile per questo scenario. Non crea gli utenti locali e non può impostare in locale la stessa password di Azure AD.
@@ -62,4 +60,3 @@ Se l'unico motivo per cui si prevede di aggiungere un'istanza di AD locale è il
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-

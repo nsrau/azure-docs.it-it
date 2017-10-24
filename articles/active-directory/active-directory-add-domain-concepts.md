@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
-ms.openlocfilehash: 3c591680160101a91174868714392674c9aa7178
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.reviewer: elkuzmen
+ms.openlocfilehash: b0ba411dd40bbd063a328d61be899c1e70a96eda
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Panoramica concettuale dei nomi di dominio personalizzati in Azure Active Directory
 Un nome di dominio può essere un identificatore importante per molte risorse della directory, come parte di:
@@ -29,8 +30,8 @@ Un nome di dominio può essere un identificatore importante per molte risorse de
 
 Una risorsa in Azure Active Directory (Azure AD) può includere un nome di dominio già verificato come di proprietà della directory contenente il servizio. Solo un amministratore globale può eseguire attività di gestione del dominio in Azure AD.
 
-> [!IMPORTANT]
-> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo. Per informazioni su come gestire i nomi di dominio nell'interfaccia di amministrazione di Azure AD, vedere [Gestione dei nomi di dominio personalizzati in Azure Active Directory](active-directory-domains-manage-azure-portal.md).
+> [!TIP]
+> Per informazioni su come gestire i nomi di dominio nell'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com), vedere [Gestione dei nomi di dominio personalizzati in Azure Active Directory](active-directory-domains-manage-azure-portal.md).
 
 I nomi di dominio in Azure AD sono univoci. Un nome di dominio personalizzato può essere usato da un solo tenant di Azure AD per volta. Se una directory di Azure AD ha verificato un nome di dominio, nessun'altra directory di Azure AD può verificare o usare lo stesso nome di dominio.
 
@@ -51,9 +52,7 @@ Azure AD verifica la proprietà di un nome di dominio cercando nel file di zona 
 L'aggiunta di una voce DNS al file di zona per il nome di dominio non influenza gli altri servizi di dominio, ad esempio posta elettronica o hosting web.
 
 ## <a name="federated-and-managed-domain-names"></a>Nomi di dominio federati e gestiti
-Un nome di dominio personalizzato in Azure AD può essere configurato per fornire agli utenti un'esperienza di accesso federato tra Active Directory locale e Azure AD. Per configurare un dominio per la federazione, è necessario l'aggiornamento alle risorse con privilegi in Azure AD e anche a Windows Server Active Directory. La configurazione di un dominio federato deve essere completata da Azure AD Connect o tramite PowerShell. La federazione di un dominio personalizzato non può essere avviata dal portale di Azure classico. [Guardare questo video per informazioni sulla configurazione di ADFS per l'accesso utente con Azure AD Connect](http://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect).
-
-I domini non federati sono talvolta detti domini gestiti. Il dominio iniziale per una directory di Azure AD è valutato in modo implicito come dominio gestito.
+Un nome di dominio personalizzato in Azure AD può essere configurato per fornire agli utenti un'esperienza di accesso federato tra Active Directory locale e Azure AD. Per configurare un dominio per la federazione, è necessario l'aggiornamento alle risorse con privilegi in Azure AD e anche a Windows Server Active Directory. La configurazione di un dominio federato deve essere completata da Azure AD Connect o tramite PowerShell. La federazione di un dominio personalizzato non può essere avviata dal portale di Azure classico. I domini non federati sono talvolta detti domini gestiti. Il dominio iniziale per una directory di Azure AD è valutato in modo implicito come dominio gestito.
 
 ## <a name="primary-domain-names"></a>Nomi di dominio primari
 Il nome di dominio primario per una directory è il nome di dominio già selezionato come valore predefinito per la parte "dominio" del nome utente, quando un amministratore crea un nuovo utente nel [portale di Azure](https://portal.azure.com/) o in un altro portale, ad esempio il portale dell'amministratore di Office 365 o il portale di Microsoft Intune. Una directory può avere un solo nome di dominio primario. Un amministratore può modificare il nome di dominio primario impostando qualsiasi dominio personalizzato verificato che non sia federato o il dominio iniziale.

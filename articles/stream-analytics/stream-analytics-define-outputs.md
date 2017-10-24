@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: 33d0b9aa37cc92dda27f1cf21f1d393b42b8c09b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 52d131384c61b57d31873530304c644d6e9c11f1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Output di Analisi di flusso: opzioni per archiviazione, analisi
 Quando si crea un processo di Analisi di flusso, una considerazione da fare riguarda l'uso dei dati risultanti. Come si visualizzeranno i risultati del processo di Analisi di flusso e dove saranno archiviati?
@@ -57,7 +56,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione nec
 </tr>
 <tr>
 <td>Schema prefisso percorso</td>
-<td>Percorso del file usato per scrivere i file nell'account di Archivio Data Lake specificato. <BR>{date}, {time}<BR>Esempio 1: folder1/logs/{date}/{time}<BR>Esempio 2: folder1/logs/{date}</td>
+<td>La denominazione dei file seguirà questa convenzione: <BR>{Schema prefisso percorso}/schemaHashcode_Guid_Number.extension <BR> <BR>File di output di esempio:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>Inoltre, in queste situazioni viene creato un nuovo file:<BR>1. Modifica allo schema di output <BR>2. Riavvio interno o esterno di un processo<BR><BR>Inoltre, se il modello di percorso del file non contiene un "/" finale, l'ultimo modello nel percorso del file verrà considerato come un prefisso del nome file.<BR><BR>Esempio:<BR>Per il modello di percorso folder1/logs/HH, il file generato sarà simile a questo: folder1/logs/02_134343_gguid_1.csv</td>
 </tr>
 <tr>
 <td>Formato data [<I>facoltativo</I>]</td>
@@ -81,7 +80,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione nec
 </tr>
 <tr>
 <td>Format</td>
-<td>Applicabile solo per la serializzazione JSON. Separato da righe specifica che l'output verrà formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output verrà formattato come array di oggetti JSON.</td>
+<td>Applicabile solo per la serializzazione JSON. Separato da righe specifica che l'output verrà formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output verrà formattato come array di oggetti JSON. Questa matrice verrà chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON separato da righe, perché non richiede alcuna gestione speciale durante la scrittura del file di output.</td>
 </tr>
 </tbody>
 </table>
@@ -137,7 +136,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 </tr>
 <tr>
 <td>Schema prefisso percorso [facoltativo]</td>
-<td>Percorso del file usato per scrivere i BLOB nel contenitore specificato.<BR>All'interno del percorso è possibile scegliere di usare una o più istanze delle 2 variabili seguenti per specificare la frequenza di scrittura dei BLOB:<BR>{date}, {time}<BR>Esempio 1: cluster1/logs/{date}/{time}<BR>Esempio 2: cluster1/logs/{date}</td>
+<td>Il modello di percorso del file usato per scrivere i BLOB nel contenitore specificato. <BR> Nel modello del percorso è possibile scegliere di usare una o più istanze delle 2 variabili seguenti per specificare la frequenza di scrittura dei BLOB: <BR> {date}, {time} <BR> Esempio 1: cluster1/logs/{date}/{time} <BR> Esempio 2: cluster1/logs/{date} <BR> <BR> La denominazione dei file seguirà questa convenzione: <BR> {Schema prefisso percorso}/schemaHashcode_Guid_Number.extension <BR> <BR> File di output di esempio: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Inoltre, in queste situazioni viene creato un nuovo file: <BR> 1. Il file corrente supera il numero massimo consentito di blocchi (attualmente 50.000) <BR> 2. Modifica allo schema di output <BR> 3. Riavvio interno o esterno di un processo  </td>
 </tr>
 <tr>
 <td>Formato data [facoltativo]</td>
@@ -182,7 +181,7 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 | Formato di serializzazione eventi |Formato di serializzazione per i dati di output.  Sono supportati i formati JSON, CSV e Avro. |
 | Codifica |Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON |
 | Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
-| Format |Applicabile solo per il tipo JSON. Separato da righe specifica che l'output verrà formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output verrà formattato come array di oggetti JSON. |
+| Format |Applicabile solo per la serializzazione JSON. Separato da righe specifica che l'output verrà formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output verrà formattato come array di oggetti JSON. Questa matrice verrà chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON separato da righe, perché non richiede alcuna gestione speciale durante la scrittura del file di output. |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) può essere usato come output per un processo di Analisi di flusso per offrire un'esperienza di visualizzazione avanzata dei risultati di analisi. Questa funzionalità può essere usata per i dashboard operativi, la generazione di report e la creazione di report basati sulle metriche.
@@ -267,7 +266,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Chiave di partizione |Nome della colonna di output contenente la chiave di partizione. La chiave di partizione è un identificatore univoco per la partizione di una determinata tabella che costituisce la prima parte della chiave primaria di un'entità. Si tratta di un valore stringa le cui dimensioni massime sono di 1 KB. |
 | Chiave di riga |Nome della colonna di output contenente la chiave di riga. La chiave di riga è un identificatore univoco per un’entità all'interno di una determinata partizione. Costituisce la seconda parte della chiave primaria di un'entità. La chiave di riga è un valore stringa le cui dimensioni massime sono di 1 KB. |
 | Dimensioni batch |Numero di record per un'operazione batch. Il valore predefinito in genere è sufficiente per la maggior parte dei processi. Per altri dettagli sulla modifica di questa impostazione, vedere la [specifica relativa alle operazioni batch su tabella](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx). |
-
+ 
 ## <a name="service-bus-queues"></a>Code del bus di servizio
 [Code del bus di servizio](https://msdn.microsoft.com/library/azure/hh367516.aspx) consentono un recapito dei messaggi di tipo FIFO (First In, First Out) a uno o più consumer concorrenti. Si prevede in genere che i messaggi vengano ricevuti ed elaborati nell'ordine temporale in cui sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato da un solo consumer.
 
@@ -298,7 +297,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Nome criteri argomento |Durante la creazione di un argomento, nella scheda Configura argomento è anche possibile creare criteri di accesso condiviso. Ogni criterio di accesso condiviso ha un nome, autorizzazioni impostate e tasti di scelta |
 | Chiave criteri argomento |Chiave di accesso condivisa usata per autenticare l'accesso allo spazio dei nomi del bus di servizio |
 | Formato di serializzazione eventi |Formato di serializzazione per i dati di output.  Sono supportati i formati JSON, CSV e Avro. |
-| Codifica |Se il formato è CSV o JSON, è necessario specificare un formato di codifica. Al momento UTF-8 è l'unico formato di codifica supportato |
+ | Codifica |Se il formato è CSV o JSON, è necessario specificare un formato di codifica. Al momento UTF-8 è l'unico formato di codifica supportato |
 | Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -315,6 +314,23 @@ L'elenco seguente illustra i nomi delle proprietà e la relativa descrizione per
   2\) MyCollection{partizione}: devono essere presenti le raccolte "MyCollection0", "MyCollection1", "MyCollection2" e così via.  
 * **Chiave di partizione**: valore facoltativo. È necessario solo se si usa un token {partition} nel modello del nome di raccolta. Il nome del campo negli eventi di output utilizzato per specificare la chiave per il partizionamento di output nelle raccolte. Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId.  
 * **ID documento** : valore facoltativo. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.  
+
+## <a name="azure-functions-in-preview"></a>Funzioni di Azure (in anteprima)
+Funzioni di Azure è un servizio di calcolo senza server che consente di eseguire codice su richiesta senza dover gestire l'infrastruttura o effettuare il provisioning in modo esplicito. Consente di implementare il codice attivato da eventi generati nei servizi di Azure o in servizi di terze parti.  La possibilità offerta da Funzioni di Azure di rispondere ai trigger la rende l'output naturale per Analisi di flusso di Azure. Questo adattatore di output consente agli utenti di collegare Analisi di flusso a Funzioni di Azure ed eseguire uno script o una porzione di codice in risposta a diversi eventi.
+
+Analisi di flusso di Azure richiama Funzioni di Azure tramite trigger HTTP. Il nuovo adattatore di input di Funzioni di Azure è disponibile con le seguenti proprietà configurabili:
+
+| Nome proprietà | Descrizione |
+| --- | --- |
+| App per le funzioni |Nome dell'app Funzioni di Azure |
+| Funzione |Nome della funzione nell'app Funzioni di Azure |
+| Dimensioni massime batch |Questa proprietà può essere usata per impostare le dimensioni massime per ogni batch di output che verrà inviato a Funzioni di Azure. Per impostazione predefinita questo valore è 256 KB. |
+| Numero massimo di batch  |Come indica il nome, questa proprietà consente di specificare il numero massimo di eventi in ogni batch che vengono inviati a Funzioni di Azure. Il valore di conteggio massimo di batch predefinito è 100 |
+| Chiave |Per usare una funzione di Azure di un'altra sottoscrizione, è necessario fornire la chiave per accedere alla funzione |
+
+Si noti che quando Analisi di flusso di Azure riceve l'eccezione 413 (Entità richiesta troppo grande) dalla funzione di Azure, riduce la dimensione dei batch che invia a Funzioni di Azure. Usare questa eccezione nel codice della funzione di Azure per fare in modo che Analisi di flusso di Azure non invii batch troppo grandi. Assicurarsi inoltre che i valori relativi al numero massimo di batch e alle dimensioni massime usati nella funzione corrispondano ai valori inseriti nel portale di Analisi di flusso. 
+
+Quando non avviene alcun evento in un intervallo di tempo, non viene generato alcun output. Di conseguenza, non viene chiamata la funzione computeResult. Questo comportamento è coerente con le funzioni di aggregazione finestra predefinite.
 
 
 ## <a name="get-help"></a>Ottenere aiuto
@@ -335,4 +351,3 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

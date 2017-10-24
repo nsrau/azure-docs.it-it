@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Introduzione | Microsoft Docs'
-description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure (anteprima)
+description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,29 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: d86b9e99619dea408e784f32d76ba6296948bdc0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: d2d570bc2bab3bfd28282cd95b0a1be65e96743d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure (Anteprima)
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 Questo articolo illustra come abilitare Azure Active Directory Domain Services (Azure AD DS) tramite il portale di Azure.
 
 Per avviare la procedura guidata **Abilita Azure AD Domain Services**, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel riquadro sinistro fare clic su **Nuovo**.
-3. Nel pannello **Nuovo** digitare **Domain Services** nella barra di ricerca.
+3. Nella pagina **Nuovo** digitare **Domain Services** nella barra di ricerca.
 
     ![Ricerca di Domain Services](./media/getting-started/search-domain-services.png)
 
-4. Fare clic per selezionare **Azure AD Domain Services** dall'elenco dei suggerimenti di ricerca. Nel pannello **Azure AD Domain Services** fare clic sul pulsante **Crea**.
+4. Fare clic per selezionare **Azure AD Domain Services** dall'elenco dei suggerimenti di ricerca. Nella pagina **Azure AD Domain Services** fare clic sul pulsante **Crea**.
 
-    ![Pannello Domain Services](./media/getting-started/domain-services-blade.png)
+    ![Vista dei servizi di dominio](./media/getting-started/domain-services-blade.png)
 
 5. Viene avviata la procedura guidata **Abilita Azure AD Domain Services**.
 
@@ -65,6 +64,10 @@ Nella pagina **Informazioni di base** della procedura guidata è possibile speci
 
 3. Scegliere il **tipo di rete virtuale**. Per impostazione predefinita, viene selezionato il tipo di rete virtuale **Resource Manager**. È consigliabile usare questo tipo di rete virtuale per tutti i nuovi domini gestiti creati.
 
+    > [!TIP]
+    > **Il supporto di rete virtuale classica è pianificato per la deprecazione.** Selezionare il tipo di rete virtuale di Resource Manager per tutte le nuove distribuzioni. A breve le reti virtuali classiche non saranno più supportate per le nuove distribuzioni. I domini gestiti esistenti distribuiti nelle reti virtuali classiche continueranno a essere supportati.
+    >
+
 4. Selezionare la **Sottoscrizione** di Azure in cui si vuole creare il dominio gestito.
 
 5. Selezionare il **Gruppo di risorse** a cui deve appartenere il dominio gestito. Quando si seleziona il gruppo di risorse, è possibile scegliere tra le opzioni **Crea nuovo** e **Usa esistente**.
@@ -76,4 +79,3 @@ Nella pagina **Informazioni di base** della procedura guidata è possibile speci
 
 ## <a name="next-step"></a>Passaggio successivo
 [Attività 2: Configurare le impostazioni di rete](active-directory-ds-getting-started-network.md)
-

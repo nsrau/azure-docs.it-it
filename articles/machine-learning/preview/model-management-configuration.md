@@ -10,32 +10,31 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
+ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 06fbf6019aa4a2ceab99a83efe072fc0b71bfbf4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>Installazione di Gestione modelli
 
 ## <a name="overview"></a>Panoramica
 Questo documento fornisce un'introduzione all'uso di Gestione modelli di Azure Machine Learning per distribuire e gestire i modelli di Machine Learning come servizi Web. 
 
-Con Gestione modelli di Azure Machine Learning è possibile distribuire e gestire in modo efficiente i modelli di Machine Learning creati usando alcuni framework tra cui SparkML, Keras, TensorFlow, Microsoft Cognitive Toolkit o Python. 
+Usando Gestione modelli di Machine Learning di Azure, è possibile distribuire e gestire in modo efficiente i modelli di Machine Learning compilati tramite alcuni framework, tra cui SparkML, Keras, TensorFlow, Microsoft Cognitive Toolkit o Python. 
 
 Alla fine di questo documento sarà possibile configurare l'ambiente di gestione dei modelli e renderlo pronto per la distribuzione dei modelli di Machine Learning.
 
 ## <a name="what-you-need-to-get-started"></a>Elementi necessari per iniziare
-Per sfruttare al meglio questa guida è consigliabile disporre dell'accesso come proprietario a una sottoscrizione di Azure su cui è possibile distribuire i modelli.
-L'interfaccia della riga di comando è preinstallata in Azure Machine Learning Workbench e nelle [DSVM di Azure](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Per sfruttare al meglio questa guida, è necessario disporre dell'accesso come proprietario ad una sottoscrizione di Azure su cui è possibile distribuire i modelli.
+L'interfaccia della riga di comando preinstallata in Azure Machine Learning Workbench e in [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM di Azure).
 
 ## <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
 Per usare le interfacce della riga di comando (CLI) dal Workbench, fare clic su **File** -] **Open CommandLine Interface** (Apri interfaccia della riga di comando). 
 
 In una macchina virtuale data science (DSVM, Data Science Virtual Machine) collegarsi e aprire il prompt dei comandi. Digitare `az ml -h` per visualizzare le opzioni. Per altre informazioni sui comandi, usare il flag help.
 
-In tutti gli altri sistemi è necessario installare le interfacce della riga di comando.
+In tutti gli altri sistemi è necessario installare l'interfaccia della riga di comando.
 
 ### <a name="installing-or-updating-on-windows"></a>Installazione o aggiornamento in Windows
 
@@ -79,13 +78,13 @@ sudo /opt/microsoft/azureml/initial_setup.sh
 ## <a name="deploying-your-model"></a>Distribuzione del modello
 Per distribuire i modelli come servizi Web usare le interfacce della riga di comando. I servizi Web possono essere distribuiti localmente o in un cluster.
 
-Iniziare con una distribuzione locale, verificare che il modello e il codice funzionino quindi eseguire la distribuzione in un cluster per l'uso della scalabilità di produzione.
+Iniziare con una distribuzione locale, verificare che il modello e il codice funzionino, quindi distribuire in un cluster per l'uso della scalabilità di produzione.
 
 Per iniziare è necessario configurare l'ambiente di distribuzione. L'impostazione dell'ambiente è una attività che ha luogo una sola volta. Una volta completata l'installazione è possibile riusare l'ambiente per distribuzioni successive. Per maggiori dettagli, vedere la sezione seguente.
 
 Una volta completata l'installazione dell'ambiente:
 - Viene visualizzata la richiesta di accedere ad Azure. Per accedere, usare un Web browser per aprire la pagina https://aka.ms/devicelogin e immettere il codice fornito per l'autenticazione.
-- Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: selezionare un account che dispone di una sottoscrizione di Azure valida e di autorizzazioni sufficienti per creare risorse nell'account. Al momento dell'accesso vengono visualizzate le informazioni riguardanti la sottoscrizione e viene chiesto se si desidera continuare con l'account selezionato.
+- Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: selezionare un account che dispone di una sottoscrizione di Azure valida e di autorizzazioni sufficienti per creare risorse nell'account. -Quando il log è completo, vengono presentate le informazioni riguardanti la sottoscrizione e viene chiesto se si desidera continuare con l'account selezionato.
 
 ### <a name="environment-setup"></a>Configurazione dell'ambiente
 Per avviare il processo di installazione, è necessario registrare il provider dell'ambiente immettendo il comando seguente:
@@ -107,7 +106,7 @@ az ml env setup -l [location of Azure Region, e.g. eastus2] -n [your environment
 Il comando di configurazione dell'ambiente locale crea le risorse seguenti nella sottoscrizione:
 - Un gruppo di risorse (se non fornito)
 - Un account di archiviazione
-- Un Registro contenitori di Azure (ACR)
+- Un registro contenitori di Azure (ACR)
 - Application Insights
 
 Una volta completata correttamente l'installazione impostare l'ambiente da usare con il comando seguente:
@@ -119,16 +118,16 @@ az ml env set -n [environment name] -g [resource group]
 #### <a name="cluster-deployment"></a>Distribuzione cluster
 Usare la distribuzione cluster per scenari di produzione su vasta scala. Viene configurato un cluster ACS con Kubernetes come agente di orchestrazione. Il cluster ACS può essere aumentato per gestire una velocità effettiva maggiore per le chiamate al servizio Web.
 
-Per distribuire il servizio Web in un ambiente di produzione prima di tutto configurare l'ambiente usando il comando seguente:
+Per distribuire il servizio web in un ambiente di produzione, prima di tutto configurare l'ambiente tramite il comando seguente:
 
 ```azurecli
-az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
+az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
 Il comando di configurazione dell'ambiente del cluster crea le risorse seguenti nella sottoscrizione:
 - Un gruppo di risorse (se non fornito)
 - Un account di archiviazione
-- Un Registro contenitori di Azure (ACR)
+- Un registro contenitori di Azure (ACR)
 - Una distribuzione Kubernetes in un cluster del Servizio contenitore di Azure (ACS)
 - Application Insights
 
@@ -144,6 +143,9 @@ az ml env set -n [environment name] -g [resource group]
 > Dopo aver creato l'ambiente, per le distribuzioni successive è sufficiente usare comando di impostazione indicato in precedenza per riusarlo.
 >
 
+>[!NOTE] 
+>Per creare un endpoint HTTPS, specificare un certificato SSL quando si crea un cluster usando le opzioni --cert-name e --cert-pem in az ml env setup. Il cluster verrà impostato per elaborare le richieste su HTTPS, con la protezione tramite il certificato fornito. Al termine della configurazione, creare un record DNS CNAME che punta al nome di dominio completo (FQDN) del cluster.
+
 ### <a name="create-an-account"></a>Creare un account
 È necessario un account per la distribuzione dei modelli. È necessario eseguire questa operazione una volta per ogni account ed è possibile riusare lo stesso account in distribuzioni multiple.
 
@@ -158,7 +160,7 @@ Per usare un account esistente usare il comando seguente:
 az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
-### <a name="deploy-your-model"></a>Distribuzione del modello
+### <a name="deploy-your-model"></a>Distribuire il modello
 A questo punto si è pronti per distribuire il modello salvato come un servizio Web. 
 
 ```azurecli
@@ -167,4 +169,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ### <a name="next-steps"></a>Passaggi successivi
 Provare uno dei molti esempi nella Raccolta.
-

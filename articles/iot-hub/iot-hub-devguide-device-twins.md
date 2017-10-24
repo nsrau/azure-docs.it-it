@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 454eb7b1f4f48e8a2a78bd3fcb6eb03b6097d44d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 257f661dbc5ff23db53591a1b2db59a8dbeac2dc
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 ## <a name="overview"></a>Panoramica
@@ -139,7 +138,7 @@ Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gem
 È possibile usare i gemelli per sincronizzare le operazioni a esecuzione prolungata, ad esempio gli aggiornamenti del firmware. Per altre informazioni su come usare le proprietà per sincronizzare e tenere traccia dell'operazione a esecuzione prolungata sui dispositivi, vedere [Usare le proprietà desiderate per configurare i dispositivi][lnk-twin-properties].
 
 ## <a name="back-end-operations"></a>Operazioni di back-end
-Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti operazioni atomiche esposte tramite HTTP:
+Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti operazioni atomiche esposte tramite HTTPS:
 
 1. **Recuperare un dispositivo gemello tramite ID**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà desiderate, segnalate e di sistema.
 2. **Aggiornare parzialmente il dispositivo gemello**. Questa operazione consente al back-end della soluzione di aggiornare parzialmente i tag o le proprietà desiderate di un dispositivo gemello. L'aggiornamento parziale è espresso come documento JSON che aggiunge o aggiorna tutte le proprietà. Le proprietà impostate su `null` vengono rimosse. L'esempio seguente crea una nuova proprietà desiderata con valore `{"newProperty": "newValue"}`, sostituisce il valore esistente di `existingProperty` con `"otherNewValue"`, e rimuove `otherOldProperty`. Non vengono apportate altre modifiche alle altre proprietà desiderate o ai tag esistenti:
@@ -369,4 +368,3 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png
-

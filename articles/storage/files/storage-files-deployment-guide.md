@@ -12,16 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 499d10943f606a67ca04bfdf5f7cad44f9e20d07
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-deploy-azure-files"></a>Come distribuire i file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Questo articolo illustra come distribuire praticamente File di Azure all'interno dell'organizzazione.
 
@@ -37,7 +35,9 @@ In questo articolo si presuppone che l'utente abbia già completato i passaggi s
 Se l'utente desidera eseguire la migrazione di condivisioni di file esistenti, ad esempio quelli archiviati in locale, nella nuova condivisione di File di Azure, questa sezione illustra come spostare i dati in una condivisione di File di Azure tramite diversi metodi descritti in dettaglio nella [guida alla pianificazione](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Sincronizzazione file di Azure (anteprima)
-Sincronizzazione file di Azure (anteprima) può essere usato per eseguire la migrazione dei dati in una condivisione di File di Azure, anche se il meccanismo di sincronizzazione non è necessario per l'uso a lungo termine. Altre informazioni su come usare la Sincronizzazione file di Azure per i dati in entrata nella condivisione di File di Azure sono reperibili in [Pianificazione della distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
+Sincronizzazione file di Azure (anteprima) consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
+
+Sincronizzazione file di Azure può essere usato per eseguire la migrazione dei dati in una condivisione file di Azure, anche se il meccanismo di sincronizzazione non è necessario per l'uso a lungo termine. Altre informazioni su come usare Sincronizzazione file di Azure per trasferire dati nella condivisione file di Azure sono disponibili in [Pianificazione della distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Importazione/Esportazione di Azure
 Il servizio Importazione/Esportazione di Azure consente di trasferire in modo sicuro grandi quantità di dati in una condivisione di File di Azure tramite la spedizione delle unità disco rigido a un datacenter di Azure. Per altre informazioni sul servizio vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione di Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).

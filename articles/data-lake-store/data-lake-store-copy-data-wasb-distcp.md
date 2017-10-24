@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 12aea210308636677ba2905887ddd24dc5c35238
-ms.contentlocale: it-it
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 1c9e100b4a0e7781f0782a49835d50492895ded1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Usare Distcp per copiare dati tra i BLOB di archiviazione di Azure e Archivio Data Lake
 > [!div class="op_single_selector"]
@@ -29,10 +27,9 @@ ms.lasthandoff: 03/25/2017
 >
 >
 
-Dopo avere creato un cluster HDInsight con accesso a un account Data Lake Store, è possibile usare gli strumenti dell'ecosistema Hadoop, ad esempio Distcp, per copiare i dati **da e in** una risorsa di archiviazione del cluster HDInsight in un account Data Lake Store. Questo articolo include istruzioni per eseguire questa operazione.
+Se è stato creato un cluster HDInsight con accesso a Data Lake Store, è possibile usare gli strumenti dell'ecosistema Hadoop, ad esempio DistCp, per copiare i dati **da e in** una risorsa di archiviazione del cluster HDInsight (WASB) in un account Data Lake Store. Questo articolo include istruzioni sull'uso dello strumento DistCp.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per eseguire le procedure descritte nell'articolo è necessario:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account di Archivio Data Lake di Azure**. Per istruzioni su come crearne uno, vedere [Introduzione ad Archivio Data Lake di Azure](data-lake-store-get-started-portal.md)
@@ -43,7 +40,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usare Distcp da un cluster HDInsight Linux
 
-Un cluster HDInsight include l'utilità Distcp, che può essere usata per copiare i dati da diverse origini in un cluster HDInsight. Se il cluster HDInsight è stato configurato per l'uso di Archivio Data Lake come risorsa di archiviazione aggiuntiva, l'utilità Distcp può essere usata senza modifiche anche per copiare dati in e da un account Archivio Data Lake. Questa sezione illustra come usare l'utilità Distcp.
+Un cluster HDInsight include l'utilità Distcp, che può essere usata per copiare i dati da diverse origini in un cluster HDInsight. Se il cluster HDInsight è stato configurato per l'uso di Data Lake Store come risorsa di archiviazione aggiuntiva, l'utilità DistCp può essere usata senza modifiche anche per copiare dati in e da un account Data Lake Store. Questa sezione illustra come usare l'utilità DistCp.
 
 1. Dal desktop usare SSH per connettersi al cluster. Vedere [Connettersi a un cluster HDInsight basato su Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Eseguire i comandi dal prompt SSH.
 
@@ -51,26 +48,29 @@ Un cluster HDInsight include l'utilità Distcp, che può essere usata per copiar
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 
-    Dovrebbe essere visualizzato un elenco di contenuti del BLOB di archiviazione.
+    L'output dovrebbe mostrare un elenco di contenuti del BLOB di archiviazione.
+
 3. Analogamente, verificare se è possibile accedere all'account Archivio Data Lake dal cluster. Eseguire il comando seguente:
 
         hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net:443/
 
-    Dovrebbe essere visualizzato un elenco di file/cartelle nell'account Archivio Data Lake.
+    L'output dovrebbe mostrare un elenco di file/cartelle nell'account Data Lake Store.
+
 4. Usare Distcp per copiare i dati dal BLOB di archiviazione di Azure all'account Archivio Data Lake.
 
         hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
 
-    I contenuti della cartella **/example/data/gutenberg/** in WASB verranno copiati in **/myfolder** nell'account Data Lake Store.
+    Il comando copia i contenuti della cartella **/example/data/gutenberg/** in WASB in **/myfolder** nell'account Data Lake Store.
+
 5. Analogamente, usare Distcp per copiare dati dall'account Archivio Data Lake al BLOB di archiviazione di Azure.
 
         hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
 
-    I contenuti di **/myfolder** nell'account Data Lake Store verranno copiati nella cartella **/example/data/gutenberg/** in WASB.
+    Il comando copia i contenuti di **/myfolder** nell'account Data Lake Store nella cartella **/example/data/gutenberg/** in WASB.
 
 ## <a name="performance-considerations-while-using-distcp"></a>Considerazioni sulle prestazioni per l'uso di DistCp
 
-Dato che il livello di granularità minimo per DistCp corrisponde a un singolo file, l'impostazione del numero massimo di copie simultanee è il parametro più importante per l'ottimizzazione per Data Lake Store. A tale scopo è possibile impostare il parametro del numero di mapper ('m') nella riga di comando. Questo parametro specifica il numero massimo di mapper che verranno usati per la copia dei dati. Il valore predefinito è 20.
+Dato che il livello di granularità minimo per DistCp corrisponde a un singolo file, l'impostazione del numero massimo di copie simultanee è il parametro più importante per l'ottimizzazione per Data Lake Store. Il numero di copie simultanee si controlla impostando il parametro del numero di mapper ('m') nella riga di comando. Questo parametro specifica il numero massimo di mapper usati per la copia dei dati. Il valore predefinito è 20.
 
 **Esempio**
 
@@ -90,7 +90,7 @@ Ecco alcune linee guida che è possibile usare.
 
 Si supponga di avere 4 nodi D14v2s nel cluster e di voler tentare il trasferimento di 10 TB di dati da 10 cartelle diverse. Ogni cartella contiene quantità variabili di dati e le dimensioni dei file all'interno di ogni cartella sono diverse.
 
-* Memoria di YARN totale - Dal portale di Ambari si stabilisce che la memoria di YARN è pari a 96 GB per un nodo D14. Pertanto, la memoria totale di YARN per un cluster a 4 nodi è: 
+* Memoria di YARN totale - Dal portale di Ambari si stabilisce che la memoria di YARN è pari a 96 GB per un nodo D14. Pertanto, la memoria totale di YARN per un cluster a quattro nodi è: 
 
         YARN memory = 4 * 96GB = 384GB
 
@@ -112,11 +112,10 @@ Quando le dimensioni del set di dati da spostare sono molto grandi (ad esempio, 
 
 * In presenza di un numero ridotto di file di grandi dimensioni, è consigliabile dividerli in blocchi di file da 256 MB per ottenere una maggiore concorrenza potenziale. 
  
-* Se si esegue la copia da un account di Archiviazione BLOB di Azure, il processo di copia potrebbe essere limitato nell'ambito dell'archiviazione BLOB. In questo modo le prestazioni del processo di copia diminuiranno. Per altre informazioni sui limiti di Archiviazione BLOB di Azure, vedere i limiti di Archiviazione di Azure in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+* Se si esegue la copia da un account di Archiviazione BLOB di Azure, il processo di copia potrebbe essere limitato nell'ambito dell'archiviazione BLOB. In questo caso le prestazioni del processo di copia diminuiscono. Per altre informazioni sui limiti di Archiviazione BLOB di Azure, vedere i limiti di Archiviazione di Azure in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
 ## <a name="see-also"></a>Vedere anche
 * [Copiare i dati da BLOB di archiviazione di Azure ad Archivio Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
 * [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 * [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-

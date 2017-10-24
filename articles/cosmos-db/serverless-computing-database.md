@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mimig
+ms.openlocfilehash: 192bdde86e12472a6fd87ba50fd597ea8b01247d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 084dacc6a07b64500652481fbcabf1b0fc44306c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: elaborazione di database senza server con Funzioni di Azure
 
 L'elaborazione senza server consiste nella possibilità di concentrarsi sulle singole parti logiche ripetibili e senza stato. Queste parti non richiedono la gestione dell'infrastruttura e usano le risorse solo per i secondi o millisecondi in cui vengono eseguite. Alla base dello spostamento di elaborazioni senza server ci sono le funzioni, che vengono rese disponibili all'interno dell'ecosistema di Azure da [Funzioni di Azure](https://azure.microsoft.com/services/functions).
@@ -159,7 +157,6 @@ Ora bisogna davvero collegare Funzioni di Azure e Azure Cosmos DB:
 
 
  
-
 
 
 

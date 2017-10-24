@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurare Multipath I/O per il dispositivo StorSimple
 Microsoft ha creato il supporto per funzionalità Multipath I/O (MPIO) in Windows Server per consentire la creazione di configurazioni SAN a elevata disponibilità e con tolleranza d’errore. MPIO utilizza componenti di percorso fisico ridondanti, adattatori, cavi e interruttori, per creare percorsi logici tra il server e il dispositivo di archiviazione. Se si verifica un errore del componente, che causa l’errore di un percorso logico, la logica dei percorsi multipli utilizza un percorso alternativo per l’I/O, in modo che le applicazioni possano continuare ad accedere ai dati. Inoltre, in base alla configurazione, MPIO può anche migliorare le prestazioni bilanciando nuovamente il carico tra tutti questi percorsi. Per ulteriori informazioni, vedere [Panoramica di Multipath I/O](https://technet.microsoft.com/library/cc725907.aspx "Panoramica di Multipath I/O and features").  
@@ -114,8 +114,7 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
 13. Inizializzare il disco e creare un nuovo volume. Durante il processo di formattazione, selezionare una dimensione blocco di 64 KB.
     ![Gestione disco](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. In **Gestione disco** fare clic con il pulsante destro del mouse su **Disco** e selezionare **Proprietà**.
-15. Nella finestra di dialogo **Multi-Path Disk Device Properties** (Proprietà dispositivo disco con percorsi multipli) di StorSimple Model #### fare clic sulla scheda **MPIO**.
-    ![StorSimple 8100 Multi-Path Disk DeviceProp.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. Nella finestra di dialogo **Multi-Path Disk Device Properties** (Proprietà dispositivo disco con percorsi multipli) di StorSimple Model #### fare clic sulla scheda **MPIO**. ![StorSimple 8100 Multi-Path Disk DeviceProp.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 16. Nella sezione **Nome DSM** fare clic su **Dettagli** e verificare che i parametri impostati siano quelli predefiniti. I parametri predefiniti sono:
     
     * Periodo di verifica percorso = 30

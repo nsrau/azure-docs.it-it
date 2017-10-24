@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
+ms.openlocfilehash: 371295efea1eab66361b9aba21a55bbd2826c69b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: fa7d9d3bef4cb326844ede76171e8c566e87116b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuire l'applicazione nei set di scalabilità delle macchine virtuali
 
 Questo articolo descrive diverse modalità di installazione di software durante il provisioning del set di scalabilità.
@@ -49,7 +47,7 @@ Seguire anche questa procedura:
 
 Per altre informazioni sui dischi, vedere [Panoramica di Managed Disks](../virtual-machines/windows/managed-disks-overview.md) e [Usare dischi dati collegati](virtual-machine-scale-sets-attached-disks.md).
 
-## <a name="install-when-the-scale-set-is-provisioned"></a>Installare quando viene eseguito il provisioning del set di scalabilità
+## <a name="already-provisioned"></a>Installare quando viene eseguito il provisioning del set di scalabilità
 
 Le estensioni della macchina virtuale possono essere applicate a un set di scalabilità della macchina virtuale. Con un'estensione della macchina virtuale, è possibile personalizzare le macchine virtuali in un set di scalabilità come gruppo intero. Per altre informazioni sulle estensioni, vedere [Estensioni della macchina virtuale](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -228,5 +226,4 @@ Si supponga di voler aggiornare un'immagine del sistema operativo mantenendo in 
 [linux-vm-capture]: ../virtual-machines/linux/capture-image.md
 [windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
 [vmss-create]: virtual-machine-scale-sets-create.md
-
 

@@ -1,6 +1,6 @@
 ---
-title: Intelligent Insights per il monitoraggio dell'uso del database - Database SQL di Azure | Microsoft Docs
-description: Intelligent Insights assicura un maggior controllo sulle prestazioni del database
+title: Monitorare l'utilizzo del database con Intelligent Insights - Database SQL di Azure | Microsoft Docs
+description: "Intelligent Insights per il database SQL di Azure usa le funzionalità di intelligence integrata per monitorare in modo continuativo l'utilizzo del database grazie all'intelligenza artificiale e di rilevare gli eventi che possono causare interruzioni del funzionamento e una riduzione delle prestazioni."
 services: sql-database
 documentationcenter: 
 author: danimir
@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
+ms.openlocfilehash: 8e55fa02d5edda21fbf547397d63f9d1cf987a60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c3b11dd50fa8c94d3bf80e02a8a319030c375133
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
-***&#8220;Intelligent Insights assicura un maggior controllo sulle prestazioni del database.&#8221;***
+***&amp;#8220;Intelligent Insights assicura un maggior controllo sulle prestazioni del database.&amp;#8221;***
 
-Le funzionalità di intelligence integrata del database SQL di Azure consentono di monitorare in modo continuativo l'uso del database grazie all'intelligenza artificiale e di rilevare gli eventi che possono causare interruzioni del funzionamento e una riduzione delle prestazioni. Dopo aver rilevato questo tipo di eventi, viene eseguita un'analisi dettagliata che genera un log di diagnostica con una valutazione intelligente del problema. Questa valutazione è costituita da un'analisi della causa radice del problema di prestazioni del database e, dove possibile, da raccomandazioni per il miglioramento delle prestazioni, quello che si definisce un'***&#8220;analisi intelligente&#8221;***. 
+Intelligent Insights per il database SQL di Azure usa le funzionalità di intelligence integrata per monitorare in modo continuativo l'utilizzo del database grazie all'intelligenza artificiale e di rilevare gli eventi che possono causare interruzioni del funzionamento e una riduzione delle prestazioni. Dopo aver rilevato questo tipo di eventi, viene eseguita un'analisi dettagliata che genera un log di diagnostica con una valutazione intelligente del problema. Questa valutazione è costituita da un'analisi della causa radice del problema di prestazioni del database e, dove possibile, da raccomandazioni per il miglioramento delle prestazioni, quello che si definisce un'***&#8220;analisi intelligente&#8221;***. 
 
 ## <a name="what-can-intelligent-insights-do-for-you"></a>Quali sono i vantaggi di Intelligent Insights?
 
@@ -157,10 +156,9 @@ Il log di Intelligent Insights restituisce il numero di richieste con errori, l'
 Nel caso in cui una delle eccezioni critiche monitorate superi le soglie assolute gestite dal sistema, viene generata un'analisi intelligente con informazioni dettagliate sull'eccezione critica.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Imparare a [risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
+* Informazioni su come [risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 * Usare il [log di diagnostica delle prestazioni del database SQL di Azure generato da Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md)
 * Imparare a [monitorare un database SQL di Azure usando Analisi SQL di Azure](../log-analytics/log-analytics-azure-sql.md)
 * Imparare a [raccogliere e usare i dati dei log dalle risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-
 
 

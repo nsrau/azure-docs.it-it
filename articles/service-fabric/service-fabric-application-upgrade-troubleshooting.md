@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 10/03/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 7fc832ff23f5ad652df3cb9c689180c92952ba8e
-ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
-
+ms.openlocfilehash: acfd26674aafab4ed1925d6b33967f917058b1be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-application-upgrades"></a>Risolvere i problemi relativi agli aggiornamenti delle applicazioni
 Questo articolo descrive alcuni dei problemi comuni relativi all'aggiornamento di un'applicazione di Azure Service Fabric e come risolverli.
@@ -86,6 +85,8 @@ In questo esempio l'aggiornamento non è riuscito nel dominio di aggiornamento *
 Se il valore di *UpgradePhase* è *PreUpgradeSafetyCheck*, si sono verificati problemi durante la preparazione del dominio di aggiornamento prima dell'esecuzione. I problemi più comuni in questo caso sono errori di servizi nella chiusura o nell'abbassamento di livello da percorsi di codice primari.
 
 Il valore corrente di **UpgradeState** è *RollingBackCompleted*, pertanto l'aggiornamento originale deve essere stato eseguito con la proprietà **FailureAction** impostata per il rollback ed è stato eseguito automaticamente il rollback dell'aggiornamento al momento dell'errore. Se l'aggiornamento originale fosse stato eseguito con la proprietà **FailureAction**impostata per l'azione manuale, si sarebbe attivato lo stato di sospensione dell'aggiornamento per consentire il debug attivo dell'applicazione.
+
+In rari casi, il campo **UpgradeDomainProgressAtFailure** può essere vuoto se l'aggiornamento complessivo raggiunge il timeout proprio mentre il sistema completa tutte le operazioni per il dominio di aggiornamento corrente. In questo caso, provare ad aumentare i valori dei parametri **UpgradeTimeout** e **UpgradeDomainTimeout** e a eseguire di nuovo l'aggiornamento.
 
 ### <a name="investigate-health-check-failures"></a>Analizzare gli errori di controllo dell'integrità
 Gli errori di controllo dell'integrità possono essere attivati da vari problemi che possono verificarsi dopo l'aggiornamento di tutti i nodi di un dominio di aggiornamento e dopo aver superato tutti i controlli di sicurezza. L'output che segue questo paragrafo è tipico di un errore di aggiornamento causato da controlli di integrità non riusciti. Il campo **UnhealthyEvaluations** acquisisce uno snapshot dei controlli di integrità non riusciti al momento dell'aggiornamento in base ai [criteri di integrità](service-fabric-health-introduction.md)specificati dall'utente.
@@ -222,4 +223,3 @@ Controllare l’aggiornamento dell'applicazione tramite [Parametri di aggiorname
 Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
 
 Per informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione, vedere [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
-

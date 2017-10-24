@@ -1,6 +1,6 @@
 ---
 title: Informazioni di riferimento sui token di Azure Active Directory 2.0 | Documentazione Microsoft
-description: Tipi di token e attestazioni generati dall&quot;endpoint di Azure AD 2.0.
+description: Tipi di token e attestazioni generati dall'endpoint di Azure AD 2.0.
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
-ms.openlocfilehash: 3a3d5c8bf4da9255015fab64f2b59637c4c030ea
-ms.contentlocale: it-it
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informazioni di riferimento sui token di Azure Active Directory 2.0
 L'endpoint di Azure Active Directory (Azure AD) 2.0 genera tipi diversi di token di sicurezza in ogni [flusso di autenticazione](active-directory-v2-flows.md). Questo articolo di riferimento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
@@ -70,7 +68,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | nonce |`nonce` |`12345` |L'attestazione Nonce è una strategia per ridurre gli attacchi di riproduzione del token. L'app può specificare un'attestazione Nonce in una richiesta di autorizzazione usando il parametro di query `nonce` . Il valore specificato nella richiesta viene generato nell'attestazione `nonce` del token ID, senza essere modificato. L'app può verificare il valore rispetto al valore specificato nella richiesta che associa la sessione dell'app a un token ID specifico. L'app deve eseguire la convalida durante il processo di convalida del token ID. |
 | name |`name` |`Babe Ruth` |Questa attestazione fornisce un valore leggibile che identifica l'oggetto del token. Il valore potrebbe non essere univoco, è modificabile e può essere usato solo per scopi di visualizzazione. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Indirizzo di posta elettronica primario associato all'account utente, se presente. Il valore è modificabile e può variare nel tempo. Per ricevere questa attestazione, è necessario l'ambito `email` . |
-| nome utente preferito |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |Nome utente primario che rappresenta l'utente nell'endpoint 2.0. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può variare nel tempo. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
+| nome utente preferito |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |Nome utente primario che rappresenta l'utente nell'endpoint 2.0. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può variare nel tempo. Poiché è mutevole, questo valore non deve essere usato per prendere decisioni in merito alle autorizzazioni. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
 | subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa oppure come chiave nelle tabelle di database. Dato che il soggetto è sempre presente nei token generati da Azure AD, è consigliabile usare questo valore in un sistema di autorizzazione di uso generico. L'oggetto è tuttavia un identificatore pairwise univoco per un ID di applicazione specifico.  Se quindi un singolo utente accede a due app diverse usando due ID client differenti, queste app riceveranno due valori differenti per l'attestazione dell'oggetto.  Questa condizione può non essere appropriata a seconda dei requisiti a livello di architettura e di privacy. |
 | ID oggetto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Identificatore non modificabile per un oggetto nel sistema di identità Microsoft, in questo caso, un account utente.  Può essere usato anche per eseguire i controlli di autorizzazioni in modo sicuro e come chiave nelle tabelle di database. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`.  Ciò significa che può essere usato quando si eseguono query in Microsoft Online Services, ad esempio Microsoft Graph.  Microsoft Graph restituirà l'ID come proprietà `id` per un determinato account utente.  Poiché `oid` consente a più app di correlare utenti, per ricevere questa attestazione è necessario l'ambito `profile`. Si noti che se un singolo utente è presente in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant; vengono considerati account diversi, anche se l'utente accede a ogni account con le stesse credenziali. |
 
@@ -155,4 +153,3 @@ Le indicazioni sulla durata dei token fornite di seguito sono solo a scopo infor
 | Token di aggiornamento (account personale) |Fino a 1 anno |Un singolo token di aggiornamento è valido per un periodo massimo di 1 anno. Tuttavia, il token di aggiornamento può diventare non valido in qualsiasi momento per diversi motivi, quindi l'app deve continuare a provare a usare un token di aggiornamento fino a quando non si verifica un errore. |
 | Codici di autorizzazione (account aziendale o dell'istituto di istruzione) |10 minuti |I codici di autorizzazione sono intenzionalmente di breve durata e devono essere immediatamente riscattati per i token di accesso e di aggiornamento quando vengono ricevuti. |
 | Codici di autorizzazione (account personale) |5 minuti |I codici di autorizzazione sono intenzionalmente di breve durata e devono essere immediatamente riscattati per i token di accesso e di aggiornamento quando vengono ricevuti. I codici di autorizzazione generati per conto degli account personali possono essere usati una sola volta. |
-

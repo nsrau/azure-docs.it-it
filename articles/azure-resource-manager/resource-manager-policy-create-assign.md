@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/19/2017
 ms.author: tomfitz
+ms.openlocfilehash: 64bdd6ed41e98079c8d4112e895aaeddcd629282
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f461efbc2a23f85e8b6d3fdec156a0df1636708a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>Assegnare e gestire i criteri delle risorse
 
@@ -31,6 +30,23 @@ Per implementare i criteri, è necessario eseguire questi passaggi:
 4. In entrambi i casi, assegnare i criteri a un ambito (ad esempio una sottoscrizione o un gruppo di risorse). A questo punto le regole del criterio vengono applicate.
 
 Questo articolo illustra i passaggi per creare una definizione di criterio e assegnare tale definizione a un ambito tramite l'API REST, PowerShell o l'interfaccia della riga di comando di Azure. Se si preferisce usare il portale per assegnare i criteri, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse). Questo articolo non tratta la sintassi per la creazione della definizione di un criterio. Per informazioni sulla sintassi dei criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
+
+## <a name="exclusion-scopes"></a>Ambiti di esclusione
+
+Quando si assegna un criterio è possibile escludere un ambito. Questa possibilità semplifica le assegnazioni di criteri perché è possibile assegnare un criterio a livello di sottoscrizione ma specificare dove non viene applicato il criterio. Nella sottoscrizione si dispone ad esempio di un gruppo di risorse destinato all'infrastruttura di rete. I team delle applicazioni distribuiscono le proprie risorse in altri gruppi di risorse. Non si desidera che i team creino le risorse di rete perché si potrebbero verificare problemi di sicurezza. Tuttavia, nel gruppo delle risorse di rete si desidera consentire le risorse di rete. È possibile assegnare il criterio a livello di sottoscrizione ma escludere il gruppo delle risorse di rete. È possibile specificare più ambiti secondari.
+
+```json
+{
+    "properties":{
+        "policyDefinitionId":"<ID for policy definition>",
+        "notScopes":[
+            "/subscriptions/<subid>/resourceGroups/networkresourceGroup1"
+        ]
+    }
+}
+```
+
+Se si specifica un ambito di esclusione nella propria assegnazione, usare la versione API **2017-06-01-preview**.
 
 ## <a name="rest-api"></a>API REST
 
@@ -168,8 +184,28 @@ Prima di procedere per creare una definizione dei criteri, esaminare i criteri p
 ### <a name="create-policy-definition"></a>Creare una definizione di criterio
 È possibile creare una definizione di criterio usando il cmdlet `New-AzureRmPolicyDefinition`.
 
+Per creare una definizione dei criteri da un file passare il percorso al file. Per un file esterno, usare:
+
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Per un file locale, usare:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Per creare una definizione dei criteri con una regola inline, usare:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
   "if": {
     "allOf": [
       {
@@ -195,12 +231,6 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 ```            
 
 L'output viene archiviato in un oggetto `$definition` che viene usato durante l'assegnazione del criterio. 
-
-Anziché specificare JSON come parametro, è possibile fornire il percorso al file con estensione .json contenente la regola del criterio.
-
-```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
-```
 
 L'esempio seguente crea una definizione del criterio che include i parametri:
 
@@ -319,8 +349,10 @@ Prima di procedere per creare una definizione dei criteri, esaminare i criteri p
 
 È possibile creare una definizione di criteri usando l'interfaccia della riga di comando di Azure con il comando di definizione dei criteri.
 
+Per creare una definizione dei criteri con una regola inline, usare:
+
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
   "if": {
     "allOf": [
       {
@@ -371,5 +403,4 @@ az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscr
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
 

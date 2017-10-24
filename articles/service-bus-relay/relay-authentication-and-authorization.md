@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2017
+ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 95589ca169926362fa77f0e307afd449014c8402
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 4ef8cbf22f2fcd7017af16083240608e5ca0fb5e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticazione e autorizzazione di Inoltro di Azure
-Le applicazioni possono eseguire l'autenticazione a Inoltro di Azure usando l'autenticazione con firma di accesso condiviso (SAS). Simile alla [messaggistica del bus di servizio](../service-bus-messaging/service-bus-authentication-and-authorization.md), l'autenticazione con firma di accesso condivisa consente alle applicazioni di eseguire l'autenticazione al servizio Inoltro di Azure tramite una chiave di accesso configurata nello spazio dei nomi di inoltro. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso che i client possono usare per eseguire l'autenticazione al servizio di inoltro.
+
+Le applicazioni possono eseguire l'autenticazione a Inoltro di Azure usando l'autenticazione con firma di accesso condiviso (SAS). L'autenticazione con firma di accesso condiviso consente alle applicazioni di eseguire l'autenticazione al servizio di inoltro di Azure con una chiave di accesso configurata nello spazio dei nomi dell'inoltro. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso che i client possono usare per eseguire l'autenticazione al servizio di inoltro.
 
 ## <a name="shared-access-signature-authentication"></a>Autenticazione della firma di accesso condiviso
 L'[autenticazione SAS](../service-bus-messaging/service-bus-sas.md) garantisce l'accesso dell'utente alle risorse del servizio Inoltro di Azure con diritti specifici. Nel bus di servizio l'autenticazione SAS implica la configurazione di una chiave di crittografia con i relativi diritti in una risorsa. I client possono quindi ottenere l'accesso a questa risorsa presentando un token di firma di accesso condiviso composto dall'URI della risorsa a cui si vuole accedere e da una scadenza firmata con la chiave configurata.

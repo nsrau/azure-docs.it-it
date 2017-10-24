@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione
 
 Informazioni su come risolvere gli errori di gateway non valido (502) ricevuti durante l'uso di un gateway applicazione.
@@ -31,63 +29,48 @@ Informazioni su come risolvere gli errori di gateway non valido (502) ricevuti d
 
 Dopo aver configurato un gateway applicazione, uno degli errori che gli utenti possono riscontrare è "Errore del server: 502 - Risposta non valida ricevuta dal server Web in funzione come server proxy o gateway". Questo errore può verificarsi a causa dei principali motivi seguenti:
 
-* Il [pool back-end del gateway applicazione di Azure non è configurato o è vuoto](#empty-backendaddresspool).
-* Nessuna delle macchine virtuali o istanze nel [set di scalabilità di macchine virtuali è integra](#unhealthy-instances-in-backendaddresspool).
-* Le macchine virtuali o le istanze back-end del set di scalabilità di macchine virtuali [non rispondono al probe di integrità predefinito](#problems-with-default-health-probe.md).
+* Un gruppo di sicurezza di rete, una route definita dall'utente o un DNS personalizzato sta bloccando l'accesso ai membri del pool back-end.
+* Le macchine virtuali back-end o le istanze del set di scalabilità di macchine virtuali [non rispondono al probe di integrità predefinito](#problems-with-default-health-probe.md).
 * [Configurazione dei probe di integrità personalizzati](#problems-with-custom-health-probe.md) non valida o inappropriata.
+* Il [pool back-end del gateway applicazione di Azure non è configurato o è vuoto](#empty-backendaddresspool).
+* Nessuna delle macchine virtuali o delle istanze nel [set di scalabilità di macchine virtuali è integra](#unhealthy-instances-in-backendaddresspool).
 * [Problemi di timeout della richiesta o di connettività](#request-time-out) con le richieste degli utenti.
 
-## <a name="empty-backendaddresspool"></a>BackendAddressPool vuoto
+## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>Problema di gruppo di sicurezza di rete, route definita dall'utente o DNS personalizzato
 
 ### <a name="cause"></a>Causa
 
-Se nel pool di indirizzi back-end non sono presenti VM o set di scalabilità di macchine virtuali configurati, il gateway applicazione non può instradare le richieste del cliente e genera un errore di gateway non valido.
+Se l'accesso al back-end è bloccato a causa della presenza di un gruppo di sicurezza di rete, di una route definita dall'utente o di un DNS personalizzato, le istanze del gateway applicazione non saranno in grado di raggiungere il pool back-end e daranno origine a problemi di probe, causando errori 502. Si noti che possono essere presenti gruppi di sicurezza di rete/route definite dall'utente sia nella subnet del gateway applicazione, sia nella subnet in cui vengono distribuite le macchine virtuali delle applicazioni. In modo analogo, anche la presenza di un DNS personalizzato nella rete virtuale potrebbe causare problemi se si usa un nome di dominio completo per i membri del pool back-end e tale nome non viene risolto correttamente dal server DNS configurato dall'utente per la rete virtuale.
 
 ### <a name="solution"></a>Soluzione
 
-Verificare che il pool di indirizzi back-end non sia vuoto. A tale scopo è possibile usare PowerShell, l'interfaccia della riga di comando o il portale.
+Convalidare la configurazione di gruppo di sicurezza di rete, route definita dall'utente o DNS personalizzato tramite i passaggi seguenti:
+* Controllare i gruppi di sicurezza di rete associati alla subnet del gateway applicazione. Verificare che la comunicazione con il back-end non sia bloccata.
+* Controllare la route definita dall'utente associata alla subnet del gateway applicazione. Assicurarsi che la route definita dall'utente non indirizzi il traffico fuori dalla subnet del back-end. Controllare, ad esempio, che il routing verso appliance virtuali di rete o route predefinite venga annunciato alla subnet del gateway applicazione tramite ExpressRoute/VPN.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
-L'output del cmdlet precedente dovrebbe contenere un pool di indirizzi back-end non vuoto. Di seguito è riportato un esempio in cui vengono restituiti due pool configurati con indirizzi IP o FQDN (nome di dominio completo) per le macchine virtuali back-end. Lo stato del provisioning di BackendAddressPool deve essere "Succeeded".
+* Controllare il gruppo di sicurezza di rete e la route effettivi nella macchina virtuale back-end
 
-BackendAddressPoolsText:
+```powershell
+Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+```
+
+* Controllare se è presente un DNS personalizzato nella rete virtuale. È possibile eseguire questo controllo esaminando i dettagli delle proprietà della rete virtuale nell'output.
 
 ```json
-[{
-    "BackendAddresses": [{
-        "ipAddress": "10.0.0.10",
-        "ipAddress": "10.0.0.11"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool01",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-}, {
-    "BackendAddresses": [{
-        "Fqdn": "xyx.cloudapp.net",
-        "Fqdn": "abc.cloudapp.net"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool02",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-}]
+Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+DhcpOptions            : {
+                           "DnsServers": [
+                             "x.x.x.x"
+                           ]
+                         }
 ```
-
-## <a name="unhealthy-instances-in-backendaddresspool"></a>Istanze non integre in BackendAddressPool
-
-### <a name="cause"></a>Causa
-
-Se tutte le istanze di BackendAddressPool non sono integre, il gateway applicazione non avrà back-end a cui instradare la richiesta dell'utente. Questo potrebbe anche verificarsi quando le istanze back-end sono integre ma non è stata distribuita l'applicazione necessaria.
-
-### <a name="solution"></a>Soluzione
-
-Verificare che le istanze siano integre e che l'applicazione sia configurata correttamente. Controllare se le istanze back-end riescono a rispondere a un ping da un'altra VM nella stessa rete virtuale. Se configurato con un endpoint pubblico, verificare che sia valida la richiesta del browser per l'applicazione Web.
+Se presente, assicurarsi che il server DNS sia in grado di risolvere correttamente il nome di dominio completo del membro del pool back-end.
 
 ## <a name="problems-with-default-health-probe"></a>Problemi con il probe di integrità predefinito
 
@@ -152,8 +135,59 @@ Il gateway applicazione consente agli utenti di configurare questa impostazione 
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
+## <a name="empty-backendaddresspool"></a>BackendAddressPool vuoto
+
+### <a name="cause"></a>Causa
+
+Se nel pool di indirizzi back-end non sono presenti macchine virtuali o set di scalabilità di macchine virtuali configurati, il gateway applicazione non può instradare le richieste del cliente e genera un errore di gateway non valido.
+
+### <a name="solution"></a>Soluzione
+
+Verificare che il pool di indirizzi back-end non sia vuoto. A tale scopo è possibile usare PowerShell, l'interfaccia della riga di comando o il portale.
+
+```powershell
+Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```
+
+L'output del cmdlet precedente dovrebbe contenere un pool di indirizzi back-end non vuoto. Di seguito è riportato un esempio in cui vengono restituiti due pool configurati con indirizzi IP o FQDN (nome di dominio completo) per le macchine virtuali back-end. Lo stato del provisioning di BackendAddressPool deve essere "Succeeded".
+
+BackendAddressPoolsText:
+
+```json
+[{
+    "BackendAddresses": [{
+        "ipAddress": "10.0.0.10",
+        "ipAddress": "10.0.0.11"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool01",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+}, {
+    "BackendAddresses": [{
+        "Fqdn": "xyx.cloudapp.net",
+        "Fqdn": "abc.cloudapp.net"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool02",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+}]
+```
+
+## <a name="unhealthy-instances-in-backendaddresspool"></a>Istanze non integre in BackendAddressPool
+
+### <a name="cause"></a>Causa
+
+Se tutte le istanze di BackendAddressPool non sono integre, il gateway applicazione non avrà back-end a cui instradare la richiesta dell'utente. Questo potrebbe anche verificarsi quando le istanze back-end sono integre ma non è stata distribuita l'applicazione necessaria.
+
+### <a name="solution"></a>Soluzione
+
+Verificare che le istanze siano integre e che l'applicazione sia configurata correttamente. Controllare se le istanze back-end riescono a rispondere a un ping da un'altra VM nella stessa rete virtuale. Se configurato con un endpoint pubblico, verificare che sia valida la richiesta del browser per l'applicazione Web.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se i passaggi precedenti non risolvono il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).
-
 

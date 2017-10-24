@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
 ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Distribuire l'offerta in Azure Marketplace
 Quando si è soddisfatti dell'offerta (ad esempio, è stato eseguito il testing degli scenari dei clienti, del contenuto marketing e così via) e si è pronti per il lancio, richiedere **Push in produzione** nella scheda **Pubblica**.  
@@ -69,7 +69,7 @@ Quando si è soddisfatti dell'offerta (ad esempio, è stato eseguito il testing 
 
 * Il logo alto è facoltativo. L'autore può scegliere di non caricare un logo alto. **Tuttavia, una volta caricata, l'icona del logo alto non può essere eliminata dal portale di pubblicazione. A quel punto il partner deve seguire le istruzioni di Azure Marketplace per le icone del logo alto o l'offerta non verrà approvata per la produzione.**
 * Il nome visualizzato dell'autore, il titolo dello SKU e il riepilogo lungo dell'offerta sono visualizzati con il testo bianco. Di conseguenza non è consigliabile usare un colore chiaro come sfondo dell'icona del logo alto. Lo sfondo nero, bianco o trasparente non è ammesso per le icone del logo alto.
-* Il nome visualizzato dell'autore, il titolo dello SKU, il riepilogo lungo dell'offerta e il pulsante Crea vengono incorporati a livello di codice all'interno del logo alto quando l'offerta viene elencata. Pertanto non è necessario inserire testo mentre si progetta il logo alto. Lasciare uno spazio vuoto a destra, in quanto il testo (ad esempio nome visualizzato dell'entità di pubblicazione, titolo dello SKU, riepilogo lungo dell'offerta) verrà incluso a livello di codice da Microsoft in questa posizione. Lo spazio vuoto per il testo deve essere 415 x 100 a destra e viene spostato con un offset di 370 px da sinistra.
+* Il nome visualizzato dell'autore, il titolo dello SKU, il riepilogo lungo dell'offerta e il pulsante Crea vengono incorporati a livello di codice all'interno del logo alto quando l'offerta viene elencata. Pertanto non è necessario inserire testo mentre si progetta il logo alto. Lasciare uno spazio vuoto a destra, perché il testo (nome visualizzato dell'editore, titolo dello SKU e riepilogo lungo dell'offerta) viene automaticamente incluso a livello di codice. Lo spazio vuoto per il testo deve essere 415 x 100 a destra e viene spostato con un offset di 370 px da sinistra.
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Elenco di controllo di produzione aggiuntivo per le offerte per macchina virtuale già elencate
 * Controllare se è già presente un'offerta della propria azienda con lo stesso nome. Se è così, è necessario aggiungere una nuova versione dello SKU nell'offerta esistente anziché creare una nuova offerta duplicata.

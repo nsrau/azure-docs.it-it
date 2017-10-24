@@ -14,17 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/27/2017
+ms.date: 10/10/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 895e29d6b83d07cafaa2dbbc7a13218460e03815
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 7af2657b01b954c3f43a687dedebad7e4a814e6a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizzo di Azure per l'hosting e l'esecuzione di scenari con carichi di lavoro SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -313,7 +311,7 @@ Titolo: Panoramica e architettura di SAP HANA in Azure (istanze di grandi dimens
 
 Riepilogo: Questa guida sull'architettura e la distribuzione tecnica di SAP offre informazioni sulle modalità di distribuzione di SAP nella nuova piattaforma SAP HANA in Azure (istanze di grandi dimensioni). Non è stata concepita per essere una guida completa sull'installazione specifica di soluzioni SAP, ma per offrire utili informazioni sulla distribuzione iniziale e le operazioni successive. Non deve essere usata in sostituzione della documentazione di SAP correlata all'installazione di SAP HANA o delle varie note di supporto SAP che riguardano l'argomento. Offre semplicemente una panoramica e informazioni specifiche sull'installazione di SAP HANA in Azure (istanze di grandi dimensioni).
 
-Ultimo aggiornamento: luglio 2017
+Ultimo aggiornamento: ottobre 2017
 
 [Questa guida è disponibile qui](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -340,7 +338,7 @@ Titolo: Disponibilità elevata e ripristino di emergenza di SAP HANA in Azure (i
 
 Riepilogo: La disponibilità elevata e il ripristino di emergenza sono aspetti importanti dell'esecuzione di sistemi SAP HANA cruciali nei server di Azure (istanze di grandi dimensioni). La collaborazione con SAP, l'integratore di sistemi e/o Microsoft è fondamentale per progettare e implementare correttamente la strategia di disponibilità elevata e ripristino di emergenza adatta alle proprie esigenze. È inoltre necessario prendere in considerazione alcuni fattori significativi, come l'RPO (Recovery Point Objective, obiettivo del punto di ripristino) e l'RTO (Recovery Time Objective, obiettivo del tempo di ripristino), specifici del proprio ambiente.  Questo documento illustra le opzioni disponibili per abilitare i livelli desiderati di disponibilità elevata e ripristino di emergenza.
 
-Ultimo aggiornamento: settembre 2017
+Ultimo aggiornamento: ottobre 2017
 
 [Questo documento è disponibile qui](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -485,5 +483,4 @@ Riepilogo: Questo documento descrive come è possibile usare i servizi Azure Sit
 Ultimo aggiornamento: agosto 2017
 
 [Questa guida è disponibile qui](http://aka.ms/asr-sap)
-
 

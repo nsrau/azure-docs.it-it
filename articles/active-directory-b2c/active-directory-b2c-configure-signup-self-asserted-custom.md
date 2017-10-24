@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 8731ff3a42e12d145bc259597812aded8333a095
-ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
+ms.openlocfilehash: 2e4dbd13107a7a48eda179aeffdf6670a1c1cb22
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: modificare l'iscrizione per aggiungere nuove attestazioni e configurare l'input utente.
 
@@ -36,7 +35,7 @@ La raccolta dei dati iniziali dagli utenti avviene mediante l'iscrizione/accesso
 
 
 ## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Definire l'attestazione, il nome visualizzato e il tipo di input utente
-Per chiedere all'utente di indicare la propria città,  aggiungere l'elemento seguente all'elemento `<ClaimsSchema>` nel file dei criteri TrustFrameWorkExtensions:
+Per chiedere all'utente di indicare la propria città,  Aggiungere l'elemento seguente all'elemento `<ClaimsSchema>` nel file dei criteri TrustFrameworkBase:
 
 ```xml
 <ClaimType Id="city">
@@ -286,4 +285,3 @@ Aggiungere la nuova attestazione ai flussi per gli accessi con account di social
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
 ```
-

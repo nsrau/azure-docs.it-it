@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/25/2017
 ms.author: danlep
-ms.openlocfilehash: c52a054e4fc8f61f871acd9f35b9a3e6247e48ef
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.openlocfilehash: 8a1097353d24ad4c807803511e93c90394816138
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Usare istanze con supporto per RDMA o abilitate per GPU in pool di Batch
 
@@ -33,13 +33,9 @@ Questo articolo fornisce istruzioni ed esempi per usare alcune delle dimensioni 
 
 ## <a name="subscription-and-account-limits"></a>Limiti della sottoscrizione e dell'account
 
-* **Quote**: una o più quote di Azure possono limitare il numero o il tipo di nodi che possono essere aggiunti a un pool di Batch. È più probabile che vengano applicati limiti quando si scelgono dimensioni di VM con supporto per RDMA, abilitate per GPU o multicore. A seconda del tipo di account Batch creato, le quote possono essere applicabili all'account stesso o alla sottoscrizione.
+* **Quote**: la [quota di core dedicati per ogni account Batch](batch-quota-limit.md#resource-quotas) può limitare il numero o il tipo di nodi che possono essere aggiunti a un pool di Batch. È più probabile raggiungere una quota quando si scelgono dimensioni di VM con supporto per RDMA, abilitate per GPU o multicore. Per impostazione predefinita, la quota è pari a 20 core. Si applica una quota separata alle [macchine virtuali a bassa priorità](batch-low-pri-vms.md), se usate. 
 
-    * Se l'account Batch è stato creato nella configurazione **Servizio Batch**, il limite deriva dalla [quota di core dedicati per ogni account Batch](batch-quota-limit.md#resource-quotas). Per impostazione predefinita, la quota è pari a 20 core. Si applica una quota separata alle [macchine virtuali a bassa priorità](batch-low-pri-vms.md), se usate. 
-
-    * Se l'account è stato creato nella configurazione **Sottoscrizione utente**, la sottoscrizione limita il numero di core VM per ogni area. Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md). La sottoscrizione applica anche una quota a livello di area ad alcune dimensioni delle macchine virtuali, incluse le istanze HPC e GPU. Nella configurazione Sottoscrizione utente non vengono applicate quote aggiuntive all'account Batch. 
-
-  Potrebbe essere necessario aumentare una o più quote quando si usa una dimensione di macchina virtuale specializzata in Batch. Per richiedere un aumento della quota, è possibile aprire una [richiesta di assistenza clienti online](../azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito.
+Se è necessario un aumento della quota, è possibile aprire una [richiesta di assistenza clienti online](../azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito.
 
 * **Disponibilità a livello di area**: le VM a elevato utilizzo di calcolo potrebbero non essere disponibili nelle aree in cui si crea l'account Batch. Per verificare la disponibilità di una dimensione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 
@@ -97,13 +93,7 @@ Per configurare una dimensione di macchina virtuale specializzata per il pool di
 
 * [Pacchetto dell'applicazione](batch-application-packages.md): aggiungere un pacchetto di installazione compresso all'account Batch e configurare un riferimento al pacchetto nel pool. Questa impostazione consente di caricare e decomprime il pacchetto in tutti i nodi del pool. Se il pacchetto è un programma di installazione, creare una riga di comando di attività di avvio per installare automaticamente l'app in tutti i nodi del pool. È anche possibile installare il pacchetto quando un'attività è pianificata per l'esecuzione in un nodo.
 
-* [Immagine pool personalizzata](batch-api-basics.md#pool): creare un'immagine personalizzata di VM Windows o Linux contenente driver, software o altre impostazioni necessarie per le dimensioni della VM. Se l'account Batch è stato creato nella configurazione Sottoscrizione utente, specificare l'immagine personalizzata per il pool di Batch. Le immagini personalizzate non sono supportate negli account nella configurazione Servizio Batch. Le immagini personalizzate possono essere usate solo nella configurazione della macchina virtuale.
-
-  > [!IMPORTANT]
-  > Nei pool di Batch non è attualmente possibile usare un'immagine personalizzata creata con dischi gestiti o con l'archiviazione Premium.
-  >
-
-
+* [Immagine pool personalizzata](batch-custom-images.md): creare un'immagine personalizzata di VM Windows o Linux contenente driver, software o altre impostazioni necessarie per le dimensioni della VM. 
 
 * [Batch Shipyard](https://github.com/Azure/batch-shipyard) configura automaticamente GPU e RDMA per usare in modo trasparente carichi di lavoro in contenitori in Azure Batch. Batch Shipyard si basa interamente su file di configurazione. Sono disponibili molte configurazioni di recipe di esempio che consentono carichi di lavoro GPU e RDMA, ad esempio il [recipe CNTK GPU](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) che preconfigura i driver GPU nelle macchine virtuali serie N e carica il software Microsoft Cognitive Toolkit come immagine Docker.
 
@@ -133,17 +123,14 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Linux è necessario inst
 
 1. Distribuire una macchina virtuale NC6 di Azure che esegue Ubuntu 16.04 LTS. È ad esempio possibile creare la macchina virtuale nell'area Stati Uniti centro-meridionali. Assicurarsi di creare la macchina virtuale con archiviazione Standard e *senza* dischi gestiti.
 2. Seguire questa procedura per connettersi alla macchina virtuale e [installare i driver CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
-3. Effettuare il deprovisioning dell'agente Linux e quindi acquisire l'immagine della VM Linux usando i comandi dell'interfaccia della riga di comando di Azure 1.0. Per la procedura, vedere [Acquisire una VM Linux in esecuzione su Azure](../virtual-machines/linux/capture-image-nodejs.md). Prendere nota dell'URI dell'immagine.
-  > [!IMPORTANT]
-  > Non usare i comandi dell'interfaccia della riga di comando di Azure 2.0 per acquisire l'immagine per Azure Batch. I comandi dell'interfaccia della riga di comando di Azure 2.0 acquisiscono attualmente solo le VM create con dischi gestiti.
-  >
-4. Creare un account Batch con la configurazione Sottoscrizione utente in un'area che supporta le VM NC.
-5. Usando l'API Batch o il portale di Azure, creare un pool usando l'immagine personalizzata e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:
+3. Effettuare il deprovisioning dell'agente Linux e quindi [acquisire l'immagine della VM Linux](../virtual-machines/linux/capture-image.md).
+4. Creare un account in un'area che supporta le VM NC.
+5. Usando l'API Batch o il portale di Azure, creare un pool [usando l'immagine personalizzata](batch-custom-images.md) e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:
 
 | Impostazione | Valore |
 | ---- | ---- |
 | **Tipo di immagine** | Immagine personalizzata |
-| **Immagine personalizzata** | URI dell'immagine nel formato `https://yourstorageaccountdisks.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` |
+| **Immagine personalizzata** | Nome dell'immagine |
 | **SKU agente nodo** | batch.node.ubuntu 16.04 |
 | **Dimensioni nodo** | NC6 Standard |
 

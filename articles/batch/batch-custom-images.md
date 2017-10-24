@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.openlocfilehash: 3d655766b4f2a5efb0c8c29ffa81a89f84b3e17c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 0816c464b6b52747148cc42a55445048901e7595
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine personalizzata per creare un pool di macchine virtuali
 
@@ -29,7 +29,7 @@ Tra i motivi per usare un'immagine personalizzata configurata per lo scenario è
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Account Batch creato con la modalità di allocazione pool Sottoscrizione utente.** Per usare un'immagine personalizzata per il provisioning di pool di macchine virtuali, creare l'account Batch con la [modalità di allocazione pool](batch-api-basics.md#pool-allocation-mode) Sottoscrizione utente. Con questa modalità, i pool di Batch vengono allocati nella sottoscrizione in cui si trova l'account. Per informazioni sull'impostazione della modalità di allocazione pool per la creazione di un account Batch, vedere la sezione [Account](batch-api-basics.md#account) in [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).
+- **Account Batch creato con la modalità di allocazione pool Sottoscrizione utente.** Con questa modalità, i pool di Batch vengono allocati nella sottoscrizione in cui si trova l'account. Per altre informazioni, vedere la sezione [Account](batch-api-basics.md#account) in [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).
 
 - Un **account di archiviazione di Azure**. Per creare un pool di macchine virtuali usando un'immagine personalizzata, è necessario un account di archiviazione di Azure standard per utilizzo generico nella stessa sottoscrizione e nella stessa area. Se si crea un'immagine personalizzata da una VM di Azure, si copierà l'immagine nell'account di archiviazione in cui si trova il disco del sistema operativo della VM e non sarà necessario creare un account di archiviazione separato. 
     

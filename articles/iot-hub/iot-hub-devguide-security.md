@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: e4fe5400ffcf4446392015aada031dd4dfbf238a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 91b2e72b9cc5f7b52dde09fb837cbc994d52a26c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -72,7 +72,7 @@ Per altre informazioni sulla creazione e sull'uso di token di sicurezza, vedere 
 
 ### <a name="protocol-specifics"></a>Specifiche del protocollo
 
-Ogni protocollo supportato, ad esempio MQTT, AMQP e HTTP, trasporta i token in modo diverso.
+Ogni protocollo supportato, ad esempio MQTT, AMQP e HTTPS, trasporta i token in modo diverso.
 
 Quando si usa MQTT, il pacchetto CONNECT ha deviceId come valore di ClientId, {iothubhostname}/{deviceId} nel campo Username e un token di firma di accesso condiviso nel campo Password. Il valore di {iothubhostname} deve essere il record CName completo dell'hub IoT, ad esempio contoso.azure-devices.net.
 
@@ -87,7 +87,7 @@ Per SASL PLAIN **username** può essere:
 
 In entrambi i casi, il campo della password contiene il token, come descritto in [Token di sicurezza dell'hub IoT][lnk-sas-tokens].
 
-Il protocollo HTTP implementa l'autenticazione includendo un token valido nell'intestazione della richiesta **Authorization** .
+Il protocollo HTTPS implementa l'autenticazione includendo un token valido nell'intestazione della richiesta **Authorization** .
 
 #### <a name="example"></a>Esempio
 
@@ -115,7 +115,7 @@ Questo meccanismo è simile ai [criteri dell'entità di pubblicazione di Hub eve
 
 Hub IoT usa i token di sicurezza per autenticare i dispositivi e i servizi ed evitare l'invio in rete delle chiavi. Inoltre, i token di sicurezza hanno una validità limitata in termini di tempo e portata. Gli [Azure IoT SDK][lnk-sdks] generano automaticamente i token senza richiedere una configurazione speciale. In alcuni scenari è necessario generare e usare direttamente i token di sicurezza. Tali scenari includono:
 
-* L'uso diretto di superfici MQTT, AMQP o HTTP.
+* L'uso diretto di superfici MQTT, AMQP o HTTPS.
 * L'implementazione del modello di servizio token, come descritto in [Autenticazione personalizzata del dispositivo][lnk-custom-auth].
 
 Hub IoT consente ai dispositivi di autenticarsi con l'hub IoT usando [certificati X.509][lnk-x509].

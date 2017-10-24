@@ -13,15 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: e4e298475d7be7d51c8bd55be498371ed6ce77a9
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
-
+ms.openlocfilehash: db49780e359258898a62f3b95e87f54b78055c86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
 
 U-SQL è un linguaggio di query progettato per carichi di lavoro di tipo Big Data. Una delle caratteristiche esclusive di U-SQL è la combinazione tra linguaggio dichiarativo di tipo SQL e funzionalità di estendibilità e programmabilità del linguaggio C#. Questa guida è incentrata sulle funzionalità di estendibilità e programmabilità del linguaggio U-SQL supportate da C#.
@@ -2123,7 +2120,7 @@ L'attributo **SqlUserDefinedReducer** indica che il tipo deve essere registrato 
 **SqlUserDefinedReducer** è un attributo facoltativo per la definizione di un riduttore definito dall'utente. Viene usato per definire la proprietà IsRecursive.
 
 * bool     IsRecursive    
-* **true**  = indica se il riduttore è idempotente
+* **true** = indica se questo Reducer è associativo e commutativo
 
 I principali oggetti di programmabilità sono **input** e **output**. L'oggetto di input viene usato per enumerare le righe di input. L'output viene usato per impostare le righe di output come risultato dell'attività di riduzione.
 
@@ -2220,4 +2217,3 @@ OUTPUT @rs2
     TO @output_file 
     USING Outputters.Text();
 ```
-

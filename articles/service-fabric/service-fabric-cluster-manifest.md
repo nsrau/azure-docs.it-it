@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dekapur
+ms.openlocfilehash: 660e7b59ae0e92692121620341562e412a6e8eae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 30fadddabf89d379beffdf214cfe8a8145d7a29b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Impostazioni di configurazione per un cluster autonomo in Windows
 Questo articolo descrive come configurare un cluster di Service Fabric autonomo usando il file ***ClusterConfig.JSON***. Questo file può essere usato per specificare informazioni quali i nodi di Service Fabric e i relativi indirizzi IP, i vari tipi di nodi nel cluster, le configurazioni di sicurezza e la topologia di rete in termini di domini di errore/aggiornamento per il cluster autonomo.
 
-Quando si [scarica un pacchetto autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alcuni campioni del file ClusterConfig.JSON vengono scaricati sul computer in uso. I campioni i cui nomi contengono *DevCluster* aiuteranno a creare un cluster con tutti e tre i nodi nello stesso computer, ad esempio nodi logici. Almeno uno di questi nodi deve essere contrassegnato come primario. Questo cluster è utile per un ambiente di sviluppo o test e non è supportato come cluster di produzione. I campioni i cui nomi contengono *MultiMachine* aiuteranno a creare un cluster di qualità di produzione, in cui ogni nodo si trova in un computer separato.
+Quando si [scarica un pacchetto autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alcuni campioni del file ClusterConfig.JSON vengono scaricati sul computer in uso. I campioni i cui nomi contengono *DevCluster* aiuteranno a creare un cluster con tutti e tre i nodi nello stesso computer, ad esempio nodi logici. Almeno uno di questi nodi deve essere contrassegnato come primario. Questo cluster è utile per un ambiente di sviluppo o test e non è supportato come cluster di produzione. I campioni i cui nomi contengono *MultiMachine* aiuteranno a creare un cluster di qualità di produzione, in cui ogni nodo si trova in un computer separato. Il numero di nodi primari per i cluster si baserà sul [livello di affidabilità](#reliability). Nella versione 05-2017 dell'API 5.7 la proprietà del livello di affidabilità è stata rimossa. Il codice calcola invece il livello di affidabilità ottimale per il cluster. Non usare questa proprietà nella versione del codice 5.7 e successive.
+
 
 1. *ClusterConfig.Unsecure.DevCluster.JSON* e *ClusterConfig.Unsecure.MultiMachine.JSON* mostrano rispettivamente come creare cluster senza protezione per test e produzione. 
 2. *ClusterConfig.Windows.DevCluster.JSON* e *ClusterConfig.Windows.MultiMachine.JSON* mostrano come creare cluster di test o produzione protetti tramite [protezione di Windows](service-fabric-windows-cluster-windows-security.md).
@@ -197,5 +197,4 @@ Per abilitare il supporto dei contenitori sia per il contenitore di Windows Serv
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato la configurazione di un file ClusterConfig.JSON in base alla configurazione del cluster autonomo, è possibile distribuire il cluster seguendo l'articolo [Creare un cluster di Service Fabric autonomo](service-fabric-cluster-creation-for-windows-server.md) e quindi proseguire per la [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-
 

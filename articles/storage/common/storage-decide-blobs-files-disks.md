@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
+ms.openlocfilehash: 9e8808a50e86e40af4991a6054a55ef57f744aae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 192680cc3faee86c0a45bc9abe4b6579ec56f324
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure
 
 Microsoft Azure offre molte funzionalità in Archiviazione di Azure per archiviare e accedere ai dati nel cloud. Questo articolo illustra le funzionalità File di Azure, BLOB di Azure e Dischi di Azure e aiuta a scegliere quella più adatta alle proprie esigenze.
@@ -70,7 +68,7 @@ La tabella seguente confronta File di Azure e Dischi di Azure.
 |Autenticazione|Predefinito|Impostato con comando net use|  
 |Pulizia|Automatico|Manuale|  
 |Accesso tramite REST|Non è possibile accedere ai file all'interno del disco rigido virtuale|È possibile accedere ai file archiviati in una condivisione|  
-|Dimensioni massime|Disco di 1 TB|Condivisione file da 5 TB e file da 1 TB nella condivisione|  
+|Dimensioni massime|Disco di 4 TB|Condivisione file da 5 TB e file da 1 TB nella condivisione|  
 |IOPS di 8 KB massimo|500 IOPS|1000 IOps|  
 |Velocità effettiva|Fino a 60 MB/s per disco|Fino a 60 MB/s per condivisione file|  
 
@@ -81,4 +79,3 @@ Quando si decide la modalità di archiviazione e di accesso ai dati, è consigli
 Alcune funzionalità SMB non sono applicabili al cloud. Per altre informazioni, vedere [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Funzionalità non supportate da Servizio file di Azure).
   
 Per altre informazioni sui dischi dati, vedere [Gestione di dischi e immagini](../../virtual-machines/windows/about-disks-and-vhds.md) e [Come collegare un disco dati da una macchina virtuale Windows ](../../virtual-machines/windows/classic/attach-disk.md).
-

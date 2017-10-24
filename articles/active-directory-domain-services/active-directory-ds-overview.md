@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei Servizi di dominio Azure Active Directory | Documentazione Microsoft
+title: Panoramica dei Servizi di dominio Azure Active Directory | Microsoft Docs
 description: Panoramica dei Servizi di dominio Azure Active Directory
 services: active-directory-ds
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/16/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c70e80c413d0637f956c43686df29b8073daaa3b
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: c4a22b230cd630c413118ab798ff241527465554
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-domain-services"></a>Servizi di dominio Azure Active Directory
 ## <a name="overview"></a>Panoramica
@@ -84,3 +83,13 @@ Servizi di dominio Azure AD offre i vantaggi seguenti:
 * **Compatibile** : Servizi di dominio Azure Active Directory è realizzata sull'infrastruttura di livello aziendale collaudata di Windows Server Active Directory. Di conseguenza, le applicazioni possono dipendere da un più alto livello di compatibilità con le funzionalità di Windows Server Active Directory. Non tutte le funzionalità disponibili in Windows Server Active Directory sono attualmente disponibili in Servizi di dominio Azure AD. Le funzionalità disponibili sono tuttavia compatibili con le funzionalità di Windows Server Active Directory corrispondenti usate nell'infrastruttura locale. Le funzionalità LDAP, Kerberos, NTLM, Criteri di gruppo e di aggiunta a un dominio costituiscono un'offerta matura testata e perfezionata nel corso di diverse versioni di Windows Server.
 * **Conveniente** : Servizi di dominio Azure AD consente di evitare i costi di gestione e di infrastruttura associati alla gestione dell'infrastruttura di identità per il supporto delle applicazioni compatibili con le directory tradizionali. È possibile spostare queste applicazioni nei servizi di infrastruttura di Azure e ottenere maggiori risparmi sulle spese operative.
 
+
+## <a name="next-steps"></a>Passaggi successivi
+### <a name="learn-more-about-azure-ad-domain-services"></a>Ulteriori informazioni su Azure AD Domain Services
+* [Funzionalità](active-directory-ds-features.md)
+* [Scenari di distribuzione](active-directory-ds-scenarios.md)
+* [Scoprire se Azure AD Domain Services sono appropriati ai casi d'uso](active-directory-ds-comparison.md)
+* [Comprendere come Azure AD Domain Services si sincronizza con la directory di Azure AD](active-directory-ds-synchronization.md)
+
+### <a name="get-started-with-azure-ad-domain-services"></a>Introduzione ai servizi di dominio Azure AD
+* [Abilitare Azure AD Domain Services tramite il portale di Azure](active-directory-ds-getting-started.md)

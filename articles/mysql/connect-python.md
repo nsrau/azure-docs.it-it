@@ -10,16 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/12/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 40108e0c60a60da412ab521d467a07b8f0540140
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4c3a2e65b83fab6fe5b8b7778782a747bb5e9cf9
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Python per connettersi ed eseguire query sui dati
-Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database di Azure per MySQL. Usa istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database dalle piattaforme Mac OS, Ubuntu Linux e Windows. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per MySQL.
+Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database di Azure per MySQL. Usa istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database dalle piattaforme Mac OS, Ubuntu Linux e Windows. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
@@ -27,7 +26,7 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creare un database di Azure per il server MySQL usando l'interfaccia della riga di comando di Azure)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Installare Python e il connettore MySQL
-Installare [Python](https://www.python.org/downloads/) e il [connettore MySQL per Python](https://dev.mysql.com/downloads/connector/python/) nel computer. A seconda della piattaforma, seguire questa procedura:
+Installare [Python](https://www.python.org/downloads/) e il [connettore MySQL per Python](https://dev.mysql.com/downloads/connector/python/) nel computer. A seconda della piattaforma, seguire le istruzioni nella sezione appropriata:
 
 ### <a name="windows"></a>Windows
 1. Scaricare e installare Python 2.7 da [python.org](https://www.python.org/downloads/windows/). 
@@ -70,8 +69,8 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
    
 
 ## <a name="run-python-code"></a>Eseguire il codice Python
-- Incollare il codice in un file di testo e salvarlo in una cartella di progetto con estensione py, ad esempio C:\pythonmysql\createtable.py or /home/username/pythonmysql/createtable.py
-- Per eseguire il codice, avviare il prompt dei comandi o la shell Bash. Passare alla cartella del progetto `cd pythonmysql`. Per eseguire l'applicazione, digitare quindi il comando python seguito dal nome del file `python createtable.py`. Nel sistema operativo Windows, se python.exe non viene trovato si può specificare il percorso completo del file eseguibile oppure aggiungere il percorso di Python nella variabile di ambiente PATH. `C:\python27\python.exe createtable.py`
+- Incollare il codice in un file di testo e quindi salvarlo in una cartella di progetto con estensione py, ad esempio C:\pythonmysql\createtable.py o /home/username/pythonmysql/createtable.py.
+- Per eseguire il codice, avviare il prompt dei comandi o la shell Bash. Passare alla cartella del progetto `cd pythonmysql`. Per eseguire l'applicazione, digitare quindi il comando python seguito dal nome del file `python createtable.py`. Nel sistema operativo Windows, se python.exe non viene trovato, potrebbe essere necessario specificare il percorso completo del file eseguibile oppure aggiungere il percorso di Python nella variabile di ambiente PATH. `C:\python27\python.exe createtable.py`
 
 ## <a name="connect-create-table-and-insert-data"></a>Connettersi, creare tabelle e inserire dati
 Usare il codice seguente per connettersi al server, creare una tabella e caricare i dati usando un'istruzione SQL **INSERT**. 
@@ -269,4 +268,3 @@ else:
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./concepts-migrate-import-export.md)
-

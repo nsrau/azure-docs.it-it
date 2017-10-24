@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: f98d769542f5a52d659f561e970f0a7e9dce9fd9
-ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
-
+ms.openlocfilehash: 96f0be021a2b362c702f91ec4b532df8a334529f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Usare C# con lo streaming di MapReduce su Hadoop in HDInsight
 
@@ -180,7 +179,7 @@ Dopo aver creato l'applicazione, compilarla per produrre il file `/bin/Debug/red
 
 1. Connettersi al cluster HDInsight usando SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Usare uno dei seguenti comandi per avviare il processo MapReduce:
+2. Usare uno dei comandi seguenti per avviare il processo MapReduce:
 
     * Se si usa __Azure Data Lake Store__ come risorsa di archiviazione predefinita:
 
@@ -227,7 +226,7 @@ Usare il seguente script di PowerShell per eseguire un processo MapReduce e scar
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Questo script richiede l'account di accesso del cluster e la password, insieme al nome del cluster HDInsight. Al termine del processo, l'output è scaricato nel file `output.txt` nella directory da cui viene eseguito lo script. Il testo seguente è un esempio dei dati nel file `output.txt`:
+Questo script richiede l'account di accesso del cluster e la password, insieme al nome del cluster HDInsight. Al termine del processo, l'output viene scaricato in un file denominato `output.txt`. Il testo seguente è un esempio dei dati nel file `output.txt`:
 
     you     1128
     young   38
@@ -243,6 +242,6 @@ Questo script richiede l'account di accesso del cluster e la password, insieme a
 
 Per altre informazioni sull'uso di MapReduce con HDInsight, vedere l'articolo [Usare MapReduce in Hadoop su HDInsight](hdinsight-use-mapreduce.md).
 
-Per informazioni sull'uso di C# con Hive e Pig, vedere [Usare le funzioni definite dall'utente C# con lo streaming Hive e Pig in Hadoop in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).
+Per informazioni sull'uso di C# con Hive e Pig, vedere [Usare le funzioni definite dall'utente C# con Hive e Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).
 
 Per informazioni sull'uso di C# con Storm in HDInsight tramite, vedere [Sviluppare topologie C# per Apache Storm in HDInsight tramite gli strumenti Hadoop per Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).

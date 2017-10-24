@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
 La versione più recente di Servizi mobili di Azure è la funzionalità **App per dispositivi mobili** del Servizio app di Azure.
@@ -52,7 +52,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ## <a name="summary-of-compatibility-for-all-versions"></a>Riepilogo della compatibilità per tutte le versioni
 Il grafico seguente illustra la compatibilità tra tutti i tipi di client e server. Un back-end viene classificato come **Servizi** mobili o **App** per dispositivi mobili in base all'SDK del server usato.
 
-|  | **Servizi mobili**  | **App per dispositivi mobili**  |
+|  | **Servizi mobili** | **App per dispositivi mobili** |
 | --- | --- | --- |
 | [Client di Servizi mobili] |OK |Errore\* |
 | [Client di App per dispositivi mobili] |Errore\* |OK |
@@ -79,7 +79,7 @@ Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazio
 ### <a name="mobile-services-server-sdks"></a>SDK del server di *Servizi* mobili
 | Piattaforma server | Versione | Intestazione della versione accettata |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |* * Nessuna intestazione di versione * * |
+| .NET |[WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nessuna intestazione di versione ** |
 | Node.js |(Presto disponibile) |**Nessuna intestazione di versione** |
 
 <!-- TODO: add Node npm version -->

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Come collegare un disco dati a una macchina virtuale Linux
 > [!IMPORTANT] 
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/11/2017
    
     OPPURE
    
-    b) Usare il comando `lsscsi` per trovare l'ID dispositivo. `lsscsi` può essere installato tramite `yum install lsscsi` (su distribuzioni basate su Red Hat) o `apt-get install lsscsi` (su distribuzioni basate su Debian). È possibile trovare il disco che si sta cercando in base al relativo *LUN* o **numero di unità logica**. Ad esempio, il *LUN* per i dischi collegati può essere facilmente trovato in `azure vm disk list <virtual-machine>` come:
+    b) Usare il comando `lsscsi` per trovare l'ID del dispositivo. `lsscsi` può essere installato tramite `yum install lsscsi` (in distribuzioni basate su Red Hat) o `apt-get install lsscsi` (in distribuzioni basate su Debian). È possibile trovare il disco che si sta cercando in base al relativo *LUN* o **numero di unità logica**. Ad esempio, il *LUN* per i dischi collegati può essere facilmente trovato in `azure vm disk list <virtual-machine>` come:
 
     ```azurecli
     azure vm disk list myVM
@@ -89,7 +89,7 @@ ms.lasthandoff: 07/11/2017
     sudo fdisk /dev/sdc
     ```
 
-4. Quando richiesto, digitare  **n**  per creare una partizione.
+4. Quando richiesto, digitare **n** per creare una partizione.
 
     ![Creare un dispositivo](./media/attach-disk/fdisknewpartition.png)
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 07/11/2017
     > [!NOTE]
     > L'opzione `nofail` garantisce che la macchina virtuale venga avviata anche se il file system è danneggiato o il disco non esiste in fase di avvio. Senza questa opzione potrebbero verificarsi comportamenti come quelli descritti in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (Impossibile eseguire una connessione SSH su VM Linux a causa di errori FSTAB).
 
-    Per verificare che il file system venga montato correttamente, è possibile smontarlo e rimontarlo, ad esempio usando il punto di montaggio esemplificativo `/datadrive` creato nei passaggi precedenti:
+    Per verificare che il file system venga montato correttamente, è possibile smontarlo e rimontarlo, ad esempio usando il punto di montaggio di esempio `/datadrive` creato nei passaggi precedenti:
 
     ```bash
     sudo umount /datadrive

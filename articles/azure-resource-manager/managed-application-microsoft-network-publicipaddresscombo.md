@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 2eb773f5f0cf389fc39bc3a0f5fbf9ac726d1949
-ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: c6fb792852f24fd4bf4c634d1c29581e41e17793
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Elemento Microsoft.Network.PublicIpAddressCombo dell'interfaccia utente
 Gruppo di controlli per la selezione di un indirizzo IP pubblico nuovo o esistente. Usare questo elemento quando si [crea un'applicazione Azure gestita](managed-application-publishing.md).
@@ -84,11 +83,10 @@ Se l'utente seleziona un indirizzo IP pubblico nuovo o esistente, è previsto l'
   "newOrExistingOrNone": "new"
 }
 ```
-- Quando `options.hideNone` è specificato, `newOrExistingOrNone` restituisce sempre **none**.
-- Quando `options.hideDomainNameLabel` è specificato, `domainNameLabel` non viene dichiarato.
+- Quando `options.hideNone` è specificato come **true**, `newOrExistingOrNone` può avere solo il valore **new** o **existing**.
+- Quando `options.hideDomainNameLabel` è specificato come **true**, `domainNameLabel` non viene dichiarato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](managed-application-overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

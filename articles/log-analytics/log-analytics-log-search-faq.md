@@ -11,16 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/09/2017
 ms.author: bwren
+ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Nuova ricerca log in Log Analytics - domande frequenti e problemi noti
 
 Questo articolo riporta le domande più frequenti e i problemi noti riguardanti l'aggiornamento di [Log Analytics al nuovo linguaggio di query](log-analytics-log-search-upgrade.md).  Prima di decidere di aggiornare l'area di lavoro, leggere l'intero articolo.
@@ -30,6 +28,10 @@ Questo articolo riporta le domande più frequenti e i problemi noti riguardanti 
 
 ### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Domanda: Sono presenti molte regole di avviso. È necessario crearle nuovamente nel nuovo linguaggio dopo l'aggiornamento?  
 No, le regole di avviso vengono convertite automaticamente nel nuovo linguaggio di ricerca durante l'aggiornamento.  
+
+### <a name="question-i-have-alert-rules-with-webhook-and-runbook-actions-will-these-continue-to-work-when-i-upgrade"></a>Domanda: Sono presenti regole di avviso con azioni webhook e runbook. Continueranno a funzionare dopo l'aggiornamento?
+
+No, alcune modifiche delle azioni webhook e runbook potrebbero richiedere di cambiare la modalità di esecuzione del payload. Queste modifiche sono state eseguite per standardizzare i vari formati di output e ridurre le dimensioni del payload. Per informazioni dettagliate sui formati, vedere [Aggiungere azioni alle regole di avviso in Log Analytics](log-analytics-alerts-actions.md).
 
 
 ## <a name="computer-groups"></a>Gruppi di computer
@@ -48,7 +50,7 @@ Di seguito viene riportata una query di esempio per creare un nuovo gruppo di co
 ## <a name="dashboards"></a>Dashboard
 
 ### <a name="question-can-i-still-use-dashboards-in-an-upgraded-workspace"></a>Domanda: È sempre possibile usare i dashboard in un'area di lavoro aggiornata?
-È possibile continuare a usare tutti i riquadri aggiunti a **My Dashboard** (Il mio dashboard) prima dell'aggiornamento dell'area di lavoro, ma non è possibile modificarli o crearne di nuovi.  È possibile continuare a creare e modificare le viste tramite [Progettazione viste](log-analytics-view-designer.md), oltre a creare dashboard nel portale di Azure.
+Con l'aggiornamento inizierà il processo di deprecazione di **Dashboard**.  È possibile continuare a usare tutti i riquadri aggiunti al dashboard prima dell'aggiornamento dell'area di lavoro, ma non sarà possibile modificarli o crearne di nuovi.  È possibile continuare a creare e modificare le viste tramite [Progettazione viste](log-analytics-view-designer.md), che ha un set di funzionalità più avanzate, oltre a creare dashboard nel portale di Azure.
 
 
 ## <a name="log-searches"></a>Ricerche log
@@ -58,6 +60,9 @@ Di seguito viene riportata una query di esempio per creare un nuovo gruppo di co
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Domanda: Perché i risultati della query non sono ordinati?
 Nel nuovo linguaggio di query, i risultati non sono ordinati per impostazione predefinita.  Usare il comando [Operatore sort](https://go.microsoft.com/fwlink/?linkid=856079) per ordinare i risultati in base a una o più proprietà.
+
+### <a name="question-where-did-the-metrics-view-go-after-i-upgraded"></a>Domanda: Dove è stata spostata la visualizzazione metriche dopo l'aggiornamento?
+La visualizzazione metriche offriva una rappresentazione grafica dei dati sulle prestazioni da una ricerca nei log.  Questa visualizzazione non è più disponibile dopo l'aggiornamento.  È possibile usare l'[operatore di rendering](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) per formattare l'output di una query in un diagramma temporale.
 
 ### <a name="question-where-did-minify-go-after-i-upgraded"></a>Domanda: Dove è stata spostata la funzionalità minify dopo l'aggiornamento?
 Minify è una funzionalità che offre una visualizzazione riepilogata dei risultati della ricerca.  Dopo l'aggiornamento,l'opzione Minify non viene più visualizzata nel portale Ricerca log.  È possibile ottenere funzionalità simili con il nuovo linguaggio di ricerca tramite [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) o [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
@@ -173,4 +178,3 @@ Facendo clic sull'opzione *Visualizzare tutto* nella parte inferiore di una part
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni, sull'[aggiornamento dell'area di lavoro al nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md).
-

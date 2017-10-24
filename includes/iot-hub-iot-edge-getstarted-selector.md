@@ -31,7 +31,7 @@ Il modulo logger utilizza solo i messaggi provenienti dal broker, senza mai pubb
 
 ![Modo in cui il broker indirizza i messaggi tra i moduli in Azure IoT Edge][5]
 
-La figura precedente illustra l'architettura dell'esempio Hello World e i percorsi relativi ai file di origine che implementano parti diverse dell'esempio nel [repository][lnk-iot-edge]. Esplorare il codice per conto proprio o usare i frammenti di codice seguente come guida.
+La figura precedente illustra l'architettura dell'esempio Hello World e i percorsi relativi ai file di origine che implementano parti diverse dell'esempio nel [repository][lnk-iot-edge]. Esplorare il codice per conto proprio o usare i frammenti di codice di questo articolo come guida.
 
 <!-- Images -->
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

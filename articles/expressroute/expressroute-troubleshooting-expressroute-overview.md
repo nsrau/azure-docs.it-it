@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 09/26/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2bcd95da36cd577ece8ad87d00c3e276f28ad340
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
 ExpressRoute, che consente di estendere una rete locale nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività, coinvolge le tre diverse aree di rete seguenti:
@@ -97,7 +96,7 @@ Per elencare tutti i circuiti ExpressRoute in un gruppo di risorse, usare il com
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->È possibile ottenere il nome del gruppo di risorse tramite il portale di Azure. Vedere la sezione precedente di questo documento e notare che il nome del gruppo di risorse è elencato nella schermata di esempio.
+>È possibile ottenere il nome del gruppo di risorse tramite Azure. Vedere la sezione precedente di questo documento e notare che il nome del gruppo di risorse è elencato nella schermata di esempio.
 >
 >
 
@@ -172,14 +171,9 @@ Per verificare se un circuito ExpressRoute è operativo, prestare particolare at
 Dopo che il provider di servizi ha completato il provisioning del circuito ExpressRoute, è possibile creare una configurazione di routing sul circuito ExpressRoute tra MSEE-PR (4) e MSEE (5). Ogni circuito ExpressRoute può avere uno, due o tre contesti di routing abilitati: peering privato di Azure, ovvero il traffico verso reti virtuali private in Azure, peering pubblico di Azure, ovvero il traffico verso indirizzi IP pubblici in Azure e peering Microsoft, ovvero il traffico verso Office 365 e Dynamics 365. Per altre informazioni su come creare e modificare la configurazione di routing, vedere l'articolo [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
 
 ###<a name="verification-via-the-azure-portal"></a>Verifica tramite il portale di Azure
->[!IMPORTANT]
->Esiste un bug noto nel portale di Azure in cui i peering di ExpressRoute *NON* sono mostrati nel portale se configurati dal provider di servizi. Aggiungendo peering di ExpressRoute tramite il portale o PowerShell *si sovrascrivono le impostazioni del provider di servizi*. Questa operazione interrompe il routing del circuito ExpressRoute ed è richiesto il supporto del provider di servizi per ripristinare le impostazioni e ristabilire il routing normale. Modificare i peering di ExpressRoute solo se si è certi che il provider di servizi offre esclusivamente servizi di livello 2.
->
->
 
-<p/>
 >[!NOTE]
->Se il provider offre servizi di livello 3 e i peering non sono mostrati nel portale, è possibile usare PowerShell per visualizzare le impostazioni configurate del provider di servizi.
+>Se il livello 3 viene fornito dal provider di servizi e i peering sono vuoti nel portale, aggiornare la configurazione del circuito utilizzando il pulsante di aggiornamento del portale. Questa operazione applicherà la configurazione di routing corretta nel circuito. 
 >
 >
 
@@ -410,7 +404,6 @@ Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
 [OldPortal]: https://manage.windowsazure.com
 [ARP]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-
 
 
 

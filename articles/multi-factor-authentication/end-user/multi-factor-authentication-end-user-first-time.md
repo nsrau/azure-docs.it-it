@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
+ms.openlocfilehash: 492d5dc4e20f67bcb9f72a022fec19f5ba86caac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b05672744dadb15f2780af100f3dd41412e55265
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
 La verifica in due passaggi è un livello di sicurezza aggiuntiva che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti. Se si sta leggendo questo articolo, probabilmente è stato ricevuto un messaggio di posta elettronica su Multi-Factor Authentication inviato dall'amministratore dell'azienda o dell'istituto di istruzione. In alternativa, si è tentato di eseguire l'accesso ed è stato ricevuto un messaggio in cui viene chiesto di configurare una verifica aggiuntiva di sicurezza. In questo caso, **non è possibile accedere fino al completamento del processo di registrazione automatica**.
@@ -30,7 +29,7 @@ Questo articolo consente di configurare l'**account aziendale o dell'istituto di
 
 ## <a name="set-up-your-account"></a>Configurare l'account
 
-Quando il reparto IT richiede all'utente di iniziare a usare la verifica in due passaggi, verrà visualizzata una schermata che dice **Your admin has required that you set up this account for additional secuirty verification** (L'amministratore richiede di configurare questo account per la verifica di sicurezza aggiuntiva):
+Quando il reparto IT richiede all'utente di iniziare a usare la verifica in due passaggi, verrà visualizzata una schermata con l'indicazione **L'amministratore ha richiesto la configurazione di questo account per un'ulteriore verifica della sicurezza**:
 
 ![Configurazione](./media/multi-factor-authentication-end-user-first-time/first.png)
 
@@ -107,4 +106,3 @@ Se si vuole aggiungere manualmente un account all'app per dispositivi mobili, an
 * Modificare le opzioni desiderate e [gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md)
 * Impostare [password di app](multi-factor-authentication-end-user-app-passwords.md) per tutte le app di dispositivo native che non supportano la verifica in due passaggi.
 * Estrarre l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per eseguire un'autenticazione sicura e veloce, anche in assenza di copertura di rete.
-

@@ -12,92 +12,111 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 09/29/2017
 ms.author: apimpm
+ms.openlocfilehash: badfee15fba5822b383b09a6cc29d9944e64e007
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: a4c2bda1226ca05c775d011fba7bc59d4dab8998
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="using-azure-api-management-service-with-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
-Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API che non hanno accesso a Internet. È disponibile una serie di tecnologie VPN per effettuare tale connessione; Gestione API può essere installato in due modi principali all'interno della rete virtuale:
+# <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
+Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
 * Esterno
 * Interno
 
-## <a name="overview"> </a>Panoramica
-Quando Gestione API viene installato in modalità di rete virtuale interna, tutti gli endpoint di servizio, ovvero gateway, portale per sviluppatori, portale di pubblicazione, gestione diretta e GIT, sono visibili solo all'interno di una rete virtuale i cui accessi sono gestiti dall'utente. Nessuno degli endpoint di servizio è registrato nel server DNS pubblico.
 
-Usando Gestione API in modalità interna è possibile riscontrare gli scenari seguenti
-* Consentire un accesso esterno sicuro da parte di terzi alle API ospitate in un data center privato, tramite connessioni VPN da sito a sito o ExpressRoute.
-* Abilitare scenari cloud ibrid esponendo le API basate su cloud e locali tramite un gateway comune.
+Quando il servizio Gestione API viene installato in modalità di rete virtuale interna, tutti gli endpoint di servizio, ovvero gateway, portale per sviluppatori, portale di pubblicazione, gestione diretta e GIT, sono visibili solo all'interno di una rete virtuale i cui accessi sono gestiti dall'utente. Nessuno degli endpoint di servizio è registrato nel server DNS pubblico.
+
+Usando Gestione API in modalità interna è possibile implementare gli scenari seguenti:
+* Consentire un accesso esterno sicuro da parte di terzi alle API ospitate in un data center privato, tramite connessioni VPN da sito a sito o Azure ExpressRoute.
+* Abilitare scenari cloud ibridi esponendo le API basate su cloud e locali tramite un gateway comune.
 * Gestire le API ospitate in più aree geografiche usando un singolo endpoint del gateway. 
+
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
+
++ **Una sottoscrizione di Azure attiva**.
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ **Un'istanza di Gestione API**. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
 
 ## <a name="enable-vpn"> </a>Creazione di un servizio Gestione API in una rete virtuale interna
 Il servizio Gestione API in una rete virtuale interna viene ospitato dietro un servizio di bilanciamento del carico interno (ILB). L'indirizzo IP del servizio di bilanciamento del carico interno si trova nell'intervallo [RFC1918](http://www.faqs.org/rfcs/rfc1918.html).  
 
-### <a name="enable-vnet-connection-using-azure-portal"></a>Abilitare la connessione della rete virtuale usando il portale di Azure
-Creare innanzitutto il servizio Gestione API, attenendosi alla procedura [Creare un servizio Gestione API][Create API Management service]. Quindi configurare Gestione API per la distribuzione all'interno di una rete virtuale.
+### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Abilitare la connessione a una rete virtuale usando il portale di Azure
 
-![Menu per la configurazione di Gestione API nella rete virtuale interna][api-management-using-internal-vnet-menu]
+1. Selezionare l'istanza di Gestione API di Azure nel [portale di Azure](https://portal.azure.com/).
+2. Selezionare **Domini e SSL personalizzati**.
+3. Configurare l'istanza di Gestione API da distribuire all'interno della rete virtuale.
+
+    ![Menu per la configurazione di Gestione API di Azure in una rete virtuale interna][api-management-using-internal-vnet-menu]
+
+4. Selezionare **Salva**.
 
 Una volta completata la distribuzione, nel dashboard dovrebbe essere visualizzato l'indirizzo IP virtuale interno del servizio.
 
-![Dashboard di gestione API con rete virtuale interna configurata][api-management-internal-vnet-dashboard]
+![Dashboard di Gestione API con una rete virtuale interna configurata][api-management-internal-vnet-dashboard]
 
-### <a name="enable-vnet-connection-using-powershell-cmdlets"></a>Abilitare la connessione della rete virtuale usando i cmdlet di PowerShell
-È inoltre possibile abilitare la connettività della rete virtuale utilizzando i cmdlet di PowerShell.
+### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Abilitare una connessione di rete virtuale tramite i cmdlet di PowerShell
+È possibile abilitare la connettività a una rete virtuale anche usando i cmdlet di PowerShell.
 
-* **Creare un servizio Gestione API all'interno di una rete virtuale**: usare il cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) per creare e un servizio Gestione API di Azure all'interno di una rete virtuale e configurarlo per usare il tipo di rete virtuale interna.
+* Creare un servizio Gestione API all'interno di una rete virtuale: usare il cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) per creare un servizio Gestione API di Azure all'interno di una rete virtuale e configurarlo per usare il tipo di rete virtuale interna.
 
-* **Distribuire un servizio Gestione API esistente all'interno di una rete virtuale**: usare il cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) per spostare un servizio Gestione API di Azure esistente all'interno di una rete virtuale e configurarlo per usare il tipo di rete virtuale interna.
+* Distribuire un servizio Gestione API esistente all'interno di una rete virtuale: usare il cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) per spostare un servizio Gestione API di Azure all'interno di una rete virtuale e configurarlo per usare il tipo di rete virtuale interna.
 
 ## <a name="apim-dns-configuration"></a>Configurazione del DNS
-Quando si usa Gestione API in modalità di rete virtuale esterna, il DNS è gestito da Azure. Per la modalità di rete virtuale interna, è necessario gestire un proprio DNS.
+Quando si usa Gestione API in modalità di rete virtuale esterna, il servizio DNS è gestito da Azure. Per la modalità di rete virtuale interna, è necessario gestire un proprio DNS.
 
 > [!NOTE]
-> Il servizio Gestione API non ascolta le richieste in arrivo agli indirizzi IP. Risponde solo alle richieste inviate al nome host configurato sui relativi endpoint di servizio, che includono gateway, portale per sviluppatori, portale di pubblicazione, endpoint di gestione diretta e GIT.
+> Il servizio Gestione API non ascolta le richieste in arrivo dagli indirizzi IP. Risponde solo alle richieste per il nome host configurato negli endpoint di servizio. Questi endpoint includono gateway, portale per sviluppatori, portale di pubblicazione, endpoint di gestione diretta e GIT.
 
-### <a name="access-on-default-host-names"></a>Accesso ai nomi host predefiniti:
-Quando si crea un servizio Gestione API nel Cloud Azure pubblico, denominato ad esempio "contoso", vengono configurati i seguenti endpoint di servizio per impostazione predefinita.
+### <a name="access-on-default-host-names"></a>Accesso con i nomi host predefiniti
+Quando si crea un servizio Gestione API, denominato ad esempio "contoso", vengono configurati i seguenti endpoint di servizio per impostazione predefinita:
 
->   Gateway o Proxy: contoso.azure-api.net
+   * Gateway o proxy: contoso.azure-api.net
 
-> Portale di pubblicazione portale per sviluppatori: contoso.portal.azure-api.net
+   * Portale di pubblicazione e portale per sviluppatori: contoso.portal.azure-api.net
 
-> Endpoint di gestione diretta: contoso.management.azure-api.net
+   * Endpoint di gestione diretta: contoso.management.azure-api.net
 
->   GIT: contoso.scm.azure-api.net
+   * Git: contoso.scm.azure-api.net
 
-Per accedere a questi endpoint del servizio Gestione API è possibile creare una macchina virtuale in una subnet connessa alla rete virtuale in cui viene distribuito Gestione API. Supponendo che l'indirizzo IP virtuale interno per il servizio sia 10.0.0.5, è possibile eseguire il mapping del file host (%SystemDrive%\drivers\etc\hosts) come segue:
+Per accedere a questi endpoint del servizio Gestione API è possibile creare una macchina virtuale in una subnet connessa alla rete virtuale in cui viene distribuito Gestione API. Supponendo che l'indirizzo IP virtuale interno per il servizio sia 10.0.0.5, è possibile eseguire il mapping del file hosts, %SystemDrive%\drivers\etc\hosts, come segue:
 
-> 10.0.0.5    contoso.azure-api.net
+   * 10.0.0.5     contoso.azure-api.net
 
-> 10.0.0.5    contoso.portal.azure-api.net
+   * 10.0.0.5     contoso.portal.azure-api.net
 
-> 10.0.0.5    contoso.management.azure-api.net
+   * 10.0.0.5     contoso.management.azure-api.net
 
-> 10.0.0.5    contoso.scm.azure-api.net
+   * 10.0.0.5     contoso.scm.azure-api.net
 
-È quindi possibile accedere tutti gli endpoint di servizio dalla macchina virtuale creata. Se si usa un server DNS personalizzato in una rete virtuale, è anche possibile creare record DNS A e accedere agli endpoint da qualsiasi punto nella rete virtuale. 
+È quindi possibile accedere a tutti gli endpoint di servizio dalla macchina virtuale creata. Se si usa un server DNS personalizzato in una rete virtuale, è anche possibile creare record DNS A e accedere a questi endpoint da qualsiasi punto nella rete virtuale. 
 
-### <a name="access-on-custom-domain-names"></a>Accedere a nomi di dominio personalizzati:
-Se non si desidera accedere al servizio Gestione API con i nomi host predefiniti, è possibile configurare nomi di dominio personalizzati per tutti gli endpoint di servizio come mostrato di seguito
+### <a name="access-on-custom-domain-names"></a>Accesso con i nomi di dominio personalizzati
 
-![Configurazione di un dominio personalizzato per Gestione API][api-management-custom-domain-name]
+   1. Se non si vuole accedere al servizio Gestione API con i nomi host predefiniti, è possibile configurare nomi di dominio personalizzati per tutti gli endpoint di servizio come mostrato nella figura seguente: 
 
-È quindi possibile creare record A nel server DNS per accedere a questi endpoint. Si noti che gli endpoint sono accessibili solo dall'interno della rete virtuale.
+   ![Configurazione di un dominio personalizzato per Gestione API][api-management-custom-domain-name]
 
-## <a name="related-content"> </a>Contenuti correlati
-* [Problemi di configurazione di rete comuni durante la configurazione di Gestione API in una rete virtuale][Common Network Configuration Issues]
-* [Domande frequenti sulle reti virtuali](../virtual-network/virtual-networks-faq.md)
-* [Creazione di un record A in DNS](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
+   2. È quindi possibile creare record nel server DNS per accedere agli endpoint accessibili solo dall'interno della rete virtuale.
+
+
+## <a name="related-content"></a>Contenuti correlati
+Per altre informazioni, vedere gli articoli seguenti:
+* [Problemi comuni di configurazione di rete durante la configurazione di Gestione API di Azure in una rete virtuale][Common network configuration problems]
+* [Domande frequenti sulla rete virtuale di Azure](../virtual-network/virtual-networks-faq.md)
+* [Creazione di un record in DNS](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
+
 [Create API Management service]: api-management-get-started.md#create-service-instance
-[Common Network Configuration Issues]: api-management-using-with-vnet.md#network-configuration-issues
+[Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 

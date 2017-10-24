@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
+ms.openlocfilehash: a204498016ff837c5247009eaaffbd4f79285d0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 2d2e49f92fdc64f3ebb2326d08f7d4304d8ffa43
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Caricare i dati immagine nel cloud con Archiviazione di Azure
 
 Questa è la prima di una serie di esercitazioni. In questa esercitazione viene illustrato come distribuire un'applicazione Web che usa la libreria client di archiviazione di Azure per caricare immagini in un account di archiviazione. Al termine, si avrà un'applicazione Web che archivia e visualizza le immagini da Archiviazione di Azure.
@@ -57,7 +55,7 @@ az group create --name myResourceGroup --location westcentralus
 L'esempio carica le immagini in un contenitore BLOB in un account di archiviazione di Azure. Un account di archiviazione offre uno spazio dei nomi univoco per archiviare gli oggetti dati di Archiviazione di Azure e accedere a tali oggetti. Creare un account di archiviazione nel gruppo di risorse creato usando il comando [az storage account create](/cli/azure/storage/account#create). 
 
 > [!IMPORTANT] 
-> Nella parte 2 dell'esercitazione vengono usate le sottoscrizioni di eventi per l'archiviazione BLOB. Le sottoscrizioni di eventi sono attualmente supportate solo per gli account di archiviazione BLOB negli Stati Uniti centrali e occidentali. A causa di questa limitazione, è necessario creare un account di archiviazione BLOB usato dall'applicazione di esempio per archiviare immagini e anteprime.   
+> Nella parte 2 dell'esercitazione vengono usate le sottoscrizioni di eventi per l'archiviazione BLOB. Le sottoscrizioni di eventi sono attualmente supportate solo per gli account di archiviazione BLOB nelle aree Stati Uniti centro-occidentali e Stati Uniti occidentali 2. A causa di questa limitazione, è necessario creare un account di archiviazione BLOB usato dall'applicazione di esempio per archiviare immagini e anteprime.   
 
 Nel comando seguente sostituire il segnaposto `<blob_storage_account>` con il nome globalmente univoco dell'account di archiviazione BLOB.  
 
@@ -226,4 +224,3 @@ Passare alla seconda parte della serie di informazioni sull'uso della griglia di
 
 > [!div class="nextstepaction"]
 > [Usare la griglia di eventi per attivare una funzione di Azure per ridimensionare un'immagine caricata](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-

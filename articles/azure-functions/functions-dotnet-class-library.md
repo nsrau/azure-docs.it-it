@@ -14,14 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 10/10/2017
 ms.author: donnam
+ms.openlocfilehash: ad71a32d82e9b5aa4efda6d7ea67a9326ffcc4ff
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Uso di librerie di classi .NET con Funzioni di Azure
 
@@ -31,8 +30,8 @@ Oltre ai file di script, Funzioni di Azure supporta la pubblicazione di una libr
 
 I prerequisiti di questo articolo sono i seguenti:
 
-- [Visual Studio 2017 Preview versione 15.3](https://www.visualstudio.com/vs/preview/). Installare i carichi di lavoro **Sviluppo Web e ASP.NET** e **Sviluppo di Azure**.
-- [Visual Studio 2017 Tools per Funzioni di Azure](https://marketplace.visualstudio.com/items?itemName=AndrewBHall-MSFT.AzureFunctionToolsforVisualStudio2017)
+- [Visual Studio Community 2017 versione 15.3](https://www.visualstudio.com/vs/) o successiva.
+- Installare il carico di lavoro **Sviluppo di Azure**.
 
 ## <a name="functions-class-library-project"></a>Progetto di libreria di classi per Funzioni
 
@@ -50,14 +49,15 @@ Quando si compila un progetto di Funzioni di Azure, viene creato un file *functi
 
 Questa conversione viene eseguita dal pacchetto NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). L'origine è disponibile nel repository di GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## <a name="triggers-and-bindings"></a>Trigger e associazioni
+## <a name="triggers-and-bindings"></a>Trigger e associazioni 
 
 Nella tabella seguente sono elencati i trigger e le associazioni disponibili in un progetto di libreria di classi di Funzioni di Azure. Tutti gli attributi sono contenuti nello spazio dei nomi `Microsoft.Azure.WebJobs`.
 
 | Associazione | Attributo | Pacchetto NuGet |
 |------   | ------    | ------        |
 | [Trigger, input e output per archiviazione BLOB](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Archiviazione BLOB] |
-| [Associazione di input e di output per Cosmos DB](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Trigger di Cosmos DB](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Input e output di Cosmos DB](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
 | [Trigger e output per Hub eventi](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
 | [Input e output per file esterni](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
 | [Trigger per HTTP e webhook](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
@@ -72,11 +72,11 @@ Nella tabella seguente sono elencati i trigger e le associazioni disponibili in 
 
 <a name="blob-storage"></a>
 
-### <a name="blob-storage-trigger-input-and-output-bindings"></a>Associazioni di trigger, input e output per l'archiviazione BLOB
+### <a name="blob-storage-trigger-input-bindings-and-output-bindings"></a>Trigger di archiviazione BLOB, binding di input e binding di output
 
 Funzioni di Azure supporta i trigger e le associazioni di input e di output per l'archiviazione BLOB di Azure. Per altre informazioni sulle espressioni di associazione e sui metadati, vedere [Binding dell'archiviazione BLOB di Funzioni di Azure](functions-bindings-storage-blob.md).
 
-Con l'attributo `[BlobTrigger]` viene definito un trigger del BLOB. È possibile usare l'attributo `[StorageAccount]` per definire l'account di archiviazione usato da un'intera funzione o classe.
+Con l'attributo `[BlobTrigger]` viene definito un trigger del BLOB. È possibile usare l'attributo `[StorageAccount]` per definire il nome dell'impostazione dell'app che contiene la stringa di connessione per l'account di archiviazione usato da un'intera funzione o classe.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -121,17 +121,30 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 <a name="cosmos-db"></a>
 
-### <a name="cosmos-db-input-and-output-bindings"></a>Associazioni di input e di output per Cosmos DB
+### <a name="cosmos-db-trigger-input-bindings-and-output-bindings"></a>Trigger di Cosmos DB, binding di input e binding di output
 
-Funzioni di Azure supporta le associazioni di input e output per Cosmos DB. Per altre informazioni sulle funzionalità dell'associazione per Cosmos DB, vedere [Associazioni di Funzioni di Azure per Cosmos DB](functions-bindings-documentdb.md).
+Funzioni di Azure supporta trigger e binding di input e output per Cosmos DB. Per altre informazioni sulle funzionalità dell'associazione per Cosmos DB, vedere [Associazioni di Funzioni di Azure per Cosmos DB](functions-bindings-documentdb.md).
 
-Per definire l'associazione a un documento Cosmos DB, usare l'attributo `[DocumentDB]` nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. L'esempio seguente contiene un trigger della coda e un'associazione di output dell'API di DocumentDB:
+Per attivare un trigger da un documento Cosmos DB, usare l'attributo `[CosmosDBTrigger]` nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. L'esempio seguente attiva un trigger da un `database` e una `collection` specifici. L'impostazione `myCosmosDB` contiene la connessione all'istanza di Cosmos DB. 
+
+```csharp
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents, TraceWriter log)
+{
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
+}
+```
+
+Per definire l'associazione a un documento Cosmos DB, usare l'attributo `[DocumentDB]` nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. L'esempio seguente contiene un trigger della coda e un binding di output dell'API di DocumentDB.
 
 ```csharp
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "DocDBConnection")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }
@@ -232,7 +245,7 @@ Funzioni di Azure supporta un'associazione di output per Hub di notifica. Per al
 
 Funzioni di Azure supporta il trigger e le associazioni di output per le code di Azure. Per altre informazioni, vedere [Associazioni di archiviazione code in Funzioni di Azure](functions-bindings-storage-queue.md).
 
-Nell'esempio seguente viene illustrato come usare il tipo restituito dalla funzione con un'associazione di output per la coda, tramite l'attributo `[Queue]`. Per definire un trigger della coda, usare l'attributo `[QueueTrigger]`.
+Nell'esempio seguente viene illustrato come usare il tipo restituito dalla funzione con un'associazione di output per la coda, tramite l'attributo `[Queue]`. 
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -246,7 +259,15 @@ public static class QueueFunctions
         log.Info($"C# function processed: {input.Text}");
         return input.Text;
     }
+}
 
+```
+
+Per definire un trigger della coda, usare l'attributo `[QueueTrigger]`.
+```csharp
+[StorageAccount("AzureWebJobsStorage")]
+public static class QueueFunctions
+{
     // Queue trigger
     [FunctionName("QueueTrigger")]
     [StorageAccount("AzureWebJobsStorage")]
@@ -258,13 +279,16 @@ public static class QueueFunctions
 
 ```
 
+
 <a name="sendgrid"></a>
 
 ### <a name="sendgrid-output"></a>Output di SendGrid
 
 Funzioni di Azure supporta un'associazione di output di SendGrid per inviare tramite posta elettronica a livello di programmazione. Per altre informazioni, vedere [Associazioni di SendGrid di Funzioni di Azure](functions-bindings-sendgrid.md).
 
-L'attributo `[SendGrid]` è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid].
+L'attributo `[SendGrid]` è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid]. Un binding SendGrid richiede un'impostazione dell'applicazione denominata `AzureWebJobsSendGridApiKey`, contenente la chiave API SendGrid. Si tratta del nome dell'impostazione predefinito per la chiave API SendGrid. Se sono necessarie più chiavi SendGrid oppure si vuole scegliere un nome dell'impostazione diverso, è possibile definire tale nome usando la proprietà `ApiKey` dell'attributo di binding `SendGrid`, come nell'esempio seguente:
+
+    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
 
 Di seguito è riportato un esempio di utilizzo di un trigger della coda per il bus di servizio e di un binding di output di SendGrid mediante `SendGridMessage`:
 
@@ -289,6 +313,7 @@ public class OutgoingEmail
     public string Body { get; set; }
 }
 ```
+Si noti che questo esempio richiede che la chiave API SendGrid sia archiviata in un'impostazione dell'applicazione denominata `AzureWebJobsSendGridApiKey`.
 
 <a name="service-bus"></a>
 
@@ -365,7 +390,7 @@ Funzioni di Azure è dotata di un binding trigger timer che consente di eseguire
 
 Nel piano a consumo è possibile definire le pianificazioni usando un'[espressione CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression). Se si usa un piano di servizio app, è anche possibile usare una stringa TimeSpan. 
 
-L'esempio seguente definisce un trigger del timer eseguito ogni 5 minuti:
+L'esempio seguente definisce un trigger del timer eseguito ogni cinque minuti:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -411,7 +436,7 @@ Per altre informazioni sull'uso di Funzioni di Azure in script C#, vedere [Guida
 
 <!-- NuGet packages --> 
 [Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta1
+[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta4
 [Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.MobileApps]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/1.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs/1.1.0-beta1
@@ -426,6 +451,7 @@ Per altre informazioni sull'uso di Funzioni di Azure in script C#, vedere [Guida
 
 <!-- Links to source --> 
 [DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
+[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
 [EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
 [EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
 [MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
@@ -441,4 +467,3 @@ Per altre informazioni sull'uso di Funzioni di Azure in script C#, vedere [Guida
 [HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
 [ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
 [TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
-

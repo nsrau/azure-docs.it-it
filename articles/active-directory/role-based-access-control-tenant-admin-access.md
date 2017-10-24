@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andredm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Accesso con privilegi elevati come amministratore tenant con il Controllo degli accessi in base al ruolo
 
@@ -27,7 +26,18 @@ Il Controllo degli accessi in base al ruolo consente agli amministratori tenant 
 
 Questa funzionalità è importante perché consente all'amministratore tenant di visualizzare tutte le sottoscrizioni presenti in un'organizzazione. Consente inoltre alle app di automazione, ad esempio la fatturazione e il controllo, di accedere a tutte le sottoscrizioni e offrire una visualizzazione accurata dello stato dell'organizzazione per la gestione della fatturazione o delle risorse.  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Procedura: usare elevateAccess per concedere l'accesso ai tenant
+## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Come usare elevateAccess per l'accesso ai tenant con l'interfaccia di amministrazione di Azure AD
+
+Nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) è possibile chiamare questa funzione da **Proprietà**.
+La funzionalità è denominata **Gli amministratori globali possono gestire le sottoscrizioni di Azure**. Questa funzionalità può dare l'impressione di essere una proprietà globale per Azure Active Directory, ma in realtà funziona per utente con riferimento all'utente connesso in quel momento. Gli utenti con diritti di amministratore globale in Azure Active Directory possono chiamare la funzionalità elevateAccess per l'utente con cui è stata effettuata la connessione all'interfaccia di amministrazione di Azure Active Directory.
+
+Se si seleziona **Sì** e quindi **Salva**, si **assegna** il ruolo **Amministratore Accesso utenti** a livello di radice "/" (ambito radice) all'utente con cui è stata effettuata la connessione al portale.
+
+Se si seleziona **No** e quindi **Salva**, si **rimuove** il ruolo **Amministratore Accesso utenti** a livello di radice "/" (ambito radice) dall'utente con cui è stata effettuata la connessione al portale.
+
+![Screenshot dell'interfaccia di amministrazione di Azure AD - Proprietà - Gli amministratori globali possono gestire le sottoscrizioni di Azure](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Come usare elevateAccess per concedere l'accesso ai tenant con l'API REST
 
 Il processo di base funziona con i passaggi seguenti:
 
@@ -56,7 +66,7 @@ Il processo di base funziona con i passaggi seguenti:
 4. Revocare i privilegi di Amministratore Accesso utenti fino a quando non saranno di nuovo necessari.
 
 
-## <a name="how-to-undo-the-elevateaccess-action"></a>Procedura per annullare l'azione elevateAccess
+## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Come annullare l'azione elevateAccess con l'API REST
 
 Quando si chiama *elevateAccess* si crea un'assegnazione di ruolo per se stessi in modo da revocare i privilegi necessari per eliminare l'assegnazione.
 
@@ -107,4 +117,3 @@ Quando si chiama *elevateAccess* si crea un'assegnazione di ruolo per se stessi 
 - Maggiori informazioni sulla [gestione del controllo degli accessi in base al ruolo con REST](role-based-access-control-manage-access-rest.md)
 
 - [Gestire le assegnazioni di accesso](role-based-access-control-manage-assignments.md) nel Portale di Azure
-

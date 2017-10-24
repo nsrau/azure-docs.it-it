@@ -6,14 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 5f35a3bdd97b72acfe06b6bec54d41814e560b1c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Trasmettere Big Data a un data warehouse
 
@@ -75,7 +74,7 @@ Per completare l'esercitazione, sono necessari:
 
 ## <a name="deploy-the-infrastructure"></a>Distribuire l'infrastruttura
 
-Per semplificare questo articolo, distribuire l'infrastruttura necessaria con un modello di Resource Manager. Per esaminare le risorse che vengono distribuite, visualizzare il [modello](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
+Per semplificare questo articolo, distribuire l'infrastruttura necessaria con un modello di Resource Manager. Per esaminare le risorse che vengono distribuite, visualizzare il [modello](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Per la versione di anteprima la griglia di eventi di Azure supporta le aree **westus2** e **westcentralus**. Usare una di queste aree per la località del gruppo di risorse.
 
 Per l'interfaccia della riga di comando di Azure usare:
 
@@ -93,7 +92,7 @@ Per PowerShell, usare:
 ```powershell
 New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName tf08202storage -functionAppName <app-name>
+New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
 Fornire un valore di password quando viene richiesto.

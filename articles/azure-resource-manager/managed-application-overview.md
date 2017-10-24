@@ -8,16 +8,14 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/09/2017
-ms.author: gauravbh; tomfitz
+ms.date: 09/19/2017
+ms.author: gauravbh
+ms.openlocfilehash: 96b07bb3b923a5120e3d43c3fa60b3b1308010b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7ace8e1ea8038e0748bfed00c0cc0a4fa340588b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-managed-applications-overview"></a>Panoramica delle applicazioni gestite di Azure
 
 I fornitori che usano Azure possono offrire soluzioni ai clienti di tutto il mondo. Azure Marketplace è una raccolta di centinaia di modelli complessi e a più risorse, da fornitori proprietari e di terze parti. I clienti possono distribuire e iniziare a usare in pochi minuti le applicazioni piattaforma come servizio (PaaS) e software come servizio (SaaS). 
@@ -56,16 +54,14 @@ Per informazioni sull'uso di un'applicazione gestita dal Marketplace, vedere [Co
 ## <a name="key-concepts"></a>Concetti chiave
 
 ### <a name="managed-resource-group"></a>Gruppo di risorse gestite
-Il gruppo di risorse gestite è il gruppo in cui vengono create tutte le risorse di Azure sottoposte a provisioning nel modello. Se, ad esempio, l'appliance viene usata per creare un account di archiviazione, questo gruppo di risorse contiene la risorsa dell'account di archiviazione. Non contiene la risorsa dell'appliance.
+Il gruppo di risorse gestite è il gruppo in cui vengono create tutte le risorse di Azure sottoposte a provisioning nel modello. Se, ad esempio, l'applicazione viene usata per creare un account di archiviazione, questo gruppo di risorse contiene la risorsa dell'account di archiviazione. Non contiene la risorsa dell'applicazione.
 
-### <a name="appliance-package"></a>Pacchetto dell'appliance
-L'autore crea un pacchetto che contiene i file del modello e il file createUIDefinition. In particolare, contiene i file seguenti:
+### <a name="application-package"></a>Pacchetto dell'applicazione
+L'autore crea un pacchetto che contiene il file del modello e il file createUIDefinition. In particolare, contiene i file seguenti:
 
-- **applianceMainTemplate.json**: file modello che definisce tutte le risorse sottoposte a provisioning dall'appliance. Questo file è un file di modello normale usato per creare le risorse.
+- **mainTemplate.json**: file modello che definisce tutte le risorse sottoposte a provisioning dall'applicazione. Questo file è un file di modello normale usato per creare le risorse.
 
-- **MainTemplate.json**: file modello che definisce la risorsa dell'appliance (Microsoft.Solutions/appliances). Una proprietà chiave definita in questa risorsa è ManagedResourceGroupId. Questa proprietà indica il gruppo di risorse usato per l'hosting delle risorse effettive definite in applianceMainTemplate.json.
-
-- **applianceCreateUIDefinition.json**: questo file illustra la modalità di rendering dell'interfaccia utente per i parametri definiti nel modello.
+- **createUIDefinition.json**: questo file illustra la modalità di rendering dell'interfaccia utente per i parametri definiti nel modello.
 
 ### <a name="authorization"></a>Authorization
 L'editore deve specificare le autorizzazioni richieste dal fornitore per gestire le risorse per conto del cliente. Questa autorizzazione è applicabile al gruppo di risorse gestite. Impostare i valori seguenti:
@@ -81,4 +77,3 @@ L'editore deve specificare le autorizzazioni richieste dal fornitore per gestire
 * Per informazioni sulla pubblicazione di un'applicazione gestita del catalogo di servizi, vedere [Creare e pubblicare un'applicazione gestita del catalogo di servizi](managed-application-publishing.md).
 * Per informazioni sull'uso delle applicazioni gestite del catalogo di servizi, vedere [Utilizzare un'applicazione gestita di Azure](managed-application-consumption.md).
 * Per creare un file di definizione dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](managed-application-createuidefinition-overview.md).
-

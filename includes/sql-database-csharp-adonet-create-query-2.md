@@ -24,7 +24,7 @@ Il programma C# contiene:
 Questo programma C# è costituito logicamente da un file con estensione cs. In questo caso il programma è suddiviso fisicamente in diversi blocchi di codice, in modo da semplificare la visualizzazione e la comprensione di ogni blocco. Per compilare ed eseguire questo programma, seguire questa procedura:
 
 1. Creare un progetto C# in Visual Studio.
-    - Il tipo di progetto deve essere un *console* un'applicazione, da un elemento come la seguente gerarchia: **modelli** > **Visual c#** >  **Windows Desktop classico** > **Console App (.NET Framework)**.
+    - Il tipo di progetto deve essere un'applicazione *console*, da un elemento simile alla gerarchia seguente: **Modelli** > **Visual C#** > **Desktop classico di Windows** > **App console (.NET Framework)**.
 3. Nel file **Program.cs** cancellare le brevi righe iniziali del codice.
 3. In Program.cs copiare e incollare ogni blocco seguente nella stessa sequenza riportata.
 4. In Program.cs modificare i valori seguenti nel metodo **Main**:
@@ -235,7 +235,7 @@ DELETE tabDepartment
 <a name="cs_6_selectrows"/>
 ### <a name="c-block-6-t-sql-to-select-rows"></a>Blocco C# 6: T-SQL per la selezione di righe
 
-- [Indietro](#cs_5_deletejoin) &nbsp; / &nbsp; [Avanti](#cs_6b_datareader)
+- [Indietro](#cs_5_deletejoin)&nbsp; / &nbsp;[Avanti](#cs_6b_datareader)
 
 
 ```csharp
@@ -263,7 +263,7 @@ SELECT
 <a name="cs_6b_datareader"/>
 ### <a name="c-block-6b-executereader"></a>Blocco C# 6b: ExecuteReader
 
-- [Indietro](#cs_6_selectrows) &nbsp; / &nbsp; [Avanti](#cs_7_executenonquery)
+- [Indietro](#cs_6_selectrows)&nbsp; / &nbsp;[Avanti](#cs_7_executenonquery)
 
 Questo metodo è progettato per l'esecuzione dell'istruzione T-SQL SELECT compilata dal metodo **Build_6_Tsql_SelectEmployees**.
 

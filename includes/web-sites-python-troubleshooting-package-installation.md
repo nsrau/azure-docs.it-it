@@ -5,18 +5,18 @@ In questa sezione vengono esaminati alcuni metodi utili per risolvere questo pro
 ### <a name="request-wheels"></a>Richiedere i file wheel
 Se per l'installazione del pacchetto è necessario un compilatore, provare a contattare il proprietario del pacchetto per richiedere che vengano resi disponibili i file wheel per il pacchetto.
 
-Grazie alla recente disponibilità del [compilatore Microsoft Visual C++ per Python 2.7][compilatore Microsoft Visual C++ per Python 2.7], è ora più facile compilare pacchetti con codice nativo per Python 2.7.
+Grazie alla recente disponibilità del [Compilatore Microsoft Visual C++ per Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], è ora più facile compilare pacchetti che includono codice nativo per Python 2.7.
 
 ### <a name="build-wheels-requires-windows"></a>Creare i file wheel (richiede Windows)
 quando si usa questa opzione, assicurarsi di compilare il pacchetto usando un ambiente Python corrispondente alla combinazione di piattaforma/architettura/versione usata nel sito Web di Azure (Windows/32 bit/2.7 o 3.4).
 
 Se il pacchetto non viene installato perché richiede un compilatore, è possibile installare il compilatore nel computer locale e creare un file wheel per il pacchetto, da includere quindi nel repository.
 
-Utenti Mac/Linux: se non si ha accesso a un computer Windows, vedere [Creare una macchina virtuale che esegue Windows][Creare una macchina virtuale che esegue Windows] per informazioni su come creare una VM in Azure.  È possibile usare la macchina virtuale per creare i file wheel, aggiungerli al repository e quindi eliminare la macchina virtuale se lo si desidera. 
+Utenti Mac/Linux: se non si ha accesso a un computer Windows, vedere [Creare una macchina virtuale che esegue Windows][Create a Virtual Machine Running Windows] per informazioni su come creare una macchina virtuale in Azure.  È possibile usare la macchina virtuale per creare i file wheel, aggiungerli al repository e quindi eliminare la macchina virtuale se lo si desidera. 
 
-Per Python 2.7, è possibile installare il [compilatore Microsoft Visual C++ per Python 2.7][compilatore Microsoft Visual C++ per Python 2.7].
+Per Python 2.7, è possibile installare il [Compilatore Microsoft Visual C++ per Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
-Per Python 3.4, è possibile installare [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
+Per Python 3.4, è possibile installare il [Compilatore Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
 Per creare i file wheel, sarà necessario il pacchetto wheel:
 
@@ -59,6 +59,6 @@ Se si include l'ambiente virtuale nel repository, è possibile impedire allo scr
 
 È preferibile eliminare l'ambiente virtuale nel sito, per evitare la presenza di file rimasti in seguito alla gestione automatica dell'ambiente virtuale.
 
-[Creare una macchina virtuale che esegue Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
-[compilatore Microsoft Visual C++ per Python 2.7]: http://aka.ms/vcpython27
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949

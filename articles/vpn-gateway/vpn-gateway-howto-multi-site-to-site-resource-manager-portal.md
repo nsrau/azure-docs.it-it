@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
 ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente
 
@@ -55,24 +55,24 @@ Verificare quanto segue:
 2. Fare clic su **All resources** (Tutte le risorse), individuare il **gateway di rete virtuale** nell'elenco di risorse e selezionarlo.
 3. Nel pannello **Gateway di rete virtuale** fare clic su **Connessioni**.
    
-    ![Pannello Connessioni](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Connections blade")<br>
+    ![Pannello connessioni](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Pannello connessioni")<br>
 4. Nel pannello **Connessioni** fare clic su **+Aggiungi**.
    
-    ![Pulsante Aggiungi connessione](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Add connection button")<br>
+    ![Pulsante Aggiungi connessione](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Pulsante Aggiungi connessione")<br>
 5. Nel pannello **Aggiungi connessione** compilare i campi seguenti:
    
    * **Nome**: nome del sito a cui si sta creando la connessione.
    * **Tipo di connessione**: selezionare **Da sito a sito (IPSec)**.
      
-     ![Pannello Aggiungi connessione](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
+     ![Pannello Aggiungi connessione](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Pannello Aggiungi connessione")<br>
 
 ## <a name="part2"></a>Parte 2: Aggiungere un gateway di rete locale
 1. Fare clic su **Gateway di rete locale** ***Scegli un gateway di rete locale***. Viene aperto il pannello **Scegli gateway di rete virtuale**.
    
-    ![Scegli gateway di rete virtuale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choose local network gateway")<br>
+    ![Scegli gateway di rete virtuale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Scegli gateway di rete virtuale")<br>
 2. Fare clic su **Crea nuovo** per aprire il pannello **Crea un gateway di rete locale**.
    
-    ![Pannello Crea un gateway di rete locale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
+    ![Pannello Crea un gateway di rete locale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Crea un gateway di rete locale")<br>
 3. Nel pannello **Crea un gateway di rete locale** compilare i campi seguenti:
    
    * **Nome**: nome da assegnare alla risorsa gateway di rete locale.
@@ -83,7 +83,7 @@ Verificare quanto segue:
 ## <a name="part3"></a>Parte 3: Aggiungere la chiave condivisa e creare la connessione
 1. Nel pannello **Aggiungi connessione** aggiungere la chiave condivisa che si intende usare per creare la connessione. È possibile ottenere la chiave condivisa dal dispositivo VPN oppure crearne una in questa sede e quindi configurare il dispositivo VPN per l'uso della stessa chiave condivisa. È fondamentale che le chiavi siano assolutamente identiche.
    
-    ![Chiave condivisa](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Shared key")<br>
+    ![Chiave condivisa](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Chiave condivisa")<br>
 2. Nella parte inferiore del pannello fare clic su **OK** per creare la connessione.
 
 ## <a name="part4"></a>Parte 4: Verificare la connessione VPN

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 9bfcb44ed19f167872b3cd9119e2dbdd35c82604
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Esercitazione: Integrazione di Azure Active Directory con xMatters OnDemand
 
@@ -209,7 +209,7 @@ Per consentire agli utenti di Azure AD di accedere a XMatters OnDemand, è neces
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
 1. Accedere al tenant di **XMatters OnDemand** .
 
-2.  Fare clic sulla scheda **Utenti** scheda. Fare clic su **Add User** (Aggiungi utente).
+2.  Fare clic sulla scheda **Users** (Utenti) e quindi fare clic su **Add User** (Aggiungi utente).
   
     ![Utenti](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "Utenti")
 

@@ -1,6 +1,6 @@
---- 
+---
 title: Copiare una macchina virtuale Linux usando l'interfaccia della riga di comando di Azure 2.0 |Microsoft Docs
-description: Informazioni su come creare una copia della VM Linux di Azure usando l'interfaccia della riga di comando di Azure 2.0 e i dischi gestiti.
+description: Informazioni su come creare una copia della macchina virtuale Linux di Azure usando l'interfaccia della riga di comando di Azure 2.0 e i dischi gestiti.
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -12,16 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 09/25/2017
 ms.author: cynthn
+ms.openlocfilehash: 98b27f5f86cdb17893a5c98950a2299f8aa30105
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7983061a933370803669480296d7625106e1360c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
----                    
-               
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
+---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>Creare una copia di una VM Linux di Azure usando l'interfaccia della riga di comando di Azure 2.0 e i dischi gestiti
 
 
@@ -45,7 +43,9 @@ Deallocare la macchina virtuale di origine usando il comando [az vm deallocate](
 L'esempio seguente dealloca la VM denominata **myVM** nel gruppo di risorse **myResourceGroup**:
 
 ```azurecli
-az vm deallocate --resource-group myResourceGroup --name myVM
+az vm deallocate \
+    --resource-group myResourceGroup \
+    --name myVM
 ```
 
 ## <a name="step-2-copy-the-source-vm"></a>Passaggio 2: Copiare la macchina virtuale di origine
@@ -58,7 +58,9 @@ Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overv
 1.  Elencare ogni VM e il nome del relativo disco del sistema operativo con [az vm list](/cli/azure/vm#list). L'esempio seguente elenca tutte le VM del gruppo di risorse denominato **myResourceGroup**:
     
     ```azurecli
-    az vm list -g myTestRG --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
+    az vm list -g myResourceGroup \
+         --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' \
+         --output table
     ```
 
     L'output è simile all'esempio seguente:
@@ -72,7 +74,8 @@ Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overv
 1.  Copiare il disco creando un nuovo disco gestito con [az disk create](/cli/azure/disk#create). L'esempio seguente crea un disco denominato **myCopiedDisk** dal disco gestito denominato **myDisk**:
 
     ```azurecli
-    az disk create --resource-group myResourceGroup --name myCopiedDisk --source myDisk
+    az disk create --resource-group myResourceGroup \
+         --name myCopiedDisk --source myDisk
     ``` 
 
 1.  Verificare i dischi gestiti ora presenti nel gruppo di risorse usando il comando [az disk list](/cli/azure/disk#list). L'esempio seguente elenca i dischi gestiti nel gruppo di risorse denominato **myResourceGroup**:
@@ -80,8 +83,6 @@ Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overv
     ```azurecli
     az disk list --resource-group myResourceGroup --output table
     ```
-
-1.  Andare al [Passaggio 3: Configurare una rete virtuale](#step-3-set-up-a-virtual-network).
 
 
 ## <a name="step-3-set-up-a-virtual-network"></a>Passaggio 3: Configurare una rete virtuale
@@ -96,23 +97,29 @@ Se si vuole creare un'infrastruttura di rete virtuale per le macchine virtuali c
 1.  Creare la rete virtuale usando il comando [az network vnet create](/cli/azure/network/vnet#create). L'esempio seguente crea una rete virtuale denominata **myVnet** e una subnet denominata **mySubnet**:
 
     ```azurecli
-    az network vnet create --resource-group myResourceGroup --location westus --name myVnet \
-        --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
+    az network vnet create --resource-group myResourceGroup \
+        --location eastus --name myVnet \
+        --address-prefix 192.168.0.0/16 \
+        --subnet-name mySubnet \
+        --subnet-prefix 192.168.1.0/24
     ```
 
 1.  Creare un indirizzo IP pubblico usando il comando [az network public-ip create](/cli/azure/network/public-ip#create). L'esempio seguente crea un indirizzo IP pubblico chiamato **myPublicIP** con il nome DNS **mypublicdns**. È necessario specificare un nome DNS univoco.
 
     ```azurecli
-    az network public-ip create --resource-group myResourceGroup --location westus \
-        --name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
+    az network public-ip create --resource-group myResourceGroup \
+        --location eastus --name myPublicIP --dns-name mypublicdns \
+        --allocation-method static --idle-timeout 4
     ```
 
 1.  Creare la scheda di interfaccia di rete usando [az network nic create](/cli/azure/network/nic#create).
     L'esempio seguente crea una scheda di interfaccia di rete denominata **myNic** associata alla subnet **mySubnet**:
 
     ```azurecli
-    az network nic create --resource-group myResourceGroup --location westus --name myNic \
-        --vnet-name myVnet --subnet mySubnet --public-ip-address myPublicIP
+    az network nic create --resource-group myResourceGroup \
+        --location eastus --name myNic \
+        --vnet-name myVnet --subnet mySubnet \
+        --public-ip-address myPublicIP
     ```
 
 ## <a name="step-4-create-a-vm"></a>Passaggio 4: Creare una macchina virtuale
@@ -122,13 +129,12 @@ Ora è possibile creare una macchina virtuale usando il comando [az vm create](/
 Specificare il disco gestito copiato da usare come disco del sistema operativo (--attach-os-disk). A tale scopo, procedere come segue:
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myCopiedVM \
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic --size Standard_DS1_v2 --os-type Linux \
+az vm create --resource-group myResourceGroup \
+    --name myCopiedVM --nics myNic \
+    --size Standard_DS1_v2 --os-type Linux \
     --attach-os-disk myCopiedDisk
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come usare l'interfaccia della riga di comando di Azure per gestire la nuova VM, vedere [Comandi dell'interfaccia della riga di comando di Azure per Azure Resource Manager](../azure-cli-arm-commands.md).
-

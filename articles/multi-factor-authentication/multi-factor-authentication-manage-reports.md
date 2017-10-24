@@ -3,7 +3,7 @@ title: Rapporto di accesso e uso per Azure MFA | Microsoft Docs
 description: "Viene descritto come usare la funzionalità dei report di Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
+ms.author: joflore
+ms.reviewer: alexwe
+ms.openlocfilehash: 77d6742faadfaf3d7afccfbe888b910c80278737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 42a87adef740cc2c1d77c9f02eef8aaa5f207258
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication offre diversi report che possono essere utilizzati dall'utente e dall'organizzazione. Questi rapporti sono accessibili tramite il portale di gestione Multi-Factor Authentication. Di seguito è riportato un elenco dei rapporti disponibili:
+
+Azure Multi-Factor Authentication offre diversi report che possono essere utilizzati dall'utente e dall'organizzazione. Questi rapporti sono accessibili tramite il portale di gestione Multi-Factor Authentication. La tabella seguente elenca i report disponibili:
 
 | Report | Descrizione |
 |:--- |:--- |
@@ -34,6 +35,7 @@ Azure Multi-Factor Authentication offre diversi report che possono essere utiliz
 | Queued |Consente di elencare i report accodati da elaborare e i relativi stati. Quando il report è completo, viene fornito un collegamento per scaricare o visualizzare il report. |
 
 ## <a name="view-reports"></a>Visualizzazione dei report
+
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. A sinistra selezionare Active Directory.
 3. Attenersi a una di queste due opzioni, a seconda che vengano usati provider di autenticazione:
@@ -43,9 +45,17 @@ Azure Multi-Factor Authentication offre diversi report che possono essere utiliz
 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
+## <a name="powershell-reporting"></a>Report di PowerShell
+
+Identificare gli utenti che hanno eseguito la registrazione per MFA usando il codice di PowerShell seguente.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+
+Identificare gli utenti che non hanno eseguito la registrazione per MFA usando il codice di PowerShell seguente.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
 **Risorse aggiuntive**
 
 * [Per gli utenti](end-user/multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
-

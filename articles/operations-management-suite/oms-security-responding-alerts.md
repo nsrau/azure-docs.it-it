@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
-ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: df82afab2c38431e134146143524edc080ee38f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Sicurezza e controllo di Operations Management Suite
 Questo documento illustra come usare la funzionalità di intelligence per le minacce disponibile nel dashboard Security and Audit (Sicurezza e controllo) di OMS per monitorare e gestire gli avvisi di sicurezza.
@@ -33,7 +32,7 @@ In un ambiente aziendale in cui gli utenti hanno ampio accesso alla rete e usano
 
 Tramite la funzionalità **Threat Intelligence** (Intelligence per le minacce) disponibile nel dashboard Security and Audit (Sicurezza e controllo) di OMS, gli amministratori IT possono identificare le minacce alla sicurezza dell'ambiente, ad esempio determinare se un computer fa parte di una [botnet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection). I computer possono diventare nodi di una botnet quando utenti malintenzionati installano illecitamente malware che connette il computer al comando e al controllo all'insaputa dell'utente. Questa funzionalità è anche in grado di identificare potenziali minacce provenienti da canali di comunicazione sotterranei, ad esempio una [darknet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection_honeypots_darkents). 
 
-Per creare questa intelligence per le minacce, Security and Audit (Sicurezza e controllo) di OMS si basa su dati provenienti da più origini nell'ambito di Microsoft e sfrutta i dati rilevati per identificare le potenziali minacce all'ambiente.
+Per creare questa intelligence per le minacce, la soluzione Sicurezza e controllo di OMS usa i dati provenienti da più origini Microsoft e sfrutta i dati rilevati per identificare le potenziali minacce all'ambiente.
 
 Il riquadro Threat Intelligence (Intelligence per le minacce) è composto da tre aree principali:
 
@@ -42,7 +41,7 @@ Il riquadro Threat Intelligence (Intelligence per le minacce) è composto da tre
 * Mappa di intelligence per le minacce
 
 > [!NOTE]
-> Per una panoramica di tutte queste opzioni, leggere [Introduzione alla soluzione Sicurezza e controllo di Operations Management Suite](oms-security-getting-started.md).
+> Per una panoramica di tutte queste opzioni, vedere [Introduzione alla soluzione Sicurezza e controllo di Operations Management Suite](oms-security-getting-started.md).
 > 
 > 
 
@@ -55,7 +54,7 @@ Uno dei passaggi della procedura di [risposta agli eventi di sicurezza imprevist
 * Identificare i sistemi che sono stati compromessi.
 * Identificare i file a cui è stato eseguito l'accesso e determinarne il grado di riservatezza.
 
-Per svolgere più facilmente queste attività è possibile sfruttare le informazioni di **Threat Intelligence** (Intelligence per le minacce) nella soluzione OMS per la sicurezza e il controllo. Per accedere alle opzioni di **Threat Intelligence** (Intelligence per le minacce) seguire questa procedura:
+Per svolgere più facilmente queste attività è possibile sfruttare le informazioni di **intelligence per le minacce** della soluzione Sicurezza e controllo di OMS. Per accedere alle opzioni di **intelligence per le minacce** seguire questa procedura:
 
 1. Nel dashboard principale **Microsoft Operations Management Suite** fare clic sul riquadro **Security and Audit** (Sicurezza e controllo).
    
@@ -87,7 +86,7 @@ La **mappa di intelligence per le minacce** consente di individuare facilmente l
 ### <a name="responding-to-distinct-malicious-ip-accessed"></a>Risposta ai diversi indirizzi IP dannosi a cui si è avuto accesso
 In alcuni scenari è possibile notare un potenziale IP dannoso a cui è stato eseguito l'accesso da un computer monitorato:
 
-![mappa di intelligence per le minacce](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+![mappa di intelligence per le minacce](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.PNG)
 
 Questo avviso e altri all'interno della stessa categoria sono generati tramite Sicurezza di OMS usando l'[intelligence per le minacce di Microsoft](https://youtu.be/O4WtxgUrDc8). I dati di intelligence sulle minacce vengono raccolti da Microsoft, nonché acquistati da provider di intelligence per le minacce leader del settore. Questi dati vengono aggiornati frequentemente e adattati alle minacce in continua evoluzione. A causa della loro natura, devono essere combinati con altre fonti di informazioni di sicurezza quando si [analizza](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) un avviso di sicurezza. 
 
@@ -103,5 +102,4 @@ In questo documento è stato descritto come rispondere agli avvisi di sicurezza 
 * [Panoramica di Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Introduzione alla soluzione Sicurezza e controllo di Operations Management Suite](oms-security-getting-started.md)
 * [Monitoraggio delle risorse nella soluzione Sicurezza e controllo di Operations Management Suite](oms-security-monitoring-resources.md)
-
 

@@ -1,10 +1,10 @@
 ---
 title: Installare l'aggiornamento 5 nel dispositivo StorSimple serie 8000 | Microsoft Docs
-description: Illustra come installare l'aggiornamento 4 di StorSimple serie 8000 in un dispositivo StorSimple serie 8000.
+description: Descrive come installare l'aggiornamento 5 di StorSimple serie 8000 in un dispositivo StorSimple serie 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2017
+ms.date: 10/06/2017
 ms.author: alkohli
+ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 84056daaada94875af3d969847ead41c003a1606
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installare l'aggiornamento 5 nel dispositivo StorSimple
 
 ## <a name="overview"></a>Panoramica
 
-Questa esercitazione illustra come installare l'aggiornamento 5 in un dispositivo StorSimple in cui è in esecuzione una versione precedente del software tramite il portale di Azure e usando il metodo hotfix. Il metodo hotfix è usato quando viene configurato un gateway su un'interfaccia di rete diversa da DATA 0 del dispositivo StorSimple e si sta tentando di aggiornare da una versione del software precedente all'aggiornamento 1.
+Questa esercitazione illustra come installare l'aggiornamento 5 in un dispositivo StorSimple in cui è in esecuzione una versione precedente del software tramite il portale di Azure e usando il metodo hotfix. Il metodo hotfix viene usato quando si prova a installare l'aggiornamento 5 in un dispositivo che esegue versioni precedenti all'aggiornamento 3. Il metodo hotfix viene usato anche quando è configurato un gateway su un'interfaccia di rete diversa da DATA 0 del dispositivo StorSimple e si prova a eseguire l'aggiornamento da una versione del software precedente all'aggiornamento 1.
 
 L'aggiornamento 5 include software per dispositivi, Storport e Spaceport, aggiornamenti di sicurezza del sistema operativo e aggiornamenti del sistema operativo, oltre ad aggiornamenti del firmware del disco.  Il software per dispositivi, Spaceport, Storport, gli aggiornamenti di sicurezza e altri aggiornamenti del sistema operativo non implicano interruzioni del servizio. È possibile applicare gli aggiornamenti normali o senza interruzioni usando il portale di Azure o il metodo basato su hotfix. Gli aggiornamenti del firmware del disco sono aggiornamenti con interruzioni del servizio e vengono applicati quando il dispositivo è in modalità di manutenzione tramite il metodo hotfix usando l'interfaccia di Windows PowerShell del dispositivo.
 
 > [!IMPORTANT]
 > * Si esegue una serie di controlli preliminari automatici e manuali prima dell'installazione per determinare l'integrità del dispositivo in termini di connettività di stato e di rete hardware. Questi controlli preliminari vengono eseguiti solo se si applicano gli aggiornamenti dal portale di Azure.
+> * Quando si aggiorna un dispositivo che esegue versioni precedenti all'aggiornamento 3, è consigliabile installare gli aggiornamenti tramite il metodo hotfix. Per ottenere assistenza dal supporto tecnico durante l'aggiornamento, [registrare un ticket di supporto](storsimple-8000-contact-microsoft-support.md).
 > * È consigliabile installare gli aggiornamenti software e gli altri aggiornamenti normali tramite il portale di Azure. Passare all'interfaccia di Windows PowerShell del dispositivo (per installare gli aggiornamenti) solo se il gateway di pre-aggiornamento ha esito negativo nel portale. A seconda della versione da cui viene eseguito l'aggiornamento, l'installazione degli aggiornamenti può richiedere un minimo di 4 ore. Gli aggiornamenti in modalità di manutenzione devono essere installati tramite l'interfaccia di Windows PowerShell del dispositivo. Trattandosi di aggiornamenti con interruzioni del servizio, comportano un periodo di inattività per il dispositivo.
 > * Se è in esecuzione StorSimple Snapshot Manager (facoltativo), assicurarsi di avere installato l'aggiornamento 5 in Snapshot Manager prima di aggiornare il dispositivo.
 
@@ -47,12 +47,11 @@ Seguire questa procedura per installare l'[aggiornamento 5](storsimple-update5-r
 
 Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 5 della serie 8000 di StorSimple (6.3.9600.17845)**. È necessario anche modificare la **data dell'ultimo aggiornamento** .
 
-* Saranno ora disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l'installazione degli aggiornamenti. Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
+Saranno ora disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l'installazione degli aggiornamenti. I passaggi per installare l'aggiornamento in modalità di manutenzione vengono descritti in modo dettagliato nella prossima sezione.
 
-* Scaricare gli aggiornamenti in modalità di manutenzione usando la procedura indicata in [Scaricare gli hotfix](#to-download-hotfixes) per cercare e scaricare KB4011837, che installa gli aggiornamenti del firmware del disco; gli altri aggiornamenti devono essere già installati a questo punto. Seguire i passaggi elencati nella sezione [Installare e verificare gli aggiornamenti rapidi in modalità di manutenzione](#to-install-and-verify-maintenance-mode-hotfixes) per installare gli aggiornamenti in modalità manutenzione.
+[!INCLUDE [storsimple-8000-install-maintenance-mode-updates](../../includes/storsimple-8000-install-maintenance-mode-updates.md)]
 
 ## <a name="install-update-5-as-a-hotfix"></a>Installare l'aggiornamento 5 come hotfix
-
 
 Le versioni software che possono essere aggiornate usando il metodo hotfix sono:
 
@@ -63,7 +62,7 @@ Le versioni software che possono essere aggiornate usando il metodo hotfix sono:
 * Aggiornamento 4
 
 > [!NOTE] 
-> È consigliabile installare l'aggiornamento 5 usando il portale di Azure. Usare questa procedura se la verifica del gateway non riesce quando si cerca di installare gli aggiornamenti tramite il portale di Azure. La verifica non riesce quando un gateway è assegnato a un'interfaccia di rete non DATA 0 e sul dispositivo è in esecuzione una versione del software precedente all'aggiornamento 1.
+> Il metodo consigliato per installare l'aggiornamento 5 è tramite il portale di Azure quando si prova a eseguire l'aggiornamento dall'aggiornamento 3 e versioni successive. Quando si aggiorna un dispositivo che esegue versioni precedenti all'aggiornamento 3, usare questa procedura. È possibile usare questa procedura anche se la verifica del gateway non riesce quando si prova a installare gli aggiornamenti tramite il portale di Azure. La verifica non riesce quando un gateway è assegnato a un'interfaccia di rete non DATA 0 e sul dispositivo è in esecuzione una versione del software precedente all'aggiornamento 1.
 
 Il metodo hotfix prevede i tre passaggi seguenti:
 
@@ -114,5 +113,4 @@ Eseguire i passaggi seguenti per scaricare e importare gli hotfix.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulla [versione dell'aggiornamento 5](storsimple-update5-release-notes.md).
-
 

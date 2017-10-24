@@ -21,10 +21,10 @@ Per un maggiore controllo sulla distribuzione, è possibile eseguire l'override 
     \.deployment
     \deploy.cmd
 
-Per creare i file, è possibile usare l'[interfaccia della riga di comando di Azure][interfaccia della riga di comando di Azure].  Usare questo comando dalla cartella del progetto:
+Per creare i file, è possibile usare l'[interfaccia della riga di comando di Azure][Azure command-line interface].  Usare questo comando dalla cartella del progetto:
 
     azure site deploymentscript --python
 
 Se questi file non esistono, Azure creerà uno script di distribuzione temporaneo e lo eseguirà.  Tale file è identico a quello creato con il comando precedente.
 
-[interfaccia della riga di comando di Azure]: http://azure.microsoft.com/downloads/
+[Azure command-line interface]: http://azure.microsoft.com/downloads/

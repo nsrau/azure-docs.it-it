@@ -3,7 +3,7 @@ title: Comprendere i connettori del proxy applicazione Azure AD | Microsoft Docs
 description: Tratta i fondamenti dei connettori del proxy applicazione Azure AD.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
-ms.author: kgremban
+ms.date: 10/03/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: fdee5703adc76e750aebd83d4122e7b79244c0e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c18d0a2bff654573e6e28a7cd7fad853b3a11346
-ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
 I connettori sono ciò che rende possibile il proxy di applicazione di Azure AD. Sono semplici, estremamente potenti e facile da distribuire e gestire. Questo articolo illustra i connettori, il loro funzionamento e alcune procedure consigliate per ottimizzare al meglio la distribuzione. 
@@ -70,6 +68,21 @@ I gruppi di connettori rendono più semplice gestire le distribuzioni di grandi 
 
 Per altre informazioni sui gruppi di connettori, vedere [Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori](active-directory-application-proxy-connectors-azure-portal.md).
 
+## <a name="capacity-planning"></a>Capacity Planning 
+
+Sebbene i connettori bilanceranno automaticamente il carico all'interno di un gruppo di connettori, è anche importante assicurarsi di aver pianificato la capacità sufficiente tra i connettori per gestire il volume di traffico previsto. In generale, più utenti si hanno, più sarà grande il computer necessario. La tabella qui di seguito fornisce una descrizione dei volumi che possono gestire diversi computer. Si noti che tutto è basato sulle transazioni al secondo (TPS) previste e non sugli utenti poiché i modelli di utilizzo variano e non possono essere usati per stimare il carico.  Si noti inoltre che vi sono alcune differenze in base alla dimensione delle risposte e al tempo di risposta dell'applicazione back-end. Dimensioni di risposta più grandi e tempi di risposta più lenti comporteranno un numero massimo di TPS inferiore.
+
+|Core|RAM|Latenza prevista (MS)-P99|Numero massimo di TPS|
+| ----- | ----- | ----- | ----- |
+|2|8|325|586|
+|4|16|320|1150|
+|8|32|270|1190|
+|16|64|245|1200*|
+\* Questo computer ha un limite di connessione di 200. Per tutti gli altri computer è stato usato il limite di connessione predefinito di 200.
+ 
+>[!NOTE]
+>Il limite di configurazione predefinito è 200 (per Core 2, 4 e 8).  Durante il test con 16 Core il limite di connessione è stato modificato a 800. Non c'è molta differenza nel numero massimo di TPS tra computer Core 4, 8 e 16. La differenza principale è la latenza prevista.  
+
 ## <a name="security-and-networking"></a>Sicurezza e rete
 
 I connettori possono essere installati in qualsiasi punto della rete che consenta loro di inviare richieste al servizio proxy dell'applicazione. È importante che il computer che esegue il connettore abbia anche accesso alle app. È possibile installare i connettori all'interno della rete aziendale o in una macchina virtuale che viene eseguita nel cloud. I connettori possono essere eseguiti in una zona demilitarizzata (DMZ), ma non è necessario poiché tutto il traffico è in uscita, in modo che la rete è protetta.
@@ -89,6 +102,8 @@ Poiché i connettori sono senza stato, non vengono influenzati dal numero di ute
 Le prestazioni del connettore sono legate alla CPU e alla rete. Le prestazioni della CPU sono necessarie per la crittografia SSL e la decrittografia, mentre la rete è fondamentale per una connettività veloce alle applicazioni e al servizio online in Azure.
 
 La memoria, al contrario, ha meno importanza per i connettori. Il servizio online si occupa di gran parte dell'elaborazione e di tutto il traffico non autenticato. Tutto ciò che può essere fatto nel cloud viene fatto nel cloud. 
+
+Il bilanciamento del carico si verifica tra i connettori di un determinato gruppo di connettori. Viene fatta una variazione round-robin per determinare il connettore del gruppo che serve una particolare richiesta. Dopo aver scelto un connettore, si mantiene un'affinità di sessione tra l'utente e l'applicazione per la durata della sessione. Se per qualsiasi motivo il connettore o il computer non sono più disponibili, il traffico inizierà ad andare su un altro connettore del gruppo. Questa resilienza esiste anche perché si consiglia di avere più connettori.
 
 Un altro fattore che influenza le prestazioni è la qualità della connessione di rete tra i connettori, inclusi: 
 
@@ -151,5 +166,4 @@ Per visualizzare i registri, passare al Visualizzatore eventi, aprire il menu **
 * [Usare server proxy locali esistenti](application-proxy-working-with-proxy-servers.md)
 * [Risolvere i problemi di errore del proxy di applicazione e del connettore](active-directory-application-proxy-troubleshoot.md)
 * [Come eseguire un'installazione invisibile all'utente del connettore del proxy di applicazione di Azure AD](active-directory-application-proxy-silent-installation.md)
-
 

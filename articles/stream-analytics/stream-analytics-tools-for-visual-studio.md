@@ -4,30 +4,31 @@ description: Esercitazione introduttiva per gli strumenti di Analisi di flusso d
 keywords: Visual Studio
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: 
-editor: 
+author: su-jie
+manager: jhubbard
+editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 
-ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 618c1055795a75e0ed71dacddba3e076f81f4946
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.date: 03/28/2017
+ms.author: sujie
+ms.openlocfilehash: b0304265dd43986a59515e8d68630a76d0364748
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Usare gli strumenti di Analisi di flusso di Azure per Visual Studio
+Sono ora disponibili pubblicamente gli strumenti di Analisi di flusso di Azure per Visual Studio. Questi strumenti consentono agli utenti di sfruttare meglio Analisi di flusso per risolvere i problemi e scrivere query complesse, anche in locale. Consentono inoltre di esportare un processo di Analisi di flusso in un progetto di Visual Studio.
+
 ## <a name="introduction"></a>Introduzione
-Questa esercitazione illustra come usare gli strumenti di Analisi di flusso di Azure per Visual Studio per creare, scrivere, testare in locale, gestire ed eseguire il debug dei processi di Analisi di flusso di Azure. 
+In questa esercitazione si apprenderà come usare gli strumenti di Analisi di flusso di Azure per Visual Studio per creare, scrivere, testare in locale, gestire ed eseguire il debug dei processi di Analisi di flusso di Azure. 
 
 Dopo aver completato questa esercitazione, si sarà in grado di:
-* Usare gli strumenti di Analisi di flusso di Azure per Visual Studio.
+* Acquisire familiarità con gli strumenti di Analisi di flusso di Azure per visual Studio.
 * Configurare e distribuire un processo di Analisi di flusso.
 * Testare il processo in locale con dati di esempio locali.
 * Usare il monitoraggio per risolvere i problemi.
@@ -35,233 +36,219 @@ Dopo aver completato questa esercitazione, si sarà in grado di:
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
-* Completare i passaggi che precedono "Creare un processo di Analisi di flusso" nell'esercitazione [Compilare una soluzione IoT con Analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
-* Usare Visual Studio 2015, Visual Studio 2013 Update 4 oppure Visual Studio 2012. Sono supportate le edizioni Enterprise (Ultimate/Premium), Professional e Community. L'edizione Express non è supportata. Visual Studio 2017 non è supportato. 
-* Usare Azure SDK per .NET versione 2.7.1 o successiva. Eseguire l'installazione usando [Installazione guidata piattaforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
-* Installare gli [strumenti di Analisi di flusso di Azure per Visual Studio](http://aka.ms/asatoolsvs).
+* Completare i passaggi precedenti a **Creare un processo di Analisi di flusso** nell'[esercitazione Compilare una soluzione IoT con Analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
+* Installare Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 Update 4. Sono supportate le edizioni Enterprise (Ultimate/Premium), Professional e Community. L'edizione Express non è supportata. 
+* Seguire le [istruzioni di installazione](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) per installare gli strumenti di Analisi di flusso per Visual Studio.
 
 ## <a name="create-a-stream-analytics-project"></a>Creare un progetto di Analisi di flusso
-1. In Visual Studio fare clic sul menu **File** e selezionare **Nuovo progetto**. 
+Nel **menu File** in Visual studio scegliere **Nuovo progetto**. Selezionare **Analisi di flusso** dall'elenco di modelli a sinistra e fare clic su **Applicazione di Analisi di flusso di Azure**.
+Inserire il nome del progetto, il percorso e il nome della soluzione in fondo, come per gli altri progetti.
 
-2. Nell'elenco dei modelli a sinistra selezionare **Analisi di flusso** e quindi fare clic su **Applicazione Analisi di flusso di Azure**.
+![Creare un progetto di Analisi di flusso di Azure](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-create-project-01.png)
 
-3. Immettere il **Nome**, il **Percorso** e il **Nome della soluzione** del progetto come per altri progetti.
+Si noterà un progetto **Toll** generato in **Esplora soluzioni**.
 
-    ![Finestra Nuovo progetto](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-create-project-01.png)
-
-    Verrà generato un progetto **Toll** in **Esplora soluzioni**.
-
-    ![Progetto Toll generato in Esplora soluzioni](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-create-project-02.png)
+![Creare un progetto di Analisi di flusso di Azure](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-create-project-02.png)
 
 ## <a name="choose-the-correct-subscription"></a>Scegliere la sottoscrizione corretta
-1. In Visual Studio fare clic sul menu **Visualizza** e aprire **Esplora server**.
+1. Aprire **Esplora server** in Visual Studio dal menu **Visualizza**.
+2. Accedere con l'account di Azure. 
 
-2. Accedere con l'account Azure. 
+## <a name="define-input-sources"></a>Definire le origini di input
+1.  In **Esplora soluzioni** espandere il nodo **Input** e rinominare **Input.json** in **EntryStream.json**. Fare doppio clic su **EntryStream.json**.
+2.  L'**ALIAS DI INPUT** dovrebbe ora essere **EntryStream**. Si noti che l'alias di input verrà usato nello script della query. 
+3.  Il tipo di origine è **Flusso di dati**.
+4.  L'origine è **hub eventi**.
+5.  Lo spazio dei nomi del bus di servizio deve essere quello **tollData** nell'elenco a discesa.
+6.  Nome hub eventi deve essere impostato su **entry**.
+7.  Nome criterio hub eventi è **RootManageSharedAccessKey** (il valore predefinito).
+8.  Selezionare **JSON** per **FORMATO DI SERIALIZZAZIONE EVENTI** e **UTF8** per **CODIFICA**.
+   
+   Le impostazioni vengono visualizzate in questo modo:
+   
+   ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
+   
+9.  Fare clic su **Salva** nella parte inferiore della pagina per terminare la procedura guidata. A questo punto è possibile aggiungere un'altra origine di input per creare il flusso di uscita. Fare clic con il pulsante destro del mouse sul nodo degli input e fare clic su **Nuovo elemento**.
+   
+   ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
+   
+10. Nella nuova finestra, selezionare **Input di Analisi di flusso di Azure** e modificare il nome in **ExitStream.json**. Fare clic su **Aggiungi**.
+   
+   ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
+   
+11. Fare doppio clic su **ExitStream.json** nel progetto e seguire i passaggi come per il flusso di entrata. Assicurarsi di immettere i valori del nome hub eventi come nello screenshot seguente:
+   
+   ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
+   
+   A questo punto sono stati definiti due flussi di input.
+   
+   ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-05.png)
+   
+   Successivamente, si aggiungeranno dati di riferimento per il file BLOB contenente i dati di registrazione dell'automobile.
+   
+12. Fare clic con il tasto destro del mouse sul nodo **Input** nel progetto, quindi seguire lo stesso processo per gli input di flusso ma selezionare **DATI DI RIFERIMENTO** anziché Flusso dati e Alias di Input come **Registrazione**.
+   
+   ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
+   
+13. Selezionare l'account di archiviazione che contiene **tolldata**. Il nome del contenitore deve essere **tolldata** e il **MODELLO PERCORSO** deve essere **registration.json**. Il nome file fa distinzione tra maiuscole e minuscole e deve contenere solo lettere minuscole.
+14. Fare clic su **Salva** per completare la procedura guidata.
 
-## <a name="define-the-input-sources"></a>Definire le origini di input
-1.  In **Esplora soluzioni** espandere il nodo **Inputs** e rinominare **Input.json** in **EntryStream.json**. Fare doppio clic su **EntryStream.json**.
-2.  L'**Alias di input** è ora **EntryStream**. L'alias di input viene usato nello script di query. 
-3.  In **Tipo di origine** selezionare **Flusso dati**.
-4.  In **Origine** selezionare **Hub eventi**.
-5.  In **Spazio dei nomi del bus di servizio** selezionare l'opzione **TollData**.
-6.  In **Nome hub eventi** selezionare **voce**.
-7.  In **Nome criterio hub eventi** selezionare **RootManageSharedAccessKey** (valore predefinito).
-8.  In **Formato di serializzazione eventi** selezionare **Json**. 
-9.  In **Codifica** selezionare **UTF-8**. Le impostazioni dovrebbero essere simili allo screenshot seguente:
+Ora sono definiti tutti gli input.
 
-    ![Finestra di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
+## <a name="define-output"></a>Definire l'output
+1.  In **Esplora soluzioni** espandere il nodo **Input** e fare doppio clic su **Output.json**.
+2.  Impostare l'alias di output su **output** e quindi Sink sul database SQL.
+2.  Inserire il nome del database: **TollDataDB**.
+3.  Immettere **tolladmin** nel campo **NOME UTENTE**, **123toll!** nel campo **PASSWORD** e **TollDataRefJoin** nel campo **TABELLA**.
+4.  Fare clic su **Save**.
+
+![Definire l'output](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
-10. Per completare la procedura guidata fare clic su **Salva**. A questo punto è possibile aggiungere un'altra origine di input per creare il flusso di uscita. Fare clic con il pulsante destro del mouse sul nodo **Inputs** e selezionare **Nuovo elemento**.
+## <a name="azure-stream-analytics-query"></a>Query di Analisi di flusso di Azure
+Questa esercitazione ha lo scopo di rispondere a diverse domande aziendali relative ai dati dei caselli e costruire query di Analisi di flusso da poter usare in Analisi di flusso di Azure per fornire risposte pertinenti.
+Prima di iniziare il primo processo di Analisi di flusso, verranno esaminati alcuni semplici scenari e la sintassi delle query.
 
-    ![Nuovo elemento](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
- 
-11. Nella finestra selezionare **Input di Analisi di flusso di Azure** e modificare il **Nome** in **ExitStream.json**. Fare clic su **Aggiungi**.
+### <a name="introduction-to-azure-stream-analytics-query-language"></a>Introduzione al linguaggio di query di Analisi di flusso di Azure
+Si supponga di dover contare il numero di veicoli che entra in un casello. Trattandosi di un flusso continuo di eventi, è necessario stabilire un "periodo di tempo". La domanda dovrà essere posta come segue: "Quanti veicoli entrano in un casello ogni tre minuti?". Questo tipo di conteggio viene detto a cascata.
 
-    ![Finestra Aggiungi nuovo elemento](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
- 
-12. Fare doppio clic su **ExitStream.json** nel progetto e seguire gli stessi passaggi del flusso di entrata. Assicurarsi di immettere **exit** in **Nome hub eventi** come mostrato nella schermata seguente:
-
-    ![Finestra ExitStream](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
-
-    A questo punto sono presenti due flussi di input definiti:
-
-    ![Flussi di input di entrata e di uscita](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-05.png)
- 
-    Aggiungere successivamente l'input di dati di riferimento per il file BLOB contenente i dati di registrazione dell'automobile.
-
-13. Fare clic con il pulsante destro del mouse sul nodo **Inputs** nel progetto e quindi seguire gli stessi passaggi degli input di flusso. In **Alias di input** immettere **Registrazione** e in **Tipo di origine** selezionare **Dati di riferimento**.
-
-    ![Finestra Registrazione](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
-
-14. In **Account di archiviazione** selezionare l'opzione **tolldata**. In **Contenitore** selezionare **tolldata** e in **Modello percorso** immettere **registration.json**. Il nome file fa distinzione tra maiuscole e minuscole e deve contenere solo lettere minuscole.
-15. Per completare la procedura guidata fare clic su **Salva**.
-
-Tutti gli input sono ora definiti.
-
-## <a name="define-the-output"></a>Definire l'output
-1.  In **Esplora soluzioni** espandere il nodo **Inputs** e fare doppio clic su **Output.json**.
-
-2.  In **Alias di output** immettere **output**. 
-3.  In **Sink** selezionare **Database SQL**.
-4.  In **Database** selezionare **TollDataDB**.
-5.  In **Nome utente** immettere **tolladmin**. 
-6.  In **Password** immettere **123toll!**.
-7.  In **Tabella** immettere **TollDataRefJoin**.
-8.  Fare clic su **Salva**.
-
-    ![Finestra Output](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
- 
-## <a name="create-a-stream-analytics-query"></a>Creare una query di Analisi di flusso
-Lo scopo di questa esercitazione è di rispondere a varie domande aziendali correlate ai dati dei caselli. Crea anche query di Analisi di flusso che possono essere usate in Analisi di flusso per fornire risposte pertinenti.
-Prima di iniziare il primo processo di Analisi di flusso, esaminiamo uno scenario semplice e la sintassi delle query.
-
-### <a name="introduction-to-the-stream-analytics-query-language"></a>Introduzione al linguaggio di query di Analisi di flusso di Azure
-Si supponga di dover contare il numero di veicoli che entra in un casello. Trattandosi di un flusso continuo di eventi, è necessario stabilire un periodo di tempo. La domanda dovrà essere posta come segue: "Quanti veicoli passano un casello ogni tre minuti?" Questo tipo di conteggio viene detto a cascata.
-
-Si osservi la query di Analisi di flusso che risponde a questa domanda:
+Si osservi la query di Analisi di flusso di Azure che risponde a questa domanda:
 
         SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count 
         FROM EntryStream TIMESTAMP BY EntryTime 
         GROUP BY TUMBLINGWINDOW(minute, 3), TollId 
 
-Analisi di flusso usa un linguaggio di query simile a SQL e aggiunge alcune estensioni per specificare gli aspetti temporali della query.
+Come si può notare, Analisi di flusso di Azure usa un linguaggio di query simile a SQL e aggiunge alcune estensioni per specificare gli aspetti temporali della query.
 
 Per maggiori dettagli, vedere gli articoli di MSDN sui costrutti relativi alla [gestione del tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e alla [funzione di windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) usati nella query.
 
-Ora che è stata scritta la prima query di Analisi di flusso, è necessario eseguirne il test. Usare i file di dati di esempio che si trovano nella cartella TollApp nel percorso seguente:
+Dopo aver scritto la prima query di Analisi di flusso di Azure, occorre testarla con file di dati di esempio disponibili nella cartella TollApp nel percorso seguente:
 
-..\TollApp\TollApp\Data
+**..\TollApp\TollApp\Data**
 
-Questa cartella contiene i file seguenti:
-*   Entry.json
-*   Exit.json
-*   registration.json
+Questa cartella contiene i file seguenti: •   Entry.json •   Exit.json •   Registration.json
 
-## <a name="count-the-number-of-vehicles-entering-a-toll-booth"></a>Contare il numero di veicoli che passano un casello
-Nel progetto fare doppio clic su **Script.asaql** per aprire lo script nell'**Editor di query**. Copiare e incollare nell'editor lo script della sezione precedente. L'editor di query supporta IntelliSense, la sintassi colorata e l'indicatore di errore.
+## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Domanda: Numero di veicoli che entrano in un casello
+Nel progetto, fare doppio clic su Script.asaql per aprire lo script nell'editor e incollare al suo interno lo script indicato nella sezione precedente. L'editor di query supporta Intellisense, i colori sintassi e l'indicatore di errore.
 
-![Editor di query](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-query-01.png)
+![Edit query](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-query-01.png)
  
-### <a name="test-stream-analytics-queries-locally"></a>Eseguire test locali delle query di Analisi di flusso
+### <a name="testing-azure-stream-analytics-queries-locally"></a>Eseguire test locali delle query di analisi di flusso di Azure
 
-1. Per compilare la query e vedere se sono presenti errori di sintassi, fare clic con il pulsante destro del mouse sul progetto e selezionare **Genera**. 
-
-2. Per convalidare la query rispetto ai dati di esempio, è possibile usare dati di esempio locali. Fare clic con il pulsante destro del mouse sull'input e selezionare **Add local input** (Aggiungi input locale).
-
-    ![Add local input (Aggiungi input locale)](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
- 
-3. Nella finestra popup selezionare i dati di esempio dal percorso locale. Fare clic su **Salva**.
-
-    ![Finestra Add local input (Aggiungi input locale)](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
- 
-    Verrà aggiunto automaticamente un file denominato **local_EntryStream.json** nella cartella degli input.
-
-    ![File aggiunti alla cartella degli input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-03.png)
- 
-4. Nell'**Editor di query** fare clic su **Esecuzione locale**. In alternativa premere F5.
-
-    ![Esecuzione locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
-
-    ![Output esecuzione locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-02.png)
-
-    Premere un tasto qualsiasi per visualizzare l'output nella finestra **Risultato esecuzione locale ASA** in Visual Studio. 
-
-    ![Finestra Risultato esecuzione locale ASA](./media/stream-analytics-tools-for-vs/local-testing-output.png)
-
-5. Fare clic su **Apri cartella risultati** per controllare i file di output nel formato sia CSV che JSON.
-
-    ![Output di Apri cartella risultati](./media/stream-analytics-tools-for-vs/local-testing-files.png)
- 
-
-### <a name="sample-the-input-data"></a>Dati di input di esempio
-È possibile anche campionare dati di input da origini di input in un file locale. 
-1. Fare clic con il pulsante destro del mouse sul file di configurazione degli input e selezionare **Dati di esempio**. 
-
-   ![Dati di esempio](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-01.png)
-
-    È possibile campionare solo l'hub eventi o l'hub IoT per ora. Non sono supportate altre origini di input.
-
-2. Nella finestra popup immettere il percorso locale usato per salvare i dati di esempio. Fare clic su **Esempio**.
-
-    ![Finestra Dati di esempio](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-02.png)
- 
-    Nella finestra **Output** viene visualizzato lo stato dell'operazione. 
-
-    ![Finestra Output](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-03.png)
- 
-### <a name="submit-a-stream-analytics-query-to-azure"></a>Inviare ad Azure una query di Analisi di flusso
-1. Nell'**Editor di query** fare clic su **Invia ad Azure** nell'editor di script.
-
-    ![Inviare ad Azure](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-01.png)
- 
-2. Selezionare **Creare un nuovo processo di analisi di flusso di Azure**. Immettere il **Nome processo** e selezionare la **Sottoscrizione** corretta. Fare clic su **Submit**.
-
-    ![Finestra di invio del processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
-
- 
-### <a name="start-a-job"></a>Avviare un processo
-Dopo che il processo è stato creato, viene aperta automaticamente la visualizzazione del processo. 
-1. Per avviare il processo fare clic sulla **freccia verde**.
-
-    ![Avviare un processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-01.png)
- 
-2. Selezionare l'impostazione predefinita e fare clic su **Avvia**.
- 
-    ![Finestra Avvia processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-02.png)
-
-    Lo **Stato** del processo viene impostato su **In esecuzione** e vengono visualizzati gli **Eventi di input** e gli **Eventi di output**.
-
-    ![Stato In esecuzione in Riepilogo processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-03.png)
-
-## <a name="check-the-results-in-visual-studio"></a>Controllare i risultati in Visual Studio
-1. In Visual Studio aprire **Esplora server** e fare clic con il pulsante destro del mouse sulla tabella **TollDataRefJoin**.
-2. Selezionare **Mostra dati tabella** per vedere l'output del processo.
+1. Innanzitutto, è possibile compilare la query per verificare la presenza di errori di sintassi. [Da definire]
+2. Per convalidare la query con i dati di esempio è possibile usare i dati di esempio locali facendo clic con il tasto destro del mouse sull'input e selezionando **Add local input** (Aggiungi input locale) dal menu contestuale.
    
-    ![Selezione di Mostra dati tabella in Esplora server](media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-check-results.jpg)
+   ![Add local input (Aggiungi input locale)](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
+   
+   Nella finestra popup selezionare i dati di esempio dal percorso locale. Fare clic su **Salva**.
+   
+   ![Add local input (Aggiungi input locale)](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
+   
+   Verrà aggiunto automaticamente un file denominato **local_EntryStream.json** nella cartella degli input.
+   
+   ![Add local input (Aggiungi input locale)](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-03.png)
+   
+3. Fare clic su Esecuzione locale nell'editor di query. oppure premere il tasto F5.
+   
+   ![Esecuzione locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
+   
+   È possibile trovare il percorso di output dall'output della console e premere un tasto qualsiasi per aprire la cartella dei risultati.
+   
+   ![Esecuzione locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-02.png)
+   
+4. Controllare i risultati nella cartella locale.
+   
+   ![Esecuzione locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-03.png)
+   
+   
+### <a name="sample-input"></a>Input di esempio
+È inoltre possibile campionare dati di input dalle origini degli input nel file locale. Fare clic con il pulsante destro del mouse sul file di configurazione degli input e selezionare **Dati di esempio**. 
 
+![Dati di esempio](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-01.png)
 
-### <a name="view-the-job-metrics"></a>Visualizzare le metriche del processo
+Si noti che al momento è possibile campionare solamente Hub eventi o l'hub IoT. Non sono supportate altre origini di input.  Nella finestra di dialogo popup indicare il percorso locale in cui salvare i dati di esempio. Fare clic su **Esempio**.
+
+![Dati di esempio](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-02.png)
+ 
+Nella finestra di output viene visualizzato lo stato dell'operazione. 
+
+![Dati di esempio](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-03.png)
+ 
+### <a name="submit-azure-stream-analytics-query-to-azure"></a>Inviare ad Azure query di Analisi di flusso di Azure
+Nell'**Editor di query** fare clic su **Submit To Azure** (Invia ad Azure) nell'editor di script.
+
+![Inviare un processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-01.png)
+ 
+Selezionare Create a New Azure Stream Analytics Job (Crea un nuovo progetto di Analisi di flusso di Azure). Inserire il nome del processo come indicato di seguito. Scegliere la sottoscrizione corretta. Fare clic su Invia.
+
+![Inviare un processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
+
+ 
+### <a name="start-the-job"></a>Avviare il processo
+A questo punto il processo è stato creato e viene aperta automaticamente la visualizzazione del processo. Fare clic sul pulsante **VERDE** per avviare il processo.
+
+![Avviare il processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-01.png)
+ 
+Scegliere l'impostazione predefinita e fare clic su **Avvia**.
+ 
+![Avviare il processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-02.png)
+
+Si noti che lo stato del processo viene modificato in **In esecuzione** e che sono presenti eventi di input/output.
+
+![Avviare il processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-03.png)
+
+## <a name="check-results-in-visual-studio"></a>Controllare i risultati in Visual Studio
+1. Aprire Esplora server di Visual Studio e fare clic con il pulsante destro del mouse sulla tabella **TollDataRefJoin** .
+2. Fare clic su **Mostra dati tabella** per visualizzare l'output del processo.
+   
+   ![Selezione di "Mostra dati tabella" in Esplora server](media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-check-results.jpg)
+   
+
+### <a name="view-job-metrics"></a>Visualizzare le metriche di processo
 È possibile trovare alcune statistiche di base sul processo in **Job Metrics** (Metriche di processo). 
 
-![Finestra Job Metrics (Metriche di processo)](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-metrics-01.png)
+![Job Metrics (Metriche di processo)](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-metrics-01.png)
 
  
 ## <a name="list-the-job-in-server-explorer"></a>Elencare il processo in Esplora server
-In **Esplora server** fare clic su **Processi di Analisi di flusso** e quindi fare clic su **Aggiorna**. Il processo viene visualizzato in **Processi di Analisi di flusso**.
+Fare clic su **Processi di Analisi di flusso** in **Esplora server** e fare clic su **Aggiorna**. Il processo dovrebbe essere visualizzato in **Processi di Analisi di flusso**.
 
-![Processi di Analisi di flusso elencati in Esplora server](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
+![Elencare i processi](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
 
 
-## <a name="open-the-job-view"></a>Aprire la visualizzazione del processo
-Per aprire la visualizzazione del processo, espandere il nodo del processo e fare doppio clic sul nodo **Job View** (Visualizzazione processo).
+## <a name="open-job-view"></a>Aprire la visualizzazione del processo
+Espandere il nodo del processo e fare doppio clic sul nodo **Job View** (Visualizzazione processo) per aprire la visualizzazione del processo.
 
-![Nodo Job View (Visualizzazione processo)](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-view-01.png)
+![Visualizzazione del processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-view-01.png)
 
 
 ## <a name="export-an-existing-job-to-a-project"></a>Esportare un processo esistente in un progetto
 Esistono due modi per esportare un processo esistente in un progetto.
-
-In **Esplora server** fare clic con il pulsante destro del mouse sul nodo del processo nel nodo **Processi di Analisi di flusso** e selezionare **Esporta in un nuovo progetto di analisi di flusso**.
-
-![Esportare in un nuovo progetto di analisi di flusso](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
-
-Il progetto viene generato in **Esplora soluzioni**.
-
-![Progetto generato in Esplora soluzioni](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
- 
-È inoltre possibile usare la visualizzazione del processo e fare clic su **Genera progetto**.
-
-![Genera progetto](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
-
+1. Fare clic con il pulsante destro del mouse sul nodo **Processi di Analisi di flusso** in **Esplora server**. Fare clic su **Export to New Stream Analytics Project** (Esporta in un nuovo progetto di Analisi di flusso) nel menu contestuale.
+   
+   ![Esportare un processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
+   
+   Il progetto generato in **Esplora soluzioni**.
+   
+   ![Esportare un processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
+   
+2. Nella visualizzazione dei processi, fare clic su **Generate Project** (Genera progetto).
+   
+   ![Esportare un processo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
+   
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
  
-- Non è disponibile alcun supporto per l'output di Power BI e dell'archivio Azure Data Lake.
-- Non è disponibile alcun supporto dell'editor per l'aggiunta o la modifica di funzioni JavaScript definite dall'utente.
+1. Il test locale non funziona se la query dispone di funzioni geospaziali. 
+2. Nessun supporto dell'editor per l'aggiunta o la modifica di funzioni JavaScript definite dall'utente.
+3. Il test locale non supporta il salvataggio dell'output in formato JSON. 
+4. Nessun supporto per l'output di Power BI e ADLS.
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
 

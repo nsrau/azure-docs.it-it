@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
+ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Domande frequenti su Crittografia dischi di Azure
 
@@ -122,6 +121,12 @@ Questo articolo fornisce le risposte alle domande frequenti (FAQ) su Crittografi
 
 Se questo flusso di lavoro non è possibile, l'uso della [crittografia del servizio di archiviazione](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) a livello di account di archiviazione della piattaforma può essere un'alternativa alla crittografia completa del disco tramite dm-crypt.
 
+**D:** Che cos'è il disco "volume BEK" o "/mnt/azure_bek_disk"?
+
+**D:** Il disco "volume BEK" per Windows o "/mnt/azure_bek_disk" per Linux è un volume dati locale in cui vengono archiviate in modo sicuro le chiavi di crittografia per le VM IaaS di Azure crittografate.
+> [!NOTE]
+> Non eliminare né modificare il contenuto del disco. Non smontare il disco, perché la presenza delle chiavi di crittografia è necessaria per qualsiasi operazione di crittografia sulla VM IaaS.
+
 **D:** Quali risorse sono disponibili per porre domande o inviare commenti?
 
 **R:** È possibile porre domande o fornire commenti e suggerimenti sul [forum di Crittografia dischi di Azure disponibile](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
@@ -132,4 +137,3 @@ In questo documento sono state fornite le risposte alle domande più frequenti r
 - [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Crittografare una macchina virtuale di Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Crittografia dei dati inattivi in Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
-

@@ -14,10 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
 ms.openlocfilehash: 21817b09440fc98a54dc45c9129d104b01fa387d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.6
 Questo documento contiene le note sulla versione per Azure SDK per .NET 2.6. 
@@ -34,7 +34,7 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
 ## <a name="hdinsight-tools-for-visual-studio-updates"></a>Aggiornamenti a HDInsight Tools per Visual Studio
 * **Miglioramento per IntelliSense**: suggerimento di metadati remoti
   
-    HDInsight Tools per Visual Studio supporta ora il recupero di metadati remoti durante la modifica dello script Hive. Ad esempio, è possibile digitare **selezionare * FROM** e verranno visualizzati tutti i nomi di tabella. Dopo avere specificato una tabella verranno anche visualizzati i nomi di colonna.
+    HDInsight Tools per Visual Studio supporta ora il recupero di metadati remoti durante la modifica dello script Hive. Ad esempio, se si digita **SELECT * FROM** verranno visualizzati tutti i nomi di tabella. Dopo avere specificato una tabella verranno anche visualizzati i nomi di colonna.
 * **Supporto per HDInsight Emulator**
   
     HDInsight Tools per Visual Studio supporta ora la connessione all'emulatore di HDInsight. È quindi possibile sviluppare localmente gli script Hive, senza incremento dei costi, quindi eseguire gli script nei cluster HDInsight. 

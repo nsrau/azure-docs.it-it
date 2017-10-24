@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 4c339c531dae5724a174c2b22cb379bdb3214a4f
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software, disponibilità elevata e requisiti di rete di StorSimple serie 8000
 
@@ -76,7 +75,7 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 
 <sup>2</sup> Se per più porte è disponibile una configurazione del gateway, l'ordine del traffico instradato in uscita sarà determinato in base all'ordine di routing delle porte descritto in [Routing delle porte](#routing-metric) di seguito.
 
-<sup>3</sup> Gli indirizzi IP fissi per il controller sul dispositivo StorSimple devono essere instradabili e in grado di connettersi a Internet direttamente o tramite il proxy Web configurato. Gli indirizzi IP fissi vengono usati per l'installazione degli aggiornamenti nel dispositivo. Se i controller del dispositivo non possono connettersi a Internet tramite gli indirizzi IP fissi, non sarà possibile aggiornare il dispositivo StorSimple.
+<sup>3</sup> Gli indirizzi IP fissi per il controller sul dispositivo StorSimple devono essere instradabili e in grado di connettersi a Internet direttamente o tramite il proxy Web configurato. Gli indirizzi IP fissi per vengono usati per rendere gli aggiornamenti disponibili al dispositivo e per Garbage Collection. Se i controller del dispositivo non possono connettersi a Internet tramite gli indirizzi IP fissi, non sarà possibile aggiornare il dispositivo StorSimple e Garbage Collection non funzionerà correttamente.
 
 > [!IMPORTANT]
 > Verificare che il firewall non modifichi o decrittografi il traffico SSL tra il dispositivo StorSimple e Azure.
@@ -139,13 +138,13 @@ L'algoritmo delle metriche di routing usato per l'aggiornamento 2 e versioni suc
 
 * L'ordine in cui il traffico cloud verrà instradato tramite le interfacce di rete è:
   
-    *Data 0 > Data 1 > Data 2 > Data 3 > Data 4 > Data 5*
+    *Data 0 &gt; Data 1 &gt; Data 2 &gt; Data 3 &gt; Data 4 &gt; Data 5*
   
     Questo può essere spiegato dall'esempio seguente.
   
     Si consideri un dispositivo StorSimple con due interfacce di rete abilitate per il cloud, Data 0 e Data 5. Le interfacce da Data 1 a Data 4 sono disabilitate per il cloud ma dispongono di un gateway configurato. L'ordine in cui verrà instradato il traffico per questo dispositivo sarà:
   
-    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+    *Data 0 (1) &gt; Data 5 (6) &gt; Data 1 (20) &gt; Data 2 (30) &gt; Data 3 (40) &gt; Data 4 (50)*
   
     *I numeri tra parentesi indicano le rispettive metriche di routing.*
   
@@ -249,4 +248,3 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-

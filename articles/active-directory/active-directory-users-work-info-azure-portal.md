@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 10/10/2017
 ms.author: curtand;jeffsta
 ms.reviewer: jeffsta
-ms.openlocfilehash: 9f4031da7c6dfbd329d14c52f3a569084edacf20
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 4d6cd568127504e0a01611ee85594da8cff4e7c3
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-or-change-work-information-for-a-user-in-azure-active-directory"></a>Aggiungere o modificare le informazioni di lavoro per un utente in Azure Active Directory
 Questo articolo descrive come aggiungere o modificare le informazioni di lavoro, ad esempio i numeri di telefono o i nomi dei reparti per un utente in Azure Active Directory (Azure AD). Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad Azure Active Directory](active-directory-users-create-external-azure-portal.md).
 
 ## <a name="to-change-work-information"></a>Modificare le informazioni di lavoro
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
-2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
+1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account amministratore globale per la directory.
+2. Selezionare **Utenti e gruppi**.
 
    ![Apertura di Gestione utenti](./media/active-directory-users-work-info-azure-portal/create-users-user-management.png)
-3. Nel pannello **Utenti e gruppi** selezionare **Utenti**.
+3. Selezionare **Tutti gli utenti**.
 
-   ![Apertura del pannello Utenti](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
-4. Nel pannello **Utenti e gruppi - Utenti** selezionare un utente nell'elenco.
-5. Nel pannello per l'utente selezionato selezionare **Ufficio**.
+   ![Apertura del gruppo Tutti gli utenti](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
+4. Selezionare un utente dall'elenco.
+5. Selezionare **Ufficio** per l'utente selezionato.
 
     ![Apertura delle informazioni di lavoro](./media/active-directory-users-work-info-azure-portal/active-directory-create-users-work-info.png)
 6. Aggiungere o modificare le informazioni di lavoro. Quindi sulla barra dei comandi selezionare **Salva**.

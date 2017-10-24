@@ -1,27 +1,27 @@
 ---
 title: Isolamento delle applicazioni del bus di servizio di Azure da interruzioni ed emergenze del servizio | Documentazione Microsoft
-description: "Descrive le tecniche che è possibile usare per proteggere le applicazioni da potenziali interruzioni del bus di servizio."
+description: Tecniche per proteggere le applicazioni da potenziali interruzioni del bus di servizio.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 10/06/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: bc84dbe5c26a834b2cff5f71ba5f541e94ba0b38
-ms.contentlocale: it-it
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
+
 Le applicazioni criciali devono funzionare in modo continuo, anche in presenza di interruzioni impreviste o situazioni di emergenza. Questo argomento descrive le tecniche che è possibile usare per proteggere le applicazioni del bus di servizio da una potenziale emergenza o interruzione del servizio.
 
 Il termine "interruzione" indica la temporanea indisponibilità del bus di servizio di Azure. Un'interruzione può interessare alcuni componenti del bus di servizio, ad esempio un archivio di messaggistica, o anche l'intero data center. Una volta risolto il problema, il bus di servizio torna di nuovo disponibile. In genere, un'interruzione non determina la perdita di messaggi o di altri dati. Un esempio di errore di un componente è la mancata disponibilità di un particolare archivio di messaggistica. Un esempio di interruzione a livello di data center è un'interruzione dell'alimentazione o il guasto di un commutatore di rete. Un'interruzione può durare da pochi minuti ad alcuni giorni.
@@ -50,8 +50,6 @@ Per altre informazioni, vedere la sezione "Errore del bus di servizio in un data
 La replica geografica degli endpoint di inoltro consente a un servizio che espone un endpoint di inoltro di essere raggiungibile in presenza di interruzioni del bus di servizio. Per ottenere la replica geografica, il servizio deve creare due endpoint di inoltro in diverse istanze di spazio dei nomi servizio. Le due istanze di spazio dei nomi servizio devono trovarsi in data center diversi e i due endpoint devono avere nomi differenti. Ad esempio, un endpoint primario può essere raggiunto in **contosoPrimary.servicebus.windows.net/myPrimaryService**, mentre il corrispettivo endpoint secondario può essere raggiunto in **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 Il servizio rimane quindi in ascolto su entrambi gli endpoint e un client può richiamare il servizio tramite l'uno o l'altro. Un'applicazione client seleziona casualmente uno degli inoltri come endpoint primario e invia la richiesta all'endpoint attivo. Se l'operazione ha esito negativo e viene visualizzato un codice di errore, significa che l'endpoint di inoltro non è disponibile. L'applicazione apre un canale per l'endpoint di backup e invia nuovamente la richiesta. A quel punto, l'endpoint attivo e quello di backup si scambiano i ruoli: l'applicazione client considera l'endpoint attivo precedente come nuovo endpoint di backup e l'endpoint di backup precedente come nuovo endpoint attivo. Se entrambe le operazioni di invio hanno esito negativo, i ruoli delle due entità rimangono invariati e viene restituito un errore.
-
-L'esempio relativo alla [replica geografica con i messaggi inoltrati del bus di servizio][Geo-replication with Service Bus relayed Messages] illustra come replicare gli inoltri.
 
 ## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Protezione delle code e degli argomenti da interruzioni o emergenze dei data center
 Per ottenere resilienza in caso di possibili interruzioni dei data center durante l'uso della messaggistica negoziata, il bus di servizio supporta due approcci: replica *attiva* e replica *passiva*. Per ogni approccio, se una coda o un argomento specifico deve rimanere accessibile in presenza di un'interruzione del data center, è possibile creare tale coda o argomento in entrambi gli spazi dei nomi. Entrambe le entità possono avere lo stesso nome. Ad esempio, una coda primaria può essere raggiunta in **contosoPrimary.servicebus.windows.net/myQueue**, mentre la rispettiva coda secondaria può essere raggiunta in **contosoSecondary.servicebus.windows.net/myQueue**.
@@ -93,10 +91,8 @@ Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md
 [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
 [BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
 [BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
-[Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
+[Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
-

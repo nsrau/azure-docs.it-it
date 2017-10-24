@@ -9,12 +9,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 09/14/2017
+ms.openlocfilehash: 83bcb339c16b8a1be15773ba35208461ecf8120e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: b7b8583e8923e65ff068a2bec060a27a14905485
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chiavi dell'account di archiviazione Key Vault
 
@@ -139,10 +138,15 @@ L'output del comando precedente includerà l'entità servizio, che chiameremo *y
 
 ### <a name="set-permissions"></a>Impostare le autorizzazioni
 
-Verificare che le autorizzazioni di archiviazione siano impostate su *tutte*.
+Verificare che le autorizzazioni di archiviazione siano impostate su *tutte*. È possibile ottenere yourUserPrincipalId e impostare le autorizzazioni nell'insieme di credenziali usando i comandi seguenti.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrincipalId -PermissionsToStorage all
+Get-AzureRmADUser -SearchString "your name"
+```
+Cercare ora il nome e ottenere il relativo ObjectId da usare per l'impostazione delle autorizzazioni nell'insieme di credenziali.
+
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>Consentire l'accesso
@@ -238,4 +242,3 @@ Il token OBO funziona solo quando si usano applicazioni client native e proprie 
 
 - [Informazioni su chiavi, segreti e certificati](https://docs.microsoft.com/rest/api/keyvault/)
 - [Blog del team di Key Vault](https://blogs.technet.microsoft.com/kv/)
-

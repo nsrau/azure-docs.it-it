@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/26/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
-ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
-ms.lasthandoff: 01/28/2017
-
-
+ms.openlocfilehash: aad9e07e040bebe9572af1dd4a2f74b8b384f651
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Amministrare Criteri di gruppo in un dominio gestito di Azure AD Domain Services
 Azure Active Directory Domain Services include oggetti Criteri di gruppo (GPO) predefiniti per i contenitori "AADDC Users" e "AADDC Computers". È possibile personalizzare questi oggetti Criteri di gruppo predefiniti per configurare Criteri di gruppo nel dominio gestito. Inoltre, i membri del gruppo "AAD DC Administrators" possono creare le proprie unità organizzative nel dominio gestito. Possono inoltre creare oggetti Criteri di gruppo personalizzati e collegarli a tali unità organizzative. Agli utenti che appartengono al gruppo "AAD DC Administrators" vengono concessi privilegi di amministrazione di Criteri di gruppo nel dominio gestito.
@@ -45,11 +44,11 @@ La prima attività consiste nel provisioning di una macchina virtuale Windows Se
 ## <a name="task-2---install-group-policy-tools-on-the-virtual-machine"></a>Attività 2: Installare gli strumenti per i criteri di gruppo nella macchina virtuale
 Eseguire questa procedura per installare gli strumenti di amministrazione dei criteri di gruppo nella macchina virtuale aggiunta a un dominio.
 
-1. Passare al nodo **Macchine virtuali** nel portale di Azure classico. Selezionare la macchina virtuale creata nell'attività 1 e fare clic su **Connetti** sulla barra dei comandi nella parte inferiore della finestra.
+1. Passare al portale di Azure. Fare clic su **Tutte le risorse** nel pannello a sinistra. Individuare e fare clic sulla macchina virtuale creata nell'attività 1.
+2. Fare clic su sul pulsante **Connetti** nella scheda Panoramica. Viene creato e scaricato un file Remote Desktop Protocol con estensione rdp.
 
     ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. Il portale classico richiederà di aprire o salvare un file con estensione rdp, usato per connettersi alla macchina virtuale. Al termine del download fare clic sul file.
-3. Al prompt di accesso usare le credenziali di un utente appartenente al gruppo "AAD DC Administrators". In questo caso, ad esempio, si usa 'bob@domainservicespreview.onmicrosoft.com'.
+3. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**. Al prompt di accesso usare le credenziali di un utente appartenente al gruppo "AAD DC Administrators". In questo caso ad esempio, si usa 'bob@domainservicespreview.onmicrosoft.com'. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Fare clic su Sì o Continua per procedere con la connessione.
 4. Dalla schermata Start aprire **Server Manager**. Fare clic su **Aggiungi ruoli e funzionalità** nel riquadro centrale della finestra di Server Manager.
 
     ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -127,4 +126,3 @@ Ulteriori informazioni sull'uso della [console di Gestione Criteri di gruppo](ht
 * [Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Console Gestione Criteri di gruppo](https://technet.microsoft.com/library/cc753298.aspx)
-

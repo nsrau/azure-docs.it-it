@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 10/06/2017
 ms.author: anoopkv
+ms.openlocfilehash: e4740c96383468713976e5a98881bec13b0c1921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: ba236ad1327a7f3419d7c8cf7effc889a90dde61
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-configuration-server"></a>Gestire un server di configurazione
 
 Il server di configurazione funge da coordinatore tra i servizi di Site Recovery e l'infrastruttura locale in uso. Questo articolo illustra come impostare, configurare e gestire il server di configurazione.
@@ -113,7 +111,7 @@ ProxyPassword="Password"
 
 ## <a name="modify-user-accounts-and-passwords"></a>Modificare account utente e password
 
-CSPSConfigTool.exe consente di gestire gli account utente usati per l'**individuazione automatica delle macchine virtuali VMware** ed eseguire l'**installazione push del servizio Mobility in macchine virtuali protette**. 
+CSPSConfigTool.exe consente di gestire gli account utente usati per l'**individuazione automatica delle macchine virtuali VMware** ed eseguire l'**installazione push del servizio Mobility in macchine virtuali protette. 
 
 1. Accedere al server di configurazione.
 2. Avviare CSPSConfigtool.exe facendo clic sul collegamento disponibile sul desktop.
@@ -145,7 +143,7 @@ CSPSConfigTool.exe consente di gestire gli account utente usati per l'**individu
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Registrazione di un server di configurazione con un insieme di credenziali di Servizi di ripristino diverso.
 
 > [!WARNING]
-> Il set di passaggi seguente rimuove l'associazione tra la configurazione e l'insieme di credenziali corrente e la replica di tutte le macchine virtuali protette nel server di configurazione verrà arrestata.
+> Il passaggio seguente rimuove l'associazione tra la configurazione e l'insieme di credenziali corrente e la replica di tutte le macchine virtuali protette nel server di configurazione viene arrestata.
 
 1. Accedere al server di configurazione.
 2. Al prompt dei comandi dell'amministratore, eseguire il comando
@@ -169,22 +167,25 @@ CSPSConfigTool.exe consente di gestire gli account utente usati per l'**individu
     net start obengine
     ```
 
-## <a name="updating-a-configuration-server"></a>Aggiornamento di un server di configurazione
+## <a name="upgrading-a-configuration-server"></a>Aggiornamento di un server di configurazione
 
 > [!WARNING]
-> Gli aggiornamenti sono supportati solo fino alla versione N-4th. Ad esempio, se la versione più recente sul mercato è la 9.11, è possibile eseguire l'aggiornamento dalla versione 9.10, 9.9, 9.8 o 9.7 direttamente alla versione 9.11. Ma ci si trova in qualsiasi versione minore o uguale alla 9.6, sarà necessario eseguire l'aggiornamento almeno alla versione 9.7 prima di applicare gli aggiornamenti più recenti al server di configurazione. I collegamenti per il download della versione precedente sono reperibili in [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) (Aggiornamenti del servizio Azure Site Recovery)
+> Gli aggiornamenti sono supportati solo fino alla versione N-4th. Ad esempio, se la versione più recente sul mercato è la 9.11, è possibile eseguire l'aggiornamento dalla versione 9.10, 9.9, 9.8 o 9.7 direttamente alla versione 9.11. Ma se si usa una versione precedente o uguale alla 9.6, è necessario eseguire l'aggiornamento almeno alla versione 9.7 prima di applicare gli aggiornamenti più recenti al server di configurazione. I collegamenti per il download della versione precedente sono reperibili in [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) (Aggiornamenti del servizio Azure Site Recovery)
 
 1. Scaricare il programma di installazione dell'aggiornamento nel server di configurazione.
-2. Avviare il programma di installazione facendo doppio clic su esso.
+2. Avviare il programma di installazione facendo doppio clic su di esso.
 3. Il programma di installazione rileva la versione dei componenti di Site Recovery presenti nel computer e chiede una conferma. 
 4. Fare clic sul pulsante OK per confermare e continuare con l'aggiornamento.
 
 
-## <a name="decommissioning-a-configuration-server"></a>Rimozione delle autorizzazioni per un server di configurazione
-Prima di iniziare a rimuovere le autorizzazioni per il server di configurazione, assicurarsi di eseguire queste operazioni.
-1. Disabilitare la protezione di tutte le macchine virtuali in questo server di configurazione.
-2. Annullare l'associazione di tutti i criteri di replica dal server di configurazione.
-3. Eliminare tutti i server VCenter/host vSphere associati al server di configurazione.
+## <a name="delete-or-unregister-a-configuration-server"></a>Eliminare o annullare la registrazione di un server di configurazione
+
+> [!WARNING]
+> Prima di iniziare a rimuovere le autorizzazioni per il server di configurazione, assicurarsi di eseguire queste operazioni.
+> 1. [Disabilitare la protezione](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) di tutte le macchine virtuali in questo server di configurazione.
+> 2. [Annullare l'associazione](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) ed [eliminare](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) tutti i criteri di replica dal server di configurazione.
+> 3. [Eliminare](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) tutti i server vCenter/host vSphere associati al server di configurazione.
+
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Eliminare il server di configurazione dal portale di Azure
 1. Nel portale di Azure passare a **Infrastruttura di Site Recovery** > **Server di configurazione** dal menu Insieme di credenziali.
@@ -193,9 +194,6 @@ Prima di iniziare a rimuovere le autorizzazioni per il server di configurazione,
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. Fare clic su **Sì** per confermare l'eliminazione del server.
-
-  >[!WARNING]
-  Se il server di configurazione è associato a macchine virtuali, criteri di replica o server vCenter/host vSphere, non è possibile eliminarlo. Eliminare queste entità prima di provare a eliminare l'insieme di credenziali.
 
 ### <a name="uninstall-the-configuration-server-software-and-its-dependencies"></a>Disinstallare il software del server di configurazione e le relative dipendenze
   > [!TIP]
@@ -214,6 +212,31 @@ Prima di iniziare a rimuovere le autorizzazioni per il server di configurazione,
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
+
+## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Eliminare o annullare la registrazione di un server di configurazione (PowerShell)
+
+1. [Installare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) il modulo Azure PowerShell
+2. Accedere al proprio account di Azure usando il comando
+    
+    `Login-AzureRmAccount`
+3. Selezionare la sottoscrizione in cui è presente l'insieme di credenziali
+
+     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+3.  Configurare ora il contesto dell'insieme di credenziali
+    
+    ```
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```
+4. Selezionare il server di configurazione
+
+    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+6. Eliminare il server di configurazione
+
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+
+> [!NOTE]
+> L'opzione **-Force** in Remove-AzureRmSiteRecoveryFabric può essere usata per forzare la rimozione/eliminazione del server di configurazione.
 
 ## <a name="renew-configuration-server-secure-socket-layerssl-certificates"></a>Rinnovare i certificati SSL (Server Secure Socket Layer) di configurazione
 Il server di configurazione include un server Web integrato che si occupa di orchestrare le attività del servizio Mobility, dei server di elaborazione e dei server di destinazione master connessi al server di configurazione. Il server Web del server di configurazione usa un certificato SSL per l'autenticazione dei client. Questo certificato ha una scadenza di tre anni e può essere rinnovato in qualsiasi momento usando il metodo seguente:
@@ -241,7 +264,7 @@ La validità del certificato SSL per tutte le installazioni eseguite prima di ma
   ![certificate-details](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
 
   >[!TIP]
-  Se al posto del pulsante **Renew Now** (Rinnova ora) viene visualizzato un pulsante **Upgrade Now** (Aggiorna ora). Significa che esistono alcuni componenti nell'ambiente che non sono stati ancora aggiornati alla versione 9.4.xxxx.x o versioni successive.
+  Se al posto del pulsante **Renew Now** (Rinnova ora) viene visualizzato un pulsante **Upgrade Now** (Aggiorna ora). Il pulsante Aggiorna ora indica che esistono alcuni componenti nell'ambiente che non sono stati ancora aggiornati alla versione 9.4.xxxx.x o versioni successive.
 
 ## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>Riattivare un server di configurazione se il certificato SSL (Server Secure Socket Layer) è scaduto
 
@@ -268,4 +291,3 @@ La validità del certificato SSL per tutte le installazioni eseguite prima di ma
 
 ## <a name="common-issues"></a>Problemi comuni
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-

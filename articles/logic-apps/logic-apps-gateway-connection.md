@@ -13,16 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 07/13/2017
-ms.author: LADocs; dimazaid; estfan
+ms.date: 09/14/2017
+ms.author: LADocs; millopis; estfan
+ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 4744405b2c294be564dedee308b4cba95cfcc3c6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Accedere alle origini dati in locale dalle app per la logica con il gateway dati locale
+# <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Connettersi a origini dati in locale da app per la logica con il gateway dati locale
 
 Per accedere alle origini dati in locale dalle app per la logica, configurare un gateway dati locale che le app per la logica possono usare con i connettori supportati. Il gateway funge da ponte che fornisce il trasferimento rapido dei dati e la crittografia tra le origini di dati in locale e le app per la logica. Il gateway inoltra i dati da origini locali sui canali crittografati tramite il bus di servizio di Azure. Tutto il traffico ha origine come traffico sicuro in uscita dall'agente di gateway. Altre informazioni sul [funzionamento del gateway dati](logic-apps-gateway-install.md#gateway-cloud-service). 
 
@@ -59,6 +58,11 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 
 * L'installazione del gateway non può essere già richiesta da una risorsa del gateway di Azure. È possibile associare l'installazione del gateway a una sola risorsa del gateway di Azure. L'attestazione avviene quando si crea la risorsa per il gateway in modo che l'installazione non sia disponibile per le altre risorse.
 
+* Il gateway dati locale viene eseguito come servizio di Windows ed è configurato per usare `NT SERVICE\PBIEgwService` come credenziali di accesso al servizio di Windows. Per creare e gestire la risorsa gateway nel portale di Azure, l'[account del servizio di Windows](../logic-apps/logic-apps-gateway-install.md) deve avere almeno autorizzazioni di **Collaboratore**. 
+
+  > [!NOTE]
+  > Questo account del servizio Windows è diverso dall'account usato per la connessione a origini dati locali e dall'account di Azure aziendale o dell'istituto di istruzione usato per accedere ai servizi cloud.
+
 ## <a name="set-up-the-data-gateway-connection"></a>Configurare la connessione al gateway dati
 
 ### <a name="1-install-the-on-premises-data-gateway"></a>1. Installare il gateway dati locale
@@ -66,17 +70,18 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 Se l'utente non lo hai già fatto, seguire la [procedura per installare il gateway dati locale](logic-apps-gateway-install.md). Prima di continuare con gli altri passaggi, assicurarsi di aver installato il gateway dati in un computer locale.
 
 <a name="create-gateway-resource"></a>
+
 ### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Creare una risorsa di Azure per il gateway dati locale
 
 Dopo aver installato il gateway in un computer locale, è necessario creare il gateway dati come una risorsa in Azure. Questo passaggio associa anche la risorsa di gateway con la sottoscrizione di Azure.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com "Portale di Azure"). Assicurarsi di usare lo stesso indirizzo di posta elettronica aziendale o dell'istituto di istruzione usato per installare il gateway.
 
-2. Nel menu a sinistra in Azure, scegliere **Nuovo** > **Integrazione aziendale** > **Gateway dati locale** come illustrato di seguito:
+2. Nel menu principale di Azure scegliere **Nuovo** > **Integrazione aziendale** > **Gateway dati locale**, come mostrato qui:
 
    ![Trovare "Gateway dati locale"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
-3. Nel pannello **Crea gateway di connessione** fornire questi dettagli per creare la risorsa di gateway dati:
+3. Nella pagina **Crea gateway di connessione** fornire questi dettagli per creare la risorsa gateway dati:
 
     * **Nome**: inserire un nome per la risorsa del gateway. 
 
@@ -104,11 +109,12 @@ Dopo aver installato il gateway in un computer locale, è necessario creare il g
 
     ![Fornire i dettagli per creare il gateway dati locale](./media/logic-apps-gateway-connection/createblade.png)
 
-    Per trovare o visualizzare il gateway di dati in qualsiasi momento, dal menu principale di Azure a sinistra, passare ad **Altri servizi**>**Integrazione aziendale** > **Gateway dati locale**.
+    Per trovare o visualizzare il gateway dati in qualsiasi momento, dal menu principale di Azure passare ad **Altri servizi**>**Integrazione aziendale** > **Gateway dati locale**.
 
     ![Passare ad "Altri servizi", "Integrazione aziendale", "Gateway dati locale"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
+
 ### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Connettere l'app per la logica al gateway dati locale
 
 Ora che è stata creata la risorsa per il gateway dati ed è stata associata la sottoscrizione di Azure alla risorsa, creare una connessione tra l'app per la logica e il gateway dati.
@@ -135,15 +141,15 @@ Dopo aver creato una connessione al gateway per l'app per la logica, è possibil
 
 1. Per trovare la connessione del gateway:
 
-   * Nel pannello dell'app per la logica, sotto **Strumenti di sviluppo**, selezionare **Connessioni API**. 
+   * Nel menu dell'app per la logica selezionare **Connessioni API** in **Strumenti di sviluppo**. 
    
      Il pannello **Connessioni API** mostra tutte le connessioni API associate alla propria app per la logica, incluse le connessioni del gateway.
 
      ![Passare all'app per la logica, selezionare "Connessioni API"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * In alternativa, dal menu principale di Azure a sinistra, passare ad **Altri servizi** > **Web e dispositivi mobili** > **Connessioni API** per tutte le connessioni API, comprese le connessioni del gateway, che sono associate alla sottoscrizione di Azure. 
+   * In alternativa, dal menu principale di Azure passare a **Altri servizi** > **Web e dispositivi mobili** > **Connessioni API** per tutte le connessioni API, incluse le connessioni del gateway, che sono associate alla sottoscrizione di Azure. 
 
-   * In alternativa, dal menu principale di Azure a sinistra, passare a **Tutte le risorse** per tutte le connessioni API, comprese le connessioni del gateway, che sono associate alla sottoscrizione di Azure.
+   * In alternativa, dal menu principale di Azure passare a **Tutte le risorse** per tutte le connessioni API, incluse le connessioni del gateway, associate alla sottoscrizione di Azure.
 
 2. Selezionare la connessione del gateway che si desidera visualizzare o modificare e scegliere **Modifica connessione API**.
 
@@ -155,7 +161,7 @@ Dopo aver creato una connessione al gateway per l'app per la logica, è possibil
 
 Per creare una risorsa del gateway diversa, associare il gateway a una risorsa diversa o rimuovere la risorsa per il gateway, è possibile eliminare la risorsa del gateway senza modificare l'installazione del gateway. 
 
-1. Dal menu principale di Azure a sinistra, passare a **Tutte le risorse**. 
+1. Dal menu principale di Azure passare a **Tutte le risorse**. 
 2. Individuare e selezionare la risorsa del gateway dati.
 3. Scegliere **Gateway dati locale** e, sulla barra degli strumenti della risorse, scegliere **Elimina**.
 
@@ -168,4 +174,3 @@ Per creare una risorsa del gateway diversa, associare il gateway a una risorsa d
 
 * [Proteggere le app per la logica](./logic-apps-securing-a-logic-app.md)
 * [Esempi e scenari comuni per le app per la logica](./logic-apps-examples-and-scenarios.md)
-

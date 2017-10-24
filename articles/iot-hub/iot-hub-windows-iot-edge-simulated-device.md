@@ -12,45 +12,42 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 09/19/2017
 ms.author: andbuc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e7eb2931993daf3f0aecbd4a43d27ebd5adc10b0
-ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 0aa1836ee1445894022b95fefc2338ef53698240
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Usare Azure IoT Edge per inviare messaggi da dispositivo a cloud con un dispositivo simulato (Windows)
 
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## <a name="how-to-run-the-sample"></a>Per eseguire l'esempio
+## <a name="run-the-sample"></a>Eseguire l'esempio
 
 Lo script **build.cmd** genera l'output nella cartella **build** nella copia locale dell'archivio **iot-edge**. Questo output include i quattro moduli di IoT Edge usati in questo esempio.
 
-Le posizioni dello script di compilazione sono le seguenti:
+Lo script di compilazione crea i file seguenti:
 
 * **logger.dll** nella cartella **build\\modules\\logger\\Debug**.
 * **iothub.dll** nella cartella **build\\modules\\iothub\\Debug**.
 * **identity\_map.dll** nella cartella **build\\modules\\identitymap\\Debug**.
 * **simulated\_device.dll** nella cartella **build\\modules\\simulated\_device\\Debug**.
 
-Usare questi percorsi per i valori **module path**, come illustrato nel file di impostazioni JSON seguente:
+Usare questi percorsi per i valori **module path** come illustrato nel file di impostazioni JSON \_device\_cloud\_upload\_win.
 
-Il processo simulated\_device\_cloud\_upload\_sample accetta il percorso di un file di configurazione JSON come argomento della riga di comando. Il file JSON di esempio seguente è disponibile nell'archivio SDK in **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_sample\_win.json**. Questo file di configurazione funziona così com'è, a meno che non si modifichi lo script di compilazione per inserire moduli di IoT Edge o file eseguibili di esempio in percorsi non predefiniti.
+Il processo simulated\_device\_cloud\_upload sample accetta il percorso di un file di configurazione JSON come argomento della riga di comando. Il file JSON di esempio seguente è disponibile nell'archivio SDK in **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json**. Questo file di configurazione funziona così com'è, a meno che non si modifichi lo script di compilazione per inserire moduli di IoT Edge o file eseguibili di esempio in percorsi non predefiniti.
 
 > [!NOTE]
 > I percorsi dei moduli sono relativi alla directory in cui si trova il file simulated\_device\_cloud\_upload\_sample.exe. Per impostazione predefinita, il file di configurazione JSON di esempio prevede la scrittura del file "deviceCloudUploadGatewaylog.log" nella directory di lavoro corrente.
 
-In un editor di testo aprire il file **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json** nella copia locale dell'archivio **iot-edge**. Questo file consente di configurare i moduli IoT Edge nel gateway di esempio:
+In un editor di testo aprire il file **samples\\simulated\_device\_cloud\_upload\\src\\simulated\_device\_cloud\_upload\_win.json** nella copia locale dell'archivio **iot-edge**. Questo file consente di configurare i moduli IoT Edge nel gateway di esempio:
 
 * Il modulo **IoTHub** si connette all'hub IoT. È necessario configurarlo per l'invio di dati all'hub IoT. In particolare, impostare il valore di **IoTHubName** sul nome dell'hub IoT e impostare il valore di **IoTHubSuffix** su **azure-devices.net**. Impostare il valore **Transport** su **HTTP**, **AMQP** o **MQTT**. Attualmente, solo **HTTP** condivide una connessione TCP per tutti i messaggi del dispositivo. Se si imposta il valore su **AMQP** o **MQTT**, il gateway mantiene una connessione TCP separata all'hub IoT per ogni dispositivo.
-* Il modulo **mapping** esegue il mapping degli indirizzi MAC dei dispositivi simulati sugli ID dispositivo dell'hub IoT. Assicurarsi che i valori di **deviceId** corrispondano agli ID dei due dispositivi aggiunti all'hub IoT e che i valori di **deviceKey** contengano le chiavi dei due dispositivi.
+* Il modulo **mapping** esegue il mapping degli indirizzi MAC dei dispositivi simulati sugli ID dispositivo dell'hub IoT. Impostare i valori **deviceId** sugli ID dei due dispositivi aggiunti all'hub IoT. Impostare i valori **deviceKey** sulle chiavi dei due dispositivi.
 * I moduli **BLE1** e **BLE2** sono i dispositivi simulati. Si noti come gli indirizzi del modulo MAC corrispondono a quelli nel modulo **mapping**.
 * Il modulo **Logger** registra l'attività del gateway in un file.
 * I valori **module path** illustrati nell'esempio seguente sono relativi alla directory in cui si trova il file simulated\_device\_cloud\_upload\_sample.exe.
@@ -104,7 +101,8 @@ In un editor di testo aprire il file **samples\\simulated\_device\_cloud\_upload
           }
           },
           "args": {
-            "macAddress": "01:01:01:01:01:01"
+            "macAddress": "01:01:01:01:01:01",
+            "messagePeriod" : 2000
           }
         },
       {
@@ -116,7 +114,8 @@ In un editor di testo aprire il file **samples\\simulated\_device\_cloud\_upload
           }
           },
           "args": {
-            "macAddress": "02:02:02:02:02:02"
+            "macAddress": "02:02:02:02:02:02",
+            "messagePeriod" : 2000
           }
         },
       {

@@ -3,7 +3,7 @@ title: " Risolvere gli avvisi delle VM di Azure con runbook di automazione | Doc
 description: Questo articolo illustra come integrare gli avvisi delle macchine virtuali di Azure con i runbook di Automazione di Azure e risolvere automaticamente problemi.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 1f7baa7f-7283-4a4f-9385-3f5cd1062c7f
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/14/2016
+ms.date: 09/29/2017
 ms.author: csand;magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9abb6ee8eed01ef84ee10fc2c70ea23bf482dd1c
-
-
+ms.openlocfilehash: 18cccc88ab74235722e2f4886671fc483ab67da8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-scenario---remediate-azure-vm-alerts"></a>Scenario di Automazione di Azure: risolvere gli avvisi delle macchine virtuali di Azure
 In Automazione di Azure e Macchine virtuali di Azure è stata rilasciata una nuova funzionalità che consente di configurare avvisi delle macchine virtuali (VM) per l'esecuzione di runbook di automazione. Questa nuova funzionalità consente di eseguire automaticamente correzioni standard in risposta ad avvisi della VM, ad esempio per riavviarla o arrestarla.
 
-In precedenza, durante la creazione della regola di avviso della macchina virtuale era possibile [specificare un webhook di automazione](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/) a un runbook per l'esecuzione di quest'ultimo a ogni attivazione dell'avviso. Era tuttavia necessario creare il runbook e il webhook per il runbook e quindi copiare e incollare il webhook durante la creazione della regola di avviso. Con questa nuova versione il processo è molto più semplice, perché è possibile scegliere un runbook direttamente da un elenco durante la creazione della regola di avviso e scegliere un account di automazione che eseguirà il runbook o creare facilmente un account.
+In precedenza, durante la creazione della regola di avviso della macchina virtuale era possibile [specificare un webhook di automazione](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/) a un runbook per l'esecuzione di quest'ultimo a ogni attivazione dell'avviso. Era tuttavia necessario creare il runbook e il webhook per il runbook e quindi copiare e incollare il webhook durante la creazione della regola di avviso. Con questa nuova versione il processo è molto più semplice, perché è possibile scegliere un runbook direttamente da un elenco durante la creazione della regola di avviso e scegliere un account di automazione che esegue il runbook o creare facilmente un account.
 
 Questo articolo illustra come è possibile configurare facilmente un avviso delle VM di Azure e configurare un runbook di automazione da eseguire ogni volta che viene attivato l'avviso. Gli scenari di esempio includono il riavvio di una VM quando l'utilizzo della memoria supera una soglia a causa di un'applicazione nella VM con una perdita di memoria o l'arresto di una VM quando il tempo di CPU dell'utente è sceso sotto l'1% nell'ora precedente e non è in uso. Verrà anche illustrato come la creazione automatica di un'entità servizio nell'account di automazione semplifichi l'uso di runbook nel processo di correzione degli avvisi di Azure.
 
@@ -36,11 +36,11 @@ Per configurare un avviso per l'avvio di un runbook quando la soglia corrisponde
 > 
 
 1. Accedere al portale di Azure e fare clic su **Macchine virtuali**.  
-2. Selezionare una macchina virtuale.  Verrà visualizzato il pannello del dashboard della macchina virtuale e il pannello **Impostazioni** a destra.  
-3. Nel pannello **Impostazioni** selezionare **Regole di avviso** nella sezione Monitoraggio.
-4. Nel pannello **Regole di avviso** fare clic su **Aggiungi avviso**.
+2. Selezionare una macchina virtuale.  
+3. Nella schermata della macchina virtuale in **Monitoraggio** fare clic su **Regole di avviso**.
+4. Nel riquadro **Regole di avviso** fare clic su **Aggiungi avviso**.
 
-Verrà visualizzato il pannello **Aggiungi una regola di avviso** dove è possibile configurare le condizioni per l'avviso e scegliere una o tutte queste opzioni: inviare un messaggio di posta elettronica a un utente, usare un webhook per inoltrare l'avviso a un altro sistema, e/o eseguire un runbook di automazione nel tentativo di risolvere il problema.
+Verrà visualizzata la pagina **Aggiungi una regola di avviso** dove è possibile configurare le condizioni per l'avviso e scegliere una o tutte queste opzioni: inviare un messaggio di posta elettronica a un utente, usare un webhook per inoltrare l'avviso a un altro sistema, e/o eseguire un runbook di automazione nel tentativo di risolvere il problema.
 
 ## <a name="configure-a-runbook"></a>Configurare un runbook
 Per configurare un runbook da eseguire quando viene raggiunta la soglia di avviso della VM, selezionare **Runbook di automazione**. Nel pannello **Configura runbook** è possibile selezionare il runbook da eseguire e l'account di automazione in cui eseguire il runbook.
@@ -56,7 +56,7 @@ Per configurare un runbook da eseguire quando viene raggiunta la soglia di avvis
 
 Dopo aver selezionato uno dei tre runbook disponibili, viene visualizzato l'elenco a discesa **Account di automazione** dove è possibile selezionare un account di automazione per l'esecuzione del runbook. I runbook devono essere eseguiti nel contesto di un [account di automazione](automation-security-overview.md) presente nella sottoscrizione di Azure. È possibile selezionare un account di automazione già creato o crearne automaticamente uno nuovo.
 
-I runbook forniti si autenticano in Azure con un'entità servizio. Se si sceglie di eseguire il runbook in uno degli account di automazione esistenti, l'entità servizio verrà creata automaticamente. Se si sceglie di creare un nuovo account di automazione, verranno creati automaticamente l'account e l'entità servizio. In entrambi i casi, nell'account di automazione verranno creati anche due asset, ovvero un asset del certificato denominato **AzureRunAsCertificate** e un asset della connessione denominato **AzureRunAsConnection**. I runbook useranno **AzureRunAsConnection** per l'autenticazione in Azure per eseguire l'azione di gestione nella VM.
+I runbook forniti si autenticano in Azure con un'entità servizio. Se si sceglie di eseguire il runbook in uno degli account di automazione esistenti, l'entità servizio viene creata automaticamente. Se si sceglie di creare un nuovo account di automazione, vengono creati automaticamente l'account e l'entità servizio. In entrambi i casi, nell'account di automazione vengono creati anche due asset, ovvero un asset del certificato denominato **AzureRunAsCertificate** e un asset della connessione denominato **AzureRunAsConnection**. I runbook usano **AzureRunAsConnection** per l'autenticazione in Azure per eseguire l'azione di gestione nella VM.
 
 > [!NOTE]
 > All'entità servizio creata nell'ambito della sottoscrizione viene assegnato il ruolo Collaboratore. Questo ruolo è necessario per concedere all'account l'autorizzazione di esecuzione dei runbook di automazione per gestire le VM di Azure.  La creazione di un account di automazione e/o di un'entità servizio è un evento singolo. Una volta creati, si potrà usare l'account per eseguire i runbook per altri avvisi delle VM di Azure.
@@ -67,11 +67,11 @@ Quando fa clic su **OK** , l'avviso viene configurato e se è stata selezionata 
 
 ![Runbook in corso di configurazione](media/automation-azure-vm-alert-integration/RunbookBeingConfigured.png)
 
-Una volta completata la configurazione, il nome del runbook verrà visualizzato nel pannello **Aggiungi una regola di avviso** .
+Una volta completata la configurazione, il nome del runbook viene visualizzato nella pagina **Aggiungi una regola di avviso**.
 
 ![Runbook configurati](media/automation-azure-vm-alert-integration/RunbookConfigured.png)
 
-Fare clic su **OK** nel pannello **Aggiungi una regola di avviso**. La regola di avviso verrà creata e attivata se la macchina virtuale è in esecuzione.
+Fare clic su**OK** nella pagina **Aggiungi una regola di avviso**.  La regola di avviso viene creata e attivata se la macchina virtuale è in stato di esecuzione.
 
 ### <a name="enable-or-disable-a-runbook"></a>Abilitare o disabilitare un runbook
 Se è stato configurato un runbook per un avviso, è possibile disabilitarlo senza rimuovere la configurazione del runbook. In questo modo si può mantenere l'avviso di esecuzione, testare eventualmente alcune regole di avviso e successivamente riabilitare il runbook.
@@ -119,7 +119,7 @@ Quando il servizio di webhook di Automazione riceve la richiesta HTTP POST, estr
 
 ### <a name="example-runbook"></a>Runbook di esempio
 ```
-#  This runbook will restart an ARM (V2) VM in response to an Azure VM alert.
+#  This runbook restarts an ARM (V2) VM in response to an Azure VM alert.
 
 [OutputType("PSAzureOperationResponse")]
 
@@ -171,16 +171,10 @@ if ($WebhookData)
 ```
 
 ## <a name="summary"></a>Riepilogo
-Quando si configura un avviso in una VM di Azure, è possibile configurare facilmente un runbook di automazione per eseguire automaticamente un'azione di correzione quando viene attivato l'avviso. Per questa versione è possibile scegliere un runbook per riavviare, arrestare o eliminare una macchina virtuale, a seconda dello scenario avviso. Questo è solo l'inizio dell'abilitazione di scenari in cui si controllano le azioni, come notifica, risoluzione dei problemi e correzione, che verranno eseguite automaticamente quando viene attivato un avviso.
+Quando si configura un avviso in una VM di Azure, è possibile configurare facilmente un runbook di automazione per eseguire automaticamente un'azione di correzione quando viene attivato l'avviso. Per questa versione è possibile scegliere un runbook per riavviare, arrestare o eliminare una macchina virtuale, a seconda dello scenario avviso. Questo è solo l'inizio dell'abilitazione di scenari in cui si controllano le azioni, come notifica, risoluzione dei problemi e correzione, che vengono eseguite automaticamente quando viene attivato un avviso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md)
 * Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual.md)
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

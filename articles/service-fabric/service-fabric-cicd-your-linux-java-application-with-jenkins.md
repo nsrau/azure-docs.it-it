@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 32d39e2c19348bc4a1ba218cfc411a70f9f212e3
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 8ba108ed107e2e023867bcc3b3b1b8cc159377ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Usare Jenkins per compilare e distribuire l'applicazione Java Linux
 Jenkins è uno strumento diffuso per l'integrazione e la distribuzione continue delle app. Ecco come compilare e distribuire l'applicazione di Azure Service Fabric usando Jenkins.
@@ -51,6 +50,10 @@ cd service-fabric-java-getting-started/Services/JenkinsDocker/
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
+> [!NOTE]
+> Per montare le condivisioni cifs, è necessario che il pacchetto cifs-utils sia installato nei nodi del cluster. 
+>
+
 4. Aggiornare i valori segnaposto dello ```setupentrypoint.sh``` script con i corrispondenti dettagli di archiviazione di Azure.
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
@@ -69,7 +72,7 @@ Un contenitore Jenkins viene installato nel cluster e può essere monitorato tra
 1. Nel browser passare a ``http://PublicIPorFQDN:8081``. Fornisce il percorso della password amministratore iniziale necessaria per eseguire l'accesso. È possibile continuare a usare Jenkins come utente amministratore. In alternativa, è possibile creare e modificare l'utente dopo l'accesso con l'account amministratore iniziale.
 
    > [!NOTE]
-   > Assicurarsi che sia stata specificata la porta 8081 come porta dell'endpoint dell'applicazione durante la creazione del cluster.
+   > Assicurarsi che sia stata specificata la porta 8081 come porta dell'endpoint applicazione durante la creazione dell'applicazione e che la porta sia aperta nel cluster.
    >
 
 2. Ottenere l'ID dell'istanza del contenitore con ``docker ps -a``.
@@ -171,4 +174,3 @@ GitHub e Jenkins sono ora configurati. Prendere in considerazione alcune modific
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
   [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
-

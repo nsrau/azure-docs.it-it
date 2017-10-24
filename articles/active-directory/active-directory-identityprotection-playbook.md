@@ -1,5 +1,5 @@
 ---
-title: Studio su Azure Active Directory Identity Protection | Documentazione Microsoft
+title: Studio su Azure Active Directory Identity Protection | Microsoft Docs
 description: "Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un'identità o un dispositivo compromesso e di proteggere un'identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso."
 services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
 Questo studio consente di:
@@ -119,7 +119,7 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 2. Passare a **Identity Protection**.
 3. Nel pannello principale di **Azure AD Identity Protection** fare clic su **Impostazioni**. 
 4. Nel pannello **Impostazioni del portale** in **Regole di sicurezza** fare clic su **Rischio di accesso**.
-5. Nel * * Accedi rischio * * pannello seleziona **su** in **Abilita regola**. 
+5. Nel pannello **Rischio di accesso** selezionare **Sì** in **Abilita regola**. 
 6. Selezionare una delle opzioni seguenti:
    
    a. Per bloccare, selezionare **Medio** in **Blocca l'accesso**

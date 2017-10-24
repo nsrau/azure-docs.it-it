@@ -36,11 +36,11 @@ Per analizzare un flusso di dati, *inserirlo* in Azure. Un modo comune per inser
 >Per una versione più dettagliata di questa procedura, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). 
 
 ### <a name="create-a-namespace-and-event-hub"></a>Creare uno spazio dei nomi e un hub eventi
-In questa procedura si creerà uno spazio dei nomi di un hub eventi a cui verrà aggiunto un hub. Gli spazi dei nomi degli hub eventi consentono di raggruppare in modo logico le istanze dei bus di eventi correlate. 
+In questa procedura si creerà uno spazio dei nomi dell'hub eventi e quindi si aggiungerà un hub eventi a tale spazio. Gli spazi dei nomi degli hub eventi consentono di raggruppare in modo logico le istanze dei bus di eventi correlate. 
 
 1. Accedere al portale di Azure e fare clic su **Nuovo** > **Internet delle cose** > **Hub eventi**. 
 
-2. Nel pannello **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi, ad esempio `<yourname>-eh-ns-demo`. È possibile usare qualsiasi nome per lo spazio dei nomi, a condizione che sia valido per un URL e univoco in Azure. 
+2. Nel riquadro **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi, ad esempio `<yourname>-eh-ns-demo`. È possibile usare qualsiasi nome per lo spazio dei nomi, a condizione che sia valido per un URL e univoco in Azure. 
     
 3. Selezionare una sottoscrizione, creare o scegliere un gruppo di risorse e quindi fare clic su **Crea**. 
 
@@ -48,7 +48,7 @@ In questa procedura si creerà uno spazio dei nomi di un hub eventi a cui verrà
  
 4. Al termine della distribuzione, lo spazio dei nomi dell'hub eventi è disponibile nell'elenco delle risorse di Azure. 
 
-5. Scegliere il nuovo spazio dei nomi e, nel relativo pannello, fare clic su  **+&nbsp;Hub eventi**. 
+5. Scegliere il nuovo spazio dei nomi e, nel relativo riquadro, fare clic su **Hub eventi**.
 
     ![Pulsante Aggiungi hub eventi per creare un nuovo hub eventi ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
@@ -62,9 +62,9 @@ In questa procedura si creerà uno spazio dei nomi di un hub eventi a cui verrà
 
 Prima che un processo possa inviare dati a un hub eventi, è necessario che per l'hub siano configurati criteri che consentano l'accesso appropriato. I criteri di accesso generano una stringa di connessione che include informazioni di autorizzazione.
 
-1.  Nel pannello dello spazio dei nomi dell'evento fare clic su **Hub eventi** e quindi sul nome del nuovo hub eventi.
+1.  Nel riquadro dello spazio dei nomi dell'evento fare clic su **Hub eventi** e quindi sul nome del nuovo hub eventi.
 
-2.  Nel pannello dell'hub eventi fare clic su **Criteri di accesso condiviso** e quindi su **+&nbsp;Aggiungi**.
+2.  Nel riquadro dell'hub eventi fare clic su **Criteri di accesso condiviso** e quindi su **+&nbsp;Aggiungi**.
 
     >[!NOTE]
     >Verificare di usare l'hub eventi e non lo spazio dei nomi.
@@ -91,7 +91,7 @@ Prima che un processo possa inviare dati a un hub eventi, è necessario che per 
 
 ## <a name="configure-and-start-the-event-generator-application"></a>Configurare e avviare l'applicazione di generazione di eventi
 
-Prima di avviare l'app TelcoGenerator, configurarla per l'invio di record delle chiamate all'hub eventi appena creato.
+Prima di avviare l'app TelcoGenerator, configurarla per l'invio di record delle chiamate all'hub eventi creato.
 
 ### <a name="configure-the-telcogeneratorapp"></a>Configurare l'app TelcoGenerator
 
@@ -99,7 +99,7 @@ Prima di avviare l'app TelcoGenerator, configurarla per l'invio di record delle 
 
 2.  Nella cartella in cui è stato decompresso il file TelcoGenerator.zip aprire il file telcodatagen.exe.config in un editor. È presente più di un file con estensione config, di conseguenza è necessario assicurarsi di aprire quello giusto.
 
-3.  Nell'elemento `<appSettings>` procedere come segue:
+3.  Nell'elemento `<appSettings>`:
 
     * Impostare il valore della chiave `EventHubName` sul nome dell'hub eventi (ovvero il valore del percorso dell'entità).
     * Impostare il valore della chiave `Microsoft.ServiceBus.ConnectionString` sulla stringa di connessione. 
@@ -156,12 +156,12 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
 
 ### <a name="configure-job-input"></a>Configurare l'input del processo
 
-1. Nel dashboard o nel pannello **Tutte le risorse** trovare e selezionare il processo di Analisi di flusso `sa_frauddetection_job_demo`. 
-2. Nella sezione **Topologia processo** del pannello del processo di Analisi di flusso selezionare la casella **Input**.
+1. Nel dashboard o nel riquadro **Tutte le risorse** trovare e selezionare il processo di Analisi di flusso `sa_frauddetection_job_demo`. 
+2. Nella sezione **Topologia processo** del riquadro del processo di Analisi di flusso selezionare la casella **Input**.
 
-    ![Casella di input in Topologia nel pannello del processo di Analisi di flusso](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
+    ![Casella di input in Topologia nel riquadro del processo di Analisi di flusso](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
  
-3. Fare clic su **+&nbsp;Aggiungi** e compilare il pannello con questi valori:
+3. Fare clic su **+&nbsp;Aggiungi** e compilare il riquadro con questi valori:
 
     * **Alias di input**: usare il nome `CallStream`. Se si usa un nome diverso, tenerne traccia, poiché sarà necessario in un secondo momento.
     * **Tipo di origine**: selezionare **Flusso dati**. **Dati di riferimento** si riferisce a dati di ricerca statici, che non verranno usati in questa esercitazione.
@@ -179,7 +179,7 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
 
 A questo punto il processo di Analisi di flusso è configurato per la lettura di un flusso di dati in ingresso. Il passaggio successivo consiste nel creare una trasformazione che analizzi i dati in tempo reale. A tale scopo, creare una query. Analisi di flusso supporta un semplice modello di query dichiarative che descrive le trasformazioni per l'elaborazione in tempo reale. Le query usano un linguaggio simile a SQL che include alcune estensioni specifiche di Analisi di flusso. 
 
-Una query molto semplice potrebbe semplicemente leggere tutti i dati in ingresso. Tuttavia, spesso si creano query che cercano dati specifici o relazioni nei dati. In questa sezione dell'esercitazione si creeranno e testeranno varie query per apprendere alcuni modi in cui trasformare un flusso di input per l'analisi. 
+Una query semplice potrebbe solamente leggere tutti i dati in ingresso. Tuttavia, spesso si creano query che cercano dati specifici o relazioni nei dati. In questa sezione dell'esercitazione si creeranno e testeranno varie query per apprendere alcuni modi in cui trasformare un flusso di input per l'analisi. 
 
 Le query qui create visualizzeranno semplicemente i dati trasformati. In una sezione successiva si configureranno un sink di output e una query che scrive in tale sink i dati trasformati.
 
@@ -190,13 +190,13 @@ Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento su
 L'app TelcoGenerator invia i record delle chiamate all'hub eventi e il processo di Analisi di flusso viene configurato per la lettura dall'hub eventi. È possibile usare una query per testare il processo e verificare che esegua correttamente le operazioni di lettura. Per testare una query nella console di Azure sono necessari dati di esempio. Per questa procedura dettagliata si estrarranno dati di esempio dal flusso in arrivo nell'hub eventi.
 
 1. Verificare che l'app TelcoGenerator sia in esecuzione e generi record delle chiamate.
-2. Nel portale tornare al pannello del processo di Analisi di flusso. Se il pannello è stato chiuso, cercare `sa_frauddetection_job_demo` nel pannello **Tutte le risorse**.
+2. Nel portale tornare al riquadro del processo di Analisi di flusso. Se il riquadro è stato chiuso, cercare `sa_frauddetection_job_demo` nel riquadro **Tutte le risorse**.
 3. Fare clic sulla casella **Query**. Azure elenca gli input e gli output configurati per il processo e consente di creare una query per trasformare il flusso di input nel momento in cui viene inviato all'output.
-4. Nel pannello **Query** fare clic sui puntini di sospensione accanto all'input `CallStream` e quindi selezionare **Campiona dati da input**.
+4. Nel riquadro **Query** fare clic sui puntini di sospensione accanto all'input `CallStream` e quindi selezionare **Campiona dati da input**.
 
     ![Voci di menu per usare dati di esempio per la voce del processo di Analisi di flusso, con l'opzione "Campiona dati da input" selezionata](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
 
-    Verrà aperto un pannello che consente di specificare la quantità di dati di esempio da ottenere, definita in termini di durata della lettura del flusso di input.
+    Verrà aperto un riquadro che consente di specificare la quantità di dati di esempio da ottenere, definita in termini di durata della lettura del flusso di input.
 
 5. Impostare **Minuti** su 3 e quindi fare clic su **OK**. 
     
@@ -314,9 +314,9 @@ Se esiste già un account di archiviazione BLOB, è possibile usarlo. Per questa
 
 ### <a name="create-an-azure-blob-storage-account"></a>Creare un account Archiviazione BLOB di Azure
 
-1. Nel portale di Azure tornare al pannello del processo di Analisi di flusso. Se il pannello è stato chiuso, cercare `sa_frauddetection_job_demo` nel pannello **Tutte le risorse**.
+1. Nel portale di Azure tornare al riquadro del processo di Analisi di flusso. Se il riquadro è stato chiuso, cercare `sa_frauddetection_job_demo` nel riquadro **Tutte le risorse**.
 2. Nella sezione **Topologia processo** fare clic sulla casella **Output**. 
-3. Nel pannello **Output** fare clic su **+&nbsp;Aggiungi** e quindi compilare il pannello con questi valori:
+3. Nel riquadro **Output** fare clic su **+&nbsp;Aggiungi** e quindi compilare il riquadro con questi valori:
 
     * **Alias di output**: usare il nome `CallStream-FraudulentCalls`. 
     * **Sink**: selezionare **Archivio BLOB**.
@@ -328,13 +328,13 @@ Se esiste già un account di archiviazione BLOB, è possibile usarlo. Per questa
 
     `http://yournamesademo.blob.core.windows.net/sa-fraudulentcalls-demo/...`
     
-    ![Pannello "Nuovo output" per il processo di Analisi di flusso](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
+    ![Riquadro "Nuovo output" per il processo di Analisi di flusso](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
     
 4. Fare clic su **Crea**. 
 
     Azure crea l'account di archiviazione e genera automaticamente una chiave. 
 
-5. Chiudere il pannello **Output**. 
+5. Chiudere il riquadro **Output**. 
 
 ## <a name="start-the-streaming-analytics-job"></a>Avviare il processo di Analisi di flusso
 
@@ -342,17 +342,17 @@ Ora il processo è configurato. Sono stati specificati un input (l'hub eventi), 
 
 1. Verificare che l'app TelcoGenerator sia in esecuzione.
 
-2. Nel pannello del processo fare clic su **Avvia**.
+2. Nel riquadro del processo fare clic su **Avvia**.
 
     ![Avviare il processo di analisi di flusso](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-output.png)
 
-3. Nel pannello **Avvia processo**, per Ora di inizio dell'output del processo, selezionare **Ora**. 
+3. Nel riquadro **Avvia processo**, per Ora di inizio dell'output del processo, selezionare **Ora**. 
 
 4. Fare clic su **Avvia**. 
 
-    ![Pannello "Avvia processo" per il processo di Analisi di flusso](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-job-blade.png)
+    ![Riquadro "Avvia processo" per il processo di Analisi di flusso](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-job-blade.png)
 
-    Azure informa l'utente quando il processo viene avviato e, nel pannello del processo, lo stato viene visualizzato come **In esecuzione**.
+    Azure informa l'utente quando il processo viene avviato e, nel riquadro del processo, lo stato viene visualizzato come **In esecuzione**.
 
     ![Stato del processo di Analisi di flusso indicante "In esecuzione"](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-running-status.png)
     
@@ -374,7 +374,7 @@ Sono disponibili altri articoli che approfondiscono lo scenario di rilevamento d
 
 Se tuttavia non si desidera proseguire e le risorse create non sono necessarie, è possibile eliminarle per non incorrere in inutili addebiti da parte di Azure. In tal caso, è consigliabile procedere nel modo seguente:
 
-1. Arrestare il processo di Analisi di flusso. Nel pannello **Processi** fare clic su **Arresta** nella parte superiore.
+1. Arrestare il processo di Analisi di flusso. Nel riquadro **Processi** fare clic su **Arresta** nella parte superiore.
 2. Arrestare l'app TelcoGenerator. Nella finestra di comando in cui è stato avviata l'applicazione premere CTRL+C.
 3. Se è stato creato un nuovo account di archiviazione BLOB solo per questa esercitazione, eliminarlo. 
 4. Eliminare il processo di Analisi di flusso.
@@ -387,12 +387,11 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile continuare questa esercitazione con gli articoli seguenti:
+È possibile continuare questa esercitazione con l'articolo seguente:
 
 * [Analisi di flusso e Power BI: dashboard di analisi in tempo reale per lo streaming dei dati](stream-analytics-power-bi-dashboard.md). Questo articolo illustra come inviare l'output di telecomunicazioni del processo di Analisi di flusso a Power BI per l'analisi e la visualizzazione in tempo reale.
-* [Come archiviare i dati dall'analisi di flusso di Azure nella Cache Redis di Azure utilizzando le funzioni di Azure](stream-analytics-functions-redis.md). Questo articolo illustra come usare le funzioni di Azure per scrivere chiamate fraudolente in una cache Redis di Azure tramite una coda del bus di servizio.
 
-Per altre informazioni generiche su Analisi di flusso, provare questi articoli:
+Per altre informazioni generiche su Analisi di flusso, vedere questi articoli:
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
+ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 28e8b0be0b69f279685109d611fbfb369b96101a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
 
@@ -70,6 +69,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 > I nomi dei gruppi di risorse hanno dei limiti. Assicurarsi di seguire le linee guida; in caso contrario, l'aggiornamento dell'insieme di credenziali potrebbe non riuscire.
 >
 >I clienti di **Azure per enti pubblici statunitensi** devono impostare l'ambiente per "AzureUSGovernment" durante l'esecuzione dello script.
+>I clienti di **Azure per la Cina** devono impostare l'ambiente per "AzureChinaCloud" durante l'esecuzione dello script.
 
 Il frammento di codice seguente è un esempio di come dovrebbe apparire il comando di PowerShell:
 
@@ -159,4 +159,3 @@ Vedere l'articolo seguente per:</br>
 [Eseguire il backup di una macchina virtuale IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Eseguire il backup del server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</br>
 [Eseguire il backup di Windows Server](backup-configure-vault.md).
-

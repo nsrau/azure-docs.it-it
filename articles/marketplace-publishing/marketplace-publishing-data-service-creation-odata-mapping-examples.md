@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Esempi di mapping di un servizio Web esistente in OData tramite CSDL
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-post"></a>Esempio: FunctionImport per i dati "Raw" restituiti utilizzando "POST"
-Utilizzare dati Raw POST per creare un nuovo subordinato e restituire il relativo URL definito dal server (percorso) o per aggiornare una parte del subordinato nell’URL definito dal server.  Dove il subordinato è una struttura, ad esempio non strutturata, come un file di testo.  Prestare attenzione che POST non è idempotente senza un percorso.
+Utilizzare dati Raw POST per creare un nuovo subordinato e restituire il relativo URL definito dal server (percorso) o per aggiornare una parte del subordinato nell’URL definito dal server.  Dove il subordinato è un flusso, ovvero un elemento non strutturato, ad esempio un file di testo.  Prestare attenzione che POST non è idempotente senza un percorso.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -106,7 +106,7 @@ Utilizzare PUT per creare un nuovo subordinato o per aggiornare l'intero subordi
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-put"></a>Esempio: FunctionImport per i dati "Raw" restituiti utilizzando "PUT"
-Utilizzare dati Raw PUT per creare un nuovo subordinato o per aggiornare l'intero subordinato in un URL definito dal server.  Dove il subordinato è una struttura, ad esempio non strutturata, come un file di testo.  PUT è idempotente, quindi più occorrenze comportano lo stesso stato, ovvero x=5.  PUT deve essere utilizzato con il contenuto completo della risorsa specificata.
+Utilizzare dati Raw PUT per creare un nuovo subordinato o per aggiornare l'intero subordinato in un URL definito dal server.  Dove il subordinato è un flusso, ovvero un elemento non strutturato, ad esempio un file di testo.  PUT è idempotente, quindi più occorrenze comportano lo stesso stato, ovvero x=5.  PUT deve essere utilizzato con il contenuto completo della risorsa specificata.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
