@@ -5,8 +5,8 @@
 
 # Introduzione
 ## [Creare la prima app per la logica](logic-apps-create-a-logic-app.md)
-## [Modelli per le app per la logica](logic-apps-use-logic-app-templates.md)
-## [Creare app per la logica dai modelli](logic-apps-arm-provision.md)
+## [Creare app per la logica dai modelli](logic-apps-create-logic-apps-from-templates.md)
+## [Creare app per la logica da modelli di Resource Manager](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Spostare app MABS in app per la logica](logic-apps-move-from-mabs.md)
 
 # Procedure

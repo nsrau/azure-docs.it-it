@@ -59,6 +59,8 @@
           href: concepts-supported-versions.md
         - name: Log del server
           href: concepts-server-logs.md
+        - name: Disponibilità elevata
+          href: concepts-high-availability.md
     - name: Risorse
       items:
         - name: Piani tariffari
@@ -73,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: Configurazione di SSL
           href: concepts-ssl-connection-security.md
+    - name: Monitorare
+      href: concepts-monitoring.md
     - name: Sviluppo.
       items:
         - name: Raccolte di connessioni
@@ -117,9 +121,15 @@
           href: howto-configure-server-parameters-using-cli.md
     - name: Accesso ai registri server
       items:
+        - name: Portale di Azure
+          href: howto-configure-server-logs-in-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-configure-server-logs-in-cli.md
-- name: Riferimento
+    - name: Monitorare
+      items:
+        - name: Creare avvisi relativi alle metriche
+          href: howto-alert-on-metric.md
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/mysql

@@ -37,8 +37,8 @@
 ## [Informazioni sui dispositivi nella soluzione di monitoraggio remoto](iot-suite-remote-monitoring-device-info.md)
 ## [Distribuire un gateway per connected factory](iot-suite-connected-factory-gateway-deployment.md)
 ## [Personalizzare la factory connessa](iot-suite-connected-factory-customize.md)
-
-# Riferimento
+## [Usare il modulo di pubblicazione OPC per la fabbrica connessa](iot-suite-connected-factory-publisher.md)
+# riferimento
 ## [Architettura di sicurezza](iot-security-architecture.md)
 ## [Procedure di sicurezza consigliate](iot-security-best-practices.md)
 ## [Proteggere la distribuzione di IoT](iot-suite-security-deployment.md)

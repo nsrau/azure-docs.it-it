@@ -1,3 +1,5 @@
+- name: Documentazione di Archiviazione di Azure
+  href: /azure/storage/
 - name: Panoramica
   items:
     - name: Introduzione
@@ -16,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Usare i BLOB - .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Usare i BLOB - Python
+      href: storage-quickstart-blobs-python.md
 - name: Esercitazioni
   items:
     - name: Caricare ed elaborare un'immagine
@@ -28,6 +32,12 @@
           href: storage-secure-access-application.md
         - name: 4 - Monitorare e risolvere i problemi relativi alle risorse di archiviazione
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Progettare per la disponibilità elevata nella risorsa di archiviazione cloud
+      items:
+        - name: Rendere l'applicazione a disponibilità elevata
+          href: storage-create-geo-redundant-storage.md
+        - name: Simulare un errore con l'archiviazione con ridondanza geografica e accesso in lettura
+          href: storage-simulate-failure-ragrs-account-app.md
     - name: Cercare dati non strutturati nell'archiviazione cloud
       href: storage-unstructured-search.md
 - name: Esempi
