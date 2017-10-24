@@ -8,20 +8,19 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 07/06/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a2556206ac53829fcd6ab92ffe292859349790d7
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.date: 10/03/2017
+ms.openlocfilehash: 17f045f516792e50f7349805ec9f7a01e3f9d5b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Concetti relativi ai server nel database di Azure per MySQL
 Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MySQL.
 
 ## <a name="what-is-an-azure-database-for-mysql-server"></a>Che cos'è un database di Azure per il server MySQL?
 
-Un database di Azure per il server MySQL funge da punto di gestione centrale per più database. È lo stesso costrutto di server MySQL con cui probabilmente si ha familiarità nell'ambiente locale. In particolare, il database di Azure per il servizio MySQL è gestito, assicura le prestazioni garantite, espone accesso e funzionalità a livello di server.
+Un database di Azure per il server MySQL funge da punto di gestione centrale per più database. È lo stesso costrutto di server MySQL con cui probabilmente si ha familiarità nell'ambiente locale. In particolare, il database di Azure per il servizio MySQL è gestito, assicura le prestazioni garantite ed espone accesso e funzionalità a livello di server.
 
 Un database di Azure per il server MySQL:
 
@@ -34,7 +33,7 @@ Un database di Azure per il server MySQL:
 - Fornisce l'ambito per i criteri di gestione applicati ai database: account di accesso, firewall, utenti, ruoli, configurazioni e così via.
 - È disponibile in più versioni. Per altre informazioni, vedere [Supported Azure Database for MySQL database versions](./concepts-supported-versions.md) (Database di Azure supportato per le diverse versioni del database MySQL).
 
-In un database di Azure per il server MySQL è possibile creare uno o più database. È possibile scegliere di creare un singolo database per ogni server per usare tutte le risorse o creare più database per condividere le risorse. I prezzi sono strutturati per server, in base alla configurazione del piano tariffario, delle unità di calcolo e dell'archiviazione (GB). Per altre informazioni, vedere i [piani tariffari](./concepts-service-tiers.md).
+In un database di Azure per il server MySQL è possibile creare uno o più database. È possibile scegliere di creare un singolo database per ogni server per usare tutte le risorse o per creare più database per condividere le risorse. I prezzi sono strutturati per server, in base alla configurazione del piano tariffario, delle Unità di calcolo e dell'archiviazione (GB). Per altre informazioni, vedere i [piani tariffari](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Come connettersi ed eseguire l'autenticazione a un database di Azure per il server MySQL?
 
@@ -42,7 +41,7 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 
 |||
 | :-- | :-- |
-| **Autenticazione e autorizzazione** | Il database di Azure per il server MySQL supporta l'autenticazione nativa a MySQL. È possibile connettersi ed eseguire l'autenticazione al server con l'account amministratore del server. |
+| **Autenticazione e autorizzazione** | Il database di Azure per il server MySQL supporta l'autenticazione nativa a MySQL. È possibile connettersi ed eseguire l'autenticazione a un server con l'account amministratore del server. |
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da MySQL. |
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |
 | **Firewall** | Per proteggere i dati, le regole del firewall impediscono qualsiasi accesso al server del database o ai database finché non si specificano i computer autorizzati. Vedere [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md) (Database di Azure per le regole firewall del server MySQL). |
@@ -56,4 +55,3 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 - Per una panoramica del servizio, vedere [Azure Database for MySQL Overview](./overview.md) (Database di Azure per una panoramica di MySQL)
 - Per informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**, vedere [Livelli di servizio](./concepts-service-tiers.md)
 - Per informazioni sulla connessione al servizio, vedere [Raccolte connessioni per il database di Azure per MySQL](./concepts-connection-libraries.md).
-

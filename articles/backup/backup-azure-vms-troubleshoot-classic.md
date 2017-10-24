@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: trinadhk;markgal;
 ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 07/11/2017
 ## <a name="backup"></a>Backup
 | Operazione di backup | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
-| Backup |Non è stato possibile comunicare con l'agente di macchine virtuali per ottenere lo stato dello snapshot. Timeout della sottoattività della macchina virtuale snapshot. Per risolvere il problema, vedere la Guida alla risoluzione dei problemi. |Questo errore viene generato se si verifica un problema con l'agente di VM o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. Vedere altre informazioni sul [debug dei problemi di snapshot della macchina virtuale](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Se l'agente di macchine virtuali non causa alcun problema, riavviare la macchina virtuale. Talvolta, uno stato della macchina virtuale non corretto genera problemi che vengono corretti riavviando la macchina virtuale. |
+| Backup |Non è stato possibile comunicare con l'agente VM per lo stato dello snapshot. Timeout dell'attività secondaria della macchina virtuale snapshot. - Per risolvere il problema, vedere la Guida alla risoluzione dei problemi. |Questo errore viene generato se si verifica un problema con l'agente di VM o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. Vedere altre informazioni sul [debug dei problemi di snapshot della macchina virtuale](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Se l'agente di macchine virtuali non causa alcun problema, riavviare la macchina virtuale. Talvolta, uno stato della macchina virtuale non corretto genera problemi che vengono corretti riavviando la macchina virtuale. |
 | Backup |Il backup non è riuscito e si è verificato un errore interno. Attendere qualche minuto prima di ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. |Verificare se esiste un problema temporaneo durante l'accesso alla risorsa di archiviazione della macchina virtuale. Verificare lo [stato di Azure](https://azure.microsoft.com/en-us/status/) per vedere se esiste un problema in corso relativo a calcolo/archiviazione/rete nell'area. Riprovare il backup dopo aver risolto il problema. |
 | Backup |Non è stato possibile eseguire l'operazione perché la macchina virtuale non esiste più. |Il backup non può essere eseguito perché la macchina virtuale configurata per il backup è stata eliminata. Arrestare gli altri backup passando alla visualizzazione Elementi protetti, selezionare l'elemento protetto e fare clic su Arresta protezione. È possibile conservare i dati selezionando l'opzione Conserva i dati di backup. Sarà successivamente possibile riprendere la protezione per questa macchina virtuale facendo clic su Configura protezione dalla vista Elementi registrati |
 | Backup |Non è stato possibile installare l'estensione Servizi di ripristino di Azure nell'elemento selezionato. L'agente di VM è un prerequisito dell'estensione Servizi di ripristino di Azure. Installare l'agente di VM di Azure e riavviare l'operazione di registrazione. |<ol> <li>Controllare se l'agente di VM è stato installato correttamente. <li>Assicurarsi che il flag sul file di configurazione della VM sia impostato correttamente.</ol> [Altre informazioni](#validating-vm-agent-installation) sull'installazione dell'agente di VM e su come convalidare l'installazione dell'agente di VM. |

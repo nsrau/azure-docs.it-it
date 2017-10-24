@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
+ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: c407152f54a6e7eb25a580491bd27ad291410d86
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte di Cosmos DB usando la durata (TTL)
 Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.
@@ -42,7 +41,7 @@ La funzionalità TTL è controllata dalle proprietà TTL a livello di raccolta e
    * La proprietà è applicabile solo se DefaultTTL è presente per la raccolta padre.
    * Esegue l'override del valore di DefaultTTL per la raccolta padre.
 
-Nel momento in cui è scade (`ttl` + `_ts` >= ora corrente del server), il documento viene contrassegnato come "scaduto". Da questo momento sui documenti scaduti non è possibile eseguire alcuna operazione e vengono esclusi dai risultati delle query. I documenti vengono eliminati fisicamente dal sistema e vengono eliminati in background in base alle esigenze in un secondo momento. L'operazione non utilizza le [unità richiesta (UR)](request-units.md) del budget della raccolta.
+Alla scadenza (`ttl` + `_ts` <= ora corrente del server), il documento viene contrassegnato come "scaduto". Da questo momento sui documenti scaduti non è possibile eseguire alcuna operazione e vengono esclusi dai risultati delle query. I documenti vengono eliminati fisicamente dal sistema e vengono eliminati in background in base alle esigenze in un secondo momento. L'operazione non utilizza le [unità richiesta (UR)](request-units.md) del budget della raccolta.
 
 La logica precedente può essere illustrata in questa matrice:
 
@@ -174,5 +173,4 @@ Sì. I [criteri di indicizzazione](indexing-policies.md) della raccolta devono e
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Azure Cosmos DB, vedere la pagina della [*documentazione*](https://azure.microsoft.com/documentation/services/cosmos-db/) del servizio.
-
 

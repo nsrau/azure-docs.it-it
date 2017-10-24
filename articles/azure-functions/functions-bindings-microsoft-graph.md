@@ -11,14 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mahender
+ms.openlocfilehash: 8cf2e4e9e9007549dbdc931b4485c4230c536479
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0eb0ac63c7dbb9d6cbba093937231e93670529e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-microsoft-graph-bindings"></a>Associazioni di Microsoft Graph in Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
@@ -45,7 +43,11 @@ Le associazioni di Microsoft Graph sono disponibili tramite le _estensioni dell'
 
 ### <a name="enabling-functions-20-preview"></a>Abilitazione dell'anteprima di Funzioni 2.0
 
-Le estensioni dell'associazione sono disponibili solo per l'anteprima di Funzioni di Azure 2.0. Per abilitare Funzioni 2.0, impostare l'impostazione dell'applicazione `FUNCTIONS_EXTENSION_VERSION` su "beta".  Per informazioni su come configurare le impostazioni dell'applicazione, vedere [Impostazioni applicazione in Funzioni di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings).
+Le estensioni dell'associazione sono disponibili solo per l'anteprima di Funzioni di Azure 2.0. 
+
+[!INCLUDE [functions-set-runtime-version](../../includes/functions-set-runtime-version.md)]
+
+Per altre informazioni, vedere [Come specificare le versioni del run-time per Funzioni di Azure](functions-versions.md).
 
 ### <a name="installing-the-extension"></a>Installazione dell'estensione
 
@@ -577,7 +579,7 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
 - string
-- Tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
+- i tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
 
 #### <a name="sample-sending-an-email-through-outlook"></a>Esempio: invio di un messaggio di posta elettronica tramite Outlook
 
@@ -1060,4 +1062,3 @@ public class UserSubscription {
 
 [trigger HTTP]: functions-bindings-http-webhook.md
 [Usare i webhook in Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
-

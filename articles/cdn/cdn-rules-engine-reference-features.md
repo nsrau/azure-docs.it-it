@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
-ms.openlocfilehash: 6703247aa8b4a6d53ff22ea2d4f22eb4a746e370
-
-
+ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cdn-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure
 Questo argomento offre descrizioni dettagliate delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (CDN, Content Delivery Network) di Azure.
 
@@ -131,8 +130,7 @@ Informazioni chiave:
 
 - L'opzione Valore definisce il nome del parametro della stringa di query tramite il quale è possibile specificare un token.
 - L'opzione Valore non può essere impostata su "ec_token".
-- Assicurarsi che il nome definito nell'opzione Valore 
-- contenga solo caratteri URL validi.
+- Verificare che il nome definito nell'opzione Valore contenga solo caratteri URL validi.
 
 Valore|Risultato
 ----|----
@@ -147,7 +145,7 @@ Queste funzionalità sono progettate per personalizzare come e quando il contenu
 
 Nome | Scopo
 -----|--------
-Parametri larghezza di banda | Determina se i parametri di limitazione della larghezza di banda (ad esempio, ec_rate ed ec_prebuf) saranno attivi.
+Parametri larghezza di banda | Determina se i parametri di limitazione della larghezza di banda, ad esempio, ec_rate ed ec_prebuf, saranno attivi.
 Limitazione larghezza di banda | Limita la larghezza di banda per la risposta fornita dai server perimetrali.
 Ignora cache | Determina se la richiesta può sfruttare la tecnologia di memorizzazione nella cache.
 Gestione intestazione Cache-Control | Controlla la generazione delle intestazioni Cache-Control dal server perimetrale quando la funzionalità Max-Age esterna è attiva.
@@ -173,14 +171,14 @@ Client non aggiornato durante la riconvalida | Migliora le prestazioni consenten
 Commento | La funzionalità Commento consente di aggiungere una nota all'interno di una regola.
 
 ###<a name="bandwidth-parameters"></a>Parametri larghezza di banda
-**Scopo:** determina se i parametri di limitazione della larghezza di banda (ad esempio ec_rate ed ec_prebuf) saranno attivi.
+**Scopo**: determina se i parametri di limitazione della larghezza di banda, ad esempio, ec_rate ed ec_prebuf, saranno attivi.
 
 I parametri di limitazione della larghezza di banda determinano se la velocità di trasferimento dati per una richiesta del client sarà limitata a un valore prestabilito.
 
 Valore|Risultato
 --|--
 Enabled|Consente ai server perimetrali di soddisfare richieste di limitazione della larghezza di banda.
-Disabled|Fa sì che i server perimetrali ignorino i parametri di limitazione della larghezza di banda. I contenuti richiesti verranno serviti normalmente (senza limitazione della larghezza di banda).
+Disabled|Fa sì che i server perimetrali ignorino i parametri di limitazione della larghezza di banda. I contenuti richiesti verranno serviti normalmente, ossia senza limitazione della larghezza di banda.
 
 **Comportamento predefinito:** Enabled.
 
@@ -247,7 +245,7 @@ Se nella pagina di memorizzazione nella cache della stringa di query si vuole du
 
 #### <a name="sample-scenarios"></a>Scenari di esempio
 
-Di seguito è riportato un uso di esempio di questa funzionalità e, in particolare, una richiesta di esempio e la chiave di cache predefinita.
+Il seguente esempio di utilizzo per questa funzionalità fornisce un esempio di richiesta e la chiave di cache predefinita:
 
 - **Richiesta di esempio:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Chiave di cache predefinita:** /800001/Origin/folder/asset.htm
@@ -314,7 +312,7 @@ Un mancato riscontro nella cache parziale descrive lo stato della cache relativo
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 --->
-In genere, un mancato riscontro nella cache parziale si verifica dopo che un utente interrompe un download o in caso di asset che vengono richiesti esclusivamente tramite richieste di intervallo HTTP. Questa funzionalità è particolarmente utile per gli asset di grandi dimensioni che gli utenti in genere non scaricano per intero (ad esempio i video). Ecco perché questa funzionalità è abilitata per impostazione predefinita nella piattaforma HTTP Large ed è disabilitata in tutte le altre piattaforme.
+In genere, un mancato riscontro nella cache parziale si verifica dopo che un utente interrompe un download o in caso di asset che vengono richiesti esclusivamente tramite richieste di intervallo HTTP. Questa funzionalità è particolarmente utile per gli asset di grandi dimensioni che gli utenti in genere non scaricano per intero, ad esempio i video. Ecco perché questa funzionalità è abilitata per impostazione predefinita nella piattaforma HTTP Large ed è disabilitata in tutte le altre piattaforme.
 
 È consigliabile lasciare la configurazione predefinita per la piattaforma HTTP Large, poiché riduce il carico sul server di origine del cliente e aumenta la velocità con cui i clienti possono scaricare i contenuti.
 
@@ -330,7 +328,7 @@ Disabled|Impedisce a un server perimetrale di eseguire il recupero in background
 ###<a name="compress-file-types"></a>Comprimi tipi di file
 **Scopo:** definisce i formati di file che verranno compressi nel server.
 
-Un formato di file può essere specificato usando il rispettivo tipo di elemento multimediale Internet (ad esempio, Content-Type). Il tipo di elemento multimediale Internet è costituito dai metadati indipendenti dalla piattaforma che consentono ai server di identificare il formato di file di un asset specifico. Di seguito è riportato un elenco dei tipi di elementi multimediali Internet.
+Un formato di file può essere specificato usando il rispettivo tipo di elemento multimediale Internet, ad esempio Content-Type. Il tipo di elemento multimediale Internet è costituito dai metadati indipendenti dalla piattaforma che consentono ai server di identificare il formato di file di un asset specifico. Di seguito è riportato un elenco dei tipi di elementi multimediali Internet.
 
 Tipo di elemento multimediale Internet|Descrizione
 --|--
@@ -343,7 +341,7 @@ Informazioni chiave:
 
 - È possibile specificare più tipi di elementi multimediali Internet delimitandoli ciascuno con uno spazio singolo. 
 - Questa funzionalità comprimerà solo asset con dimensioni inferiori a 1 MB. Gli asset con dimensioni superiori non verranno compressi dai server.
-- Alcuni tipi di contenuti, come le immagini e i contenuti multimediali audio e video (ad esempio JPG, MP3, MP4 e così via), sono già compressi. Un ulteriore compressione di questi tipi di asset, pertanto, non ne diminuirebbe in modo significativo le dimensioni. È consigliabile quindi non abilitare la compressione su questi tipi di asset.
+- Alcuni tipi di contenuti, come le immagini e i contenuti multimediali audio e video, ad esempio JPG, MP3, MP4 e così via, sono già compressi. Un ulteriore compressione di questi tipi di asset, pertanto, non ne diminuirebbe in modo significativo le dimensioni. È consigliabile quindi non abilitare la compressione su questi tipi di asset.
 - Non sono supportati i caratteri jolly come gli asterischi.
 - Prima di aggiungere questa funzionalità a una regola, assicurarsi di impostare l'opzione di compressione disabilitata nella pagina di compressione relativa alla piattaforma su cui verrà applicata la regola.
 
@@ -358,7 +356,7 @@ Informazioni chiave:
 - I risultati di questa azione non producono alcun effetto osservabile sulle intestazioni di risposta e sui contenuti restituiti dai server periferici, ma possono influire sulla quantità di traffico di riconvalida inviato dai server periferici al server di origine.
 - Per configurare questa funzionalità:
     - Selezionare il codice di stato per il quale può essere applicata una validità massima interna predefinita.
-    - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata (ad esempio secondi, minuti, ore e così via). Questo valore definisce l'intervallo di validità massima interna predefinita.
+    - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via. Questo valore definisce l'intervallo di validità massima interna predefinita.
 
 - Impostare l'unità di tempo su "Off" per assegnare un intervallo di validità massima interna predefinita di 7 giorni alle richieste a cui non è stata assegnata un'indicazione di validità massima nella rispettiva intestazione Cache-Control o Expires.
 - In base al modo in cui vengono monitorate le impostazioni della cache, è possibile che questa funzionalità non possa essere associata alle seguenti condizioni di corrispondenza: 
@@ -394,7 +392,7 @@ Abilitando questa funzionalità, dai server periferici verranno generate le inte
 Informazioni chiave:
 
 - Questa azione non riguarda le riconvalide della cache dal server periferico al server di origine. Questi tipi di riconvalida, infatti, vengono determinati dalle intestazioni Cache-controllo/Expires ricevute dal server di origine e possono essere personalizzati con le funzionalità Default Internal Max-Age (Validità massima interna predefinita) e Force Internal Max-Age (Forza validità massima interna).
-- Configurare questa funzionalità specificando un valore intero e selezionando l'unità di tempo desiderata (ad esempio secondi, minuti, ore e così via).
+- Configurare questa funzionalità specificando un valore intero e selezionando l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via.
 - Se si imposta questa funzionalità su un valore negativo, il server periferico invia una direttiva Cache-Control:no-cache e un valore temporale Expires impostato nel passato con ogni risposta inviata al browser. Anche nel caso in cui un client HTTP non memorizzi nella cache la risposta, questa impostazione non influisce sulla capacità dei server periferici di memorizzare nella cache la risposta ottenuta dal server di origine.
 - Impostando l'unità di tempo su "Off", questa funzionalità viene disabilitata. Delle intestazioni Cache-Control/Expires memorizzate nella cache con la risposta del server di origine viene eseguito il pass-through al browser.
 
@@ -410,7 +408,7 @@ Informazioni chiave:
 - Questa funzionalità non produce alcun effetto osservabile sulla risposta fornita da un server perimetrale al richiedente. Può tuttavia influire sulla quantità di traffico di riconvalida inviato dai server perimetrali al server di origine.
 - Per configurare questa funzionalità:
     - Selezionare il codice di stato per il quale verrà applicato un intervallo di validità massima interna.
-    - Specificare un valore intero e selezionare l'unità di tempo desiderata (ad esempio secondi, minuti, ore e così via). Questo valore definisce l'intervallo di validità massima della richiesta.
+    - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via. Questo valore definisce l'intervallo di validità massima della richiesta.
 
 - Impostando l'unità di tempo su "Off", questa funzionalità viene disabilitata e agli asset non verrà assegnato un intervallo di validità massima interna. Se nell'intestazione originale non sono contenute istruzioni di memorizzazione nella cache, l'asset verrà memorizzato nella cache in base all'impostazione attiva nella funzionalità Default Internal Max-Age (Validità massima interna predefinita).
 - In base al modo in cui vengono monitorate le impostazioni della cache, è possibile che questa funzionalità non possa essere associata alle seguenti condizioni di corrispondenza: 
@@ -430,7 +428,7 @@ Informazioni chiave:
 Informazioni chiave:
 
 - Nell'opzione Estensioni file definire un set delimitato da spazi di estensioni di file H.264 consentite. L'opzione Estensioni file sostituirà il comportamento predefinito. Garantire il supporto di file MP4 e F4V includendo queste estensioni durante la configurazione dell'opzione. 
-- Assicurarsi di includere un punto per ogni estensione di file aggiunta (ad esempio, .mp4 .f4v).
+- Assicurarsi di includere un punto per ogni estensione di file aggiunta, ad esempio, .mp4 .f4v.
 
 **Comportamento predefinito:** il download progressivo HTTP supporta file multimediali MP4 e F4V per impostazione predefinita.
 
@@ -501,7 +499,7 @@ Informazioni chiave:
 
 - Per configurare questa funzionalità:
     - Selezionare il codice di stato in base al quale verrà applicato il tempo di non aggiornamento massimo.
-    - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata (ad esempio secondi, minuti, ore e così via). Questo valore definisce il tempo di non aggiornamento massimo interno che verrà applicato.
+    - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via. Questo valore definisce il tempo di non aggiornamento massimo interno che verrà applicato.
 
 - Impostando l'unità di tempo su "Off", questa funzionalità viene disabilitata. Un asset memorizzato nella cache non verrà servito dopo la normale scadenza.
 - In base al modo in cui vengono monitorate le impostazioni della cache, è possibile che questa funzionalità non possa essere associata alle seguenti condizioni di corrispondenza: 
@@ -513,7 +511,7 @@ Informazioni chiave:
     - Valore letterale query URL
     - Carattere jolly query URL
 
-**Comportamento predefinito:** 2 minuti
+**Comportamento predefinito:** due minuti
 
 ###<a name="partial-cache-sharing"></a>Condivisione cache parziale
 **Scopo:** determina se una richiesta può generare contenuti parzialmente memorizzati nella cache.
@@ -562,7 +560,7 @@ Definire un set delimitato da spazi dei codici di stato desiderati.
 
 Informazioni chiave:
 
-- Abilitare anche la funzionalità Ignore Origin No-Cache (Ignora origine No-Cache). In caso contrario, è possibile che le risposte diverse da&200; - OK non vengano memorizzate nella cache.
+- Abilitare la funzionalità Ignore Origin No-Cache (Ignora origine No-Cache). In caso contrario, è possibile che le risposte diverse da 200 - OK non vengano memorizzate nella cache.
 - I codici di stato validi per questa funzionalità sono: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 e 505.
 - Questa funzionalità non può essere usata per disabilitare la memorizzazione nella cache delle risposte che generano un codice di stato 200 - OK.
 
@@ -585,7 +583,7 @@ Disabled|L'errore del server di origine viene inoltrato al richiedente.
 Informazioni chiave:
 
 - Il comportamento di questa funzionalità varia in base all'unità di tempo selezionata.
-    - **Unità di tempo:** specificare un intervallo di tempo e selezionare un'unità di tempo (ad esempio secondi, minuti, ore e così via) per consentire la distribuzione di contenuti non aggiornati. Questo tipo di configurazione consente alla rete CDN di estendere l'intervallo di tempo durante il quale può distribuire contenuti prima di richiedere la convalida in base alla formula seguente: **Durata** + **Stale While Revalidate Time** (Client non aggiornato durante la riconvalida) 
+    - **Unità di tempo:** specificare un intervallo di tempo e selezionare un'unità di tempo, ad esempio secondi, minuti, ore e così via, per consentire la distribuzione di contenuti non aggiornati. Questo tipo di configurazione consente alla rete CDN di estendere l'intervallo di tempo durante il quale può distribuire contenuti prima di richiedere la convalida in base alla formula seguente: **Durata** + **Stale While Revalidate Time** (Client non aggiornato durante la riconvalida) 
     - **Off:** selezionare "Off" per richiedere la riconvalida prima che possa essere servita una richiesta di contenuti non aggiornati.
         - Non specificare un intervallo di tempo poiché non è applicabile e verrebbe ignorato.
 
@@ -599,7 +597,7 @@ Uno dei possibili usi di questa funzionalità è quello di fornire informazioni 
 Informazioni chiave:
 
 - Non possono essere specificati più di 150 caratteri.
-- Assicurarsi di usare solo caratteri alfanumerici.
+- Usare solo caratteri alfanumerici.
 - Questa funzionalità non influisce sul comportamento della regola. È stata concepita al solo scopo di mettere a disposizione un'area in cui poter fornire informazioni da usare come riferimento futuro o per risolvere un problema relativo alla regola.
  
 ## <a name="headers"></a>headers
@@ -669,7 +667,7 @@ Informazioni chiave:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
-- Assicurarsi di usare solo caratteri alfanumerici, trattini o caratteri di sottolineatura quando si specifica un nome di intestazione.
+- Quando si specifica un nome di intestazione, assicurarsi di usare solo caratteri alfanumerici, trattini o caratteri di sottolineatura.
 - L'eliminazione di un'intestazione impedisce che venga inoltrata a un server di origine dai server perimetrali.
 - Le intestazioni seguenti sono riservate e non possono essere modificate da questa funzionalità:
     - forwarded
@@ -765,7 +763,7 @@ Intestazione di risposta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Typ
 Informazioni chiave:
 
 - Un campo di log personalizzato può contenere qualsiasi combinazione di campi di intestazione e testo normale.
-- I caratteri validi per questo campo comprendono: caratteri alfanumerici (ad esempio 0-9, a-z e A-Z), trattini, due punti, punti e virgola, apostrofi, virgole, punti, caratteri di sottolineatura, segni di uguale, parentesi, parentesi quadre e spazi. Il simbolo di percentuale e le parentesi graffe sono consentiti solo se vengono usati per specificare un campo di intestazione.
+- I caratteri validi per questo campo comprendono: caratteri alfanumerici, ad esempio 0-9, a-z e A-Z, trattini, due punti, punti e virgola, apostrofi, virgole, punti, caratteri di sottolineatura, segni di uguale, parentesi, parentesi quadre e spazi. Il simbolo di percentuale e le parentesi graffe sono consentiti solo se vengono usati per specificare un campo di intestazione.
 - L'ortografia di ogni campo di intestazione specificato deve corrispondere esattamente al nome di intestazione di richiesta/risposta desiderato.
 - Se si vuole specificare più intestazioni, è consigliabile usare un separatore per indicare ogni intestazione. Per ogni intestazione, ad esempio, è possibile usare un'abbreviazione. Di seguito è riportata una sintassi di esempio.
     - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
@@ -927,7 +925,7 @@ Per configurare questa funzionalità è necessario impostare le opzioni seguenti
 Opzione|Descrizione
 -|-
 Codice|Selezionare il codice di risposta che verrà restituito al richiedente.
-Source & Pattern (Origine e modello)| Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere reindirizzate. Verranno reindirizzate solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/> <br/> **Origine** (o un punto di accesso dei contenuti): selezionare un percorso relativo che identifica un server di origine. È costituito dalla sezione "/XXXX/" e dal nome dell'endpoint. <br/> **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> - Assicurarsi che i criteri dell'URI di richiesta (ad esempio origine e modello) definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. <br/> - Assicurarsi di specificare un modello. Se si usa un valore vuoto come modello, la corrispondenza si verificherà solo con le richieste inviate alla cartella radice del server di origine selezionato (ad esempio, http://cdn.mydomain.com/).
+Source & Pattern (Origine e modello)| Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere reindirizzate. Verranno reindirizzate solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/> <br/> **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. È costituito dalla sezione "/XXXX/" e dal nome dell'endpoint. <br/> **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> - Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. <br/> - Specificare un criterio; se si usa un valore vuoto come criterio, viene eseguito il confronto di tutte le stringhe.
 Destination| Definire l'URL a cui verranno reindirizzate le richieste precedenti. <br/> Costruire l'URL in modo dinamico usando: <br/> - Un modello di espressione regolare <br/>- Variabili HTTP <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore. <br/> 
 È consigliabile usare un URL assoluto, poiché l'uso di un URL relativo può reindirizzare gli URL CDN su un percorso non valido.
 
@@ -964,7 +962,7 @@ Informazioni chiave:
 
 Opzione|Descrizione
 -|-
- Source & Pattern (Origine e modello) | Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere riscritte. Verranno riscritte solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/>     - **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. È costituito dalla sezione "/XXXX/" e dal nome dell'endpoint. <br/> - **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> Assicurarsi che i criteri dell'URI di richiesta (ad esempio origine e modello) definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. Assicurarsi di specificare un modello. Se si usa un valore vuoto come modello, la corrispondenza si verificherà solo con le richieste inviate alla cartella radice del server di origine selezionato (ad esempio, http://cdn.mydomain.com/). 
+ Source & Pattern (Origine e modello) | Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere riscritte. Verranno riscritte solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/>     - **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. È costituito dalla sezione "/XXXX/" e dal nome dell'endpoint. <br/> - **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. Specificare un criterio; se si usa un valore vuoto come criterio, tutte le stringhe vengono confrontate. 
  Destination  |Definire l'URL relativo in cui verranno riscritte le richieste precedenti: <br/>    1. Selezionando un punto di accesso dei contenuti che identifichi un server di origine. <br/>    2. Definendo di un percorso tramite: <br/>        - Un modello di espressione regolare <br/>        - Variabili HTTP <br/> <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore. 
  Questa funzionalità consente ai server periferici di riscrivere l'URL senza eseguire un reindirizzamento tradizionale. In questo modo, il richiedente riceverà lo stesso codice di risposta come se fosse stato richiesto l'URL riscritto.
 
@@ -1018,9 +1016,3 @@ Questa funzionalità include i criteri di corrispondenza che devono essere soddi
 * [Condizioni di corrispondenza del motore regole](cdn-rules-engine-reference-match-conditions.md)
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Secure
 Questa esercitazione descrive l'integrazione di Azure e TOPdesk - Secure.  
@@ -104,7 +104,7 @@ La configurazione dell'accesso Single Sign-On per TOPdesk - Secure richiede il c
 
 6. In un'altra finestra del Web browser accedere al portale di **portale di Azure classico** come amministratore.
 
-7. Nel **TOPdesk - Secure** pagina di integrazione dell'applicazione, fare clic su **configurare single sign-on** per aprire il * * configurare Single Sign-On * * finestra di dialogo.
+7. Nella pagina di integrazione dell'applicazione **TOPdesk - Secure** fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
     ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Configurare l'accesso Single Sign-On")
 
@@ -205,7 +205,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Per assegnare gli utenti a TOPdesk - Secure, seguire questa procedura:
 1. Nel portale di Azure classico creare un account di test.
-2. Nel * * TOPdesk - Secure * * pagina di integrazione dell'applicazione, fare clic su **assegnare gli utenti**.
+2. Nella pagina di integrazione dell'applicazione **TOPdesk - Secure** fare clic su **Assegna utenti**.
    
     ![Assegnare utenti](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Assegnare utenti")
 

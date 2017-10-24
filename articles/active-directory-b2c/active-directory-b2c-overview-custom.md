@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
+ms.openlocfilehash: 25dada7bc04449c6e527b94d97780d9aef1c33a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 33f62a33ea7a3fadb6e7b045de10df25f5edbe83
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: criteri personalizzati
 
@@ -29,15 +28,13 @@ ms.lasthandoff: 07/28/2017
 
 I criteri personalizzati sono file di configurazione che definiscono il comportamento del tenant di Azure Active Directory B2C. Mentre i **criteri predefiniti** sono predefiniti nel portale di Azure Active Directory B2C per le attività di identità più comuni, i criteri personalizzati possono essere modificati completamente dallo sviluppatore di identità per completare un numero quasi illimitato di attività. Continuare a leggere per determinare se i criteri personalizzati sono corretti per lo scenario di identità personale.
 
-**La modifica dei criteri personalizzati non è adatta a tutti gli utenti.** La curva di apprendimento è complessa, il tempo di avvio è più lungo e le modifiche future ai criteri personalizzati richiedono competenze simili per poter essere mantenute. I criteri predefiniti devono essere considerati attentamente per lo scenario prima di usare i criteri personalizzati.
-
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Confronto tra criteri predefiniti e personalizzati
 
 | | Criteri predefiniti | Criteri personalizzati |
 |-|-------------------|-----------------|
 |Utenti di destinazione | Tutti gli sviluppatori di app con o senza competenze di identità | Professionisti di identità: integratori di sistemi, consulenti e team di identità interni. Hanno familiarità con i flussi OpenIDConnect e comprendono i provider di identità e l'autenticazione basata sulle attestazioni |
 |Metodo di configurazione | Portale di Azure con un'interfaccia utente intuitiva | Modifica diretta dei file XML e caricamento nel portale di Azure |
-|Personalizzazione dell'interfaccia utente | Personalizzazione completa dell'interfaccia utente, che include il supporto HTML, CSS e jscript, che richiede il dominio personalizzato<br><br>Supporto multilingue con stringhe personalizzate | Uguale |
+|Personalizzazione dell'interfaccia utente | Personalizzazione completa dell'interfaccia utente, che include il supporto HTML, CSS e javascript (richiede un dominio personalizzato)<br><br>Supporto multilingue con stringhe personalizzate | Uguale |
 | Personalizzazione degli attributi | Attributi standard e personalizzati | Uguale |
 |Gestione delle sessioni e dei token | Token personalizzato e opzioni di sessione multiple | Uguale |
 |Provider di identità| **Oggi**: provider social, predefinito, locale<br><br>**Futuro**: OIDC, SAML, OAuth basati su standard | **Oggi**: OIDC, SAML, OAuth basati su standard<br><br>**Futuro**: WsFed |
@@ -66,30 +63,30 @@ Azure è dotato del servizio di identità del cliente e gestione dell'accesso, C
 2. L'accesso al **framework per l'esperienza di identità** che orchestra la relazione di trust tra gli utenti e le entità e passa le attestazioni tra questi per completare un'attività di gestione all'identità o all'accesso 
 3. Un servizio token di sicurezza (STS) che emette gli ID token, aggiorna i token e accede ai token, e alle asserzioni SAML equivalenti, e li convalida in modo da proteggere le risorse.
 
-Azure Active Directory B2C interagisce i provider di identità, gli utenti, con altri sistemi e le directory dell'utente locale in sequenza per eseguire un'attività di identità, ad esempio l'accesso a un utente, la registrazione di un nuovo utente, la reimpostazione della password. La piattaforma sottostante, che stabilisce relazioni di trust tra più parti ed esegue questa procedura viene chiamata Framework di esperienza di identità e un criterio, che ha chiamato un percorso utente o un criterio di attendibilità framework, definisce in modo esplicito gli attori, le azioni, i protocolli e la sequenza di passaggi da completare.
+Azure Active Directory B2C interagisce con i provider di identità, gli utenti, altri sistemi e le directory dell'utente locale in sequenza per eseguire un'attività di identità, ad esempio l'accesso di un utente, la registrazione di un nuovo utente, la reimpostazione della password. La piattaforma sottostante, che stabilisce relazioni di trust tra più parti ed esegue questa procedura viene chiamata Framework di esperienza di identità e un criterio, che ha chiamato un percorso utente o un criterio di attendibilità framework, definisce in modo esplicito gli attori, le azioni, i protocolli e la sequenza di passaggi da completare.
 
 ### <a name="identity-experience-framework"></a>Framework dell'esperienza di gestione delle identità
 
-Una piattaforma Azure completamente configurabile, basato sui criteri e su cloud che orchestra le relazioni di trust tra le entità, in modo più ampio i provider di attestazioni, in formati di protocollo standard, ad esempio OpenIDConnect, OAuth, SAML, standard WSFed e alcuni formati non standard, ad esempio, scambi di attestazioni basati su API REST da sistema a sistema. I2E crea esperienze intuitive, generiche che supportano HTML, CSS e jscript.  Oggi, il Framework di esperienza di identità è disponibile solo nel contesto del servizio Azure AD B2C e dà priorità alle attività correlate al CIAM.
+Una piattaforma Azure completamente configurabile, basata su criteri e su cloud che orchestra le relazioni di trust tra le entità (in senso più ampio i provider di attestazioni), in formati di protocollo standard, ad esempio OpenIDConnect, OAuth, SAML, WSFed e alcuni formati non standard, ad esempio scambi di attestazioni basati su API REST da sistema a sistema. I2E crea esperienze intuitive e generiche che supportano HTML, CSS e javascript.  Oggi, il Framework di esperienza di identità è disponibile solo nel contesto del servizio Azure AD B2C e dà priorità alle attività correlate al CIAM.
 
 ### <a name="built-in-policies"></a>Criteri predefiniti
 
-I file di configurazione predefiniti che indirizzano il comportamento di Azure AD B2C affinché esegua le attività di identità più usate, ovvero registrazione dell'utente, accesso, reimpostazione della password, e interagisca con parti attendibili la cui relazione è predefinita anche in Azure AD B2C, ad esempio nei provider di identità di Facebook, in LinkedIn, in Microsoft Account, negli account di Google.  In futuro, i criteri predefiniti possono anche garantire la personalizzazione dei provider di identità che sono in genere nell'area aziendale, ad esempio Azure Active Directory Premium, Active Directory o ADFS, Salesforce ID Provider e così via.
+File di configurazione predefiniti che istruiscono il comportamento di Azure Active Directory B2C a eseguire le attività di identità utilizzate più di frequente, ad esempio la registrazione utente, l'accesso, la reimpostazione della password, e a interagire con le parti attendibili la cui relazione è anch'essa predefinita in Azure Active Directory B2C, ad esempio il provider di identità Facebook, LinkedIn, l'account Microsoft, gli account di Google.  In futuro, i criteri predefiniti possono anche garantire la personalizzazione dei provider di identità che sono in genere nella sfera aziendale, ad esempio Azure Active Directory Premium, Active Directory o ADFS, Salesforce ID Provider e così via.
 
 
 ### <a name="custom-policies"></a>Criteri personalizzati
 
-I file di configurazione definiscono il comportamento del Framework di esperienza di identità nel tenant di Azure AD B2C. Un criterio personalizzato è accessibile come uno o più file XML, vedere le definizioni di file di criteri, che vengono eseguiti dal Framework di esperienza di identità quando viene richiamati da una relying party, ad esempio da un'applicazione. I criteri personalizzati possono essere modificati direttamente da uno sviluppatore di identità per il completamento di un numero quasi illimitato di attività. Gli sviluppatori che configurano i criteri personalizzati devono definire le relazioni attendibili dettagliatamente per includere gli endpoint dei metadati, le definizioni di scambio per le attestazioni esatte, e configurare i segreti, le chiavi e i certificati necessari per ogni provider di identità.
+I file di configurazione definiscono il comportamento del Framework di esperienza di identità nel tenant di Azure AD B2C. Un criterio personalizzato è accessibile nella forma di uno o più file XML (vedere le definizioni di file di criteri) che vengono eseguiti dal framework dell'esperienza di gestione delle identità quando vengono chiamati da una Relying Party, ad esempio da un'applicazione. I criteri personalizzati possono essere modificati direttamente da uno sviluppatore di identità per il completamento di un numero quasi illimitato di attività. Gli sviluppatori che configurano i criteri personalizzati devono definire le relazioni attendibili dettagliatamente per includere gli endpoint dei metadati, le definizioni di scambio per le attestazioni esatte, e configurare i segreti, le chiavi e i certificati necessari per ogni provider di identità.
 
 ## <a name="policy-file-definitions-for-identity-experience-framework-trustframeworks"></a>Definizione di file di criteri per i framework di attendibilità per il Framework di esperienza di identità
 
 ### <a name="policy-files"></a>File dei criteri
 
-Un criterio personalizzato è rappresentato come uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. Gli elementi XML definiscono: schema di attestazioni, trasformazioni di attestazioni, definizioni di contenuto, profili tecnico o provider di attestazioni e procedure di orchestrazione Userjourney, tra gli altri elementi.  Si consiglia di usare i tre tipi di file dei criteri:
+Un criterio personalizzato è rappresentato come uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. Gli elementi XML definiscono: schema di attestazioni, trasformazioni di attestazioni, definizioni di contenuto, profili tecnici o provider di attestazioni e procedure di orchestrazione Userjourney, tra gli altri elementi.  Si consiglia di usare i tre tipi di file dei criteri:
 
-- **Un file di BASE**, che contiene la maggior parte delle definizioni e per cui Azure offre un esempio completo.  Si consiglia di apportare un numero minimo di modifiche a questo file che contribuisce alla risoluzione dei problemi e alla manutenzione a lungo termine dei criteri
+- **Un file BASE** contiene la maggior parte delle definizioni e per cui Azure offre un esempio completo.  Si consiglia di apportare un numero minimo di modifiche a questo file che contribuisce alla risoluzione dei problemi e alla manutenzione a lungo termine dei criteri
 - **Un file di estensioni** che contiene le modifiche di configurazione univoche per il tenant
-- **Un file Relying Party (RP)**, l'unico file incentrato sulle attività che viene richiamato direttamente dell'applicazione o dal servizio ed è noto anche come Relying Party.  Per altre informazioni leggere l'articolo sulle definizioni di file dei criteri.  Ogni attività univoca richiede un proprio Relying Party e, a seconda dei requisiti di personalizzazione, il numero potrebbe essere il "totale delle applicazioni per il numero totale di casi di uso".
+- **Un file Relying Party (RP)** è l'unico file incentrato sulle attività che viene chiamato direttamente dell'applicazione o dal servizio, detti Relying Party.  Per altre informazioni leggere l'articolo sulle definizioni di file dei criteri.  Ogni attività univoca richiede un proprio Relying Party e, a seconda dei requisiti di personalizzazione, il numero potrebbe essere il "totale delle applicazioni per il numero totale di casi di uso".
 
 ![Tipi di file di criteri](media/active-directory-b2c-overview-custom/active-directory-b2c-overview-custom-policy-files.png)
 
@@ -105,3 +102,7 @@ Quando un'applicazione chiama il file dei criteri di relying party, il Framework
 
 I **criteri predefiniti** in Azure AD B2C seguono il modello a 3 file illustrato in precedenza, ma lo sviluppatore vede solo il file Relying Party (RP), mentre il portale apporta modifiche in background al file delle estensioni.  Tutti i componenti di Azure AD B2C condividono un file di criteri di BASE che è controllaro del team di Azure B2C e viene aggiornato di frequente.
 
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md)

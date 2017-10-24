@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
+ms.openlocfilehash: b6e1a305e19415ab1c4b4c208dac98ad1e2689c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4f3ec837588c6e959e82108ca25ab4289e40d3f5
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a>Aggiunta di un certificato all'archivio certificati CA Java
 La procedura seguente illustra come aggiungere un certificato dell'Autorità di certificazione (CA) all'archivio certificati CA Java (cacerts). L'esempio usa il certificato CA necessario per il servizio Twilio. Più avanti in questo argomento vengono riportate le informazioni per installare il certificato CA per il bus di servizio di Azure. 
@@ -27,7 +26,7 @@ La procedura seguente illustra come aggiungere un certificato dell'Autorità di 
 È possibile usare lo strumento Keytool per aggiungere il certificato CA prima di comprimere il JDK e di aggiungerlo alla cartella **approot** del progetto Azure. In alternativa, è possibile eseguire un'attività di avvio in Azure che usa lo strumento Keytool per aggiungere il certificato. Questo esempio presuppone che il certificato CA venga aggiunto prima della compressione del JDK. Verrà inoltre usato un certificato CA specifico, ma i passaggi per ottenere un certificato CA diverso e per importarlo nell'archivio cacerts sono simili.
 
 ## <a name="to-add-a-certificate-to-the-cacerts-store"></a>Per aggiungere un certificato all'archivio cacerts
-1. Al prompt dei comandi impostato sulla cartella **jdk\jre\lib\security** del JDK eseguire il comando seguente per verificare quali certificati sono installati:
+1. Al prompt dei comandi dell'Amministratore impostato sulla cartella **jdk\jre\lib\security** del JDK eseguire il comando seguente per verificare quali certificati sono installati:
    
     `keytool -list -keystore cacerts`
    
@@ -56,5 +55,4 @@ Se è necessario aggiungere Baltimore CyberTrust Root, il numero di serie è 02:
 Per altre informazioni sui certificati radice usati da Azure, vedere l'articolo relativo alla [migrazione dei certificati radice di Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
 Per altre informazioni su Java, vedere [Azure for Java developers](/java/azure) (Azure per sviluppatori Java).
-
 

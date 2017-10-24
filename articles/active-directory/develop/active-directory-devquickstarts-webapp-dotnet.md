@@ -1,6 +1,6 @@
 ---
 title: Introduzione alle app Web .NET per Azure AD | Microsoft Docs
-description: Compilare un&quot;app Web .NET MVC che si integra con Azure AD per l&quot;accesso.
+description: Compilare un'app Web .NET MVC che si integra con Azure AD per l'accesso.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
-ms.contentlocale: it-it
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 3c1e558c9d41e385f80939203a3457b74e30973b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>Accesso e disconnessione all'app Web ASP.NET con Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +109,7 @@ In questo passaggio, verrà configurato il middleware OWIN per l'uso del protoco
 ## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Passaggio 3: usare OWIN per inviare le richieste di accesso e disconnessione ad Azure AD
 L'app ora è configurata correttamente per comunicare con Azure AD mediante il protocollo di autenticazione OpenID Connect. OWIN ha gestito tutti i dettagli relativi alla creazione dei messaggi di autenticazione, alla convalida dei token da Azure AD e alla gestione delle sessioni utente. Non resta che dare agli utenti un modo per accedere e disconnettersi.
 
-1. È possibile usare tag di autorizzazione nei controller per obbligare l'utente ad accedere prima di aprire determinate pagine. A tale scopo, aprire Controllers\HomeController.cs e quindi aggiungere il tag `[Authorize]` al controller About.
+1. È possibile usare tag di autorizzazione nei controller per obbligare l'utente ad accedere prima di aprire determinate pagine. A tale scopo aprire Controllers\HomeController.cs e quindi aggiungere il tag `[Authorize]` all'azione About.
 
      ```C#
      [Authorize]
@@ -195,4 +193,3 @@ Per riferimento, consultare l'[esempio completato](https://github.com/AzureADQui
 Ora è possibile passare ad argomenti più avanzati. Provare ad esempio [Proteggere un'API Web con Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

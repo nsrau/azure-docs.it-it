@@ -14,19 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: bwren
+ms.openlocfilehash: 271747e25f319c76195ec643025d24c6b7cdc9c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 98befb16d27387e8f65a27771a2a32c264119d74
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Esportare i dati di Log Analytics in Power BI
 
 >[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), questo processo per esportare i dati di Log Analytics in Power BI non funzionerà più.  Le pianificazioni esistenti create prima dell'aggiornamento verranno disabilitate. 
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), questo processo per esportare i dati di Log Analytics in Power BI non funzionerà più.  Le pianificazioni esistenti create prima dell'aggiornamento verranno disabilitate. Non verrà più visualizzata la possibilità di attivare la funzionalità di esportazione di Power BI in Impostazioni nelle Funzionalità di anteprima, poiché questa funzionalità viene completamente rilasciata nelle aree di lavoro aggiornate. 
 >
 > Dopo l'aggiornamento, Azure Log Analytics usa la stessa piattaforma di Application Insights e il processo per esportare le query di Log Analytics in Power BI è uguale al [processo usato per esportare le query di Application Insights in Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  È possibile esportare la query usando la console di Analytics descritta in tale articolo oppure è possibile selezionare il pulsante **Power BI** nella parte superiore della schermata nel portale di ricerca log.
+>
+> Gli utenti dovranno accedere alla risorsa dell'area di lavoro in Azure per usare la funzionalità di esportazione di Power BI nelle aree di lavoro aggiornate. Senza l'accesso, gli utenti visualizzeranno un messaggio di errore al momento di importare una query in Power BI desktop a cui non hanno accesso.
 
 
 
@@ -126,4 +127,3 @@ Per salvare il report fare clic sul pulsante Salva nella parte superiore della s
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su [ricerche dei log](log-analytics-log-searches.md) per compilare query che possono essere esportate in Power BI.
 * Altre informazioni su [Power BI](http://powerbi.microsoft.com) per generare visualizzazioni basate sulle esportazioni di Log Analytics.
-

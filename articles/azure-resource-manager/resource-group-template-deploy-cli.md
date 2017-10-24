@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
+ms.openlocfilehash: 13154e41ebd4867de9af74340a69446400814f5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4f1d5f4cc48470f8906edb28628006dd1996bd3a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -79,55 +78,11 @@ az group deployment create \
 
 L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati riservati. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Se invece si preferisce che il modello usato non sia accessibile pubblicamente, è possibile proteggerlo archiviandolo in un contenitore di archiviazione privato. Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso (SAS), vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-cli-sas-token.md).
 
-## <a name="deploy-template-from-cloud-shell"></a>Distribuire il modello da Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-È possibile usare [Cloud Shell](../cloud-shell/overview.md) per eseguire i comandi dell'interfaccia della riga di comando di Azure per la distribuzione del modello. Tuttavia, è prima necessario caricare il modello nella condivisione file per Cloud Shell. Per informazioni sulla configurazione di Cloud Shell per il primo utilizzo, vedere [Panoramica di Azure Cloud Shell](../cloud-shell/overview.md).
+Immettere i comandi seguenti in Cloud Shell:
 
-1. Accedere al [Portale di Azure](https://portal.azure.com).   
-
-2. Selezionare il gruppo di risorse di Cloud Shell. Il modello del nome è `cloud-shell-storage-<region>`.
-
-   ![Selezionare il gruppo di risorse](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
-
-3. Selezionare l'account di archiviazione per Cloud Shell.
-
-   ![Selezionare l'account di archiviazione](./media/resource-group-template-deploy-cli/select-storage.png)
-
-4. Selezionare **File**.
-
-   ![Selezione dei file](./media/resource-group-template-deploy-cli/select-files.png)
-
-5. Selezionare la condivisione file per Cloud Shell. Il modello del nome è `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Selezionare la condivisione file](./media/resource-group-template-deploy-cli/select-file-share.png)
-
-6. Selezionare **Aggiungi directory**.
-
-   ![Aggiungi directory](./media/resource-group-template-deploy-cli/select-add-directory.png)
-
-7. Assegnare il nome **templates** e scegliere **OK**.
-
-   ![Assegnare il nome alla directory](./media/resource-group-template-deploy-cli/name-templates.png)
-
-8. Selezionare la nuova directory.
-
-   ![Selezionare la directory](./media/resource-group-template-deploy-cli/select-templates.png)
-
-9. Selezionare **Carica**.
-
-   ![Selezionare Carica](./media/resource-group-template-deploy-cli/select-upload.png)
-
-10. Trovare e caricare il modello.
-
-   ![Caricare il file](./media/resource-group-template-deploy-cli/upload-files.png)
-
-11. Aprire il prompt.
-
-   ![Aprire Cloud Shell](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
-
-12. Immettere i comandi seguenti in Cloud Shell:
-
-   ```azurecli
+   ```azurecli-interactive
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
@@ -282,4 +237,3 @@ Il modello seguente viene usato per gli esempi in questo argomento. Copiarlo e s
 * Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-cli-sas-token.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-

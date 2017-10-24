@@ -14,18 +14,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: byvinyal
+ms.openlocfilehash: 54c0c5050c812c2a59631541d94c553974acd2f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 83cdc42d412f646ddf1ecd1b65bf9aa46983b26b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restrizioni IP statico del Servizio app di Azure #
 
-Le restrizioni IP consentono di definire un elenco di indirizzi IP che non possono accedere alle app. L'elenco di blocchi può includere singoli indirizzi IP o un intervallo di indirizzi IP definito da una subnet mask.
+Le restrizioni IP consentono di definire un elenco di indirizzi IP che possono accedere all'app. Questo elenco può includere singoli indirizzi IP o un intervallo di indirizzi IP definito da una subnet mask.
 
-Quando viene generata sa un client una richiesta per l'app, l'indirizzo IP viene controllato a fronte dell'elenco degli IP bloccati. Se viene trovata una corrispondenza, l'applicazione risponde con un codice di stato [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
+Quando un client genera una richiesta all'app, l'indirizzo IP viene controllato rispetto all'elenco di indirizzi IP consentiti. Se l'indirizzo IP non è presente nell'elenco, l'app risponde con un codice di stato [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
 
 Le restrizioni IP vengono valutate nelle stesse istanze del piano di servizio App assegnate all'app.
 
@@ -40,4 +39,3 @@ Da qui è possibile esaminare l'elenco delle regole di restrizioni IP definite p
 È possibile fare clic su **[+] Aggiungi** per aggiungere una nuova regola di restrizioni IP.
 
 ![aggiungere restrizioni IP](media/app-service-ip-restrictions/add-ip-restrictions.png)
-

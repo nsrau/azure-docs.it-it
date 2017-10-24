@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 09/19/2017
 ms.author: apimpm
+ms.openlocfilehash: 4ff634e039080fc15e7f4f44bc3ab42f280f3ad5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: f152682f4d584f5a94d1f757009892047c19c69d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -29,60 +28,71 @@ Gestione API di Azure può essere distribuito all'interno della rete virtuale (V
 > [!NOTE]
 > Gestione API di Azure supporta le reti virtuali classiche e Azure Resource Manager.
 >
->
 
-## <a name="enable-vpn"> </a>Attivare la connessione VNET
-> [!NOTE]
-> La connettività della rete virtuale è disponibile per i livelli **Premium** e **Sviluppatore**. Per spostarsi tra i livelli, aprire il servizio Gestione API nel portale di Azure e quindi la scheda **Scale and pricing** (Scalabilità e prezzi). Nella sezione **Piano tariffario** selezionare il livello Premium o Sviluppatore e fare clic su Salva.
->
+## <a name="prerequisites"></a>Prerequisiti
 
-Per abilitare la connettività della rete virtuale, aprire il servizio Gestione API nel portale di Azure e quindi la pagina **Rete virtuale**.
+Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
-![Menu della rete virtuale di Gestione API][api-management-using-vnet-menu]
++ Una sottoscrizione di Azure attiva.
 
-Selezionare il tipo di accesso da usare:
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* **Esterno**: il gateway di Gestione API e il portale per gli sviluppatori sono accessibili dalla rete internet pubblica tramite un servizio di bilanciamento del carico esterno. Il gateway può accedere alle risorse all'interno della rete virtuale.
++ Un'istanza di Gestione API. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
++ La connettività di rete virtuale è disponibile nei livelli **Premium** e **Developer**: passare a uno di questi livelli come descritto nell'argomento dedicato ad [aggiornamento e ridimensionamento](upgrade-and-scale.md#upgrade-and-scale).
 
-![Peering pubblico][api-management-vnet-public]
-
-* **Interno**: il gateway di Gestione API e il portale per gli sviluppatori sono accessibili soltanto dalla rete virtuale tramite un servizio di bilanciamento del carico interno. Il gateway può accedere alle risorse all'interno della rete virtuale.
-
-![Peering privato][api-management-vnet-private]
-
-Verrà ora visualizzato un elenco di tutte le aree in cui viene eseguito il provisioning del servizio Gestione API. Selezionare una VNET e una subnet per ogni area. L'elenco viene popolato con le reti virtuali classiche e Resource Manager disponibili nelle sottoscrizioni di Azure, impostate nell'area che si sta configurando.
+## <a name="enable-vpn"></a>Attivare la connessione VNET
 
 > [!NOTE]
-> **Endpoint di servizio** nel diagramma precedente include Gateway/Proxy, Portale di pubblicazione, Portale per sviluppatori, GIT e l'endpoint di gestione diretta.
-> **Endpoint di gestione** nel diagramma precedente è l'endpoint ospitato nel servizio per la gestione della configurazione tramite il portale di Azure e Powershell.
-> Inoltre si noti che, sebbene il diagramma mostra gli indirizzi IP per i vari endpoint, il servizio Gestione API risponde **solo** ai relativi nomi host configurati.
+>  La connettività di rete virtuale è disponibile nei livelli **Premium** e **Developer**: passare a uno di questi livelli come descritto nell'argomento dedicato ad [aggiornamento e ridimensionamento](upgrade-and-scale.md#upgrade-and-scale).
 
-> [!IMPORTANT]
-> Quando si distribuisce un'istanza di gestione API di Azure a una rete virtuale Resource Manager, il servizio deve essere in una subnet dedicata che non contiene altre risorse, a eccezione di istanze di gestione API di Azure. Se si tenta di distribuire un'istanza di gestione API di Azure a una subnet della rete virtuale Resource Manager contenente altre risorse, la distribuzione avrà esito negativo.
->
->
+### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Abilitare la connettività di rete virtuale usando il portale di Azure
 
-![Selezionare una VPN][api-management-setup-vpn-select]
+1. Nel [portale di Azure](https://portal.azure.com/) passare all'istanza di Gestione API.
+2. Selezionare **Domini e SSL personalizzati**.
+3. Configurare l'istanza di Gestione API da distribuire all'interno di una rete virtuale.
 
-Fare clic su **Salva** nella parte superiore della schermata.
+    ![Menu della rete virtuale di Gestione API][api-management-using-vnet-menu]
+4. Selezionare il tipo di accesso da usare:
+    
+    * **Esterno**: il gateway di Gestione API e il portale per gli sviluppatori sono accessibili dalla rete internet pubblica tramite un servizio di bilanciamento del carico esterno. Il gateway può accedere alle risorse all'interno della rete virtuale.
+    
+    ![Peering pubblico][api-management-vnet-public]
+    
+    * **Interno**: il gateway di Gestione API e il portale per gli sviluppatori sono accessibili soltanto dalla rete virtuale tramite un servizio di bilanciamento del carico interno. Il gateway può accedere alle risorse all'interno della rete virtuale.
+    
+    ![Peering privato][api-management-vnet-private]`
+
+    Verrà ora visualizzato un elenco di tutte le aree in cui viene eseguito il provisioning del servizio Gestione API. Selezionare una VNET e una subnet per ogni area. L'elenco viene popolato con le reti virtuali classiche e Resource Manager disponibili nelle sottoscrizioni di Azure, impostate nell'area che si sta configurando.
+    
+    > [!NOTE]
+    > **Endpoint di servizio** nel diagramma precedente include Gateway/Proxy, Portale di pubblicazione, Portale per sviluppatori, GIT e l'endpoint di gestione diretta.
+    > **Endpoint di gestione** nel diagramma precedente è l'endpoint ospitato nel servizio per la gestione della configurazione tramite il portale di Azure e Powershell.
+    > Inoltre si noti che, sebbene il diagramma mostra gli indirizzi IP per i vari endpoint, il servizio Gestione API risponde **solo** ai relativi nomi host configurati.
+    
+    > [!IMPORTANT]
+    > Quando si distribuisce un'istanza di gestione API di Azure a una rete virtuale Resource Manager, il servizio deve essere in una subnet dedicata che non contiene altre risorse, a eccezione di istanze di gestione API di Azure. Se si tenta di distribuire un'istanza di gestione API di Azure a una subnet della rete virtuale Resource Manager contenente altre risorse, la distribuzione avrà esito negativo.
+    >
+
+    ![Selezionare una VPN][api-management-setup-vpn-select]
+
+5. Fare clic su **Salva** nella parte superiore della schermata.
 
 > [!NOTE]
 > L'indirizzo VIP dell'istanza di Gestione API può cambiare ogni volta che la rete virtuale viene abilitata o disabilitata.  
 > L'indirizzo VIP viene modificato quando Gestione API passa da **Esterna** a **Interna** o viceversa
 >
 
-
 > [!IMPORTANT]
 > Se si rimuove Gestione API da una rete virtuale o si modifica quella in cui è distribuito, la rete virtuale utilizzata in precedenza può rimanere bloccata fino a 4 ore. Durante questo periodo non sarà possibile eliminare la rete virtuale o distribuirvi una nuova risorsa.
 
-## <a name="enable-vnet-powershell"> </a>Abilitare la connessione della rete virtuale usando i cmdlet di PowerShell
+## <a name="enable-vnet-powershell"></a>Abilitare la connessione della rete virtuale usando i cmdlet di PowerShell
 È inoltre possibile abilitare la connettività della rete virtuale utilizzando i cmdlet di PowerShell
 
 * **Creare un servizio Gestione API all'interno di una rete virtuale**: usare il cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) per creare un servizio Gestione API di Azure all'interno di una rete virtuale.
 
 * **Distribuire un servizio Gestione API esistente all'interno di una rete virtuale**: usare il cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) per spostare un servizio Gestione API di Azure esistente all'interno di una rete virtuale.
 
-## <a name="connect-vnet"> </a>Connettersi a un servizio Web ospitato all'interno di una rete virtuale
+## <a name="connect-vnet"></a>Connettersi a un servizio Web ospitato all'interno di una rete virtuale
 Dopo che il servizio Gestione API è stato connesso alla VNET, l'accesso ai servizi di back-end all'interno della rete virtuale non è diverso dall'accesso ai servizi pubblici. È sufficiente digitare l'indirizzo locale o il nome host (se è stato configurato un server DNS per la VNET) del servizio Web nel campo **URL del servizio Web** quando si crea una nuova API o se ne modifica una esistente.
 
 ![Aggiungere un'API dalla VPN][api-management-setup-vpn-add-api]
@@ -157,4 +167,3 @@ Quando si apportano modifiche alla rete, per verificare che il servizio Gestione
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
-

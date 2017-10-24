@@ -12,17 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 10/6/2017
 ms.author: raiye
+ms.openlocfilehash: b728e794132ab8eb91d5d77b3ed452f0c84b8823
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 09c433ccf54c84ee2ae40c3ba3ccd84e7462124c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="september-guest-os"></a>Sistema operativo guest di settembre
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-09 | [4038782] |Aggiornamenti di Windows 10 |5.11 |12 settembre 2017 |
+| Rel 17-09 | [4038779], [4038786], [4038793] |Solo sicurezza di Windows |2.66, 3.53, 4.46 |12 settembre 2017 |
+| Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Aggiornamento di .NET di settembre |2.66, 3.53, 4.46 |12 settembre 2017 |
+| Rel 17-09 | [4036586] |Internet Explorer |2.66, 3.53, 4.46 |12 settembre 2017 |
+| CVE-2017-8704 | [4038782] |Denial of Service |5.11 |12 settembre 2017 |
+| N/D | [4034664] |Rollup del mese di agosto non correlato alla sicurezza  |2.66 |8 agosto 2017 |
+| N/D | [4034665] |Rollup del mese di agosto non correlato alla sicurezza |5.11 |8 agosto 2017 |
+| N/D | [4034681] |Rollup del mese di agosto non correlato alla sicurezza |4.46 |8 agosto 2017 |
 
 ## <a name="august-guest-os"></a>Sistema operativo Guest di agosto
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -34,9 +45,9 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-07 | [4034733] |Internet Explorer |2.65, 3.52, 4.45, 5.10 |8 agosto 2017 |
 | Rel 17-07 | [4034664], [4034665], [4034681] |Rollup mensili di Windows |2.65, 3.52, 4.45 |8 agosto 2017 |
 | Rel 17-07 | [4034668], [4034660], [4034658], [4034674] |Nuovo rilascio di CVE-2017-0071, nuovo rilascio di CVE-2017-0228 |5.10 |8 agosto 2017 |
-| Rel 17-07 | [4025341] |Rollup del mese di luglio non correlato alla sicurezza |2.65 |8 agosto 2017 |
-| Rel 17-07 | [4025331] |Rollup del mese di luglio non correlato alla sicurezza |3.52 |8 agosto 2017 |
-| Rel 17-07 | [4025336] |Rollup del mese di luglio non correlato alla sicurezza |4.45 |8 agosto 2017 |
+| Rel 17-07 | [4025341] |Rollup del mese di luglio non correlato alla sicurezza |2.65 |11 luglio 2017 |
+| Rel 17-07 | [4025331] |Rollup del mese di luglio non correlato alla sicurezza |3.52 |11 luglio 2017 |
+| Rel 17-07 | [4025336] |Rollup del mese di luglio non correlato alla sicurezza |4.45 |11 luglio 2017 |
 
 ## <a name="july-guest-os"></a>Sistema operativo guest di luglio
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -48,9 +59,9 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-07 | [4025376] |Lampeggiante |3.51, 4.44, 5.9 |11 luglio 2017 |
 | Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 luglio 2017 |
 | N/D | [4020322] |Aggiornamento del fuso orario |2.64, 3.51, 4.44 |11 luglio 2017 |
-| N/D | [4022719] |Rollup del mese di giugno non correlato alla sicurezza |2.64 |11 luglio 2017 |
-| N/D | [4022724] |Rollup del mese di giugno non correlato alla sicurezza |3.51 |11 luglio 2017 |
-| N/D | [4022726] |Rollup del mese di giugno non correlato alla sicurezza |4.44 |11 luglio 2017 |
+| N/D | [4022719] |Rollup del mese di giugno non correlato alla sicurezza |2.64 |13 giugno 2017 |
+| N/D | [4022724] |Rollup del mese di giugno non correlato alla sicurezza |3.51 |13 giugno 2017 |
+| N/D | [4022726] |Rollup del mese di giugno non correlato alla sicurezza |4.44 |13 giugno 2017 |
 
 ## <a name="june-guest-os"></a>Sistema operativo guest di giugno
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -65,20 +76,20 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Nuovo rilascio di CVE-2017-0167 |4.43, 5.8 |11 aprile 2017 |
 | N/D | [4023136] |Aggiornamento del fuso orario  |2.63, 3.50, 4.43 |13 giugno 2017 |
 | N/D | [4019264] |Rollup del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
-| N/D | [4014545] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
-| N/D | [4014508] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
-| N/D | [4014511] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
-| N/D | [4014514] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63|13 giugno 2017 |
-| N/D | [4019216] |Rollup del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
-| N/D | [4014503] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
-| N/D | [4014506] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
-| N/D | [4014509] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
-| N/D | [4014513] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
-| N/D | [4019215] |Rollup del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
-| N/D | [4014505] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
-| N/D | [4014507] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
-| N/D | [4014510] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
-| N/D | [4014512] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+| N/D | [4014545] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |11 aprile 2017 |
+| N/D | [4014508] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |9 maggio 2017 |
+| N/D | [4014511] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |9 maggio 2017 |
+| N/D | [4014514] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |9 maggio 2017 |
+| N/D | [4019216] |Rollup del mese di maggio non correlato alla sicurezza |3.50 |9 maggio 2017 |
+| N/D | [4014503] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |9 maggio 2017 |
+| N/D | [4014506] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |9 maggio 2017 |
+| N/D | [4014509] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |9 maggio 2017 |
+| N/D | [4014513] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |9 maggio 2017 |
+| N/D | [4019215] |Rollup del mese di maggio non correlato alla sicurezza |4.43 |9 maggio 2017 |
+| N/D | [4014505] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |9 maggio 2017 |
+| N/D | [4014507] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |9 maggio 2017 |
+| N/D | [4014510] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |9 maggio 2017 |
+| N/D | [4014512] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |9 maggio 2017 |
 
 ## <a name="may-guest-os"></a>Sistema operativo guest di maggio
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -93,20 +104,20 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-05 | [4022345] |Advisory Microsoft sulla sicurezza |5.7 | 9 maggio 2017 |
 | Rel 17-05 | [4021279] |Avviso su .NET /ASP.Net Core |2.62, 3.49, 4.42, 5.7 | 9 maggio 2017 |
 | N/D | [4012864] |Aggiornamento del fuso orario |2.62, 3.49, 4.42 | 9 maggio 2017 |
-| N/D | [4014565] |Rollup .NET del mese di aprile non correlato alla sicurezza |2.62 | 9 maggio 2017 |
-| N/D | [4014559] |Rollup .NET del mese di aprile non correlato alla sicurezza |2.62 | 9 maggio 2017 |
-| N/D | [4015549] |Rollup del mese di aprile non correlato alla sicurezza |2.62 | 9 maggio 2017 |
+| N/D | [4014565] |Rollup .NET del mese di aprile non correlato alla sicurezza |2.62 | 11 aprile 2017 |
+| N/D | [4014559] |Rollup .NET del mese di aprile non correlato alla sicurezza |2.62 | 11 aprile 2017 |
+| N/D | [4015549] |Rollup del mese di aprile non correlato alla sicurezza |2.62 | 11 aprile 2017 |
 | N/D | [4019990] |Aggiornamento di D3DCompiler - Requisito per .NET 4.7 |3.49 | 9 maggio 2017 |
-| N/D | [4014563] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 9 maggio 2017 |
-| N/D | [4014557] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 9 maggio 2017 |
-| N/D | [4014545] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 9 maggio 2017 |
-| N/D | [4014548] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 9 maggio 2017 |
-| N/D | [4015551] |Rollup del mese di aprile non correlato alla sicurezza |3.49 | 9 maggio 2017 |
-| N/D | [3173424] |Aggiornamento dello stack di manutenzione  |4.42 | 9 maggio 2017 |
-| N/D | [4014555] |Rollup .NET del mese di aprile non correlato alla sicurezza  |4.42 | 9 maggio 2017 |
-| N/D | [4014567] |Rollup .NET del mese di aprile non correlato alla sicurezza |4.42 | 9 maggio 2017 |
-| N/D | [4015550] |Rollup del mese di aprile non correlato alla sicurezza |4.42 | 9 maggio 2017 |
-| N/D | [4013418] |Aggiornamento dello stack di manutenzione |5.7 | 9 maggio 2017 |
+| N/D | [4014563] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 11 aprile 2017 |
+| N/D | [4014557] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 11 aprile 2017 |
+| N/D | [4014545] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 11 aprile 2017 |
+| N/D | [4014548] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 11 aprile 2017 |
+| N/D | [4015551] |Rollup del mese di aprile non correlato alla sicurezza |3.49 | 11 aprile 2017 |
+| N/D | [3173424] |Aggiornamento dello stack di manutenzione  |4.42 | 12 luglio 2016 |
+| N/D | [4014555] |Rollup .NET del mese di aprile non correlato alla sicurezza  |4.42 | 11 aprile 2017 |
+| N/D | [4014567] |Rollup .NET del mese di aprile non correlato alla sicurezza |4.42 | 11 aprile 2017 |
+| N/D | [4015550] |Rollup del mese di aprile non correlato alla sicurezza |4.42 | 11 aprile 2017 |
+| N/D | [4013418] |Aggiornamento dello stack di manutenzione |5.7 | 14 marzo 2017 |
 
 ## <a name="april-guest-os"></a>Sistema operativo guest di aprile
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -524,6 +535,23 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 
+
+[4038782]: http://support.microsoft.com/kb/4038782
+[4038779]: http://support.microsoft.com/kb/4038779
+[4038786]: http://support.microsoft.com/kb/4038786
+[4038793]: http://support.microsoft.com/kb/4038793
+[4040966]: http://support.microsoft.com/kb/4040966
+[4040960]: http://support.microsoft.com/kb/4040960
+[4040965]: http://support.microsoft.com/kb/4040965
+[4040959]: http://support.microsoft.com/kb/4040959
+[4033988]: http://support.microsoft.com/kb/4033988
+[4040955]: http://support.microsoft.com/kb/4040955
+[4040967]: http://support.microsoft.com/kb/4040967
+[4040958]: http://support.microsoft.com/kb/4040958
+[4036586]: http://support.microsoft.com/kb/4036586
+[4034664]: http://support.microsoft.com/kb/4034664
+[4034665]: http://support.microsoft.com/kb/4034665
+[4034681]: http://support.microsoft.com/kb/4034681
 
 [4034658]: http://support.microsoft.com/kb/4034658
 [4034679]: http://support.microsoft.com/kb/4034679
@@ -956,4 +984,3 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
-

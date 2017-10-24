@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 467a08b1ba9f7c0070dfa0cf3df18326cf49ca70
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 6a03f668c6b9e18bf80cb04ea9feddeef4b6bd9e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Distribuire cluster Kubernetes per contenitori Windows
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida illustra in modo dettagliato come usare l'interfaccia della riga di comando di Azure per distribuire un cluster [Kubernetes](https://kubernetes.io/docs/home/) nel [servizio contenitore di Azure](../container-service-intro.md). Dopo aver distribuito il cluster, è possibile connettersi a esso con lo strumento da riga di comando `kubectl` di Kubernetes e distribuire il primo contenitore Windows.
@@ -168,7 +166,7 @@ Per esporre il pod con un indirizzo IP pubblico, digitare il comando seguente:
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Con questo comando, Kubernetes crea un servizio e una [regola di Azure Load Balancer](container-service-kubernetes-load-balancing.md) con un indirizzo IP pubblico per il servizio. 
+Con questo comando, Kubernetes crea un servizio e una regola di Azure Load Balancer con un indirizzo IP pubblico per il servizio. 
 
 Eseguire questo comando per visualizzare lo stato del servizio.
 
@@ -203,4 +201,3 @@ In questa guida introduttiva è stato distribuito un cluster Kubernetes, è stat
 
 > [!div class="nextstepaction"]
 > [Gestire un cluster Kubernetes ACS](container-service-tutorial-kubernetes-prepare-app.md)
-

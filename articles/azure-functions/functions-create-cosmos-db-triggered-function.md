@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 10/02/2017
 ms.author: glenga
 ms.custom: 
+ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 04da2dda961eb2c6bc53f0aed1c0cd12372a2332
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
@@ -66,11 +65,11 @@ Si creerà ora una funzione nella nuova app per le funzioni.
     | **Nome raccolta** | Items | Nome della raccolta da monitorare. |
     | **Creare la raccolta di lease se non esiste** | Selezionato | La raccolta non esiste ancora, quindi crearla. |
 
-4. Selezionare **Nuovo** accanto all'etichetta **Cosmos DB account connection (Connessione dell'account Cosmos DB) di Azure** e selezionare **+ Crea nuovo**. 
+4. Selezionare **Nuovo** accanto all'etichetta **della connessione dell'account Cosmos DB di Azure** e selezionare un account Cosmos DB esistente o fare clic su **+ Crea nuovo**. 
  
     ![Configurare la connessione di Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
-6. Usare le impostazioni di **Nuovo account** specificate nella tabella.
+6. Quando si crea un nuovo account Cosmos DB, usare le impostazioni del **nuovo account** come indicato nella tabella.
 
     | Impostazione      | Valore consigliato  | Descrizione                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -151,4 +150,3 @@ Dopo aver creato la raccolta specificata nell'associazione della funzione, è po
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Per altre informazioni sui trigger dell'archiviazione code, vedere [Associazioni della coda dell'archiviazione di Funzioni di Azure](functions-bindings-storage-queue.md).
-

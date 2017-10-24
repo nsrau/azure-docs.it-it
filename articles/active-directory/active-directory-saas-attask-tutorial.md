@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con @Task| Documenti Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con @Task | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e @Task.
 services: active-directory
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jeedes
 ms.openlocfilehash: ebb19ca6cbaf04106fbce937d95651e709854cfd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-task"></a>Esercitazione: Integrazione di Azure Active Directory con @Task
 Questa esercitazione descrive l'integrazione di @Task con Azure Active Directory (Azure AD).  
@@ -31,7 +31,7 @@ L'integrazione di @Task con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per configurare l'integrazione di Azure AD con @Task, è necessario quanto segue:
+Per configurare l'integrazione di Azure AD con @Task, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
 * Sottoscrizione di @Task abilitata per l'accesso Single Sign-On
@@ -84,9 +84,9 @@ Questa sezione descrive come configurare e testare l'accesso Single Sign-On di A
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di @Task che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in @Task.   
 La relazione di collegamento viene stabilita assegnando il valore del **nome utente** in Azure AD come valore di **Username** in @Task.
 
-Per configurare e testare Azure AD single sign-on con @Task, è necessario completare i seguenti blocchi predefiniti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con @Task, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente @Tasktest ](#creating-a-halogen-software-test-user)** per avere una controparte di Britta Simon in @Taskthat collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -95,7 +95,7 @@ Per configurare e testare Azure AD single sign-on con @Task, è necessario compl
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione @Task.
 
-**Per configurare il AD Azure single sign-on con @Task, eseguire la procedura seguente:**
+**Per configurare l'accesso Single Sign-On di Azure AD con @Task, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **@Task** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
@@ -191,7 +191,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 ### <a name="creating-an-task-test-user"></a>Creazione di un utente di test di @Task
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in @Task.
 
-**Per creare un utente denominato Britta Simon in @Task, eseguire la procedura seguente:**
+**Per creare un utente denominato Britta Simon in @Task, seguire questa procedura:**
 
 1. Accedere al sito aziendale di @Task come amministratore.
 2. Nel menu in alto fare clic su **People**.
@@ -213,7 +213,7 @@ L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'
 
 ![Assegna utente][200] 
 
-**Per assegnare Britta Simon a @Task, eseguire la procedura seguente:**
+**Per assegnare Britta Simon a @Task, seguire questa procedura:**
 
 1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
    

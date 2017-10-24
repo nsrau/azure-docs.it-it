@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
+ms.openlocfilehash: f80f9f0e6d3fde438d27949a3fea001f37d59ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
 ## <a name="what-is-azure"></a>Cos'è Azure?
@@ -55,15 +53,9 @@ Azure offre servizi a supporto dello sviluppo di applicazioni e per la soddisfaz
 
 Se si vuole usare il percorso più rapido per la pubblicazione di progetti basati sul Web, prendere in considerazione il servizio app di Azure. Il servizio App rende più semplice estendere le app Web per il supporto di client per dispositivi mobili e pubblicare API REST facilmente utilizzabili. Questa piattaforma consente l'autenticazione tramite provider basati su social network, il ridimensionamento automatico in base al traffico, l'esecuzione di test nell'ambiente di produzione e la distribuzione continua e basata sul contenitore.
 
-Quando si crea un'app nel servizio app, è necessario selezionare uno dei tipi seguenti:
+È possibile creare app Web, back-end di app per dispositivi mobili e app per le API.
 
-- [App Web](../../app-service-web/app-service-web-overview.md): consente di ospitare siti e applicazioni Web scritte in .NET, Java, PHP, Node.js e Python.
-
-- [App per dispositivi mobili](../../app-service-mobile/app-service-mobile-value-prop.md): estende le app Web in modo che supportino l'accesso dai dispositivi mobili, abilita l'autenticazione con i provider basati su social network e Azure Active Directory (Azure AD), consente l'archiviazione back-end e si integra con [Hub di notifica di Azure](../../notification-hubs/notification-hubs-push-notification-overview.md) per le notifiche push.
-
-- [App per le API](../../app-service-api/app-service-api-apps-why-best-platform.md): consente di esporre in modo più sicuro le API nel cloud con i metadati Swagger, per renderli facilmente utilizzabili dai client.
-
-Poiché tutti e tre i tipi di app condividono il runtime del servizio app, è possibile ospitare un sito Web, supportare i client per dispositivi mobili ed esporre le API in Azure nello stesso progetto o nella stessa soluzione. Per altre informazioni sul servizio app, vedere [Funzionamento del servizio App](../../app-service/app-service-how-works-readme.md).
+Poiché tutti e tre i tipi di app condividono il runtime del servizio app, è possibile ospitare un sito Web, supportare i client per dispositivi mobili ed esporre le API in Azure nello stesso progetto o nella stessa soluzione. Per altre informazioni sulle app Web del servizio app di Azure, vedere [Che cos'è App Web di Azure](../../app-service/app-service-web-overview.md).
 
 Il servizio app, progettato su misura per DevOps, supporta vari strumenti per la pubblicazione e la distribuzione di integrazione continua, tra cui webhook GitHub, Jenkins, Visual Studio Team Services e TeamCity.
 
@@ -71,7 +63,7 @@ Il servizio app, progettato su misura per DevOps, supporta vari strumenti per la
 
 >**Uso consigliato**: usare il servizio app per eseguire la migrazione in Azure di applicazioni Web esistenti, se per queste è necessaria una piattaforma di hosting gestita. È anche possibile usare il servizio app se l'app deve supportare client per dispositivi mobili o esporre API REST.
 
->**Come iniziare**: con il servizio app è facile creare e distribuire un'[app Web](../../app-service-web/web-sites-dotnet-get-started.md), un'[app per dispositivi mobili](../../app-service-mobile/app-service-mobile-ios-get-started.md) o un'[app per le API](../../app-service-api/app-service-api-dotnet-get-started.md) fin dalla prima volta.
+>**Come iniziare**: con il servizio app è facile creare e distribuire un'[app Web](../../app-service/app-service-web-get-started-dotnet.md), un'[app per dispositivi mobili](../../app-service-mobile/app-service-mobile-ios-get-started.md) o un'[app per le API](../../app-service/app-service-web-tutorial-rest-api.md) fin dalla prima volta.
 
 >**Prova adesso**: il servizio app consente di eseguire il provisioning di un'app di breve durata per provare la piattaforma senza dover effettuare la registrazione per la creazione di un account Azure. È possibile provare la piattaforma e [creare un'app del servizio app di Azure](https://tryappservice.azure.com/).
 
@@ -130,7 +122,7 @@ La maggior parte delle applicazioni deve archiviare dati. Pertanto, indipendente
 
     >**Come iniziare**: [creare un'applicazione console DocumentDB in C#](../../documentdb/documentdb-get-started.md). Per gli sviluppatori MongoDB è consigliabile vedere [Supporto del protocollo di DocumentDB per MongoDB](../../documentdb/documentdb-protocol-mongodb.md).
 
-È possibile usare [Azure Data Factory](../../data-factory/data-factory-introduction.md) per spostare in Azure dati locali esistenti. Se non è ancora possibile spostare i dati nel cloud, [Connessioni ibride](../../biztalk-services/integration-hybrid-connection-overview.md) in Servizi BizTalk consente di connettere le app ospitate del servizio app a risorse locali. È anche possibile connettersi ai servizi dati e di archiviazione di Azure dalle applicazioni locali.
+È possibile usare [Azure Data Factory](../../data-factory/introduction.md) per spostare in Azure dati locali esistenti. Se non è ancora possibile spostare i dati nel cloud, [Connessioni ibride](../../biztalk-services/integration-hybrid-connection-overview.md) in Servizi BizTalk consente di connettere le app ospitate del servizio app a risorse locali. È anche possibile connettersi ai servizi dati e di archiviazione di Azure dalle applicazioni locali.
 
 #### <a name="docker-support"></a>Supporto di Docker
 
@@ -196,7 +188,7 @@ Sia che si tratti di eseguire il provisioning di VM o di pubblicare app Web con 
 
 >**Prova adesso:** [alcune integrazioni di DevOps](https://azure.microsoft.com/try/devops/).
 
->**Come iniziare**: per visualizzare le opzioni di DevOps per le app del servizio app, vedere [Distribuzione continua nel servizio app di Azure](../../app-service-web/app-service-continuous-deployment.md).
+>**Come iniziare**: per visualizzare le opzioni di DevOps per le app del servizio app, vedere [Distribuzione continua nel servizio app di Azure](../../app-service/app-service-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Aree di Azure
@@ -333,4 +325,3 @@ Anche se è difficile stimare i costi in anticipo, Azure offre un [calcolatore d
 Dopo aver distribuito l'applicazione o una soluzione in Azure, è possibile creare avvisi per l'invio di messaggi di posta elettronica all'approssimarsi dei limiti di spesa definiti per ogni avviso.
 
 >**Come iniziare**: per altre informazioni, vedere [Impostare avvisi di fatturazione per le sottoscrizioni di Microsoft Azure](../../billing-set-up-alerts.md).
-
