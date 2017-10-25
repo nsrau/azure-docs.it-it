@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: glenga
-ms.openlocfilehash: 45b2813f4b6a0c8b562bbd9ca55aa858f1b9a7b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Scrivere codici per Funzioni di Azure e testarle in locale
 
@@ -48,7 +48,7 @@ La versione 2.x degli strumenti usa il runtime di Funzioni di Azure 2.x basata s
 >[!IMPORTANT]   
 > Prima di installare Strumenti di base di Funzioni di Azure, [installare .NET Core 2.0](https://www.microsoft.com/net/core).  
 >
-> Il runtime 2.0 di funzioni di Azure è disponibile in anteprima e attualmente non tutte le funzionalità di Funzioni di Azure sono supportate. Per altre informazioni, vedere [Problemi noti del runtime 2.0 di Funzioni di Azure](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
+> Il runtime 2.0 di Funzioni di Azure è disponibile in anteprima e attualmente non tutte le funzionalità di Funzioni di Azure sono supportate. Per altre informazioni, vedere [Problemi noti del runtime 2.0 di Funzioni di Azure](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
 
  Usare il comando seguente per installare gli strumenti in versione 2.0:
 
@@ -160,6 +160,7 @@ Per impostare un valore per le stringhe di connessione, è possibile eseguire un
     ```
     Per entrambi i comandi è necessario innanzitutto accedere ad Azure.
 
+<a name="create-func"></a>
 ## <a name="create-a-function"></a>Creare una funzione
 
 Eseguire il comando seguente per creare una funzione:
@@ -186,7 +187,7 @@ Per creare una funzione attivata dalla coda, eseguire:
 ```
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
-
+<a name="start"></a>
 ## <a name="run-functions-locally"></a>Eseguire funzioni localmente
 
 Per eseguire un progetto Funzioni, eseguire l'host di Funzioni. L'host abilita i trigger per tutte le funzioni del progetto:
@@ -236,7 +237,60 @@ Quindi, in Visual Studio Code, nella visualizzazione **Debug**, selezionare **At
 
 ### <a name="passing-test-data-to-a-function"></a>Passaggio di dati di test a una funzione
 
-È anche possibile richiamare una funzione direttamente tramite `func run <FunctionName>` e offrire dati di input per la funzione. Questo comando è simile all'esecuzione di una funzione con la scheda **Test** nel portale di Azure. Questo comando avvia l'intero host di Funzioni.
+Per testare le funzioni localmente, [avviare l'host di Funzioni](#start) e chiamare gli endpoint nel server locale usando richieste HTTP. L'endpoint chiamato dipende dal tipo di funzione. 
+
+>[!NOTE]  
+> Gli esempi in questo argomento usano lo strumento cURL per inviare richieste HTTP dal terminale o da un prompt dei comandi. È possibile usare lo strumento preferito per inviare richieste HTTP al server locale. Lo strumento cURL è disponibile per impostazione predefinita nei sistemi basati su Linux. In Windows è necessario prima scaricare e installare lo [strumento cURL](https://curl.haxx.se/).
+
+Per informazioni più generali sui test delle funzioni, vedere [Strategie per il test del codice in Funzioni di Azure](functions-test-a-function.md).
+
+#### <a name="http-and-webhook-triggered-functions"></a>Funzioni attivate tramite HTTP e webhook
+
+È possibile chiamare l'endpoint seguente per eseguire localmente funzioni attivate tramite HTTP e webhook:
+
+    http://localhost:{port}/api/{function_name}
+
+Assicurarsi di usare lo stesso nome server e la stessa porta su cui è in ascolto l'host di Funzioni. Questi valori sono visualizzati nell'output generato all'avvio dell'host di Funzioni. È possibile chiamare questo URL usando qualsiasi metodo HTTP supportato dal trigger. 
+
+Il comando cURL seguente attiva la funzione di avvio rapido `MyHttpTrigger` da una richiesta GET con il parametro _name_ passato nella stringa di query. 
+
+```
+curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
+```
+L'esempio seguente è la stessa funzione chiamata da una richiesta POST passando _name_ nel corpo della richiesta:
+
+```
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
+```
+
+Si noti che è possibile effettuare richieste GET da un browser passando dati nella stringa di query. Per tutti gli altri metodi HTTP è necessario usare cURL, Fiddler, Postman o uno strumento analogo per i test HTTP.  
+
+#### <a name="non-http-triggered-functions"></a>Funzione attivate non da HTTP
+Per tutti i tipi di funzioni diverse dai trigger HTTP e dai webhook, è possibile testare localmente le funzioni chiamando un endpoint di amministrazione. Chiamando questo endpoint sul server locale si attiva la funzione. È facoltativamente possibile passare dati di test all'esecuzione. Questa funzionalità è analoga alla scheda **Test** del portale di Azure.  
+
+Chiamare l'endpoint di amministrazione seguente per attivare funzioni non HTTP con una richiesta HTTP POST:
+
+    http://localhost:{port}/admin/functions/{function_name}
+
+Per passare dati di test all'endpoint di amministrazione di una funzione, è necessario fornire i dati nel corpo di un messaggio di richiesta POST. Il corpo del messaggio deve avere il formato JSON seguente:
+
+```JSON
+{
+    "input": "<trigger_input>"
+}
+```` 
+Il valore `<trigger_input>` contiene dati nel formato previsto dalla funzione. L'esempio cURL seguente è una richiesta POST per una funzione `QueueTriggerJS`. In questo caso l'input è una stringa che equivale al messaggio previsto nella coda.      
+
+```
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+```
+
+#### <a name="using-the-func-run-command-in-version-1x"></a>Uso del comando `func run` nella versione 1.x
+
+>[!IMPORTANT]  
+> Il comando `func run` non è supportato nella versione 2.x degli strumenti. Per altre informazioni, vedere l'argomento [Come specificare le versioni del runtime per Funzioni di Azure](functions-versions.md).
+
+È anche possibile richiamare una funzione direttamente tramite `func run <FunctionName>` e offrire dati di input per la funzione. Questo comando è simile all'esecuzione di una funzione con la scheda **Test** nel portale di Azure. 
 
 `func run` supporta le opzioni seguenti:
 
