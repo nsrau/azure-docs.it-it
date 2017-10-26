@@ -3,7 +3,7 @@ title: Introduzione all'insieme di credenziali delle chiavi di Azure | Documenta
 description: "Usare questa esercitazione per imparare a eseguire facilmente le attività iniziali dell'insieme di credenziali delle chiavi di Azure per creare un contenitore finalizzato in Azure, in cui archiviare e gestire chiavi e segreti di crittografia in Azure."
 services: key-vault
 documentationcenter: 
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 36721e1d-38b8-4a15-ba6f-14ed5be4de79
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/19/2017
-ms.author: cabailey
-ms.openlocfilehash: 0299d931c5bf21775b68069afaa106279270226a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/16/2017
+ms.author: barclayn
+ms.openlocfilehash: d689fc0724b613abf2b319037dbd5555372622a8
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introduzione all'insieme di credenziali delle chiavi di Azure
 L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).

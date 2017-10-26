@@ -17,13 +17,15 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 081f36c975c4a2d137fa20e346d6b6739b6997fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8011f98b810c07982ad877b4bcf05daff5df222
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="update-an-application-in-kubernetes"></a>Aggiornare un'applicazione in Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Dopo la distribuzione di un'applicazione in Kubernetes, è possibile aggiornarla specificando una nuova immagine del contenitore o una nuova versione dell'immagine. A questo scopo, l'aggiornamento viene eseguito a fasi in modo che solo una parte della distribuzione venga aggiornata contemporaneamente. Questo aggiornamento a fasi consente all'applicazione di rimanere in esecuzione durante l'aggiornamento. Fornisce inoltre un meccanismo di ripristino dello stato precedente se si verifica un errore di distribuzione. 
 

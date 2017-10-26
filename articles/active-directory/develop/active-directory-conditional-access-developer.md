@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ed42af90a9c467042ff2537a38646f59147fb5ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
@@ -48,7 +48,7 @@ In particolare, gli scenari seguenti richiedono che il codice gestisca le richie
 * App a pagina singola che usano ADAL.js
 * App Web che chiamano una risorsa
 
-I criteri di accesso condizionale possono essere applicati all'app, ma anche a un'API Web a cui l'app accede. Per altre informazioni su come configurare i criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale di Azure Active Directory](../active-directory-conditional-access-azuread-connected-apps.md#configure-per-application-access-rules).
+I criteri di accesso condizionale possono essere applicati all'app, ma anche a un'API Web a cui l'app accede. Per altre informazioni su come configurare i criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale di Azure Active Directory](../active-directory-conditional-access-azuread-connected-apps.md).
 
 A seconda dello scenario, un cliente aziendale può applicare e rimuovere i criteri di accesso condizionale in qualsiasi momento.  Affinché l'app continui a funzionare quando vengono applicati nuovi criteri, è necessario implementare la gestione delle richieste. Gli esempi seguenti illustrano la gestione delle richieste. 
 

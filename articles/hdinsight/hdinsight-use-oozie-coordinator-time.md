@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 14cd30f4f9ed77dca369452a680d621eb81d5a4e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1f6285dd230afd6d4de202a0cb25e5097e378f2
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Usare il coordinatore di Oozie basato sul tempo con Hadoop in HDInsight per definire flussi di lavoro e coordinare processi
 Questo articolo descrive come definire flussi di lavoro e coordinatori e come attivare i processi del coordinatore in base al tempo. Prima di procedere può essere utile vedere [Usare Oozie con HDInsight][hdinsight-use-oozie]. Oltre a Oozie, è possibile pianificare processi anche con Azure Data Factory. Per informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data factory](../data-factory/transform-data.md).
@@ -662,7 +662,8 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
     # killOozieJob($oozieJobId)
     ```
 
-    Rimuovere i segni # se si desidera eseguire le funzioni aggiuntive.
+Rimuovere i segni # se si desidera eseguire le funzioni aggiuntive.
+
 9. Se si usa la versione 2.1 del cluster HDinsight, sostituire "https://$clusterName.azurehdinsight.net:443/oozie/v2/" con "https://$clusterName.azurehdinsight.net:443/oozie/v1/". La versione 2.1 del cluster HDInsight non supporta la versione 2 dei servizi Web.
 10. Fare clic su **Esegui script** o premere **F5** per eseguire lo script. L'output sarà analogo al seguente:
 

@@ -3,7 +3,7 @@ title: Guida di riferimento a Funzioni di Azure per sviluppatori di script C# | 
 description: Informazioni su come sviluppare Funzioni di Azure in C#.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
-ms.author: donnam
-ms.openlocfilehash: c224955d5d3592fb9afaaf31e6e4e531250b138e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: glenga
+ms.openlocfilehash: 18d3a87da8c240a3153dfa68f9b1d8bd17bbe693
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C#
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]

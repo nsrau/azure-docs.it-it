@@ -9,14 +9,14 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 358015d6cfd9961508b209f628b2d648a75e3c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 709d23ab590c06d5da9b03e2767bc0be5905355b
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -25,8 +25,6 @@ ms.lasthandoff: 10/11/2017
 Questa esercitazione è la seconda parte di una serie di esercitazioni sull'archiviazione. Approfondisce l'[esercitazione precedente sull'archiviazione][previous-tutorial] e aggiunge la generazione automatica di anteprima senza server usando Funzioni di Azure e Griglia di eventi di Azure. Griglia di eventi consente a [Funzioni di Azure](..\azure-functions\functions-overview.md) di rispondere agli eventi di [Archiviazione BLOB di Azure](..\storage\blobs\storage-blobs-introduction.md) e generare anteprime delle immagini caricate. Viene creata una sottoscrizione di eventi per l'evento di creazione dell'archivio BLOB. Quando si aggiunge un BLOB a un contenitore di archiviazione BLOB specifico, viene richiamato un endpoint della funzione. I dati passati all'associazione della funzione da Griglia di eventi vengono usati per accedere al BLOB e generare l'immagine di anteprima. 
 
 Usare l'interfaccia della riga di comando di Azure e il portale di Azure per aggiungere le funzionalità di ridimensionamento a un'app esistente di caricamento di immagini.
-
-[!INCLUDE [storage-events-note.md](../../includes/storage-events-note.md)]
 
 ![App Web pubblicata nel browser Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -42,7 +40,6 @@ In questa esercitazione si apprenderà come:
 Per completare questa esercitazione:
 
 + È necessario aver completato l'esercitazione precedente sull'archiviazione BLOB: [Upload image data in the cloud with Azure Storage][previous-tutorial] (Caricare dati dell'immagine nel cloud con Archiviazione di Azure). 
-+ È necessario richiedere e ottenere l'accesso alla funzionalità degli eventi di archiviazione BLOB. [Richiedere l'accesso a eventi di archiviazione BLOB](#request-storage-access) prima di completare la procedura nell'argomento.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,32 +48,6 @@ Per completare questa esercitazione:
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0.14 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 Se non si usa Cloud Shell, prima è necessario accedere usando `az login`.
-
-## <a name="enable-blob-storage-events"></a>Abilitare gli eventi di archiviazione BLOB
-
-In questo momento, è necessario richiedere l'accesso alle funzionalità degli eventi di archiviazione BLOB.  
-
-### <a name="request-storage-access"></a>Richiedere l'accesso agli eventi di archiviazione BLOB
-
-Richiedere l'accesso con il comando `az feature register`.
-
-> [!IMPORTANT]  
-> I partecipanti agli eventi di archiviazione BLOB vengono accettati nell'ordine in cui vengono ricevute le richieste. La concessione dell'accesso a questa funzionalità potrebbe subire un ritardo di 1-2 giorni lavorativi. 
-
-```azurecli-interactive
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-
-### <a name="check-access-status"></a>Controllare lo stato di approvazione
-
-Si riceverà un messaggio di posta elettronica di Microsoft in cui si informa l'utente che è stato concesso l'accesso agli eventi di archiviazione BLOB. È possibile verificare lo stato della richiesta di accesso in qualsiasi momento con il comando `az feature show`.
-
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
-```
-Dopo aver ottenuto l'accesso alla funzionalità degli eventi di archiviazione BLOB, questo comando restituisce il valore `"Registered"`. 
- 
-Dopo essersi registrati, è possibile proseguire questa esercitazione.
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 

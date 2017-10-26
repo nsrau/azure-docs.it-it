@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: c37180262981bbbcdecb0504e2717db27568586d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -94,10 +94,10 @@ Per abilitare il servizio di gestione della riparazione tramite il [modello di A
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. Dopo aver aggiornato il modello del cluster con queste modifiche, applicarle e consentire la conclusione dell'aggiornamento. È ora possibile vedere il servizio del sistema di gestione della riparazione in esecuzione nel cluster. Viene chiamato `fabric:/System/RepairManagerService` nella sezione relativa ai servizi del sistema in Service Fabric Explorer. 
@@ -119,15 +119,15 @@ Per abilitare il servizio di gestione della riparazione:
     }
     ```
 
-2. A questo punto abilitare il servizio di gestione della riparazione aggiungendo la sezione seguente `addonFeaturres` dopo la sezione `fabricSettings`, come illustrato di seguito:
+2. A questo punto abilitare il servizio di gestione della riparazione aggiungendo la sezione seguente `addonFeatures` dopo la sezione `fabricSettings`, come illustrato di seguito:
 
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. Aggiornare il manifesto del cluster con queste modifiche usando il manifesto del cluster aggiornato [Creare un cluster autonomo in esecuzione su Windows Server](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) o [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Quando il cluster è in esecuzione con il manifesto del cluster aggiornato, è possibile vedere il servizio del sistema di gestione della riparazione in esecuzione nel cluster, denominato `fabric:/System/RepairManagerService`, nella sezione relativa ai servizi del sistema in Service Fabric Explorer.

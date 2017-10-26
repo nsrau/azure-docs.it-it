@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
-ms.custom: mvc
-ms.openlocfilehash: f42917486e873782483f372eb6e747ab3080f820
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 30c3df4ebc4417993170b994fc01bc82636dec3f
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Compilare un'API RESTful Node.js e distribuirla a un'app per le API in Azure
 

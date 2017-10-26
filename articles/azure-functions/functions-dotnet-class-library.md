@@ -3,7 +3,7 @@ title: Uso di librerie di classi .NET con Funzioni di Azure | Documenti Docs
 description: Informazioni su come creare librerie di classi .NET da usare con Funzioni di Azure
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
-ms.author: donnam
-ms.openlocfilehash: ad71a32d82e9b5aa4efda6d7ea67a9326ffcc4ff
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.author: glenga
+ms.openlocfilehash: e55af617236f3c36da161158a10b26f2f8f30224
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Uso di librerie di classi .NET con Funzioni di Azure
 

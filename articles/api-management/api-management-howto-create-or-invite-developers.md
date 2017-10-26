@@ -3,7 +3,7 @@ title: Come gestire gli account utente in Gestione API di Azure | Microsoft Docs
 description: Informazioni su come creare o invitare gli utenti in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 078abfa5-1e4f-4c9d-b9c7-a172bd19c1a2
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: d3a50f6d22cbf1797f580078bc0d2cc9cefe5064
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34343194cb9896916cb02cb8acf61af24f0784c9
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Come gestire gli account utente in Gestione API di Azure
 In Gestione API gli sviluppatori sono gli utenti delle API esposte con Gestione API. In questa guida viene illustrato come creare e invitare gli sviluppatori a usare le API e i prodotti resi disponibili con l'istanza di Gestione API. Per informazioni sulla gestione degli account utente a livello di codice, vedere la documentazione [Entità utente](https://msdn.microsoft.com/library/azure/dn776330.aspx) nel riferimento [API Management REST (REST di gestione API)](https://msdn.microsoft.com/library/azure/dn776326.aspx).

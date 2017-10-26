@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: ed4afa2b946fe11d5802a95f8a490f3419dc0f39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Trigger timer in Funzioni di Azure
 
@@ -54,7 +54,7 @@ Il valore di `schedule` è un'[espressione CRON](http://en.wikipedia.org/wiki/Cr
 >[!NOTE]   
 >In molte delle espressioni CRON disponibili online il campo `{second}` viene omesso. Se si copia da una di esse, è necessario apportare una modifica per il campo `{second}` aggiuntivo. Per esempi specifici, vedere [Esempi di pianificazione](#examples) di seguito.
 
-Il fuso orario predefinito usato con le espressioni CRON è Coordinated Universal Time (UTC). Per fare in modo che l'espressione CRON sia basata su un altro fuso orario, creare una nuova impostazione di app per l'app per le funzioni denominata `WEBSITE_TIME_ZONE`. Impostare il valore sul nome del fuso orario prescelto come illustrato nell'[indice dei fusi orari di Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
+Il fuso orario predefinito usato con le espressioni CRON è Coordinated Universal Time (UTC). Per fare in modo che l'espressione CRON sia basata su un altro fuso orario, creare una nuova impostazione di app per l'app per le funzioni denominata `WEBSITE_TIME_ZONE`. Impostare il valore sul nome del fuso orario prescelto come illustrato nell'[indice dei fusi orari di Microsoft](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
 
 Ad esempio, *Ora solare fuso orientale* (EST) è UTC-05:00. Per attivare il timer trigger ogni giorno alle 10:00 EST, usare la seguente espressione CRON che rappresenta il fuso orario UTC:
 

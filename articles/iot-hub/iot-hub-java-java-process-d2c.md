@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: d1aca8f39e305105d4ec9f63fbe7bee95487e294
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0fb3e9012ae88112515ebb552e49fa463a087f54
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>Elaborare messaggi da dispositivo a cloud dell'hub IoT (Java)
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Una versione di lavoro completa dell'esercitazione di [Get started with IoT Hub] .
 * [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) più recente
 * [Maven 3](https://maven.apache.org/install.html)
-* Un account Azure attivo. Se non si dispone di un account, è possibile creare un [account di valutazione gratuita] in pochi minuti.
+* Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
 È necessaria una conoscenza di base di [Archiviazione di Azure] e del [bus di servizio di Azure].
 
@@ -210,3 +210,4 @@ Per ulteriori informazioni sul routing dei messaggi nell'hub IoT, vedere [Inviar
 
 [lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-free-trial]: https://azure.microsoft.com/free/

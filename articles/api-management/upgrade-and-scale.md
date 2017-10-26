@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: apimpm
-ms.openlocfilehash: cf5cd03bd9147ac81b07dc453a919a3c74de44fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22cc917eb6f296724bf535e48b0dd6ba8927e5d3
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API 
 
@@ -23,10 +23,10 @@ I clienti possono ridimensionare un'istanza di Gestione API aggiungendo o rimuov
 
 La capacità e il prezzo di ogni unità dipende dal **livello** a cui l'unità appartiene. È possibile scegliere tra tre livelli: **Developer**, **Standard** e **Premium**. Se è necessario aumentare la capacità di un servizio all'interno di un livello, è consigliabile aggiungere un'unità. Se il livello attualmente selezionato nell'istanza di Gestione API non consente di aggiungere altre unità, è necessario eseguire l'aggiornamento a un livello superiore. 
 
-Il prezzo di ogni unità, la possibilità di aggiungere o rimuovere unità, la disponibilità di alcune funzionalità (ad esempio, la distribuzione in più aree) dipendono dal livello scelto per l'istanza di Gestione API. L'articolo con i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/api-management/) illustra il prezzo unitario per ogni livello e le funzionalità disponibili corrispondenti. 
+Il prezzo di ogni unità, la possibilità di aggiungere o rimuovere unità, la disponibilità di alcune funzionalità (ad esempio, la distribuzione in più aree) dipendono dal livello scelto per l'istanza di Gestione API. L'articolo con i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) illustra il prezzo unitario per ogni livello e le funzionalità disponibili corrispondenti. 
 
 >[!NOTE]
->I valori relativi alla capacità unitaria per ogni livello indicati nell'articolo con i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/api-management/) sono approssimativi. Per ottenere valori più precisi, è necessario esaminare uno scenario realistico per le API in uso. Vedere la sezione "Come pianificare la capacità" più avanti.
+>I valori relativi alla capacità unitaria per ogni livello indicati nell'articolo con i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) sono approssimativi. Per ottenere valori più precisi, è necessario esaminare uno scenario realistico per le API in uso. Vedere la sezione "Come pianificare la capacità" più avanti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,7 +48,7 @@ Come affermato in precedenza, il numero di richieste al secondo che Gestione API
 
 ### <a name="use-the-azure-portal-to-examine-metrics"></a>Esaminare le metriche tramite il portale di Azure 
 
-1. Nel [portale di Azure](https://portal.azure.com/), passare all'istanza di Gestione API.
+1. Nel [portale di Azure](https://portal.azure.com/) passare all'istanza di Gestione API.
 2. Selezionare **Metriche**.
 3. Selezionare la metrica **Capacità** in **Metriche disponibili**. 
 

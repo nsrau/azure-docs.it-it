@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 6/7/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d12e3be2d6658d2a6cc18ed6ad9a149235b8b581
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac8ef479be5a93b2c4baa76279c8d3e53389409a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Creare la prima app Web Java in Azure
 
@@ -105,7 +105,7 @@ Nella finestra di dialogo **Crea servizio app**:
 
   * **Crea nuovo**: mantenere il valore predefinito, ovvero il nome del piano di servizio app.
   * **Località**: selezionare **Europa occidentale** o un'area geografica nelle vicinanze.
-  * **Piano tariffario**: selezionare l'opzione gratuita. Per le funzionalità, vedere [Prezzi di Servizio app](https://azure.microsoft.com/pricing/details/app-service/).
+  * **Piano tariffario**: selezionare l'opzione gratuita. Per le funzionalità, vedere [Prezzi di Servizio app](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
    ![Finestra di dialogo Crea servizio app](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 

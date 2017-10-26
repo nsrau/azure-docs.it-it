@@ -3,7 +3,7 @@ title: Automatizzare la distribuzione di risorse per un'app per le funzioni in F
 description: Informazioni su come creare un modello di Azure Resource Manager per distribuire l'app per le funzioni.
 services: Functions
 documtationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 2fee04ee11210b9081fc7edb64da1f0210f1bd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 

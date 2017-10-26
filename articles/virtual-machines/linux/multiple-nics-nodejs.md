@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 814825cce61909167a1247a96c17a3ee9c5f2af4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93a32ae7ec0cf73825791e8c8bc3d388cf999ece
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Creare una macchina virtuale Linux con più schede di interfaccia di rete usando l'interfaccia della riga di comando di Azure 1.0
-È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end oppure una rete dedicata a una soluzione di monitoraggio o backup. In questo articolo vengono presentati i comandi rapidi per creare una macchina virtuale con più schede di rete collegate. Per informazioni dettagliate, incluse quelle sulla creazione di più schede di rete all'interno degli script di Bash, consultare la sezione dedicata alla [distribuzione di macchine virtuali con più schede di rete](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
+È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end oppure una rete dedicata a una soluzione di monitoraggio o backup. In questo articolo vengono presentati i comandi rapidi per creare una macchina virtuale con più schede di rete collegate. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
 
 > [!WARNING]
 > È necessario collegare più schede di interfaccia di rete quando si crea una VM, perché non è possibile aggiungere le schede a una VM esistente con l'interfaccia della riga di comando di Azure 1.0. È possibile [aggiungere schede di interfaccia di rete a una VM esistente con l'interfaccia della riga di comando di Azure 2.0](multiple-nics.md). È anche possibile [creare una VM basata sui dischi virtuali originali](copy-vm.md) e creare più schede di interfaccia di rete quando si distribuisce la VM.
@@ -85,7 +85,7 @@ azure network vnet subnet create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Creare e configurare più schede di interfaccia di rete
-È possibile leggere ulteriori informazioni sulla [distribuzione di più schede di rete tramite l'interfaccia della riga di comando di Azure](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md), incluso lo script del processo di ciclo per creare tutte le schede NIC.
+È possibile leggere ulteriori informazioni sulla [distribuzione di più schede di rete tramite l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/multiple-nics.md), incluso lo script del processo di ciclo per creare tutte le schede NIC.
 
 L'esempio seguente crea due schede di interfaccia di rete, denominate *myNic1* e *myNic2*, con una scheda che si connette a ogni subnet:
 

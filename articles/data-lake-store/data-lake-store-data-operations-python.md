@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 0c3bda65bd40a5d24e4c4ab3dcbbbf27fbbb87c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3540e58a58f20842979212ba41f11ce2908941f5
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Operazioni del file system in Azure Data Lake Store con l'API REST
 > [!div class="op_single_selector"]
@@ -42,9 +42,9 @@ Questo articolo fornisce informazioni per l'uso di Python SDK per eseguire opera
 
 Per gestire Data Lake Store usando Python, è necessario installare tre moduli.
 
-* Il modulo `azure-mgmt-resource`, che include i moduli di Azure per Active Directory e così via.
-* Il modulo `azure-mgmt-datalake-store`, che include le operazioni di gestione di account di Azure Data Lake Store. Per altre informazioni su questo modulo, vedere la [documentazione di riferimento al modulo di gestione di Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
-* Il modulo `azure-datalake-store`, che include le operazioni di gestione del file system di Azure Data Lake Store. Per altre informazioni su questo modulo, vedere la [documentazione di riferimento al modulo del file system di Azure Data Lake Store](http://azure-datalake-store.readthedocs.io/en/latest/).
+* Il modulo `azure-mgmt-resource` che include i moduli di Azure per Active Directory e così via.
+* Il modulo `azure-mgmt-datalake-store` che include le operazioni di gestione di account di Azure Data Lake Store. Per altre informazioni su questo modulo, vedere la [documentazione di riferimento al modulo di gestione di Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* Il modulo `azure-datalake-store` che include le operazioni di gestione del file system di Azure Data Lake Store. Per altre informazioni su questo modulo, vedere la [documentazione di riferimento al modulo del file system di Azure Data Lake Store](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Per installare i moduli, usare i comandi seguenti.
 
@@ -103,7 +103,7 @@ Il frammento seguente crea prima il client account Data Lake Store, poi usa l'og
     adlsAccountName = 'FILL-IN-HERE'
 
     ## Create a filesystem client object
-    adlsFileSystemClient = core.AzureDLFileSystem(token, store_name=adlsAccountName)
+    adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountName)
 
 ## <a name="create-a-directory"></a>Creare una directory
 

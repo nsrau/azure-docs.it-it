@@ -17,13 +17,15 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d09f59715ac4dac1482e6ca5f79e8426f1f01ced
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2297d688e07d662acba0070c423c56dcb95f42ba
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="create-container-images-to-be-used-with-azure-container-service"></a>Creare immagini del contenitore da usare con il servizio contenitore di Azure
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 In questa esercitazione, parte uno di sette, si prepara un'applicazione multi-contenitore per l'uso in Kubernetes. I passaggi completati comprendono:  
 

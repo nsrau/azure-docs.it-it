@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 97df68d446755414cbd427d59f399d6430580f42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
 Single Sign-On indica la possibilità di accedere a tutte le applicazioni e risorse necessarie per svolgere attività commerciali, effettuando l'accesso solo una volta con un singolo account utente. Una volta effettuato l'accesso, è possibile accedere a tutte le applicazioni senza dover effettuare l’autenticazione (ad esempio, digitare una password) una seconda volta.
@@ -75,12 +75,10 @@ In entrambi i casi, le credenziali vengono archiviate in formato crittografato n
 Single Sign-On basato su password si basa su un'estensione del browser per recuperare in modo sicuro le informazioni specifiche dell’applicazione e dell'utente da Azure AD e applicarle al servizio. La maggior parte delle applicazioni SaaS di terze parti supportate da Azure AD supportano questa funzionalità.
 
 Per l'accesso Single Sign-On basato su password il browser dell'utente finale può essere uno dei seguenti:
-
-* Internet Explorer 8, 9, 10 e 11 -- su Windows 7 o versione successiva (vedere anche [Guida alla distribuzione dell'estensione di Internet Explorer](active-directory-saas-ie-group-policy.md))
+* Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive
+* Edge su Windows 10 Anniversary Edition o versioni successive 
 * Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 * Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
-
-**Nota:** l'estensione SSO basata su password sarà disponibile per Edge in Windows 10, quando saranno supportate le estensioni del browser per Edge.
 
 ### <a name="existing-single-sign-on"></a>Single Sign-On esistente
 Quando si configura Single Sign-On per un'applicazione, il portale di gestione di Azure fornisce una terza opzione di "Single Sign-On esistente". Questa opzione consente semplicemente all'amministratore di creare un collegamento a un'applicazione e di posizionarlo nel pannello di accesso per gli utenti selezionati.
@@ -112,7 +110,7 @@ Dopo aver trovato l'applicazione, è possibile iniziare seguendo le istruzioni d
 ### <a name="application-not-in-the-gallery"></a>L’applicazione non è presente nella raccolta?
 Se l'applicazione non è presente nella raccolta di applicazioni Azure AD, sono disponibili queste opzioni:
 
-* **Aggiungere un'app non pubblicata attualmente in uso** : per connettere un'applicazione non in elenco usata dall'organizzazione, usare la categoria personalizzata nella raccolta di app del portale di gestione di Azure. È possibile aggiungere qualunque applicazione che supporta SAML 2.0 come applicazione federata o qualunque applicazione che dispone di una pagina di accesso basata su HTML come applicazione Single Sign-On con password. Per altre informazioni, vedere il blog sull' [aggiunta di un'applicazione personalizzata](active-directory-saas-custom-apps.md).
+* **Aggiungere un'app non pubblicata attualmente in uso** : per connettere un'applicazione non in elenco usata dall'organizzazione, usare la categoria personalizzata nella raccolta di app del portale di gestione di Azure. È possibile aggiungere qualunque applicazione che supporta SAML 2.0 come applicazione federata o qualunque applicazione che dispone di una pagina di accesso basata su HTML come applicazione Single Sign-On con password. Per altre informazioni, vedere il blog sull' [aggiunta di un'applicazione personalizzata](application-config-sso-how-to-configure-federated-sso-non-gallery.md).
 * **Aggiungere l'app personalizzata che si sta sviluppando** : se l'applicazione è stata sviluppata personalmente, per implementare il Single Sign-On federato o il provisioning con l'API Graph di Azure AD, seguire le linee guida nella documentazione per sviluppatori di Azure AD. Per ulteriori informazioni, vedere le risorse:
   
   * [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md)

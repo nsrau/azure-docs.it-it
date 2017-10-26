@@ -2,7 +2,7 @@
 | --- | --- | --- |
 | Account Batch per area per sottoscrizione | 3 |50 |
 | Core dedicati per account Batch | 20 | N/D<sup>1</sup> |
-| Core a bassa priorità per account Batch | 50 | N/A<sup>2</sup> |
+| Core a bassa priorità per account Batch | 20 | N/A<sup>2</sup> |
 | I processi attivi e le pianificazioni dei processi<sup>3</sup> per account Batch | 20 | 5000<sup>4</sup> |
 | Pool per account Batch | 20 | 2500 |
 

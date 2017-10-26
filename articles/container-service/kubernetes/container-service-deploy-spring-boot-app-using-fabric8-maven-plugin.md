@@ -15,13 +15,15 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: yuwzho;robmcm
 ms.custom: 
-ms.openlocfilehash: d368e71866406f6011c5cfa75eba13461e8e4ca4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ec48caef0eebeacf260b0dbc91b175368faea69
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="deploy-a-spring-boot-app-using-the-fabric8-maven-plugin"></a>Distribuire un'app Spring Boot con il plug-in Maven Fabric8
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 **[Fabric8]**  è una soluzione open source basata su  **[Kubernetes]** che consente agli sviluppatori di creare applicazioni in contenitori Linux.
 

@@ -2,7 +2,7 @@
 title: Rispondere a eventi con avvisi di Log Analytics di Azure | Microsoft Docs
 description: Questa esercitazione consente di comprendere gli avvisi in Log Analytics per l'identificazione delle informazioni importanti nel repository OMS e per la notifica di problemi all'utente in modo proattivo o per richiamare le azioni per tentare di correggerle.
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: 
@@ -11,14 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.openlocfilehash: ccf0bd57b7f54b1d8d57b460df9bb381b29ee381
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 3ab8d32eb4b3f2748249f40139de76c8e7f4d971
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="respond-to-events-with-log-analytics-alerts"></a>Rispondere a eventi con avvisi di Log Analytics
 Gli avvisi in Log Analytics identificano informazioni importanti nel repository di Log Analytics.  Vengono creati da regole di avviso che eseguono automaticamente ricerche nei log a intervalli regolari e, se i risultati della ricerca corrispondono a determinati criteri, viene creato un record di avviso che può essere configurato per eseguire una risposta automatica.  Questa esercitazione è la continuazione dell'esercitazione [Create and share dashboards of Log Analytics data](log-analytics-tutorial-dashboards.md) (Creare e condividere dashboard di dati di Log Analytics).   

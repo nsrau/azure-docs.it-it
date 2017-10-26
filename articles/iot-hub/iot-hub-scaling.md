@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/13/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2cb263103da05b10c24aab71d81c43eb25987565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0050b620d1cdbe95f6cf53a8e6f65271865c9e0b
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="scale-your-iot-hub-solution"></a>Ridimensionare la soluzione hub IoT
 Hub IoT di Azure può supportare fino a un milione di dispositivi connessi contemporaneamente. Per altre informazioni, vedere i [prezzi dell'hub IoT][lnk-pricing]. Ogni unità hub IoT mette a disposizione un certo numero di messaggi giornalieri.

@@ -3,7 +3,7 @@ title: Panoramica e concetti chiave di Gestione API di Azure | Documentazione Mi
 description: Informazioni su API, prodotti, ruoli, gruppi e altri concetti chiave di Gestione API.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: e71da405-835a-48f3-956f-45c1a85698d7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: becffc6011ef1dd49e07d22880d3346036629393
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="what-is-api-management"></a>Informazioni su Gestione API
 Gestione API consente alle organizzazioni di pubblicare API per consentire a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei rispettivi dati e servizi. Le aziende di tutto il mondo avvertono l'esigenza di estendere le proprie attività come piattaforma digitale, creando nuovi canali, trovando nuovi clienti e stimolando un coinvolgimento maggiore con quelli esistenti. Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione.

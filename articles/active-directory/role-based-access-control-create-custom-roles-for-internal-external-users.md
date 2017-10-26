@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: cccd0af0c991efe330567c2459717798d116e68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb9b89d087cfb62efe63cf0ff600d7faa58a7b8b
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 ## <a name="intro-on-role-based-access-control"></a>Introduzione al controllo degli accessi in base al ruolo
 
@@ -33,7 +33,7 @@ L'uso del controllo degli accessi in base al ruolo nell'ambiente di Azure richie
 * Il ruolo di proprietario della sottoscrizione di Azure
 * L'accesso al [portale di Azure](https://portal.azure.com)
 * Verificare che i provider di risorse seguenti siano registrati per la sottoscrizione dell'utente: **Microsoft.Authorization**. Per altre informazioni su come registrare i provider di risorse, vedere [Provider, aree, versioni API e schemi di Resource Manager](/azure-resource-manager/resource-manager-supported-services.md).
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
 
 > [!NOTE]
 > Le sottoscrizioni di Office 365 o le licenze di Azure Active Directory, ad esempio l'accesso ad Azure Active Directory, fornite dal portale di Office 365 non danno diritto all'uso del controllo degli accessi in base al ruolo.
@@ -77,7 +77,7 @@ Dopo avere selezionato la sottoscrizione, l'utente amministratore deve fare clic
 ![aggiungere un nuovo utente nella funzione IAM di controllo di accesso nel portale di Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
 Il passaggio successivo consiste nel selezionare il ruolo da assegnare e l'utente a cui verrà assegnato il ruolo di controllo degli accessi in base al ruolo. Nel menu a discesa **Ruolo** l'utente amministratore vede solo i ruoli predefiniti di controllo degli accessi in base al ruolo disponibili in Azure. Per altre descrizioni di ogni ruolo e dei relativi ambiti assegnabili, vedere [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](/active-directory/role-based-access-built-in-roles.md).
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
 
 L'utente amministratore deve quindi aggiungere l'indirizzo e-mail dell'utente esterno. Per l'utente esterno il comportamento previsto è quello di non essere visibile nel tenant esistente. Dopo che è stato invitato, l'utente esterno sarà visibile in **Sottoscrizioni > Controllo di accesso (IAM)** con tutti gli utenti correnti assegnati attualmente a un ruolo di controllo degli accessi in base al ruolo nell'ambito della sottoscrizione.
 

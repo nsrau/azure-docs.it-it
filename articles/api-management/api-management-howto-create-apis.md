@@ -3,7 +3,7 @@ title: Come creare API in Gestione API di Azure
 description: Informazioni su come creare e configurare API in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 14c20da4-f29f-4b28-bec7-3d4c50b734da
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: ab08256fbc3caca05bf23a12016ad2acf4fc7412
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79630fb8998d47aab8eed38daf7d5fcef3d870d7
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>Come creare API in Gestione API di Azure
 Un'API in Gestione API rappresenta un set di operazioni che possono essere richiamate dalle applicazioni client. Le nuove API vengono create nel portale di pubblicazione e quindi vengono aggiunte le operazioni desiderate. Dopo l'aggiunta delle operazioni, l'API viene aggiunta a un prodotto e può essere pubblicata. Dopo la pubblicazione l'API può essere sottoscritta e usata dagli sviluppatori.

@@ -1,5 +1,5 @@
 ---
-title: Studio su Azure Active Directory Identity Protection | Microsoft Docs
+title: Studio su Azure Active Directory Identity Protection | Documentazione Microsoft
 description: "Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un'identità o un dispositivo compromesso e di proteggere un'identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso."
 services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5479981ed4c017e6953ef616588ca0e4060ce3b2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
 Questo studio consente di:

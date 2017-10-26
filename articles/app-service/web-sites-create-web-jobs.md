@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga
-ms.openlocfilehash: 5517581f929ffce9e9184848049ce9832013277e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1594a27d50df9abdac27b342ad18363b974c8972
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con Processi Web in Servizio app di Azure
 
@@ -43,7 +43,7 @@ La tabella seguente descrive le differenze tra processi Web *continui* e *attiva
 | Supporta il debug remoto. | Non supporta il debug remoto.|
 
 > [!NOTE]
-> Un'app Web può raggiungere il timeout dopo 20 minuti di inattività. Solo le richieste al sito scm (distribuzione) o alle pagine dell'app Web nel portale reimpostano il timer. Le richieste al sito effettivo non comportano la reimpostazione del timer. Se l'app esegue processi Web continui o pianificati, abilitare **Sempre online** per assicurarsi che i processi Web vengano eseguiti in modo affidabile. Questa funzionalità è disponibile solo nei [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/) Basic, Standard e Premium.
+> Un'app Web può raggiungere il timeout dopo 20 minuti di inattività. Solo le richieste al sito scm (distribuzione) o alle pagine dell'app Web nel portale reimpostano il timer. Le richieste al sito effettivo non comportano la reimpostazione del timer. Se l'app esegue processi Web continui o pianificati, abilitare **Sempre online** per assicurarsi che i processi Web vengano eseguiti in modo affidabile. Questa funzionalità è disponibile solo nei [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Basic, Standard e Premium.
 
 ## <a name="acceptablefiles"></a>Tipi di file supportati per script e programmi
 
@@ -83,7 +83,7 @@ when making changes in one don't forget the other two.
    | **Nome** | myContinuousWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
    | **Tipo** | Continuo | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
-   | **Ridimensionare** | Istanze multiple | Disponibile solo per i processi Web continui. Determina se il programma o lo script viene eseguito in tutte le istanze o in una sola istanza. L'opzione per l'esecuzione in più istanze non si applica ai [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/) Gratuito o Condiviso. |
+   | **Ridimensionare** | Istanze multiple | Disponibile solo per i processi Web continui. Determina se il programma o lo script viene eseguito in tutte le istanze o in una sola istanza. L'opzione per l'esecuzione in più istanze non si applica ai [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito o Condiviso. | 
 
 4. Fare clic su **OK**.
 

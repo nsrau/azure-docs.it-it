@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fda60c9dfde64c526ad4cbf7fc4ccc5b56becafb
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -56,10 +56,6 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 * **D: Gli utenti possono registrare i dati in modo che non siano visibili ad altri utenti?**
 
   > **R:** Sì. I dati che gli utenti registrano tramite il portale di registrazione per la reimpostazione della password vengono salvati in campi di autenticazione privati visibili solo agli amministratori globali e agli utenti.
-    >
-    > [!NOTE]
-    > Se un **account amministratore di Azure** registra il numero di telefono di autenticazione, questo viene inserito anche nel campo Cellulare ed è visibile.
-    >
   >
   >
 * **D: Gli utenti devono essere registrati prima di poter usare la funzionalità di reimpostazione della password?**

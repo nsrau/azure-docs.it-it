@@ -3,7 +3,7 @@ title: "Come usare le proprietà nei criteri di Gestione API di Azure"
 description: "Informazioni su come usare le proprietà nei criteri di Gestione API di Azure"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 6f39b00f-cf6e-4cef-9bf2-1f89202c0bc0
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 3b0fe2a300038e13cc488bdb4f50f8be270ea8f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 517f434c8f7fabc1402fb938d5ff5c733b86f2fd
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Come usare le proprietà nei criteri di Gestione API di Azure
 I criteri di Gestione API sono una potente funzionalità del sistema che consentono all'entità di pubblicazione di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Per creare istruzioni dei criteri è possibile usare valori di testo, espressioni di criteri e proprietà. 

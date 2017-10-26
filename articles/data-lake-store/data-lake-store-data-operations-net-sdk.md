@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: f525bd81ebbc27a4730bdced5c8778b6f2ac69b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f6319dcf1ae66a686dd1c2ea2810b3041183098
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Operazioni del file system in Azure Data Lake Store con .NET SDK
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Per istruzioni su come eseguire le operazioni di gestione di account in Data Lak
 5. Aggiungere i pacchetti NuGet al progetto.
 
    1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**.
-   2. Nella scheda **Gestione pacchetti NuGet** verificare che l'opzione **Origine pacchetto** sia impostata su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
+   2. Nella scheda **Gestione pacchetti NuGet** assicurarsi che **Origine pacchetto** sia impostato su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
    3. Cercare e installare i pacchetti NuGet seguenti:
 
       * `Microsoft.Azure.Management.DataLake.Store` - Questa esercitazione usa v2.1.3-preview.
@@ -65,13 +65,17 @@ Per istruzioni su come eseguire le operazioni di gestione di account in Data Lak
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
 
 7. Dichiarare le variabili come illustrato di seguito e fornire i valori per i segnaposto. Assicurarsi anche che il percorso locale e il nome file forniti siano presenti nel computer.
 
@@ -111,7 +115,7 @@ Nelle sezioni rimanenti dell'articolo è possibile vedere come usare i metodi .N
 Il frammento seguente crea gli account Data Lake Store e gli oggetti client del file system, usati per inviare richieste al servizio.
 
     // Create client objects
-    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(adlCreds);
 
 ## <a name="create-a-directory"></a>Creare una directory
 Aggiungere il metodo seguente alla classe. Il frammento di codice mostra un metodo `CreateDirectory()` che è possibile usare per creare una directory in un account Data Lake Store.

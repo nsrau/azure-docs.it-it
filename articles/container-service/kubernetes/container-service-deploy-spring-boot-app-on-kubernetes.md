@@ -15,13 +15,15 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.custom: mvc
-ms.openlocfilehash: 7f726436b2d459b8c16abb02e07de099abfd8974
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f06d2e3f9550c2afce2d52fdd060a5069629a63
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="deploy-a-spring-boot-application-on-a-kubernetes-cluster-in-the-azure-container-service"></a>Distribuire un'applicazione Spring Boot in un cluster Kubernetes nel servizio contenitore di Azure
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 **[Spring Framework]** è uno dei framework open source più diffusi e consente agli sviluppatori Java di creare applicazioni Web, per dispositivi mobili e per le API. Questa esercitazione usa un'app di esempio creata con [Spring Boot], un approccio basato su convenzioni per l'uso di Spring per iniziare rapidamente a creare app.
 

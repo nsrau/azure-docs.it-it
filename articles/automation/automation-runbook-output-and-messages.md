@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 212aa4ede83b7c9f3240f8f32073bb7b87bda06d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0948f25cbb4f661cee4611fb5f7d4d22c9eeec1
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
 La maggior parte dei runbook di automazione Azure avrà qualche forma di output, ad esempio un messaggio di errore all'utente o un oggetto complesso destinato a essere utilizzato da un altro flusso di lavoro. Windows PowerShell fornisce [più flussi](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ciascuno di questi flussi in modo diverso ed è necessario seguire le procedure consigliate per utilizzarli quando si crea un runbook.
@@ -182,7 +182,7 @@ Nell'esempio seguente viene avviato un runbook figlio e si attende il suo comple
        $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
        –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
        $status = $job.Status
-       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
+       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
     }
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `

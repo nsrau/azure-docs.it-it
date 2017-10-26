@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1a6f1c6566468188daa71939db8345280b7a529f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b695a6e07007d4a4cad2d58795e279c5d30fcd4d
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory
 Quando si chiede agli utenti di aggiungere i dispositivi personali all'area di lavoro con il servizio Registrazione dispositivo di Azure Active Directory (Azure AD), i dispositivi possono essere contrassegnati come noti all'organizzazione. Di seguito è riportata una guida dettagliata all'abilitazione dell'accesso condizionale alle applicazioni locali con Active Directory Federation Services (AD FS) in Windows Server 2012 R2.

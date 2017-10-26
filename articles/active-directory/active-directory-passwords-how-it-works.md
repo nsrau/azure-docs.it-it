@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: cbb33988f5db47e35db406c037caa9133616d191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b363616792b35420644154cc0f8b878f2c83f1c7
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Approfondimenti sulla reimpostazione della password self-service in Azure AD
 
@@ -77,7 +77,7 @@ Per impostazione predefinita, solo gli attributi cloud Telefono ufficio e Cellul
 
 Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi di autenticazione abilitati e richiesti dall'amministratore.
 
-Se gli utenti desiderano che il proprio numero di cellulare non sia visibile nella directory, desiderano usarlo per la reimpostazione della password, gli amministratori non devono inserirlo nella directory e l'utente deve compilare l'attributo **Telefono per autenticazione** tramite il [portale di registrazione della reimpostazione della password](http://aka.ms/ssprsetup). Gli amministratori possono visualizzare queste informazioni nel profilo dell'utente, ma non vengono pubblicate altrove. Se un account amministratore di Azure registra il numero di telefono di autenticazione, questo viene inserito nel campo Cellulare ed è visibile.
+Se gli utenti desiderano che il proprio numero di cellulare non sia visibile nella directory, desiderano usarlo per la reimpostazione della password, gli amministratori non devono inserirlo nella directory e l'utente deve compilare l'attributo **Telefono per autenticazione** tramite il [portale di registrazione della reimpostazione della password](http://aka.ms/ssprsetup). Gli amministratori possono visualizzare queste informazioni nel profilo dell'utente, ma non vengono pubblicate altrove.
 
 ### <a name="number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
 

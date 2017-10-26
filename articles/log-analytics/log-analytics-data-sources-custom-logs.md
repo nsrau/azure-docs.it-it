@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2017
 ms.author: bwren
-ms.openlocfilehash: b7f28868e3ffdf95dbe39872f382e7c97eae692c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
 L'origine dati dei log personalizzati in Log Analytics consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog.  Al termine della raccolta, è possibile analizzare ogni record del log in singoli campi usando la funzionalità [Campi personalizzati](log-analytics-custom-fields.md) di Log Analytics.
@@ -136,14 +136,6 @@ I record dei log personalizzati vengono archiviati nel repository OMS esattament
 La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i record dai log personalizzati.
 
 | Query | Descrizione |
-|:--- |:--- |
-| Type=MyApp_CL |Tutti gli eventi da un log personalizzato denominato MyApp_CL. |
-| Type=MyApp_CL Severity_CF=error |Tutti gli eventi di un log personalizzato denominato MyApp_CL con un valore di *error* in un campo personalizzato denominato *Severity_CF*. |
-
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query precedenti verranno sostituite dalle seguenti.
-
-> | Query | Descrizione |
 |:--- |:--- |
 | MyApp_CL |Tutti gli eventi da un log personalizzato denominato MyApp_CL. |
 | MyApp_CL &#124; where Severity_CF=="error" |Tutti gli eventi di un log personalizzato denominato MyApp_CL con un valore di *error* in un campo personalizzato denominato *Severity_CF*. |

@@ -3,7 +3,7 @@ title: "Usare l'Identità del servizio gestito di una macchina virtuale Windows 
 description: "Esercitazione che illustra come usare un'Identità del servizio gestito di una macchina virtuale Windows per accedere ad Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 ms.service: active-directory
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
-ms.openlocfilehash: 064843d3118c36c63c3024f5cd5d08ba4d65eb7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17c2e72603715b5704fa56e18f68d531a1e44a53
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a Gestione risorse
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come abilitare l'Identità del servizio gestito (MSI, Managed Service Identity) per una macchina virtuale Windows. È quindi possibile usare tale identità per accedere all'API di Azure Resource Manager. Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. Si apprenderà come:
+Questa esercitazione illustra come abilitare l'Identità del servizio gestito (MSI, Managed Service Identity) per una macchina virtuale Windows. È quindi possibile usare tale identità per accedere all'API di Azure Resource Manager. Le identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Abilitare Identità del servizio gestito in una macchina virtuale Windows 
@@ -38,7 +38,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Windows in un nuovo gruppo di risorse
 
-Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è anche possibile abilitare l'Identità del servizio gestito in una macchina virtuale esistente.
+Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è anche possibile abilitare l'identità del servizio gestito in una macchina virtuale esistente.
 
 1.  Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 2.  Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. 
@@ -49,13 +49,13 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è 
 
     ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Abilitare Identità del servizio gestito nella macchina virtuale 
+## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
 
 Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'Identità del servizio gestito indica ad Azure di creare un'identità gestita per la macchina virtuale. A livello sottostante, quando si abilita Identità del servizio gestito, si eseguono due operazioni, ovvero si installa l'estensione della macchina virtuale per l'Identità del servizio gestito nella macchina virtuale e si abilita l'Identità del servizio gestito in Azure Resource Manager.
 
-1.  Selezionare la **macchina virtuale** in cui si vuole abilitare Identità del servizio gestito.  
+1.  Selezionare la **macchina virtuale** in cui si vuole abilitare identità del servizio gestito.  
 2.  Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
-3.  Viene visualizzato **Managed Service Identity** (Identità del servizio gestito). Per registrare e abilitare l'Identità del servizio gestito, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
+3.  Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
 4.  Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
     ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -119,7 +119,7 @@ In questa sezione è necessario usare **PowerShell**.  Se non è installato, sca
 
 ## <a name="related-content"></a>Contenuti correlati
 
-- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](../active-directory/msi-overview.md).
+- Per una panoramica dell'identità di servizio gestito, vedere [Panoramica dell'identità di servizio gestito](../active-directory/msi-overview.md).
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

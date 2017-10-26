@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/13/2017
+ms.date: 10/16/2017
 ms.author: mimig
-ms.openlocfilehash: b16807c7b6b7f3e5aa893f02dc5958f10e5e9569
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a5c9b7861e63ef76ec338072eafcd7905c258f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app per le API DocumentDB con Python e il portale di Azure
 
@@ -131,11 +131,11 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 3. Copiare il valore di URI dal portale (usando il pulsante di copia) e impostarlo come valore della chiave di endpoint in `DocumentDBGetStarted.py`. 
 
-    `config.ENDPOINT : "https://FILLME.documents.azure.com"`
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
 4. Copiare quindi il valore di CHIAVE PRIMARIA dal portale e impostarlo come valore di `config.MASTERKEY` in `DocumentDBGetStarted.py`. L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 
-    `config.MASTERKEY : "FILLME"`
+    `'MASTERKEY': 'FILLME',`
     
 ## <a name="run-the-app"></a>Esecuzione dell'app
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**, selezionare l'ambiente Python corrente e quindi fare clic con il pulsante destro del mouse.

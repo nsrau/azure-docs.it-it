@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: b27e852b70651cec34b200bde362ff0efae30226
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 07f6d0ddac0daf5810d5433c1089114966e80719
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,7 +74,7 @@ Impostare la proprietà "authenticationType" su **Base**, **Digest** o **Windows
     "name": "HttpLinkedService",
     "properties":
     {
-        "type": "Http",
+        "type": "HttpServer",
         "typeProperties":
         {
             "authenticationType": "Basic",

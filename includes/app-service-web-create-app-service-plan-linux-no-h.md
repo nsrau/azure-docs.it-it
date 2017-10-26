@@ -1,6 +1,6 @@
 In Cloud Shell creare un piano di servizio app con il comando [az appservice plan create](/cli/azure/appservice/plan#create).
 
-[!INCLUDE [app-service-plan](app-service-plan.md)]
+[!INCLUDE [app-service-plan](app-service-plan-linux.md)]
 
 L'esempio seguente crea un piano di servizio app denominato `myAppServicePlan` nel piano tariffario **Standard** e in un contenitore Linux:
 

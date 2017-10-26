@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: f141c3d22275ff04d7161415e9c9f879d85dbc08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3bce0d93876077c33edb7d8a0a352d44a95ed934
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server
 > [!div class="op_single_selector"]

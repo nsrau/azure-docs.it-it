@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e3cc6bddd67b70f603d5c0d26af6563ae207e3db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3910c62e61d77f479da9fae2e1a8c0575c543281
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Indice di articoli per la gestione di applicazioni in Azure Active Directory
 Questa pagina fornisce un elenco completo di tutti i documenti scritti sulle diverse funzionalità relative alle applicazioni in Azure Active Directory (Azure AD).
@@ -55,7 +55,7 @@ L'accesso Single Sign-On consente agli utenti di accedere a diverse app e divers
 | Introduzione alla federazione e ad altri tipi di accesso. |[Single Sign-On con Azure AD](active-directory-appssoaccess-whatis.md) |
 | Migliaia di app SaaS preintegrate con Azure AD con procedure di configurazione semplificate per l'accesso Single Sign-On. |[Iniziare a usare la raccolta di applicazioni di Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Elenco completo di app preintegrate che supportano la federazione](http://aka.ms/aadfederatedapps)<br /><br />[Come aggiungere l'app nella raccolta di applicazioni Azure AD](active-directory-app-gallery-listing.md) |
 | Più di 150 esercitazioni sulle app per configurare l'accesso Single Sign-On per app quali [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) e molte altre |[Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md) |
-| Come impostare e personalizzare manualmente la configurazione dell'accesso Single Sign-On. |[Come configurare il servizio Single Sign-On federato in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](active-directory-saas-custom-apps.md)<br /><br />[Come personalizzare lle attestazioni rilasciate nel token SAML per le app preintegrate](active-directory-saml-claims-customization.md) |
+| Come impostare e personalizzare manualmente la configurazione dell'accesso Single Sign-On. |[Come configurare il servizio Single Sign-On federato in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Come personalizzare lle attestazioni rilasciate nel token SAML per le app preintegrate](active-directory-saml-claims-customization.md) |
 | Guida alla risoluzione dei problemi per app federate che usano il protocollo SAML. |[Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md) |
 | Come configurare la data di scadenza del certificato dell'app e come rinnovare i certificati. |[Gestione di certificati per Single Sign-On federato in Azure Active Directory](active-directory-sso-certs.md) |
 

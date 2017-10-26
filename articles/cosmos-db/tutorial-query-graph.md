@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: denlee
-ms.openlocfilehash: 81713c72da037f127e81239d214d7a877247dca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee420983104f199edf57966bf22aa4d8451b4782
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: procedura per l'esecuzione di query con l'API Graph (anteprima)
 
-L'[API Graph](graph-introduction.md) di Azure Cosmos DB (anteprima) supporta le query [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/). Questo articolo include esempi di documenti e query per iniziare. L'articolo relativo al [supporto Gremlin](gremlin-support.md) include riferimenti Gremlin dettagliati.
+L'[API Graph](graph-introduction.md) di Azure Cosmos DB (anteprima) supporta le query [Gremlin](https://github.com/tinkerpop/gremlin/wiki). Questo articolo include esempi di documenti e query per iniziare. L'articolo relativo al [supporto Gremlin](gremlin-support.md) include riferimenti Gremlin dettagliati.
 
 Questo articolo illustra le attività seguenti: 
 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/23/2017
 ms.author: larryfr
-ms.openlocfilehash: fbbbddc47f24a46eac9bc64d4420ee8429ed4ad1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eea30e60a793563fbde96d11ab4bdb2d01241e60
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Accedere ai log delle applicazioni YARN in HDInsight basato su Linux
 
@@ -31,7 +31,7 @@ Informazioni su come accedere ai log di applicazioni YARN (Yet Another Resource 
 
 ## <a name="YARNTimelineServer"></a>Server di sequenza temporale YARN
 
-Il [server di sequenza temporale YARN](http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) offre informazioni generiche sulle applicazioni completate e informazioni sulle applicazioni specifiche del framework, tramite due interfacce diverse. In particolare:
+Il [server di sequenza temporale YARN](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) offre informazioni generiche sulle applicazioni completate e informazioni sulle applicazioni specifiche del framework, tramite due interfacce diverse. In particolare:
 
 * L'archiviazione e il recupero di informazioni generiche sulle applicazioni nei cluster HDInsight sono stati abilitati a partire dalla versione 3.1.1.374.
 * Il componente di informazioni sulle applicazioni specifiche del framework del server di sequenza temporale non è attualmente disponibile nei cluster HDInsight.

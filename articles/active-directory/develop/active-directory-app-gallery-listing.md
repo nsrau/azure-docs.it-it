@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d315cf63bcbf37b6b03b5a965ac615282526682
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory
 Per inserire un'applicazione che supporta Single Sign-On con Azure Active Directory nella [raccolta di Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), l'applicazione deve innanzitutto implementare una delle modalità di integrazione seguenti:
@@ -64,10 +64,10 @@ Per integrare l'applicazione con Azure AD, seguire [le istruzioni per sviluppato
 > 
 
 ## <a name="saml-integration"></a>Integrazione di SAML
-Qualsiasi app che supporta SAML 2.0 può essere integrata direttamente con un tenant di Azure AD usando [queste istruzioni per l'aggiunta di un'applicazione personalizzata](../active-directory-saas-custom-apps.md). Dopo aver verificato che l'integrazione dell'applicazione funziona con Azure AD, inviare le informazioni seguenti a <mailto:waadpartners@microsoft.com>.
+Qualsiasi app che supporta SAML 2.0 può essere integrata direttamente con un tenant di Azure AD usando [queste istruzioni per l'aggiunta di un'applicazione personalizzata](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Dopo aver verificato che l'integrazione dell'applicazione funziona con Azure AD, inviare le informazioni seguenti a <mailto:waadpartners@microsoft.com>.
 
 * Fornire le credenziali per un tenant o un account di prova con l'applicazione che possono essere usate dal team di Azure AD per testare l'integrazione.  
-* Fornire l'URL Single Sign-On SAML, l'URL dell'autorità di certificazione (ID entità) e i valori dell'URL di risposta (servizio consumer di asserzione) per l'applicazione, come descritto [qui](../active-directory-saas-custom-apps.md). Se si forniscono in genere questi valori come parte di un file di metadati SAML, inviare anche quest'ultimo.
+* Fornire l'URL Single Sign-On SAML, l'URL dell'autorità di certificazione (ID entità) e i valori dell'URL di risposta (servizio consumer di asserzione) per l'applicazione, come descritto [qui](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Se si forniscono in genere questi valori come parte di un file di metadati SAML, inviare anche quest'ultimo.
 * Fornire una breve descrizione di come configurare Azure AD come provider di identità nell'applicazione usando SAML 2.0. Se l'applicazione supporta la configurazione di Azure AD come provider di identità attraverso un portale di amministrazione self-service, assicurarsi che le credenziali specificate in precedenza includano la possibilità di impostare questa funzionalità.
 * Specificare le informazioni seguenti:
 

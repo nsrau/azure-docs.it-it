@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 10/12/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 5322fa5cc8e841ecea97a69d15cf130a4426ad95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c969696b7489a9a8c45e10428cdeaa833f63d6d2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: sviluppare con l'API Table in .NET
 
@@ -43,7 +43,7 @@ Questa esercitazione illustra le attività seguenti:
 
 Azure Cosmos DB fornisce l'[API Table](table-introduction.md) (anteprima) per le applicazioni che necessitano di un archivio di coppie chiave-valore con una struttura senza schema. È possibile usare gli SDK e le API REST di [archiviazione tabelle di Azure](../storage/common/storage-introduction.md) insieme ad Azure Cosmos DB. È possibile usare Azure Cosmos DB per creare tabelle con requisiti di velocità effettiva elevata. Azure Cosmos DB supporta le tabelle ottimizzate per la velocità effettiva, chiamate in modo informale "tabelle Premium", attualmente disponibili in anteprima pubblica. 
 
-È possibile continuare a usare l'archiviazione tabelle di Azure per le tabelle con requisiti di archiviazione elevati e di velocità effettiva inferiori. Azure Cosmos DB introdurrà il supporto per le tabelle ottimizzate per l'archiviazione in uno dei prossimi aggiornamenti e gli account di archiviazione tabelle di Azure nuovi ed esistenti verranno aggiornati facilmente ad Azure Cosmos DB.
+È possibile continuare a usare l'archiviazione tabelle di Azure per le tabelle con requisiti di archiviazione elevati e di velocità effettiva inferiori.
 
 Se attualmente si usa l'archiviazione tabelle di Azure, è possibile ottenere i vantaggi seguenti con "tabella Premium" in anteprima:
 

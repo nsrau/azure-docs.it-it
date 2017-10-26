@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: e4ae8a3bd138da963d6d559b29484248b20b7075
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71bb55ab4800389c956cebd00eb3e6e506610153
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Creare una VM Linux usando l'interfaccia della riga di comando di Azure 1.0
 
@@ -47,7 +47,7 @@ La seguente procedura riguarda la distribuzione di una VM UbuntuLTS, passo passo
 
 ## <a name="vm-quick-create-aliases"></a>Alias del comando VM quick-create
 
-Per scegliere rapidamente una distribuzione è possibile usare gli alias dell'interfaccia della riga di comando di Azure con mapping alle distribuzioni di sistemi operativi più diffuse. La tabella seguente elenca gli alias, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Per impostazione predefinita, tutte le distribuzioni che usano `quick-create` fanno uso di macchine virtuali con risorse di archiviazione basate su unità SSD, che garantiscono un provisioning più veloce e accesso al disco a prestazioni elevate. Questi alias rappresentano una minima parte delle distribuzioni disponibili in Azure. Per trovare altre immagini in Azure Marketplace, è possibile [cercare un'immagine in PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [sul Web](https://azure.microsoft.com/marketplace/virtual-machines/) o [caricare un'immagine personalizzata](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
+Per scegliere rapidamente una distribuzione è possibile usare gli alias dell'interfaccia della riga di comando di Azure con mapping alle distribuzioni di sistemi operativi più diffuse. La tabella seguente elenca gli alias, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Per impostazione predefinita, tutte le distribuzioni che usano `quick-create` fanno uso di macchine virtuali con risorse di archiviazione basate su unità SSD, che garantiscono un provisioning più veloce e accesso al disco a prestazioni elevate. Questi alias rappresentano una minima parte delle distribuzioni disponibili in Azure. Per trovare altre immagini in Azure Marketplace, è possibile [cercare un'immagine in PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [sul Web](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) o [caricare un'immagine personalizzata](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
 | Alias | Autore | Offerta | SKU | Versione |
 |:--- |:--- |:--- |:--- |:--- |

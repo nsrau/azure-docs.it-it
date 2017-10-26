@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 810d3281ee1bcf15fb61ecea4e5de0c8fbc0bc8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc, devcenter
+ms.openlocfilehash: cd2b646f3715368d9caba216883afdf07b9d778e
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Creare un'app ASP.NET in Azure con un database SQL
 
@@ -121,8 +121,8 @@ Nella finestra di dialogo **Configura piano di servizio app** configurare il nuo
 | Impostazione  | Valore consigliato | Per altre informazioni |
 | ----------------- | ------------ | ----|
 |**Piano di servizio app**| myAppServicePlan | [Piani del servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**Posizione**| Europa occidentale | [Aree di Azure](https://azure.microsoft.com/regions/) |
-|**Dimensione**| Free | [Piani tariffari](https://azure.microsoft.com/pricing/details/app-service/)|
+|**Posizione**| Europa occidentale | [Aree di Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**Dimensione**| Free | [Piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>Creare un'istanza di SQL Server
 

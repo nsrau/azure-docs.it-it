@@ -14,18 +14,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: robinsh
-ms.openlocfilehash: 48bfe97c42cad237ad7b395eeeac4e993201848a
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 17fdbbe2ea1d22c6f0ac287c4afbe17a44563f41
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="develop-for-azure-files-with-python"></a>Sviluppare per File di Azure con Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
-## <a name="about-this-tutorial"></a>Informazioni sull'esercitazione
 Questa esercitazione illustra le nozioni base per usare Python per sviluppare applicazioni o servizi che usano File di Azure per archiviare i dati dei file. In questa esercitazione verrà creata una semplice applicazione console e verrà illustrato come eseguire le azioni di base con Python e File di Azure:
 
 * Creare condivisioni file di Azure

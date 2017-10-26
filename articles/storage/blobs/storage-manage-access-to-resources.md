@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 3b41e25a6a4fb919f268166500bc248b81d8c70f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f52079c72be298daaa45074e516f911022780392
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestire l'accesso in lettura anonimo a contenitori e BLOB
 È possibile abilitare l'accesso in lettura pubblico anonimo a un contenitore e ai relativi BLOB in Archiviazione BLOB di Azure. Ciò permette di concedere l'accesso in sola lettura a queste risorse senza condividere la chiave dell'account e senza richiedere una firma di accesso condiviso (SAS).
@@ -37,7 +37,7 @@ Per impostazione predefinita, solo il proprietario dell'account di archiviazione
 È possibile impostare le autorizzazioni per il contenitore usando gli strumenti seguenti:
 
 * [Portale di Azure](https://portal.azure.com)
-* [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#how-to-manage-azure-blobs)
+* [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Interfaccia della riga di comando di Azure 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * A livello di programmazione, usando una delle librerie client di archiviazione o l'API REST.
 

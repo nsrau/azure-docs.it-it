@@ -3,7 +3,7 @@ title: "Usare l'Identità del servizio gestito di una macchina virtuale Linux pe
 description: "Esercitazione che illustra come usare un'Identità del servizio gestito di una macchina virtuale Linux per accedere ad Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 ms.service: active-directory
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
-ms.openlocfilehash: 874dc9aab8561a3d0e5158ffd943f773e91acdfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c919947e15306ff17de90cbaedd19c7545cf02dc
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="use-managed-service-identity-with-a-linux-vm-to-access-azure-resource-manager"></a>Usare un'Identità del servizio gestito con una macchina virtuale Linux per accedere ad Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come abilitare l'Identità del servizio gestito (MSI, Managed Service Identity) per una macchina virtuale Linux e quindi usarla per accedere all'API di Azure Resource Manager. Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. Si apprenderà come:
+Questa esercitazione illustra come abilitare l'Identità del servizio gestito (MSI, Managed Service Identity) per una macchina virtuale Linux e quindi usarla per accedere all'API di Azure Resource Manager. Le identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Abilitare Identità del servizio gestito in una macchina virtuale Linux 
@@ -39,7 +39,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Linux in un nuovo gruppo di risorse
 
-Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anche possibile abilitare l'Identità del servizio gestito in una macchina virtuale esistente.
+Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anche possibile abilitare l'identità del servizio gestito in una macchina virtuale esistente.
 
 1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**.
@@ -51,7 +51,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anc
 5. Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
 6. Selezionare la dimensione della macchina virtuale. Per visualizzare altre dimensioni, selezionare **View all** (Visualizza tutto) o modificare il filtro Tipo di disco supportato. Nel pannello delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
-## <a name="enable-msi-on-your-vm"></a>Abilitare Identità del servizio gestito nella macchina virtuale
+## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale
 
 Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. A livello sottostante, quando si abilita Identità del servizio gestito, si eseguono due operazioni, ovvero si installa l'estensione di Identità del servizio gestito nella macchina virtuale e si abilita la funzionalità per tale macchina.  
 
@@ -122,7 +122,7 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
      
 ## <a name="related-content"></a>Contenuti correlati
 
-- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](../active-directory/msi-overview.md).
+- Per una panoramica dell'identità di servizio gestito, vedere [Panoramica dell'identità di servizio gestito](../active-directory/msi-overview.md).
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

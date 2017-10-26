@@ -3,7 +3,7 @@ title: Come usare l'archiviazione BLOB (archiviazione di oggetti) da C++ | Micro
 description: Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure.
 services: storage
 documentationcenter: .net
-author: michaelhauss
+author: MichaelHauss
 manager: vamshik
 editor: tysonn
 ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: daf480b7be78dc001712010eac6386d4744c3c1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fe2112370f7d29eb0fde856995768660f9871e6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Come usare l'archiviazione BLOB da C++
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -57,6 +57,8 @@ Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desi
 ```cpp
 #include <was/storage_account.h>
 #include <was/blob.h>
+#include <cpprest/filestream.h>  
+#include <cpprest/containerstream.h> 
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configurare una stringa di connessione di archiviazione di Azure

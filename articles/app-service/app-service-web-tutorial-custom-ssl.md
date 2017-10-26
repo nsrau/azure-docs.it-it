@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1923a145d258e558811b610be9a6bb8ea0e4c933
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d9f5950f7e692181e59870e6e508486131517ce
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Associare un certificato SSL personalizzato esistente ad app Web di Azure
 
@@ -279,7 +279,7 @@ Questa regola restituisce un errore HTTP 301 (reindirizzamento permanente) al pr
 Il comando seguente carica un file PFX esportato e ottiene l'identificazione personale.
 
 ```bash
-thumbprint=$(az appservice web config ssl upload \
+thumbprint=$(az webapp config ssl upload \
     --name <app_name> \
     --resource-group <resource_group_name> \
     --certificate-file <path_to_PFX_file> \
@@ -291,7 +291,7 @@ thumbprint=$(az appservice web config ssl upload \
 Il comando seguente aggiunge un'associazione SSL basata su SNI, usando l'identificazione personale ottenuta con il comando precedente.
 
 ```bash
-az appservice web config ssl bind \
+az webapp config ssl bind \
     --name <app_name> \
     --resource-group <resource_group_name>
     --certificate-thumbprint $thumbprint \

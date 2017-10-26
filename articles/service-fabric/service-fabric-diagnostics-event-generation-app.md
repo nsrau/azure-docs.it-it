@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 3c472904641108b7383cd0f1416c47460f8de11a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b07c7cd256cea31c5654f0c3325e9fb675b39f8
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="application-and-service-level-event-and-log-generation"></a>Generazione di eventi e log a livello di applicazione e servizio
 

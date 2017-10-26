@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/03/2017
-ms.openlocfilehash: 0e0f98d873e112aae222fab2657f60ea13611624
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/20/2017
+ms.openlocfilehash: aea561b526d6f3f818fd75771dd8c65c9f25051a
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Regole di firewall per il server MySQL del database di Azure
 I firewall impediscono qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.

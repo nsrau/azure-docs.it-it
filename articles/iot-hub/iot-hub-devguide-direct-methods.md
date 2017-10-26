@@ -12,24 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd0353bf805340a9c4d3151a9b85c329f7d2e96
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
-## <a name="overview"></a>Panoramica
 L'hub IoT offre la possibilità di richiamare metodi diretti nei dispositivi dal cloud. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo approccio risulta utile in scenari in cui l'azione immediata da intraprendere varia a seconda che il dispositivo sia riuscito o meno a rispondere. Un esempio è rappresentato dall'invio di un SMS di riattivazione a un dispositivo offline, in cui l'invio di un SMS ha un costo maggiore rispetto a una chiamata a un metodo.
 
 Ogni metodo del dispositivo è destinato a un unico dispositivo. I [processi][lnk-devguide-jobs] permettono di richiamare i metodi diretti in più dispositivi e di pianificare la chiamata al metodo per i dispositivi disconnessi.
 
 Chiunque abbia autorizzazioni di **connessione servizio** per l'hub IoT può richiamare un metodo in un dispositivo.
 
-### <a name="when-to-use"></a>Quando usare le autorizzazioni
 I metodi diretti si basano su un modello di tipo richiesta- risposta e sono destinati a comunicazioni che necessitano di una conferma immediata del risultato, in genere per il controllo interattivo del dispositivo, ad esempio l'accensione di un ventilatore.
 
 Vedere [Cloud-to-device communication guidance][lnk-c2d-guidance] (Indicazioni sulla comunicazione da cloud a dispositivo) in caso di dubbi tra l'uso delle proprietà specifiche, dei metodi diretti o dei messaggi da cloud a dispositivo.
@@ -48,9 +46,6 @@ I metodi diretti supportano solo HTTPS lato cloud e solo MQTT o AMQP lato dispos
 
 Il payload per le richieste e le risposte del metodo è un documento JSON con dimensioni massime di 8 KB.
 
-## <a name="reference-topics"></a>Argomenti di riferimento:
-Gli argomenti di riferimento seguenti offrono altre informazioni sull'uso dei metodi diretti.
-
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Richiamare un metodo diretto da un'app back-end
 ### <a name="method-invocation"></a>Chiamata al metodo
 Le chiamate a metodi diretti in un dispositivo sono chiamate HTTPS che includono:
@@ -60,16 +55,16 @@ Le chiamate a metodi diretti in un dispositivo sono chiamate HTTPS che includono
 * *Intestazioni* contenenti l'autorizzazione, l'ID richiesta, il tipo di contenuto e la codifica del contenuto
 * *Corpo* JSON trasparente nel formato seguente:
 
-```
-{
-    "methodName": "reboot",
-    "responseTimeoutInSeconds": 200,
-    "payload": {
-        "input1": "someInput",
-        "input2": "anotherInput"
-    }
-}
-```
+   ```
+   {
+       "methodName": "reboot",
+       "responseTimeoutInSeconds": 200,
+       "payload": {
+           "input1": "someInput",
+           "input2": "anotherInput"
+       }
+   }
+   ```
 
 Il timeout è espresso in secondi. Se il timeout non è impostato, il valore predefinito è 30 secondi.
 
@@ -80,12 +75,12 @@ L'app back-end riceve una risposta che include:
 * *Intestazioni* contenenti l'ETag, l'ID richiesta, il tipo di contenuto e la codifica del contenuto
 * *Corpo* JSON nel formato seguente:
 
-```
-{
-    "status" : 201,
-    "payload" : {...}
-}
-```
+   ```
+   {
+       "status" : 201,
+       "payload" : {...}
+   }
+   ```
 
    Sia `status` che `body` vengono forniti dal dispositivo e usati per rispondere con la descrizione e/o il codice di stato del dispositivo.
 

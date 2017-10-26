@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/20/2017
 ms.author: babanisa
-ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e251cbfe7c4d8dfbd492817a8fa7af48e6b379df
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
 
@@ -162,10 +162,6 @@ Questo evento di esempio mostra lo schema di un evento di Hub eventi generato qu
 
 
 ## <a name="azure-blob-storage"></a>Archivio BLOB di Azure
-
->[!IMPORTANT]
->Per usare eventi di archiviazione BLOB, è necessario avere eseguito la registrazione all'anteprima degli eventi di archiviazione BLOB. Per altre informazioni sul programma di anteprima, vedere [eventi di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview#join-the-preview).  
-
 
 ### <a name="available-event-types"></a>Tipi di evento disponibili
 

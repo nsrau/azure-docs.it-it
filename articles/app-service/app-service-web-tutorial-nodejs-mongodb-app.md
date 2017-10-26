@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d5b41faa28d9181b957ce346e25804e16d9303d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d4ef794106b27b812bfc0c5a7975fad23da1898
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Creare un'app Web Node.js e MongoDB in Azure
 
@@ -312,12 +312,12 @@ Al termine della creazione dell'app Web, l'interfaccia della riga di comando di 
 
 In una fase precedente dell'esercitazione è stata impostata come hardcoded la stringa di connessione al database in _config/env/production.js_. In linea con la procedura consigliata per la sicurezza, si intende mantenere i dati sensibili all'esterno del repository Git. Per l'app in esecuzione in Azure, si userà invece una variabile di ambiente.
 
-In Cloud Shell le variabili di ambiente vengono impostate come _impostazioni dell'app_ usando il comando [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update). 
+In Cloud Shell le variabili di ambiente vengono impostate come _impostazioni dell'app_ usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set). 
 
 L'esempio seguente configura l'impostazione dell'app `MONGODB_URI` nell'app Web di Azure. Sostituire i segnaposto *\<app_name>*, *\<cosmosdb_name>* e *\<primary_master_key>*.
 
 ```azurecli-interactive
-az webapp config appsettings update --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
 Nel codice Node.js si accede all'impostazione dell'app con `process.env.MONGODB_URI`, esattamente come si accede a una variabile di ambiente qualsiasi. 
@@ -346,7 +346,7 @@ In Cloud Shell usare il comando [az webapp deployment user set](/cli/azure/webap
 Nel comando seguente sostituire *\<user-name>* e *\<password>* con un nuovo nome utente e una nuova password. Il nome utente deve essere univoco. La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli. Se viene visualizzato un errore ` 'Conflict'. Details: 409`, modificare il nome utente. Se viene visualizzato un errore ` 'Bad Request'. Details: 400`, usare una password più complessa.
 
 ```azurecli-interactive
-az appservice web deployment user set --user-name <username> --password <password>
+az webapp deployment user set --user-name <username> --password <password>
 ```
 
 Registrare nome utente e password da usare nei passaggi successivi durante la distribuzione dell'app.

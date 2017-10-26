@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: 29f64aeefc2a7deb1f84d759c2323347536b9c27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3690ec991add437afdaba3ef22022d49c962b34
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Assegnare più indirizzi IP alle macchine virtuali usando PowerShell
 
@@ -159,7 +159,7 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
     ```
 
     >[!NOTE]
-    >Anche se in questo articolo tutte le configurazioni vengono assegnate a una sola scheda di interfaccia di rete, è possibile assegnare più configurazioni IP a ogni scheda di interfaccia di rete collegata alla macchina virtuale. Per informazioni su come creare una VM con più interfacce di rete, leggere l'articolo [Creare una macchina virtuale con più schede di interfaccia di rete usando PowerShell](virtual-network-deploy-multinic-arm-ps.md).
+    >Anche se in questo articolo tutte le configurazioni vengono assegnate a una sola scheda di interfaccia di rete, è possibile assegnare più configurazioni IP a ogni scheda di interfaccia di rete collegata alla macchina virtuale. Per informazioni su come creare una VM con più interfacce di rete, leggere l'articolo [Creare una macchina virtuale con più schede di interfaccia di rete usando PowerShell](../virtual-machines/windows/multiple-nics.md).
 
 9. Creare la macchina virtuale immettendo i comandi seguenti:
 

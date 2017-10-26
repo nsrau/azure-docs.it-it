@@ -12,11 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
 
@@ -183,11 +183,14 @@ L'analizzatore standard suddivide il testo di input nei due token seguenti, anno
 }
 ~~~~
 
+<a name="exceptions"></a>
+
 ### <a name="exceptions-to-lexical-analysis"></a>Eccezioni all'analisi lessicale 
 
 L'analisi lessicale si applica solo ai tipi di query che richiedono termini completi, una query di termine o una query di frase. Non si applica ai tipi di query con termini incompleti: query di prefisso, query con caratteri jolly, query regex o query fuzzy. Questi tipi di query, tra cui la query di prefisso con il termine *aria condizionata\** nel nostro esempio, vengono aggiunti direttamente all'albero della query, ignorando la fase di analisi. L'unica trasformazione eseguita per i termini della query di queste tipologie è la conversione in lettere minuscole.
 
 <a name="stage3"></a>
+
 ## <a name="stage-3-document-retrieval"></a>Fase 3: Recupero dei documenti 
 
 Il recupero dei documenti fa riferimento alla ricerca di documenti con termini corrispondenti all'indice. Questa fase viene spiegata meglio attraverso un esempio. Iniziamo con un indice degli hotel che presenta il seguente schema semplice: 
