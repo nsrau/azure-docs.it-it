@@ -5,8 +5,10 @@
 ## [Scegliere una soluzione ibrida di gestione delle identità](choose-hybrid-identity-solution.md)
 ## [Associare le sottoscrizioni di Azure](active-directory-how-subscriptions-associated-directory.md)
 ## [Domande frequenti](active-directory-faq.md)
+## [Novità](whats-new.md)
 
-# Attività iniziali
+
+# Introduzione
 ## [Inizia a usare Azure AD](get-started-azure-ad.md)
 ## [Iscriversi ad Azure AD Premium](active-directory-get-started-premium.md)
 ## [Aggiungere un nome di dominio personalizzato](add-custom-domain.md)
@@ -302,6 +304,7 @@
 #### [Procedure consigliate](active-directory-conditional-access-best-practices.md)
 #### [Informazioni sui criteri relativi ai dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md)
 #### Attività
+##### [Eseguire la migrazione di criteri classici](active-directory-conditional-access-migration.md)
 ##### [Configurare l'accesso condizionale basato su dispositivo](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Configurare l'accesso condizionale basato su app](active-directory-conditional-access-mam.md)
 ##### [Specificare le condizioni per l'utilizzo per utenti e app](active-directory-tou.md)

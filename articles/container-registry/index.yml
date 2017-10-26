@@ -38,13 +38,15 @@ sections:
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
-        text: Informazioni su come usare Registro contenitori di Azure con Istanze di contenitore di Azure e il servizio contenitore di Azure.
+        text: Queste esercitazioni consentono di imparare a usare Registro contenitori di Azure.
       - type: list
         style: unordered
         className: spaced noBullet
         items:
+          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Replica geografica del registro contenitori</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Registro contenitori con Istanze di contenitore di Azure</a>
           - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Registro contenitori con il servizio contenitore di Azure</a>
+          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Registro contenitori con Service Fabric</a>
   - title: riferimento
     items:
       - type: list

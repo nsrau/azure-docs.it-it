@@ -59,7 +59,7 @@
 ### [Considerazioni relative alla sicurezza](storsimple-8000-security.md)
 ### [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md)
 
-## Attività iniziali
+## Introduzione
 
 ### Pianificare
 #### [Esaminare i requisiti](storsimple-8000-system-requirements.md)
@@ -119,7 +119,7 @@
 ##### [Configurare il proxy Web](storsimple-8000-configure-web-proxy.md)
 ##### [Modificare le impostazioni di DATA 0](storsimple-8000-modify-data-0.md)
 
-#### [Uso degli script di esempio di Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
+
 
 #### [Uso di StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [Che cos’è StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
@@ -131,6 +131,11 @@
 ##### [Gestire i processi di backup con StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [Gestire i volumi con StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
 ##### [Usare azioni di MMC in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+
+### Automazione
+
+#### [Uso degli script di esempio di Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
+#### [Uso dei runbook di automazione di Azure](storsimple-8000-automation-azurerm-runbook.md)
 
 ### Creare soluzioni
 #### [StorSimple con Veeam](storsimple-configure-backup-target-veeam.md)

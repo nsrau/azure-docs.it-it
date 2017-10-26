@@ -14,7 +14,7 @@
 # Guide alle procedure
 ## Usare le VM in un lab
 ### [Creare VM](devtest-lab-add-vm.md)
-### [Creare VM a disposizione degli utenti](devtest-lab-add-claimable-vm.md)
+### [Creare e gestire macchine virtuali richiedibili](devtest-lab-add-claimable-vm.md)
 ### [Creare e gestire VM con l'interfaccia della riga di comando di Azure](devtest-lab-vmcli.md)
 ### [Riavviare una macchina virtuale](devtest-lab-restart-vm.md)
 

@@ -47,30 +47,22 @@ sections:
         className: cardsM
         columns: 2
         items:
+          - href: ../aks/kubernetes-walkthrough.md
+            title: Creare un cluster Kubernetes con il servizio contenitore di Azure
+            image:
+              src: /azure/media/index/ContainerService.svg
           - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
             title: Distribuire un'applicazione contenitore Windows con Service Fabric
             image:
               src: /azure/media/index/Fabric.svg
-          - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
-            title: Creare un cluster Kubernetes per contenitori Linux
+          - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
+            title: Creare un'app in contenitori con App Web per contenitori di Azure
             image:
-              src: /azure/media/index/ContainerService.svg
-          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
-            title: Distribuire un cluster Docker Swarm
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
           - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
             title: Creare un registro Docker privato nel Registro contenitori di Azure
             image:
               src: /azure/media/index/container-registry.svg
-          - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
-            title: Creare un'app inclusa in contenitori con App Web di Azure per contenitori
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
-            title: Distribuire un cluster DC/OS
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
   - title: Video di formazione gratuiti su PluralSight per Azure e contenitori
     items:
       - type: list
@@ -93,14 +85,14 @@ sections:
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
-        text: Informazioni su come usare i contenitori di Azure
+        text: Informazioni su come usare il servizio contenitore di Azure
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Creare immagini del contenitore da un''applicazione</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Caricare immagini del contenitore nel registro contenitori di Azure</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Distribuire un cluster Kubernetes nel servizio contenitore di Azure</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Eseguire le immagini del contenitore in Kubernetes</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Ridimensionare un''applicazione e l''infrastruttura Kubernetes</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Aggiornare un''applicazione in esecuzione in Kubernetes</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitorare Kubernetes con OMS</a>'
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Creare immagini del contenitore da un'applicazione</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Caricare immagini del contenitore nel registro contenitori di Azure</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Distribuire un cluster del servizio contenitore di Azure</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Eseguire le immagini del contenitore in Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-scale">Ridimensionare un'applicazione e l'infrastruttura Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Aggiornare un'applicazione in esecuzione in Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitorare Kubernetes con Log Analytics</a>

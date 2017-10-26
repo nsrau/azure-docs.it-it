@@ -21,8 +21,10 @@
 ### [API disponibili](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Gestisci
+### [Monitorare il servizio di inoltro di Azure con Monitoraggio di Azure](relay-metrics-azure-monitor.md)
 
-# Riferimento
+# riferimento
 ## .NET
 ### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
 ### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)

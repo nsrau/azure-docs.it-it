@@ -63,6 +63,7 @@
 #### [Elaborazione di transazioni](service-bus-transactions.md)
 #### [Implementazione dello spazio dei nomi associato](service-bus-paired-namespaces.md)
 ## Gestisci
+### [Monitorare il bus di servizio con Monitoraggio di Azure](service-bus-metrics-azure-monitor.md)
 ### [Librerie di gestione del bus di servizio](service-bus-management-libraries.md)
 ### [Log di diagnostica](service-bus-diagnostic-logs.md)
 ### [Sospendere e riattivare entità di messaggistica](entity-suspend.md)
