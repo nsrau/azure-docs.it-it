@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 6130f1a7fd58a50fe5c0133452a945e30899b654
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cbdda98c079d25c9cce1342c79dea6e66aec3ad
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticazione con Data Lake Store usando Azure Active Directory
 
@@ -41,7 +41,7 @@ La tabella seguente illustra come vengono supportati i meccanismi di autenticazi
 |Utente finale (senza autenticazione a più fattori**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(deprecata)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |Utente finale (con autenticazione a più fattori**)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
 |Da servizio a servizio (usando la chiave client)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
-|Da servizio a servizio (usando il certificato client) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-certificate-for-account-management)**     |    ✔    |
+|Da servizio a servizio (usando il certificato client) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
 <i>* Fare clic sul simbolo <b>✔\* </b>. È un collegamento.</i><br>
 <i>** MFA sta per autenticazione a più fattori</i>

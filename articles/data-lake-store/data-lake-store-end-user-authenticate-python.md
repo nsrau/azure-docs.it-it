@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 27fe69753acc6fa047b5791a583d70e80318288a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48990c57fb10127733623000a105507b5a48d900
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-python"></a>Autenticazione dell'utente finale con Data Lake Store tramite Python
 > [!div class="op_single_selector"]
@@ -104,13 +104,13 @@ Usare i frammenti di codice seguenti per l'autenticazione con Azure AD per le op
     code = context.acquire_user_code(RESOURCE, client_id)
     print(code['message'])
     mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    armCreds = AADTokenCredentials(mgmt_token, client_id, resource = RESOURCE)
 
 ### <a name="for-filesystem-operations"></a>Per operazioni di gestione del file system
 
 Usare questo tipo di autenticazione con Azure AD per le operazioni di gestione del file system in un account Data Lake Store. Il frammento di codice seguente consente di autenticare l'applicazione con Multi-Factor Authentication. Fornire i valori seguenti per un'applicazione **nativa** di Azure AD esistente.
 
-    token = lib.auth(tenant_id='FILL-IN-HERE')
+    adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
 ## <a name="end-user-authentication-without-multi-factor-authentication"></a>Autenticazione dell'utente finale senza autenticazione a più fattori
 
