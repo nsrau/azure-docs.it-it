@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
-ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d86f3bdf19603d2f92fc1a704376beefd7323c0
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="classifying-iris-part-2-build-a-model"></a>Classificazione di dati Iris - Parte 2: Creare un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di analisi scientifica dei dati e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -149,7 +149,7 @@ A questo punto, è necessario preparare l'esecuzione dello script **iris_sklearn
 ## <a name="review-run-history-in-detail"></a>Esaminare la cronologia di esecuzione in dettaglio
 In Azure Machine Learning Workbench l'esecuzione di ogni script viene acquisita come record della cronologia di esecuzione. È possibile visualizzare la cronologia di esecuzione di uno script specifico aprendo la visualizzazione **Runs** (Esecuzioni).
 
-1. Fare clic sul pulsante **Runs** (Esecuzioni) (icona a forma di orologio) sulla barra degli strumenti a sinistra per aprire l'elenco di**** esecuzioni. Fare quindi clic su **iris_sklearn.py** per visualizzare la scheda **Run Dashboard** (Dashboard esecuzioni) di `iris_sklearn.py`.
+1. Fare clic sul pulsante **Runs** (Esecuzioni) (icona a forma di orologio) sulla barra degli strumenti a sinistra per aprire l'elenco di **esecuzioni**. Fare quindi clic su **iris_sklearn.py** per visualizzare la scheda **Run Dashboard** (Dashboard esecuzioni) di `iris_sklearn.py`.
 
    ![Immagine](media/tutorial-classifying-iris/run_view.png)
 

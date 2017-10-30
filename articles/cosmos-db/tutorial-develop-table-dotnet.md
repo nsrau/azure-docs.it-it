@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: c969696b7489a9a8c45e10428cdeaa833f63d6d2
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: sviluppare con l'API Table in .NET
 
@@ -52,7 +52,7 @@ Se attualmente si usa l'archiviazione tabelle di Azure, è possibile ottenere i 
 - Supporto per la [scalabilità indipendente di archiviazione e velocità effettiva](partition-data.md) in un numero qualsiasi di aree
 - Supporto per la [velocità effettiva dedicata per ogni tabella](request-units.md) scalabile da centinaia a milioni di richieste al secondo
 - Supporto per [cinque livelli di coerenza perfezionabili](consistency-levels.md) per ottenere un compromesso ottimale tra disponibilità, latenza e coerenza in base alle esigenze dell'applicazione
-- Disponibilità al 99,99% all'interno di una singola area, possibilità di aggiungere altre aree per aumentare la disponibilità e [contratti di servizio completi leader nel settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/) sulla disponibilità generale
+- Disponibilità al 99,99% all'interno di una singola area, possibilità di aggiungere altre aree per aumentare la disponibilità e [contratti di servizio completi leader nel settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) sulla disponibilità generale
 - Usare la versione esistente di .NET SDK di Archiviazione di Azure senza apportare modifiche al codice dell'applicazione
 
 Nella fase di anteprima Azure Cosmos DB supporta l'API Table usando .NET SDK. È possibile scaricare [Azure Storage Preview SDK](https://aka.ms/premiumtablenuget) da NuGet, che include le stesse classi e firme di metodi disponibili in [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), ma che permette anche di connettersi agli account Azure Cosmos DB tramite l'API Table.
