@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure (anteprima)
 Questa procedura dettagliata fornisce informazioni su come configurare il controllo delle applicazioni nel Centro sicurezza di Azure.
@@ -37,14 +37,14 @@ I controlli delle applicazioni adattivi consentono di controllare quali applicaz
 > I controlli delle applicazioni adattivi sono disponibili per i clienti Standard del Centro sicurezza di Azure come anteprima pubblica limitata. Inviare un messaggio di posta elettronica con l'ID sottoscrizione a [Microsoft](mailto:ASC_appcontrol@microsoft.com) per accedere all'anteprima.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Come si abilitano i controlli delle applicazioni adattivi?
-I controlli delle applicazioni adattivi aiutano a definire un set di applicazioni che è possibile eseguire in gruppi di risorse configurati. Questa funzionalità è disponibile solo per computer Windows (tutte le versioni, modalità classica o Azure Resource Manager). Seguire questa procedura per configurare l'inserimento delle applicazioni nell'elenco elementi consentiti nel Centro sicurezza:
+I controlli delle applicazioni adattivi aiutano a definire un set di applicazioni che è possibile eseguire in gruppi di risorse configurati. Questa funzionalità è disponibile solo per computer Windows (tutte le versioni, versione classica o Azure Resource Manager). La procedura seguente può essere usata per configurare l'inserimento delle applicazioni nell'elenco elementi consentiti nel Centro sicurezza:
 
 1.  Aprire il dashboard **Centro sicurezza** e fare clic su **Panoramica**.
 2.  In **Difesa cloud avanzata** il riquadro **Adaptive application controls** (Controlli applicazioni adattivi) mostra il numero di macchine virtuali in cui è attualmente attivato il controllo rispetto al numero di macchine virtuali totale. Viene indicato anche il numero di problemi rilevati nell'ultima settimana: 
 
     ![Controlli delle applicazioni adattivi](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
 
-3. Fare clic sul riquadro **Adaptive application controls** (Controlli applicazioni adattivi) per visualizzare altre opzioni.
+3. Fare clic sul riquadro **Controlli applicazione adattivi** per altre opzioni.
 
     ![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
@@ -52,8 +52,6 @@ I controlli delle applicazioni adattivi aiutano a definire un set di applicazion
     * **Consigliato**: elenco dei gruppi di risorse per cui è consigliato il controllo delle applicazioni. Il Centro sicurezza usa Machine Learning per identificare le macchine virtuali che sono buone candidate per il controllo delle applicazioni, in base al fatto che le macchine virtuali eseguano in modo coerente le stesse applicazioni.
     * **Configurato**: elenco dei gruppi di risorse contenenti le macchine virtuali configurate con il controllo delle applicazioni. 
     * **Nessuna raccomandazione**: elenco dei gruppi di risorse contenenti le macchine virtuali senza alcuna raccomandazione per il controllo delle applicazioni. Ad esempio, le macchine virtuali in cui le applicazioni cambiano sempre e che non hanno raggiunto uno stato stabile.
-
-Le sezioni seguenti descrivono in modo più dettagliato ogni opzione e il modo in cui usarla.
 
 ### <a name="configure-a-new-application-control-policy"></a>Configurare nuovi criteri di controllo delle applicazioni
 Fare clic sulla scheda **Consigliato** per un elenco dei gruppi di risorse con raccomandazioni per il controllo delle applicazioni:
@@ -75,9 +73,11 @@ In **Seleziona macchine virtuali** esaminare l'elenco di macchine virtuali consi
 - **NOME**: percorso completo dell'applicazione.
 - **PROCESSI**: numero di applicazioni in ogni percorso.
 - **COMUNE**: true indica che i processi sono stati eseguiti nella maggior parte delle macchine virtuali nel gruppo di risorse.
-- **SFRUTTABILE**: un'icona di avviso indica se le applicazioni possono essere usate da un utente malintenzionato per aggirare l'inserimento nell'elenco elementi consentiti. Si consiglia di esaminare le applicazioni prima dell'approvazione. 
+- **SFRUTTABILE**: un'icona di avviso indica se le applicazioni possono essere usate da un utente malintenzionato per aggirare l'inserimento nell'elenco elementi consentiti. È consigliabile esaminare queste applicazioni prima di approvarle. 
 
 Dopo avere selezionato le opzioni desiderate, fare clic sul pulsante **Crea**. Per impostazione predefinita, il Centro sicurezza abilita sempre il controllo delle applicazioni in modalità *Controllo*. Dopo aver verificato che l'elenco elementi consentiti non abbia effetti negativi sul carico di lavoro, è possibile modificare la modalità scegliendo *Applica*.
+
+Il Centro sicurezza si basa su almeno due settimane di dati per creare una baseline e popolare le raccomandazioni univoche per ogni gruppo di VM. In base al comportamento previsto per i nuovi clienti del livello Standard del Centro sicurezza, i gruppi di VM vengono prima visualizzati nella scheda *Nessuna raccomandazione*.
 
 > [!NOTE]
 > Come procedura consigliata per la sicurezza, il Centro sicurezza cerca sempre di creare una regola relativa all'editore per le applicazioni che devono essere inserite nell'elenco elementi consentiti e, solo se un'applicazione non ha informazioni relative all'editore (ovvero non è firmata), viene creata una regola di percorso per il percorso completo del file EXE specifico.
@@ -124,7 +124,7 @@ Se si fa clic su ognuna delle righe, si viene reindirizzati alla pagina [Log att
 
 ![Regole di inserimento nell'elenco elementi consentiti](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 
-Se si fa clic sui tre punti alla fine di ogni riga, è possibile eliminare la regola specifica. L'elenco **Regole di inserimento dei percorsi nell'elenco elementi consentiti** elenca il percorso completo (incluso il file eseguibile) delle applicazioni che non sono firmate con un certificato digitale, ma sono comunque presenti nelle regole di inserimento nell'elenco elementi consentiti. 
+Se si fa clic sui tre punti alla fine di ogni riga, è possibile eliminare la regola specifica. **Regole di inserimento dei percorsi nell'elenco elementi consentiti** elenca il percorso completo (incluso il file eseguibile) delle applicazioni che non sono firmate con un certificato digitale, ma sono comunque presenti nelle regole di inserimento nell'elenco elementi consentiti. 
 
 > [!NOTE]
 > Per impostazione predefinita, come procedura consigliata per la sicurezza, il Centro sicurezza cerca sempre di creare una regola relativa all'editore per i file EXE che devono essere inseriti nell'elenco elementi consentiti e, solo se un file EXE non ha informazioni relative all'editore (ovvero non è firmato), viene creata una regola di percorso per il percorso completo del file EXE specifico.
@@ -147,7 +147,7 @@ L'elenco contiene:
 - **NOME**: nome della sottoscrizione e del gruppo di risorse.
 - **MACCHINE VIRTUALI**: numero di macchine virtuali nel gruppo di risorse.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come usare il controllo delle applicazioni adattivo nel Centro sicurezza di Azure per inserire nell'elenco elementi consentiti le applicazioni in esecuzione nelle macchine virtuali di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.

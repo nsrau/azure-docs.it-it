@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 1e9109581a1943a77e91e7fa034873dc2a15a5e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efcdcac0edcdc3e3bd87dae89609e04985a3579e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-powershell"></a>Creare una data factory e una pipeline con PowerShell
 Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI). 
@@ -78,7 +78,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
         ```
 
     * Per creare istanze di Data Factory è necessario essere un collaboratore o amministratore della sottoscrizione di Azure.
-    * Data Factory V2 consente attualmente di creare data factory solo nell'area Stati Uniti orientali. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+    * Data Factory V2 consente attualmente di creare data factory solo nelle aree **Stati Uniti orientali** o **Stati Uniti orientali 2**. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
 ## <a name="create-a-linked-service"></a>Creare un servizio collegato
 
@@ -165,7 +165,7 @@ Creare servizi collegati in una data factory per collegare gli archivi dati e i 
     ```
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
-
+  
 In questo esempio la pipeline contiene un'attività e accetta due parametri, il percorso del BLOB di input e il percorso del BLOB di output. I valori per questi parametri vengono impostati all'esecuzione/attivazione della pipeline. L'attività di copia fa riferimento allo stesso set di dati del BLOB creato nel passaggio precedente come input e output. Quando il set di dati viene usato come set di dati di input, viene specificato il percorso di input. Quando il set di dati viene usato come set di dati di output, viene specificato il percorso di output. 
 
 1. Creare un file JSON denominato **Adfv2QuickStartPipeline.json** nella cartella **C:\ADFv2QuickStartPSH**, con il contenuto seguente:
@@ -184,7 +184,7 @@ In questo esempio la pipeline contiene un'attività e accetta due parametri, il 
                             "parameters": {
                                 "path": "@pipeline().parameters.inputPath"
                             },
-                        "type": "DatasetReference"
+                            "type": "DatasetReference"
                         }
                     ],
                     "outputs": [

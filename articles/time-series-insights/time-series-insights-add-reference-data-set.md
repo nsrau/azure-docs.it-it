@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: 574f3c5b3a889733f47d729c795ec39009f2ef4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94ca172dba71b407ee5e9a40c283a97602efd17
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Ibiza
 
@@ -27,8 +27,8 @@ Un set di dati di riferimento è una raccolta di elementi che vengono integrati 
 
 ## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Procedura per aggiungere un set di dati di riferimento all'ambiente
 
-1. Accedere al [portale di Ibiza](https://portal.azure.com).
-2. Fare clic su "Tutte le risorse" nel menu sul lato sinistro del portale di Ibiza.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Fare clic su "Tutte le risorse" nel menu sul lato sinistro del portale di Azure.
 3. Selezionare l'ambiente Time Series Insights.
 
     ![Creare il set di dati di riferimento di Time Series Insights](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
@@ -38,7 +38,7 @@ Un set di dati di riferimento è una raccolta di elementi che vengono integrati 
     ![Creare il set di dati di riferimento di Time Series Insights - Dettagli](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
 
 5. Specificare il nome del set di dati di riferimento.
-6. Specificare il nome della chiave e il relativo tipo. Il nome e il tipo vengono usati per selezionare la proprietà corretta dall'evento nell'origine evento. Se ad esempio si specifica "DeviceId" come nome della chiave e "String" come tipo, il motore in ingresso di Time Series Insights cerca una proprietà denominata "DeviceId" di tipo "String" nell'evento in ingresso. È possibile specificare più di una chiave per creare il join con l'evento. La corrispondenza del nome della proprietà distingue tra maiuscole e minuscole.
+6. Specificare il nome della chiave e il relativo tipo. Il nome e il tipo vengono usati per selezionare la proprietà corretta dall'evento nell'origine evento. Se ad esempio si specifica "DeviceId" come nome della chiave e "String" come tipo, il motore in ingresso di Time Series Insights cerca una proprietà denominata "DeviceId" di tipo "String" nell'evento in ingresso. È possibile specificare più di una chiave per creare il join con l'evento. La corrispondenza del nome della chiave distingue tra maiuscole e minuscole.
 
      ![Creare il set di dati di riferimento di Time Series Insights - Dettagli](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
 

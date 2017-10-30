@@ -6,13 +6,13 @@ author: samedder
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 10/20/2017
 ms.author: edwardsa
-ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d24c7618c5d53cfe2871d596bfc0fe2cadd5940a
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
 
@@ -32,7 +32,7 @@ L'interfaccia della riga di comando di Service Fabric è progettata per supporta
 
 | Versione dell'interfaccia della riga di comando   | Versione runtime supportata |
 |---------------|---------------------------|
-| Più recente (~=2)  | Più recente (~=6.0)            |
+| Più recente (~=3)  | Più recente (~=6.0)            |
 | 1.1.0         | 5.6, 5.7                  |
 
 Facoltativamente, è possibile specificare una versione di destinazione dell'interfaccia della riga di comando da installare aggiungendo `==<version>` come suffisso al comando `pip install`. Per la versione 1.1.0, ad esempio, la sintassi sarà la seguente:
@@ -42,6 +42,8 @@ pip install -I sfctl==1.1.0
 ```
 
 Sostituire il comando `pip install` seguente con il comando riportato in precedenza quando necessario.
+
+Per altre informazioni sulle versioni dell'interfaccia della riga di comando di Service Fabric, vedere la [documentazione di GitHub](https://github.com/Azure/service-fabric-cli/releases).
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>Installare pip, Python e l'interfaccia della riga di comando di Service Fabric
 

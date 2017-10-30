@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-security"></a>Sicurezza di rete
 
@@ -151,7 +151,10 @@ Se si creano altre regole, specificando altri gruppi di sicurezza delle applicaz
  
 Per informazioni sui limiti associati alla creazione di gruppi di sicurezza delle applicazioni e all'inclusione di tali gruppi nelle regole di sicurezza, vedere l'articolo relativo ai [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-I gruppi di sicurezza delle applicazioni sono disponibili in versione di anteprima. Prima di usare gruppi di sicurezza delle applicazioni, è necessario eseguire l'apposita registrazione completando i passaggi da 1 a 5 per [creare un gruppo di sicurezza di rete con gruppi di sicurezza delle applicazioni](create-network-security-group-preview.md#powershell) e vedere le informazioni importanti relative alle [funzionalità in anteprima](#preview-features). Durante l'anteprima, i gruppi di sicurezza delle applicazioni sono limitati all'ambito della rete virtuale. Le reti virtuali di cui è stato eseguito il peering con riferimenti incrociati a gruppi di sicurezza delle applicazioni in un gruppo di sicurezza di rete non sono incluse. 
+I gruppi di sicurezza delle applicazioni sono disponibili in versione di anteprima. Prima di usare gruppi di sicurezza delle applicazioni, è necessario eseguire l'apposita registrazione completando i passaggi da 1 a 5 per [creare un gruppo di sicurezza di rete con gruppi di sicurezza delle applicazioni](create-network-security-group-preview.md#powershell) e vedere le informazioni importanti relative alle [funzionalità in anteprima](#preview-features). I gruppi di sicurezza delle applicazioni hanno i vincoli seguenti:
+
+-   Tutte le interfacce di rete all'interno di un gruppo di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Non è possibile aggiungere interfacce di rete da reti virtuali diverse allo stesso gruppo di sicurezza delle applicazioni. La rete virtuale in cui si trova la prima interfaccia di rete assegnata al gruppo di sicurezza delle applicazioni definisce la rete virtuale in cui devono trovarsi tutte le interfacce di rete successivamente assegnate.
+- Se si specificano gruppi di sicurezza delle applicazioni come origine e destinazione in una regola di sicurezza, le interfacce di rete in entrambi i gruppi di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Ad esempio, se il gruppo di sicurezza delle applicazioni 1 contiene interfacce di rete che si trovano nella rete virtuale 1 e il gruppo di sicurezza delle applicazioni 2 contiene interfacce di rete che si trovano nella rete virtuale 2, non è possibile assegnare il gruppo di sicurezza delle applicazioni 1 come origine e il gruppo di sicurezza delle applicazioni 2 come destinazione in una regola, perché tutte le interfacce di rete devono trovarsi nella rete virtuale 1. 
 
 Le funzionalità in anteprima non offrono lo stesso livello di disponibilità e affidabilità delle funzionalità in versione di disponibilità generale. Prima di usare gruppi di sicurezza delle applicazioni, è necessario eseguire l'apposita registrazione. Le funzionalità sono disponibili solo nell'area Stati Uniti centro-occidentali.
 

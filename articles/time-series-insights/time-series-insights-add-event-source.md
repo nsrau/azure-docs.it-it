@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 123ecca28f0d970851487827d0d18e244ce6d98e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Creare un'origine evento per un ambiente Time Series Insights con il portale di Ibiza
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creare un'origine evento per un ambiente Time Series Insights con il portale di Azure
 
-Un'origine evento di Time Series Insights deriva da un gestore eventi, ad esempio Hub eventi di Azure. Time Series Insights si connette direttamente alle origini evento, inserendo il flusso di dati senza che gli utenti debbano scrivere neppure una riga di codice. Time Series Insights supporta attualmente gli hub eventi di Azure e gli hub IoT di Azure. In futuro verranno aggiunte altre origini evento.
+Un'origine evento di Time Series Insights deriva da un broker di eventi, ad esempio Hub eventi di Azure. Time Series Insights si connette direttamente alle origini evento, inserendo il flusso di dati senza che gli utenti debbano scrivere neppure una riga di codice. Time Series Insights supporta attualmente gli hub eventi di Azure e gli hub IoT di Azure. In futuro verranno aggiunte altre origini evento.
 
 ## <a name="steps-to-add-an-event-source-to-your-environment"></a>Procedura per aggiungere un'origine evento all'ambiente
 
-1.  Accedere al [portale di Ibiza](https://portal.azure.com).
-2.  Fare clic su "Tutte le risorse" nel menu sul lato sinistro del portale di Ibiza.
+1.  Accedere al [portale di Azure](https://portal.azure.com).
+2.  Fare clic su "Tutte le risorse" nel menu sul lato sinistro del portale di Azure.
 3.  Selezionare l'ambiente Time Series Insights.
 
   ![Creare l'origine evento di Time Series Insights](media/add-event-source/getstarted-create-event-source-1.png)

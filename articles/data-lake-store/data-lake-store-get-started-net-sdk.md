@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 861f6b54130f9954c5e565346afd9a8f8e034b3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9be26d3affe898bbbb66ead242dbdb59436bb6
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Operazioni di gestione di account in Azure Data Lake Store con .NET SDK
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-Questo articolo fornisce informazioni per l'esecuzione di operazioni di gestione di account in Data Lake Store con .NET SDK. Le operazioni di gestione di account includono la creazione di un account Data Lake Store, la visualizzazione di un elenco degli account in una sottoscrizione di Azure, l'eliminazione di account e così via.
+Questo articolo illustra come eseguire operazioni di gestione degli account in Data Lake Store con .NET SDK. Le operazioni di gestione di account includono la creazione di un account Data Lake Store, la visualizzazione di un elenco degli account in una sottoscrizione di Azure, l'eliminazione di account e così via.
 
 Per istruzioni su come eseguire le operazioni di gestione di dati in Data Lake Store con .NET SDK, vedere [Operazioni del file system in Data Lake Store con .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
@@ -51,7 +51,7 @@ Per istruzioni su come eseguire le operazioni di gestione di dati in Data Lake S
 5. Aggiungere i pacchetti NuGet al progetto.
 
    1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**.
-   2. Nella scheda **Gestione pacchetti NuGet** verificare che l'opzione **Origine pacchetto** sia impostata su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
+   2. Nella scheda **Gestione pacchetti NuGet** assicurarsi che **Origine pacchetto** sia impostato su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
    3. Cercare e installare i pacchetti NuGet seguenti:
 
       * `Microsoft.Azure.Management.DataLake.Store` - Questa esercitazione usa v2.1.3-preview.
@@ -63,13 +63,17 @@ Per istruzioni su come eseguire le operazioni di gestione di dati in Data Lake S
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
 
 7. Dichiarare le variabili e fornire i valori per i segnaposto. Assicurarsi anche che il percorso locale e il nome file forniti siano presenti nel computer.
 
@@ -105,7 +109,7 @@ Nelle sezioni rimanenti dell'articolo è possibile vedere come usare i metodi .N
 Il frammento di codice seguente crea l'oggetto client account Data Lake Store, usato per inviare richieste di gestione di account al servizio, ad esempio per la creazione di account, l'eliminazione di account e così via.
 
     // Create client objects and set the subscription ID
-    _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
+    _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
 ## <a name="create-a-data-lake-store-account"></a>Creare un account Archivio Data Lake
 Il frammento di codice seguente crea un account Data Lake Store nella sottoscrizione di Azure fornita durante la creazione dell'oggetto client account Data Lake Store.

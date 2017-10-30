@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 010/04/2017
+ms.date: 10/12/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f277f59982251eb66ca02e72b4ced7f765935b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -75,7 +75,7 @@ Un account Batch è un'entità identificata in modo univoco all'interno del serv
 È possibile eseguire più carichi di lavoro Batch in un solo account Batch o distribuire i carichi di lavoro tra gli account Batch nella stessa sottoscrizione, ma in aree di Azure diverse.
 
 > [!NOTE]
-> Quando si crea un account Batch, è in genere consigliabile scegliere la modalità **Servizio Batch** predefinita, in cui i pool vengono associati in background nelle sottoscrizioni gestite da Azure. Nella modalità **Sottoscrizione utente** alternativa, che non è più consigliata, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool.
+> Quando si crea un account Batch, è in genere consigliabile scegliere la modalità **Servizio Batch** predefinita, in cui i pool vengono associati in background nelle sottoscrizioni gestite da Azure. Nella modalità **Sottoscrizione utente** alternativa, che non è più consigliata, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool. Per creare un account Batch in modalità di sottoscrizione utente, è anche necessario associare l'account ad Azure Key Vault.
 >
 
 
@@ -129,7 +129,7 @@ Quando si crea un pool di Batch, è possibile specificare la configurazione dell
 
 - **Configurazione macchina virtuale**, che specifica che il pool è composto da macchine virtuali di Azure. È possibile creare queste VM da immagini Linux o Windows. 
 
-    Quando si crea un pool basato su Configurazione macchina virtuale, è necessario specificare non solo le dimensioni dei nodi e l'origine delle immagini usate per crearli, ma anche il **riferimento a un'immagine della macchina virtuale** e lo **SKU dell'agente del nodo** Batch da installare nei nodi. Per altre informazioni sulla specifica di queste proprietà del pool, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md).
+    Quando si crea un pool basato su Configurazione macchina virtuale, è necessario specificare non solo le dimensioni dei nodi e l'origine delle immagini usate per crearli, ma anche il **riferimento a un'immagine della macchina virtuale** e lo **SKU dell'agente del nodo** Batch da installare nei nodi. Per altre informazioni sulla specifica di queste proprietà del pool, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md). È anche possibile collegare uno o più dischi di dati vuoti a VM in pool create da immagini del Marketplace oppure includere i dischi di dati nelle immagini personalizzate usate per creare le macchine virtuali.
 
 - **Cloud Services Configuration** (Configurazione servizi cloud), che specifica che il pool è composto da nodi di Servizi cloud di Azure. Servizi cloud fornisce *solo* nodi di calcolo di Windows.
 
@@ -148,9 +148,11 @@ Per usare un'immagine personalizzata, sarà necessario preparare l'immagine gene
 
 Per i requisiti e i passaggi dettagliati, vedere [Usare un'immagine personalizzata per creare un pool di macchine virtuali](batch-custom-images.md).
 
+#### <a name="container-support-in-virtual-machine-pools"></a>Supporto dei contenitori nei pool di macchine virtuali
 
+Quando si crea un pool Configurazione macchina virtuale usando le API di Batch, è possibile impostare il pool per eseguire attività in contenitori Docker. Al momento è necessario creare il pool usando Windows Server 2016 Datacenter con un'immagine del contenitore di Azure Marketplace oppure specificare un'immagine di macchina virtuale personalizzata che include Docker Community Edition e tutti i driver necessari. Le impostazioni del pool devono includere una [configurazione del contenitore](/rest/api/batchservice/pool/add#definitions_containerconfiguration) che copia le immagini del contenitore nelle macchine virtuali quando viene creato il pool. Le attività eseguite nel pool potranno quindi fare riferimento a immagini del contenitore e opzioni di esecuzione del contenitore.
 
-### <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo di nodo di calcolo e numero di nodi di destinazione
+## <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo di nodo di calcolo e numero di nodi di destinazione
 
 Quando si crea un pool, è possibile specificare i tipi di nodi di calcolo desiderati e il numero di destinazione di ognuno. I due tipi di nodi di calcolo sono i seguenti:
 
@@ -258,6 +260,7 @@ Quando si crea un'attività, è possibile specificare:
 * **Variabili di ambiente** richieste dall'applicazione. Per altre informazioni, vedere la sezione [Impostazioni di ambiente per le attività](#environment-settings-for-tasks) .
 * **Vincoli** in base ai quali viene eseguita l'attività. Ad esempio, i vincoli includono l'intervallo di tempo massimo in cui l'attività può essere eseguita, il numero massimo di ripetizioni dei tentativi di un'attività non riuscita e l'intervallo di tempo massimo in cui i file vengono mantenuti nella directory di lavoro dell'attività.
 * **Pacchetti dell'applicazione** per distribuire il nodo di calcolo in cui è pianificata l'esecuzione dell'attività. [Application packages](#application-packages) consentono una distribuzione e un controllo delle versioni più semplici delle applicazioni eseguite dalle attività. I pacchetti dell'applicazione a livello di attività sono particolarmente utili in ambienti di pool condivisi, in cui diversi processi vengono eseguiti in un pool e il pool non viene eliminato quando viene completato un processo. Se il processo ha meno attività che nodi nel pool, i pacchetti dell'applicazione di attività possono ridurre il trasferimento dei dati, perché l'applicazione viene distribuita solo nei nodi che eseguono le attività.
+* Un riferimento all'**immagine del contenitore** nell'hub Docker oppure in un registro privato e altre impostazioni per creare un contenitore Docker in cui l'attività viene eseguita nel nodo. Queste informazioni vengono specificate solo se il pool è definito con una configurazione del contenitore.
 
 Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il servizio Batch fornisce anche le attività speciali seguenti:
 
@@ -386,39 +389,12 @@ Un approccio combinato viene in genere usato per la gestione di un carico variab
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configurazione della rete virtuale e del firewall 
 
-Quando si effettua il provisioning di un pool di nodi di calcolo in Batch di Azure, è possibile associare il pool a una subnet di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. Per altre informazioni sulla creazione di una rete virtuale con subnet, vedere [Creare una rete virtuale di Azure con subnet](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+Quando si effettua il provisioning di un pool di nodi di calcolo in Batch di Azure, è possibile associare il pool a una subnet di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. Per usare una rete virtuale di Azure, l'API client di Batch deve usare l'autenticazione di Azure Active Directory (AD). Il supporto di Azure Batch per Azure AD è documentato in [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).  
 
-Requisiti per la rete virtuale:
+### <a name="vnet-requirements"></a>Requisiti per la rete virtuale
+[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-* La rete virtuale deve essere nella stessa **area** e nella stessa **sottoscrizione** di Azure dell'account Azure Batch.
-
-* Per i pool creati con una configurazione di macchina virtuale, sono supportate solo le reti virtuali basate su Azure Resource Manager. Per i pool creati con una configurazione di servizi cloud, sono supportate sia le reti virtuali basate su Azure Resource Manager sia quelle classiche. 
-
-* Per usare una rete basata su Azure Resource Manager, l'API client di Batch deve usare l'[autenticazione di Azure Active Directory](batch-aad-auth.md). Per usare una rete virtuale classica, l'entità servizio "MicrosoftAzureBatch" deve avere il ruolo di controllo degli accessi in base al ruolo "Classic Virtual Machine Contributor" per la rete virtuale specificata. 
-
-* La subnet specificata deve avere un numero sufficiente di **indirizzi IP** disponibili per contenere il numero totale di nodi di destinazione, ovvero la somma delle proprietà `targetDedicatedNodes` e `targetLowPriorityNodes` del pool. Se la subnet non ha sufficienti indirizzi IP liberi, il servizio Batch alloca parzialmente i nodi di calcolo nel pool e restituisce un errore di ridimensionamento.
-
-* La subnet specificata deve consentire la comunicazione dal servizio Batch per poter pianificare le operazioni sui nodi di calcolo. Se la comunicazione ai nodi di calcolo viene negata da un **gruppo di sicurezza di rete** associato alle rete virtuale, il servizio Batch imposta lo stato dei nodi di calcolo su **Non utilizzabile**.
-
-* Se alla rete virtuale specificata sono associati **gruppi di sicurezza di rete** e/o un **firewall**, è necessario abilitare alcune porte di sistema riservate per le comunicazioni in ingresso:
-
-- Per i pool creati con una configurazione di macchina virtuale, abilitare le porte 29876 e 29877, nonché la porta 22 per Linux e la porta 3389 per Windows. 
-- Per i pool creati con una configurazione di servizio cloud, abilitare le porte 10100, 20100 e 30100. 
-- Abilitare le connessioni in uscita verso Archiviazione di Azure sulla porta 443. Assicurarsi anche che l'endpoint di Archiviazione di Azure possa essere risolto da qualsiasi server DNS personalizzato che fornisce informazioni alla rete virtuale. In particolare, un URL con formato `<account>.table.core.windows.net` dovrebbe essere risolvibile.
-
-    La tabella seguente descrive le porte in ingresso che è necessario abilitare per i pool creati con la configurazione macchina virtuale:
-
-    |    Porte di destinazione    |    Indirizzo IP di origine      |    Batch aggiunge gruppi di sicurezza di rete    |    Necessarie per l'utilizzabilità della VM    |    Azione dell'utente   |
-    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
-    |    <ul><li>Per i pool creati con la configurazione macchina virtuale: 29876, 29877</li><li>Per i pool creati con la configurazione del servizio cloud: 10100, 20100 e 30100</li></ul>         |    Solo indirizzi IP del ruolo del servizio Batch |    Sì. Batch aggiunge gruppi di sicurezza di rete al livello di interfacce di rete collegate alle VM. Questi gruppi di sicurezza di rete consentono il traffico solo dagli indirizzi IP del ruolo del servizio Batch. Anche se si aprono queste porte per l'intero Web, il traffico verrà bloccato nella scheda di interfaccia di rete. |    Sì  |  Non è necessario specificare un gruppo di sicurezza di rete, perché Batch consente solo indirizzi IP Batch. <br /><br /> Se si specifica ugualmente un gruppo di sicurezza di rete, assicurarsi che queste porte siano aperte per il traffico in ingresso. <br /><br /> Se si specifica * come IP di origine nel gruppo di sicurezza di rete, Batch aggiunge ancora gruppi di sicurezza di rete al livello di scheda di interfaccia di rete collegata alle VM. |
-    |    3389, 22               |    Computer utente, usati per il debug, per poter accedere in remoto alla VM.    |    No                                    |    No                     |    Aggiungere gruppi di sicurezza di rete per consentire l'accesso remoto (RDP/SSH) alla VM.   |                 
-
-    La tabella seguente indica la porta in uscita che è necessario abilitare per consentire l'accesso ad Archiviazione di Azure:
-
-    |    Porte in uscita    |    Destination    |    Batch aggiunge gruppi di sicurezza di rete    |    Necessarie per l'utilizzabilità della VM    |    Azione dell'utente    |
-    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-    |    443    |    Archiviazione di Azure    |    No    |    Sì    |    Se si aggiungono gruppi di sicurezza di rete, assicurarsi che questa porta sia aperta per il traffico in uscita.    |
-
+Per altre informazioni sulla configurazione di un pool di Batch in una rete virtuale, vedere [Creare un pool di macchine virtuali con la rete virtuale](batch-virtual-network.md).
 
 ## <a name="scaling-compute-resources"></a>Ridimensionamento delle risorse di calcolo
 Con il [ridimensionamento automatico](batch-automatic-scaling.md)è possibile fare in modo che il servizio Batch modifichi dinamicamente il numero di nodi di calcolo in un pool in base al carico di lavoro corrente e all'utilizzo delle risorse dello scenario di calcolo. In questo modo è possibile ridurre il costo complessivo dell'esecuzione dell'applicazione usando solo le risorse necessarie e rilasciando quelle non necessarie.
@@ -525,11 +501,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [API e gli strumenti di Batch](batch-apis-tools.md) disponibili per la compilazione di soluzioni Batch.
 * Esaminare in dettaglio un'applicazione Batch di esempio in [Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md). È disponibile anche una [versione per Python](batch-python-tutorial.md) dell'esercitazione che esegue un carico di lavoro nei nodi di calcolo Linux.
-* Scaricare e compilare il progetto di esempio [Batch Explorer][github_batchexplorer] da usare durante lo sviluppo di soluzioni Batch. Con Batch Explorer è possibile eseguire le operazioni seguenti e altre ancora:
-
-  * Monitorare e gestire pool, processi e attività nell'account Batch
-  * Scaricare `stdout.txt`, `stderr.txt` e altri file dai nodi
-  * Creare utenti nei nodi e scaricare i file RDP per l'accesso remoto
+* Scaricare e installare [BatchLabs][batch_labs] da usare durante lo sviluppo di soluzioni Batch. Usare BatchLabs per la creazione, il debug e il monitoraggio delle applicazioni Azure Batch. 
 * Leggere le informazioni su come [creare pool di nodi di calcolo Linux](batch-linux-nodes.md).
 * Visitare il [forum di Azure Batch][batch_forum] su MSDN. dove sia chi sta imparando a usare Batch sia gli esperti possono porre domande.
 
@@ -541,7 +513,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

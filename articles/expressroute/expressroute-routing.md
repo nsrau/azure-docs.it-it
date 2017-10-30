@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
-ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -39,29 +39,41 @@ Per configurare i peering, è possibile usare sia indirizzi IP privati sia indir
 * È necessario riservare una subnet /29 o due subnet /30 per le interfacce di routing.
 * Le subnet usate per il routing possono essere costituite sia da indirizzi IP privati sia da indirizzi IP pubblici.
 * Le subnet non devono essere in conflitto con l'intervallo riservato dal cliente per l'uso in Microsoft Cloud.
-* Se viene usata una subnet /29, questa verrà divisa in due subnet /30. 
+* Se viene usata una subnet /29, questa viene divisa in due subnet /30. 
   * La prima subnet /30 viene usata per il collegamento primario e la seconda per il collegamento secondario.
   * Per ogni subnet /30, è necessario usare il primo indirizzo IP della subnet /30 nel router. Microsoft usa il secondo indirizzo IP della subnet /30 per configurare una sessione BGP.
   * È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](https://azure.microsoft.com/support/legal/sla/) sia valido.  
 
 #### <a name="example-for-private-peering"></a>Esempio per il peering privato
-Se si sceglie di usare la subnet a.b.c.d/29 per configurare il peering, verrà divisa in due subnet /30. L'esempio seguente illustra come viene usata la subnet a.b.c.d/29. 
+Se si sceglie di usare la subnet a.b.c.d/29 per configurare il peering, viene divisa in due subnet /30. L'esempio seguente illustra come viene usata la subnet a.b.c.d/29. 
 
-La subnet a.b.c.d/29 verrà divisa in a.b.c.d/30 e a.b.c.d+4/30 e passata a Microsoft tramite le API di provisioning. Si userà l'indirizzo a.b.c.d+1 come indirizzo IP VRF per il router PE (Provider Edge) primario e Microsoft userà l'indirizzo a.b.c.d+2 come indirizzo IP VRF per il router MSEE primario. Si userà l'indirizzo a.b.c.d+5 come indirizzo IP VRF per il router PE (Provider Edge) secondario e Microsoft userà l'indirizzo a.b.c.d+6 come indirizzo IP VRF per il router MSEE secondario.
+La subnet a.b.c.d/29 viene divisa in a.b.c.d/30 e a.b.c.d+4/30 e passata a Microsoft tramite le API di provisioning. Si usa a.b.c.d+1 come indirizzo IP VRF per il router PE primario e Microsoft utilizzerà a.b.c.d+2 come indirizzo IP VRF per il router MSEE primario. Si usa a.b.c.d+5 come indirizzo IP VRF per il router PE secondario e Microsoft utilizzerà a.b.c.d+6 come indirizzo IP VRF per il router MSEE secondario.
 
 Si consideri un caso in cui si seleziona l'indirizzo 192.168.100.128/29 per configurare il peering privato. L'intervallo 192.168.100.128/29 include gli indirizzi IP da 192.168.100.128 a 192.168.100.135, tra cui:
 
 * 192.168.100.128/30 che verrà assegnato a link1, con il provider che usa 192.168.100.129 e Microsoft che usa 192.168.100.130.
 * 192.168.100.132/30 che verrà assegnato a link2, con il provider che usa 192.168.100.133 e Microsoft che usa 192.168.100.134.
 
-### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>Indirizzi IP usati per il peering Microsoft e il peering pubblico di Azure
+### <a name="ip-addresses-used-for-azure-public-peering"></a>Indirizzi IP usati per il peering pubblico di Azure
 Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di proprietà. Microsoft deve essere in grado di verificare la proprietà degli indirizzi IP tramite il Routing Internet Registry e l'Internet Routing Registry. 
 
 * È necessario usare una subnet /29 univoca o due subnet /30 per configurare il peering BGP per ogni peering per circuito ExpressRoute (se è presente più di un circuito). 
-* Se viene usata una subnet /29, questa verrà divisa in due subnet /30. 
-  * La prima subnet /30 verrà usata per il collegamento primario e la seconda per il collegamento secondario.
+* Se viene usata una subnet /29, questa viene divisa in due subnet /30. 
+  * La prima subnet /30 viene usata per il collegamento primario e la seconda per il collegamento secondario.
   * Per ogni subnet /30, è necessario usare il primo indirizzo IP della subnet /30 nel router. Microsoft usa il secondo indirizzo IP della subnet /30 per configurare una sessione BGP.
   * È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](https://azure.microsoft.com/support/legal/sla/) sia valido.
+
+### <a name="ip-addresses-used-for-microsoft-peering"></a>Indirizzi IP usati per il peering Microsoft
+Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di proprietà. Microsoft deve essere in grado di verificare la proprietà degli indirizzi IP tramite il Routing Internet Registry e l'Internet Routing Registry.
+
+* È necessario usare una subnet /29 (IPv4) o /125 (IPv6) univoca o due subnet /30 (IPv4) o /126 (IPv6) per configurare il peering BGP per ogni peering per circuito ExpressRoute (se è presente più di un circuito).
+* Se viene usata una subnet /29, questa viene divisa in due subnet /30.
+* La prima subnet /30 viene usata per il collegamento primario e la seconda per il collegamento secondario.
+* Per ogni subnet /30, è necessario usare il primo indirizzo IP della subnet /30 nel router. Microsoft usa il secondo indirizzo IP della subnet /30 per configurare una sessione BGP.
+* Se viene usata una subnet /125, questa viene divisa in due subnet /126.
+* La prima subnet /126 viene usata per il collegamento primario e la seconda per il collegamento secondario.
+* Per ogni subnet /126, è necessario usare il primo indirizzo IP della subnet /126 nel router. Microsoft usa il secondo indirizzo IP della subnet /126 per configurare una sessione BGP.
+* È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](https://azure.microsoft.com/support/legal/sla/) sia valido.
 
 ## <a name="public-ip-address-requirement"></a>Requisito dell'indirizzo IP pubblico
 
@@ -80,7 +92,7 @@ Il percorso di peering pubblico di Azure consente di connettersi a tutti i servi
 Con il peering pubblico è consentito un numero AS privato.
 
 ### <a name="microsoft-peering"></a>Peering Microsoft
-Il percorso di peering Microsoft consente di connettersi a tutti i servizi cloud Microsoft ospitati su indirizzi IP pubblici. L'elenco di servizi include Office 365, Dynamics 365 e i servizi PaaS di Microsoft Azure. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4/IPv6 pubblici validi per poter accedere alla rete Microsoft.
+Il percorso di peering Microsoft consente di connettersi a servizi cloud Microsoft che non sono supportati tramite il percorso di peering pubblico di Azure. L'elenco dei servizi include servizi Office 365 quali Exchange Online, SharePoint Online, Skype for Business e Dynamics 365. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
 
 Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utente in uno dei registri seguenti:
 
@@ -93,7 +105,7 @@ Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utent
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
 
-Se i prefissi e il numero AS non sono assegnati all'utente specifico nei registri precedenti, sarà necessario aprire un caso di supporto per la convalida manuale dei prefissi e del numero AS. Il supporto richiederà documentazione, ad esempio una lettera di autorizzazione, che dimostri che l'utente è autorizzato a usare le risorse.
+Se i prefissi e il numero AS non sono assegnati all'utente specifico nei registri precedenti, è necessario aprire un caso di supporto per la convalida manuale di prefissi e ASN. Il supporto richiede documentazione, ad esempio una lettera di autorizzazione, che dimostri che l'utente è autorizzato a usare le risorse.
 
 Un numero AS privato è consentito con il peering Microsoft, ma sarà necessaria anche la convalida manuale.
 
@@ -106,14 +118,14 @@ Un numero AS privato è consentito con il peering Microsoft, ma sarà necessaria
 Lo scambio di routing avviene tramite il protocollo eBGP. Vengono stabilite sessioni eBGP tramite i router MSEE e i propri router. L'autenticazione delle sessioni eBGP non è un requisito. Se necessario, è possibile configurare un hash MD5. Vedere il [Configura routing](expressroute-howto-routing-classic.md) e il [Circuito flussi di lavoro di provisioning e circuito stati](expressroute-workflows.md) per informazioni sulla configurazione delle sessioni BGP.
 
 ## <a name="autonomous-system-numbers"></a>Numeri AS (Autonomous System)
-Microsoft userà il numero AS 12076 per il peering pubblico di Azure, il peering privato di Azure e il peering Microsoft. Gli ASN da 65515 a 65520 sono riservati per uso interno. Sono supportati sia i numeri AS a 16 bit che a 32 bit.
+Microsoft usa il numero AS 12076 per il peering pubblico di Azure, il peering privato di Azure e il peering Microsoft. Gli ASN da 65515 a 65520 sono riservati per uso interno. Sono supportati sia i numeri AS a 16 bit che a 32 bit.
 
 Non sono previsti requisiti per la simmetria del trasferimento dei dati. I percorsi di andata e ritorno possono transitare attraverso coppie di router diverse. Le route identiche devono essere annunciate da entrambi i lati in più coppie di circuiti appartenenti all'utente. Non è necessario che le metriche delle route siano identiche.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Limiti per i prefissi e l'aggregazione di route
 Sono supportati fino a 4000 prefissi annunciati a Microsoft tramite il peering privato di Azure. Questo numero può essere aumentato fino a 10.000 prefissi se è abilitato il componente aggiuntivo ExpressRoute Premium. Per il peering pubblico di Azure e il peering Microsoft sono accettati fino a 200 prefissi per sessione BGP. 
 
-La sessione BGP verrà rimossa se il numero di prefissi supera il limite previsto. Verranno accettate route predefinite solo sul collegamento del peering privato. Il provider deve filtrare le route predefinite e gli indirizzi IP privati (RFC 1918) dai percorsi per il peering pubblico di Azure e il peering Microsoft. 
+La sessione BGP viene eliminata se il numero di prefissi supera il limite. Verranno accettate route predefinite solo sul collegamento del peering privato. Il provider deve filtrare le route predefinite e gli indirizzi IP privati (RFC 1918) dai percorsi per il peering pubblico di Azure e il peering Microsoft. 
 
 ## <a name="transit-routing-and-cross-region-routing"></a>Routing di transito e routing tra aree
 Non è possibile configurare ExpressRoute come router di transito. Per i servizi di routing di transito è necessario rivolgersi al provider di connettività.
@@ -140,7 +152,7 @@ Ad esempio, se ci si connette a Microsoft tramite ExpressRoute ad Amsterdam, sar
 
 Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate e delle località di peering ExpressRoute corrispondenti, vedere la pagina [Partner e località i peering per ExpressRoute](expressroute-locations.md) .
 
-È possibile acquistare più di un circuito ExpressRoute per area geopolitica. Un maggior numero di connessioni offre vantaggi significativi in termini di disponibilità elevata, grazie alla ridondanza geografica. Se si hanno più circuiti ExpressRoute, si riceverà lo stesso set di prefissi annunciati da Microsoft nei percorsi per il peering pubblico e per il peering Microsoft. Questo significa che saranno disponibili più percorsi dalla propria rete a Microsoft. In questo caso, all'interno della rete potrebbero essere prese decisioni di routing non ottimali, che possono, a loro volta, determinare esperienze di connettività non ottimali a vari servizi. Per prendere decisioni di routing appropriate e offrire un servizio di [routing ottimale agli utenti](expressroute-optimize-routing.md), è possibile usare i valori della community.
+È possibile acquistare più di un circuito ExpressRoute per area geopolitica. Un maggior numero di connessioni offre vantaggi significativi in termini di disponibilità elevata, grazie alla ridondanza geografica. Se si hanno più circuiti ExpressRoute, si riceverà lo stesso set di prefissi annunciati da Microsoft nei percorsi per il peering pubblico e per il peering Microsoft. Questo significa che saranno disponibili più percorsi dalla propria rete a Microsoft. In questo caso, all'interno della rete potrebbero essere prese decisioni di routing non ottimali, che possono a propria volta determinare esperienze di connettività non ottimali per diversi servizi. Per prendere decisioni di routing appropriate e offrire un servizio di [routing ottimale agli utenti](expressroute-optimize-routing.md), è possibile usare i valori della community.
 
 | **Area di Microsoft Azure** | **Valore della community BGP** |
 | --- | --- |
@@ -183,7 +195,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 Tutte le route annunciate da Microsoft verranno contrassegnate con il valore della community appropriato. 
 
 > [!IMPORTANT]
-> I prefissi globali verranno contrassegnati con un valore della community appropriato e saranno annunciati solo quando è abilitato il componente aggiuntivo ExpressRoute Premium.
+> I prefissi globali vengono contrassegnati con un valore della community appropriato e vengono annunciati solo quando è abilitato il componente aggiuntivo ExpressRoute Premium.
 > 
 > 
 
@@ -227,7 +239,6 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare la connessione ExpressRoute.
   
-  * [Creare un circuito ExpressRoute per il modello di distribuzione classica](expressroute-howto-circuit-classic.md) o [Creare e modificare un circuito ExpressRoute usando Azure Resource Manager](expressroute-howto-circuit-arm.md)
-  * [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione Resource Manager](expressroute-howto-routing-arm.md)
-  * [Collegare una rete virtuale classica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Collegare una rete virtuale di Azure Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
+  * [Creare e modificare un circuito](expressroute-howto-circuit-arm.md)
+  * [Creare e modificare la configurazione di peering](expressroute-howto-routing-arm.md)
+  * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)

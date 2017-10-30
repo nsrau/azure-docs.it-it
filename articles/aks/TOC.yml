@@ -46,7 +46,7 @@
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/aks
     - name: REST
-      href: /rest/api/container-service
+      href: /rest/api/aks
 - name: Risorse
   items:
     - name: Roadmap per Azure

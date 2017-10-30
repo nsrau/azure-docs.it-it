@@ -1,12 +1,12 @@
 ---
-title: Impostare i criteri di sicurezza nel Centro sicurezza di Azure | Documentazione Microsoft
-description: Questo documento consente di configurare i criteri di sicurezza nel Centro sicurezza di Azure.
+title: Integrazione dei criteri di sicurezza del Centro sicurezza di Azure con Criteri di Azure | Microsoft Docs
+description: Questo documento illustra come configurare l'integrazione dei criteri di sicurezza del Centro sicurezza di Azure con Criteri di Azure.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
 editor: 
-ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
+ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,36 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
+ms.openlocfilehash: 5e07cd6891a5ab04012f819b5f6b9379312e530d
 ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/13/2017
 ---
-# <a name="set-security-policies-in-security-center"></a>Impostare i criteri di sicurezza nel Centro sicurezza
-Questo documento consente di configurare i criteri di sicurezza nel Centro sicurezza mostrando i passaggi necessari per eseguire questa attività. 
+# <a name="set-security-policies-in-security-center-powered-by-azure-policy"></a>Impostare i criteri di sicurezza nel Centro sicurezza, con tecnologia di Criteri di Azure
+Questo documento illustra come configurare i criteri di sicurezza nel Centro sicurezza con tecnologia di Criteri di Azure, mostrando i passaggi necessari per eseguire questa attività. 
 
 
 ## <a name="how-security-policies-work"></a>Funzionamento dei criteri di sicurezza
-Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito per ogni sottoscrizione di Azure. È possibile modificare il criterio nel Centro sicurezza e monitorare la conformità ai criteri. 
+Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito per ogni sottoscrizione di Azure. È possibile modificare il criterio nel Centro sicurezza oppure usare [Criteri di Azure](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) per creare nuove definizioni di criteri, assegnare criteri nei gruppi di gestione (che possono rappresentare l'intera organizzazione, una business unit specifica e così via) e monitorare la conformità ai criteri.
 
 > [!NOTE]
-> I criteri del Centro sicurezza possono ora essere estesi usando Criteri di Azure, disponibile in anteprima limitata. Fare clic [qui](http://aka.ms/getpolicy) per partecipare all'anteprima oppure vedere la documentazione [qui](security-center-azure-policy.md).
-
-Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti di sicurezza diversi da quelli delle risorse usate per le applicazioni di produzione. In modo analogo, le applicazioni che usano dati regolamentati come le informazioni personali possono richiedere un maggiore livello di sicurezza. I criteri di protezione abilitati nel Centro sicurezza di Azure determinano i suggerimenti per la sicurezza e il monitoraggio per identificare le potenziali vulnerabilità e attenuare le minacce. Per altre informazioni su come determinare l'opzione più appropriata, vedere [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md) .
+> Criteri di Azure è disponibile in anteprima limitata. Fare clic [qui](https://aka.ms/getpolicy) per partecipare. Per altre informazioni sui criteri di Azure, vedere [Create and manage policies to enforce compliance](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy) (Creare e gestire criteri per applicare la conformità).
 
 ## <a name="edit-security-policies"></a>Modificare i criteri di sicurezza
-È possibile modificare i criteri di sicurezza predefiniti per ogni sottoscrizione di Azure nel Centro sicurezza. Per modificare i criteri di sicurezza, è necessario essere proprietario, collaboratore o amministratore della sicurezza della sottoscrizione. Accedere al portale di Azure e seguire questa procedura per configurare i criteri di sicurezza nel Centro sicurezza di Azure: 
+È possibile modificare i criteri di sicurezza predefiniti per ogni sottoscrizione di Azure nel Centro sicurezza. Per modificare i criteri di sicurezza, è necessario essere un proprietario, un collaboratore o un amministratore della sicurezza della sottoscrizione o del gruppo di gestione che la include. Accedere al portale di Azure e seguire questa procedura per visualizzare i criteri di sicurezza nel Centro sicurezza di Azure:
 
-1.  Nel dashboard **Centro sicurezza** in **Generale** fare clic su **Criteri di sicurezza**.
-2.  Selezionare la sottoscrizione in cui abilitare i criteri di sicurezza.
-3.  Nella sezione **COMPONENTI DEI CRITERI** fare clic su **Criteri di sicurezza**.
-4.  Questi sono i criteri predefiniti assegnati dal Centro sicurezza. È possibile attivare o disattivare le raccomandazioni sulla sicurezza disponibili.
-5.  Al termine delle modifiche, fare clic su **Salva**.
+1. Nel dashboard **Centro sicurezza** in **Generale** fare clic su **Criteri di sicurezza**.
+2. Selezionare la sottoscrizione in cui abilitare i criteri di sicurezza.
 
-## <a name="available-security-policy-options"></a>Opzioni di criteri di sicurezza disponibili
+    ![Gestione dei criteri](./media/security-center-policies/security-center-policies-fig10.png)
 
-Usare la tabella seguente come riferimento per comprendere ogni opzione:
+3. Nella sezione **COMPONENTI DEI CRITERI** fare clic su **Criteri di sicurezza**.
+
+    ![Componenti dei criteri](./media/security-center-policies/security-center-policies-fig12.png)
+
+4. Questo è il criterio predefinito assegnato al Centro sicurezza tramite i criteri di Azure. È possibile eliminare elementi disponibili in **POLICIES AND PARAMETERS** (CRITERI E PARAMETRI) oppure aggiungere altre definizioni dei criteri disponibili in **OPZIONI DISPONIBILI**. A questo scopo, è sufficiente fare clic sul segno Più accanto al nome della definizione.
+
+    ![Definizioni dei criteri](./media/security-center-policies/security-center-policies-fig11.png)
+
+5. Per una spiegazione più dettagliata dei criteri, fare clic su di essi. Verrà visualizzata un'altra pagina contenente i dettagli e il codice JSON con la struttura della [definizione di criteri](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure):
+
+    ![Json](./media/security-center-policies/security-center-policies-fig14.png)
+
+6. Al termine delle modifiche, fare clic su **Salva**.
+
+
+## <a name="available-security-policy-definitions"></a>Definizioni di criteri di sicurezza disponibili
+
+Usare la tabella seguente come riferimento per comprendere le definizioni di criteri disponibili nei criteri di sicurezza predefiniti: 
 
 | Criteri | Quando lo stato è Sì |
 | --- | --- |

@@ -1,0 +1,108 @@
+---
+title: "Entità servizio per cluster Azure Kubernetes | Documentazione Microsoft"
+description: "Creare e gestire un'entità servizio di Azure Active Directory per un cluster Kubernetes nel servizio contenitore di Azure"
+services: container-service
+documentationcenter: 
+author: neilpeterson
+manager: timlt
+editor: 
+tags: aks, azure-container-service, kubernetes
+keywords: 
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/24/2017
+ms.author: nepeters
+ms.custom: mvc
+ms.openlocfilehash: a532c8f69bfb19d26538aafe7c74f062dee06d9f
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
+---
+# <a name="service-principals-with-azure-container-service-aks"></a>Entità servizio con il servizio contenitore di Azure
+
+Un cluster del servizio contenitore di Azure richiede un'[entità servizio di Azure Active Directory](../active-directory/develop/active-directory-application-objects.md) per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md) e [Azure Load Balancer di livello 4](../load-balancer/load-balancer-overview.md).
+
+Questo articolo descrive diverse opzioni per la configurazione di un'entità servizio per il cluster Kubernetes nel servizio contenitore di Azure.
+
+## <a name="before-you-begin"></a>Prima di iniziare
+
+I passaggi dettagliati contenuti in questo documento presuppongono che sia stato creato un cluster del servizio contenitore di Azure e che sia stata stabilita una connessione kubectl al cluster. Se sono necessari questi elementi, vedere la [guida introduttiva al servizio contenitore di Azure](./kubernetes-walkthrough.md).
+
+Per creare un'entità servizio di Azure AD, sono necessarie le autorizzazioni per registrare un'applicazione con il tenant di Azure AD e per assegnare l'applicazione a un ruolo nella sottoscrizione. In mancanza di queste autorizzazioni, potrebbe essere necessario chiedere all'amministratore di Azure AD o della sottoscrizione di assegnarle oppure di creare in anticipo un'entità servizio per il cluster Kubernetes.
+
+È anche necessaria l'interfaccia della riga di comando di Azure 2.0.20 o versioni successive installata e configurata. Eseguire az --version per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+
+## <a name="create-sp-with-aks-cluster"></a>Creare l'entità servizio con il cluster del servizio contenitore di Azure
+
+Quando si distribuisce un cluster del servizio contenitore di Azure con il comando `az aks create`, è possibile scegliere di generare automaticamente un'entità servizio.
+
+Nell'esempio seguente viene creato un cluster del servizio contenitore di Azure e poiché non è specificata un'entità servizio, ne viene creata una per il cluster. Per completare questa operazione, l'account deve avere i diritti appropriati per la creazione di un'entità servizio. 
+
+```azurecli
+az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
+```
+
+## <a name="use-an-existing-sp"></a>Usare un'entità servizio esistente
+
+È possibile usare un'entità servizio di Azure AD esistente oppure crearne in anticipo una da usare con un cluster del servizio contenitore di Azure. Questa operazione è utile quando si distribuisce un cluster dal portale di Azure, in cui è necessario fornire informazioni sull'entità servizio.
+
+Quando si usa un'entità servizio esistente, questa deve soddisfare i requisiti seguenti:
+
+- Ambito: sottoscrizione usata per distribuire il cluster
+- Ruolo: Collaboratore
+- Segreto client: deve essere una password
+
+## <a name="pre-create-a-new-sp"></a>Creare in anticipo una nuova entità servizio
+
+Per creare l'entità servizio con l'interfaccia della riga di comando di Azure, usare il comando [az ad sp create-for-rbac]().
+
+```azurecli
+id=$(az account show --query id --output tsv)
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
+```
+
+L'output è simile al seguente. Prendere nota dei valori di `appId` e `password`. Questi valori vengono usati durante la creazione di un cluster del servizio contenitore di Azure.
+
+```
+{
+  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
+  "displayName": "azure-cli-2017-10-15-02-20-15",
+  "name": "http://azure-cli-2017-10-15-02-20-15",
+  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
+  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+}
+```
+
+## <a name="use-an-existing-sp"></a>Usare un'entità servizio esistente
+
+Quando si usa un'entità servizio già creata, specificare `appId` e `password` come valori di argomento nel comando `az aks create`.
+
+```azurecli-interactive
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-princal <appId> ----client-secret <password>
+```
+
+Se si distribuisce un cluster del servizio contenitore di Azure dal portale di Azure, immettere questi valori nel modulo di configurazione del cluster.
+
+![Immagine del passaggio ad Azure Vote](media/container-service-kubernetes-service-principal/sp-portal.png)
+
+## <a name="additional-considerations"></a>Considerazioni aggiuntive
+
+Quando si usano entità servizio del servizio contenitore di Azure e di Azure AD, ricordare le considerazioni seguenti.
+
+* L'entità servizio per Kubernetes fa parte della configurazione del cluster. Non usare tuttavia l'identità per distribuire il cluster.
+* Ogni entità servizio è associata a un'applicazione Azure AD. L'entità servizio per un cluster Kubernetes può essere associata a qualsiasi nome applicazione Azure AD valido, ad esempio `https://www.contoso.org/example`. L'URL per l'applicazione non deve essere necessariamente un endpoint reale.
+* Quando si specifica l'**ID client** dell'entità servizio, è possibile usare il valore di `appId`, come illustrato in questo articolo, o il valore `name` corrispondente dell'entità servizio, ad esempio `https://www.contoso.org/example`.
+* Nelle macchine virtuali master e del nodo nel cluster Kubernetes le credenziali dell'entità servizio vengono archiviate nel file /etc/kubernetes/azure.json.
+* Quando si usa il comando `az aks create` per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file ~/.azure/acsServicePrincipal.json nel computer usato per eseguire il comando.
+* Quando si usa il comando `az aks create` per generare automaticamente l'entità servizio, questa può anche eseguire l'autenticazione con un [registro contenitori di Azure](../container-registry/container-registry-intro.md) creato nella stessa sottoscrizione.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per altre informazioni sulle entità servizio di Azure Active Directory, vedere la documentazione delle applicazioni di Azure AD.
+
+> [!div class="nextstepaction"]
+> [Oggetti applicazione e oggetti entità servizio](../active-directory/develop/active-directory-application-objects.md)

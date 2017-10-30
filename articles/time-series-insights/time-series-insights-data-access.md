@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 5258bf5de6f7aa1ea246f1235e7d362b1b7d0181
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Concedere l'accesso ai dati in un ambiente Time Series Insights con il portale di Azure
 
@@ -42,12 +42,13 @@ Le due tipologie di criteri consentono una netta separazione tra l'accesso alla 
 La procedura seguente illustra come concedere l'accesso ai dati per un'entità utente:
 
 1.  Accedere al [portale di Azure](https://portal.azure.com).
-2.  Fare clic su "Tutte le risorse" nel menu sul lato sinistro del portale di Azure.
-3.  Selezionare l'ambiente Time Series Insights.
+2.  Digitare "Time Series" nella finestra di ricerca.
+3.  Fare clic sull'opzione relativa all'ambiente Time Series
+4.  Selezionare l'ambiente Time Series Insights nell'elenco.
 
   ![Gestire l'origine Time Series Insights: ambiente](media/data-access/getstarted-grant-data-access1.png)
 
-4.  Selezionare "Accesso al piano dati" e fare clic su "Aggiungi".
+4.  Selezionare "Criteri di accesso ai dati" e quindi fare clic su "Aggiungi"
 
   ![Gestire l'origine Time Series Insights: aggiunta](media/data-access/getstarted-grant-data-access2.png)
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Informazioni sui set di scalabilità di macchine virtuali in Azure
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire un set di VM identiche. Dato che tutte le VM hanno la stessa configurazione, i set di scalabilità sono progettati per supportare l'effettiva scalabilità automatica, senza che sia necessario il provisioning preventivo delle VM. Ciò semplifica la creazione di servizi su larga scala destinati a carichi di lavoro Big Compute, Big Data e in contenitori.
@@ -33,7 +33,7 @@ Per altre informazioni sui set di scalabilità, guardare questi video:
 * [Set di scalabilità di macchine virtuali con Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Creazione e gestione dei set di scalabilità
-È possibile creare un set di scalabilità nel [portale di Azure](https://portal.azure.com) selezionando **Nuovo** e digitando **scalabilità** nella barra di ricerca. Nei risultati verrà visualizzato **Set di scalabilità di macchine virtuali**. A questo punto è possibile compilare i campi obbligatori per personalizzare e distribuire il set di scalabilità. Nel portale sono disponibili anche opzioni per impostare regole di base di scalabilità automatica in base all'utilizzo della CPU. 
+È possibile creare un set di scalabilità nel [portale di Azure](https://portal.azure.com) selezionando **Nuovo** e digitando **scalabilità** nella barra di ricerca. Nei risultati verrà visualizzato **Set di scalabilità di macchine virtuali**. A questo punto è possibile compilare i campi obbligatori per personalizzare e distribuire il set di scalabilità. Nel portale sono disponibili anche opzioni per impostare regole di base di scalabilità automatica in base all'utilizzo della CPU. Per gestire il set di scalabilità, è possibile usare il portale di Azure, i [cmdlet di Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) o l'interfaccia della riga di comando di Azure 2.0.
 
 I set di scalabilità possono essere distribuiti in una [zona di disponibilità](../availability-zones/az-overview.md).
 
@@ -46,8 +46,23 @@ Un set di modelli di esempio per i set di scalabilità di macchine virtuali è d
 
 Per gli esempi di modelli di avvio rapido, un pulsante "Distribuisci in Azure" nel file Leggimi di ogni modello consente di accedere alla funzionalità di distribuzione del portale. Per distribuire il set di scalabilità, fare clic sul pulsante e quindi immettere tutti i parametri richiesti nel portale. 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>Aumento e riduzione delle istanze di un set di scalabilità
-È possibile modificare la capacità di un set di scalabilità nel portale di Azure facendo clic sulla sezione **Ridimensionamento** in **Impostazioni**. 
+
+## <a name="autoscale"></a>Autoscale
+Per mantenere costanti le prestazioni dell'applicazione, è possibile aumentare o ridurre automaticamente il numero delle istanze di VM nel set di scalabilità. Questa funzionalità di scalabilità automatica riduce l'overhead di gestione richiesto dal monitoraggio e ottimizza il set di scalabilità quando il cliente richiede modifiche nel corso del tempo. Le regole vengono definite in base alle metriche delle prestazioni, alla risposta dell'applicazione o a una pianificazione fissa e il set di scalabilità viene ridimensionato automaticamente in base alle esigenze.
+
+Per le regole di scalabilità automatica di base, è possibile usare le metriche delle prestazioni basate sull'host, ad esempio l'utilizzo della CPU o l'I/O su disco. Queste metriche basate sull'host sono immediatamente disponibili, senza dover installare e configurare agenti o estensioni aggiuntive. È possibile creare regole di scalabilità automatica che usano metriche basate su host con uno degli strumenti seguenti:
+
+- [Portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+Per usare metriche delle prestazioni più granulari, è possibile installare e configurare l'estensione Diagnostica di Azure nelle istanze delle VM del set di scalabilità. L'estensione Diagnostica di Azure consente di raccogliere metriche delle prestazioni aggiuntive, ad esempio l'utilizzo della memoria, da ogni istanza di VM. Queste metriche delle prestazioni vengono trasmettesse a un account di archiviazione di Azure e si creano regole di scalabilità automatica per utilizzare questi dati. Per altre informazioni, vedere gli articoli su come abilitare l'estensione Diagnostica di Azure in una [VM Linux](../virtual-machines/linux/diagnostic-extension.md) o in una [VM Windows](../virtual-machines/windows/ps-extensions-diagnostics.md).
+
+Per monitorare le prestazioni stesse dell'applicazione, è possibile installare e configurare un piccolo pacchetto di strumentazione nell'applicazione per App Insights. Le metriche delle prestazioni dettagliate relative al tempo di risposta dell'applicazione o al numero di sessioni possono quindi essere nuovamente trasmettesse all'app. È quindi possibile creare regole di scalabilità automatica con soglie definite per le prestazioni a livello di applicazione. Per altre informazioni su App Insights, vedere [Informazioni su Azure Application Insights](../application-insights/app-insights-overview.md).
+
+
+## <a name="manually-scaling-a-scale-set-out-and-in"></a>Aumento e riduzione manuale delle istanze di un set di scalabilità
+È possibile modificare manualmente la capacità di un set di scalabilità nel portale di Azure facendo clic sulla sezione **Ridimensionamento** in **Impostazioni**. 
 
 Per modificare la capacità del set di scalabilità dalla riga di comando, usare il comando **scale** nell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli). Per impostare un set di scalabilità su una capacità di 10 VM, ad esempio, usare questo comando:
 
@@ -67,26 +82,6 @@ Per aumentare o ridurre il numero di macchine virtuali in un set di scalabilità
 
 Se si ridistribuisce un modello di Azure Resource Manager per modificare la capacità, è possibile definire un modello molto più piccolo che include solo il pacchetto di proprietà **SKU** con la capacità aggiornata. Per un esempio, vedere [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## <a name="autoscale"></a>Autoscale
-
-Un set di scalabilità può essere facoltativamente configurato con impostazioni di scalabilità automatica quando viene creato nel portale di Azure. Il numero di VM può quindi essere aumentato o ridotto in base all'utilizzo medio della CPU. 
-
-Molti modelli di set di scalabilità inclusi nei [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates) definiscono impostazioni di scalabilità automatica. È anche possibile aggiungere impostazioni di scalabilità automatica a un set di scalabilità esistente. Questo script di Azure PowerShell, ad esempio, aggiunge la scalabilità automatica in base alla CPU a un set di scalabilità:
-
-```PowerShell
-
-$subid = "yoursubscriptionid"
-$rgname = "yourresourcegroup"
-$vmssname = "yourscalesetname"
-$location = "yourlocation" # e.g. southcentralus
-
-$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
-$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
-$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
-Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
-```
-
-Un elenco delle metriche valide su cui basare la scalabilità è disponibile in [Metriche supportate con il monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md), sotto il titolo "Microsoft.Compute/virtualMachineScaleSets". Sono disponibili anche opzioni di scalabilità automatica più avanzate, che includono la scalabilità automatica in base alla pianificazione e l'uso di webhook per l'integrazione con sistemi di avvisi.
 
 ## <a name="monitoring-your-scale-set"></a>Monitoraggio del set di scalabilità
 Il [portale di Azure](https://portal.azure.com) visualizza un elenco dei set di scalabilità e le relative proprietà. Il portale supporta anche operazioni di gestione, che possono essere eseguite sia sui set di scalabilità che sulle singole VM all'interno di un set, e offre un grafico dell'utilizzo delle risorse personalizzabile. 

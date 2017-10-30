@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Applicazione .NET multilivello che usa code del bus di servizio
-## <a name="introduction"></a>Introduzione
+
 Microsoft Azure consente di sviluppare applicazioni con la stessa semplicità offerta da Visual Studio e Azure SDK gratuito per .NET. Questa esercitazione illustra i passaggi per creare un'applicazione che usa più risorse di Azure in esecuzione nell'ambiente locale.
 
 Verranno illustrate le operazioni seguenti:
@@ -68,7 +68,7 @@ Prima di iniziare a sviluppare applicazioni Azure, è necessario ottenere gli st
 5. Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo dell’app. Nell'SDK sono disponibili gli strumenti che consentono di sviluppare con facilità applicazioni per Azure in Visual Studio.
 
 ## <a name="create-a-namespace"></a>Creare uno spazio dei nomi
-Il passaggio successivo consiste nel creare uno spazio dei nomi del servizio e nell'ottenere una chiave di firma di accesso condiviso. Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il bus di servizio. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi. La combinazione di spazio dei nomi e chiave di firma di accesso condiviso fornisce le credenziali che consentono al bus di servizio di autenticare l'accesso a un'applicazione.
+Il passaggio successivo consiste nel creare uno *spazio dei nomi* e ottenere una [chiave di firma di accesso condiviso](service-bus-sas.md) per lo spazio stesso. Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il bus di servizio. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi. La combinazione di spazio dei nomi e chiave di firma di accesso condiviso fornisce le credenziali che consentono al bus di servizio di autenticare l'accesso a un'applicazione.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -83,7 +83,7 @@ Aggiungere quindi il codice per inviare elementi a una coda del bus di servizio 
 2. Da **Modelli installati** in **Visual C#** fare clic su **Cloud** e quindi su **Servizio cloud di Azure**. Assegnare al progetto il nome **MultiTierApp**. Fare quindi clic su **OK**.
    
    ![][9]
-3. Dai ruoli **.NET Framework 4.5** fare doppio clic su **Ruolo Web ASP.NET**.
+3. Nel riquadro **Ruoli** fare doppio clic su **Ruolo Web ASP.NET**.
    
    ![][10]
 4. Passare il puntatore su **WebRole1** in **Soluzione servizio cloud di Microsoft Azure**, quindi fare clic sull'icona a forma di matita e rinominare il ruolo Web in **FrontendWebRole**. Fare quindi clic su **OK**. Assicurarsi di immettere "Frontend" con una 'e' minuscola, non "FrontEnd".
@@ -92,12 +92,12 @@ Aggiungere quindi il codice per inviare elementi a una coda del bus di servizio 
 5. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **MVC** in **Seleziona modello**.
    
    ![][12]
-6. Sempre nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic sul pulsante **Modifica autenticazione**. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione**, quindi fare clic su **OK**. Per questa esercitazione si distribuisce un'applicazione che non richiede l'accesso utente.
+6. Sempre nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic sul pulsante **Modifica autenticazione**. Nella finestra di dialogo **Modifica autenticazione** assicurarsi che sia selezionato **Nessuna autenticazione** e quindi fare clic su **OK**. Per questa esercitazione si distribuisce un'applicazione che non richiede l'accesso utente.
    
     ![][16]
 7. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **OK** per creare il progetto.
 8. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti** nel progetto **FrontendWebRole** e quindi scegliere **Gestisci pacchetti NuGet**.
-9. Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Selezionare il pacchetto **WindowsAzure.ServiceBus**, fare clic su **Installa** e quindi accettare le condizioni per l'utilizzo.
+9. Fare clic sulla scheda **Sfoglia** e quindi cercare **WindowsAzure.ServiceBus**. Selezionare il pacchetto **WindowsAzure.ServiceBus**, fare clic su **Installa** e quindi accettare le condizioni per l'utilizzo.
    
    ![][13]
    
@@ -182,12 +182,12 @@ Creare prima di tutto in questa sezione le diverse pagine visualizzate dall'appl
 5. Creare quindi la visualizzazione per il metodo `Submit()` creato in precedenza. Fare clic con il pulsante destro del mouse all'interno del metodo `Submit()`, ovvero l'overload del metodo `Submit()` che non accetta parametri, e quindi scegliere **Aggiungi visualizzazione**.
    
    ![][14]
-6. Viene visualizzata una finestra di dialogo per la creazione della visualizzazione. Nell'elenco **Modello** scegliere **Crea**. Nell'elenco **Classe modello** scegliere la classe **OnlineOrder**.
+6. Viene visualizzata una finestra di dialogo per la creazione della visualizzazione. Nell'elenco **Modello** scegliere **Crea**. Nell'elenco **Classe modello** selezionare la classe **OnlineOrder**.
    
    ![][15]
 7. Fare clic su **Aggiungi**.
 8. Modificare ora il nome visualizzato dell'applicazione. In **Esplora soluzioni** fare doppio clic sul file **Views\Shared\\_Layout.cshtml** per aprirlo nell'editor di Visual Studio.
-9. Sostituire tutte le occorrenze di **My ASP.NET Application** con **LITWARE'S Products**.
+9. Sostituire tutte le occorrenze di **My ASP.NET Application** con **Northwind Traders Products**.
 10. Rimuovere i collegamenti **Home**, **About** e **Contact**. Eliminare il codice evidenziato:
     
     ![][28]
@@ -361,9 +361,9 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sul bus di servizio, vedere le risorse seguenti:  
 
-* [Documentazione sul bus di servizio di Azure][sbdocs]  
+* [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
+* [Introduzione all'uso delle code del bus di servizio][sbacomqhowto]
 * [Pagina del servizio Bus di servizio][sbacom]  
-* [Come usare le code del bus di servizio][sbacomqhowto]  
 
 Per altre informazioni sugli scenari multilivello, vedere:  
 
@@ -390,7 +390,6 @@ Per altre informazioni sugli scenari multilivello, vedere:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

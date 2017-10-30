@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f43196b88cf22aab66c913d0bd659b3d654cef0
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Procedura dettagliata per la soluzione preconfigurata di connected factory
 
@@ -34,7 +34,7 @@ La [soluzione preconfigurata ][lnk-preconfigured-solutions] di connected factory
 
 È possibile usare la soluzione come punto di partenza per l'implementazione e [personalizzarla][lnk-customize] in base ai requisiti aziendali specifici.
 
-Questo articolo illustra alcuni degli elementi principali della soluzione di connected factory per comprenderne il funzionamento. Queste informazioni consentono di:
+Questo articolo illustra alcuni degli elementi principali della soluzione di connected factory per comprenderne il funzionamento. L'articolo descrive anche come i dati passano attraverso la soluzione. Queste informazioni consentono di:
 
 * Risolvere i problemi nella soluzione.
 * Pianificare come personalizzare la soluzione per soddisfare requisiti specifici.
@@ -124,12 +124,116 @@ La soluzione usa Archiviazione BLOB di Azure come spazio di archiviazione su dis
 ## <a name="web-app"></a>App Web
 L'app Web distribuita nell'ambito della soluzione preconfigurata è costituita da un client OPC UA integrato, elaborazione degli avvisi e visualizzazione dei dati di telemetria.
 
+## <a name="telemetry-data-flow"></a>Flusso di dati di telemetria
+
+![Flusso di dati di telemetria](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+
+### <a name="flow-steps"></a>Passaggi del flusso
+
+1. Il modulo di pubblicazione OPC legge i certificati OPC UA X509 necessari e le credenziali di sicurezza dell'hub IoT dall'archivio certificati locale.
+    - Se necessario, il modulo di pubblicazione OPC crea e archivia i certificati o le credenziali mancanti nell'archivio certificati.
+
+2. Il modulo di pubblicazione OPC si registra con l'hub IoT.
+    - Usa il protocollo configurato. Può usare qualsiasi protocollo supportato dall'SDK client per l'hub IoT. Il protocollo predefinito è MQTT.
+    - La comunicazione del protocollo è protetta da TLS.
+
+3. Il modulo di pubblicazione OPC legge il file di configurazione.
+
+4. Il modulo di pubblicazione OPC crea una sessione OPC con ogni server OPC UA configurato.
+    - Usa la connessione TCP.
+    - Il modulo di pubblicazione e il server OPC UA si autenticano reciprocamente usando i certificati X509.
+    - Tutto il traffico OPC UA successivo viene crittografato dal meccanismo di crittografia OPC UA configurato.
+    - Il modulo di pubblicazione OPC crea una sottoscrizione OPC nella sessione OPC per ogni intervallo di pubblicazione configurato.
+    - Crea elementi OPC monitorati per i nodi OPC da pubblicare nella sottoscrizione OPC.
+
+5. Se il valore di un nodo OPC monitorato cambia, il server OPC UA invia gli aggiornamenti al modulo di pubblicazione OPC.
+
+6. Il modulo di pubblicazione OPC transcodifica il nuovo valore.
+    - Invia più modifiche in batch se l'invio in batch è abilitato.
+    - Crea un messaggio dell'hub IoT.
+
+7. Il modulo di pubblicazione OPC invia un messaggio all'hub IoT.
+    - Usare il protocollo configurato.
+    - La comunicazione è protetta da TLS.
+
+8. Time Series Insights (TSI) legge i messaggi dall'hub IoT.
+    - Usa AMQP su TCP/TLS.
+    - Questo passaggio è interno al data center.
+
+9. Dati inattivi in TSI.
+
+10. L'app Web della fabbrica connessa in Servizio app di Azure esegue una query dei dati necessari da TSI.
+    - Usa la comunicazione protetta TCP/TLS.
+    - Questo passaggio è interno al data center.
+
+11. Il Web browser si connette all'app Web della fabbrica connessa.
+    - Esegue il rendering del dashboard della fabbrica connessa.
+    - Si connette tramite HTTPS.
+    - Per accedere all'app della fabbrica connessa, è necessaria l'autenticazione dell'utente tramite Azure Active Directory.
+    - Le chiamate API Web all'app della fabbrica connessa sono protette da token antifalsificazione.
+
+12. Quando i dati vengono aggiornati, l'app Web della fabbrica connessa li invia al Web browser.
+    - Usa il protocollo SignalR.
+    - Applica la protezione TCP/TLS.
+
+## <a name="browsing-data-flow"></a>Esplorazione del flusso di dati
+
+![Esplorazione del flusso di dati](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+
+### <a name="flow-steps"></a>Passaggi del flusso
+
+1. Il proxy OPC (componente server) viene avviato.
+    - Legge le chiavi di accesso condiviso da un archivio locale.
+    - Se necessario, salva le chiavi di accesso mancanti nell'archivio.
+
+2. Il proxy OPC (componente server)si registra con l'hub IoT.
+    - Legge tutti i dispositivi noti dall'hub IoT.
+    - Usa MQTT su TLS su socket o WebSocket sicuro.
+
+3. Il Web browser si connette all'app Web della fabbrica connessa ed esegue il rendering del dashboard della fabbrica connessa.
+    - Usa HTTPS.
+    - Un utente seleziona un server OPC UA a cui connettersi.
+
+4. L'app Web della fabbrica connessa stabilisce una sessione OPC UA con il server OPC UA selezionato.
+    - Usa lo stack OPC UA.
+
+5. Il trasporto proxy OPC riceve una richiesta dallo stack OPC UA per stabilire una connessione socket TCP al server OPC UA.
+    - Recupera solo il payload TCP e lo usa senza modificarlo.
+    - Questo passaggio è interno all'app Web della fabbrica connessa.
+
+6. Il proxy OPC (componente client) cerca il dispositivo proxy OPC (componente server) nel Registro di sistema del dispositivo hub IoT. Chiama quindi un metodo del dispositivo proxy OPC (componente server) nell'hub IoT.
+    - Usa HTTPS su TCP/TLS per cercare il proxy OPC.
+    - Usa HTTPS su TCP/TLS per stabilire una connessione socket TCP al server OPC UA.
+    - Questo passaggio è interno al data center.
+
+7. L'hub IoT chiama quindi un metodo nel dispositivo proxy OPC (componente server).
+    - Usa una connessione MQTT su TLS su socket o Websocket sicuro stabilita per stabilire una connessione socket TCP al server OPC UA.
+
+8. Il proxy OPC (componente server) invia il payload TCP alla rete di produzione.
+
+9. Il server OPC UA elabora il payload e invia la risposta.
+
+10. La risposta viene ricevuta dal socket del proxy OPC (componente server).
+    - Il proxy OPC invia i dati come valore restituito del metodo del dispositivo all'hub IoT e al proxy OPC (componente client).
+    - Questi dati vengono inviati allo stack OPC UA nell'app della fabbrica connessa.
+
+11. L'app Web della fabbrica connessa restituisce l'esperienza utente del browser OPC arricchita con le informazioni specifiche di OPC UA ricevute dal server OPC UA al Web browser per eseguirne il rendering.
+    - Durante l'esplorazione tramite lo spazio indirizzi OPC e l'applicazione delle funzioni ai nodi nello spazio indirizzi OPC, la parte client dell'esperienza utente del browser OPC usa le chiamate AJAX su HTTPS protette con i token antifalsificazione per ottenere i dati dall'app Web della fabbrica connessa.
+    - Se necessario, il client usa la comunicazione illustrata nei passaggi da 4 a 10 per scambiare informazioni con il server OPC UA.
+
+> [!NOTE]
+> Il proxy OPC (componente server) e il componente proxy OPC (client) completano i passaggi da 4 a 10 per tutto il traffico TCP correlato alla comunicazione OPC UA.
+
+> [!NOTE]
+> Per il server OPC UA e lo stack OPC UA nell'app Web della fabbrica connessa, la comunicazione del proxy OPC è trasparente e vengono applicate tutte le funzionalità di sicurezza OPC UA per l'autenticazione e la crittografia.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 È possibile proseguire con l'introduzione a IoT Suite vedendo gli articoli seguenti:
 
 * [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions]
 * [Distribuire un gateway in Windows o Linux per la soluzione preconfigurata di connected factory](iot-suite-connected-factory-gateway-deployment.md)
+* [OPC Publisher reference implementation (Implementazione di riferimento del modulo di pubblicazione OPC)](iot-suite-connected-factory-publisher.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 

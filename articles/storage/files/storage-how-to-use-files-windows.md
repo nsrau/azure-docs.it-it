@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montare una condivisione file di Azure e accedere alla condivisione in Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows e Windows Server. Questo articolo illustra tre diversi modi per montare una condivisione file di Azure in Windows: con l'interfaccia utente di Esplora file, tramite PowerShell e tramite il prompt dei comandi. 
@@ -29,7 +29,8 @@ Per montare una condivisione file di Azure al di fuori dell'area di Azure in cui
 
 | Versione di Windows        | Versione SMB | Montabile in una VM di Azure | Montabile in locale |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | Sì | Sì |
+| Canale semestrale Windows Server<sup>1</sup> | SMB 3.0 | Sì | Sì |
+| Windows 10<sup>2</sup>  | SMB 3.0 | Sì | Sì |
 | Windows Server 2016    | SMB 3.0     | Sì                   | Sì                  |
 | Windows 8.1            | SMB 3.0     | Sì                   | Sì                  |
 | Windows Server 2012 R2 | SMB 3.0     | Sì                   | Sì                  |
@@ -37,7 +38,8 @@ Per montare una condivisione file di Azure al di fuori dell'area di Azure in cui
 | Windows 7              | SMB 2.1     | Sì                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Sì                   | No                   |
 
-<sup>1</sup>Windows 10 versioni 1507, 1511, 1607, 1703 e 1709.
+<sup>1</sup>Windows Server versione 1709.  
+<sup>2</sup>Windows 10 versioni 1507, 1607, 1703 e 1709.
 
 > [!Note]  
 > È sempre consigliabile seguire l'articolo della KB più recente per la propria versione di Windows.

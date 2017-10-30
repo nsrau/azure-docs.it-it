@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 01357ceca1d78c80c901c9fbec08ce85f02fb958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 715076ee1ce33370ca2b2399549b7c907ac48f3e
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-docker-ce-cluster"></a>Distribuire un cluster Docker CE
 
@@ -48,7 +48,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westcentralus",
+  "location": "ukwest",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -70,7 +70,7 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 
 In alcuni casi la sottoscrizione di Azure ha accesso limitato alle risorse di Azure, ad esempio con una versione di valutazione gratuita limitata. Se la distribuzione non riesce a causa di core disponibili limitati, ridurre il numero di agenti predefinito aggiungendo `--agent-count 1` al comando [az acs create](/cli/azure/acs#create). 
 
-Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato json sul cluster.
+Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato JSON sul cluster.
 
 ## <a name="connect-to-the-cluster"></a>Connettersi al cluster
 

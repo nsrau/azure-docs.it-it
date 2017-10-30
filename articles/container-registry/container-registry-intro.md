@@ -5,7 +5,7 @@ services: container-registry
 documentationcenter: 
 author: stevelas
 manager: balans
-editor: dlepow
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: ee2b652b-fb7c-455b-8275-b8d4d08ffeb3
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/13/2017
 ms.author: stevelas
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 664696d2f355609c76477765c2238c6d62253482
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d54caa45078221cdbe091649cb3fe3b65eaa47e8
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduzione ai registri per contenitori Docker privati in Azure
 
@@ -38,11 +37,9 @@ Effettuare il pull di immagini da un registro contenitori di Azure a varie desti
 Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un Registro di sistema del contenitore da uno strumento di distribuzione e integrazione continua, quali [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) o [Jenkins](https://jenkins.io/).
 
 ## <a name="key-concepts"></a>Concetti chiave
-* **Registro**. Creare uno o più registri contenitori nella sottoscrizione di Azure. Ogni registro è supportato da un [account di archiviazione](../storage/common/storage-introduction.md) di Azure standard nella stessa località. Sfruttare l'archiviazione locale con prossimità di rete delle immagini contenitore creando un registro nella stessa località di Azure delle distribuzioni. Il nome completo di un registro ha il formato `myregistry.azurecr.io`.
+* **Registro**. Creare uno o più registri contenitori nella sottoscrizione di Azure. I registri sono disponibili in tre SKU, ovvero [Basic, Standard e Premium](container-registry-skus.md), ognuno dei quali supporta l'integrazione webhook, l'autenticazione nel repository con Azure Active Directory e la funzionalità di eliminazione. Sfruttare l'archiviazione locale con prossimità di rete delle immagini contenitore creando un registro nella stessa località di Azure delle distribuzioni. Usare la funzionalità di [replica geografica](container-registry-geo-replication.md) dei registri Premium per scenari avanzati di replica e distribuzione di immagini del contenitore. Il nome completo di un registro ha il formato `myregistry.azurecr.io`.
 
   Per [controllare l'accesso](container-registry-authentication.md) a un registro contenitori si usa un'[entità servizio](../active-directory/active-directory-application-objects.md) supportata da Azure Active Directory o un account amministratore specificato. Per l'autenticazione al registro, eseguire il comando `docker login` standard.
-
-* **Registro gestito**: è possibile scegliere di creare un registro gestito o un registro supportato dall'account di archiviazione personale durante la creazione di un registro. I registri gestiti offrono funzionalità aggiuntive in tre SKU, ovvero Basic, Standard e Premium. Le immagini in questi SKU vengono archiviate negli account di archiviazione di Azure gestiti dal servizio Registro contenitori di Azure, migliorando l'affidabilità e offrendo nuove funzionalità. Le nuove funzionalità includono l'integrazione webhook, l'autenticazione nel repository con Azure Active Directory e il supporto della funzionalità di eliminazione.
 
 * **Repository**. Un registro contiene uno o più repository, costituiti da gruppi di immagini contenitore. Registro contenitori di Azure supporta spazi dei nomi dei repository multilivello. Con gli spazi dei nomi multilivello è possibile raggruppare raccolte di immagini correlate a un'app specifica oppure una raccolta di app per team operativi o di sviluppo specifici. ad esempio:
 
@@ -58,4 +55,3 @@ Gli sviluppatori possono anche effettuare il push in un registro contenitori nel
 * [Creare un registro contenitori con il portale di Azure](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure)
 * [Effettuare il push della prima immagine tramite l'interfaccia della riga di comando di Docker](container-registry-get-started-docker-cli.md)
-* Per compilare un flusso di lavoro di integrazione continua e distribuzione usando Visual Studio Team Services, il servizio contenitore di Azure e Registro contenitori di Azure, vedere [Pipeline CI/CD completa per distribuire un'applicazione multi-contenitore nel servizio contenitore di Azure con Docker Swarm tramite Visual Studio Team Services](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).

@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 52e421a62fa24a56a077bc030e03c0fed34305fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e243189bc26566f9ca0850e95f98731ba4d97b6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni intendano usare il Centro sicurezza di Azure.
@@ -130,7 +130,7 @@ I criteri del Centro sicurezza includono i componenti seguenti:
 - [Piano tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing): sono disponibili le opzioni Gratuito o Standard, che determinano le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito. Questo criterio può essere specificato per sottoscrizioni, gruppi di risorse e aree di lavoro.
 
 > [!NOTE]
-> Specificare un contatto di sicurezza consente di assicurare che Azure possa raggiungere la persona corretta dell'organizzazione in caso di evento imprevisto di sicurezza. Per altre informazioni su come abilitare questa raccomandazione, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) .
+> Specificando un contatto di sicurezza, Azure potrà raggiungere la persona corretta dell'organizzazione in caso di evento imprevisto relativo alla sicurezza. Per altre informazioni su come abilitare questa raccomandazione, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) .
 
 ### <a name="security-policies-definitions-and-recommendations"></a>Definizioni dei criteri di sicurezza e raccomandazioni
 Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito per ogni sottoscrizione di Azure. È possibile modificare il criterio nel Centro sicurezza o usare i criteri di Azure per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri a gruppi di gestione, che possono rappresentare l'intera organizzazione, una business unit specifica e così via, e infine monitorare la conformità a tali criteri negli ambiti.
