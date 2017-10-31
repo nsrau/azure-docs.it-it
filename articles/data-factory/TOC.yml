@@ -188,8 +188,8 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Monitorare e gestire
       items:
-        - name: Usare .NET
-          href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
+        - name: Usare SDK
+          href: monitor-programmatically.md
         - name: Usare Monitoraggio di Azure
           href: monitor-using-azure-monitor.md
         - name: Monitorare visivamente

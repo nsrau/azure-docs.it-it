@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
-ms.openlocfilehash: 9752a75dc20ec7f92b87ddb50ed74208982bd92e
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 5ca26e7fc6230140ee424e35a8d174613a4a93f4
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/27/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -503,6 +503,12 @@ ms.lasthandoff: 10/24/2017
                                             <a href="/azure/germany/">
                                                 <img src="media/index/azure-germany.svg" alt="" />
                                                 <p>Azure Germania</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/china/">
+                                                <img src="media/index/azure-germany.svg" alt="" />
+                                                <p>21Vianet per Microsoft Azure Cina</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1210,6 +1216,12 @@ ms.lasthandoff: 10/24/2017
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/azuredefaultblack.svg" alt="" />
                                                 <p>Gestione risorse di Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/managed-applications">
+                                                <img src="media/index/i_managed-application.svg" alt="" />
+                                                <p>Applicazioni gestite</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -3629,18 +3641,18 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager/">
+                                <a href="/azure/managed-applications">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azuredefaultblack.svg" alt="" />
+                                                        <img src="media/index/i_managed-application.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gestione risorse di Azure</h3>
-                                                    <p>Distribuire e gestire le risorse di Azure</p>
+                                                    <h3>Applicazioni gestite</h3>
+                                                    <p>Gestire soluzioni distribuite per i clienti</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3725,6 +3737,25 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Germania</h3>
                                                     <p>Compilare e ospitare applicazioni nel rispetto delle normative tedesche nonché dei principali standard internazionali, con un controllo aggiuntivo da parte di un trustee dei dati</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/china/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-germany.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>21Vianet per Microsoft Azure Cina</h3>
+                                                    <p>Compilare e ospitare applicazioni in conformità ai criteri e alle normative di gestione dei dati previsti dagli enti pubblici in Cina</p>
                                                 </div>
                                             </div>
                                         </div>

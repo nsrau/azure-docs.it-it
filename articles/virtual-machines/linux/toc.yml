@@ -205,6 +205,17 @@
               href: terraform-install-configure.md
             - name: Creare una VM completa
               href: terraform-create-complete-vm.md
+        - name: Jenkins
+          href: ../../jenkins/overview.md
+          items:
+            - name: Creare un server Jenkins
+              href: ../../jenkins/install-jenkins-solution-template.md
+            - name: Scalabilità con gli agenti di macchine virtuali
+              href: ../../jenkins/jenkins-azure-vm-agents.md
+            - name: Pubblicare elementi in Archiviazione
+              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+            - name: Proteggere Jenkins
+              href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Eseguire contenitori
       items:
         - name: Creare un host Docker

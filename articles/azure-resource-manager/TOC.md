@@ -3,9 +3,8 @@
 ## [Provider e tipi di risorse](resource-manager-supported-services.md)
 ## [Distribuzione Resource Manager e classica](resource-manager-deployment-model.md)
 ## [Governance per le sottoscrizioni](resource-manager-subscription-governance.md)
-## [Applicazioni gestite](managed-application-overview.md)
 
-# Attività iniziali
+# Introduzione
 ## [Creare e distribuire il modello](resource-manager-create-first-template.md)
 ## [Estensione di Visual Studio Code per i modelli](resource-manager-vscode-extension.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
@@ -60,6 +59,7 @@
 ### [Spostare le risorse in un nuovo gruppo o sottoscrizione](resource-group-move-resources.md)
 ### [Organizzare le sottoscrizioni con i gruppi di gestione](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Esempi di governance](resource-manager-subscription-examples.md)
+### [Applicazioni gestite](../managed-applications/overview.md)
 
 ## Controllare l'accesso
 ### Creare un'entità servizio
@@ -80,13 +80,6 @@
 #### [Archiviazione](resource-manager-policy-storage.md)
 #### [VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-## Usare le applicazioni gestite
-### [Pubblicare un'applicazione del catalogo di servizi](managed-application-publishing.md)
-### [Utilizzare un'applicazione del catalogo di servizi](managed-application-consumption.md)
-### [Pubblicare un'applicazione del Marketplace](managed-application-author-marketplace.md)
-### [Utilizzare un'applicazione del Marketplace](managed-application-consume-marketplace.md)
-### [Creare definizioni dell'interfaccia utente](managed-application-createuidefinition-overview.md)
 
 ## Audit
 ### [Visualizzare log di attività](resource-group-audit.md)
@@ -124,21 +117,6 @@
 ### [Funzioni numeriche](resource-group-template-functions-numeric.md)
 ### [Funzioni delle risorse](resource-group-template-functions-resource.md)
 ### [Funzioni stringa](resource-group-template-functions-string.md)
-## [Funzioni di definizione dell'interfaccia utente](managed-application-createuidefinition-functions.md)
-## [Elementi di definizione dell'interfaccia utente](managed-application-createuidefinition-elements.md)
-### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
-### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
-### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
-### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
-### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
-### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
-### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
-### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
-### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
-### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
-### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
-### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
-### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
