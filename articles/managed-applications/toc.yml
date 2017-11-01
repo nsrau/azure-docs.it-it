@@ -19,6 +19,7 @@
     - name: Interfaccia della riga di comando di Azure
       href: cli-samples.md
     - name: Azure PowerShell
+      href: powershell-samples.md
     - name: Soluzioni di applicazioni gestite
       href: sample-projects.md
 - name: Guide alle procedure

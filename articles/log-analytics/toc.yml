@@ -128,6 +128,8 @@
               href: log-analytics-view-designer-tiles.md
             - name: Informazioni di riferimento sulla parte di visualizzazione
               href: log-analytics-view-designer-parts.md
+            - name: Filtri
+              href: log-analytics-view-designer-filters.md
         - name: Power BI
           href: log-analytics-powerbi.md
     - name: Creare avvisi
