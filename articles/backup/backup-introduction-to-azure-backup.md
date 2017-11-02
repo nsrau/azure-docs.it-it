@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 120810b2b112649e21ec4bfe0c0f58b1fe3d80ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3be12abaaedf5b0d66a484cbee48fe3df77f63fe
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Panoramica delle funzionalità di Backup di Azure
 Backup di Azure è il servizio basato su Azure che consente di eseguire il backup, la protezione e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Backup di Azure offre più componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in un insieme di credenziali di Servizi di ripristino, a prescindere che i dati da proteggere si trovino in locale o nel cloud. Vedere la [tabella dei componenti di Backup di Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) più avanti in questo articolo per informazioni sul componente da usare per proteggere dati, applicazioni o carichi di lavoro specifici.
@@ -93,10 +93,10 @@ La tabella seguente illustra i componenti di Backup di Azure che hanno il suppor
 | Backup di VM IaaS di Azure |Backup coerente con le applicazioni tramite il [framework dello script di pre-backup e post-backup](backup-azure-linux-app-consistent.md)<br/> [Ripristino granulare di file](backup-azure-restore-files-from-vm.md)<br/> [Ripristinare tutti i dischi di macchina virtuale](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Ripristino della macchina virtuale](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso di macchine virtuali di Archiviazione Premium con Backup di Azure
-Backup di Azure protegge le macchine virtuali di Archiviazione Premium. Archiviazione Premium di Azure è una soluzione di archiviazione basata su unità SSD progettata per supportare carichi di lavoro con attività di I/O intensive. Archiviazione Premium è una soluzione interessante per i carichi di lavoro delle macchine virtuali. Per altre informazioni su Archiviazione Premium, vedere l'articolo [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/common/storage-premium-storage.md).
+Backup di Azure protegge le macchine virtuali di Archiviazione Premium. Archiviazione Premium di Azure è una soluzione di archiviazione basata su unità SSD progettata per supportare carichi di lavoro con attività di I/O intensive. Archiviazione Premium è una soluzione interessante per i carichi di lavoro delle macchine virtuali. Per altre informazioni su Archiviazione Premium, vedere l'articolo [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Backup di macchine virtuali di Archiviazione Premium
-Durante il backup di macchine virtuali di Archiviazione Premium, il servizio Backup crea un percorso di gestione temporanea, denominato "AzureBackup-", nell'account di archiviazione Premium. Il percorso di staging ha le stesse dimensioni dello snapshot del punto di ripristino. Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di staging. Per altre informazioni, vedere l'articolo [premium storage limitations](../storage/common/storage-premium-storage.md#scalability-and-performance-targets) (Limiti di Archiviazione Premium). Al termine del processo di backup, il percorso di gestione temporanea viene eliminato. Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con gli altri [prezzi di Archiviazione Premium](../storage/common/storage-premium-storage.md#pricing-and-billing).
+Durante il backup di macchine virtuali di Archiviazione Premium, il servizio Backup crea un percorso di gestione temporanea, denominato "AzureBackup-", nell'account di archiviazione Premium. Il percorso di staging ha le stesse dimensioni dello snapshot del punto di ripristino. Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di staging. Per altre informazioni, vedere l'articolo [premium storage limitations](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) (Limiti di Archiviazione Premium). Al termine del processo di backup, il percorso di gestione temporanea viene eliminato. Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con gli altri [prezzi di Archiviazione Premium](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Non modificare in alcun modo il percorso di gestione temporanea.

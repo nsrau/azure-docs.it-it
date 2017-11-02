@@ -4,7 +4,7 @@ description: Informazioni sugli esempi di codice, progetto e database per Azure 
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: owend
-ms.openlocfilehash: 57bb1a24c371fa9c0eaafc00a489fe033eaaced9
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f5dc9551013445b11e3eaf579dfb883451647315
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-analysis-services-samples"></a>Esempi di Azure Analysis Services
 Usare le risorse di esempio seguenti che consentono di apprendere e testare Analysis Services nel proprio ambiente.

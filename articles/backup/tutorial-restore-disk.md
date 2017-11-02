@@ -3,8 +3,8 @@ title: Ripristinare il disco di una macchina virtuale con Backup di Azure | Micr
 description: Informazioni su come ripristinare un disco e creare un ripristino di una macchina virtuale in Azure con i servizi di backup e ripristino.
 services: backup, virtual-machines
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
+author: markgalioto
+manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/28/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 01c266fcede8e4783cdea529bd1e7e9301bb23e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9bc6da13786eb9eb6186ceadf0432b3a3ec2c941
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Ripristinare un disco e creare una macchina virtuale ripristinata in Azure
 Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si esegue il ripristino da un punto di recupero, è possibile ripristinare l'intera macchina virtuale o file singoli. Questo articolo descrive come ripristinare un'intera macchina virtuale. In questa esercitazione si apprenderà come:

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 86b8300553caa0741e8aca3c0e7621ec80cc5b21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
 ## <a name="overview"></a>Panoramica
@@ -91,7 +91,7 @@ L'appliance cloud presenta le seguenti funzionalità:
 * È possibile creare un numero illimitato di appliance cloud nel cloud e attivarle e disattivarle in base alle esigenze.
 * Consente di simulare ambienti locali in scenari di ripristino di emergenza, sviluppo e test ed è in grado di facilitare il recupero a livello di elementi dai backup.
 
-L'appliance cloud StorSimple è disponibile in due modelli: il dispositivo 8010, precedentemente noto come modello 1100, e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB Nei livelli locali l'archiviazione Premium di Azure archivia i dati all'interno di unità SSD, mentre l'archiviazione Standard archivia i dati in unità disco rigido. Si noti che è necessario un account di archiviazione Premium di Azure per usare l'archiviazione Premium. Per altre informazioni sull'archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/common/storage-premium-storage.md).
+L'appliance cloud StorSimple è disponibile in due modelli: il dispositivo 8010, precedentemente noto come modello 1100, e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB Nei livelli locali l'archiviazione Premium di Azure archivia i dati all'interno di unità SSD, mentre l'archiviazione Standard archivia i dati in unità disco rigido. Si noti che è necessario un account di archiviazione Premium di Azure per usare l'archiviazione Premium. Per altre informazioni sull'archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../virtual-machines/windows/premium-storage.md).
 
 Per altre informazioni sull'appliance cloud StorSimple, vedere [Distribuire e gestire un'appliance cloud StorSimple in Azure](storsimple-8000-cloud-appliance-u2.md).
 

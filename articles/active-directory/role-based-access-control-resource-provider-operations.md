@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni di provider di risorse con Azure Resource Manager
 
@@ -167,31 +167,6 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 |/service/reports/byTime/read|Ottiene un report aggregato per periodi di tempo.|
 |/service/reports/byApi/read|Ottiene un report aggregato per API.|
 |/service/reports/byProduct/read|Ottiene un report aggregato per prodotti.|
-
-## <a name="microsoftappservice"></a>Microsoft.AppService
-
-| Operazione | Descrizione |
-|---|---|
-|/appidentities/Read|Restituisce la risorsa (sito Web) registrata con il gateway.|
-|/appidentities/Write|Crea una nuova identità app.|
-|/appidentities/Delete|Elimina un'identità app esistente.|
-|/deploymenttemplates/listMetadata/Action|Elenca i metadati dell'interfaccia utente associati al pacchetto app per le API.|
-|/deploymenttemplates/generate/Action|Restituisce un modello di distribuzione per eseguire il provisioning delle istanze di app per le API.|
-|/gateways/Read|Restituisce l'istanza del gateway.|
-|/gateways/Write|Crea un nuovo gateway o ne aggiorna uno esistente.|
-|/gateways/Delete|Elimina un'istanza di gateway esistente.|
-|/gateways/listLoginUris/Action|Popola l'archivio token e restituisce gli URI di accesso OAuth.|
-|/gateways/listKeys/Action|Restituisce la chiave privata del gateway.|
-|/gateways/tokens/Write|Crea un nuovo token zumo con il nome specificato.|
-|/gateways/registrations/Read|Restituisce la risorsa (sito Web) registrata con il gateway.|
-|/gateways/registrations/Write|Registra una risorsa (sito Web) con il gateway.|
-|/gateways/registrations/Delete|Annulla la registrazione di una risorsa (sito Web) dal gateway.|
-|/apiapps/Read|Restituisce l'istanza app per le API.|
-|/apiapps/Write|Crea una nuova app per le API o ne aggiorna una esistente.|
-|/apiapps/Delete|Elimina l'istanza di un'app per le API esistente.|
-|/apiapps/listStatus/Action|Restituisce lo stato dell'app per le API.|
-|/apiapps/listKeys/Action|Restituisce i segreti dell'app per le API.|
-|/apiapps/apidefinitions/Read|Restituisce la definizione API dell'app per le API.|
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 

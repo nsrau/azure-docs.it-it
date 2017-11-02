@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.openlocfilehash: ca893f87b155a92c457e3bf6d9d39aaf86bf5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb46c3f2809fa86fea7a8370d4c417f04040b74c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrazione in Archiviazione Premium di Azure (dischi non gestiti)
 
@@ -37,7 +37,7 @@ Lo scopo di questa guida è preparare i nuovi utenti di Archiviazione Premium di
 È possibile eseguire la migrazione di VM da altre piattaforme ad Archiviazione Premium di Azure o migrare VM esistenti di Azure da Archiviazione Standard ad Archiviazione Premium. Questa guida illustra i passaggi per entrambi i due scenari. Seguire i passaggi specificati nella sezione pertinente al proprio scenario.
 
 > [!NOTE]
-> Una panoramica delle funzionalità e dei prezzi di Archiviazione Premium è disponibile in [Archiviazione Premium: archiviazione dalle prestazioni elevate per carichi di lavoro di macchine virtuali di Azure](storage-premium-storage.md). È consigliabile eseguire la migrazione di qualsiasi disco di macchine virtuali che richiede un numero elevato di IOPS ad Archiviazione Premium di Azure per ottenere prestazioni ottimali per l'applicazione. Se il disco non richiede un numero elevato di IOPS, è possibile limitare i costi mantenendolo in Archiviazione Standard, che archivia i dati dei dischi delle macchine virtuali in unità disco rigido (HDD) invece che in unità SSD.
+> Una panoramica delle funzionalità e dei prezzi di Archiviazione Premium è disponibile in [Archiviazione Premium: archiviazione dalle prestazioni elevate per carichi di lavoro di macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md). È consigliabile eseguire la migrazione di qualsiasi disco di macchine virtuali che richiede un numero elevato di IOPS ad Archiviazione Premium di Azure per ottenere prestazioni ottimali per l'applicazione. Se il disco non richiede un numero elevato di IOPS, è possibile limitare i costi mantenendolo in Archiviazione Standard, che archivia i dati dei dischi delle macchine virtuali in unità disco rigido (HDD) invece che in unità SSD.
 >
 
 Per completare l'intero processo di migrazione, potrebbero essere necessarie altre azioni sia prima che dopo i passaggi descritti in questa guida. Tra gli esempi sono incluse la configurazione di reti virtuali o di endpoint oppure l'applicazione di modifiche al codice direttamente nell'applicazione che possono causare tempi di inattività all'applicazione. Queste azioni sono univoche per ogni applicazione ed è consigliabile completarle insieme ai passaggi descritti in questa guida per eseguire la transizione completa ad Archiviazione Premium con la massima semplicità possibile.
@@ -65,7 +65,7 @@ Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni de
 | IOPS per disco       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | Velocità effettiva per disco | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo |
 
-A seconda del carico di lavoro, determinare se per la macchina virtuale in uso sono necessari dischi dati aggiuntivi. È possibile collegare più dischi dati persistenti alla macchina virtuale in uso. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume. Per altre informazioni sullo striping del disco, vedere [qui](storage-premium-storage-performance.md#disk-striping). Se si esegue lo striping di dischi dati di Archiviazione Premium con [Spazi di archiviazione][4], è consigliabile configurare una colonna per ogni disco usato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per le macchine virtuali Linux è possibile usare l'utilità *mdadm* per ottenere lo stesso risultato. Per informazioni dettagliate, vedere l'articolo sulla [configurazione del RAID software in Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+A seconda del carico di lavoro, determinare se per la macchina virtuale in uso sono necessari dischi dati aggiuntivi. È possibile collegare più dischi dati persistenti alla macchina virtuale in uso. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume. Per altre informazioni sullo striping del disco, vedere [qui](../../virtual-machines/windows/premium-storage-performance.md#disk-striping). Se si esegue lo striping di dischi dati di Archiviazione Premium con [Spazi di archiviazione][4], è consigliabile configurare una colonna per ogni disco usato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per le macchine virtuali Linux è possibile usare l'utilità *mdadm* per ottenere lo stesso risultato. Per informazioni dettagliate, vedere l'articolo sulla [configurazione del RAID software in Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 #### <a name="storage-account-scalability-targets"></a>Obiettivi di scalabilità per gli account di archiviazione
 Gli account di Archiviazione Premium hanno i seguenti obiettivi di scalabilità oltre agli [obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md). Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, compilare l'applicazione in modo che sia possibile usare più account di archiviazione e partizionare i dati tra tali account di archiviazione.
@@ -74,7 +74,7 @@ Gli account di Archiviazione Premium hanno i seguenti obiettivi di scalabilità 
 |:--- |:--- |
 | Capacità disco : 35 TB<br />Capacità snapshot: 10 TB |Fino a 50 gigabit al secondo per dati in ingresso e in uscita |
 
-Per altre informazioni sulle specifiche di Archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md#scalability-and-performance-targets).
+Per altre informazioni sulle specifiche di Archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
 
 #### <a name="disk-caching-policy"></a>Criteri di memorizzazione nella cache su disco
 Per impostazione predefinita, il criterio di memorizzazione nella cache su disco è impostato su *Sola lettura* per tutti i dischi di dati Premium e su *Lettura/scrittura* per il disco del sistema operativo Premium collegato alla macchina virtuale. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni. Le impostazioni della cache per i dischi dati esistenti possono essere aggiornate mediante il [portale di Azure](https://portal.azure.com) o il parametro *-HostCaching* del cmdlet *Set-AzureDataDisk*.
@@ -86,7 +86,7 @@ Selezionare una posizione in cui è disponibile il servizio Archiviazione Premiu
 Quando si crea una macchina virtuale di Azure viene richiesto di configurare determinate impostazioni della macchina virtuale. Tenere presente che esistono alcune impostazioni fisse per la durata della macchina virtuale, mentre è possibile modificarne o aggiungerne altre in un secondo momento. Esaminare queste impostazioni di configurazione della macchina virtuale di Azure e assicurarsi che siano configurate in modo appropriato per soddisfare le esigenze del carico di lavoro.
 
 ### <a name="optimization"></a>Ottimizzazione
-L'articolo [Archiviazione Premium di Azure: progettata per prestazioni elevate](storage-premium-storage-performance.md) fornisce indicazioni per lo sviluppo di applicazioni a prestazioni elevate mediante l'Archiviazione Premium di Azure. È possibile usare le linee guida disponibili in questo documento insieme alle procedure consigliate per le prestazioni applicabili alle tecnologie usate dall'applicazione.
+L'articolo [Archiviazione Premium di Azure: progettata per prestazioni elevate](../../virtual-machines/windows/premium-storage-performance.md) fornisce indicazioni per lo sviluppo di applicazioni a prestazioni elevate mediante l'Archiviazione Premium di Azure. È possibile usare le linee guida disponibili in questo documento insieme alle procedure consigliate per le prestazioni applicabili alle tecnologie usate dall'applicazione.
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Preparare e copiare i dischi rigidi virtuali in Archiviazione Premium
 La sezione seguente offre le linee guida per preparare i dischi rigidi virtuali da una macchina virtuale e per copiarli in Archiviazione di Azure.
@@ -750,7 +750,7 @@ La configurazione VM corrente potrebbe essere personalizzata per favorirne il fu
 2. Accedere alla VM e copiare i dati dal volume corrente al nuovo disco di cui viene eseguito il mapping a tale volume. Effettuare questa operazione per tutti i volumi correnti di cui è necessario eseguire il mapping a un nuovo disco.
 3. Modificare quindi le impostazioni dell'applicazione in modo da passare ai nuovi dischi e scollegare i vecchi volumi.
 
-Per ottimizzare l'applicazione e migliorare le prestazioni del disco, fare riferimento a [Ottimizzazione delle prestazioni dell'applicazione](storage-premium-storage-performance.md#optimizing-application-performance).
+Per ottimizzare l'applicazione e migliorare le prestazioni del disco, fare riferimento a [Ottimizzazione delle prestazioni dell'applicazione](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance).
 
 ### <a name="application-migrations"></a>Migrazioni delle applicazioni
 I database e altre applicazioni complesse potrebbero richiedere particolari passaggi in base a quanto definito dal provider dell'applicazione per la migrazione. Vedere la documentazione relativa a ogni applicazione. Ad esempio, è possibile in genere eseguire la migrazione dei database con il backup e ripristino.
@@ -767,7 +767,7 @@ Inoltre, controllare le seguenti risorse per altre informazioni su Archiviazione
 
 * [Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md)
+* [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 Quando si configura un'immagine di macchina virtuale di SQL Server in Azure, il portale consente di automatizzare la configurazione dell'archiviazione, ovvero collegare l'archiviazione alla VM, renderla disponibile per SQL Server e ottimizzarla in base alle specifiche esigenze a livello di prestazioni.
@@ -32,7 +32,7 @@ Per usare le impostazioni di configurazione automatica dell'archiviazione, la ma
 
 * Provisioning eseguito con un' [immagine della raccolta di SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
 * Uso del [modello di distribuzione Azure Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md).
-* Uso dell' [archiviazione Premium](../../../storage/common/storage-premium-storage.md).
+* Uso dell' [archiviazione Premium](../premium-storage.md).
 
 ## <a name="new-vms"></a>Nuove VM
 Le sezioni seguenti descrivono come configurare l'archiviazione per le nuove macchine virtuali di SQL Server.
@@ -104,7 +104,7 @@ In questa sezione sono disponibili informazioni di riferimento sulle modifiche d
 
 * Se sono stati selezionati meno di due TB di spazio di archiviazione per la VM, Azure non crea un pool di archiviazione.
 * Se sono stati selezionati almeno due TB di spazio di archiviazione per la VM, Azure configura un pool di archiviazione. La sezione successiva di questo argomento fornisce i dettagli della configurazione del pool di archiviazione.
-* Per la configurazione automatica dell'archiviazione vengono sempre usati dischi dati P30 di [archiviazione Premium](../../../storage/common/storage-premium-storage.md) . Esiste quindi una corrispondenza 1:1 tra il numero selezionato di terabyte e il numero di dischi dati collegati alla VM.
+* Per la configurazione automatica dell'archiviazione vengono sempre usati dischi dati P30 di [archiviazione Premium](../premium-storage.md) . Esiste quindi una corrispondenza 1:1 tra il numero selezionato di terabyte e il numero di dischi dati collegati alla VM.
 
 Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage) nella scheda **Archiviazione su disco** .
 

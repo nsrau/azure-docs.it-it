@@ -4,7 +4,7 @@ description: Informazioni su come creare un modello tabulare di Azure Analysis S
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: bd58f1845dabf6afb47ce27236d14479677a8808
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a70ce4a106b8d9103080f050ab2317cd69348c1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="create-a-model-in-azure-portal"></a>Creare un modello nel portale di Azure
 

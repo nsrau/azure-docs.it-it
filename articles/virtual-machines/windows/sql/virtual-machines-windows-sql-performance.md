@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 5595ea016ab01d20cee82b75f56623bb0727a1b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e502be189a29590ebe0d848b3ec43611db8d035d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure
 
@@ -40,8 +40,8 @@ Di seguito è riportato un elenco controllo rapido per ottimizzare le prestazion
 | Area | Ottimizzazioni |
 | --- | --- |
 | [Dimensioni macchina virtuale](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) o superiore per SQL Enterprise.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) o superiore per SQL Standard Edition e Web Edition. |
-| [Archiviazione](#storage-guidance) |Usare [Archiviazione Premium](../../../storage/common/storage-premium-storage.md). Archiviazione Standard è consigliata solo per i carichi di lavoro di sviluppo/test.<br/><br/>Mantenere l'[account di archiviazione](../../../storage/common/storage-create-storage-account.md) e la macchina virtuale di SQL Server nella stessa area.<br/><br/>Disabilitare l' [archiviazione con ridondanza geografica](../../../storage/common/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione. |
-| [Dischi](#disks-guidance) |Usare almeno 2 [dischi P30](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) (1 per i file di log, 1 per i file di dati e TempDB).<br/><br/>Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/>Abilitare la lettura della cache sui dischi che ospitano i file di dati e TempDB.<br/><br/>Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.<br/><br/>Importante: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/>Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/>Formattare con dimensioni di allocazione documentate. |
+| [Archiviazione](#storage-guidance) |Usare [Archiviazione Premium](../premium-storage.md). Archiviazione Standard è consigliata solo per i carichi di lavoro di sviluppo/test.<br/><br/>Mantenere l'[account di archiviazione](../../../storage/common/storage-create-storage-account.md) e la macchina virtuale di SQL Server nella stessa area.<br/><br/>Disabilitare l' [archiviazione con ridondanza geografica](../../../storage/common/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione. |
+| [Dischi](#disks-guidance) |Usare almeno 2 [dischi P30](../premium-storage.md#scalability-and-performance-targets) (1 per i file di log, 1 per i file di dati e TempDB).<br/><br/>Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/>Abilitare la lettura della cache sui dischi che ospitano i file di dati e TempDB.<br/><br/>Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.<br/><br/>Importante: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/>Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/>Formattare con dimensioni di allocazione documentate. |
 | [I/O](#io-guidance) |Abilitare la compressione di pagina di database.<br/><br/>Abilitare l'inizializzazione immediata dei file per i file di dati.<br/><br/>Limitare o disabilitare l'aumento automatico delle dimensioni per il database.<br/><br/>Disabilitare la compattazione automatica per il database.<br/><br/>Spostare tutti i database su dischi dati, inclusi i database di sistema.<br/><br/>Spostare le directory dei file di traccia e dei log degli errori di SQL Server sui dischi dati.<br/><br/>Configurare il percorso predefinito del file di backup e del file di database.<br/><br/>Abilitare le pagine bloccate.<br/><br/>Applicare le correzioni delle prestazioni di SQL Server. |
 | [Specifiche della funzione](#feature-specific-guidance) |Eseguire il backup direttamente nell'archivio BLOB. |
 
@@ -56,7 +56,7 @@ Per le applicazioni sensibili alle prestazioni, è consigliabile usare le seguen
 
 ## <a name="storage-guidance"></a>Linee guida per l'archiviazione
 
-Le VM serie DS, oltre alle serie DSv2 e GS, supportano [Archiviazione Premium](../../../storage/common/storage-premium-storage.md). Archiviazione Premium è l'impostazione consigliata per tutti i carichi di lavoro di produzione.
+Le VM serie DS, oltre alle serie DSv2 e GS, supportano [Archiviazione Premium](../premium-storage.md). Archiviazione Premium è l'impostazione consigliata per tutti i carichi di lavoro di produzione.
 
 > [!WARNING]
 > Archiviazione Standard è caratterizzata da latenze e larghezze di banda variabili ed è consigliata solo per i carichi di lavoro di sviluppo e test. Per i carichi di lavoro di produzione si consiglia di usare Archiviazione Premium.
@@ -89,7 +89,7 @@ Per le macchine virtuali che supportano Archiviazione Premium (serie DS, DSv2 e 
 
 ### <a name="data-disks"></a>Dischi dati
 
-* **Usare i dischi dati per i file di dati e di log**: come minimo, usare 2 [dischi P30](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) con Archiviazione Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB. Ogni disco di Archiviazione Premium dispone di un numero di IOPs e larghezza di banda (MB/s) a seconda delle dimensioni, come descritto nell'articolo seguente: [Uso di Archiviazione Premium per dischi](../../../storage/common/storage-premium-storage.md).
+* **Usare i dischi dati per i file di dati e di log**: come minimo, usare 2 [dischi P30](../premium-storage.md#scalability-and-performance-targets) con Archiviazione Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB. Ogni disco di Archiviazione Premium dispone di un numero di IOPs e larghezza di banda (MB/s) a seconda delle dimensioni, come descritto nell'articolo seguente: [Uso di Archiviazione Premium per dischi](../premium-storage.md).
 
 * **Striping del disco**: per una maggiore velocità effettiva, è possibile aggiungere ulteriori dischi dati e usare lo striping del disco. Per determinare il numero di dischi dati, è necessario analizzare il numero di IOPS e larghezza di banda necessari per i file di log e i file di dati e TempDB. Si noti che a seconda delle dimensioni delle VM i limiti nel numero di IOPs e larghezza di banda supportati cambiano. Vedere le tabelle relative agli IOPS per [dimensione di VM](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Usare le linee guida seguenti:
 

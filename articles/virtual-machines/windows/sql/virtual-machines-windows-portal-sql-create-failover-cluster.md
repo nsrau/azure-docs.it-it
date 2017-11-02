@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -162,7 +162,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
    | SQL Server | 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta.
    | Probe di integrità | 59999 | Qualsiasi porta TCP aperta. In un passaggio successivo, configurare il [probe di integrità](#probe) del servizio di bilanciamento del carico e il cluster per l'uso di questa porta.  
 
-1. Aggiungere risorse di archiviazione alla macchina virtuale. Per informazioni dettagliate, vedere l'articolo relativo all'[aggiunta dell'archiviazione](../../../storage/common/storage-premium-storage.md).
+1. Aggiungere risorse di archiviazione alla macchina virtuale. Per informazioni dettagliate, vedere l'articolo relativo all'[aggiunta dell'archiviazione](../premium-storage.md).
 
    Entrambe le macchine virtuali necessitano di almeno due dischi dati.
 

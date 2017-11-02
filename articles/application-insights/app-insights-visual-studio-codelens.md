@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: bwren
-ms.openlocfilehash: 20933afab55043ccc5ce908c04c6e4a7a28e3538
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 418c391f896ac60f509b963f0aff70ad699fc43b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights Telemetry in CodeLens di Visual Studio
 I metodi nel codice dell'app Web possono essere annotati con dati di telemetria relativi alle eccezioni di run-time e ai tempi di risposta della richiesta. Se si installa [Azure Application Insights](app-insights-overview.md) nell'applicazione, i dati di telemetria vengono visualizzati in [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) di Visual Studio, ovvero nelle note nella parte superiore di ogni funzione in cui vengono visualizzate informazioni utili, ad esempio il numero di posizioni in cui si fa riferimento alla funzione o l'utente che l'ha modificata per ultimo.

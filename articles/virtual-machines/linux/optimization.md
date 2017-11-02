@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: eb79d574fd4dddfb986660cc338bc8748f2082c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e63b50e06ae280819aea88f61bf9f25b6e44eac7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la VM Linux su Azure
 La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come assicurarsi di averla configurata in modo da ottimizzarne le prestazioni sulla piattaforma Microsoft Azure. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -32,7 +32,7 @@ Questo argomento presuppone che sia disponibile una sottoscrizione di Azure atti
 Dopo la creazione, alla macchina virtuale Linux in Azure sono associati due dischi. **/dev/sda** è il disco del sistema operativo mentre **/dev/sdb** è il disco temporaneo.  Usare il disco principale del sistema operativo (**/dev/sda**) esclusivamente per il sistema operativo, perché è ottimizzato per tempi di avvio della macchina virtuale ridotti e non offre prestazioni ideali per i carichi di lavoro. È consigliabile collegare uno o più dischi alla VM per ottenere l'archiviazione persistente e ottimizzata per i dati. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Aggiunta di dischi per risultati a livello di dimensioni e prestazioni
-In base alle dimensioni della VM, è possibile collegare fino a 16 dischi aggiuntivi su una macchina virtuale di Serie A, 32 dischi su una di Serie D e 64 dischi su una di Serie G, fino a un massimo di 1 TB di dimensioni per ogni VM. Aggiungere altri dischi in base alle necessità specificate dai requisiti per spazio e IOps. Ogni disco ha un obiettivo a livello di prestazioni pari a 500 IOps per l'Archiviazione Standard e 5000 IOps per disco per l'Archiviazione Premium.  Per altre informazioni sui dischi di Archiviazione Premium vedere [Archiviazione Premium: archiviazione a prestazioni elevate per macchine virtuali di Azure](../../storage/common/storage-premium-storage.md)
+In base alle dimensioni della VM, è possibile collegare fino a 16 dischi aggiuntivi su una macchina virtuale di Serie A, 32 dischi su una di Serie D e 64 dischi su una di Serie G, fino a un massimo di 1 TB di dimensioni per ogni VM. Aggiungere altri dischi in base alle necessità specificate dai requisiti per spazio e IOps. Ogni disco ha un obiettivo a livello di prestazioni pari a 500 IOps per l'Archiviazione Standard e 5000 IOps per disco per l'Archiviazione Premium.  Per altre informazioni sui dischi di Archiviazione Premium vedere [Archiviazione Premium: archiviazione a prestazioni elevate per macchine virtuali di Azure](../windows/premium-storage.md)
 
 Per ottenere i valori IOps più elevati nei dischi di Archiviazione Premium in cui le impostazioni della cache sono state impostate su **ReadOnly** o **None**, è necessario disabilitare le **barriere** durante il montaggio del file system in Linux. Non sono necessarie barriere perché le scritture relative ai dischi supportati da Archiviazione Premium assicurano la durabilità per queste impostazioni della cache.
 
@@ -131,7 +131,7 @@ Come per tutte le considerazioni sull'ottimizzazione, sarà necessario eseguire 
 
 Ecco alcuni collegamenti utili a risorse aggiuntive: 
 
-* [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../storage/common/storage-premium-storage.md)
+* [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../windows/premium-storage.md)
 * [Guida dell'utente dell'agente Linux di Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ottimizzazione delle prestazioni di MySQL in macchine virtuali Linux di Azure](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configurare RAID software in Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

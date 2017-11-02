@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.openlocfilehash: 96e5027adfb443aba18895213e8d83894e3f060a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d43fb03ce1c54a47315b8c3a5c83ec2082bcab9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -82,7 +82,7 @@ Configurare un [account di archiviazione di Azure](../storage/common/storage-cre
 
 - Site Recovery replica le macchine locali in Archiviazione di Azure. Le VM di Azure vengono create dalla risorsa di archiviazione dopo il failover.
 - L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino.
-- L'account di archiviazione può essere Standard o [Premium](../storage/common/storage-premium-storage.md).
+- L'account di archiviazione può essere Standard o [Premium](../virtual-machines/windows/premium-storage.md).
 - Se si configura un account Premium, sarà necessario un altro account Standard per i dati di log.
 
 ### <a name="prepare-hyper-v-hosts"></a>Preparare gli host Hyper-V
@@ -251,7 +251,7 @@ Se si usa VMM, configurare il mapping di rete.
 3. In **Frequenza di copia**specificare la frequenza con cui replicare i dati differenziali dopo la replica iniziale, ogni 30 secondi oppure ogni 5 o 15 minuti.
 
     > [!NOTE]
-    >  Quando si esegue la replica in archiviazione Premium la frequenza di 30 secondi non è supportata. Il limite è determinato dal numero di snapshot per BLOB (100) supportato dal servizio di archiviazione Premium. [Altre informazioni](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
+    >  Quando si esegue la replica in archiviazione Premium la frequenza di 30 secondi non è supportata. Il limite è determinato dal numero di snapshot per BLOB (100) supportato dal servizio di archiviazione Premium. [Altre informazioni](../virtual-machines/windows/premium-storage.md#snapshots-and-copy-blob)
 
 4. In **Conservazione del punto di recupero**, specificare la durata (in ore) dell'intervallo di conservazione per ogni punto di recupero. I computer protetti possono essere ripristinati in qualsiasi punto all'interno di un intervallo.
 5. In **Frequenza snapshot coerenti con l'app**specificare la frequenza, da 1 a 12 ore, per la creazione di punti di ripristino contenenti snapshot coerenti con l'applicazione. Hyper-V usa due tipi di snapshot:
