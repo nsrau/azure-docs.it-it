@@ -3,7 +3,7 @@ title: "Aggiungere utenti da altre directory o società partner in Azure Active 
 description: Illustra come aggiungere utenti o modificare le informazioni sugli utenti in Azure Active Directory, inclusi gli utenti esterni e guest.
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: 564a04ec-53c1-470b-9ab9-f3db57da0a89
@@ -16,11 +16,11 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 30dbd21c6d21aa55c2c7e84c315fba098674ddd8
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c2e748d5b7ce958600d4da549bc4f2b085df83d8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Aggiungere utenti da altre directory o società partner in Azure Active Directory
 

@@ -3,7 +3,7 @@ title: Reimpostazione delle password in Azure Active Directory | Microsoft Docs
 description: Illustra come reimpostare la password per un utente in Azure Active Directory
 services: active-directory
 documentationcenter: 
-author: curtand
+author: MicrosoftGuyJFlo
 manager: femila
 editor: 
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
-ms.author: curtand
+ms.author: joflore
 ms.reviewer: jeffsta
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: b59f74546e219d45814a1a2e05e59beb0b080f21
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f88a227eda042991ad5dd9cd6c3f349ccb0c4366
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Reimpostare la password per un utente in Azure Active Directory
 

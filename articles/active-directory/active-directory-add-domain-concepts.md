@@ -3,7 +3,7 @@ title: Panoramica concettuale dei nomi di dominio personalizzati in Azure Active
 description: Illustra il framework concettuale per l'uso di nomi di dominio personalizzati in Azure Active Directory, compresa la federazione per Single Sign-On
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: b0ba411dd40bbd063a328d61be899c1e70a96eda
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: baaf1829705c46322158c229a8ecccd0164cd4a6
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Panoramica concettuale dei nomi di dominio personalizzati in Azure Active Directory
 Un nome di dominio può essere un identificatore importante per molte risorse della directory, come parte di:

@@ -6,7 +6,7 @@
 | Spazio libero su disco (cache del server di elaborazione) | 600 GB
 | Spazio libero su disco (disco di conservazione) | 600 GB|
 | **Software** | |
-| Versione del sistema operativo | Windows Server 2012 R2 |
+| Versione del sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Impostazioni locali del sistema operativo | Inglese (en-us)|
 | Versione di VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Ruoli di Windows Server | Non abilitare i ruoli seguenti: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
