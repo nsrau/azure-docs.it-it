@@ -62,6 +62,12 @@
           href: msi-howto-assign-access-powershell.md
         - name: Utilizzare l'interfaccia della riga di comando di Azure
           href: msi-howto-assign-access-cli.md
+    - name: Usare un'identità del servizio gestito della VM per accedere ad Azure Data Lake Store
+      items:
+        - name: Da una VM Windows
+          href: msi-tutorial-windows-vm-access-datalake.md
+        - name: Da una VM Linux
+          href: msi-tutorial-linux-vm-access-datalake.md
     - name: Usare un'identità del servizio gestito della VM per accedere ad Azure Resource Manager
       items:
         - name: Da una VM Windows

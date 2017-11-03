@@ -9,17 +9,18 @@ editor:
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-ms.openlocfilehash: 1943e87ffd991d099ab655af5a7d16d7f1608d22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: douglasl
+ms.openlocfilehash: 64b95142eb5b7086b070585a359bf81e7397c3e5
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Introduzione all'anteprima di sincronizzazione dati di SQL Azure
 In questa esercitazione si imparerà a configurare sincronizzazione dati SQL di Azure creando un gruppo di sincronizzazione ibrido che contiene sia istanze del database SQL di Azure che istanze di SQL Server. Il nuovo gruppo di sincronizzazione ha una configurazione completa ed esegue la sincronizzazione in base alla pianificazione impostata.
@@ -31,9 +32,6 @@ Per una panoramica di sincronizzazione dati SQL, vedere [Sincronizzare i dati](s
 Per esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL, vedere gli articoli seguenti:
 -   [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
 -   [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
-
-> [!NOTE]
-> La documentazione tecnica completa impostata per la sincronizzazione dati SQL di Azure, che si trovava in precedenza su MSDN, è ora disponibile in formato PDF. Scaricarla [qui](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
 ## <a name="step-1---create-sync-group"></a>Passaggio 1 - Creare un gruppo di sincronizzazione
 
@@ -200,7 +198,6 @@ A questo punto è stato creato un gruppo di sincronizzazione che include sia un'
 
 Per altre informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
 
--   [Scaricare la documentazione tecnica completa di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 -   [Scaricare la documentazione dell'API REST di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 -   [Panoramica del database SQL](sql-database-technical-overview.md)
 -   [Gestione del ciclo di vita del database](https://msdn.microsoft.com/library/jj907294.aspx)

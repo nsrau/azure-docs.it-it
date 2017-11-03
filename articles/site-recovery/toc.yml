@@ -15,7 +15,7 @@
       items:
         - name: Configurare il ripristino di emergenza
           href: azure-to-azure-tutorial-enable-replication.md
-        - name: Eseguire un'esercitazione sul ripristino di emergenza
+        - name: Eseguire una verifica del ripristino di emergenza
           href: azure-to-azure-tutorial-dr-drill.md
         - name: Eseguire il failover e il failback
           href: azure-to-azure-tutorial-failover-failback.md
@@ -27,7 +27,7 @@
           href: tutorial-prepare-on-premises-vmware.md
         - name: Configurare il ripristino di emergenza
           href: tutorial-vmware-to-azure.md
-        - name: Eseguire un'esercitazione sul ripristino di emergenza
+        - name: Eseguire una verifica del ripristino di emergenza
           href: tutorial-dr-drill-azure.md
         - name: Eseguire il failover e il failback
           href: tutorial-vmware-to-azure-failover-failback.md
@@ -41,13 +41,13 @@
           href: tutorial-migrate-aws-to-azure.md
 - name: Concetti
   items:
-    - name: Architetture da Azure ad Azure
+    - name: Architettura da Azure ad Azure
       href: concepts-azure-to-azure-architecture.md
-    - name: Architetture da VMware ad Azure
+    - name: Architettura da VMware ad Azure
       href: concepts-vmware-to-azure-architecture.md
-    - name: Architetture da Hyper-V ad Azure
+    - name: Architettura da Hyper-V ad Azure
       href: concepts-hyper-v-to-azure-architecture.md
-    - name: Architetture da fisico ad Azure
+    - name: Architettura da server fisico ad Azure
       href: concepts-physical-to-azure-architecture.md
     - name: Architettura da Hyper-V a un sito secondario
       href: concepts-hyper-v-to-secondary-architecture.md
@@ -59,6 +59,8 @@
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Ripristino di emergenza per i carichi di lavoro
       href: site-recovery-workload.md
+    - name: Migrazione con Azure Site Recovery
+      href: site-recovery-migrate-to-azure.md
     - name: Servizio di rete da Azure ad Azure (anteprima)
       href: site-recovery-azure-to-azure-networking-guidance.md
     - name: Connettività della macchina virtuale dopo il failover in Azure
@@ -104,9 +106,9 @@
         - name: Strumento Deployment Planner per la replica VMware in Azure
           href: site-recovery-deployment-planner.md
         - name: Pianificazione della capacità per la replica Hyper-V in Azure
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
-        - name: Strumento Capacity Planner per la replica Hyper-V in Azure
           href: site-recovery-capacity-planner.md
+        - name: Strumento Capacity Planner per la replica Hyper-V in Azure
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
         - name: Server di elaborazione con scalabilità orizzontale per la replica VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: Test della scalabilità delle prestazioni per la replica Hyper-V tra siti locali
@@ -181,7 +183,9 @@
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
     - name: Migrazione
       items:
-        - name: Replicare le macchine virtuali sottoposte a migrazione in un'altra area di Azure
+        - name: Eseguire la migrazione di VM di Azure a un'altra area di Azure
+          href: site-recovery-migrate-azure-to-azure.md
+        - name: Replicare le macchine virtuali in un'altra area di Azure dopo la migrazione
           href: site-recovery-azure-to-azure-after-migration.md
     - name: Carichi di lavoro
       items:

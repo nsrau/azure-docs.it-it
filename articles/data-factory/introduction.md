@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 9ed89261b7050bb41d49b827e02d24535983160f
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introduzione a Data factory di Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ La piattaforma Azure Data Factory è in grado di gestire con successo scenari di
 ![Vista generale di Data Factory](media/introduction/big-picture.png)
 
 > [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory con disponibilità generale (GA), vedere [Introduzione a Data Factory versione 1](v1/data-factory-introduction.md).
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale (GA), vedere [Introduzione a Data Factory versione 1](v1/data-factory-introduction.md).
 
 ## <a name="how-does-it-work"></a>Come funziona?
 Le pipeline, ovvero i flussi di lavoro basati su dati, in Azure Data Factory eseguono in genere i quattro passaggi seguenti:

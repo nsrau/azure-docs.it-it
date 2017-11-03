@@ -8,17 +8,17 @@ author: ddove
 ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d1b5a77782b64873a753f19863459f9cdfcd70cc
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introduzione ai processi di Database Elastici
 I processi di database elastici (anteprima) per il database SQL di Azure consentono di eseguire in maniera affidabile script T-SQL che si estendono su più database e effettuano tentativi automatici per garantire il completamento delle operazioni . Per altre informazioni sulla funzionalità del processo Database elastico, vedere [Processi elastici](sql-database-elastic-jobs-overview.md).

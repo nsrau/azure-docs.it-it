@@ -1,6 +1,9 @@
 # [Panoramica](active-directory-b2c-overview.md)
 
 # Introduzione
+## [Eseguire il test drive di un'app Web di Azure AD B2C](active-directory-b2c-quickstarts-web-app.md)
+## [Eseguire il test drive di un'app desktop di Azure AD B2C](active-directory-b2c-quickstarts-desktop-app.md)
+## [Eseguire il test drive di un'app a singola pagina di Azure AD B2C](active-directory-b2c-quickstarts-spa.md)
 ## [Creare una directory Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Registrare l'applicazione](active-directory-b2c-app-registration.md)
 ## [Criteri predefiniti](active-directory-b2c-reference-policies.md)

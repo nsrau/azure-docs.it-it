@@ -19,6 +19,8 @@
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Effettuare il provisioning di un set di scalabilità di macchine virtuali con l'infrastruttura
       href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Effettuare il provisioning di un set di scalabilità di macchine virtuali da un'immagine personalizzata di Packer
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Concetti
   items:
     - name: Integrazione in Cloud Shell
