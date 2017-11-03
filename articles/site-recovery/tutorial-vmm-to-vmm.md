@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: raynew
-ms.openlocfilehash: 9764e48e04eb0c83afea09934ce64d2485ab15d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1647e9d69da3e991bec4e00b3a1083a254fa9550
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Configurare il ripristino di emergenza per macchine virtuali Hyper-V nel sito locale secondario
 
@@ -40,7 +40,7 @@ Per completare questa esercitazione:
 
 - Esaminare [l'architettura e i componenti dello scenario](concepts-hyper-v-to-secondary-architecture.md).
 - Esaminare i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md) per tutti i componenti.
-- Assicurarsi che i server VMM e gli host Hyper-V rispettino i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md#on-premises-servers).
+- Assicurarsi che i server VMM e gli host Hyper-V rispettino i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md).
 - Assicurarsi che le macchine virtuali da replicare siano conformi al [supporto del computer replicato](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
 - Preparare i server VMM per il mapping di rete.
 

@@ -1,5 +1,5 @@
 ---
-title: Spostare dati da HDFS locale | Microsoft Docs
+title: Spostare dati da HDFS locale | Documentazione Microsoft
 description: Informazioni su come spostare dati da un HDFS locale con Azure Data Factory.
 services: data-factory
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 10/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e9670b39cf99cfa893270a0786a093914beee91
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 85a3b1b96effb716b8a33da8ad37309462042a44
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Spostare dati da HDFS locale con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

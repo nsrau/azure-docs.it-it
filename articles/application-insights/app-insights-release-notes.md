@@ -3,7 +3,7 @@ title: Note sulla versione per Azure Application Insights | Documentazione Micro
 description: "Aggiornamenti più recenti per gli SDK di Application Insights."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9cd2ecdb-c2b9-4e4a-b6aa-beb0c2ca4ffc
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: bwren
-ms.openlocfilehash: 0453ec62252bd21bd81bb26c2b01f8a80656d8bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 8c399ab17471ddb14ec29f77e0d636e394900f52
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sdk-release-notes---application-insights"></a>Note sulla versione - Application Insights SDK
 Queste sono note sulla versione dettagliate e istruzioni aggiornate relative agli SDK:
