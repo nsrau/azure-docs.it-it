@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: renash
-ms.openlocfilehash: 6643dad5ea3ba703e26f5708cdd2e925f702847f
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 33b64e1ad3fd5a2a6954a02da0fb303acca54c40
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="work-with-azure-file-share-snapshots-preview"></a>Usare gli snapshot di condivisione file di Azure (anteprima)
 Gli snapshot di condivisione file di Azure (anteprima) sono una versione di sola lettura di una condivisione file di Azure eseguita in un determinato momento. Una volta creato uno snapshot di condivisione, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo. Gli snapshot di condivisione consentono di eseguire un backup della condivisione così com'è in un determinato momento. In questo articolo si apprenderà come creare, gestire ed eliminare gli snapshot di condivisione file di Azure. Per altre informazioni sugli snapshot di condivisione, vedere [Azure Files share snapshot (preview) overview](storage-snapshots-files.md) (Panoramica sugli snapshot di condivisione file di Azure (anteprima)) o le [domande frequenti sugli snapshot](storage-files-faq.md).
@@ -57,7 +57,7 @@ Output di esempio
 ```
 
 ### <a name="create-share-snapshot-using-powershell"></a>Creare uno snapshot di condivisione tramite PowerShell
-È possibile creare uno snapshot di condivisione usando il comando `$share.Snapshot()`:
+È possibile eliminare uno snapshot di condivisione usando il comando `$share.Snapshot()`:
 
 ```powershell
 $connectionstring="DefaultEndpointsProtocol=http;FileEndpoint=http:<Storage Account Name>.file.core.windows.net /;AccountName=:<Storage Account Name>;AccountKey=:<Storage Account Key>"
@@ -72,9 +72,10 @@ $share.IsSnapshot
 $snapshot=$share.Snapshot()
 
 ```
-## <a name="list-share-snapshots-browse-share-snapshot-contents-and-restore-from-snapshots"></a>Elencare gli snapshot di condivisione, esplorare il contenuto degli snapshot di condivisione ed eseguire il ripristino dagli snapshot
 
-È possibile enumerare gli snapshot di condivisione associati a una condivisione file usando l'integrazione “Versioni precedenti” in Windows, tramite REST, la libreria client, PowerShell e il portale. Una volta montata la condivisione file di Azure, è possibile visualizzare tutte le versioni precedenti del file usando l'integrazione “Versioni precedenti” di SMB. Una volta montata la condivisione file di Azure, è possibile visualizzare tutte le versioni precedenti della directory usando l'integrazione “Versioni precedenti” di SMB. Nelle sezioni seguenti si apprenderà come usare il portale di Azure, Windows e l'interfaccia della riga di comando di Azure 2.0 per elencare, esplorare il contenuto e ripristinare snapshot di condivisione.
+## <a name="common-share-snapshot-operations"></a>Operazioni di creazione snapshot comuni
+
+È possibile enumerare gli snapshot di condivisione associati a una condivisione file usando la scheda "Versioni precedenti" in Windows, tramite REST, la libreria client, PowerShell e il portale. Una volta montata la condivisione di file di Azure, è possibile visualizzare tutte le versioni precedenti del file usando la scheda "Versioni precedenti" in Windows. Nelle sezioni seguenti si apprenderà come usare il portale di Azure, Windows e l'interfaccia della riga di comando di Azure 2.0 per elencare, esplorare il contenuto e ripristinare snapshot di condivisione.
 
 ### <a name="share-snapshot-operations-in-portal"></a>Condividere le operazioni di creazione snapshot nel portale
 

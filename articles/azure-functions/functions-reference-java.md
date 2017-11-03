@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: routlaw
-ms.openlocfilehash: f8812c2e8ac3398dabd17feaf97897efca5566f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 > [!div class="op_single_selector"]
@@ -218,16 +218,17 @@ Gli output possono essere espressi sia nel valore restituito che nei parametri d
 
 Il valore restituito è la forma più semplice di output, perché è possibile restituire solo un valore di qualsiasi tipo e il runtime di Funzioni di Azure runtime tenterà di eseguire il marshalling nel tipo effettivo, ad esempio una risposta HTTP. In `functions.json` usare `$return` come nome dell'associazione di output.
 
-Per generare più valori di output, usare il tipo `OutputParameter<T>` definito nel pacchetto `azure-functions-java-core`. Se è necessario restituire una risposta HTTP ed eseguire anche il push di un messaggio a una coda, è possibile scrivere un codice simile al seguente:
+Per generare più valori di output, usare il tipo `OutputBinding<T>` definito nel pacchetto `azure-functions-java-core`. Se è necessario restituire una risposta HTTP ed eseguire anche il push di un messaggio a una coda, è possibile scrivere un codice simile al seguente:
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputParameter;
+import com.microsoft.azure.serverless.functions.OutputBinding;
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
 
 public class MyClass {
-    public static String echo(String body, @BindingName("message") OutputParameter<String> queue) {
+    public static String echo(String body, 
+    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
         String result = "Hello, " + body + ".";
         queue.setValue(result);
         return result;
@@ -235,7 +236,7 @@ public class MyClass {
 }
 ```
 
-e definire l'associazione di output in `function.json`:
+che dovrebbe definire l'associazione di output in `function.json`:
 
 ```json
 {
@@ -251,10 +252,10 @@ e definire l'associazione di output in `function.json`:
     },
     {
       "type": "queue",
-      "name": "message",
+      "name": "queue",
       "direction": "out",
-      "queueName": "myqueue",
-      "connection": "ExampleStorageAccount"
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
     },
     {
       "type": "http",

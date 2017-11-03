@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b383a21500c753d8d2fe6747756541a3ff94ef02
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -28,8 +28,9 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 
 - In alcuni casi, l'abilitazione dell'accesso Single Sign-On facile può richiedere fino a 30 minuti.
 - Non è disponibile il supporto per il browser Edge.
-- L'attivazione della licenza in client Office, soprattutto in scenari di computer condivisi, prevede procedure di accesso aggiuntive per gli utenti.
-- L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox. e 
+- L'avvio dei client Office, soprattutto in scenari di computer condivisi, prevede procedure di accesso aggiuntive per gli utenti. Gli utenti dovranno immettere spesso i propri nomi utente, ma non le password.
+- Se la SSO trasparente ha esito positivo, l'utente non ha la possibilità di scegliere "Mantieni l'accesso". A causa di questo comportamento, gli scenari di mapping di SharePoint e OneDrive non funzionano.
+- L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox.
 - L'accesso Single Sign-On facile non funziona in Internet Explorer quando è attiva la modalità di protezione avanzata.
 - L'accesso Single Sign-On facile non funziona nei browser per dispositivi mobili basati su iOS e Android.
 - Se si esegue la sincronizzazione di 30 o più foreste di Active Directory, non è possibile abilitare l'accesso SSO facile usando Azure AD Connect. Per risolvere il problema, è possibile [abilitare manualmente](#manual-reset-of-azure-ad-seamless-sso) la funzionalità nel tenant in uso.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7e05c469260a445578c80cdf77fab2d5ffb48022
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771741fd7da8c9b6932851851aaca148f9596643
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Autenticazione pass-through di Azure Active Directory: blocco smart
 
@@ -33,7 +33,7 @@ Il blocco smart tiene traccia dei tentativi di accesso non riusciti e dopo una d
 
 Il blocco smart consente di distinguere anche tra l'accesso effettuato da utenti originali e da utenti malintenzionati e nella maggior parte dei casi blocca solo gli utenti malintenzionati. Questa funzionalità impedisce agli utenti malintenzionati di bloccare gli utenti veri. Per distinguere tra utenti malintenzionati e utenti veri vengono analizzati il comportamento di accesso, i dispositivi e i browser degli utenti oltre ad altri segnali. Gli algoritmi vengono migliorati costantemente.
 
-Poiché l'autenticazione pass-through inoltra le richieste di convalida della password in Active Directory (AD) locale, è necessario impedire ai pirati informatici di bloccare gli account di AD degli utenti. Poiché l'utente dispone di propri criteri di blocco degli account di AD, in particolare [**Soglia di blocchi dell'account**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) e [**Reimposta blocco account dopo**](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx), è necessario configurare in modo appropriato i valori di durata del blocco e la soglia di blocco di Azure AD per filtrare gli attacchi nel cloud, prima che raggiungano AD locale.
+Poiché l'autenticazione pass-through inoltra le richieste di convalida della password in Active Directory (AD) locale, è necessario impedire ai pirati informatici di bloccare gli account di AD degli utenti. Poiché l'utente dispone di propri criteri di blocco degli account di AD, in particolare [**Soglia di blocchi dell'account**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) e [ **	Reimposta blocco account dopo**](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx), è necessario configurare in modo appropriato i valori di durata del blocco e la soglia di blocco di Azure AD per filtrare gli attacchi nel cloud, prima che raggiungano AD locale.
 
 >[!NOTE]
 >La funzionalità Smart Lockout è gratuita e _attiva_ per impostazione predefinita per tutti i clienti. Tuttavia, per modificare i valori relativi alla soglia di blocco e alla durata del blocco di Azure AD usando l'API Graph, è necessario che il tenant abbia almeno una licenza di Azure AD Premium P2. Non è necessaria una licenza di Azure AD Premium P2 _per ogni utente_ per ottenere la funzionalità Smart Lockout con l'autenticazione pass-through.
@@ -42,6 +42,9 @@ Per garantire che gli account di AD locali degli utenti siano protetti, è neces
 
 1.  La Soglia di blocco di Azure AD sia _inferiore_ alla soglia di blocco dell'account di AD. È consigliabile impostare i valori in modo che è la soglia di blocco dell'account di AD sia almeno di due o tre volte superiore alla soglia di blocco di Azure AD.
 2.  La durata del blocco di Azure AD, rappresentata in secondi, è _maggiore_ rispetto al valore di Reimposta blocco account dopo di AD, rappresentato in minuti.
+
+>[!IMPORTANT]
+>Attualmente un amministratore non può sbloccare gli account cloud degli utenti se questi sono stati bloccati dalla funzionalità di blocco smart. È necessario attendere lo scadere della durata del blocco.
 
 ## <a name="verify-your-ad-account-lockout-policies"></a>Verificare i criteri di blocco degli account di AD
 

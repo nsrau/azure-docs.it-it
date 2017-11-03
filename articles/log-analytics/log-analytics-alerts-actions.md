@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 10/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6d65480c53f905b393409dfdd9952618ab6cb64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Aggiungere azioni alle regole di avviso in Log Analytics
 Quando [viene creato un avviso in Log Analytics](log-analytics-alerts.md), è possibile scegliere di [configurare la regola di avviso](log-analytics-alerts.md) per eseguire una o più azioni.  Questo articolo descrive le diverse azioni disponibili e offre informazioni sulla configurazione di ogni tipologia di azione.
@@ -59,7 +59,7 @@ I webhook includono un URL e un payload in fermato JSON che corrisponde ai dati 
 >[!NOTE]
 > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), il payload del webhook è stato modificato.  Vedere [API REST di Azure Log Analytics](https://aka.ms/loganalyticsapiresponse) per informazioni dettagliate sul formato.  Nella sezione [Esempi](#sample-payload) viene illustrato un esempio.
 
-| . | Variabile | Descrizione |
+| Parametro | Variabile | Descrizione |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nome della regola di avviso. |
 | AlertThresholdOperator |#thresholdoperator |Operatore di soglia per la regola di avviso.  *Maggiore di* o *Minore di*. |
@@ -112,10 +112,10 @@ Le azioni runbook includono le proprietà elencate nella tabella seguente.
 
 Le azioni runbook avviano il runbook tramite un [webhook](../automation/automation-webhooks.md).  Quando si crea la regola di avviso, viene creato automaticamente un nuovo webhook per il runbook con il nome **OMS Alert Remediation** seguito da un GUID.  
 
-Non è possibile popolare direttamente alcun parametro del runbook, ma il [parametro $WebhookData](../automation/automation-webhooks.md) includerà i dettagli dell'avviso, inclusi i risultati della ricerca nei log che lo ha creato.  Il runbook dovrà definire **$WebhookData** come parametro per consentire l'accesso alle proprietà dell'avviso.  I dati dell'avviso sono disponibili in formato JSON in una singola proprietà denominata **SearchResults** nella proprietà **RequestBody** di **$WebhookData**.  Saranno incluse le proprietà riportate nella tabella seguente.
+Non è possibile popolare direttamente alcun parametro del runbook, ma il [parametro $WebhookData](../automation/automation-webhooks.md) includerà i dettagli dell'avviso, inclusi i risultati della ricerca nei log che lo ha creato.  Il runbook dovrà definire **$WebhookData** come parametro per consentire l'accesso alle proprietà dell'avviso.  I dati dell'avviso sono disponibili in formato json in una singola proprietà denominata **SearchResult** (per le azioni runbook e le azioni webhook con payload standard) o **SearchResults** (azioni webhook con payload personalizzato tra cui **IncludeSearchResults":true**) nella proprietà **RequestBody** di **$WebhookData**.  Saranno incluse le proprietà riportate nella tabella seguente.
 
 >[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), il payload del runbook è stato modificato.  Vedere [API REST di Azure Log Analytics](https://aka.ms/loganalyticsapiresponse) per informazioni dettagliate sul formato.  Nella sezione [Esempi](#sample-payload) viene illustrato un esempio.
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), il payload del runbook è stato modificato.  Vedere [API REST di Azure Log Analytics](https://aka.ms/loganalyticsapiresponse) per informazioni dettagliate sul formato.  Nella sezione [Esempi](#sample-payload) viene illustrato un esempio.  
 
 | Nodo | Description |
 |:--- |:--- |
@@ -123,14 +123,19 @@ Non è possibile popolare direttamente alcun parametro del runbook, ma il [param
 | __metadata |Informazioni sull'avviso, inclusi il numero di record e lo stato dei risultati della ricerca. |
 | value |Voce separata per ogni record nei risultati della ricerca.  I dettagli della voce corrisponderanno alle proprietà e ai valori del record. |
 
-Ad esempio, il runbook seguente estrae i record restituiti dalla ricerca nel log e assegna proprietà diverse in base al tipo di ogni record.  Si noti che il runbook converte prima di tutto **RequestBody** da JSON, in modo che possa essere usato come oggetto in PowerShell.
+Ad esempio, i runbook seguenti estraggono i record restituiti dalla ricerca nel log e assegnano proprietà diverse in base al tipo di ogni record.  Si noti che il runbook converte prima di tutto **RequestBody** da JSON, in modo che possa essere usato come oggetto in PowerShell.
+
+>[!NOTE]
+> Entrambi questi runbook usano **SearchResult** che è la proprietà che contiene i risultati per le azioni runbook e le azioni webhook con payload standard.  Se il runbook è stato chiamato da una risposta webhook usando un payload personalizzato, è necessario cambiare questa proprietà in **SearchResults**.
+
+Il seguente runbook funzionerà con il payload da un'[area di lavoro Log Analytics legacy](log-analytics-log-search-upgrade.md).
 
     param ( 
         [object]$WebhookData
     )
 
     $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResults.value
+    $Records     = $RequestBody.SearchResult.value
 
     foreach ($Record in $Records)
     {
@@ -152,11 +157,61 @@ Ad esempio, il runbook seguente estrae i record restituiti dalla ricerca nel log
         }
     }
 
+Il seguente runbook funzionerà con il payload da un'[area di lavoro Log Analytics aggiornata](log-analytics-log-search-upgrade.md).
+
+    param ( 
+        [object]$WebhookData
+    )
+
+    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
+
+    # Get all metadata properties    
+    $AlertRuleName = $RequestBody.AlertRuleName
+    $AlertThresholdOperator = $RequestBody.AlertThresholdOperator
+    $AlertThresholdValue = $RequestBody.AlertThresholdValue
+    $AlertDescription = $RequestBody.Description
+    $LinktoSearchResults =$RequestBody.LinkToSearchResults
+    $ResultCount =$RequestBody.ResultCount
+    $Severity = $RequestBody.Severity
+    $SearchQuery = $RequestBody.SearchQuery
+    $WorkspaceID = $RequestBody.WorkspaceId
+    $SearchWindowStartTime = $RequestBody.SearchIntervalStartTimeUtc
+    $SearchWindowEndTime = $RequestBody.SearchIntervalEndtimeUtc
+    $SearchWindowInterval = $RequestBody.SearchIntervalInSeconds
+
+    # Get detailed search results
+    if($RequestBody.SearchResult -ne $null)
+    {
+        $SearchResultRows    = $RequestBody.SearchResult.tables[0].rows 
+        $SearchResultColumns = $RequestBody.SearchResult.tables[0].columns;
+
+        foreach ($SearchResultRow in $SearchResultRows)
+        {   
+            $Column = 0
+            $Record = New-Object –TypeName PSObject 
+        
+            foreach ($SearchResultColumn in $SearchResultColumns)
+            {
+                $Name = $SearchResultColumn.name
+                $ColumnValue = $SearchResultRow[$Column]
+                $Record | Add-Member –MemberType NoteProperty –Name $name –Value $ColumnValue -Force
+                        
+                $Column++
+            }
+
+            # Include code to work with the record. 
+            # For example $Record.Computer to get the computer property from the record.
+            
+        }
+    }
+
+
 
 ## <a name="sample-payload"></a>Esempio di payload
 Questa sezione illustra un payload di esempio per le azioni webhook e runbook in un'[area di lavoro di Log Analytics](log-analytics-log-search-upgrade.md) aggiornata e legacy.
 
 ### <a name="webhook-actions"></a>Azioni webhook
+Entrambi questi esempi usano **SearchResult** che è la proprietà che contiene i risultati per le azioni webhook con payload standard.  Se il webhook usasse un payload personalizzato che include i risultati della ricerca, questa proprietà sarebbe **SearchResults**.
 
 #### <a name="legacy-workspace"></a>Area di lavoro legacy.
 Di seguito è riportato un esempio di payload per un'azione webhook in un'area di lavoro legacy.
@@ -376,7 +431,7 @@ Di seguito è riportato un esempio di payload per un'azione webhook in un'area d
 Di seguito è riportato un esempio di payload per un'azione runbook in un'area di lavoro legacy.
 
     {
-        "SearchResults": {
+        "SearchResult": {
             "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
             "__metadata": {
                 "resultType": "raw",

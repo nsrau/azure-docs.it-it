@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7a886cdb0c36008bdb66592a8d3428889739627e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5feadd851b166d0a9a77bd1d124cdd599d5d701
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Approfondimento di sicurezza sull'autenticazione pass-through di Azure Active Directory
 
@@ -91,6 +91,8 @@ Ecco come gli agenti di autenticazione effettuano la registrazione con Azure AD:
 4. Azure AD convalida il token di accesso nella richiesta di registrazione e verifica che la richiesta provenga da un amministratore globale.
 5. Azure AD quindi firma e rilascia un certificato di identità digitale all'agente di autenticazione.
     - Il certificato viene firmato tramite l'**autorità di certificazione radice di Azure AD**. Si noti che questa autorità di certificazione radice _non_ si trova nell'archivio delle **autorità di certificazione radice attendibili** di Windows.
+    - Questa CA viene usata solo dalla funzionalità di autenticazione pass-through. Viene usata solo per firmare i CSR durante la registrazione dell'agente di autenticazione.
+    - Questa CA non viene usata da nessun altro servizio in Azure AD.
     - Il soggetto del certificato, il **nome distinto o DN**, è impostato sul proprio **ID tenant**. Si tratta di un GUID che identifica il tenant in modo univoco. Viene definito solo l'ambito del certificato da usare con il tenant.
 6. Azure AD archivia la chiave pubblica dell'agente di autenticazione in un database SQL di Azure, a cui ha accesso solo Azure AD.
 7. Il certificato rilasciato nel passaggio 5 viene archiviato nel server locale dell'**archivio certificati Windows**, in particolare al percorso **[CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)**, e viene usato sia dall'agente di autenticazione che dalle applicazioni per l'aggiornamento.
@@ -133,6 +135,7 @@ L'autenticazione pass-through gestisce una richiesta di accesso utente nel segue
 9. L'agente di autenticazione individua il valore della password crittografata specifico per la chiave pubblica usando un identificatore e lo decrittografa con la chiave privata.
 10. L'agente di autenticazione tenta di convalidare il nome utente e la password per Active Directory locale usando l'**[API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)** con il paramento **dwLogonType** impostato su **LOGON32_LOGON_NETWORK** 
     - Si tratta della stessa API usata da Active Directory Federation Services per consentire agli utenti di effettuare l'accesso in uno scenario di accesso federato.
+    - Questo comportamento si basa sul processo di risoluzione standard in Windows Server per individuare il controller di dominio.
 11. L'agente di autenticazione riceve il risultato da Active Directory, ovvero risultati come operazione riuscita, nome utente o password errata, password scaduta, utente bloccato e così via.
 12. L'agente di autenticazione inoltra il risultato a STS di Azure AD su un canale HTTPS autenticato reciprocamente in uscita sulla porta 443. L'autenticazione reciproca usa lo stesso certificato emesso in precedenza per l'agente di autenticazione durante la registrazione.
 13. STS di Azure AD verifica che questo risultato si metta in correlazione con la richiesta di accesso specifica per il tenant.

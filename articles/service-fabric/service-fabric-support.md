@@ -3,7 +3,7 @@ title: Informazioni sulle opzioni di supporto di Azure Service Fabric | Document
 description: Versioni dei cluster di Azure Service Fabric supportate e link ai ticket di supporto
 services: service-fabric
 documentationcenter: .net
-author: pkc
+author: pkcsf
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: pkc
-ms.openlocfilehash: cd01d79c83749b38cc72a468e167ade5e264e1c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bc0f70e99be04cd646c0b7c610f7c6e4a74dfc2
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Opzioni di supporto di Azure Service Fabric
 
@@ -72,10 +72,11 @@ Di seguito è riportato un elenco delle versioni di Service Fabric supportate co
 | --- | --- | --- |
 | Tutte le versioni di cluster precedenti alla 5.3.121 |Versione 2.3 o precedente |20 gennaio 2017 |
 | 5.3.* |Versione 2.3 o precedente |24 febbraio 2017 |
-| 5.4.* |Versione 2.4 o precedente |10 maggio 2017     |
+| 5.4.* |Versione 2.4 o precedente |10 maggio 2017       |
 | 5.5.* |Versione 2.5 o precedente |10 agosto 2017    |
-| 5.6.* |Versione 2.6 o precedente |13 ottobre 2017    |
-| 5.7.* |Versione 2.7 o precedente |Versione corrente, nessuna data di fine supporto
+| 5.6.* |Versione 2.6 o precedente |13 ottobre 2017   |
+| 5.7.* |Versione 2.7 o precedente |15 dicembre 2017  |
+| 6.0.* |Versione 2.8 o precedente |Versione corrente, nessuna data di fine supporto
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versioni di anteprima di Service Fabric non supportate per l'uso in produzione
 Periodicamente vengono rilasciate in anteprima versioni che includono funzionalità significative per cui è richiesto il feedback degli utenti. Queste versioni di anteprima devono essere usate solo a scopo di test. In un cluster di produzione deve essere sempre in esecuzione una versione di Service Fabric supportata e stabile. Una versione di anteprima inizia sempre con un numero di versione principale e secondario uguale a 255. Ad esempio, la versione di Service Fabric 255.255.5703.949 è una versione di anteprima e dovrà essere usata solo in cluster di test. Queste versioni di anteprima vengono annunciate anche nel [blog del team di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) e includono informazioni dettagliate sulle funzionalità incluse.

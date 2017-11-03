@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 831623b0fa0d8c03713f608116709e6a590d93c6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 13a75d5cafd94435346660614721399f2d77919b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="registerunregister-a-server-with-azure-file-sync-preview"></a>Registrare e annullare la registrazione di un server con Sincronizzazione file di Azure (anteprima)
-Sincronizzazione file di Azure (anteprima) consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale, attraverso la trasformazione dei server Windows in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) e sono disponibili tutte le cache di cui si ha bisogno in tutto il mondo.
+Sincronizzazione file di Azure (anteprima) consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
 
 L'articolo seguente spiega come registrare e annullare la registrazione di un server con un servizio di sincronizzazione archiviazione. L'operazione può essere necessaria se un server viene ritirato o se si vuole usare un nuovo endpoint server in un gruppo di sincronizzazione. Vedere [Come distribuire Sincronizzazione file di Azure (anteprima)](storage-sync-files-deployment-guide.md) per informazioni sulla distribuzione di Sincronizzazione file di Azure end-to-end.
 
@@ -58,6 +58,10 @@ Per poter essere usato come *endpoint server* in un *gruppo di sincronizzazione*
 > Se il server è un membro di un cluster di failover, l'agente Sincronizzazione file di Azure deve essere installato in ogni nodo del cluster.
 
 ### <a name="register-the-server-using-the-server-registration-ui"></a>Registrare il server usando l'interfaccia utente di Registrazione server
+
+> [!Important]  
+> Le sottoscrizioni Cloud Solution Provider non possono usare l'interfaccia utente di Registrazione server. Usare invece PowerShell (di seguito in questa sezione).
+
 1. Se l'interfaccia utente di Registrazione server non viene avviata subito dopo aver completato l'installazione dell'agente Sincronizzazione file di Azure, può essere avviata manualmente eseguendo `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Fare clic su *Accesso* per accedere alla sottoscrizione di Azure. 
 
@@ -73,6 +77,15 @@ Per poter essere usato come *endpoint server* in un *gruppo di sincronizzazione*
 
 > [!Important]  
 > Se il server è membro di un cluster di failover, ogni server deve eseguire la registrazione del server. Quando si visualizza la finestra Server registrati nel portale di Azure, Sincronizzazione file di Azure riconosce automaticamente ogni nodo come membro dello stesso cluster di failover e raggruppa i nodi in modo appropriato.
+
+### <a name="register-the-server-with-powershell"></a>Registrare il server con PowerShell
+È anche possibile eseguire la registrazione del server tramite PowerShell. Questo è l'unico metodo supportato di registrazione del server per le sottoscrizioni Cloud Solution Provider:
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+```
 
 ## <a name="unregister-the-server-with-storage-sync-service"></a>Annullare la registrazione del server con il servizio di sincronizzazione archiviazione
 Sono necessari alcuni passaggi per annullare la registrazione di un server con un servizio di sincronizzazione archiviazione. Di seguito viene illustrato come annullare correttamente la registrazione di un server.

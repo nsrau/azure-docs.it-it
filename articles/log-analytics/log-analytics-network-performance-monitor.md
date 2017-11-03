@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Soluzione di monitoraggio delle prestazioni di rete in Log Analytics
 
@@ -92,28 +92,24 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
     >[!NOTE]
     >Gli agenti per i sistemi operativi server Windows supportano sia TCP che ICMP come protocolli per la transazione sintetica. Tuttavia, gli agenti per i sistemi operativi client Windows supportano solo TCP come protocollo per la transazione sintetica.
 
-2. Aggiungere la soluzione di monitoraggio delle prestazioni di rete all'area di lavoro da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) o usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  
-   ![Simbolo del monitoraggio delle prestazioni di rete](./media/log-analytics-network-performance-monitor/npm-symbol.png)
-3. Nel portale di OMS si noterà un nuovo riquadro chiamato **Monitoraggio delle prestazioni di rete** con il messaggio *La soluzione richiede configurazione aggiuntiva*. È necessario configurare la soluzione in modo da aggiungere reti in base alle subnet e ai nodi rilevati dagli agenti. Fare clic su **Monitoraggio delle prestazioni di rete** per avviare la configurazione della rete predefinita.  
-   ![La soluzione richiede configurazione aggiuntiva](./media/log-analytics-network-performance-monitor/npm-config.png)
+2. Aggiungere la soluzione di monitoraggio delle prestazioni di rete all'area di lavoro da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) o usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).<br><br> ![Simbolo del monitoraggio delle prestazioni di rete](./media/log-analytics-network-performance-monitor/npm-symbol.png)  
+3. Nel portale di OMS si noterà un nuovo riquadro chiamato **Monitoraggio delle prestazioni di rete** con il messaggio *La soluzione richiede configurazione aggiuntiva*. Fare clic sul riquadro per passare alla scheda **Distribuzione** e selezionare il protocollo da usare per eseguire le transazioni sintetiche per monitorare la rete.  Per informazioni su come scegliere il protocollo adatto per la rete, vedere [Scegliere il protocollo ICMP o TCP corretto](#choose-the-right-protocol-icmp-or-tcp).<br><br> ![la soluzione richiede la selezione del protocollo](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
-### <a name="configure-the-solution-with-a-default-network"></a>Configurazione della soluzione con una rete predefinita
-Nella pagina di configurazione si noterà una singola rete chiamata **Predefinita**. Quando non sono definite le reti, tutte le subnet individuate automaticamente si trovano nella rete predefinita.
-
-Tutte le volte che si crea una rete, viene aggiunta una subnet che viene rimossa dalla rete predefinita. Se si elimina una rete, tutte le sue subnet vengono restituite automaticamente alla rete predefinita.
-
-In altre parole, la rete predefinita è il contenitore per tutte le subnet che non sono contenute in una rete definita dall'utente. Non è possibile modificare o eliminare la rete predefinita, che rimane sempre nel sistema. Tuttavia, è possibile creare tutte le reti necessarie.
-
-Nella maggior parte dei casi, le subnet all'interno dell'organizzazione verranno disposte in più di una rete e sarà necessario creare una o più reti per raggruppare logicamente le subnet.
+4. Dopo aver scelto il protocollo si verrà reindirizzati alla pagina della **panoramica di OMS**. Mentre la soluzione aggrega i dati dalla rete, il riquadro della panoramica di Monitoraggio prestazioni rete mostra il messaggio *Aggregazione dei dati in corso*.<br><br> ![la soluzione sta aggregando i dati](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
+5. Una volta che i dati sono stati raccolti e indicizzati, il riquadro della panoramica cambia e indica che è necessario eseguire una configurazione aggiuntiva.<br><br> ![il riquadro della soluzione richiede configurazioni aggiuntive](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
+6. Fare clic sul riquadro e iniziare a configurare la soluzione con i seguenti passaggi.
 
 ### <a name="create-new-networks"></a>Creazione di nuove reti
-Una rete del monitoraggio delle prestazioni di rete è un contenitore per le subnet. È possibile creare una rete con qualsiasi nome e aggiungere subnet alla rete. Ad esempio, è possibile creare una rete di nome *Building1* e quindi aggiungere le subnet oppure è possibile creare una rete di nome *DMZ* e quindi aggiungere tutte le subnet appartenenti alla rete perimetrale.
+Una rete in Monitoraggio prestazioni rete è un contenitore per subnet. È possibile creare una rete con un nome descrittivo e aggiungere le subnet in base alla logica di business. Ad esempio, si può creare una rete denominata *Londra* e aggiungervi tutte le subnet del data center Londra oppure una rete denominata *FrontEndContoso* e aggiungervi tutte le subnet che servono il front-end dell'app denominata Contoso a tale rete.
+Nella pagina di configurazione si noterà una rete chiamata **Predefinita** nella scheda Reti. Se non sono state create reti, tutte le subnet rilevate automaticamente vengono messe nella rete Predefinita.
+Tutte le volte che si crea una rete, viene aggiunta una subnet che viene rimossa dalla rete predefinita. Se si elimina una rete, tutte le sue subnet vengono restituite automaticamente alla rete predefinita.
+La rete Predefinita è perciò il contenitore per tutte le subnet che non sono contenute in una rete definita dall'utente. Non è possibile modificare o eliminare la rete predefinita, che rimane sempre nel sistema. Tuttavia è possibile creare tutte le reti personalizzate necessarie.
+Nella maggior parte dei casi, le subnet all'interno dell'organizzazione verranno disposte in più di una rete e sarà necessario creare una o più reti per raggruppare le subnet in base alla logica di business
 
 #### <a name="to-create-a-new-network"></a>Per creare una nuova rete
 1. Fare clic su **Aggiungi rete** e quindi digitare il nome e la descrizione della rete.
 2. Selezionare una o più subnet e quindi fare clic su **Aggiungi**.
-3. Fare clic su **Salva** per salvare la configurazione.  
-   ![aggiunta della rete](./media/log-analytics-network-performance-monitor/npm-add-network.png)
+3. Fare clic su **Salva** per salvare la configurazione.<br><br> ![aggiunta della rete](./media/log-analytics-network-performance-monitor/npm-add-network.png)
 
 ### <a name="wait-for-data-aggregation"></a>Attesa dell'aggregazione dei dati
 Dopo aver salvato la configurazione per la prima volta, la soluzione inizia a raccogliere informazioni su latenza e perdita di pacchetti di rete tra i nodi in cui sono installati gli agenti. Questo processo può richiedere del tempo, talvolta oltre 30 minuti. In questo stato il riquadro Monitoraggio delle prestazioni di rete nella pagina di panoramica visualizza il messaggio *Aggregazione dei dati in corso*.
@@ -135,8 +131,7 @@ Tutte le subnet in cui è stato installato almeno un agente sono elencate nella 
 1. Selezionare o deselezionare la casella accanto all'**ID subnet** quindi verificare che sia selezionata o deselezionata l'opzione **Usa per il monitoraggio** in base alle esigenze. È possibile selezionare o deselezionare più subnet. Se disabilitate, le subnet non vengono monitorate perché gli agenti verranno aggiornati in modo da interrompere l'esecuzione di ping di altri agenti.
 2. Scegliere i nodi da monitorare per una determinata subnet selezionando la subnet dall'elenco e spostando i nodi necessari tra gli elenchi che contengono nodi monitorati e non monitorati.
    Se si desidera, è possibile aggiungere una **descrizione** alla subnet.
-3. Fare clic su **Salva** per salvare la configurazione.  
-   ![modifica della subnet](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
+3. Fare clic su **Salva** per salvare la configurazione.<br><br> ![modifica della subnet](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
 
 ### <a name="choose-nodes-to-monitor"></a>Selezionare i nodi da monitorare
 Tutti i nodi su cui è installato un agente sono elencati nella scheda **Nodi**.
@@ -144,25 +139,28 @@ Tutti i nodi su cui è installato un agente sono elencati nella scheda **Nodi**.
 #### <a name="to-enable-or-disable-monitoring-for-nodes"></a>Per abilitare o disabilitare il monitoraggio per i nodi
 1. Selezionare o deselezionare i nodi per cui si desidera abilitare o interrompere il monitoraggio.
 2. Fare clic su **Usa per il monitoraggio** oppure deselezionare l'opzione in base alle esigenze.
-3. Fare clic su **Save**.  
-   ![abilitazione del monitoraggio dei nodi](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
+3. Fare clic su **Save**.<br><br> ![abilitazione del monitoraggio dei nodi](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### <a name="set-monitoring-rules"></a>Set di regole di monitoraggio
-Il monitoraggio delle prestazioni di rete genera eventi di integrità sulla connettività tra una coppia di nodi oppure collegamenti di rete o subnet quando viene superata una soglia. Queste soglie possono essere acquisite automaticamente dal sistema oppure possono essere configurate come regole di avviso personalizzate.
+Monitoraggio prestazioni rete genera eventi di integrità quando viene superata la soglia di prestazioni delle connessioni di rete tra 2 subnet o tra 2 reti. Queste soglie possono essere apprese automaticamente dal sistema oppure è possibile configurare soglie personalizzate.
+Il sistema crea automaticamente una regola predefinita che genera un evento di integrità ogni volta che la perdita o la latenza tra qualsiasi coppia di reti o collegamenti di rete/subnet supera la soglia appresa dal sistema. In questo modo la soluzione monitora l'infrastruttura di rete fino a quando non vengono create esplicitamente regole di monitoraggio. Se è abilitata la regola predefinita, tutti i nodi inviano transazioni sintetiche a tutti gli altri nodi che sono stati abilitati per il monitoraggio. La regola predefinita è utile in caso di reti di piccole dimensioni, ad esempio in uno scenario in cui si ha un numero ridotto di server che eseguono un microservizio e si vuole assicurarsi che vi sia connettività fra tutti i server.
 
-La *regola predefinita* viene creata dal sistema e crea un evento di integrità ogni volta che la perdita o la latenza tra qualsiasi coppia di reti o collegamenti di subnet supera la soglia acquisita dal sistema. È possibile scegliere di disabilitare la regola predefinita e creare regole di monitoraggio personalizzate
+>[!NOTE]
+>Si consiglia di disabilitare la regola predefinita, e creare regole di monitoraggio personalizzate, soprattutto se si usa un numero elevato di nodi per il monitoraggio di reti di grandi dimensioni. Ciò ridurrà il traffico generato dalla soluzione e aiuterà a organizzare il monitoraggio della rete.
+
+Creare regole di monitoraggio personalizzate in base alla logica di business. Ad esempio, se si vuole monitorare le prestazioni della connettività di rete fra 2 uffici periferici e la sede centrale, raggruppare tutte le subnet dell'ufficio 1 nella rete O1, tutte le subnet dell'ufficio 2 nella rete O2 e tutte le subnet della sede centrale nella rete H. Creare 2 regole di monitoraggio: una tra O1 e H e l'altra tra O2 e H.
+
 
 #### <a name="to-create-custom-monitoring-rules"></a>Per creare regole di monitoraggio personalizzate
 1. Fare clic su **Aggiungi regola** nella scheda **Monitoraggio**, quindi immettere il nome e la descrizione della regola.
 2. Selezionare dall'elenco la coppia di collegamenti di rete o subnet da monitorare.
 3. Innanzitutto selezionare la rete che contiene una o più subnet di interesse nell'elenco a discesa di rete, quindi selezionare le subnet dal corrispondente elenco a discesa delle subnet.
    Se si desidera monitorare tutte le subnet in un collegamento di rete, scegliere **Tutte le subnet**. Analogamente, selezionare una o più altre subnet di interesse. Inoltre è possibile fare clic su **Aggiungi eccezione** per escludere il monitoraggio per particolari collegamenti di subnet dalla selezione effettuata.
-4. Scegliere tra i protocolli TCP e ICMP per l'esecuzione di transazioni sintetiche.
+4. [Scegliere tra i protocolli TCP e ICMP](#choose-the-right-protocol-icmp-or-tcp) per l'esecuzione di transazioni sintetiche.
 5. Se non si desidera creare eventi di integrità per gli elementi selezionati, deselezionare **Abilita monitoraggio dell'integrità nei collegamenti interessati da questa regola**.
 6. Scegliere le condizioni di monitoraggio.
    È possibile impostare soglie personalizzate per la generazione di eventi di integrità digitando i valori di soglia. Ogni volta che il valore della condizione supera la soglia selezionata per la coppia di rete/subnet selezionata, viene generato un evento di integrità.
-7. Fare clic su **Salva** per salvare la configurazione.  
-   ![creazione di una regola di monitoraggio personalizzata](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
+7. Fare clic su **Salva** per salvare la configurazione.<br><br> ![creazione di una regola di monitoraggio personalizzata](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
 Dopo avere salvato una regola di monitoraggio, è possibile integrarla con Gestione avvisi facendo clic su **Crea avviso**. Una regola di avviso viene creata automaticamente con la query di ricerca e altri parametri obbligatori automaticamente compilati. Usando una regola di avviso, è possibile ricevere avvisi basati sulla posta elettronica, oltre agli avvisi esistenti in NPM. Gli avvisi possono anche attivare azioni correttive con i runbook oppure possono essere integrati con le soluzione di gestione esistenti usando i webhook. È possibile fare clic su **Manage Alert** (Gestisci avviso) per modificare le impostazioni dell'avviso.
 
@@ -192,7 +190,9 @@ Il protocollo TCP prevede che i pacchetti TCP vengano inviati a una porta di des
 Il protocollo ICMP invece non opera tramite porta. Nella maggior parte degli scenari aziendali, il traffico ICMP può fluire attraverso i firewall per consentire l'uso degli strumenti di diagnostica di rete come l'utilità Ping. Pertanto, se è possibile eseguire il Ping da un computer ad un altro, è possibile usare il protocollo ICMP senza dover configurare i firewall manualmente.
 
 > [!NOTE]
-> Nel caso in cui non si sia certi di quale protocollo usare, è consigliabile iniziare con il protocollo ICMP. Se non si è soddisfatti dei risultati, è sempre possibile passare a TCP in un secondo momento.
+> Alcuni firewall possono bloccare ICMP, causando potenzialmente una ritrasmissione che genera un numero elevato di eventi nel sistema di gestione delle informazioni di sicurezza e degli eventi. Accertarsi che il protocollo scelto non sia bloccato da un firewall/NSG di rete, perché in caso contrario Monitoraggio prestazioni rete non riuscirà a monitorare il segmento di rete.  Per questo motivo si consiglia di usare TCP per il monitoraggio. Si deve usare ICMP negli scenari in cui non è possibile usare TCP, ad esempio quando:
+> * Si usano nodi basati su client Windows, poiché i raw socket TCP non sono consentiti nel client Windows
+> * Il firewall/NSG di rete blocca TCP
 
 
 #### <a name="how-to-switch-the-protocol"></a>Come cambiare protocollo
@@ -205,8 +205,6 @@ Se si sceglie di usare ICMP durante la distribuzione, è possibile passare a TCP
 3.  Fare clic su **Salva** per salvare le modifiche.
 
 Anche se la regola predefinita usa un protocollo specifico, è possibile creare nuove regole con un protocollo diverso. È anche possibile creare una combinazione di regole in cui alcune usano ICMP e altre usano TCP.
-
-
 
 
 ## <a name="data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati
@@ -292,20 +290,14 @@ Tutti i dati esposti graficamente attraverso il dashboard di monitoraggio delle 
 ## <a name="investigate-the-root-cause-of-a-health-alert"></a>Indagare sulla causa radice di un avviso di integrità
 Ora che è stata eseguita una panoramica sul monitoraggio delle prestazioni di rete, si passerà a una semplice indagine sulla causa radice di un avviso di integrità.
 
-1. Nella pagina Panoramica è possibile trovare una rapida panoramica dell'integrità della rete osservando il riquadro **Monitoraggio delle prestazioni di rete**. Notare che, sui 6 collegamenti di subnet, 2 non sono integri. Questo rende necessaria un'analisi. Fare clic sul riquadro per visualizzare il dashboard della soluzione.  
-   ![Riquadro Monitoraggio delle prestazioni di rete](./media/log-analytics-network-performance-monitor/npm-investigation01.png)
-2. Nell'immagine di esempio seguente si può notare un evento di integrità, un collegamento di rete non integro. Analizzare il problema e fare clic sul collegamento **DMZ2-DMZ1** per scoprire la radice del problema.  
-   ![esempio di collegamento di rete non integro](./media/log-analytics-network-performance-monitor/npm-investigation02.png)
-3. Nella pagina di drill-down vengono visualizzati tutti i collegamenti di subnet nel collegamento di rete **DMZ2-DMZ1**. Si noterà che per entrambi i collegamenti di subnet, la latenza ha superato la soglia, rendendo non integro il collegamento di rete. È inoltre possibile visualizzare le tendenze di latenza di entrambi i collegamenti di subnet. È possibile usare il controllo di selezione dell'ora nel grafico per concentrarsi sull'intervallo di tempo richiesto. È possibile visualizzare l'ora del giorno in cui la latenza ha raggiunto il picco. In un secondo momento, è possibile cercare questo periodo di tempo nei log per analizzare il problema. Fare clic su **Visualizza collegamenti del nodo** per un drill-down più approfondito.  
-   ![esempio di collegamenti della subnet non integri](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
-4. In modo simile alla pagina precedente, nella pagina di drill-down per un particolare collegamento di subnet vengono elencati i collegamenti del nodo che lo costituiscono. È possibile eseguire azioni simili, come nel passaggio precedente. Fare clic su **Visualizza topologia** per visualizzare la topologia tra i 2 nodi.  
-   ![esempio di collegamenti del nodo non integri](./media/log-analytics-network-performance-monitor/npm-investigation04.png)
-5. Tutti i percorsi tra i 2 nodi selezionati vengono tracciati nella mappa topologica. È possibile visualizzare la topologia hop-by-hop delle route tra due nodi nella mappa topologica. Offre un quadro preciso del numero di route esistenti tra i due nodi e dei percorsi intrapresi dai pacchetti di dati. I colli di bottiglia delle prestazioni di rete sono contrassegnati in rosso. È possibile individuare connessioni o dispositivi di rete difettosi esaminando gli elementi in rosso sulla mappa topologica.  
-   ![esempio di visualizzazione della topologia non integra](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
+1. Nella pagina Panoramica è possibile trovare una rapida panoramica dell'integrità della rete osservando il riquadro **Monitoraggio delle prestazioni di rete**. Notare che, sui 6 collegamenti di subnet, 2 non sono integri. Questo rende necessaria un'analisi. Fare clic sul riquadro per visualizzare il dashboard della soluzione.<br><br> ![Riquadro Monitoraggio delle prestazioni di rete](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
+2. Nell'immagine di esempio seguente si può notare un evento di integrità, un collegamento di rete non integro. Analizzare il problema e fare clic sul collegamento **DMZ2-DMZ1** per scoprire la radice del problema.<br><br> ![esempio di collegamento di rete non integro](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
+3. Nella pagina di drill-down vengono visualizzati tutti i collegamenti di subnet nel collegamento di rete **DMZ2-DMZ1**. Si noterà che per entrambi i collegamenti di subnet, la latenza ha superato la soglia, rendendo non integro il collegamento di rete. È inoltre possibile visualizzare le tendenze di latenza di entrambi i collegamenti di subnet. È possibile usare il controllo di selezione dell'ora nel grafico per concentrarsi sull'intervallo di tempo richiesto. È possibile visualizzare l'ora del giorno in cui la latenza ha raggiunto il picco. In un secondo momento, è possibile cercare questo periodo di tempo nei log per analizzare il problema. Fare clic su **Visualizza collegamenti del nodo** per un drill-down più approfondito.<br><br> ![esempio di collegamenti della subnet non integri](./media/log-analytics-network-performance-monitor/npm-investigation03.png) 
+4. In modo simile alla pagina precedente, nella pagina di drill-down per un particolare collegamento di subnet vengono elencati i collegamenti del nodo che lo costituiscono. È possibile eseguire azioni simili, come nel passaggio precedente. Fare clic su **Visualizza topologia** per visualizzare la topologia tra i 2 nodi.<br><br> ![esempio di collegamenti del nodo non integri](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
+5. Tutti i percorsi tra i 2 nodi selezionati vengono tracciati nella mappa topologica. È possibile visualizzare la topologia hop-by-hop delle route tra due nodi nella mappa topologica. Offre un quadro preciso del numero di route esistenti tra i due nodi e dei percorsi intrapresi dai pacchetti di dati. I colli di bottiglia delle prestazioni di rete sono contrassegnati in rosso. È possibile individuare connessioni o dispositivi di rete difettosi esaminando gli elementi in rosso sulla mappa topologica.<br><br> ![esempio di visualizzazione della topologia non integra](./media/log-analytics-network-performance-monitor/npm-investigation05.png)  
 6. È possibile visualizzare i dati relativi a perdita, latenza e numero di hop di ogni percorso nel riquadro **Azione**. Usare la barra di scorrimento per visualizzare i dettagli di tali percorsi.  Usare i filtri per selezionare i percorsi con l'hop non integro, in modo che venga tracciata la topologia solo per i percorsi selezionati. È possibile usare la rotellina del mouse per ingrandire o ridurre la mappa topologica.
 
-   Nell'immagine seguente si può vedere chiaramente la causa radice delle aree relative al problema nella sezione specifica della rete analizzando i percorsi e gli hop in rosso. Facendo clic su un nodo nella mappa topologica vengono visualizzate le proprietà del nodo, inclusi FQDN e indirizzo IP. Facendo clic su un hop viene mostrato il relativo indirizzo IP.  
-   ![topologia non integra - esempio di dettagli del percorso](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+   Nell'immagine seguente si può vedere chiaramente la causa radice delle aree relative al problema nella sezione specifica della rete analizzando i percorsi e gli hop in rosso. Facendo clic su un nodo nella mappa topologica vengono visualizzate le proprietà del nodo, inclusi FQDN e indirizzo IP. Facendo clic su un hop viene mostrato il relativo indirizzo IP.<br><br> ![topologia non integra - esempio di dettagli del percorso](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 

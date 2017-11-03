@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 27013ca9724cf2f57fc85f5f4ccb71921ca57a3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9cd70b048d454009d8741f394fed0b6b93fcab7
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Esercitazione: Integrazione di Azure Active Directory con Promapp
 
@@ -106,40 +106,57 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     ![Configura accesso Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_samlbase.png)
 
-3. Nella sezione **Promapp Domain and URLs** (URL e dominio Promapp) seguire questa procedura:
+3. Nella sezione **Promapp Domain and URLs** (URL e dominio Promapp) seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`.
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il criterio seguente:
+    | |
+    |--|
+    | `https://demo.promapp.com/TENANTNAME`|
+    | `https://go.promapp.com/TENANTNAME`|
+    | `https://demoau.promapp.com/TENANTNAME`|
+    | `https://au.promapp.com/TENANTNAME`|
+    | `https://demous.promapp.com/TENANTNAME`|
+    | `https://us.promapp.com/TENANTNAME`|
+    | `https://dev.promapp.com/TENANTNAME`|
+    | `https://test.promapp.com/TENANTNAME`|
+    | `https://staging.promapp.com/TENANTNAME`|
+    
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://DOMAINNAME.promapp.com/TENANTNAME`
+4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url1.png)
+
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Promapp](https://www.promapp.com/about-us/contact-us/).
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Promapp](https://www.promapp.com/about-us/contact-us/).
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+5. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+6. Fare clic sul pulsante **Salva** .
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Promapp Configuration** (Configurazione di Promapp) fare clic su **Configure Promapp** (Configura Promapp) per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
+7. Nella sezione **Promapp Configuration** (Configurazione di Promapp) fare clic su **Configure Promapp** (Configura Promapp) per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_configure.png) 
 
-7. Accedere al sito aziendale di Promapp come amministratore. 
+8. Accedere al sito aziendale di Promapp come amministratore. 
 
-8. Nel menu in alto fare clic su **Admin**. 
+9. Nel menu in alto fare clic su **Admin**. 
    
     ![Accesso Single Sign-On di Azure AD][12]
 
-9. Fare clic su **Configure**. 
+10. Fare clic su **Configure**. 
    
     ![Accesso Single Sign-On di Azure AD][13]
 
-10. Nella finestra di dialogo **Security** (Sicurezza) seguire questa procedura:
+11. Nella finestra di dialogo **Security** (Sicurezza) seguire questa procedura:
    
     ![Accesso Single Sign-On di Azure AD][14]
     
@@ -147,7 +164,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     b. Per **SSO - Single Sign-on Mode** selezionare **Optional** e quindi fare clic su **Save**.
 
-    c. Aprire il certificato scaricato nel Blocco note, copiare il contenuto del certificato senza la prima riga (-----BEGIN CERTIFICATE-----) e l'ultima riga (-----END CERTIFICATE-----), incollarlo nella casella di testo **SSO-x.509 Certificate** (Certificato SSO-x.509) e quindi fare clic su **Save** (Salva).
+    > [!NOTE]
+    > La modalità **Optional** (Facoltativa) serve solo a scopo di test. Quando si è soddisfatti della configurazione, selezionare la modalità **Required** (Obbligatoria) per assicurarsi che tutti gli utenti effettuino l'autenticazione con Azure AD.
+
+    c. Aprire il certificato scaricato nel Blocco note, copiare il contenuto del certificato senza la prima riga (-----**BEGIN CERTIFICATE**-----) e l'ultima riga (-----**END CERTIFICATE**-----), incollarlo nella casella di testo **SSO-x.509 Certificate** (Certificato SSO-x.509) e quindi fare clic su **Save** (Salva).
         
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -222,7 +242,9 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Promapp nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Promapp.
+Per testare l'applicazione nella modalità avviata da **IDP**, quando si fa clic sul riquadro Promapp nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Promapp.
+
+Per testare l'applicazione nella modalità avviata da **SP** è necessario avviare l'autenticazione dal sito Promapp. Questa operazione può essere eseguita lasciando vuoto il campo della password durante l'accesso mentre la modalità **Optional** (Facoltativa) è abilitata.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

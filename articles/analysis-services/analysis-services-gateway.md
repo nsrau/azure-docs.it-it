@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 10/11/2017
 ms.author: owend
-ms.openlocfilehash: 31e4913aceb1c4b51ddc7cde6381bc21b50187c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47f05a22811307617f475e79145f70a0233f5895
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale di Azure
 Il gateway dati locale svolge la funzione di ponte, garantendo il trasferimento sicuro dei dati tra le origini dati locali e i server Azure Analysis Services nel cloud. Oltre a lavorare con più server Azure Analysis Services nella stessa area, la versione più recente del gateway funziona anche con app per la logica di Azure, Power BI, PowerApps e Microsoft Flow. È possibile associare più servizi nella stessa area con un singolo gateway. 
@@ -139,6 +139,9 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 **R**: La chiave di ripristino consente di eseguire la migrazione o di ripristinare le impostazioni del gateway in caso di emergenza.
 
 ## <a name="troubleshooting"> </a>Risoluzione dei problemi
+
+**D**: Perché il gateway non compare nell'elenco di istanze del gateway quando si tenta di creare la risorsa del gateway in Azure? <br/>
+**R**: Le ragioni possono essere due: La prima è che per il gateway è già stata creata una risorsa nella sottoscrizione corrente o in un'altra sottoscrizione. Per eliminare tale possibilità, enumerare le risorse del tipo **Gateway dati locali** dal portale. Assicurarsi di selezionare tutte le sottoscrizioni durante l'enumerazione di tutte le risorse. Si noti che dopo aver creato la risorsa, il gateway non verrà visualizzato nell'elenco di istanze del gateway nell'esperienza di creazione di una risorsa per il gateway del portale. La seconda possibilità è che l'identità di Azure AD dell'utente che ha installato il gateway sia diversa da quella dell'utente connesso al portale di Azure. Per risolvere questo problema, accedere al portale con lo stesso account dell'utente che ha installato il gateway.
 
 **D**: Come è possibile visualizzare le query inviate all'origine dati locale? <br/>
 **R**: È possibile abilitare la funzione di tracciamento delle query, che include le query inviate. Dopo aver risolto il problema, ripristinare il valore originale per il tracciamento delle query. Se il tracciamento delle query non viene disabilitato, si creeranno dei log più grandi.

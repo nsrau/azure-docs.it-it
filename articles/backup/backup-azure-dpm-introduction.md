@@ -1,5 +1,5 @@
 ---
-title: Usare DPM per il backup dei carichi di lavoro nel portale di Azure | Documentazione Microsoft
+title: Usare DPM per il backup dei carichi di lavoro nel portale di Azure | Microsoft Docs
 description: Introduzione al backup dei server DPM di Azure usando il servizio Backup di Azure
 services: backup
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 3422c8d57bdd786ce5d1a41fbb4c12cc4efffddd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparazione del backup dei carichi di lavoro in Azure con DPM
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Questo articolo offre un'introduzione all'uso del servizio Backup di Microsoft A
 >
 >
 
-DPM di System Center esegue il backup di file e dati delle applicazioni. I dati sottoposti a backup su DPM possono essere archiviati su nastro, disco oppure sottoposti a backup in Azure usando il servizio Backup di Microsoft Azure. DPM interagisce con Backup di Azure nei modi seguenti:
+[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) esegue il backup dei dati di file e applicazioni. Altre informazioni sui carichi di lavoro supportati sono disponibili [qui](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix). I dati sottoposti a backup su DPM possono essere archiviati su nastro, disco oppure sottoposti a backup in Azure usando il servizio Backup di Microsoft Azure. DPM interagisce con Backup di Azure nei modi seguenti:
 
 * **DPM distribuito come server fisico o come macchina virtuale locale** : se DPM è distribuito come server fisico o come macchina virtuale Hyper-V locale, è possibile eseguire il backup dei dati in un insieme di credenziali dei servizi di ripristino oltre al backup su disco e su nastro.
 * **DPM distribuito come macchina virtuale di Azure** : a partire dalla versione di System Center 2012 R2 con aggiornamento 3, DPM può essere distribuito come macchina virtuale di Azure. Se DPM è distribuito come macchina virtuale di Azure, è possibile eseguire il backup dei dati sui dischi di Azure allegati alla macchina virtuale Azure di DPM oppure è possibile eseguire l'offload dell'archiviazione dei dati eseguendo il backup su un insieme di credenziali dei servizi di ripristino.
@@ -60,6 +60,15 @@ Di seguito viene descritto come preparare il servizio Backup di Azure all'esecuz
 2. **Scaricare le credenziali dell'insieme di credenziali** : scaricare le credenziali usate per registrare il server DPM nell'insieme di credenziali dei servizi di ripristino.
 3. **Installare l'agente di Backup di Azure** : da Backup di Azure, installare l'agente in ogni server DPM.
 4. **Registrare il server** registrare il server DPM nell'insieme di credenziali dei servizi di ripristino.
+
+## <a name="key-definitions"></a>Definizioni chiave
+Ecco alcune definizioni chiave del backup in Azure per DPM:
+
+1. **Credenziale dell'insieme di credenziali**: necessaria per eseguire l'autenticazione del computer per l'invio dei dati di backup a un insieme di credenziali identificato nel servizio Backup di Azure. Può essere scaricata dall'insieme di credenziali ed è valida per 48 ore.
+2. **Passphrase**: viene usata per crittografare i backup nel cloud. Salvare il file in un luogo sicuro, in quanto potrebbe essere necessario durante un'operazione di ripristino.
+3. **PIN di sicurezza**: se le [Impostazioni di protezione](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature) dell'insieme di credenziali sono state attivate, per eseguire le operazioni di backup critiche è necessario il PIN di sicurezza. Questa autenticazione a più fattori aggiunge un altro livello di sicurezza. 
+4. **Cartella di ripristino**: è la posizione in cui vengono scaricati temporaneamente i backup dal cloud durante i ripristini cloud. Le dimensioni devono essere quasi uguali a quelle degli elementi di backup da ripristinare in parallelo.
+
 
 ### <a name="1-create-a-recovery-services-vault"></a>1. Creare un insieme di credenziali dei servizi di ripristino
 Per creare un insieme di credenziali dei servizi di ripristino:

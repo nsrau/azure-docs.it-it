@@ -1,6 +1,6 @@
 ---
 title: Creare un database singolo di database SQL di Azure | Microsoft Docs
-description: Gestire un database SQL di Azure singolo.
+description: "Gestire il livello di servizio, un livello di prestazioni e una quantità di risorse di archiviazione per un singolo database SQL di Azure."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 70f512ef5742346df742e0718e2ccffd076a979e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 8393d175f58b031dff2ab4c00b73c09b2e4908d5
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gestire le risorse per un database singolo nel database SQL di Microsoft Azure
 
@@ -101,7 +101,7 @@ Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo 
 |[Database: elenca da pool elastico](/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
 |[Database: elenca da pool elastico consigliato](/rest/api/sql/databases/listbyrecommendedelasticpool)|Restituisce un elenco di database in un pool elastico consigliato.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
-|[Database - Aggiornamento] ((/rest/api/sql/databases/update)|Aggiorna un database esistente.|
+|[Databases - Update](/rest/api/sql/databases/update)|Aggiorna un database esistente.|
 
 
 

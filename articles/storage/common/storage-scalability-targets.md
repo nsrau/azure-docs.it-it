@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
-ms.openlocfilehash: 1ed933493da1842201bb9293f514ea4d0e7a75ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abaad01bbf7a11ad078c79d7c192ef3f84812178
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per Archiviazione di Azure
 ## <a name="overview"></a>Panoramica
@@ -36,8 +36,27 @@ In questo argomento vengono descritti gli obiettivi di scalabilità e prestazion
 
 Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, è possibile compilare l'applicazione in modo che sia possibile usare più account di archiviazione e partizionare i dati tra gli account. Per informazioni sui prezzi in base al volume, vedere la pagina relativa ai [prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
 
-## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Obiettivi di scalabilità per BLOB, code, tabelle e file
+## <a name="scalability-targets-for-a-storage-account"></a>Obiettivi di scalabilità per un account di archiviazione
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+## <a name="azure-blob-storage-scale-targets"></a>Obiettivi di scalabilità dell'archiviazione BLOB di Azure
+[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
+
+## <a name="azure-files-scale-targets"></a>Obiettivi di scalabilità di File di Azure
+Per altre informazioni sugli obiettivi di scalabilità e prestazioni per File di Azure e Sincronizzazione file di Azure, vedere [Obiettivi di scalabilità e prestazioni di File di Azure](../files/storage-files-scale-targets.md).
+
+[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
+
+### <a name="azure-file-sync-scale-targets"></a>Obiettivi di scalabilità di Sincronizzazione file di Azure
+[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
+
+## <a name="azure-queue-storage-scale-targets"></a>Obiettivi di scalabilità di Archiviazione code di Azure
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+
+## <a name="azure-table-storage-scale-targets"></a>Obiettivi di scalabilità di Archiviazione tabelle di Azure
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Obiettivi di scalabilità per i dischi della macchina virtuale
@@ -53,27 +72,6 @@ Per altri dettagli, vedere [Dimensioni per le macchine virtuali Windows](../../v
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
-
-## <a name="scalability-targets-for-azure-resource-manager"></a>Obiettivi di scalabilità per Gestione risorse di Azure
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
-
-## <a name="partitions-in-azure-storage"></a>Partizioni in Archiviazione di Azure
-Ogni oggetto che contiene i dati archiviati in Archiviazione di Azure (BLOB, messaggi, entità e file) appartiene a una partizione ed è identificato da una chiave di partizione. La partizione determina il modo in cui Archiviazione di Azure bilancia il carico di BLOB, messaggi, entità e i file tra i server per soddisfare le esigenze di traffico di tali oggetti. La chiave di partizione è univoca e viene usata per trovare un BLOB, un messaggio o un'entità.
-
-Nella tabella precedente [Obiettivi di scalabilità per gli account di archiviazione Standard](#standard-storage-accounts) elenca gli obiettivi di prestazioni di una singola partizione per ogni servizio.
-
-Le partizioni influiscono sul bilanciamento del carico e sulla scalabilità per ognuno dei servizi di archiviazione nei modi seguenti:
-
-* **BLOB**: la chiave di partizione per un BLOB è il nome account + il nome del contenitore + il nome del BLOB. Ciò significa che ogni BLOB può avere una partizione specifica se il caricamento nel BLOB la richiede. I BLOB possono essere distribuiti in più server per aumentare il numero di istanze di accesso, ma ogni BLOB può essere gestito da un solo server. Sebbene i BLOB possano essere raggruppati logicamente in contenitori di BLOB, non vi sono implicazioni sul partizionamento derivanti da questo raggruppamento.
-* **File**: la chiave di partizione per un file è il nome dell'account + il nome della condivisione file. Ciò significa che tutti i file di una condivisione file sono presenti anche in una singola partizione.
-* **Messaggi**: la chiave di partizione per un messaggio è il nome account + il nome della coda, in modo che tutti i messaggi in una coda vengano raggruppati in una singola partizione e serviti da un singolo server. Code diverse possono essere elaborate da server differenti per bilanciare il carico per quante code un account di archiviazione possa disporre.
-* **Entità**: la chiave di partizione per un'entità è il nome account + il nome della tabella + la chiave di partizione, dove la chiave di partizione è il valore della proprietà richiesta **PartitionKey** definita dall'utente per l'entità. Tutte le entità con lo stesso valore di chiave di partizione vengono raggruppate nella stessa partizione e vengono gestite nello stesso server partizioni. Si tratta di un punto importante da considerare nella progettazione dell'applicazione. L'applicazione deve bilanciare i vantaggi di scalabilità della distribuzione delle entità in più partizioni con i vantaggi di accesso ai dati derivanti dal raggruppamento di entità in una singola partizione.  
-
-Un vantaggio chiave derivante dal raggruppamento di un set di entità in una tabella in una singola partizione consiste nella possibilità di eseguire operazioni batch atomiche tra le entità nella stessa partizione, in quanto una partizione è presente in un singolo server. Quindi, per eseguire operazioni batch su un gruppo di entità, considerare la possibilità di raggruppare le entità con la stessa chiave di partizione. 
-
-Dall'altro lato, le entità che si trovano nella stessa tabella, ma che hanno chiavi di partizioni diverse, possono avere il carico bilanciato in server differenti, rendendo possibile una scalabilità maggiore.
-
-Suggerimenti dettagliati per la progettazione della strategia di partizionamento per le tabelle sono disponibili [qui](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
 ## <a name="see-also"></a>Vedere anche
 * [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/)

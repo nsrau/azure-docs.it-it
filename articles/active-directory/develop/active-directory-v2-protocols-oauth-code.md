@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b64413e9cc916837dc779b92117f90293c4f1d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1cffe40c14b931485cc5cec48a95e02ae770764e
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # Protocolli della versione 2.0: flusso del codice di autorizzazione di OAuth 2.0
 La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nelle app che vengono installate su un dispositivo per ottenere l'accesso alle risorse protette, come l'API web.  Usando l'implementazione di OAuth 2.0 definita in Modello app 2.0, è possibile aggiungere i criteri e l'API di accesso alle applicazioni desktop e mobili.  Questa guida è indipendente dal linguaggio, e descrive come inviare e ricevere messaggi HTTP senza utilizzare une delle nostre librerie open source.
@@ -167,9 +167,8 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è 'Bearer'. |
 | expires_in |Validità del token di accesso (espressa in secondi). |
 | scope |Ambiti per i quali il token di accesso è valido. |
-| refresh_token |Token di aggiornamento di OAuth 2.0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente.  I token di aggiornamento hanno una durata elevata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo.  Per informazioni dettagliate, consultare l'argomento [Anteprima Azure AD B2C: Riferimento al Token](active-directory-v2-tokens.md). |
-| id_token |Token JWT (Token Web JSON) non firmato. L'app può eseguire la decodifica base64Url dei segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza.  Per altre informazioni sui token ID, vedere le [informazioni di riferimento sui token dell'endpoint 2.0](active-directory-v2-tokens.md). |
-
+| refresh_token |Token di aggiornamento di OAuth 2.0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente.  I token di aggiornamento hanno una durata elevata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo.  Per informazioni dettagliate, consultare l'argomento [Anteprima Azure AD B2C: Riferimento al Token](active-directory-v2-tokens.md). <br> **Nota:** viene fornito solo è stato richiesto l'ambito `offline_access`. |
+| id_token |Token JWT (Token Web JSON) non firmato. L'app può eseguire la decodifica base64Url dei segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza.  Per altre informazioni sui token ID, vedere le [informazioni di riferimento sui token dell'endpoint 2.0](active-directory-v2-tokens.md). <br> **Nota:** viene fornito solo è stato richiesto l'ambito `openid`. |
 #### Risposta di errore
 Le risposte di errore hanno un aspetto simile al seguente:
 
@@ -273,8 +272,8 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è 'Bearer'. |
 | expires_in |Validità del token di accesso (espressa in secondi). |
 | scope |Ambiti per i quali il token di accesso è valido. |
-| refresh_token |Nuovo token di aggiornamento di OAuth 2.0. È necessario sostituire il token di aggiornamento precedente con quello appena acquisito, per garantire che i token di aggiornamento rimangano validi il più a lungo possibile. |
-| id_token |Token JWT (Token Web JSON) non firmato. L'app può eseguire la decodifica base64Url dei segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza.  Per altre informazioni sui token ID, vedere le [informazioni di riferimento sui token dell'endpoint 2.0](active-directory-v2-tokens.md). |
+| refresh_token |Nuovo token di aggiornamento di OAuth 2.0. È necessario sostituire il token di aggiornamento precedente con quello appena acquisito, per garantire che i token di aggiornamento rimangano validi il più a lungo possibile. <br> **Nota:** viene fornito solo è stato richiesto l'ambito `offline_access`. |
+| id_token |Token JWT (Token Web JSON) non firmato. L'app può eseguire la decodifica base64Url dei segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza.  Per altre informazioni sui token ID, vedere le [informazioni di riferimento sui token dell'endpoint 2.0](active-directory-v2-tokens.md). <br> **Nota:** viene fornito solo è stato richiesto l'ambito `openid`. |
 
 #### Risposta di errore
 ```

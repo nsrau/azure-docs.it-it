@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/02/2017
+ms.date: 10/10/2017
 ms.author: alkohli
-ms.openlocfilehash: 916884e3ee95284497cded73b28b22e83751f624
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8dc7aebbeea7ad428be4af66e4e991f60c8301
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installare l'aggiornamento 5 nel dispositivo StorSimple
 
 ## <a name="overview"></a>Panoramica
 
-Questa esercitazione illustra come installare l'aggiornamento 5 in un dispositivo StorSimple in cui è in esecuzione una versione precedente del software tramite il portale di Azure classico e usando il metodo hotfix. Il metodo hotfix è usato quando si tenta di installare l'aggiornamento 5 in un dispositivo che esegue versioni precedenti all'aggiornamento 3. Il metodo hotfix viene usato anche se viene configurato un gateway su un'interfaccia di rete diversa da DATA 0 del dispositivo StorSimple e si sta tentando di aggiornare da una versione del software precedente all'aggiornamento 1.
+Questa esercitazione illustra come installare l'aggiornamento 5 in un dispositivo StorSimple in cui è in esecuzione una versione precedente del software tramite il portale di Azure classico e usando il metodo hotfix. Il metodo hotfix viene usato quando si prova a installare l'aggiornamento 5 in un dispositivo che esegue versioni precedenti all'aggiornamento 3. Il metodo hotfix viene usato anche se viene configurato un gateway su un'interfaccia di rete diversa da DATA 0 del dispositivo StorSimple e si sta tentando di aggiornare da una versione del software precedente all'aggiornamento 1.
 
 L'aggiornamento 5 include software per dispositivi, Storport e Spaceport, aggiornamenti di sicurezza del sistema operativo e aggiornamenti del sistema operativo, oltre ad aggiornamenti del firmware del disco.  Il software per dispositivi, Spaceport, Storport, gli aggiornamenti di sicurezza e altri aggiornamenti del sistema operativo non implicano interruzioni del servizio. È possibile applicare gli aggiornamenti normali o che implicano un'interruzione del servizio usando il portale di Azure classico o il metodo basato su hotfix. Gli aggiornamenti del firmware del disco sono aggiornamenti con interruzioni del servizio e vengono applicati quando il dispositivo è in modalità di manutenzione tramite il metodo hotfix usando l'interfaccia di Windows PowerShell del dispositivo.
 
@@ -49,7 +49,7 @@ Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 5 della serie
 
 * Saranno ora disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l'installazione degli aggiornamenti. Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
 
-* Scaricare gli aggiornamenti in modalità di manutenzione usando la procedura indicata in [Scaricare gli hotfix](#to-download-hotfixes) per cercare e scaricare KB4011837, che installa gli aggiornamenti del firmware del disco; gli altri aggiornamenti devono essere già installati a questo punto. Seguire i passaggi elencati nella sezione [Installare e verificare gli aggiornamenti rapidi in modalità di manutenzione](#to-install-and-verify-maintenance-mode-hotfixes) per installare gli aggiornamenti in modalità manutenzione.
+* Scaricare gli aggiornamenti in modalità di manutenzione usando la procedura indicata in [Scaricare gli hotfix](#to-download-hotfixes) per cercare e scaricare KB4037263, che installa gli aggiornamenti del firmware del disco; gli altri aggiornamenti devono essere già installati a questo punto. Seguire i passaggi elencati nella sezione [Installare e verificare gli aggiornamenti rapidi in modalità di manutenzione](#to-install-and-verify-maintenance-mode-hotfixes) per installare gli aggiornamenti in modalità manutenzione.
 
 ## <a name="install-update-5-as-a-hotfix"></a>Installare l'aggiornamento 5 come hotfix
 

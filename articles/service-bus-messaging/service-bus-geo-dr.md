@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: sethm
-ms.openlocfilehash: 2c509b56282ace92e536dc85f1a28f83a4701940
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 49f2992245d694f85b7b1f1c34339f1445c9d699
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-service-bus-geo-disaster-recovery-preview"></a>Ripristino di emergenza geografico per il bus di servizio di Azure (anteprima)
 
@@ -29,7 +29,7 @@ L'anteprima del ripristino di emergenza geografico è attualmente disponibile so
 
 L'articolo [Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze](service-bus-outages-disasters.md) illustra l'importante differenza tra "interruzioni" ed "emergenze". Un'*interruzione* è l'indisponibilità temporanea del bus di servizio di Azure e può interessare alcuni componenti del servizio, ad esempio un archivio di messaggistica, oppure l'intero data center. Dopo la risoluzione del problema, tuttavia, il bus di servizio torna di nuovo disponibile. In genere, un'interruzione non determina la perdita di messaggi o di altri dati. Un'interruzione può essere provocata ad esempio da un'interruzione dell'alimentazione nel data center.
 
-Il termine *emergenza* indica la perdita permanente di un'[unità di scala](service-bus-architecture.md#service-bus-scale-units) del bus di servizio o di un data center. È possibile che il data center non torni di nuovo disponibile o che rimanga inattivo per ore o giorni. Un'emergenza provoca in genere la perdita di alcuni o tutti i messaggi o di altri dati. Un'emergenza può essere causata, ad esempio, da un incendio, un'inondazione o un terremoto.
+Il termine *emergenza* indica la perdita permanente o a lungo termine di un'[unità di scala](service-bus-architecture.md#service-bus-scale-units) del bus di servizio o di un data center. È possibile che il data center non torni di nuovo disponibile o che rimanga inattivo per ore o giorni. Un'emergenza può essere causata, ad esempio, da un incendio, un'inondazione o un terremoto. Una situazione di emergenza che diventa permanente potrebbe causare la perdita di alcuni messaggi o di altri dati. Tuttavia, nella maggior parte dei casi non dovrebbe esserci perdita di dati e i messaggi possono essere ripristinati dopo aver eseguito il backup del data center.
 
 La funzionalità di ripristino di emergenza geografico del bus di servizio di Azure è una soluzione di ripristino di emergenza. I concetti e il flusso di lavoro illustrati in questo articolo sono applicabili a scenari di emergenza, non a interruzioni temporanee.  
 
@@ -45,7 +45,7 @@ In questo articolo viene usata la terminologia seguente:
 
 -  *Metadati*: rappresentazione di oggetti nel bus di servizio di Azure. Sono attualmente supportati solo i metadati.
 
--  *Failover*: processo di attivazione dello spazio dei nomi secondario. È necessario eseguire il pull dei messaggi dallo spazio dei nomi primario precedente quando risulta nuovamente disponibile e quindi eliminare lo spazio dei nomi. Per creare un altro failover, aggiungere un nuovo spazio dei nomi secondario all'associazione.
+-  *Failover*: processo di attivazione dello spazio dei nomi secondario. È necessario eseguire il pull dei messaggi dallo spazio dei nomi primario precedente quando risulta nuovamente disponibile e quindi eliminare lo spazio dei nomi. Per creare un altro failover, aggiungere un nuovo spazio dei nomi secondario all'associazione. Se si desidera riusare lo spazio dei nomi principale precedente dopo un failover, è necessario innanzitutto rimuovere tutte le entità esistenti dallo spazio dei nomi. Assicurarsi di ricevere tutti i messaggi prima di procedere.
 
 ## <a name="failover-workflow"></a>Flusso di lavoro di failover
 

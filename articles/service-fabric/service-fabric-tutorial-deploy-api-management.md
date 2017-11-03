@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Distribuire Gestione API e Service Fabric
 Questa è la seconda di una serie di esercitazioni. Questa esercitazione mostra come impostare il servizio [Gestione API di Azure](../api-management/api-management-key-concepts.md) con Service Fabric per indirizzare il traffico ai servizi back-end di Service Fabric.  Al termine, la Gestione API sarà stata distribuita alla rete virtuale e sarà stata configurata un'operazione API per l'invio del traffico ai servizi senza stato di back-end. Per ulteriori informazioni sugli scenari di Gestione API di Azure con Service Fabric, vedere l'articolo [Panoramica](service-fabric-api-management-overview.md).
@@ -42,11 +42,11 @@ Prima di iniziare questa esercitazione:
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Installare il [modulo Azure PowerShell 4.1 o versioni successive](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o [la versione 2.0 dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 - Creare [un cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o un [cluster di Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure
+- Se si distribuisce un cluster di Windows, configurare un ambiente di sviluppo di Windows. Installare [Visual Studio 2017](http://www.visualstudio.com) e installare i carichi di lavoro per lo **sviluppo di Azure**, lo **sviluppo ASP.NET e Web** e lo **sviluppo multipiattaforma .NET Core**.  Configurare un [ambiente di sviluppo .NET](service-fabric-get-started.md).
+- Se si distribuisce un cluster Linux, configurare un ambiente di sviluppo Java in [Linux](service-fabric-get-started-linux.md) o [MacOS](service-fabric-get-started-mac.md).  Installare l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md). 
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Accedere ad Azure e selezionare la sottoscrizione
-Questa esercitazione usa [Azure PowerShell][azure-powershell]. Quando si avvia una nuova sessione di PowerShell, accedere al proprio account Azure e selezionare la sottoscrizione prima di eseguire i comandi di Azure.
- 
-Accedere al proprio account Azure e selezionare la sottoscrizione:
+Accedere al proprio account di Azure e selezionare la sottoscrizione prima di eseguire i comandi di Azure.
 
 ```powershell
 Login-AzureRmAccount
@@ -193,19 +193,17 @@ print(response.text)
 
 ## <a name="deploy-a-service-fabric-back-end-service"></a>Distribuire un servizio back-end di Service Fabric
 
-Dopo aver configurato Service Fabric come back-end di Gestione API, è possibile creare criteri di back-end per le API che inviano il traffico nei propri servizi Service Fabric. A questo scopo, è innanzitutto necessario un servizio in esecuzione in Service Fabric per accettare le richieste.
+Dopo aver configurato Service Fabric come back-end di Gestione API, è possibile creare criteri di back-end per le API che inviano il traffico nei propri servizi Service Fabric. A questo scopo, è innanzitutto necessario un servizio in esecuzione in Service Fabric per accettare le richieste.  Se in precedenza è stato creato un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md), distribuire un servizio .NET di Service Fabric.  Se in precedenza è stato creato un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md), distribuire un servizio Java di Service Fabric.
 
-### <a name="create-a-service-fabric-service-with-an-http-endpoint"></a>Creare un servizio Service Fabric con un endpoint HTTP
+### <a name="deploy-a-net-service-fabric-service"></a>Distribuire un servizio .NET di Service Fabric
 
-Per questa esercitazione verrà creato un Reliable Service senza stato di base per ASP.NET Core usando il modello di progetto API Web predefinito. Questo permetterà di generare un endpoint HTTP per il servizio, che verrà esposto tramite Gestione API di Azure:
+Per questa esercitazione verrà creato un servizio Reliable senza stato di base per ASP.NET Core usando il modello di progetto API Web predefinito. Questo permetterà di generare un endpoint HTTP per il servizio, che verrà esposto tramite Gestione API di Azure:
 
 ```
 /api/values
 ```
 
-Partire dall'[impostazione dell'ambiente per lo sviluppo di ASP.NET Core](service-fabric-add-a-web-frontend.md#set-up-your-environment-for-aspnet-core).
-
-Dopo aver impostato l'ambiente di sviluppo, avviare Visual Studio come Amministratore e creare un servizio ASP.NET Core:
+Avviare Visual Studio come Amministratore e creare un servizio ASP.NET Core:
 
  1. In Visual Studio selezionare File -> Nuovo progetto.
  2. Selezionare il modello Applicazione di Service Fabric nel Cloud e denominarlo **"ApiApplication"**.
@@ -225,7 +223,7 @@ Dopo aver impostato l'ambiente di sviluppo, avviare Visual Studio come Amministr
  
  6. Premere F5 in Visual Studio per verificare che l'API Web sia disponibile in locale. 
 
-    Aprire Service Fabric Explorer ed eseguire il drill-down fino a un'istanza specifica del servizio ASP.NET Core per visualizzare l'indirizzo di base di ascolto del servizio. Aggiungere `/api/values` all'indirizzo di base e aprirlo in un browser. Questa operazione chiama il metodo Get su ValuesController nel modello API Web e restituisce la risposta predefinita trasmessa dal modello, ovvero una matrice JSON contenente due stringhe:
+    Aprire Service Fabric Explorer ed eseguire il drill-down fino a un'istanza specifica del servizio ASP.NET Core per visualizzare l'indirizzo di base di ascolto del servizio. Aggiungere `/api/values` all'indirizzo di base e aprirlo in un browser. Questa operazione chiama il metodo Get su ValuesController nel modello API Web Restituisce la risposta predefinita trasmessa dal modello, ovvero una matrice JSON contenente due stringhe:
 
     ```json
     ["value1", "value2"]`
@@ -233,9 +231,45 @@ Dopo aver impostato l'ambiente di sviluppo, avviare Visual Studio come Amministr
 
     Questo è l'endpoint che verrà esposto tramite Gestione API in Azure.
 
- 7. Infine, distribuire l'applicazione nel cluster in Azure. [Usando Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), fare clic con il pulsante destro del mouse sul progetto Applicazione e scegliere **Pubblica**. Specificare l'endpoint del cluster, ad esempio `mycluster.westus.cloudapp.azure.com:19000`, per distribuire l'applicazione nel cluster di Service Fabric in Azure.
+ 7. Infine, distribuire l'applicazione nel cluster in Azure. [Usando Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), fare clic con il pulsante destro del mouse sul progetto Applicazione e scegliere **Pubblica**. Specificare l'endpoint del cluster, ad esempio `mycluster.southcentralus.cloudapp.azure.com:19000`, per distribuire l'applicazione nel cluster di Service Fabric in Azure.
 
 In tale cluster dovrebbe essere ora in esecuzione un servizio ASP.NET Core senza stato denominato `fabric:/ApiApplication/WebApiService`.
+
+### <a name="create-a-java-service-fabric-service"></a>Creare un servizio Java di Service Fabric
+Per questa esercitazione, si distribuisce un server Web di base che restituisce i messaggi all'utente. L'applicazione di esempio del server echo contiene un endpoint HTTP per il servizio, che verrà esposto tramite Gestione API di Azure.
+
+1. Clonare gli esempi introduttivi Java.
+
+   ```bash
+   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+   cd service-fabric-java-getting-started
+   ```
+
+2. Modificare *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Aggiornare l'endpoint in modo che il servizio sia in ascolto sulla porta 8081.
+
+   ```xml
+   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
+   ```
+
+3. Salvare *ServiceManifest.xml*, quindi compilare l'applicazione EchoServer1.0.
+
+   ```bash
+   cd Services/EchoServer/EchoServer1.0/
+   gradle
+   ```
+
+4. Distribuire l'applicazione nel cluster.
+
+   ```bash
+   cd Scripts
+   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   ./install.sh
+   ```
+
+   Nel cluster di Service Fabric di Azure dovrebbe essere ora in esecuzione un servizio Java senza stato denominato `fabric:/EchoServerApplication/EchoServerService`.
+
+5. Aprire un browser e digitare http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, viene visualizzato "[versione 1.0] Hello World!!!" .
+
 
 ## <a name="create-an-api-operation"></a>Creare un'operazione per le API
 

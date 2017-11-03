@@ -1,7 +1,11 @@
-Ora che l'app è operativa, è opportuno garantire la continuità aziendale e controllare l'accesso degli utenti per garantire disponibilità elevata. Per esaminare la disponibilità, la latenza, la velocità effettiva e la coerenza della raccolta, si può usare il portale di Azure. 
+La velocità effettiva, lo spazio di archiviazione, la disponibilità, la latenza e la coerenza delle risorse nell'account vengono monitorati nel portale di Azure. Di seguito vengono illustrate brevemente queste metriche. 
 
-Ogni grafo associato ai [contratti di servizio per Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) fornisce una linea che mostra la quota necessaria per soddisfare il contratto di servizio e l'utilizzo effettivo. Queste informazioni offrono una panoramica chiara sulle prestazioni del database. Nel portale sono anche incluse altre metriche, ad esempio per quanto riguarda l'uso dello spazio di archiviazione e il numero di richieste al minuto.
+1. Fare clic su **Metriche** nel menu di spostamento.
 
-* Nel riquadro a sinistra del portale di Azure, in **Monitoraggio**, selezionare **Metriche**.
+   ![Metriche nel portale di Azure](./media/cosmos-db-tutorial-review-slas/metrics.png)
 
-   ![App elenco attività con dati di esempio](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
+2. Fare clic su ogni scheda per conoscere le metriche offerte da Azure Cosmos DB. 
+
+    Ogni grafico associato ai [contratti di servizio per Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) contiene una linea che indica le eventuali violazioni dei contratti di servizio. Con questo gruppo di metriche, Azure Cosmos DB garantisce trasparenza nel monitoraggio dei contratti di servizio. 
+
+   ![Gruppo di metriche di Azure Cosmos DB](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)

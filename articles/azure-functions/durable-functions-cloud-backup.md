@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: aa7c0738120ecda8d43669725748585e1ad5a581
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scenario di fan-out/fan-it in Funzioni permanenti - Esempio di backup cloud
 
@@ -97,12 +97,12 @@ L'implementazione carica il file dal disco e invia il contenuto in modo asincron
 > [!NOTE]
 > Questo è un esempio perfetto dello spostamento delle operazioni di I/O in una funzione `activityTrigger`. In questo modo non solo il lavoro può essere distribuito tra molte macchine virtuali diverse, ma è anche possibile ottenere i vantaggi determinati dall'uso di checkpoint per lo stato di avanzamento. Se il processo host viene interrotto per qualsiasi motivo, è possibile conoscere quali caricamenti sono già stati completati.
 
-## <a name="running-the-sample"></a>Esecuzione dell'esempio
+## <a name="run-the-sample"></a>Eseguire l'esempio
 
-Usando le funzioni attivate da HTTP incluse nell'esempio, è possibile avviare l'orchestrazione con la richiesta HTTP POST seguente.
+È possibile avviare l'orchestrazione inviando la richiesta HTTP POST seguente.
 
 ```
-POST http://{host}/orchestrators/E2_BackupSiteContent HTTP/1.1
+POST http://{host}/orchestrators/E2_BackupSiteContent
 Content-Type: application/json
 Content-Length: 20
 
@@ -112,7 +112,7 @@ Content-Length: 20
 > [!NOTE]
 > La funzione `HttpStart` richiamata funziona solo con contenuto in formato JSON. Per questo motivo, l'intestazione `Content-Type: application/json` è necessaria e il percorso della directory viene codificato come una stringa JSON.
 
-In questo modo verrà attivato l'agente di orchestrazione `E2_BackupSiteContent` e la stringa `D:\home\LogFiles` verrà passata come parametro. La risposta restituisce un collegamento per ottenere lo stato dell'operazione di backup:
+Questa richiesta HTTP attiva l'agente di orchestrazione `E2_BackupSiteContent` e la stringa `D:\home\LogFiles` viene passata come parametro. La risposta restituisce un collegamento per ottenere lo stato dell'operazione di backup:
 
 ```
 HTTP/1.1 202 Accepted
@@ -158,9 +158,7 @@ Di seguito è riportata l'orchestrazione come un unico file C# in un progetto di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto la conoscenza delle funzionalità di base dell'orchestrazione di Funzioni permanenti dovrebbe essere maggiore. Gli esempi successivi descrivono funzionalità e scenari più avanzati.
+In questo esempio è stato illustrato come implementare il criterio di fan-out/fan-in. Nell'esempio successivo viene illustrato come implementare il criterio [singleton con stato](durable-functions-singletons.md) in una [orchestrazione perenne](durable-functions-eternal-orchestrations.md).
 
 > [!div class="nextstepaction"]
 > [Eseguire l'esempio di singleton con stato](durable-functions-counter.md)
-
-

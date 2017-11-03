@@ -1,5 +1,5 @@
 ---
-title: Introduzione alla verifica in due passaggi | Documentazione Microsoft
+title: Introduzione alla verifica in due passaggi | Microsoft Docs
 description: "Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili agli utenti finali per utilizzare Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.openlocfilehash: 5b6694afc0bafaf2be5f98c625dd6724b91234fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6e652794de6cda8b5fc7c7e466f880833a1a14
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Quali sono i vantaggi di Azure Multi-Factor Authentication?
 È stato ricevuto un messaggio di posta elettronica dal reparto IT o dal capo con la comunicazione dell’aggiunta di un’altra verifica di sicurezza all’account.  Che cosa significa?
@@ -33,7 +33,7 @@ Il primo passo è completare il processo di registrazione.  Prima di avviare il 
 * **App per dispositivi mobili con codice di notifica o verifica** : se si utilizza l'app per dispositivi mobili, scegliere tra la ricezione di una notifica con risposta da parte dell’utente o un codice di verifica.
 
 > [!NOTE]
-> Il reparto IT può disabilitare una o più opzioni specificate.  In tal caso, non saranno disponibili durante il processo di registrazione.  
+> Il supporto tecnico dell'azienda può disabilitare una o più opzioni specificate.  In tal caso, non saranno disponibili durante il processo di registrazione.  
 
 Dopo aver scelto il metodo di verifica, procedere con la registrazione. Usare il collegamento [Esperienza di installazione](multi-factor-authentication-end-user-first-time.md) per un'introduzione al processo di registrazione.
 

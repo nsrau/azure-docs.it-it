@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 1a4f2d69907d220a8bbec5087ba431dc243c46d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 920155b2e70409fe1c7c3569326cc5a1fa01b222
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Come usare Cronologia di esecuzione e le metriche del modello in Azure Machine Learning Workbench
 
@@ -30,7 +30,7 @@ Per proseguire con questa guida è necessario:
 
 
 ## <a name="azure-ml-logging-api-overview"></a>Cenni preliminari sull'API di registrazione di Azure Machine Learning
-L'API di registrazione di Azure Machine Learning è disponibile tramite il modulo **azureml.logging** di Python (installato con Azure Machine Learning Workbench.) Dopo aver importato il modulo, è possibile usare il metodo **get_azureml_logger** per creare un'istanza dell'oggetto **logger**.
+L'[API di registrazione di Azure Machine Learning](reference-logging-api.md) è disponibile tramite il modulo **azureml.logging** di Python (installato con Azure Machine Learning Workbench.) Dopo aver importato il modulo, è possibile usare il metodo **get_azureml_logger** per creare un'istanza dell'oggetto **logger**.
 È quindi possibile usare il metodo **log** del logger per archiviare le coppie chiave/valore generate tramite gli script Python.
 Al momento sono supportate le metriche del modello del logger di tipo scalare, dizionario, elenco e frame di dati, come illustrato.
 
@@ -42,16 +42,9 @@ logger = get_azureml_logger()
 # log scalar (any integer or floating point type is fine)
 logger.log("simple value", 7)
 
-# log dictionary
-logger.log("range", {"min":5, "max":7})
 
 # log list
 logger.log("all values", [5, 6, 7])
-
-# log dataframe
-import pandas
-df = pandas.DataFrame.from_records([(1,2),(3,4)],columns=["a","b"])
-logger.log("dataframe", df)
 ```
 Usare il logger nei progetti di Azure Machine Learning Workbench è facile; questo articolo illustra come fare.
 

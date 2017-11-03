@@ -1,11 +1,11 @@
 ---
-title: Domande frequenti sulle app Web per contenitori del servizio app di Azure | Microsoft Docs
-description: Domande frequenti sulle app Web per contenitori del servizio app di Azure.
+title: Domande frequenti sul Servizio app di Azure in Linux |Microsoft Docs
+description: Domande frequenti sul Servizio app di Azure in Linux.
 keywords: Servizio app di Azure, app Web, domande frequenti, Linux, OSS
 services: app-service
 documentationCenter: 
 author: ahmedelnably
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: app-service
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b783f7e8cfef991e7028ba4b4c7b1d0935397580
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38e771b8d7211e8f4f408a43b1ab2e293370ab9c
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="azure-app-service-web-app-for-containers-faq"></a>Domande frequenti sulle app Web per contenitori del servizio app di Azure
+# <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
-Con il lancio di App Web per contenitori, sono previsti miglioramenti e nuove funzionalità per la piattaforma. Questo articolo fornisce le risposte alle domande che i clienti ci hanno posto di recente.
+Con il lancio del Servizio app in Linux, sono previsti miglioramenti e nuove funzionalità per la piattaforma. Questo articolo fornisce le risposte alle domande che i clienti ci hanno posto di recente.
 
 In caso di domande, scrivere un commento all'articolo; si riceverà una risposta il prima possibile.
 
@@ -55,7 +55,7 @@ Sì, è possibile farlo tramite il sito di gestione controllo del codice sorgent
 
 **L'app Web usa ancora un'immagine obsoleta del contenitore Docker dopo l'aggiornamento dell'immagine su DockerHub. È supportata l'integrazione e distribuzione continua di contenitori personalizzati?**
 
-**R:** Per configurare l'integrazione o la distribuzione continua per Registro contenitori di Azure o le immagini di DockerHub, consultare l'articolo [Distribuzione continua con l'app Web di Azure per i contenitori](./app-service-linux-ci-cd.md). Per registri privati, è possibile aggiornare il contenitore arrestando e riavviando l'app Web. Oppure è possibile modificare o aggiungere un'impostazione dell'applicazione fittizia per forzare l'aggiornamento del contenitore.
+Per configurare l'integrazione o la distribuzione continua per il Registro contenitori di Azure o le immagini di DockerHub, consultare l'articolo [Distribuzione continua con l'app Web per contenitori](./app-service-linux-ci-cd.md). Per registri privati, è possibile aggiornare il contenitore arrestando e riavviando l'app Web. Oppure è possibile modificare o aggiungere un'impostazione dell'applicazione fittizia per forzare l'aggiornamento del contenitore.
 
 **Gli ambienti di gestione temporanea sono supportati?**
 
@@ -94,7 +94,7 @@ Sì. Durante una distribuzione Git, Kudu rileverà che si sta distribuendo un'ap
 
 **Qual è il formato per il nome dell'immagine nell'opzione del Registro di sistema privato?**
 
-Aggiungere il nome dell'immagine completa, incluso l'URL del registro privato (ad esempio myacr.azurecr.io/dotnet:latest). I nomi di immagine che usano una porta personalizzata [non possono essere inseriti tramite il portale](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Per impostare `docker-custom-image-name` usare lo [`az`strumento dalla riga di comando](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+Aggiungere il nome dell'immagine completa, incluso l'URL del registro privato (ad esempio myacr.azurecr.io/dotnet:latest). I nomi di immagine che usano una porta personalizzata [non possono essere inseriti tramite il portale](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Per impostare `docker-custom-image-name` usare lo [`az`strumento dalla riga di comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
 
 **È possibile esporre più di una porta sull'immagine del contenitore personalizzato?**
 
@@ -134,6 +134,6 @@ Per le impostazioni dell'applicazione è possibile usare solo lettere (A-Z, a-z)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è App Web di Azure per contenitori?](app-service-linux-intro.md)
+* [Che cos'è il Servizio app di Azure in Linux?](app-service-linux-intro.md)
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Distribuzione continua con App Web di Azure per contenitori](./app-service-linux-ci-cd.md)
+* [Distribuzione continua con l'app Web per contenitori](./app-service-linux-ci-cd.md)

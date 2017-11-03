@@ -1,12 +1,14 @@
 # Panoramica
 ## [Informazioni su Azure AD Domain Services](active-directory-ds-overview.md)
-## [È la scelta giusta?](active-directory-ds-comparison.md)
+## È la scelta giusta?
+### [Confronto con AD di Windows Server](active-directory-ds-comparison.md)
+### [Confronto con l'aggiunta ad Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
 ## [Funzionalità](active-directory-ds-features.md)
 ## [Scenari](active-directory-ds-scenarios.md)
 ## [Funzionamento della sincronizzazione](active-directory-ds-synchronization.md)
 ## [Software di terze parti compatibile](active-directory-ds-compatible-software.md)
 
-# Attività iniziali
+# Introduzione
 ## [Attività 1: Configurare le impostazioni di base](active-directory-ds-getting-started.md)
 ## [Attività 2: Configurare le impostazioni di rete](active-directory-ds-getting-started-network.md)
 ## [Attività 3: Configurare un gruppo di amministratori e abilitare Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
@@ -36,7 +38,8 @@
 ### [Configurare il supporto per la sincronizzazione del profilo per SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Configurare la delega vincolata di Kerberos](active-directory-ds-enable-kcd.md)
 ### [Distribuire il proxy dell'applicazione di Azure AD](active-directory-ds-deploy-azure-app-proxy.md)
-## Risolvere problemi
+## [Eliminare un dominio gestito](active-directory-ds-disable-aadds.md)
+## Risoluzione dei problemi
 ### [Domande frequenti](active-directory-ds-faqs.md)
 ### [Guida per la risoluzione dei problemi](active-directory-ds-troubleshooting.md)
 ### [Risolvere gli errori relativi ai tenant non corrispondenti](active-directory-ds-mismatched-tenant-error.md)

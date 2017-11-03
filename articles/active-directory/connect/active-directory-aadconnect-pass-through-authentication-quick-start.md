@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4f4fa884694dc8dad6349e3835e7c7ba2c4d2bdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory - Avvio rapido
 
@@ -43,7 +43,11 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
 1. Identificare un server che esegue Windows Server 2012 R2 o versione successiva in cui eseguire Azure AD Connect. Aggiungere il server alla stessa foresta AD degli utenti le cui password devono essere convalidate.
-2. Installare la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) nel server identificato nel passaggio precedente. Se Azure AD Connect è già in esecuzione, assicurarsi che la versione sia 1.1.557.0 o successiva.
+2. Installare la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) nel server identificato nel passaggio precedente. Se Azure AD Connect è già in esecuzione, assicurarsi che la versione sia 1.1.644.0 o successiva.
+
+    >[!NOTE]
+    >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla **sincronizzazione dell'hash delle password**. Se _non_ si prevede di utilizzare la sincronizzazione dell'hash delle password in combinazione con l'autenticazione pass-through, leggere le [note sulla versione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) per altre informazioni.
+
 3. Identificare un server aggiuntivo che esegue Windows Server 2012 R2 o versione successiva in cui eseguire un agente di autenticazione autonomo. La versione dell'agente di autenticazione deve essere 1.5.193.0 o successiva. Questo server è necessario per garantire la disponibilità elevata delle richieste di accesso. Aggiungere il server alla stessa foresta AD degli utenti le cui password devono essere convalidate.
 4. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
    - Assicurarsi che gli agenti di autenticazione possano effettuare richieste **in uscita** ad Azure AD sulle porte seguenti:
@@ -87,7 +91,7 @@ Se si installa Azure AD Connect per la prima volta, scegliere il [percorso di in
 
 ![Azure AD Connect - Accesso utente](./media/active-directory-aadconnect-sso/sso3.png)
 
-Se Azure AD Connect è già installata, (usando il percorso di [installazione rapida](active-directory-aadconnect-get-started-express.md) o di [installazione personalizzata](active-directory-aadconnect-get-started-custom.md)), scegliere la pagina **Cambia l'accesso utente** in Azure AD Connect e fare clic su **Avanti**. Selezionare quindi **Autenticazione pass-through** come il metodo di accesso. Al completamento, nello stesso server di Azure AD Connect viene installato un agente di autenticazione e la funzionalità è abilitata per il tenant.
+Se Azure AD Connect è già installato, (usando il percorso di [installazione rapida](active-directory-aadconnect-get-started-express.md) o di [installazione personalizzata](active-directory-aadconnect-get-started-custom.md)), scegliere l'attività **Cambia l'accesso utente** in Azure AD Connect e fare clic su **Avanti**. Selezionare quindi **Autenticazione pass-through** come il metodo di accesso. Al completamento, nello stesso server di Azure AD Connect viene installato un agente di autenticazione e la funzionalità è abilitata per il tenant.
 
 ![Azure AD Connect - Cambiare l'accesso utente](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

@@ -1,9 +1,9 @@
 ---
-title: "Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault"
-description: "Esercitazione che illustra come usare un'Identità del servizio gestito di una macchina virtuale Windows per accedere ad Azure Key Vault."
+title: "Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault"
+description: "Esercitazione che illustra come usare un'identità  del servizio gestito di una macchina virtuale Windows per accedere ad Azure Key Vault."
 services: active-directory
 documentationcenter: 
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 ms.service: active-directory
@@ -11,25 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
-ms.openlocfilehash: 783579eda204b44564abdcb3fee30c09b0e5c1a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f9fa3e543851e79d9aed9c80ae4a8d2dd3420d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-managed-service-identity-msi-with-a-windows-vm-to-access-azure-key-vault"></a>Usare un'Identità del servizio gestito con una macchina virtuale Windows per accedere ad Azure Key Vault 
+# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come abilitare l'Identità del servizio gestito (MSI, Managed Service Identity) per una macchina virtuale Windows e quindi usarla per accedere ad Azure Key Vault. Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. Si apprenderà come:
+Questa esercitazione illustra come abilitare l'Identità del servizio gestito per una macchina virtuale Windows e quindi usarla per accedere ad Azure Key Vault. Fungendo da bootstrap, Key Vault consente quindi all'applicazione client di usare il segreto per accedere alle risorse non protette da Azure Active Directory (AD). Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. 
+
+Si apprenderà come:
 
 
 > [!div class="checklist"]
-> * Abilitare l'Identità del servizio gestito in una macchina virtuale Windows 
-> * Concedere alla macchina virtuale l'accesso a un segreto archiviato in Key Vault 
-> * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto da Key Vault 
+> * Abilitare l'identità del servizio gestito in una macchina virtuale Windows 
+> * Concedere alla macchina virtuale l'accesso a un segreto archiviato in un insieme di credenziali delle chiavi 
+> * Ottenere un token di accesso usando l'identità  della macchina virtuale e usarlo per recuperare il segreto dall'insieme di credenziali delle chiavi 
 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -40,7 +42,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Windows in un nuovo gruppo di risorse
 
-Per questa esercitazione si creerà una nuova macchina virtuale Windows, ma è anche possibile abilitare l'Identità del servizio gestito in una macchina virtuale esistente.
+Per questa esercitazione si creerà una nuova macchina virtuale Windows, ma è anche possibile abilitare l'identità del servizio gestito in una macchina virtuale esistente.
 
 1.  Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 2.  Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. 
@@ -51,28 +53,28 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows, ma è a
 
     ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Abilitare Identità del servizio gestito nella macchina virtuale 
+## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
 
-Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'Identità del servizio gestito indica ad Azure di creare un'identità gestita per la macchina virtuale. A livello sottostante, quando si abilita Identità del servizio gestito, si eseguono due operazioni, ovvero si installa l'estensione della macchina virtuale per l'Identità del servizio gestito nella macchina virtuale e si abilita l'Identità del servizio gestito in Azure Resource Manager.
+Un'identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'identità del servizio gestito indica ad Azure di creare un'identità gestita per la macchina virtuale. A livello sottostante, quando si abilita identità del servizio gestito, si eseguono due operazioni, ovvero si installa l'estensione della macchina virtuale per l'identità del servizio gestito nella macchina virtuale e si abilita l'identità del servizio gestito in Azure Resource Manager.
 
-1.  Selezionare la **macchina virtuale** in cui si vuole abilitare Identità del servizio gestito.  
+1.  Selezionare la **macchina virtuale** in cui si vuole abilitare identità del servizio gestito.  
 2.  Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
-3.  Viene visualizzato **Managed Service Identity** (Identità del servizio gestito). Per registrare e abilitare l'Identità del servizio gestito, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
+3.  Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
 4.  Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
 
     ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Per verificare le estensioni installate nella macchina virtuale, fare clic su **Estensioni**. Se Identità del servizio gestito è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforWindows**.
+5. Per verificare le estensioni installate nella macchina virtuale, fare clic su **Estensioni**. Se identità del servizio gestito è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforWindows**.
 
     ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
-## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Concedere alla macchina virtuale l'accesso a un segreto archiviato in un insieme di credenziali delle chiavi 
+## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Concedere alla macchina virtuale l'accesso a un segreto archiviato nell'insieme di credenziali delle chiavi 
  
-Usando Identità del servizio gestito, il codice può ottenere i token di accesso per autenticarsi alle risorse che supportano l'autenticazione di Azure AD.  Tuttavia, non tutti i servizi di Azure supportano l'autenticazione di Azure AD. Per usare Identità del servizio gestito con i servizi che non supportano l'autenticazione di Azure AD, è possibile archiviare le credenziali necessarie per tali servizi in Azure Key Vault e usare Identità del servizio gestito per l'autenticazione in Key Vault al fine di recuperare le credenziali. 
+Usando identità del servizio gestito, il codice può ottenere i token di accesso per autenticarsi alle risorse che supportano l'autenticazione di Azure AD.  Tuttavia, non tutti i servizi di Azure supportano l'autenticazione di Azure AD. Per usare l'Identità del servizio gestito con tali servizi, archiviare le credenziali del servizio in Azure Key Vault e usare l'Identità del servizio gestito per accedere all'insieme di credenziali delle chiavi e recuperare le credenziali. 
 
-In primo luogo, è necessario creare un insieme di credenziali delle chiavi e concedere all'Identità della macchina virtuale l'accesso a Key Vault.   
+In primo luogo, è necessario creare un insieme di credenziali delle chiavi e concedere all'identità della macchina virtuale l'accesso all'insieme di credenziali delle chiavi.   
 
-1. Nella parte superiore della barra di spostamento a sinistra selezionare **+ Nuovo**, quindi **Sicurezza e identità** quindi **Key Vault**.  
+1. Nella parte superiore della barra di spostamento a sinistra selezionare **+ Nuovo**, quindi **Sicurezza e identità** quindi **Insieme di credenziali delle chiavi**.  
 2. Specificare un **nome** per il nuovo insieme di credenziali delle chiavi. 
 3. Individuare l'insieme di credenziali delle chiavi nella stessa sottoscrizione e nello stesso gruppo di risorse della macchina virtuale creata in precedenza. 
 4. Selezionare **Criteri di accesso** condiviso e fare clic su **Aggiungi nuovo**. 
@@ -84,20 +86,20 @@ In primo luogo, è necessario creare un insieme di credenziali delle chiavi e co
     ![Testo immagine alt](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 
-Successivamente, aggiungere un segreto a Key Vault, in modo che in un secondo momento sia possibile recuperare il segreto mediante il codice in esecuzione nella macchina virtuale: 
+Successivamente, aggiungere un segreto all'insieme di credenziali delle chiavi, in modo che in un secondo momento sia possibile recuperare il segreto mediante il codice in esecuzione nella macchina virtuale: 
 
 1. Selezionare **Tutte le risorse**, quindi individuare e selezionare l'insieme di credenziali delle chiavi appena creato. 
 2. Selezionare **Segreti** e fare clic su **Aggiungi**. 
 3. Selezionare **Manuale** dalle **Opzioni di caricamento**. 
-4. Specificare un nome e il valore del segreto.  Il valore può essere qualsiasi. 
+4. Specificare un nome e il valore del segreto.  È possibile specificare qualsiasi valore. 
 5. Lasciare vuoti i campi della data di attivazione e della data di scadenza e lasciare **Abilitato** su **Sì**. 
 6. Fare clic su **Crea** per creare il segreto. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-retrieve-the-secret-from-the-key-vault"></a>Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto da Key Vault  
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto da Key Vault  
 
-Dopo aver creato un segreto, averlo archiviato in un insieme di credenziali delle chiavi e aver concesso all'Identità del servizio gestito della macchina virtuale l'accesso all'insieme di credenziali delle chiavi, è possibile scrivere il codice per recuperare il segreto in fase di esecuzione.  Per semplificare questo esempio verranno usate semplici chiamate REST tramite PowerShell.  Se PowerShell non è installato, scaricarlo da [qui](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1).
+Se non si dispone di PowerShell 4.3.1 o versione successiva, è necessario [scaricare e installare la versione più recente](https://docs.microsoft.com/powershell/azure/overview).
 
-In primo luogo, si userà l'Identità del servizio gestito della macchina virtuale per ottenere un token di accesso per l'autenticazione in Key Vault:
+In primo luogo, si userà l'Identità del servizio gestito della macchina virtuale per ottenere un token di accesso per l'autenticazione all'insieme di credenziali delle chiavi:
  
 1. Nel portale passare a **Macchine virtuali**, selezionare la macchina virtuale Windows e in **Panoramica** fare clic su **Connetti**.
 2. Inserire il **Nome utente** e la **Password** aggiunti al momento della creazione della **macchina virtuale Windows**.  
@@ -138,6 +140,6 @@ Dopo aver recuperato il segreto dall'insieme di credenziali delle chiavi, è pos
 
 ## <a name="related-content"></a>Contenuti correlati
 
-- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](../active-directory/msi-overview.md).
+- Per una panoramica dell'identità di servizio gestito, vedere [Panoramica dell'identità di servizio gestito](../active-directory/msi-overview.md).
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.

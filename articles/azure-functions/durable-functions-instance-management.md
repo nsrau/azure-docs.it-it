@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8c9085042496fef4c499f57e874e0b8ba059fd65
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 734853dbee7a6f216763cd82d424c9e639b1f8c9
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gestire le istanze in Funzioni permanenti (Funzioni di Azure)
 
@@ -64,7 +64,7 @@ module.exports = function (context, input) {
 ```
 
 > [!NOTE]
-> In generale è consigliabile usare un identificatore casuale per l'ID istanza. Questo contribuisce a garantire una distribuzione del carico equa quando si ridimensionano le funzioni dell'agente di orchestrazione tra più VM. Il momento opportuno per usare ID istanza non casuali è quando l'ID deve provenire da un'origine esterna o quando si implementa il modello [agente di orchestrazione singleton](durable-functions-counter.md).
+> È consigliabile usare un identificatore casuale per l'ID istanza. Questo contribuisce a garantire una distribuzione del carico equa quando si ridimensionano le funzioni dell'agente di orchestrazione tra più VM. Il momento opportuno per usare ID istanza non casuali è quando l'ID deve provenire da un'origine esterna o quando si implementa il modello [agente di orchestrazione singleton](durable-functions-singletons.md).
 
 ## <a name="querying-instances"></a>Esecuzione di query sulle istanze
 

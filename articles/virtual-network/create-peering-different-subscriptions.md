@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 13e9e83dc277d8e88ab46d8d51b3f4a70ccd3b46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43dffa5a095545499b8cc4989af746a6290e4cf7
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Creare un peering di rete virtuale - Resource Manager, sottoscrizioni diverse 
 
@@ -38,7 +38,7 @@ I passaggi per creare un peering di rete virtuale sono diversi a seconda che le 
   > [!WARNING]
   > La creazione di un peering di rete virtuale tra reti virtuali in aree diverse è attualmente in anteprima. È possibile registrare la sottoscrizione per l'anteprima di seguito. I peering di rete virtuale creati in questo scenario potrebbero non avere lo stesso livello di disponibilità e affidabilità di quelli creati in scenari di rilascio con disponibilità generale. I peering di rete virtuale creati in questo scenario non sono supportati, possono presentare funzionalità limitate e potrebbero non essere disponibili in tutte le aree di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato della funzionalità, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network) .
 
-Non è possibile creare un peering di rete virtuale tra due reti virtuali distribuite tramite il modello di distribuzione classica. Se è necessario connettere reti virtuali create entrambe con il modello di distribuzione classica o che si trovano in aree di Azure diverse, è possibile usare il [Gateway VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure per connettere le reti virtuali. 
+Non è possibile creare un peering di rete virtuale tra due reti virtuali distribuite tramite il modello di distribuzione classica. Se occorre connettere due reti virtuali, entrambe create tramite il modello di distribuzione classica o presenti in aree di Azure diverse, è possibile usare un [gateway VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure. 
 
 Per creare un peering di rete virtuale, è possibile usare il [portale di Azure](#portal), l'[interfaccia della riga di comando](#cli) di Azure, Azure [PowerShell](#powershell) o un [modello di Azure Resource Manager](#template). Facendo clic sui collegamenti degli strumenti precedenti, si passa direttamente alle procedure per la creazione di un peering di rete virtuale con il determinato strumento.
 
@@ -136,7 +136,7 @@ Lo script seguente:
 Invece di installare l'interfaccia della riga di comando e le sue dipendenze, è possibile usare Azure Cloud Shell. Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **Prova** nello script seguente per richiamare un'istanza di Cloud Shell a cui è possibile accedere con l'account Azure personale. 
 
 1. Aprire una sessione dell'interfaccia della riga di comando e accedere ad Azure come UserA usando il comando `azure login`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Vedere la sezione [Autorizzazioni](#permissions) di questo articolo per informazioni dettagliate.
-2. Copiare lo script seguente in un editor di testo nel PC, sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA, quindi copiare lo script modificato nella sessione dell'interfaccia della riga di comando e premere `Enter`. Se l'ID sottoscrizione non è noto, immettere il comando 'az account show'. Il valore per **id** nell'output è l'ID sottoscrizione.
+2. Copiare lo script seguente in un editor di testo nel PC, sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA, quindi copiare lo script modificato nella sessione dell'interfaccia della riga di comando e premere `Enter`. Se l'ID sottoscrizione non è noto, immettere il comando 'az account show'. Il valore per **id** nell'output è l'ID della sottoscrizione.
 
     ```azurecli-interactive
     # Create a resource group.
@@ -158,7 +158,6 @@ Invece di installare l'interfaccia della riga di comando e le sue dipendenze, è
       --scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
     
-     L'assegnazione delle autorizzazioni per UserB non è un requisito. Il peering può essere stabilito anche se gli utenti generano singolarmente richieste di peering per le rispettive reti virtuali, purché le richieste corrispondano. L'aggiunta di un utente con privilegi della rete virtuale myVnetB come collaboratore di rete nella rete virtuale locale semplifica la configurazione.
 3. Disconnettersi da Azure come UserA usando il comando `az logout` e quindi accedere come UserB. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Vedere la sezione [Autorizzazioni](#permissions) di questo articolo per informazioni dettagliate.
 4. Creare myVnetB. Copiare il contenuto dello script indicato nel passaggio 2 in un editor di testo nel PC. Sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionB. Modificare 10.0.0.0/16 in 10.1.0.0/16, modificare tutte le A in B e tutte le B in A. Copiare lo script modificato, incollarlo nella sessione dell'interfaccia della riga di comando e premere `Enter`. 
 5. Disconnettersi da Azure come UserB e accedere come UserA.
@@ -232,7 +231,6 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
 
-    L'assegnazione delle autorizzazioni per UserB non è un requisito. Il peering può essere stabilito anche se gli utenti generano singolarmente richieste di peering per le rispettive reti virtuali, purché le richieste corrispondano. L'aggiunta di un utente con privilegi dell'altra rete virtuale come utente nella rete virtuale locale semplifica la configurazione.
 5. Disconnettere UserA da Azure e accedere come UserB. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Vedere la sezione [Autorizzazioni](#permissions) di questo articolo per informazioni dettagliate.
 6. Copiare il contenuto dello script del passaggio 4 in un editor di testo nel PC. Sostituire `<SubscriptionA-Id>` con l'ID della sottoscrizione B. Modificare 10.0.0.0/16 in 10.1.0.0/16. Modificare tutte le A in B e tutte le B in A. Per eseguire lo script, copiare lo script modificato, incollarlo in PowerShell e quindi premere `Enter`.
 7. Disconnettere UserB da Azure e accedere come UserA.
@@ -272,7 +270,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 
 ## <a name="template"></a>Creare un peering - Modello di Resource Manager
 
-1. Completare i passaggi descritti nelle sezioni di questo articolo relative al [portale](#portal), all'[interfaccia della riga di comando di Azure](#cli) o a [PowerShell](#powershell) per creare una rete virtuale e assegnare le [autorizzazioni](#permissions) appropriate all'account in ogni sottoscrizione.
+1. Per creare una rete virtuale e assegnare le [autorizzazioni](#permissions) appropriate all'account in ogni sottoscrizione, completare i passaggi descritti nelle sezioni di questo articolo relative al [portale](#portal), all'[interfaccia della riga di comando di Azure](#cli) o a [PowerShell](#powershell).
 2. Salvare il testo seguente in un file nel computer locale. Sostituire `<subscription ID>` con l'ID della sottoscrizione di UserA. È ad esempio possibile salvare il file come vnetpeeringA.json.
 
     ```json

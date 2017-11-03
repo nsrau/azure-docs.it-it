@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ad25663f97b83f11f14eeb8bb07dac46f6c080d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Servizi di dominio Azure Active Directory: domande frequenti
 Questa pagina include le risposte a domande frequenti relative a Servizi di dominio Azure AD. Controllarla costantemente per eventuali aggiornamenti.
@@ -49,7 +49,7 @@ Il servizio stesso non supporta direttamente questo scenario. Il dominio gestito
 PowerShell e la distribuzione automatizzata di Servizi di dominio Azure AD non sono attualmente disponibili.
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Servizi di dominio Azure AD è disponibile nel nuovo portale di Azure?
-Sì. È possibile configurare Azure AD Domain Services usando il [portale di Azure](https://portal.azure.com). Si prevede di interrompere il supporto del [portale di Azure classico](https://manage.windowsazure.com) in futuro.
+Sì. È possibile configurare Azure AD Domain Services usando il [portale di Azure](https://portal.azure.com). Il [portale di Azure classico](https://manage.windowsazure.com) non è più supportato.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>È possibile abilitare Azure Active Directory Domain Services con un modello di Resource Manager?
 No. Alcune attività devono essere eseguite come parte dell'abilitazione di Azure Active Directory Domain Services. Queste attività non sono disponibili tramite un modello di Resource Manager. Usare il nuovo portale di Azure per abilitare Azure Active Directory Domain Services per la directory.

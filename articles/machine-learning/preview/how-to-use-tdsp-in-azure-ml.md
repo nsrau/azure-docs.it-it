@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: d47c219dfd1e62351d7113d930b17ac45f64c369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Strutturare i progetti con un modello di Team Data Science Process
 
@@ -28,31 +28,32 @@ Questo documento contiene istruzioni su come creare progetti data science in Azu
 ## <a name="what-is-the-team-data-science-process"></a>Introduzione a Team Data Science Process
 Team Data Science Process è un processo di data science rapido e iterativo per l'esecuzione e la distribuzione di soluzioni di analisi avanzate. È progettato per migliorare la collaborazione e l'efficienza dei team di data science nelle organizzazioni aziendali. Supporta questi obiettivi grazie a quattro componenti principali:
 
-   * Definizione del [ciclo di vita di data science](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md) standard.
+   * Una definizione del [ciclo di vita di data science](../team-data-science-process/lifecycle.md) standard.
    * Struttura di progetto, [documentazione e modelli di report](https://github.com/Azure/Azure-TDSP-ProjectTemplate) standard.
-   * Infrastruttura e risorse per l'esecuzione del progetto, ad esempio infrastruttura di calcolo e archiviazione e repository di codice.
+   * Infrastruttura e risorse per l'esecuzione del progetto, ad esempio infrastruttura di calcolo e archiviazione e repository di codice rispettivamente.
    * [Strumenti e utilità](https://github.com/Azure/Azure-TDSP-Utilities) per le attività del progetto di data science, ad esempio:
-      - Controllo della versione di collaborazione e revisione del codice
+      - Controllo della versione di collaborazione
+      - Revisione del codice
       - Esplorazione e modellazione dei dati
       - Pianificazione del lavoro
 
-Per una descrizione completa del processo TDSP, vedere la [panoramica su Team Data Science Process](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/README.md).
+Per una descrizione completa del processo TDSP, vedere la [panoramica su Team Data Science Process](../team-data-science-process/overview.md).
 
 ## <a name="why-should-you-use-the-tdsp-structure-and-templates"></a>Motivi per cui è consigliabile usare i modelli e la struttura di TDSP
-La standardizzazione della struttura, il ciclo di vita e la documentazione dei progetti di data science sono fondamentali per semplificare una collaborazione efficace nei team di data science. La possibilità di creare progetti di Machine Learning con un modello di TDSP offre un framework per un lavoro di squadra coordinato.
+La standardizzazione della struttura, il ciclo di vita e la documentazione dei progetti di data science sono fondamentali per semplificare una collaborazione efficace nei team di data science. Creare progetti di apprendimento automatico con il modello TDSP per offrire tale framework per un lavoro di squadra coordinato.
 
-In passato è stato reso disponibile un [repository GitHub per la struttura e i modelli del processo TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate) per contribuire a raggiungere tali obiettivi. Tuttavia, fino a oggi non è stato mai possibile creare istanze della struttura e dei modelli del processo TDSP all'interno di uno strumento di data science. È ora possibile creare un progetto di Machine Learning che crei le istanze per i modelli di documentazione e struttura del processo TDSP. 
+In passato è stato reso disponibile un [repository GitHub per la struttura e i modelli del processo TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate) per contribuire a raggiungere tali obiettivi. Tuttavia, fino a oggi non è stato mai possibile creare istanze della struttura e dei modelli del processo TDSP all'interno di uno strumento di data science. È ora possibile creare un progetto di apprendimento automatico che crei le istanze per i modelli di documentazione e struttura del processo TDSP. 
 
 ## <a name="things-to-note-before-creating-a-new-project"></a>Aspetti da considerare prima di creare un nuovo progetto
-*Prima* di creare un nuovo progetto, tenere presente o controllare gli aspetti seguenti:
+*Prima* di creare un nuovo progetto, controllare gli elementi seguenti:
 * Controllare il [modello](https://aka.ms/tdspamlgithubrepo) di Machine Learning per il processo TDSP.
 * I contenuti, ad eccezione di quelli già presenti nella cartella "documenti", devono avere dimensioni inferiori a 25 MB. Vedere la nota riportata alla fine dell'elenco.
 * La cartella sample\_data è destinata solo a file di dati di piccole dimensioni, inferiori a 5 MB, e può essere usata per testare il codice o eseguire attività di sviluppo iniziali.
 * L'archiviazione di file quali documenti di Word o PowerPoint può aumentare notevolmente le dimensioni della cartella "documenti". Per archiviare questi file si consiglia di trovare un wiki collaborativo, [SharePoint](https://products.office.com/en-us/sharepoint/collaboration) o altre risorse collaborative.
-* Per la gestione di output e file di grandi dimensioni in Azure Machine Learning, leggere [Rendere persistenti le modifiche e gestire file di grandi dimensioni](http://aka.ms/aml-largefiles).
+* Per informazioni sulla gestione di output e file di grandi dimensioni in Machine Learning, leggere [Persisting changes and dealing with large files](http://aka.ms/aml-largefiles) (Rendere persistenti le modifiche e gestire file di grandi dimensioni).
 
 > [!NOTE]
-> Assicurarsi che, ad eccezione del file readme.md, tutti i contenuti relativi alla documentazione *non* usati durante l'esecuzione del progetto, ad esempio file di testo, file markdown, file di immagini e altri documenti, si trovino nella cartella denominata "documenti" (tutto minuscolo). La cartella "documenti" costituisce una cartella speciale ignorata dall'esecuzione di Machine Learning e, quindi, il suo contenuto non viene copiato inutilmente per il calcolo di destinazione. Gli oggetti presenti in questa cartella, inoltre, non vengono considerati per calcolare il limite di 25 MB delle dimensioni del progetto. Nella cartella "documenti", ad esempio, vengono archiviati i file di immagine di grandi dimensioni necessari nella documentazione. Questi file vengono comunque rilevati da Git nella cronologia di esecuzione. 
+> Tutti i contenuti relativi alla documentazione, ovvero testo, markdown, immagini e altri file di documentazione, che *non* devono essere usati durante l'esecuzione del progetto, a eccezione del file readme.md, devono trovarsi nella cartella denominata "documenti", tutto minuscolo. La cartella "documenti" costituisce una cartella speciale ignorata dall'esecuzione di Machine Learning e, quindi, il suo contenuto non viene copiato inutilmente per il calcolo di destinazione. Gli oggetti presenti in questa cartella non vengono considerati per calcolare il limite di 25 MB delle dimensioni del progetto. Nella cartella "documenti", ad esempio, vengono archiviati i file di immagine di grandi dimensioni necessari nella documentazione. Questi file vengono comunque rilevati da Git nella cronologia di esecuzione. 
 
 ## <a name="instantiate-the-tdsp-structure-and-templates-from-the-machine-learning-template-gallery"></a>Creare un'istanza per i modelli e la struttura del processo TDSP dalla raccolta di modelli di Machine Learning
 Per creare un nuovo progetto con la struttura e i modelli di documentazione di TDSP, completare queste procedure.
@@ -76,7 +77,7 @@ Per creare un nuovo progetto, aprire Azure Machine Learning. In **Progetti** nel
    3. Quando viene visualizzata l'opzione per **strutturare un progetto con TDSP**, selezionare il modello. 
    4. Selezionare il pulsante **Crea** per creare il nuovo progetto con una struttura di TDSP. Se si specifica un repository Git vuoto durante la creazione del progetto (nella casella appropriata), al termine della creazione del progetto il repository viene completato con la struttura del progetto e i relativi contenuti.
 
-![Creare un progetto TDSP](./media/how-to-use-tdsp-in-azure-ml/instantiation-2.png)
+![Creare un progetto di TDSP](./media/how-to-use-tdsp-in-azure-ml/instantiation-2.png)
 
 
 ## <a name="examine-the-tdsp-project-structure"></a>Esaminare la struttura del progetto TDSP
@@ -94,7 +95,7 @@ Il modello del progetto TDSP contiene le cartelle di primo livello seguenti:
 
 
 ## <a name="use-the-tdsp-structure-and-templates"></a>Uso della struttura e dei modelli di TDSP
-È necessario aggiungere alla struttura e ai modelli informazioni specifiche del progetto, ad esempio il codice e le informazioni necessarie per l'esecuzione e la distribuzione del progetto. Il file [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) è un modello che deve essere modificato con le informazioni rilevanti per il progetto. È corredato da una serie di domande che consentono di inserire le informazioni necessarie per ognuna delle quattro fasi del [ciclo di vita di TDSP](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md).
+È necessario aggiungere alla struttura e ai modelli informazioni specifiche del progetto, ad esempio il codice e le informazioni necessarie per l'esecuzione e la distribuzione del progetto. Il file [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) è un modello che deve essere modificato con le informazioni rilevanti per il progetto. È corredato da una serie di domande che consentono di inserire le informazioni necessarie per ognuna delle quattro fasi del [ciclo di vita di TDSP](../team-data-science-process/lifecycle.md).
 
 Nel riquadro sinistro della figura seguente è illustrato un esempio di come appare una struttura di progetto durante l'esecuzione o al suo completamento. Questo progetto è tratto dal progetto di esempio TDSP sulla [classificazione dei redditi in base ai dati di censimento degli Stati Uniti in Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).
 

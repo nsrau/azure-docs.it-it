@@ -1,6 +1,6 @@
 ---
 title: Distribuire un servizio di divisione e unione | Documentazione Microsoft
-description: Suddivisione e unione con gli strumenti di database elastico
+description: Usare anche lo strumento di divisione e unione per spostare i dati tra database partizionati.
 services: sql-database
 documentationcenter: 
 author: ddove
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 6e2fea882c248fa095a9d450ed54a7b4e64b45e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db26b7a99a7fd8bb7cb5c3d4937c44686fc68222
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="deploy-a-split-merge-service"></a>Distribuire un servizio di divisione e unione
 Lo strumento di divisione e unione sposta i dati tra database partizionati. Vedere [Spostamento di dati tra database cloud con numero maggiore di istanze](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -32,11 +32,11 @@ Lo strumento di divisione e unione sposta i dati tra database partizionati. Vede
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. I file del servizio di divisione e unione si trovano nella sottodirectory **content\splitmerge\service** e gli script di PowerShell di divisione e unione (compresi i file DLL client necessari) si trovano nella sottodirectory **content\splitmerge\powershell**.
+I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. I file del servizio di divisione e unione si trovano nella sottodirectory **contenuto\splitmerge\servizio** e gli script di PowerShell di divisione e unione, compresi i file DLL client necessari, si trovano nella sottodirectory **contenuto\splitmerge\powershell**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 1. Creare un database SQL di Azure che verrà usato come database per lo stato di divisione e unione. Accedere al [portale di Azure](https://portal.azure.com). Creazione personalizzata di un nuovo **database SQL**. Assegnare un nome al database e creare un nuovo amministratore e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
-2. Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Nel portale accedere a **Impostazioni firewall** e assicurarsi che l'impostazione **Consenti l'accesso a servizi di Azure** sia **attiva**. Fare clic sull'icona "Salva".
+2. Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Nel portale accedere a **Impostazioni firewall** e assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **attiva**. Fare clic sull'icona "Salva".
    
    ![Servizi consentiti][1]
 3. Creare un account di archiviazione di Azure che verrà usato per l'output di diagnostica. Accedere al portale di Azure. Nella barra di sinistra fare clic su **Nuovo**, fare clic su **Dati e archiviazione** e quindi su **Archiviazione**.
@@ -44,7 +44,7 @@ I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabas
 
 ## <a name="configure-your-split-merge-service"></a>Configurare il servizio di divisione e unione
 ### <a name="split-merge-service-configuration"></a>Configurazione del servizio di divisione e unione
-1. Nella cartella in cui sono stati scaricati gli assembly necessari per la divisione e l'unione creare una copia del file **ServiceConfiguration.Template.cscfg** fornito con **SplitMergeService.cspkg** e rinominarlo **ServiceConfiguration.cscfg**.
+1. Nella cartella in cui sono stati scaricati gli assembly necessari di divisione e unione creare una copia del file **ServiceConfiguration.Template.cscfg** inviato con **SplitMergeService.cspkg** e rinominarlo **ServiceConfiguration.cscfg**.
 2. Aprire **ServiceConfiguration.cscfg** in un editor di testo, ad esempio Visual Studio, che convalida input come il formato delle identificazioni personali del certificato.
 3. Creare un nuovo database o scegliere un database esistente da usare come database per lo stato delle operazioni di divisione e unione, quindi recuperare la stringa di connessione del database. 
    
@@ -129,7 +129,7 @@ Si noti che per distribuzioni destinate alla produzione è necessario usare cert
 4. Scegliere l'ambiente di gestione temporanea, quindi fare clic su **Carica una nuova distribuzione di gestione temporanea**.
    
    ![Staging][3]
-5. Nella finestra di dialogo immettere un'etichetta per la distribuzione. Per "Pacchetto" e "Configurazione" fare clic su "Da locale", scegliere il file **SplitMergeService.cspkg** e il file con estensione cscfg configurato in precedenza.
+5. Nella finestra di dialogo immettere un'etichetta per la distribuzione. Per "Pacchetto" e "Configurazione" fare clic su "From Local" (Da locale), scegliere il file **SplitMergeService.cspkg** e il file con estensione CSCFG configurato in precedenza.
 6. Assicurarsi che la casella di controllo **Distribuire anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 7. Fare clic sul pulsante con il segno di spunta in basso a destra per avviare la distribuzione. Per il completamento dell'operazione sarà necessario attendere alcuni minuti.
 
@@ -140,7 +140,7 @@ Se la messa in linea del proprio ruolo Web non riesce, è probabile che si tratt
 
 Se la messa online del proprio ruolo di lavoro non riesce, ma riesce quella del ruolo Web, è probabile che si tratti di un problema con la connessione al database per lo stato creato in precedenza.
 
-* Assicurarsi che la stringa di connessione nel file .cscfg sia corretta.
+* Assicurarsi che la stringa di connessione nel file con estensione CSCFG sia corretta.
 * Verificare che il server e il database esistano e che l'ID utente e la password siano corretti.
 * Per il database SQL di Azure, la stringa di connessione deve essere nel seguente formato:
 
@@ -179,7 +179,7 @@ I file di script inclusi sono i seguenti:
        <td>2.    Crea 2 database partizioni.
      </tr>
      <tr>
-       <td>3.    Crea una mappa partizioni per tali database (elimina eventuali mappe partizioni esistenti per i database). </td>
+       <td>3.    Crea una mappa di partizioni per tali database, elimina eventuali mappe di partizioni esistenti per i database. </td>
      </tr>
      <tr>
        <td>4.    Crea una tabella di esempio di piccole dimensioni in entrambe le partizioni e popola la tabella in una delle partizioni.</td>

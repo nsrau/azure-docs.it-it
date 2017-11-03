@@ -9,11 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Domande frequenti su Azure Machine Learning
 
@@ -108,7 +108,7 @@ Sì, il Servizio Sperimentazione e Gestione modelli funzionano insieme a diversi
 
 **Sono supportati scenari di distribuzione in locale e nel cloud?**
 
-Sì. Gli scenari di distribuzione in locale sono supportati tramite i contenitori Docker. Le destinazioni di esecuzione includono distribuzioni Docker su nodo singolo, [Microsoft SQL Server con servizi di Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop o Spark. Sono supportate anche distribuzioni cloud tramite Docker, incluse distribuzioni in cluster tramite il servizio contenitore di Azure e Kubernetes, HDInsight o cluster Spark. Gli scenari con nodo perimetrale sono supportati tramite container Docker e Azure IoT Edge. 
+Sì. Gli scenari di distribuzione in locale e nel cloud sono supportati tramite i contenitori Docker. Le destinazioni di esecuzione includono distribuzioni Docker su nodo singolo, [Microsoft SQL Server con servizi di Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop o Spark. Sono supportate anche distribuzioni cloud tramite Docker, incluse distribuzioni in cluster tramite il servizio contenitore di Azure e Kubernetes, HDInsight o cluster Spark. Gli scenari con nodo perimetrale sono supportati tramite container Docker e Azure IoT Edge. 
 
 **È possibile eseguire un'immagine Docker creata con l'interfaccia della riga di comando di Azure Machine Learning in un altro host?**
 

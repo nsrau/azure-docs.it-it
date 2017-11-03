@@ -1,6 +1,6 @@
 ---
-title: Usare un'immagine Docker personalizzata per App Web di Azure per contenitori | Microsoft Docs
-description: Come usare un'immagine Docker personalizzata per App Web di Azure per contenitori.
+title: Usare un'immagine Docker personalizzata per l'app Web per contenitori di Azure | Microsoft Docs
+description: Come usare un'immagine Docker personalizzata per l'app Web per contenitori.
 keywords: Servizio app di Azure, app Web, Linux, Docker, contenitore
 services: app-service
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc268bce48a42607d4404758e744a006dfbd6c19
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Usare un'immagine Docker personalizzata per App Web di Azure per contenitori
+# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Usare un'immagine Docker personalizzata per l'app Web per contenitori
 
 [App Web per contenitori](app-service-linux-intro.md) fornisce immagini Docker predefinite in Linux con il supporto per versioni specifiche, ad esempio PHP 7.0 e Node.js 4.5. App Web per contenitori sfrutta la tecnologia basata su contenitori di Docker per ospitare sia immagini predefinite che immagini personalizzate come piattaforma distribuita come servizio. In questa esercitazione viene illustrato come creare un'immagine Docker personalizzata da usare in App Web per contenitori, il che è un modello comune se non è disponibile un'immagine predefinita per il linguaggio in uso o se l'applicazione richiede una configurazione specifica non fornita nelle immagini predefinite.
 
@@ -210,7 +210,7 @@ v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59
 
 ## <a name="create-web-app-for-containers"></a>Creare un' app Web per contenitori
 
-È possibile ospitare applicazioni Linux native nel cloud usando App Web di Azure. Per creare un'app Web per contenitori, è necessario eseguire i comandi dell'interfaccia della riga di comando di Azure che creano un gruppo, quindi un piano di servizio e infine l'app Web vera e propria. Eseguire prima il comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) e passare una posizione e un nome univoco.
+È possibile ospitare applicazioni Linux native nel cloud usando il Servizio app di Azure in Linux. Per creare un'app Web per contenitori, è necessario eseguire i comandi dell'interfaccia della riga di comando di Azure che creano un gruppo, quindi un piano di servizio e infine l'app Web vera e propria. Eseguire prima il comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) e passare una posizione e un nome univoco.
 
 ```azurecli-interactive
 az group create --location "West Europe" --name myResourceGroup
@@ -220,7 +220,7 @@ L'output sarà simile all'esempio seguente:
 
 ```json
 {
-  "id": "/subscriptions/432849d3e4-4f90-a782-87c11e-5e59d6dd/resourceGroups/myResourceGroup",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup",
   "location": "westeurope",
   "managedBy": null,
   "name": "myResourceGroup",
@@ -245,8 +245,7 @@ La creazione di un piano di servizio genera risultati simili all'esempio seguent
   "appServicePlanName": "myServicePlan",
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/resourceGroups/myResourceGroup/provide
-rs/Microsoft.Web/serverfarms/myServicePlan",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myServicePlan",
   "kind": "linux",
   "location": "West Europe", 
   "resourceGroup": "myResourceGroup",
@@ -292,7 +291,7 @@ Il comando per creare un'app Web genera l'output illustrato qui:
   ],
   "hostNamesDisabled": false,
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/5e59d6dd-d3e4-4f90-a782-43284987c11e/resourceGroups/myResourceGroup/providers/Microsoft.
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.
 Web/sites/<web-app-name>",
   "lastModifiedTimeUtc": "2017-08-08T21:09:33.693333",
   "location": "West Europe",
@@ -462,7 +461,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Congratulazioni. Si è configurata un'immagine Docker personalizzata per un'app Web di Azure per contenitori.
+Congratulazioni. Si è configurata un'immagine Docker personalizzata per un'app Web per contenitori.
 
 ## <a name="push-a-docker-image-to-private-registry-optional"></a>Eseguire il push di un'immagine Docker in un registro privato (facoltativo)
 
@@ -486,7 +485,7 @@ Use an existing service principal and assign access:
 {
   "adminUserEnabled": false,
   "creationDate": "2017-08-09T04:21:09.654153+00:00",
-  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/{azure-container-registry-name>",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name>",
   "location": "westeurope",
   "loginServer": "<azure-container-registry-name>.azurecr.io",
   "name": "<azure-container-registry-name>",
@@ -621,4 +620,4 @@ Il comando mostra un output simile alla stringa JSON seguente, indicante che la 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](app-service-linux-faq.md)
+[Domande frequenti sul Servizio app di Azure in Linux](app-service-linux-faq.md)

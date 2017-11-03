@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 5213bec66095d50ef29cc3bec0a7b6307614dc92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28dfa62c3408c43d3919a9657339bb8d25f6dcdf
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure
 
@@ -103,8 +103,8 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è App Web di Azure per contenitori?](app-service-linux-intro.md)
+* [Che cos'è il Servizio app di Azure in Linux?](app-service-linux-intro.md)
 * [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (anteprima)](../../cloud-shell/overview.md)
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Distribuzione continua con App Web di Azure per contenitori](app-service-linux-ci-cd.md)
+* [Distribuzione continua con l'app Web per contenitori](app-service-linux-ci-cd.md)

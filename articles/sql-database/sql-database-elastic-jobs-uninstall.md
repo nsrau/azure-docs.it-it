@@ -1,6 +1,6 @@
 ---
 title: Come disinstallare lo strumento processi di database elastico
-description: Come disinstallare lo strumento processi di database elastico
+description: Informazioni su come disinstallare i componenti dei processi di database elastico usando il portale di Azure o PowerShell.
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: ae7f0bce452a0a86f6f1e4d9b0c93a0fa1727f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 62204def565d45f230b034e8d593ae10cb971813
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Disinstallare i componenti dei processi di database elastici
-**Processi di database elastici** possono essere disinstallati utilizzando il portale o PowerShell.
+I componenti dei **processi di database elastico** possono essere disinstallati utilizzando il portale di Azure o PowerShell.
 
 ## <a name="uninstall-elastic-database-jobs-components-using-the-azure-portal"></a>Disinstallare i componenti dei processi di database elastici utilizzando il portale di Azure
 1. Aprire il [portale di Azure](https://portal.azure.com/).

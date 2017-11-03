@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f79910ba4fea81e88fce90dd67ba7cb4db2e8220
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Guida alla risoluzione dei problemi e problemi noti 
 Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso dell'applicazione Azure Machine Learning Workbench. 
@@ -82,7 +82,10 @@ Quando si usa Azure ML Workbench, è anche possibile inviare una faccia imbronci
 
 - Le trasformazioni clustering del testo non sono supportate in Mac.
 
-- La libreria RevoScalePy non è supportata solo in Windows o in Linux (in contenitori Docker). Non è supportata in macOS.
+- La libreria RevoScalePy è supportata solo in Windows o in Linux (in contenitori Docker). Non è supportata in macOS.
+
+## <a name="file-name-too-long-on-windows"></a>Nome file troppo a lungo in Windows
+Se si usa Workbench in Windows, si può incorrere nel limite predefinito di 260 caratteri per la lunghezza del nome file che viene indicato con il fuorviante errore "Impossibile trovare il percorso specificato". È possibile modificare l'impostazione di una chiave del Registro di sistema per consentire nomi di percorso per i file molto più lunghi. Per altre informazioni su come configurare la chiave del Registro di sistema _MAX_PATH_, vedere [questo articolo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath).
 
 ## <a name="docker-error-read-connection-refused"></a>Errore di Docker "read: connection refused"
 In caso di esecuzione su un contenitore Docker locale, può essere talvolta visualizzato l'errore seguente: 

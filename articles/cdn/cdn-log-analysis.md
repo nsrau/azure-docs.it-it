@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: v-semcev
-ms.openlocfilehash: af396e9f8847421d529c32956216cfc47294edb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04e5499011e72dfcc20dff370d5d837227ed29b6
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analizzare i modelli di utilizzo della rete CDN di Azure
 
@@ -26,7 +26,11 @@ Dopo aver abilitato la rete CDN per l'applicazione, è possibile monitorare l'us
 
 ## <a name="verizon-core-reports"></a>Report principali da Verizon
 
-Come un utente di rete CDN di Azure con un profilo Verizon standard o premium, è possibile visualizzare i report principali da Verizon nel portale supplementare di Verizon. Il portale supplementare Verizon offre un'ampia gamma di grafici e visualizzazioni ed è accessibile tramite l'opzione **Gestisci** dal portale di Azure. Per altre informazioni, vedere [Report principali da Verizon](cdn-analyze-usage-patterns.md).
+Come un utente di rete CDN di Azure con un profilo Verizon standard o premium, è possibile visualizzare i report principali da Verizon nel portale supplementare di Verizon. I Report principali da Verizon offrono un'ampia gamma di grafici e visualizzazioni e sono accessibili tramite l'opzione **Gestisci** dal portale di Azure. Per altre informazioni, vedere [Report principali da Verizon](cdn-analyze-usage-patterns.md).
+
+## <a name="verizon-custom-reports"></a>Verizon Custom Reports (Report personalizzati da Verizon)
+
+Come un utente di rete CDN di Azure con un profilo Verizon standard o premium, è possibile visualizzare i Verizon Custom Reports (Report personalizzati da Verizon) nel portale supplementare di Verizon. I Verizon Custom Reports (Report personalizzati da Verizon) sono accessibili tramite l'opzione **Gestisci** dal portale di Azure. La pagina dei Verizon Custom Reports (Report personalizzati da Verizon) riporta il numero di riscontri o di dati trasferiti per ogni CNAME periferico appartenente a un profilo di rete CDN di Azure. I dati possono essere raggruppati per stato della cache o codice di risposta HTTP in qualsiasi periodo di tempo. Per altre informazioni, vedere [Custom Reports from Verizon](cdn-verizon-custom-reports.md) (Report personalizzati da Verizon).
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Analisi principale tramite i log di diagnostica di Azure
 

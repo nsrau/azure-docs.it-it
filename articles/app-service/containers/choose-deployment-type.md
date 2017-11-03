@@ -1,6 +1,6 @@
 ---
-title: App Web di Azure su distribuzione Linux - Immagine personalizzata o immagine della piattaforma predefinita?  | Microsoft Docs
-description: Come decidere tra una distribuzione di contenitori Docker personalizzata e un framework applicazioni predefinito
+title: Servizio app di Azure nella distribuzione Linux - Immagine personalizzata o immagine della piattaforma predefinita?  | Microsoft Docs
+description: Come scegliere tra una distribuzione di contenitori Docker personalizzata e un framework applicazioni predefinito per il servizio app in Linux
 keywords: Servizio app di Azure, app Web, Linux, OSS
 services: app-service
 documentationCenter: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: nickwalk
-ms.openlocfilehash: 322533a9dce54222943f8b2a3d653780a674c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a04bba2375b5a107bc3cb8cdc1a75d037c50af6
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="custom-image-or-built-in-platform-image"></a>Immagine personalizzata o immagine della piattaforma predefinita?
 
-[App Web in Linux](app-service-linux-intro.md) offre due percorsi diversi per pubblicare un'applicazione sul Web:
+Il [servizio app in Linux](app-service-linux-intro.md) offre due percorsi diversi per pubblicare un'applicazione sul Web:
 
 - **Distribuzione di immagini personalizzate**: integrare l'app in un'immagine Docker che contiene tutti i file e le dipendenze in un pacchetto pronto per l'esecuzione.
 - **Distribuzione di app con un'immagine della piattaforma predefinita**: le immagini di piattaforma predefinite contengono runtime e dipendenze di app Web comuni, come Node e PHP. Usare uno qualsiasi dei [metodi di distribuzione di Servizio app di Azure](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per distribuire l'app nello spazio di archiviazione dell'app Web e quindi usare un'immagine della piattaforma predefinita per eseguirla.

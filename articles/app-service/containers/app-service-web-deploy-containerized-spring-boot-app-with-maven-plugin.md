@@ -1,6 +1,6 @@
 ---
-title: Come usare il plug-in Maven per App Web di Azure per distribuire un'app Spring Boot in contenitore in Azure
-description: Informazioni su come usare il plug-in Maven per App Web di Azure per distribuire un'app Spring Boot in Azure.
+title: Come usare il plug-in Maven per l'app Web per contenitori per distribuire un'app Spring Boot in contenitore in Azure
+description: Informazioni su come usare il plug-in Maven per l'app Web per contenitori per distribuire un'app Spring Boot in Azure.
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -14,21 +14,21 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
-ms.openlocfilehash: b2de785746c8598d9d6954487b06018af3cfcc52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0329aa9b88c7542ab3235a104a0652cd217ff872
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="how-to-use-the-maven-plugin-for-azure-web-apps-to-deploy-a-containerized-spring-boot-app-to-azure"></a>Come usare il plug-in Maven per App Web di Azure per distribuire un'app Spring Boot in contenitore in Azure
+# <a name="how-to-use-the-maven-plugin-for-web-app-for-containers-to-deploy-a-containerized-spring-boot-app-to-azure"></a>Come usare il plug-in Maven per l'app Web per contenitori per distribuire un'app Spring Boot in contenitore in Azure
 
-Il [plug-in Maven per App Web di Azure](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) disponibile per [Apache Maven](http://maven.apache.org/) consente una facile integrazione del servizio app di Azure nei progetti Maven e semplifica il processo con cui gli sviluppatori distribuiscono app Web nel servizio app di Azure.
+Il [plug-in Maven per l'app Web per contenitori](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) per [Apache Maven](http://maven.apache.org/) consente una facile integrazione di Servizio app di Azure nei progetti Maven e semplifica il processo con cui gli sviluppatori distribuiscono app Web in Servizio app di Azure.
 
-Questo articolo illustra l'uso del plug-in Maven per App Web di Azure per distribuire in Servizi app di Azure un'applicazione Spring Boot di esempio in un contenitore Docker.
+Questo articolo illustra l'uso del plug-in Maven per l'app Web per contenitori per distribuire un'applicazione Spring Boot di esempio in un contenitore Docker nell'app Web per contenitori.
 
 > [!NOTE]
 >
-> Il plug-in Maven per App Web di Azure è attualmente disponibile in anteprima. Per il momento è supportata solo la pubblicazione FTP, ma sono previste in futuro funzionalità aggiuntive.
+> Il plug-in Maven per l'app Web per contenitori è attualmente disponibile in anteprima. Per il momento è supportata solo la pubblicazione FTP, ma sono previste in futuro funzionalità aggiuntive.
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -47,7 +47,7 @@ Per completare la procedura di questa esercitazione, sono necessari i prerequisi
 > A causa dei requisiti di virtualizzazione di questa esercitazione, non è possibile seguire la procedura illustrata in questo articolo in una macchina virtuale. È necessario usare un computer fisico in cui sono abilitate le funzionalità di virtualizzazione.
 >
 
-## <a name="clone-the-sample-spring-boot-on-docker-web-app"></a>Clonare l'app Web Spring Boot in Docker di esempio
+## <a name="clone-the-sample-spring-boot-application"></a>Clonare l'applicazione Spring Boot di esempio
 
 In questa sezione si clona e si testa in locale un'applicazione Spring Boot in contenitore.
 
@@ -62,7 +62,7 @@ In questa sezione si clona e si testa in locale un'applicazione Spring Boot in c
    cd /users/robert/SpringBoot
    ```
 
-1. Clonare il progetto di esempio [Spring Boot on Docker Getting Started] (Introduzione a Spring Boot in Docker) nella directory appena creata, ad esempio:
+1. Clonare il progetto di esempio [Spring Boot con Docker] nella directory creata, ad esempio:
    ```shell
    git clone https://github.com/microsoft/gs-spring-boot-docker
    ```
@@ -155,7 +155,7 @@ In questa sezione si usano i valori dell'entità servizio di Azure per configura
    `<client>` | Contiene il valore `appId` dell'entità servizio.
    `<tenant>` | Contiene il valore `tenant` dell'entità servizio.
    `<key>` | Contiene il valore `password` dell'entità servizio.
-   `<environment>` | Definisce l'ambiente cloud di Azure di destinazione, che in questo esempio è `AZURE`. Un elenco completo degli ambienti è disponibile nella documentazione del [plug-in Maven per App Web di Azure].
+   `<environment>` | Definisce l'ambiente cloud di Azure di destinazione, che in questo esempio è `AZURE`. Un elenco completo degli ambienti è disponibile nella documentazione del [plug-in Maven per l'app Web per contenitori].
 
 1. Salvare e chiudere il file *settings.xml*.
 
@@ -181,7 +181,7 @@ Se si ha un account Docker, è possibile compilare l'immagine del contenitore Do
       mvn clean package docker:build
       docker push
       ```
-   
+
    * Se è installato il [plug-in Docker per Maven], è possibile compilare automaticamente l'immagine del contenitore nell'hub Docker usando il parametro `-DpushImage`:
       ```shell
       mvn clean package docker:build -DpushImage
@@ -216,15 +216,15 @@ Aprire il file `pom.xml` per l'applicazione Spring Boot in un editor di testo e 
    </plugin>
    ```
 
-È possibile modificare diversi valori per il plug-in Maven. Una descrizione dettagliata di ognuno di questi elementi è disponibile nella documentazione del [plug-in Maven per App Web di Azure]. Dopo questa premessa, in questo articolo è opportuno evidenziare diversi valori:
+È possibile modificare diversi valori per il plug-in Maven. Una descrizione dettagliata di ognuno di questi elementi è disponibile nella documentazione del [plug-in Maven per l'app Web per contenitori]. Dopo questa premessa, in questo articolo è opportuno evidenziare diversi valori:
 
 Elemento | Descrizione
 ---|---|---
-`<version>` | Specifica la versione del [plug-in Maven per App Web di Azure]. È consigliabile controllare la versione riportata nel [repository centrale Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) per assicurarsi di usare l'ultima versione.
+`<version>` | Specifica la versione del [plug-in Maven per l'app Web per contenitori]. È consigliabile controllare la versione riportata nel [repository centrale Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) per assicurarsi di usare l'ultima versione.
 `<authentication>` | Specifica le informazioni di autenticazione per Azure, che in questo esempio includono un elemento `<serverId>` contenente `azure-auth`. Maven usa questo valore per cercare i valori dell'entità servizio di Azure nel file *settings.xml* di Maven, in base a quanto definito in una sezione precedente di questo articolo.
 `<resourceGroup>` | Specifica il gruppo di risorse di destinazione, che in questo esempio è `maven-plugin`. Se non esiste già, questo gruppo di risorse verrà creato durante la distribuzione.
 `<appName>` | Specifica il nome di destinazione dell'app Web. In questo esempio, il nome di destinazione è `maven-linux-app-${maven.build.timestamp}` e il suffisso `${maven.build.timestamp}` viene accodato per evitare conflitti. Il timestamp è facoltativo. Come nome dell'app è possibile specificare qualsiasi stringa univoca.
-`<region>` | Specifica l'area di destinazione, che in questo esempio è `westus`. Un elenco completo è disponibile nella documentazione del [plug-in Maven per App Web di Azure].
+`<region>` | Specifica l'area di destinazione, che in questo esempio è `westus`. Un elenco completo è disponibile nella documentazione del [plug-in Maven per l'app Web per contenitori].
 `<appSettings>` | Specifica qualsiasi impostazione univoca che dovrà essere usata da Maven durante la distribuzione dell'app Web in Azure. In questo esempio, un elemento `<property>` contiene una coppia nome-valore di elementi figlio che specificano la porta dell'app.
 
 > [!NOTE]
@@ -252,7 +252,7 @@ Maven distribuirà l'app Web in Azure. Se l'app Web non esiste già, verrà crea
 >
 > Se nell'area specificata nell'elemento `<region>` del file *pom.xml* non sono disponibili server sufficienti quando si avvia la distribuzione, potrebbe essere visualizzato un errore simile all'esempio seguente:
 >
-> ```
+> ```bash
 > [INFO] Start deploying to Web App maven-linux-app-20170804...
 > [INFO] ------------------------------------------------------------------------
 > [INFO] BUILD FAILURE
@@ -303,11 +303,11 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 Per altre informazioni sulle varie tecnologie illustrate in questo articolo, vedere gli articoli seguenti:
 
-* [plug-in Maven per App Web di Azure]
+* [plug-in Maven per l'app Web per contenitori]
 
 * [Accedere ad Azure dall'interfaccia della riga di comando di Azure](/azure/xplat-cli-connect)
 
-* [Come usare il plug-in Maven per App Web di Azure per distribuire un'app Spring Boot nel servizio app di Azure](../app-service-web-deploy-spring-boot-app-with-maven-plugin.md)
+* [Come usare il plug-in Maven per l'app Web per contenitori per distribuire un'app Spring Boot in Servizio app di Azure in Linux](../app-service-web-deploy-spring-boot-app-with-maven-plugin.md)
 
 * [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
 
@@ -329,9 +329,9 @@ Per altre informazioni sulle varie tecnologie illustrate in questo articolo, ved
 [Maven]: http://maven.apache.org/
 [vantaggi per i sottoscrittori di MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Spring Boot on Docker Getting Started]: https://github.com/spring-guides/gs-spring-boot-docker (Introduzione a Spring Boot in Docker)
+[Spring Boot on Docker Getting Started]: https://github.com/spring-guides/gs-spring-boot-docker
 [Spring Framework]: https://spring.io/
-[plug-in Maven per App Web di Azure]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
+[plug-in Maven per l'app Web per contenitori]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 

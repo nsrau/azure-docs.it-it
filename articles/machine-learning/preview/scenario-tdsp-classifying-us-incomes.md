@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: c0fbd9b3e6f9f9f4f7a5d3e6bda18ce1312650e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificazione dei redditi con un progetto di Team Data Science Process (TDSP)
 
@@ -63,7 +63,7 @@ Per salvare e sottoporre al controllo delle versioni il progetto e il suo conten
 * [FAQ - How to get started](frequently-asked-questions.md) (Domande frequenti - Come iniziare)
 * [Panoramica](overview-what-is-azure-ml.md)
 * [Installazione](quickstart-installation.md)
-* [Execution](experiment-execution-configuration.md) (Esecuzione)
+* [Execution](experimentation-service-configuration.md) (Esecuzione)
 * [Uso di TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Leggere e scrivere file](how-to-read-write-files.md)
 * [Using Git with Azure Machine Learning](using-git-ml-project.md) (Uso di Git con Azure Machine Learning)
@@ -108,7 +108,7 @@ Il progetto viene creato in base alle istruzioni fornite [qui](https://aka.ms/ho
 <img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
 
 ### <a name="execution"></a>Esecuzione
-In questo esempio il codice viene eseguito nell'**ambiente di calcolo locale**. Per altre informazioni sulle [opzioni di esecuzione](experiment-execution-configuration.md), fare riferimento alla documentazione di Azure Machine Learning.
+In questo esempio il codice viene eseguito nell'**ambiente di calcolo locale**. Per altre informazioni sulle [opzioni di esecuzione](experimentation-service-configuration.md), fare riferimento alla documentazione di Azure Machine Learning.
 
 L'esecuzione di uno script Python in un runtime Python locale è semplice:
 

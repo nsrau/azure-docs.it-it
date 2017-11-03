@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: f52520f88d36914d4cad7c8aea4fb21e44b3cc9d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 34255e8ada8dfb00b3c02ca2ab22f94bd3e0954d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure
 
@@ -145,8 +145,8 @@ Macchine virtuali migrate tramite Site Recovery | Supportato | Se si tratta di u
 
 **Configurazione** | **Supportato/Non supportato** | **Osservazioni**
 --- | --- | ---
-Dimensioni massime del disco del sistema operativo | 1023 GB | Vedere [Dischi usati dalle VM.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Dimensioni massime del disco dati | 1023 GB | Vedere [Dischi usati dalle VM.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Dimensioni massime del disco del sistema operativo | 2048 GB | Vedere [Dischi usati dalle VM.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Dimensioni massime del disco dati | 4095 GB | Vedere [Dischi usati dalle VM.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Numero di dischi dati | Fino a 64 come supportato da una dimensione specifica di una macchina virtuale di Azure | Vedere [Dimensioni delle macchine virtuali di Azure](../virtual-machines/windows/sizes.md)
 Disco temporaneo | Sempre escluso dalla replica | Il disco temporaneo è sempre escluso dalla replica. Non è opportuno inserire dati persistenti su un disco temporaneo in base alle indicazioni di Azure. Vedere [Disco temporaneo sulle macchine virtuali di Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) per ulteriori dettagli.
 Frequenza di modifica dei dati sul disco | Massimo 6 MB/s per disco | Se la frequenza di modifica dei dati sul disco supera costantemente 6 MB/s, la replica non verrà aggiornata. Se invece si tratta di un picco di dati occasionale e la frequenza di modifica dei dati supera 6 MB/s solo per un breve intervallo, la replica verrà aggiornata. In questo caso, potrebbero verificarsi punti di ripristino leggermente ritardati.

@@ -1,5 +1,5 @@
 ---
-title: Raccolte connessioni per il database di Azure per PostgreSQL | Documentazione Microsoft
+title: Raccolte connessioni per il database di Azure per PostgreSQL | Microsoft Docs
 description: In questo articolo vengono descritte varie librerie e driver che gli sviluppatori possono usare per generare il codice delle applicazioni per la connessione e l'esecuzione di query nel database di Azure per PostgreSQL.
 services: postgresql
 author: SaloniSonpal
@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 35b7f026aa05fb16d57f49b93edff831b43268db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Raccolte connessioni per il database di Azure per PostgreSQL
 In questo argomento vengono elencate le librerie e i driver che gli sviluppatori possono usare per programmare le applicazioni per la connessione e l'esecuzione di query in Database di Azure per PostgreSQL.
@@ -37,4 +37,4 @@ La maggior parte delle librerie client di linguaggio usate per connettersi al se
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere queste guide introduttive per informazioni su come connettersi ed eseguire query in Database di Azure per PostgreSQL usando il linguaggio scelto:
 
-[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md)  |  [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

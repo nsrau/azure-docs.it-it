@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Monitorare e ottenere informazioni dettagliate sulle esecuzioni dell'app per la logica con Operations Management Suite (OMS) e Log Analytics
 
@@ -97,7 +97,7 @@ Se Log Analytics è già stato attivato al momento della creazione dell'app per 
 
 2. Per visualizzare un riepilogo con dettagli aggiuntivi sulle esecuzioni dell'app per la logica, scegliere il riquadro **Logic Apps Management** (Gestione delle app per la logica).
 
-   In questo riquadro le esecuzioni dell'app per la logica vengono raggruppate in base al nome o allo stato di esecuzione.
+   In questo riquadro le esecuzioni dell'app per la logica vengono raggruppate in base al nome o allo stato di esecuzione. È anche possibile vedere i dettagli sugli errori di azioni o trigger per le esecuzioni delle app per la logica.
 
    ![Riepilogo dello stato per le esecuzioni dell'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
    
@@ -107,8 +107,16 @@ Se Log Analytics è già stato attivato al momento della creazione dell'app per 
 
    ![Visualizzare le esecuzioni per un'app per la logica o uno stato](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   > [!NOTE]
-   > Nella colonna **Nuovo invio** le esecuzioni risultanti da un nuovo invio di un'esecuzione sono contrassegnate con il valore "Sì".
+   In questa pagina sono disponibili due opzioni avanzate:
+   * **Proprietà rilevate:** questa colonna mostra le proprietà rilevate per l'app per la logica, raggruppate per azioni. Per visualizzare le proprietà rilevate, scegliere **Visualizza**. È possibile cercare le proprietà rilevate tramite il filtro di colonna.
+   
+     ![Visualizzare le proprietà rilevate per un'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+
+     Tutte le proprietà rilevate che vengono aggiunte potrebbero richiedere 10-15 minuti per essere visualizzate la prima volta. Informazioni su [come aggiungere proprietà rilevate all'app per la logica](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
+
+   * **Invia di nuovo:** è possibile inviare di nuovo una o più esecuzioni di app per la logica che non sono riuscite, che sono riuscite o che sono ancora in esecuzione. Selezionare le caselle di controllo per le esecuzioni che si desidera inviare di nuovo, quindi scegliere **Invia di nuovo**. 
+
+     ![Inviare di nuovo le esecuzioni delle app per la logica](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 4. Per filtrare questi risultati, è possibile applicare un filtro sia sul lato client sia sul lato server.
 
@@ -122,14 +130,23 @@ Se Log Analytics è già stato attivato al momento della creazione dell'app per 
    
      ![Modificare l'intervallo di tempo](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
-5. Per visualizzare tutte le azioni e i relativi dettagli per un'esecuzione specifica, selezionare una riga. Verrà visualizzata la pagina Ricerca log. 
+5. Per visualizzare tutte le azioni e i relativi dettagli per un'esecuzione specifica, selezionare la riga dell'esecuzione dell'app per la logica desiderata.
 
-   * Per visualizzare queste informazioni in una tabella, scegliere **Tabella**.
+   L'esempio seguente mostra tutte le azioni di un'esecuzione specifica di un'app per la logica:
+
+   ![Visualizzare le azioni per un'esecuzione dell'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
+   
+6. In qualsiasi pagina di risultati, per visualizzare la query che ha generato i risultati o per visualizzare tutti i risultati, scegliere **Mostra tutto**, che apre la pagina Ricerca log.
+   
+   ![Mostra tutto sulle pagine di risultati](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
+   
+   Nella pagina Ricerca log,
+   * Per visualizzare i risultati della query in una tabella, scegliere **Tabella**.
    * Per modificare la query, è possibile modificare la stringa di query nella barra di ricerca. 
    Per un'esperienza migliore, scegliere **Analisi avanzata**.
 
      ![Visualizzare azioni e i dettagli per un'esecuzione dell'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-
+     
      Nella pagina di Azure Log Analytics è possibile aggiornare le query e visualizzare i risultati dalla tabella. 
      Questa query usa [il linguaggio di query Kusto](https://docs.loganalytics.io/docs/Language-Reference), che può essere modificato se si preferisce visualizzare risultati diversi. 
 
@@ -138,3 +155,4 @@ Se Log Analytics è già stato attivato al momento della creazione dell'app per 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Monitorare i messaggi B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
+

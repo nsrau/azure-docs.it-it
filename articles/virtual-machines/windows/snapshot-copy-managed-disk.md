@@ -1,8 +1,8 @@
 ---
-title: Copiare un disco gestito di Azure per il backup | Microsoft Docs
-description: Informazioni su come creare una copia di un disco gestito di Azure da usare per il backup o sulla risoluzione dei problemi relativi al disco.
+title: Creare uno snapshot di un disco rigido virtuale in Azure | Microsoft Docs
+description: Informazioni su come creare una copia di una macchina virtuale di Azure da usare come backup o per la risoluzione dei problemi.
 documentationcenter: 
-author: cwatson-cat
+author: cynthn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -12,31 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 2/9/2017
-ms.author: cwatson
-ms.openlocfilehash: c19b5156bc23b06de48bc7a6dc786f576f78127d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/09/2017
+ms.author: cynthn
+ms.openlocfilehash: dba70db512d88dfc57107bade0df50d1834eb883
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
-# <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Creare una copia di un disco rigido virtuale archiviato come disco gestito di Azure usando snapshot gestiti
-Creare uno snapshot di un disco gestito per il backup o creare un disco gestito dallo snapshot e collegarlo a una macchina virtuale di prova per risolvere i problemi. Uno snapshot gestito è una copia temporizzata completa di un disco gestito di macchina virtuale. Uno snapshot crea una copia di sola lettura del disco rigido virtuale che, per impostazione predefinita, viene memorizzato come disco gestito Standard. Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Panoramica di Azure Managed Disks).
+# <a name="create-a-snapshot"></a>Creare uno snapshot
 
-Per informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/managed-disks/). 
+Fare uno snapshot di un disco rigido virtuale del sistema operativo o di un disco dati per il backup o per risolvere i problemi della macchina virtuale. Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. 
 
-## <a name="before-you-begin"></a>Prima di iniziare
-Se si usa PowerShell, verificare di avere la versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
-
-```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Per altre informazioni, vedere [Azure PowerShell Versioning](/powershell/azure/overview) (Controllo delle versioni di Azure PowerShell).
-
-## <a name="copy-the-vhd-with-a-snapshot"></a>Copiare il disco rigido virtuale con uno snapshot
-Usare il portale di Azure o PowerShell per creare uno snapshot del disco gestito.
-
-### <a name="use-azure-portal-to-take-a-snapshot"></a>Usare il portale di Azure per creare uno snapshot 
+## <a name="use-azure-portal-to-take-a-snapshot"></a>Usare il portale di Azure per creare uno snapshot 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. In alto a sinistra fare clic su **Nuovo** e cercare **Snapshot**.
@@ -48,22 +36,25 @@ Usare il portale di Azure o PowerShell per creare uno snapshot del disco gestito
 8. Selezionare il **tipo di account** da usare per archiviare lo snapshot. È consigliabile usare il tipo **Standard_LRS** a meno che non sia necessario archiviare lo snapshot su un disco a prestazioni elevate.
 9. Fare clic su **Crea**.
 
-### <a name="use-powershell-to-take-a-snapshot"></a>Utilizzare PowerShell per creare uno snapshot
-La procedura seguente mostra come ottenere il disco rigido virtuale da copiare, creare le configurazioni di snapshot e ottenere uno snapshot del disco tramite il cmdlet New-AzureRmSnapshot<!--Add link to cmdlet when available-->. 
+## <a name="use-powershell-to-take-a-snapshot"></a>Utilizzare PowerShell per creare uno snapshot
+La procedura seguente mostra come ottenere il disco rigido virtuale da copiare, creare configurazioni di snapshot e fare uno snapshot del disco tramite il cmdlet [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
+
+Verificare di aver installato la versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
+
+```
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](/powershell/azure/overview).
+
 
 1. Impostare alcuni parametri. 
 
  ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
-$location = 'southeastasia' 
-$dataDiskName = 'ContosoMD_datadisk1' 
-$snapshotName = 'ContosoMD_datadisk1_snapshot1'  
+$location = 'eastus' 
+$dataDiskName = 'myDisk' 
+$snapshotName = 'mySnapshot'  
 ```
-  Sostituire i valori dei parametri:
-  -  "myResourceGroup" con il gruppo di risorse della macchina virtuale.
-  -  "southeastasia" con la posizione geografica in cui si desidera archiviare lo snapshot gestito. <!---How do you look these up? -->
-  -  "ContosoMD_datadisk1" con il nome del disco del disco rigido virtuale da copiare.
-  -  "ContosoMD_datadisk1_snapshot1" con il nome da utilizzare per il nuovo snapshot.
 
 2. Ottenere il disco rigido virtuale da copiare.
 
@@ -82,4 +73,6 @@ New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGro
 ```
 Se si prevede di usare lo snapshot per creare un disco gestito e associarlo a una macchina virtuale a prestazioni elevate, usare il parametro `-AccountType Premium_LRS` con il comando New-AzureRmSnapshot. Il parametro crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. I dischi gestiti Premium sono più costosi di quelli Standard. Pertanto, assicurarsi che l'opzione Premium sia realmente necessaria prima di usare tale parametro.
 
+## <a name="next-steps"></a>Passaggi successivi
 
+Crea una macchina virtuale da uno snapshot creando un disco gestito dallo snapshot e quindi collegando il nuovo disco gestito come disco del sistema operativo. Per altre informazioni, vedere l'esempio [Creare una macchina virtuale da uno snapshot](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).

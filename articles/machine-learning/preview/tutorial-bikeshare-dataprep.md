@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 722657c9bbae23a051a63972a8800d3cc40e7e40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Esercitazione sul bike sharing: preparazione avanzata dei dati con Azure Machine Learning Workbench
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end che consente a data scientist professionisti di preparare i dati, sviluppare esperimenti e distribuire modelli a livello di cloud.
@@ -210,7 +210,7 @@ La colonna __REPORTTYPE__ non è più necessaria. Fare clic con il pulsante dest
    ![Immagine dell'opzione Remove Column (Rimuovi colonna)](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Modificare i tipi di dati e rimuovere gli errori
-1. Premendo __CTRL__ mentre si selezionano le intestazioni di colonna, è possibile selezionare più colonne contemporaneamente. Usare questa opzione per selezionare le intestazioni di colonna seguenti:
+1. Premendo __CTRL, comando ⌘ su Mac,__ mentre si selezionano le intestazioni di colonna, è possibile selezionare più colonne contemporaneamente. Usare questa opzione per selezionare le intestazioni di colonna seguenti:
    * **HOURLYDRYBULBTEMPF**
    * **HOURLYRelativeHumidity**
    * **HOURLYWindSpeed**
@@ -262,6 +262,9 @@ Per usare i dati in una stima per blocchi di due ore, è necessario calcolare le
    > [!NOTE]
    > Azure Machine Learning Workbench sintetizza un programma basato sugli esempi forniti e applica lo stesso programma alle righe rimanenti. Tutte le altre righe vengono popolate automaticamente in base all'esempio specificato. Il Workbench analizza anche i dati e tenta di identificare i casi limite. 
 
+   > [!IMPORTANT]
+   > L'identificazione dei casi limite potrebbe non funzionare sul Mac nella versione attuale del Workbench. Ignorare i __passaggi 3__ e __4__ di seguito per il Mac. Premere invece __OK__ dopo aver compilato tutte le righe con i valori derivati.
+   
 3. Il testo **Analyzing Data** (Analisi dei dati) sopra la griglia indica il Workbench sta tentando di rilevare i casi limite. Al termine, lo stato cambierà in **Review next suggested row** (Rivedi riga successiva suggerita) o **No suggestions** (Nessun suggerimento). In questo esempio viene restituito **Review next suggested row** (Rivedi riga successiva suggerita).
 
 4. Per rivedere le modifiche suggerite, selezionare **Review next suggested row** (Rivedi riga successiva suggerita). La cella che è necessario rivedere e correggere (se necessario) viene evidenziata sullo schermo.
@@ -290,6 +293,12 @@ Per usare i dati in una stima per blocchi di due ore, è necessario calcolare le
    Il Workbench determina la trasformazione in base all'esempio fornito. In questo esempio il risultato è che il formato della data viene modificato e concatenato con l'intervallo di due ore.
 
    ![Immagine dell'esempio Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
+
+   > [!IMPORTANT]
+   > In Mac seguire il passaggio seguente invece del __passaggio 8__ di seguito.
+   >
+   > * Passare alla prima cella contenente `Feb 01, 2015 12AM-2AM`. Deve essere la __riga 15__. Correggere il valore inserendo `Jan 02, 2015 12AM-2AM` e premere __Invio__. 
+   
 
 8. Attendere che lo stato cambi da **Analyzing Data** (Analisi dei dati) a **Review next suggested row** (Rivedi riga successiva suggerita). Ciò può richiedere alcuni secondi. Selezionare il collegamento dello stato per passare alla riga suggerita. 
 
@@ -392,7 +401,7 @@ Per la preparazione dei dati sono disponibili numerose visualizzazioni utili chi
 1. Selezionare contemporaneamente le colonne **start station latitude** e **start station longitude**. Fare clic con il pulsante destro del mouse su una delle colonne e quindi selezionare **Map** (Mappa).
 
     > [!TIP]
-    > Per abilitare la selezione multipla, tenere premuto __CTRL__ e selezionare l'intestazione di ogni colonna.
+    > Per abilitare la selezione multipla, tenere premuto __CTRL, il comando ⌘ su Mac,__ e selezionare l'intestazione di ogni colonna.
 
     ![Immagine della visualizzazione mappa](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -506,6 +515,11 @@ Per riepilogare la richiesta di biciclette per un periodo di due ore, usare colo
 
     ![Immagine dei dati di esempio](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
 
+   > [!IMPORTANT]
+   > In Mac seguire il passaggio seguente invece del __passaggio 3__ di seguito.
+   >
+   > * Passare alla prima cella contenente `Jan 01, 2017 1AM-2AM`. Deve essere la __riga 14__. Correggere il valore inserendo `Jan 01, 2017 12AM-2AM` e premere __Invio__. 
+
 3. Attendere che l'applicazione calcoli i valori in base a tutte le righe. Ciò può richiedere alcuni secondi. Al termine dell'analisi, usare il collegamento __Review next suggested row__ (Rivedi riga successiva suggerita) per esaminare i dati.
 
    ![Immagine dell'analisi completata con il collegamento per la revisione](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -557,7 +571,7 @@ Per creare un join dei dati meteo e di quelli sulle tratte, usare la procedura s
 
     ![Immagine della colonna dell'intervallo di tempo](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Per rimuovere le colonne **Date Hour Range** e **rDate Hour Range**, premere **CTRL** e selezionare ogni intestazione di colonna. Fare clic con il pulsante destro del mouse e quindi selezionare **Remove Column** (Rimuovi colonna).
+3. Per rimuovere le colonne **Date Hour Range** (Intervallo data e ora) e **rDate Hour Range** (Intervallo oraria rDate), premere **CTRL, comando ⌘ su Mac,** e selezionare ogni intestazione di colonna. Fare clic con il pulsante destro del mouse e quindi selezionare **Remove Column** (Rimuovi colonna).
 
 ## <a name="read-data-from-python"></a>Leggere i dati da Python
 

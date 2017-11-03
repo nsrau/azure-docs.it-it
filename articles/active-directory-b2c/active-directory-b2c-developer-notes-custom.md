@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 05/05/2017
+ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fa4665115e0682df7c3fe3d8e2664a0f7a77a07
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Note sulla versione di anteprima pubblica dei criteri personalizzati di Azure Active Directory B2C
 Il set di funzionalità dei criteri personalizzati è ora disponibile per la valutazione in anteprima pubblica per tutti i clienti di Azure Active Directory B2C (Azure AD B2C). Questo set di funzionalità è destinato agli sviluppatori esperti che creano le soluzioni di gestione delle identità più complesse.  
@@ -48,18 +48,100 @@ Con le nuove funzionalità introdotte nell'anteprima pubblica, gli sviluppatori 
 La configurazione manuale dei criteri garantisce un accesso di livello inferiore alla piattaforma sottostante di Azure AD B2C e determina la creazione di un framework attendibilità interamente personalizzabile e univoco. Le possibili permutazioni di provider di identità personalizzati, relazioni di trust, integrazioni con servizi esterni e flussi di lavoro dettagliati risultano particolarmente impegnative per gli sviluppatori esperti da cui vengono utilizzate.
 
 Per sfruttare appieno l'anteprima pubblica, è consigliabile che gli sviluppatori che utilizzano il set di funzionalità dei criteri personalizzati si attengano alle linee guida seguenti:
-* Acquisire familiarità con il linguaggio di configurazione del motore dell'esperienza di gestione delle identità e con la gestione di chiavi e segreti.
+* Acquisire familiarità con il linguaggio di configurazione del framework dell'esperienza di gestione delle identità e con la gestione di chiavi e segreti.
 * Assumere la proprietà degli scenari e delle integrazioni personalizzate.
 * Eseguire test metodici degli scenari.
 * Seguire le procedure consigliate di staging e sviluppo software con almeno un ambiente di sviluppo e testing e un ambiente di produzione.
 * Mantenersi aggiornati sui nuovi sviluppi dei servizi e dei provider di identità con cui viene eseguita l'integrazione. Ad esempio, tenere traccia delle modifiche dei segreti e delle modifiche pianificate e non pianificate del servizio.
 * Configurare il monitoraggio attivo e monitorare il tempo di risposta degli ambienti di produzione.
-* Mantenere aggiornati gli indirizzi di posta elettronica di contatto e prestare attenzione ai messaggi di posta elettronica del team del sito live Microsoft.
+* Mantenere aggiornati gli indirizzi di posta elettronica di contatto nella sottoscrizione di Azure e prestare attenzione ai messaggi di posta elettronica del team del sito live Microsoft.
 * Intervenire tempestivamente quando consigliato del team del sito live Microsoft. 
 
+## <a name="features-by-stage-and-known-issues"></a>Funzionalità per fase e problemi noti
+Le funzionalità dei criteri personalizzati e del framework dell'esperienza di gestione delle identità sono in costante e rapida evoluzione.  Questa tabella è un indice di funzionalità/disponibilità dei componenti.
 
->[!NOTE]
->Queste funzionalità potrebbero essere infine incluse nei criteri predefiniti di Azure AD, diventando così accessibili a tutti gli sviluppatori.
+Pubblicare domande su Stack Overflow all'indirizzo [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+
+
+### <a name="identity-providers-tokens-protocols"></a>Provider di identità, token, protocolli
+Interfacce con applicazioni e componenti esterni
+
+| Funzionalità | Sviluppo. | Preview | GA | Note |
+|---------------------------------------------|-------------|---------|----|-------|
+| IDP-OpenIDConnect |  | x |  | Ad esempio, Google+ |
+| IDP-OAUTH2 |  | x |  | Ad esempio, Facebook  |
+| IDP-OAUTH1 |  | x |  | Ad esempio, Twitter |
+| IDP-SAML |  | x |  | Ad esempio, Salesforce, AD FS |
+| IDP-WSFED | x |  |  |  |
+| Relying party OAUTH |  | x |  |  |
+| Relying Party OIDC |  | x |  |  |
+| Relying Party SAML | x |  |  |  |
+| Relying Party WSFED | x |  |  |  |
+| API REST con autenticazione di base e del certificato |  | x |  | Ad esempio, Funzioni di Azure |
+
+
+### <a name="component-support"></a>Supporto dei componenti
+
+
+| Funzionalità | Sviluppo. | Preview | GA | Note |
+|-------------------------------------------|-------------|---------|----|-------|
+| Azure Multi-Factor Authentication |  | x |  |  |
+| Azure Active Directory come directory locale |  | x |  |  |
+| Sottosistema di posta elettronica di Azure per l'autenticazione a due fattori |  | x |  |  |
+| Supporto per più linguaggi|  | x |  |  |
+| Complessità password | x |  |  |  |
+
+
+### <a name="content-definition"></a>Definizione del contenuto
+
+| Funzionalità | Sviluppo. | Preview | GA | Note |
+|-----------------------------------------------------------------------------|-------------|---------|----|-------|
+|   Pagina di errore, api.error |  | x |  |  |
+|   Pagina di selezione IDP, api.idpselections |  | x |  |  |
+|   Selezione IDP per l'iscrizione, api.idpselections.signup |  | x |  |  |
+|   Password dimenticata, api.localaccountpasswordreset |  | x |  |  |
+|   Accesso all'account locale, api.localaccountsignin |  | x |  |  |
+|   Iscrizione dell'account locale, api.localaccountsignin |  | x |  |  |
+|   Pagina MFA, api.phonefactor |  | x |  |  |
+|   Autocertificazione, ad esempio iscrizione all'account di social networking, api.selfasserted |  | x |  |  |
+|   Aggiornamento del profilo autocertificato, api.selfasserted.profileupdate |  | x |  |  |
+|   Pagina di accesso o iscrizione unificata, api.signuporsignin |  | x |  |  |
+
+
+### <a name="app-ief-integration"></a>Integrazione del framework dell'esperienza di gestione delle identità dell'app
+| Funzionalità | Sviluppo. | Preview | GA | Note |
+|--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
+| Parametro di stringa della query id_token_hint | x |  |  |  |
+| Parametro di stringa della query domain_hint |  | x |  | Disponibile come attestazione, può essere passato a all'IDP |
+| Parametro di stringa della query login_hint |  | x |  | Disponibile come attestazione, può essere passato a all'IDP |
+| Inserimento di JSON in UserJourney tramite client_assertion | x |  |  | Verrà deprecato |
+| Inserimento di JSON in UserJourney come id_token_hint | x |  |  | Approccio di avanzamento per passare JSON |
+
+
+### <a name="session-management"></a>Gestione delle sessioni
+
+| Funzionalità | Sviluppo. | Preview | GA | Note |
+|---------------------------------|-------------|---------|----|-------|
+| Provider di sessioni SSO |  | x |  |  |
+| Provider di sessioni di accesso esterno |  | x |  |  |
+| Provider di sessioni SSO SAML |  | x |  |  |
+
+
+### <a name="security"></a>Sicurezza
+| Funzionalità | Sviluppo. | Preview | GA | Note |
+|---------------------------------------------|-------------|---------|----|-------|
+| Chiavi dei criteri: generazione, manuale, caricamento |  | x |  |  |
+| Chiavi dei criteri: RSA/certificato, segreti |  | x |  |  |
+
+
+### <a name="developer-interface"></a>Interfaccia di sviluppo
+| Funzionalità | Sviluppo. | Preview | GA | Note |
+|---------------------------------------------|-------------|---------|----|-------|
+| Portale di Azure: esperienza utente del framework dell'esperienza di gestione delle identità |  | x |  |  |
+| Log UserJourney di Application Insights  |  | x |  |  |
+| Log eventi di Application Insights |x|  |  |  |
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md)

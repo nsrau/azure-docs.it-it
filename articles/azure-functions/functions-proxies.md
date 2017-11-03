@@ -1,9 +1,9 @@
 ---
-title: Usare i proxy in Funzioni di Azure | Documentazione Microsoft
+title: Usare i proxy in Funzioni di Azure | Microsoft Docs
 description: Informazioni generali sull'uso dei proxy in Funzioni di Azure
 services: functions
 documentationcenter: 
-author: mattchenderson
+author: alexkarcher-msft
 manager: cfowler
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: mahender
-ms.openlocfilehash: 63119978c59186a71e7e30438e8e37c0b2e1b454
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alkarche
+ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="work-with-azure-functions-proxies-preview"></a>Usare i proxy di Funzioni di Azure (anteprima)
 
@@ -28,18 +28,6 @@ ms.lasthandoff: 10/11/2017
 Questo articolo illustra come configurare e usare i proxy in Funzioni di Azure. Questa funzionalità consente di specificare gli endpoint nell'app per le funzioni implementati da un'altra risorsa. È possibile usare questi proxy per suddividere un'API di grandi dimensioni in più app per le funzioni (come in un'architettura di microservizio), pur continuando a presentare una singola superficie API per i client.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
-
-
-## <a name="enable"></a>Abilitare i proxy di Funzioni di Azure
-
-I proxy non sono abilitati per impostazione predefinita. È possibile creare i proxy quando la funzionalità è disabilitata, ma non è possibile eseguirli. Per abilitare i proxy, seguire questa procedura:
-
-1. Aprire il [Portale di Azure] e passare all'app per le funzioni.
-2. Selezionare **Impostazioni dell'app per le funzioni**.
-3. Impostare **Abilita Proxy di Funzioni di Azure (anteprima)** su **On**.
-
-È inoltre possibile ritornare qui per aggiornare il runtime del proxy man mano che le nuove funzioni diventano disponibili.
-
 
 ## <a name="create"></a>Creare un proxy
 
@@ -206,6 +194,16 @@ Un esempio di configurazione apparirà come segue:
 ```
 > [!NOTE] 
 > In questo esempio, il corpo viene impostato direttamente, pertanto non p necessaria lacuna proprietà `backendUri`. L'esempio illustra come usare i proxy di Funzioni di Azure per le API di simulazione.
+
+## <a name="enable"></a>Abilitare i proxy di Funzioni di Azure
+
+I proxy sono ora abilitati per impostazione predefinita. Se si usa una versione precedente dell'anteprima dei proxy e i proxy sono disattivati, è necessario attivarli manualmente una sola volta per eseguirli.
+
+1. Aprire il [Portale di Azure] e passare all'app per le funzioni.
+2. Selezionare **Impostazioni dell'app per le funzioni**.
+3. Impostare **Abilita Proxy di Funzioni di Azure (anteprima)** su **On**.
+
+È inoltre possibile ritornare qui per aggiornare il runtime del proxy man mano che le nuove funzioni diventano disponibili.
 
 [Portale di Azure]: https://portal.azure.com
 [trigger HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

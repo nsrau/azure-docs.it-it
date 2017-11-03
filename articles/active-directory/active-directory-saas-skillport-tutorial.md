@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 668fc5ae4f964bd776904c3a9dbc2b203689d50c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3d9c2c08a3b23530ab772e5f0532ac2f9dcc9a3
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Esercitazione: Integrazione di Azure Active Directory con Skillport
 
@@ -110,20 +110,23 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente:
+    a. Nella casella di testo **URL accesso** digitare l'URL:
       
-      Data center UE: `https://<subdomain>.skillport.eu`
+      Data center UE: `https://adfs.skillport.eu`
    
-      Data center USA: `https://<subdomain>.skillport.com`
-   
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando i modelli seguenti:
-    
-      Data center UE: `https://<subdomain>.skillport.eu/adfs/ls/`
-    
-      Data center USA: `https://<subdomain>.skillport.com/sp/ACS.saml2`
+      Data center USA: `https://sso.skillport.com`
 
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Skillport](https://www.skillsoft.com/contact.asp).
+    b. Nella casella di testo **Identificatore** digitare l'URL:
+      
+      Data center UE: `http://adfs.skillport.eu/adfs/services/trust`
+   
+      Data center USA: `https://sso.skillport.com`
+   
+    c. Nella casella di testo **URL di risposta** digitare l'URL:
+    
+      Data center UE: ` https://adfs.skillport.eu/adfs/ls/`
+    
+      Data center USA: `https://sso.skillport.com/sp/ACS.saml2`
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 

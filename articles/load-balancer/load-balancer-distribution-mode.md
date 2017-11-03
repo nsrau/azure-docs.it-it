@@ -1,6 +1,6 @@
 ---
-title: "Configurare la modalità di distribuzione del bilanciamento del carico |Documentazione Microsoft"
-description: "Come configurare la modalità di distribuzione del bilanciamento del carico di Azure per supportare l'affinità IP di origine"
+title: "Configurare la modalità di distribuzione di Azure Load Balancer |Microsoft Docs"
+description: "Come configurare la modalità di Azure Load Balancer per supportare l'affinità IP di origine."
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,57 +13,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d04a469c04553b7d6a14df7054ad5ef795baa500
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="configure-the-distribution-mode-for-load-balancer"></a>Configurare la modalità di distribuzione del servizio di bilanciamento del carico
+# <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurare la modalità di distribuzione per Azure Load Balancer
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>Modalità di distribuzione basata su hash
 
-L'algoritmo di distribuzione predefinito è un hash a 5 tuple (IP di origine, porta di origine, IP di destinazione, porta di destinazione, tipo di protocollo) per eseguire il mapping del traffico ai server disponibili. La persistenza viene mantenuta solo all'interno di una sessione di trasporto. I pacchetti nella stessa sessione verranno indirizzati alla stessa istanza di IP di data center (DIP) nell'endpoint con carico bilanciato. Quando il client avvia una nuova sessione dallo stesso IP di origine, la porta di origine cambia e il traffico quindi viene indirizzato a un endpoint DIP diverso.
+La modalità di distribuzione predefinita per Azure Load Balancer è un hash a 5 tuple. La tupla è formata da IP di origine, porta di origine, IP di destinazione, porta di destinazione e tipo di protocollo. L'hash viene usato per eseguire il mapping del traffico ai server disponibili e l'algoritmo fornisce persistenza solo all'interno di una sessione di trasporto. I pacchetti che si trovano nella stessa sessione vengono indirizzati alla stessa istanza di IP di data center (DIP) nell'endpoint con carico bilanciato. Quando il client avvia una nuova sessione dallo stesso IP di origine, la porta di origine cambia e il traffico quindi viene indirizzato a un endpoint DIP diverso.
 
-![bilanciamento del carico basato su hash](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
-
-Figura 1. Distribuzione a 5 tuple
+![Modalità di distribuzione basata su hash a 5 tuple](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
 ## <a name="source-ip-affinity-mode"></a>Modalità di affinità IP di origine
 
-Esiste un'altra modalità di distribuzione definita affinità IP di origine (anche nota come affinità di sessione o affinità del client IP). Il bilanciamento del carico di Azure può essere configurato in modo che usi 2 tuple (IP di origine, IP di destinazione) o 3 tuple (IP di origine, IP di destinazione, protocollo) per eseguire il mapping del traffico ai server disponibili. Usando l'affinità IP di origine, le connessioni avviate dallo stesso computer client passano allo stesso endpoint DIP.
+Load Balancer può anche essere configurato usando la modalità di distribuzione affinità IP di origine. Questa modalità di distribuzione è nota anche come affinità di sessione o affinità IP client. La modalità usa un hash a 2 tuple (IP di origine e IP di destinazione) o a 3 tuple (IP di origine, IP di destinazione e tipo di protocollo) per eseguire il mapping del traffico ai server disponibili. Usando l'affinità IP di origine, le connessioni che vengono avviate dallo stesso computer client passano allo stesso endpoint DIP.
 
-Il diagramma seguente illustra una configurazione a 2 tuple. Si noti come la configurazione a 2 tuple viene eseguita tramite il bilanciamento del carico nella macchina virtuale 1 (VM1) e quindi sottoposta a backup nelle VM2 e VM3.
+La figura seguente illustra una configurazione a 2 tuple. Si noti che la configurazione a 2 tuple viene eseguita tramite il bilanciamento del carico nella macchina virtuale 1 (VM1). Quindi viene eseguito il backup di VM1 in VM2 e VM3.
 
-![affinità di sessione](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
+![Modalità di distribuzione affinità sessione a 2 tuple](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
-Figura 2. Distribuzione a 2 tuple
+La modalità affinità IP di origine risolve un'incompatibilità tra Azure Load Balancer e il Gateway Desktop remoto. Mediante questa modalità è possibile creare una farm di gateway Desktop remoto in un singolo servizio cloud.
 
-L'affinità IP di origine risolve un'incompatibilità tra il Gateway Desktop remoto e Azure Load Balancer. Ora è possibile creare una farm di gateway Desktop remoto in un singolo servizio cloud.
+Un altro scenario d'uso è il caricamento di contenuti multimediali. Il caricamento dei dati avviene tramite UDP, ma il piano di controllo viene raggiunto tramite TCP:
 
-Un altro scenario d'uso è il caricamento di contenuti multimediali dove il caricamento dei dati avviene tramite UDP, ma il piano di controllo viene raggiunto tramite TCP:
-
-* Prima un client avvia una sessione TCP all'indirizzo pubblico con carico bilanciato e viene diretto a un DIP specifico. Questo canale viene lasciato attivo per monitorare lo stato della connessione
-* Viene avviata una nuova sessione UDP dallo stesso computer client allo stesso endpoint pubblico con carico bilanciato. Qui ci si aspetta che anche questa connessione venga indirizzata allo stesso endpoint DIP della precedente connessione TCP in modo che il caricamento di contenuti multimediali possa essere eseguito a una velocità effettiva elevata, mantenendo allo stesso tempo un canale di controllo tramite TCP.
+* Un client avvia una sessione TCP all'indirizzo pubblico con carico bilanciato e viene indirizzato a uno specifico DIP. Il canale viene lasciato attivo per monitorare lo stato della connessione.
+* Viene avviata una nuova sessione UDP dallo stesso computer client allo stesso endpoint pubblico con carico bilanciato. La connessione viene indirizzata allo stesso endpoint DIP della connessione TCP precedente. Il caricamento del supporto può essere eseguito con una velocità effettiva elevata mantenendo un canale di controllo tramite TCP.
 
 > [!NOTE]
-> Quando il set con carico bilanciato viene modificato (rimozione o aggiunta di una macchina virtuale), la distribuzione delle richieste client viene ricalcolata. Non è possibile dipendere da nuove connessioni da client esistenti che terminano nello stesso server. Inoltre, l'uso della modalità di distribuzione dell'affinità IP di origine può comportare una distribuzione diversa del traffico. I client in esecuzione dietro i proxy possono essere visto come una applicazione client univoca.
+> Quando il set con carico bilanciato viene modificato (rimozione o aggiunta di una macchina virtuale), la distribuzione delle richieste client viene ricalcolata. Non è possibile dipendere da nuove connessioni da client esistenti che terminano nello stesso server. Inoltre, l'uso della modalità di distribuzione dell'affinità IP di origine può comportare una distribuzione diversa del traffico. I client in esecuzione dietro i proxy possono essere visti come un'applicazione client univoca.
 
-## <a name="configuring-source-ip-affinity-settings-for-load-balancer"></a>Configurazione delle impostazioni di affinità IP di origine per il bilanciamento del carico
+## <a name="configure-source-ip-affinity-settings"></a>Configurare le impostazioni dell'affinità IP di origine
 
-Per le macchine virtuali, è possibile usare PowerShell per modificare le impostazioni di timeout:
-
-Aggiungere un endpoint di Azure a una macchina virtuale e impostare la modalità di distribuzione del servizio di bilanciamento del carico
+Per le macchine virtuali, usare Azure PowerShell per modificare le impostazioni di timeout. Aggiungere un endpoint di Azure a una macchina virtuale e configurare la modalità di distribuzione del bilanciamento del carico:
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-LoadBalancerDistribution può essere impostato su sourceIP per il bilanciamento del carico a 2 tuple (IP di origine, IP di destinazione), su sourceIPProtocol per il bilanciamento del carico a 3 tuple (IP di origine, IP di destinazione, protocollo) o su Nessuno per il comportamento predefinito con bilanciamento del carico a 5 tuple.
+Impostare il valore dell'elemento `LoadBalancerDistribution` per la quantità desiderata di bilanciamento del carico. Specificare sourceIP per il bilanciamento del carico a 2 tuple (IP di origine e IP di destinazione). Specificare sourceIPProtocol per il bilanciamento del carico a 3 tuple (IP di origine, IP di destinazione e tipo di protocollo). Specificare none per il comportamento predefinito del bilanciamento del carico a 5 tuple.
 
-Usare il codice seguente per recuperare una configurazione con modalità di distribuzione del bilanciamento del carico con endpoint:
+Recuperare una configurazione di modalità di distribuzione del bilanciamento del carico con endpoint usando queste impostazioni:
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
@@ -85,19 +79,20 @@ Usare il codice seguente per recuperare una configurazione con modalità di dist
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Se l'elemento LoadBalancerDistribution non viene specificato, il bilanciamento del carico di Azure utilizza l'algoritmo di 5 tuple predefinito
+Quando l'elemento `LoadBalancerDistribution` non è presente, Azure Load Balancer usa l'algoritmo a 5 tuple predefinito.
 
-### <a name="set-the-distribution-mode-on-a-load-balanced-endpoint-set"></a>Impostare la modalità di distribuzione su un set di endpoint con carico bilanciato
+### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Configurare la modalità di distribuzione su un set di endpoint con carico bilanciato
 
-Se gli endpoint fanno parte di un set di endpoint con carico bilanciato, è necessario impostare la modalità di distribuzione sul set di endpoint con carico bilanciato:
+Quando gli endpoint fanno parte di un set di endpoint con carico bilanciato, è necessario configurare la modalità di distribuzione sul set di endpoint con carico bilanciato:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
-### <a name="cloud-service-configuration-to-change-distribution-mode"></a>Configurazione del servizio cloud per modificare la modalità di distribuzione
+### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>Configurare la modalità di distribuzione per gli endpoint di Servizi cloud
 
-È possibile usare Azure SDK per .NET 2.5 per aggiornare il servizio cloud. Le impostazioni degli endpoint per i servizi cloud vengono effettuate nel file con estensione csdef. Per aggiornare la modalità di distribuzione del servizio di bilanciamento del carico per una distribuzione di servizi cloud, è necessario un aggiornamento della distribuzione.
+Usare Azure SDK per .NET 2.5 per aggiornare il servizio cloud. Le impostazioni degli endpoint per Servizi cloud vengono effettuate nel file .csdef. Per aggiornare la modalità di distribuzione del bilanciamento del carico per una distribuzione di Servizi cloud, è necessario un aggiornamento della distribuzione.
+
 Di seguito è riportato un esempio di modifiche del file con estensione csdef alle impostazioni degli endpoint:
 
 ```xml
@@ -120,11 +115,13 @@ Di seguito è riportato un esempio di modifiche del file con estensione csdef al
 
 ## <a name="api-example"></a>Esempio di API
 
-È possibile configurare la distribuzione del servizio di bilanciamento del carico tramite l'API di gestione dei servizi. Assicurarsi di aggiungere l'intestazione `x-ms-version` impostata sulla versione `2014-09-01` o successiva.
+L'esempio seguente illustra come riconfigurare la modalità di distribuzione del bilanciamento del carico per un set con carico bilanciato specificato in una distribuzione. 
 
-### <a name="update-the-configuration-of-the-specified-load-balanced-set-in-a-deployment"></a>Aggiornare la configurazione del set con carico bilanciato specificato in una distribuzione
+### <a name="change-distribution-mode-for-deployed-load-balanced-set"></a>Modificare la modalità di distribuzione per il set con carico bilanciato distribuito
 
-#### <a name="request-example"></a>Esempio di richiesta
+Per modificare una configurazione di distribuzione esistente, usare il modello di distribuzione classico di Azure. Aggiungere l'intestazione `x-ms-version` e impostare il valore alla versione 2014-09-01 o a una versione successiva.
+
+#### <a name="request"></a>Richiesta
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml
@@ -147,7 +144,7 @@ Di seguito è riportato un esempio di modifiche del file con estensione csdef al
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 tuple, sourceIPProtocol per l'affinità a 3 tuple o Nessuno (per nessuna affinità, ad esempio 5 tuple).
+Come descritto in precedenza, impostare l'elemento `LoadBalancerDistribution` su sourceIP per l'affinità a 2 tuple, sourceIPProtocol per l'affinità a 3 tuple o none per nessuna affinità (affinità a 5 tuple).
 
 #### <a name="response"></a>Response
 
@@ -161,8 +158,6 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica del bilanciamento del carico interno](load-balancer-internal-overview.md)
-
-[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
-
-[Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
+* [Panoramica del bilanciamento del carico interno di Azure](load-balancer-internal-overview.md)
+* [Introduzione alla configurazione del bilanciamento del carico con connessione a Internet](load-balancer-get-started-internet-arm-ps.md)
+* [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)

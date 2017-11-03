@@ -1,5 +1,5 @@
 ---
-title: "Informazioni sulle versioni più recenti del sistema operativo guest Azure | Documentazione Microsoft"
+title: "Informazioni sulle versioni più recenti del sistema operativo guest Azure | Microsoft Docs"
 description: "Notizie sui rilasci più recenti e sulla compatibilità SDK per il sistema operativo guest di Servizi cloud di Azure."
 services: cloud-services
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 10/22/2017
 ms.author: raiye
-ms.openlocfilehash: 7d3541e6c437212139553d975fa756084da4f757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest di Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -106,7 +106,7 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 ## <a name="family-4-releases"></a>Versioni della famiglia 4
 **Windows Server 2012 R2**
 
-Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
+Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > La date contrassegnate da * sono soggette a modifiche.
@@ -133,7 +133,7 @@ Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 ## <a name="family-3-releases"></a>Versioni della famiglia 3
 **Windows Server 2012**
 
-Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
+Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > La date contrassegnate da * sono soggette a modifiche.
@@ -160,7 +160,7 @@ Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 ## <a name="family-2-releases"></a>Versioni della famiglia 2
 **Windows Server 2008 R2 SP1**
 
-Supporta .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+Versione .NET Framework installata: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > La date contrassegnate da * sono soggette a modifiche.

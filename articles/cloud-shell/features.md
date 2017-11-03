@@ -1,5 +1,5 @@
 ---
-title: "Funzionalità di Bash in Azure Cloud Shell (anteprima) | Documentazione Microsoft"
+title: "Funzionalità di Bash in Azure Cloud Shell (anteprima) | Microsoft Docs"
 description: "Panoramica delle funzionalità di Bash in Azure Cloud Shell"
 services: Azure
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: 158b0b65ba53630050275c910f2a7acfc39b8759
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 23faadc38fde75d4c83361465fdacc76d42d7523
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funzionalità e strumenti per Bash in Azure Cloud Shell
 
@@ -52,8 +52,8 @@ I file all'esterno di `$Home` e lo stato della macchina non sono persistenti tra
 
 |Categoria   |Nome   |
 |---|---|
-|Interprete shell di Linux|Bash<br> sh               |
-|Strumenti di Azure            |[Interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-cli) e [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br>    |
+|Strumenti di Linux            |bash<br> sh<br> tmux<br> dig<br>               |
+|Strumenti di Azure            |[Interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-cli) e [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br>    |
 |Editor di testo           |vim<br> nano<br> emacs       |
 |Controllo del codice sorgente         |git                    |
 |Strumenti di compilazione            |make<br> maven<br> npm<br> pip         |
@@ -65,11 +65,11 @@ I file all'esterno di `$Home` e lo stato della macchina non sono persistenti tra
 
 |Lingua   |Versione   |
 |---|---|
-|.NET       |1.01       |
+|.NET       |2.0.0       |
 |Go         |1.7        |
 |Java       |1.8        |
 |Node.js    |6.9.4      |
-|PowerShell  |[6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 e 3.5 (impostazione predefinita)|
 
 ## <a name="next-steps"></a>Passaggi successivi

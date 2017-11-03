@@ -1,6 +1,6 @@
 ---
 title: Introduzione a processi di database elastici | Documentazione Microsoft
-description: come utilizzare i processi di database elastici
+description: "Usare i processi di database elastici per eseguire gli script T-SQL che si estendono su più database."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: 05c20e880d4eb1eacdecc0c4c7e7491dfe1e6a89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1b5a77782b64873a753f19863459f9cdfcd70cc
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introduzione ai processi di Database Elastici
-I processi di database elastici (anteprima) per il database SQL di Azure consentono di eseguire in maniera affidabile script T-SQL che si estendono su più database e effettuano tentativi automatici per garantire il completamento delle operazioni . Per ulteriori informazioni sulla funzionalità dei processi di database elastici, vedere la [panoramica della funzionalità](sql-database-elastic-jobs-overview.md).
+I processi di database elastici (anteprima) per il database SQL di Azure consentono di eseguire in maniera affidabile script T-SQL che si estendono su più database e effettuano tentativi automatici per garantire il completamento delle operazioni . Per altre informazioni sulla funzionalità del processo Database elastico, vedere [Processi elastici](sql-database-elastic-jobs-overview.md).
 
-Questo argomento supporta l'esempio presentato in [Introduzione agli strumenti del Database elastico](sql-database-elastic-scale-get-started.md). Al termine, si apprenderà come creare e gestire processi di gestione di un gruppo di database correlati. Non è necessario usare gli strumenti di scalabilità elastica per sfruttare i vantaggi dei processi elastici.
+Questo articolo supporta l'esempio presentato in [Iniziare a utilizzare gli strumenti del database elastico](sql-database-elastic-scale-get-started.md). Al termine, si apprenderà come creare e gestire processi di gestione di un gruppo di database correlati. Non è necessario usare gli strumenti di scalabilità elastica per sfruttare i vantaggi dei processi elastici.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Scaricare ed eseguire [Introduzione allo strumento di esempio del Database elastico](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creare un gestore mappe partizione utilizzando l'applicazione di esempio
-Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguita dall'inserimento di dati nelle partizioni. Se si dispone già di programma di installazione di partizioni con dati partizionati in essi, è possibile ignorare i passaggi seguenti e passare alla sezione successiva.
+Di seguito si crea un gestore mappe partizioni con diverse partizioni, seguita dall'inserimento di dati nelle partizioni. Se si dispone già di programma di installazione di partizioni con dati partizionati in essi, è possibile ignorare i passaggi seguenti e passare alla sezione successiva.
 
 1. Compilare ed eseguire l’applicazione di esempio **Introduzione agli strumenti del Database elastico** . Seguire la procedura fino al passaggio 7 nella sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Alla fine del passaggio 7, verrà visualizzato il seguente prompt dei comandi:
 
@@ -40,7 +40,7 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
 
    ![Conferma di Visual Studio](./media/sql-database-elastic-query-getting-started/portal.png)
 
-   A questo punto, si creerà un insieme di database personalizzati che riflette tutti i database del mapping della partizione. Questo consentirà di creare ed eseguire un processo che aggiunge una nuova tabella tra le partizioni.
+   A questo punto, si creerà un insieme di database personalizzati che riflette tutti i database nella mappa partizioni. Questo consentirà di creare ed eseguire un processo che aggiunge una nuova tabella tra le partizioni.
 
 Si creerà una destinazione di partizionamento della mappa, utilizzando il cmdlet **New-AzureSqlJobTarget** . Il database di gestione della mappa di partizione deve essere impostato come destinazione di database e quindi il mapping di partizione specifico viene specificato come destinazione. In questo caso, invece, tutti i database nel server dovranno essere enumerati e aggiunti alla nuova raccolta personalizzata, ad eccezione del database master.
 
@@ -226,7 +226,7 @@ Il seguente script PowerShell può essere utilizzato per visualizzare i dettagli
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>Recuperare gli errori all'interno delle esecuzioni delle attività di processo
-L'oggetto JobTaskExecution include una proprietà per il ciclo di vita dell'attività insieme ad una proprietà del messaggio. Se un'esecuzione delle attività di processo ha esito negativo,la proprietà del ciclo di vita verrà impostata su *Non riuscita* e la proprietà del messaggio verrà impostata sul messaggio di eccezione risultante e il  relativo stack. Se un processo ha esito negativo, è importante visualizzare i dettagli delle attività di processo che non sono riuscite per un determinato processo.
+L'oggetto JobTaskExecution include una proprietà per il ciclo di vita dell'attività insieme ad una proprietà del messaggio. Se l'esecuzione di un'attività di processo non riesce, la proprietà Lifecycle verrà impostata su *Errore* e la proprietà Message verrà impostata sul messaggio di eccezione risultante e il relativo stack. Se un processo ha esito negativo, è importante visualizzare i dettagli delle attività di processo che non sono riuscite per un determinato processo.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -254,7 +254,7 @@ I processi di database elastici supportano la creazione di criteri di esecuzione
 Criteri di esecuzione che attualmente consentono la definizione di:
 
 * Nome: Identificatore del criterio di esecuzione.
-* Timeout del processo: tempo totale prima che un processo venga annullato dai processi di database elastici.
+* Timeout del processo: tempo totale prima che un processo venga annullato dai processi del database elastico.
 * Intervallo tra tentativi iniziale: intervallo di attesa prima del primo tentativo.
 * Intervallo massimo di tentativi: estremità degli intervalli tra i tentativi da utilizzare.
 * Coefficiente di backoff dell’intervallo tra tentativi: coefficiente utilizzato per calcolare l’intervallo successivo tra i tentativi.  Viene utilizzata la seguente formula: (Intervallo tentativi iniziale) * Math.pow((Coefficiente di backoff dell’intervallo), (Numero di tentativi) - 2).
@@ -297,12 +297,12 @@ Aggiornare l'aggiornamento del criterio di esecuzione desiderato:
    ```
 
 ## <a name="cancel-a-job"></a>Annullare un processo
-I processi di database elastico supportano le richieste di annullamento dei processi.  Se i processi di database elastici rilevano una richiesta di annullamento per un processo in fase di esecuzione, verrà effettuato un tentativo di arresto del processo.
+I processi di database elastico supportano le richieste di annullamento dei processi.  Se i processi del database elastico rilevano una richiesta di annullamento per un processo in fase di esecuzione, verrà effettuato un tentativo di arresto del processo.
 
 E’ possibile cancellare un processo in due modi diversi tramite i processi di database elastici:
 
-1. Annullamento delle attività attualmente in esecuzione: se viene rilevato un annullamento mentre un'attività è attualmente in esecuzione, si tenterà di cancellare l’aspetto di esecuzione corrente dell’attività.  Ad esempio: se viene eseguita una query con esecuzione prolungata quando si tenta di eseguire un annullamento, si verificherà un tentativo di annullare la query.
-2. Annullamento attività tentativi: Se un annullamento viene rilevato dal thread di controllo prima dell’avvio dell’esecuzione di un'attività, il thread di controllo eviterà l’avvio dell'attività e annullerà la richiesta.
+1. Annullamento delle attività attualmente in esecuzione: se viene rilevato un annullamento mentre un'attività è attualmente in esecuzione, si tenterà di cancellare l'aspetto di esecuzione corrente dell'attività.  Ad esempio se viene eseguita una query con esecuzione prolungata quando si tenta di eseguire un annullamento, si verificherà un tentativo di annullare la query.
+2. Annullare i tentativi dell'attività: se viene rilevato un annullamento dal thread di controllo prima che venga avviata un'attività per l'esecuzione, il thread di controllo eviterà di avviare l'attività e dichiarerà annullata la richiesta.
 
 Se viene richiesto un annullamento del processo per un processo padre, tale richiesta verrà rispettata per il processo padre e per tutti i relativi processi figlio.
 
@@ -314,7 +314,7 @@ Per inviare una richiesta di annullamento, usare il cmdlet **Stop-AzureSqlJobExe
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Eliminare un processo in base al nome e la cronologia del processo
-I processi di database elastici supportano l'eliminazione asincrona dei processi. Un processo può essere contrassegnato per l'eliminazione e il sistema lo eliminerà con tutta la relativa cronologia dopo il completamento di tutte le esecuzioni di processo per tale processo. Il sistema non annullerà automaticamente le esecuzioni di processo attive.  
+I processi di database elastici supportano l'eliminazione asincrona dei processi. Un processo può essere contrassegnato per l'eliminazione e il sistema lo eliminerà con tutta la relativa cronologia dopo il completamento di tutte le esecuzioni di processo per tale processo. Il sistema non annulla automaticamente le esecuzioni di processo attive.  
 
 Al contrario, è necessario richiamare Stop-AzureSqlJobExecution per annullare le esecuzioni di processo attive.
 
@@ -347,7 +347,7 @@ Impostare le seguenti variabili in modo da riflettere la configurazione della de
    ```
 
 ### <a name="add-databases-to-a-custom-database-collection-target"></a>Aggiungere database a una destinazione per la raccolta dei database personalizzata
-Le destinazioni di database possono essere associate alle destinazioni delle raccolte di database personalizzate per creare un gruppo di database. Ogni volta che viene creato un processo destinato a una destinazione della raccolta di database personalizzata, esso verrà esteso ai database associati al gruppo al momento dell’esecuzione.
+Le destinazioni di database possono essere associate alle destinazioni delle raccolte di database personalizzate per creare un gruppo di database. Ogni volta che viene creato un processo destinato a una raccolta di database personalizzata, esso verrà esteso ai database associati al gruppo al momento dell'esecuzione.
 
 Aggiungere il database desiderato a una raccolta personalizzata specifica:
 
@@ -369,7 +369,7 @@ Utilizzare il cmdlet **Get-AzureSqlJobTarget** per recuperare i database figlio 
    ```
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Creare un processo per eseguire uno script in una destinazione di una raccolta database personalizzata
-Utilizzare il cmdlet **New-AzureSqlJob** per creare un processo su un gruppo di database definito da una destinazione di raccolta database personalizzata. I processi di database elastici espanderanno il processo in più processi figlio, ognuno corrispondente a un database associato alla destinazione di raccolta database personalizzata e eseguiranno lo script in tutti i database. Anche in questo caso, è importante che gli script siano idempotenti per essere flessibili ai tentativi.
+Utilizzare il cmdlet **New-AzureSqlJob** per creare un processo su un gruppo di database definito da una destinazione di raccolta database personalizzata. I processi di database elastico espandono il processo in più processi figlio, ognuno corrispondente a un database associato alla destinazione di raccolta database personalizzata ed eseguono lo script in tutti i database. Anche in questo caso, è importante che gli script siano idempotenti per essere flessibili ai tentativi.
 
    ```
     $jobName = "{Job Name}"
@@ -384,7 +384,7 @@ Utilizzare il cmdlet **New-AzureSqlJob** per creare un processo su un gruppo di 
 ## <a name="data-collection-across-databases"></a>Raccolta dei dati tra database
 **Processi di database elastici** supportano l'esecuzione di una query su un gruppo di database e inviano i risultati alla tabella del database specificata. E’ possibile eseguire una query sulla tabella dopo aver visualizzato i risultati della query da ciascun database. Questo fornisce un meccanismo asincrono per eseguire una query in molti database. I casi di errore, come quando ad esempio uno dei database viene reso temporaneamente non disponibile, vengono gestiti automaticamente tramite tentativi.
 
-La tabella di destinazione specificata verrà creata automaticamente se non esiste ancora una corrispondenza con lo schema del set di risultati restituito. Se un'esecuzione di script restituisce più set di risultati, i processi di database elastici invieranno solo il primo risultato alla tabella di destinazione specificata.
+La tabella di destinazione specificata verrà creata automaticamente se non esiste ancora, e corrisponderà allo schema del set di risultati restituito. Se l'esecuzione di uno script restituisce più set di risultati, i processi di database elastico invieranno solo il primo risultato alla tabella di destinazione specificata.
 
 Il seguente script PowerShell consente di eseguire uno script che raccolga i propri risultati in una tabella specificata. Questo script presuppone che uno script T-SQL sia stato creato e che restituisca un singolo set di risultati e che una destinazione di raccolta database personalizzata sia stata creata.
 
