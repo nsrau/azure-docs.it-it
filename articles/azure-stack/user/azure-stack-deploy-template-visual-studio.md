@@ -1,6 +1,6 @@
 ---
-title: Deploy templates with Visual Studio in Azure Stack | Microsoft Docs
-description: Learn how to deploy templates with Visual Studio in Azure Stack.
+title: Distribuire modelli in Azure Stack con Visual Studio | Documentazione Microsoft
+description: Informazioni su come distribuire modelli in Azure Stack con Visual Studio.
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -14,35 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8fc32dc50d96d202dfc982cbdc52d8e479c3a3eb
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Deploy templates in Azure Stack using Visual Studio
+# <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Distribuire modelli in Azure Stack tramite Visual Studio
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Use Visual Studio to deploy Azure Resource Manager templates to the Azure Stack development kit.
+Utilizzare Visual Studio per distribuire i modelli di gestione risorse di Azure al kit di sviluppo dello Stack di Azure.
 
-1. [Install and connect](azure-stack-install-visual-studio.md) to Azure Stack with Visual Studio.
-2. Open Visual Studio.
-3. Click **File**, click **New**, and in the **New Project** dialog box click **Azure Resource Group**.
-4. Enter a **Name** for the new project, and then click **OK**.
-5. In the **Select Azure Template** dialog box, change the *Show templates from this location* drop-down to **Azure Stack Quickstart**
-6. Click **101-create-storage-account**, and then click **OK**.  
-7. In your new project, you can see a list of the templates available by expanding the **Templates** node in the **Solution Explorer** pane.
-8. In the **Solution Explorer** pane, right-click the name of your project, click **Deploy**, then click **New Deployment**.
-9. In the **Deploy to Resource Group** dialog box, in the **Subscription** drop-down, select your Microsoft Azure Stack subscription.
-10. In the **Resource Group** list, choose an existing resource group or create a new one.
-11. In the **Resource group location** list, choose a location, and then click **Deploy**.
-12. In the **Edit Parameters** dialog box, enter values for the parameters (which vary by template), and then click **Save**.
+1. [Installazione e connessione](azure-stack-install-visual-studio.md) ad Azure Stack con Visual Studio.
+2. Aprire Visual Studio.
+3. Fare clic su **File**, quindi su **Nuovo** e nella finestra di dialogo **Nuovo progetto** selezionare **Gruppo di risorse di Azure**.
+4. Immettere un **nome** per il nuovo progetto e quindi fare clic su **OK**.
+5. Nella finestra di dialogo **Selezione del modello di Azure**, modificare l'elenco a discesa *Mostra modelli da questo percorso* in **Azure Stack Quickstart**
+6. Fare clic su **101-crea--account di archiviazione**, quindi fare clic su **OK**.  
+7. È possibile visualizzare un elenco dei modelli disponibili nel nuovo progetto espandendo il nodo **Modelli** nel riquadro **Esplora soluzioni**.
+8. Nel riquadro **Esplora soluzioni** fare clic con il pulsante destro del mouse sul nome del progetto, selezionare **Distribuisci**, quindi fare clic su **Nuova distribuzione**.
+9. Nella finestra di dialogo **Distribuzione in un gruppo di risorse** nell'elenco a discesa **Sottoscrizione** selezionare la sottoscrizione di Microsoft Azure Stack.
+10. Scegliere un gruppo di risorse esistente dall'elenco **Gruppo di risorse** o crearne uno nuovo.
+11. Scegliere un percorso dall'elenco **Località del gruppo di risorse** e quindi fare clic su **Distribuisci**.
+12. Nella finestra di dialogo **Modifica parametri** immettere i valori per i parametri (che variano in base al modello), quindi fare clic su **Salva**.
 
-## <a name="next-steps"></a>Next steps
-[Deploy templates with the command line](azure-stack-deploy-template-command-line.md)
+## <a name="next-steps"></a>Passaggi successivi
+[Distribuire modelli con la riga di comando](azure-stack-deploy-template-command-line.md)
 
-[Develop templates for Azure Stack](azure-stack-develop-templates.md)
-
+[Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)
 

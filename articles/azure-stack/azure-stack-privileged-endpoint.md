@@ -1,6 +1,6 @@
 ---
-title: Using the privileged endpoint in Azure Stack | Microsoft Docs
-description: Shows how to use the privileged endpoint in Azure Stack (for an Azure Stack operator).
+title: Utilizzo di un endpoint con privilegi nello Stack di Azure | Documenti Microsoft
+description: Viene illustrato come utilizzare l'endpoint con privilegi nello Stack di Azure (per un operatore di Stack di Azure).
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,58 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9769b12064216680bb1b2db8c1fd7449927c7771
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="using-the-privileged-endpoint-in-azure-stack"></a>Using the privileged endpoint in Azure Stack
+# <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilizzo di un endpoint con privilegi nello Stack di Azure
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-As an Azure Stack operator, you should use the administrator portal, PowerShell, or Azure Resource Manager APIs for most day-to-day management tasks. However, for some less common operations, you need to use the *privileged endpoint*. This endpoint is a pre-configured remote PowerShell console that provides you with just enough capabilities to help you perform a required task. The endpoint leverages PowerShell JEA (Just Enough Administration) to expose only a restricted set of cmdlets. To access the privileged endpoint and invoke the restricted set of cmdlets, a low-privileged account is used. No administrator accounts are required. For additional security, scripting is not allowed.
+Come operatore di Stack di Azure, utilizzare il portale dell'amministratore, PowerShell o le API di gestione risorse di Azure per le attività di gestione quotidiane di più. Tuttavia, per alcuni meno operazioni comuni, è necessario utilizzare il *endpoint con privilegi*. Questo endpoint è una console di PowerShell remota configurata in precedenza che offre di sufficiente capacità che consentono di eseguire un'attività obbligatoria. L'endpoint utilizza PowerShell JEA (Just Enough Administration) per esporre solo un set limitato di cmdlet. Per accedere all'endpoint con privilegi e richiamare un insieme limitato di cmdlet, viene utilizzato un account con privilegi limitati. Nessun account di amministratore è necessario. Per una maggiore sicurezza, l'esecuzione degli script non è consentita.
 
-You can use the privileged endpoint to perform tasks such as the following:
+È possibile utilizzare l'endpoint con privilegi per eseguire le attività seguenti:
 
-- To perform low-level tasks, such as [collecting diagnostic logs](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics#log-collection-tool).
-- To perform many post-deployment datacenter integration tasks for integrated systems, such as adding Domain Name System (DNS) forwarders after deployment, setting up Graph integration, Active Directory Federation Services (AD FS) integration, certificate rotation, etc.
-- To work with Support to obtain temporary, high-level access for in-depth troubleshooting of an integrated system. 
+- Per eseguire attività di basso livello, ad esempio [la raccolta dei log di diagnostica](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics#log-collection-tool).
+- Per eseguire molte attività di integrazione di Data Center di post-distribuzione per i sistemi integrati, ad esempio l'aggiunta di server d'inoltro sistema DNS (Domain Name) dopo la distribuzione, configurazione di integrazione di grafico, integrazione di Active Directory Federation Services (ADFS), certificati rotazione e così via.
+- Per lavorare con il supporto per ottenere l'accesso temporaneo di alto livello per la risoluzione dei problemi approfondita di un sistema integrato. 
 
-The privileged endpoint logs every action (and its corresponding output) that you perform in the PowerShell session. This provides full transparency and complete auditing of operations. You can retain these log files for future auditing purposes.
+L'endpoint con privilegi registra ogni azione (e l'output corrispondente) eseguite nella sessione di PowerShell. Consente di trasparenza totale e il controllo completo delle operazioni. È possibile mantenere questi file di log future a scopo di controllo.
 
 > [!NOTE]
-> In Azure Stack Development Kit (ASDK), you can run some of the commands available in the privileged endpoint directly from a PowerShell session on the development kit host. However, you may want to test out some operations using the privileged endpoint, such as log collection, because this is the only method available to perform certain operations in an integrated systems environment.
+> In Azure Stack Development Kit (ASDK), è possibile eseguire alcuni comandi disponibili nell'endpoint con privilegi direttamente da una sessione di PowerShell nell'host di kit di sviluppo. Tuttavia, è consigliabile testare alcune operazioni utilizzando l'endpoint con privilegi, ad esempio la raccolta di log, perché questo è l'unico metodo disponibile per eseguire determinate operazioni in un ambiente integrato di sistemi.
 
-## <a name="access-the-privileged-endpoint"></a>Access the privileged endpoint
+## <a name="access-the-privileged-endpoint"></a>Accedere all'endpoint con privilegi
 
-You access the privileged endpoint through a remote PowerShell session on the virtual machine that hosts the privileged endpoint. In the ASDK, this virtual machine is named AzS-ERCS01. If you’re using an integrated system, there are three instances of the privileged endpoint, each running inside a virtual machine (*Prefix*-ERCS01, *Prefix*-ERCS02, or *Prefix*-ERCS03) on different hosts for resiliency. 
+L'endpoint con privilegi sono accessibili tramite una sessione remota di PowerShell nella macchina virtuale che ospita l'endpoint con privilegi. In ASDK, questa macchina virtuale è denominata AzS ERCS01. Se si utilizza un sistema integrato, sono disponibili tre istanze dell'endpoint con privilegi, ognuno in esecuzione all'interno di una macchina virtuale (*prefisso*-ERCS01, *prefisso*-ERCS02, o *prefisso*-ERCS03) in host diversi per garantire la resilienza. 
 
-Before you begin this procedure for an integrated system, make sure you can access a privileged endpoint either by IP address, or through DNS. After initial deployment of Azure Stack, you can access the privileged endpoint only by IP address because DNS integration is not yet set up. Your OEM hardware vendor will provide you with a JSON file named "AzureStackStampDeploymentInfo" that contains the privileged endpoint IP addresses.
+Prima di iniziare questa procedura per un sistema integrato, verificare che è possibile accedere a un endpoint con privilegi utilizzando un indirizzo IP o tramite DNS. Dopo la distribuzione iniziale dello Stack di Azure, è possibile accedere all'endpoint con privilegi solo tramite indirizzo IP poiché l'integrazione DNS non è stato ancora impostato. Il fornitore dell'hardware OEM fornirà un file JSON denominato "AzureStackStampDeploymentInfo" che contiene gli indirizzi IP dell'endpoint con privilegi.
 
-We recommend that you connect to the privileged endpoint only from the hardware lifecycle host or from a dedicated, locked down computer, like a [Privileged Access Workstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+È consigliabile connettersi all'endpoint con privilegi solo dall'host del ciclo di vita dell'hardware o da un computer dedicato, bloccato, ad esempio un [Workstation di accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
-1. Do either of the following depending on your environment:
+1. Effettuare una delle operazioni seguenti a seconda dell'ambiente:
 
-    - On an integrated system, run the following command to add the privileged endpoint as a trusted host on your hardware lifecycle host or Privileged Access Workstation.
+    - In un sistema integrato, eseguire il comando seguente per aggiungere l'endpoint con privilegi come host attendibile in un host di ciclo di vita di hardware o la Workstation di accesso con privilegi.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - If you’re running the ADSK, sign in to the development kit host.
+    - Se si esegue il ADSK, accedere all'host del kit di sviluppo.
 
-2. On your hardware lifecycle host or Privileged Access Workstation, open an elevated Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the privileged endpoint:
+2. In componenti hardware del ciclo di vita host o la Workstation di accesso con privilegi, aprire una sessione di Windows PowerShell con privilegi elevata. Eseguire i comandi seguenti per stabilire una sessione remota nella macchina virtuale che ospita l'endpoint con privilegi:
  
-    - On an integrated system:
+    - In un sistema integrato:
       ````PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
-      The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts a privileged endpoint. 
-    - If you’re running the ADSK:
+      Il `ComputerName` parametro può essere l'indirizzo IP o il nome DNS di una macchina virtuale che ospita un endpoint con privilegi. 
+    - Se si esegue il ADSK:
      
       ````PowerShell
         $cred = Get-Credential
@@ -73,19 +72,19 @@ We recommend that you connect to the privileged endpoint only from the hardware 
         Enter-PSSession -ComputerName azs-ercs01`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
-   When prompted, use the following credentials:
+   Quando richiesto, utilizzare le seguenti credenziali:
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
-      - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
+      - **Nome utente**: specificare l'account CloudAdmin, nel formato  **&lt;* dominio Azure Stack*&gt;\cloudadmin**. (Per ASDK, il nome utente è **azurestack\cloudadmin**.)
+      - **Password**: immettere la stessa password fornita durante l'installazione per l'account di amministratore di dominio AzureStackAdmin.
     
-3.  After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
+3.  Dopo la connessione, la richiesta verrà visualizzata l'indicazione  **[*nome indirizzo IP o VM ERCS*]: PS > * * o **[azs ercs01]: PS >**, a seconda dell'ambiente. A questo punto, eseguire `Get-Command` per visualizzare l'elenco dei cmdlet disponibili.
 
-    ![Get-Command cmdlet output showing list of available commands](media/azure-stack-privileged-endpoint/getcommandoutput.png)
+    ![Il cmdlet Get-Command output con un elenco di comandi disponibili](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
-    Many of these cmdlets are intended only for integrated system environments (such as the cmdlets related to datacenter integration). In the ASDK, the following cmdlets have been validated:
+    Molti di questi cmdlet sono destinati solo per ambienti con sistemi integrata (ad esempio i cmdlet relativi all'integrazione con Data Center). In ASDK, sono stati convalidati i cmdlet seguenti:
 
     - Clear-Host
-    - Close-PrivilegedEndpoint
+    - Chiudi PrivilegedEndpoint
     - Exit-PSSession
     - Get-AzureStackLog
     - Get-AzureStackStampInformation
@@ -94,7 +93,7 @@ We recommend that you connect to the privileged endpoint only from the hardware 
     - Get-Help
     - Get-ThirdPartyNotices
     - Measure-Object
-    - New-CloudAdminUser
+    - Nuovo CloudAdminUser
     - Out-Default
     - Remove-CloudAdminUser
     - Select-Object
@@ -102,30 +101,29 @@ We recommend that you connect to the privileged endpoint only from the hardware 
     - Stop-AzureStack
     - Get-ClusterLog
 
-4.  Because scripting is not allowed, you can’t use tab completion for parameter values. To get the list of parameters for a given cmdlet, run the following command:
+4.  Poiché lo scripting non è consentito, è possibile utilizzare completamento tramite tasto tab per i valori dei parametri. Per ottenere l'elenco di parametri per un cmdlet specifico, eseguire il comando seguente:
 
     ````PowerShell
     Get-Command <cmdlet_name> -Syntax
     ```` 
-    If you try any type of script operation, the operation fails with the error **ScriptsNotAllowed**. This is expected behavior.
+    Se si tenta di qualsiasi tipo di operazione script, l'operazione non riesce con l'errore **ScriptsNotAllowed**. Si tratta di un comportamento previsto.
 
-## <a name="close-the-privileged-endpoint-session"></a>Close the privileged endpoint session
+## <a name="close-the-privileged-endpoint-session"></a>Chiudere la sessione di endpoint con privilegi
 
- As mentioned earlier, the privileged endpoint logs every action (and its corresponding output) that you perform in the PowerShell session. You should close the session by using the  `Close-PrivilegedEndpoint` cmdlet. This cmdlet correctly closes the endpoint, and transfers the log files to an external file share for retention.
+ Come accennato in precedenza, l'endpoint con privilegi registra ogni azione (e l'output corrispondente) eseguite nella sessione di PowerShell. È necessario chiudere la sessione utilizzando il `Close-PrivilegedEndpoint` cmdlet. Questo cmdlet consente di chiudere l'endpoint correttamente e trasferisce i file di log in una condivisione di file esterno per la conservazione.
 
-To close the endpoint session:
+Per chiudere la sessione di endpoint:
 
-1. Create an external file share that is accessible by the privileged endpoint. In a development kit environment, you can just create a file share on the development kit host.
-2. Run the `Close-PrivilegedEndpoint` cmdlet. 
-3. You're prompted for a path on which to store the transcript log file. Specify the file share that you created earlier, in the format &#92;&#92;*servername*&#92;*sharename*. If you don’t specify a path, the cmdlet fails and the session remains open. 
+1. Creare una condivisione di file esterno che è accessibile dall'endpoint con privilegi. In un ambiente di kit di sviluppo, è possibile creare solo una condivisione di file nell'host di kit di sviluppo.
+2. Eseguire il `Close-PrivilegedEndpoint` cmdlet. 
+3. Richiesto per un percorso in cui archiviare il file di registro di sistema. Specificare la condivisione di file creato in precedenza, in formato &#92; &#92; *servername*&#92; *ShareName*. Se non si specifica un percorso, il cmdlet non riesce e la sessione rimane aperta. 
 
-    ![Close-PrivilegedEndpoint cmdlet output that shows where you specify the transcript destination path](media/azure-stack-privileged-endpoint/closeendpoint.png)
+    ![Output del cmdlet Chiudi PrivilegedEndpoint che mostra in cui specificare il percorso di destinazione di trascrizione](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-After the transcript log files are successfully transferred to the file share, they're automatically deleted from the privileged endpoint. If you close the privileged endpoint session by using the cmdlets `Exit-PSSession` or `Exit`, or you just close the PowerShell console, the transcript logs don't transfer to a file share. They remain in the privileged endpoint. The next time you run `Close-PrivilegedEndpoint` and include a file share, the transcript logs from the previous session(s) will also transfer.
+Dopo che i file di registro di sistema vengono trasferiti alla condivisione di file, è eliminati automaticamente dall'endpoint con privilegi. Se si chiude la sessione di endpoint con privilegi utilizzando i cmdlet `Exit-PSSession` o `Exit`, o è sufficiente chiudere la console di PowerShell, i registri di sistema non trasferire in una condivisione file. Rimangono nell'endpoint con privilegi. Alla successiva esecuzione `Close-PrivilegedEndpoint` e includono una condivisione file, verranno inoltre trasferire i log di trascrizione dal precedente sessioni.
 
-## <a name="next-steps"></a>Next steps
-[Azure Stack diagnostic tools](azure-stack-diagnostics.md)
-
+## <a name="next-steps"></a>Passaggi successivi
+[Strumenti di diagnostica Azure Stack](azure-stack-diagnostics.md)
 
 
 

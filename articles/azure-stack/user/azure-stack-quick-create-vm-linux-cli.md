@@ -1,6 +1,6 @@
 ---
-title: Create a Linux virtual machine by using Azure CLI in Azure Stack | Microsoft Docs
-description: Create a Linux virtual machine with CLI in Azure Stack.
+title: Creare una macchina virtuale di Linux mediante Azure CLI nello Stack di Azure | Documenti Microsoft
+description: Creare una macchina virtuale Linux con CLI nello Stack di Azure.
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -15,38 +15,37 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: d868ce59fcb09bae8c111da3892af33317003474
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: de2ff697c083493b43ab0d1b5bcde532c28684e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Creare una macchina virtuale di Linux mediante Azure CLI nello Stack di Azure
 
-# <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Create a Linux virtual machine by using Azure CLI in Azure Stack
+*Si applica a: Azure Stack integrate di sistemi*
 
-*Applies to: Azure Stack integrated systems*
+CLI di Azure viene utilizzato per creare e gestire le risorse di Azure Stack dalla riga di comando. Dettagli di questa Guida introduttiva usando l'interfaccia CLI di Azure per creare una macchina virtuale Linux nello Stack di Azure.  Dopo aver creata la macchina virtuale, viene installato un server web e la porta 80 è aperta per consentire il traffico web.
 
-Azure CLI is used to create and manage Azure Stack resources from the command line. This Quickstart details using Azure CLI to create a Linux virtual machine in Azure Stack.  Once the VM is created, a web server is installed, and port 80 is opened to allow web traffic.
+## <a name="prerequisites"></a>Prerequisiti 
 
-Before you begin, make sure that your Azure Stack operator has added the “Ubuntu Server 16.04 LTS” image to the Azure Stack marketplace.  
+* Verificare che l'operatore di Azure Stack ha aggiunto l'immagine "Ubuntu Server 16.04 LTS" nel Marketplace dello Stack di Azure. 
 
-Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, follow the steps to [install and configure Azure CLI](azure-stack-connect-cli.md).
+* Stack di Azure richiede una versione specifica di CLI di Azure per creare e gestire le risorse. Se non è configurato per Azure Stack CLI di Azure, effettuare l'accesso per il [kit di sviluppo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o un client esterno con codifica basata su Windows in caso di [connessi tramite VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) e seguire i passaggi per [installare e configurare Azure CLI](azure-stack-connect-cli.md).
 
-Finally, a public SSH key with the name id_rsa.pub needs to be created in the .ssh directory of your Windows user profile. For detailed information on creating SSH keys, see [Creating SSH keys on Windows](../../virtual-machines/linux/ssh-from-windows.md). 
+* Una chiave pubblica SSH con id_rsa.pub il nome deve essere creata nella directory .ssh del profilo utente Windows. Per informazioni dettagliate sulla creazione di chiavi SSH, vedere [creazione SSH chiavi in Windows](../../virtual-machines/linux/ssh-from-windows.md). 
 
+## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-## <a name="create-a-resource-group"></a>Create a resource group
-
-A resource group is a logical container into which Azure Stack resources are deployed and managed. Use the [az group create](/cli/azure/group#create) command to create a resource group. We have assigned values for all variables in this document, you can use them as is or assign a different value. The following example creates a resource group named myResourceGroup in the local location.
+Un gruppo di risorse è un contenitore logico in cui Stack di Azure le risorse vengono distribuite e gestite. Il kit di sviluppo o lo Stack di Azure integrato system, eseguire il [gruppo az creare](/cli/azure/group#create) comando per creare un gruppo di risorse. Sono stati assegnati valori per tutte le variabili in questo documento, è possibile utilizzarli così come sono oppure assegnare un valore diverso. Nell'esempio seguente viene creato un gruppo di risorse denominato myResourceGroup nel percorso locale.
 
 ```cli
 az group create --name myResourceGroup --location local
 ```
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-Create a VM by using the [az vm create](/cli/azure/vm#create) command. The following example creates a VM named myVM. This example uses Demouser for an administrative user name and Demouser@123 as the password. Update these values to something appropriate to your environment. These values are needed when connecting to the virtual machine.
+Creare una VM con il comando [az vm create](/cli/azure/vm#create). L'esempio seguente crea una macchina virtuale denominata myVM. L'esempio Usa Demouser per un nome utente amministrativo e Demouser@123 come password. Aggiornare i valori in modo che siano appropriati all'ambiente. Questi valori sono necessari quando ci si connette alla macchina virtuale.
 
 ```cli
 az vm create \
@@ -59,27 +58,27 @@ az vm create \
   --location local
 ```
 
-Once complete, the command will output parameters for your virtual machine.  Make note of the *PublicIPAddress*, since you use this to connect and manage your virtual machine.
+Al termine dell'operazione, il comando verrà dei parametri di output per la macchina virtuale.  Annotare il *PublicIPAddress*, dal momento che permette di connettersi e gestire la macchina virtuale.
 
-## <a name="open-port-80-for-web-traffic"></a>Open port 80 for web traffic
+## <a name="open-port-80-for-web-traffic"></a>Aprire la porta 80 per il traffico Web
 
-By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.
+Per impostazione predefinita nelle macchine virtuali Linux distribuite in Azure sono consentite solo le connessioni SSH. Se si intende usare questa macchina virtuale come un server Web, è necessario aprire la porta 80 da Internet. Usare il comando [az vm open-port](/cli/azure/vm#open-port) per aprire la porta.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="ssh-into-your-vm"></a>SSH into your VM
+## <a name="ssh-into-your-vm"></a>Usare SSH per connettersi alla macchina virtuale
 
-From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](http://www.putty.org/) can be used to create the connection. Make sure to replace with the correct public IP address of your virtual machine. In our example above, the IP address was 192.168.102.36.
+Da un sistema con SSH installato, usare il comando seguente per connettersi alla macchina virtuale. Se si lavora in Windows, è possibile usare [Putty](http://www.putty.org/) per creare la connessione. Assicurarsi di sostituire con l'indirizzo IP pubblico corretto della macchina virtuale. Nell'esempio precedente, l'indirizzo IP è 192.168.102.36.
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-## <a name="install-nginx"></a>Install NGINX
+## <a name="install-nginx"></a>Installare NGINX
 
-Use the following bash script to update package sources and install the latest NGINX package. 
+Usare lo script bash seguente per aggiornare le origini dei pacchetti e installare il pacchetto NGINX più recente. 
 
 ```bash 
 #!/bin/bash
@@ -91,24 +90,21 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## <a name="view-the-nginx-welcome-page"></a>View the NGINX welcome page
+## <a name="view-the-nginx-welcome-page"></a>Visualizzare la pagina iniziale di NGINX
 
-With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the *publicIpAddress* you documented above to visit the default page. 
+Dopo l'installazione di NGINX e l'apertura della porta 80 nella macchina virtuale da Internet, è possibile usare il Web browser preferito per visualizzare la pagina iniziale predefinita di NGINX. Assicurarsi di usare l'indirizzo *publicIpAddress* descritto in precedenza per passare alla pagina predefinita. 
 
-![NGINX default site](./media/azure-stack-quick-create-vm-linux-cli/nginx.png) 
+![Sito NGINX predefinito](./media/azure-stack-quick-create-vm-linux-cli/nginx.png) 
 
-## <a name="clean-up-resources"></a>Clean up resources
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
+Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group#delete) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```cli
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Passaggi successivi
 
-[Create a virtual machine by using password stored in key vault](azure-stack-kv-deploy-vm-with-secret.md)
-
-[To learn about Storage in Azure Stack](azure-stack-storage-overview.md)
-
+In questa Guida introduttiva, aver distribuito una semplice macchina virtuale di Linux. Per ulteriori informazioni sulle macchine virtuali di Azure Stack, continuare a [considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md).
 

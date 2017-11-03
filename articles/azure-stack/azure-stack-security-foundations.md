@@ -1,6 +1,6 @@
 ---
-title: Understand Azure Stack security controls | Microsoft Docs
-description: As a service administrator learn about the security controls applied to Azure Stack
+title: Informazioni sui controlli di sicurezza di Azure Stack | Documenti Microsoft
+description: Come amministratore del servizio informazioni relative ai controlli di sicurezza applicati allo Stack di Azure
 services: azure-stack
 documentationcenter: 
 author: Heathl17
@@ -14,70 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 106fcf7b0edc095a52e82d58ad48a73084b65d1e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack infrastructure security posture
+# <a name="azure-stack-infrastructure-security-posture"></a>Condizioni di sicurezza di Azure Stack infrastruttura
 
-*Applies to: Azure Stack integrated systems*
+*Si applica a: Azure Stack integrate di sistemi*
 
-Security considerations and compliance regulations are among the main drivers for using hybrid clouds. Azure Stack was designed for these scenarios, and it is important to understand the controls already in place when adopting Azure Stack.
+Considerazioni sulla sicurezza e normative di conformità sono tra i driver principali per l'utilizzo di cloud ibridi. Stack Azure è stato progettato per questi scenari ed è importante comprendere i controlli già in uso per l'adozione di Stack di Azure.
 
-In Azure Stack, there are two security posture layers that coexist. The first layer comprises the Azure Stack infrastructure, which goes from the hardware components all the way up to the Azure Resource Manager, and includes the Administrator and the Tenant portals. The second layer consists of the workloads that tenants create, deploy, and manage and includes things like virtual machines or App Services web sites.  
+Nello Stack di Azure, esistono due livelli di situazione sicurezza coesistono. Il primo livello comprende l'infrastruttura di Azure Stack, che include l'amministratore e i portali Tenant e unisce i componenti hardware completamente fino a Gestione risorse di Azure. Il secondo livello è costituito da carichi di lavoro che i tenant di creare, distribuiscono e gestire e include informazioni quali macchine virtuali o siti web di servizi App.  
 
-## <a name="security-approach"></a>Security approach
-Azure Stack was designed with a security posture to defend against modern threats, and was built to meet the requirements from the major compliance standards. As a result, the security posture of the Azure Stack infrastructure is built on two pillars:
+## <a name="security-approach"></a>Approccio di sicurezza
+Stack di Azure è stato progettato con una condizione di sicurezza per difendersi da minacce moderne ed è stato compilato per soddisfare i requisiti degli standard di conformità principali. Di conseguenza, le condizioni di sicurezza dell'infrastruttura di Azure Stack si basa su due aree:
 
- - **Assume Breach.** Starting from the assumption that the system has already been breached, we focus on *detecting and limiting the impact of breaches* versus only trying to prevent attacks. 
- - **Hardened by Default.**  Since the infrastructure runs on well-defined hardware and software, we *enable, configure, and validate security features* that are usually left to customers to implement.
+ - **Si supponga di violazione.** A partire dal presupposto che il sistema non è già stata soddisfatta, ci concentreremo invece sui *rilevare e limitare l'impatto delle violazioni* rispetto solo tentando di impedire attacchi. 
+ - **Finalizzazione per impostazione predefinita.**  Poiché l'infrastruttura viene eseguito su hardware ben definiti e software, è *abilitare, configurare e convalidare le funzionalità di sicurezza* che sono in genere compiti ai clienti di implementare.
 
-Because Azure Stack is delivered as an integrated system, the security posture of the Azure Stack infrastructure is defined by Microsoft.  Just like in Azure, tenants are responsible for defining the security posture of their tenant workloads. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
+Poiché Azure Stack viene recapitato come un sistema integrato, le condizioni di sicurezza dell'infrastruttura di Azure Stack sono definita da Microsoft.  Come in Azure, i tenant sono responsabili per definire le condizioni di sicurezza dei rispettivi carichi di lavoro tenant. Questo documento fornisce una conoscenza di base in condizioni di sicurezza dell'infrastruttura di Azure Stack.
 
-## <a name="data-at-rest-encryption"></a>Data at rest encryption
-All Azure Stack infrastructure and tenant data is encrypted at rest using Bitlocker. This encryption protects against physical loss or theft of Azure Stack storage components. 
+## <a name="data-at-rest-encryption"></a>Dati a crittografia rest
+Tutti i dati dell'infrastruttura e tenant di Azure Stack vengono crittografati a riposo mediante Bitlocker. La crittografia protegge contro fisica perdita o furto dei componenti di archiviazione di Azure Stack. 
 
-## <a name="data-in-transit-encryption"></a>Data in transit encryption
-The Azure Stack infrastructure components communicate using channels encrypted with TLS 1.2. Encryption certificates are self-managed by the infrastructure. 
+## <a name="data-in-transit-encryption"></a>Dati di crittografia di transito
+I componenti dell'infrastruttura di Azure Stack comunicano con i canali crittografati con TLS 1.2. Self-gestiti dall'infrastruttura di certificati di crittografia. 
 
-All external infrastructure endpoints, such as the REST endpoints or the Azure Stack portal, support TLS 1.2 for secure communications. Encryption certificates, either from a third party or your enterprise Certificate Authority, must be provided for those endpoints. 
+Tutti gli endpoint di infrastruttura esterni, ad esempio gli endpoint REST o il portale di Azure Stack supportano TLS 1.2 per le comunicazioni protette. I certificati di crittografia da una terza parte o dell'organizzazione autorità di certificazione, è obbligatorio per gli endpoint. 
 
-While self-signed certificates can be used for these external endpoints, Microsoft strongly advises against using them. 
+Mentre i certificati autofirmati possono essere utilizzati per questi endpoint esterni, si consiglia fortemente di utilizzarli. 
 
-## <a name="secret-management"></a>Secret management
-Azure Stack infrastructure uses a multitude of secrets, like passwords, to function. Most of them are automatically rotated frequently, because they are Group Managed Service accounts, which rotate every 24 hours.
+## <a name="secret-management"></a>Gestione di informazioni segrete
+Infrastruttura di Azure Stack utilizza una vasta gamma di informazioni riservate, come le password, per funzionare. La maggior parte di essi vengono ruotata automaticamente di frequente, perché sono gli account del servizio gestito di gruppo, ruotare ogni 24 ore.
 
-The remaining secrets that are not Group Managed Service accounts can be rotated manually with a script in the Privileged Endpoint.
+I segreti rimanenti che non possono essere ruotati manualmente gli account del servizio gestito di gruppo con uno script nell'Endpoint con privilegi.
 
-## <a name="code-integrity"></a>Code integrity
-Azure Stack makes use of the latest Windows Server 2016 security features. One of them is Windows Defender Device Guard, which provides application whitelisting, and ensures that only authorized code runs within the Azure Stack infrastructure. 
+## <a name="code-integrity"></a>Integrità del codice
+Stack di Azure viene utilizzato il più recente di Windows Server 2016 le funzionalità di sicurezza. Uno di essi è Windows Defender controllo dispositivo, che fornisce whitelist applicazione e garantisce che solo autorizzati codice viene eseguito all'interno dell'infrastruttura di Azure Stack. 
 
-Authorized code is signed by either Microsoft or the OEM partner, and it is included in the list of allowed software that is specified in a policy defined by Microsoft. In other words, only software that has been approved to run in the Azure Stack infrastructure can be executed. Any attempt to execute unauthorized code are blocked and an audit is generated.
+Codice non autorizzato è firmato da Microsoft o il partner OEM ed è incluso nell'elenco dei software consentito che è specificato in un criterio definito da Microsoft. In altre parole, è possibile eseguire solo il software che è stato approvato per l'esecuzione nell'infrastruttura di Azure Stack. Qualsiasi tentativo di eseguire codice non autorizzato sono bloccati e viene generato un controllo.
 
-The Device Guard policy also prevents third-party agents or software from running in the Azure Stack infrastructure.
+I criteri di controllo dispositivo impedisce inoltre agli agenti di terze parti o software in esecuzione nell'infrastruttura di Azure Stack.
 
-## <a name="credential-guard"></a>Credential Guard
-Another Windows Server 2016 security feature in Azure Stack is Windows Defender Credential Guard, which is used to protect Azure Stack infrastructure credentials from Pass-the-Hash and Pass-the-Ticket attacks.
+## <a name="credential-guard"></a>Protezione delle credenziali
+Un'altra funzionalità di sicurezza di Windows Server 2016 nello Stack di Azure è Guard di credenziali di Windows Defender, viene utilizzato per proteggere le credenziali dell'infrastruttura di Azure Stack da Pass-the-Hash e attacchi Pass-the-Ticket.
 
 ## <a name="antimalware"></a>Antimalware
-Every component in Azure Stack (both Hyper-V hosts and Virtual Machines) is protected with Windows Defender Antivirus.
+Ogni componente nello Stack di Azure (host Hyper-V e macchine virtuali) è protetto da Windows Defender Antivirus.
 
-## <a name="constrained-administration-model"></a>Constrained administration model
-Administration in Azure Stack is controlled through the use of three entry points, each with a specific purpose: 
-1. The [Administrator Portal](azure-stack-manage-portals.md) provides a point-and-click experience for daily management operations.
-2. Azure Resource Manager exposes all the management operations of the Administrator Portal via a REST API, used by PowerShell and Azure CLI. 
-3. For specific low-level operations, for example data center integration or support scenarios, Azure Stack exposes a PowerShell endpoint called [Privileged Endpoint](azure-stack-privileged-endpoint.md). This endpoint exposes only a whitelisted set of cmdlets and it is heavily audited.
+## <a name="constrained-administration-model"></a>Modello di amministrazione limitata
+Amministrazione nello Stack di Azure viene controllato tramite l'utilizzo di tre punti di ingresso, ciascuno con uno scopo specifico: 
+1. Il [portale dell'amministratore](azure-stack-manage-portals.md) offre un'esperienza di mouse e per le operazioni quotidiane di gestione.
+2. Gestione risorse di Azure espone tutte le operazioni di gestione del portale di amministrazione tramite un'API REST, usato da PowerShell e CLI di Azure. 
+3. Per specifiche operazioni di basso livello, ad esempio dati center integrazione o supportano gli scenari, Stack di Azure espone un endpoint di PowerShell denominato [Endpoint con privilegi](azure-stack-privileged-endpoint.md). L'endpoint espone solo un set consentito di cmdlet e viene ampiamente eseguito il controllo.
 
-## <a name="network-controls"></a>Network controls
-Azure Stack infrastructure comes with multiple layers of network Access Control List(ACL).  The ACLs     prevent unauthorized access to the infrastructure components and limit infrastructure communications to only the paths that are required for its functioning. 
+## <a name="network-controls"></a>Controlli di rete
+Infrastruttura di Azure Stack viene fornito con diversi livelli di List(ACL) di controllo di accesso di rete.  Gli ACL impediscono accessi non autorizzati per i componenti dell'infrastruttura e limitare le comunicazioni con infrastruttura solo i percorsi che sono necessari per il funzionamento. 
 
-Network ACLs are enforced in three layers:
-1.  Top of Rack switches
-2.  Software Defined Network
-3.  Host and VM operating system firewalls 
-
+Gli ACL di rete vengono applicati in tre livelli:
+1.  Parte superiore del Rack attiva
+2.  Software di rete definite
+3.  Firewall del sistema operativo host e macchine Virtuali 
 
 

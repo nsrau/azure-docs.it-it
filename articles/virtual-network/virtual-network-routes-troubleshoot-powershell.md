@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 141e3c571d744470fd07e99538b6e38d4144e8d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29823708b2d26a383b76e371499859e57f470c6f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Risoluzione dei problemi di route con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Le tabelle di route sono associate alle subnet e valgono per tutte le interfacce
 
 * **Route di sistema:** per impostazione predefinita, ogni subnet creata in una rete virtuale di Azure dispone di tabelle di route di sistema che consentono il traffico di rete virtuale locale, il traffico locale tramite gateway VPN e il traffico Internet. Le route di sistema esistono anche per le reti virtuali con peering.
 * **Route BGP:** sono propagate alle interfacce di rete tramite connessioni VPN site-to-site o ExpressRoute. Per altre informazioni sul routing BGP, vedere gli articoli [BGP con i gateway VPN](../vpn-gateway/vpn-gateway-bgp-overview.md) e [Panoramica relativa a ExpressRoute](../expressroute/expressroute-introduction.md).
-* **Route definite dall'utente:** se si usano dispositivi virtuali di rete o si forza il tunneling del traffico verso una rete locale tramite una VPN site-to-site, potrebbero esserci route definite dall'utente associate alla tabella di route della subnet. Se non si ha dimestichezza con le route definite dall'utente, leggere l'articolo sulle [route definite dall'utente](virtual-networks-udr-overview.md#user-defined-routes) .
+* **Route definite dall'utente:** se si usano dispositivi virtuali di rete o si forza il tunneling del traffico verso una rete locale tramite una VPN site-to-site, potrebbero esserci route definite dall'utente associate alla tabella di route della subnet. Se non si ha dimestichezza con le route definite dall'utente, leggere l'articolo sulle [route definite dall'utente](virtual-networks-udr-overview.md#user-defined) .
 
 Con le varie route che possono essere applicate a un'interfaccia di rete, può essere difficile determinare quali route di aggregazione sono efficaci. Per risolvere i problemi di connettività di rete delle VM, è possibile visualizzare tutte le route valide per un'interfaccia di rete nel modello di distribuzione Azure Resource Manager.
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack troubleshooting | Microsoft Docs
-description: Azure Stack troubleshooting.
+title: Risoluzione dei problemi di Microsoft Azure Stack | Documenti Microsoft
+description: Azure Stack risoluzione dei problemi.
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -14,90 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3b40a657ee8eb391d14a38cb95acc0729a8dda21
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack troubleshooting
+# <a name="microsoft-azure-stack-troubleshooting"></a>Risoluzione dei problemi di Microsoft Azure Stack
 
-*Applies to: Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit*
 
-This document provides common troubleshooting information for Azure Stack. 
+Questo documento fornisce informazioni sulla risoluzione dei problemi comuni per lo Stack di Azure. 
 
-Because the Azure Stack Technical Development Kit is offered as an evaluation environment, there is no official support from Microsoft Customer Support Services.  If you are experiencing an issue not documented, make sure to check the [Azure Stack MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) for further assistance and information.  
+Poiché il Kit di sviluppo tecnica di Azure Stack viene offerto come un ambiente di valutazione, non è previsto alcun supporto ufficiale dal supporto tecnico clienti Microsoft.  Se si sta verificando un problema non documentato, assicurarsi di controllare il [Forum MSDN di Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) per ulteriore assistenza e informazioni.  
 
-The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
+Le indicazioni per la risoluzione dei problemi descritti in questa sezione sono derivate da diverse origini e potrebbero essere o non possono essere risolti al problema specifico. Vengono forniti esempi di codice come sono e non possono essere garantiti risultati previsti. In questa sezione è soggetto a modifiche frequenti e gli aggiornamenti come vengono implementati i miglioramenti al prodotto.
 
-## <a name="deployment"></a>Deployment
-### <a name="deployment-failure"></a>Deployment failure
-If you experience a failure during installation, you can use use the rerun option of the deployment script to restart the deployment from the failed step.  
+## <a name="deployment"></a>Distribuzione
+### <a name="deployment-failure"></a>Errore di distribuzione
+Se si verifica un errore durante l'installazione, è possibile utilizzare utilizzare l'opzione rieseguire dello script di distribuzione per riavviare la distribuzione del passaggio non riuscito.  
 
 
-### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>At the end of the deployment, the PowerShell session is still open and doesn’t show any output
-This behavior is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The development kit deployment has actually succeeded but the script was paused when selecting the window. You can verify this is the case by looking for the word "select" in the titlebar of the command window.  Press the ESC key to unselect it, and the completion message should be shown after it.
+### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Al termine della distribuzione, la sessione di PowerShell è ancora aperta e non visualizza alcun output
+Questo comportamento è probabilmente solo il risultato del comportamento predefinito di una finestra di comando di PowerShell, quando è stato selezionato. La distribuzione di kit di sviluppo effettivamente ha avuto esito positivo, ma lo script è stato sospeso quando si seleziona la finestra. È possibile verificare che questo è il caso cercando la parola "select" sulla barra del titolo della finestra di comando.  Premere il tasto ESC per deselezionarlo e deve essere visualizzato il messaggio di completamento dopo di esso.
 
-## <a name="templates"></a>Templates
-### <a name="azure-template-wont-deploy-to-azure-stack"></a>Azure template won't deploy to Azure Stack
-Make sure that:
+## <a name="templates"></a>Modelli
+### <a name="azure-template-wont-deploy-to-azure-stack"></a>Modello di Azure non verrà distribuiti in Azure Stack
+Assicurarsi che:
 
-* The template must be using a Microsoft Azure service that is already available or in preview in Azure Stack.
-* The APIs used for a specific resource are supported by the local Azure Stack instance, and that you are targeting a valid location (“local” in Azure Stack development kit, vs the “East US” or “South India” in Azure).
-* You review [this article](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) about the Test-AzureRmResourceGroupDeployment cmdlets, which catch small differences in Azure Resource Manager syntax.
+* Il modello deve utilizzare un servizio di Microsoft Azure che è già disponibile o in anteprima nello Stack di Azure.
+* Le API utilizzate per una risorsa specifica sono supportate dall'istanza locale dello Stack di Azure e che la destinazione è un percorso valido ("local" nel kit di sviluppo dello Stack di Azure, Visual Studio il "Stati Uniti orientali" o "Sud India" in Azure).
+* Esaminare [questo articolo](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) sui cmdlet Test-AzureRmResourceGroupDeployment, quale catch piccole differenze nella sintassi di gestione risorse di Azure.
 
-You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.
+È inoltre possibile utilizzare i modelli di Azure Stack già forniti nel [repository GitHub](http://aka.ms/AzureStackGitHub/) per iniziare.
 
-## <a name="virtual-machines"></a>Virtual machines
-### <a name="default-image-and-gallery-item"></a>Default image and gallery item
-You must first add a Windows Server image and gallery item before deploying VMs in Azure Stack.
+## <a name="virtual-machines"></a>Macchine virtuali
+### <a name="default-image-and-gallery-item"></a>Elemento di raccolta e l'immagine predefinita
+Prima di distribuire le macchine virtuali nello Stack di Azure, è innanzitutto necessario aggiungere un elemento di raccolta e l'immagine di Windows Server.
 
-### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>After restarting my Azure Stack host, some VMs may not automatically start.
-After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
+### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Dopo il riavvio dell'host di Stack di Azure, alcune macchine virtuali non venga avviato automaticamente.
+Dopo il riavvio dell'host, è possibile riscontrare servizi Azure Stack non sono immediatamente disponibili.  In questo modo Azure Stack [infrastruttura di macchine virtuali](azure-stack-architecture.md#virtual-machine-roles) e RPs richiedere un po' le per verificare la coerenza, ma verrà infine avviata automaticamente.
 
-You may also notice that tenant VMs don't automatically start after a reboot of the Azure Stack development kit host.  This is a known issue, and just requires a few manual steps to bring them online:
+È anche possibile riscontrare tenant che macchine virtuali non avviare automaticamente dopo il riavvio dell'host del kit di sviluppo dello Stack di Azure.  Questo è un problema noto e richiede solo pochi passaggi manuali per portarli online:
 
-1.  On the Azure Stack development kit host, start **Failover Cluster Manager** from the Start Menu.
-2.  Select the cluster **S-Cluster.azurestack.local**.
-3.  Select **Roles**.
-4.  Tenant VMs will appear in a *saved* state.  Once all Infrastructure VMs are running, right-click the tenant VMs and select **Start** to resume the VM.
+1.  Nell'host di kit di sviluppo dello Stack di Azure, avviare **gestione Cluster di Failover** dal Menu Start.
+2.  Selezionare il cluster **S Cluster.azurestack.local**.
+3.  Selezionare **Ruoli**.
+4.  Le macchine virtuali tenant verranno visualizzate un *salvato* stato.  Quando tutte le macchine virtuali dell'infrastruttura sono in esecuzione, le macchine virtuali tenant e scegliere **avviare** per riprendere la macchina virtuale.
 
-### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
-Yes, this is behavior expected. It was designed this way because:
+### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Sono eliminati alcune macchine virtuali, ma comunque visualizzare i file di disco rigido virtuale su disco. Questo comportamento è previsto?
+Sì, questo comportamento è previsto. È stato progettato in questo modo perché:
 
-* When you delete a VM, VHDs are not deleted. Disks are separate resources in the resource group.
-* When a storage account gets deleted, the deletion is visible immediately through Azure Resource Manager (portal, PowerShell) but the disks it may contain are still kept in storage until garbage collection runs.
+* Quando si elimina una macchina virtuale, è possibile che i dischi rigidi virtuali non vengono eliminati. I dischi sono separate le risorse nel gruppo di risorse.
+* Quando un account di archiviazione Ottiene eliminato, l'eliminazione è visibile immediatamente tramite Gestione risorse di Azure (portale, PowerShell), ma i dischi che potrebbe contenere ancora vengono conservati nell'archiviazione fino a quando non viene eseguito l'operazione di garbage collection.
 
-If you see "orphan" VHDs, it is important to know if they are part of the folder for a storage account that was deleted. If the storage account was not deleted, it's normal they are still there.
+Se viene visualizzato "orfano" i dischi rigidi virtuali, è importante sapere se fanno parte della cartella per un account di archiviazione che è stato eliminato. Se l'account di archiviazione non è stato eliminato, è normale che sono ancora presenti.
 
-You can read more about configuring the retention threshold and on-demand reclamation in [manage storage accounts](azure-stack-manage-storage-accounts.md).
+Altre informazioni sulla configurazione il recupero di soglia e su richiesta di conservazione in [gestire account di archiviazione](azure-stack-manage-storage-accounts.md).
 
-## <a name="storage"></a>Storage
-### <a name="storage-reclamation"></a>Storage reclamation
-It may take up to fourteen hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed when garbage collector runs.
+## <a name="storage"></a>Archiviazione
+### <a name="storage-reclamation"></a>Recupero di archiviazione
+Potrebbe richiedere fino a quattordici ore capacità recuperata da visualizzare nel portale. Recupero di spazio dipende da diversi fattori tra cui percentuale di utilizzo di file contenitore interno nell'archivio blob di blocco. Pertanto, a seconda della quantità di dati viene eliminata, non c'è garanzia sulla quantità di spazio che potrebbe essere recuperato durante l'esecuzione di garbage collection.
 
 ## <a name="powershell"></a>PowerShell
-### <a name="resource-providers-not-registered"></a>Resource Providers not registered
-When connecting to tenant subscriptions with PowerShell, you will notice that the resource providers are not automatically registered. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
+### <a name="resource-providers-not-registered"></a>Provider di risorse non registrati
+Quando ci si connette alle sottoscrizioni di tenant con PowerShell, si noterà che i provider di risorse non vengono registrati automaticamente. Utilizzare il [modulo Connect](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), o eseguire il comando seguente da PowerShell (dopo aver [installazione e la connessione](azure-stack-connect-powershell.md) come tenant): 
   
        Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
 
 ## <a name="cli"></a>CLI
 
-* The CLI interactive mode i.e the `az interactive` command is not yet supported in Azure Stack.
-* To get the list of virtual machine images available in Azure Stack, use the `az vm images list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment. 
-* Virtual machine image aliases that are available in Azure may not be applicable to Azure Stack. When using virtual machine images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. And this URNmust match the image specifications as derived from the `az vm images list` command.
-* By default, CLI 2.0 uses “Standard_DS1_v2” as the default virtual machine image size. However, this size is not yet available in Azure Stack, so, you need to specify the `--size` parameter explicitly when creating a virtual machine. You can get the list of virtual machine sizes that are available in Azure Stack by using the `az vm list-sizes --location <locationName>` command.
+* Ad esempio la modalità interattiva CLI il `az interactive` comando non è ancora supportato nello Stack di Azure.
+* Per ottenere l'elenco delle immagini di macchina virtuale disponibile nello Stack di Azure, utilizzare il `az vm images list --all` comando anziché il `az vm image list` comando. Specifica il `--all` opzione assicura che risposta restituisce solo le immagini disponibili nell'ambiente dello Stack di Azure. 
+* Gli alias di immagine di macchina virtuale che sono disponibili in Azure potrebbero non essere applicabili allo Stack di Azure. Quando si utilizzano le immagini di macchina virtuale, è necessario utilizzare l'intero parametro URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) anziché l'alias di immagine. E come derivati da questo URNmust corrispondono a quelle immagine il `az vm images list` comando.
+* Per impostazione predefinita, 2.0 CLI usa "Standard_DS1_v2" come le dimensioni dell'immagine macchina virtuale predefinito. Tuttavia, la dimensione non è ancora disponibile nello Stack di Azure, in tal caso, è necessario specificare il `--size` parametro in modo esplicito durante la creazione di una macchina virtuale. È possibile ottenere l'elenco di dimensioni delle macchine virtuali che sono disponibili nello Stack di Azure mediante il `az vm list-sizes --location <locationName>` comando.
 
 
-## <a name="windows-azure-pack-connector"></a>Windows Azure Pack Connector
-* If you change the password of the azurestackadmin account after you deploy Azure Stack development kit, you can no longer configure multi-cloud mode. Therefore, it won't be possible to connect to the target Windows Azure Pack environment.
-* After you set up multi-cloud mode:
-    * A user can see the dashboard only after they reset the portal settings. (In the user portal, click the portal settings icon (gear icon in the top-right corner). Under **Restore default settings**, click **Apply**.)
-    * The dashboard titles may not appear. If this issue occurs, you must manually add them back.
-    * Some tiles may not show correctly when you first add them to the dashboard. To fix this issue, refresh the browser.
-
+## <a name="windows-azure-pack-connector"></a>Connettore di Windows Azure Pack
+* Se si modifica la password dell'account azurestackadmin dopo aver distribuito il kit di sviluppo dello Stack di Azure, è non possibile configurare non è più in modalità multi-cloud. Pertanto, non sarà possibile connettersi all'ambiente di Windows Azure Pack di destinazione.
+* Dopo aver impostato la modalità multi-cloud:
+    * Il dashboard di un utente è visibile solo dopo che reimpostano le impostazioni del portale. (Nel portale per gli utenti, scegliere l'icona di impostazioni del portale (icona a forma di ingranaggio nell'angolo superiore destro). In **ripristinare le impostazioni predefinite**, fare clic su **applica**.)
+    * I titoli dei dashboard potrebbero non essere visualizzato. Se si verifica questo problema, è necessario aggiungerle manualmente nuovamente.
+    * Alcuni riquadri non vengano visualizzate correttamente quando è possibile aggiungerli al dashboard. Per risolvere questo problema, aggiornare il browser.
 
 
 

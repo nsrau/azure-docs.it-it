@@ -1,6 +1,6 @@
 ---
-title: Manage updates in Azure Stack overview | Microsoft Docs
-description: Learn about update management for Azure Stack integrated systems.
+title: Gestire gli aggiornamenti in panoramica di Azure Stack | Documenti Microsoft
+description: Informazioni sulla gestione degli aggiornamenti per i sistemi Azure Stack integrato.
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,57 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-updates-in-azure-stack-overview"></a>Manage updates in Azure Stack overview
+# <a name="manage-updates-in-azure-stack-overview"></a>Gestire gli aggiornamenti in panoramica di Azure Stack
 
-*Applies to: Azure Stack integrated systems*
+*Si applica a: Azure Stack integrate di sistemi*
 
-Microsoft will release update packages for Azure Stack integrated systems on a regular basis. Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
+Microsoft rilascerà i pacchetti di aggiornamento per i sistemi Azure Stack integrato a intervalli regolari. Ogni versione di Microsoft degli aggiornamenti del software viene fornito come un singolo pacchetto di aggiornamento. Come operatore di Stack di Azure, è possibile importare, installare e monitorare l'avanzamento dell'installazione di questi pacchetti dal portale di amministrazione di aggiornamento. 
 
-Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. These updates are delivered as separate packages by your OEM hardware vendor, and are managed separately from Microsoft updates.
+Il fornitore dell'hardware (OEM) original equipment manufacturer rilasceranno anche gli aggiornamenti, ad esempio aggiornamenti di driver e firmware. Questi aggiornamenti vengono distribuiti come pacchetti separati dal fornitore dell'hardware OEM e vengono gestiti separatamente da Microsoft Update.
 
-To keep your system under support, you must keep Azure Stack updated to a specific version level. Make sure that you review the [Azure Stack servicing policy](azure-stack-servicing-policy.md).
+Per mantenere il sistema di supporto, è necessario mantenere aggiornato a un livello di versione Stack di Azure. Verificare che il [dello Stack di Azure per la manutenzione dei criteri](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> You can't apply Azure Stack update packages to Azure Stack Development Kit. The update packages are designed for integrated systems.
+> Non è possibile applicare i pacchetti di aggiornamento dello Stack di Azure al Kit di sviluppo dello Stack di Azure. I pacchetti di aggiornamento sono progettati per sistemi integrati.
 
-## <a name="the-update-resource-provider"></a>The Update resource provider
+## <a name="the-update-resource-provider"></a>Il provider di risorse di aggiornamento
 
-Azure Stack includes an Update resource provider that orchestrates the application of Microsoft software updates. This resource provider ensures that updates are applied across all physical hosts, Service Fabric applications and runtimes, and all infrastructure virtual machines and their associated services.
+Stack di Azure include un provider di risorse di aggiornamento che coordina l'applicazione degli aggiornamenti software Microsoft. Questo provider di risorse garantisce che gli aggiornamenti vengono applicati a tutti gli host fisici, le applicazioni di Service Fabric e Runtime e tutte le macchine virtuali dell'infrastruttura e i servizi associati.
 
-As updates install, you can easily view high-level status as the update process targets the various subsystems in Azure Stack (for example, physical hosts, and infrastructure virtual machines).
+Come installare gli aggiornamenti, è possibile visualizzare facilmente lo stato di alto livello come destinazioni di processo di aggiornamento i vari sottosistemi nello Stack di Azure (ad esempio, gli host fisici e macchine virtuali di infrastruttura).
 
-## <a name="plan-for-updates"></a>Plan for updates
+## <a name="plan-for-updates"></a>Pianificare gli aggiornamenti
 
-We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both tenant workloads and portal operations.
+È consigliabile inviare una notifica agli utenti di tutte le operazioni di manutenzione e pianificare le operazioni di manutenzione durante le ore non lavorative quanto possibile. Carichi di lavoro tenant sia le operazioni del portale, possono influire sulle operazioni di manutenzione.
 
-## <a name="using-the-update-tile-to-manage-updates"></a>Using the Update tile to manage updates
-Managing updates from the administrator portal is a simple process. An Azure Stack operator can navigate to the Update tile in the dashboard to:
+## <a name="using-the-update-tile-to-manage-updates"></a>Utilizzando il riquadro di aggiornamento per gestire gli aggiornamenti
+La gestione degli aggiornamenti dal portale di amministrazione è un processo semplice. Un operatore di Stack di Azure è possibile passare al riquadro nel dashboard di aggiornamento:
 
-- view important information such as the current version.
-- install updates, and monitor progress.
-- review update history for previously installed updates.
+- Consente di visualizzare informazioni importanti, ad esempio la versione corrente.
+- installare gli aggiornamenti e monitorare lo stato di avanzamento.
+- Esaminare la cronologia degli aggiornamenti per gli aggiornamenti installati in precedenza.
  
-## <a name="determine-the-current-version"></a>Determine the current version
+## <a name="determine-the-current-version"></a>Determinare la versione corrente
 
-The Update tile shows the current version of Azure Stack. You can get to the Update tile by using either of the following methods in the administrator portal:
+Nel riquadro di aggiornamento vengono visualizzati la versione corrente dello Stack di Azure. È possibile ottenere il titolo dell'aggiornamento utilizzando uno dei metodi seguenti nel portale di amministrazione:
 
-- On the dashboard, view the current version in the **Update** tile.
+- Nel dashboard, visualizzare la versione corrente nel **aggiornamento** riquadro.
  
-   ![Updates tile on default dashboard](./media/azure-stack-updates/image1.png)
+   ![Gli aggiornamenti riquadro nel dashboard predefinito](./media/azure-stack-updates/image1.png)
  
-- On the **Region management** tile, click the region name. View the current version in the **Update** tile.
+- Nel **Gestione area** riquadro, fare clic sul nome di area. Visualizzare la versione corrente nel **aggiornamento** riquadro.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Azure Stack servicing policy](azure-stack-servicing-policy.md) 
-- [Region management in Azure Stack](azure-stack-region-management.md)     
-
+- [Azure Stack di manutenzione dei criteri](azure-stack-servicing-policy.md) 
+- [Gestione area nello Stack di Azure](azure-stack-region-management.md)     
 
 

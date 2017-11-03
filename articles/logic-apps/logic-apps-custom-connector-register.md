@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2c384e27798bc4920ef73af1084600fdc4047f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e3d88abe751b37700590cc68c458f208d5868d2
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="register-custom-connectors-in-azure-logic-apps"></a>Registrare i connettori personalizzati in App per la logica di Azure
 
@@ -94,7 +94,7 @@ Specificare ora il file OpenAPI o la raccolta Postman per creare il connettore, 
 
       ![Dettagli del connettore](./media/logic-apps-custom-connector-register/add-connector-details.png)
 
-      | Opzione o impostazione | Formato | Descrizione | 
+      | Opzione o impostazione | Format | Descrizione | 
       | ----------------- | ------ | ----------- | 
       | **Carica icona** | *file-PNG-o-JPG-minore-di-1-MB* | Icona che rappresenta il connettore <p>Colore: preferibilmente un logo bianco su uno sfondo a colori. <p>Dimensioni: logo di circa 160 pixel all'interno di un quadrato di 230 pixel | 
       | **Colore di sfondo dell'icona** | *codice-esadecimale-colore-icona* | <p>Colore di sfondo dell'icona corrispondente al colore di sfondo nel file di icona. <p>Formato: esadecimale. Ad esempio, #007ee5 rappresenta il colore blu. | 
@@ -151,6 +151,8 @@ Specificare ora il file OpenAPI o la raccolta Postman per creare il connettore, 
    ![Definizione del connettore](./media/logic-apps-custom-connector-register/definition.png)
 
 2. Facoltativo: se si vuole modificare azioni e trigger esistenti, o aggiungerne di nuovi, continuare con questi passaggi.
+
+<a name="add-action-or-trigger"></a> 
 
 #### <a name="edit-or-add-actions-for-your-connector"></a>Modificare o aggiungere azioni per il connettore
 
@@ -271,7 +273,7 @@ I connettori personalizzati registrati ma non certificati funzionano come i conn
  
 Per condividere il connettore con utenti esterni senza questi limiti, ad esempio con tutti gli utenti di App per la logica, Flow e PowerApps, [inviare il connettore per la certificazione Microsoft](../logic-apps/custom-connector-submit-certification.md).
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 
 **D:** esistono limiti per i connettori personalizzati? </br>
 **R:** Sì, vedere i [limiti per i connettori personalizzati qui](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).

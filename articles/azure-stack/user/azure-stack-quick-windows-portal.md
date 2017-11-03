@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Quick Start - Create a Windows virtual machine
-description: Azure Stack Quick Start - Create a Windows VM using the portal
+title: Azure Stack Quick Start - creare una macchina virtuale di Windows
+description: Azure Stack Quick Start - creare una macchina virtuale Windows usando il portale
 services: azure-stack
 author: ErikjeMS
 manager: byronr
@@ -9,45 +9,42 @@ ms.topic: azure-stack
 ms.date: 09/15/2017
 ms.author: erikje
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2c9aba69d8f1999f7086bd2bcd44d1c1472abec7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: abca538f28bbc0a8f3f00311ca1a69d196f10272
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Creare una macchina virtuale Windows con il portale di Azure Stack
 
-# <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Create a Windows virtual machine with the Azure Stack portal
+È possibile creare una macchina virtuale Windows usando il portale di Azure Stack. Il portale è un'interfaccia utente basata su browser, in cui è possibile creare, configurare e gestire le risorse.
 
-You can create a Windows virtual machine by using the Azure Stack portal. The portal is a browser-based user interface where you can create, configure, and manage resources.
+## <a name="sign-in-to-the-azure-stack-portal"></a>Accedi al portale di Azure Stack
 
-## <a name="sign-in-to-the-azure-stack-portal"></a>Sign in to the Azure Stack portal
+Accedere al portale di Azure Stack. L'indirizzo del portale di Azure Stack varia a seconda del prodotto cui Azure Stack si è connessi:
 
-Sign in to the Azure Stack portal. The address of the Azure Stack portal depends on which Azure Stack product you are connecting to:
+* Per il Kit di sviluppo dello Stack (ASDK) Azure, passare a: https://portal.local.azurestack.external.
+* Per un sistema integrato dello Stack di Azure, andare all'URL fornito l'operatore di Stack di Azure.
 
-* For the Azure Stack Development Kit (ASDK) go to: https://portal.local.azurestack.external.
-* For an Azure Stack integrated system, go to the URL that your Azure Stack operator provided.
+## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
-
-1. Click **New** > **Compute** > **Windows Server 2016 Datacenter Eval** > **Create**. If you don't see **Windows Server 2016 Datacenter Eval** entry, contact your Azure Stack operator. Ask that they add it to the marketplace as explained in the [Add the Windows Server 2016 VM image to the Azure Stack marketplace](../azure-stack-add-default-image.md) article. 
+1. Fare clic su **nuova** > **calcolo** > **Windows Server 2016 Datacenter Eval** > **creare**. Se non viene visualizzato **Eval di Data Center di Windows Server 2016** voce, contattare l'operatore di Stack di Azure. Chiedere che essi aggiungerlo nel Marketplace come descritto nel [aggiungere l'immagine di macchina virtuale di Windows Server 2016 nel Marketplace Azure Stack](../azure-stack-add-default-image.md) articolo. 
     ![](media/azure-stack-quick-windows-portal/image01.png)
-2. Under **Basics**, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, select a **Location**, and then click **OK**.
+2. In **nozioni di base**, digitare un **nome**, **nome utente**, e **Password**. Scegliere una **Sottoscrizione**. Creare un **gruppo di risorse**, oppure selezionare un esistente, selezionare un **percorso**, quindi fare clic su **OK**.
 
     ![](media/azure-stack-quick-windows-portal/image02.png)
-3. Under **Choose a size**, click **A1 Standard** > **Select**.
+3. In **scegliere una dimensione**, fare clic su **D1 Standard** > **selezionare**.
     ![](media/azure-stack-quick-windows-portal/image03.png)
-4. Under **Settings**, accept the defaults and click **OK**.
+4. In **impostazioni**, accettare le impostazioni predefinite e fare clic su **OK**.
     ![](media/azure-stack-quick-windows-portal/image04.png)
-5. Under **Summary**, click **OK** to create the virtual machine. 
+5. In **riepilogo**, fare clic su **OK** per creare la macchina virtuale. 
     ![](media/azure-stack-quick-windows-portal/image05.png)
-6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
+6. Per visualizzare la nuova macchina virtuale, fare clic su **tutte le risorse**, quindi cercare la macchina virtuale e fare clic sul relativo nome.
     ![](media/azure-stack-quick-windows-portal/image06.png)
 
-## <a name="clean-up-resources"></a>Clean up resources
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-When you no longer need the virtual machine, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine page and click **Delete**.
+Quando non è più necessario la macchina virtuale, eliminare il gruppo di risorse, macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse da una pagina della macchina virtuale e fare clic su **eliminare**.
 
-## <a name="next-steps"></a>Next steps
-In this quick start, you’ve deployed a simple Windows virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
-
+## <a name="next-steps"></a>Passaggi successivi
+In questa Guida introduttiva, aver distribuito una semplice macchina virtuale di Windows. Per ulteriori informazioni sulle macchine virtuali di Azure Stack, continuare a [considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md).

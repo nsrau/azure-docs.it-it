@@ -12,14 +12,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Active
 ms.date: 10/13/2017
 ms.author: carlrab
-ms.openlocfilehash: 64cc1db78dd6f50c07ca79f8ab0bf29fdbbead22
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 Il database SQL prevede queste opzioni per il ripristino del database mediante [backup automatici del database](sql-database-automated-backups.md) e [backup nella conservazione a lungo termine](sql-database-long-term-retention.md). È possibile ripristinare un backup di database in:

@@ -1,6 +1,6 @@
 ---
-title: Use Template Validator to check templates for Azure Stack | Microsoft Docs
-description: Check templates for deployment to Azure Stack
+title: Utilizzare i Validator del modello per controllare i modelli per lo Stack di Azure | Documenti Microsoft
+description: Modelli di controllo per la distribuzione in Azure Stack
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -14,39 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Controllare i modelli per lo Stack di Azure con Validator del modello
 
-# <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Check your templates for Azure Stack with Template Validator
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+È possibile utilizzare lo strumento di convalida del modello per controllare se il gestore delle risorse Azure [modelli](azure-stack-arm-templates.md) pronti per lo Stack di Azure. Lo strumento di convalida del modello è disponibile come parte degli strumenti di Azure Stack. Scaricare gli strumenti di Azure Stack utilizzando la procedura descritta nel [scaricare gli strumenti da GitHub](azure-stack-powershell-download.md) articolo. 
 
-You can use the template validation tool to check if your Azure Resource Manager [templates](azure-stack-arm-templates.md) are ready for Azure Stack. The template validation tool is available as a part of the Azure Stack tools. Download the Azure Stack tools by using the steps described in the [download tools from GitHub](azure-stack-powershell-download.md) article. 
+Per convalidare i modelli, utilizzare i seguenti moduli di PowerShell e il file JSON nella **TemplateValidator** e **CloudCapabilities** cartelle: 
 
-To validate templates, you use the following PowerShell modules and the JSON file located in **TemplateValidator** and **CloudCapabilities** folders: 
+ - AzureRM.CloudCapabilities.psm1 crea un file JSON delle funzionalità cloud che rappresenta i servizi e le versioni in un cloud come Azure Stack.
+ - AzureRM.TemplateValidator.psm1 utilizza un file JSON delle funzionalità cloud per testare i modelli per la distribuzione nello Stack di Azure.
+ - AzureStackCloudCapabilities_with_AddOns_20170627.json è un file di funzionalità cloud predefinito.  È possibile crearne di proprie o per un'introduzione, utilizzare questo file. 
 
- - AzureRM.CloudCapabilities.psm1 creates a cloud capabilities JSON file representing the services and versions in a cloud like Azure Stack.
- - AzureRM.TemplateValidator.psm1 uses a cloud capabilities JSON file to test templates for deployment in Azure Stack.
- - AzureStackCloudCapabilities_with_AddOns_20170627.json is a default cloud capabilities file.  You can create your own, or use this file to get started. 
+In questo argomento, eseguire una convalida dei modelli e, facoltativamente, compilare un file di funzionalità del cloud.
 
-In this topic, you run validation against your templates, and optionally build a cloud capabilities file.
+## <a name="validate-templates"></a>Convalidare modelli
+In questa procedura, convalidare i modelli mediante il modulo AzureRM.TemplateValidator PowerShell. È possibile utilizzare i modelli personalizzati o convalidare la [modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
-## <a name="validate-templates"></a>Validate templates
-In these steps, you validate templates by using the AzureRM.TemplateValidator PowerShell module. You can use your own templates, or validate the [Azure Stack Quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates).
-
-1.  Import the AzureRM.TemplateValidator.psm1 PowerShell module:
+1.  Importare il modulo PowerShell AzureRM.TemplateValidator.psm1:
     
     ```PowerShell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
     Import-Module .\AzureRM.TemplateValidator.psm1
     ```
 
-2.  Run the template validator:
+2.  Eseguire il validator del modello:
 
     ```PowerShell
     Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
@@ -54,25 +52,25 @@ In these steps, you validate templates by using the AzureRM.TemplateValidator Po
     -Verbose
     ```
 
-Any template validation warnings or errors are logged to the PowerShell console, and are also logged to an HTML file in the source directory. An example of the validation report output looks like this:
+Eventuali errori o avvisi di convalida modello vengono registrati nella console di PowerShell e vengono inoltre registrati in un file HTML nella directory di origine. Un esempio di output del report di convalida è simile al seguente:
 
-![sample validation report](./media/azure-stack-validate-templates/image1.png)
+![report di convalida di esempio](./media/azure-stack-validate-templates/image1.png)
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>Parametri
 
-| Parameter | Description | Required |
+| Parametro | Descrizione | Obbligatorio |
 | ----- | -----| ----- |
-| TemplatePath | Specifies the path to recursively find Resource Manager templates | Yes | 
-| TemplatePattern | Specifies the name of template files to match. | No |
-| CapabilitiesPath | Specifies the path to cloud capabilities JSON file | Yes | 
-| IncludeComputeCapabilities | Includes evaluation of IaaS resources like VM Sizes and VM Extensions | No |
-| IncludeStorageCapabilities | Includes evaluation of storage resources like SKU types | No |
-| Report | Specifies name of the generated HTML report | No |
-| Verbose | Logs errors and warnings to the console | No|
+| TemplatePath | Specifica il percorso in modo ricorsivo trovare modelli di gestione risorse | Sì | 
+| TemplatePattern | Specifica il nome di file di modello per la corrispondenza. | No |
+| CapabilitiesPath | Specifica il percorso di file JSON di capacità cloud | Sì | 
+| IncludeComputeCapabilities | Include una valutazione delle risorse IaaS come dimensioni delle macchine Virtuali e le estensioni VM | No |
+| IncludeStorageCapabilities | Include la valutazione delle risorse di archiviazione come tipi SKU | No |
+| Report | Specifica nome del report HTML generato | No |
+| Dettagliato | Registra errori e avvisi nella console | No|
 
 
-### <a name="examples"></a>Examples
-This example validates all the [Azure Stack Quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates) downloaded locally, and also validates the VM sizes and extensions against Azure Stack Development Kit capabilities.
+### <a name="examples"></a>esempi
+In questo esempio convalida tutte le [modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) scaricato localmente e convalida le estensioni rispetto alle funzionalità di Azure Stack Development Kit e dimensioni delle macchine Virtuali.
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
@@ -82,25 +80,24 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -Report TemplateReport.html
 ```
 
-## <a name="build-cloud-capabilities-file"></a>Build cloud capabilities file
-The downloaded files include a default *AzureStackCloudCapabilities_with_AddOns_20170627.json* file, which describes the service versions available in Azure Stack Development Kit with PaaS services installed.  If you install additional Resource Providers, you can use the AzureRM.CloudCapabilities PowerShell module to build a JSON file including the new services.  
+## <a name="build-cloud-capabilities-file"></a>Compilare il file di funzionalità cloud
+Valore predefinito di includere i file scaricati *AzureStackCloudCapabilities_with_AddOns_20170627.json* file che descrive le versioni di servizio disponibili nel Kit di sviluppo dello Stack di Azure con i servizi PaaS installati.  Se si installa il provider di risorse aggiuntive, è possibile utilizzare il modulo AzureRM.CloudCapabilities PowerShell per compilare un file JSON, inclusi i nuovi servizi.  
 
-1.  Make sure you have connectivity to Azure Stack.  These steps can be performed from the Azure Stack development kit host, or you can use [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) to connect from your workstation. 
-2.  Import the AzureRM.CloudCapabilities PowerShell module:
+1.  Assicurarsi di disporre della connettività allo Stack di Azure.  Questi passaggi possono essere eseguiti dall'host del kit di sviluppo dello Stack di Azure, oppure è possibile utilizzare [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) per la connessione dalla propria workstation. 
+2.  Importare il modulo AzureRM.CloudCapabilities PowerShell:
 
     ```PowerShell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ``` 
 
-3.  Use the Get-CloudCapabilities cmdlet to retrieve service versions and create a cloud capabilities JSON file:
+3.  Usare il cmdlet Get-CloudCapabilities per recuperare le versioni di servizio e creare un file JSON delle funzionalità cloud:
 
     ```PowerShell
     Get-AzureRMCloudCapabilities -Location 'local' -Verbose
     ```             
 
 
-## <a name="next-steps"></a>Next steps
- - [Deploy templates to Azure Stack](azure-stack-arm-templates.md)
- - [Develop templates for Azure Stack](azure-stack-develop-templates.md)
-
+## <a name="next-steps"></a>Passaggi successivi
+ - [Distribuire modelli allo Stack di Azure](azure-stack-arm-templates.md)
+ - [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)
 
