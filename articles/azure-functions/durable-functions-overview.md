@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1ba4d68ba93073ebe3516c4fe886c7845080c534
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="durable-functions-overview-azure-functions"></a>Panoramica di Funzioni permanenti (Funzioni di Azure)
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 
 Poiché lo stato è gestito dal runtime di Funzioni permanenti, non è necessario implementare un meccanismo personalizzato di monitoraggio dello stato.
 
-Anche se l'estensione Funzioni permanenti ha webhook incorporati per la gestione delle orchestrazioni a esecuzione prolungata, è possibile implementare questo modello usando trigger di funzione personalizzati ad esempio HTTP, coda o Hub eventi, e il binding `orchestrationClient`.
+Anche se l'estensione Funzioni permanenti ha webhook incorporati per la gestione delle orchestrazioni a esecuzione prolungata, è possibile implementare questo modello usando trigger di funzione personalizzati ad esempio HTTP, coda o Hub eventi, e il binding `orchestrationClient`. Ad esempio, è possibile usare un messaggio di coda per attivare la terminazione.  In alternativa, è possibile usare un trigger HTTP protetto da un criterio di autenticazione di Azure Active Directory anziché webhook incorporati che per l'autenticazione usano una chiave generata. 
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -161,7 +161,7 @@ Il diagramma seguente illustra una funzione che viene eseguita in un ciclo infin
 
 ![Diagramma Singleton con stato](media/durable-functions-overview/stateful-singleton.png)
 
-Anche se Funzioni permanenti non è un'implementazione del modello basato su attori, le funzioni di orchestrazione presentano molte delle stesse caratteristiche di runtime. Sono ad esempio a esecuzione prolungata (potenzialmente a ciclo infinito), con stato, affidabili, a thread singolo, con trasparenza di posizione e indirizzabili a livello globale. Questo rende le funzioni di orchestrazione utili per gli scenari di tipo "attore" senza la necessità di un framework separato.
+Anche se Funzioni permanenti non è un'implementazione del modello basato su attori, le funzioni di orchestrazione presentano molte delle stesse caratteristiche di runtime. Sono ad esempio a esecuzione prolungata (potenzialmente a ciclo infinito), con stato, affidabili, a thread singolo, con trasparenza di posizione e indirizzabili a livello globale. Questo rende le funzioni di orchestrazione utili per gli scenari di tipo "attore".
 
 Le funzioni ordinarie sono senza stato e pertanto non adatte per implementare un modello singleton con stato. L'estensione Funzioni permanenti, tuttavia, rende il modello singleton con stato relativamente semplice da implementare. Il codice seguente è una funzione di orchestrazione semplice che implementa un contatore.
 

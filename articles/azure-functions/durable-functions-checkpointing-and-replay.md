@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 28c589b6821526fa6b91dc558a08ef2fb68f97df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Checkpoint e riesecuzione in Funzioni permanenti (Funzioni di Azure)
 
@@ -115,7 +115,7 @@ Questo comportamento di riesecuzione crea vincoli sul tipo di codice che è poss
 
   Le operazioni non deterministiche devono essere eseguite nelle funzioni di attività. Sono incluse anche tutte le interazioni con altre associazioni di input oppure output. In questo modo i valori non deterministici vengono generati una volta alla prima esecuzione e salvati nella cronologia di esecuzione. Nelle esecuzioni successive verrà quindi usato automaticamente il valore salvato.
 
-* Il codice dell'agente di orchestrazione deve essere **non bloccante**. Ciò significa che non può usare `Thread.Sleep` né API equivalenti.
+* Il codice dell'agente di orchestrazione deve essere **non bloccante**. Ad esempio, ciò significa nessun I/O e nessuna chiamata a `Thread.Sleep` o alle API equivalenti.
 
   Se l'agente di orchestrazione deve essere ritardato, è possibile usare l'API [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_).
 

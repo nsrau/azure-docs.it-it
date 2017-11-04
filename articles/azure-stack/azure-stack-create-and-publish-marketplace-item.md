@@ -1,6 +1,6 @@
 ---
-title: Create and publish a Marketplace item in Azure Stack | Microsoft Docs
-description: Create and publish a Marketplace item in Azure Stack.
+title: Creare e pubblicare un elemento del Marketplace nello Stack di Azure | Documenti Microsoft
+description: Creare e pubblicare un elemento del Marketplace nello Stack di Azure.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e0df5b4c4ce23a746e60b491193e5a69df5ffdbd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-and-publish-a-marketplace-item"></a>Create and publish a Marketplace item
-## <a name="create-a-marketplace-item"></a>Create a Marketplace item
-1. [Download](http://www.aka.ms/azurestackmarketplaceitem) the Azure Gallery Packager tool and the sample Azure Stack Marketplace item.
-2. Open the sample Marketplace item and rename the **SimpleVMTemplate** folder. (Use the same name as your Marketplace item--for example, **Contoso.TodoList**.) This folder contains:
+# <a name="create-and-publish-a-marketplace-item"></a>Creare e pubblicare un elemento del Marketplace
+
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+
+## <a name="create-a-marketplace-item"></a>Creare un elemento del Marketplace
+1. [Scaricare](http://www.aka.ms/azurestackmarketplaceitem) lo strumento Azure Packager di raccolta e l'elemento dello Stack di Azure Marketplace di esempio.
+2. Aprire l'elemento del Marketplace di esempio e rinominare il **SimpleVMTemplate** cartella. (Utilizzare lo stesso nome dell'elemento del Marketplace, ad esempio, **Contoso.TodoList**.) Questa cartella contiene:
    
        /Contoso.TodoList/
        /Contoso.TodoList/Manifest.json
@@ -32,18 +34,18 @@ ms.lasthandoff: 09/25/2017
        /Contoso.TodoList/Icons/
        /Contoso.TodoList/Strings/
        /Contoso.TodoList/DeploymentTemplates/
-3. [Create an Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a resource.
-4. To make sure that the resource can be deployed successfully, test the template with the Microsoft Azure Stack APIs.
-5. If your template relies on a virtual machine image, follow the instructions to [add a virtual machine image to Azure Stack](azure-stack-add-vm-image.md).
-6. Save your Azure Resource Manager template in the **/Contoso.TodoList/DeploymentTemplates/** folder.
-7. Choose the icons and text for your Marketplace item. Add icons to the **Icons** folder, and add text to the **resources** file in the **Strings** folder. Use the Small, Medium, Large, and Wide naming convention for icons. See [Marketplace item UI reference](#reference-marketplace-item-ui) for a detailed description.
+3. [Creare un modello di gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md) o scegliere un modello da GitHub. L'elemento del Marketplace Usa questo modello per creare una risorsa.
+4. Per assicurarsi che la risorsa può essere distribuita correttamente, verificare il modello con le API di Microsoft Azure Stack.
+5. Se il modello si basa su un'immagine di macchina virtuale, seguire le istruzioni per [aggiungere un'immagine di macchina virtuale di Azure Stack](azure-stack-add-vm-image.md).
+6. Salvare il modello di gestione risorse di Azure nel **/Contoso.TodoList/DeploymentTemplates/** cartella.
+7. Scegliere le icone e testo per l'elemento del Marketplace. Aggiungere le icone per il **icone** cartella e aggiungere testo al **risorse** file nel **stringhe** cartella. Usare la convenzione di denominazione Small, Medium, Large e Wide per le icone. Vedere [elemento del Marketplace riferimento all'interfaccia utente](#reference-marketplace-item-ui) per una descrizione dettagliata.
    
    > [!NOTE]
-   > All four icon sizes (small, medium, large, wide) are required for building the Marketplace item correctly.
+   > Tutte le dimensioni di quattro icona (piccolo, medio, grande, wide) sono necessari per la compilazione correttamente l'elemento del Marketplace.
    > 
    > 
-8. In the **manifest.json** file, change **name** to the name of your Marketplace item. Also change **publisher** to your name or company.
-9. Under **artifacts**, change **name** and **path** to the correct information for the Azure Resource Manager template that you included.
+8. Nel **manifest.json** file, modificare **nome** per il nome dell'elemento del Marketplace. Modificare inoltre **publisher** per il nome o la società.
+9. In **elementi**, modificare **nome** e **percorso** per le informazioni corrette per il modello di gestione risorse di Azure che incluso.
    
          "artifacts": [
             {
@@ -52,110 +54,109 @@ ms.lasthandoff: 09/25/2017
                 "path": "DeploymentTemplates\\Type your path",
                 "isDefault": true
             }
-10. Replace **My Marketplace Items** with a list of the categories where your Marketplace item should appear.
+10. Sostituire **elementi del Marketplace personale** con un elenco delle categorie in cui deve essere visualizzato l'elemento del Marketplace.
     
              "categories":[
                  "My Marketplace Items"
               ],
-11. For any further edits to manifest.json, refer to [Reference: Marketplace item manifest.json](#reference-marketplace-item-manifestjson).
-12. To package the folders into an .azpkg file, open a command prompt and run the following command:
+11. Per tutte le altre modifiche a manifest.json, fare riferimento a [riferimento: Marketplace elemento manifest.json](#reference-marketplace-item-manifestjson).
+12. Per creare un pacchetto in un file .azpkg le cartelle, aprire un prompt dei comandi ed eseguire il comando seguente:
     
         AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
     
     > [!NOTE]
-    > The full path to the output package must exist. For example, if the output path is C:\MarketPlaceItem\yourpackage.azpkg, the folder C:\MarketPlaceItem must exist.
+    > Il percorso completo per il pacchetto di output deve esistere. Ad esempio, se il percorso di output è C:\MarketPlaceItem\yourpackage.azpkg, deve esistere nella cartella C:\MarketPlaceItem.
     > 
     > 
 
-## <a name="publish-a-marketplace-item"></a>Publish a Marketplace item
-1. Use PowerShell or Azure Storage Explorer to upload your Marketplace item (.azpkg) to Azure Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible.
-2. On the client virtual machine in the Microsoft Azure Stack environment, make sure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](user/azure-stack-deploy-template-powershell.md).
-3. Use the **Add-AzureRMGalleryItem** PowerShell cmdlet to publish the Marketplace item to Azure Stack. For example:
+## <a name="publish-a-marketplace-item"></a>Pubblicare un elemento del Marketplace
+1. Usare PowerShell o Azure Storage Explorer per caricare l'elemento del Marketplace (.azpkg) di archiviazione Blob di Azure. È possibile caricare in archiviazione di Azure Stack locale o caricare in archiviazione di Azure. (È un percorso temporaneo per il pacchetto). Assicurarsi che il blob è accessibile pubblicamente.
+2. Nella macchina virtuale client nell'ambiente di Microsoft Azure Stack, assicurarsi che la sessione di PowerShell sia configurata con le credenziali di amministratore del servizio. È possibile trovare istruzioni su come autenticare PowerShell nello Stack di Azure in [distribuire un modello con PowerShell](user/azure-stack-deploy-template-powershell.md).
+3. Utilizzare il **Aggiungi AzureRMGalleryItem** cmdlet di PowerShell per pubblicare l'elemento del Marketplace allo Stack di Azure. ad esempio:
    
        Add-AzureRMGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
-   | Parameter | Description |
+   | Parametro | Descrizione |
    | --- | --- |
-   | SubscriptionID |Admin subscription ID. You can retrieve it by using PowerShell. If you'd prefer to get it in the portal, go to the provider subscription and copy the subscription ID. |
-   | GalleryItemUri |Blob URI for your gallery package that has already been uploaded to storage. |
-   | Apiversion |Set as **2015-04-01**. |
-4. Go to the portal. You can now see the Marketplace item in the portal--as an admin or as a tenant.
+   | SubscriptionID |ID sottoscrizione amministratore. È possibile recuperarlo utilizzando PowerShell. Se si preferisce eseguire questa operazione nel portale, passare alla sottoscrizione del provider e copiare l'ID sottoscrizione. |
+   | GalleryItemUri |URI del BLOB per il pacchetto di raccolta che è già stato caricato in un archivio. |
+   | Apiversion |Impostare come **2015-04-01**. |
+4. Passare al portale. È ora possibile visualizzare l'elemento del Marketplace nel portale, come un operatore o un utente.
    
    > [!NOTE]
-   > The package might take several minutes to appear.
+   > Il pacchetto potrebbe richiedere alcuni minuti.
    > 
    > 
-5. Your Marketplace item has now been saved to the Azure Stack Marketplace. You can choose to delete it from your Blob storage location.
-6. You can remove a Marketplace item by using the **Remove-AzureRMGalleryItem** cmdlet. Example:
+5. L'elemento del Marketplace ora è stato salvato a Stack Azure Marketplace. È possibile eliminarlo dal percorso di archiviazione Blob.
+6. È possibile rimuovere un elemento del Marketplace tramite il **Remove AzureRMGalleryItem** cmdlet. Esempio:
    
         Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
-   > The Marketplace UI may show an error after you remove an item. To fix the error, click **Settings** in the portal. Then, select **Discard modifications** under **Portal customization**.
+   > L'interfaccia utente di Marketplace potrebbe mostrare un errore dopo la rimozione di un elemento. Per correggere l'errore, fare clic su **impostazioni** nel portale. Selezionare quindi **annullare modifiche** in **personalizzazione portale**.
    > 
    > 
 
-## <a name="reference-marketplace-item-manifestjson"></a>Reference: Marketplace item manifest.json
-### <a name="identity-information"></a>Identity information
-| Name | Required | Type | Constraints | Description |
+## <a name="reference-marketplace-item-manifestjson"></a>Informazioni di riferimento: Manifest.json elemento Marketplace
+### <a name="identity-information"></a>Informazioni sull'identità
+| Nome | Obbligatoria | Tipo | Vincoli | Descrizione |
 | --- | --- | --- | --- | --- |
-| Name |X |String |[A-Za-z0-9]+ | |
-| Publisher |X |String |[A-Za-z0-9]+ | |
-| Version |X |String |[SemVer v2](http://semver.org/) | |
+| Nome |X |String |[A-Za-z0-9] + | |
+| Editore |X |String |[A-Za-z0-9] + | |
+| Versione |X |String |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
-| Name | Required | Type | Constraints | Description |
+| Nome | Obbligatoria | Tipo | Vincoli | Descrizione |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Recommendation of 80 characters |The portal might not display your item name gracefully if it is longer than 80 characters. |
-| PublisherDisplayName |X |String |Recommendation of 30 characters |The portal might not display your publisher name gracefully if it is longer than 30 characters. |
-| PublisherLegalName |X |String |Maximum of 256 characters | |
-| Summary |X |String |60 to 100 characters | |
-| LongSummary |X |String |140 to 256 characters |Not yet applicable in Azure Stack. |
-| Description |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 to 5,000 characters | |
+| DisplayName |X |String |Indicazione di 80 caratteri |Il portale potrebbe non visualizzare correttamente il nome dell'elemento se è più lungo di 80 caratteri. |
+| PublisherDisplayName |X |String |Indicazione di 30 caratteri |Il portale potrebbe non visualizzare correttamente il nome del server di pubblicazione in caso di più di 30 caratteri. |
+| PublisherLegalName |X |String |Numero massimo di 256 caratteri | |
+| Riepilogo |X |String |Da 60 a 100 caratteri | |
+| LongSummary |X |String |Da 140 a 256 caratteri |Non ancora applicabile nello Stack di Azure. |
+| Descrizione |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 a 5.000 caratteri | |
 
-### <a name="images"></a>Images
-The Marketplace uses the following icons:
+### <a name="images"></a>Immagini
+Marketplace utilizza le icone seguenti:
 
-| Name | Width | Height | Notes |
+| Nome | Larghezza | Altezza: | Note |
 | --- | --- | --- | --- |
-| Wide |255 px |115 px |Always required |
-| Large |115 px |115 px |Always required |
-| Medium |90 px |90 px |Always required |
-| Small |40 px |40 px |Always required |
-| Screenshot |533 px |32 px |Optional |
+| Ampia |255 px |115 px |È necessario sempre |
+| Large |115 px |115 px |È necessario sempre |
+| Media |90 px |90 px |È necessario sempre |
+| Small |40 px |40 px |È necessario sempre |
+| Schermata |533 px |32 px |Facoltativo |
 
-### <a name="categories"></a>Categories
-Each Marketplace item should be tagged with a category that identifies where the item appears on the portal UI. You can choose one of the existing categories in Azure Stack (Compute, Data + Storage, etc.) or choose a new one.
+### <a name="categories"></a>Categorie
+Ogni elemento del Marketplace deve essere contrassegnato con una categoria che identifica in cui l'elemento viene visualizzato nel portale di interfaccia utente. È possibile scegliere una delle categorie esistenti nello Stack di Azure (calcolo, dati e archiviazione, e così via) o uno nuovo.
 
-### <a name="links"></a>Links
-Each Marketplace item can include various links to additional content. The links are specified as a list of names and URIs.
+### <a name="links"></a>Collegamenti
+Ogni elemento del Marketplace può includere vari collegamenti a contenuto aggiuntivo. I collegamenti vengono specificati come un elenco di nomi e di URI.
 
-| Name | Required | Type | Constraints | Description |
+| Nome | Obbligatoria | Tipo | Vincoli | Descrizione |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Maximum of 64 characters | |
+| DisplayName |X |String |Numero massimo di 64 caratteri | |
 | Uri |X |URI | | |
 
-### <a name="additional-properties"></a>Additional properties
-In addition to the preceding metadata, Marketplace authors can provide custom key/value pair data in the following form:
+### <a name="additional-properties"></a>Proprietà aggiuntive
+Oltre ai metadati precedenti, gli autori di Marketplace possono fornire dati di coppia chiave/valore personalizzato nel formato seguente:
 
-| Name | Required | Type | Constraints | Description |
+| Nome | Obbligatoria | Tipo | Vincoli | Descrizione |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Maximum of 25 characters | |
-| Value |X |String |Maximum of 30 characters | |
+| DisplayName |X |String |Numero massimo di 25 caratteri | |
+| Valore |X |String |Numero massimo di 30 caratteri | |
 
-### <a name="html-sanitization"></a>HTML sanitization
-For any field that allows HTML, the following elements and attributes are allowed:
+### <a name="html-sanitization"></a>Purificazione HTML
+Per qualsiasi campo che consente di HTML, sono consentiti elementi e gli attributi seguenti:
 
-h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i
+s1, S2, h3, h4, h5, p, ol, ul, li, un [destinazione | href], Brasile, sicuro, em, b, si
 
-## <a name="reference-marketplace-item-ui"></a>Reference: Marketplace item UI
-Icons and text for Marketplace items as seen in the Azure Stack portal are as follows.
+## <a name="reference-marketplace-item-ui"></a>: Riferimento Elemento del Marketplace dell'interfaccia utente
+Icone e testo per gli elementi del Marketplace come illustrato nel portale di Azure Stack sono i seguenti.
 
-### <a name="create-blade"></a>Create blade
-![Create blade](media/azure-stack-marketplace-item-ui-reference/image1.png)
+### <a name="create-blade"></a>Pannello Crea
+![Pannello Crea](media/azure-stack-marketplace-item-ui-reference/image1.png)
 
-### <a name="marketplace-item-details-blade"></a>Marketplace item details blade
-![Marketplace item details blade](media/azure-stack-marketplace-item-ui-reference/image3.png)
-
+### <a name="marketplace-item-details-blade"></a>Pannello con i dettagli dell'elemento del Marketplace
+![Pannello con i dettagli dell'elemento del Marketplace](media/azure-stack-marketplace-item-ui-reference/image3.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1dacbc59704d16451a5268c0aa4df2ab4e5b3112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
 
@@ -85,7 +85,7 @@ L'utente riceve un messaggio SMS con un codice di quattro cifre e ha 90 secondi 
 > [!WARNING]
 > È importante [annullare i timer tramite un oggetto CancellationTokenSource](durable-functions-timers.md) se non è più necessario che scadano, come illustrato nell'esempio precedente, quando viene accettata una risposta alla richiesta.
 
-## <a name="sending-the-sms-message"></a>Invio del messaggio SMS
+## <a name="send-the-sms-message"></a>Inviare il messaggio SMS
 
 La funzione **E4_SendSmsChallenge** usa l'associazione a Twilio per inviare il messaggio SMS con codice di 4 cifre all'utente finale. Il codice *function.json* viene definito come segue:
 
@@ -97,7 +97,7 @@ Di seguito viene riportato il codice che genera il codice di autenticazione a 4 
 
 Questa funzione **E4_SendSmsChallenge** viene chiamata solo una volta, anche se il processo si arresta in modo anomalo o viene rieseguito. Questo aspetto è particolarmente vantaggioso perché non si desidera che l'utente finale riceva più messaggi SMS. Il valore restituito `challengeCode` viene reso permanente in modo automatico e di conseguenza la funzione dell'agente di orchestrazione conosce sempre il codice corretto.
 
-## <a name="running-the-sample"></a>Esecuzione dell'esempio
+## <a name="run-the-sample"></a>Eseguire l'esempio
 
 Con le funzioni attivate da HTTP incluse nell'esempio, è possibile avviare l'orchestrazione inviando la richiesta HTTP POST seguente.
 
@@ -152,10 +152,6 @@ Content-Length: 145
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2017-06-29T19:20:49Z","lastUpdatedTime":"2017-06-29T19:22:23Z"}
 ```
 
-## <a name="wrapping-up"></a>Conclusione
-
-In questa fase si è acquisita una migliore comprensione di alcune delle funzionalità avanzate di Funzioni permanenti, in particolare `WaitForExternalEvent` e `CreateTimer`. È stato illustrato come queste funzionalità possono essere combinate con `Task.WaitAny` per implementare un sistema di timeout affidabile, spesso utile per l'interazione con utenti reali.
-
 ## <a name="visual-studio-sample-code"></a>Codice di esempio di Visual Studio
 
 Di seguito è riportata l'orchestrazione come un unico file C# in un progetto di Visual Studio:
@@ -164,6 +160,7 @@ Di seguito è riportata l'orchestrazione come un unico file C# in un progetto di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Altre informazioni sulle associazioni di Funzioni permanenti](durable-functions-bindings.md)
+In questo esempio sono state illustrate alcune delle funzionalità avanzate di Funzioni permanenti, in particolare `WaitForExternalEvent` e `CreateTimer`. È stato illustrato come queste funzionalità possono essere combinate con `Task.WaitAny` per implementare un sistema di timeout affidabile, spesso utile per l'interazione con utenti reali. Per altre informazioni su come usare Funzioni permanenti, fare riferimento alla serie di articoli in cui sono trattati in dettaglio argomenti specifici.
 
+> [!div class="nextstepaction"]
+> [Passare al primo articolo della serie](durable-functions-bindings.md)

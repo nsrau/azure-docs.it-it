@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 10/09/2017
+ms.date: 10/13/2017
 ms.author: genemi
-ms.openlocfilehash: f62184d97b18d72b91d63db0e449bbab6c20a179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b15727ae6c7b4d0f1595d506cb8d0f66ec3abfe4
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Usare gli endpoint del servizio Rete virtuale e le regole per il database SQL di Azure
 
@@ -125,6 +125,9 @@ I ruoli di amministratore di rete e amministratore di database hanno più funzio
 ## <a name="limitations"></a>Limitazioni
 
 Per il database SQL di Azure, la funzionalità delle regole della rete virtuale presenta le limitazioni seguenti:
+
+- Un'app Web di Azure non funziona ancora come previsto in una subnet in cui sono attivati gli **endpoint di servizio**. Questa funzionalità sarà presto disponibile.
+    - Finché questa funzionalità non sarà implementata completamente, è consigliabile spostare l'app Web in un'altra subnet in cui non sono abilitati gli endpoint di servizio per SQL.
 
 - Nel firewall per il database SQL ogni regola della rete virtuale fa riferimento a una subnet. Tutte queste subnet cui viene fatto riferimento devono essere ospitate nella stessa area geografica che ospita il database SQL.
 
@@ -288,9 +291,6 @@ La funzionalità di endpoint del servizio Rete virtuale di Microsoft Azure e la 
 
 <!-- ??2
 #### Syntax related articles
-
-- PowerShell cmdlets
-
 - REST API Reference, including JSON
 
 - Azure CLI

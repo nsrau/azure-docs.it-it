@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/17/2017
 ms.author: bwren
-ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Nuova ricerca log in Log Analytics - domande frequenti e problemi noti
 
@@ -94,6 +94,18 @@ L'[API di ricerca log](log-analytics-log-search-api.md) legacy non funzionerà p
 È possibile visualizzare un confronto tra i due portali in [Portali per la creazione e la modifica di ricerche log in Azure Log Analytics](log-analytics-log-search-portals.md).  Ognuno presenta vantaggi distinti, per cui è possibile scegliere quello più adatto alle proprie esigenze.  È comune per scrivere le query nel portale Advanced Analytics e incollarle in altre posizioni, ad esempio Progettazione viste.  È necessario essere a conoscenza degli [aspetti da considerare](log-analytics-log-search-portals.md#advanced-analytics-portal) quando si esegue questa operazione.
 
 
+### <a name="question--after-upgrade-i-get-an-error-trying-to-run-queries-and-am-also-seeing-errors-in-my-views"></a>Domanda: Se dopo l'aggiornamento tento di eseguire query viene visualizzato un errore. Vengono visualizzati errori anche nelle viste.
+
+Dopo l'aggiornamento, per l'esecuzione di query Log Analytics il browser richiede l'accesso agli indirizzi seguenti.  Se il browser accede al portale di Azure attraverso un firewall, è necessario abilitare l'accesso a questi indirizzi.
+
+| Uri | IP | Porte |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinamico | 80,443 |
+| api.loganalytics.io    | Dinamico | 80,443 |
+| docs.loganalytics.io   | Dinamico | 80,443 |
+
+
+
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Domanda: L'aggiornamento implica modifiche per l'integrazione con Power BI?
@@ -103,10 +115,12 @@ Sì.  Dopo aver aggiornato l'area di lavoro, il processo per esportare i dati di
 Per l'esportazione di una query Log Analytics in Power BI è attualmente prevista una dimensione massima di 8 MB.  Questo limite verrà presto incrementato.
 
 
-##<a name="powershell-cmdlets"></a>Cmdlet PowerShell
+## <a name="powershell-cmdlets"></a>Cmdlet PowerShell
 
 ### <a name="question-does-the-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>Domanda: Il cmdlet PowerShell di ricerca log viene aggiornato dopo l'aggiornamento?
-Il cmdlet [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) non è ancora stato aggiornato al nuovo linguaggio di ricerca.  Continuare a usare il linguaggio di query legacy con questo cmdlet, anche dopo l'aggiornamento dell'area di lavoro.  La documentazione aggiornata verrà resa disponibile per il cmdlet una volta aggiornato.
+Dopo il completamento dell'aggiornamento per tutte le aree di lavoro, il cmdlet [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) verrà deprecato.  Per eseguire ricerche log nelle aree di lavoro aggiornate usare il [cmdlet Invoke-LogAnalyticsQuery](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets).
+
+
 
 
 ## <a name="resource-manager-templates"></a>Modelli di Gestione risorse
@@ -159,11 +173,9 @@ No. I dati di log disponibili nelle ricerche dell'area di lavoro non sono intere
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Domanda: Cosa accade se non si aggiorna l'area di lavoro?  
 La funzionalità di ricerca log legacy verrà deprecata nei prossimi mesi. Le aree di lavoro non aggiornate verranno in seguito aggiornate automaticamente.
 
-### <a name="question-i-didnt-choose-to-upgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>Domanda: L'area di lavoro è stata aggiornata, anche se è stato scelto di non eseguire l'aggiornamento. Che cosa è successo?  
-È possibile sia stata aggiornata da un altro amministratore dell'area di lavoro. Si noti che tutte le aree di lavoro verranno aggiornate automaticamente quando il nuovo linguaggio sarà disponibile a livello generale.  
+### <a name="question-can-i-revert-back-after-i-upgrade"></a>Domanda: Dopo l'aggiornamento è possibile ripristinare la situazione precedente?
+Prima della disponibilità generale, era possibile ripristinare l'area di lavoro dopo l'aggiornamento.  Ora che il nuovo linguaggio ha raggiunto il livello di disponibilità generale, questa funzionalità è stata rimossa, dato che è iniziato il ritiro della piattaforma legacy.
 
-### <a name="question-i-have-upgraded-by-mistake-and-now-need-to-cancel-it-and-restore-everything-back-what-should-i-do"></a>Domanda: Se si esegue l'aggiornamento per errore, è possibile annullare l'operazione e ripristinare tutto?  
-Non c'è problema.  Prima dell'aggiornamento dell'area di lavoro viene creato uno snapshot ed è quindi possibile ripristinarlo. Tenere presente, tuttavia, che andranno perduti gli avvisi, le ricerche o le visualizzazioni salvati dopo l'aggiornamento.  Per ripristinare l'ambiente dell'area di lavoro, seguire la procedura descritta in [Dopo aver eseguito l'aggiornamento è possibile tornare indietro?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)
 
 
 ## <a name="views"></a>Visualizzazioni

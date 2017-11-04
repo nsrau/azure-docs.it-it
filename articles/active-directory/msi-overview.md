@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 10/17/2017
 ms.author: skwan
-ms.openlocfilehash: 3974c3b0e22e95b8dd4a07a923fbbfc2fe7f8961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identità del servizio gestito per le risorse di Azure
 
@@ -51,11 +51,14 @@ Eseguire un'esercitazione relativa a Identità del servizio gestito per informaz
 | Da risorse basate su Identità del servizio gestito | Scopri come |
 | ------- | -------- |
 | Macchina virtuale Azure (Windows) | [Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Resource Manager](msi-tutorial-windows-vm-access-arm.md) |
-|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Archiviazione di Azure](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Accedere ad Archiviazione di Azure tramite chiave di accesso con un'identità del servizio gestito di una macchina virtuale Windows](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Accedere ad Archiviazione di Azure tramite firma di accesso condiviso con un'identità del servizio gestito di una macchina virtuale Windows](msi-tutorial-windows-vm-access-storage-sas.md) |
+|                    | [Accedere ad Azure SQL con un'identità del servizio gestito di una macchina virtuale Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Usare un'Identità del servizio gestito per una macchina virtuale Windows e Azure Key Vault per accedere a una risorsa diversa da Azure AD](msi-tutorial-windows-vm-access-nonaad.md) |
 | Macchina virtuale Azure (Linux)   | [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Resource Manager](msi-tutorial-linux-vm-access-arm.md) |
-|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere ad Archiviazione di Azure](msi-tutorial-linux-vm-access-storage.md) |
-|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere a una risorsa diversa da Azure AD](msi-tutorial-linux-vm-access-nonaad.md) |
+|                    | [Accedere ad Archiviazione di Azure tramite chiave di accesso con un'identità del servizio gestito di una macchina virtuale Linux](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Accedere ad Archiviazione di Azure tramite firma di accesso condiviso con un'identità del servizio gestito di una macchina virtuale Linux](msi-tutorial-linux-vm-access-storage-sas.md) |
+|                    | [Accedere a una risorsa non Azure AD con l'identità del servizio gestito di una macchina virtuale Linux e con Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Servizio app di Azure  | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
 | Funzione di Azure     | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
 
@@ -82,6 +85,7 @@ I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati 
 | Gestione risorse di Azure | https://management.azure.com/ | Disponibile | Settembre 2017 | [Portale di Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Interfaccia della riga di comando di Azure](msi-howto-assign-access-CLI.md) |
 | Insieme di credenziali chiave Azure | https://vault.azure.net/ | Disponibile | Settembre 2017 | |
 | Azure Data Lake | https://datalake.azure.net/ | Disponibile | Settembre 2017 | |
+| SQL di Azure | https://database.windows.net/ | Disponibile | Ottobre 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Quanto costa Identità del servizio gestito?
 

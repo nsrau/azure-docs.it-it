@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
 La connessione dati a un processo di Analisi di flusso è un flusso di eventi da un'origine dati, definito *input* del processo. Analisi di flusso si integra perfettamente con le origini del flusso dei dati di Azure, come [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) e [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/). Queste origini di input possono appartenere alla stessa sottoscrizione di Azure del processo di analisi o a un'altra sottoscrizione.
@@ -37,7 +37,7 @@ Per informazioni su come creare input dei dati di riferimento, vedere [Uso dei d
 
 ## <a name="compression"></a>Compressione
 
-Analisi di flusso di Azure distribuirà presto una funzionalità di compressione in tutte le origini di input del flusso di dati (hub eventi, hub IoT e archiviazione BLOB). Questa funzionalità aggiunge una nuova opzione nell'elenco a discesa del pannello **Nuovo input** del portale di Azure consentendo di scegliere facoltativamente di comprimere i flussi di dati. I tipi di compressione attualmente supportati sono None, GZip e Deflate. 
+Analisi di flusso di Azure supporta la compressione in tutte le origini di input del flusso di dati (Hub eventi, hub IoT e archiviazione BLOB). Questa funzionalità aggiunge una nuova opzione nell'elenco a discesa del pannello **Nuovo input** del portale di Azure consentendo di scegliere facoltativamente di comprimere i flussi di dati. I tipi di compressione attualmente supportati sono None, GZip e Deflate. 
 
 La compressione non è supportata in parallelo con la serializzazione Avro e non è applicabile ai dati di riferimento. 
 
@@ -81,6 +81,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> Quando si usa Hub eventi come un endpoint delle route dell'hub IoT, è possibile accedere ai metadati dell'hub IoT usando la funzione [GetMetadataPropertyValue](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
+> 
 
 ## <a name="create-data-stream-input-from-iot-hub"></a>Creare un input del flusso dei dati dall'hub IoT
 Hub IoT di Azure è un servizio di inserimento di eventi di pubblicazione-sottoscrizione altamente scalabile ottimizzato per scenari IoT.

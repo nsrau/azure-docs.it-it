@@ -9,19 +9,19 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 10/17/2017
 ms.author: markscu
-ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)
 
 Usando l'interfaccia della riga di comando di Azure è possibile eseguire processi di Batch senza scrittura del codice.
 
-È possibile creare e usare con l'interfaccia della riga di comando di Azure file modello che consentono la creazione di pool, processi e attività di Batch. I file di input dei processi possono essere caricati facilmente nell'account di archiviazione associato all'account Batch. È inoltre possibile scaricare i file di output dei processi.
+Creare e usare file modello con l'interfaccia della riga di comando di Azure per creare pool, processi e attività di Batch. I file di input dei processi possono essere caricati facilmente nell'account di archiviazione associato all'account Batch. È inoltre possibile scaricare i file di output dei processi.
 
 ## <a name="overview"></a>Panoramica
 
@@ -50,10 +50,10 @@ Il modello e le funzionalità di trasferimento di file richiedono l'installazion
 
 Per istruzioni su come installare l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Una volta installata l'interfaccia della riga di comando di Azure, è possibile installare l'estensione di Batch utilizzando il seguente comando CLI:
+Dopo avere installato l'interfaccia della riga di comando di Azure, è possibile installare la versione più recente dell'estensione di Batch mediante il comando dell'interfaccia della riga di comando seguente:
 
 ```azurecli
-az component update --add batch-extensions --allow-third-party
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
 ```
 
 Per ulteriori informazioni sull'estensione del Batch, vedere [Estensioni per interfaccia della riga di comando Batch di Microsoft Azure per Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
@@ -106,7 +106,7 @@ Di seguito è riportato un esempio di un modello che crea un pool di VM Linux co
         "poolId": {
             "type": "string",
             "metadata": {
-                "description": "The pool id "
+                "description": "The pool ID "
             }
         }
     },

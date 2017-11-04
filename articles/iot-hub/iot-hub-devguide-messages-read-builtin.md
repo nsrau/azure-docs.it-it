@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: f17f3084138d667b2584142ed90ecc8fc1586189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f864ca586e8e607168ae7b46a1eaa297eca1cfb8
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leggere messaggi da dispositivo a cloud dall'endpoint predefinito
 
@@ -40,16 +40,18 @@ L'hub IoT espone l'endpoint **messaggi/eventi** predefinito per permettere ai se
 
 Quando si usa [Azure Service Bus SDK per .NET][lnk-servicebus-sdk] o [Hub eventi - Host processore di eventi][lnk-eventprocessorhost], è possibile usare qualsiasi stringa di connessione dell'hub IoT con le autorizzazioni corrette. Usare quindi **messaggi/eventi** come nome dell'hub eventi.
 
-Quando si usano gli SDK o integrazioni del prodotto non compatibili con l'hub IoT, è necessario recuperare un endpoint e un nome compatibili con Hub eventi dalle impostazioni dell'hub IoT nel [portale di Azure][lnk-management-portal]:
+Quando si usano gli SDK o le integrazioni del prodotto non compatibili con l'hub IoT, è necessario recuperare un endpoint e un nome compatibili con l'hub eventi dalle impostazioni dell'hub IoT:
 
-1. Nel pannello dell'hub IoT fare clic su **Endpoint**.
-1. Nella sezione **Endpoint predefiniti** fare clic su **Eventi**. Il pannello contiene i valori seguenti: **Endpoint compatibile con l'hub eventi**, **Nome compatibile con l'hub eventi**, **Partizioni**, **Tempo di conservazione** e **Gruppi di consumer**.
+1. Accedere al [portale di Azure][lnk-management-portal] e passare all'hub IoT.
+1. Fare clic su **Endpoint**.
+1. Nella sezione **Endpoint predefiniti** fare clic su **Eventi**. 
+1. Si apre una pagina delle proprietà che contiene i valori seguenti: **endpoint compatibile con l'hub eventi**, **nome compatibile con l'hub eventi**, **partizioni**, **tempo di conservazione** e **gruppi di consumer**.
 
     ![Impostazioni da dispositivo a cloud][img-eventhubcompatible]
 
-L'SDK dell'hub IoT richiede il nome dell'endpoint dell'hub IoT, ossia **messages/events** come mostrato nel pannello **Endpoint**.
+L'SDK dell'hub IoT richiede il nome dell'endpoint dell'hub IoT, ossia **messagi/eventi** come mostrato in **Endpoint**.
 
-Se l'SDK usato richiede un valore **Nome host** o **Spazio dei nomi**, rimuovere lo schema da **Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e lo **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
+Se l'SDK usato richiede un valore **Nome host** o **Spazio dei nomi**, rimuovere lo schema da **Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net**. Lo **spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
 
 È quindi possibile usare qualsiasi criterio di accesso condiviso con autorizzazioni **ServiceConnect** per connettersi all'hub eventi specificato.
 

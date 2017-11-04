@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: e82cc53d53a6d0296aaab2c3a76ad4e2f6c12c54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8384d17405653a29207cdfa4f6143504d0db2022
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Agenti di orchestrazione singleton in Funzioni permanenti (Funzioni di Azure)
 
@@ -26,36 +26,40 @@ Per i processi in background o per orchestrazioni in stile Attore, è spesso nec
 
 ## <a name="singleton-example"></a>Esempio di singleton
 
-L'esempio C# seguente illustra una funzione di attivazione HTTP che crea un'orchestrazione di processo in background singleton. Usa un ID di istanza noto per verificare che esista una sola istanza.
+L'esempio C# seguente illustra una funzione di attivazione HTTP che crea un'orchestrazione di processo in background singleton. Il codice garantisce l'esistenza di una sola istanza per un ID istanza specificato.
 
 ```cs
-[FunctionName("EnsureSingletonTrigger")]
-public static async Task<HttpResponseMessage> Ensure(
-    [HttpTrigger(AuthorizationLevel.Function, methods: "post")] HttpRequestMessage req,
+[FunctionName("HttpStartSingle")]
+public static async Task<HttpResponseMessage> RunSingle(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/{instanceId}")] HttpRequestMessage req,
     [OrchestrationClient] DurableOrchestrationClient starter,
+    string functionName,
+    string instanceId,
     TraceWriter log)
 {
-    // Ensure only one instance is ever running at a time
-    const string OrchestratorName = "MySingletonOrchestrator";
-    const string InstanceId = "MySingletonInstanceId";
-
-    var existingInstance = await starter.GetStatusAsync(InstanceId);
+    // Check if an instance with the specified ID already exists.
+    var existingInstance = await starter.GetStatusAsync(instanceId);
     if (existingInstance == null)
     {
-        log.Info($"Creating singleton instance with ID = {InstanceId}...");
-        await starter.StartNewAsync(OrchestratorName, InstanceId, input: null);
+        // An instance with the specified ID doesn't exist, create one.
+        dynamic eventData = await req.Content.ReadAsAsync<object>();
+        await starter.StartNewAsync(functionName, instanceId, eventData);
+        log.Info($"Started orchestration with ID = '{instanceId}'.");
+        return starter.CreateCheckStatusResponse(req, instanceId);
     }
-
-    return starter.CreateCheckStatusResponse(req, InstanceId);
+    else
+    {
+        // An instance with the specified ID exists, don't create one.
+        return req.CreateErrorResponse(
+            HttpStatusCode.Conflict,
+            $"An instance with ID '{instanceId}' already exists.");
+    }
 }
 ```
 
-Per impostazione predefinita, gli ID delle istanze sono GUID generati in modo casuale. Si noti in questo caso che la funzione trigger usa una variabile predefinita `InstanceId` con un valore di `MySingletonInstanceId` per pre-assegnare un ID istanza alla funzione dell'agente di orchestrazione. Ciò consente al trigger di verificare se l'istanza nota è già in esecuzione chiamando [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_).
+Per impostazione predefinita, gli ID delle istanze sono GUID generati in modo casuale. In questo caso, l'ID istanza viene passato ai dati della route dall'URL. Il codice chiama [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) per verificare se un'istanza con l'ID specificato è già in esecuzione. In caso contrario, viene creata un'istanza con tale ID.
 
 I dettagli di implementazione della funzione dell'agente di orchestrazione non sono rilevanti. Può trattarsi di una funzione di agente di orchestrazione regolare che viene avviata e completata oppure può essere eseguita in modo permanente (si tratta di un'[orchestrazione perenne](durable-functions-eternal-orchestrations.md)). L'aspetto importante è che in esecuzione un'unica istanza alla volta.
-
-> [!NOTE]
-> Se l'istanza di orchestrazione singleton termina, ha esito negativo o viene completata, non sarà possibile ricrearla usando lo stesso ID. In questi casi, è necessario essere pronti a ricrearla usando un nuovo ID di istanza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

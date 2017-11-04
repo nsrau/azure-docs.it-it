@@ -12,24 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 454eb7b1f4f48e8a2a78bd3fcb6eb03b6097d44d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
-## <a name="overview"></a>Panoramica
-I *dispositivi gemelli* sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi (metadati, configurazioni e condizioni). L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che viene connesso all'hub IoT. L'articolo illustra:
 
-* La struttura del dispositivo gemello: *tag*, proprietà *desiderate* e *segnalate*.
+I *dispositivi gemelli* sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi, ad esempio metadati, configurazioni e condizioni. L'hub IoT di Azure mantiene un dispositivo gemello per ogni dispositivo che viene connesso all'hub IoT. L'articolo illustra:
+
+* la struttura del dispositivo gemello: *tag*, proprietà *desiderate* e *segnalate*.
 * Le operazioni che le app per dispositivo e i back-end possono eseguire sui dispositivi gemelli.
 
-
-### <a name="when-to-use"></a>Quando usare le autorizzazioni
 Usare i dispositivi gemelli per:
 
 * Archiviare i metadati specifici del dispositivo nel cloud, ad esempio il percorso di distribuzione di un distributore automatico.
@@ -46,13 +44,13 @@ I dispositivi gemelli consentono di archiviare informazioni sul dispositivo che 
 * Dal dispositivo e dai back-end per sincronizzare condizioni e configurazione del dispositivo.
 * Dal back-end della soluzione per eseguire query e come destinazione delle operazioni a esecuzione prolungata.
 
-Il ciclo di vita di un dispositivo gemello è correlato all'[identità del dispositivo][lnk-identity] corrispondente. I dispositivi gemelli vengono creati ed eliminati implicitamente quando viene creata o eliminata una nuova identità del dispositivo nell'hub IoT.
+Il ciclo di vita di un dispositivo gemello è correlato all'[identità del dispositivo][lnk-identity] corrispondente. I dispositivi gemelli vengono creati ed eliminati implicitamente quando viene creata o eliminata un'identità del dispositivo nell'hub IoT.
 
 Un dispositivo gemello è un documento JSON che include:
 
 * **Tag**. Una sezione del documento JSON che il back-end della soluzione è in grado di leggere e in cui può scrivere. I tag non sono visibili alle applicazioni per dispositivi.
-* **Proprietà desiderate**. Sono usate insieme alle proprietà segnalate per sincronizzare la configurazione o le condizioni del dispositivo. Le proprietà desiderate possono essere impostate solo dal back-end della soluzione e possono essere lette dall'app per dispositivo. L'app per dispositivo può anche ricevere in tempo reale le notifiche relative alle modifiche apportate alle proprietà desiderate.
-* **Proprietà segnalate**. Sono usate insieme alle proprietà desiderate per sincronizzare la configurazione o le condizioni del dispositivo. Le proprietà segnalate possono essere impostate solo dall'app per dispositivo e possono essere lette e sottoposte a query dal back-end della soluzione.
+* **Proprietà desiderate**. Sono usate insieme alle proprietà segnalate per sincronizzare la configurazione o le condizioni del dispositivo. Il back-end della soluzione è in grado di impostare le proprietà desiderate e l'app per dispositivo è in grado di leggerle. L'app per dispositivo può anche ricevere notifiche relative alle modifiche apportate alle proprietà desiderate.
+* **Proprietà segnalate**. Sono usate insieme alle proprietà desiderate per sincronizzare la configurazione o le condizioni del dispositivo. L'app per dispositivo è in grado di impostare le proprietà segnalate, mentre il back-end della soluzione è in grado di fare delle query.
 
 La radice del documento JSON del dispositivo gemello, inoltre, contiene le proprietà di sola lettura dell'identità di dispositivo corrispondente archiviata nel [registro delle identità][lnk-identity].
 
@@ -140,8 +138,8 @@ Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gem
 ## <a name="back-end-operations"></a>Operazioni di back-end
 Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti operazioni atomiche esposte tramite HTTPS:
 
-1. **Recuperare un dispositivo gemello tramite ID**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà desiderate, segnalate e di sistema.
-2. **Aggiornare parzialmente il dispositivo gemello**. Questa operazione consente al back-end della soluzione di aggiornare parzialmente i tag o le proprietà desiderate di un dispositivo gemello. L'aggiornamento parziale è espresso come documento JSON che aggiunge o aggiorna tutte le proprietà. Le proprietà impostate su `null` vengono rimosse. L'esempio seguente crea una nuova proprietà desiderata con valore `{"newProperty": "newValue"}`, sostituisce il valore esistente di `existingProperty` con `"otherNewValue"`, e rimuove `otherOldProperty`. Non vengono apportate altre modifiche alle altre proprietà desiderate o ai tag esistenti:
+* **Recuperare un dispositivo gemello tramite ID**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà di sistema desiderate e segnalate.
+* **Aggiornare parzialmente il dispositivo gemello**. Questa operazione consente al back-end della soluzione di aggiornare parzialmente i tag o le proprietà desiderate di un dispositivo gemello. L'aggiornamento parziale è espresso come documento JSON che aggiunge o aggiorna tutte le proprietà. Le proprietà impostate su `null` vengono rimosse. L'esempio seguente crea una nuova proprietà desiderata con valore `{"newProperty": "newValue"}`, sostituisce il valore esistente di `existingProperty` con `"otherNewValue"`, e rimuove `otherOldProperty`. Non vengono apportate altre modifiche alle altre proprietà desiderate o ai tag esistenti:
    
         {
             "properties": {
@@ -154,9 +152,9 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
                 }
             }
         }
-3. **Sostituzione di proprietà desiderate**. Questa operazione consente al back-end della soluzione di sovrascrivere completamente tutte le proprietà desiderate esistenti e di sostituirle con un nuovo documento JSON `properties/desired`.
-4. **Sostituzione di tag**. Questa operazione consente al back-end della soluzione di sovrascrivere completamente tutti i tag esistenti e di sostituirli con un nuovo documento JSON `tags`.
-5. **Ricezione di notifiche relative al dispositivo gemello**. Questa operazione invia notifiche al back-end della soluzione a ogni modifica del dispositivo gemello. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *twinChangeEvents*. Per impostazione predefinita, non viene inviata alcuna notifica, ovvero queste route non sono preesistenti. Se la frequenza delle modifiche è troppo elevata o per altri motivi, come un errore interno, l'hub IoT potrebbe inviare solo una notifica che contiene tutte le modifiche. Di conseguenza, se l'applicazione ha bisogno di controllo e registrazione affidabili di tutti gli stati intermedi, è consigliabile continuare a usare i messaggi D2C. Il messaggio di notifica relativo al dispositivo gemello include le proprietà e il corpo.
+* **Sostituzione di proprietà desiderate**. Questa operazione consente al back-end della soluzione di sovrascrivere completamente tutte le proprietà desiderate esistenti e di sostituirle con un nuovo documento JSON `properties/desired`.
+* **Sostituzione di tag**. Questa operazione consente al back-end della soluzione di sovrascrivere completamente tutti i tag esistenti e di sostituirli con un nuovo documento JSON `tags`.
+* **Ricezione di notifiche relative al dispositivo gemello**. Questa operazione invia notifiche al back-end della soluzione a ogni modifica del dispositivo gemello. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *twinChangeEvents*. Per impostazione predefinita, non viene inviata alcuna notifica, ovvero queste route non sono preesistenti. Se la frequenza delle modifiche è troppo elevata o per altri motivi, ad esempio un errore interno, l'hub IoT potrebbe inviare solo una notifica che contiene tutte le modifiche. Di conseguenza, se l'applicazione ha bisogno di controllo e registrazione affidabili di tutti gli stati intermedi, è consigliabile continuare a usare i messaggi D2C. Il messaggio di notifica relativo al dispositivo gemello include le proprietà e il corpo.
 
     - Proprietà
 
@@ -197,7 +195,7 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
     ``` 
 
 Tutte le operazioni precedenti supportano la [concorrenza ottimistica][lnk-concurrency] e richiedono l'autorizzazione **ServiceConnect**, come indicato nell'articolo [Sicurezza][lnk-security].
-
+ 
 Oltre a queste operazioni, il back-end della soluzione può:
 
 * Eseguire una query sui dispositivi gemelli usando il [linguaggio di query Hub IoT ][lnk-query] simile a SQL.
@@ -206,23 +204,19 @@ Oltre a queste operazioni, il back-end della soluzione può:
 ## <a name="device-operations"></a>Operazioni del dispositivo
 Il dispositivo opera sul dispositivo gemello usando le seguenti operazioni atomiche:
 
-1. **Recuperare un dispositivo gemello**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà desiderate, segnalate e di sistema, del dispositivo attualmente connesso.
-2. **Aggiornamento parziale delle proprietà segnalate**. Questa operazione consente l'aggiornamento parziale delle proprietà segnalate del dispositivo attualmente connesso. Questa operazione usa lo stesso formato di aggiornamento JSON che il back-end della soluzione usa per un aggiornamento parziale delle proprietà desiderate.
-3. **Osservazione di proprietà desiderate**. Il dispositivo attualmente connesso può scegliere di ricevere la notifica degli aggiornamenti delle proprietà desiderate quando vengono eseguiti. Il dispositivo riceve lo stesso modulo di aggiornamento che segnala la sostituzione parziale o completa eseguita dal back-end della soluzione.
+* **Recuperare un dispositivo gemello**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà di sistema desiderate e segnalate, del dispositivo attualmente connesso.
+* **Aggiornamento parziale delle proprietà segnalate**. Questa operazione consente l'aggiornamento parziale delle proprietà segnalate del dispositivo attualmente connesso. Questa operazione usa lo stesso formato di aggiornamento JSON che il back-end della soluzione usa per un aggiornamento parziale delle proprietà desiderate.
+* **Osservazione di proprietà desiderate**. Il dispositivo attualmente connesso può scegliere di ricevere la notifica degli aggiornamenti delle proprietà desiderate quando vengono eseguiti. Il dispositivo riceve lo stesso modulo di aggiornamento che segnala la sostituzione parziale o completa eseguita dal back-end della soluzione.
 
 Tutte le operazioni precedenti richiedono l'autorizzazione **DeviceConnect**, come indicato nell'articolo [Sicurezza][lnk-security].
 
-[Azure IoT SDK per dispositivi][lnk-sdks] semplifica l'uso delle operazioni precedenti con linguaggi e piattaforme diversi. Altre informazioni sulle primitive dell'hub IoT per la sincronizzazione delle proprietà desiderate sono reperibili nella sezione [Flusso di riconnessione del dispositivo][lnk-reconnection].
-
-
-## <a name="reference-topics"></a>Argomenti di riferimento:
-Gli argomenti di riferimento seguenti offrono altre informazioni sul controllo dell'accesso all'hub IoT.
+[Azure IoT SDK per dispositivi][lnk-sdks] semplifica l'uso delle operazioni precedenti con linguaggi e piattaforme diversi. Per altre informazioni sulle primitive dell'hub IoT per la sincronizzazione delle proprietà desiderate vedere [Flusso di riconnessione del dispositivo][lnk-reconnection].
 
 ## <a name="tags-and-properties-format"></a>Formato di tag e proprietà
 I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle restrizioni indicate di seguito:
 
 * Tutte le chiavi negli oggetti JSON sono stringhe UTF-8 UNICODE da 64 caratteri con distinzione tra maiuscole e minuscole. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `'.'`, `' '`, `'$'`.
-* Tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: booleano, numero, stringa, oggetto. Non sono consentite le matrici.
+* Tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: booleano, numero, stringa, oggetto. Non sono consentite le matrici. Il valore massimo per il numero intero è 4503599627370495, mentre quello minimo è -4503599627370496.
 * Tutti gli oggetti JSON nei tag e nelle proprietà desiderate e segnalate possono avere una profondità massima di 5. Ad esempio, l'oggetto seguente è valido:
 
         {
@@ -243,11 +237,11 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
             ...
         }
 
-* Tutti i valori di stringa possono avere una lunghezza massima di 512 byte.
+* Tutti i valori di stringa possono avere una lunghezza massima di 4 KB.
 
 ## <a name="device-twin-size"></a>Dimensioni del dispositivo gemello
-L'hub IoT impone un limite di dimensione pari a 8 KB sui valori di `tags`, `properties/desired` e `properties/reported`, a esclusione degli elementi di sola lettura.
-Le dimensioni vengono calcolate contando tutti i caratteri a esclusione dei caratteri di controllo UNICODE (segmenti C0 e C1) e lo spazio `' '` quando è visualizzato al di fuori di una costante di tipo stringa.
+L'hub IoT impone un limite di dimensioni pari a 8 KB sui valori totali di `tags`, `properties/desired` e `properties/reported`, a esclusione degli elementi di sola lettura.
+Le dimensioni vengono calcolate contando tutti i caratteri a esclusione dei caratteri di controllo UNICODE, ovvero i segmenti C0 e C1, e gli spazi al di fuori delle costanti stringa.
 L'hub IoT rifiuta con errore tutte le operazioni che aumentano le dimensioni dei documenti oltre il limite specificato.
 
 ## <a name="device-twin-metadata"></a>Metadati del dispositivo gemello

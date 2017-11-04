@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 9a92bf402863fd1ee688fba7c20d3a2cd3e299da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9cb2bfe459421ee6e28b9d83dffc569b7592c1f
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurare il ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria (anteprima)
 
@@ -129,7 +129,11 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 
 Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area di destinazione. È possibile modificare le impostazioni in base ai requisiti personali.
 
+1. Fare clic su **Impostazioni** per visualizzare le impostazioni di destinazione.
+2. Per eseguire l'override delle impostazioni di destinazione predefinite, fare clic su **Personalizza**. 
+
 ![Configurare le impostazioni](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+
 
 - **Percorso di destinazione**: area di destinazione usata per il ripristino di emergenza. È consigliabile che il percorso di destinazione corrisponda al percorso dell'insieme di credenziali di Site Recovery.
 
@@ -142,7 +146,7 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
 
 - **Account di archiviazione di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione nell'area di destinazione per poter eseguire il mirroring dell'account di archiviazione della macchina virtuale di origine.
 
-- **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con il suffisso "asr".
+- **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con il suffisso "asr". I set di disponibilità possono essere aggiunti solo se le VM fanno parte di un set nell'area di origine.
 
 - **Nome del criterio di replica**: nome del criterio.
 

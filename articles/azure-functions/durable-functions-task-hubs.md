@@ -14,21 +14,34 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 313daf1c105caa8569ed43e59d9e18f184599214
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b241bad7b0060551eba5e78efbb1b729bf5d0098
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hub attività in Funzioni permanenti (Funzioni di Azure)
 
-Un *hub attività* per [Funzioni permanenti](durable-functions-overview.md) è un contenitore logico per le orchestrazioni e le attività nel contesto di un singolo account di archiviazione di Azure. Nello stesso hub attività possono essere presenti più funzioni e app per le funzioni e spesso l'hub attività funge anche da contenitore di applicazioni.
+Un *hub attività* in [Funzioni permanenti](durable-functions-overview.md) è un contenitore logico per le risorse di Archiviazione di Microsoft Azure che vengono usate per le orchestrazioni. Le funzioni attività e di orchestrazione possono interagire tra loro solo quando appartengono allo stesso hub attività.
 
-Non occorre creare gli hub attività in modo esplicito. Vengono inizializzati automaticamente dal runtime, usando un nome dichiarato nel file *host.json*. Ogni hub attività ha un proprio set di code di archiviazione, tabelle e BLOB all'interno di un singolo account di archiviazione. Tutte le app per le funzioni eseguite in uno specifico hub attività condividono le stesse risorse di archiviazione. Le funzioni attività e di orchestrazione possono interagire tra loro solo quando appartengono allo stesso hub attività.
+Ogni app per le funzioni dispone di un hub attività distinto. Se più app per le funzioni condividono un account di archiviazione, tale account include più hub attività. Nel diagramma seguente è illustrato un hub attività per app per le funzioni in account di archiviazione condivisi e dedicati.
 
-## <a name="configuring-a-task-hub-in-hostjson"></a>Configurazione di un hub di attività in host.json
+![Diagramma che illustra gli account di archiviazione condivisi e dedicati.](media/durable-functions-task-hubs/task-hubs-storage.png)
 
-Il nome di un hub attività può essere configurato nel file *host.json* di un'app per le funzioni.
+## <a name="azure-storage-resources"></a>Risorse di archiviazione di Azure
+
+Un hub di attività è costituito dalle risorse di archiviazione seguenti: 
+
+* Una o più code di controllo.
+* Una coda di elementi di lavoro.
+* Una tabella di cronologia.
+* Un contenitore di archiviazione che contiene uno o più BLOB del lease.
+
+Tutte le risorse vengono create automaticamente nell'account di Archiviazione di Azure predefinito quando vengono eseguite o sono pianificate per l'esecuzione funzioni attività o di orchestrazione. Nell'articolo [Prestazioni e scalabilità](durable-functions-perf-and-scale.md) viene descritto l'uso di queste risorse.
+
+## <a name="task-hub-names"></a>Nomi degli hub attività
+
+Gli hub attività sono identificati mediante un nome dichiarato nel file *host.json* file, come illustrato nell'esempio seguente:
 
 ```json
 {
@@ -38,24 +51,12 @@ Il nome di un hub attività può essere configurato nel file *host.json* di un'a
 }
 ```
 
-I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. Se non specificato, il nome dell'hub attività predefinito per un'app per le funzioni è **DurableFunctionsHub**.
+I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. Se non specificato, il nome predefinito è **DurableFunctionsHub**.
 
 > [!NOTE]
-> Se si hanno più app per le funzioni che condividono un account di archiviazione, è consigliabile configurare un nome di hub attività diverso per ognuna di esse. Ciò garantisce che ogni app per le funzioni sia correttamente isolata dalle altre.
-
-## <a name="azure-storage-resources"></a>Risorse di archiviazione di Azure
-
-Un hub di attività è costituito da svariate risorse di Archiviazione di Azure:
-
-* Una o più code di controllo.
-* Una coda di elementi di lavoro.
-* Una tabella di cronologia.
-* Un contenitore di archiviazione che contiene uno o più BLOB del lease.
-
-Tutte le risorse vengono create automaticamente nell'account di Archiviazione di Azure predefinito quando vengono eseguite o sono pianificate per l'esecuzione funzioni attività o di orchestrazione. L'articolo [Prestazioni e scalabilità](durable-functions-perf-and-scale.md) illustra l'uso di queste risorse.
+> Il nome è ciò che distingue un hub attività da un altro quando sono presenti più hub attività in un account di archiviazione condiviso. Se si dispone di più app per le funzioni che condividono lo stesso account di archiviazione condiviso, è necessario configurare nomi diversi per ogni hub attività nei file *host.json*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Informazioni su come gestire il controllo delle versioni](durable-functions-versioning.md)
-

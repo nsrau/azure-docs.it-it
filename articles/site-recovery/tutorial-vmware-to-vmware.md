@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: b182c00ac9a6956d07dece621d03c84788442085
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/12/2017
@@ -94,7 +94,7 @@ Scaricare il file ZIP dell'[aggiornamento](https://aka.ms/asr-scout-update6). Il
 ## <a name="updates"></a>Aggiornamenti
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
-Ultimo aggiornamento: 6 ottobre 2017
+Ultimo aggiornamento: 12 ottobre 2017
 
 Scout Update 6 è un aggiornamento cumulativo. Include tutte le correzioni apportate da Update 1 a Update 5 oltre alle nuove correzioni e ai miglioramenti indicati di seguito. 
 
@@ -115,7 +115,6 @@ Scout Update 6 è un aggiornamento cumulativo. Include tutte le correzioni appor
 
 #### <a name="bug-fixes-and-enhancements"></a>Correzioni di bug e miglioramenti
 - Gli errori di protezione failback per una VM Linux VM con un elenco di dischi da replicare sono vuoti alla fine del file di configurazione.
-
 
 ### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 è un aggiornamento cumulativo. Include tutte le correzioni apportate da Update 1 a Update 4 e le nuove correzioni indicate di seguito.
@@ -139,10 +138,10 @@ Scout Update 5 è un aggiornamento cumulativo. Include tutte le correzioni appor
     
 * Correzione del problema seguente: se durante la protezione di failback il server di destinazione master selezionato non si trova nello stesso server ESXi di quello del computer di origine protetto (durante la protezione avanzata), vContinuum sceglie il server di destinazione master non corretto durante il ripristino di failback e l'operazione di ripristino non riesce.
 
-#### <a name="issues"></a>Problemi
-* Le correzioni per il cluster P2V sono applicabili solo ai cluster MSCS fisici appena protetti con Site Recovery Scout Update 5. Per installare le correzioni per il cluster nei cluster MSCS P2V protetti con aggiornamenti precedenti, seguire i passaggi di aggiornamento descritti nella sezione 12 delle [Note sulla versione di Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
-* Se al momento della riprotezione su ogni nodo del cluster è attivo lo stesso set di dischi che era attivo al momento della protezione iniziale, la riprotezione di un cluster MSCS fisico potrà soltanto riusare i dischi di destinazione esistenti. In caso contrario, usare i passaggi manuali illustrati nella sezione 12 delle [Note sulla versione di Site Recovery Scout](https://aka.ms/asr-scout-release-notes) per spostare i dischi sul lato di destinazione nel percorso dell'archivio dati corretto in modo da riusarli durante la riprotezione. Se si riprotegge il cluster MSCS in modalità P2V senza seguire i passaggi di aggiornamento, viene creato un nuovo disco nel server ESXi di destinazione. Sarà necessario eliminare manualmente i vecchi dischi dall'archivio dati.
-* Quando un server SLES11 o SLES11 (con qualsiasi Service Pack) di origine viene riavviato normalmente, contrassegnare manualmente le coppie di replica del disco **radice** per la risincronizzazione. Nell'interfaccia CX non viene visualizzata alcuna notifica. Se il disco radice non viene contrassegnato per la risincronizzazione è possibile che si verifichino problemi di integrità dei dati.
+> [!NOTE]
+> * Le correzioni per il cluster P2V sono applicabili solo ai cluster MSCS fisici appena protetti con Site Recovery Scout Update 5. Per installare le correzioni per il cluster nei cluster MSCS P2V protetti con aggiornamenti precedenti, seguire i passaggi di aggiornamento descritti nella sezione 12 delle [Note sulla versione di Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
+> * Se al momento della riprotezione su ogni nodo del cluster è attivo lo stesso set di dischi che era attivo al momento della protezione iniziale, la riprotezione di un cluster MSCS fisico potrà soltanto riusare i dischi di destinazione esistenti. In caso contrario, usare i passaggi manuali illustrati nella sezione 12 delle [Note sulla versione di Site Recovery Scout](https://aka.ms/asr-scout-release-notes) per spostare i dischi sul lato di destinazione nel percorso dell'archivio dati corretto in modo da riusarli durante la riprotezione. Se si riprotegge il cluster MSCS in modalità P2V senza seguire i passaggi di aggiornamento, viene creato un nuovo disco nel server ESXi di destinazione. Sarà necessario eliminare manualmente i vecchi dischi dall'archivio dati.
+> * Quando un server SLES11 o SLES11 (con qualsiasi Service Pack) di origine viene riavviato normalmente, contrassegnare manualmente le coppie di replica del disco **radice** per la risincronizzazione. Nell'interfaccia CX non viene visualizzata alcuna notifica. Se il disco radice non viene contrassegnato per la risincronizzazione è possibile che si verifichino problemi di integrità dei dati.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4
@@ -180,14 +179,13 @@ Scout Update 4 è un aggiornamento cumulativo. Include tutte le correzioni appor
   * I dettagli relativi alla capacità e allo spazio disponibile vengono visualizzati per tutti i dispositivi protetti.
   * È disponibile lo stato del driver Scout nel server di origine.
 
-#### <a name="issues"></a>Problemi
-
-* Il pacchetto di base **InMage_Scout_Standard_8.0.1_GA.zip** include:
+> [!NOTE]
+> * Il pacchetto di base **InMage_Scout_Standard_8.0.1_GA.zip** include:
     * Un programma di installazione di base del server di configurazione aggiornato (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
     * Un programma di installazione di base del server di destinazione master Windows (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
     * Per tutte le nuove installazioni, usare la nuova GA del server di configurazione e del server di destinazione master Windows.
-* Update 4 può essere applicato direttamente in 8.0.1 GA.
-* Non è possibile eseguire il rollback degli aggiornamenti del server di configurazione e di RX dopo che sono stati applicati.
+> * Update 4 può essere applicato direttamente in 8.0.1 GA.
+> * Non è possibile eseguire il rollback degli aggiornamenti del server di configurazione e di RX dopo che sono stati applicati.
 
 
 ### <a name="azure-site-recovery-scout-801-update-3"></a>Azure Site Recovery Scout 8.0.1 Update 3

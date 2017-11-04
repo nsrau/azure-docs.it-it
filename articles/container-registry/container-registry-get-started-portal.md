@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 033ef0cdd607ced5de6c975e071e0ce37e677201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Creare un registro contenitori con il portale di Azure
 
-Un Registro contenitori di Azure è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. In questa Guida rapida viene creato un Registro contenitori di Azure con il portale di Azure.
+Un Registro contenitori di Azure è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. In questa guida introduttiva viene creato un Registro contenitori di Azure con il portale di Azure.
 
 Per completare questa Guida introduttiva, è necessario che Docker sia installato in locale. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
@@ -39,11 +39,13 @@ Selezionare **Nuovo** > **Contenitori** > **Registro contenitori di Azure**.
 
 ![Creazione di un registro contenitori con il portale di Azure][qs-portal-01]
 
-Immettere i valori nei campi **Nome registro** e **Gruppo di risorse**. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Creare un nuovo gruppo di risorse denominato `myResourceGroup`e selezionare 'Classico' per **SKU**. Selezionare **Crea** per distribuire l'istanza del record di controllo di accesso.
+Immettere i valori nei campi **Nome registro** e **Gruppo di risorse**. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Creare un nuovo gruppo di risorse denominato `myResourceGroup` e selezionare 'Basic' per **SKU**. Selezionare **Crea** per distribuire l'istanza del record di controllo di accesso.
 
 ![Creazione di un registro contenitori con il portale di Azure][qs-portal-03]
 
-Registro contenitori di Azure è attualmente disponibile in diversi SKU: `Classic`, `Basic`, `Standard`, e `Premium`. Sebbene gli SKU `Basic`, `Standard`, e `Premium` offrano funzionalità avanzate, ad esempio l'archiviazione gestita e i Webhook, sono attualmente in anteprima e non sono disponibili in alcune aree di Azure. Considerata la disponibilità in tutte le aree, per questa Guida introduttiva è stato scelto lo SKU `Classic`.
+In questa guida introduttiva viene creato un registro contenitori di *base*. Registro contenitori di Azure è disponibile in diversi SKU, descritti brevemente nella tabella riportata di seguito. Per altri dettagli su ogni SKU, vedere [SKU di Registro contenitori](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 Quando viene visualizzato il messaggio **La distribuzione è riuscita**, selezionare il registro contenitori nel portale, quindi selezionare le **chiavi di accesso**.
 

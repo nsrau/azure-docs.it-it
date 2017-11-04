@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 4abfdcc0a50c229555088dff0ac2c00c15f49218
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8129678b5ee2b0b1f2a59049fc6632b6cbf3383
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creare e installare i file di configurazione del client VPN per le configurazioni da punto a sito con autenticazione del certificato nativa di Azure
 
@@ -77,14 +77,14 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
 2. Fare doppio clic sul pacchetto per installarlo. Se viene visualizzato un popup SmartScreen, fare clic su **Altre informazioni** e quindi su **Esegui comunque** per installare il pacchetto.
 3. Nel computer client passare a **Impostazioni di rete** e fare clic su **VPN**. La connessione VPN viene visualizzata con il nome della rete virtuale a cui si connette. 
 
-## <a name="installmac"></a>Installare una configurazione del client VPN di Mac (OSX)
+## <a name="installmac"></a>Configurazione del client VPN in computer Mac (OSX)
 
-È necessario creare una configurazione del client VPN separata per ogni dispositivo Mac che si connette a una rete virtuale di Azure. Non è possibile riusare gli stessi file di configurazione per più dispositivi Mac, perché per questi dispositivi è necessario specificare il certificato utente nei file di configurazione del client VPN. La cartella **Generic** contiene tutte le informazioni necessarie per creare una configurazione del client VPN. Se la cartella Generic non viene visualizzata nel download, è probabile che non sia stato selezionato IKEv2 come tipo di tunnel. Dopo la selezione di IKEv2, generare di nuovo il file con estensione zip per recuperare la cartella Generic. La cartella Generic contiene i file seguenti:
+Azure non fornisce il file mobileconfig per l'autenticazione del certificato di Azure nativo. È necessario configurare manualmente il client VPN IKEv2 nativo in ogni Mac che si connetterà ad Azure. La cartella **Generic** contiene tutte le informazioni necessarie per la configurazione. Se la cartella Generic non viene visualizzata nel download, è probabile che non sia stato selezionato IKEv2 come tipo di tunnel. Dopo la selezione di IKEv2, generare di nuovo il file con estensione zip per recuperare la cartella Generic. La cartella Generic contiene i file seguenti:
 
 * **VpnSettings.xml**, che contiene impostazioni importanti come l'indirizzo del server e il tipo di tunnel. 
 * **VpnServerRoot.cer**, che contiene il certificato radice necessario per convalidare il gateway VPN di Azure durante la configurazione della connessione da punto a sito.
 
-Per configurare il client VPN nativo in Mac per l'autenticazione del certificato, usare questa procedura:
+Usare questa procedura per configurare il client VPN nativo in Mac per l'autenticazione del certificato. È necessario eseguire questi passaggi in ogni Mac che si connetterà ad Azure:
 
 1. Importare il certificato radice **VpnServerRoot** nel computer Mac. A tale scopo, copiare il file nel computer Mac e fare doppio clic su di esso.  
 Fare clic su **Aggiungi** per eseguire l'importazione.
@@ -101,7 +101,7 @@ Fare clic su **Aggiungi** per eseguire l'importazione.
 4. Fare clic su **Authentication Settings** (Impostazioni autenticazione) e selezionare **Certificato**. 
 
   ![Impostazioni di autenticazione](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. Fare clic su **Seleziona** per scegliere il certificato da usare per l'autenticazione.
+5. Fare clic su **Seleziona** per scegliere il certificato client da usare per l'autenticazione. Un certificato client deve essere già installato nel computer (vedere il passaggio 2 nella sezione **Flusso di lavoro per la VPN da punto a sito** più indietro).
 
   ![certificato](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 6. In **Choose An Identity** (Scegli identità) viene visualizzato un elenco dei certificati tra cui scegliere. Selezionare il certificato corretto e quindi **Continua**.

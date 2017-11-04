@@ -12,23 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ce50c678247226b629490a2bd8ba2935ed229f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f661dba2e647ac905e7d84927fdbf6dbc76094f
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito
-> [!div class="op_single_selector"]
-> * [Portale di Azure - Windows](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-> * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
->
->
-
-<br>
-
 Questo articolo illustra come distribuire una macchina virtuale di Windows Server usando il portale di Azure. Descrive quindi come aggiungere la macchina virtuale a un dominio gestito di Azure AD Domain Services.
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>Passaggio 1: Creare la macchina virtuale Windows Server
@@ -57,7 +49,7 @@ Seguire questa procedura per creare una macchina virtuale Windows aggiunta alla 
 
     > [!TIP]
     > **Selezionare la rete virtuale e la subnet corretta.**
-    > Selezionare la rete virtuale in cui è distribuito il dominio gestito o una rete virtuale connessa al dominio tramite peering di rete virtuale. Se si seleziona un'altra rete virtuale, non sarà possibile aggiungerla al dominio gestito.
+    > Selezionare la rete virtuale in cui è distribuito il dominio gestito o una rete virtuale connessa al dominio tramite peering di rete virtuale. Se si seleziona una rete virtuale non connessa, non è possibile aggiungere la macchina virtuale al dominio gestito.
     > È consigliabile distribuire il dominio gestito in una subnet dedicata. Pertanto, non selezionare la subnet in cui è stato abilitato il dominio gestito.
 
 7. Nella pagina **Acquisto** controllare le impostazioni e fare clic su **OK** per distribuire la macchina virtuale.
@@ -72,7 +64,7 @@ Seguire questa procedura per creare una macchina virtuale Windows aggiunta alla 
 
 Seguire questa procedura per connettersi alla macchina virtuale.
 
-1. Fare clic su sul pulsante **Connetti** nella pagina **Panoramica**. Viene creato e scaricato un file Remote Desktop Protocol, con estensione rdp.
+1. Fare clic su sul pulsante **Connetti** nella pagina **Panoramica**. Viene creato e scaricato un file Remote Desktop Protocol con estensione rdp.
 
     ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 2. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**.
@@ -128,7 +120,7 @@ Se viene visualizzata la finestra di dialogo che richiede le credenziali per l'a
 Se si verificano problemi con le credenziali e non è possibile completare l'aggiunta al dominio, seguire questa procedura.
 
 * Provare a usare il formato UPN per specificare le credenziali. Se sono presenti più utenti con lo stesso prefisso UPN nel tenant o se il prefisso UPN è troppo lungo, l'attributo SAMAccountName per l'account può essere generato automaticamente. Di conseguenza, il formato SAMAccountName per l'account può essere diverso da quello previsto o usato nel dominio locale.
-* Provare a usare le credenziali di un account utente che appartiene al gruppo di amministratori di controller di dominio AAD per aggiungere computer al dominio gestito.
+* Provare a usare le credenziali di un account utente appartenente al gruppo 'Amministratori di AAD DC'.
 * Assicurarsi di avere [abilitato la sincronizzazione delle password](active-directory-ds-getting-started-password-sync.md) secondo i passaggi descritti nella Guida introduttiva.
 * Assicurarsi di usare l'UPN dell'utente come configurato in Azure AD, ad esempio "bob@domainservicespreview.onmicrosoft.com" per eseguire l'accesso.
 * Assicurarsi di avere atteso per il tempo necessario per consentire il completamento della sincronizzazione delle password, come specificato nella Guida introduttiva.

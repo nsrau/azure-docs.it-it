@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analisi e visualizzazione degli eventi con Application Insights
 
@@ -38,6 +38,9 @@ Per configurare AI con lo strumento di aggregazione di eventi è necessaria la c
 
 ### <a name="configuring-ai-with-wad"></a>Configurazione di AI con WAD
 
+>[!NOTE]
+>Al momento, si applica solo ai cluster Windows.
+
 Per inviare i dati da WAD ad Azure AI esistono due modalità, realizzabili aggiungendo un sink AI alla configurazione di WAD, come descritto in [questo articolo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 #### <a name="add-an-ai-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Aggiungere una chiave di strumentazione AI durante la creazione di un cluster nel portale di Azure
@@ -50,7 +53,7 @@ Quando si crea un cluster, se la diagnostica è attiva, si visualizzerà un camp
 
 Nel modello di Resource Manager, in "WadCfg" aggiungere un "Sink" apportando le due modifiche seguenti:
 
-1. Aggiungere la configurazione del sink:
+1. Aggiungere la configurazione del sink direttamente dopo il completamento della dichiarazione di `DiagnosticMonitorConfiguration`:
 
     ```json
     "SinksConfig": {
@@ -64,7 +67,7 @@ Nel modello di Resource Manager, in "WadCfg" aggiungere un "Sink" apportando le 
 
     ```
 
-2. Includere il sink in DiagnosticMonitorConfiguration aggiungendo la riga seguente in "DiagnosticMonitorConfiguration" di "WadCfg":
+2. Includere il sink in `DiagnosticMonitorConfiguration` aggiungendo la riga seguente nell'elemento `DiagnosticMonitorConfiguration` di `WadCfg` (subito prima della dichiarazione di `EtwProviders`):
 
     ```json
     "sinks": "applicationInsights"

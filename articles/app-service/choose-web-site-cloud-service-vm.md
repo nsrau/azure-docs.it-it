@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fca6023fedcfc64ecfe66c0f4ed60a495953cfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud
 ## <a name="overview"></a>Panoramica
@@ -40,7 +40,7 @@ Nella tabella seguente vengono confrontate le funzionalità del Servizio app, di
 | Aumento della dimensione delle macchine senza ridistribuzione |X | | |X | |
 | Le istanze del server Web condividono contenuti e configurazione, quindi non occorre ridistribuire o riconfigurare man mano che si scala. |X | | |X | |
 | Più ambienti di distribuzione (produzione e gestione temporanea) |X |X | |X |Service Fabric consente di disporre di più ambienti per le app o di distribuire diverse versioni affiancate dell'app. |
-| Gestione automatica dell'aggiornamento del sistema operativo |X |X | | |Sono previsti aggiornamenti automatici del sistema operativo per una versione futura di Service Fabric. |
+| Gestione automatica dell'aggiornamento del sistema operativo |X |X | | |Parzialmente tramite Patch Orchestration Application (POA) e completamente in futuro. |
 | Commutazione di piattaforma trasparente (è possibile passare facilmente tra 32 bit e 64 bit) |X |X | | | |
 | Distribuzione codice con GIT, FTP |X | |X | | |
 | Distribuzione codice con distribuzione Web |X | |X | |Servizi cloud supporta l'uso della distribuzione Web per distribuire gli aggiornamenti a singole istanze del ruolo. Tuttavia, non è possibile usarlo per la distribuzione iniziale di un ruolo e se si usa la distribuzione Web per un aggiornamento è necessario effettuare la distribuzione separata a ciascuna istanza di un ruolo. Sono necessarie più istanze per qualificarsi per il contratto di servizio di Servizi cloud per gli ambienti di produzione. |

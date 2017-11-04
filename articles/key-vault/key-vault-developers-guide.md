@@ -7,13 +7,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 10/12/2017
 ms.author: bruceper
-ms.openlocfilehash: fec4769c0bd571edea84dd2f766bb907d8819be5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d617726a4ee9335728ab82104efbd845e3b0d05
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -28,7 +28,7 @@ Per altre informazioni generali sull'insieme di credenziali delle chiavi di Azur
 
 ## <a name="public-previews"></a>Anteprime pubbliche
 
-Periodicamente, viene rilasciata un'anteprima pubblica di una nuova funzionalità di Key Vault. Provarle e comunicare il feedback all'azienda all'indirizzo e-mail azurekeyvault@microsoft.com, dedicato ai commenti e ai suggerimenti.
+Periodicamente, viene rilasciata un'anteprima pubblica di una nuova funzionalità di Key Vault. Provare le nuove funzionalità e comunicare il feedback all'indirizzo e-mail azurekeyvault@microsoft.com, dedicato ai commenti e ai suggerimenti.
 
 ### <a name="storage-account-keys---july-10-2017"></a>Chiavi degli account di archiviazione - 10 luglio 2017
 
@@ -52,40 +52,61 @@ Risorse citate nel video precedente:
 
 ## <a name="creating-and-managing-key-vaults"></a>Creazione e gestione di insiemi di credenziali delle chiavi
 
-Prima di usare l'insieme di credenziali delle chiavi di Azure nel codice, è possibile creare e gestire insiemi di credenziali tramite REST, modelli di Resource Manager, PowerShell o l'interfaccia della riga di comando, come descritto negli articoli seguenti:
+Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarle. Identità del servizio gestito consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory, ovvero Azure AD. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice. 
 
-- [Creare e gestire insiemi di credenziali chiave con REST](https://docs.microsoft.com/rest/api/keyvault/)
-- [Creare e gestire insiemi di credenziali chiave con PowerShell](key-vault-get-started.md)
-- [Creare e gestire insiemi di credenziali chiave con l’interfaccia della riga di comando](key-vault-manage-with-cli2.md)
+Per altre informazioni sull'identità del servizio gestito, vedere [Identità del servizio gestito per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
+
+Per altre informazioni sull'uso di AAD, vedere [Integrazione di applicazioni con Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
+
+Prima di usare chiavi, segreti o certificati nell'insieme di credenziali delle chiavi, l'insieme deve essere creato e gestito tramite l'interfaccia della riga di comando, PowerShell, modelli di Resource Manager o REST, come descritto negli articoli seguenti:
+
+- [Creare e gestire insiemi di credenziali delle chiavi tramite l'interfaccia della riga di comando](key-vault-manage-with-cli2.md)
+- [Creare e gestire insiemi di credenziali delle chiavi tramite PowerShell](key-vault-get-started.md)
 - [Creare un insieme di credenziali delle chiavi e aggiungere un segreto tramite un modello di Azure Resource Manager](../azure-resource-manager/resource-manager-template-keyvault.md)
+- [Creare e gestire Key Vault con REST](https://docs.microsoft.com/rest/api/keyvault/)
 
-> [!NOTE]
-> Le operazioni sugli insiemi di credenziali delle chiavi vengono autenticate tramite AAD e autorizzate tramite i criteri di accesso dell'insieme di credenziali delle chiavi, definiti per ogni insieme di credenziali.
 
 ## <a name="coding-with-key-vault"></a>Codifica con l'insieme di credenziali delle chiavi
 
-Il sistema di gestione di Key Vault per i programmatori è costituito da diverse interfacce, con REST come base. Tramite l'interfaccia REST è possibile accedere a tutte le risorse degli insiemi di credenziali delle chiavi: chiavi, segreti e certificati. [Informazioni di riferimento sull'API REST di Key Vault](https://docs.microsoft.com/rest/api/keyvault/). 
+Il sistema di gestione di Key Vault per i programmatori è costituito da diverse interfacce. Questa sezione contiene collegamenti a tutti i linguaggi, nonché alcuni esempi di codice. 
 
-### <a name="supported-programming-languages"></a>Linguaggi di programmazione supportati
+### <a name="supported-programming-and-scripting-languages"></a>Linguaggi di programmazione e di script supportati
+
+#### <a name="rest"></a>REST
+
+Tutte le risorse di Key Vault (insiemi di credenziali, chiavi, segreti e così via) sono accessibili tramite l'interfaccia REST. 
+
+[Informazioni di riferimento sull'API REST di Key Vault](https://docs.microsoft.com/rest/api/keyvault/). 
 
 #### <a name="net"></a>.NET
 
-- [Informazioni di riferimento sulle API .NET per Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+[Informazioni di riferimento sulle API .NET per Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
 
 Per altre informazioni sulla versione 2.x di .NET SDK, vedere le [note sulla versione](key-vault-dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
-- [Java SDK per Key Vault](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
+[Java SDK per Key Vault](https://docs.microsoft.com/java/api/overview/azure/keyvault)
 
 #### <a name="nodejs"></a>Node.js
 
-In Node.js l'API di gestione dell'insieme di credenziali e l'API dell'oggetto dell'insieme di credenziali sono separati. Gestione dell'insieme di credenziali delle chiavi consente la creazione e l'aggiornamento dell'insieme di credenziali delle chiavi. L'API delle operazioni di Key Vault funziona con oggetti dell'insieme di credenziali come ad esempio chiavi, segreti e certificati. 
+In Node.js l'API di gestione e l'API degli oggetti di Key Vault sono separate. L'articolo di panoramica seguente consente di accedere a entrambe. 
 
-- [Informazioni di riferimento sulle API Node.js per Gestione di Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-- [Informazioni di riferimento sulle API Node.js per le operazioni di Key Vault](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
+[Moduli di Azure Key Vault per Node.js](https://docs.microsoft.com/nodejs/api/overview/azure/key-vault)
 
-### <a name="quick-start"></a>Avvio rapido
+#### <a name="python"></a>Python
+
+[Librerie di Azure Key Vault per Python](https://docs.microsoft.com/python/api/overview/azure/key-vault)
+
+#### <a name="azure-cli-2"></a>Interfaccia della riga di comando di Azure 2
+
+[Interfaccia della riga di comando di Azure per Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
+
+#### <a name="azure-powershell"></a>Azure PowerShell 
+
+[Azure PowerShell per Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+
+### <a name="quick-start-guides"></a>Guide introduttive
 
 - [Creare un insieme di credenziali delle chiavi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Introduzione a Key Vault in Node.js](https://azure.microsoft.com/en-us/resources/samples/key-vault-node-getting-started/)

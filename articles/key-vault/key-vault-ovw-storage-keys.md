@@ -8,12 +8,12 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 09/14/2017
-ms.openlocfilehash: 83bcb339c16b8a1be15773ba35208461ecf8120e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/12/2017
+ms.openlocfilehash: 1d92ffc03b60695c5ff7b6c3d2ac54808c527efd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chiavi dell'account di archiviazione Key Vault
 
@@ -25,7 +25,7 @@ Per informazioni più generali sugli account di archiviazione di Azure, vedere [
 
 ## <a name="supporting-interfaces"></a>Interfacce di supporto
 
-La funzionalità chiavi dell'account di archiviazione di Azure è inizialmente disponibile attraverso le interfacce REST, .NET/C# e PowerShell. Per altre informazioni, vedere [Documentazione sull'insieme di credenziali delle chiavi](https://docs.microsoft.com/azure/key-vault/).
+L'elenco completo delle interfacce di programmazione e di script Microsoft e i collegamenti a queste sono disponibili in [Guida per gli sviluppatori di Key Vault](key-vault-developers-guide.md#coding-with-key-vault).
 
 
 ## <a name="what-key-vault-manages"></a>Ciò che Key Vault gestisce
@@ -99,15 +99,11 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ### <a name="setup-for-role-based-access-control-rbac-permissions"></a>Configurazione per le autorizzazioni di controllo degli accessi in base al ruolo (RBAC)
 
-Key Vault necessita di autorizzazioni per *elencare* e *rigenerare* le chiavi per un account di archiviazione. Impostare queste autorizzazioni usando la procedura seguente:
+Per *elencare* e *rigenerare* le chiavi per un account di archiviazione, l'identità di applicazione di Azure Key Vault necessita di autorizzazioni. Impostare queste autorizzazioni usando la procedura seguente:
 
-- Ottenere ObjectId di Key Vault: 
+- Ottenere l'ObjectId dell'identità di Azure Key Vault: 
 
     `Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093`
-    
-     oppure
-     
-    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
 - Assegnare il ruolo "Operatore chiave di archiviazione" all'identità di Azure Key Vault: 
 
@@ -131,14 +127,14 @@ Per questo esempio di funzionamento, vengono fornite le istruzioni seguenti.
 ### <a name="get-a-service-principal"></a>Ottenere un'entità servizio
 
 ```powershell
-Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+$yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
 ```
 
-L'output del comando precedente includerà l'entità servizio, che chiameremo *yourServicePrincipalId*. 
+L'output del comando precedente includerà l'entità servizio, denominata *yourKeyVaultServicePrincipalId*. 
 
 ### <a name="set-permissions"></a>Impostare le autorizzazioni
 
-Verificare che le autorizzazioni di archiviazione siano impostate su *tutte*. È possibile ottenere yourUserPrincipalId e impostare le autorizzazioni nell'insieme di credenziali usando i comandi seguenti.
+Verificare che le autorizzazioni di archiviazione siano impostate su *tutte*. È possibile ottenere yourKeyVaultServicePrincipalId e impostare le autorizzazioni nell'insieme di credenziali tramite i comandi seguenti.
 
 ```powershell
 Get-AzureRmADUser -SearchString "your name"
@@ -146,7 +142,7 @@ Get-AzureRmADUser -SearchString "your name"
 Cercare ora il nome e ottenere il relativo ObjectId da usare per l'impostazione delle autorizzazioni nell'insieme di credenziali.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $yourKeyVaultServicePrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>Consentire l'accesso
@@ -154,7 +150,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincip
 Prima di poter creare un account di archiviazione gestito e le definizioni di firma di accesso condiviso, è necessario concedere al servizio Key Vault l'accesso agli account di archiviazione.
 
 ```powershell
-New-AzureRmRoleAssignment -ObjectId yourServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
+New-AzureRmRoleAssignment -ObjectId $yourKeyVaultServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
 ```
 
 ### <a name="create-storage-account"></a>Crea account di archiviazione

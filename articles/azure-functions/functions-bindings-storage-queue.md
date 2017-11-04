@@ -3,7 +3,7 @@ title: Associazioni dell'archiviazione code di Funzioni di Azure | Microsoft Doc
 description: Informazioni su come usare trigger e associazioni di Archiviazione di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 8f7227071edc519e588d55a9f06b77aeaf31aa37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b68ce106ceb25d19ee0bbde287891d553a448560
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Associazione dell'archiviazione code di Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -285,7 +285,7 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un esempio di funzione che usa trigger e associazioni della coda, vedere [Creare una funzione di Azure connessa a un servizio di Azure](functions-create-an-azure-connected-function.md).
+Per un esempio di funzione che usa trigger e associazioni di archiviazione code, vedere [Creare una funzione attivata da Archiviazione code di Azure](functions-create-storage-queue-triggered-function.md).
 
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

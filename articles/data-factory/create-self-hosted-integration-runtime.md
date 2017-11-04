@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Come creare e configurare il runtime di integrazione self-hosted
-Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per informazioni dettagliate sul runtime di integrazione, vedere [Integration Runtime Overview](concepts-integration-runtime.md) (Panoramica del runtime di integrazione). 
+Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per informazioni dettagliate sul runtime di integrazione, vedere [Integration Runtime Overview](concepts-integration-runtime.md) (Panoramica del runtime di integrazione).
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
@@ -30,20 +30,20 @@ Un runtime di integrazione self-hosted può eseguire attività di copia tra un a
 Questo documento illustra come creare e configurare il runtime di integrazione self-hosted.
 
 ## <a name="high-level-steps-to-install-self-hosted-ir"></a>Procedura generale per installare il runtime di integrazione self-hosted
-1.  Creare un runtime di integrazione self-hosted. Di seguito è illustrato un esempio di PowerShell: 
+1.  Creare un runtime di integrazione self-hosted. Di seguito è illustrato un esempio di PowerShell:
 
     ```powershell
-    New-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 2.  Scaricare e installare il runtime di integrazione self-hosted (nel computer locale).
-3.  Recuperare la chiave di autenticazione e registrare il runtime di integrazione self-hosted con la chiave. Di seguito è illustrato un esempio di PowerShell: 
+3.  Recuperare la chiave di autenticazione e registrare il runtime di integrazione self-hosted con la chiave. Di seguito è illustrato un esempio di PowerShell:
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
-    
+
 ## <a name="command-flow-and-data-flow"></a>Flusso dei comandi e flusso di dati
-Quando si spostano i dati tra ambiente cloud e locale, l'attività usa un runtime di integrazione self-hosted per trasferire i dati dall'origine dati locale al cloud e viceversa. 
+Quando si spostano i dati tra ambiente cloud e locale, l'attività usa un runtime di integrazione self-hosted per trasferire i dati dall'origine dati locale al cloud e viceversa.
 
 Di seguito è riportato un flusso di dati generale per il riepilogo dei passaggi per la copia con il runtime di integrazione self-hosted:
 
@@ -66,18 +66,18 @@ Di seguito è riportato un flusso di dati generale per il riepilogo dei passaggi
 - Considerare l'origine dati come origine dati locale, ovvero protetta da firewall, anche quando si usa **ExpressRoute**. Usare il runtime di integrazione self-hosted per stabilire la connettività tra il servizio e l'origine dati.
 - È necessario usare il runtime di integrazione self-hosted anche se l'archivio dati è nel cloud su una **macchina virtuale IaaS di Azure**.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
-- Sono supportati i **sistemi operativi** Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. L'installazione del runtime di integrazione self-hosted in un **controller di dominio non è supportata**.
+- Sono supportati i **sistemi operativi** Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. L'installazione del runtime di integrazione self-hosted in un **controller di dominio non è supportata**.
 - È necessario **.NET Framework 4.6.1 o versioni successive**. Se si installa il runtime di integrazione self-hosted in un computer Windows 7, installare .NET Framework 4.6.1 o versioni successive. Per informazioni dettagliate, vedere [Requisiti di sistema di .NET Framework](/dotnet/framework/get-started/system-requirements) .
-- La **configurazione** consigliata per il computer di runtime di integrazione self-hosted è di almeno 2 GHz, quattro core, 8 GB di RAM e un disco da 80 GB.
+- La **configurazione** consigliata per il computer di runtime di integrazione self-hosted è di almeno 2 GHz, 4 core, 8 GB di RAM e un disco da 80 GB.
 - Se il computer host entra in stato di ibernazione, il runtime di integrazione self-hosted non risponde alle richieste di dati. Configurare quindi una combinazione per il risparmio di energia appropriata nel computer prima di installare il runtime di integrazione self-hosted. Se il computer è configurato per l'ibernazione, l'installazione del runtime di integrazione self-hosted invia un messaggio.
 - È necessario essere un amministratore del computer per installare e configurare correttamente il runtime di integrazione self-hosted.
 - Dato che le esecuzioni dell'attività di copia seguono una frequenza specifica, l'utilizzo delle risorse, ovvero CPU e memoria, nel computer segue lo stesso ciclo costituito da periodi di picco alternati a periodi di inattività. L'utilizzo delle risorse dipende molto anche dalla quantità di dati da spostare. Quando sono in corso più processi di copia, l'utilizzo delle risorse aumenta durante i periodi di picco.
 
 ## <a name="installation-best-practices"></a>Procedure consigliate per l'installazione
 Il runtime di integrazione self-hosted può essere installato scaricando un pacchetto di installazione MSI dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Vedere l'[articolo sullo spostamento di dati tra origini locali e cloud](tutorial-hybrid-copy-powershell.md) per le istruzioni dettagliate.
-  
+
 - Configurare la combinazione per il risparmio di energia nel computer host del runtime di integrazione self-hosted in modo che il computer non entri in stato di ibernazione. Se il computer host entra in stato di ibernazione, il runtime di integrazione self-hosted passa offline.
 - Eseguire regolarmente un backup delle credenziali associate al runtime di integrazione self-hosted.
 
@@ -103,14 +103,14 @@ Il runtime di integrazione self-hosted può essere installato scaricando un pacc
 
 
 ## <a name="high-availability-and-scalability"></a>Disponibilità e scalabilità elevate
-Un runtime di integrazione self-hosted può essere associato a più computer locali. Questi computer sono chiamati nodi. È possibile avere fino a quattro nodi associati a un runtime di integrazione self-hosted. I vantaggi di avere più nodi (computer locali con un gateway installato) per un gateway logico sono: 
+Un runtime di integrazione self-hosted può essere associato a più computer locali. Questi computer sono chiamati nodi. È possibile avere fino a quattro nodi associati a un runtime di integrazione self-hosted. I vantaggi di avere più nodi (computer locali con un gateway installato) per un gateway logico sono:
 1. Disponibilità più elevata del runtime di integrazione self-hosted in modo che non sia più il singolo punto di guasto nella soluzione per Big Data o nell'integrazione dei dati cloud con Azure Data Factory, assicurando la continuità fino a 4 nodi.
 2. Miglioramento delle prestazioni e della velocità effettiva durante lo spostamento dati tra archivi dati locali e cloud. Ottenere altre informazioni sui [confronti delle prestazioni](copy-activity-performance.md).
 
-È possibile associare più nodi semplicemente installando il software del runtime di integrazione self-hosted dall'[Area download](https://www.microsoft.com/download/details.aspx?id=39717) e registrandolo con una delle due chiavi di autenticazione ottenute dal cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey, come descritto nell'[esercitazione](tutorial-hybrid-copy-powershell.md) 
+È possibile associare più nodi semplicemente installando il software del runtime di integrazione self-hosted dall'[Area download](https://www.microsoft.com/download/details.aspx?id=39717) e registrandolo con una delle due chiavi di autenticazione ottenute dal cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey, come descritto nell'[esercitazione](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> Non è necessario creare un nuovo runtime di integrazione self-hosted per associare ogni nodo. 
+> Non è necessario creare un nuovo runtime di integrazione self-hosted per associare ogni nodo.
 
 ## <a name="system-tray-icons-notifications"></a>Notifiche/icone nell'area di notifica
 Spostando il cursore sul messaggio di notifica o sull'icona nell'area di notifica, è possibile trovare i dettagli relativi allo stato del runtime di integrazione self-hosted.
@@ -137,7 +137,7 @@ A livello di **Windows Firewall** (a livello di computer) queste porte in uscita
 >
 > Per alcuni database cloud (ad esempio, database SQL di Azure, Azure Data Lake e così via), potrebbe essere necessario consentire l'indirizzo IP del computer del runtime di integrazione self-hosted nella configurazione del firewall.
 
-### <a name="copy-data-from-a-source-to-a-sink"></a>Copiare i dati da un'origine a un sink 
+### <a name="copy-data-from-a-source-to-a-sink"></a>Copiare i dati da un'origine a un sink
 Verificare che le regole del firewall siano abilitate correttamente per il firewall aziendale, per Windows Firewall nel computer del runtime di integrazione self-hosted e per l'archivio dati stesso, per poter consentire al runtime di integrazione self-hosted di connettersi all'origine e al sink. Abilitare le regole per ogni archivio dati interessato dall'operazione di copia.
 
 Ad esempio, per eseguire la copia da un **archivio dati locale a un sink di database SQL di Azure o a un sink di Azure SQL Data Warehouse**, seguire questa procedura:
@@ -200,8 +200,8 @@ Se si seleziona l'impostazione **Usa il proxy di sistema** per il proxy HTTP, il
               <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
         </defaultProxy>
     </system.net>
-    ``` 
-    
+    ```
+
     È possibile aggiungere altre proprietà all'interno del tag del proxy per specificare le impostazioni obbligatorie, ad esempio scriptLocation. Per informazioni sulla sintassi, vedere [Elemento proxy (Impostazioni di rete)](https://msdn.microsoft.com/library/sa91de1e.aspx).
 
     ```xml
@@ -221,7 +221,7 @@ Se si verificano errori simili ai seguenti, potrebbero essere dovuti a una confi
 2.  Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere "**Disconnesso**" o "**Connessione**". Quando si visualizzano i registri eventi di Windows, in "Visualizzatore eventi" > "Registri applicazioni e servizi" > "Runtime di integrazione Microsoft", vengono visualizzati messaggi di errore simili al seguente:
 
     ```
-    Unable to connect to the remote server 
+    Unable to connect to the remote server
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
@@ -239,4 +239,3 @@ Se si sceglie di non aprire la porta 8060 nel computer del runtime di integrazio
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere l'esercitazione seguente per le istruzioni dettagliate: [Tutorial: copy on-premises data to cloud (Esercitazione: Copiare i dati locali nel cloud)](tutorial-hybrid-copy-powershell.md).
-

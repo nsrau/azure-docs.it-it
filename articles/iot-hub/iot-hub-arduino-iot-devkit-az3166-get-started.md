@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: xshi
-ms.openlocfilehash: e8abae4d523ad537563f2c2964a3585b68fda7c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b8ae318fab2eaa186dca050ce2710b1ff232783
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure nel cloud
 
@@ -152,6 +152,9 @@ Durante l'installazione viene visualizzato lo stato di ogni strumento o pacchett
 
 ![Stato dell'installazione](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install.png)
 
+> [!NOTE] 
+> A seconda dell'ambiente, a volte si otterrà un errore durante l'installazione dell'IDE Arduino. In questo caso, è possibile provare a [installare singolarmente l'IDE Arduino](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows) e a eseguire di nuovo install.cmd. Altrimenti, seguire la [procedura manuale](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows) per installare tutti gli strumenti e i pacchetti necessari.
+
 #### <a name="install-drivers"></a>Installare i driver
 
 Il Visual Studio Code per l'estensione di Arduino si basa sull'IDE di Arduino. Se questa è la prima volta che si installa l'IDE di Arduino, viene chiesto di installare i driver pertinenti:
@@ -163,83 +166,51 @@ L'installazione richiede circa 10 minuti a seconda della velocità della conness
 > [!NOTE] 
 > In alcuni casi, all'avvio di Visual Studio Code viene visualizzato un errore che indica che non è possibile trovare l'IDE di Arduino o il pacchetto della scheda correlato. Per risolvere il problema, chiudere Visual Studio Code e riavviare l'IDE di Arduino. Visual Studio Code dovrebbe a questo punto individuare il percorso corretto dell'IDE di Arduino.
 
-### <a name="macos-preview"></a>macOS (anteprima)
+### <a name="macos"></a>macOS
 
-Seguire questa procedura per preparare l'ambiente di sviluppo in macOS.
+Si consiglia di usare l'esperienza di installazione in un solo clic per preparare l'ambiente di sviluppo. Se si verificano problemi, è possibile seguire la [procedura manuale](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/) per risolverli.
 
-#### <a name="install-azure-cli-20"></a>Installare l'interfaccia della riga di comando di Azure 2.0
+#### <a name="install-homebrew"></a>Installare Homebrew
 
-1. Installare l'interfaccia della riga di comando di Azure 2.0 usando un comando `curl`:
+> [!NOTE] 
+> Se è stato installato Homebrew, è possibile ignorare questo passaggio.
 
-   ```bash
-   curl -L https://aka.ms/InstallAzureCli | bash
-   ```
+Seguire le [istruzioni di installazione di Homebrew](https://docs.brew.sh/Installation.html) per completare l'installazione.
 
-2. Riavviare la shell dei comandi per rendere effettive le modifiche apportate:
+#### <a name="download-the-latest-package"></a>Scaricare il pacchetto più recente
+Il file con estensione zip che viene scaricato contiene tutti gli strumenti e i pacchetti necessari per sviluppare il DevKit.
 
-   ```bash
-   exec -l $SHELL
-   ```
+> [!div class="button"]
+[Scaricare](https://aka.ms/devkit/prod/installpackage/mac/latest)
 
-Per altre informazioni sull'installazione dell'interfaccia della riga di comando di Azure 2.0, vedere la [guida ufficiale](https://docs.microsoft.com//cli/azure/install-azure-cli).
+Il file con estensione zip contiene gli strumenti e i pacchetti seguenti. Se si dispone già di alcuni componenti installati, lo script li rileverà e li ignorerà.
 
-#### <a name="install-the-arduino-ide"></a>Installare l'IDE di Arduino
+* Node.js e Yarn: runtime per lo script di configurazione e le attività automatizzate.
+* [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): esperienza della riga di comando multipiattaforma per la gestione delle risorse di Azure.
+* [Visual Studio Code](https://code.visualstudio.com/) (VS Code): editor di codice semplice per lo sviluppo del DevKit.
+* [Estensione di Visual Studio Code per Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): estensione che abilita lo sviluppo di Arduino in Visual Studio Code.
+* [IDE Arduino](https://www.arduino.cc/en/Main/Software): strumento su cui si basa l'estensione per Arduino.
+* Pacchetto della scheda DevKit: catene di strumenti, librerie e progetti per il DevKit.
+* Utilità ST-Link: strumenti e driver essenziali.
 
-L'estensione di Arduino di Visual Studio Code si basa sull'IDE di Arduino. Scaricare e installare l'[IDE di Arduino per macOS](https://www.arduino.cc/en/Main/Software).
+#### <a name="run-the-installation-script"></a>Eseguire lo script di installazione
 
-#### <a name="install-visual-studio-code"></a>Installare Visual Studio Code
+In Finder individuare il file con estensione ZIP ed estrarre i file:
 
-Scaricar e installare [Visual Studio Code per macOS](https://code.visualstudio.com/). Questo sarà lo strumento di sviluppo principale per la compilazione di applicazioni DevKit di IoT.
+Avviare l'app Terminal, individuare la cartella in cui sono stati estratti i file con estensione ZIP ed eseguire:
 
-####  <a name="download-the-latest-package"></a>Scaricare il pacchetto più recente
+```bash
+./install.sh
+```
 
-1. Installare Node.js. È possibile usare la gestione dei pacchetti macOS di uso più comune [Homebrew](https://brew.sh/) o lo [strumento di installazione pre-compilato](https://nodejs.org/en/download/) per installarlo.
-
-2. Scaricare il file con estensione zip che contiene gli script delle attività necessarie per lo sviluppo di DevKit in Visual Studio Code.
-
-   > [!div class="button"]
-   [Scaricare](https://azureboard.azureedge.net/installpackage/devkit_tasks_1.0.2.zip)
-
-3. Individuare il file con estensione zip e decomprimerlo. Avviare quindi l'app **Terminal** ed eseguire i comandi seguenti:
-
-   a. Spostare la cartella estratta nella cartella utente macOS:
-      ```bash
-      mv [.zip extracted folder]/azure-board-cli ~/. ; cd ~/azure-board-cli
-      ```
-  
-   b. Installare i pacchetti npm:
-      ```
-      npm install
-      ```
-
-#### <a name="install-the-vs-code-extension-for-arduino"></a>Installare l'estensione di Visual Studio Code per Arduino
-
-È possibile installare le estensioni di Azure Marketplace direttamente in Visual Studio Code. Selezionare l'icona delle estensioni nel riquadro a sinistra, cercare **Arduino** e quindi selezionare **Install** (Installa):
-
-![Ricerca di un'estensione Arduino](media/iot-hub-arduino-devkit-az3166-get-started/installation-extensions-mac.png)
-
-#### <a name="install-the-devkit-board-package"></a>Installare il pacchetto della scheda DevKit
-
-Aggiungere la scheda DevKit tramite Board Manager (Gestione scheda) in Visual Studio Code.
-
-1. Premere Cmd+MAIUSC+P per aprire il riquadro comandi, digitare **Arduino**, cercare e selezionare **Arduino: Board Manager** (Arduino: Gestione scheda).
-
-2. Selezionare **Additional URLs** (URL aggiuntivi) in basso a destra.
-   ![Collegamento a URL aggiuntivi](media/iot-hub-arduino-devkit-az3166-get-started/installation-additional-urls-mac.png)
-
-3. Nel file settings.json aggiungere una riga in fondo al riquadro **USER SETTINGS** e salvare il file.
-   ```json
-   "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
-   ```
-   ![Codice aggiunto al riquadro USER SETTINGS](media/iot-hub-arduino-devkit-az3166-get-started/installation-settings-json-mac.png)
-
-4. In Board Manager (Gestione scheda) cercare **az3166** e installare la versione più recente.
-   ![Installazione di az3166](media/iot-hub-arduino-devkit-az3166-get-started/installation-az3166-mac.png)
+> [!NOTE] 
+> Se si visualizza l'errore di autorizzazione di Homebrew, eseguire `brew doctor` per correggerlo. Per informazioni più dettagliate controllare le [Domande frequenti](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos).
 
 Ora si dispone di tutti gli strumenti necessari e dei pacchetti installati per macOS.
 
-
 ## <a name="open-the-project-folder"></a>Aprire la cartella del progetto
+
+Iniziare creando un hub IoT di Azure, connettervi DevKit, raccogliere i dati sulla temperatura e l'umidità rilevati dai sensori e inviarli all'hub IoT.
 
 ### <a name="start-vs-code"></a>Avviare Visual Studio Code
 

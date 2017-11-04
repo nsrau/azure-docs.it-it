@@ -1,6 +1,6 @@
 ---
-title: 'App Service overview: Azure Stack | Microsoft Docs'
-description: Overview of App Service on Azure Stack
+title: 'Panoramica di servizio App: Stack Azure | Documenti Microsoft'
+description: Panoramica di servizio App di Azure stack
 services: azure-stack
 documentationcenter: 
 author: apwestgarth
@@ -12,62 +12,57 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/3/2017
+ms.date: 10/10/2017
 ms.author: anwestg
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 13928744e7d2fc145662c2a0d5c26d512cf02150
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
+# <a name="app-service-on-azure-stack-overview"></a>Panoramica del servizio app in Azure Stack
 
-# <a name="app-service-on-azure-stack-overview"></a>App Service on Azure Stack overview
+Servizio App di Azure nello Stack di Azure è un'offerta platform-as-a-service (PaaS) di Microsoft Azure disponibili allo Stack di Azure. Il servizio consente di clienti interni o esterni - - creazione di web API e le funzioni di Azure per qualsiasi piattaforma o dispositivo le applicazioni. Possono integrare le app con applicazioni locali e automatizzare i processi di business. Gli operatori cloud di Azure Stack è possono eseguire applicazioni cliente in completamente gestite macchine virtuali (VM), con la scelta della risorse VM condivise o le macchine virtuali dedicate.
 
-Azure App Service on Azure Stack is the Azure offering brought to Azure Stack. The App Service on Azure Stack installer creates the following set of role instances:
+Servizio App di Azure include funzionalità per l'automatizzazione dei processi di business e il cloud le API di hosting. Come un unico servizio integrato, servizio App di Azure consente di combinare i vari componenti - siti Web, le API REST e i processi di business, in un'unica soluzione.
 
-*  Controller
-*  Management (two instances are created)
-*  FrontEnd
-*  Publisher
-*  Worker (in Shared mode)
+## <a name="why-offer-azure-app-service-on-azure-stack"></a>Perché offre il servizio App di Azure nello Stack di Azure?
 
-In addition, the App Service on Azure Stack installer creates a file server.
-    
-## <a name="whats-new-in-the-first-release-candidate-of-app-service-on-azure-stack"></a>What's new in the first release candidate of App Service on Azure Stack?
-![App Service in the Azure Stack portal][1]
+Ecco alcune caratteristiche e funzionalità chiave del servizio app:
+- **Più linguaggi e altri framework**: il servizio App deve prima classe supporto per ASP.NET, Node.js, Java, PHP e Python. È anche possibile eseguire Windows PowerShell e altri script o file eseguibili in macchine virtuali di servizio App.
+- **Ottimizzazione di DevOps**: configurare l'integrazione continua e distribuzione con GitHub, Git locale o BitBucket. Alzare di livello gli aggiornamenti tramite test e ambienti di gestione temporanea. Gestire le app nel servizio App usando Azure PowerShell o l'interfaccia della riga di comando multipiattaforma (CLI).
+- **Integrazione di Visual Studio**: dedicati strumenti in Visual Studio semplificano il lavoro di creazione e distribuzione di applicazioni.
 
-The first release candidate of App Service on Azure Stack builds on top of the third preview and brings new capabilities and improvements:
+## <a name="app-types-in-app-service"></a>Tipi di app nel servizio app
 
-* Azure Functions in Azure Stack environments based on Active Directory Federation Services 
-* Single sign-on support for the Functions portal and the advanced developer tools (Kudu)
-* Java support for web, mobile, and API applications
-* Management of worker tiers by virtual machine scale sets to improve scale-out capabilities for service administrators
-* Localization of the admin experience
-* Increased stability of the service
-* Tenant portal experience updates and installation process updates
+Servizio App offre numerosi tipi di app, ognuno dei quali deve ospitare un carico di lavoro specifico:
 
-## <a name="limitations-of-the-technical-preview"></a>Limitations of the technical preview
+- [Le app Web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) per l'hosting di siti e applicazioni web.
+- [App per le API](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) per API REST per l'hosting.
+- Funzioni di Azure per ospitare i carichi di lavoro senza guidata dagli eventi.
 
-There is no support for the App Service on Azure Stack preview releases, although we do monitor the Azure Stack MSDN Forum. Do not put production workloads on this preview release. There is also no upgrade between App Service on Azure Stack preview releases. The primary purposes of these preview releases are to show what we're providing and to obtain feedback. 
+L'app word qui si riferisce alle risorse host dedicate all'esecuzione di un carico di lavoro. Prendendo ad esempio le "app Web", si è probabilmente abituati a considerare un'app Web come costituita dalle risorse di calcolo e dal codice dell'applicazione che insieme forniscono funzionalità a un browser. Ma nel servizio App un'app web le risorse di calcolo che fornisce dello Stack di Azure per ospitare il codice dell'applicazione.
 
-## <a name="what-is-an-app-service-plan"></a>What is an App Service plan?
+L'applicazione può essere costituito da più applicazioni di servizio App di tipi diversi. Ad esempio, se l'applicazione è costituito da un front-end web e di fine di un'API RESTful nuovamente, è possibile:
+- Distribuire in un'unica app Web sia il front-end che l'API
+- Distribuire il codice front-end a un'app Web e il codice back-end a un'app per le API
 
-The App Service resource provider uses the same code that Azure App Service uses. As a result, some common concepts are worth describing. In App Service, the pricing container for applications is called the App Service plan. It represents the set of dedicated virtual machines used to hold your apps. Within a given subscription, you can have multiple App Service plans. 
+   ![](media/azure-stack-app-service-overview/image01.png)
 
-In Azure, there are shared and dedicated workers. A shared worker supports high-density multitenant app hosting, and there is only one set of shared workers. Dedicated servers are used by only one tenant and come in three sizes: small, medium, and large. The needs of on-premises customers can't always be described by using those terms. In App Service on Azure Stack, resource provider administrators can define the worker tiers they want to make available. Administrators can define multiple sets of shared workers or different sets of dedicated workers based on their unique hosting needs. By using those worker-tier definitions, they can then define their own pricing SKUs.
+## <a name="what-is-an-app-service-plan"></a>Informazioni sui piani di servizio app
 
-## <a name="portal-features"></a>Portal features
+Il provider di risorse del servizio App Usa lo stesso codice che utilizza il servizio App di Azure. Di conseguenza, alcuni concetti comuni si ritiene opportuno che descrive. Nel servizio App, il contenitore dei prezzi per le applicazioni viene chiamato il piano di servizio App. Rappresenta il set di macchine virtuali dedicate utilizzato per contenere le app. All'interno di una determinata sottoscrizione, è possibile avere più piani di servizio App.
 
-App Service on Azure Stack uses the same UI that Azure App Service uses, as is true with the back end. Some features are disabled and aren't functional in Azure Stack. The Azure-specific expectations or services that those features require aren't yet available in Azure Stack. 
+In Azure, sono presenti processi di lavoro condivisi e dedicati. Un thread di lavoro condiviso supporta l'hosting di applicazioni multi-tenant ad alta densità ed è presente un solo set di lavoro condivisi. Server dedicati vengono utilizzati da un solo tenant e possono essere di tre dimensioni: piccole, medie e grandi dimensioni. Le esigenze degli utenti locali non possono essere descritte sempre utilizzando tali condizioni. Nel servizio App nello Stack di Azure, gli amministratori di provider di risorse possono definire piani di lavoro di che cui desidera rendere disponibili. In base alle proprie esigenze di hosting, è possibile definire più set di processi di lavoro condivise o diversi set di ruoli di lavoro dedicati. Utilizzando tali definizioni di livello di lavoro, essi possono quindi definire la propria prezzi SKU.
 
-## <a name="next-steps"></a>Next steps
+## <a name="portal-features"></a>Funzionalità del portale
 
-- [Before you get started with App Service on Azure Stack](azure-stack-app-service-before-you-get-started.md)
-- [Install the App Service resource provider](azure-stack-app-service-deploy.md)
+Servizio App nello Stack di Azure Usa la stessa interfaccia utente che utilizza Azure App Service, come accade con il back-end. Alcune funzionalità sono disabilitate e non sono funzionale nello Stack di Azure. Le aspettative specifici di Azure o i servizi che richiedono tali funzionalità non sono ancora disponibili nello Stack di Azure.
 
-You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) and the [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md).
+## <a name="next-steps"></a>Passaggi successivi
 
-<!--Image references-->
-[1]: ./media/azure-stack-app-service-overview/AppService_Portal.png
 
+- [Prima di iniziare con il servizio App nello Stack di Azure](azure-stack-app-service-before-you-get-started.md)
+- [Installare il provider di risorse del servizio App](azure-stack-app-service-deploy.md)
+
+È anche possibile provare altre [piattaforma come un servizio (PaaS) di servizi](azure-stack-tools-paas-services.md), ad esempio il [il provider di risorse di SQL Server](azure-stack-sql-resource-provider-deploy.md) e [provider di risorse MySQL](azure-stack-mysql-resource-provider-deploy.md).

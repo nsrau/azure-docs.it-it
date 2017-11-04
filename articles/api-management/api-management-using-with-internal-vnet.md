@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: badfee15fba5822b383b09a6cc29d9944e64e007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a496059d1959a6c9e762e70dfbeff9bf961c4d4
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
@@ -45,7 +45,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 + **Un'istanza di Gestione API**. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
 
 ## <a name="enable-vpn"> </a>Creazione di un servizio Gestione API in una rete virtuale interna
-Il servizio Gestione API in una rete virtuale interna viene ospitato dietro un servizio di bilanciamento del carico interno (ILB). L'indirizzo IP del servizio di bilanciamento del carico interno si trova nell'intervallo [RFC1918](http://www.faqs.org/rfcs/rfc1918.html).  
+Il servizio Gestione API in una rete virtuale interna viene ospitato dietro un servizio di bilanciamento del carico interno (ILB).
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Abilitare la connessione a una rete virtuale usando il portale di Azure
 
@@ -69,7 +69,7 @@ Una volta completata la distribuzione, nel dashboard dovrebbe essere visualizzat
 * Distribuire un servizio Gestione API esistente all'interno di una rete virtuale: usare il cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) per spostare un servizio Gestione API di Azure all'interno di una rete virtuale e configurarlo per usare il tipo di rete virtuale interna.
 
 ## <a name="apim-dns-configuration"></a>Configurazione del DNS
-Quando si usa Gestione API in modalità di rete virtuale esterna, il servizio DNS è gestito da Azure. Per la modalità di rete virtuale interna, è necessario gestire un proprio DNS.
+Quando si usa Gestione API in modalità di rete virtuale esterna, il servizio DNS è gestito da Azure. Per la modalità di rete virtuale interna, è necessario gestire il routing proprio.
 
 > [!NOTE]
 > Il servizio Gestione API non ascolta le richieste in arrivo dagli indirizzi IP. Risponde solo alle richieste per il nome host configurato negli endpoint di servizio. Questi endpoint includono gateway, portale per sviluppatori, portale di pubblicazione, endpoint di gestione diretta e GIT.
@@ -105,6 +105,11 @@ Per accedere a questi endpoint del servizio Gestione API è possibile creare una
 
    2. È quindi possibile creare record nel server DNS per accedere agli endpoint accessibili solo dall'interno della rete virtuale.
 
+## <a name="routing"> </a> Routing
++ Verrà riservato e usato un indirizzo IP virtuale privato con bilanciamento del carico dall'intervallo della subnet per accedere agli endpoint del servizio Gestione API dall'interno della rete virtuale.
++ Verrà inoltre riservato un indirizzo IP pubblico (VIP) con bilanciamento del carico per fornire l'accesso all'endpoint del servizio di gestione solo sulla porta 3443.
++ Verranno usati un indirizzo IP di un intervallo IP di subnet (DIP) per accedere alle risorse all'interno della rete rituale e un indirizzo IP pubblico (VIP) per accedere alle risorse esterne alla rete virtuale.
++ Gli indirizzi IP pubblici e privati con bilanciamento del carico sono disponibili nel pannello Panoramica/Informazioni di base del portale di Azure.
 
 ## <a name="related-content"></a>Contenuti correlati
 Per altre informazioni, vedere gli articoli seguenti:

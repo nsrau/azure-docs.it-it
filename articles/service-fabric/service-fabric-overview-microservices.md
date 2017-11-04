@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 91f4d1658875245f023e7546650e7b2592b48af1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Perché usare un approccio ai microservizi per la compilazione di applicazioni
 Per gli sviluppatori di software non c'è nulla di nuovo nel modo di considerare la fattorizzazione di un'applicazione nelle parti che la compongono. È il paradigma centrale della programmazione orientata a oggetti, delle astrazioni software e della componentizzazione. Oggi questa fattorizzazione tende ad assumere la forma di classi e interfacce fra livelli di tecnologia e librerie condivise. In genere viene adottato un approccio su più livelli con un archivio nel back-end, la logica di business al livello intermedio e l'interfaccia utente (UI) nel front-end. Ciò che *è* cambiato negli ultimi anni è il fatto che gli sviluppatori creano applicazioni distribuite destinate al cloud e basate sulle esigenze aziendali.
@@ -147,10 +147,10 @@ Service Fabric include tre aree generiche che facilitano la creazione di applica
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrazione di applicazioni esistenti a Service Fabric
 Un approccio chiave a Service Fabric è il riuso del codice esistente, aggiornabile con nuovi microservizi. La modernizzazione delle applicazioni prevede cinque fasi ed è possibile iniziare e terminare con una qualsiasi di queste. Si tratta di:
 
-1) Esecuzione di un'applicazione monolitica tradizionale.
-2) Trasferimento in modalità lift-and-shift: usare contenitori o file eseguibili guest per ospitare in Service Fabric il codice esistente.
-3) Modernizzazione: nuovi microservizi aggiunti al codice esistente in contenitori. 
-4) Innovazione: suddivisione della struttura monolitica in microservizi esclusivamente in base alle esigenze.
+1) Esecuzione di un'applicazione monolitica tradizionale.  
+2) Trasferimento in modalità lift-and-shift: usare contenitori o file eseguibili guest per ospitare in Service Fabric il codice esistente.  
+3) Modernizzazione: nuovi microservizi aggiunti al codice esistente in contenitori.  
+4) Innovazione: suddivisione della struttura monolitica in microservizi esclusivamente in base alle esigenze.  
 5) Trasformazione in microservizi: conversione di applicazioni monolitiche esistenti o creazione di nuove applicazioni prive di vincoli.
 
 ![Migrazione ai microservizi][Image3]
@@ -162,7 +162,7 @@ Un approccio chiave a Service Fabric è il riuso del codice esistente, aggiornab
 - Riduzione dei costi derivante dal consolidamento dell'hardware esistente o dall'esecuzione di applicazioni a maggior densità. 
 - Contratti di distribuzione uniforme tra i settori sviluppo e operazioni.
 
-Le riduzioni dei costi sono evidenti. Ad esempio in Microsoft è in corso la conversione di un numero elevato di applicazioni esistenti in contenitori, con riduzioni dei costi dell'ordine di milioni di dollari. L'impatto della distribuzione uniforme è più difficile da valutare, ma ugualmente importante. Nel settore IT gli sviluppatori sono in grado di scegliere la tecnologia che preferiscono, mentre il settore operazioni può implementare un unico approccio alla distribuzione e gestione delle applicazioni. In tal modo il settore operazioni non deve far fronte alla complessità di molte tecnologie diverse, mentre gli sviluppatori non sono costretti a scegliere tra una gamma limitata di soluzioni. In termini semplici, ogni applicazione viene inserita in un'immagine di distribuzione autonoma.
+Le riduzioni dei costi sono evidenti. Ad esempio in Microsoft è in corso la conversione di un numero elevato di applicazioni esistenti in contenitori, con risparmi sui costi di milioni di dollari. L'impatto della distribuzione uniforme è più difficile da valutare, ma ugualmente importante. Nel settore IT gli sviluppatori sono in grado di scegliere la tecnologia che preferiscono, mentre il settore operazioni può implementare un unico approccio alla distribuzione e gestione delle applicazioni. In tal modo il settore operazioni non deve far fronte alla complessità di molte tecnologie diverse, mentre gli sviluppatori non sono costretti a scegliere tra una gamma limitata di soluzioni. In termini semplici, ogni applicazione viene inserita in un'immagine di distribuzione autonoma.
 
 Per molte organizzazioni il processo termina qui. I vantaggi dei contenitori sono già presenti e Service Fabric offre un'esperienza di gestione completa con distribuzione, aggiornamenti, controllo delle versioni, ripristino dello stato precedente, monitoraggio dell'integrità e così via.
 

@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06967315dfa43e791e662a689ceb993c4af1c1e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91f0aa093e0a1f7ed4d54a0cdf5ef53bc41cb6be
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Creare un registro di contenitori usando l'interfaccia della riga di comando di Azure
 
@@ -43,21 +43,26 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
 
-Registro contenitori di Azure è attualmente disponibile in diversi SKU: `Basic`, `Managed_Basic`, `Managed_Standard`, e `Managed_Premium`. Sebbene gli SKU `Managed_*` offrano funzionalità avanzate, ad esempio l'archiviazione gestita e i Webhook, sono attualmente in anteprima e non sono disponibili in alcune aree di Azure. Considerata la disponibilità in tutte le aree, per questa Guida introduttiva è stato scelto lo SKU `Basic`.
+In questa guida introduttiva viene creato un registro contenitori di *base*. Registro contenitori di Azure è disponibile in diversi SKU, descritti brevemente nella tabella riportata di seguito. Per altri dettagli su ogni SKU, vedere [SKU di Registro contenitori](container-registry-skus.md).
+
+Registro contenitori di Azure è attualmente disponibile in diversi SKU: `Basic`, `Managed_Basic`, `Managed_Standard`, e `Managed_Premium`. Sebbene gli SKU `Managed_*` offrano funzionalità avanzate, ad esempio l'archiviazione gestita e i webhook, non sono attualmente disponibili in alcune aree di Azure in caso di utilizzo dell'interfaccia della riga di comando di Azure. Considerata la disponibilità in tutte le aree, per questa Guida introduttiva è stato scelto lo SKU `Basic`.
+
+>[!NOTE]
+> I registri gestiti sono attualmente disponibili in tutte le aree. Tuttavia, la versione corrente dell'interfaccia della riga di comando di Azure non supporta ancora la creazione di un registro gestito in tutte le aree. Il supporto sarà disponibile nella prossima versione dell'interfaccia della riga di comando di Azure. Prima del rilascio usare il [portale di Azure](container-registry-get-started-portal.md) per creare registri gestiti.
 
 Creare un'istanza di Registro contenitori di Azure usando il comando [azure acr create](/cli/azure/acr#create).
 
 Il nome del registro **deve essere univoco**. Nell'esempio seguente viene usato il nome *myContainerRegistry007*. Aggiornarlo a un valore univoco.
 
 ```azurecli
-az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
 ```
 
 Quando viene creato il registro, l'output è simile al seguente:
 
-```azurecli
+```json
 {
-  "adminUserEnabled": true,
+  "adminUserEnabled": false,
   "creationDate": "2017-09-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
@@ -83,7 +88,7 @@ Nella parte restante di questa Guida introduttiva viene usato `<acrname>` come s
 
 Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro contenitori di Azure. A tale scopo usare il comando [az acr login](/cli/azure/acr#login).
 
-```azurecli-interactive
+```azurecli
 az acr login --name <acrname>
 ```
 
@@ -99,19 +104,19 @@ docker pull microsoft/aci-helloworld
 
 L'immagine deve essere contrassegnata con il nome del server di accesso del record di controllo di accesso. Eseguire il comando seguente per restituire il nome del server di accesso dell'istanza del record di controllo di accesso.
 
-```bash
+```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
 Contrassegnare l'immagine usando il comando [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Sostituire *<acrLoginServer>* con il nome del server di accesso dell'istanza del record di controllo di accesso.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
 Infine, usare [docker push](https://docs.docker.com/engine/reference/commandline/push/) per eseguire il push dell'immagine nell'istanza del record di controllo di accesso. Sostituire *<acrLoginServer>* con il nome del server di accesso dell'istanza del record di controllo di accesso.
 
-```
+```bash
 docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
@@ -125,7 +130,7 @@ az acr repository list -n <acrname> -o table
 
 Output:
 
-```json
+```bash
 Result
 ----------------
 aci-helloworld
@@ -139,7 +144,8 @@ az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
 
 Output:
 
-```Result
+```bash
+Result
 --------
 v1
 ```

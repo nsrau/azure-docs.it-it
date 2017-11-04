@@ -1,5 +1,5 @@
 ---
-title: Aggiungere una macchina virtuale a disposizione degli utenti in un lab in Azure DevTest Labs | Microsoft Docs
+title: Creare e gestire macchine virtuali richiedibili in un lab di Azure DevTest Labs | Microsoft Docs
 description: Informazioni su come aggiungere una macchina virtuale a disposizione degli utenti in un lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -12,34 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 10/24/2017
 ms.author: tarcher
-ms.openlocfilehash: 98950d72e90b0e178bae2fffa7644fd824a25eea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17ddf920dbed6b561c657495b2554d8c1450831c
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Aggiungere una macchina virtuale a disposizione degli utenti in un lab in Azure DevTest Labs
-Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è necessario seguire una procedura simile all'[aggiunta di una macchina virtuale standard](devtest-lab-add-vm.md), partendo da una *base* che può essere un'[immagine personalizzata](devtest-lab-create-template.md), una [formula](devtest-lab-manage-formulas.md) o un'[immagine del Marketplace](devtest-lab-configure-marketplace-images.md). In questa esercitazione viene descritto come usare il portale di Azure per aggiungere una macchina virtuale a disposizione degli utenti a un lab in DevTest Labs e viene illustrato il processo che un utente deve seguire per richiedere la macchina virtuale.
-
-> [!NOTE]
-> Se si distribuiscono macchine virtuali lab tramite i [modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md), è possibile creare macchine virtuali a disposizione degli utenti impostando la proprietà **allowClaim** su vero nella sezione delle proprietà.
->
->
+# <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Creare e gestire macchine virtuali richiedibili in Azure DevTest Labs
+Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è necessario seguire una procedura simile all'[aggiunta di una macchina virtuale standard](devtest-lab-add-vm.md), partendo da una *base* che può essere un'[immagine personalizzata](devtest-lab-create-template.md), una [formula](devtest-lab-manage-formulas.md) o un'[immagine del Marketplace](devtest-lab-configure-marketplace-images.md). In questa esercitazione viene descritto come usare il portale di Azure per aggiungere una macchina virtuale richiedibile a un lab in DevTest Labs e viene illustrato il processo che un utente deve seguire per richiedere e annullare la richiesta della macchina virtuale.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Procedura per aggiungere una macchina virtuale a disposizione degli utenti in un lab in Azure DevTest Labs
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
 1. Nell'elenco di lab selezionare il lab in cui si vuole creare la VM a disposizione degli utenti.  
-1. Nel pannello **Panoramica** del lab selezionare **+ Aggiungi**.  
+1. Nel riquadro **Panoramica** del lab selezionare **+ Aggiungi**.  
 
     ![Pulsante Aggiungi VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
-1. Nel pannello **Scegli una base** selezionare una base per la macchina virtuale.
-1. Nel pannello **Macchina virtuale** immettere un nome per la nuova macchina virtuale nella casella di testo **Nome macchina virtuale**.
+1. Nell'area **Scegli una base** selezionare una base per la macchina virtuale.
+1. Nel riquadro **Macchina virtuale** immettere un nome per la nuova macchina virtuale nella casella di testo **Nome macchina virtuale**.
 
-    ![Pannello Lab VM (VM lab)](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
+    ![Riquadro lab della macchina virtuale](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
 1. Immettere un **Nome utente** a cui vengono concessi privilegi di amministratore nella macchina virtuale.  
 1. Se si vuole usare una password archiviata nell'[archivio segreto](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), selezionare **Use a saved secret** (Usa un segreto salvato) e specificare un valore chiave corrispondente al segreto (password). In alternativa, immettere una password nel campo di testo **Digita un valore**.
@@ -52,25 +47,53 @@ Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è nec
 
 1. Se si vuole visualizzare o copiare il modello di Azure Resource Manager, vedere la sezione [Salvare il modello di Azure Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) e tornare qui al termine dell'operazione.
 1. Selezionare **Crea** per aggiungere la macchina virtuale specificata al lab.
-1. Il pannello lab consente di visualizzare lo stato di creazione della VM prima come **Creazione**, poi come **Esecuzione** dopo aver avviato la VM.
 
+   Lo stato di creazione della macchina virtuale viene mostrato prima come **Creazione in corso**, poi come **In esecuzione** dopo aver avviato la macchina virtuale.
+
+> [!NOTE]
+> Se si distribuiscono macchine virtuali lab tramite i [modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md), è possibile creare macchine virtuali a disposizione degli utenti impostando la proprietà **allowClaim** su vero nella sezione delle proprietà.
+>
+>
 
 ## <a name="using-a-claimable-vm"></a>Usare una macchina virtuale a disposizione degli utenti
 
 Un utente può richiedere qualsiasi macchina virtuale dall'elenco "Claimable virtual machines" (Macchine virtuali a disposizione degli utenti) effettuando una delle seguenti operazioni:
 
-* Dall'elenco "Claimable virtual machines" (Macchine virtuali a disposizione degli utenti), nella parte inferiore del pannello Panoramica del lab, fare clic con il tasto destro del mouse su una delle macchine virtuali nell'elenco e scegliere **Claim machine** (Richiedi macchina).
+* Dall'elenco "Macchine virtuali richiedibili", nella parte inferiore del riquadro Panoramica del lab, fare clic con il pulsante destro del mouse su una delle macchine virtuali nell'elenco e scegliere **Richiedi macchina**.
 
  ![Richiedere una specifica macchina virtuale a disposizione degli utenti.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
-* Nella parte superiore del pannello **Panoramica**, scegliere **Claim any** (Richiedi qualsiasi). Una macchina virtuale casuale viene assegnata dall'elenco di macchine virtuali a disposizione degli utenti.
+* Nella parte superiore del riquadro Panoramica scegliere **Richiedi qualsiasi**. Una macchina virtuale casuale viene assegnata dall'elenco di macchine virtuali a disposizione degli utenti.
 
  ![Richiedere una macchina virtuale a disposizione degli utenti.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
 Quando una macchina virtuale viene richiesta da un utente, questa viene spostata in alto nell'elenco "My virtual machines" (Le mie macchine virtuali) e non è più disponibile per un altro utente.
 
+## <a name="unclaim-a-vm"></a>Annullare la richiesta di una macchina virtuale
+
+Quando un utente non ha più bisogno di una macchina virtuale richiesta e desidera renderla disponibile ad altri utenti, è possibile restituire la macchina virtuale richiesta all'elenco di macchine virtuali richiedibili effettuando una delle operazioni seguenti:
+
+- Nell'elenco "Macchine virtuali personali" fare clic con il pulsante destro del mouse su una delle macchine virtuali nell'elenco, oppure selezionare i puntini di sospensione (...), e scegliere **Annulla richiesta**.
+
+  ![Annullare la richiesta di una macchina virtuale nell'elenco di macchine virtuali.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM2.png)
+
+- Nell'elenco "Macchine virtuali personali" selezionare una macchina virtuale per aprire il riquadro di gestione, quindi selezionare **Annulla richiesta** nella barra dei menu superiore.
+
+  ![Annullare la richiesta di una macchina virtuale nel riquadro di gestione della macchina virtuale.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
+
+Quando un utente annulla la richiesta di una macchina virtuale, non dispone più delle autorizzazioni per tale macchina virtuale del lab.
+
+### <a name="transferring-the-data-disk"></a>Trasferimento del disco dati
+Se una macchina virtuale richiedibile dispone di un disco dati collegato a questa e un utente ne annulla la richiesta, il disco dati rimane associato alla macchina virtuale. Quando un altro utente richiede quella macchina virtuale, richiede sia il disco dati che la macchina virtuale.
+
+Si chiama "trasferimento del disco dati". Il disco dati viene quindi reso disponibile nell'elenco **My data disks** (Dischi dati personali) del nuovo utente e da qui può essere gestito.
+
+![Annullare la richiesta di dischi dati.](./media/devtest-lab-add-vm/devtestlab-unclaim-datadisks.png)
+
+
+
 ## <a name="next-steps"></a>Passaggi successivi
-* Dopo avere creato la VM, è possibile connettersi ad essa selezionando **Connetti** nel pannello della VM.
-* Esplorare la [raccolta dei modelli Azure Resource Manager di avvio rapido di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+* Dopo la creazione, è possibile connettersi alla macchina virtuale selezionando **Connetti** nel riquadro di gestione.
+* Esplorare la [raccolta dei modelli di avvio rapido di Azure Resource Manager in DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

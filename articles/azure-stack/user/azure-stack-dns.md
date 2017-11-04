@@ -1,5 +1,5 @@
 ---
-title: DNS in Azure Stack | Microsoft Docs
+title: DNS nello Stack di Azure | Documenti Microsoft
 description: DNS in Azure Stack
 services: azure-stack
 documentationcenter: 
@@ -14,92 +14,90 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ac93b5eb4228cef373428b7b69932d5993d54fa0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dns-in-azure-stack"></a>DNS in Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Azure Stack includes the following DNS features:
-* Support for DNS hostname resolution
-* Create and manage DNS zones and records using API
+Stack di Azure include le funzionalità DNS seguenti:
+* Supporto per la risoluzione dei nomi host DNS
+* Creare e gestire le zone DNS e i record tramite l'API
 
-## <a name="support-for-dns-hostname-resolution"></a>Support for DNS hostname resolution
-You can specify a DNS domain name label for a public IP resource, which creates a mapping for *domainnamelabel.location*.cloudapp.azurestack.external to the public IP address in the Azure Stack managed DNS servers.  
+## <a name="support-for-dns-hostname-resolution"></a>Supporto per la risoluzione dei nomi host DNS
+È possibile specificare un'etichetta di nome di dominio DNS per una risorsa IP pubblica, che consente di creare un mapping per *domainnamelabel.location*. cloudapp.azurestack.external all'indirizzo IP pubblico nello Stack di Azure gestiti i server DNS.  
 
-For example, if you create a public IP resource with **contoso** as a domain name label in the Local Azure Stack location, the fully qualified domain name (FQDN) **contoso.local.cloudapp.azurestack.external** resolves to the public IP address of the resource. You can use this FQDN to create a custom domain CNAME record that points to the public IP address in Azure Stack.
+Ad esempio, se si crea una risorsa IP pubblica con **contoso** come un'etichetta del nome di dominio nel percorso dello Stack locali di Azure, il nome di dominio completo (FQDN) **contoso.local.cloudapp.azurestack.external**viene risolto nell'indirizzo IP pubblico della risorsa. È possibile utilizzare questo nome di dominio completo per creare un dominio personalizzato, record CNAME che punti all'indirizzo IP pubblico nello Stack di Azure.
 
 > [!IMPORTANT]
-> Each domain name label created must be unique within its Azure Stack location.
+> Ogni etichetta del nome di dominio creato deve essere univoco all'interno di percorso Stack di Azure.
 
-If you create the public IP address using the portal, it looks like this:
+Se si crea l'indirizzo IP pubblico con il portale, l'aspetto è simile al seguente:
 
-![Create public IP address](media/azure-stack-whats-new-dns/image01.png)
+![Creare un indirizzo IP pubblico](media/azure-stack-whats-new-dns/image01.png)
 
-This configuration is useful if you want to associate a public IP address with a load-balanced resource. For example, you might have a load balancer processing requests from a web application. Behind the load balancer is a web site located  on one or more virtual machines. Now you can access the load-balanced web site by a DNS name, rather than by an IP address.
+Questa configurazione è utile se si desidera associare un indirizzo IP pubblico a una risorsa con bilanciamento del carico. Ad esempio, potrebbe essere un bilanciamento del carico di elaborazione delle richieste da un'applicazione web. Dietro il carico di bilanciamento del carico è un sito web che si trova in uno o più macchine virtuali. È ora possibile accedere il sito web con bilanciamento del carico da un nome DNS, anziché da un indirizzo IP.
 
-## <a name="create-and-manage-dns-zones-and-records-using-api"></a>Create and manage DNS zones and records using API
-You can create and manage DNS zones and records in Azure Stack.  
+## <a name="create-and-manage-dns-zones-and-records-using-api"></a>Creare e gestire le zone DNS e i record tramite l'API
+È possibile creare e gestire le zone DNS e i record nello Stack di Azure.  
 
-Azure Stack provides a DNS service like Azure’s, using APIs that are consistent with Azure’s DNS APIs.  By hosting your domains in Azure Stack DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services. 
+Stack Azure fornisce un servizio DNS come Azure, utilizzando le API che siano coerenti con le API DNS di Azure.  Ospitando i domini di DNS dello Stack di Azure, è possibile gestire i record DNS con le stesse credenziali, API, strumenti, fatturazione e il supporto come altri servizi di Azure. 
 
-For obvious reasons, the Azure Stack DNS infrastructure is more compact than Azure's. Thus, the scope, scale, and performance depend on the scale of the Azure Stack deployment and the environment where it is deployed.  So, things like performance, availability, global distribution, and High-Availability (HA) can vary from deployment to deployment.
+Per motivi di ovvi, l'infrastruttura di Azure Stack DNS è più compatta di quelle di Azure. Di conseguenza, l'ambito, scalabilità e prestazioni dipendono la scala della distribuzione Azure Stack, nonché l'ambiente in cui è distribuito.  In tal caso, ad esempio prestazioni, disponibilità, distribuzione globale e a disponibilità elevata (HA) può variare da una distribuzione a distribuzione.
 
-## <a name="comparison-with-azure-dns"></a>Comparison with Azure DNS
-DNS in Azure Stack is similar to DNS in Azure, with two major exceptions:
-* **It does not support AAAA records**
+## <a name="comparison-with-azure-dns"></a>Confronto con DNS di Azure
+DNS nello Stack di Azure è simile a DNS in Azure, con due eccezioni principali:
+* **Non supporta il record AAAA**
 
-    Azure Stack does NOT support AAAA records because Azure Stack does not support IPv6 addresses.  This is a key difference between DNS in Azure and Azure Stack.
-* **It is not multi-tenant**
+    Stack di Azure non supporta record AAAA perché lo Stack di Azure non supporta gli indirizzi IPv6.  Si tratta di una differenza fondamentale tra DNS in Azure e Azure Stack.
+* **Non è multi-tenant**
 
-    Unlike Azure, the DNS Service in Azure Stack is not multi-tenant. So each tenant cannot create the same DNS zone. Only the first subscription that attempts to create the zone succeeds, and subsequent requests fail.  It is a known issue, and a key difference between Azure and Azure Stack DNS. This issue will be resolved in a future release.
+    A differenza di Azure, il servizio DNS nello Stack di Azure non è multi-tenant. Pertanto, ogni tenant non è possibile creare la zona DNS stessa. La prima sottoscrizione che tenta di creare la zona ha esito positivo, e le richieste successive non riuscire.  È un problema noto e una differenza fondamentale tra Azure e Azure Stack DNS. Questo problema verrà risolto in una versione futura.
 
-In addition, there are some minor differences in how Azure Stack DNS implements Tags, Metadata, Etags, and Limits.
+Inoltre, esistono alcune differenze nella modalità di implementazione di DNS di Azure Stack tag, i metadati, valori eTag e limiti.
 
-The following information applies specifically to Azure Stack DNS and varies slightly from Azure DNS. To learn more about Azure DNS, see [DNS zones and records](../../dns/dns-zones-records.md) at the Microsoft Azure documentation site.
+Le informazioni seguenti si applica in particolare a Azure Stack DNS e variano leggermente da DNS di Azure. Per ulteriori informazioni su DNS di Azure, vedere [DNS zone e record](../../dns/dns-zones-records.md) nel sito di documentazione di Microsoft Azure.
 
-### <a name="tags-metadata-and-etags"></a>Tags, metadata, and Etags
+### <a name="tags-metadata-and-etags"></a>Tag, i metadati e i valori eTag
 
-**Tags**
+**Tag**
 
-Azure Stack DNS supports using Azure Resource Manager tags on DNS zone resources. It does not support tags on DNS record sets, although as an alternative 'metadata' is supported on DNS record sets as explained next.
+DNS di Azure Stack supporta l'utilizzo di tag di gestione risorse di Azure in risorse di zona DNS. Non supporta i tag nel set di record DNS, anche se come alternativa 'metadata' è supportata nei record DNS imposta come descritto di seguito.
 
 **Metadata**
 
-As an alternative to record set tags, Azure Stack DNS supports annotating record sets using 'metadata'. Similar to tags, metadata enables you to associate name-value pairs with each record set. For example, this can be useful to record the purpose of each record set. Unlike tags, metadata cannot be used to provide a filtered view of your Azure bill and cannot be specified in an Azure Resource Manager policy.
+Come alternativa ai tag del set di record DNS di Azure Stack supporta annotazione del set di record mediante 'metadata'. Analogamente ai tag, i metadati permettono di associare coppie nome-valore a ogni set di record. Ad esempio, questo può essere utile per registrare lo scopo di ogni set di record. Diversamente dai tag, i metadati non possono essere usati per fornire una visualizzazione filtrata della fattura di Azure e non possono essere specificati in criteri di Azure Resource Manager.
 
-**Etags**
+**ETag**
 
-Suppose two people or two processes try to modify a DNS record at the same time. Which one wins? And does the winner know that they've overwritten changes created by someone else?
+Si supponga che due persone o due processi provino a modificare un record DNS nello stesso momento. Quale prevale? E quello che prevale sa di avere sovrascritto le modifiche create da qualcun altro?
 
-Azure Stack DNS uses Etags to handle concurrent changes to the same resource safely. Etags are separate from Azure Resource Manager 'Tags'. Each DNS resource (zone or record set) has an Etag associated with it. Whenever a resource is retrieved, its Etag is also retrieved. When updating a resource, you can choose to pass back the Etag so Azure Stack DNS can verify that the Etag on the server matches. Since each update to a resource results in the Etag being regenerated, an Etag mismatch indicates a concurrent change has occurred. Etags can also be used when creating a new resource to ensure that the resource does not already exist.
+DNS di Azure Stack utilizza eTag per gestire le modifiche simultanee alla stessa risorsa in modo sicuro. ETag sono separati da Gestione risorse di Azure 'Tag'. Ogni risorsa DNS (zona o set di record) ah un Etag associato. Quando viene recuperata una risorsa, viene recuperato anche il relativo valore Etag. Quando si aggiorna una risorsa, è possibile scegliere passare il valore Etag in modo da Azure Stack DNS può verificare che il valore Etag nella corrisponde a server. Dal momento che ogni aggiornamento di una risorsa comporta la rigenerazione dell'Etag, una mancata corrispondenza del valore Etag indica che si è verificata una modifica simultanea. Gli ETag possono essere usati anche quando si crea una nuova risorsa per garantire che questa non esista già.
 
-By default, Azure Stack DNS PowerShell uses Etags to block concurrent changes to zones and record sets. The optional *-Overwrite* switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred are overwritten.
+Per impostazione predefinita, Azure Stack DNS PowerShell Usa eTag per bloccare le modifiche simultanee a zone e set di record. L'opzione facoltativa *-Overwrite* può essere usata per disattivare i controlli di ETag e in questo caso le eventuali modifiche simultanee vengono sovrascritte.
 
-At the level of the Azure Stack DNS REST API, Etags are specified using HTTP headers. Their behavior is given in the following table:
+Il livello delle API REST di Azure Stack DNS eTag vengono specificati utilizzando le intestazioni HTTP. Il relativo comportamento è illustrato nella tabella seguente:
 
-| Header | Behavior|
+| Intestazione | Comportamento|
 |--------|---------|
-| None   | PUT always succeeds (no Etag checks)|
-| If-match| PUT only succeeds if resource exists and Etag matches|
-| If-match *| PUT only succeeds if resource exists|
-| If-none-match *| PUT only succeeds if resource does not exist|
+| None   | PUT riesce sempre (nessun controllo di Etag)|
+| If-match| PUT riesce solo se la risorsa esiste e l'Etag corrisponde|
+| If-match *| PUT riesce solo se la risorsa esiste|
+| If-none-match *| PUT riesce solo se la risorsa non esiste|
 
-### <a name="limits"></a>Limits
+### <a name="limits"></a>Limiti
 
-The following default limits apply when using Azure Stack DNS:
+Quando si utilizza Azure Stack DNS, si applicano i limiti predefiniti seguenti:
 
-| Resource| Default limit|
+| Risorsa| Limite predefinito|
 |---------|--------------|
-| Zones per subscription| 100|
-| Record sets per zone| 5000|
-| Records per record set| 20|
+| Zone per ogni sottoscrizione| 100|
+| Set di record per ogni zona| 5000|
+| Record per ogni set di record| 20|
 
-## <a name="next-steps"></a>Next steps
-[Introducing iDNS for Azure Stack](azure-stack-understanding-dns.md)
-
+## <a name="next-steps"></a>Passaggi successivi
+[Introduzione a nomi IDN per Azure Stack](azure-stack-understanding-dns.md)

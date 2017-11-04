@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
+ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 2f6cf4709c77ca1bb051b7d5c9e7d1d5d125c343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>Come usare un'identità del servizio gestito (MSI, Managed Service Identity) di una macchina virtuale di Azure per l'accesso e l'acquisizione di token 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)] Dopo aver abilitato l'identità del servizio gestito in una macchina virtuale di Azure, è possibile usarla per eseguire l'accesso e per richiedere un token di accesso. Questo articolo illustra diversi modi per usare un'[entità servizio](develop/active-directory-dev-glossary.md#service-principal-object) Identità del servizio gestito per eseguire l'accesso e acquisire un [token di accesso solo app](develop/active-directory-dev-glossary.md#access-token) per accedere ad altre risorse, tra cui:
@@ -183,14 +183,14 @@ Content-Type: application/json
 | `resource` | Risorsa per cui è stato richiesto il token di accesso, che corrisponde al parametro della stringa di query `resource` della richiesta. |
 | `token_type` | Tipo di token, ovvero un token di accesso di connessione, che indica che la risorsa può concedere l'accesso al titolare del token. |
 
-## <a name="how-to-sign-in-with-azure-sdk-libraries-using-msi"></a>Come eseguire l'accesso con le librerie di Azure SDK usando l'identità del servizio gestito
+## <a name="how-to-use-msi-with-azure-sdk-libraries"></a>Come usare l'identità del servizio gestito con le librerie di Azure SDK
 
-Azure supporta più piattaforme di programmazione tramite una serie di [Azure SDK](https://azure.microsoft.com/downloads). Alcuni di essi sono stati aggiornati per supportare l'accesso con l'identità del servizio gestito e forniscono esempi corrispondenti per illustrare l'uso. Questo elenco viene aggiornato man mano che viene aggiunto ulteriore supporto:
+Azure supporta più piattaforme di programmazione tramite una serie di [Azure SDK](https://azure.microsoft.com/downloads). Alcuni di essi sono stati aggiornati per supportare l'accesso con l'identità del servizio gestito e forniscono esempi corrispondenti per illustrare l'uso. L'elenco viene aggiornato quando è disponibile supporto aggiuntivo:
 
 | SDK | Esempio |
 | --- | ------ | 
-| .NET   | [Manage resource from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) (Gestire una risorsa da una macchina virtuale abilitata per l'identità del servizio gestito) |
-| Java   | [Manage Storage from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/) (Gestire l'archiviazione da una macchina virtuale abilitata per l'identità del servizio gestito)|
+| .NET | [Deploy an ARM template from a Windows VM using Managed Service Identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) (Distribuire un modello ARM da una macchina virtuale Windows tramite identità del servizio gestito) |
+| .NET Core | [Call Azure services from a Linux VM using Managed Service Identity](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) (Chiamare servizi Azure da una macchina virtuale Linux tramite identità del servizio condiviso) |
 | Node.js| [Manage resources using Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) (Gestire le risorse usando l'identità del servizio gestito) |
 | Python | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) (Usare l'identità del servizio gestito per eseguire in modo semplice l'autenticazione in una macchina virtuale) |
 | Ruby   | [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) (Gestire le risorse da una macchina virtuale abilitata per l'identità del servizio gestito) | 
@@ -215,8 +215,8 @@ Per un elenco di servizi che supportano l'identità del servizio gestito con i r
 
 Verificare che l'identità del servizio gestito sia stata abilitata correttamente. Tornare alla macchina virtuale di Azure nel [portale di Azure](https://portal.azure.com) e:
 
-- Esaminare la pagina "Configurazione" e verificare che l'Identità del servizio gestito sia attivata = "Sì".
-- Esaminare la pagina "Estensioni" e verificare che l'estensione dell'Identità del servizio gestito sia stata distribuita correttamente.
+- Si esamina la pagina "Configurazione" e si verifica che l'Identità del servizio gestito sia attivata = "Sì".
+- Si esamina la pagina "Estensioni" e si verifica che l'estensione dell'Identità del servizio gestito sia stata distribuita correttamente.
 
 Se una delle due opzioni è errata, è necessario ridistribuire l'Identità del servizio gestito nella risorsa o risolvere il problema di distribuzione.
 

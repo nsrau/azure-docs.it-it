@@ -1,6 +1,6 @@
 ---
-title: Quota types in Azure Stack | Microsoft Docs
-description: Review the different quota types available for services and resources in Azure Stack.
+title: Tipi di quote nello Stack di Azure | Documenti Microsoft
+description: Esaminare i tipi diversi di quota disponibili per servizi e le risorse nello Stack di Azure.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,53 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 9c65abd596b1a67175a4f91558c318f16ddbb11f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.openlocfilehash: d9bb048ece32bf5b34e05d7459488aa0f24d0d44
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="quota-types-in-azure-stack"></a>Quota types in Azure Stack
-[Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
+# <a name="quota-types-in-azure-stack"></a>Tipi di quote nello Stack di Azure
 
-## <a name="compute-quota-types"></a>Compute quota types
-| **Type** | **Default value** | **Description** |
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+
+[Le quote](azure-stack-plan-offer-quota-overview.md#plans) definire i limiti delle risorse che è in grado di eseguire il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota potrebbe consentire all'utente di creare fino a cinque macchine virtuali. Ogni risorsa può avere un proprio tipi di quote.
+
+## <a name="compute-quota-types"></a>Tipi di quote di calcolo
+| **Tipo** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
-| Max number of virtual machines |50 | The maximum number of virtual machines that a subscription can create in this location. |
-| Max number of virtual machine cores |100 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
-| Max number of availability sets |10 | The maximum number of availability sets that can be created in this location. |
-| Max number of virtual machine scale sets |100 | The maximum number of virtual machine scale sets that can be created in this location. |
+| Numero massimo di macchine virtuali | 20 | Il numero massimo di macchine virtuali che è possibile creare una sottoscrizione in questa posizione. |
+| Numero massimo di core di macchina virtuale | 50 | Il numero massimo di core che è possibile creare una sottoscrizione in questa posizione (ad esempio, una macchina virtuale A3 ha quattro core). |
+| Imposta il numero massimo di disponibilità | 10 | Il numero massimo di set di disponibilità che possono essere creati in questa posizione. |
+| Imposta il numero massimo di scalabilità della macchina virtuale | 20 | Il numero massimo di set di scalabilità di macchine virtuali che possono essere creati in questa posizione. |
 
 > [!NOTE]
-> Compute quotas are not enforced in this technical preview.
+> Consente di calcolare le quote non vengono applicate in questa versione technical preview.
 > 
 > 
 
-## <a name="storage-quota-types"></a>Storage quota types
-| **Item** | **Default value** | **Description** |
+## <a name="storage-quota-types"></a>Tipi di quote di archiviazione
+| **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
-| Maximum capacity (GB) |500 |Total storage capacity that can be consumed by a subscription in this location. |
-| Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
+| Capacità massima (GB) |500 |Capacità di archiviazione totale possono essere utilizzate da una sottoscrizione in questa posizione. |
+| Numero totale di account di archiviazione |20 |Il numero massimo di account di archiviazione che è possibile creare una sottoscrizione in questa posizione. |
 
-## <a name="network-quota-types"></a>Network quota types
-| **Item** | **Default value** | **Description** |
+## <a name="network-quota-types"></a>Tipi di quote di rete
+| **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
-| Max public IPs |50 |The maximum number of public IPs that a subscription can create in this location. |
-| Max virtual networks |50 |The maximum number of virtual networks that a subscription can create in this location. |
-| Max virtual network gateways |1 |The maximum number of virtual network gateways (VPN Gateways) that a subscription can create in this location. |
-| Max network connections |2 |The maximum number of network connections (point-to-point or site-to-site) that a subscription can create across all virtual network gateways in this location. |
-| Max load balancers |50 |The maximum number of load balancers that a subscription can create in this location. |
-| Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
-| Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
+| Numero massimo IP pubblici |50 |Il numero massimo di indirizzi IP pubblici che è possibile creare una sottoscrizione in questa posizione. |
+| Reti virtuali max |50 |Il numero massimo di reti virtuali che è possibile creare una sottoscrizione in questa posizione. |
+| Gateway di rete virtuale max |1 |Il numero massimo di gateway di rete virtuale (VPN gateway) che è possibile creare una sottoscrizione in questa posizione. |
+| Numero massimo di connessioni di rete |2 |Il numero massimo di connessioni di rete (Point-to- o site-to-site) che è possibile creare una sottoscrizione in tutti i gateway di rete virtuale in questa posizione. |
+| Servizi di bilanciamento del carico massimo |50 |Il numero massimo di servizi di bilanciamento del carico che è possibile creare una sottoscrizione in questa posizione. |
+| Schede di interfaccia di rete max |100 |Il numero massimo di interfacce di rete che è possibile creare una sottoscrizione in questa posizione. |
+| Gruppi di sicurezza di rete max |50 |Il numero massimo di gruppi di sicurezza di rete che è possibile creare una sottoscrizione in questa posizione. |
 
-## <a name="view-an-existing-quota"></a>View an existing quota
-1. Click **More services** > **Resource Providers**.
-2. Select the service with the quota that you want to view.
-3. Click **Quotas**, and select the quota you want to view.
+## <a name="view-an-existing-quota"></a>Consente di visualizzare una quota esistente
+1. Fare clic su **più servizi** > **i provider di risorse**.
+2. Selezionare il servizio con la quota che si desidera visualizzare.
+3. Fare clic su **quote**e selezionare la quota di cui si desidera visualizzare.
 
-## <a name="next-steps"></a>Next steps
-[Learn more about plans, offers, and quotas.](azure-stack-plan-offer-quota-overview.md)
+## <a name="next-steps"></a>Passaggi successivi
+[Informazioni sui piani, offerte e le quote.](azure-stack-plan-offer-quota-overview.md)
 
-[Create quotas while creating a plan.](azure-stack-create-plan.md)
-
+[Creare le quote durante la creazione di un piano.](azure-stack-create-plan.md)

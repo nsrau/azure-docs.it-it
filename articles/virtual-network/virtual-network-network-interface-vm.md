@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 57f95b765b1b116814683a6643db16091c3041f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df1dfbea8c985907d5330819dc1e7bf1578aafa
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="add-network-interfaces-to-or-remove-from-virtual-machines"></a>Aggiungere o rimuovere interfacce di rete da macchine virtuali
 
@@ -49,7 +49,7 @@ Prima di completare qualsiasi passaggio nelle altre sezioni di questo articolo, 
 - Tutte le dimensioni di macchina virtuale supportano almeno due interfacce di rete, ma alcune dimensioni di macchina virtuale ne supportano più di due. In passato alcune dimensioni di macchine virtuali supportavano una sola interfaccia di rete. Per informazioni sul numero di interfacce di rete supportate per ogni dimensione di macchina virtuale, vedere gli articoli relativi alle dimensioni delle macchine virtuali [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 - In precedenza, le interfacce di rete potevano essere aggiunte solo a macchine virtuali in grado di supportare più interfacce di rete e create con almeno due interfacce di rete. Non era possibile aggiungere un'interfaccia di rete a una macchina virtuale creata con un'interfaccia di rete, anche se le dimensioni della macchina virtuale supportavano più interfacce di rete. Al contrario, era possibile rimuovere le interfacce di rete solo dalle macchine virtuali con almeno tre interfacce di rete, perché alle macchine virtuali create con almeno due interfacce di rete ne dovevano essere sempre collegate almeno due. Attualmente non si applica alcuno di questi vincoli. Ora è possibile creare una macchina virtuale con un numero qualsiasi di interfacce di rete, fino al numero supportato dalla dimensione della macchina virtuale, e aggiungere o rimuovere qualsiasi numero di interfacce di rete, da una macchina virtuale in stato di arresto (deallocata), purché alla macchina virtuale sia sempre collegata almeno una scheda di interfaccia di rete.
 - Per impostazione predefinita, la prima interfaccia di rete in una macchina virtuale è definita come interfaccia di rete *primaria*. Tutte le altre interfacce di rete nella macchina virtuale sono interfacce di rete *secondarie*.
-- Alle interfacce di rete primarie è assegnato un gateway predefinito dai server DHCP di Azure mentre ciò non avviene per le interfacce di rete secondarie. Poiché alle interfacce di rete secondarie non è assegnato un gateway predefinito, non possono comunicare con le risorse all'esterno della loro subnet per impostazione predefinita. Per consentire alle interfacce di rete secondarie di una macchina virtuale Windows di comunicare con le risorse esterne alla loro subnet, aggiungere le route al sistema operativo usando il comando `route add` da un riga di comando di Windows. Per le macchine virtuali Linux, poiché il comportamento predefinito usa un host routing vulnerabile, è consigliabile limitare il traffico per le interfacce di rete secondarie a una sola subnet. Se è richiesta la connettività all'esterno della subnet per le interfacce di rete secondarie, attivare il routing basato su criteri per fare in modo che il traffico in entrata e in uscita usi la stessa interfaccia di rete.
+- Alle interfacce di rete primarie è assegnato un gateway predefinito dai server DHCP di Azure mentre ciò non avviene per le interfacce di rete secondarie. Poiché alle interfacce di rete secondarie non è assegnato un gateway predefinito, non possono comunicare con le risorse all'esterno della loro subnet per impostazione predefinita. Per abilitare le interfacce di rete secondarie per comunicare con risorse esterne alla subnet, vedere [Routing in un sistema operativo di macchina virtuale con più interfacce di rete](#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).
 - Per impostazione predefinita, tutto il traffico in uscita dalla macchina virtuale viene inviato all'indirizzo IP assegnato alla configurazione IP primaria dell'interfaccia di rete primaria. È possibile scegliere l'indirizzo IP da usare per il traffico in uscita all'interno del sistema operativo della macchina virtuale, ma per impostazione predefinita passa attraverso l'interfaccia di rete primaria.
 - In passato, tutte le macchine virtuali nello stesso set di disponibilità dovevano avere una o più interfacce di rete. Ora possono esistere macchine virtuali con un numero qualsiasi di interfacce di rete nello stesso set di disponibilità, fino al numero supportato dalla dimensione della macchina virtuale. Una VM può essere aggiunta a un set di disponibilità solo in fase di creazione. Per altre informazioni sui set di disponibilità, vedere l'articolo [Gestire la disponibilità delle VM Windows in Azure](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 - Anche se le interfacce di rete nella stessa macchina virtuale possono essere connesse a subnet diverse all'interno di una rete virtuale, le interfacce di rete devono essere tutte connesse alla stessa rete virtuale.
@@ -59,7 +59,69 @@ Prima di completare qualsiasi passaggio nelle altre sezioni di questo articolo, 
 
 ## <a name="vm-create"></a>Aggiungere interfacce di rete esistenti a una nuova macchina virtuale
 
-Quando si crea una macchina virtuale tramite il portale, il portale crea un'interfaccia di rete con le impostazioni predefinite e la collega alla macchina virtuale automaticamente. Non è possibile aggiungere interfacce di rete esistenti a una nuova macchina virtuale. In alternativa creare una macchina virtuale con più interfacce di rete tramite il portale di Azure. È possibile fare entrambe le cose usando l'interfaccia della riga di comando o PowerShell. È possibile aggiungere a una macchina virtuale tutte le interfacce di rete che la dimensione della macchina virtuale che si sta creando può supportare. Per altre informazioni sul numero di interfacce di rete supportate per ogni dimensione di macchina virtuale, vedere gli articoli relativi alle dimensioni delle macchine virtuali [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Le interfacce di rete che si aggiungono a una macchina virtuale non possono essere collegate a un'altra macchina virtuale. Per altre informazioni sulla creazione delle interfacce di rete, leggere l'articolo [Gestire le interfacce di rete](virtual-network-network-interface.md#create-a-network-interface).
+Quando si crea una macchina virtuale tramite il portale, il portale crea un'interfaccia di rete con le impostazioni predefinite e la collega alla macchina virtuale automaticamente. Non è possibile aggiungere interfacce di rete esistenti a una nuova macchina virtuale o creare una macchina virtuale con più interfacce di rete tramite il portale di Azure. È possibile fare entrambe le cose usando l'interfaccia della riga di comando o PowerShell. È possibile aggiungere a una macchina virtuale tutte le interfacce di rete che la dimensione della macchina virtuale che si sta creando può supportare. Per altre informazioni sul numero di interfacce di rete supportate per ogni dimensione di macchina virtuale, vedere gli articoli relativi alle dimensioni delle macchine virtuali [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Le interfacce di rete che si aggiungono a una macchina virtuale non possono essere collegate a un'altra macchina virtuale. Per altre informazioni sulla creazione delle interfacce di rete, leggere l'articolo [Gestire le interfacce di rete](virtual-network-network-interface.md#create-a-network-interface).
+
+### <a name="routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces"></a>Routing in un sistema operativo di macchina virtuale con più interfacce di rete
+
+Azure assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito ad altre interfacce di rete (secondarie) associate a una macchina virtuale. Di conseguenza, per impostazione predefinita, non è possibile comunicare con risorse esterne alla subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla subnet, ma i passaggi per abilitare la comunicazione variano a seconda del sistema operativo.
+
+### <a name="windows"></a>Windows
+
+Eseguire le operazioni seguenti da un prompt dei comandi di Windows:
+
+1. Eseguire il comando `route print` che restituisce un output simile al seguente per una macchina virtuale con due interfacce di rete associate:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    In questo esempio la **Scheda di rete Hyper-V Microsoft 4** (interfaccia 7) è l'interfaccia di rete secondaria senza un gateway predefinito assegnato.
+
+2. Da un prompt dei comandi, eseguire il comando `ipconfig` per individuare l'indirizzo IP assegnato all'interfaccia di rete secondaria. In questo esempio 192.168.2.4 è assegnato all'interfaccia 7. Per l'interfaccia di rete secondaria non viene restituito alcun indirizzo di gateway predefinito.
+
+3. Per instradare tutto il traffico destinato agli indirizzi esterni alla subnet dell'interfaccia di rete secondaria al gateway per la subnet, eseguire il comando seguente:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    L'indirizzo del gateway per la subnet è il primo indirizzo IP (che termina con .1) dell'intervallo di indirizzi definito per la subnet. Se non si vuole instradare tutto il traffico all'esterno della subnet, è possibile aggiungere singole route a destinazioni specifiche. Ad esempio, per instradare solo il traffico dall'interfaccia di rete secondaria alla rete 192.168.3.0, immettere il comando:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. Ad esempio, per verificare che sia attiva la comunicazione con una risorsa nella rete 192.168.3.0, immettere il comando seguente per eseguire il ping di 192.168.3.4 usando l'interfaccia 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Potrebbe essere necessario aprire il protocollo ICMP attraverso il firewall di Windows del dispositivo di cui viene eseguito il ping con il comando seguente:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Per verificare che la route aggiunta sia inclusa nella tabella di route, immettere il comando `route print` che restituisce un output simile al testo seguente:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    La route specificata con *192.168.1.1* in **Gateway** è la route predefinita per l'interfaccia di rete primaria. La route con *192.168.2.1* in **Gateway** è la route aggiunta.
+
+### <a name="linux"></a>Linux
+
+Poiché il comportamento predefinito usa un routing host vulnerabile, è consigliabile limitare il traffico delle interfacce di rete secondarie tra le risorse alla stessa subnet. Se è necessario che le interfacce di rete secondarie comunichino all'esterno della subnet, creare regole di routing che consentano alla macchina virtuale di inviare e ricevere traffico attraverso un'interfaccia di rete specifica. In caso contrario, il traffico appartenente a eth1, ad esempio, non potrà essere elaborato correttamente dalla route predefinita specificata. Per informazioni su come configurare le regole di routing, vedere [Configure Linux for multiple NICs](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) (Configurare Linux per più schede di rete).
 
 > [!WARNING]
 > Se a un'interfaccia di rete è assegnato un indirizzo IPv6 privato, è possibile aggiungere l'interfaccia di rete alla macchina virtuale solo quando quest'ultima viene creata. Non è possibile collegare più interfacce di rete alla macchina virtuale durante o dopo la creazione della macchina virtuale finché l'indirizzo IPv6 è assegnato a un'interfaccia di rete collegata alla macchina virtuale. Vedere [Indirizzi IP dell'interfaccia di rete](virtual-network-network-interface-addresses.md) per ulteriori informazioni sull'assegnazione di indirizzi IP alle interfacce di rete.
@@ -74,6 +136,8 @@ Quando si crea una macchina virtuale tramite il portale, il portale crea un'inte
 ## <a name="vm-add-nic"></a>Aggiungere un'interfaccia di rete esistente a una macchina virtuale esistente
 
 È possibile aggiungere a una macchina virtuale tutte le interfacce di rete che la dimensione della macchina virtuale che si desidera aggiungere alle interfacce di rete può supportare. Per informazioni sul numero di interfacce di rete supportate per ogni dimensione di macchina virtuale, vedere gli articoli relativi alle dimensioni delle macchine virtuali [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). La macchina virtuale alla quale si desidera aggiungere un'interfaccia di rete deve supportare il numero di interfacce di rete che si desidera aggiungere e deve essere in stato di arresto, ovvero deallocata. Le interfacce di rete che si desidera aggiungere non possono essere collegate a un'altra macchina virtuale. Non è possibile aggiungere interfacce di rete a una macchina virtuale esistente tramite il portale di Azure. Per aggiungere interfacce di rete a una macchina virtuale esistente, è necessario usare l'interfaccia della riga di comando o PowerShell. 
+
+Azure assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito ad altre interfacce di rete (secondarie) associate a una macchina virtuale. Di conseguenza, per impostazione predefinita, non è possibile comunicare con risorse esterne alla subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla loro subnet. Se è necessario che le interfacce di rete secondarie comunichino con risorse esterne alla subnet, vedere [Routing in un sistema operativo di macchina virtuale con più interfacce di rete](#routing-within-a virtual-machine-operating-system-with-multiple-network-interfaces).
 
 > [!WARNING]
 > Se a un'interfaccia di rete è stato assegnato un indirizzo IPv6 privato, non può essere aggiunto a una macchina virtuale esistente. È possibile aggiungere un'interfaccia di rete con un indirizzo IPv6 privato a una macchina virtuale solo quando la macchina virtuale viene creata. Vedere [Indirizzi IP dell'interfaccia di rete](virtual-network-network-interface-addresses.md) per ulteriori informazioni sull'assegnazione di indirizzi IP alle interfacce di rete.
@@ -90,7 +154,7 @@ Quando si crea una macchina virtuale tramite il portale, il portale crea un'inte
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account che abbia le autorizzazioni per il ruolo di Proprietario, Collaboratore o Collaboratore Rete per la sottoscrizione. Per altre informazioni sull'assegnazione dei ruoli agli account, vedere [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. Nella finestra che contiene il testo *Cerca risorse*, nella parte superiore del portale di Azure, digitare *macchine virtuali*. Fare clic su **macchine virtuali** quando viene visualizzato nei risultati della ricerca.
 3. Nel pannello **Macchine virtuali** visualizzato fare clic sul nome della macchina virtuale per la quale si desidera visualizzare le interfacce di rete.
-4. Nella sezione **IMPOSTAZIONI** del pannello della macchina virtuale che viene visualizzato per la VM selezionata fare clic su **Interfacce di rete**. Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificarle, vedere l'articolo [Gestire le interfacce di rete](virtual-network-network-interface.md). Per informazioni su come aggiungere, modificare o rimuovere indirizzi IP assegnati a un'interfaccia di rete, vedere [Gestione di indirizzi IP](virtual-network-network-interface-addresses.md).
+4. Nella sezione **Impostazioni** del pannello visualizzato per la macchina virtuale selezionata fare clic su **Rete**. Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificarle, vedere l'articolo [Gestire le interfacce di rete](virtual-network-network-interface.md). Per informazioni su come aggiungere, modificare o rimuovere indirizzi IP assegnati a un'interfaccia di rete, vedere [Gestione di indirizzi IP](virtual-network-network-interface-addresses.md).
 
 **Comandi**
 
@@ -106,9 +170,9 @@ La macchina virtuale da cui si vuole rimuovere (o rendere non visibile) un'inter
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account che abbia le autorizzazioni per il ruolo di Proprietario, Collaboratore o Collaboratore Rete per la sottoscrizione. Per altre informazioni sull'assegnazione dei ruoli agli account, vedere [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. Nella finestra che contiene il testo *Cerca risorse*, nella parte superiore del portale di Azure, digitare *macchine virtuali*. Fare clic su **macchine virtuali** quando viene visualizzato nei risultati della ricerca.
 3. Nel pannello **Macchine virtuali** visualizzato fare clic sul nome della macchina virtuale per la quale si vuole rimuovere un'interfaccia di rete.
-4. Nella sezione **IMPOSTAZIONI** del pannello della macchina virtuale che viene visualizzato per la VM selezionata fare clic su **Interfacce di rete**. Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificarle, vedere l'articolo [Gestire le interfacce di rete](virtual-network-network-interface.md). Per informazioni su come aggiungere, modificare o rimuovere indirizzi IP assegnati a un'interfaccia di rete, vedere [Gestione di indirizzi IP](virtual-network-network-interface-addresses.md).
-5. Nel pannello delle interfacce di rete visualizzato fare clic su **...** a destra dell'interfaccia di rete da rendere non visibile.
-6. Fare clic su **Scollega**. Se alla macchina virtuale è collegata una sola interfaccia di rete, l'opzione **Scollega** non è disponibile. Nella finestra di conferma visualizzata fare clic su **Sì** .
+4. Nella sezione **Impostazioni** del pannello visualizzato per la macchina virtuale selezionata fare clic su **Rete**. Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificarle, vedere l'articolo [Gestire le interfacce di rete](virtual-network-network-interface.md). Per informazioni su come aggiungere, modificare o rimuovere indirizzi IP assegnati a un'interfaccia di rete, vedere [Gestione di indirizzi IP](virtual-network-network-interface-addresses.md).
+5. Fare clic su **Scollega interfaccia di rete**.
+6. Selezionare l'interfaccia di rete da scollegare dall'elenco a discesa, quindi fare clic su **OK**.
 
 **Comandi**
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0eb031893d53f09097b696e18f6c129be061136a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 913805901bf8131e4908be03e9213539a26205ed
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Concatenamento di funzioni in Funzioni permanenti - Esempio di sequenza di Hello
 
@@ -71,13 +71,16 @@ L'implementazione di `E1_SayHello` è un'operazione di formattazione delle strin
 
 Questa funzione ha un parametro [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), che usa per ottenere l'input passato ad esso tramite la chiamata della funzione di orchestrazione a [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)>.
 
-## <a name="running-the-orchestration"></a>Esecuzione dell'orchestrazione
+## <a name="run-the-sample"></a>Eseguire l'esempio
 
-Per eseguire l'orchestrazione `E1_HelloSequence`, effettuare la seguente chiamata HTTP.
+Per eseguire l'orchestrazione `E1_HelloSequence`, inviare la richiesta POST HTTP seguente.
 
 ```
-POST http://{app-name}.azurewebsites.net/orchestrators/E1_HelloSequence
+POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+Ad esempio, se si esegue l'esempio in un'app per le funzioni denominata "myfunctionapp", sostituire "{host}" con "myfunctionapp.azurewebsites.net".
+
 Il risultato è una risposta HTTP 202, simile alla seguente (tagliata per brevità):
 
 ```
@@ -120,7 +123,7 @@ Di seguito è riportata l'orchestrazione come un unico file C# in un progetto di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa fase si è acquisita una conoscenza di base dei meccanismi principali delle Funzioni permanenti. Questo esempio è stato semplice e ha mostrato solo alcune delle funzionalità disponibili. Gli esempi successivi sono più "realistici" e presentano una gamma di funzionalità più ampia.
+In questo esempio è stata illustrata una semplice orchestrazione di concatenamento delle funzioni. Nell'esempio successivo viene illustrato come implementare il criterio di fan-out/fan-in. 
 
 > [!div class="nextstepaction"]
 > [Eseguire l'esempio di Fan-out/fan-in](durable-functions-cloud-backup.md)

@@ -12,20 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2017
+ms.date: 10/24/2017
 ms.author: juanpere
-ms.openlocfilehash: ed93463153e3fba154aae733da27dea3e8d47689
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f90ecb70ad12ed05d5d40f8b26a0a4e461c9f835
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Pianificare processi in più dispositivi
-## <a name="overview"></a>Panoramica
-Come descritto in articoli precedenti, l'hub IoT di Azure consente un numero di blocchi predefiniti ([tag e proprietà di dispositivi gemelli][lnk-twin-devguide] e [metodi diretti][lnk-dev-methods]).  In genere, le app back-end consentono agli amministratori dei dispositivi e agli operatori di aggiornare i dispositivi IoT in blocco e a un'ora pianificata e di interagirvi.  I processi incapsulano l'esecuzione di aggiornamenti dei dispositivi gemelli e i metodi diretti rispetto a un set di dispositivi a un'ora pianificata.  Ad esempio, un operatore userà un'app back-end avviata e terrà traccia di un processo per riavviare un set di dispositivi al terzo piano dell'edificio 43 in un orario opportuno per non interrompere le attività dell'edificio.
 
-### <a name="when-to-use"></a>Quando usare le autorizzazioni
-È consigliabile usare processi quando il back-end di una soluzione deve pianificare e tenere traccia dell'avanzamento di una qualsiasi delle attività seguenti in un set di dispositivi:
+L'hub IoT di Azure abilita un numero di blocchi predefiniti, ad esempio [tag e proprietà di dispositivi gemelli][lnk-twin-devguide] e [metodi diretti][lnk-dev-methods].  In genere, le app back-end consentono agli amministratori dei dispositivi e agli operatori di aggiornare i dispositivi IoT in blocco e a un'ora pianificata e di interagirvi.  I processi eseguono l'aggiornamento di dispositivi gemelli e metodi diretti rispetto a un set di dispositivi a un'ora pianificata.  Ad esempio, un operatore usa un'app back-end avviata e tiene traccia di un processo per riavviare un set di dispositivi al terzo piano dell'edificio 43 in un orario opportuno per non interrompere le attività dell'edificio.
+
+È consigliabile usare i processi quando è necessario pianificare e tenere traccia dell'avanzamento di una qualsiasi delle attività seguenti in un set di dispositivi:
 
 * Aggiornare le proprietà desiderate
 * Aggiornare i tag
@@ -35,17 +34,11 @@ Come descritto in articoli precedenti, l'hub IoT di Azure consente un numero di 
 I processi vengono avviati dal back-end della soluzione e mantenuti dall'hub IoT.  È possibile avviare un processo tramite un URI del servizio (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) ed eseguire query riguardo allo stato di avanzamento in un processo in esecuzione tramite un URI del servizio (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Per aggiornare lo stato dei processi in esecuzione dopo l'avvio, eseguire query sui processi.
 
 > [!NOTE]
-> Quando si avvia un processo, i valori e i nomi di proprietà possono contenere solo caratteri alfanumerici US-ASCII stampabili, ad eccezione dei seguenti: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
-> 
-> 
-
-## <a name="reference-topics"></a>Argomenti di riferimento:
-Gli argomenti di riferimento seguenti offrono altre informazioni sull'uso dei processi.
+> Quando si avvia un processo, i valori e i nomi di proprietà possono contenere solo caratteri alfanumerici US-ASCII stampabili, ad eccezione dei seguenti: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`.
 
 ## <a name="jobs-to-execute-direct-methods"></a>Processi per eseguire metodi diretti
 Nel frammento di codice seguente sono riportati i dettagli della richiesta HTTPS 1.1 per l'esecuzione di un [metodo diretto][lnk-dev-methods] in un set di dispositivi tramite un processo:
 
-    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
     Authorization: <config.sharedAccessSignature>
@@ -65,10 +58,9 @@ Nel frammento di codice seguente sono riportati i dettagli della richiesta HTTPS
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
-    ```
+
 La condizione di query può anche trovarsi in un ID dispositivo singolo o in un elenco di ID dispositivo, come illustrato negli esempi seguenti:
 
-**esempi**
 ```
 queryCondition = "deviceId = 'MyDevice1'"
 queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
@@ -79,7 +71,6 @@ queryCondition = "deviceId IN ['MyDevice1']
 ## <a name="jobs-to-update-device-twin-properties"></a>Processi per aggiornare le proprietà dei dispositivi gemelli
 Nel frammento di codice seguente sono riportati i dettagli della richiesta HTTPS 1.1 per l'aggiornamento delle proprietà dei dispositivi gemelli tramite un processo:
 
-    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
@@ -94,19 +85,16 @@ Nel frammento di codice seguente sono riportati i dettagli della richiesta HTTPS
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
-    ```
 
 ## <a name="querying-for-progress-on-jobs"></a>Esecuzione di query sull'avanzamento dei processi
 Nel frammento di codice seguente sono riportati i dettagli della richiesta HTTPS 1.1 per [l'esecuzione di query sui processi][lnk-query]:
 
-    ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
     User-Agent: <sdk-name>/<sdk-version>
-    ```
 
 La risposta fornisce continuationToken.  
 
@@ -129,16 +117,12 @@ Di seguito è riportato un elenco di proprietà e corrispondenti descrizioni che
 | | **failed**: processo non riuscito. |
 | | **completed**: processo completato. |
 | **deviceJobStatistics** |Statistiche sull'esecuzione del processo. |
-
-Proprietà **deviceJobStatistics**.
-
-| Proprietà | Description |
-| --- | --- |
-| **deviceJobStatistics.deviceCount** |Numero di dispositivi nel processo. |
-| **deviceJobStatistics.failedCount** |Numero di dispositivi in cui il processo non è riuscito. |
-| **deviceJobStatistics.succeededCount** |Numero di dispositivi in cui il processo è riuscito. |
-| **deviceJobStatistics.runningCount** |Numero di dispositivi in cui il processo è in esecuzione. |
-| **deviceJobStatistics.pendingCount** |Numero di dispositivi in cui il processo è in attesa. |
+| | Proprietà **deviceJobStatistics**: |
+| | **deviceJobStatistics.deviceCount**: numero di dispositivi nel processo. |
+| | **deviceJobStatistics.deviceCount**: numero di dispositivi in cui il processo non è riuscito. |
+| | **deviceJobStatistics.succeededCount**: numero di dispositivi in cui il processo è riuscito. |
+| | **deviceJobStatistics.runningCount**: numero di dispositivi in cui il processo è in esecuzione. |
+| | **deviceJobStatistics.pendingCount**: numero di dispositivi in cui il processo è in sospeso. |
 
 ### <a name="additional-reference-material"></a>Materiale di riferimento
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:

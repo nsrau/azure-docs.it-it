@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 67fbc1f18dd168e2fad8011bc30b895894d98942
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01016294c3ef6fd904a7582e4f9c16ef19330a20
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associazioni per Funzioni permanenti (Funzioni di Azure)
 
@@ -196,7 +196,7 @@ Se per lo sviluppo si usano linguaggi di scripting, ad esempio file *.csx*, il t
 * `connectionName` - Nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. L'account di archiviazione rappresentato da questa stringa di connessione deve essere lo stesso usato dalle funzioni dell'agente di orchestrazione di destinazione. Se non specificato, viene usata la stringa di connessione predefinita dell'app per le funzioni.
 
 > [!NOTE]
-> Nella maggior parte dei casi, è consigliabile omettere queste proprietà e basarsi sul comportamento predefinito.
+> Nella maggior parte dei casi è consigliabile omettere queste proprietà e basarsi sul comportamento predefinito.
 
 ### <a name="client-usage"></a>Uso del client
 

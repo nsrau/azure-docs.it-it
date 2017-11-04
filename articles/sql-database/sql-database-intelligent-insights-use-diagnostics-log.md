@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 4890baa4ead3323834a82b3f9340cf751bf0c755
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b075253c12918df63a464de79e2ab2ff43103da1
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="use-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usare il log di diagnostica delle prestazioni del database SQL di Azure generato da Intelligent Insights
+# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usare il log di diagnostica delle prestazioni del database SQL di Azure generato da Intelligent Insights
 
-Questo articolo illustra l'uso del log di diagnostica delle prestazioni del database SQL di Azure generato da [Intelligent Insights](sql-database-intelligent-insights.md). Ne illustra anche il formato e i dati in esso contenuti per chi ha esigenze di sviluppo personalizzato. Il log diagnostica può essere inviato ad [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Hub eventi di Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage) oppure a una soluzione di terze parti per funzionalità di avvisi e report di DevOps personalizzate.
+Questo articolo illustra come usare il log di diagnostica delle prestazioni del database SQL di Azure generato da [Intelligent Insights](sql-database-intelligent-insights.md). Ne illustra anche il formato e i dati in esso contenuti per chi ha esigenze di sviluppo personalizzato. Il log di diagnostica può essere inviato ad [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Hub eventi di Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage) oppure a una soluzione di terze parti per funzionalità di avvisi e report di DevOps personalizzate.
 
 ## <a name="log-header"></a>Intestazione del log
 
-Il log di diagnostica usa il formato JSON standard per restituire i risultati di Intelligent Insights. L'esatta proprietà relativa alla categoria per accedere al log di Intelligent Insights è un valore fisso &#8220;**SQLInsights**&#8221;.
+Il log di diagnostica usa il formato JSON standard per restituire i risultati di Intelligent Insights. L'esatta proprietà relativa alla categoria per accedere al log di Intelligent Insights è un valore fisso "SQLInsights".
 
-L'intestazione del log è comune ed è costituita dal timestamp (TimeGenerated) che indica quando è stata creata una voce, che include un ID di risorsa (ResourceId) che fa riferimento a un determinato database SQL di Azure a cui è correlata la voce. Categoria (Category), livello (Level) e nome operazione (OperationName) sono proprietà fisse il cui valore non cambia. Indicano che la voce nel log è informativa e che deriva da Intelligent Insights (SQLInsights).
+L'intestazione del log è comune ed è costituita dal timestamp (TimeGenerated) che indica quando è stata creata una voce, che include un ID di risorsa (ResourceId) che fa riferimento a un determinato database SQL a cui è correlata la voce. Categoria (Category), livello (Level) e nome operazione (OperationName) sono proprietà fisse il cui valore non cambia. Indicano che la voce nel log è informativa e che deriva da Intelligent Insights (SQLInsights).
 
 ```json
 "TimeGenerated" : "2017-9-25 11:00:00", // time stamp of the log entry
@@ -41,32 +41,33 @@ L'intestazione del log è comune ed è costituita dal timestamp (TimeGenerated) 
 
 ## <a name="issue-id-and-database-affected"></a>ID del problema e database interessato
 
-La proprietà relativa all'identificazione del problema (issueId_d) rappresenta un modo per tenere traccia in modo univoco dei problemi di prestazioni fino a quando non vengono risolti. Intelligent Insights osserva il ciclo di vita di ogni problema: attivo, verifica in corso e completato. Grazie a ognuna di queste fasi di stato, Intelligent Insights è in grado di registrare più record di eventi nel log e per ognuna di queste voci il numero ID del problema rimane univoco. Intelligent Insights tiene traccia del problema durante tutto il ciclo di vita e genera informazioni dettagliate nel log di diagnostica ogni 15 minuti.
+La proprietà relativa all'identificazione del problema (issueId_d) rappresenta un modo per tenere traccia in modo univoco dei problemi di prestazioni fino a quando non vengono risolti. Intelligent Insights osserva il ciclo di vita di ogni problema: "Attivo", "Verifica in corso" e "Completato". Grazie a ognuna di queste fasi di stato, Intelligent Insights è in grado di registrare più record di eventi nel log. Per ognuna di queste voci il numero ID del problema rimane univoco. Intelligent Insights tiene traccia del problema durante tutto il ciclo di vita e genera informazioni dettagliate nel log di diagnostica ogni 15 minuti.
 
-Quando viene rilevato un problema di prestazioni e fino a quando non viene risolto, il problema viene segnalato come "Active" (Attivo) nella proprietà relativa allo stato (Status). Dopo che il problema è stato attenuato, viene verificato e segnalato come "Verifying" (Verifica in corso) nella proprietà relativa allo stato (Status). Se il problema viene risolto, la proprietà relativa allo stato (Status) segnala il problema come "Completed" (Completato).
+Quando viene rilevato un problema di prestazioni e fino a quando non viene risolto, il problema viene segnalato come "Attivo" nella proprietà relativa allo stato (status_s). Dopo che il problema è stato attenuato, viene verificato e segnalato come "Verifica in corso" nella proprietà relativa allo stato (status_s). Se il problema viene risolto, la proprietà relativa allo stato (status_s) segnala il problema come "Completato".
+
 Insieme all'ID del problema, il log di diagnostica segnala i timestamp di inizio (intervalStartTime_t) e di fine (intervalEndTme_t) dell'evento specifico correlato a un problema segnalato nel log di diagnostica.
 
 La proprietà relativa al pool elastico (elasticPoolName_s) indica a quale pool elastico appartiene il database con il problema. Se il database non fa parte di un pool elastico, questa proprietà non include alcun valore. Il database in cui è stato rilevato un problema viene specificato nella proprietà relativa al nome del database (databaseName_s).
 
 ```json
-"intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported timestamp
-"intervalEndTme_t":"2017-9-25 12:00", // end of the issue reported timestamp
+"intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported time stamp
+"intervalEndTme_t":"2017-9-25 12:00", // end of the issue reported time stamp
 "elasticPoolName_s" : "", // resource elastic pool (if applicable) 
 "databaseName_s" : "db_name",  // database name
 "issueId_d" : 1525, // unique ID of the issue detected
-"status_s" : "Active" // status of the issue – possible values: Active, Verifying and Complete
+"status_s" : "Active" // status of the issue – possible values: "Active", "Verifying", and "Complete"
 ```
 
 ## <a name="detected-issues"></a>Problemi rilevati
 
-La sezione successiva del log delle prestazioni di Intelligent Insights contiene i problemi di prestazioni rilevati tramite l'intelligenza artificiale integrata. I rilevamenti vengono forniti all'interno della proprietà JSON relativa ai rilevamenti che consistono nella categoria di un problema, l'impatto dei problemi, le query interessate e le metriche. Si noti che la proprietà relativa ai rilevamenti può contenere più problemi di prestazioni rilevati.
+La sezione successiva del log delle prestazioni di Intelligent Insights contiene i problemi di prestazioni rilevati tramite l'intelligenza artificiale integrata. I rilevamenti vengono forniti nelle proprietà all'interno del log di diagnostica JSON. Questi rilevamenti consistono nella categoria di un problema, l'impatto dei problemi, le query interessate e le metriche. Le proprietà relative ai rilevamenti possono contenere più problemi di prestazioni rilevati.
 
 I problemi di prestazioni rilevati vengono segnalati con la struttura della proprietà relativa ai rilevamenti seguente:
 
 ```json
 "detections_s" : [{
 "impact" : 1 to 3, // impact of the issue detected, possible values 1-3 (1 low, 2 moderate, 3 high impact)
-"category" : "Detectable performance pattern", // tperformance issue detected, see the table
+"category" : "Detectable performance pattern", // performance issue detected, see the table
 "details": <Details outputted> // details of an issue (see the table)
 }] 
 ```
@@ -75,7 +76,7 @@ Nella tabella seguente vengono descritti i dettagli e i modelli di prestazioni r
 
 ### <a name="detection-category"></a>Categoria di rilevamento
 
-La proprietà relativa alla categoria (Category) descrive la categoria dei modelli di prestazioni rilevabili. Vedere la tabella seguente per tutte le possibili categorie di modelli di prestazioni rilevabili. Altri dettagli sono disponibili nella pagina [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md) (Risolvere i problemi di prestazioni del database con Intelligent Insights).
+La proprietà relativa alla categoria (Category) descrive la categoria dei modelli di prestazioni rilevabili. Vedere la tabella seguente per tutte le possibili categorie di modelli di prestazioni rilevabili. Per altre informazioni, vedere [Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
 I dettagli restituiti nel file del log di diagnostica variano a seconda del problema di prestazioni rilevato.
 
@@ -92,7 +93,7 @@ I dettagli restituiti nel file del log di diagnostica variano a seconda del prob
 | Statistiche di attesa non comune | <li>Tipi di attesa non comune</li><li>Hash di query</li><li>Tempi di attesa della query</li> |
 | Contesa di TempDB | <li>Hash di query di query che causano contesa</li><li>Attribuzione di query al tempo di attesa complessivo per la contesa di latch di pagina del database [%]</li> |
 | Carenza di DTU nel pool elastico | <li>Pool elastico</li><li>Database con uso di DTU maggiore</li><li>Percentuale di DTU del pool usata dalla risorsa che consuma maggiormente</li> |
-| Regressione di piani | <li>Hash di query</li><li>ID di piano appropriato</li><li>ID di piano non appropriato</li><li>Hash di query</li> |
+| Regressione di piani | <li>Hash di query</li><li>ID di piano appropriato</li><li>ID di piano non appropriato</li> |
 | Modifica del valore di configurazione in ambito database | <li>Modifiche di configurazione in ambito database rispetto ai valori predefiniti</li> |
 | Client lento | <li>Hash di query</li><li>Tempi di attesa</li> |
 | Downgrade del piano tariffario | <li>Notifica di testo</li> |
@@ -103,9 +104,9 @@ La proprietà relativa all'impatto (Impact) indica quanto di un comportamento ri
 
 ### <a name="impacted-queries"></a>Query interessate
 
-La sezione successiva del log di Intelligent Insights include informazioni sulle query specifiche che sono state interessate dai problemi di prestazioni rilevati. Queste informazioni vengono presentate come matrice di oggetti incorporati nella proprietà impact_s. La proprietà relativa all'impatto è costituita da entità e metriche. Le entità si riferiscono a una query specifica (type: Query) e a un hash di query univoco fornito nel valore della proprietà (Value). Ognuna delle query fornite è inoltre seguita da una metrica e un valore che indica un problema di prestazioni rilevato.
+La sezione successiva del log di Intelligent Insights include informazioni sulle query specifiche che sono state interessate dai problemi di prestazioni rilevati. Queste informazioni vengono presentate come matrice di oggetti incorporati nella proprietà impact_s. La proprietà relativa all'impatto è costituita da entità e metriche. Le entità si riferiscono a una query specifica (Type: Query). L'hash di query univoco viene presentato come valore della proprietà (Value). Ognuna delle query fornite è inoltre seguita da una metrica e un valore che indica un problema di prestazioni rilevato.
 
-Nell'esempio di log seguente è possibile notare che la query con hash 0x9102EXZ4 ha mostrato un aumento della durata di esecuzione (metrica: DurationIncreaseSeconds) di un valore pari a 110 secondi. Ciò indica che l'esecuzione di questa particolare query ha richiesto 110 secondi in più. Si noti che è possibile rilevare più query in quanto questa specifica sezione del log può includere più voci di query.
+Nell'esempio di log seguente è possibile notare che la query con hash 0x9102EXZ4 ha mostrato un aumento della durata di esecuzione (metrica: DurationIncreaseSeconds). Il valore pari a 110 secondi indica che l'esecuzione di questa particolare query ha richiesto 110 secondi in più. È possibile rilevare più query in quanto questa specifica sezione del log può includere più voci di query.
 
 ```json
 "impact" : [{
@@ -119,7 +120,7 @@ Nell'esempio di log seguente è possibile notare che la query con hash 0x9102EXZ
 
 ### <a name="metrics"></a>Metrica
 
-L'unità di misura per ogni metrica segnalata viene indicata nella proprietà relativa alla metrica (metric) con i valori possibili: secondi, numero e percentuale. Il valore di una metrica misurata viene restituito nella proprietà relativa al valore (valore).
+L'unità di misura per ogni metrica segnalata viene indicata nella proprietà relativa alla metrica (metric) con i valori possibili: secondi, numero e percentuale. Il valore di una metrica misurata viene restituito nella proprietà relativa al valore (value).
 
 La proprietà DurationIncreaseSeconds indica l'unità di misura in secondi. Per CriticalErrorCount l'unità di misura è un numero che rappresenta un conteggio di errori.
 
@@ -130,7 +131,7 @@ La proprietà DurationIncreaseSeconds indica l'unità di misura in secondi. Per 
 
 ## <a name="root-cause-analysis-and-improvement-recommendations"></a>Analisi delle cause radice dei problemi e consigli per migliorare
 
-L'ultima parte del log delle prestazioni di Intelligent Insights riguarda l'analisi automatica delle cause radice del problema di diminuzione delle prestazioni identificato. Le diciture sono di semplice comprensione e sono presenti tramite la proprietà relativa all'analisi delle cause radice (rootCauseAnalysis_s). I consigli di miglioramento sono inclusi nelle diciture registrate nel log, ove possibile.
+L'ultima parte del log delle prestazioni di Intelligent Insights riguarda l'analisi automatica delle cause radice del problema di diminuzione delle prestazioni identificato. Le diciture sono di semplice comprensione e sono presenti tramite la proprietà relativa all'analisi delle cause radice (rootCauseAnalysis_s). I consigli di miglioramento sono inclusi nel log, ove possibile.
 
 ```json
 // example of reported root cause analysis of the detected performance issue, in a human-readable format
@@ -141,10 +142,10 @@ L'ultima parte del log delle prestazioni di Intelligent Insights riguarda l'anal
 Questo log di diagnostica di Intelligent Insights può essere usato con [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) o una soluzione di terze parti per usufruire delle funzionalità di avvisi e creazione report DevOps personalizzate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sui concetti di [Intelligent Insights](sql-database-intelligent-insights.md)
-- Informazioni su come [risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
-- Informazioni su come [monitorare un database SQL di Azure usando Analisi SQL di Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)
-- [Raccogliere e usare i dati dei log dalle risorse di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+- Informazioni sui concetti di [Intelligent Insights](sql-database-intelligent-insights.md).
+- Informazioni su come [risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+- Informazioni su come [monitorare un database SQL di Azure usando Analisi SQL di Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

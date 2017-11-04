@@ -3,8 +3,8 @@ title: Come usare l'SDK del server back-end Node.js per App per dispositivi mobi
 description: Informazioni su come usare l'SDK del server back-end di Node.js per App per dispositivi mobili del servizio app di Azure.
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: elamalani
+manager: elamalani
 editor: 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8265aaa275b3f6e528ec729ff1325200e9ead524
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Come usare Node.js SDK per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -793,9 +793,13 @@ Per iniziare la risoluzione dei problemi del back-end Node.js Mobile, consultare
 Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di diagnostica.  Al suo interno l'SDK di Node.js per App per dispositivi mobili di Azure usa [Winston] per la registrazione diagnostica.  La registrazione viene abilitata automaticamente abilitando la modalità di debug o impostando su true l'impostazione dell'app **MS_DebugMode** nel [Portale di Azure]. I log generati vengono visualizzati tra i log di diagnostica del [Portale di Azure].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Procedura: Usare tabelle semplici nel portale di Azure
-L'impostazione Easy Tables nel portale consente di creare e usare tabelle direttamente nel portale. Consente anche di modificare le operazioni di tabella usando l'editor del servizio app.
+L'impostazione Easy Tables nel portale consente di creare e usare tabelle direttamente nel portale. È possibile caricare il set di dati in Easy Tables in formato CSV. Si noti che non è possibile usare nomi di proprietà (nel set di dati CSV) in conflitto con i nomi di proprietà di sistema del back-end di App per dispositivi mobili di Azure. I nomi delle proprietà di sistema sono:
+* createdAt
+* updatedAt
+* deleted
+* version
 
-Quando si fa clic su **Tabelle semplici** nelle impostazioni del sito di back-end, è possibile aggiungere, modificare o eliminare una tabella. È anche possibile visualizzare i dati nella tabella.
+Consente anche di modificare le operazioni di tabella usando l'editor del servizio app. Quando si fa clic su **Tabelle semplici** nelle impostazioni del sito di back-end, è possibile aggiungere, modificare o eliminare una tabella. È anche possibile visualizzare i dati nella tabella.
 
 ![Utilizzare Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 

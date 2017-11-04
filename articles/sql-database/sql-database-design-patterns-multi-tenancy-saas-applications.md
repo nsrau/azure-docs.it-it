@@ -1,6 +1,6 @@
 ---
 title: Schemi progettuali per le applicazioni SaaS multi-tenant e il database SQL di Azure | Microsoft Docs
-description: "Questo articolo illustra i requisiti e i modelli comuni di architettura dei dati delle applicazioni di database multi-tenant in esecuzione in un ambiente cloud e i vari compromessi associati a tali modelli. Illustra anche l'utilità del database SQL di Azure, con i relativi pool e strumenti elastici, per soddisfare questi requisiti senza dover scendere a compromessi."
+description: Informazioni sui requisiti e i modelli comuni di architettura dei dati delle applicazioni di database SaaS (Software-as-a-Service) multi-tenant in esecuzione in un ambiente cloud.
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-design
+ms.workload: Active
 ms.date: 02/01/2017
 ms.author: srinia
-ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eef48cfcbc7d6c241b5ece863df0be6ecad78ca7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Schemi progettuali per le applicazioni SaaS multi-tenant e il database SQL di Azure
 Questo articolo include informazioni sui requisiti e i modelli comuni di architettura dei dati delle applicazioni di database SaaS (Software-as-a-Service) multi-tenant in esecuzione in un ambiente cloud. Illustra anche i fattori da considerare e i compromessi tra i diversi modelli di progettazione. I pool e gli strumenti elastici nel database SQL di Azure consentono di soddisfare requisiti specifici senza compromettere altri obiettivi.

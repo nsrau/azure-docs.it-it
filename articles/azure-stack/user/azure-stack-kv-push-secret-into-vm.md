@@ -1,6 +1,6 @@
 ---
-title: Deploy a virtual machine with a securely stored certificate on Azure Stack | Microsoft Docs
-description: Learn how to deploy a virtual machine and push a certificate onto it by using a key vault in Azure Stack
+title: Distribuire una macchina virtuale con un certificato archiviato in modo sicuro nello Stack di Azure | Documenti Microsoft
+description: Informazioni su come distribuire una macchina virtuale e push di un certificato su di esso con un insieme di credenziali chiave nello Stack di Azure
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,36 +14,35 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Create a virtual machine and include certificate retrieved from a key vault
+# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Creare una macchina virtuale e includere certificato recuperato da un insieme di credenziali chiave
 
-This article helps you to create a virtual machine in Azure Stack and push certificates onto it. 
+In questo articolo consente di creare una macchina virtuale nello Stack di Azure e i certificati di push su di esso. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* You must must subscribe to an offer that includes the Key Vault service. 
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
+* È necessario deve sottoscrivere un'offerta che include il servizio insieme di credenziali chiave. 
+* [Installare PowerShell per Azure dello Stack.](azure-stack-powershell-install.md)  
+* [Configurare l'ambiente di PowerShell dell'utente Azure Stack](azure-stack-powershell-configure-user.md)
 
-A key vault in Azure Stack is used to store certificates. Certificates are helpful in many different scenarios. For example, consider a scenario where you have a virtual machine in Azure Stack that is running an application that needs a certificate. This certificate can be used for encrypting, for authenticating to Active Directory, or for SSL on a website. Having the certificate in a key vault helps make sure that it's secure.
+Un insieme di credenziali chiave nello Stack di Azure viene utilizzato per archiviare i certificati. I certificati sono utili in molti scenari diversi. Ad esempio, si consideri uno scenario in cui si dispone di una macchina virtuale nello Stack di Azure che esegue un'applicazione che richiede un certificato. Questo certificato può essere utilizzato per la crittografia, per l'autenticazione ad Active Directory o per SSL in un sito Web. Con il certificato nell'insieme di credenziali chiave utili assicurarsi che sia sicuro.
 
-In this article, we walk you through the steps required to push a certificate onto a Windows virtual machine in Azure Stack. You can use these steps either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
+In questo articolo sono illustrati i passaggi necessari per eseguire il push nello Stack di Azure un certificato in una macchina virtuale di Windows. Se si è connessi tramite VPN, è possibile utilizzare questi passaggi del Kit di sviluppo dello Stack di Azure o da un client esterno basato su Windows.
 
-The following steps describe the process required to push a certificate onto the virtual machine:
+I passaggi seguenti descrivono il processo necessario effettuare il push di un certificato nella macchina virtuale:
 
-1. Create a Key Vault secret.
-2. Update the azuredeploy.parameters.json file.
-3. Deploy the template
+1. Creare un insieme di credenziali chiave segreta.
+2. Aggiornare il file azuredeploy.parameters.json.
+3. Distribuire il modello
 
-## <a name="create-a-key-vault-secret"></a>Create a Key Vault secret
+## <a name="create-a-key-vault-secret"></a>Creare un insieme di credenziali chiave segreta
 
-The following script creates a certificate in the .pfx format, creates a key vault, and stores the certificate in the key vault as a secret. You must use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
+Lo script seguente crea un certificato in formato pfx, crea un insieme di credenziali chiave e archivia il certificato nell'insieme di credenziali chiave come chiave privata. È necessario utilizzare il `-EnabledForDeployment` parametro quando si crea l'insieme di credenziali chiave. Questo parametro assicura che l'insieme di credenziali chiave possono far riferimento dai modelli di gestione risorse di Azure.
 
 ```powershell
 
@@ -106,13 +105,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-When you run the previous script, the output includes the secret URI. Make a note of this URI. You have to reference it in the [Push certificate to Windows Resource Manager template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Download the [vm-push-certificate-windows template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) folder onto your development computer. This folder contains the `azuredeploy.json` and `azuredeploy.parameters.json` files, which you will need in the next steps.
+Quando si esegue lo script precedente, l'output include l'URI segreta. Prendere nota dell'URI. È necessario farvi riferimento nel [: certificato Push al modello di gestione risorse di Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Scaricare il [modello di macchina virtuale-push-certificato windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) cartella sul computer di sviluppo. Questa cartella contiene il `azuredeploy.json` e `azuredeploy.parameters.json` file, sarà necessario nei passaggi successivi.
 
-Modify the `azuredeploy.parameters.json` file according to your environment values. The parameters of special interest are the vault name, the vault resource group, and the secret URI (as generated by the previous script). The following file is an example of a parameter file:
+Modificare il `azuredeploy.parameters.json` file in base ai valori ambiente. I parametri di particolare interesse sono il nome dell'insieme di credenziali, il gruppo di risorse dell'insieme di credenziali e il segreto URI (generati da script precedente). Il file seguente è riportato un esempio di un file di parametro:
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Update the azuredeploy.parameters.json file
+## <a name="update-the-azuredeployparametersjson-file"></a>Aggiornare il file azuredeploy.parameters.json
 
-Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmName, and other values as per your environment. The following JSON file shows an example of the template parameters file: 
+Aggiornare il file azuredeploy.parameters.json con il vaultName, URI segreta, VmName e altri valori in base al proprio ambiente. Il file JSON seguente mostra un esempio di file dei parametri di modello: 
 
 ```json
 {
@@ -147,9 +146,9 @@ Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmNa
 }
 ```
 
-## <a name="deploy-the-template"></a>Deploy the template
+## <a name="deploy-the-template"></a>Distribuire il modello
 
-Now deploy the template by using the following PowerShell script:
+Ora è possibile distribuire il modello utilizzando lo script di PowerShell seguente:
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret onto it
@@ -160,24 +159,23 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-When the template is deployed successfully, it results in the following output:
+Quando il modello viene distribuito correttamente, otterrà l'output seguente:
 
-![Deployment output](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![Output di distribuzione](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-When this virtual machine is deployed, Azure Stack pushes the certificate onto the virtual machine. In Windows, the certificate is added to the LocalMachine certificate location, with the certificate store that the user provided. In Linux, the certificate is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for the private key.
+Quando viene distribuita la macchina virtuale, Azure Stack inserisce il certificato nella macchina virtuale. In Windows, il certificato viene aggiunto nel percorso certificato LocalMachine, con l'archivio certificati fornito dall'utente. In Linux, il certificato viene inserito nella directory /var/lib/waagent, con il nome del file &lt;UppercaseThumbprint&gt;CRT per X509 file del certificato e &lt;UppercaseThumbprint&gt;.prv per la chiave privata .
 
-## <a name="retire-certificates"></a>Retire certificates
+## <a name="retire-certificates"></a>Ritirare i certificati
 
-In the preceding section, we showed you how to push a new certificate onto a virtual machine. Your old certificate is still on the virtual machine, and it can't be removed. However, you can disable the older version of the secret by using the `Set-AzureKeyVaultSecretAttribute` cmdlet. The following is an example usage of this cmdlet. Make sure to replace the vault name, secret name, and version values according to your environment:
+Nella sezione precedente, è stato illustrato come inserire un nuovo certificato in una macchina virtuale. Il certificato precedente è ancora nella macchina virtuale e non può essere rimosso. Tuttavia, è possibile disabilitare la versione del segreto precedente tramite il `Set-AzureKeyVaultSecretAttribute` cmdlet. Di seguito è riportato un esempio di utilizzo di questo cmdlet. Assicurarsi di sostituire il nome dell'insieme di credenziali, nome segreto e valori di versione in base al proprio ambiente:
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Passaggi successivi
 
-* [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
-* [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
-
+* [Distribuire una VM con una password dell'insieme di credenziali delle chiavi](azure-stack-kv-deploy-vm-with-secret.md)
+* [Consentire a un'applicazione per l'insieme di credenziali chiave di accesso](azure-stack-kv-sample-app.md)
 
 

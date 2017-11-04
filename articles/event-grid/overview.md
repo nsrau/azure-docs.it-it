@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 10/20/2017
 ms.author: babanisa
-ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introduzione a Griglia di eventi di Azure
 
@@ -25,8 +25,6 @@ Per la versione di anteprima, la griglia di eventi supporta le località **westu
 Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure).
 
 ![Modello funzionale di Griglia di eventi](./media/overview/event-grid-functional-model.png)
-
-Archiviazione Blob non è attualmente disponibile pubblicamente come server di pubblicazione. È necessario registrarsi per la versione di anteprima per rispondere agli eventi di archiviazione BLOB. Per altre informazioni, [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato (anteprima)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 
 ## <a name="concepts"></a>Concetti
 
@@ -64,6 +62,7 @@ Attualmente i servizi di Azure seguenti hanno il supporto predefinito degli auto
 * Gruppi di risorse (operazioni di gestione)
 * Sottoscrizioni di Azure (operazioni di gestione)
 * Hub eventi
+* Archiviazione BLOB
 * Argomenti personalizzati
 
 Quest'anno verranno aggiunti altri servizi di Azure.
@@ -118,6 +117,8 @@ Griglia di eventi costa $ 0,60 per milione di operazioni ($ 0,30 durante l'antep
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Indirizzare gli eventi BLOB di archiviazione](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+  Rispondere agli eventi BLOB di archiviazione con Griglia di eventi.
 * [Create and subscribe to custom events](custom-event-quickstart.md) (Creare e sottoscrivere eventi personalizzati)  
   È possibile iniziare subito a inviare gli eventi personalizzati agli endpoint usando l'avvio rapido della Griglia di eventi di Azure.
 * [Uso di App per la logica come gestore dell'evento](monitor-virtual-machine-changes-event-grid-logic-app.md)  
