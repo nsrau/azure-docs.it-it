@@ -41,6 +41,7 @@
 ## Configurare un router per ExpressRoute
 ### [Configurare un router](expressroute-config-samples-routing.md)
 ### [Esempi di configurazione di router per NAT](expressroute-config-samples-nat.md)
+## [Configurare Monitoraggio prestazioni rete per ExpressRoute](how-to-npm.md)
 
 ## Procedure consigliate
 ### [Procedure consigliate per la sicurezza di rete e i servizi cloud](../best-practices-network-security.md)

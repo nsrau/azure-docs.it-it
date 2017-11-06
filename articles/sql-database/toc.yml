@@ -309,6 +309,10 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Automazione di Azure
           href: sql-database-manage-automation.md
+        - name: Procedure consigliate per la sincronizzazione dati SQL
+          href: sql-database-best-practices-data-sync.md
+        - name: Risolvere i problemi della sincronizzazione dati SQL
+          href: sql-database-troubleshoot-data-sync.md
     - name: Scalabilità orizzontale
       items:
         - name: Creare un'app partizionata

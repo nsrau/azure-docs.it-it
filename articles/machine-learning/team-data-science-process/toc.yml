@@ -84,8 +84,20 @@
         - name: Area di lavoro di Azure Machine Learning
           href: ../studio/create-workspace.md
           maintainContext: true
-        - name: Configurare le macchine virtuali
-          href: virtual-machines.md
+        - name: Configurare una VM di analisi scientifica dei dati
+          items:
+            - name: Creare una macchina virtuale data science Windows
+              href: ../data-science-virtual-machine/provision-vm.md
+              maintainContext: true
+            - name: Creare una macchina virtuale data science Ubuntu
+              href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
+              maintainContext: true
+            - name: Creare una macchina virtuale data science CentOS
+              href: ../data-science-virtual-machine/linux-dsvm-intro.md
+              maintainContext: true
+            - name: Creare una macchina virtuale per l'apprendimento avanzato
+              href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
+              maintainContext: true
     - name: Analizzare le esigenze aziendali
       items:
         - name: Identificare lo scenario

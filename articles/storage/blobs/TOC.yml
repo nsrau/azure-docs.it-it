@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Usare i BLOB - Python
       href: storage-quickstart-blobs-python.md
+    - name: Usare i BLOB - Node.js
+      href: storage-quickstart-blobs-nodejs.md
 - name: Esercitazioni
   items:
     - name: Caricare ed elaborare un'immagine

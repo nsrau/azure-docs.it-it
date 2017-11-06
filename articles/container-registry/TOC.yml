@@ -26,7 +26,7 @@
     - name: Istanze di contenitore di Azure
       href: ../container-instances/container-instances-tutorial-prepare-app.md
     - name: Servizio contenitore di Azure
-      href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+      href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: Concetti
@@ -35,6 +35,8 @@
       href: container-registry-skus.md
     - name: Replica geografica (anteprima)
       href: container-registry-geo-replication.md
+    - name: Procedure consigliate per il registro contenitori
+      href: container-registry-best-practices.md
 - name: Guide alle procedure
   items:
     - name: Effettuare il push e il pull di un'immagine

@@ -79,8 +79,8 @@
       href: concepts-monitoring.md
     - name: Sviluppo.
       items:
-        - name: Raccolte di connessioni
-          href: concepts-connection-libraries.md
+        - name: Compatibilità di driver e strumenti
+          href: concepts-compatibility.md
         - name: Sviluppo di applicazioni
           href: concepts-database-application-development.md
     - name: Eseguire la migrazione del database

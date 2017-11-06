@@ -82,6 +82,13 @@
       href: maintenance-and-updates.md
     - name: Archiviazione
       href: about-disks-and-vhds.md
+      items:
+        - name: Archiviazione Premium
+          href: premium-storage.md
+        - name: Prestazioni di Archiviazione Premium
+          href: premium-storage-performance.md
+        - name: Archiviazione standard
+          href: standard-storage.md
     - name: Rete
       href: network-overview.md
     - name: Ridimensionare automaticamente le applicazioni
@@ -235,12 +242,16 @@
           href: detach-disk.md
         - name: Ridimensionare un disco
           href: expand-os-disk.md
+        - name: Backup e ripristino di emergenza per i dischi
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Snapshot di un disco
           href: snapshot-copy-managed-disk.md
         - name: Eseguire il backup di dischi non gestiti
           href: incremental-snapshots.md
         - name: Convertire il disco tra archiviazione Standard e Premium
           href: convert-disk-storage.md
+        - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Usare Archiviazione file
           href: mount-azure-file-storage.md
         - name: Eseguire la distribuzione di dischi con un modello

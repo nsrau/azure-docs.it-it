@@ -36,6 +36,7 @@
 #### [Usare l'interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-manage-cli.md)
 #### [Usare Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Ridimensionamento verticale in un set di scalabilità](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+### [Aggiornamenti automatici del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md)
 ### [Aggiornamenti per i set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Uso di DSC e di set di scalabilità](virtual-machine-scale-sets-dsc.md)
 ### [Risorse di rete per i set di scalabilità](virtual-machine-scale-sets-networking.md)
