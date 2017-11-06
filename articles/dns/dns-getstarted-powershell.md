@@ -3,7 +3,7 @@ title: Introduzione a DNS Azure con PowerShell | Microsoft Docs
 description: Informazioni su come creare una zona e un record DNS in DNS Azure. Si tratta di una guida dettagliata per creare e gestire la prima zona e il primo record DNS usando PowerShell.
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0b0d474752615e60747ffe7681c2d04cd2685bba
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>Introduzione a DNS Azure con PowerShell
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > * [Interfaccia della riga di comando di Azure 1.0](dns-getstarted-cli-nodejs.md)
 > * [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-cli.md)
 
-Questo articolo illustra i passaggi per creare la prima zona e il primo record DNS con Azure PowerShell. È possibile eseguire questi passaggi usando il portale di Azure o nell'interfaccia della riga di comando di Azure multipiattaforma.
+Questo articolo illustra i passaggi per creare la prima zona e il primo record DNS con Azure PowerShell. È possibile eseguire questi passaggi usando il portale di Azure o nell'interfaccia della riga di comando di Azure multipiattaforma. DNS di Azure supporta anche la creazione di domini privati. Per istruzioni dettagliate sulla creazione della prima zona e del primo record DNS privati, vedere [Introduzione alle zone private di DNS di Azure con PowerShell](private-dns-getstarted-powershell.md).
 
 Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Per iniziare a ospitare il dominio in DNS di Azure, è necessario creare una zona DNS per il nome di dominio. Ogni record DNS per il dominio viene quindi creato all'interno di questa zona DNS. Per pubblicare infine la zona DNS su Internet, è necessario configurare i server dei nomi per il dominio. Ogni passaggio è illustrato di seguito.
 

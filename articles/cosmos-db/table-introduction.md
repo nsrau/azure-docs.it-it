@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
-ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduzione ad Azure Cosmos DB: API di tabella
 
@@ -38,10 +38,10 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>API di tabella Premium e Standard
-Se attualmente si usa l'archiviazione tabelle, è possibile ottenere i vantaggi seguenti passando alla "tabella Premium" in anteprima di Azure Cosmos DB:
+## <a name="table-offerings"></a>Offerte per tabelle
+Se attualmente si usa Archiviazione tabelle di Azure, passando all'API di tabella di Azure Cosmos DB (disponibile in anteprima) è possibile ottenere i vantaggi seguenti.
 
-| | Archiviazione tabelle di Azure | Azure Cosmos DB: archiviazione tabelle (anteprima) |
+| | Archiviazione tabelle di Azure | API di tabella di Azure Cosmos DB (anteprima) |
 | --- | --- | --- |
 | Latency | Veloce, senza limiti superiori per la latenza. | Latenza pari a singole unità di millisecondi per letture e scritture, supportata da latenza minore di 10 ms per le letture e di 15 ms per le scritture al 99° percentile, in base a qualsiasi livello di scalabilità e ovunque nel mondo. |
 | Velocità effettiva | Modello a velocità effettiva variabile. Le tabelle hanno un limite di scalabilità di 20.000 operazioni al secondo. | Altamente scalabile con [velocità effettiva riservata dedicata per tabella](request-units.md), supportata da contratti di servizio. Non esiste un limite superiore di velocità effettiva per gli account, che supportano oltre 10 milioni di operazioni al secondo per tabella. |
@@ -52,7 +52,7 @@ Se attualmente si usa l'archiviazione tabelle, è possibile ottenere i vantaggi 
 | Prezzi | Ottimizzati per l'archiviazione. | Ottimizzati per la velocità effettiva. |
 | Contratti di servizio | Disponibilità del 99.99%. | Disponibilità del 99,99% all'interno di una singola area, con possibilità di aggiungere altre aree per aumentare la disponibilità. [Contratti di servizio completi leader del settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/) che regolano la disponibilità generale. |
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 Creare un account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com). Vedere quindi [Avvio rapido per l'API di tabella con .NET](create-table-dotnet.md). 
 

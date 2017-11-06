@@ -12,11 +12,11 @@ documentationcenter:
 manager: 
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 620d86b62cf43c3e1a5f7f5c724fcf00174f30e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 184bbdc0a6bef74d0e5ac79afe3858354c6b1695
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Come usare diversi moduli di protezione hardware con Device Provisioning Service Client SDK
 Queste procedure illustrano come usare un [modulo di protezione hardware](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) diverso con Device Provisioning Service Client SDK in C con un dispositivo fisico e un simulatore.  Il servizio di provisioning supporta due modalità di autenticazione: X**.**509 e Trusted Platform Module (TPM).

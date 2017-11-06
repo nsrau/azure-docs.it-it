@@ -1,6 +1,6 @@
 ---
-title: "Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?"
-description: Azure Site Recovery protegge i carichi di lavoro e le applicazioni coordinando la replica, il failover e il ripristino di macchine virtuali locali e server fisici in Azure o in un sito locale secondario.
+title: "Quali carichi di lavoro è possibile proteggere con Azure Site Recovery? | Microsoft Docs"
+description: Illustra i carichi di lavoro che possono essere protetti usando il ripristino di emergenza con il servizio Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
-Questo articolo descrive i carichi di lavoro e applicazioni di cui è possibile eseguire la replica con il servizio Azure Site Recovery.
 
-Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Questo articolo illustra i carichi di lavoro e le applicazioni di cui è possibile eseguire la replica con il servizio [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="overview"></a>Overview
+
+
+## <a name="overview"></a>Panoramica
+
 Le organizzazioni necessitano di una strategia per la continuità aziendale e il ripristino di emergenza (BCDR, Business Continuity and Disaster Recovery) per garantire la sicurezza e la disponibilità dei carichi di lavoro e dei dati durante i periodi di inattività pianificati e non pianificati e per ripristinare prima possibile le normali condizioni di lavoro.
 
 Site Recovery è un servizio di Azure che contribuisce all'attuazione della strategia BCDR. Tramite Site Recovery è possibile distribuire la replica compatibile con le applicazioni nel cloud o in un sito secondario. Sia che si tratti di app basate su Windows o su Linux in esecuzione in server fisici, in VMware o Hyper-V, è possibile usare Site Recovery per orchestrare la replica, eseguire il test del piano di ripristino di emergenza test ed eseguire failover e failback.
@@ -33,6 +35,7 @@ Site Recovery è un servizio di Azure che contribuisce all'attuazione della stra
 Site Recovery si integra con numerose applicazioni Microsoft, tra cui SharePoint, Exchange, Dynamics, SQL Server e Active Directory. Microsoft collabora strettamente con fornitori leader, tra cui Oracle, SAP e Red Hat. È possibile personalizzare le soluzioni di replica in base alle app.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Perché usare Site Recovery per la protezione della replica?
+
 Site Recovery contribuisce alla protezione e al ripristino a livello di applicazione come segue:
 
 * Indipendente dall'app, fornendo la replica per carichi di lavoro in esecuzione in una macchina supportata.
@@ -157,4 +160,5 @@ Usare Site Recovery per proteggere le distribuzioni Citrix XenApp e XenDesktop c
 [Altre informazioni](site-recovery-citrix-xenapp-and-xendesktop.md) sulla protezione di distribuzioni Citrix XenApp e XenDesktop. In alternativa, è possibile vedere il [white paper di Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) contenente informazioni dettagliate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Verifica dei prerequisiti](site-recovery-prereq.md)
+
+[Introduzione](azure-to-azure-quickstart.md) alla replica di VM di Azure.

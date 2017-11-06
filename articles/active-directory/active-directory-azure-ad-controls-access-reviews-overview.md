@@ -1,6 +1,6 @@
 ---
 title: Verifiche di accesso di Azure AD | Microsoft Docs
-description: "È possibile gestire l'appartenenza a un gruppo e l'accesso a un'applicazione per soddisfare i requisiti di governance, gestione dei rischi e conformità dell'organizzazione usando le verifiche di accesso di Azure Active Directory."
+description: "È possibile gestire l'appartenenza a gruppi e l'accesso alle applicazioni per soddisfare i requisiti di governance, gestione dei rischi e conformità dell'organizzazione usando le verifiche di accesso di Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: markwahl-msft
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebeff09a16ca7ecb4214cbccb31ffcfb2c512f7c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-ad-access-reviews-preview"></a>Verifiche di accesso di Azure AD (anteprima)
 
-Le verifiche di accesso consentono alle organizzazioni di gestire in modo efficiente l'appartenenza ai gruppi e l'accesso alle applicazioni aziendali. 
+Le verifiche di accesso di Azure Active Directory (Azure AD) consentono alle organizzazioni di gestire in modo efficiente l'appartenenza a gruppi e l'accesso alle applicazioni aziendali. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>Cosa si può fare con le verifiche di accesso?
    
-- È possibile ripetere la certificazione dell'accesso degli utenti guest usando le verifiche di accesso dei rispettivi accessi alle applicazioni e le appartenenze ai gruppi, con informazioni dettagliate per consentire ai revisori di decidere in modo efficiente se i guest possono continuare ad accedere.
+- È possibile ripetere la certificazione dell'accesso degli utenti guest usando le verifiche di accesso per i rispettivi accessi alle applicazioni e le appartenenze ai gruppi. I revisori possono usare le informazioni dettagliate ottenute per decidere in modo efficiente se i guest possono continuare ad accedere.
       
-- È possibile ripetere la certificazione dell'accesso dei dipendenti alle applicazioni e le appartenenze ai gruppi con le verifiche di accesso.
+- È possibile ripetere la certificazione dell'accesso dei dipendenti alle applicazioni e delle appartenenze ai gruppi con le verifiche di accesso.
    
 - È possibile raccogliere i controlli delle verifiche di accesso in programmi rilevanti per l'organizzazione, in modo da controllare le verifiche per ottenere informazioni sulla conformità o sulle applicazioni più a rischio.
     

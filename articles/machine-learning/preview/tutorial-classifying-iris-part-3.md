@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 048d734277f855086a48ad00a52b873adbf419b4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Classificazione di dati Iris - Parte 3: Distribuire un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di analisi scientifica dei dati e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -85,15 +85,15 @@ Per distribuire il servizio Web, insieme al file di modello, sono necessari anch
 
    ![File di assegnazione dei punteggi](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. Per ottenere il file di schema, eseguire lo script. Scegliere l'ambiente **local** (locale) e lo script **iris_score.py** nella barra dei comandi e quindi fare clic sul pulsante **Run** (Esegui). 
+4. Per ottenere il file di schema, eseguire lo script. Scegliere l'ambiente **local** (locale) e lo script **iris-score.py** nella barra dei comandi e quindi fare clic sul pulsante **Run** (Esegui). 
 
 5. Questo script crea un file JSON nella cartella **outputs** in cui viene acquisito lo schema di dati di input richiesto dal modello.
 
-6. Si noti il riquadro dei processi sul lato destro della finestra di Machine Learning Workbench. Attendere che per il processo **iris\_score.py** più recente venga visualizzato lo stato **Completed** (Completato) in verde. Fare quindi clic sul collegamento ipertestuale **iris\_score.py [1]** per l'esecuzione più recente del processo per visualizzare i dettagli dell'esecuzione di **iris_score.py**. 
+6. Si noti il riquadro dei processi sul lato destro della finestra di Machine Learning Workbench. Attendere che per il processo **iris-score.py** più recente venga visualizzato lo stato **Completed** (Completato) in verde. Fare quindi clic sul collegamento ipertestuale **iris-score.py [1]** per l'esecuzione più recente del processo per visualizzare i dettagli dell'esecuzione di **iris-score.py**. 
 
 7. Nella sezione **Outputs** (Output) della pagina Run Properties (Proprietà esecuzione) selezionare il file **service_schema.json** appena creato. **Controllare** il file e quindi fare clic su **Download** (Scarica). Salvare il file nella cartella radice del progetto.
 
-8. Tornare alla scheda precedente in cui è stato aperto lo script **iris_score.py**. 
+8. Tornare alla scheda precedente in cui è stato aperto lo script **iris-score.py**. 
 
    Si noti l'utilizzo della raccolta dati che consente di acquisire gli input del modello e le stime dal servizio Web. I punti riportati di seguito sono di particolare interesse per la raccolta dati:
 
@@ -120,6 +120,9 @@ Per distribuire il servizio Web, insieme al file di modello, sono necessari anch
    ```
 
 A questo punto è possibile preparare l'ambiente per rendere operativo il modello.
+
+>[!NOTE]
+>Per distribuire modelli è necessario avere accesso come proprietario a una sottoscrizione di Azure.
 
 ## <a name="prepare-to-operationalize-locally"></a>Preparare la messa in funzione in locale
 Usare la distribuzione in _modalità locale_ per l'esecuzione in contenitori Docker nel computer locale.
@@ -201,7 +204,7 @@ A questo punto è possibile creare il servizio Web in tempo reale.
 1. Usare il comando seguente per creare un servizio Web in tempo reale:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    Viene generato un ID servizio Web utilizzabile in un secondo momento.
 
@@ -241,7 +244,7 @@ In alternativa al comando **az ml service create realtime** illustrato sopra, è
    Per creare un manifesto, usare questo comando e specificare l'ID modello restituito nel passaggio precedente:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    Questo comando genera un ID manifesto.
 
