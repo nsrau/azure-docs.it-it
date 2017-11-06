@@ -71,15 +71,10 @@
 
 ## Impostare i criteri delle risorse
 ### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
-### [Usare il portale di Azure per assegnare i criteri](resource-manager-policy-portal.md)
 ### [Usare gli script per assegnare i criteri](resource-manager-policy-create-assign.md)
 ### esempi
 #### [Tag](resource-manager-policy-tags.md)
 #### [Convenzioni di denominazione](resource-manager-policy-naming-convention.md)
-#### [Rete](resource-manager-policy-network.md)
-#### [Archiviazione](resource-manager-policy-storage.md)
-#### [VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Audit
 ### [Visualizzare log di attività](resource-group-audit.md)

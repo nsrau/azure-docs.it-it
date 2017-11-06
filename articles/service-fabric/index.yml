@@ -98,6 +98,6 @@ sections:
           - title: Riga di comando
             html: '<p><a href="/cli/azure/sf">Interfaccia della riga di comando di Azure</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Interfaccia della riga di comando di Service Fabric</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
           - title: Lingue
-            html: <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
+            html: <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">Schema XML del modello del servizio</a></p>
           - title: REST
             html: <p><a href="/rest/api/servicefabric">Informazioni di riferimento sulle API REST</a></p>

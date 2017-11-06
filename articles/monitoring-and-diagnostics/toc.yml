@@ -45,7 +45,7 @@
           href: azure-diagnostics.md
     - name: Schemi
       items:
-        - name: Schema delle estensioni di Diagnostica di Azure
+        - name: Schema dell'estensione Diagnostica di Azure
           href: azure-diagnostics-schema.md
           items:
             - name: 1
@@ -58,7 +58,7 @@
   items:
     - name: Procedure dettagliate
       items:
-        - name: Procedura dettagliata sul Monitoraggio di Azure
+        - name: Procedura dettagliata su Monitoraggio di Azure
           href: monitoring-get-started.md
         - name: Procedura dettagliata sulla scalabilità automatica
           href: monitoring-autoscale-get-started.md
@@ -94,7 +94,7 @@
           href: monitoring-autoscale-scale-by-custom-metric.md
         - name: Ridimensionare automaticamente i set di scalabilità di macchine virtuali con i modelli di Gestione risorse
           href: insights-advanced-autoscale-virtual-machine-scale-sets.md
-        - name: Ridimensionare automaticamente i computer in un set di set di scalabilità di macchine virtuali
+        - name: Ridimensionare automaticamente le macchine virtuali in un di set di scalabilità di macchine virtuali
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
         - name: Configurare webhook e notifiche di posta elettronica per la scalabilità automatica
           href: insights-autoscale-to-webhook-email.md
@@ -134,6 +134,8 @@
       items:
         - name: Archiviazione
           href: monitoring-archive-diagnostic-logs.md
+        - name: Invia a Log Analytics
+          href: monitor-stream-diagnostic-logs-log-analytics.md
         - name: Trasmettere un flusso a Hub eventi
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Abilitare le impostazioni di diagnostica usando i modelli di Gestione risorse
@@ -168,7 +170,7 @@
       href: monitoring-diagnostic-logs-schema.md
     - name: Schema degli eventi del log attività
       href: monitoring-activity-log-schema.md
-    - name: Schema delle estensioni di Diagnostica di Azure
+    - name: Schema dell'estensione Diagnostica di Azure
       href: azure-diagnostics-schema.md
 - name: Risorse
   items:

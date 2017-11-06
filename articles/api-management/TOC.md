@@ -50,6 +50,7 @@
 ### [Configurare con Git](api-management-configuration-repository-git.md)
 ### [Eseguire il monitoraggio con Monitoraggio di Azure](api-management-howto-use-azure-monitor.md)
 ### [Usare il controllo degli accessi in base al ruolo](api-management-role-based-access-control.md)
+### [Usare l'identità dei servizi gestiti](api-management-howto-use-managed-service-identity.md)
 ### Integrazione con Service Fabric
 #### [Panoramica](../service-fabric/service-fabric-api-management-overview.md)
 #### [Avvio rapido](../service-fabric/service-fabric-api-management-quick-start.md)
