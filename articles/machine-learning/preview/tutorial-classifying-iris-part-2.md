@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
-ms.openlocfilehash: 5d86f3bdf19603d2f92fc1a704376beefd7323c0
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 976407daee45e2f3a8360c1316227cc3399ad43e
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-2-build-a-model"></a>Classificazione di dati Iris - Parte 2: Creare un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di analisi scientifica dei dati e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -149,7 +149,7 @@ A questo punto, è necessario preparare l'esecuzione dello script **iris_sklearn
 ## <a name="review-run-history-in-detail"></a>Esaminare la cronologia di esecuzione in dettaglio
 In Azure Machine Learning Workbench l'esecuzione di ogni script viene acquisita come record della cronologia di esecuzione. È possibile visualizzare la cronologia di esecuzione di uno script specifico aprendo la visualizzazione **Runs** (Esecuzioni).
 
-1. Fare clic sul pulsante **Runs** (Esecuzioni) (icona a forma di orologio) sulla barra degli strumenti a sinistra per aprire l'elenco di **esecuzioni**. Fare quindi clic su **iris_sklearn.py** per visualizzare la scheda **Run Dashboard** (Dashboard esecuzioni) di `iris_sklearn.py`.
+1. Fare clic sul pulsante **Runs** (Esecuzioni) (icona a forma di orologio) sulla barra degli strumenti a sinistra per aprire l'elenco di**esecuzioni**. Fare quindi clic su **iris_sklearn.py** per visualizzare la scheda **Run Dashboard** (Dashboard esecuzioni) di `iris_sklearn.py`.
 
    ![Immagine](media/tutorial-classifying-iris/run_view.png)
 
@@ -198,11 +198,11 @@ Azure ML consente di configurare facilmente ambienti di esecuzione aggiuntivi, a
 
 5. Si proverà ora con Spark. L'immagine di base Docker contiene un'istanza di Spark preinstallata e configurata. Per questo motivo, è possibile eseguire al suo interno uno script PySpark. Si tratta di un modo semplice per sviluppare e testare il programma Spark senza dover dedicare tempo a installare e configurare Spark. 
 
-   Aprire il file `iris_pyspark.py` . Lo script carica il file di dati `iris.csv` e usa l'algoritmo di regressione logistica dalla libreria di apprendimento automatico Spark per classificare il set di dati Iris. Modificare ora l'ambiente di esecuzione in **docker-spark** e lo script in **iris_pyspark.py** ed avviare di nuovo l'esecuzione. Questa operazione richiede un po' più tempo perché è necessario creare una sessione di Spark e avviarla nel contenitore Docker. È anche possibile vedere che l'output standard (stdout) è diverso da quello di `iris_pyspark.py`.
+   Aprire il file `iris_spark.py` . Lo script carica il file di dati `iris.csv` e usa l'algoritmo di regressione logistica dalla libreria di apprendimento automatico Spark per classificare il set di dati Iris. Modificare ora l'ambiente di esecuzione in **docker-spark** e lo script in **iris_spark.py** e avviare di nuovo l'esecuzione. Questa operazione richiede un po' più tempo perché è necessario creare una sessione di Spark e avviarla nel contenitore Docker. È anche possibile vedere che l'output standard (stdout) è diverso da quello di `iris_spark.py`.
 
 6. Provare con altre esecuzioni usando argomenti diversi. 
 
-7. Aprire il file `iris_pyspark.py` per visualizzare il semplice modello di regressione logistica creato usando la libreria di apprendimento automatico Spark. 
+7. Aprire il file `iris_spark.py` per visualizzare il semplice modello di regressione logistica creato usando la libreria di apprendimento automatico Spark. 
 
 8. Interagire con il pannello **Jobs** (Processi), la visualizzazione elenco della cronologia di esecuzione e la visualizzazione dei dettagli delle esecuzioni in ambienti di esecuzione diversi.
 
@@ -249,8 +249,8 @@ Azure ML consente di configurare facilmente ambienti di esecuzione aggiuntivi, a
    REM Execute iris_sklearn.py in local Docker container Python environment.
    az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
    
-   REM Execute iris_pyspark.py in local Docker container Spark environment.
-   az ml experiment submit -c docker-spark .\iris_pyspark.py 0.1
+   REM Execute iris_spark.py in local Docker container Spark environment.
+   az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
 6. In Azure Machine Learning Workbench fare clic sull'icona a forma di cartella sulla barra degli strumenti a sinistra per visualizzare un elenco dei file di progetto e aprire lo script Python denominato **run.py**. 
 
@@ -320,8 +320,8 @@ Per eseguire lo script in un contenitore Docker in un computer Linux remoto, è 
 
 5. Digitare il comando seguente per l'esecuzione nell'istanza di Spark nel contenitore Docker remoto:
    ```azureli
-   REM execute iris_pyspark.py in Spark instance on remote Docker container
-   az ml experiment submit -c myvm-spark .\iris_pyspark.py
+   REM execute iris_spark.py in Spark instance on remote Docker container
+   az ml experiment submit -c myvm-spark .\iris_spark.py
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Eseguire lo script in un cluster HDInsight
@@ -345,8 +345,8 @@ Per eseguire lo script in un contenitore Docker in un computer Linux remoto, è 
 2. Eseguire il comando seguente e lo script viene eseguito nel cluster HDInsight:
 
    ```azurecli
-   REM execute iris_pyspark on the HDI cluster
-   az ml experiment submit -c myhdi .\iris_pyspark.py
+   REM execute iris_spark on the HDI cluster
+   az ml experiment submit -c myhdi .\iris_spark.py
    ```
 
    >[!NOTE]
