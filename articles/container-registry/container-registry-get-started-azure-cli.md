@@ -17,17 +17,17 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91f0aa093e0a1f7ed4d54a0cdf5ef53bc41cb6be
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Creare un registro di contenitori usando l'interfaccia della riga di comando di Azure
 
 Registro contenitori di Azure è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro contenitori di Azure con l'interfaccia della riga di comando di Azure.
 
-Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.12 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
+Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.20 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
 
 È anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
@@ -45,10 +45,7 @@ az group create --name myResourceGroup --location eastus
 
 In questa guida introduttiva viene creato un registro contenitori di *base*. Registro contenitori di Azure è disponibile in diversi SKU, descritti brevemente nella tabella riportata di seguito. Per altri dettagli su ogni SKU, vedere [SKU di Registro contenitori](container-registry-skus.md).
 
-Registro contenitori di Azure è attualmente disponibile in diversi SKU: `Basic`, `Managed_Basic`, `Managed_Standard`, e `Managed_Premium`. Sebbene gli SKU `Managed_*` offrano funzionalità avanzate, ad esempio l'archiviazione gestita e i webhook, non sono attualmente disponibili in alcune aree di Azure in caso di utilizzo dell'interfaccia della riga di comando di Azure. Considerata la disponibilità in tutte le aree, per questa Guida introduttiva è stato scelto lo SKU `Basic`.
-
->[!NOTE]
-> I registri gestiti sono attualmente disponibili in tutte le aree. Tuttavia, la versione corrente dell'interfaccia della riga di comando di Azure non supporta ancora la creazione di un registro gestito in tutte le aree. Il supporto sarà disponibile nella prossima versione dell'interfaccia della riga di comando di Azure. Prima del rilascio usare il [portale di Azure](container-registry-get-started-portal.md) per creare registri gestiti.
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 Creare un'istanza di Registro contenitori di Azure usando il comando [azure acr create](/cli/azure/acr#create).
 
@@ -82,7 +79,7 @@ Quando viene creato il registro, l'output è simile al seguente:
 }
 ```
 
-Nella parte restante di questa Guida introduttiva viene usato `<acrname>` come segnaposto per il nome del registro contenitori.
+Nella parte restante di questa guida introduttiva viene usato `<acrname>` come segnaposto per il nome del registro contenitori.
 
 ## <a name="log-in-to-acr"></a>Accedere al record di controllo di accesso
 
@@ -160,7 +157,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida rapida è stato creato un Registro contenitori di Azure con l'interfaccia della riga di comando di Azure. Se si desidera usare il Registro contenitori di Azure con le istanze di contenitore di Azure, continuare con l'esercitazione relativa alle istanze di contenitore di Azure.
+In questa guida introduttiva è stato creato un Registro contenitori di Azure con l'interfaccia della riga di comando di Azure. Se si desidera usare il Registro contenitori di Azure con le istanze di contenitore di Azure, continuare con l'esercitazione relativa alle istanze di contenitore di Azure.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure](../container-instances/container-instances-tutorial-prepare-app.md)

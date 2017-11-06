@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9e48d490b998fb57c604f2f5b2717e65d28dce1a
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7f9991d2254011080185a555f5351dce85f73704
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuire un cluster del servizio contenitore di Azure
 
@@ -38,6 +38,15 @@ Nelle esercitazioni successive, l'applicazione Azure Vote viene distribuita nel 
 
 Nelle esercitazioni precedenti, un'immagine del contenitore è stata creata e caricata in un'istanza di Registro contenitori di Azure. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md) (Esercitazione 1: Creare immagini del contenitore).
 
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Abilitazione dell'anteprima AKS per la sottoscrizione di Azure
+Mentre AKS è disponibile in anteprima, per creare nuovi cluster è necessario un flag funzionalità per la sottoscrizione. È possibile richiedere questa funzionalità per tutte le sottoscrizioni da usare. Usare il comando `az provider register` per registrare il provider AKS:
+
+```azurecli-interactive
+az provider register -n Microsoft.ContainerService
+```
+
+Dopo la registrazione è possibile Creare un cluster Kubernetes con AKS.
+
 ## <a name="create-kubernetes-cluster"></a>Creare un cluster Kubernetes
 
 Nell'esempio seguente viene creato un cluster denominato `myK8sCluster` nel gruppo di risorse denominato `myResourceGroup`. Nell'[esercitazione precedente](./tutorial-kubernetes-prepare-acr.md) è stato creato questo gruppo di risorse.
@@ -50,12 +59,12 @@ Dopo alcuni minuti, la distribuzione viene completata e restituisce le informazi
 
 ## <a name="install-the-kubectl-cli"></a>Installare l'interfaccia della riga di comando di kubectl
 
-Per connettersi al cluster Kubernetes dal computer client, usare [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), il client da riga di comando di Kubernetes. 
+Per connettersi al cluster Kubernetes dal computer client, usare [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), il client da riga di comando di Kubernetes.
 
 Se si usa Azure CloudShell, kubectl è già installato. Per installarlo in locale, eseguire il comando seguente:
 
 ```azurecli
-az aks install-cli 
+az aks install-cli
 ```
 
 ## <a name="connect-with-kubectl"></a>Connettersi con kubectl
