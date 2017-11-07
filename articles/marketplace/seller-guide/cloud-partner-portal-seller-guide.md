@@ -190,7 +190,7 @@ Altre informazioni sui nostri [programmi di commercializzazione](https://partner
 
 Prima del lancio, è consigliabile eseguire alcuni passaggi per ottenere una rapida adesione dell'offerta sul Marketplace. Utilizzare questo elenco di controllo per determinare se si è pronti:
 
-- **Ho annunciato che l&amp;#39;offerta è disponibile sul Marketplace** pubblicando un articolo di blog, inviando messaggi di posta elettronica o rilasciando una conferenza stampa.
+- **Ho annunciato che I&#39;offerta è disponibile sul Marketplace** pubblicando un articolo di blog, inviando messaggi di posta elettronica o rilasciando una conferenza stampa.
 - **Sto promuovendo l&#39;offerta sul sito Web personale** , indirizzando i clienti sull'offerta sul Marketplace.
 - **Ho pubblicato un test drive** in modo che i clienti possano scoprire l'offerta in esecuzione su Azure nella pausa caffè.
 - **Ho attivato la generazione dei lead su richiesta** in modo che ogni volta che un cliente fa clic per distribuire l'applicazione, io ricevo le informazioni di contatto e il nome.

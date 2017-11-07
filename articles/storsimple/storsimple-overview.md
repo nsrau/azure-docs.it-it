@@ -216,7 +216,7 @@ Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati
 | Backup |Backup di destinazione primario |Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro |Aggiornamento 3 e successivi |
 | Backup |Backup di destinazione secondario |Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro |Aggiornamento 3 e successivi |
 
-*Sì&amp;#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
+*Sì&#42; - devono essere applicate le restrizioni e le linee guida per la soluzione.*
 
 I carichi di lavoro seguenti non sono supportati dai dispositivi StorSimple della serie 8000. Se distribuiti in StorSimple, questi carichi di lavoro comportano una configurazione non supportata.
 
@@ -239,7 +239,7 @@ Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati 
 | Generale |Indicizzazione |Sì* |Per i volumi a più livelli, è supportata solo l'indicizzazione dei metadati (nessun dato).<br>Per i volumi aggiunti in locale, è supportata l'indicizzazione completa. |Tutte le versioni |
 | Generale |Anti-virus |Sì* |Per i volumi a più livelli, è supportata solo l'analisi in apertura e in chiusura.<br> Per i volumi aggiunti in locale, è supportata l'analisi completa. |Tutte le versioni |
 
-*Sì&amp;#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
+*Sì&#42; - devono essere applicate le restrizioni e le linee guida per la soluzione.*
 
 Di seguito è riportato un elenco di altri prodotti software che vengono usati con StorSimple per compilare soluzioni.
 
