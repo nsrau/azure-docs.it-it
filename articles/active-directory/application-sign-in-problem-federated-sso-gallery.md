@@ -31,7 +31,7 @@ Per risolvere il problema, è necessario verificare la configurazione dell'appli
 
 ## <a name="application-not-found-in-directory"></a>Applicazione non trovata nella directory
 
-*Error AADSTS70001: Application with Identifier 'https://contoso.com' was not found in the directory* (Errore AADSTS70001: applicazione con identificatore 'https://contoso.com' non trovata nella directory).
+*Errore AADSTS70001: applicazione con identificatore 'https://contoso.com' non trovata nella directory*.
 
 **Causa possibile**
 
