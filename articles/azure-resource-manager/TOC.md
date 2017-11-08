@@ -71,7 +71,6 @@
 
 ## Impostare i criteri delle risorse
 ### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
-### [Usare gli script per assegnare i criteri](resource-manager-policy-create-assign.md)
 ### esempi
 #### [Tag](resource-manager-policy-tags.md)
 #### [Convenzioni di denominazione](resource-manager-policy-naming-convention.md)

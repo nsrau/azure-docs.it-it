@@ -166,6 +166,8 @@
           href: compute-linked-services.md
     - name: Flusso di controllo
       items:
+        - name: Attività della condizione If
+          href: control-flow-if-condition-activity.md
         - name: Attività Web
           href: control-flow-web-activity.md
         - name: Attività di ricerca

@@ -1,6 +1,5 @@
 # Panoramica
 ## [Informazioni sul Centro sicurezza di Azure](security-center-intro.md)
-## [Ottenere informazioni dettagliate con Power BI](security-center-powerbi.md)
 ## [Sicurezza dei dati](security-center-data-security.md)
 ## Scenari
 ### [Risposta agli eventi imprevisti](security-center-incident-response.md)
