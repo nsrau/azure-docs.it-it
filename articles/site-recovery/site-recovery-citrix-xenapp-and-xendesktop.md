@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: ponatara
-ms.openlocfilehash: dc064352b1841ff346b705dc63186b12d79350b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Eseguire la replica di una distribuzione Citrix XenApp e XenDesktop multilivello con Azure Site Recovery
 
@@ -74,7 +74,7 @@ Poiché XenApp 7.7 è supportato in Azure, è possibile eseguire il failover in 
 
 1. Sono supportati la protezione e il ripristino delle distribuzioni locali con computer con sistema operativo Server per fornire app XenApp pubblicate e desktop XenApp pubblicati.
 
-2. Non sono supportati la protezione e il ripristino di distribuzioni locali con computer con sistema operativo Desktop per fornire VDI desktop per desktop virtuali client, incluso Windows 10. Azure Site Recovery non supporta infatti il ripristino di computer con sistemi operativi Desktop.  Alcuni tipi di desktop virtuale client, ad esempio Windows 7, non sono inoltre ancora supportati per le licenze in Azure. [Altre informazioni](https://azure.microsoft.com/pricing/licensing-faq/) sulle licenze per computer desktop client/server in Azure.
+2. Non sono supportati la protezione e il ripristino di distribuzioni locali con computer con sistema operativo Desktop per fornire VDI desktop per desktop virtuali client, incluso Windows 10. Azure Site Recovery non supporta infatti il ripristino di computer con sistemi operativi Desktop.  Alcuni sistemi operativi di desktop virtuale client, ad esempio Windows 7, non sono inoltre ancora supportati per le licenze in Azure. [Altre informazioni](https://azure.microsoft.com/pricing/licensing-faq/) sulle licenze per computer desktop client/server in Azure.
 
 3.  Azure Site Recovery non può replicare e proteggere cloni MCS o PVS locali esistenti.
 È necessario ricreare questi cloni usando il provisioning di Azure RM dal controller di distribuzione.

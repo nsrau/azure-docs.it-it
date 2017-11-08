@@ -10,26 +10,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/31/2017
 ms.author: spelluru
-ms.openlocfilehash: e25bdc04f5436e2f9c48aebe868538f22ef80bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f223cd8efbff77b02598293afd3b30a662d3abf3
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Esempi di Azure PowerShell per Azure Data Factory
 
 La tabella seguente include collegamenti a esempi di script di Azure PowerShell per Azure Data Factory.
 
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale (GA), vedere le informazioni sugli [esempi per Data Factory versione 1](v1/data-factory-samples.md).
+
 | |  |
 |---|---|
 |**Copiare i dati**||
 |[Copiare BLOB da una cartella in un'altra cartella in un'Archiviazione BLOB di Azure](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lo script di PowerShell copia i BLOB da una cartella nell'Archiviazione BLOB di Azure in un'altra cartella della stessa archiviazione BLOB. |
+|[Copiare i dati da un'istanza di SQL Server locale ad Archiviazione BLOB di Azure](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lo script PowerShell consente di copiare dati da un database di SQL Server locale in uno di Archiviazione BLOB di Azure. |
+|[Copia bulk](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script PowerShell di esempio copia i dati da più tabelle di un database SQL di Azure in Azure SQL Data Warehouse. |
+|[Copia incrementale](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script PowerShell di esempio carica solo i record nuovi o aggiornati da un archivio dati di origine a un archivio dati sink dopo la copia iniziale completa dei dati dall'origine al sink. |
 |**Trasformare i dati**||
 |[Trasformare i dati usando un cluster Spark](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell trasforma i dati eseguendo un programma in un cluster Spark. |
 |**Lift-and-shift di pacchetti SSIS in Azure**||
-|[Creare il runtime di integrazione SSIS di Azure](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell esegue il provisioning di un runtime di integrazione di Azure-SSIS che esegue pacchetti SQL Server Integration Services (SSIS) in Azure. |
+|[Creare il runtime di integrazione SSIS di Azure](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script PowerShell esegue il provisioning di un runtime di integrazione di Azure-SSIS che esegue pacchetti SQL Server Integration Services (SSIS) in Azure. |
 
 
 

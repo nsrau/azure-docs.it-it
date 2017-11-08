@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 10/31/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3b2126b1ecd1613950bbf311ae08fafd4af0d51f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Utilizzo degli SKU del gateway di rete virtuale (SKU di versione precedente)
 
@@ -39,7 +39,12 @@ Questo articolo contiene informazioni sugli SKU del gateway di rete virtuale (ve
 
 ## <a name="resize"></a>Ridimensionare un gateway (modificare uno SKU del gateway)
 
-È possibile ridimensionare uno SKU del gateway solo all'interno della stessa famiglia di SKU. Se si ha uno SKU Standard, ad esempio, è possibile ridimensionarlo in uno SKU HighPerformance. Non è possibile invece ridimensionare gateway VPN tra gli SKU di versione precedente e le nuove famiglie di SKU. Non è possibile, ad esempio, passare da uno SKU Standard a uno SKU VpnGw2. 
+È possibile ridimensionare uno SKU del gateway solo all'interno della stessa famiglia di SKU. Se si ha uno SKU Standard, ad esempio, è possibile ridimensionarlo in uno SKU HighPerformance. Non è possibile invece ridimensionare gateway VPN tra gli SKU di versione precedente e le nuove famiglie di SKU. Non è possibile, ad esempio, passare da uno SKU Standard a uno SKU VpnGw2.
+
+>[!IMPORTANT]
+>Quando si ridimensiona un gateway, è necessario prevedere 20-30 minuti di inattività per tale gateway durante l'operazione di ridimensionamento.
+>
+>
 
 Per ridimensionare uno SKU del gateway per il modello di distribuzione classica, usare il comando seguente:
 

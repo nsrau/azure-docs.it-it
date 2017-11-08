@@ -1,5 +1,5 @@
 ---
-title: Connettere un dispositivo tramite C in Windows | Documentazione Microsoft
+title: Effettuare il provisioning di dispositivi Windows nella soluzione di monitoraggio remoto in C - Azure | Microsoft Docs
 description: "Descrive come connettere un dispositivo alla soluzione di monitoraggio remoto preconfigurata Azure IoT Suite con un’applicazione scritta in C in esecuzione in Windows."
 services: 
 suite: iot-suite
@@ -13,51 +13,80 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/16/2017
 ms.author: dobett
-ms.openlocfilehash: d222bcbd64f288d4091acb0ecd2922b9ceee57e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef38517b55b352acf036e62d407f1ff840d6f804
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto (Windows)
+
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## <a name="create-a-c-sample-solution-on-windows"></a>Creare una soluzione di esempio C in Windows
-La procedura seguente illustra come creare un'applicazione client che comunica con la soluzione di monitoraggio remoto preconfigurata. Questa applicazione è scritta in C e compilata ed eseguita in Windows.
+Questa esercitazione mostra come connettere un dispositivo fisico alla soluzione preconfigurata di monitoraggio remoto.
 
-Creare un progetto iniziale in Visual Studio 2015 o Visual Studio 2017 e aggiungere i pacchetti NuGet del client dispositivo hub IoT:
+## <a name="create-a-c-client-solution-on-windows"></a>Creare una soluzione client C in Windows
 
-1. In Visual Studio creare un'applicazione console C usando il modello **Applicazione console Win32** di Visual C++ . Assegnare al progetto il nome **RMDevice**.
-2. Nella pagina **Impostazioni applicazione** della **Creazione guidata applicazione Win32** verificare che l'opzione **Applicazione console** sia selezionata e deselezionare **Intestazione precompilata** e **Controlli Security Development Lifecycle (SDL)**.
-3. In **Esplora soluzioni**eliminare i file stdafx.h, targetver.h e stdafx.cpp.
-4. In **Esplora soluzioni**rinominare il file RMDevice.cpp in RMDevice.c.
-5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **RMDevice** e quindi scegliere **Gestisci pacchetti NuGet**. Fare clic su **Sfoglia**, quindi cercare e installare i seguenti pacchetti NuGet:
-   
-   * Microsoft.Azure.IoTHub.Serializer
-   * Microsoft.Azure.IoTHub.IoTHubClient
-   * Microsoft.Azure.IoTHub.MqttTransport
-6. In **Esplora soluzioni** fare clic sul progetto **RMDevice** e quindi scegliere **Proprietà** per aprire la finestra di dialogo **Pagine** delle proprietà del progetto. Per informazioni dettagliate, vedere [Setting Visual C++ Project Properties][lnk-c-project-properties] (Impostazione delle proprietà dei progetti Visual C++). 
-7. Fare clic sulla cartella **Linker**, quindi fare clic sulla pagina delle proprietà **Input**.
-8. Aggiungere **crypt32.lib** alla proprietà **Dipendenze aggiuntive**. Fare clic su **OK** e quindi scegliere nuovamente **OK** per salvare i valori delle proprietà del progetto.
+Come per la maggior parte delle applicazioni incorporate in esecuzione su dispositivi vincolati, il codice client per l'applicazione del dispositivo è scritto in C. In questa esercitazione si compilerà l'applicazione in un computer che esegue Windows.
+
+### <a name="create-the-starter-project"></a>Creare il progetto iniziale
+
+Creare un progetto iniziale in Visual Studio 2017 e aggiungere i pacchetti NuGet del client dispositivo dell'hub IoT:
+
+1. In Visual Studio creare un'applicazione console C usando il modello **Applicazione console Windows** di Visual C++. Assegnare al progetto il nome **RMDevice**.
+
+    ![Creare un'applicazione console Windows in Visual C++](media/iot-suite-connecting-devices/visualstudio01.png)
+
+1. In **Esplora soluzioni**eliminare i file `stdafx.h`, `targetver.h` e `stdafx.cpp`.
+
+1. In **Esplora soluzioni**rinominare il file `RMDevice.cpp` in `RMDevice.c`.
+
+    ![Esplora soluzioni mostra il file RMDevice.c rinominato](media/iot-suite-connecting-devices/visualstudio02.png)
+
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **RMDevice** e quindi scegliere **Gestisci pacchetti NuGet**. Scegliere **Sfoglia**, quindi cercare e installare i pacchetti NuGet seguenti:
+
+    * Microsoft.Azure.IoTHub.Serializer
+    * Microsoft.Azure.IoTHub.IoTHubClient
+    * Microsoft.Azure.IoTHub.MqttTransport
+
+    ![Gestione pacchetti NuGet mostra i pacchetti Microsoft.Azure.IoTHub installati](media/iot-suite-connecting-devices/visualstudio03.png)
+
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **RMDevice** e quindi scegliere **Proprietà** per aprire la finestra di dialogo **Pagine delle proprietà** del progetto. Per informazioni dettagliate, vedere [Setting Visual C++ Project Properties](https://docs.microsoft.com/cpp/ide/working-with-project-properties) (Impostazione delle proprietà dei progetti Visual C++).
+
+1. Scegliere la cartella **C/C++** e quindi la pagina delle proprietà **Intestazioni precompilate**.
+
+1. Impostare **Intestazione precompilata** su **Senza intestazioni precompilate**. Scegliere quindi **Applica**.
+
+    ![Proprietà del progetto che mostrano l'opzione Senza intestazioni precompilate](media/iot-suite-connecting-devices/visualstudio04.png)
+
+1. Scegliere la cartella **Linker** e quindi fare clic sulla pagina delle proprietà **Input**.
+
+1. Aggiungere `crypt32.lib` alla proprietà **Dipendenze aggiuntive**. Per salvare i valori delle proprietà del progetto, scegliere **OK** e quindi di nuovo **OK**.
+
+    ![Proprietà del progetto che mostrano la cartella Linker che include crypt32.lib](media/iot-suite-connecting-devices/visualstudio05.png)
+
+### <a name="add-the-parson-json-library"></a>Installare la raccolta JSON Parson
 
 Aggiungere la libreria Parson JSON al progetto **RMDevice** e aggiungere le istruzioni `#include` richieste:
 
 1. In una cartella appropriata nel computer, clonare il repository Parson GitHub usando il comando seguente:
 
-    ```
+    ```cmd
     git clone https://github.com/kgabis/parson.git
     ```
 
-1. Copiare i file parson.h e parson.c dalla copia locale del repository Parson alla cartella del progetto **RMDevice**.
+1. Copiare i file `parson.h` e `parson.c` dalla copia locale del repository Parson alla cartella del progetto **RMDevice**.
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto **RMDevice**, scegliere **Aggiungi** e quindi **Elemento esistente**.
 
-1. Nella finestra di dialogo **Aggiungi elemento esistente**, selezionare i file parson.h e parson.c file nella cartella di progetto **RMDevice**. Quindi fare clic su **Aggiungi** per aggiungere i due file al progetto.
+1. Nella finestra di dialogo **Aggiungi elemento esistente** selezionare i file `parson.h` e `parson.c` nella cartella del progetto **RMDevice**. Per aggiungere questi due file al progetto, scegliere **Aggiungi**.
 
-1. In Visual Studio aprire il file RMDevice.c. Sostituire le istruzioni `#include` esistenti con il codice seguente:
-   
+    ![Esplora soluzioni mostra i file parson.h e parson.c](media/iot-suite-connecting-devices/visualstudio06.png)
+
+1. In Visual Studio aprire il file `RMDevice.c`. Sostituire le istruzioni `#include` esistenti con il codice seguente:
+
     ```c
     #include "iothubtransportmqtt.h"
     #include "schemalib.h"
@@ -70,16 +99,16 @@ Aggiungere la libreria Parson JSON al progetto **RMDevice** e aggiungere le istr
     ```
 
     > [!NOTE]
-    > Compilando il progetto è possibile verificare che siano state impostate le dipendenze corrette.
+    > È ora possibile verificare che per il progetto siano configurate le dipendenze corrette compilando la soluzione.
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
 ## <a name="build-and-run-the-sample"></a>Compilare ed eseguire l'esempio
 
-Aggiungere codice per richiamare la funzione **remote\_monitoring\_run** e quindi creare ed eseguire l'applicazione del dispositivo.
+Aggiungere il codice per richiamare la funzione **remote\_monitoring\_run** e quindi compilare ed eseguire l'applicazione del dispositivo:
 
-1. Sostituire la funzione **main** con il codice seguente per richiamare la funzione **remote\_monitoring\_run**:
-   
+1. Per richiamare la funzione **remote\_monitoring\_run**, sostituire la funzione **main** con il codice seguente:
+
     ```c
     int main()
     {
@@ -88,10 +117,12 @@ Aggiungere codice per richiamare la funzione **remote\_monitoring\_run** e quind
     }
     ```
 
-1. Fare clic su **Compila** e quindi su **Compila soluzione** per compilare l'applicazione del dispositivo.
+1. Scegliere **Compila** e quindi **Compila soluzione** per compilare l'applicazione del dispositivo. Ignorare l'avviso relativo alla funzione **gmtime**.
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **RMDevice**, scegliere **Debug** e quindi fare clic su **Avvia nuova istanza** per eseguire l'esempio. Nella console vengono visualizzati i messaggi mano a mano che l'applicazione invia i dati di telemetria di esempio alla soluzione preconfigurata, riceve i valori delle proprietà desiderate impostate nel dashboard della soluzione e risponde ai metodi richiamati dal dashboard della soluzione.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **RMDevice**, scegliere **Debug** e quindi fare clic su **Avvia nuova istanza** per eseguire l'esempio. La console visualizza messaggi relativi alle operazioni seguenti:
+
+    * L'applicazione invia dati di telemetria di esempio alla soluzione preconfigurata.
+    * Riceve i valori di proprietà desiderati impostati nel dashboard della soluzione.
+    * Risponde ai metodi richiamati dal dashboard della soluzione.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-
-[lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx

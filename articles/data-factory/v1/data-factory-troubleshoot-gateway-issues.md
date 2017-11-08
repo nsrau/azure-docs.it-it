@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d8ad132ec47a81971a3405970eeddab3b1598ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eee8ee3af5918ddbe7393ff2574833f798ffcb19
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
 Questo articolo offre informazioni sulla risoluzione dei problemi nell'uso del gateway di gestione dati.
 
 > [!NOTE]
-> Vedere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per informazioni dettagliate sul gateway. Vedere l'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) per una procedura dettagliata sull'uso del gateway per spostare i dati da un database di SQL Server locale all'Archiviazione BLOB di Azure.
->
->
+> Questo articolo si applica alla versione 1 di Azure Data Factory, disponibile a livello generale. Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni sul [Runtime di integrazione self-hosted in Data Factory versione 2](../create-self-hosted-integration-runtime.md).
+
+Vedere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per informazioni dettagliate sul gateway. Vedere l'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) per una procedura dettagliata sull'uso del gateway per spostare i dati da un database di SQL Server locale all'Archiviazione BLOB di Azure.
 
 ## <a name="failed-to-install-or-register-gateway"></a>Impossibile installare o registrare il gateway
 ### <a name="1-problem"></a>1. Problema
