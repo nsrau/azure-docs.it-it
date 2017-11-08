@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: f30462c62c0aad73e7a1797a8a6dcd0a2f705666
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorare visivamente le data factory di Azure
 Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI).
 In questa Guida introduttiva si apprenderà come monitorare visivamente le pipeline di data factory versione 2 senza scrivere alcuna riga di codice.
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale (GA), vedere [Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell](v1/data-factory-monitor-manage-app.md).
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Monitorare le pipeline di data factory versione 2
 

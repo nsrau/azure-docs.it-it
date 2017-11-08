@@ -1,6 +1,6 @@
 ---
-title: Codice Python di esempio per la derivazione di nuove colonne nella preparazione dei dati di Azure Machine Learning | Microsoft Docs
-description: Questo documento fornisce esempi di codice Python per la creazione di nuove colonne nella preparazione dei dati di Azure ML
+title: Codice Python di esempio per la derivazione di nuove colonne nella preparazione dati di Azure Machine Learning | Microsoft Docs
+description: Questo documento fornisce esempi di codice Python per la creazione di nuove colonne nella preparazione dati di Azure Machine Learning.
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -12,19 +12,19 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 9a6e331e622b007232a62b34c2220d60d1d050ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 143031ce804f4a8dcd4e328c413478f5ea669090
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>Esempio di trasformazioni di colonna personalizzate (Python) 
-Il nome di questa trasformazione nel menu è "Aggiungi colonna (Script)"
+Il nome di questa trasformazione nel menu è **Add Column (Script)** (Aggiungi colonna - Script).
 
-Prima di leggere questa appendice, leggere la [panoramica dell'estendibilità di Python](data-prep-python-extensibility-overview.md)
+Prima di leggere questa appendice, leggere la [panoramica dell'estendibilità di Python](data-prep-python-extensibility-overview.md).
 
 ## <a name="test-equivalence-and-replace-values"></a>Testare l'equivalenza e sostituire i valori 
-Se il valore in Col1 è minore di 4, la nuova colonna deve contenere il valore 1 altrimenti impostare il valore 2 
+Se il valore in Col1 è minore di 4, la nuova colonna deve contenere il valore 1. Se il valore in Col1 è maggiore di 4, la nuova colonna contiene il valore 2. 
 
 ```python
     1 if row["Col1"] < 4 else 2
@@ -39,7 +39,7 @@ Se il valore in Col1 è minore di 4, la nuova colonna deve contenere il valore 1
     float(row["Col1"]) / float(row["Col2"] - 1)
 ```
 ## <a name="evaluate-for-nullness"></a>Valutare la presenza di null 
-Se Col1 contiene un valore null, contrassegnare la nuova colonna come non valida altrimenti contrassegnarla come valida 
+Se Col1 contiene un valore Null, contrassegnare la nuova colonna come **non valida**. In caso contrario, contrassegnarla come **valida**. 
 
 ```python
     'Bad' if pd.isnull(row["Col1"]) else 'Good'
@@ -49,7 +49,7 @@ Se Col1 contiene un valore null, contrassegnare la nuova colonna come non valida
     np.log(row["Col1"])
 ```
 ## <a name="epoch-computation"></a>Calcolo di periodo 
-Numero di secondi trascorsi dal periodo Unix (presupponendo che Col1 sia già una data) 
+Numero di secondi trascorsi dal periodo Unix (presupponendo che Col1 sia già una data): 
 ```python
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```

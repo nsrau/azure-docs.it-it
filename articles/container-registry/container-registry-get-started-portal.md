@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 10/31/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Creare un registro contenitori con il portale di Azure
 
@@ -65,11 +65,11 @@ Questi valori vengono usati nei passaggi seguenti quando si usa il registro con 
 
 Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro contenitori di Azure. A tale scopo usare il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Sostituire i valori di *username*, *password* e del *login server* con quelli annotati nel passaggio precedente.
 
-```
+```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-Al termine, il comando restituisce un messaggio di Accesso riuscito.
+Il comando restituisce `Login Succeeded` al termine dell'esecuzione. È possibile visualizzare un avviso di sicurezza in cui si consiglia l'uso del parametro `--password-stdin`. Sebbene il suo utilizzo non rientri nell'ambito di questo articolo, si raccomanda di seguire questa procedura consigliata. Vedere la Guida comandi [docker login](https://docs.docker.com/engine/reference/commandline/login/) (accesso a Docker) per altre informazioni.
 
 ## <a name="push-image-to-acr"></a>Eseguire il push di un'immagine nel record di controllo di accesso
 

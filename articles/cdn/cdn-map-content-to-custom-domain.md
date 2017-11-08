@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 8c5dd3ddd03b3531e4ffb7b622110a2ea997f9ae
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Aggiungere un dominio personalizzato all'endpoint della rete CDN
-Dopo aver creato un profilo, in genere vengono creati anche uno o più endpoint della rete CDN, ovvero un sottodominio di azureedge.net, per distribuire il contenuto mediante HTTP e HTTPS. Per impostazione predefinita, questo endpoint è incluso in tutti gli URL, ad esempio `http(s)://contoso.azureedge.net/photo.png`. Per comodità, la rete CDN di Azure offre la possibilità di associare un dominio personalizzato, ad esempio `www.contoso.com`, all'endpoint. Con questa opzione, anziché l'endpoint si usa un dominio personalizzato per distribuire il contenuto. Questa opzione è utile se, ad esempio, si desidera che il nome di dominio sia visibile ai clienti per scopi di personalizzazione.
+Dopo aver creato un profilo, in genere vengono creati anche uno o più [endpoint](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) della rete CDN, ovvero un sottodominio di `azureedge.net`, per distribuire il contenuto mediante HTTP e HTTPS. Per impostazione predefinita, questo endpoint è incluso in tutti gli URL, ad esempio `https://contoso.azureedge.net/photo.png`. Per comodità, la rete CDN di Azure offre la possibilità di associare un dominio personalizzato, ad esempio `www.contoso.com`, all'endpoint. Con questa opzione, anziché l'endpoint si usa un dominio personalizzato per distribuire il contenuto. Questa opzione è utile se, ad esempio, si desidera che il nome di dominio sia visibile ai clienti per scopi di personalizzazione.
 
 Se non si dispone già di un dominio personalizzato, è prima necessario acquistarne uno con un provider di dominio. Dopo aver acquistato un dominio personalizzato, eseguire la procedura seguente:
 1. [Accedere ai record DNS del provider di dominio](#step-1-access-dns-records-by-using-your-domain-provider)

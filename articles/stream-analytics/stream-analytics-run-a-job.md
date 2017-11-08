@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: bd252d7df2fc15aaa24d1a1ed7aaf6e00d301410
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb084f1c6b53e2582849e71271e8114a22dcf05c
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="how-to-run-a-streaming-job-in-azure-stream-analytics"></a>Come eseguire un processo di streaming in Analisi di flusso di Azure
 Dopo che sono stati specificati un processo di input, una query e un output, è possibile avviare il processo dell’analisi di flusso.
@@ -34,7 +34,9 @@ Per avviare il processo:
    
    ![Portale di Azure, Pulsante Avvia processo](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)  
 2. Specificare un valore per **Avvia output** per determinare quando questo processo inizierà a produrre output. L'impostazione predefinita per i processi che non sono stati precedentemente avviati è **Ora di inizio processo**, il che significa che il processo avvia immediatamente l'elaborazione dati. È inoltre possibile specificare un tempo **personalizzato** passato (per l'utilizzo di dati cronologici) o futuro (per posticipare l'elaborazione a un secondo momento). Nei casi in cui un processo è stato precedentemente avviato e arrestato, l'opzione **Ultimo arresto** è disponibile per consentire di riprendere il processo dall'ultima data di output ed evitare la perdita di dati.  
-Nota: quando si usano le partizioni, l'ora dell'ultimo arresto rappresenta l'ora minima dell'ultimo output tra tutte le partizioni.
+
+> [!NOTE]
+> Quando si usano le partizioni, l'ora dell'ultimo arresto rappresenta l'ora minima dell'ultimo output tra tutte le partizioni.
    
    ![Ora di avvio del processo di streaming](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)  
    

@@ -1,5 +1,5 @@
 ---
-title: Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux | Documentazione Microsoft
+title: Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux | Microsoft Docs
 description: Questo articolo offre una panoramica di Crittografia dischi di Microsoft Azure per le VM IaaS Windows e Linux.
 services: security
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: eb1f3f01f896cc03fde13f11457be4740fa2720a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: b35595d3dd91932888a26edc92dae81dd71682d8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux
 Microsoft Azure è caratterizzato dal massimo impegno volto ad assicurare la privacy e la sovranità dei dati e a consentire il controllo dei dati ospitati in Azure con una gamma di tecnologie avanzate per crittografare, controllare e gestire le chiavi di crittografia e controllare e verificare l'accesso ai dati. I clienti di Azure hanno quindi la possibilità di scegliere la soluzione che meglio soddisfa le proprie esigenze aziendali. In questo documento viene introdotta una nuova soluzione tecnologica, "Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux", che facilita la protezione e la salvaguardia dei dati per rispettare gli impegni in termini di sicurezza e conformità dell'organizzazione. Il documento include informazioni dettagliate sull'uso delle funzionalità di crittografia del disco di Azure, compresi gli scenari supportati e le esperienze utente.
@@ -247,8 +247,8 @@ Usare il cmdlet di PowerShell seguenti per creare un'applicazione Azure AD:
 > [!NOTE]
 > $azureAdApplication.ApplicationId è l'ID client di Azure AD e $aadClientSecret è il segreto client da usare in seguito per abilitare Crittografia dischi di Azure. Proteggere correttamente il segreto client di Azure AD.
 
-##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-classic-portal"></a>Configurazione dell'ID client e del segreto client di Azure AD dal portale di Azure classico
-È anche possibile configurare l'ID e il segreto del client di Azure AD usando il [portale di Azure classico]( https://manage.windowsazure.com). Per eseguire questa operazione, seguire questa procedura:
+##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Configurazione dell'ID client e del segreto client di Azure AD dal portale di Azure
+È anche possibile configurare l'ID e il segreto del client di Azure AD usando il portale di Azure. Per eseguire questa operazione, seguire questa procedura:
 
 1. Fare clic sulla scheda **Active Directory**.
 
@@ -270,8 +270,6 @@ Usare il cmdlet di PowerShell seguenti per creare un'applicazione Azure AD:
 
  ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
 
- > [!NOTE]
- > Il flusso precedente non è supportato nel portale di Azure classico.
 
 ##### <a name="use-an-existing-application"></a>Usare un'applicazione esistente
 Per eseguire i comandi seguenti, ottenere e usare il [modulo Azure AD PowerShell](https://technet.microsoft.com/library/jj151815.aspx).
@@ -634,12 +632,12 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>Ottenere lo stato della crittografia di una VM IaaS crittografata
-È possibile ottenere lo stato della crittografia usando Azure Resource Manager, i [cmdlet di PowerShell](/powershell/azure/overview) o i comandi dell'interfaccia della riga di comando. Le sezioni seguenti illustrano come usare il portale di Azure classico e i comandi dell'interfaccia della riga di comando per ottenere lo stato della crittografia.
+È possibile ottenere lo stato della crittografia usando Azure Resource Manager, i [cmdlet di PowerShell](/powershell/azure/overview) o i comandi dell'interfaccia della riga di comando. Le sezioni seguenti illustrano come usare il portale di Azure e i comandi dell'interfaccia della riga di comando per ottenere lo stato della crittografia.
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>Ottenere lo stato della crittografia di una VM Windows crittografata usando Azure Resource Manager
 È possibile ottenere lo stato di crittografia della macchina virtuale IaaS da Azure Resource Manager seguendo questa procedura:
 
-1. Accedere al [portale di Azure classico](https://portal.azure.com/), quindi fare clic su **Macchine virtuali** nel riquadro a sinistra per visualizzare un riepilogo delle macchine virtuali nella sottoscrizione. È possibile filtrare la visualizzazione Macchine virtuali selezionando il nome della sottoscrizione dall'elenco a discesa **Sottoscrizione**.
+1. Accedere al [portale di Azure](https://portal.azure.com/), quindi fare clic su **Macchine virtuali** nel riquadro a sinistra per visualizzare un riepilogo delle macchine virtuali nella sottoscrizione. È possibile filtrare la visualizzazione Macchine virtuali selezionando il nome della sottoscrizione dall'elenco a discesa **Sottoscrizione**.
 
 2. Nella pagina superiore della pagina **Macchine virtuali** fare clic su **Colonne**.
 

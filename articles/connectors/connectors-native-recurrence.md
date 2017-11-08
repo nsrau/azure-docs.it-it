@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: dd1e22cd538d9113062b77ea2d7ecc18d63fe528
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Pianificare attività e flussi di lavoro regolarmente in esecuzione con le app per la logica
 
@@ -162,7 +162,7 @@ Di seguito è riportato un esempio di definizione di trigger di ricorrenza:
 | Eseguire alle 8:30 ogni giorno (senza data e ora di inizio) | 1 | Giorno | {none} | {non disponibile} | 8 | 30 | Questa pianificazione viene eseguita alle 8:30 di ogni giorno, in base alla pianificazione specificata. | 
 | Eseguire alle 8:30 ogni giorno (con data e ora di inizio) | 1 | Giorno | *DataInizio*T08:30:00Z | {non disponibile} | {nessuna} | {nessuna} | Questa pianificazione inizia alla data di inizio specificata alle 8:30. | 
 | Eseguire alle 8:30 e alle 16:30 ogni giorno | 1 | Giorno | {none} | {non disponibile} | 8, 16 | 30 | | 
-| Eseguire alle 8:30 e alle 16:45 ogni giorno | 1 | Giorno | {none} | {non disponibile} | 8, 16 | 30, 45 | | 
+| Eseguire alle 8:30, alle 8:45 e alle 16:30 e alle 16:45 ogni giorno | 1 | Giorno | {none} | {non disponibile} | 8, 16 | 30, 45 | | 
 | Eseguire ogni sabato alle 17:00 (senza data e ora di inizio) | 1 | Settimana | {none} | "Sabato" | 17 | 00 | Questa pianificazione viene eseguita ogni sabato alle 17:00. | 
 | Eseguire ogni sabato alle 17:00 (con data e ora di inizio) | 1 | Settimana | *DataInizio*T17:00:00Z | "Sabato" | {nessuna} | {nessuna} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, in questo caso il 9 settembre 2017 alle 17:00. Le ricorrenze future verranno eseguite ogni sabato alle 17:00. | 
 | Eseguire ogni martedì e giovedì alle 17:00 | 1 | Settimana | {none} | "Martedì", "Giovedì" | 17 | {none} | Questa pianificazione verrà eseguita ogni martedì e giovedì alle 17:00. | 

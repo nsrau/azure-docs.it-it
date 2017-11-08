@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d3c8c79170e2f369a89c4ab0588e057d0228b573
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93e6c87a9d445ca448509a256247fb5e4749ec1c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Informazioni sulle connessioni in uscita in Azure
 
@@ -42,7 +42,7 @@ In questo scenario la macchina virtuale non fa parte di un pool di Azure Load Ba
 
 Le porte SNAT sono una risorsa limitata che può esaurirsi. L'importante è capire come vengono usate. Viene usata una porta SNAT per flusso verso un singolo indirizzo IP di destinazione. In caso di più flussi verso lo stesso indirizzo IP di destinazione, viene usata una singola porta SNAT per ogni flusso. Si garantisce così che i flussi siano univoci quando hanno origine dallo stesso indirizzo IP pubblico e quando sono destinati allo stesso indirizzo IP. Più flussi destinati ognuno a un indirizzo IP di destinazione diverso condividono una singola porta SNAT. L'indirizzo IP di destinazione crea i flussi univoci.
 
-Vedere [Log Analytics per Load Balancer](load-balancer-monitor-log.md) e [Log eventi di avviso](load-balancer-monitor-log.md#alert-event-log) per monitorare i messaggi di esaurimento delle porte SNAT. Quando si esauriscono le risorse di porte SNAT, i flussi in uscita vengono completati dopo che le porte SNAT sono state rilasciate da flussi esistenti. Il timeout di inattività di Load Balancer è di 4 minuti per il recupero di porte SNAT.
+Vedere [Log Analytics per Load Balancer](load-balancer-monitor-log.md) e [Log eventi di avviso](load-balancer-monitor-log.md#alert-event-log) per monitorare l'integrità delle connessioni in uscita. Quando si esauriscono le risorse di porte SNAT, i flussi in uscita vengono completati dopo che le porte SNAT sono state rilasciate da flussi esistenti. Il timeout di inattività di Load Balancer è di 4 minuti per il recupero di porte SNAT.  Consultare la sezione seguente [Macchina virtuale con indirizzo IP pubblico a livello di istanza (con o senza Load Balancer)](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer) e [Gestione dell'esaurimento SNAT](#snatexhaust).
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Macchina virtuale con carico bilanciato senza indirizzo IP pubblico a livello di istanza
 
@@ -52,11 +52,11 @@ Quando la macchina virtuale con carico bilanciato crea un flusso in uscita, Azur
 
 Le porte SNAT sono una risorsa limitata che può esaurirsi. L'importante è capire come vengono usate. Viene usata una porta SNAT per flusso verso un singolo indirizzo IP di destinazione. In caso di più flussi verso lo stesso indirizzo IP di destinazione, viene usata una singola porta SNAT per ogni flusso. Si garantisce così che i flussi siano univoci quando hanno origine dallo stesso indirizzo IP pubblico e quando sono destinati allo stesso indirizzo IP. Più flussi destinati ognuno a un indirizzo IP di destinazione diverso condividono una singola porta SNAT. L'indirizzo IP di destinazione crea i flussi univoci.
 
-Vedere [Log Analytics per Load Balancer](load-balancer-monitor-log.md) e [Log eventi di avviso](load-balancer-monitor-log.md#alert-event-log) per monitorare i messaggi di esaurimento delle porte SNAT. Quando si esauriscono le risorse di porte SNAT, i flussi in uscita vengono completati dopo che le porte SNAT sono state rilasciate da flussi esistenti. Il timeout di inattività di Load Balancer è di 4 minuti per il recupero di porte SNAT.
+Vedere [Log Analytics per Load Balancer](load-balancer-monitor-log.md) e [Log eventi di avviso](load-balancer-monitor-log.md#alert-event-log) per monitorare l'integrità delle connessioni in uscita. Quando si esauriscono le risorse di porte SNAT, i flussi in uscita vengono completati dopo che le porte SNAT sono state rilasciate da flussi esistenti. Il timeout di inattività di Load Balancer è di 4 minuti per il recupero di porte SNAT.  Consultare la sezione seguente e [Gestione dell'esaurimento SNAT](#snatexhaust).
 
 ## <a name="vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer"></a>Macchina virtuale con indirizzo IP pubblico a livello di istanza (con o senza bilanciamento del carico)
 
-In questo scenario la macchina virtuale ha assegnato un IP pubblico a livello di istanza. Non è importante se la macchina virtuale abbia un carico bilanciato o meno. Quando si usa un IP pubblico a livello di istanza, non si applica SNAT. La macchina virtuale usa un indirizzo IP pubblico a livello di istanza per tutti i flussi in uscita. Se l'applicazione avvia numerosi flussi in uscita e si assiste a un esaurimento SNAT, è necessario considerare l'assegnazione di un indirizzo IP pubblico a livello di istanza per evitare vincoli SNAT.
+In questo scenario la macchina virtuale ha assegnato un IP pubblico a livello di istanza. Non è importante se la macchina virtuale abbia un carico bilanciato o meno. Quando si usa un IP pubblico a livello di istanza, non si applica SNAT. La macchina virtuale usa un indirizzo IP pubblico a livello di istanza per tutti i flussi in uscita. Se l'applicazione avvia numerosi flussi in uscita e si assiste a un esaurimento SNAT, è necessario considerare l'assegnazione di un indirizzo IP pubblico a livello di istanza per ridurre i vincoli SNAT.
 
 ## <a name="discovering-the-public-ip-used-by-a-given-vm"></a>Individuazione dell'indirizzo IP pubblico usato da una macchina virtuale specifica
 
@@ -66,14 +66,31 @@ Esistono molti modi per determinare l'indirizzo IP di origine pubblica di una co
 
 ## <a name="preventing-public-connectivity"></a>Prevenzione della connettività pubblica
 
-A volte può succedere di non voler consentire a una macchina virtuale di creare un flusso in uscita o può essere necessario gestire le destinazioni che possono essere raggiunte da flussi in uscita. In questo caso usare i [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per gestire le destinazioni che la macchina virtuale può raggiungere. Quando si applica un gruppo di sicurezza di rete a una macchina virtuale con carico bilanciato, è necessario considerare i [tag predefiniti](../virtual-network/virtual-networks-nsg.md#default-tags) e le [regole predefinite](../virtual-network/virtual-networks-nsg.md#default-rules).
+A volte può succedere di non voler consentire a una macchina virtuale di creare un flusso in uscita o può essere necessario gestire le destinazioni che possono essere raggiunte da flussi in uscita oppure le destinazioni possono iniziare flussi in entrata. In questo caso usare i [gruppi di sicurezza di rete (NSG)](../virtual-network/virtual-networks-nsg.md) per gestire le destinazioni che la macchina virtuale può raggiungere e la destinazione pubblica che può avviare i flussi in entrata. Quando si applica un gruppo di sicurezza di rete a una macchina virtuale con carico bilanciato, è necessario considerare i [tag predefiniti](../virtual-network/virtual-networks-nsg.md#default-tags) e le [regole predefinite](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 È necessario assicurarsi che la macchina virtuale riceva richieste di probe di integrità da Azure Load Balancer. Se un gruppo di sicurezza di rete blocca le richieste di probe di integrità dal tag AZURE_LOADBALANCER predefinito, il probe di integrità della macchina virtuale avrà esito negativo e la macchina virtuale sarà contrassegnata come non attiva. Load Balancer interrompe l'invio di nuovi flussi a tale macchina virtuale.
+
+## <a name="snatexhaust"></a>Gestione dell'esaurimento SNAT
+
+Le porte temporanee usate per SNAT sono una risorsa esauribile, come descritto in [Macchina virtuale autonoma senza indirizzo IP pubblico a livello di istanza](#standalone-vm-with-no-instance-level-public-ip-address) e [Macchina virtuale con carico bilanciato senza indirizzo IP pubblico a livello di istanza](#standalone-vm-with-no-instance-level-public-ip-address).  
+
+Sono disponibili diverse opzioni di mitigazione dei rischi, se si è consapevoli che verranno avviate numerose connessioni in uscita alla stessa destinazione, se si riscontrano connessioni in uscita con errore o se il supporto tecnico ha comunicato il possibile esaurimento di porte SNAT.  Esaminare queste opzioni e scegliere quella ottimale per lo scenario in uso.  È possibile che una o più opzioni risultino utili per gestire questo scenario.
+
+### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Assegnare un indirizzo IP pubblico a livello di istanza a ogni macchina virtuale
+In questo modo lo scenario cambia in [Indirizzo IP pubblico a livello di istanza a una macchina virtuale](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Tutte le porte temporanee dell'indirizzo IP pubblico usato per ogni macchina virtuale sono disponibili per la macchina virtuale, a differenza degli scenari in cui le porte temporanee di un indirizzo IP pubblico vengono condivise con tutte le macchine virtuali associate al pool back-end corrispondente.
+
+### <a name="modify-application-to-use-connection-pooling"></a>Modificare l'applicazione in modo da usare il pool di connessioni
+È possibile ridurre la richiesta di porte temporanee usate per SNAT usando il pool di connessioni nell'applicazione.  I flussi aggiuntivi alla stessa destinazione useranno le porte aggiuntive.  Se si riusa lo stesso flusso per più richieste, le richieste useranno una singola porta.
+
+### <a name="modify-application-to-use-less-aggressive-retry-logic"></a>Modificare l'applicazione in modo da usare una logica di ripetizione meno aggressiva
+È possibile ridurre la richiesta di porte temporanee usando una logica di ripetizione meno aggressiva.  Quando vengono esaurite le porte temporanee per SNAT, i tentativi di ripetizione aggressivi o di forza bruta senza logica di backoff e decadenza causano la persistenza dell'esaurimento.  Le porte temporanee hanno un timeout di inattività 4 minuti (non modificabile) e se i tentativi di ripetizione sono troppo aggressivi, l'esaurimento delle porte non viene eliminato autonomamente.
 
 ## <a name="limitations"></a>Limitazioni
 
 Se [a un servizio di bilanciamento del carico sono associati più indirizzi IP (pubblici)](load-balancer-multivip-overview.md), uno qualsiasi di questi IP indirizzi pubblici è idoneo per i flussi in uscita.
 
 Azure usa un algoritmo per determinare il numero di porte SNAT disponibili in base alla dimensione del pool.  Al momento questo parametro non è configurabile.
+
+Il timeout di inattività delle connessioni in uscita è di 4 minuti.  Questo valore non è modificabile.
 
 È importante ricordare che il numero di porte SNAT disponibili non vengono traslate direttamente sul numero di connessioni. Vedere le informazioni precedenti per dettagli su come e quando vengono allocate le porte SNAT e su come gestire questa risorsa esauribile.

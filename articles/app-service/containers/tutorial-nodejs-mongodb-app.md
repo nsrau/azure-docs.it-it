@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a92b2875df3ceaeb4de21f24aa484196a82d825d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a9b321fcf8a8d1234989a9433da227142d954cb4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web Node.js e MongoDB nel Servizio app di Azure in Linux
 
@@ -207,7 +207,7 @@ In una finestra del terminale locale eseguire il comando seguente per minimizzar
 gulp prod
 ```
 
-In una finestra del terminale locale eseguire il comando seguente per usare la stringa di connessione configurata in _config/env/production.js_. Ignorare l'errore relativo al certificato e l'avviso relativo a config.domain.
+In una finestra del terminale locale eseguire il comando seguente per usare la stringa di connessione configurata in _config/env/local-production.js_. Ignorare l'errore relativo al certificato e l'avviso relativo a config.domain.
 
 ```bash
 NODE_ENV=production node server.js
@@ -246,11 +246,11 @@ In questo passaggio si distribuisce l'applicazione Node.js connessa a MongoDB ne
 
 ### <a name="create-a-linux-based-web-app"></a>Creare un'app web basata su linux
 
-[!INCLUDE [Create a linux based web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Configurare una variabile di ambiente
 
-Poiché _config/env/local-production.js_ non è nel repository Git, per l'app Web di Azure si usano le impostazioni dell'app per definire la stringa di connessione di MongoDB.
+Per impostazione predefinita, il progetto MEAN.js mantiene _config/env/local-production.js_ fuori dal repository Git. per l'app Web di Azure si usano le impostazioni dell'app per definire la stringa di connessione di MongoDB.
 
 Per configurare le impostazioni dell'app, usare il comando [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) in Cloud Shell.
 
@@ -262,7 +262,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Nel codice Node.js si accede all'impostazione dell'app con `process.env.MONGODB_URI`, esattamente come si accede a una variabile di ambiente qualsiasi. 
 
-Nel repository MEAN.js locale aprire di nuovo _config/env/production.js_, che include la configurazione specifica dell'ambiente di produzione. Si noti che l'app MEAN.js predefinita è già configurata per l'uso della variabile di ambiente `MONGODB_URI` creata.
+Nel repository MEAN.js locale aprire _config/env/production.js_ (non _config/env/local-production.js_), che ha una configurazione specifica dell'ambiente di produzione. Si noti che l'app MEAN.js predefinita è già configurata per l'uso della variabile di ambiente `MONGODB_URI` creata.
 
 ```javascript
 db: {

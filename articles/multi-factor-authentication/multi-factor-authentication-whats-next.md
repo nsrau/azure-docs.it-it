@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 65a149b0d291bc650e0937c7ef3f90600f54c669
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configurare le impostazioni di Azure Multi-Factor Authentication: anteprima pubblica
 
@@ -160,7 +160,10 @@ Sia che la funzionalità Indirizzi IP attendibili sia abilitata o meno, è neces
 5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio**.
 6. Nella pagina Impostazioni servizio in Indirizzi IP attendibili sono disponibili due opzioni:
    
-   * Casella di controllo **For requests from federated users originating from my intranet** (Per le richieste provenienti da utenti federati nella Intranet). Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale possono ignorare la verifica in due passaggi usando un'attestazione rilasciata da AD FS.
+   * Casella di controllo **For requests from federated users originating from my intranet** (Per le richieste provenienti da utenti federati nella Intranet). Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale possono ignorare la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. È necessario creare la seguente regola in AD FS, se non esiste: "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+
+
+
    * **For requests from a specific range of public IPs** (Per le richieste da un intervallo specifico di IP pubblici): immettere gli indirizzi IP nella casella disponibile usando la notazione CIDR. Ad esempio: xxx.xxx.xxx.0/24 per gli indirizzi IP nell'intervallo xxx.xxx.xxx.1 – xxx.xxx.xxx.254 oppure xxx.xxx.xxx.xxx/32 per un singolo indirizzo IP. È possibile immettere fino a 50 intervalli di indirizzi IP. Gli utenti che accedono da tali indirizzi IP possono ignorare la verifica in due passaggi.
 7. Fare clic su **Save**.
 8. Dopo aver applicato gli aggiornamenti, fare clic su **Chiudi**.

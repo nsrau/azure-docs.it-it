@@ -13,11 +13,11 @@ caps.latest.revision: "60"
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: b18b6f02f14db352289e3ab7e8b07a220868ce76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2873f61dcab9a14089949f27f40ca5bedaf14ee
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schema WebRole di definizione di Servizi cloud di Azure
 Il ruolo Web di Azure è un ruolo che viene personalizzato per la programmazione di applicazioni Web supportata da IIS 7, ad esempio ASP.NET, PHP, Windows Communication Foundation e FastCGI.
@@ -297,7 +297,7 @@ La tabella seguente descrive gli attributi dell'elemento `Certificate`.
 |permissionLevel|string|Facoltativo. Specifica le autorizzazioni di accesso concesse ai processi di ruolo. Per consentire solo ai processi con privilegi elevati di accedere alla chiave privata, specificare l'autorizzazione `elevated`. L'autorizzazione `limitedOrElevated` consente a tutti i processi di ruolo di accedere alla chiave privata. I possibili valori sono `limitedOrElevated` o `elevated`. Il valore predefinito è `limitedOrElevated`.|  
 
 ##  <a name="Imports"></a> Imports  
-L'elemento `Imports` descrive una raccolta dei moduli di importazione per un ruolo Web, che aggiungono componenti al sistema operativo guest. Questo è l'elemento padre dell'elemento `Import`. Questo elemento è facoltativo e un ruolo può avere un solo blocco di runtime.
+L'elemento `Imports` descrive una raccolta dei moduli di importazione per un ruolo Web, che aggiungono componenti al sistema operativo guest. Questo è l'elemento padre dell'elemento `Import`. Questo elemento è facoltativo e un ruolo può avere un solo blocco di importazioni. 
 
 L'elemento `Imports` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
 

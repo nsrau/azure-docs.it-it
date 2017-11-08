@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: a32693a274c2615a515838306d72dbe64a5d1763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7288466cf31e180a16db18f8ddfe02ace3588a8d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 
@@ -113,7 +113,7 @@ Non solo gli utenti non devono più gestire diversi set di nomi utente e passwor
 
 Monitoraggio della sicurezza, avvisi e report basati su Machine Learning che identificano i modelli di accesso non coerenti per contribuire alla protezione dell'azienda. È possibile usare i report di utilizzo e accesso di Azure Active Directory per ottenere informazioni sull'integrità e sicurezza della directory dell'organizzazione. Con queste informazioni un amministratore di directory può stabilire meglio dove potrebbero esserci possibili rischi per la sicurezza in modo da poterne pianificare adeguatamente la riduzione.
 
-Nel portale di Azure classico o nel [portale di Azure Active Directory](http://aad.portal.azure.com/), i [report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) sono classificati come descritto di seguito.
+Nel portale di Azure o nel [portale di Azure Active Directory](http://aad.portal.azure.com/), i [report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) sono classificati come descritto di seguito:
 
 - Report anomalie: contengono eventi di accesso considerati anomali. L'obiettivo è rendere gli utenti consapevoli di tali attività e consentire loro di stabilire se un evento è sospetto.
 
@@ -161,7 +161,7 @@ Azure AD Privileged Identity Management consente di effettuare le operazioni seg
 
 ## <a name="secured-resource-access-in-azure"></a>Accesso protetto alle risorse in Azure
 
-La fatturazione costituisce il punto di partenza per il controllo di accesso in Azure. Il proprietario di un account Azure, accessibile tramite il [Centro account di Azure](https://account.windowsazure.com/subscriptions), è l'amministratore account. Le sottoscrizioni sono contenitori per la fatturazione, ma vengono usate anche come limiti per la sicurezza: ogni sottoscrizione ha un Amministratore del servizio (SA) che può aggiungere, rimuovere e modificare le risorse di Azure nella sottoscrizione tramite il [portale di Azure classico](https://manage.windowsazure.com/). L'Amministratore del servizio predefinito di una nuova sottoscrizione è l'Amministratore dell'account, ma quest'ultimo può modificare l'Amministratore del servizio nel Centro account di Azure.
+La fatturazione costituisce il punto di partenza per il controllo di accesso in Azure. Il proprietario di un account Azure, accessibile tramite il [Centro account di Azure](https://account.windowsazure.com/subscriptions), è l'amministratore account. Le sottoscrizioni sono contenitori per la fatturazione, ma vengono usate anche come limiti per la sicurezza: ogni sottoscrizione ha un Amministratore del servizio (SA) che può aggiungere, rimuovere e modificare le risorse di Azure nella sottoscrizione tramite il portale di Azure. L'Amministratore del servizio predefinito di una nuova sottoscrizione è l'Amministratore dell'account, ma quest'ultimo può modificare l'Amministratore del servizio nel Centro account di Azure.
 
 ![Accesso protetto alle risorse in Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 

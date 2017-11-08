@@ -10,17 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 1509a4f05ceb3a54aad790553183616c97b4bee2
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
@@ -204,16 +204,19 @@ Questo esercizio simula l'effetto di un carico elevato per Contoso Concert Hall 
 1. Eseguire lo script con **F5**.
 
 
-1. Nel [portale di Azure](https://portal.azure.com) aprire **Pool1**.
+1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco di database nel server *tenants1*. 
+1. Fare clic sul database **contosoconcerthall**.
+1. Fare clic sul pool in cui si trova **contosoconcerthall**. Individuare il pool nella sezione **Pool di database elastici**.
+
 1. Esaminare il grafico **Monitoraggio pool elastico** e cercare il maggiore utilizzo di eDTU del pool. Dopo un paio di minuti, il carico elevato dovrebbe iniziare a comparire e il pool dovrebbe raggiungere velocemente l'utilizzo al 100%.
-1. Esaminare i dati in **Monitoraggio database elastico** che mostrano i database più attivi nell'ultima ora. Il database *contosoconcerthall* dovrebbe essere presto visualizzato come uno dei cinque database più attivi.
-1. **Fare clic sul** **grafico** Monitoraggio database elastico. Viene aperta la pagina **Utilizzo risorse database** in cui è possibile monitorare i singoli database. Ciò consente di isolare i dati per il database *contosoconcerthall*.
-1. Nell'elenco di database fare clic su **contosoconcerthall**.
-1. Fare clic su **Piano tariffario (piano DTU)** per aprire la pagina **Configura prestazioni** in cui è possibile impostare un livello di prestazioni autonomo per il database.
-1. Fare clic sulla scheda **Standard** per aprire le opzioni di scalabilità nel livello Standard.
-1. Scorrere il **dispositivo di scorrimento DTU** verso destra per selezionare **100 DTU**. Si noti che questa impostazione corrisponde all'obiettivo di servizio, **S3**.
-1. Fare clic su **Applica** per spostare il database fuori dal pool e impostarlo come database *S3 Standard*.
-1. Dopo aver completato il ridimensionamento, monitorare l'effetto sul database contosoconcerthall e su Pool1 nei pannelli del pool elastico e del database.
+2. Esaminare i dati in **Monitoraggio database elastico** che mostrano i database più attivi nell'ultima ora. Il database *contosoconcerthall* dovrebbe essere presto visualizzato come uno dei cinque database più attivi.
+3. **Fare clic sul** **grafico** Monitoraggio database elastico. Viene aperta la pagina **Utilizzo risorse database** in cui è possibile monitorare i singoli database. Ciò consente di isolare i dati per il database *contosoconcerthall*.
+4. Nell'elenco di database fare clic su **contosoconcerthall**.
+5. Fare clic su **Piano tariffario (piano DTU)** per aprire la pagina **Configura prestazioni** in cui è possibile impostare un livello di prestazioni autonomo per il database.
+6. Fare clic sulla scheda **Standard** per aprire le opzioni di scalabilità nel livello Standard.
+7. Scorrere il **dispositivo di scorrimento DTU** verso destra per selezionare **100 DTU**. Si noti che questa impostazione corrisponde all'obiettivo di servizio, **S3**.
+8. Fare clic su **Applica** per spostare il database fuori dal pool e impostarlo come database *S3 Standard*.
+9. Dopo aver completato il ridimensionamento, monitorare l'effetto sul database contosoconcerthall e su Pool1 nei pannelli del pool elastico e del database.
 
 Quando il carico elevato per il database contosoconcerthall diminuisce, è necessario reinserirlo tempestivamente nel pool per ridurre i costi. Se non è chiaro quando ciò accade, è possibile impostare un avviso nel database che verrà attivato quando l'utilizzo di DTU scende sotto il massimo consentito per ogni database nel pool. Lo spostamento di un database in un pool è descritto nell'esercizio 5.
 

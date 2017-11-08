@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 62d78e067e50183f25af84e547db2e11c0014f5d
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: e72fc0d4323f7a2d203fee66311c3fea10ad7a09
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="high-availability-ports-overview-preview"></a>Panoramica delle porte a disponibilità elevata (anteprima)
 
@@ -36,7 +36,7 @@ Le porte a disponibilità elevata vengono configurate impostando le porte front-
 
 ## <a name="why-use-ha-ports"></a>Vantaggi dell'uso delle porte a disponibilità elevata
 
-### <a name="network-virtual-appliances"></a>Appliance virtuali di rete
+### <a name="nva"></a>Appliance virtuali di rete
 
 È possibile usare appliance virtuali di rete per proteggere il carico di lavoro di Azure da diversi tipi di minacce alla sicurezza. Le appliance virtuali di rete usate in questi scenari devono essere affidabili e a disponibilità elevata, ed essere scalabili orizzontalmente in base alle esigenze.
 
@@ -139,6 +139,8 @@ Di seguito sono elencate le configurazioni supportate o le eccezioni per le port
 - Una singola configurazione IP dell'interfaccia di rete può avere una o più regole di bilanciamento del carico DSR con porte a disponibilità elevata, purché tutte le rispettive configurazioni IP front-end siano univoche.
 - Se tutte le regole di bilanciamento del carico sono relative alle porte a disponibilità elevata (solo DSR) o se tutte le regole sono relative alle porte non a disponibilità elevata (DSR e non DSR), due o più regole di bilanciamento del carico che puntano allo stesso pool back-end possono coesistere. Due regole di bilanciamento del carico di questo tipo non possono coesistere se è presente una combinazione di regole per porte a disponibilità elevata e per porte non a disponibilità elevata.
 - Le porte a disponibilità elevata non sono disponibili per IPv6.
+- La simmetria di flusso per gli scenari di appliance virtuali di rete è supportata soltanto con una sola scheda di interfaccia di rete. Vedere la descrizione e il diagramma per [gli appliance virtuali di rete](#nva). 
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

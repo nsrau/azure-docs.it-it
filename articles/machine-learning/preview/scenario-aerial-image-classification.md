@@ -7,20 +7,20 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 09/15/2017
-ms.openlocfilehash: e6b673527d77550d4213e6d742156ccc525f6b44
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.date: 10/27/2017
+ms.openlocfilehash: cfffe5145f8762558e6ee573f6f2bb69d32424ad
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="aerial-image-classification"></a>Classificazione delle immagini aeree
 
-Questo esempio illustra come usare Azure Machine Learning Workbench per coordinare l'addestramento distribuito e l'operazionalizzazione di modelli di classificazione delle immagini. Si usa il pacchetto [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) per definire le caratteristiche delle immagini usando modelli CNTK pre-addestrati e per addestrare i classificatori usando le caratteristiche derivate. Quindi si applicano i modelli addestrati in parallelo ad ampi set di immagini nel cloud. Questi passaggi sono eseguiti in un cluster [Azure HDInsight Spark](https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/) e ciò consente di ridimensionare la velocità di addestramento e operazionalizzazione aggiungendo o rimuovendo nodi di lavoro.
+Questo esempio illustra come usare Azure Machine Learning Workbench per coordinare l'addestramento distribuito e l'operazionalizzazione di modelli di classificazione delle immagini. Si usano due approcci per il training: (i) definizione di una DNN (Deep Neural Network, rete neurale avanzata) usando un cluster GPU di [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) e (ii) utilizzo del pacchetto [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) per definire le caratteristiche delle immagini usando modelli CNTK di cui è stato eseguito il training preliminare e per eseguire il training di classificatori usando le caratteristiche derivate. Si applicano quindi in parallelo i modelli sottoposti a training a set di immagini di grandi dimensioni nel cloud usando un cluster [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/), che consente di ridimensionare la velocità di training e l'operazionalizzazione mediante l'aggiunta o la rimozione di nodi di lavoro.
 
-La forma di transfer learning descritta presenta vantaggi importanti rispetto alla ripetizione dell'addestramento o all'ottimizzazione di una rete neurale profonda: non richiede il calcolo GPU, è intrinsecamente veloce e scalabile in modo arbitrario e inoltre richiede meno parametri. Questo metodo è pertanto un'ottima scelta quando sono disponibili pochi campioni di addestramento, come accade spesso i per casi d'uso personalizzati. Molti utenti riferiscono che il transfer learning genera modelli ad alte prestazioni, consentendo di evitare le reti neurali profonde addestrate da zero con un costo maggiore.
+Questo esempio illustra due approcci per il trasferimento dell'apprendimento, che sfruttano i modelli sottoposti a training preliminare per evitare i costi relativi al training delle DNN da zero. La riesecuzione del training di una DNN richiede in genere il calcolo GPU, ma si può ottenere una maggiore accuratezza se il set di training è sufficientemente grande. Il training di un classificatore semplice su immagini con caratteristiche definite non richiede il calcolo GPU, è intrinsecamente veloce e scalabile in modo arbitrario e si adatta a un numero minore di parametri. Questo metodo è pertanto un'ottima scelta quando sono disponibili pochi campioni di addestramento, come accade spesso i per casi d'uso personalizzati. 
 
-Il cluster Spark utilizzato in questo esempio ha 40 nodi di lavoro e costa circa $ 40 per ora di funzionamento. Per completare questa procedura dettagliata sono necessarie circa due ore. Al termine, seguire le istruzioni di pulizia per rimuovere le risorse che sono state create e interrompere gli addebiti.
+Il cluster Spark usato in questo esempio ha 40 nodi di lavoro e il costo del relativo funzionamento è di circa $ 40/ora. Le risorse del cluster Batch AI includono otto GPU e il costo del relativo funzionamento è di circa $ 10/ora. Per completare questa procedura dettagliata sono necessarie circa tre ore. Al termine, seguire le istruzioni di pulizia per rimuovere le risorse che sono state create e interrompere gli addebiti.
 
 ## <a name="link-to-the-gallery-github-repository"></a>Collegamento al repository GitHub della raccolta
 
@@ -30,9 +30,9 @@ Il repository GitHub pubblico per questo scenario reale contiene tutti i materia
 
 ## <a name="use-case-description"></a>Descrizione del caso d'uso
 
-In questo scenario si addestrano modelli di machine learning per classificare il tipo di terreno mostrato nelle immagini aeree di tracciati di 224 x 224 metri. I modelli di classificazione dell'uso dei terreni possono essere usati per tenere traccia dell'urbanizzazione, la deforestazione, la perdita di paludi e altre tendenze ambientali principali usando immagini aeree raccolte periodicamente. Sono stati preparati set di immagini di addestramento e convalida riguardanti gli Stati Uniti. National Agriculture Imagery Program ed etichette dell'uso dei terreni pubblicate dagli Stati Uniti. Database National Land Cover. Le immagini di esempio in ogni classe di uso dei terreni sono illustrate di seguito:
+In questo scenario si addestrano modelli di machine learning per classificare il tipo di terreno mostrato nelle immagini aeree di tracciati di 224 x 224 metri. I modelli di classificazione degli utilizzi del suolo possono essere usati per tenere traccia dell'urbanizzazione, la deforestazione, la perdita di paludi e altre tendenze ambientali principali usando immagini aeree raccolte periodicamente. Sono stati preparati set di immagini di addestramento e convalida riguardanti gli Stati Uniti. Programma Nazionale delle Immagini Agricole ed etichette degli utilizzi del suolo pubblicate dagli Stati Uniti. Database nazionale della copertura del suolo. Le immagini di esempio in ogni classe di utilizzo del suolo sono illustrate di seguito:
 
-![Aree di esempio per ogni etichetta di uso dei terreni](media/scenario-aerial-image-classification/example-labels.PNG)
+![Aree di esempio per ogni etichetta di utilizzo del suolo](media/scenario-aerial-image-classification/example-labels.PNG)
 
 Dopo l'addestramento e la convalida del modello di classificazione, lo si applicherà alle immagini aeree che riguardano la Contea di Middlesex, MA, sede del New England Research & Development (NERD) Center di Microsoft, per illustrare come questi modelli possono essere usati per analizzare le tendenze dello sviluppo urbano.
 
@@ -44,7 +44,7 @@ In questo esempio i dati di immagine e i modelli pre-addestrati sono collocati i
 
 ![Schema per lo scenario reale di classificazione delle immagini aeree](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-Le istruzioni passo per passo illustrano la creazione e la preparazione di un account di archiviazione di Azure e di un cluster Spark, con informazioni anche sul trasferimento dei dati e sull'installazione delle dipendenze. Quindi descrivono come avviare i processi di addestramento e confrontare le prestazioni dei modelli risultanti. Infine illustrano come applicare un modello scelto a un set di immagini di grandi dimensioni nel cluster Spark e analizzare i risultati predittivi in locale.
+Le [istruzioni passo per passo](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) iniziano con la creazione e la preparazione di un account di archiviazione di Azure e di un cluster Spark, incluso il trasferimento dei dati e l'installazione della dipendenza. Quindi descrivono come avviare i processi di addestramento e confrontare le prestazioni dei modelli risultanti. Infine illustrano come applicare un modello scelto a un set di immagini di grandi dimensioni nel cluster Spark e analizzare i risultati predittivi in locale.
 
 
 ## <a name="set-up-the-execution-environment"></a>Configurare l'ambiente di esecuzione
@@ -53,12 +53,20 @@ Le istruzioni seguenti consentono di eseguire il processo di configurazione dell
 
 ### <a name="prerequisites"></a>Prerequisiti
 - Un [account di Azure](https://azure.microsoft.com/en-us/free/) (sono disponibili versioni di valutazione gratuite).
-    - Questo esempio crea un cluster HDInsight Spark con 40 nodi di lavoro (168 core in totale). Assicurarsi che l'account disponga di sufficienti core disponibili controllando la scheda "Utilizzo + quote" per la sottoscrizione nel portale di Azure.
-    - Se si dispone di meno core, è possibile modificare il modello del cluster HDInsight per ridurre il numero di ruoli di lavoro di cui eseguire il provisioning. Le istruzioni per come procedere sono disponibili nella sezione "Creare il cluster HDInsight Spark".
+    - Si creerà un cluster HDInsight Spark con 40 nodi di lavoro (168 core in totale). Assicurarsi che l'account disponga di core sufficienti controllando la scheda "Utilizzo + quote" per la sottoscrizione nel portale di Azure.
+       - Se si dispone di meno core, è possibile modificare il modello del cluster HDInsight per ridurre il numero di ruoli di lavoro di cui eseguire il provisioning. Le istruzioni per come procedere sono disponibili nella sezione "Creare il cluster HDInsight Spark".
+    - Questo esempio crea un cluster di training Batch AI con due macchine virtuali NC6 (1 GPU, 6 vCPU). Assicurarsi che l'account disponga di core sufficienti nell'area Stati Uniti orientali controllando la scheda "Utilizzo + quote" per la sottoscrizione nel portale di Azure.
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Seguire la [Guida introduttiva all'installazione e alla creazione](quickstart-installation.md) per installare Azure Machine Learning Workbench e creare gli account di sperimentazione e di gestione dei modelli.
+- [Batch AI](https://github.com/Azure/BatchAI) Python SDK e interfaccia della riga di comando di Azure 2.0
+    - Installare Batch AI SDK e l'interfaccia della riga di comando di Azure 2.0 seguendo le istruzioni nella [sezione relativa ai file recipe prerequisiti](https://github.com/Azure/BatchAI/tree/master/recipes).
+        - Nell'ambito di questo documento Azure Machine Learning Workbench usa un fork separato dell'interfaccia della riga di comando di Azure 2.0. Per maggiore chiarezza, verrà fatto riferimento alla versione dell'interfaccia della riga di comando di Workbench come "interfaccia della riga di comando avviata da Azure Machine Learning Workbench" e alla versione generale (che include Batch AI) come "interfaccia della riga di comando di Azure 2.0".
+    - Creare un'applicazione Azure Active Directory e un'entità servizio seguendo [queste istruzioni](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Registrare ID client, segreto e ID tenant.
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), un'utilità gratuita per il coordinamento del trasferimento dei file fra account di archiviazione di Azure
-    - Verificare che la cartella contenente il file eseguibile AzCopy sia nella variabile di ambiente PATH del sistema (le istruzioni su come modificare le variabili di ambiente sono disponibili [qui](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp)). Questo esempio è stato testato in un PC Windows 10; sarà possibile eseguirlo da qualsiasi computer Windows, tra cui le macchine virtuali per data science di Azure. Potrebbero essere necessarie piccole modifiche (ad esempio modifiche a filepaths) durante l'esecuzione di questo esempio in macOS.
+    - Verificare che la cartella contenente il file eseguibile AzCopy sia nella variabile di ambiente PATH del sistema (istruzioni su come modificare le variabili di ambiente sono disponibili [qui](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp)).
+- Un client SSH. È consigliabile [PuTTY](http://www.putty.org/).
+
+Questo esempio è stato testato in un PC Windows 10. Sarà possibile eseguirlo da qualsiasi computer Windows, tra cui le macchine virtuali per data science di Azure. L'interfaccia della riga di comando di Azure 2.0 è stata installata da un file msi in base a [queste istruzioni](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Potrebbero essere necessarie piccole modifiche (ad esempio modifiche a filepaths) durante l'esecuzione di questo esempio in macOS.
 
 ### <a name="set-up-azure-resources"></a>Configurare le risorse di Azure
 
@@ -75,7 +83,9 @@ Creare un nuovo progetto usando questo esempio come modello:
  
 #### <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
 
-1. Dal progetto Azure Machine Learning Workbench aprire l'interfaccia della riga di comando facendo clic su File -> Apri prompt dei comandi.
+1. Dopo avere caricato il progetto in Azure Machine Learning Workbench, aprire l'interfaccia della riga di comando (CLI) facendo clic su File -> Apri prompt dei comandi.
+    Usare questa versione dell'interfaccia della riga di comando per la maggior parte dell'esercitazione. Dove indicato, viene richiesto di aprire un'altra versione dell'interfaccia della riga di comando per preparare le risorse di Batch AI.
+
 1. Dall'interfaccia della riga di comando accedere al proprio account di Azure usando il comando seguente:
 
     ```
@@ -114,7 +124,7 @@ Creare un nuovo progetto usando questo esempio come modello:
     az storage account create --name %STORAGE_ACCOUNT_NAME% --resource-group %AZURE_RESOURCE_GROUP% --sku Standard_LRS
     ```
 
-1. Eseguire il comando seguente per elencare le chiavi dell'account di archiviazione:
+1. Elencare le chiavi dell'account di archiviazione usando il comando seguente:
 
     ```
     az storage account keys list --resource-group %AZURE_RESOURCE_GROUP% --account-name %STORAGE_ACCOUNT_NAME%
@@ -124,14 +134,7 @@ Creare un nuovo progetto usando questo esempio come modello:
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
     ```
-1. Nell'editor di testo che si preferisce, caricare il file `settings.cfg` dalla sottodirectory "Code" del progetto di Azure Machine Learning Workbench e inserire il nome e la chiave dell'account di archiviazione come indicato. Le righe modificate nel file dovrebbero essere simili a quanto segue:
-    ```
-    [Settings]
-        # Credentials for the Azure Storage account
-        storage_account_name = storacctname
-        storage_account_key = kpI...88 chars total...Q==
-    ```
-    Salvare e chiudere il file `settings.cfg`.
+1. Nell'editor di testo che si preferisce, caricare il file `settings.cfg` dalla sottodirectory "Code" del progetto di Azure Machine Learning Workbench e inserire il nome e la chiave dell'account di archiviazione come indicato. Salvare e chiudere il file `settings.cfg`.
 1. Se non è già stato fatto, scaricare e installare l'utilità [AzCopy](http://aka.ms/downloadazcopy). Verificare che l'eseguibile di AzCopy si trovi nel percorso di sistema digitando "AzCopy" e premendo INVIO per visualizzare la relativa documentazione.
 1. Eseguire i comandi seguenti per copiare tutti i dati di esempio, i modelli di cui è stato eseguito il training preliminare e gli script di training del modello nelle posizioni appropriate nell'account di archiviazione:
 
@@ -140,17 +143,19 @@ Creare un nuovo progetto usando questo esempio come modello:
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/train /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.blob.core.windows.net/train /DestKey:%STORAGE_ACCOUNT_KEY% /S
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/middlesexma2016 /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.blob.core.windows.net/middlesexma2016 /DestKey:%STORAGE_ACCOUNT_KEY% /S
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/pretrainedmodels /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.blob.core.windows.net/pretrainedmodels /DestKey:%STORAGE_ACCOUNT_KEY% /S
+    AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/pretrainedmodels /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/pretrainedmodels /DestKey:%STORAGE_ACCOUNT_KEY% /S
+    AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Il trasferimento di file può richiedere fino a 20 minuti. Durante l'attesa, è possibile procedere con la sezione seguente. Potrebbe essere necessario aprire un'altra interfaccia della riga di comando tramite Workbench e ridefinire in questa posizione le variabili temporanee.
+    Il trasferimento di file può richiedere fino a 20 minuti. Durante l'attesa, è possibile passare alla sezione successiva. Potrebbe essere necessario aprire un'altra interfaccia della riga di comando tramite Workbench e ridefinire le variabili temporanee.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>Creare il cluster HDInsight Spark
 
-Il metodo consigliato per creare un cluster HDInsight consiste nell'usare il modello di Resource Manager di cluster HDInsight Spark incluso nella sottocartella "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" del progetto.
+Il metodo consigliato per creare un cluster HDInsight consiste nell'usare il modello di gestione delle risorse cluster HDInsight Spark incluso nella sottocartella "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" del progetto.
 
 1. Il modello di cluster HDInsight Spark è il file "template.json" nella sottocartella "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" del progetto. Per impostazione predefinita, il modello crea un cluster Spark con 40 nodi di lavoro. Se è necessario modificare questo numero, aprire il modello nell'editor di testo che si preferisce e sostituire tutte le istanze di "40" con il numero di nodi di lavoro desiderato.
     - Se si sceglie un numero basso di nodi di lavoro, potrebbero verificarsi errori di memoria insufficiente. Per evitare gli errori di memoria, è possibile eseguire gli script di training e operazionalizzazione su un subset dei dati disponibili, come descritto più avanti in questo documento.
-2. Scegliere un nome univoco e una password per il cluster HDInsight e scriverli dove indicato nel comando seguente. Creare quindi il cluster eseguendo il comando seguente:
+2. Scegliere un nome univoco e una password per il cluster HDInsight e scriverli dove indicato nel comando seguente. Creare quindi il cluster eseguendo i comandi:
 
     ```
     set HDINSIGHT_CLUSTER_NAME=[HDInsight cluster name]
@@ -159,6 +164,126 @@ Il metodo consigliato per creare un cluster HDInsight consiste nell'usare il mod
     ```
 
 La distribuzione del cluster può richiedere fino a 30 minuti (inclusi il provisioning e l'esecuzione delle azioni script).
+
+### <a name="set-up-batch-ai-resources"></a>Impostare le risorse di Batch AI
+
+Mentre si attende che i file dell'account di archiviazione vengano trasferiti e che la distribuzione del cluster Spark venga completata, è possibile preparare il cluster GPU e NFS (file server di rete) di Batch AI. Aprire un prompt dei comandi dell'interfaccia della riga di comando di Azure 2.0 ed eseguire questo comando:
+
+```
+az --version 
+```
+
+Verificare che `batchai` sia elencato tra i moduli installati. In caso contrario, è possibile che si usi un'altra interfaccia della riga di comando, ad esempio una aperta tramite Workbench.
+
+Controllare quindi che la registrazione del provider sia stata completata. La registrazione del provider richiede fino a 15 minuti e potrebbe essere ancora in corso se di recente sono state completate le [istruzioni di configurazione di Batch AI](https://github.com/Azure/BatchAI/tree/master/recipes). Verificare che "Microsoft.Batch" e "Microsoft.BatchAI" vengano entrambi visualizzati con stato "Registered" (Registrato) nell'output del comando seguente:
+
+```
+az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+```
+
+In caso contrario, usare i comandi di registrazione del provider seguenti e attendere circa 15 minuti per il completamento della registrazione.
+```
+az provider register --namespace Microsoft.Batch
+az provider register --namespace Microsoft.BatchAI
+```
+
+Modificare i comandi seguenti in modo da sostituire le espressioni tra parentesi quadre con i valori usati in precedenza durante la creazione dell'account di archiviazione e del gruppo di risorse. Archiviare quindi i valori come variabili usando i comandi seguenti:
+```
+az account set --subscription [subscription ID]
+set AZURE_RESOURCE_GROUP=[resource group name]
+set STORAGE_ACCOUNT_NAME=[storage account name]
+set STORAGE_ACCOUNT_KEY=[storage account key]
+az configure --defaults location=eastus
+az configure --defaults group=%AZURE_RESOURCE_GROUP%
+```
+
+Identificare la cartella contenente il progetto di Azure Machine Learning (ad esempio, `C:\Users\<your username>\AzureML\aerialimageclassification`). Sostituire il valore tra parentesi quadre con il percorso file della cartella (senza barra rovesciata finale) ed eseguire il comando:
+```
+set PATH_TO_PROJECT=[The filepath of your project's root directory]
+```
+A questo punto si è pronti per creare le risorse di Batch AI necessarie per questa esercitazione.
+
+#### <a name="prepare-the-batch-ai-network-file-server"></a>Preparare il file server di rete di Batch AI
+
+Il cluster Batch AI accede ai dati di training in un file server di rete. L'accesso ai dati può essere molto più veloce se si accede ai file da un file server di rete (NFS) anziché da una condivisione di file di Azure o un'istanza di Archiviazione BLOB di Azure.
+
+1. Usare il comando seguente per creare un nuovo file server di rete:
+
+    ```
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    ```
+
+1. Verificare lo stato di provisioning del file server di rete usando il comando seguente:
+
+    ```
+    az batchai file-server list
+    ```
+
+    Quando "provisioningState" del file server di rete denominato "landuseclassifier" è "succeeded" (riuscito), il file server di rete sarà pronto per l'utilizzo. È possibile che il provisioning richieda circa cinque minuti.
+1. Individuare l'indirizzo IP del file server di rete (NFS) nell'output del comando precedente (proprietà "fileServerPublicIp" in "mountSettings"). Scrivere l'indirizzo IP dove indicato nel comando seguente, quindi archiviare il valore eseguendo il comando:
+
+    ```
+    set AZURE_BATCH_AI_TRAINING_NFS_IP=[your NFS IP address]
+    ```
+
+1. Usando lo strumento SSH desiderato (il comando di esempio seguente usa [PuTTY](http://www.putty.org/)), eseguire lo script `prep_nfs.sh` del progetto su NFS per trasferire l'immagine di training e di convalida impostata.
+
+    ```
+    putty -ssh demoUser@%AZURE_BATCH_AI_TRAINING_NFS_IP% -pw Dem0Pa$$w0rd -m %PATH_TO_PROJECT%\Code\01_Data_Acquisition_and_Understanding\02_Batch_AI_Training_Provisioning\prep_nfs.sh
+    ```
+
+    Se gli aggiornamenti dello stato dell'estrazione e del download dei dati scorrono così rapidamente nella finestra della shell da risultare illeggibili, non è un problema.
+
+Se si desidera, è possibile verificare che il trasferimento dei dati è stato eseguito come previsto accedendo al file server con lo strumento SSH preferito e controllando il contenuto della directory `/mnt/data`. Devono essere presenti due cartelle, training_images e validation_images, ognuna delle quali contiene sottocartelle denominate in base alle categorie di uso dei terreni.  I set di training e di convalida devono contenere circa 44.000 e 11.000 immagini, rispettivamente.
+
+#### <a name="create-a-batch-ai-cluster"></a>Creare un cluster Batch AI
+
+1. Creare il cluster eseguendo questo comando:
+
+    ```
+    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
+    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
+    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    ```
+
+1. Usare il comando seguente per verificare lo stato di provisioning del cluster:
+
+    ```
+    az batchai cluster list
+    ```
+
+    Quando lo stato di allocazione del cluster denominato "landuseclassifier" diventa stazionario, è possibile inviare i processi. L'esecuzione dei processi viene tuttavia avviata solo dopo che tutte le macchine virtuali nel cluster non saranno più nello stato di preparazione. Se la proprietà relativa agli errori del cluster non è null, si è verificato un errore durante la creazione del cluster e il cluster non deve essere usato.
+
+#### <a name="record-batch-ai-training-credentials"></a>Registrare le credenziali di training di Batch AI
+
+Mentre si attende il completamento dell'allocazione del cluster, aprire il file `settings.cfg` dalla sottodirectory "Code" di questo progetto nell'editor di testo scelto. Aggiornare le variabili seguenti con le proprie credenziali:
+- `bait_subscription_id` (ID di sottoscrizione di Azure di 36 caratteri)
+- `bait_aad_client_id` (ID client/applicazione Azure Active Directory indicato nella sezione "Prerequisiti")
+- `bait_aad_secret` (segreto dell'applicazione Azure Active Directory indicato nella sezione "Prerequisiti")
+- `bait_aad_tenant` (ID tenant di Azure Active Directory indicato nella sezione "Prerequisiti")
+- `bait_region` (nell'ambito di questo articolo, l'unica opzione è eastus)
+- `bait_resource_group_name` (gruppo di risorse scelto in precedenza)
+
+Dopo aver assegnato questi valori, le righe modificate del file settings.cfg devono essere simili al testo seguente:
+
+```
+[Settings]
+    # Credentials for the Azure Storage account
+    storage_account_name = yoursaname
+    storage_account_key = kpIXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXQ==
+    
+    # Batch AI training credentials
+    bait_subscription_id = 0caXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX9c3
+    bait_aad_client_id = d0aXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX7f8
+    bait_aad_secret = ygSXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX6I=
+    bait_aad_tenant = 72fXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXb47
+    bait_region = eastus
+    bait_resource_group_name = yourrgname
+```
+
+Salvare e chiudere `settings.cfg`.
+
+È ora possibile chiudere la finestra dell'interfaccia della riga di comando in cui sono stati eseguiti i comandi di creazione delle risorse di Batch AI. Tutti i passaggi successivi di questa esercitazione usano l'interfaccia della riga di comando avviata da Azure Machine Learning Workbench.
 
 ### <a name="prepare-the-azure-machine-learning-workbench-execution-environment"></a>Preparare l'ambiente di esecuzione di Azure Machine Learning Workbench
 
@@ -175,7 +300,7 @@ Una volta completata la creazione del cluster HDInsight, registrare il cluster c
     Questo comando aggiunge due file, `myhdi.runconfig` e `myhdi.compute`, alla cartella `aml_config` del progetto.
 
 1. Aprire il file `myhdi.compute` nell'editor di testo che si preferisce. Modificare la riga `yarnDeployMode: cluster` in `yarnDeployMode: client`, quindi salvare e chiudere il file.
-1. Eseguire il comando riportato di seguito per preparare l'ambiente per l'uso:
+1. Eseguire questo comando per preparare l'ambiente HDInsight per l'uso:
    ```
    az ml experiment prepare -c myhdi
    ```
@@ -185,7 +310,7 @@ Una volta completata la creazione del cluster HDInsight, registrare il cluster c
 Aprire un'interfaccia della riga di comando da Azure Machine Learning Workbench e installare le dipendenze necessarie per l'esecuzione locale mediante il comando seguente:
 
 ```
-pip install matplotlib azure-storage==0.36.0 pillow scikit-learn
+pip install matplotlib azure-storage==0.36.0 pillow scikit-learn azure-mgmt-batchai
 ```
 
 ## <a name="data-acquisition-and-understanding"></a>Acquisizione e comprensione dei dati
@@ -211,7 +336,22 @@ Per visualizzare le immagini di esempio nell'account di archiviazione di Azure (
 
 ## <a name="modeling"></a>Modellazione
 
+### <a name="training-models-with-azure-batch-ai"></a>Modelli di training con Azure Batch AI
+
+Lo script `run_batch_ai.py` nella sottocartella "Code\02_Modeling" del progetto di Workbench viene usato per avviare un processo di training di Batch AI. Questo processo riesegue il training di una DNN (Deep Neural Network) di classificazione delle immagini scelta dall'utente (AlexNet o 18 ResNet di cui è stato eseguito il training preliminare su ImageNet). È inoltre possibile specificare la profondità di riesecuzione del training: rieseguendo il training solo sull'ultimo livello di rete può ridurre l'overfitting quando sono disponibili pochi esempi di training, mentre l'ottimizzazione dell'intera rete (o, per AlexNet, dei livelli completamente connessi) può aumentare le prestazioni del modello quando il set di training è sufficientemente grande.
+
+Al termine del processo di training, questo script salva il modello (insieme a un file che descrive il mapping tra output intero del modello ed etichette di stringa) e le stime nell'archiviazione BLOB. Il file di log del processo BAIT viene analizzato per estrarre i tempi di miglioramento della percentuale di errore rispetto ai periodi di training. I tempi di miglioramento della percentuale di errore vengono registrati nella funzionalità per la cronologia di esecuzione di AML Workbench per analisi successive.
+
+Selezionare un nome per il modello sottoposto a training, un tipo di modello di cui è eseguito il training preliminare e una profondità di riesecuzione del training. Scrivere le selezioni dove indicato nel comando seguente, quindi iniziare a eseguire di nuovo il training eseguendo il comando da un'interfaccia della riga di comando di Azure ML:
+
+```
+az ml experiment submit -c local Code\02_Modeling\run_batch_ai.py --config_filename Code/settings.cfg --output_model_name [unique model name, alphanumeric characters only] --pretrained_model_type {alexnet,resnet18} --retraining_type {last_only,fully_connected,all} --num_epochs 10
+```
+
+Il completamento dell'esecuzione di Azure Machine Learning dovrebbe richiedere circa mezz'ora. È consigliabile eseguire alcuni comandi simili (modificando il nome di modello di output, il tipo di modello con training preliminare e la profondità di riesecuzione del training), in modo che sia possibile confrontare le prestazioni dei modelli sottoposti a training con metodi diversi.
+
 ### <a name="training-models-with-mmlspark"></a>Modelli di training con MMLSpark
+
 Lo script `run_mmlspark.py` nella sottocartella "Code\02_Modeling" del progetto di Workbench viene usato per il training di un modello [MMLSpark](https://github.com/Azure/mmlspark) per la classificazione delle immagini. Lo script prima di tutto definisce le caratteristiche delle immagini del set di training usando una DNN (Deep Neural Network) di classificazione delle immagini di cui è stato eseguito il training preliminare sul set di dati ImageNet (AlexNet o ResNet a 18 livelli). Lo script usa quindi le immagini di cui sono state definite le caratteristiche per eseguire il training di un modello MMLSpark (una foresta casuale o un modello di regressione logistica) per classificare le immagini. Vengono quindi definite le caratteristiche del set di immagini di test e viene loro assegnato un punteggio con il modello sottoposto a training. L'accuratezza delle stime del modello nel set di test viene calcolata e registrata nella funzionalità di cronologia di esecuzione di Azure Machine Learning Workbench. Infine, il modello MMLSpark sottoposto a training e le relative stime sul set di test vengono salvati nell'archiviazione BLOB.
 
 Selezionare un nome di modello di output univoco per il modello sottoposto a training, uno tipo di modello sottoposto a training preliminare e un tipo di modello MMLSpark. Scrivere le selezioni dove indicato nel modello di comando seguente, quindi iniziare a eseguire di nuovo il training eseguendo il comando da un'interfaccia della riga di comando di Azure ML:
@@ -220,7 +360,7 @@ Selezionare un nome di modello di output univoco per il modello sottoposto a tra
 az ml experiment submit -c myhdi Code\02_Modeling\run_mmlspark.py --config_filename Code/settings.cfg --output_model_name [unique model name, alphanumeric characters only] --pretrained_model_type {alexnet,resnet18} --mmlspark_model_type {randomforest,logisticregression}
 ```
 
-È possibile usare un parametro `--sample_frac` aggiuntivo per eseguire il training e il test del modello con un subset dei dati disponibili. Usando una piccola frazione del campione, si riducono il tempo di esecuzione e i requisiti di memoria, a scapito dell'accuratezza del modello sottoposto a training. Per altre informazioni su questo e altri parametri, eseguire `python Code\02_Modeling\run_mmlspark.py -h`.
+È possibile usare un parametro `--sample_frac` aggiuntivo per eseguire il training e il test del modello con un subset dei dati disponibili. Usando una piccola frazione del campione, si riducono il tempo di esecuzione e i requisiti di memoria, a scapito dell'accuratezza del modello sottoposto a training. Un'esecuzione con `--sample_frac 0.1` dovrebbe ad esempio richiedere circa venti minuti. Per altre informazioni su questo e altri parametri, eseguire `python Code\02_Modeling\run_mmlspark.py -h`.
 
 È consigliabile eseguire questo script più volte con parametri di input diversi. Le prestazioni dei modelli risultanti possono quindi essere confrontate nella funzionalità di cronologia di esecuzione di Azure Machine Learning Workbench.
 
@@ -266,7 +406,7 @@ Dopo aver completato l'esempio, si consiglia di eliminare tutte le risorse creat
 
 ## <a name="conclusions"></a>Conclusioni
 
-Azure Machine Learning Workbench aiuta i data scientist a distribuire facilmente il codice in destinazioni di calcolo remote. In questo esempio il codice locale è stato distribuito per l'esecuzione remota in un cluster HDInsight. La funzionalità di cronologia di esecuzione di Azure Machine Learning Workbench ha monitorato le prestazioni di più modelli per consentire di identificare il modello più accurato. La funzionalità di notebook Jupyter di Workbench ha offerto supporto per la visualizzazione delle stime dei modelli in un ambiente grafico interattivo.
+Azure Machine Learning Workbench aiuta i data scientist a distribuire facilmente il codice in destinazioni di calcolo remote. In questo esempio il codice di training MMLSpark locale è stato distribuito per l'esecuzione remota in un cluster HDInsight e uno script locale ha avviato un processo di training in un cluster GPU di Azure Batch AI. La funzionalità di cronologia di esecuzione di Azure Machine Learning Workbench ha monitorato le prestazioni di più modelli per consentire di identificare il modello più accurato. La funzionalità di notebook Jupyter di Workbench ha offerto supporto per la visualizzazione delle stime dei modelli in un ambiente grafico interattivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per approfondire questo esempio:

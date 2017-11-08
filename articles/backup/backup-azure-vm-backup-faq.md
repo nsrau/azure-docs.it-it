@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 0117398a1ad2a8519f50732d173bec9fbb7411b5
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d3178413e894c095235dde067b369e3554375aa6
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Domande sul servizio Backup delle macchine virtuali di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup delle macchine virtuali di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -59,6 +59,9 @@ Usare i dischi di ripristino per eseguire queste operazioni:
   * Controllare la convenzione di denominazione per le risorse create.
   * Aggiungere la macchina virtuale al set di disponibilità.
   * Per qualsiasi altra configurazione che è possibile ottenere soltanto usando PowerShell o la definizione di un modello dichiarativo
+  
+### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>È possibile usare i backup della VM con dischi non gestiti per eseguire il ripristino dopo l'aggiornamento dei dischi personali a dischi gestiti?
+Sì, è possibile usare i backup eseguiti prima di eseguire la migrazione dei dischi da non gestiti a gestiti. Per impostazione predefinita, il processo di ripristino della VM creerà una VM con dischi non gestiti. Per ripristinare i dischi e usarli per creare una VM su dischi gestiti, è possibile usare la funzionalità di ripristino dei dischi. 
 
 ## <a name="manage-vm-backups"></a>Gestire i backup delle macchine virtuali
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Cosa accade quando si modificano criteri di backup in una o più macchine virtuali?

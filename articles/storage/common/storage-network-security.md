@@ -11,25 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 09/25/2017
+ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 8117a5ef9bc4f785256a7a7d70f459529c771a56
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure (anteprima)
 Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere gli account di archiviazione per un set specifico di reti autorizzate.  Quando si configurano le regole di rete, solo le applicazioni delle reti consentite possono accedere a un account di archiviazione.  Quando le applicazioni eseguono chiamate da una rete autorizzata devono comunque avere l'autorizzazione necessaria (una chiave di accesso o un token di firma di accesso condiviso validi) per accedere all'account di archiviazione.
 
 ## <a name="preview-availability-and-support"></a>Anteprima della disponibilità e del supporto
-I firewall e le reti virtuali di archiviazione sono funzionalità in anteprima.  Queste funzionalità sono attualmente disponibili per gli account di archiviazione nuovi o esistenti nelle seguenti aree:
-- Stati Uniti Orientali
-- Stati Uniti occidentali
-- Stati Uniti occidentali 2
-- Stati Uniti centro-occidentali
-- Australia orientale
-- Australia sudorientale
+I firewall e le reti virtuali di archiviazione sono funzionalità in anteprima.  Queste funzionalità sono attualmente disponibili per gli account di archiviazione nuovi o esistenti in tutte le aree del cloud pubblico di Azure.
 
 > [!NOTE]
 > I carichi di lavoro di produzione non sono supportati durante l'anteprima.

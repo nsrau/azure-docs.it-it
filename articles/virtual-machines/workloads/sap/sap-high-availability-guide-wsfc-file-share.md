@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 472c3f35e2ae32550be62826407689f93101041f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 94d725cfb072091e57c96d3b2aca7b2e73657eef
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -212,7 +212,7 @@ Windows Server Failover Clustering è alla base di un'installazione SAP ASCS/SCS
 Un cluster di failover è un gruppo di 1 + n server (nodi) indipendenti che funzionano insieme per aumentare la disponibilità di applicazioni e servizi. Se si verifica un errore in un nodo, Windows Server Failover Clustering calcola il numero di errori che possono verificarsi e mantiene un cluster integro per fornire le applicazioni e i servizi. A questo scopo è possibile scegliere tra diverse modalità quorum per ottenere il clustering di failover.
 
 ## <a name="prerequisite"></a>Prerequisito
-Prima di consultare questo articolo vedere l'articolo seguente:
+Prima di consultare questo articolo vedere gli articoli seguenti:
 
 * [Scenario e architettura per la disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
@@ -227,7 +227,7 @@ Rispetto alle distribuzioni bare metal o cloud privato, sono necessari passaggi 
 
 ### <a name="name-resolution-in-azure-and-cluster-virtual-host-name"></a>Risoluzione dei nomi in Azure e nome host virtuale del cluster
 
-La piattaforma cloud di Azure non consente di configurare indirizzi IP virtuali, ad esempio indirizzi IP mobili. È necessaria una soluzione alternativa per configurare un indirizzo IP virtuale per poter raggiungere la risorsa cluster nel cloud. Azure include un **bilanciamento del carico interno** nel servizio Azure Load Balancer. Con il servizio di bilanciamento del carico interno, i client raggiungono il cluster tramite l'indirizzo IP virtuale del cluster. È necessario distribuire il servizio di bilanciamento del carico interni nel gruppo di risorse che contiene i nodi del cluster. Configurare quindi tutte le necessarie regole di port forwarding con le porte probe del servizio di bilanciamento del carico interno. I client possono connettersi tramite il nome host virtuale. Il server DNS risolve l'indirizzo IP del cluster e il servizio di bilanciamento del carico interno gestisce il port forwarding al nodo attivo del cluster.
+La piattaforma cloud di Azure non consente di configurare indirizzi IP virtuali, ad esempio indirizzi IP mobili. È necessaria una soluzione alternativa per configurare un indirizzo IP virtuale per poter raggiungere la risorsa cluster nel cloud. Azure dispone di un **bilanciamento del carico interno** nel servizio Azure Load Balancer. Con il servizio di bilanciamento del carico interno, i client raggiungono il cluster tramite l'indirizzo IP virtuale del cluster. È necessario distribuire il servizio di bilanciamento del carico interni nel gruppo di risorse che contiene i nodi del cluster. Configurare quindi tutte le necessarie regole di port forwarding con le porte probe del servizio di bilanciamento del carico interno. I client possono connettersi tramite il nome host virtuale. Il server DNS risolve l'indirizzo IP del cluster e il servizio di bilanciamento del carico interno gestisce il port forwarding al nodo attivo del cluster.
 
 ![Figura 1: Configurazione di Windows Server Failover Clustering in Azure senza disco condiviso][sap-ha-guide-figure-1001]
 
@@ -250,7 +250,7 @@ I seguenti elementi sono specifici di questa architettura:
 * L'istanza SAP (A)SCS viene aggiunta al cluster ed è accessibile usando il nome host virtuale **<(A)SCSVirtualHostName>**
 * I file di SAP GLOBAL vengono inseriti nella condivisione file SMB e sono accessibili usando <SAPGLOBALHost> nome host \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 * L'istanza SAP (A)SCS viene installata in un disco locale in entrambi i nodi del cluster
-* Il nome di rete **<(A)SCSVirtualHostName>** è diverso da **<SAPGLOBALHost>**
+* Il nome di rete **<(A)SCSVirtualHostName>** è diverso da **&lt;SAPGLOBALHost&gt;**
 
 ![Figura 2: Nuova architettura SAP (A)SCS a disponibilità elevata con condivisione file SMB][sap-ha-guide-figure-8004]
 

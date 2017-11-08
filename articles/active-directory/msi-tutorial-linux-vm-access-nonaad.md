@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
+ms.date: 10/30/2017
 ms.author: elkuzmen
-ms.openlocfilehash: 4fcce3b557b7105abcd704f740823c0cb4441b43
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: cd07cf69616fd33b6efcbcc3b2c97c025de67fe6
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usare un'Identità del servizio gestito con una macchina virtuale Linux per accedere ad Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come abilitare l'Identità del servizio gestito per una macchina virtuale Windows e quindi usarla per accedere ad Azure Key Vault. Fungendo da bootstrap, Key Vault consente quindi all'applicazione client di usare il segreto per accedere alle risorse non protette da Azure Active Directory (AD). Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. 
+Questa esercitazione illustra come abilitare l'identità del servizio gestito per una macchina virtuale Linux e quindi usarla per accedere ad Azure Key Vault. Fungendo da bootstrap, Key Vault consente quindi all'applicazione client di usare il segreto per accedere alle risorse non protette da Azure Active Directory (AD). Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. 
 
 Si apprenderà come:
 
@@ -96,9 +96,9 @@ Successivamente, aggiungere un segreto all'insieme di credenziali delle chiavi, 
 5. Lasciare vuoti i campi della data di attivazione e della data di scadenza e lasciare **Abilitato** su **Sì**. 
 6. Fare clic su **Crea** per creare il segreto. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto da Key Vault  
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Ottenere un token di accesso usando l'identità della VM e usarlo per recuperare il segreto da Key Vault  
 
-Per completare questi passaggi, è necessario disporre di un client SSH.  Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about).   
+Per completare questi passaggi, è necessario disporre di un client SSH.  Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le VM Linux in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
  
 1. Nel portale, passare a una macchina virtuale Linux e in **Panoramica** fare clic su **Connetti**. 
 2. **Connettersi** alla macchina virtuale usando un client SSH di propria scelta. 

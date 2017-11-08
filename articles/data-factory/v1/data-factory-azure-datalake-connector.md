@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 811a2538f0a138074feea1bd4608a7ba00660fd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f74a953d04e8633e802b33903de603b39ac08e9b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copiare dati da e in Data Lake Store usando Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -84,9 +84,11 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 * Chiave applicazione 
 * ID tenant
 
-> [!IMPORTANT]
-> Se si usa la copia guidata per creare pipeline di dati, assicurarsi di concedere all'entità servizio almeno il ruolo **Lettore**  per il controllo di accesso (gestione delle identità e degli accessi) per l'account Data Lake Store. Inoltre, concedere all'entità servizio almeno l'autorizzazione **Lettura + Esecuzione** sulla radice ("/") di Data Lake Store e sugli elementi figlio. In caso contrario, potrebbe venire visualizzato il messaggio "Fornite credenziali non valide".<br/><br/>
-Dopo aver creato o aggiornato un'entità servizio in Azure AD, potrebbero essere necessari alcuni minuti affinché le modifiche abbiano effetto. Controllare l'entità servizio e la configurazione dell'elenco di controllo di accesso di Data Lake Store. Se viene ancora visualizzato il messaggio: "Fornite credenziali non valide", attendere qualche istante e riprovare.
+> [!TIP]
+> Assicurarsi di concedere all'entità servizio un'autorizzazione appropriata in Azure Data Lake Store:
+>- Se si usa la copia guidata per creare pipeline, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Concedere poi almeno l'autorizzazione **Lettura ed Esecuzione** alla radice di Data Lake Store ("/") e ai relativi elementi figlio. In caso contrario, potrebbe venire visualizzato il messaggio "Fornite credenziali non valide".
+>- Per usare Data Lake Store come origine, concedere almeno l'autorizzazione di accesso ai dati **Lettura ed esecuzione** per l'elenco e la copia del contenuto di una cartella oppure l'autorizzazione **Lettura** per la copia di un file singolo. Nessun requisito per il controllo di accesso a livello di account.
+>- Per usare Data Lake Store come sink, concedere almeno l'autorizzazione di accesso ai dati **Scrittura ed esecuzione** per consentire la creazione di elementi figlio nella cartella. E se si consente la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, nell'attività di copia [specificare executionLocation](data-factory-data-movement-activities.md#global) con la posizione di Data Lake Store.
 
 Usare l'autenticazione basata su entità servizio specificando le proprietà seguenti:
 

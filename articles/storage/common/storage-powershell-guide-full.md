@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: robinsh
-ms.openlocfilehash: a116b4c15046e704e374ca67c5695ff3f01ba7fb
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Uso di Azure PowerShell con Archiviazione di Azure
 
@@ -34,12 +34,11 @@ Questo articolo illustra le operazioni comunemente eseguite quando si usano i cm
 > * Proteggere l'accesso all'account di archiviazione 
 > * Abilitare Analisi archiviazione
 
-Vengono forniti anche collegamenti ad altri articoli relativi all'uso di PowerShell per Archiviazione, in cui si illustra ad esempio come abilitare e accedere ad Analisi archiviazione e come usare i cmdlet del piano dati.
-<!-- also how to access the china and government clouds  -->
+Questo articolo fornisce collegamenti a vari altri articoli su PowerShell per l'archiviazione, ad esempio su come abilitare e accedere ad Analisi archiviazione, come usare i cmdlet del piano dati e come accedere a cloud indipendenti di Azure, ad esempio il cloud per la Cina, il cloud per la Germania e il cloud per enti pubblici.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Per questa esercitazione, è necessario il modulo Azure PowerShell 4.4 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 Per questa esercitazione è possibile digitare i comandi in una normale finestra di PowerShell oppure usare [Windows PowerShell Integrated Scripting Environment (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-), digitare i comandi in un editor e quindi testare uno o più comandi contemporaneamente mentre si procede con l'esercitazione. È possibile evidenziare le righe che si vuole eseguire e fare clic su Esegui selezionati per eseguire solo i comandi corrispondenti.
 
@@ -63,7 +62,7 @@ Get-AzureRMStorageAccount | Select StorageAccountName, Location
 
 ## <a name="get-a-reference-to-a-storage-account"></a>Ottenere un riferimento a un account di archiviazione
 
-A questo punto, è necessario un riferimento a un account di archiviazione. È possibile creare un nuovo account di archiviazione oppure ottenere un riferimento a un account di archiviazione esistente. Le sezioni seguenti illustrano entrambi i metodi. 
+A questo punto, è necessario un riferimento a un account di archiviazione. È possibile creare un nuovo account di archiviazione oppure ottenere un riferimento a un account di archiviazione esistente. La sezione seguente illustra entrambi i metodi. 
 
 ### <a name="use-an-existing-storage-account"></a>Usare un account di archiviazione esistente 
 
@@ -94,7 +93,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 # Set the name of the storage account and the SKU name. 
 $storageAccountName = "testpshstorage"
-$skuName = "Standard\_LRS"
+$skuName = "Standard_LRS"
     
 # Create the storage account.
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -122,7 +121,7 @@ Il nome dello SKU indica il tipo di replica per l'account di archiviazione, ad e
 
 Si dispone ora di un nuovo account di archiviazione e di un riferimento ad esso. 
 
-## <a name="managing-the-storage-account"></a>Gestione dell'account di archiviazione
+## <a name="manage-the-storage-account"></a>Gestire l'account di archiviazione
 
 È stato così ottenuto un riferimento a un nuovo account di archiviazione o a un account di archiviazione esistente. La sezione seguente illustra alcuni dei comandi che è possibile usare per gestire l'account di archiviazione personale.
 
@@ -142,7 +141,7 @@ Per modificare le impostazioni di un account di archiviazione, usare [Set-AzureR
 
 * Consentire solo traffico HTTPS. 
 
-### <a name="managing-the-access-keys"></a>Gestione delle chiavi di accesso
+### <a name="manage-the-access-keys"></a>Gestire le chiavi di accesso
 
 Un account di archiviazione di Azure viene fornito con due chiavi. Per recuperare le chiavi, usare [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey). In questo esempio viene recuperata la prima chiave. Per recuperare l'altra, usare `Value[1]` anziché `Value[0]`.
 
@@ -166,22 +165,22 @@ Per rigenerare l'altra chiave, usare `key2` come nome di chiave anziché `key1`.
 Rigenerare una delle chiavi e recuperarla nuovamente per visualizzare il nuovo valore.
 
 > [!NOTE] 
-> È consigliabile eseguire un'attenta pianificazione prima di rigenerare la chiave per un account di archiviazione di produzione. La rigenerazione di una o di entrambe le chiavi, infatti, invalida l'accesso per qualsiasi applicazione che usa la chiave rigenerata. Per altre informazioni, vedere [Rigenerazione delle chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#regenerate-storage-access-keys).
+> È consigliabile eseguire un'attenta pianificazione prima di rigenerare la chiave per un account di archiviazione di produzione. La rigenerazione di una o di entrambe le chiavi rende non valido l'accesso per qualsiasi applicazione che usa la chiave rigenerata. Per altre informazioni, vedere [Rigenerazione delle chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#regenerate-storage-access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Eliminare un account di archiviazione 
 
-Per eliminare un account di archiviazione, usare [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount). 
-
-> [!IMPORTANT]
-> Quando si elimina un account di archiviazione, vengono eliminati anche tutti gli asset archiviati nell'account. Se si elimina un account involontariamente, contattare immediatamente il supporto e aprire un ticket per il ripristino dell'account di archiviazione. Il ripristino dei dati non è garantito, ma talvolta funziona. Non creare un nuovo account di archiviazione con lo stesso nome di quello precedente finché il ticket di supporto non è stato risolto. 
->
+Per eliminare un account di archiviazione, usare [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount).
 
 ```powershell
 Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
-### <a name="protecting-your-storage-account-using-vnets-and-firewalls"></a>Protezione dell'account di archiviazione tramite reti virtuali e firewall
+> [!IMPORTANT]
+> Quando si elimina un account di archiviazione, vengono eliminati anche tutti gli asset archiviati nell'account. Se si elimina un account involontariamente, contattare immediatamente il supporto e aprire un ticket per il ripristino dell'account di archiviazione. Il ripristino dei dati non è garantito, ma talvolta funziona. Non creare un nuovo account di archiviazione con lo stesso nome di quello precedente finché il ticket di supporto non è stato risolto. 
+>
+
+### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>Proteggere l'account di archiviazione tramite reti virtuali e firewall
 
 Per impostazione predefinita, tutti gli account di archiviazione sono accessibili da qualsiasi rete con accesso a Internet. È possibile tuttavia configurare le regole di rete in modo da consentire che solo le applicazioni di determinate reti virtuali possano accedere a un account di archiviazione. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](storage-network-security.md). 
 
@@ -190,7 +189,7 @@ Questo articolo illustra come gestire queste impostazioni usando i cmdlet di Pow
 * [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
 * [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
 
-## <a name="using-storage-analytics"></a>Utilizzo di Analisi archiviazione  
+## <a name="use-storage-analytics"></a>Usare Analisi archiviazione  
 
 [Analisi archiviazione di Azure](storage-analytics.md) è composto da [Storage Analytics Metrics](/rest/api/storageservices/about-storage-analytics-metrics) (Metriche di Analisi archiviazione) e [Storage Analytics Logging](/rest/api/storageservices/about-storage-analytics-logging) (Registrazione di Analisi archiviazione). 
 
@@ -210,26 +209,34 @@ Questo articolo illustra come gestire queste impostazioni usando i cmdlet di Pow
 
 * Per informazioni dettagliate sull'uso di Metriche di archiviazione e Registrazione archiviazione per la risoluzione dei problemi di archiviazione, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="managing-the-data-in-the-storage-account"></a>Gestione dei dati nell'account di archiviazione
+## <a name="manage-the-data-in-the-storage-account"></a>Gestire i dati nell'account di archiviazione
 
-Fino a qui si è appreso come gestire l'account di archiviazione con PowerShell. Gli articoli seguenti illustrano come usare PowerShell per accedere agli oggetti dati nell'account di archiviazione.
+Fino a qui si è appreso come gestire l'account di archiviazione con PowerShell. Gli articoli seguenti illustrano come accedere agli oggetti dati nell'account di archiviazione.
 
 * [Eseguire operazioni in Archiviazione Blob di Azure con Azure PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Come usare PowerShell per gestire File di Azure](../files/storage-how-to-use-files-powershell.md)
 * [Eseguire operazioni nell'archivio code di Azure con Azure PowerShell](../queues/storage-powershell-how-to-use-queues.md)
 
-<!--## Government Cloud and China Cloud
+## <a name="azures-independently-deployed-clouds"></a>Cloud distribuiti in modo indipendente di Azure
 
-ROBINROBINROBIN 
+La maggior parte delle persone usa il cloud pubblico di Azure per la distribuzione globale di Azure. Per motivi di sovranità e altro, sono disponibili anche alcune distribuzioni indipendenti di Microsoft Azure, denominate "ambienti". Ecco gli ambienti disponibili:
 
-To access the Government cloud of the China datacenters, you have to use some special steps. The following article shows how to access these special cloud accounts using PowerShell.
+* [Cloud di Azure per enti pubblici](https://azure.microsoft.com/features/gov/)
+* [Cloud di Azure per la Cina gestito da 21Vianet in Cina](http://www.windowsazure.cn/)
+* [Cloud di Azure per la Germania](../../germany/germany-welcome.md)
 
-* [How to manage storage accounts in Government Cloud and China](storage-powershell-govt-china.md)
--->
+Per informazioni su come accedere a questi cloud e al relativo spazio di archiviazione con PowerShell, vedere [Managing Storage in the Azure independent clouds using PowerShell (Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell)](storage-powershell-independent-clouds.md).
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se per questa esercitazione sono stati creati un nuovo gruppo di risorse e un account di archiviazione, è possibile rimuovere tutti gli asset creati rimuovendo il gruppo di risorse. Così facendo vengono eliminate anche tutte le risorse in esso contenute. In questo caso, rimuove l'account di archiviazione creato e il gruppo di risorse stesso.
+
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo illustra le operazioni comunemente eseguite quando si usano i cmdlet del piano di gestione per gestire gli account di archiviazione. Si apprenderà come: 
+Questo articolo illustra le operazioni comunemente eseguite quando si usano i cmdlet del piano di gestione per gestire gli account di archiviazione. Si è appreso come: 
 
 > [!div class="checklist"]
 > * Elencare gli account di archiviazione
@@ -240,9 +247,7 @@ Questo articolo illustra le operazioni comunemente eseguite quando si usano i cm
 > * Proteggere l'accesso all'account di archiviazione 
 > * Abilitare Analisi archiviazione
 
-Sono disponibili anche collegamenti ad altri articoli, che illustrano ad esempio come gestire gli oggetti dati e come abilitare Analisi archiviazione. Per altre informazioni, vedere gli articoli e le risorse correlati seguenti: 
-<!--, and how to access storage with PowerShell using the Government Cloud and the China Cloud.
--->
+Questo articolo offre anche riferimenti a vari altri articoli, ad esempio su come gestire gli oggetti dati, come abilitare Analisi archiviazione e come accedere a cloud indipendenti di Azure, ad esempio il cloud per la Cina, il cloud per la Germania e il cloud per enti pubblici. Di seguito sono riportati alcuni altri articoli correlati e alcune risorse di riferimento:
 
 * [Cmdlet di PowerShell per il piano di controllo di Archiviazione di Azure](/powershell/module/AzureRM.Storage/)
 * [Cmdlet di PowerShell per il piano dati di Archiviazione di Azure](/powershell/module/azure.storage/)

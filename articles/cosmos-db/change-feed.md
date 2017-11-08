@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 0971959fb168d92096531d1c081666cf301608cf
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: e21925b8f84f0805f41fd698965cac09286b92c1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Uso del supporto del feed delle modifiche in Azure Cosmos DB
 
@@ -157,7 +157,7 @@ Questa sezione illustra come usare l'SDK di DocumentDB per lavorare con un feed 
 
 Se si hanno più lettori, è possibile usare **ChangeFeedOptions** per distribuire il carico delle letture in thread diversi o in client diversi.
 
-Con queste poche righe di codice è possibile iniziare a leggere il feed di modifiche. È possibile ottenere il codice completo usato in questo articolo dal [repository GitHub azure-cosmos-db-DocumentFeed](https://github.com/rsarosh/azure-cosmos-db-DocumentFeed).
+Con queste poche righe di codice è possibile iniziare a leggere il feed di modifiche. È possibile ottenere il codice completo usato in questo articolo dal [repository GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
 
 Nel codice del passaggio 4 **ResponseContinuation** nell'ultima riga ha l'ultimo numero di sequenza logico (LSN) del documento, che verrà usato la volta successiva in cui si leggeranno nuovi documenti dopo questo numero di sequenza. Usando il valore **StartTime** di **ChangeFeedOption** è possibile ampliare il campo di ricerca per ottenere i documenti. Se quindi **ResponseContinuation** è null, ma **StartTime** risale indietro nel tempo, si otterranno tutti i documenti modificati dopo **StartTime**. Se invece per **ResponseContinuation** viene specificato un valore, il sistema restituirà tutti i documenti dopo tale LSN.
 
@@ -278,7 +278,7 @@ Per altre informazioni sull'uso della libreria del processore dei feed delle mod
 
 * [Pagina delle informazioni](documentdb-sdk-dotnet-changefeed.md) 
 * [Pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Codice di esempio che illustra i passaggi precedenti da 1 a 6](https://github.com/rsarosh/Cosmos-ChangeFeedProcessor)
+* [Codice di esempio che illustra i passaggi precedenti da 1 a 6](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Altri esempi in GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Per altre informazioni sull'uso del feed di modifiche tramite l'SDK, usare le risorse seguenti:

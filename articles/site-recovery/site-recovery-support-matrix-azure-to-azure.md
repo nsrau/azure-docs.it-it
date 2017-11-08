@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: 34255e8ada8dfb00b3c02ca2ab22f94bd3e0954d
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure
 
@@ -69,7 +69,7 @@ Il supporto è applicabile a qualsiasi carico di lavoro in esecuzione nel sistem
 
 #### <a name="windows"></a>Windows
 
-- Windows Server 2016 (Server Core e Server con esperienza desktop)*
+- Windows Server 2016 (Server Core, Server con Esperienza desktop)*
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 con almeno SP1

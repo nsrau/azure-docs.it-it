@@ -4,7 +4,7 @@ description: "Un gateway locale è necessario se il server Analysis Services di 
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 10/30/2017
 ms.author: owend
-ms.openlocfilehash: 47f05a22811307617f475e79145f70a0233f5895
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale di Azure
 Il gateway dati locale svolge la funzione di ponte, garantendo il trasferimento sicuro dei dati tra le origini dati locali e i server Azure Analysis Services nel cloud. Oltre a lavorare con più server Azure Analysis Services nella stessa area, la versione più recente del gateway funziona anche con app per la logica di Azure, Power BI, PowerApps e Microsoft Flow. È possibile associare più servizi nella stessa area con un singolo gateway. 
@@ -129,6 +129,9 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 
 **D**: Il servizio gateway di Windows può essere eseguito con un account Azure Active Directory? <br/>
 **R**: No. Il servizio Windows deve disporre di un account Windows valido. Per impostazione predefinita, il sevizio viene eseguito con il SID servizio NT SERVICE\PBIEgwService.
+
+**D**: Come si acquisisce la proprietà di un gateway? <br/>
+**R**: Per acquisire la proprietà di un gateway (selezionando Installa/Cambia in Pannello di controllo > Programmi), è necessario essere un proprietario per la risorsa gateway in Azure e avere la chiave di ripristino. I proprietari delle risorse gateway sono configurabili nel controllo di accesso.
 
 ### <a name="high-availability"></a>Disponibilità elevata e ripristino di emergenza
 

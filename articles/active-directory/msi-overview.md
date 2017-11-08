@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: skwan
-ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 473a9e3aa3b6ad79a5f50a37c8aadc1bba79f5ae
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/01/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identità del servizio gestito per le risorse di Azure
 
@@ -50,12 +50,14 @@ Eseguire un'esercitazione relativa a Identità del servizio gestito per informaz
 <br><br>
 | Da risorse basate su Identità del servizio gestito | Scopri come |
 | ------- | -------- |
-| Macchina virtuale Azure (Windows) | [Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Resource Manager](msi-tutorial-windows-vm-access-arm.md) |
+| Macchina virtuale Azure (Windows) | [Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Data Lake Store](msi-tutorial-windows-vm-access-datalake.md) |
+|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Resource Manager](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Accedere ad Azure SQL con un'identità del servizio gestito di una macchina virtuale Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Accedere ad Archiviazione di Azure tramite chiave di accesso con un'identità del servizio gestito di una macchina virtuale Windows](msi-tutorial-windows-vm-access-storage.md) |
 |                    | [Accedere ad Archiviazione di Azure tramite firma di accesso condiviso con un'identità del servizio gestito di una macchina virtuale Windows](msi-tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Accedere ad Azure SQL con un'identità del servizio gestito di una macchina virtuale Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Usare un'Identità del servizio gestito per una macchina virtuale Windows e Azure Key Vault per accedere a una risorsa diversa da Azure AD](msi-tutorial-windows-vm-access-nonaad.md) |
-| Macchina virtuale Azure (Linux)   | [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Resource Manager](msi-tutorial-linux-vm-access-arm.md) |
+| Macchina virtuale Azure (Linux)   | [Usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Data Lake Store](msi-tutorial-linux-vm-access-datalake.md) |
+|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Resource Manager](msi-tutorial-linux-vm-access-arm.md) |
 |                    | [Accedere ad Archiviazione di Azure tramite chiave di accesso con un'identità del servizio gestito di una macchina virtuale Linux](msi-tutorial-linux-vm-access-storage.md) |
 |                    | [Accedere ad Archiviazione di Azure tramite firma di accesso condiviso con un'identità del servizio gestito di una macchina virtuale Linux](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Accedere a una risorsa non Azure AD con l'identità del servizio gestito di una macchina virtuale Linux e con Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |

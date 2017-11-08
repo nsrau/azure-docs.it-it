@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: jingwang
-ms.openlocfilehash: 758c8e73cf54cd21f4d87f19a64d8d71eee159c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4415417b0737feeb6f6285b29a59c2909d44a0d
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -26,6 +26,9 @@ Per **copiare i file così come sono** tra archivi basati su file (copia binaria
 * [Formato Avro](#avro-format)
 * [Formato ORC](#orc-format)
 * [Formato Parquet](#parquet-format)
+
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Informazioni sui formati di compressione e sui file supportati da Azure Data Factory versione 1](v1//data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="text-format"></a>Formato testo
 

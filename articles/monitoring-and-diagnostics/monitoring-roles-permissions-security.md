@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 31c4fc5b606bf96cec8c508f4a0ff7ecbaeae38a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
 Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto, tecnici DevOps) o si usa un provider di servizi gestiti, si consiglia di concedere loro l'accesso ai dati di monitoraggio solo limitandone la possibilità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
@@ -37,12 +37,12 @@ Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visual
 * Visualizzare le impostazioni di scalabilità automatica.
 * Visualizzare impostazioni e attività di avviso.
 * Accedere ai dati di Application Insights e visualizzarli in AI Analytics.
-* Cercare i dati dell'area di lavoro Log Analytics (OMS), inclusi i dati sull'uso dell'area di lavoro.
-* Visualizzare i gruppi di gestione di Log Analytics (OMS).
-* Recuperare lo schema di ricerca di Log Analytics (OMS).
-* Elencare gli Intelligence Pack di Log Analytics (OMS).
-* Recuperare ed eseguire le ricerche salvate di Log Analytics (OMS).
-* Recuperare la configurazione di archiviazione di Log Analytics (OMS).
+* Cercare i dati dell'area di lavoro Log Analytics, inclusi i dati sull'uso dell'area di lavoro.
+* Visualizzare i gruppi di gestione di Log Analytics.
+* Recuperare lo schema di ricerca di Log Analytics.
+* Elencare gli Intelligence Pack di Log Analytics.
+* Recuperare ed eseguire le ricerche salvate di Log Analytics.
+* Recuperare la configurazione di archiviazione di Log Analytics.
 
 > [!NOTE]
 > Questo ruolo non concede l'accesso in lettura ai dati del registro che sono stati trasmessi a un hub eventi o archiviati in un account di archiviazione. [vedere di seguito](#security-considerations-for-monitoring-data) .
@@ -57,10 +57,10 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 * Impostare il [profilo di registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) per una sottoscrizione.*
 * Configurare impostazioni e attività di avviso.
 * Creare componenti e test Web di Application Insights.
-* Elencare le chiavi condivise dell'area di lavoro di Log Analytics (OMS).
-* Abilitare o disabilitare gli Intelligence Pack di Log Analytics (OMS).
-* Creare ed eliminare poi eseguire le ricerche salvate di Log Analytics (OMS).
-* Creare ed eliminare la configurazione di archiviazione di Log Analytics (OMS).
+* Elencare le chiavi condivise dell'area di lavoro di Log Analytics.
+* Abilitare o disabilitare gli Intelligence Pack di Log Analytics.
+* Creare ed eliminare poi eseguire le ricerche salvate di Log Analytics.
+* Creare ed eliminare la configurazione di archiviazione di Log Analytics.
 
 *per configurare un profilo di registro o un'impostazione di diagnostica, è necessario che all'utente sia concessa separatamente anche l'autorizzazione ListKeys nella risorsa di destinazione (account di archiviazione o spazio dei nomi dell'hub eventi).
 

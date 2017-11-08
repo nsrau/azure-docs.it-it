@@ -1,5 +1,5 @@
 ---
-title: Gestione traffico di Azure - Domande frequenti | Documentazione Microsoft
+title: Gestione traffico di Azure - Domande frequenti | Microsoft Docs
 description: Questo articolo risponde ad alcune domande frequenti su Gestione traffico
 services: traffic-manager
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 5751cd111d2b1c8a4db2fc3b39f2108e73e9508f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -216,7 +216,7 @@ Visualizzazione traffico genera il proprio output elaborando i dati dei sette gi
 
 ### <a name="how-does-traffic-view-handle-external-endpoints"></a>In che modo Visualizzazione traffico gestisce gli endpoint esterni?
 
-Quando si usano endpoint esterni ospitati all'esterno di aree di Azure in un profilo di Gestione traffico, è possibile scegliere che venga eseguito il mapping a un'area di Azure che è un proxy per le relative caratteristiche di latenza (che è in effetti necessario se si usa il metodo di routing basato sulle prestazioni). Con questo mapping dell'area di Azure, verranno usate le metriche di latenza di quell'area di Azure per generare l'output di Visualizzazione traffico. Se non viene specificata alcuna area di Azure, le informazioni sulla latenza saranno vuote nei dati per quegli endpoint esterni.
+Quando si usano endpoint esterni ospitati all'esterno di aree di Azure in un profilo di Gestione traffico, è possibile scegliere che venga eseguito il mapping a un'area di Azure che è un proxy per le relative caratteristiche di latenza (che è in effetti necessario se si usa il metodo di routing basato sulle prestazioni). Con questo mapping dell'area di Azure verranno usate le metriche di latenza di quell'area di Azure per generare l'output di Visualizzazione traffico. Se non viene specificata alcuna area di Azure, le informazioni sulla latenza saranno vuote nei dati per quegli endpoint esterni.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>È necessario abilitare Visualizzazione traffico per ogni profilo della sottoscrizione?
 Durante il periodo di anteprima, la funzionalità Visualizzazione traffico è abilitata a livello di sottoscrizione ed è disponibile per tutti i profili di Gestione traffico in tale sottoscrizione.

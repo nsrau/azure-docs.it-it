@@ -1,6 +1,6 @@
 ---
-title: "Novità di Azure Active Directory | Microsoft Docs"
-description: "Usare queste note sulla versione per tenersi aggiornati in merito a **versioni più recenti**, **problemi noti**, **correzioni di bug**, **funzionalità deprecate** e **modifiche pianificate** in Azure Active Directory."
+title: "Novità Note sulla versione per Azure Active Directory | Microsoft Docs"
+description: "Usare queste note sulla versione per tenersi aggiornati in merito a versioni più recenti, problemi noti, correzioni di bug, funzionalità deprecate e modifiche pianificate in Azure Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 10/27/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0361d5b48af876af2ccc522351484d369554bfca
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1d98233e1bfc2c9a926d7c61737286ec6e4fc422
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -76,6 +76,8 @@ Nel mondo odierno l'autenticazione MFA (Multi-Factor Authentication) è fondamen
 
 Con questa versione di anteprima pubblica, la gestione e i report di MFA diventano una parte integrante dell'esperienza di configurazione di base di Azure AD, consentendo di usare la funzionalità del portale di gestione di MFA direttamente da Azure AD.
 
+Vedere le informazioni di [riferimento sui report dell'autenticazione a più fattori nel portale di Azure](active-directory-reporting-activity-sign-ins-mfa.md) 
+
 
 ---
 **Tipo:** Nuova funzionalità  
@@ -112,8 +114,6 @@ Per altre informazioni, vedere [PIM per Risorse di Azure](privileged-identity-ma
 **Categoria di servizio:** Verifiche di accesso  
 **Funzionalità del prodotto:** Governance  
 
-
-Novità di Azure AD
 
 Le verifiche di accesso (anteprima) consentono alle organizzazioni di gestire in modo efficiente l'appartenenza ai gruppi e l'accesso alle applicazioni aziendali: 
 

@@ -1,5 +1,5 @@
 ---
-title: "Configurazione della disponibilità elevata con STONITH per SAP HANA in Azure (istanze Large) | Microsoft Docs"
+title: "Configurazione della disponibilità elevata con STONITH per SAP HANA in Azure (istanze di grandi dimensioni) | Microsoft Docs"
 description: "Stabilire la disponibilità elevata per SAP HANA in Azure (istanze Large) in SUSE con STONITH"
 services: virtual-machines-linux
 documentationcenter: 
@@ -11,21 +11,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6db4a9308ede1744081f114c61f1ca0c303706e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9122cbb66c6089009dccccea9b985e3521d45179
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="high-availability-setup-in-suse-using-the-stonith"></a>Configurazione della disponibilità elevata in SUSE con STONITH
+# <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configurazione della disponibilità elevata in SUSE con STONITH
 Questo documento contiene le istruzioni dettagliate per configurare la disponibilità elevata nel sistema operativo SUSE usando il dispositivo STONITH.
 
-**Dichiarazione di non responsabilità:** *questa guida è stata realizzata testando con esito positivo la configurazione dell'ambiente delle istanze Large di HANA per Microsoft. Poiché il team di gestione dei servizi Microsoft per le istanze Large di HANA non supporta il sistema operativo, potrebbe essere necessario contattare SUSE per ulteriori procedure di risoluzione dei problemi o chiarimenti in merito al sistema operativo. Il team di gestione dei servizi Microsoft configura il dispositivo STONITH e offrirà assistenza completa, anche per la risoluzione dei problemi relativi al dispositivo STONITH.*
+**Dichiarazione di non responsabilità:** *questa guida è stata realizzata testando la configurazione dell'ambiente delle istanze di grandi dimensioni di HANA per Microsoft, che ha avuto esito positivo. Poiché il team di gestione dei servizi Microsoft per le istanze Large di HANA non supporta il sistema operativo, potrebbe essere necessario contattare SUSE per ulteriori procedure di risoluzione dei problemi o chiarimenti in merito al sistema operativo. Il team di gestione dei servizi Microsoft configura il dispositivo STONITH e offre assistenza completa, anche per la risoluzione dei problemi relativi al dispositivo STONITH.*
 ## <a name="overview"></a>Panoramica
-Per configurare la disponibilità elevata usando il clustering SUSE, devono essere soddisfatti i prerequisiti seguenti.
+Per configurare la disponibilità elevata usando il clustering SUSE, è necessario soddisfare i prerequisiti seguenti.
 ### <a name="pre-requisites"></a>Prerequisiti
 - Provisioning delle istanze Large di HANA effettuato
 - Sistema operativo registrato
@@ -34,20 +34,21 @@ Per configurare la disponibilità elevata usando il clustering SUSE, devono esse
 - NTP (server di riferimento ora) configurato
 - Conoscenza e comprensione della versione più recente della documentazione di SUSE sulla configurazione della disponibilità elevata
 
-### <a name="setup-details"></a>Dettagli di configurazione
-- In questa guida è stata usata la configurazione seguente.
-- Sistema operativo: SUSE 12 SP1
-- Istanze Large di HANA: 2xS192 (4 socket, 2 TB)
+### <a name="set-up-details"></a>Dettagli di configurazione
+- In questa guida è stata usata la configurazione seguente:
+- Sistema operativo: SLES 12 SP1 per SAP
+- Istanze di grandi dimensioni di HANA: 2xS192 (4 socket, 2 TB)
 - Versione di HANA: HANA 2.0 SP1
 - Nomi dei server: sapprdhdb95 (node1) e sapprdhdb96 (node2)
 - Dispositivo STONITH: dispositivo STONITH basato su iSCSI
-- NTP configurato in uno dei nodi di istanze Large di HANA
+- NTP configurato in uno dei nodi di istanze di grandi dimensioni di HANA
 
-Quando si configurano le istanze Large di HANA con HSR, è possibile richiedere al team di gestione dei servizi Microsoft di configurare STONITH. Se si è già un cliente per cui è stato effettuato il provisioning delle istanze Large di HANA e si ha bisogno della configurazione del dispositivo STONITH per i blade server esistenti, è necessario fornire le informazioni seguenti al team di gestione dei servizi Microsoft nel modulo della richiesta di servizio. È possibile richiedere il modulo della richiesta di servizio tramite il technical account manager o il contatto Microsoft per l'onboarding di istanze Large di HANA. Il nuovi clienti possono richiedere il dispositivo STONITH in fase di provisioning. Gli input sono disponibili nel modulo della richiesta di provisioning.
+Quando si configurano istanze di grandi dimensioni di HANA con HSR, è possibile richiedere al team di gestione dei servizi Microsoft di configurare STONITH. Se si è già un cliente per cui è stato eseguito il provisioning delle istanze di grandi dimensioni di HANA e si ha bisogno della configurazione del dispositivo STONITH per i pannelli esistenti, è necessario fornire le informazioni seguenti al team di gestione dei servizi Microsoft nel modulo della richiesta di servizio. È possibile richiedere il modulo della richiesta di servizio tramite il technical account manager o il contatto Microsoft per l'onboarding di istanze di grandi dimensioni di HANA. Il nuovi clienti possono richiedere il dispositivo STONITH in fase di provisioning. Gli input sono disponibili nel modulo della richiesta di provisioning.
 
 - Nome del server e indirizzo IP del server (ad esempio, myhanaserver1, 10.35.0.1)
-- Località (ad esempio, Stati Uniti orientali)
+- Posizione (ad esempio, Stati Uniti orientali)
 - Nome del cliente (ad esempio, Microsoft)
+- SID - Identificatore del sistema HANA (ad esempio, H11)
 
 Dopo la configurazione del dispositivo STONITH, il team di gestione dei servizi Microsoft fornisce il nome e l'indirizzo IP del dispositivo SBD della risorsa di archiviazione iSCSI che è possibile usare per la configurazione di STONITH. 
 
@@ -65,14 +66,18 @@ Per configurare la disponibilità elevata end-to-end usando STONITH, è necessar
 ## <a name="1---identify-the-sbd-device"></a>1.   Identificare il dispositivo SBD
 Questa sezione descrive come determinare il dispositivo SBD per la configurazione dopo che il team di gestione dei servizi Microsoft ha configurato STONITH. **Questa sezione si applica solo ai clienti esistenti**. Il team di gestione dei servizi Microsoft fornisce il nome del dispositivo SBD ai nuovi clienti che possono ignorare questa sezione.
 
-1.1 Sostituire */etc/iscsi/initiatorname.isci* con *iqn.1996-04.de.suse:01: <Tenant><Location><SID><NodeNumber>*.  
-Il team di gestione dei servizi Microsoft fornisce questa stringa. Questa operazione deve essere eseguita su **entrambi** i nodi, ma il numero è diverso in ogni nodo.
+1.1 Sostituire */etc/iscsi/initiatorname.isci* con 
+``` 
+iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber> 
+```
+
+Il team di gestione dei servizi Microsoft fornisce questa stringa. Modificare il file su **entrambi** i nodi, nonostante il numero sia diverso in ogni nodo.
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 Modificare */etc/iscsi/iscsid.conf*: impostare *node.session.timeo.replacement_timeout=5* e *node.startup = automatic*. Questa operazione deve essere eseguita su **entrambi** i nodi.
+1.2 Modificare */etc/iscsi/iscsid.conf*: impostare *node.session.timeo.replacement_timeout=5* e *node.startup = automatic*. Modificare il file su **entrambi** i nodi.
 
-1.3 Eseguire il comando discovery che visualizza quattro sessioni. Questa operazione deve essere eseguita su entrambi i nodi.
+1.3 Eseguire il comando discovery che visualizza quattro sessioni. Eseguirlo su entrambi i nodi.
 
 ```
 iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
@@ -80,14 +85,14 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4 Eseguire il comando per accedere al dispositivo iSCSI e visualizzare quattro sessioni. Questa operazione deve essere eseguita su **entrambi** i nodi.
+1.4 Eseguire il comando per accedere al dispositivo iSCSI e visualizzare quattro sessioni. Eseguirlo su **entrambi** i nodi.
 
 ```
 iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 Eseguire lo script rescan: *rescan-scsi-bus.sh*.  Vengono visualizzati i nuovi dischi creati automaticamente.  Eseguirlo su entrambi i nodi. Verrà visualizzato un numero LUN maggiore di zero (ad esempio: 1, 2 e così via)
+1.5 Eseguire lo script rescan: *rescan-scsi-bus.sh*.  Vengono visualizzati i nuovi script creati automaticamente.  Eseguirlo su entrambi i nodi. Verrà visualizzato un numero LUN maggiore di zero (ad esempio: 1, 2 e così via)
 
 ```
 rescan-scsi-bus.sh
@@ -120,7 +125,7 @@ sbd -d <SBD Device Name> dump
 ## <a name="3---configuring-the-cluster"></a>3.   Configurazione del cluster
 Questa sezione descrive i passaggi per configurare il cluster SUSE a disponibilità elevata.
 ### <a name="31-package-installation"></a>3.1 Installazione del pacchetto
-3.1.1 Controllare che i modelli ha_sles e SAPHanaSR-doc siano installati. In caso contrario, installarli. Questa operazione deve essere eseguita su **entrambi** i nodi.
+3.1.1 Controllare che i modelli ha_sles e SAPHanaSR-doc siano installati. Se non sono installati, è necessario installarli. Installarli su **entrambi** i nodi.
 ```
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
@@ -158,7 +163,7 @@ L'autenticazione viene eseguita usando gli indirizzi IP e le chiavi precondivise
 Fare clic su **Next** (Avanti)
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
-L'impostazione predefinita di Booting (Avvio) è "Off" (No). Impostarlo su "On" (Sì) per avviare Pacemaker durante il bootstrap. È possibile effettuare la scelta in base ai requisiti di configurazione.
+L'impostazione predefinita di Booting (Avvio) è "Off" (No). Impostarlo su "On" (Sì) per avviare Pacemaker durante il bootstrap. È possibile scegliere in base ai requisiti di configurazione.
 Fare clic su **Next** (Avanti) per completare la configurazione del cluster.
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4.   Configurazione del watchdog softdog
@@ -170,7 +175,7 @@ modprobe softdog
 ```
 ![modprobe-softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
-4.2 Aggiornare il file */etc/sysconfig/sbd* in **entrambi** i nodi, come segue
+4.2 Aggiornare il file */etc/sysconfig/sbd* su **entrambi** i nodi, come segue:
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
@@ -182,7 +187,7 @@ modprobe softdog
 ```
 ![modprobe-softdog-command.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
 
-4.4 Verificare che il softdog sia in esecuzione in **entrambi** i nodi, come segue
+4.4 Verificare che il softdog sia in esecuzione in **entrambi** i nodi, come segue:
 ```
 lsmod | grep dog
 ```
@@ -212,7 +217,7 @@ sbd  -d <SBD Device Name> list
 ```
 ![sbd-list-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
 
-4.9 Per adottare la configurazione SBD, aggiornare il file */etc/sysconfig/sbd*, come segue. Questa operazione deve essere eseguita su **entrambi** i nodi
+4.9 Per adottare la configurazione SBD, aggiornare il file */etc/sysconfig/sbd*, come segue. Aggiornare il file su **entrambi** i nodi
 ```
 SBD_DEVICE=" <SBD Device Name>" 
 SBD_WATCHDOG="yes" 
@@ -256,7 +261,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Configurare le proprietà e le risorse del cluster 
 Questa sezione descrive i passaggi per configurare le risorse del cluster.
-In questo esempio è stata configurata la risorsa seguente. Per configurare le altre (se necessario), vedere la guida alla disponibilità elevata di SUSE. È necessario eseguire questa configurazione solo in **uno dei nodi**. Eseguire l'operazione nel nodo primario.
+In questo esempio è stata configurata la risorsa seguente. Per configurare le altre, se necessario, vedere la guida alla disponibilità elevata di SUSE. È necessario eseguire questa configurazione solo su **uno dei nodi**. Eseguire l'operazione nel nodo primario.
 
 - Bootstrap del cluster
 - Dispositivo STONITH
@@ -264,7 +269,7 @@ In questo esempio è stata configurata la risorsa seguente. Per configurare le a
 
 
 ### <a name="71-cluster-bootstrap-and-more"></a>7.1 Bootstrap del cluster e altre operazioni
-Aggiungere il bootstrap del cluster. Creare il file e aggiungere il testo seguente.
+Aggiungere il bootstrap del cluster. Creare il file e aggiungere il testo seguente:
 ```
 sapprdhdb95:~ # vi crm-bs.txt
 # enter the following to crm-bs.txt
@@ -337,7 +342,7 @@ Arrestare ora il servizio Pacemaker in **node2**. È stato effettuato il failove
 
 
 ## <a name="9-troubleshooting"></a>9. Risoluzione dei problemi
-Questa sezione descrive alcuni scenari di errore, che possono verificarsi durante la configurazione, anche se non necessariamente.
+Questa sezione descrive alcuni scenari di errore che possono verificarsi durante la configurazione. anche se non necessariamente.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Scenario 1: Nodo del cluster non online
 Se uno dei nodi non risulta online in Cluster Manager, seguire questa procedura per portarlo online.
