@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 202cd5441401a91736a55ccba095fa08dc95aa26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3000acf91a66af3ec512af52362f7f1e2ba0019b
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto alle versioni precedenti e i problemi noti.
@@ -35,14 +35,46 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 | Nell'API REST non sono fornite alcune intestazioni HTTP comuni. |Se si sviluppano applicazioni di Servizi multimediali tramite l'API REST, alcuni campi di intestazione HTTP comuni, ad esempio CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID, non sono supportati. Le intestazioni verranno aggiunte in un futuro aggiornamento. |
 | La codifica percentuale non è consentita. |Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.). |
 | Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce. |Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Se si vuol usare Azure Storage SDK per elencare oggetti BLOB in un contenitore dello stesso tipo, usare il metodo [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) disponibile in Azure Storage SDK versione 2.x. Il metodo ListBlobs disponibile in Azure Storage SDK versione 3.x non riuscirà. |
-| Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503). |Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](media-services-encoding-error-codes.md) . |
+| Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503). |Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'articolo [Codici di errore di Servizi multimediali di Azure](media-services-encoding-error-codes.md). |
 | Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. |È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e in [questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Alcuni client possono riscontrare un problema di tag di ripetizione nel manifesto Smooth Streaming. |Per altre informazioni, vedere [questa](media-services-deliver-content-overview.md#known-issues) sezione. |
 | Gli oggetti nel modulo .NET SDK di Servizi multimediali di Azure non possono essere serializzati e di conseguenza non funzionano con Caching di Azure. |Se si prova a serializzare l'oggetto AssetCollection del modulo SDK per aggiungerlo a Caching di Azure, viene generata un'eccezione. |
-| I processi di codifica hanno esito negativo e viene mostrata la stringa messaggio "Stage: DownloadFile. Code: System.NullReferenceException". |Il flusso di lavoro di codifica tipico consiste nel caricare i file video di input in un asset di input e inviare uno o più processi di codifica per tale asset di input, senza altre modifiche all'asset di input. Se invece si modifica l'asset di input (ad esempio aggiungendo, eliminando o rinominando i file all'interno dell'asset), i processi successivi potrebbero non riuscire e mostrare l'errore DownloadFile. La soluzione alternativa consiste nell'eliminare l'asset di input e caricare di nuovo i file di input in un nuovo asset. |
+
 
 ## <a id="rest_version_history"></a>Cronologia delle versioni dell'API REST
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
+
+## <a name="october-2017-release"></a>Versione di ottobre 2017
+> [!IMPORTANT] 
+> Promemoria: il supporto per le chiavi di autenticazione ACS verrà deprecato in Servizi multimediali di Microsoft Azure.  Il 1° giugno 2018 non sarà più possibile eseguire l'autenticazione con il back-end di Servizi multimediali di Azure tramite codice che usa chiavi ACS. È necessario aggiornare il codice in modo da usare Azure Active Directory (AAD) in base alle istruzioni dell'articolo [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Questa modifica può essere segnalata anche in appositi avvisi nel portale di Azure.
+
+### <a name="updates-for-october-2017-include"></a>Gli aggiornamenti di ottobre 2017 includono:
+#### <a name="sdks"></a>SDK
+* Aggiornamento di .NET SDK per il supporto dell'autenticazione AAD.  Il supporto per l'autenticazione ACS è stato rimosso dalla versione più recente di .NET SDK in Nuget.org allo scopo di velocizzare la migrazione ad AAD. 
+* Aggiornamento di Java SDK per il supporto dell'autenticazione AAD.  Il supporto per l'autenticazione AAD è stato aggiunto in Java SDK. Per informazioni dettagliate su come usare Java SDK con Servizi multimediali di Azure, vedere [Introduzione a Java Client SDK per Servizi multimediali di Azure](media-services-java-how-to-use.md).
+
+#### <a name="file-based-encoding"></a>Codifica basata su file
+1.  È ora possibile usare il codificatore Premium per codificare il contenuto in base al codec video H.265 (HEVC). La scelta del codec H.265 rispetto ad altri codec, come H.264, non influisce in alcun modo sui prezzi. Per una nota importante relativa alle licenze del brevetto HEVC, vedere i [termini di servizio online](https://azure.microsoft.com/support/legal/).
+2.  Se i video di origine sono codificati con il codec video H.265 (HEVC), ad esempio i video acquisiti con iOS11 o GoPro Hero 6, è ora possibile usare il codificatore Premium o Standard per codificare questi video. Per una nota importante sulle licenze del brevetto, vedere i [termini di servizio online](https://azure.microsoft.com/support/legal/).
+3.  Se il contenuto contiene tracce audio in più lingue, è possibile usare il codificatore Standard per codificare il contenuto per lo streaming purché i valori di lingua siano etichettati correttamente in base alla specifica del formato di file corrispondente, ad esempio ISO MP4. Il localizzatore di streaming risultante elencherà le lingue disponibili per l'audio.
+4.  Il codificatore Standard supporta ora due nuovi set di impostazioni solo audio, ovvero "Audio AAC" e "Audio AAC di buona qualità". Entrambi producono output AAC stereo, rispettivamente a velocità in bit di 128 kbps e 192 kbps.
+5.  Il codificatore Premium supporta ora i formati di file QuickTime/MOV come input, purché il codec video sia una delle [versioni di Apple ProRes elencate qui](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats) e che l'audio sia AAC o PCM.
+
+> [!NOTE]
+> Il codificatore Premium non supporta, ad esempio, come input il video DVC/DVCPro incapsulato in file QuickTime/MOV.  Il codificatore Standard non supporta invece questi codec video.
+>
+>
+
+6.  Correzioni di bug nei codificatori:
+    * È ora possibile inviare processi usando un asset di input e, dopo il completamento dei processi, modificare l'asset (ad esempio aggiungendo/eliminando/rinominando i file presenti nell'asset) e inviare altri processi. 
+    * Miglioramento della qualità delle anteprime JPEG prodotte dal codificatore Standard
+    * Miglioramenti apportati al codificatore Standard per i video di breve durata. Gestione dei metadati di input migliorata e generazione di anteprime nei video di durata molto breve.
+    * Miglioramenti apportati al decodificatore H.264 usato nel codificatore Standard allo scopo di eliminare alcuni artefatti rari. 
+
+#### <a name="media-analytics"></a>Analisi Servizi multimediali
+* GA di Azure Media Redactor - Questo processore di contenuti multimediali consente di rendere anonimi i video oscurando i volti delle persone selezionate. È quindi ideale in scenari multimediali di pubblica sicurezza e notiziari. Per una panoramica su questo nuovo processore, vedere il post di blog disponibile [qui](https://azure.microsoft.com/blog/azure-media-redactor/). Per la documentazione dettagliata e le impostazioni, vedere [Offuscare i volti con Analisi Servizi multimediali di Azure](media-services-face-redaction.md).
+
+
 
 ## <a name="june-2017-release"></a>Versione di giugno 2017
 
@@ -58,19 +90,19 @@ Ora è possibile usare Azure Media Standard per [generare automaticamente una sc
 Ora è possibile usare Azure Media Standard o il flusso di lavoro Premium del codificatore multimediale per [creare un'attività di codifica che genera blocchi fMP4](media-services-generate-fmp4-chunks.md). 
 
 
-## <a name="febuary-2017-release"></a>Versione di febbraio 2017
+## <a name="february-2017-release"></a>Versione di febbraio 2017
 
 A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni verranno eliminati automaticamente, insieme ai record attività associati, anche se il numero totale di record è inferiore alla quota massima. Se è necessario archiviare le informazioni sul processo o sull'attività, è possibile usare il codice descritto [qui](media-services-dotnet-manage-entities.md).
 
 ## <a name="january-2017-release"></a>Versione di gennaio 2017
 
-In Servizi multimediali di Microsoft Azure (AMS) un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Servizi multimediali fornisce inoltre un'integrazione completa della rete CDN di Azure. Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live, da un "video on demand" o da un download progressivo dell'asset associato a un account di Servizi multimediali. Ogni account di Servizi multimediali di Azure include un servizio StreamingEndpoint predefinito. Nell'account è possibile creare altri servizi StreamingEndpoint. Esistono due versioni di servizi StreamingEndpoint, ovvero 1.0 e 2.0. A partire dal 10 gennaio 2017, ogni account di AMS appena creato includerà lo StreamingEndpoint **predefinito** della versione 2.0. Anche gli altri endpoint di streaming che verranno aggiunti a questo account avranno la versione 2.0. Questa modifica non influisce sugli account esistenti. La versione dei servizi StreamingEndpoint è la versione 1.0, che può essere aggiornata alla versione 2.0. Tale modifica comporta cambiamenti nel comportamento, nella fatturazione e nelle funzionalità (per altre informazioni, vedere [questo](media-services-streaming-endpoints-overview.md) argomento).
+In Servizi multimediali di Microsoft Azure (AMS) un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Servizi multimediali fornisce inoltre un'integrazione completa della rete CDN di Azure. Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live, da un "video on demand" o da un download progressivo dell'asset associato a un account di Servizi multimediali. Ogni account di Servizi multimediali di Azure include un servizio StreamingEndpoint predefinito. Nell'account è possibile creare altri servizi StreamingEndpoint. Esistono due versioni di servizi StreamingEndpoint, ovvero 1.0 e 2.0. A partire dal 10 gennaio 2017, ogni account di AMS appena creato includerà lo StreamingEndpoint **predefinito** della versione 2.0. Anche gli altri endpoint di streaming che verranno aggiunti a questo account avranno la versione 2.0. Questa modifica non influisce sugli account esistenti. La versione dei servizi StreamingEndpoint è la versione 1.0, che può essere aggiornata alla versione 2.0. Tale modifica comporta cambiamenti nel comportamento, nella fatturazione e nelle funzionalità. Per altre informazioni, vedere [questo](media-services-streaming-endpoints-overview.md) articolo.
 
 A partire dalla versione 2.15 nei Servizi multimediali di Azure sono state aggiunte le proprietà seguenti all'entità endpoint di streaming: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime** e **StreamingEndpointVersion**. Per una panoramica dettagliata di queste proprietà, vedere [questo articolo](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 ## <a name="december-2016-release"></a>Versione di dicembre 2016
 
-Servizi multimediali di Azure consente ora di accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere i dati di telemetria relativi alle entità Channel live, StreamingEndpoint e Archive live. Per altre informazioni, vedere [questo](media-services-telemetry-overview.md) argomento.
+Servizi multimediali di Azure consente ora di accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere i dati di telemetria relativi alle entità Channel live, StreamingEndpoint e Archive live. Per altre informazioni, vedere [questo](media-services-telemetry-overview.md) articolo.
 
 ## <a id="july_changes16"></a>Versione di luglio 2016
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>Aggiornamenti del file manifesto (con estensione ism) generati da attività di codifica
@@ -292,7 +324,7 @@ Media Services SDK per .NET è ora alla versione 3.0.0.7.
 * **Origin** è stata rinominata in [StreamingEndpoint].
 * È stato modificato il comportamento predefinito quando si usa il **portale di Azure** per codificare e pubblicare file MP4.
 
-Mentre, in precedenza, quando si usava il portale di Azure classico per pubblicare un asset video costituito da un unico file MP4, veniva creato un URL della firma di accesso condiviso (che consentiva di scaricare il video da un'archiviazione BLOB), adesso quando si utilizza il portale di Azure classico per codificare e pubblicare un asset video costituito da un unico file MP4 viene generato un URL che punta a un endpoint di flusso di origine di Servizi multimediali di Azure.  Questa modifica, tuttavia, non riguarda i video MP4 che vengono caricati direttamente in Servizi multimediali e pubblicati senza essere codificati da Servizi multimediali di Azure.
+Mentre, in precedenza, quando si usava il portale di Azure classico per pubblicare un asset video costituito da un unico file MP4, veniva creato un URL della firma di accesso condiviso (che consentiva di scaricare il video da un'archiviazione BLOB), adesso quando si usa il portale di Azure classico per codificare e pubblicare un asset video costituito da un unico file MP4 viene generato un URL che punta a un endpoint di streaming di Servizi multimediali di Azure.  Questa modifica, tuttavia, non riguarda i video MP4 che vengono caricati direttamente in Servizi multimediali e pubblicati senza essere codificati da Servizi multimediali di Azure.
 
 Attualmente, per risolvere il problema sono disponibili le due opzioni seguenti.
 
@@ -308,10 +340,10 @@ Attualmente, per risolvere il problema sono disponibili le due opzioni seguenti.
     Si applicano le considerazioni seguenti:
   
   * È necessario avere la proprietà del nome di dominio personalizzato.
-  * La proprietà del nome di dominio deve essere convalidata da Servizi multimediali di Azure. Per convalidare il dominio, creare un CName che mappi <MediaServicesAccountId>.<parent domain> a verifydns.<mediaservices-dns-zone>. 
+  * La proprietà del nome di dominio deve essere convalidata da Servizi multimediali di Azure. Per convalidare il dominio, creare un CName che mappi <MediaServicesAccountId>.<parent domain> per verificare dns.<zona-dns-servizimultimediali>. 
   * È necessario creare un altro oggetto CName che mappa il nome host personalizzato, ad esempio sports.contoso.com, al nome host StreamingEndpont di Servizi multimediali, ad esempio, amstest.streaming.mediaservices.windows.net.
 
-    Per altre informazioni, vedere la proprietà **CustomHostNames** nell'argomento [StreamingEndpoint] .
+    Per altre informazioni, vedere la proprietà **CustomHostNames** nell'articolo [StreamingEndpoint].
 
 ### <a id="sept_14_preview_changes"></a>Nuove funzionalità o scenari nella versione di anteprima pubblica
 * Live Streaming Preview. Per altre informazioni, vedere [Uso di Live Streaming di Servizi multimediali di Azure].
@@ -323,7 +355,7 @@ Attualmente, per risolvere il problema sono disponibili le due opzioni seguenti.
 * Trasmissione in flusso di asset di archiviazione crittografati. Per altre informazioni, vedere [Streaming di contenuto crittografato di archiviazione].
 
 ## <a id="august_changes_14"></a>Versione di agosto 2014
-Quando si esegue la codifica di un asset, al termine del processo viene restituito un asset di output. Fino a questa versione, il codificatore di Servizi multimediali di Azure ha restituito metadati relativi ad asset di output. A partire da questa versione, il codificatore restituisce anche metadati relativi ad asset di input. Per altre informazioni, vedere gli argomenti [Metadati di input] e [Metadati di output].
+Quando si esegue la codifica di un asset, al termine del processo viene restituito un asset di output. Fino a questa versione, il codificatore di Servizi multimediali di Azure ha restituito metadati relativi ad asset di output. A partire da questa versione, il codificatore restituisce anche metadati relativi ad asset di input. Per altre informazioni, vedere gli articoli [Metadati di input] e [Metadati di output].
 
 ## <a id="july_changes_14"></a>Versione di luglio 2014
 Le seguenti correzioni di bug sono state introdotte per lo strumento per la creazione di pacchetti e il componente di crittografia di Servizi multimediali di Azure:
@@ -379,7 +411,7 @@ Nella versione 3.0.0.3 sono state introdotte le seguenti modifiche:
 
 L'SDK di Servizi multimediali è ora disponibile nella versione 3.0.0.0. È possibile scaricare il pacchetto più recente dal sito Web di NuGet oppure ottenere i bit da [GitHub].
 
-A partire da Media Services SDK versione 3.0.0.0, è possibile usare nuovamente i token di [Azure Active Directory Access Control (ACS)] . Per altre informazioni, vedere la sezione "Riutilizzo di token del Servizio di controllo di accesso" nell'argomento [Connessione a Servizi multimediali con Media Services SDK per .NET] .
+A partire da Media Services SDK versione 3.0.0.0, è possibile usare nuovamente i token di [Azure Active Directory Access Control (ACS)] . Per altre informazioni, vedere la sezione "Riutilizzo di token del Servizio di controllo di accesso" nell'articolo [Connessione a Servizi multimediali con Media Services SDK per .NET].
 
 ### <a name="dec_13_donnet_ext_changes"></a>Estensioni dell'SDK di Servizi multimediali di Azure per .NET versione 2.0.0.0
 Azure Media Services .NET SDK Extensions è il nome di un set di metodi di estensione e funzioni di supporto che semplificano il codice e lo sviluppo con Servizi multimediali di Azure. È possibile ottenere i bit più recenti sul sito Web relativo a [Azure Media Services .NET SDK Extensions].
@@ -389,7 +421,7 @@ Azure Media Services .NET SDK Extensions è il nome di un set di metodi di esten
 A partire da questa versione, Media Services SDK per .NET gestisce gli errori temporanei che possono verificarsi quando si effettuano chiamate a livello API REST di Servizi multimediali.
 
 ## <a id="august_changes_13"></a>Versione di agosto 2013
-### <a name="aug_13_powershell_changes"></a>Cmdlet di PowerShell per Servizi multimediali inclusi negli strumenti SDK di Azure
+### <a name="aug_13_powershell_changes"></a>Cmdlet di PowerShell per Servizi multimediali inclusi in Azure SDK Tools
 I seguenti cmdlet di PowerShell per Servizi multimediali sono stati inclusi in [azure-sdk-tools].
 
 * Get-AzureMediaServices 

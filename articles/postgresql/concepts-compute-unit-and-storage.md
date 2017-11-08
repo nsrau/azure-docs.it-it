@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 3c8f6a66b3dd1564bc5eafbecafee6e2f1542caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Descrizione delle unità di calcolo nel database di Azure per PostgreSQL
 Questo argomento spiega i concetti relativi alle unità di calcolo e ciò che accade quando il carico di lavoro raggiunge il livello massimo per le unità di calcolo.
@@ -21,7 +21,7 @@ Questo argomento spiega i concetti relativi alle unità di calcolo e ciò che ac
 ## <a name="what-are-compute-units"></a>Cosa sono le unità di calcolo?
 Le unità sono una misura della velocità effettiva di elaborazione della CPU garantita come disponibile per un singolo database di Azure per il server PostgreSQL. Un'unità di calcolo è una misura combinata di risorse di CPU e memoria. In generale, 50 unità di calcolo equivalgono a metà di un core. 100 unità di calcolo equivalgono a un core. 2000 unità di calcolo equivalgono a 20 core di velocità effettiva di elaborazione garantita disponibile per il server.
 
-La quantità di memoria per ogni unità di calcolo è ottimizzata per i piani tariffari Basic e Standard. Raddoppiare le unità di calcolo aumentando il livello di prestazioni equivale a raddoppiare il set di risorse disponibili per quel singolo database di Azure per PostgreSQL.
+La quantità di memoria per ogni unità di calcolo è ottimizzata per i piani tariffari Basic e Standard. Raddoppiare le unità di calcolo aumentando il livello di prestazioni equivale a raddoppiare la quantità di CPU e memoria disponibile per quella singola istanza di Database di Azure per PostgreSQL.
 
 Ad esempio, 800 unità di calcolo Standard offrono una velocità effettiva della CPU e una memoria maggiori di 8 volte rispetto alla configurazione di 100 unità di calcolo Standard. Tuttavia, mentre 100 unità di calcolo Standard offrono la stessa velocità effettiva della CPU di 100 unità di calcolo Basic, la quantità di memoria che è già configurata nel piano tariffario Standard è il doppio della quantità di memoria configurata per il piano tariffario Basic. Pertanto, il piano tariffario Standard offre prestazioni migliori del carico di lavoro e una latenza delle transazioni inferiore rispetto al piano tariffario Basic con le stesse unità di calcolo selezionate.
 

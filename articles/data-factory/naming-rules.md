@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.openlocfilehash: e7301532875049beabf2b97292fa69321dd9086c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f0207853097a3d31e06a722025f3964678414bf
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Regole di denominazione
 La tabella seguente specifica le regole di denominazione per gli elementi di Data factory.
+
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere le [regole di denominazione in Data Factory versione 1](v1/data-factory-naming-rules.md).
 
 | Nome | Univocità del nome | Controlli di convalida |
 |:--- |:--- |:--- |

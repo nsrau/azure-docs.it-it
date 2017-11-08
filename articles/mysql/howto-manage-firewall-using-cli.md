@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: bc7763981c27a3d37cc1bd16c0f8efc0b4c01ce0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d192287eeaaaa82c0f61f8aa13b8bf7bf8cd47
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Creare e gestire regole del firewall di Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 Le regole del firewall a livello di server consentono agli amministratori di gestire l'accesso a un'istanza di Database di Azure per il server MySQL da uno specifico indirizzo IP o un intervallo di indirizzi IP. Usando pratici comandi dell'interfaccia della riga di comando di Azure è possibile creare, aggiornare, eliminare, elencare e visualizzare le regole del firewall per gestire il server. Per una panoramica dei firewall di Database di Azure per MySQL, vedere [Azure Database for MySQL server firewall rules](./concepts-firewall-rules.md) (Regole del firewall di Database di Azure per il server MySQL)
@@ -31,8 +31,8 @@ Il comando **az mysql server firewall-rule** viene usato dall'interfaccia della 
 Comandi:
 - **create**: creare una regola del firewall del server MySQL di Azure.
 - **delete**: eliminare una regola del firewall del server MySQL di Azure.
-- **list: elencare le regole del firewall del server MySQL di Azure.
-- **show: visualizzare i dettagli di una regola del firewall del server MySQL di Azure.
+- **list**: elencare le regole del firewall del server MySQL di Azure.
+- **show**: visualizzare i dettagli di una regola del firewall del server MySQL di Azure.
 - **update**: aggiornare una regola del firewall del server MySQL di Azure.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Accedere ad Azure ed elencare le istanze di Database di Azure per server MySQL

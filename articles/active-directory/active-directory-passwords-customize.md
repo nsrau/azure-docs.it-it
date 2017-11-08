@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1b6e368df4914e58eb3f8d6481132f25d27312b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Personalizzare la funzionalità di Azure AD per la Reimpostazione self-service delle password
 
@@ -28,7 +28,11 @@ I professionisti IT che desiderano implementare la reimpostazione della password
 
 ## <a name="customize-the-contact-your-administrator-link"></a>Personalizzare il collegamento Contattare l'amministratore
 
-Anche se la SSPR non è abilitata gli utenti possono ancora usare un collegamento "contattare l'amministratore" nel portale di reimpostazione della password.  Quando si fa click, questo collegamento invia un messaggio di posta elettronica agli amministratori richiedendo assistenza nella modifica della password dell'utente. Questo messaggio di posta elettronica viene inviato ai destinatari seguenti nell'ordine seguente:
+Anche se la SSPR non è abilitata gli utenti possono ancora usare un collegamento "contattare l'amministratore" nel portale di reimpostazione della password.  Quando si fa clic, questo collegamento invia un messaggio di posta elettronica agli amministratori richiedendo assistenza nella modifica della password oppure indirizza gli utenti a un URL specificato. È consigliabile impostare questo collegamento su un indirizzo di posta elettronica o un sito Web che gli utenti sono soliti usare per il supporto.
+
+![Contatto][Contact]
+
+Questo messaggio di posta elettronica viene inviato ai destinatari seguenti nell'ordine seguente:
 
 1. Se viene assegnato il ruolo di **Amministratore password**, agli amministratori con questo ruolo viene inviata una notifica
 2. Se non è stato assegnato nessun Amministratore password, la notifica verrà inviata agli amministratori che hanno il ruolo di **Amministratore utente**
@@ -96,16 +100,17 @@ Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dalla possi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
+* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](active-directory-passwords-best-practices.md)
+* [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md).
+* [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md).
+* [Domande sulle licenze](active-directory-passwords-licensing.md)
+* [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](active-directory-passwords-data.md)
+* [Metodi di autenticazione disponibili per gli utenti](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Opzioni dei criteri per la reimpostazione della password self-service](active-directory-passwords-policy.md)
+* [Panoramica del writeback delle password](active-directory-passwords-writeback.md)
+* [Come creare un report sull'attività relativa alla reimpostazione della password self-service](active-directory-passwords-reporting.md)
+* [Informazioni sulle opzioni della reimpostazione della password self-service](active-directory-passwords-how-it-works.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
-* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
-* [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
-* [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
-* [**Implementazione**](active-directory-passwords-best-practices.md): pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
-* [**Criteri**](active-directory-passwords-policy.md): comprendere e impostare i criteri password di Azure AD
-* [**Writeback delle password**](active-directory-passwords-writeback.md): funzionamento del writeback delle password con la directory locale
-* [**Creazione di report**](active-directory-passwords-reporting.md) - verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
-* [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
-* [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
-* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
-
+[Contact]: ./media/active-directory-passwords-customize/sspr-contact-admin.png "Esempio di messaggio di posta elettronica per contattare l'amministratore e richiedere assistenza per la reimpostazione della password"

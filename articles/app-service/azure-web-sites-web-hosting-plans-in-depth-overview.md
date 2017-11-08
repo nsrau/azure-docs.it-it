@@ -1,5 +1,5 @@
 ---
-title: Panoramica approfondita dei piani di servizio app di Azure | Documentazione Microsoft
+title: Piani di servizio app nelle app Web del servizio app di Azure | Microsoft Docs
 description: Informazioni sui piani di servizio app per Azure App Service e sui vantaggi offerti all'esperienza di gestione.
 keywords: servizio app, servizio app di azure, scala, scalabile, piano di servizio app, costo del servizio app
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
-ms.openlocfilehash: 688f57de662fec6a04227c35d6578097c795c6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb5b782f09bdd8c8a862eddfbd65b0f86ef8d08c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
-# <a name="azure-app-service-plans-in-depth-overview"></a>Panoramica approfondita dei piani di servizio app di Azure
+# <a name="app-service-plans-in-azure-app-service-web-apps"></a>Piani di servizio app nelle app Web del servizio app di Azure
 
 I piani di servizio app rappresentano la raccolta di risorse fisiche usate per ospitare le app.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 51db9539451afafe7eddaaeef0e02328431611de
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuire il servizio Gestione dispositivi StorSimple per i dispositivi StorSimple serie 8000
 
@@ -74,7 +74,7 @@ Esaminare l'impatto della migrazione al nuovo portale di Azure prima di spostare
 
 #### <a name="before-you-transition"></a>Prima di eseguire la transizione
 
-* Nel dispositivo è installato l'aggiornamento 3.0 o versione successiva. Se nel dispositivo è in esecuzione una versione precedente, installare gli aggiornamenti più recenti. Per altre informazioni, vedere [Installare l'aggiornamento 5](storsimple-8000-install-update-5.md). Se si usa un'appliance cloud StorSimple (8010/8020), non è possibile aggiornare un'appliance cloud. Usare la versione più recente del software per creare una nuova appliance cloud con l'aggiornamento 5.0 e quindi effettuare il failover nella nuova appliance cloud creata.
+* Nel dispositivo è installato l'aggiornamento 3.0 o versione successiva. Se il dispositivo esegue una versione precedente, è consigliabile installare l'aggiornamento 5 tramite il metodo hotfix. Per altre informazioni, vedere [Installare l'aggiornamento 5](storsimple-8000-install-update-5.md). Se si usa un'appliance cloud StorSimple (8010/8020), non è possibile aggiornare un'appliance cloud. Usare la versione più recente del software per creare una nuova appliance cloud con l'aggiornamento 5.0 e quindi effettuare il failover nella nuova appliance cloud creata.
 
 * Dopo aver eseguito la transizione al nuovo portale di Azure, non è possibile usare il portale di Azure classico per gestire il dispositivo StorSimple.
 

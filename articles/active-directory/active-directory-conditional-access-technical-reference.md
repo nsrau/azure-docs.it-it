@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 7f9574bc3d811d413b68d97ebe710858af8eb919
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Documentazione tecnica sull'accesso condizionale di Azure Active Directory
 
@@ -47,7 +47,7 @@ Quando si configura un criterio di accesso condizionale, è necessario [selezion
 
 È possibile assegnare un criterio di accesso condizionale alle app cloud seguenti di Microsoft:
 
-- [Azure Information Protection](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Azure Information Protection: [altre informazioni](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -147,23 +147,24 @@ Per controllare l'accesso tramite client e app, usare l'opzione **App per dispos
 Le app per dispositivi mobili e i client desktop seguenti supportano l'accesso condizionale per Office 365 e altre applicazioni di servizio connesse ad Azure AD:
 
 
-| Applicazioni client| Servizio di destinazione| Piattaforma |
+| App client| Servizio di destinazione| Piattaforma |
 | --- | --- | --- |
-| Azure Multi-Factor Authentication e criteri di posizione per le app (non sono supportati criteri basati sul dispositivo)| Qualsiasi servizio app Mie app| Android, iOS|
-| Azure RemoteApp| Servizio Azure RemoteApp| Windows 10, Windows 8.1, Windows 7, iOS, Android, macOS|
-| App Dynamics 365| Dynamics 365| Windows 10, Windows 8.1, Windows 7, iOS, Android|
-| Microsoft Office 365 Teams (controlla tutti i servizi che supportano Microsoft Teams e tutte le relative app client: Windows Desktop, iOS, Android, Windows Phone e client Web)| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android|
-| App Mail/Calendar/People, Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)| Office 365 Exchange Online| Windows 10|
+| App Azure Remote| Servizio app Azure Remote| Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
+| Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS e Android|
+| App Posta/Calendario/Contatti, Outlook 2016, Outlook 2013 (con autenticazione moderna)| Office 365 Exchange Online| Windows 10|
+| MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati.| Qualsiasi servizio app Mie app| Android e iOS|
+| Microsoft Team Services consente di controllare tutti i servizi che supportano Microsoft Teams e tutte le app client: Windows Desktop, iOS, Android, WP e Web Client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS e Android|
+| App di Office 2016, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro| Office 365 SharePoint Online| Windows 10|
+| Office 2016 per macOS (solo Word, Excel, PowerPoint e OneNote). OneDrive per il supporto Business pianificato in futuro| Office 365 SharePoint Online| Mac OS X|
+| App Office per dispositivi mobili| Office 365 SharePoint Online| iOS, Android|
+| App Office Yammer| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2016 (Office per macOS)| Office 365 Exchange Online| Mac OS X|
 | Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | App Outlook Mobile| Office 365 Exchange Online| iOS|
-| Outlook 2016 (Office per macOS)| Office 365 Exchange Online| macOS|
-| App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), client di sincronizzazione di [OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e), supporto per gruppi di Office e app SharePoint pianificato per il futuro| Office 365 SharePoint Online| Windows 10|
-| App di Office 2016, Office 2013 (con autenticazione moderna), client di sincronizzazione di [OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)| Office 365 SharePoint Online| Windows 8.1, Windows 7|
-| App Office per dispositivi mobili| Office 365 SharePoint Online| iOS, Android|
-| Office 2016 per macOS (supporto solo per Word, Excel, PowerPoint, OneNote), supporto per OneDrive for Business pianificato per il futuro| Office 365 SharePoint Online| macOS|
-| App Office Yammer| Office 365 Yammer| Windows 10, iOS, Android|
-| App PowerBI (attualmente non supportata in Android)| Servizio PowerBI| Windows 10, Windows 8.1, Windows 7 e iOS|
-| App Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, Android|
+| App PowerBI. L'app Power BI per Android non supporta attualmente l'accesso condizionale basato su dispositivo.| Servizio PowerBI| Windows 10, Windows 8.1, Windows 7 e iOS|
+| Skype for Business Online| Office 365 Exchange Online| Android, iOS|
+| App Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS e Android|
 
 
 

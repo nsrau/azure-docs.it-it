@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 3f00cbfb5348919c38dc2dd905f1c141a39736f4
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 7d80049d4b6f7d57924522e3f273c42f4c887fee
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 Questo articolo illustra come abilitare Azure Active Directory Domain Services (Azure AD DS) tramite il portale di Azure.
@@ -45,30 +45,25 @@ Nella pagina **Informazioni di base** della procedura guidata è possibile speci
 
 1. Scegliere il **Nome dominio DNS** per il dominio gestito.
 
-   * Il nome di dominio predefinito della directory (con suffisso **.onmicrosoft.com**) viene specificato per impostazione predefinita.
+   > [!NOTE]
+   > **Linee guida per la selezione di un nome di dominio DNS**
+   > * **Nome di dominio predefinito**: per impostazione predefinita, la procedura guidata specifica il nome di dominio predefinito della directory con suffisso **.onmicrosoft.com**. Se si sceglie di abilitare l'accesso LDAP sicuro al dominio gestito su Internet, si verificheranno problemi nella creazione di un record DNS pubblico o nell'ottenimento di un certificato LDAP sicuro da un'autorità di certificazione pubblica per questo nome di dominio. Microsoft è proprietaria del dominio *.onmicrosoft.com* e l'autorità di certificazione non emette certificati a garanzia di questo dominio.
+   * **Nomi di dominio personalizzato**: è anche possibile immettere un nome di dominio personalizzato. In questo esempio, il nome di dominio personalizzato è *contoso100.com*.
+   * **Suffissi di dominio non instradabili**: in genere è consigliabile evitare suffissi di dominio non instradabili. È ad esempio preferibile evitare di creare un dominio con il nome di dominio DNS 'contoso.local'. Il suffisso DNS '.local' non è instradabile e può causare problemi con la risoluzione DNS.
+   * **Limitazioni dei prefissi di dominio**: il prefisso del nome di dominio specificato, ad esempio *contoso100* nel nome di dominio *contoso100.com*, può contenere al massimo 15 caratteri. Non è possibile creare un dominio gestito con un prefisso più lungo di 15 caratteri.
+   * **Conflitti dei nomi di rete**: assicurarsi che il nome di dominio DNS scelto per il dominio gestito non esista già nella rete virtuale. In particolare, verificare se:
+       * È già presente un dominio di Active Directory con lo stesso nome di dominio DNS nella rete virtuale.
+       * La rete virtuale in cui si intende abilitare il dominio gestito ha una connessione VPN alla rete locale. In questo caso, verificare che non sia presente un dominio con lo stesso nome di dominio DNS nella rete locale.
+       * Esiste un servizio cloud con lo stesso nome della rete virtuale.
+    >
 
-   * È anche possibile immettere un nome di dominio personalizzato. In questo esempio, il nome di dominio personalizzato è *contoso100.com*.
+2. Selezionare la **Sottoscrizione** di Azure in cui si vuole creare il dominio gestito.
 
-     > [!WARNING]
-     > Il prefisso del nome del dominio specificato (ad esempio, *contoso100* nel nome di dominio *contoso100.com*) può contenere massimo 15 caratteri. Non è possibile creare un dominio gestito con un prefisso più lungo di 15 caratteri.
-     >
-     >
+3. Selezionare il **Gruppo di risorse** a cui deve appartenere il dominio gestito. Quando si seleziona il gruppo di risorse, è possibile scegliere tra le opzioni **Crea nuovo** e **Usa esistente**.
 
-2. Assicurarsi che il nome di dominio DNS scelto per il dominio gestito non esista già nella rete virtuale. In particolare, verificare se:
+4. Scegliere la **Località** di Azure in cui deve essere creato il dominio gestito. Nella pagina **Rete** della procedura guidata vengono visualizzate solo le reti virtuali appartenenti alla località selezionata.
 
-   * È già presente un dominio con lo stesso nome di dominio DNS nella rete virtuale.
-
-   * La rete virtuale in cui si intende abilitare il dominio gestito ha una connessione VPN alla rete locale. In questo caso, verificare che non sia presente un dominio con lo stesso nome di dominio DNS nella rete locale.
-
-   * Esiste un servizio cloud con lo stesso nome della rete virtuale.
-
-3. Selezionare la **Sottoscrizione** di Azure in cui si vuole creare il dominio gestito.
-
-4. Selezionare il **Gruppo di risorse** a cui deve appartenere il dominio gestito. Quando si seleziona il gruppo di risorse, è possibile scegliere tra le opzioni **Crea nuovo** e **Usa esistente**.
-
-5. Scegliere la **Località** di Azure in cui deve essere creato il dominio gestito. Nella pagina **Rete** della procedura guidata vengono visualizzate solo le reti virtuali appartenenti alla località selezionata.
-
-6. Al termine, fare clic su **OK** per passare alla pagina **Rete** della procedura guidata.
+5. Al termine, fare clic su **OK** per passare alla pagina **Rete** della procedura guidata.
 
 
 ## <a name="next-step"></a>Passaggio successivo

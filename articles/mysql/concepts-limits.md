@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/8/2017
-ms.openlocfilehash: dc5ad012398b7d07886cd22c20975e61f820d7e0
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.date: 10/26/2017
+ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="limitations-in-azure-database-for-mysql-preview"></a>Limiti del Database di Azure per MySQL (anteprima)
 Il servizio Database di Azure per MySQL è in anteprima pubblica. Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
@@ -30,7 +30,7 @@ Esiste una quantità massima di connessioni, unità di calcolo e spazio di archi
 | Base con 100 unità di calcolo    | 100 connessioni   |
 | Standard con 100 unità di calcolo | 200 connessioni   |
 | Standard con 200 unità di calcolo | 400 connessioni   |
-| Standard con 400 unità di calcolo | 400 connessioni   |
+| Standard con 400 unità di calcolo | 800 connessioni   |
 | Standard con 800 unità di calcolo | 1600 connessioni  |
 | **Unità di calcolo massime**      |                   |
 | Livello di servizio Basic         | 100 unità di calcolo |

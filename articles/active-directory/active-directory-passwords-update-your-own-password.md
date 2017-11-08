@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 1a5e97e2a6aca440c9643569014ffce41a614324
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>Password di Azure AD dimenticata
 
@@ -51,7 +51,7 @@ Eseguire i passaggi descritti di seguito per reimpostare la password self-servic
    > Se è necessario sbloccare l'account, scegliere qui l'opzione "Ricordo la password, ma non riesco ad accedere".
    >
 
-3. A seconda della configurazione definita dal personale IT, verranno visualizzate una o più delle opzioni seguenti per la reimpostazione della password self-service. Prima di usare l'articolo [Eseguire la registrazione per la reimpostazione password self-service](active-directory-passwords-reset-register.md), l'utente o il personale IT hanno specificato alcune di queste informazioni.
+3. A seconda della configurazione definita dal personale IT, verranno visualizzati uno o più dei metodi di autenticazione seguenti per la reimpostazione della password self-service. Prima di usare l'articolo [Eseguire la registrazione per la reimpostazione password self-service](active-directory-passwords-reset-register.md), l'utente o il personale IT hanno specificato alcune di queste informazioni.
 
    * **Invia messaggio di posta elettronica all'indirizzo di posta elettronica alternativo dell'utente**
    * **Invia SMS sul telefono cellulare**

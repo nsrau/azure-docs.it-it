@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 8cef40f4360c6b9c9ab734171a4cca2a21a4c711
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: d1cb92e15109775fd120d82df6cfa94b7023d5b9
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Usare Draft con il servizio contenitore di Azure e il Registro contenitori di Azure per compilare e distribuire un'applicazione in Kubernetes
 
@@ -271,16 +271,16 @@ L'output è simile al seguente:
   }
   ```
 5. Reinstallare **Draft**
-  1. Rimuovere **draftd** dal cluster digitando `helm delete --purge draft`. 
-  2. Reinstallare **Draft** usando lo stesso comando `draft-init`, ma con l'opzione `--ingress-enabled`:
+
+   1. Rimuovere **draftd** dal cluster digitando `helm delete --purge draft`. 
+   2. Reinstallare **Draft** usando lo stesso comando `draft-init`, ma con l'opzione `--ingress-enabled`:
     ```bash
     draft init --ingress-enabled
     ```
-Rispondere alle richieste, come la prima volta. Occorre tuttavia rispondere a un'altra domanda usando il percorso completo del dominio configurato con DNS di Azure.
-```bash
-4. Enter your top-level domain for ingress (e.g. draft.example.com): draft.squillace.io
-```
-5. Quando si chiama `draft up` questa volta, sarà possibile visualizzare l'applicazione (o `curl`) nell'URL nel formato `<appname>.draft.<domain>.<top-level-domain>`. Nel caso descritto in questo esempio, `http://handy-labradoodle.draft.squillace.io`. 
+   Rispondere alle richieste, come la prima volta. Occorre tuttavia rispondere a un'altra domanda usando il percorso completo del dominio configurato con DNS di Azure.
+
+6. Immettere il dominio di primo livello per il traffico in ingresso (ad esempio draft.example.com): draft.squillace.io
+7. Quando si chiama `draft up` questa volta, sarà possibile visualizzare l'applicazione (o `curl`) nell'URL nel formato `<appname>.draft.<domain>.<top-level-domain>`. Nel caso descritto in questo esempio, `http://handy-labradoodle.draft.squillace.io`. 
 ```bash
 curl -s http://handy-labradoodle.draft.squillace.io
 Hello World, I'm Java!

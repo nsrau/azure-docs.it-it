@@ -1,5 +1,5 @@
 ---
-title: Panoramica di App Web | Documentazione Microsoft
+title: Panoramica di App Web | Microsoft Docs
 description: Informazioni sul modo in cui il Servizio app di Azure semplifica lo sviluppo e l'hosting di applicazioni Web
 services: app-service\web
 documentationcenter: 
@@ -15,14 +15,19 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c1b3feb79328269f4692d744e7a473397d0328c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8510bb6b412e9af8aad30ba32bc74206c22042f
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="web-apps-overview"></a>Panoramica di App Web
-*App Web del servizio app* è una piattaforma di calcolo completamente gestita, ottimizzata per l'hosting di siti Web e applicazioni Web. Questa offerta [PaaS (Platform As a Service)](https://en.wikipedia.org/wiki/Platform_as_a_service) di Microsoft Azure consente di concentrarsi sulla logica di business, mentre Azure gestisce l'infrastruttura per l'esecuzione e il ridimensionamento delle app.
+
+Le *app Web del servizio app di Azure* , o semplicemente app Web, sono un servizio per l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito tra .NET, .NET Core, Java, Ruby, Node.js, PHP o Python. È possibile eseguire e ridimensionare le app con facilità in macchine virtuali Windows o Linux. Vedere in proposito [Servizio app in Linux](containers/app-service-linux-intro.md). 
+
+Le app Web non si limitano ad aggiungere la potenza di Microsoft Azure all'applicazione, in termini di sicurezza, bilanciamento del carico, ridimensionamento automatico e gestione automatizzata. Permettono anche di usufruire delle funzionalità DevOps, come la distribuzione continua da Visual Studio Team Services, GitHub, Hub Docker e altre origini, la gestione dei pacchetti, gli ambienti di staging, il dominio personalizzato e i certificati SSL. 
+
+Il servizio app permette di pagare solo le risorse di calcolo di Azure usate. La quantità di risorse di calcolo usate è determinata dal _piano di servizio app_ in cui vengono eseguite le app Web. Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 Il video di 5 minuti disponibile di seguito illustra App Web del servizio app di Azure.
 
@@ -30,48 +35,40 @@ Il video di 5 minuti disponibile di seguito illustra App Web del servizio app di
 >
 >
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
-
-## <a name="what-is-a-web-app-in-app-service"></a>Informazioni sull'app Web in un servizio app
-Un' *app Web* del servizio app è una risorsa di calcolo offerta da Azure per l'hosting di un sito Web o di un'applicazione Web.  
-
-Le risorse di calcolo possono trovarsi in macchine virtuali condivise o dedicate, in base al piano tariffario scelto. Il codice dell'applicazione viene eseguito in una VM gestita, isolata da altri clienti.
-
-È possibile usare per il codice qualsiasi linguaggio o framework supportato dal Servizio app di Azure, ad esempio ASP.NET, Node.js, Java, PHP o Python. È anche possibile eseguire script che usano [PowerShell e altri linguaggi di scripting](web-sites-create-web-jobs.md#acceptablefiles) in un'app Web.
-
-Per esempi di scenari di applicazione tipici per cui è possibile usare App Web, vedere la pagina relativa agli [scenari con app Web](https://azure.microsoft.com/documentation/scenarios/web-app/) e la sezione **Scenari e indicazioni** dell'articolo [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](choose-web-site-cloud-service-vm.md#scenarios).
-
 ## <a name="why-use-web-apps"></a>Vantaggi dell'uso di app Web
-Ecco alcune delle funzionalità principali del servizio app applicabili ad App Web.
+Ecco alcune delle funzionalità principali delle app Web del servizio app:
 
-* **Più linguaggi e framework** : il servizio app offre un supporto ottimale per ASP.NET, Node.js, Java, PHP e Python. È anche possibile eseguire [PowerShell e altri script o eseguibili](web-sites-create-web-jobs.md) in VM del servizio app.
-* **Ottimizzazione della metodologia DevOps**: è possibile configurare [l'integrazione e la distribuzione continua](app-service-continuous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket, alzare di livello gli aggiornamenti tramite [ambienti di testing e di staging](web-sites-staged-publishing.md), e gestire le app nel servizio app con [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando multipiattaforma](../cli-install-nodejs.md).
+* **Più linguaggi e framework**: l'app Web offrono un supporto eccellente per ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP o Python. È anche possibile eseguire [PowerShell e altri script o eseguibili](web-sites-create-web-jobs.md) come servizi in background.
+* **Ottimizzazione della metodologia DevOps**: è possibile configurare l'[integrazione e la distribuzione continua](app-service-continuous-deployment.md) con Visual Studio Team Services, GitHub, BitBucket, Hub Docker o il servizio contenitore di Azure. Alzare di livello gli aggiornamenti tramite [ambienti di testing e di staging](web-sites-staged-publishing.md). Gestire le app Web con [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando multipiattaforma](/cli/azure/install-azure-cli).
 * **Scalabilità globale con disponibilità elevata**: è possibile [aumentare le prestazioni](web-sites-scale.md) o il [numero di istanze](../monitoring-and-diagnostics/insights-how-to-scale.md) manualmente o automaticamente. Le app possono essere ospitate ovunque nell'infrastruttura globale di data center Microsoft e il [contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) per il servizio app assicura disponibilità elevata.
-* **Connessioni a piattaforme SaaS e dati locali**: è possibile scegliere tra oltre 50 [connettori](../connectors/apis-list.md) per sistemi aziendali (come SAP, Siebel e Oracle), servizi SaaS (come Salesforce e Office 365) e servizi Internet (come Facebook e Twitter), nonché accedere ai dati locali con [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [reti virtuali di Azure](web-sites-integrate-with-vnet.md).
-* **Sicurezza e conformità** : il servizio app è [conforme a ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/).
-* **Modelli di applicazione** : in [Azure Marketplace](https://azure.microsoft.com/marketplace/) è possibile scegliere da un esteso elenco di modelli di applicazione che consentono di usare una procedura guidata per installare software open source comune come WordPress, Joomla e Drupal.
+* **Connessioni a piattaforme SaaS e dati locali**: è possibile scegliere tra oltre 50 [connettori](../connectors/apis-list.md) per sistemi aziendali (come SAP), servizi SaaS (come Salesforce) e servizi Internet (come Facebook), nonché accedere ai dati locali con [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [reti virtuali di Azure](web-sites-integrate-with-vnet.md).
+* **Sicurezza e conformità** : il servizio app è [conforme a ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/). Autenticare gli utenti con [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) o con l'account di accesso ai social, ad esempio [Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) o [ Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md). Creare [restrizioni per gli indirizzi IP](app-service-ip-restrictions.md) e [gestire le identità del servizio](app-service-managed-service-identity.md).
+* **Modelli di applicazione**: in [Azure Marketplace](https://azure.microsoft.com/marketplace/) è possibile scegliere da un esteso elenco di modelli di applicazione, come WordPress, Joomla e Drupal.
 * **Integrazione con Visual Studio** : gli strumenti dedicati di Visual Studio semplificano il processo di creazione, distribuzione e debug.
+* **API e funzionalità mobili**: le app Web offrono un supporto CORS pronto all'uso per gli scenari API RESTful. Inoltre, semplificano gli scenari di app per dispositivi mobili consentendo l'autenticazione, la sincronizzazione dei dati offline, le notifiche push e altro ancora.
+* **Codice senza server**:è possibile eseguire un frammento di codice o uno script su richiesta senza dover eseguire il provisioning esplicito o la gestione dell'infrastruttura e pagare solo il tempo di calcolo usato effettivamente dal codice. Vedere in proposito [Funzioni di Azure](/azure/azure-functions/).
 
-Un'app Web può anche sfruttare le funzionalità offerte dalle [app per le API](app-service-web-tutorial-rest-api.md), ad esempio il supporto di CORS, e dalle [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md), ad esempio le notifiche push. 
+Oltre ad App Web nel servizio app, Azure offre altri servizi che possono essere usati per l'hosting di siti e applicazioni Web. Per la maggior parte degli scenari App Web è la scelta migliore.  Per un'architettura di microservizi, prendere in considerazione l'uso di [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). Se è necessario un maggiore controllo sulle VM in cui viene eseguito il codice, prendere in considerazione l'uso delle [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Per altre informazioni su come scegliere uno di questi servizi di Azure, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](choose-web-site-cloud-service-vm.md).
 
-Oltre ad App Web nel servizio app, Azure offre altri servizi che possono essere usati per l'hosting di siti e applicazioni Web. Per la maggior parte degli scenari App Web è la scelta migliore.  Per un'architettura di microservizi, prendere in considerazione [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). Se è necessario maggiore controllo sulle VM in cui viene eseguito il codice, prendere in considerazione [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Per altre informazioni su come scegliere uno di questi servizi di Azure, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](choose-web-site-cloud-service-vm.md).
+## <a name="next-steps"></a>Passaggi successivi
 
-## <a name="getting-started"></a>introduttiva
-Per iniziare a distribuire codice di esempio in una nuova app Web nel servizio app, usare una delle esercitazioni nella casella di riepilogo a discesa seguente. Sarà necessario un account Azure gratuito.
+Creare la prima app Web.
 
-> [!div class="op_single_selector"]
-> * [Distribuire la prima app Web ASP.NET in Azure in 5 minuti](app-service-web-get-started-dotnet.md)
-> * [Distribuire la prima app Web PHP in Azure in 5 minuti](app-service-web-get-started-php.md)
-> * [Distribuire la prima app Web Node.js in Azure in 5 minuti](app-service-web-get-started-nodejs.md)
-> * [Distribuire la prima app Web Java in Azure in 5 minuti](app-service-web-get-started-java.md)
-> * [Distribuire la prima app Web Python in Azure in 5 minuti](app-service-web-get-started-python.md)
-> * [Distribuire il primo sito HTML in Azure in 5 minuti](app-service-web-get-started-html.md)
-> 
-> 
+> [!div class="nextstepaction"]
+> [ASP.NET](app-service-web-get-started-dotnet.md)
 
-> [!NOTE]
-> È possibile [provare il servizio app](https://azure.microsoft.com/try/app-service/) senza avere un account Azure. Creare un'app iniziale e provarla per un'ora, senza impegno e senza dover usare la carta di credito.
-> 
-> 
+> [!div class="nextstepaction"]
+> [PHP](app-service-web-get-started-php.md)
+
+> [!div class="nextstepaction"]
+> [Node.JS](app-service-web-get-started-nodejs.md)
+
+> [!div class="nextstepaction"]
+> [Java](app-service-web-get-started-java.md)
+
+> [!div class="nextstepaction"]
+> [Python](app-service-web-get-started-python.md)
+
+> [!div class="nextstepaction"]
+> [HTML](app-service-web-get-started-html.md)
+

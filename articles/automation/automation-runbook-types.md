@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 4bf4a3d755afeee9930204a2dbae9ff9fada3517
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Tipi di runbook di Automazione di Azure
 Automazione di Azure supporta diversi tipi di runbook, descritti brevemente nella tabella seguente.  Le sezioni seguenti forniscono altre informazioni su ogni tipo con alcune considerazioni sui casi in cui usarli.
@@ -57,7 +57,7 @@ I runbook di PowerShell sono basati su Windows PowerShell.  È possibile modific
 
 ### <a name="limitations"></a>Limitazioni
 * Necessità di familiarità con la scrittura di script di PowerShell.
-* Impossibilità di usare l' [elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
+* Impossibilità di usare l'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
 * Impossibilità di usare i [checkpoint](automation-powershell-workflow.md#checkpoints) per riprendere il runbook in caso di errore.
 * Possibilità di includere i runbook del flusso di lavoro PowerShell e grafici  come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
 
@@ -75,7 +75,7 @@ I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flus
 ### <a name="advantages"></a>Vantaggi
 * Implementazione di tutta la logica complessa con codice del flusso di lavoro PowerShell.
 * Uso dei [checkpoint](automation-powershell-workflow.md#checkpoints) per riprendere il runbook in caso di errore.
-* Uso dell' [elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
+* Uso dell'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
 * Può includere altri runbook grafici e runbook di flusso di lavoro PowerShell come runbook figli per la creazione di flussi di lavoro generali.
 
 ### <a name="limitations"></a>Limitazioni
@@ -85,8 +85,19 @@ I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flus
 * Possibilità di includere i runbook di PowerShell come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
 
 ## <a name="python-runbooks"></a>Runbook Python
+I runbook Python vengono compilati in Python 2.  È possibile modificare direttamente il codice del runbook usando l'editor di testo del portale di Azure oppure usare un qualsiasi editor di testo offline e [importare il runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) in Automazione di Azure.
 
-## <a name="bash-runbooks"></a>Runbook Bash
+### <a name="advantages"></a>Vantaggi
+* Uso dell'affidabile libreria standard di Python.
+
+### <a name="limitations"></a>Limitazioni
+* Conoscenza delle nozioni sulla scrittura di script di Python.
+* Al momento è supportato solo Python 2, di conseguenza le funzioni specifiche di Python 3 non verranno eseguite.
+
+### <a name="known-issues"></a>Problemi noti
+Di seguito sono descritti i problemi noti correnti relativi ai runbook Python.
+
+* Per potere usare librerie di terze parti, il runbook deve essere eseguito in un [ruolo di lavoro ibrido per runbook Windows](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) o in un [ruolo di lavoro ibrido per runbook Linux](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) con le librerie già installate nel computer prima dell'avvio del runbook.
 
 ## <a name="considerations"></a>Considerazioni
 È consigliabile tenere conto delle considerazioni aggiuntive seguenti per determinare quale tipo usare per un runbook specifico.

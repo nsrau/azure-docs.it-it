@@ -13,18 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 10963ab0b84b48c35df3022649363bbc8fc112a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
 Dopo la distribuzione, molte organizzazioni vogliono sapere come o se SSPR è effettivamente in uso. Azure AD fornisce delle funzionalità di rapporti che consentono di rispondere alle domande usando dei rapporti predefiniti e, se si dispone della licenza appropriata, consente di creare delle query personalizzate.
+
+![Creazione di report][Reporting]
 
 È possibile rispondere alle domande seguenti da rapporti presenti nel [portale di Azure] (https://portal.azure.com/).
 
@@ -39,6 +41,10 @@ Dopo la distribuzione, molte organizzazioni vogliono sapere come o se SSPR è ef
 * Quali sono i problemi più comuni affrontati da utenti o amministratori quando provano a usare la reimpostazione delle password?
 * Con quale frequenza gli amministratori reimpostano le proprie password?
 * Sono state rilevate eventuali attività sospette nell'ambito della reimpostazione delle password?
+
+## <a name="power-bi-content-pack"></a>Pacchetto di contenuto di Power BI
+
+Per gli utenti di Power BI è disponibile un pacchetto di contenuto per Azure AD che include funzionalità semplici da usare per la creazione di report per SSPR. Per altre informazioni su come usare e distribuire il pacchetto di contenuto, vedere l'articolo [Come usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md). Sarà quindi possibile creare dashboard personalizzati e condividerli con altri utenti nell'organizzazione.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Come visualizzare i rapporti di gestione delle password nel portale di Azure
 
@@ -94,77 +100,6 @@ La tabella seguente descrive i valori consentiti per ogni colonna:
 | Colonna | Valori consentiti e relativi significati |
 | --- | --- |
 | Dati registrati |**Indirizzo di posta elettronica alternativo**: l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi<p><p>**Telefono ufficio**: l'utente ha usato il telefono dell'ufficio per autenticarsi<p>**Telefono cellulare**: l'utente ha usato il telefono cellulare o di autenticazione per autenticarsi<p>**Domande di sicurezza**: l'utente ha usato le domande di sicurezza per autenticarsi<p>**Qualsiasi combinazione delle precedenti (ad esempio, indirizzo di posta elettronica alternativo + cellulare)** – si verifica quando vengono specificati 2 diversi criteri che indicano i due metodi usati dall'utente nell'autenticazione per richiedere la reimpostazione della password. |
-
-## <a name="view-password-reset-activity-in-the-classic-portal"></a>Visualizzare le attività di reimpostazione delle password nel portale classico
-
-Questo report illustra tutti i tentativi di reimpostazione delle password che si sono verificati nell'organizzazione.
-
-* **Intervallo di tempo massimo**: 30 giorni
-* **Numero massimo di righe**: 75.000
-* **Scaricabile**: Sì, tramite file CSV
-
-### <a name="description-of-report-columns-in-azure-classic-portal"></a>Descrizione delle colonne del rapporto nel Portale di Azure classico
-
-L'elenco seguente descrive le colonne del report in modo dettagliato:
-
-1. **Utente** : l'utente che ha provato a eseguire un'operazione di reimpostazione della password (in base al campo ID utente specificato quando l'utente accede per reimpostare una password).
-2. **Ruolo** : il ruolo dell'utente nella directory.
-3. **Data e ora** : la data e l'ora del tentativo.
-4. **Metodi usati** - i metodi di autenticazione usati dall'utente per questa operazione di reimpostazione.
-5. **Risultato** - il risultato dell'operazione di reimpostazione della password.
-6. **Dettagli** : i dettagli del motivo per cui la reimpostazione della password ha restituito un determinato valore.  Sono inoltre inclusi eventuali passaggi che è possibile eseguire per risolvere un errore imprevisto.
-
-### <a name="description-of-report-values-in-azure-classic-portal"></a>Descrizione dei valori del rapporto nel Portale di Azure classico
-
-La tabella seguente descrive i valori consentiti per ogni colonna:
-
-| Colonna | Valori consentiti e relativi significati |
-| --- | --- |
-| Metodi usati |**Indirizzo di posta elettronica alternativo**: l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi<p>**Telefono ufficio**: l'utente ha usato il telefono dell'ufficio per autenticarsi<p>**Telefono cellulare**: l'utente ha usato il telefono cellulare o di autenticazione per autenticarsi<p>**Domande di sicurezza**: l'utente ha usato le domande di sicurezza per autenticarsi<p>**Qualsiasi combinazione delle precedenti (ad esempio, indirizzo di posta elettronica alternativo + cellulare)** – si verifica quando vengono specificati 2 diversi criteri che indicano i due metodi usati dall'utente nell'autenticazione per richiedere la reimpostazione della password. |
-| Risultato |**Operazione abbandonata**: l'utente ha iniziato l'operazione di reimpostazione delle password, ma l'ha interrotta senza completarla<p>**Bloccato** - all'account utente è stato impedito l'uso della reimpostazione delle password per aver provato a usare la pagina di reimpostazione delle password o un singolo controllo di reimpostazione delle password troppe volte in un periodo di 24 ore<p>**Operazione annullata** - l'utente ha iniziato l'operazione di reimpostazione delle password, ma poi ha fatto clic sul pulsante Annulla per annullare la sessione mentre era in corso <p>**Amministratore contattato**: l'utente ha riscontrato un problema durante la sessione che non è riuscito a risolvere e ha quindi selezionato il collegamento "Contattare l'amministratore" invece di portare a termine il flusso di reimpostazione delle password<p>**Operazione non riuscita** - l'utente non è stato in grado di reimpostare una password, probabilmente perché non è stato configurato per usare questa funzionalità (ad esempio, non dispone di licenza, non sono presenti informazioni di autenticazione, la password è gestita in locale ma il writeback non è attivo).<p>**Operazione riuscita** – la reimpostazione della password è stata eseguita correttamente. |
-| Dettagli |Vedere la tabella seguente |
-
-### <a name="allowed-values-for-details-column"></a>Valori consentiti per la colonna dettagli
-
-Di seguito è riportato l'elenco dei tipi di risultati previsti quando si usa il report relativo alle attività per la reimpostazione delle password:
-
-| Dettagli | Tipo di risultato |
-| --- | --- |
-| L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite posta elettronica. |Operazione abbandonata |
-| L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite SMS al numero di cellulare. |Operazione abbandonata |
-| L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite chiamata vocale al numero di cellulare. |Operazione abbandonata |
-| L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite chiamata vocale al numero dell'ufficio. |Operazione abbandonata |
-| L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite risposta alle domande di sicurezza. |Operazione abbandonata |
-| L'utente ha abbandonato dopo avere immesso il proprio ID utente. |Operazione abbandonata |
-| L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite posta elettronica. |Operazione abbandonata |
-| L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite SMS al numero di cellulare. |Operazione abbandonata |
-| L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite chiamata vocale al numero di cellulare. |Operazione abbandonata |
-| L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite chiamata vocale al numero dell'ufficio. |Operazione abbandonata |
-| L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite risposta alle domande di sicurezza. |Operazione abbandonata |
-| L'utente ha abbandonato prima di selezionare una nuova password. |Operazione abbandonata |
-| L'utente ha abbandonato durante la selezione di una nuova password. |Operazione abbandonata |
-| L'utente ha immesso troppi codici di verifica SMS non validi a e rimarrà bloccato per 24 ore. |Bloccato |
-| L'utente ha superato il numero di tentativi consentiti per la verifica tramite chiamata vocale al telefono cellulare e rimarrà bloccato per 24 ore. |Bloccato |
-| L'utente ha superato il numero di tentativi consentiti per la verifica tramite chiamata vocale al telefono dell'ufficio e rimarrà bloccato per 24 ore. |Bloccato |
-| L'utente ha superato il numero di tentativi consentiti per le risposte alle domande di sicurezza e rimarrà bloccato per 24 ore. |Bloccato |
-| L'utente ha superato il numero di tentativi consentiti per la verifica del numero di telefono e rimarrà bloccato per 24 ore. |Bloccato |
-| L'utente ha annullato prima di passare i metodi di autenticazione necessari |Canceled |
-| L'utente ha annullato prima di inviare una nuova password |Canceled |
-| L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite posta elettronica. |Amministratore contattato |
-| L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite SMS al numero di cellulare. |Amministratore contattato |
-| L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite chiamata vocale al numero di cellulare. |Amministratore contattato |
-| L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite chiamata vocale al numero dell'ufficio. |Amministratore contattato |
-| L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica della domanda di sicurezza. |Amministratore contattato |
-| La reimpostazione della password non è abilitata per questo utente. Per risolvere il problema, abilitare la reimpostazione della password nella scheda Configura. |Operazione non riuscita |
-| All'utente non sono assegnate licenze. Per risolvere il problema, assegnare una licenza all'utente. |Operazione non riuscita |
-| L'utente ha tentato di reimpostare la password da un dispositivo senza i cookie abilitati. |Operazione non riuscita |
-| Il numero di metodi di autenticazione definito per l'account dell'utente non è sufficiente. Per risolvere il problema, aggiungere le informazioni di autenticazione. |Operazione non riuscita |
-| La password dell'utente è gestita in locale. Per risolvere il problema, è possibile abilitare il writeback delle password. |Operazione non riuscita |
-| Non è stato possibile raggiungere il servizio di reimpostazione della password locale. Verificare il log eventi del computer di sincronizzazione. |Operazione non riuscita |
-| Si è verificato un problema durante la reimpostazione della password locale dell'utente. Verificare il log eventi del computer di sincronizzazione. |Operazione non riuscita |
-| Questo utente non è un membro del gruppo di utenti autorizzati alla reimpostazione della password. Per risolvere il problema, aggiungere l'utente al gruppo. |Operazione non riuscita |
-| La reimpostazione della password è stata completamente disabilitata per questo tenant. Vedere [qui](http://aka.ms/ssprtroubleshoot) per risolvere il problema. |Operazione non riuscita |
-| La reimpostazione della password dell'utente è riuscita. |Operazione completata |
 
 ## <a name="self-service-password-management-activity-types"></a>Tipi di attività di gestione delle password self-service
 
@@ -263,15 +198,16 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione delle password con Azure AD
+* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](active-directory-passwords-best-practices.md)
+* [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md).
+* [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md).
+* [Domande sulle licenze](active-directory-passwords-licensing.md)
+* [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](active-directory-passwords-data.md)
+* [Metodi di autenticazione disponibili per gli utenti](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Opzioni dei criteri per la reimpostazione della password self-service](active-directory-passwords-policy.md)
+* [Panoramica del writeback delle password](active-directory-passwords-writeback.md)
+* [Informazioni sulle opzioni della reimpostazione della password self-service](active-directory-passwords-how-it-works.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
-* [Collegamento ai log di controllo di gestione dell'utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit) - andare direttamente ai log di controllo di gestione dell'utente del tenant
-* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - iniziare a usare la gestione self-service delle password di Azure AD 
-* [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
-* [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
-* [**Implementazione**](active-directory-passwords-best-practices.md): pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
-* [**Personalizzazione**](active-directory-passwords-customize.md) - personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
-* [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md) - approfondimento sul funzionamento
-* [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
-* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md) - informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
-* [**Criteri**](active-directory-passwords-policy.md) - comprendere e impostare i criteri password di Azure AD
+[Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Esempio di log di controllo delle attività di reimpostazione password self-service in Azure AD"

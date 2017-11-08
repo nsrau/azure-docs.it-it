@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 07759a590e3a4e061a1c5727428d2c7c2a655f51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Come usare il blocco appunti Jupyter in Azure Machine Learning Workbench
 
@@ -39,7 +39,7 @@ Per altre informazioni fare riferimento alla [documentazione ufficiale su Jupyte
 In Azure Machine Learning Workbench è possibile accedere a diversi kernel configurando semplicemente le configurazioni di esecuzione e le destinazioni di calcolo nella cartella `aml_config` del progetto. Aggiungere una nuova destinazione di calcolo eseguendo il comando `az ml computetarget attach` corrisponde ad aggiungere un nuovo kernel.
 
 >[!NOTE]
->Per altre informazioni sulle configurazioni di esecuzione e le destinazioni di calcolo rivedere l'articolo sulla [configurazione dell'esecuzione](experiment-execution-configuration.md).
+>Per altre informazioni sulle configurazioni di esecuzione e le destinazioni di calcolo rivedere l'articolo sulla [configurazione dell'esecuzione](experimentation-service-configuration.md).
 
 ### <a name="kernel-naming-convention"></a>Convenzione di denominazione del kernel
 I kernel vengono in genere denominati nel formato "\<nome del progetto > \<nome della configurazione di esecuzione>". Ad esempio, se si dispone di una configurazione di esecuzione denominata _docker-python_ in un progetto denominato _myIris_, è possibile trovare un kernel denominato "myIris docker-python" nell'elenco dei kernel quando si apre un blocco appunti Jupyter.
@@ -107,5 +107,5 @@ Il browser predefinito viene avviato automaticamente con il server Jupyter che p
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per informazioni su come usare il blocco appunti Jupyter, visitare la pagina sulla [documentazione ufficiale di Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    
-- Per acquisire una conoscenza più approfondita dell'ambiente di esecuzione della sperimentazione di Azure ML, esaminare [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md) (Panoramica del servizio di esecuzione della sperimentazione di Azure Machine Learning)
+- Per acquisire una conoscenza più approfondita dell'ambiente di esecuzione della sperimentazione di Azure ML, esaminare [Overview of Azure Machine Learning experiment service](experimentation-service-configuration.md) (Panoramica del servizio Sperimentazione di Azure Machine Learning).
 
