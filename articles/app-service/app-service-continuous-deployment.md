@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: ef5924607868bcb3dc35e279539b78d5a0e17c1a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
 Questa esercitazione illustra come configurare un flusso di lavoro di distribuzione continua per le [app Web di Azure ](app-service-web-overview.md) . L'integrazione del servizio app con BitBucket, GitHub e [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) consente un flusso di lavoro di distribuzione continua in cui Azure effettua il pull degli aggiornamenti più recenti dal progetto pubblicato in uno di questi servizi. La distribuzione continua è un'ottima opzione per i progetti in cui vengono integrati contributi numerosi e frequenti.
@@ -96,4 +95,3 @@ Per disabilitare la distribuzione continua,
 [creazione di repository (GitHub)]: https://help.github.com/articles/create-a-repo
 [creazione di repository (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
-

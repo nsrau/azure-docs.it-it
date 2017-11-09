@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: yurid
+ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 6af94c795ec5153013f4a9c5c937beed08f44e7a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 Sono disponibili diversi strumenti in Microsoft Azure per proteggere i dati in base alle esigenze di sicurezza e conformità dell'azienda. Questo documento è incentrato sulla protezione dei dati inattivi in Microsoft Azure. Vengono illustrati i vari componenti dell'implementazione della protezione dei dati e sono descritti vantaggi e svantaggi dei diversi approcci di protezione della gestione delle chiavi. 
@@ -273,12 +272,11 @@ La crittografia lato client dei dati di SQL Azure è supportata tramite la funzi
 | Power BI                         |                | Sì                 | -                            | -                            | -      |
 | **Servizi IoT**                     |                |                     |                              |                              |        |
 | Hub IoT                          |                | -                   | -                            | -                            | Sì    |
-| Bus di servizio                      |                | -              | -                            | -                            | Sì    |
-| Hub eventi                       |                | -             | -                            | -                            | -      |
+| Bus di servizio                      |                | Sì (livello Premium)              | -                            | -                            | Sì    |
+| Hub eventi                       |                | Sì             | -                            | -                            | -      |
 
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 La protezione dei dati dei clienti archiviati nei servizi di Azure è di importanza fondamentale per Microsoft. Per tutti i servizi di Azure ospitati è prevista la disponibilità di opzioni di crittografia dei dati inattivi. Servizi fondamentali come Archiviazione di Azure, SQL Azure e alcuni servizi di intelligence e analisi forniscono già opzioni di questo tipo. Alcuni di questi servizi supportano le chiavi controllate dal cliente e la crittografia lato client, nonché le chiavi e la crittografia gestite dal servizio. Microsoft sta apportando notevoli miglioramenti alla disponibilità della crittografia dei dati inattivi nei servizi di Microsoft Azure e nei prossimi mesi sono previste nuove opzioni in versione di anteprima e per la disponibilità generale.
-
 

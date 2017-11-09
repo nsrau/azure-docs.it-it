@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 417fceb0961165d96ece000f95c8a3f973f4f75b
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creazione grafica in Automazione di Azure
 ## <a name="introduction"></a>Introduzione
@@ -382,5 +381,4 @@ Nell'esempio seguente viene utilizzato l'output di un'attività denominata *Get 
 * Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md)
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 * Per informazioni su come eseguire l'autenticazione usando l'account RunAs di Automazione, vedere l'articolo relativo alla [configurazione di un account RunAs da Azure](automation-sec-configure-azure-runas-account.md)
-
 

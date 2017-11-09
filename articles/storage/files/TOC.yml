@@ -6,7 +6,7 @@
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: domande frequenti
       href: storage-files-faq.md
-- name: Attività iniziali
+- name: Introduzione
   items:
     - name: Creare un account di archiviazione
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -32,10 +32,14 @@
           href: storage-sync-files-planning.md
         - name: Come distribuire Sincronizzazione file di Azure
           href: storage-sync-files-deployment-guide.md
+        - name: Informazioni sugli snapshot di condivisione file
+          href: storage-snapshots-files.md
+        - name: Come usare gli snapshot di condivisione file
+          href: storage-how-to-use-files-snapshots.md
         - name: Replica
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Obiettivi di scalabilità e prestazioni
-          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+          href: storage-files-scale-targets.md
         - name: Elenco di controllo di prestazioni e scalabilità
           href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Concorrenza
@@ -62,8 +66,12 @@
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Gestisci
       items:
-        - name: PowerShell
+        - name: PowerShell per File di Azure
           href: storage-how-to-use-files-powershell.md
+        - name: PowerShell per Archiviazione di Azure
+          href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 'PowerShell per i cloud per la Cina, gli enti pubblici e la Germania'
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Interfaccia della riga di comando di Azure 2.0
           href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Interfaccia della riga di comando di Azure 1.0
@@ -128,14 +136,18 @@
       href: /cli/azure/storage
     - name: .NET
       items:
-        - name: Gestione risorse
-          href: /dotnet/api/microsoft.azure.management.storage
-        - name: Spostamento dati
-          href: /dotnet/api/microsoft.windowsazure.storage.datamovement
         - name: 'BLOB, code, tabelle e file'
-          href: 'https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet'
+        - name: Spostamento dati
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
+        - name: Gestione risorse
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet'
     - name: Java
-      href: 'http://azure.github.io/azure-storage-java/'
+      items:
+        - name: 'BLOB, code, tabelle e file'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary'
+        - name: Gestione risorse
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/managementapi'
     - name: Node.js
       href: 'http://azure.github.io/azure-storage-node'
     - name: Ruby
@@ -164,6 +176,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=storage'
     - name: Strumenti client di Archiviazione di Azure
       href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Forum
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
     - name: Prezzi
@@ -172,8 +186,6 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Video
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
     - name: Azure Storage Explorer
@@ -216,3 +228,5 @@
           href: 'https://github.com/Azure/azure-storage-ruby'
         - name: iOS
           href: 'https://github.com/Azure/azure-storage-ios'
+    - name: Note sulla versione di Sincronizzazione file di Azure
+      href: storage-files-release-notes.md

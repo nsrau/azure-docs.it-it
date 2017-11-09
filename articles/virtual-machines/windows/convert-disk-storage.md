@@ -15,17 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
+ms.openlocfilehash: e9caa732526c4cf446e9c70ed0a030df81c172dd
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 9e5c73ceb0ff7d9c18c9cf7128b69e40b9796874
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa
 
-Managed Disks offre due opzioni di archiviazione: [Premium](../../storage/storage-premium-storage.md) (basata su SSD) e [Standard](../../storage/storage-standard-storage.md) (basata su HDD). È possibile passare facilmente tra le due opzioni con un tempo di inattività minimo in base alle esigenze in termini di prestazioni. Questa funzionalità non è disponibile per i dischi non gestiti. È possibile eseguire facilmente la [conversione a Managed Disks](convert-unmanaged-to-managed-disks.md) per passare facilmente tra le due opzioni.
+Managed Disks offre due opzioni di archiviazione: [Premium](premium-storage.md) (basata su SSD) e [Standard](standard-storage.md) (basata su HDD). È possibile passare facilmente tra le due opzioni con un tempo di inattività minimo in base alle esigenze in termini di prestazioni. Questa funzionalità non è disponibile per i dischi non gestiti. È possibile eseguire facilmente la [conversione a Managed Disks](convert-unmanaged-to-managed-disks.md) per passare facilmente tra le due opzioni.
 
 Questo articolo illustra come convertire la versione di Managed Disks da Standard a Premium e viceversa usando Azure PowerShell. Se è necessario eseguirne l'installazione o l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps.md).
 
@@ -107,7 +105,7 @@ $vm.HardwareProfile.VmSize = $size
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
+$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
 Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 -DiskName $disk.Name
 
@@ -117,5 +115,4 @@ Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ## <a name="next-steps"></a>Passaggi successivi
 
 Eseguire una copia di sola lettura di una VM usando [snapshot](snapshot-copy-managed-disk.md).
-
 

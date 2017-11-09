@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 044e88f95712e1cc5b5532f5492c78d711a8d858
-ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 27758f7e0a48d19f542055cae06d6c0a228215f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Gestire l'appartenenza al gruppo per gli utenti nel tenant di Azure Active Directory
 Questo articolo descrive come gestire i membri di un gruppo in Azure Active Directory (Azure AD).
@@ -56,4 +55,3 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestire le impostazioni di un gruppo](active-directory-groups-settings-azure-portal.md)
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
-

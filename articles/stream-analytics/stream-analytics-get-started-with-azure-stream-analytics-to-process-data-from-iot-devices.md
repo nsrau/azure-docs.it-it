@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introduzione all'analisi di flusso di Azure per elaborare dati dai dispositivi IoT
 Questa esercitazione illustra come creare la logica di elaborazione del flusso per raccogliere dati da dispositivi IoT (Internet delle cose). Verrà usato un caso d'uso reale di IoT per dimostrare come compilare una soluzione in modo rapido ed economico.
@@ -119,5 +118,4 @@ In questo caso viene usato un **LEFT OUTER JOIN** per lo stesso flusso di dati (
 
 ## <a name="conclusion"></a>Conclusione
 Lo scopo di questa esercitazione è illustrare come scrivere diverse query nel linguaggio di query di Analisi di flusso e visualizzare i risultati nel browser. Si tratta, tuttavia, di informazioni di base, perché Analisi di flusso consente di eseguire molte altre attività. Analisi di flusso supporta un'ampia gamma di input e output e può anche usare le funzioni di Azure Machine Learning per offrire uno strumento efficace per l'analisi dei flussi di dati. Per iniziare a esplorare Analisi di flusso, è possibile usare la [mappa di apprendimento](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Per altre informazioni su come scrivere le query, vedere l'articolo sui [modelli di query comuni](stream-analytics-stream-analytics-query-patterns.md).
-
 

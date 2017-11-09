@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Procedure consigliate per la creazione di soluzioni di gestione in Operations Management Suite (OMS) (anteprima)
 > [!NOTE]
@@ -55,5 +54,4 @@ Questo articolo riporta le procedure consigliate per la [creazione di una soluzi
 * [Aggiungere ricerche salvate e avvisi](operations-management-suite-solutions-resources-searches-alerts.md) alla soluzione di gestione.
 * [Aggiungere viste](operations-management-suite-solutions-resources-views.md) alla soluzione di gestione.
 * [Aggiungere runbook di automazione e altre risorse](operations-management-suite-solutions-resources-automation.md) alla soluzione di gestione.
-
 

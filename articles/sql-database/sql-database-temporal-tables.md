@@ -1,6 +1,6 @@
 ---
 title: Introduzione alle tabelle temporali nel database SQL di Azure | Microsoft Docs
-description: Informazioni introduttive sull&quot;uso delle tabelle temporali nel database SQL di Azure.
+description: Informazioni introduttive sull'uso delle tabelle temporali nel database SQL di Azure.
 services: sql-database
 documentationcenter: 
 author: bonova
@@ -12,16 +12,14 @@ ms.custom: develop databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sql-database
+ms.workload: On Demand
 ms.date: 01/10/2017
 ms.author: bonova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: e00345ddd9e52e2613789ba78c48e8f993d2415c
-ms.contentlocale: it-it
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 58f97c142ba0b9282d8988fc1bc037b9c0c69986
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introduzione alle tabelle temporali nel database SQL di Azure
 Le tabelle temporali sono una nuova funzionalità di programmabilità del database SQL di Azure che consente di monitorare e analizzare la cronologia completa delle modifiche ai dati, senza dover scrivere codice personalizzato. Le tabelle temporali mantengono i dati strettamente correlati al contesto temporale, in modo che i fatti archiviati possano essere interpretati come validi solo entro il periodo specifico. Questa proprietà delle tabelle temporali consente di eseguire un'analisi efficace basata sul tempo e di ottenere informazioni accurate dall'evoluzione dei dati.
@@ -199,5 +197,4 @@ Con le tabelle temporali con controllo delle versioni di sistema, la tabella del
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni dettagliate sulle tabelle temporali, vedere la [documentazione MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
 Visitare Channel 9 per ascoltare un [vero caso di successo di implementazione temporale](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e guardare una [dimostrazione temporale dal vivo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
-
 

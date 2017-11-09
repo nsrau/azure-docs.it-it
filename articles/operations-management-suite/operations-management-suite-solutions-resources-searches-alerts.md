@@ -1,6 +1,6 @@
 ---
 title: Ricerche salvate e avvisi nelle soluzioni OMS | Microsoft Docs
-description: Le soluzioni in OMS includeranno in genere ricerche salvate di Log Analytics per l'analisi dei dati raccolti dalla soluzione.  Potranno anche definire avvisi per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico.  Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un modello di Azure Resource Manager in modo da consentirne l'inclusione nelle soluzioni di gestione.
+description: Le soluzioni in OMS includono in genere ricerche salvate in Log Analytics per l'analisi dei dati raccolti dalla soluzione.  Potranno anche definire avvisi per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico.  Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un modello di Resource Manager in modo da consentirne l'inclusione nelle soluzioni di gestione.
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 10/16/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione in OMS (anteprima)
 
@@ -32,19 +32,34 @@ Le [soluzioni di gestione in OMS](operations-management-suite-solutions.md) incl
 > Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Creazione di soluzioni di gestione in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
 
 ## <a name="prerequisites"></a>Prerequisiti
-Questo articolo presuppone che si abbia già familiarità con la [creazione di una soluzione di gestione](operations-management-suite-solutions-creating.md) e la struttura di un [modello di Azure Resource Manager](../resource-group-authoring-templates.md) e un file di soluzione.
+Questo articolo presuppone che si abbia già familiarità con la [creazione di una soluzione di gestione](operations-management-suite-solutions-creating.md) e la struttura di un [modello di Resource Manager](../resource-group-authoring-templates.md) e un file di soluzione.
 
 
 ## <a name="log-analytics-workspace"></a>Area di lavoro di Log Analytics
-Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../log-analytics/log-analytics-manage-access.md).  Come descritto in [Area di lavoro OMS e account di Automazione](operations-management-suite-solutions.md#oms-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riuscirà.
+Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../log-analytics/log-analytics-manage-access.md).  Come descritto in [Area di lavoro OMS e account di Automazione](operations-management-suite-solutions.md#oms-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riesce.
 
 Il nome dell'area di lavoro è il nome di ogni risorsa di Log Analytics.  A questo scopo, nella soluzione viene usato il parametro **workspace** come nell'esempio seguente di una risorsa savedsearch.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
+## <a name="log-analytics-api-version"></a>Versione API di Log Analytics
+Tutte le risorse di Log Analytics definite in un modello di Resource Manager hanno una proprietà **apiVersion** che definisce la versione dell'API che la risorsa deve usare.  Questa versione è diversa per le risorse che usano il [linguaggio di query legacy e quello aggiornato](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ La tabella seguente specifica le versioni API di Log Analytics per le aree di lavoro legacy e quelle aggiornate, con una query di esempio che illustra la diversa sintassi per ogni caso. 
+
+| Versione dell'area di lavoro | Versione dell'API | Query di esempio |
+|:---|:---|:---|
+| v1 (legacy)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
+| v2 (aggiornata) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+
+Si noti quanto segue in relazione alle aree di lavoro supportate dalle diverse versioni.
+
+- I modelli che usano il linguaggio di query legacy possono essere installati in un'area di lavoro legacy o aggiornata.  Se l'installazione avviene in un'area di lavoro aggiornata, le query vengono convertite all'istante nel nuovo linguaggio quando vengono eseguite dall'utente.
+- I modelli che usano il linguaggio di query aggiornato possono essere installati solo in un'area di lavoro aggiornata.
+
 
 ## <a name="saved-searches"></a>Ricerche salvate
-Includere [ricerche salvate](../log-analytics/log-analytics-log-searches.md) in una soluzione per consentire agli utenti di eseguire query sui dati raccolti dalla soluzione.  Le ricerche salvate verranno visualizzate in **Preferiti** nel portale di OMS e in **Ricerche salvate** nel portale di Azure.  È necessaria una ricerca salvata anche per ogni avviso.   
+Includere [ricerche salvate](../log-analytics/log-analytics-log-searches.md) in una soluzione per consentire agli utenti di eseguire query sui dati raccolti dalla soluzione.  Le ricerche salvate vengono visualizzate in **Preferiti** nel portale di OMS e in **Ricerche salvate** nel portale di Azure.  È necessaria una ricerca salvata anche per ogni avviso.   
 
 Le risorse [ricerca salvata di Log Analytics](../log-analytics/log-analytics-log-searches.md) sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches` e hanno la struttura seguente.  Nella struttura sono inclusi parametri e variabili comuni ed è quindi possibile copiare e incollare questo frammento di codice nel file della soluzione e, se necessario, modificare i nomi dei parametri. 
 
@@ -81,10 +96,10 @@ Gli [avvisi di Log Analytics](../log-analytics/log-analytics-alerts.md) vengono 
 
 Le regole di avviso in una soluzione di gestione sono costituite dalle tre diverse risorse riportate di seguito.
 
-- **Ricerca salvata.**  Definisce la ricerca nei log che verrà eseguita.  Una singola ricerca salvata può essere condivisa da più regole di avviso.
-- **Pianificazione.**  Definisce la frequenza con cui verrà eseguita la ricerca nei log.  Ogni regola di avviso avrà una sola pianificazione.
-- **Azione di avviso.**  Ogni regola di avviso avrà una risorsa azione di tipo **Alert** che definisce dettagli dell'avviso come i criteri per la creazione di un record di avviso e la gravità.  La risorsa azione definirà facoltativamente una risposta tramite posta elettronica e runbook.
-- **Azione webhook (facoltativa).**  Se la regola di avviso chiamerà un webhook, è necessaria una risorsa azione aggiuntiva di tipo **Webhook**.    
+- **Ricerca salvata.**  Definisce la ricerca log che viene eseguita.  Una singola ricerca salvata può essere condivisa da più regole di avviso.
+- **Pianificazione.**  Definisce la frequenza di esecuzione della ricerca log.  Ogni regola di avviso ha una sola pianificazione.
+- **Azione di avviso.**  Ogni regola di avviso ha una risorsa azione di tipo **Alert** che definisce i dettagli dell'avviso, come i criteri per la creazione di un record di avviso e la gravità dell'avviso.  La risorsa azione definirà facoltativamente una risposta tramite posta elettronica e runbook.
+- **Azione webhook (facoltativa).**  Se la regola di avviso chiama un webhook, è necessaria una risorsa azione aggiuntiva di tipo **Webhook**.    
 
 Le risorse ricerca salvata sono illustrate sopra.  Di seguito sono descritte le altre risorse.
 
@@ -129,7 +144,7 @@ Le risorse azione sono di tipo `Microsoft.OperationalInsights/workspaces/savedSe
 
 #### <a name="alert-actions"></a>Azioni di avviso
 
-Ogni pianificazione avrà un'azione **Alert**,  che definisce i dettagli dell'avviso e, facoltativamente, le azioni di notifica e correzione.  Una notifica invia un messaggio di posta elettronica a uno o più indirizzi.  Una correzione avvia un runbook in Automazione di Azure per provare a risolvere il problema rilevato.
+Ogni pianificazione ha un'azione **Alert**.  che definisce i dettagli dell'avviso e, facoltativamente, le azioni di notifica e correzione.  Una notifica invia un messaggio di posta elettronica a uno o più indirizzi.  Una correzione avvia un runbook in Automazione di Azure per provare a risolvere il problema rilevato.
 
 Le azioni di avviso hanno la struttura seguente.  Nella struttura sono inclusi parametri e variabili comuni ed è quindi possibile copiare e incollare questo frammento di codice nel file della soluzione e, se necessario, modificare i nomi dei parametri. 
 
@@ -174,7 +189,7 @@ Le proprietà delle risorse azione di avviso sono descritte nella tabella seguen
 
 | Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| Type | Sì | Tipo di azione.  Per le azioni di avviso, sarà **Alert**. |
+| Type | Sì | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
 | Nome | Sì | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
 | Descrizione | No | Descrizione facoltativa dell'avviso. |
 | Severity | Sì | Gravità del record di avviso tra i valori seguenti:<br><br> **Critical**<br>**Warning**<br>**Informational** |
@@ -253,10 +268,10 @@ Le proprietà delle risorse azione webhook sono descritte nella tabella seguente
 
 | Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| type | Sì | Tipo di azione.  Per le azioni webhook, sarà **Webhook**. |
+| type | Sì | Tipo di azione.  Per le azioni webhook, il tipo è **Webhook**. |
 | name | Sì | Nome visualizzato per l'azione.  Non viene visualizzato nella console. |
 | wehookUri | Sì | URI del webhook. |
-| customPayload | No | Payload personalizzato da inviare al webhook. Il formato dipenderà dalle previsioni del webhook. |
+| customPayload | No | Payload personalizzato da inviare al webhook. Il formato dipende da ciò che il webhook si aspetta. |
 
 
 

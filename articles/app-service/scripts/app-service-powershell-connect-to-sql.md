@@ -17,10 +17,10 @@ ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 5312bf6b81d1cc48490b71c3f77323cca23e1559
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-a-web-app-to-a-sql-database"></a>Connettere un'App Web a un database SQL
 
@@ -30,7 +30,7 @@ Se necessario, installare Azure PowerShell usando l'istruzione presente nella [G
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[principale](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connettere un'app Web a un database SQL")]
+[!code-powershell[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect a web app to a SQL database")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 

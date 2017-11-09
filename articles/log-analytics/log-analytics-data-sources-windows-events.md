@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 09/28/2017
 ms.author: bwren
-ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Origini dei dati del registro eventi di Windows in Log Analytics
 I registri eventi di Windows rappresentano una delle più comuni [origini dati](log-analytics-data-sources.md) per raccogliere i dati tramite gli agenti di Windows, dal momento che molte applicazioni scrivono nel registro eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
@@ -65,17 +65,6 @@ I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente veng
 La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i record di Eventi Windows.
 
 | Query | Descrizione |
-|:--- |:--- |
-| Tipo=Event |Tutti gli eventi di Windows. |
-| Tipo=Event EventLevelName=error |Tutti gli eventi di Windows con livello di gravità dell'errore. |
-| Tipo=Event &#124; Measure count() by Source |Numero di eventi di Windows per origine. |
-| Tipo=Event EventLevelName=error &#124; Measure count() by Source |Numero di eventi di errore di Windows per origine. |
-
-
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query precedenti verranno sostituite da quelle seguenti.
->
->| Query | Descrizione |
 |:---|:---|
 | Evento |Tutti gli eventi di Windows. |
 | Event &#124; where EventLevelName == "error" |Tutti gli eventi di Windows con livello di gravità dell'errore. |

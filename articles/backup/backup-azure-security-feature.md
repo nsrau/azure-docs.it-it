@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
 ms.openlocfilehash: 8ef9ddc345fb553b93815022dc3e6a796cae8b3a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare questi attacchi, Backup di Azure offre ora una serie di funzionalità di sicurezza per la protezione dei backup ibridi. Questo articolo descrive come abilitare e usare queste funzionalità tramite un agente di Servizi di ripristino di Azure e il server di Backup di Azure. Queste funzionalità includono:

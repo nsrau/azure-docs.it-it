@@ -10,7 +10,7 @@
    3. Fare clic sull’icona a forma di freccia  ![icona del segno di spunta](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
 3. In **Definisci pianificazione**:
    
-   1. Selezionare il **tipo di backup** ( **Snapshot locale** o **Snapshot cloud**).
+   1. Selezionare il **tipo di backup** (**Snapshot locale** o **Snapshot cloud**).
    2. Specificare la frequenza di backup in minuti, ore, giorni o settimane.
    3. Selezionare una pianificazione di conservazione nell'elenco a discesa. Le scelte di conservazione dipendono dalla frequenza di backup. 
    4. Selezionare la data e l'ora di inizio per il criterio.

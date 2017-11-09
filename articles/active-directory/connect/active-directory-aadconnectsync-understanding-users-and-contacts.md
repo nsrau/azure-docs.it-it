@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: 495e926a1975128707212ba571d47cfc7c9507b3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 0ad3194a0827c4ef68267ce5e3e3fcbe225e8a3d
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti e contatti
 I motivi per cui possono essere presenti più foreste Active Directory e sono disponibili più topologie di distribuzione sono diversi. I modelli comuni prevedono una distribuzione account-risorse e foreste sincronizzate tramite Elenco indirizzi globale dopo operazioni di fusione e acquisizione. Anche se esistono modelli puri, sono molto diffusi anche i modelli ibridi. La configurazione predefinita nel servizio di sincronizzazione Azure AD Connect non presuppone alcun modello specifico, ma è possibile osservare diversi comportamenti in base all'opzione di corrispondenza utenti selezionata nella guida all'installazione.

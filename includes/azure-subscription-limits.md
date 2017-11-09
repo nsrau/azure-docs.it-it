@@ -10,7 +10,7 @@
 | IP riservati per sottoscrizione |20 |100 |
 | Certificati di servizi ospitati per sottoscrizione |400 |400 |
 | [Gruppi di affinità](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per sottoscrizione |256 |256 |
-| Regole di avviso per ogni sottoscrizione |250 |250 |
+
 
 <sup>1</sup>Le istanze di dimensioni estremamente ridotte vengono conteggiate come un core ai fini del limite dei core anche se viene usato un core parziale.
 

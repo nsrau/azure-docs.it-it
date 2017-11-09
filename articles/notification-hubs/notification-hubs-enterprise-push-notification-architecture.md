@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guida all'architettura push aziendale
 Al giorno d'oggi, le aziende stanno gradualmente passando alla creazione di applicazioni per dispositivi mobili sia per gli utenti finali (esterni) che per i dipendenti (interni). Le aziende dispongono di sistemi back-end già esistenti, ovvero mainframe o applicazioni LoB che è necessario integrare nell'architettura delle applicazioni per dispositivi mobili. In questa Guida verrà illustrato come eseguire questa integrazione nel modo migliore possibile, fornendo possibili soluzioni per scenari comuni.
@@ -266,4 +265,3 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 [Web di Azure]: ../app-service/web-sites-create-web-jobs.md
 [Introduzione ad Hub di notifica - Esercitazione per Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [portale di Azure classico]: https://manage.windowsazure.com/
-

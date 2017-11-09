@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/28/2017
 ms.author: asgang
+ms.openlocfilehash: b7b03442ba815c86e5defa1018b66f56c0b379df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 468b99002b867768d1ef03ca3ef67946caa4919d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Risolvere i problemi di installazione push del servizio Mobility
 
@@ -81,7 +80,7 @@ Questo errore può essere generato dal servizio per diversi motivi. Scegliere l'
 
 **Codice errore** | **Possibili cause** | **Indicazioni specifiche per l'errore**
 --- | --- | ---
-95265 </br>**Messaggio:** Push installation of the mobility service to the source machine succeeded but source machine requires a restart for some system changes to take effect (L'installazione Push del servizio di mobilità nella macchina virtuale di origine è stata completata ma è necessario riavviare per rendere effettive alcune modifiche di sistema). <br>| Una versione precedente del servizio di mobilità è già installata nel server.| La replica della macchina virtuale continua senza problemi. M<br> Riavviare il server durante la successiva finestra di manutenzione per ottenere i vantaggi offerti dai nuovi miglioramenti nel servizio di mobilità.|
+95265 </br>**Messaggio:** Push installation of the mobility service to the source machine succeeded but source machine requires a restart for some system changes to take effect (L'installazione Push del servizio di mobilità nella macchina virtuale di origine è stata completata ma è necessario riavviare per rendere effettive alcune modifiche di sistema). <br>| Una versione precedente del servizio di mobilità è già installata nel server.| La replica della macchina virtuale continua senza problemi.<br> Riavviare il server durante la successiva finestra di manutenzione per ottenere i vantaggi offerti dai nuovi miglioramenti nel servizio di mobilità.|
 
 
 ## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>Errore 95224 - Non è stato possibile abilitare la protezione (EP0883)
@@ -103,4 +102,3 @@ Questo errore può essere generato dal servizio per diversi motivi. Scegliere l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Abilitare la replica delle macchine virtuali VMware](vmware-walkthrough-enable-replication.md)
-

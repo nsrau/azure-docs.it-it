@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 
 Questo articolo descrive come sia possibile creare un profilo con tipo di routing **Priorità** per instradare gli utenti a due endpoint di App Web di Azure. Con il tipo di routing **Priorità** tutto il traffico viene instradato al primo endpoint mentre il secondo viene mantenuto come backup. Gli utenti possono essere così instradati al secondo endpoint se il primo diventa non integro.
@@ -73,7 +71,6 @@ Quando non sono più necessari, eliminare il gruppo di risorse e il profilo di G
 - Altre informazioni sui [tipi di routing](traffic-manager-routing-methods.md).
 - Altre informazioni sui [tipi di endpoint](traffic-manager-endpoint-types.md).
 - Altre informazioni sul [monitoraggio degli endpoint](traffic-manager-monitoring.md).
-
 
 
 

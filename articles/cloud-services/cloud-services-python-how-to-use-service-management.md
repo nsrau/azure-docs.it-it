@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
 ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>Come usare la gestione dei servizi da Python
 La guida descrive come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](https://github.com/Azure/azure-sdk-for-python) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal] (ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**). Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
 
-## <a name="WhatIs"> </a>Informazioni sulla gestione dei servizi
+## <a name="WhatIs"></a>Informazioni sulla gestione dei servizi
 L'API di gestione dei servizi fornisce l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal]. Azure SDK per Python consente di gestire i servizi cloud e gli account di archiviazione.
 
 Per usare l'API Gestione dei servizi, è necessario [creare un account Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="Concepts"> </a>Concetti
+## <a name="Concepts"></a>Concetti
 Azure SDK per Python include l'[API di Gestione servizi di Azure][svc-mgmt-rest-api], ovvero un'API REST. Tutte le operazioni dell'API vengono eseguite tramite SSL e autenticate reciprocamente con certificati X.509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure o direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
 
 ## <a name="Installation"> </a>Installazione
 Tutte le funzionalità descritte in questo articolo sono disponibili nel pacchetto `azure-servicemanagement-legacy` che è possibile installare tramite pip. Per altre informazioni sull'installazione, ad esempio se non si ha familiarità con Python, vedere l'articolo relativo all'[installazione di Python e Azure SDK](../python-how-to-install.md)
 
-## <a name="Connect"> </a>Procedura: Connettersi alla gestione dei servizi
+## <a name="Connect"></a>Procedura: Connettersi alla gestione dei servizi
 Per connettersi all'endpoint di gestione dei servizi, sono necessari un ID sottoscrizione di Azure e un certificato di gestione valido. È possibile ottenere l'ID sottoscrizione tramite il [portale di Azure classico][management-portal].
 
 > [!NOTE]
@@ -88,7 +88,7 @@ Dopo aver ottenuto l'ID sottoscrizione, aver creato un certificato e aver carica
 
 Nell'esempio precedente `sms` è un oggetto **ServiceManagementService** . La classe **ServiceManagementService** è la classe principale usata per gestire i servizi di Azure.
 
-## <a name="ListAvailableLocations"> </a>Procedura: Creare un elenco delle località disponibili
+## <a name="ListAvailableLocations"></a>Procedura: Creare un elenco delle località disponibili
 Per elencare le località disponibili per i servizi di hosting, usare il metodo **list\_locations**:
 
     from azure import *
@@ -159,7 +159,7 @@ Dopo aver creato un servizio cloud è possibile distribuire il codice al servizi
 
 Prima di eliminare un servizio è necessario eliminare tutte le distribuzioni del servizio. Per informazioni dettagliate, vedere [Procedura: Eliminare una distribuzione](#DeleteDeployment) .
 
-## <a name="DeleteDeployment"> </a>Procedura: Eliminare una distribuzione
+## <a name="DeleteDeployment"></a>Procedura: Eliminare una distribuzione
 Per eliminare una distribuzione, usare il metodo **delete\_deployment**. L'esempio seguente mostra come eliminare una distribuzione denominata `v1`.
 
     from azure import *
@@ -202,7 +202,7 @@ Si noti nell'esempio precedente che è possibile recuperare lo stato dell'operaz
         print('Location: ' + account.storage_service_properties.location)
         print('')
 
-## <a name="DeleteStorageService"> </a>Procedura: Eliminare un servizio di archiviazione
+## <a name="DeleteStorageService"></a>Procedura: Eliminare un servizio di archiviazione
 È possibile eliminare un servizio di archiviazione passando il relativo nome al metodo **delete\_storage\_account**. L'eliminazione di un servizio di archiviazione comporta l'eliminazione di tutti i dati archiviati nel servizio: BLOB, tabelle e code.
 
     from azure import *
@@ -212,7 +212,7 @@ Si noti nell'esempio precedente che è possibile recuperare lo stato dell'operaz
 
     sms.delete_storage_account('mystorageaccount')
 
-## <a name="ListOperatingSystems"> </a>Procedura: Elencare i sistemi operativi disponibili
+## <a name="ListOperatingSystems"></a>Procedura: Elencare i sistemi operativi disponibili
 Per elencare i sistemi operativi disponibili per i servizi di hosting, usare il metodo **list\_operating\_systems**:
 
     from azure import *
@@ -239,7 +239,7 @@ In alternativa, è possibile usare il metodo **list\_operating\_system\_families
                 print('Version: ' + os.version)
         print('')
 
-## <a name="CreateVMImage"> </a>Procedura: Creare un'immagine del sistema operativo
+## <a name="CreateVMImage"></a>Procedura: Creare un'immagine del sistema operativo
 Per aggiungere un'immagine del sistema operativo all'archivio di immagini, usare il metodo **add\_os\_image**:
 
     from azure import *
@@ -271,7 +271,7 @@ Per elencare le immagini del sistema operativo disponibili, usare il metodo **li
         print('Media link: ' + image.media_link)
         print('')
 
-## <a name="DeleteVMImage"> </a>Procedura: Eliminare un'immagine del sistema operativo
+## <a name="DeleteVMImage"></a>Procedura: Eliminare un'immagine del sistema operativo
 Per eliminare un'immagine dell'utente, usare il metodo **delete\_os\_image**:
 
     from azure import *
@@ -322,7 +322,7 @@ Per creare una macchina virtuale, è necessario creare un [servizio cloud](#Crea
         os_virtual_hard_disk=os_hd,
         role_size='Small')
 
-## <a name="DeleteVM"> </a>Procedura: Eliminare una macchina virtuale
+## <a name="DeleteVM"></a>Procedura: Eliminare una macchina virtuale
 Per eliminare una macchina virtuale, è prima necessario eliminare la distribuzione tramite il metodo **delete\_deployment**:
 
     from azure import *
@@ -398,7 +398,7 @@ Per altre informazioni su come acquisire una macchina virtuale Linux, vedere [Co
 
 Per altre informazioni su come acquisire una macchina virtuale Windows, vedere [Come acquisire una macchina virtuale Windows](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="What's Next"> </a>Passaggi successivi
+## <a name="What's Next"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base della gestione dei servizi, è possibile accedere alla [documentazione completa di riferimento all'API per Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) ed eseguire facilmente le complesse attività di gestione dell'applicazione Python.
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).

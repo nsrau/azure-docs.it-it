@@ -10,18 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
+ms.openlocfilehash: 14912df26074b525585594cc1b5d32c85ce9094f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 461da2528d515072bf04a82bb8ba64a853443f98
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Gestire lo schema per più tenant in un'applicazione multi-tenant che usa il database SQL di Azure
 
@@ -136,4 +135,3 @@ In questa esercitazione si è appreso come:
 * [Altre esercitazioni basate sulla distribuzione dell'applicazione SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Gestione dei database cloud con scalabilità orizzontale](sql-database-elastic-jobs-overview.md)
 * [Creare e gestire database SQL di Azure con scalabilità orizzontale](sql-database-elastic-jobs-create-and-manage.md)
-

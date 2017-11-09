@@ -4,7 +4,7 @@ description: "Informazioni su come creare una VM (classica) con più schede di i
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 923d4817d96399fc423b0a89cbf88f8d397f1af0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 37f1f5bbd5f39290121414a4c5532abdb2b6f9ae
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Creare una macchina virtuale (classica) con più schede di interfaccia di rete usando PowerShell
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/03/2017
 È possibile creare macchine virtuali (VM) in Azure e collegare più interfacce di rete (NIC) a ciascuna delle macchine virtuali. Più schede di interfaccia rete consentono la separazione dei tipi di traffico tra schede di interfaccia di rete. Ad esempio, una scheda di interfaccia di rete può comunicare con Internet, mentre un'altra comunica solo con le risorse interne non connesse a Internet. La possibilità di separare il traffico di rete tra più schede di interfaccia di rete è necessaria per molte appliance virtuali di rete, ad esempio soluzioni di ottimizzazione WAN e di distribuzione delle applicazioni.
 
 > [!IMPORTANT]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come seguire questa procedura con il [modello di distribuzione Resource Manager](virtual-network-deploy-multinic-arm-ps.md).
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come seguire questa procedura con il [modello di distribuzione Resource Manager](../virtual-machines/windows/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -153,7 +153,7 @@ Le macchine virtuali di back-end dipendono dalla creazione delle risorse seguent
     -StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
     -VM $vmConfig
     ```
-
+    
 6. Creare dischi di dati per ogni macchina virtuale.
 
     ```powershell
@@ -181,7 +181,7 @@ Le macchine virtuali di back-end dipendono dalla creazione delle risorse seguent
     ```
 
 ### <a name="step-4---run-the-script"></a>Passaggio 4 - eseguire lo script.
-Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo script per creare macchine virtuali del database di back-end con più schede di rete.
+Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo script per creare le macchine virtuali del database di back-end con più schede di rete.
 
 1. Salvare lo script ed eseguirlo dal prompt dei comandi **PowerShell** o **PowerShell ISE**. Verrà visualizzato l'output iniziale, come illustrato di seguito.
 
@@ -195,3 +195,7 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+
+### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Passaggio 5 - Configurare il routing all'interno del sistema operativo della VM
+
+Azure DHCP assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito alle interfacce di rete (secondarie) associate a una macchina virtuale. Pertanto, per impostazione predefinita, non si riesce a comunicare con le risorse all'esterno della subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla loro subnet. Per configurare il routing per le interfacce di rete secondarie, vedere [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces) (Routing in un sistema operativo di macchina virtuale con più interfacce di rete).

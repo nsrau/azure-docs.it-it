@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 5d09021627ca60a94cb1984b29b8dc7913d093d6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Configurare SharePoint Online ed Exchange Online per l'accesso condizionale di Azure Active Directory 
 
 Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti accedono alle app cloud. Se si vuole usare l'accesso condizionale per controllare l'accesso a SharePoint ed Exchange online, è necessario:
@@ -183,7 +181,6 @@ Applicando le tre regole seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere [Accesso condizionale in Azure Active Directory](active-directory-conditional-access.md).
-
 
 
 

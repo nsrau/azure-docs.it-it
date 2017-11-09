@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
+ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 55ec52dd0d94a0347cc67a8785b89611da955111
-ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorare i gateway VPN con la risoluzione dei problemi di Network Watcher
 
 Ottenere informazioni approfondite sulle prestazioni di rete è fondamentale per offrire servizi affidabili ai clienti. È quindi essenziale rilevare rapidamente le interruzioni di rete e adottare misure correttive per mitigare la condizione di interruzione. Automazione di Azure consente di implementare ed eseguire un'attività a livello di codice attraverso i runbook. Con Automazione di Azure è possibile mettere in atto una soluzione continua e attiva di monitoraggio e avviso relativa alla rete.
@@ -201,4 +199,3 @@ Dopo aver appreso come integrare la risoluzione dei problemi di Network Watcher 
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-

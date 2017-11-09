@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
+ms.openlocfilehash: 8713fc7dd27023e1244ccb00673dd1652689baf5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 6cd0d19e5fd90cb9fb6d3fc4c17119476d7b4f62
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Aggiungere AD FS come provider di identità SAML tramite criteri personalizzati
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -155,8 +153,10 @@ Definire AD FS come provider di attestazioni aggiungendo il nodo `<ClaimsProvide
 
 ## <a name="register-the-adfs-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Registrare il provider di attestazioni dell'account AD FS in un percorso utente di registrazione o di accesso
 A questo punto, il provider di identità è stato configurato,  ma non è disponibile in nessuna delle schermate di registrazione o di accesso. È necessario ora aggiungere il provider di identità dell'account AD FS al percorso utente `SignUpOrSignIn` dell'utente. Per renderlo disponibile, si crea un duplicato di un modello di processo utente esistente  e lo si modifica in modo che contenga il provider di identità AD FS:
-    >[!NOTE]
-    >If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml) you can skip this section.
+
+>[!NOTE]
+>Se l'elemento `<UserJourneys>` è stato copiato in precedenza dal file di base dei criteri al file di estensione (TrustFrameworkExtensions.xml) è possibile ignorare questa sezione.
+
 1.  Aprire il file di base dei criteri, ad esempio TrustFrameworkBase.xml.
 2.  Trovare l'elemento `<UserJourneys>` e copiare l'intero contenuto del nodo `<UserJourneys>`.
 3.  Aprire il file di estensione, ad esempio TrustFrameworkExtensions.xml, e trovare l'elemento `<UserJourneys>`. Se l'elemento non esiste, aggiungerne uno.
@@ -228,4 +228,3 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 
 ## <a name="download-the-complete-policy-files"></a>Scaricare i file dei criteri completi
 Facoltativo: per creare lo scenario è consigliabile usare file di criteri personalizzati dopo aver completato la procedura Introduzione ai criteri personalizzati. [File dei criteri di esempio solo per riferimento](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app)
-

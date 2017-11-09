@@ -3,8 +3,8 @@ title: Creare un'app Web PHP in Azure | Microsoft Docs
 description: Distribuire la prima app PHP Hello World in un'app Web del servizio app di Azure in pochi minuti.
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,15 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/21/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc
+ms.openlocfilehash: 929c8e3bd8e180148897c4a7808a90f5ca614c4e
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: a91f9b6693476f68ef0e64fb0283ded2cedec29f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creare un'app Web PHP in Azure
 
@@ -72,13 +71,17 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
+## <a name="create-a-web-app"></a>Creare un'app Web
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
+
+Passare all'app Web appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
+
+```bash
+http://<app name>.azurewebsites.net
+```
 
 ![Pagina dell'app Web vuota](media/app-service-web-get-started-php/app-service-web-service-created.png)
-
-È stata creata una nuova app Web vuota in Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -129,7 +132,7 @@ Usando un editor di testo locale, aprire il file `index.php` nell'app PHP e appo
 echo "Hello Azure!";
 ```
 
-Eseguire il commit delle modifiche in Git e quindi effettuare il push delle modifiche al codice in Azure.
+Nella finestra del terminale locale eseguire il commit delle modifiche in Git e quindi eseguire il push delle modifiche al codice in Azure.
 
 ```bash
 git commit -am "updated output"
@@ -160,4 +163,3 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 
 > [!div class="nextstepaction"]
 > [PHP con MySQL](app-service-web-tutorial-php-mysql.md)
-

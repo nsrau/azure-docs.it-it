@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 0afdd1c04e50215a55fb92c70b1210d1f80d8e3f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 07b388deca4d712de67127c8fc4e6701244e3209
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview
 ## <a name="overview"></a>Overview
-Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. Rispetto alla versione precedente di [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** offre prestazioni di indicizzazione superiori e un supporto più ampio per le lingue. Le lingue supportate includono l'italiano, l'inglese, il francese, il tedesco, lo spagnolo, il portoghese, il giapponese, il cinese, mandarino semplificato, e l'arabo.
+Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. Rispetto alla versione precedente di [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** offre prestazioni di indicizzazione superiori e un supporto più ampio per le lingue. Le lingue supportate sono l'italiano, l'inglese, il francese, il tedesco, lo spagnolo, il portoghese, il giapponese, il cinese (mandarino semplificato), l'arabo e il russo.
 
 Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** è attualmente disponibile in anteprima.
 

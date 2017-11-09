@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
 ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campi personalizzati in Log Analytics
 La funzionalità **Campi personalizzati** di Log Analytics consente di estendere i record esistenti nell'archivio di OMS con l'aggiunta di campi ricercabili personalizzati.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.

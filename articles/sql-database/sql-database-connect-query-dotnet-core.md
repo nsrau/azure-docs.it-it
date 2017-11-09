@@ -9,18 +9,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/05/2017
 ms.author: carlrab
+ms.openlocfilehash: 6eb026b5f478769f680e3899a7c743546c2c9d88
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 046322624d3b89bb983acee863534256fee94b60
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Usare .NET Core (C#) per eseguire query su un database SQL di Azure
 
@@ -73,7 +72,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
     ```xml
     <ItemGroup>
-        <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
     </ItemGroup>
     ```
 
@@ -155,4 +154,3 @@ namespace sqltest
 - Informazioni su come [connettersi ed eseguire query su un database SQL di Azure usando .NET Framework e Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
 - Informazioni su come [progettare il primo database SQL di Azure con SSMS](sql-database-design-first-database.md) o su come [progettare il primo database SQL di Azure con .NET](sql-database-design-first-database-csharp.md).
 - Per altre informazioni su .NET, vedere la [documentazione di .NET](https://docs.microsoft.com/dotnet/).
-

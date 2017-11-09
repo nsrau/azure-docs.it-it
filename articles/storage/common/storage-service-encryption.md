@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
+ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f3486ca87a1797c312caa3fe27f692037c80b747
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 Crittografia del servizio di archiviazione di Azure per dati inattivi consente di proteggere e salvaguardare i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Questa funzionalità consente ad Archiviazione di Azure di crittografare automaticamente i dati prima della persistenza nella risorsa di archiviazione e di decrittografarli prima del recupero. La crittografia, la decrittografia e la gestione delle chiavi sono completamente trasparenti per gli utenti.
@@ -188,5 +187,4 @@ D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 ## <a name="next-steps"></a>Passaggi successivi
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](../storage-security-guide.md).
-
 

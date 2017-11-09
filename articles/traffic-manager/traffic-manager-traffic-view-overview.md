@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
+ms.openlocfilehash: 0a07ff578c6afeedc6f3806d52bfe5aef6945c04
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f1ab98ab173edc794bfabdf55d950ac689a37c0a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="traffic-manager-traffic-view"></a>Visualizzazione traffico di Gestione traffico
 
 >[!NOTE]
@@ -33,8 +31,8 @@ Gestione traffico fornisce il routing del livello DNS in modo che gli utenti fin
 
 Con Visualizzazione traffico è possibile:
 - comprendere dove si trovano le basi utente (fino a una granularità di livello del resolver DNS locale).
-- conoscere il volume di traffico proveniente da tali aree.
-- sapere qual è la latenza rappresentativa riscontrata dagli utenti.
+- visualizzare il volume di traffico (osservato come query DNS gestite da Gestione traffico di Azure) proveniente da tali aree.
+-  sapere qual è la latenza rappresentativa riscontrata dagli utenti.
 - immergersi in modelli di traffico specifici da ognuna di queste basi utente alle aree di Azure in cui sono presenti endpoint. 
 
 Ad esempio, è possibile usare Visualizzazione traffico per comprendere quali aree hanno un numero elevato di traffico ma sono soggette a latenze più elevate. Successivamente è possibile usare queste informazioni per pianificare l'espansione footprint a nuove aree di Azure in modo che questi utenti possano avere un'esperienza di latenza più bassa.
@@ -51,5 +49,4 @@ Quando si usa Visualizzazione traffico, la fatturazione viene eseguita in base a
 - Informazioni sul [funzionamento di Gestione traffico](traffic-manager-overview.md)
 - Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
 - Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-create-profile.md)
-
 

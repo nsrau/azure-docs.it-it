@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
-ms.author: darosa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 6ef92be812bb0adcb2c817926eeeebbc8e55a5a7
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: 5fb691ec53fed20e5df4f581da10b964c07e09b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-capture-walkthrough-python"></a>Procedura dettagliata sull'acquisizione di Hub eventi: Python
 
-Acquisisci è una nuova funzionalità di Hub eventi che consente di distribuire automaticamente i dati di streaming dell'hub eventi a un account di archiviazione BLOB di Azure di propria scelta. Questa capacità rende più semplice eseguire l'elaborazione di batch su dati di streaming in tempo reale. In questo articolo viene descritto come usare l'acquisizione di Hub eventi con Python. Per altre informazioni sull'acquisizione di Hub eventi, vedere l' [articolo con la panoramica](event-hubs-archive-overview.md).
+Acquisisci è una nuova funzionalità di Hub eventi che consente di distribuire automaticamente i dati di streaming dell'hub eventi a un account di archiviazione BLOB di Azure di propria scelta. Questa capacità rende più semplice eseguire l'elaborazione di batch su dati di streaming in tempo reale. In questo articolo viene descritto come usare l'acquisizione di Hub eventi con Python. Per altre informazioni sull'acquisizione di Hub eventi, vedere l' [articolo con la panoramica](event-hubs-capture-overview.md).
 
 Questo esempio usa [Azure Python SDK](https://azure.microsoft.com/develop/python/) per illustrare la funzionalità di acquisizione. Il programma sender.py invia una simulazione di telemetria ambientale a Hub eventi in formato JSON. L'hub eventi è configurato per usare la funzione Acquisisci per scrivere i dati nell'archiviazione BLOB in batch. L'app capturereader.py legge quindi questi BLOB, crea un file aggiuntivo per dispositivo, quindi scrive i dati in file con estensione csv.
 
@@ -165,16 +163,12 @@ Questo esempio usa [Azure Python SDK](https://azure.microsoft.com/develop/python
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica dell'acquisizione di Hub eventi][Overview of Event Hubs Capture]
-* Un' [applicazione di esempio completa che usa Hub eventi][sample application that uses Event Hubs].
-* Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][Scale out Event Processing with Event Hubs].
+* [Applicazioni di esempio che usano Hub eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 * [Panoramica di Hub eventi][Event Hubs overview]
 
 [Azure portal]: https://portal.azure.com/
-[Overview of Event Hubs Capture]: event-hubs-archive-overview.md
+[Overview of Event Hubs Capture]: event-hubs-capture-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md

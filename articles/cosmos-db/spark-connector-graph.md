@@ -15,18 +15,17 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: khdang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 4f35ed6399df777edd90d1944f22dce91e76952f
-ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 473cc23c73a721c54bc87c03069f4f3688cde11f
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: eseguire analisi dei grafi con Spark e Apache TinkerPop Gremlin
 
 [Azure Cosmos DB](introduction.md) è il servizio di database multimodello distribuito a livello globale di Microsoft. È possibile creare ed eseguire query su database di documenti, coppie chiave-valore e grafi sfruttando i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. Azure Cosmos DB supporta carichi di lavoro di grafi OLTP (Online Transaction Processing) basati sul linguaggio [Apache TinkerPop Gremlin](graph-introduction.md).
 
-[Spark](http://spark.apache.org/) è un progetto di Apache Software Foundation incentrato sull'elaborazione di dati OLAP (Online Analytical Processing) generici. Spark offre un modello di calcolo distribuito in memoria/su disco simile al modello MapReduce di Hadoop. È possibile distribuire Apache Spark nel cloud con [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
+[Spark](http://spark.apache.org/) è un progetto di Apache Software Foundation incentrato sull'elaborazione di dati OLAP (Online Analytical Processing) generici. Spark offre un modello di calcolo distribuito in memoria/su disco simile al modello MapReduce di Hadoop. È possibile distribuire Apache Spark nel cloud con [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 Combinando Azure Cosmos DB e Spark, è possibile eseguire carichi di lavoro sia OLTP che OLAP con Gremlin. Questa guida introduttiva illustra come eseguire query Gremlin su Azure Cosmos DB in un cluster Azure HDInsight Spark.
 
@@ -406,4 +405,3 @@ Per illustrare come è possibile salvare in modo permanente un grafo in Azure Co
 In questa guida introduttiva si è appreso come usare i grafi combinando Azure Cosmos DB e Spark.
 
 > [!div class="nextstepaction"]
-

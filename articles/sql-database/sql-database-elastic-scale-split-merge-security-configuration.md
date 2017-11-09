@@ -1,6 +1,6 @@
 ---
 title: Configurazione della sicurezza del servizio di divisione e unione | Documentazione Microsoft
-description: Impostazione dei certificati 409 per la crittografia
+description: "Configurare 409 certificati per la crittografia con il servizio di suddivisione/unione per la scalabilità elastica."
 metakeywords: Elastic Database certificates security
 services: sql-database
 documentationcenter: 
@@ -9,17 +9,17 @@ author: torsteng
 ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 7e6ccf51a4b75eef16a7df5c1a1018954af8e5dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 94a4d5331aa2ed42a81e2e0bf890408f2db98fa7
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
 Per usare il servizio di "split and merge", è necessario configurare correttamente le impostazioni sulla sicurezza. Il servizio rientra nella funzionalità Scalabilità elastica di database SQL di Microsoft Azur. Per altre informazioni, vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).

@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Esempio 2: Creare una rete perimetrale per proteggere le applicazioni con un firewall e gruppi di sicurezza di rete
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
 
 Questo esempio illustra come creare una rete perimetrale con un firewall, quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari. 
 
-![Rete Perimetrale in ingresso con NVA e gruppo][1]
+![Rete perimetrale in ingresso con appliance virtuale di rete e gruppo di sicurezza di rete][1]
 
 ## <a name="environment-description"></a>Descrizione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
@@ -94,7 +94,7 @@ Per creare la regola seguente, o verificare le regole predefinite esistenti, dal
 
 Creare una nuova regola e specificare un nome, ad esempio "WebTraffic". 
 
-Icona regola NAT di destinazione è simile al seguente: ![icona NAT di destinazione][2]
+L'icona della regola della NAT di destinazione è simile alla seguente: ![Icona NAT di destinazione][2]
 
 La regola stessa dovrebbe essere simile alla schermata seguente:
 

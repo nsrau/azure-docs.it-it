@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: heidist
 ms.openlocfilehash: bb61330ba5511955e0da16dcd5b8b19529d0e44b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure
 Come indicato in [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creazione di indici per **SQL Server in macchine virtuali di Azure** (o in breve **VM di SQL Azure**) è supportata da Ricerca di Azure, ma prima è necessario occuparsi di alcuni prerequisiti riguardanti la sicurezza. 

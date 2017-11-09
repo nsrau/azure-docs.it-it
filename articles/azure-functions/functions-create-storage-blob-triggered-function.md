@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Creare una funzione attivata dall'archiviazione BLOB di Azure
 
@@ -114,4 +113,3 @@ Dopo aver creato un contenitore BLOB, è possibile ora testare la funzione caric
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Per altre informazioni sui trigger dell'archiviazione BLOB, vedere [Binding dell'archiviazione BLOB di Funzioni di Azure](functions-bindings-storage-blob.md).
-

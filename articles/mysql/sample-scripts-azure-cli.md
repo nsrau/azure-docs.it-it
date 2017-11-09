@@ -11,12 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 05/10/2017
+ms.openlocfilehash: cb4f907b102aa62eab14f7e164544c67a0293618
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 99915e40bc0c2cc94cf1fdd3115eba02ae57ab7f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per MySQL 
 La tabella seguente include collegamenti a esempi di script di interfaccia della riga di comando di Azure per il database di Azure per MySQL.
@@ -30,4 +29,3 @@ La tabella seguente include collegamenti a esempi di script di interfaccia della
 |**Modificare le configurazioni del server**||
 | [Modificare le configurazioni del server](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Lo script dell'interfaccia della riga di comando di Azure che modifica le configurazioni di un unico database di Azure per il server MySQL. |
 |||
-

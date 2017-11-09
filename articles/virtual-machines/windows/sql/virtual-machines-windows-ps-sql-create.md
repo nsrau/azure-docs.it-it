@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/29/2017
 ms.author: jroth
+ms.openlocfilehash: 33c306258b6be40f2c5cbc016e3c84e36bf61e0d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 4b8cc80f2d1ed6f09ec917118dc9495d20394b94
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-resource-manager"></a>Effettuare il provisioning di una macchina virtuale di SQL Server con Azure PowerShell (Resource Manager)
 > [!div class="op_single_selector"]
@@ -75,7 +74,7 @@ $ResourceGroupName = "sqlvm1"
 ### <a name="storage-properties"></a>Proprietà della risorsa di archiviazione
 Usare le variabili seguenti per definire l'account di archiviazione e il tipo di risorsa di archiviazione che devono essere usati dalla macchina virtuale.
 
-Modificare in base alle esigenze specifiche e quindi eseguire il cmdlet seguente per inizializzare le variabili. Si noti che in questo esempio viene usata l' [Archiviazione Premium](../../../storage/common/storage-premium-storage.md), consigliata per carichi di lavoro di produzione. Per informazioni dettagliate su questa e su altre indicazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
+Modificare in base alle esigenze specifiche e quindi eseguire il cmdlet seguente per inizializzare le variabili. Si noti che in questo esempio viene usata l' [Archiviazione Premium](../premium-storage.md), consigliata per carichi di lavoro di produzione. Per informazioni dettagliate su questa e su altre indicazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
 ```PowerShell
 $StorageName = $ResourceGroupName + "storage"
@@ -343,4 +342,3 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo la creazione della macchina virtuale, è possibile connettersi alla macchina virtuale mediante RDP e configurare la connettività. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server in Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
-

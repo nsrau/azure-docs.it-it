@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: garye;krishnan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 79ae5cd78ce07fcc84be49c2693773d58a15771e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Eseguire analisi avanzate con Azure Machine Learning usando i dati di un database SQL Server locale
 
@@ -149,4 +148,3 @@ Dopo aver configurato il gateway è possibile aggiungere un modulo **Import Data
 Al termine dell'esecuzione dell'esperimento è possibile visualizzare i dati importati dal database facendo clic sulla porta di output del modulo **Import Data** (Importa dati) e selezionando **Visualize** (Visualizza).
 
 Dopo aver completato lo sviluppo dell'esperimento, è possibile distribuire il modello e renderlo operativo. I dati del database SQL Server locale configurati nel modulo **Import Data** (Importa dati) verranno letti e usati per l'assegnazione dei punteggi tramite il servizio Esecuzione batch. Sebbene per l'assegnazione dei punteggi ai dati locali sia possibile usare il servizio di richiesta/risposta, Microsoft consiglia l'uso del [componente aggiuntivo di Excel](excel-add-in-for-web-services.md) . La scrittura in un database SQL Server locale tramite **Export data** (Esporta dati) non è attualmente supportata, né negli esperimenti né nei servizi Web pubblicati.
-

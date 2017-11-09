@@ -5,8 +5,8 @@
 
 # Introduzione
 ## [Creare la prima app per la logica](logic-apps-create-a-logic-app.md)
-## [Modelli per le app per la logica](logic-apps-use-logic-app-templates.md)
-## [Creare app per la logica dai modelli](logic-apps-arm-provision.md)
+## [Creare app per la logica dai modelli](logic-apps-create-logic-apps-from-templates.md)
+## [Creare app per la logica da modelli di Resource Manager](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Spostare app MABS in app per la logica](logic-apps-move-from-mabs.md)
 
 # Procedure
@@ -25,7 +25,8 @@
 #### [Proteggere i connettori con Azure AD](custom-connector-azure-active-directory-authentication.md)
 #### [Descrivere le API con Postman](custom-connector-api-postman-collection.md)
 #### [Estendere OpenAPI per i connettori personalizzati](custom-connector-openapi-extensions.md)
-#### [Registrare il connettore](logic-apps-custom-connector-register.md)
+#### [Creare e registrare un connettore OpenAPI](logic-apps-custom-connector-register.md)
+#### [Creare e registrare un connettore SOAP](logic-apps-soap-connector-create-register.md)
 #### [Certificare il connettore](custom-connector-submit-certification.md)
 #### [Domande frequenti sui connettori personalizzati](custom-connector-faq.md)
 ### Sviluppare le API personalizzate

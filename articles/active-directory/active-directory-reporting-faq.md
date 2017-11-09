@@ -11,35 +11,47 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 10/12/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Domande frequenti sulla creazione di report in Azure Active Directory
 
-Questo articolo include risposte alle domande frequenti sulla creazione di report in Azure Active Directory.  
-Per altre informazioni, vedere la pagina relativa alla [creazione di report in Azure Active Directory](active-directory-reporting-azure-portal.md) 
+Questo articolo include risposte alle domande frequenti sulla creazione di report in Azure Active Directory (Azure AD). Per altre informazioni, vedere [Creazione di report in Azure Active Directory](active-directory-reporting-azure-portal.md). 
+
+**D: se si usano le API dell'endpoint https://graph.windows.net/&lt;nome-tentant&gt;/reports/ per eseguire il pull a livello di codice dei report di controllo e di utilizzo delle applicazioni integrate di Azure AD, a quale API occorre passare?**
+
+**R:** consultare la [documentazione Microsoft di riferimento sulle API](https://developer.microsoft.com/graph/) per vedere come è possibile usare le nuove API per accedere ai [report sulle attività](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Questo endpoint dispone di due report (Controllo e Accessi) che forniscono tutti i dati che si ottengono nell'endpoint delle API precedente. Anche questo nuovo endpoint include un report sugli accessi con la licenza Azure AD Premium, che è possibile usare per ottenere informazioni sull'utilizzo dell'app, l'utilizzo dei dispositivi e gli accessi degli utenti.
+
+
+--- 
+
+**D: se si usano le API dell'endpoint https://graph.windows.net/&lt;nome-tenant&gt;/reports/ per eseguire il pull a livello di codice dei report sulla sicurezza di Azure AD (tipi specifici di rilevamenti, come perdita di credenziali o accessi da indirizzi IP anonimi) nei sistemi di gestione dei report, a quale API occorre passare?**
+
+**R:** è possibile usare l'[API per gli eventi di rischio di protezione dell'identità](active-directory-identityprotection-graph-getting-started.md) per accedere ai rilevamenti relativi alla sicurezza tramite Microsoft Graph. Questo nuovo formato offre maggiore flessibilità per l'esecuzione di query sui dati, grazie a filtri avanzati, modalità di selezione dei campi e altro, oltre a standardizzare gli eventi di rischio su un solo tipo per una più facile integrazione con gli strumenti per la raccolta di informazioni di sicurezza e gestione degli eventi e altri dati. Poiché i dati sono un formato diverso, non è possibile sostituire le query precedenti con una nuova query. Tuttavia, [la nuova API usa Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), ovvero lo standard Microsoft per API come Office 365 o Azure AD. Saranno quindi necessari interventi per estendere gli investimenti esistenti per Microsoft Graph o per avviare la transizione a questa nuova piattaforma standard.
+
+--- 
 
 **D: Qual è la conservazione dei dati per i log attività (controllo e accessi) nel portale di Azure?** 
 
-**R:** Offriamo 7 giorni di dati per i clienti con sottoscrizione gratuita. Passando a una licenza AD Premium 1 o Azure AD Premium 2 è possibile accedere ai dati fino a 30 giorni. Per altri dettagli sulla conservazione, vedere la pagina relativa ai [criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md).
+**R:** vengono offerti 7 giorni di dati per i clienti con sottoscrizione gratuita. In alternativa, è possibile accedere ai dati fino a 30 giorni acquistando una licenza Azure AD Premium 1 o 2. Per altre informazioni sulla conservazione dei report, vedere [Criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md).
 
 --- 
 
 **D: Quanto tempo occorre per la visualizzazione dei dati sull'attività dopo il completamento della stessa?**
 
-**R:** I log dell'attività di controllo hanno una latenza compresa tra 15 minuti e un'ora. I log dell'attività di accesso hanno una latenza compresa tra 15 minuti per la maggior parte dei record e fino a 2 ore per altri record.
+**R:** i log dell'attività di controllo hanno una latenza compresa tra 15 minuti e un'ora. Per la visualizzazione dei log delle attività di accesso possono essere necessari da 15 minuti fino a 2 ore per alcuni record.
 
 ---
 
-**Q: È necessario essere amministratore globale per visualizzare i log attività nel portale di Azure o per ottenere i dati tramite l'API?**
+**D: è necessario essere amministratore globale per visualizzare gli accessi al portale di Azure o per ottenere i dati tramite l'API?**
 
-**R:** No. L'utente può avere un **ruolo con autorizzazioni di lettura per la sicurezza**, può essere un **amministratore della protezione** o un **amministratore globale** per visualizzare i dati dei report nel portale di Azure o accedendovi tramite l'API.
+**R:** No. È necessario avere il **ruolo con autorizzazioni di lettura per la sicurezza** oppure essere un **amministratore della protezione** o un **amministratore globale** per ottenere i dati dei report nel portale di Azure o tramite l'API.
 
 ---
 
@@ -104,7 +116,7 @@ Per altre informazioni, vedere la pagina relativa alla [creazione di report in A
 
 ---
 
-**D: Come vengono calcolati gli indirizzi IP nel report degli accessi e degli accessi a rischio?**
+**D: come vengono calcolati gli indirizzi IP nel report degli accessi e degli accessi a rischio?**
 
 **R:** Gli indirizzi IP vengono rilasciati in modo che non esista una connessione certa tra un IP e la posizione in cui si trova fisicamente il computer con tale indirizzo. A ciò si aggiungono fattori come la possibilità che provider di telefonia mobile e VPN rilascino indirizzi IP da pool centrali spesso molto distanti dal luogo in cui viene effettivamente usato il dispositivo client. Per questi motivi, la conversione di un indirizzo IP in una posizione fisica è un'approssimazione basata su tracce, dati del Registro di sistema, ricerche inverse e altre informazioni. 
 

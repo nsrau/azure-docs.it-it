@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: abd3b3641da80ee835fac85b4bde68594449e451
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 5c6012ffea84c0fb0ffff95978af0145b8d40422
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher tramite PowerShell
 
 > [!div class="op_single_selector"]
@@ -283,7 +281,6 @@ Per altre informazioni su come automatizzare le acquisizioni di pacchetti tramit
 Per stabilire se un traffico specificato è consentito all'interno o all'esterno di una macchina virtuale, leggere l'articolo su come [controllare la verifica del flusso IP](network-watcher-check-ip-flow-verify-portal.md).
 
 <!-- Image references -->
-
 
 
 

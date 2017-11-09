@@ -4,7 +4,7 @@ description: "Viene descritto come usare il servizio Gestione dispositivi di Sto
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,16 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2017
+ms.date: 10/17/2017
 ms.author: alkohli
+ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: c8f731502d6589bfa908aa26cf418a65b18be635
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usare il servizio Gestione dispositivi di StorSimple per monitorare il dispositivo StorSimple
+
 ## <a name="overview"></a>Panoramica
 È possibile usare il servizio Gestione dispositivi di StorSimple per monitorare dispositivi specifici all'interno della soluzione StorSimple. È possibile creare grafici personalizzati basati su prestazioni I/O, uso della capacità, velocità effettiva della rete e metriche delle prestazioni del dispositivo, per poi aggiungerli al dashboard. Per altre informazioni, vedere [customize your portal dashboard](../azure-portal/azure-portal-dashboards.md) (personalizzare il dashboard del portale).
 
@@ -30,7 +30,7 @@ Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, n
 ## <a name="capacity"></a>Capacità
 Il grafico **Capacità** tiene traccia dello spazio disponibile e dello spazio restante sul dispositivo. La capacità residua viene quindi visualizzata come aggiunta in locale o a livelli.
 
-La capacità fornita e quella residua sono ulteriormente suddivise in volumi aggiunti in locale e a più livelli. Per ogni volume vengono visualizzati la capacità di cui è stato eseguito il provisioning e la capacità residua nel dispositivo.
+La capacità fornita e quella residua sono ulteriormente suddivise in volumi aggiunti in locale e a più livelli. Per ogni volume sono mostrate la capacità di cui è stato eseguito il provisioning e la capacità residua nel dispositivo.
 
 ![Capacità I/O](./media/storsimple-8000-monitor-device/device-capacity.png)
 
@@ -45,6 +45,19 @@ Per impostazione predefinita, viene segnalato l'uso nelle ultime 24 ore. Per mod
 * Ultimi 90 giorni
 * Ultimo anno
 
+Per i grafici di utilizzo sono segnalate due metriche chiave: la crescita e l'intervallo. L'intervallo fa riferimento al valore massimo e ai valori minimi di utilizzo segnalati per la durata selezionata (ad esempio gli ultimi 7 giorni).
+
+La crescita fa riferimento all'aumento di utilizzo dal primo giorno all'ultimo giorno per la durata selezionata. 
+
+Crescita e intervallo possono essere rappresentati anche dalle equazioni seguenti:
+
+```
+Range = {Usage(minimum), Usage(maximum)}
+
+Growth = Usage(Last day) - Usage(first day)
+
+Growth (%) = [{Usage(last day) - Usage(first day)} X 100]/Usage(first day)
+```
 
 La capacità primaria, del cloud e di archiviazione locale usate possono essere descritte come segue:
 
@@ -135,5 +148,4 @@ Esaminando il grafico della velocità effettiva dell'interfaccia Data 1, un'altr
 ## <a name="next-steps"></a>Passaggi successivi
 * Imparare a [usare il dashboard dispositivo del servizio Gestione dispositivi StorSimple](storsimple-device-dashboard.md).
 * Informazioni su come [usare il servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

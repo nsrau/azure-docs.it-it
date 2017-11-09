@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
+ms.openlocfilehash: 2cdf7ad766fe47f2d2848815860ad545b43aec72
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: f9f7449fbfc6a1f2fe96e19dd2b13845e602946d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo l'elenco verrà ampliato e aggiornato in modo da coprire un maggior numero di servizi della piattaforma.
@@ -68,7 +67,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Hub eventi](#event-hubs-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Servizio Device Provisioning in hub IoT](#iot-hub-device-provisioning-service-limits)
-* [Insieme di credenziali delle chiavi](#key-vault-limits)
+* [Insieme di credenziali di chiave](#key-vault-limits)
 * [Log Analytics/Operational Insights](#log-analytics-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
@@ -141,9 +140,28 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 
 ### <a name="storage-limits"></a>Limiti relativi ad Archiviazione
 Per altre informazioni sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage/common/storage-scalability-targets.md).
+
 <!--like # storage accts --> 
-#### <a name="storage-service-limits"></a>Limiti relativi al servizio di archiviazione
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
+
+#### <a name="azure-blob-storage-limits"></a>Limiti relativi ad Archiviazione BLOB di Azure
+[!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
+
+#### <a name="azure-files-limits"></a>Limiti relativi a File di Azure
+Per altre informazioni sui limiti relativi a File di Azure, vedere [Azure Files scalability and performance targets](storage/files/storage-files-scale-targets.md) (Obiettivi di scalabilità e prestazioni per File di Azure).
+
+[!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
+
+#### <a name="azure-file-sync-limits"></a>Limiti relativi a Sincronizzazione file di Azure
+[!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
+
+#### <a name="azure-queue-storage-limits"></a>Limiti relativi ad Archiviazione code di Azure
+[!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]
+
+#### <a name="azure-table-storage-limits"></a>Limiti relativi ad Archiviazione tabelle di Azure
+[!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 #### <a name="virtual-machine-disk-limits"></a>Limiti relativi ai dischi della macchina virtuale 
@@ -160,9 +178,6 @@ Vedere [Dimensioni della macchina virtuale](virtual-machines/linux/sizes.md?toc=
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
-
-#### <a name="storage-resource-provider-limits"></a>Limiti relativi al provider di risorse di archiviazione
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ### <a name="cloud-services-limits"></a>Limiti relativi a Servizi cloud
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
@@ -290,5 +305,3 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Dimensioni per i servizi cloud](cloud-services/cloud-services-sizes-specs.md)
-
-

@@ -11,19 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: d8b389d45673970b2769a9cb7327b47637bea60f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bccdfdc486f5e79f034c5a940e42c5f230283a50
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 > [!NOTE]
-> Questo articolo si applica alla versione 1 di Data Factory, che è disponibile a livello generale. Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Compute linked services in V2](../compute-linked-services.md) (Servizi collegati di calcolo nella versione 2).
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Compute linked services in V2](../compute-linked-services.md) (Servizi collegati di calcolo nella versione 2).
 
 Questo articolo spiega i diversi ambienti di calcolo che è possibile utilizzare per elaborare o una trasformare dati. Fornisce inoltre informazioni dettagliate sulle diverse configurazioni (on-demand e bring your own) supportate da Data Factory durante la configurazione di servizi collegati che collegano questi ambienti a una data factory di Azure.
 
@@ -467,5 +466,4 @@ Si crea un servizio collegato di Azure SQL Data Warehouse e lo si usa con l' [at
 
 ## <a name="sql-server-linked-service"></a>Servizio collegato di SQL Server
 Si crea un servizio collegato di SQL Server e lo si usa con l' [attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una stored procedure da una pipeline Data Factory. Vedere l'articolo [Proprietà del servizio collegato SQL Server](data-factory-sqlserver-connector.md#linked-service-properties) per informazioni dettagliate su questo servizio collegato.
-
 

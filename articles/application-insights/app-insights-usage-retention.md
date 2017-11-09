@@ -11,18 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: bwren
-ms.openlocfilehash: 7f7ca19ab171278bbd82f68e3822bc650b25373d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: f19e5022d366bc686beed42bacf8a4d6d108887e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analisi della conservazione degli utenti per applicazioni Web con Application Insights
 
 La funzionalità di conservazione in [Azure Application Insights](app-insights-overview.md) consente di analizzare il numero di utenti che tornano all'app e la frequenza con cui si eseguono attività specifiche o si raggiungono determinati obiettivi. Ad esempio, se si esegue un sito di giochi, è possibile confrontare il numero di utenti che ritornano sul sito dopo aver perso una partita con il numero di utenti che ritornano dopo averla vinta. Queste informazioni consentono di migliorare sia l'esperienza per l'utente che la strategia aziendale.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 Se nello strumento Conservazione nel portale di Application Insights non vengono ancora visualizzati i dati, leggere le [informazioni su come iniziare a usare gli strumenti di utilizzo](app-insights-usage-overview.md).
 

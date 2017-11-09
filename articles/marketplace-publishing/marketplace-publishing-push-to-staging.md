@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
 ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Completare la creazione dell’offerta con contenuti di marketing
 In questo passaggio del processo di pubblicazione, sarà necessario fornire alcuni contenuti di marketing e informazioni dettagliate sull'offerta e/o sugli SKU in Azure Marketplace. Ad esempio, si fornirà una descrizione del prodotto, i logo aziendali, piani di prezzo, dettagli dei piani e altre informazioni necessarie per portare l'offerta e/o SKU in gestione temporanea. Queste informazioni vengono utilizzate come contenuto di marketing nel portale di Azure. Si inizierà il processo nel [portale di pubblicazione][link-pubportal].
@@ -78,7 +78,7 @@ Ogni logo caricato nel portale di pubblicazione deve rispettare le seguenti line
 
 * Il logo alto è facoltativo. L'autore può scegliere di non caricare un logo alto. **Tuttavia, una volta caricata, l'icona del logo alto non può essere eliminata dal portale di pubblicazione. A quel punto il partner deve seguire le istruzioni di Azure Marketplace per le icone del logo alto o l'offerta non verrà approvata per la produzione.**
 * Il nome visualizzato dell'autore, il titolo del piano e il riepilogo lungo dell'offerta sono visualizzati con il testo bianco. Di conseguenza non è consigliabile usare un colore chiaro come sfondo dell'icona del logo alto. Lo sfondo nero, bianco o trasparente non è ammesso per le icone del logo alto.
-* Il nome visualizzato dell'autore, il titolo del piano, il riepilogo lungo dell'offerta e il pulsante Crea vengono incorporati a livello di codice all'interno del logo alto quando l'offerta viene elencata. Pertanto non è necessario inserire testo mentre si progetta il logo alto. Lasciare uno spazio vuoto a destra, in quanto il testo (ad esempio nome visualizzato dell'entità di pubblicazione, titolo del piano, riepilogo lungo dell'offerta) verrà incluso a livello di codice da Microsoft in questa posizione. Lo spazio vuoto per il testo deve essere 415 x 100 a destra e viene spostato con un offset di 370 px da sinistra.
+* Il nome visualizzato dell'autore, il titolo del piano, il riepilogo lungo dell'offerta e il pulsante Crea vengono incorporati a livello di codice all'interno del logo alto quando l'offerta viene elencata. Pertanto non è necessario inserire testo mentre si progetta il logo alto. Lasciare uno spazio vuoto a destra, perché il testo (nome visualizzato dell'editore, titolo del piano e riepilogo lungo dell'offerta) viene automaticamente incluso a livello di codice. Lo spazio vuoto per il testo deve essere 415 x 100 a destra e viene spostato con un offset di 370 px da sinistra.
   
   ![disegno](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
@@ -107,14 +107,14 @@ Nella scheda **Note legali** specificare un collegamento alle politiche/condizio
 
 * **Offer Identifier (Identificatore offerte):** [Portale di pubblicazione -> Macchine virtuali -> selezionare l'offerta -> scheda Immagini VM -> Offer Identifier (Identificatore offerte)]
 * **SKU Identifier (Identificatore SKU):** [Portale di pubblicazione -> Macchine virtuali -> selezionare l'offerta -> scheda SKU -> Add a SKU (Aggiungi uno SKU)]
-* **Publisher Namespace (Spazio dei nomi dell'entità di pubblicazione):** [Portale di pubblicazione -> Macchine virtuali -> scheda Procedura dettagliata -> Tell Us About Your Company (Informazioni sull'azienda), disponibile nel Passaggio 2 "Registrazione dell'azienda" -> Publisher Namespace (Spazio dei nomi dell'entità di pubblicazione) ->Spazio dei nomi]
+* **Publisher Namespace (Spazio dei nomi dell'entità di pubblicazione):** [Portale di pubblicazione -&gt; Macchine virtuali -&gt; scheda Procedura dettagliata -&gt; Tell Us About Your Company (Informazioni sull'azienda), disponibile nel Passaggio 2 "Registrazione dell'azienda" -&gt; Publisher Namespace (Spazio dei nomi dell'entità di pubblicazione) -&gt;Spazio dei nomi]
 
 Per le offerte per macchina virtuale, una volta che l'offerta o lo SKU è elencato in Azure Marketplace, non è possibile modificare i campi indicati di seguito:
 
 * **Offer Identifier (Identificatore offerte):** [Portale di pubblicazione -> Macchine virtuali -> selezionare l'offerta -> Immagini VM -> Offer Identifier (Identificatore offerte)]
-* **SKU Identifier (Identificatore SKU):** [Portale di pubblicazione -> Macchine virtuali -> selezionare l'offerta -> scheda SKU -> Add a SKU (Aggiungi uno SKU)]
-* **Publisher Namespace (Spazio dei nomi dell'entità di pubblicazione):** [Portale di pubblicazione -> Macchine virtuali -> scheda Procedura dettagliata -> Tell Us About Your Company (Informazioni sull'azienda), disponibile nel Passaggio 2 "Registrazione -> Publisher Namespace (Spazio dei nomi dell'entità di pubblicazione) -> Spazio dei nomi]
-* **Porte:** [Portale di pubblicazione -> Macchine virtuali -> selezionare l'offerta -> scheda Immagini VM -> Open Ports (Porte aperte)]
+* **SKU Identifier (Identificatore SKU):** [Portale di pubblicazione -&gt; Macchine virtuali -&gt; selezionare l'offerta -&gt; scheda SKU -&gt; Add a SKU (Aggiungi uno SKU)]
+* **Publisher Namespace (Spazio dei nomi dell'entità di pubblicazione):** [Portale di pubblicazione -&gt; Macchine virtuali -&gt; scheda Procedura dettagliata -&gt; Tell Us About Your Company (Informazioni sull'azienda), disponibile nel Passaggio 2 "Registrazione -&gt; Publisher Namespace (Spazio dei nomi dell'entità di pubblicazione) -&gt; Spazio dei nomi]
+* **Porte:** [Portale di pubblicazione -&gt; Macchine virtuali -&gt; selezionare l'offerta -&gt; scheda Immagini VM -&gt; Open Ports (Porte aperte)]
 * **Modifica dei prezzi degli SKU elencati**
 * **Modifica del modello di fatturazione degli SKU elencati**
 * **Rimozione delle aree di fatturazione degli SKU elencati**
@@ -157,8 +157,8 @@ Attualmente per le macchine virtuali sono disponibili i **tre tipi di modelli di
 * **Modifica del modello di fatturazione degli SKU elencati**
 * **Rimozione delle aree di fatturazione degli SKU elencati**
 * **Modifica del numero di dischi dati degli SKU elencati**
-* **Offer Identifier (Identificatore offerte):** [Portale di pubblicazione -> Macchine virtuali -> selezionare l'offerta -> Immagini VM -> Offer Identifier (Identificatore offerte)]
-* **SKU Identifier (Identificatore SKU):** [Portale di pubblicazione -> Macchine virtuali -> selezionare l'offerta -> scheda SKU -> Add a SKU (Aggiungi uno SKU)]
+* **Offer Identifier (Identificatore offerte):** [Portale di pubblicazione -&gt; Macchine virtuali -&gt; selezionare l'offerta -&gt; Immagini VM -&gt; Offer Identifier (Identificatore offerte)]
+* **SKU Identifier (Identificatore SKU):** [Portale di pubblicazione -&gt; Macchine virtuali -&gt; selezionare l'offerta -&gt; scheda SKU -&gt; Add a SKU (Aggiungi uno SKU)]
 * **Publisher Namespace (Spazio dei nomi dell'entità di pubblicazione):** [Portale di pubblicazione -> Macchine virtuali -> scheda Procedura dettagliata -> Tell Us About Your Company (Informazioni sull'azienda), disponibile nel Passaggio 2 "Registrazione -> Publisher Namespace (Spazio dei nomi dell'entità di pubblicazione) -> Spazio dei nomi]
 * **Porte:** [Portale di pubblicazione -> Macchine virtuali -> selezionare l'offerta -> scheda Immagini VM -> Open Ports (Porte aperte)]
 

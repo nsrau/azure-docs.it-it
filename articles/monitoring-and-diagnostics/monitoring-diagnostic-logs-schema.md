@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/10/2017
 ms.author: johnkem
+ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 23da12e518d88109fd7271fd363b6c1f099c5ab6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servizi, schemi e categorie supportati per i log di Diagnostica di Azure
 
@@ -30,22 +29,22 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 
 | Service | Schema e documenti |
 | --- | --- |
-| Gestione API | Lo schema non è disponibile. |
+| Gestione API | [Log di diagnostica di Gestione API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Gateway applicazione |[Registrazione diagnostica per il gateway applicazione](../application-gateway/application-gateway-diagnostics.md) |
 | Automazione di Azure |[Analisi dei log per Automazione di Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registrazione diagnostica di Azure Batch](../batch/batch-diagnostics.md) |
 | Customer Insights | Lo schema non è disponibile. |
 | Rete per la distribuzione di contenuti (CDN) | Lo schema non è disponibile. |
-| Cosmos DB | Lo schema non è disponibile. |
-| Analisi Data Lake |[Accesso ai log di diagnostica per Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Cosmos DB | [Registrazione di Azure Cosmos DB](../cosmos-db/logging.md) |
+| Data Lake Analytics |[Accesso ai log di diagnostica per Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Archivio Data Lake |[Accesso ai log di diagnostica per Archivio Data Lake di Azure](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Hub eventi |[Log di diagnostica di Hub eventi in Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
-| Servizio Provisioning in hub IoT | Lo schema non è disponibile. |
+| Hub IoT | [Operazioni dell'hub IoT](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Insieme di credenziali delle chiavi |[Registrazione dell'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-logging.md) |
 | Bilanciamento del carico |[Analisi dei log per Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | App per la logica |[Schema di rilevamento personalizzato per le app per la logica B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md) |
-| Protezione DDOS dell'indirizzo IP pubblico | Lo schema non è disponibile. |
+| Protezione DDoS | Lo schema non è disponibile. |
 | Servizi di ripristino | Lo schema non è disponibile.|
 | Search |[Abilitazione e uso di Analisi del traffico di ricerca](../search/search-traffic-analytics.md) |
 | Gestione server | Lo schema non è disponibile. |
@@ -99,8 +98,8 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Statistiche relative alle attese di Query Store|
 |Microsoft.Sql/servers/databases|Errors|Errors|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Statistiche relative alle attese del database|
-|Microsoft.Sql/servers/databases|Timeouts|Timeout|
-|Microsoft.Sql/servers/databases|Blocks|Blocchi|
+|Microsoft.Sql/servers/databases|Timeout|Timeout|
+|Microsoft.Sql/servers/databases|Blocchi|Blocchi|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.StreamAnalytics/streamingjobs|Esecuzione|Esecuzione|
 |Microsoft.StreamAnalytics/streamingjobs|Creazione|Creazione|
@@ -111,4 +110,3 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 * [Trasmettere log di diagnostica di Azure a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Modificare le impostazioni di diagnostica di risorsa usando l'API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analizzare i log di Archiviazione di Azure con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-

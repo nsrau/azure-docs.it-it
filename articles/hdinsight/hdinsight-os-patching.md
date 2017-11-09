@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
 ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="os-patching-for-hdinsight"></a>Applicazione di patch del sistema operativo per HDInsight 
 Come servizio gestito di Hadoop, HDInsight si occupa dell'applicazione di patch al sistema operativo delle macchine virtuali sottostanti usate dal cluster HDInsight. A partire dal 1° agosto 2016, sono stati modificati i criteri di applicazione delle patch del sistema operativo guest per i cluster HDInsight basati su Linux (versione 3.4 o successiva). L'obiettivo del nuovo criterio è di ridurre in modo consistente il numero di riavvii causati dall'applicazione delle patch. Il nuovo criterio continuerà ad applicare le patch alle macchine virtuali sui cluster Linux ogni lunedì o giovedì a partire dalle ore 00:00 UTC con un flusso di intervalli sui nodi in ogni cluster. Tuttavia, le macchine virtuali verranno riavviate solo una volta ogni 30 giorni a causa dell'applicazione delle patch al sistema operativo guest. In aggiunta, il primo riavvio di un cluster appena creato non verrà eseguito prima di 30 giorni dalla data di creazione del cluster. I patch verranno applicati al riavvio delle macchine virtuali.
@@ -44,8 +44,7 @@ Tramite l'azione di script descritta in questo articolo, è possibile modificare
 ## <a name="how-to-use-the-script"></a>Come usare lo script 
 
 L'uso di questo script richiede le informazioni seguenti:
-1. Il percorso dello script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
-    HDInsight usa l'URI per trovare ed eseguire lo script in tutte le macchine virtuali del cluster.
+1. Il percorso dello script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight usa l'URI per trovare ed eseguire lo script in tutte le macchine virtuali del cluster.
   
 2. I tipi di nodo di cluster che vengono applicati allo script: nodo head, nodo del ruolo di lavoro, zookeeper. Questo script deve essere applicato a tutti i tipi di nodo del cluster. Se non viene applicato a un tipo di nodo, le macchine virtuali per quel tipo di nodo continueranno a usare la pianificazione per l'applicazione di patch precedente.
 

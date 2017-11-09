@@ -2,22 +2,21 @@
 title: Eseguire il failover e il failback di macchine virtuali di Azure replicate in un'area di Azure secondaria con Azure Site Recovery (anteprima)
 description: Informazioni su come eseguire il failover e il failback di macchine virtuali di Azure replicate in un'area di Azure secondaria con Azure Site Recovery
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
-ms.author: rajanaki
+ms.date: 11/01/2017
+ms.author: raynew
 ms.custom: mvc
+ms.openlocfilehash: 02b709bb8dbab5d10ce9f4cf6155ff26ce229298
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6a66528bfeb7249add9f589830293760c238e7db
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Eseguire il failover e il failback di macchine virtuali di Azure tra aree di Azure (anteprima)
 
@@ -73,4 +72,3 @@ Dopo aver eseguito il failover della macchina virtuale, è necessario proteggerl
 ## <a name="fail-back-to-the-primary-region"></a>Eseguire il failback nell'area primaria
 
 Dopo aver riprotetto le macchine virtuali, è possibile eseguirne il failback nell'area primaria, se necessario. A questo scopo, seguire le istruzioni di [failover](#run-a-failover).
-

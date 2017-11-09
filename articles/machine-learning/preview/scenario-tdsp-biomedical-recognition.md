@@ -14,17 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
+ms.openlocfilehash: 21f8f66d8b78c2b536792bc96e9233d5739fde81
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a13bbd5d32eaab96dfb97e60652dbe9bcbdfb1b1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Riconoscimento di entità biomediche con un modello di Team Data Science Process (TDSP)
 
-L'obiettivo di questo scenario reale è mostrare come usare Azure Machine Learning Workbench per risolvere una complessa attività di elaborazione del linguaggio naturale, ad esempio l'estrazione di entità da testo non strutturato:
+L'estrazione di entità è una sottoattività dell'estrazione di informazioni (nota anche come [riconoscimento di entità denominate (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), suddivisione di entità in blocchi e identificazione di entità). L'obiettivo di questo scenario reale è mostrare come usare Azure Machine Learning Workbench per risolvere una complessa attività di elaborazione del linguaggio naturale, ad esempio l'estrazione di entità da testo non strutturato:
 
 1. Come eseguire il training di un modello neurale di rappresentazione distribuita delle parole in un insieme di testi di circa 18 milioni di riassunti di PubMed con un'[implementazione di Spark Word2Vec](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#word2vec).
 2. Come creare un modello di rete neurale ricorrente LSTM (Long Short-Term Memory) per l'estrazione di entità in una macchina virtuale (VM) di data science di Azure abilitata per la GPU in Azure.
@@ -34,15 +32,16 @@ L'obiettivo di questo scenario reale è mostrare come usare Azure Machine Learni
 4. Vengono presentate le funzionalità seguenti di Azure Machine Learning Workbench:
 
     * Creazione di istanze di [struttura e modelli di Team Data Science Process (TDSP)](how-to-use-tdsp-in-azure-ml.md).
-    * Esecuzione di codice in notebook di Jupyter e script di Python.
-    * Rilevamento della cronologia di esecuzione per file Python.
+    * Gestione automatica delle dipendenze di progetto inclusi download e installazione
+    * Esecuzione di script Python in ambienti di calcolo diversi.
+    * Monitoraggio della cronologia di esecuzione per script Python.
     * Esecuzione di processi in un contesto di calcolo Spark remoto con cluster HDInsight Spark 2.1.
     * Esecuzione di processi in macchine virtuali remote abilitate per la GPU in Azure.
-    * Semplice operazionalizzazione di modelli di apprendimento avanzato come servizi Web in servizi contenitore di Azure.
+    * Facile operazionalizzazione dei modelli di apprendimento avanzato come servizi Web nei servizi contenitore di Azure (ACS).
 
 ## <a name="use-case-overview"></a>Panoramica del caso d'uso
 Il riconoscimento di entità biomediche denominate è un passaggio cruciale per complesse attività di elaborazione del linguaggio naturale dei dati biomedici, tra cui: 
-* Estrazione di malattie e sintomi da record medici o sanitari elettronici.
+* Estrazione delle menzioni di entità denominate, quali malattie, farmaci, prodotti chimici e sintomi, da record elettronici di argomento medico o sanitario.
 * Individuazione di farmaci
 * Comprensione delle interazioni tra tipi di entità diversi, come l'interazione tra farmaci, la relazione tra farmaco e malattia e la relazione tra gene e proteina.
 
@@ -132,14 +131,14 @@ Il flusso di lavoro di data science dettagliato è il seguente:
 
 ### <a name="1-data-acquisition-and-understanding"></a>1. Acquisizione e comprensione dei dati
 
-Vedere [Data Acquisition and Understanding](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_Data_Acquisition_and_Understanding/ReadMe.md) (Acquisizione e comprensione dei dati).
+Vedere [Data Acquisition and Understanding](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) (Acquisizione e comprensione dei dati).
 
 L'insieme MEDLINE non elaborato include un totale di 27 milioni di riassunti, in cui per circa 10 milioni di articoli il campo relativo al riassunto è vuoto. Viene usato Azure HDInsight Spark per elaborare Big Data che non possono essere caricati nella memoria di un singolo computer come [frame di dati Pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). Prima di tutto, i dati vengono scaricati nel cluster Spark. Vengono quindi eseguiti i passaggi seguenti nel [frame di dati Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html): 
 * Vengono analizzati i file XML usando il parser XML di Medline
 * Viene eseguita l'analisi preliminare del testo dei riassunti, includendo divisione delle frasi, tokenizzazione e normalizzazione delle maiuscole/minuscole.
 * Vengono esclusi gli articoli il cui campo relativo al riassunto è vuoto o contiene testo breve. 
 * Viene creato il vocabolario di parole dai riassunti di training.
-* Viene eseguito il training del modello neurale di rappresentazione distribuita delle parole. Per altre informazioni, fare riferimento al [collegamento al codice di GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_DataPreparation/ReadMe.md) per iniziare.
+* Viene eseguito il training del modello neurale di rappresentazione distribuita delle parole. Per altre informazioni, fare riferimento al [collegamento al codice di GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) per iniziare.
 
 
 Dopo l'analisi dei file XML, i dati hanno il formato seguente: 
@@ -153,7 +152,7 @@ Il modello di estrazione di entità neurale è stato sottoposto a training e val
 
 ### <a name="2-modeling"></a>2. Modellazione
 
-Vedere [Modeling](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling) (Modellazione).
+Vedere [Modeling](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling) (Modellazione).
 
 La modellazione è la fase in cui viene mostrato come usare i dati scaricati nella sezione precedente per il training di un modello di rappresentazione distribuita delle parole personalizzato, da usare per altre attività a valle. Anche se si usano i dati di PubMed, la pipeline per generare le rappresentazioni distribuite è generica e può essere riutilizzata per eseguire il training delle rappresentazioni distribuite delle parole per qualsiasi altro dominio. Per ottenere rappresentazioni distribuite accurate dei dati, è essenziale che il training di Word2Vec venga eseguito su una quantità elevata di dati.
 Quando le rappresentazioni distribuite delle parole sono pronte, è possibile eseguire il training di un modello di rete neurale che usa le rappresentazioni distribuite delle parole acquisite per inizializzare il livello di rappresentazione distribuita. Il livello di rappresentazione distribuita viene contrassegnato come non abilitato per il training, ma questa operazione non è obbligatoria. Poiché il training del modello di rappresentazione distribuita delle parole non è supervisionato, è possibile trarre vantaggio dai testi senza etichetta. Tuttavia, il training del modello di riconoscimento di entità è un'attività di apprendimento supervisionata, la cui precisione dipende dalla quantità e dalla qualità dei dati con annotazioni manuali. 
@@ -161,9 +160,9 @@ Quando le rappresentazioni distribuite delle parole sono pronte, è possibile es
 
 #### <a name="21-feature-generation"></a>2.1. Creazione di caratteristiche
 
-Vedere [Feature generation](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/01_FeatureEngineering) (Creazione di caratteristiche).
+Vedere [Feature generation](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/01_feature_engineering) (Creazione di caratteristiche).
 
-Word2Vec è l'algoritmo di apprendimento della rappresentazione distribuita delle parole che esegue il training di un modello di rete neurale in un insieme di training senza etichetta. L'algoritmo genera un vettore continuo per ogni parola nell'insieme, che ne rappresenta le informazioni semantiche. Questi modelli sono reti neurali semplici con un livello nascosto. L'apprendimento dei vettori/rappresentazioni distribuite delle parole avviene tramite la propagazione e la discesa del gradiente stocastico. Esistono due tipi di modelli Word2Vec, ovvero i modelli skip-gram e i modelli continuous-bag-of-words. Per altre informazioni, vedere [qui](https://arxiv.org/pdf/1301.3781.pdf). Poiché si sta usando l'implementazione MLlib di Word2Vec, che supporta il modello skip-gram, questo modello viene descritto brevemente qui (immagine ottenuta da questo [collegamento](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/)): 
+Word2Vec è l'algoritmo di apprendimento automatico della rappresentazione distribuita delle parole che addestra un modello di rete neurale da un insieme di training senza etichetta. L'algoritmo genera un vettore continuo per ogni parola nell'insieme, che ne rappresenta le informazioni semantiche. Questi modelli sono reti neurali semplici con un solo livello nascosto. L'apprendimento dei vettori/rappresentazioni distribuite delle parole avviene tramite la propagazione e la discesa del gradiente stocastico. Esistono due tipi di modelli Word2Vec, ovvero i modelli skip-gram e i modelli continuous-bag-of-words. Per altre informazioni, vedere [qui](https://arxiv.org/pdf/1301.3781.pdf). Poiché si sta usando l'implementazione MLlib di Word2Vec, che supporta il modello skip-gram, questo modello viene descritto brevemente qui (immagine ottenuta da questo [collegamento](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/)): 
 
 ![Modello skip-gram](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
@@ -172,11 +171,11 @@ Immagine ottenuta da [questo sito](https://ahmedhanibrahim.wordpress.com/2017/04
 
 ##### <a name="visualization"></a>Visualizzazione
 
-Dopo aver ottenuto le rappresentazioni distribuite, queste vengono visualizzate per osservare la relazione tra parole semanticamente simili. 
+Dopo aver ottenuto le rappresentazioni distribuite delle parole, è utile visualizzarle per osservare la relazione tra parole semanticamente simili. 
 
 ![Similarità in W2V](./media/scenario-tdsp-biomedical-recognition/w2v-sim.png)
 
-Sono stati mostrati due metodi diversi per visualizzare le rappresentazioni distribuite. Il primo usa un algoritmo di analisi in componenti principali (PCA) per proiettare il vettore multidimensionale in uno spazio vettoriale 2D. Questo comporta una perdita significativa di informazioni e una visualizzazione poco accurata. Il secondo metodo consiste nell'usare un algoritmo PCA con [t-SNE](https://distill.pub/2016/misread-tsne/). t-SNE è una tecnica di riduzione della dimensionalità non lineare ideale per la rappresentazione distribuita di dati multidimensionali in uno spazio di due o tre dimensioni, che può quindi essere visualizzato in un grafico a dispersione.  Questo metodo modella ogni oggetto multidimensionale tramite un punto bidimensionale o tridimensionale in modo da modellare gli oggetti simili tramite punti vicini e gli oggetti dissimili tramite punti distanti. Il processo avviene in due parti. Prima di tutto, viene creata una distribuzione di probabilità sulle coppie nello spazio con più dimensioni, in modo che gli oggetti simili abbiano una maggiore probabilità di essere scelti e che gli oggetti dissimili vengano scelti in base a una probabilità minore. Viene quindi definita una distribuzione di probabilità simile sui punti in una mappa a dimensioni minori, riducendo al minimo la divergenza KL tra le due distribuzioni rispetto alla posizione dei punti sulla mappa. La posizione dei punti nello spazio a dimensioni minori viene ottenuta riducendo al minimo la divergenza KL tramite la discesa del gradiente. t-SNE non è tuttavia sempre affidabile. Per informazioni dettagliate, vedere [qui](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/01_FeatureEngineering). 
+Sono stati mostrati due metodi diversi per visualizzare le rappresentazioni distribuite. Il primo usa un algoritmo di analisi in componenti principali (PCA) per proiettare il vettore multidimensionale in uno spazio vettoriale 2D. Questo comporta una perdita significativa di informazioni e una visualizzazione poco accurata. Il secondo metodo consiste nell'usare un algoritmo PCA con [t-SNE](https://distill.pub/2016/misread-tsne/). t-SNE è una tecnica di riduzione della dimensionalità non lineare ideale per la rappresentazione distribuita di dati multidimensionali in uno spazio di due o tre dimensioni, che può quindi essere visualizzato in un grafico a dispersione.  Questo metodo modella ogni oggetto multidimensionale tramite un punto bidimensionale o tridimensionale in modo da modellare gli oggetti simili tramite punti vicini e gli oggetti dissimili tramite punti distanti. Il processo avviene in due parti. Prima di tutto, viene creata una distribuzione di probabilità sulle coppie nello spazio con più dimensioni, in modo che gli oggetti simili abbiano una maggiore probabilità di essere scelti e che gli oggetti dissimili vengano scelti in base a una probabilità minore. Viene quindi definita una distribuzione di probabilità simile sui punti in una mappa a dimensioni minori, riducendo al minimo la divergenza KL tra le due distribuzioni rispetto alla posizione dei punti sulla mappa. La posizione dei punti nello spazio a dimensioni minori viene ottenuta riducendo al minimo la divergenza KL tramite la discesa del gradiente. t-SNE non è tuttavia sempre affidabile. Per informazioni dettagliate, vedere [qui](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/01_feature_engineering). 
 
 
 Come mostrato nella figura seguente, la visualizzazione t-SNE offre una separazione maggiore tra i vettori di parole e i possibili modelli di clustering. 
@@ -196,7 +195,7 @@ Come mostrato nella figura seguente, la visualizzazione t-SNE offre una separazi
 
 #### <a name="22-train-the-neural-entity-extractor"></a>2.2. Training dell'estrattore di entità neurale
 
-Vedere [Train the neural entity extractor](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/02_ModelCreation/ReadMe.md) (Eseguire il training dell'estrattore di entità neurale).
+Vedere [Train the neural entity extractor](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation/ReadMe.md) (Eseguire il training dell'estrattore di entità neurale).
 
 L'architettura di rete neurale di inoltro del feed è soggetta a un problema per cui ogni input o output viene considerato indipendente dagli altri input e output. Questa architettura non è in grado di modellare attività di aggiunta di etichette sequenza per sequenza come la traduzione automatica e l'estrazione di entità. I modelli di rete neurale ricorrente permettono di risolvere questo problema, perché possono passare al nodo successivo le informazioni calcolate fino al momento attuale. Questa caratteristica è definita come capacità di avere memoria nella rete, in quanto è in grado di usare le informazioni precedentemente calcolate, come mostrato nella figura seguente:
 
@@ -206,13 +205,15 @@ Le reti neurali ricorrenti di Vanilla sono soggette al [problema di scomparsa de
 
 ![Cella LSTM](./media/scenario-tdsp-biomedical-recognition/lstm-cell.png)
 
-Si proverà ora a organizzare la rete neurale ricorrente basata su LSTM e a estrarre tipi di entità, ad esempio le citazioni di farmaci, malattie e sintomi dai dati PubMed. Il primo passaggio consiste nell'ottenere una quantità elevata di dati con etichetta, che non è un'operazione facile. La maggior parte dei dati medici contiene molte informazioni riservate sul paziente, che di conseguenza non sono disponibili pubblicamente. A questo scopo, si usa una combinazione di set di dati diversi disponibili pubblicamente. Il primo set di dati è tratto da Semeval 2013 - Task 9.1 (riconoscimento di farmaci) e l'altro dall'attività BioCreative V CDR. Questi due set di dati verranno combinati e contrassegnati con etichette in modo da poter rilevare i farmaci e le malattie dai testi medici, per valutare le rappresentazioni distribuite delle parole. Per informazioni dettagliate sull'implementazione, fare riferimento al [collegamento al codice di GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/02_ModelCreation).
+Si proverà ora a organizzare la rete neurale ricorrente basata su LSTM e a estrarre tipi di entità, ad esempio le citazioni di farmaci, malattie e sintomi dai dati PubMed. Il primo passaggio consiste nell'ottenere una quantità elevata di dati con etichetta, che non è un'operazione facile. La maggior parte dei dati medici contiene molte informazioni riservate sul paziente, che di conseguenza non sono disponibili pubblicamente. A questo scopo, si usa una combinazione di set di dati diversi disponibili pubblicamente. Il primo set di dati è tratto da Semeval 2013 - Task 9.1 (riconoscimento di farmaci) e l'altro dall'attività BioCreative V CDR. Questi due set di dati verranno combinati e contrassegnati con etichette in modo da poter rilevare i farmaci e le malattie dai testi medici, per valutare le rappresentazioni distribuite delle parole. Per informazioni dettagliate sull'implementazione, fare riferimento al [collegamento al codice di GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation).
 
 Di seguito viene mostrata l'architettura del modello usata in tutto il codice per il confronto. Il parametro che cambia in base ai diversi set di dati è la lunghezza massima della sequenza (qui 613).
 
 ![Modello LSTM](./media/scenario-tdsp-biomedical-recognition/d-a-d-model.png)
 
-#### <a name="23-model-evaluation"></a>2.3. Valutazione del modello
+#### <a name="23-model-evaluation"></a>2.3. Valutazione del modello.
+Vedere [Valutazione del modello](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/03_model_evaluation/ReadMe.md).
+
 Viene usato lo script di valutazione dall'[attività condivisa di riconoscimento delle entità biomediche in NLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html) per valutare la precisione, il richiamo e il punteggio F1 del modello. 
 
 #### <a name="in-domain-versus-generic-word-embedding-models"></a>Confronto tra modelli di rappresentazione distribuita delle parole generici e specifici di dominio
@@ -251,7 +252,7 @@ Si è concluso che CNTK ha prestazioni altrettanto buone di TensorFlow in termin
 
 ### <a name="3-deployment"></a>3. Distribuzione
 
-Vedere [Deployment](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/03_Deployment) (Distribuzione).
+Vedere [Deployment](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/03_deployment) (Distribuzione).
 
 È stato distribuito un servizio Web in un cluster nel [servizio contenitore di Azure](https://azure.microsoft.com/services/container-service/). L'ambiente di operazionalizzazione effettua il provisioning di Docker e Kubernetes nel cluster per gestire la distribuzione del servizio Web. Altre informazioni sul processo di operazionalizzazione sono disponibili [qui](model-management-service-deploy.md ).
 
@@ -269,5 +270,4 @@ Sono state presentate informazioni dettagliate su come eseguire il training di u
 * [Recurrent Neural Networks](https://www.tensorflow.org/tutorials/recurrent) (Reti neurali ricorrenti)
 * [Problems encountered with Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/) (Problemi riscontrati con Spark ml Word2Vec)
 * [Spark Word2Vec: lessons learned](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/spark-word2vec-lessons-learned/) (Spark Word2Vec: lezioni apprese)
-
 

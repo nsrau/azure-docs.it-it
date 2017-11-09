@@ -59,7 +59,7 @@
 ### [Considerazioni relative alla sicurezza](storsimple-8000-security.md)
 ### [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md)
 
-## Attività iniziali
+## Introduzione
 
 ### Pianificare
 #### [Esaminare i requisiti](storsimple-8000-system-requirements.md)
@@ -101,6 +101,7 @@
 ##### [Gestisci contenitori dei volumi](storsimple-8000-manage-volume-containers.md)
 ##### [Gestire i volumi - Versione corrente](storsimple-8000-manage-volumes-u2.md)
 ###### [Domande frequenti: volumi aggiunti in locale](storsimple-8000-local-volume-faq.md)
+##### [Controllo degli accessi in base al ruolo](storsimple-8000-role-based-access-control.md)
 ##### [Gestire i record di controllo di accesso](storsimple-8000-manage-acrs.md)
 ##### [Gestire i modelli di larghezza di banda](storsimple-8000-manage-bandwidth-templates.md)
 ##### [Visualizzare e gestire i processi](storsimple-8000-manage-jobs-u2.md)
@@ -119,6 +120,7 @@
 ##### [Modificare le impostazioni di DATA 0](storsimple-8000-modify-data-0.md)
 
 
+
 #### [Uso di StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [Che cos’è StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 ##### [Informazioni sull'interfaccia di StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
@@ -129,6 +131,11 @@
 ##### [Gestire i processi di backup con StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [Gestire i volumi con StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
 ##### [Usare azioni di MMC in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+
+### Automazione
+
+#### [Uso degli script di esempio di Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
+#### [Uso dei runbook di automazione di Azure](storsimple-8000-automation-azurerm-runbook.md)
 
 ### Creare soluzioni
 #### [StorSimple con Veeam](storsimple-configure-backup-target-veeam.md)
@@ -186,8 +193,8 @@
 #### [Aggiornamento 0.1](storsimple-october-2014-release-notes.md)
 #### [Versione - Disponibilità generale](storsimple-july-2014-release-notes.md)
 
-## Riferimento
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+## riferimento
+### [API REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell per i cmdlet StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple serie 8000 (portale classico)

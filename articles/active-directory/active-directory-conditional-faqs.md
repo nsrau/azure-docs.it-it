@@ -11,15 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 62e8cecf3177d08f2614bd76956b45da75af0947
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 5eb16a92feee0937edeff1c00e0babe85176a79f
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Domande frequenti sull'accesso condizionale di Azure Active Directory
 
@@ -55,10 +54,10 @@ Attualmente no.
 Attualmente i criteri di accesso condizionale sono applicati in modo selettivo per gli utenti che usano dispositivi iOS e Android. Per impostazione predefinita, i criteri di accesso condizionale per dispositivi iOS e Android non incidono sulle applicazioni in altre piattaforme per dispositivi. Un amministratore tenant può decidere di ignorare i criteri globali per disabilitare l'accesso per gli utenti su piattaforme non supportate.
 
 
-## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Come funzionano i criteri di accesso condizionale per Microsoft Teams?  
+## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Come funzionano i criteri di accesso condizionale per Microsoft Teams?
 
-Microsoft Teams si basa principalmente su Exchange Online e SharePoint Online per gli scenari di produttività di base, come riunioni, calendari e condivisione di file. I criteri di accesso condizionale impostati per queste app cloud si applicano a Microsoft Teams quando un utente esegue l'accesso.
+Microsoft Teams si basa principalmente su Exchange Online e SharePoint Online per gli scenari di produttività di base, come riunioni, calendari e condivisione di file. I criteri di accesso condizionale impostati per queste app cloud si applicano a Microsoft Teams quando un utente esegue l'accesso direttamente a Microsoft Teams.
 
-Microsoft Teams è supportato anche separatamente come app cloud nei criteri di accesso condizionale di Azure Active Directory. I criteri dell'autorità di certificazione impostati per un'app cloud si applicano a Microsoft Teams quando un utente esegue l'accesso.
+Microsoft Teams è supportato anche separatamente come app cloud nei criteri di accesso condizionale di Azure Active Directory. I criteri di accesso condizionale impostati per un'app cloud si applicano a Microsoft Teams quando un utente esegue l'accesso. Senza i criteri corretti in altre app come Exchange Online e SharePoint Online, gli utenti possono tuttavia essere comunque in grado di accedere direttamente a tali risorse.
 
-I client desktop di Microsoft Teams per Windows e Mac supportano l'autenticazione moderna. Con l'autenticazione moderna, l'accesso basato su Azure Active Directory Authentication Library (ADAL) viene integrato in applicazioni client Microsoft Office su più piattaforme. 
+I client desktop di Microsoft Teams per Windows e Mac supportano l'autenticazione moderna. Con l'autenticazione moderna, l'accesso basato su Azure Active Directory Authentication Library (ADAL) viene integrato in applicazioni client Microsoft Office su più piattaforme.

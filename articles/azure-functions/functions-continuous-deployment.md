@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
 Le funzioni di Azure semplificano la distribuzione dell'app per le funzioni usando l'integrazione continua del servizio app. Le funzioni si integrano con Dropbox, GitHub, BitBucket e Visual Studio Team Services, VSTS. In questo modo viene abilitato un flusso di lavoro in cui gli aggiornamenti al codice della funzione vengono eseguiti tramite una di queste distribuzioni del trigger dei servizi integrati in Azure. Se non si ha familiarità con Funzioni di Azure, iniziare con [Panoramica di Funzioni di Azure](functions-overview.md).
@@ -153,4 +152,3 @@ Prima di poter scaricare i file dall'app per le funzioni con FTP o l'archivio GI
 
 > [!div class="nextstepaction"]
 > [Best Practices for Azure Functions](functions-best-practices.md) (Procedure consigliate per Funzioni di Azure)
-

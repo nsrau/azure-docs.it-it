@@ -11,15 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: 009c7349e82194f9b7f0c8a0c49c427fc78bba85
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a236df1f13666bc8aa1a957e1718b686cdbd240e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Aggiornamento dei modelli di Azure Machine Learning con Attività della risorsa di aggiornamento
 
@@ -34,6 +33,10 @@ ms.lasthandoff: 09/25/2017
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
+
+
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni sull'[aggiornamento dei modelli di Machine Learning in Data Factory versione 2](../update-machine-learning-models.md).
 
 Questo articolo integra la versione principale di Azure Data Factory: articolo di integrazione di Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo. 
 
@@ -57,7 +60,7 @@ L'immagine seguente illustra la relazione tra gli endpoint di training e di asse
 È possibile richiamare il **scoring web service** tramite il **Attività della risorsa di aggiornamento di Azure ML** per aggiornare il servizio Web con il nuovo modello sottoposto a training. Gli esempi seguenti forniscono definizioni dei servizi collegati: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>Il servizio Web di assegnazione dei punteggi è un servizio Web classico
-Se il servizio Web di assegnazione dei punteggi è un **servizio Web classico**, creare il secondo **endpoint non predefinito e aggiornabile** usando il [portale di Azure](https://manage.windowsazure.com). Per la procedura, vedere l'articolo [Creare endpoint](../../machine-learning/machine-learning-create-endpoint.md) . Dopo aver creato l'endpoint aggiornabile non predefinito, seguire questa procedura:
+Se il servizio Web di assegnazione dei punteggi è un **servizio Web classico**, creare il secondo **endpoint non predefinito e aggiornabile** usando il portale di Azure. Per la procedura, vedere l'articolo [Creare endpoint](../../machine-learning/machine-learning-create-endpoint.md) . Dopo aver creato l'endpoint aggiornabile non predefinito, seguire questa procedura:
 
 * Fare clic su **ESECUZIONE BATCH** per ottenere il valore dell'URI per la proprietà JSON **mlEndpoint**.
 * Fare clic su **AGGIORNA RISORSA** per ottenere il valore dell'URI per la proprietà JSON **updateResourceEndpoint**. La chiave API si trova nell'angolo in basso a destra della pagina dell'endpoint.
@@ -325,4 +328,3 @@ La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateRe
     }
 }
 ```
-

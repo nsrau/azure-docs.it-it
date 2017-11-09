@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 10/17/2017
 ms.author: jingwang
 robots: noindex
+ms.openlocfilehash: 4b0af784ad8f18e7dba49a32320dd6a6a7c5ad99
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 042b81cd2228ac87bcb6c654776a9c235920b77e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Spostare i dati da Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +54,7 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per un esempio con definizioni JSON per entità di Data factory usate per copiare dati da un archivio dati Amazon S3, vedere la sezione [Esempio JSON: copiare dati da Amazon S3 al BLOB di Azure](#json-example-copy-data-from-amazon-s3-to-azure-blob) di questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per un esempio con definizioni JSON per entità di Data factory usate per copiare dati da un archivio dati Amazon S3, vedere la sezione [Esempio JSON: copiare dati da Amazon S3 al BLOB di Azure](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) di questo articolo.
 
 > [!NOTE]
 > Per informazioni dettagliate sui formati di compressione e i file supportati per l'attività di copia, vedere [Formati di compressione e file in Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
@@ -69,6 +68,10 @@ Un servizio collegato collega un archivio dati a una data factory. Viene creato 
 | --- | --- | --- | --- |
 | accessKeyID |ID della chiave di accesso segreta. |string |Sì |
 | secretAccessKey |La stessa chiave di accesso segreta. |La stringa segreta crittografata |Sì |
+
+>[!NOTE]
+>Questo connettore richiede le chiavi di accesso per l'account IAM per la copia di dati da Amazon S3. Le [credenziali di sicurezza temporanee](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) non sono supportate.
+>
 
 Di seguito è fornito un esempio:
 
@@ -364,4 +367,3 @@ Vedere gli articoli seguenti:
 * Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md) .
 
 * Per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-

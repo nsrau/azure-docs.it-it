@@ -16,14 +16,15 @@ ms.workload: na
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: 9dd137de99864fbac2c73400a88956f6afa324db
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 703b516c8fd443d2bb751530a8f62496b020cb5d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Usare Helm per distribuire i contenitori in un cluster Kubernetes 
+# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Usare Helm per distribuire i contenitori in un cluster Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 [Helm](https://github.com/kubernetes/helm/) è uno strumento di creazione dei pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente ai responsabili di pacchetto Linux, ad esempio Apt-get e Yum, Helm viene usato per gestire i grafici Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurati. In questo articolo viene illustrato come usare Helm in un cluster Kubernetes distribuito nel servizio contenitore di Azure.
 
@@ -154,5 +155,4 @@ sudo mysql –h v1-mariadb
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sulla gestione dei grafici Kubernetes, vedere la [documentazione di Helm](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
-
 

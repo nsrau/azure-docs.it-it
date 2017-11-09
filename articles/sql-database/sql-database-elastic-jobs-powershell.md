@@ -8,17 +8,17 @@ author: ddove
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: b4c97e8f51581f9a3f7c5a8d8e82562255fe7b48
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 12ace2ff3bcb967ec5e0ae88d3ce79a53836dd5e
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creare e gestire processi elastici del database SQL con PowerShell (anteprima)
 
@@ -485,7 +485,7 @@ Impostare le seguenti variabili in modo da riflettere le informazioni desiderate
 
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
-    New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
+    New-AzureSqlJobTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
 ## <a name="to-create-a-custom-database-collection-target"></a>Per creare una destinazione per la raccolta di database personalizzata
 Usare il cmdlet [**New-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) per definire una destinazione per la raccolta di database personalizzata per abilitare l'esecuzione in più destinazioni di database definite. Dopo aver creato un gruppo di database, è possibile associarli alla destinazione della raccolta personalizzata.

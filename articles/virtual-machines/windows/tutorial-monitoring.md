@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a37aed8b3321d3518ffd73e09f5bb21266a7e577
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Monitorare e aggiornare una macchina virtuale Windows con Azure PowerShell
 
 Monitoraggio di Azure usa gli agenti per raccogliere dati di avvio e sulle prestazioni da macchine virtuali di Azure, archiviare tali dati in Archiviazione di Azure e renderli accessibili tramite il portale, il modulo Azure PowerShell e l'interfaccia della riga di comando di Azure. La gestione degli aggiornamenti consente di gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure.
@@ -172,7 +170,7 @@ Si noti che la tabella **Pianificata** mostra la pianificazione della distribuzi
 
 ### <a name="view-results-of-an-update-deployment"></a>Visualizzare i risultati di una distribuzione di aggiornamenti
 
-Dopo aver avviato la distribuzione pianificata, è possibile visualizzare lo stato della distribuzione nella scheda **Distribuzioni di aggiornamenti** nella schermata **Gestione aggiornamenti**.
+Dopo avere avviato la distribuzione pianificata, è possibile visualizzare lo stato della distribuzione nella scheda **Distribuzioni di aggiornamenti** nella schermata **Gestione aggiornamenti**.
 Se la distribuzione è in corso, viene visualizzato lo stato **In corso**. Quando la distribuzione viene completata correttamente, lo stato diventa **Completato**.
 Se si verifica un errore in uno o più aggiornamenti della distribuzione, lo stato sarà **Parzialmente non riuscito**.
 Fare clic sulla distribuzione di aggiornamenti completata per visualizzare il dashboard della distribuzione.

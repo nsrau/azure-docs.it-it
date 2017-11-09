@@ -31,3 +31,5 @@ L'immagine seguente mostra i costi per le risorse di Azure sostenuti da Contoso.
 Fare clic con il pulsante destro del mouse su un tipo di risorsa e scegliere **Cost Entities** (Entità costi) per visualizzare le entità dei costi e i servizi che hanno utilizzato la risorsa. La VM e i servizi ruoli di lavoro in DevOps hanno utilizzato 486,60 dollari e 435,71 dollari in questo esempio. Il totale di entrambi è pari a 922 dollari.
 
 ![Entità dei costi e servizi](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+Per guardare un video di esercitazione sulla visualizzazione dei dati di fatturazione cloud, vedere [Analyzing your cloud billing data with Azure Cost Management by Cloudyn](https://youtu.be/G0pvI3iLH-Y) (Analisi dei dati di fatturazione cloud con Gestione costi di Azure di Cloudyn).

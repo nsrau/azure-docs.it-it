@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 6b7f1268ea4893307713931e7288f5d38c5ee080
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso di servizi esterni dal servizio Gestione API di Azure
 I criteri disponibili nel servizio Gestione API di Azure possono essere usati per una vasta gamma di attività basate esclusivamente su richieste in ingresso, risposte in uscita e informazioni di configurazione di base. Tuttavia, la possibilità di interagire con i servizi esterni dai criteri di Gestione API offre molte altre opportunità.
@@ -290,5 +289,4 @@ Per altre informazioni sui criteri [send-one-way-request](https://msdn.microsoft
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
 > 
 > 
-
 

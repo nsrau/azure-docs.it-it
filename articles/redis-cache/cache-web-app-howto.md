@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Come creare un'app Web con la cache Redis
 > [!div class="op_single_selector"]
@@ -707,7 +706,7 @@ Per ospitare l'applicazione in Azure, è prima di tutto necessario effettuare il
 
 Per distribuire questi servizi in un gruppo di risorse nuovo o esistente, fare clic sul pulsante **Distribuisci in Azure** seguente.
 
-[![Distribuisci in Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+[![Distribuzione in Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
 Il pulsante **Distribuisci in Azure** usa il modello per [creare un'app Web con cache Redis e database SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) di [Avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates) per effettuare il provisioning di questi servizi e configurare la stringa di connessione per il database SQL e l'impostazione dell'applicazione per la stringa di connessione della cache Redis di Azure.
 
@@ -867,5 +866,4 @@ Dopo la selezione o la creazione della cache da usare, passare alla cache nel po
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
 

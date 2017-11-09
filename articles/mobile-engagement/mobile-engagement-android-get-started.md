@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Azure Mobile Engagement per app Android
-description: "Informazioni sull&quot;uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app per Android."
+description: "Informazioni sull'uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app per Android."
 services: mobile-engagement
 documentationcenter: android
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
 ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Introduzione a Azure Mobile Engagement per app Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -48,7 +48,7 @@ La documentazione relativa all'integrazione completa è disponibile in [Integraz
 1. Avviare **Android Studio** e nella finestra popup selezionare **Start a new Android Studio project** (Avvia un nuovo progetto di Android Studio).
 
     ![][1]
-2. Specificare il nome dell'app e il dominio aziendale. Prendere nota delle informazioni specificate perché saranno necessarie successivamente. Fare clic su **Next**.
+2. Specificare il nome dell'app e il dominio aziendale. Prendere nota delle informazioni specificate perché saranno necessarie successivamente. Fare clic su **Avanti**.
 
     ![][2]
 3. Selezionare il fattore di forma di destinazione e il livello di API e quindi fare clic su **Next**.
@@ -170,9 +170,3 @@ Per ottenere informazioni dettagliate sull'integrazione dell'SDK, vedere [Androi
 [9]: ./media/mobile-engagement-android-get-started/app-connection-info-page.png
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

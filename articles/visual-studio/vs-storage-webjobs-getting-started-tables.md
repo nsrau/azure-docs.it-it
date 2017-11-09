@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 4e0c77e08bff971277a09d6066f259db84617616
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -148,5 +147,4 @@ Per informazioni su come gestire l'elaborazione di tabelle attivata da un messag
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare Processi Web di Azure e WebJobs SDK, vedere le [risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
-
 

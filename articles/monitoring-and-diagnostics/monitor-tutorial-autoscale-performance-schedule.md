@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creare un'impostazione di scalabilità automatica per le risorse di Azure in base ai dati sulle prestazioni o a una pianificazione
 
 Le impostazioni di scalabilità automatica consentono di aggiungere o rimuovere le istanze del servizio in base alle condizioni predefinite. Queste impostazioni possono essere create nel portale. Questo metodo offre un'interfaccia utente basata sul browser per la creazione e la configurazione delle impostazioni di scalabilità automatica. Questa esercitazione consente di:
@@ -174,4 +172,3 @@ In questa esercitazione è stata creata una semplice app Web e il piano di servi
 
 > [!div class="nextstepaction"]
 > [Archiviare i dati di monitoraggio](./monitor-tutorial-archive-monitoring-data.md)
-

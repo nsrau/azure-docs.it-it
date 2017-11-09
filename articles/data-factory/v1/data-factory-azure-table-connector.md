@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
+ms.openlocfilehash: 1379cbb0ea9b01a20d1974ed08e93b4872ffd92b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6ddcde7e0c0f665eac9d749107db107e652c0be1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -567,4 +566,3 @@ In questo caso Data Factory esegue automaticamente la conversione del tipo inclu
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
-

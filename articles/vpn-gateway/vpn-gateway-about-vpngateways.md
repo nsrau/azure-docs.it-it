@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/03/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2d5da55e757d190db0334ad82eae4042deb5205c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: e012526af264edd8b4fdbe84ff8b8648fb6d675c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-vpn-gateway"></a>Informazioni sul gateway VPN
 
@@ -86,15 +85,17 @@ Questo tipo di connessione è una variante della connessione da sito a sito. È 
 
 Una connessione gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. Una connessione da punto a sito viene stabilita avviandola dal computer client. Questa soluzione è utile per i telelavoratori che intendono connettersi alle reti virtuali di Azure da una posizione remota, ad esempio da casa o durante una riunione. Una VPN da punto a sito è anche una soluzione utile da usare al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale.
 
-A differenza delle connessioni da sito a sito, le connessioni da punto a sito non necessitano di un indirizzo IP pubblico locale o di un dispositivo VPN. Le connessioni da punto a sito possono essere usate con le connessioni da sito a sito attraverso lo stesso gateway VPN, purché tutti i requisiti di configurazione per entrambe le connessioni siano compatibili.
+A differenza delle connessioni da sito a sito, le connessioni da punto a sito non necessitano di un indirizzo IP pubblico locale o di un dispositivo VPN. Le connessioni da punto a sito possono essere usate con le connessioni da sito a sito attraverso lo stesso gateway VPN, purché tutti i requisiti di configurazione per entrambe le connessioni siano compatibili. Per altre informazioni sulle connessioni da punto a sito, vedere [About Point-to-Site VPN](point-to-site-about.md) (Informazioni sulla VPN da punto a sito).
 
 >[!NOTE]
 >L'autenticazione RADIUS da punto a sito e IKEv2 sono attualmente in fase di anteprima.
 >
 
-Per altre informazioni sulle connessioni da punto a sito, vedere [About Point-to-Site VPN](point-to-site-about.md) (Informazioni sulla VPN da punto a sito).
-
 ![Esempio di connessione gateway VPN di Azure da punto a sito](./media/vpn-gateway-about-vpngateways/point-to-site.png)
+
+### <a name="deployment-models-and-methods-for-p2s"></a>Metodi e modelli di distribuzione per la connessione da punto a sito
+
+[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="V2V"></a>Connessioni da rete virtuale a rete virtuale (tunnel VPN IPsec/IKE)
 
@@ -136,7 +137,7 @@ ExpressRoute è una connessione privata diretta dalla rete WAN (non sulla rete I
 
 ![Esempio di connessioni coesistenti ExpressRoute e gateway VPN](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>Metodi e modelli di distribuzione per le connessioni da sito a sito ed ExpressRoute
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute-coexist"></a>Metodi e modelli di distribuzione per la coesistenza di connessioni da sito a sito ed ExpressRoute
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
@@ -156,4 +157,3 @@ Per le domande frequenti sul gateway VPN, vedere le [Domande frequenti su Gatewa
 - Per altre informazioni, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md).
 - Vedere [Sottoscrizione e limiti del servizio](../azure-subscription-service-limits.md#networking-limits).
 - Informazioni su alcune altre [funzionalità di rete](../networking/networking-overview.md) chiave di Azure.
-

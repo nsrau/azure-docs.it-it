@@ -1,10 +1,10 @@
 ---
-title: "Ridimensionamento automatico e set di scalabilità di macchine virtuali | Microsoft Docs"
-description: "Informazioni sull'uso della diagnostica e delle risorse di scalabilità automatica per ridimensionare automaticamente le macchine virtuali in un set di scalabilità."
+title: "Panoramica della scalabilità automatica con i set di scalabilità di macchine virtuali di Azure | Microsoft Docs"
+description: "Informazioni sui diversi metodi con cui è possibile scalare automaticamente un set di scalabilità di macchine virtuali in base alle prestazioni o a una pianificazione fissa"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
@@ -13,240 +13,135 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
-ms.author: adegeo
+ms.date: 10/19/2017
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 868523a3aca441a47218297be2ce9f9e46dd84a1
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Come usare ridimensionamento automatico e set di scalabilità di macchine virtuali
-Il ridimensionamento automatico delle macchine virtuali in un set di scalabilità consiste nella creazione o nell'eliminazione di macchine nel set in base alle esigenze per soddisfare i requisiti a livello di prestazioni. Man mano che aumenta il volume di lavoro, è possibile che un'applicazione richieda risorse aggiuntive per poter eseguire le attività in modo efficace.
+# <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Panoramica della scalabilità automatica con i set di scalabilità di macchine virtuali di Azure
+Un set di scalabilità di macchine virtuali di Azure può aumentare o diminuire automaticamente il numero di istanze di macchine virtuali che eseguono l'applicazione. Questo comportamento automatico ed elastico riduce il sovraccarico di gestione per monitorare e ottimizzare le prestazioni dell'applicazione. Creare regole che definiscono le prestazioni minime accettabili per un'esperienza positiva del cliente. Quando vengono soddisfatte le soglie definite, le regole di scalabilità automatica intervengono per regolare la capacità del set di scalabilità. È possibile anche pianificare eventi per aumentare o ridurre automaticamente la capacità del set di scalabilità a intervalli fissi. Questo articolo offre una panoramica delle metriche delle prestazioni disponibili e delle azioni che la scalabilità automatica può eseguire.
 
-Il ridimensionamento automatico è un processo automatico che semplifica il sovraccarico di gestione. Riducendo il sovraccarico, non è necessario monitorare le prestazioni del sistema continuamente o decidere come gestire le risorse. Il ridimensionamento è un processo elastico. Con l'aumentare del carico è possibile aggiungere altre risorse e, man mano che la richiesta diminuisce, le risorse possono essere rimosse per ridurre al minimo i costi e mantenere i livelli di prestazioni.
 
-Configurare il ridimensionamento automatico di un set di scalabilità tramite un modello di Azure Resource Manager, usando Azure PowerShell, l'interfaccia della riga di comando di Azure o il portale di Azure.
+## <a name="benefits-of-autoscale"></a>Vantaggi della scalabilità automatica
+Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle istanze di macchine virtuali nel set di scalabilità. Se il carico aumenta in modo coerente e non momentaneamente, è possibile configurare regole di scalabilità automatica per aumentare il numero di istanze di macchine virtuali nel set di scalabilità.
 
-## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Configurare il ridimensionamento usando modelli di Resource Manager
-Invece di distribuire e gestire separatamente ogni risorsa dell'applicazione, usare un modello che distribuisce tutte le risorse in un'unica operazione coordinata. Nel modello vengono definite le risorse dell'applicazione e vengono specificati i parametri di distribuzione per diversi ambienti. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. Per altre informazioni, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Quando sono state create le istanze di macchine virtuali e sono state distribuite le applicazioni, il set di scalabilità inizia a distribuire loro il traffico tramite il bilanciamento del carico. È possibile controllare le metriche da monitorare, ad esempio per la CPU o la memoria, il tempo per cui il carico dell'applicazione deve soddisfare una determinata soglia e il numero di istanze di macchine virtuali da aggiungere al set di scalabilità.
 
-Nel modello si specifica l'elemento capacità:
+Nelle ore serali o nel fine settimana è possibile che la richiesta delle applicazioni si riduca. Se il carico diminuisce in modo coerente nel tempo, è possibile configurare regole di scalabilità automatica per diminuire il numero di istanze di macchine virtuali nel set di scalabilità. Questa azione riduce i costi di esecuzione del set di scalabilità poiché si esegue solo il numero di istanze necessarie per soddisfare la richiesta corrente.
 
-```json
-"sku": {
-  "name": "Standard_A0",
-  "tier": "Standard",
-  "capacity": 3
-},
-```
 
-La capacità identifica il numero di macchine virtuali nel set. È possibile modificare manualmente la capacità distribuendo un modello con un valore diverso. Se si distribuisce un modello per modificare solo la capacità, è possibile includere solo l'elemento SKU con la capacità aggiornata.
+## <a name="use-host-based-metrics"></a>Usare le metriche basate su host
+È possibile creare regole di scalabilità automatica basate sulle metriche host disponibili dalle istanze di macchine virtuali. Le metriche basate su host consentono maggiore visibilità delle prestazioni delle istanze di macchine virtuali in un set di scalabilità senza la necessità di installare o configurare ulteriori agenti e raccolte di dati. Le regole di scalabilità automatica che usano queste metriche possono aumentare o ridurre il numero di istanze di macchine virtuali in risposta all'utilizzo della CPU, alla richiesta di memoria o all'accesso al disco.
 
-La capacità del set di scalabilità può essere regolata automaticamente usando una combinazione della risorsa **autoscaleSettings** e dell'estensione Diagnostica.
+È possibile creare regole di scalabilità automatica che usano metriche basate su host con uno degli strumenti seguenti:
 
-### <a name="configure-the-azure-diagnostics-extension"></a>Configurare l'estensione Diagnostica di Azure
-Il ridimensionamento automatico può essere eseguito solo se la raccolta di metriche è riuscita in ogni macchina virtuale del set di scalabilità. L'estensione Diagnostica di Azure fornisce le funzionalità di monitoraggio e diagnostica che soddisfano le esigenze di raccolta delle metriche della risorsa di ridimensionamento automatico. È possibile installare l'estensione come parte del modello di Resource Manager.
+- [Portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
-Questo esempio mostra le variabili usate nel modello per configurare l'estensione di diagnostica:
+Per creare le regole di scalabilità automatica che usano metriche delle prestazioni più dettagliate, è possibile [installare e configurare l'estensione Diagnostica di Azure](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) sulle istanze di macchine virtuali o [configurare l'applicazione in modo che usi App Insights](#application-level-metrics-with-app-insights).
 
-```json
-"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
-"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/', 'Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
-"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\Thread Count\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"Thread Count\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
-"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
-"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
-"wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
-```
+Le regole di scalabilità automatica che usano le metriche basate su host, le metriche delle macchine virtuali nel guest con l'estensione di diagnostica di Azure e App Insights possono usare le seguenti impostazioni di configurazione.
 
-I parametri vengono forniti quando si distribuisce il modello. In questo esempio vengono forniti il nome dell'account di archiviazione, in cui vengono archiviati i dati, e il nome del set di scalabilità, in cui vengono raccolti i dati. Anche in questo esempio di Windows Server vengono raccolti solo i dati del contatore delle prestazioni Conteggio dei thread. Tutti i contatori delle prestazioni disponibili in Windows o Linux possono essere usati per raccogliere informazioni di diagnostica e possono essere inclusi nella configurazione dell'estensione.
+### <a name="metric-sources"></a>Origini delle metriche
+Le regole di scalabilità automatica possono usare le metriche fornite da una delle seguenti origini:
 
-Questo esempio illustra la definizione dell'estensione nel modello:
+| Origine della metrica        | Caso d'uso                                                                                                                     |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------|
+| Set di scalabilità corrente    | Per le metriche basate su host che non richiedono l'installazione o la configurazione di altri agenti.                                  |
+| Account di archiviazione      | L'estensione di diagnostica di Azure scrive le metriche delle prestazioni nell'archiviazione di Azure che quindi viene usata per attivare le regole di scalabilità automatica. |
+| Coda del bus di servizio    | L'applicazione o altri componenti possono trasmettere i messaggi in una coda del bus di servizio di Azure per attivare le regole.                   |
+| Application Insights | Un pacchetto di strumentazione installato nell'applicazione che trasmette le metriche direttamente dall'app.                         |
 
-```json
-"extensionProfile": {
-  "extensions": [
-    {
-      "name": "Microsoft.Insights.VMDiagnosticsSettings",
-      "properties": {
-        "publisher": "Microsoft.Azure.Diagnostics",
-        "type": "IaaSDiagnostics",
-        "typeHandlerVersion": "1.5",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "xmlCfg": "[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
-          "storageAccount": "[variables('diagnosticsStorageAccountName')]"
-        },
-        "protectedSettings": {
-          "storageAccountName": "[variables('diagnosticsStorageAccountName')]",
-          "storageAccountKey": "[listkeys(variables('accountid'), variables('apiVersion')).key1]",
-          "storageAccountEndPoint": "https://core.windows.net"
-        }
-      }
-    }
-  ]
-}
-```
 
-Quando viene eseguita l'estensione Diagnostica, i dati vengono archiviati e raccolti in una tabella, nell'account di archiviazione specificato. I dati raccolti sono disponibili nella tabella **WADPerformanceCounters**:
+### <a name="autoscale-rule-criteria"></a>Criteri delle regole di scalabilità automatica
+È possibile usare le metriche basate su host seguenti quando si creano regole di scalabilità automatica. Se si usa l'estensione di diagnostica di Azure o App Insights, si definiscono le metriche da monitorare e usare con le regole di scalabilità automatica.
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
+| Nome metrica               |
+|---------------------------|
+| CPU percentuale            |
+| Rete in ingresso                |
+| Rete in uscita               |
+| Byte letti da disco           |
+| Byte scritti su disco          |
+| Operazioni lettura disco/sec  |
+| Operazioni scrittura disco/sec |
+| Crediti CPU rimanenti     |
+| Crediti CPU usati      |
 
-### <a name="configure-the-autoscalesettings-resource"></a>Configurare la risorsa autoScaleSettings
-La risorsa autoscaleSettings usa le informazioni raccolte dall'estensione di Diagnostica per prendere decisioni sull'aumento o la riduzione del numero di macchine virtuali nel set di scalabilità.
+Quando si creano regole di scalabilità automatica per monitorare una determinata metrica, le regole esaminano una delle seguenti azioni di aggregazione di metriche:
 
-Questo esempio illustra la configurazione della risorsa nel modello:
+| Tipo di aggregazione |
+|------------------|
+| Media          |
+| Minima          |
+| Massima          |
+| Totale            |
+| Last (Ultimo)             |
+| Numero            |
 
-```json
-{
-  "type": "Microsoft.Insights/autoscaleSettings",
-  "apiVersion": "2015-04-01",
-  "name": "[concat(parameters('resourcePrefix'),'as1')]",
-  "location": "[resourceGroup().location]",
-  "dependsOn": [
-    "[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
-  ],
-  "properties": {
-    "enabled": true,
-    "name": "[concat(parameters('resourcePrefix'),'as1')]",
-    "profiles": [
-      {
-        "name": "Profile1",
-        "capacity": {
-          "minimum": "1",
-          "maximum": "10",
-          "default": "1"
-        },
-        "rules": [
-          {
-            "metricTrigger": {
-              "metricName": "\\Processor(_Total)\\Thread Count",
-              "metricNamespace": "",
-              "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-              "timeGrain": "PT1M",
-              "statistic": "Average",
-              "timeWindow": "PT5M",
-              "timeAggregation": "Average",
-              "operator": "GreaterThan",
-              "threshold": 650
-            },
-            "scaleAction": {
-              "direction": "Increase",
-              "type": "ChangeCount",
-              "value": "1",
-              "cooldown": "PT5M"
-            }
-          },
-          {
-            "metricTrigger": {
-              "metricName": "\\Processor(_Total)\\Thread Count",
-              "metricNamespace": "",
-              "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-              "timeGrain": "PT1M",
-              "statistic": "Average",
-              "timeWindow": "PT5M",
-              "timeAggregation": "Average",
-              "operator": "LessThan",
-              "threshold": 550
-            },
-            "scaleAction": {
-              "direction": "Decrease",
-              "type": "ChangeCount",
-              "value": "1",
-              "cooldown": "PT5M"
-            }
-          }
-        ]
-      }
-    ],
-    "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
-  }
-}
-```
+Le regole di scalabilità automatica vengono attivate quando le metriche vengono confrontate con la soglia definita usando uno dei seguenti operatori:
 
-Nell'esempio precedente vengono create due regole per definire le azioni di ridimensionamento automatico. La prima regola definisce l'azione di aumento delle istanze e la seconda regola definisce l'azione di riduzione del numero di istanze. Questi valori vengono forniti nelle regole:
+| operatore                 |
+|--------------------------|
+| Maggiore di             |
+| Maggiore o uguale a |
+| Minore di                |
+| Minore o uguale a    |
+| Uguale a                 |
+| Diverso da             |
 
-| Regola | Descrizione |
-| ---- | ----------- |
-| metricName        | Questo valore corrisponde al contatore delle prestazioni definito nella variabile wadperfcounter per l'estensione Diagnostica. Nell'esempio precedente viene usato il contatore Conteggio dei thread.    |
-| metricResourceUri | Questo valore è l'identificatore di risorsa del set di scalabilità di macchine virtuali. Questo identificatore contiene il nome del gruppo di risorse, il nome del provider di risorse e il nome del set di scalabilità per il ridimensionamento. |
-| timeGrain         | Questo valore corrisponde alla granularità delle metriche che vengono raccolte. Nell'esempio precedente i dati vengono raccolti con un intervallo di un minuto. Questo valore viene usato con timeWindow. |
-| statistic         | Questo valore determina il modo in cui vengono combinate le metriche per consentire l'azione di ridimensionamento automatico. I valori possibili sono: Average, Min, Max. |
-| timeWindow        | Questo valore rappresenta l'intervallo di tempo in cui vengono raccolti i dati dell'istanza. Deve essere compreso tra 5 minuti e 12 ore. |
-| timeAggregation   | Questo valore definisce il modo in cui i dati raccolti devono essere combinati nel tempo. Il valore predefinito è "Average". I valori possibili sono: Average, Minimum, Maximum, Last, Total, Count. |
-| operator          | Questo valore indica l'operatore usato per confrontare i dati della metrica e la soglia. I valori possibili sono: Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual. |
-| threshold         | Questo valore indica l'attivazione dell'azione di ridimensionamento. Assicurarsi di fornire una differenza sufficiente tra i valori delle soglie per le azioni di **aumento delle istanze** e di **riduzione delle istanze**. Se si impostano gli stessi valori per entrambe le azioni, il sistema prevede un'evoluzione costante che impedisce l'implementazione di un'azione di ridimensionamento. Ad esempio, impostando entrambi i valori su 600 thread, l'esempio precedente non funziona. |
-| direction         | Questo valore determina l'azione da eseguire quando viene raggiunto il valore di soglia. I valori possibili sono Increase o Decrease. |
-| type              | Questo valore indica il tipo di azione che deve verificarsi e deve essere impostato su ChangeCount. |
-| value             | Questo valore indica il numero di macchine virtuali che vengono aggiunte o rimosse dal set di scalabilità. Questo valore deve essere uguale o maggiore di 1. |
-| cooldown          | Questo valore indica il tempo di attesa dopo l'ultima azione di ridimensionamento prima che venga eseguita l'azione successiva. Questo valore deve essere compreso tra un minuto e una settimana. |
 
-A seconda del contatore delle prestazioni scelto, alcuni elementi della configurazione del modello vengono usati in modo diverso. Nell'esempio precedente, il contatore delle prestazioni è Conteggio dei thread e il valore di soglia è impostato su 650 per un'azione di aumento delle istanze e su 550 per l'azione di riduzione delle istanze. Se si usa un contatore come%Processor Time, il valore di soglia è impostato sulla percentuale di utilizzo della CPU che determina un'azione di ridimensionamento.
+### <a name="actions-when-rules-trigger"></a>Azioni eseguite all'attivazione delle regole
+Quando viene attivata una regola di scalabilità automatica, il set di scalabilità può eseguire la scalabilità in uno dei modi seguenti:
 
-Quando viene attivata un'azione di ridimensionamento, ad esempio un carico elevato, la capacità del set viene aumentata in base al valore presente nel modello. Ad esempio, in un set di scalabilità in cui la capacità è impostata su 3 e il valore dell'azione di ridimensionamento è impostato su 1:
+| Operazione di scalabilità     | Caso d'uso                                                                                                                               |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Aumenta numero di   | Un numero fisso di istanze di macchine virtuali da creare. È utile nei set di scalabilità con un numero ridotto di macchine virtuali.                                           |
+| Aumenta percentuale di | Aumento delle istanze di macchine virtuali basato su una percentuale. Adatto per set di scalabilità più grandi in cui un aumento predefinito può non migliorare notevolmente le prestazioni. |
+| Aumenta numero a   | Creare il numero di istanze di macchine virtuali necessarie per raggiungere un limite massimo desiderato.                                                            |
+| Riduci numero di   | Un numero fisso di istanze di macchine virtuali da rimuovere. È utile nei set di scalabilità con un numero ridotto di macchine virtuali.                                           |
+| Riduci percentuale di | Diminuzione delle istanze di macchine virtuali basata su una percentuale. Adatto per set di scalabilità più grandi in cui un aumento predefinito può non ridurre notevolmente i consumi e i costi. |
+| Riduci numero di   | Rimuovere il numero di istanze di macchine virtuali necessarie per raggiungere una quantità minima desiderata.                                                            |
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerBefore.png)
 
-Quando viene il carico corrente causa il superamento della soglia di 650 del conteggio medio dei thread:
+## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>Metriche delle macchine virtuali nel guest con l'estensione di diagnostica di Azure
+L'estensione di diagnostica di Azure è un agente eseguito all'interno di un'istanza di macchine virtuali. L'agente monitora e salva le metriche delle prestazioni nell'archiviazione di Azure. Queste metriche delle prestazioni contengono informazioni più dettagliate sullo stato della macchina virtuale, ad esempio *AverageReadTime* per i dischi o *PercentIdleTime* per la CPU. È possibile creare regole di scalabilità automatica in base a una conoscenza più dettagliata delle prestazioni delle macchine virtuali, non solo della percentuale di utilizzo della memoria o della CPU.
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
+Per usare l'estensione Diagnostica di Azure, è necessario creare gli account di archiviazione di Azure per le istanze di macchine virtuali, installare l'agente di diagnostica di Azure, quindi configurare le macchine virtuali per tramettere contatori delle prestazioni specifici nell'account di archiviazione.
 
-Viene attivata un'azione di **aumento delle istanze** a causa della quale la capacità del set viene aumentata di uno:
+Per altre informazioni, vedere gli articoli su come abilitare l'estensione Diagnostica di Azure in una [VM Linux](../virtual-machines/linux/diagnostic-extension.md) o in una [VM Windows](../virtual-machines/windows/ps-extensions-diagnostics.md).
 
-```json
-"sku": {
-  "name": "Standard_A0",
-  "tier": "Standard",
-  "capacity": 4
-},
-```
 
-Come conseguenza una macchina virtuale viene aggiunta al set di scalabilità:
+## <a name="application-level-metrics-with-app-insights"></a>Metriche a livello di applicazione con App Insights
+Per ottenere maggiore visibilità delle prestazioni delle applicazioni, è possibile usare Application Insights. Si installa un pacchetto di strumentazione di piccole dimensioni nell'applicazione che monitora l'app e invia i dati di telemetria ad Azure. È possibile monitorare metriche come i tempi di risposta dell'applicazione, le prestazioni in fase di caricamento delle pagine e i conteggi di sessioni. Queste metriche consentono di creare regole di scalabilità automatica a un livello granulare e incorporato poiché le regole attivate si basano su informazioni dettagliate e di utilità pratica che possono incidere sull'esperienza dell'utente.
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerAfter.png)
+Per altre informazioni su Application Insights, vedere [Informazioni su Azure Application Insights](../application-insights/app-insights-overview.md).
 
-Dopo un periodo di attesa di cinque minuti, se il numero medio di thread nelle macchine virtuali rimane oltre 600, viene aggiunta un'altra macchina virtuale al set. Se il numero medio di thread rimane sotto 550, la capacità del set di scalabilità viene ridotta di uno e una macchina virtuale viene rimossa dal set.
 
-## <a name="set-up-scaling-using-azure-powershell"></a>Impostare la scalabilità con Azure PowerShell
+## <a name="scheduled-autoscale"></a>Scalabilità automatica pianificata
+È possibile anche creare regole di scalabilità automatica in base a pianificazioni. Queste regole consentono di scalare automaticamente il numero di istanze di macchine virtuali a intervalli fissi. Con le regole basate su prestazioni, le prestazioni dell'applicazione potrebbero essere compromesse prima che vengano attivate le regole di scalabilità automatica e che venga effettuato il provisioning delle nuove istanze di macchine virtuali. Se è possibile prevedere questa richiesta, viene eseguito il provisioning di ulteriori istanze di macchine virtuali e queste sono pronte per soddisfare la richiesta aggiuntiva di utilizzo da parte del cliente e dell'applicazione.
 
-Per visualizzare esempi d'uso di PowerShell per configurare il ridimensionamento automatico, vedere [Azure Monitor PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md) (Esempi di avvio rapido di PowerShell per Monitoraggio di Azure).
+Di seguito sono riportati alcuni scenari di esempio che possono trarre vantaggio dall'utilizzo di regole di scalabilità automatica basate su pianificazione:
 
-## <a name="set-up-scaling-using-azure-cli"></a>Impostare la scalabilità con l'interfaccia della riga di comando di Azure
+- Scalare automaticamente il numero di istanze di macchine virtuali all'inizio della giornata di lavoro quando aumentano le richieste dei clienti. Al termine della giornata lavorativa ridurre automaticamente il numero di istanze di macchine virtuali per ridurre al minimo i costi delle risorse nelle ore notturne quando l'utilizzo delle applicazioni è inferiore.
+- Se un reparto usa un'applicazione in modo intensivo in specifici periodi del ciclo fiscale o mensile, ridimensionare automaticamente il numero di istanze di macchine virtuali per soddisfare queste richieste aggiuntive.
+- Quando si verifica un evento di marketing, una promozione o in periodo di saldi, è possibile ridimensionare automaticamente il numero di istanze di macchine virtuali in anticipo rispetto all'esigenza del cliente. 
 
-Per visualizzare esempi d'uso dell'interfaccia della riga di comando di Azure per configurare il ridimensionamento automatico, vedere [Azure Monitor Cross-platform CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md) (Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma per Monitoraggio di Azure).
-
-## <a name="set-up-scaling-using-the-azure-portal"></a>Impostare il ridimensionamento con il portale di Azure
-
-Per visualizzare un esempio d'uso del portale di Azure per impostare il ridimensionamento automatico, vedere [Creare un set di scalabilità di macchine virtuali tramite il portale di Azure](virtual-machine-scale-sets-portal-create.md).
-
-## <a name="investigate-scaling-actions"></a>Analisi delle azioni di ridimensionamento
-
-* **Portale di Azure**  
-Attualmente è possibile ottenere una quantità limitata di informazioni tramite il portale.
-
-* **Esplora risorse di Azure**  
-Si tratta dello strumento migliore per esaminare lo stato corrente del set di scalabilità. Seguire questo percorso per passare alla visualizzazione dell'istanza del set di scalabilità creato:  
-**Subscriptions > {sottoscrizione dell'utente} > resourceGroups > {gruppo di risorse dell'utente} > providers > Microsoft.Compute > virtualMachineScaleSets > {set di scalabilità dell'utente} > virtualMachines**
-
-* **Azure PowerShell**  
-Usare questo comando per ottenere alcune informazioni:
-
-  ```powershell
-  Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
-  Get-Autoscalesetting -ResourceGroup rainvmss -DetailedOutput
-  ```
-
-* Connettersi alla macchina virtuale jumpbox esattamente come a qualsiasi altra macchina virtuale e quindi accedere in modalità remota alle macchine virtuali nel set di scalabilità per monitorare i singoli processi.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un esempio sulla modalità di creazione di un set di scalabilità configurando il ridimensionamento automatico, vedere [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](virtual-machine-scale-sets-windows-autoscale.md) .
+È possibile creare regole di scalabilità automatica che usano metriche basate su host con uno degli strumenti seguenti:
 
-* Per alcuni esempi delle funzionalità di monitoraggio in Monitoraggio di Azure, vedere [Azure Monitor PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md) (Esempi di avvio rapido di PowerShell per Monitoraggio di Azure).
+- [Portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
-* Per informazioni sulle funzionalità di notifica, vedere [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) (Usare le azioni di ridimensionamento automatico per inviare notifiche di avviso di webhook ed e-mail in Monitoraggio di Azure).
+Questa panoramica ha descritto in dettaglio come usare le regole di scalabilità automatica per scalare orizzontalmente e aumentare o diminuire il *numero* di istanze di macchine virtuali nel set di scalabilità. È possibile anche ridimensionare in verticale per aumentare o diminuire le *dimensioni* delle istanze di macchine virtuali. Per altre informazioni, vedere [Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-* Per informazioni, vedere [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) (Usare i log di controllo per inviare notifiche di avviso di webhook in Monitoraggio di Azure).
+Per informazioni su come gestire le istanze di macchine virtuali, vedere [Gestire set di scalabilità di macchine virtuali con Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 
-* Informazioni sugli [scenari di scalabilità automatica avanzata](virtual-machine-scale-sets-advanced-autoscale.md).
+Per informazioni su come generare avvisi all'attivazione delle regole di scalabilità automatica, vedere [Usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Monitoraggio di Azure](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). Vedere anche [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) (Usare i log di controllo per inviare notifiche di avviso tramite e-mail e webhook in Monitoraggio di Azure).

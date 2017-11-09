@@ -11,15 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/19/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a21f1c61f344f96e2e03422e41fd8c5f7f841a0c
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usare endpoint personalizzati e il routing dei messaggi per i messaggi da dispositivo a cloud
 
@@ -34,7 +32,10 @@ L'hub IoT consente di eseguire il routing dei [messaggi da dispositivo a cloud][
 
 Un singolo messaggio può corrispondere alla condizione su più regole di routing. In questo caso, l'hub IoT invia il messaggio all'endpoint associato a ciascuna regola corrispondente. L'hub IoT deduplica automaticamente la consegna dei messaggi, quindi se uno di questi corrisponde a più regole che hanno tutte la stessa destinazione, verrà scritto in quella destinazione una sola volta.
 
-Un hub IoT dispone di un [endpoint predefinito][lnk-built-in]. È possibile creare endpoint personalizzati per indirizzare i messaggi collegando all'hub gli altri servizi nella sottoscrizione. L'hub IoT supporta attualmente l'Hub eventi, le code e gli argomenti del bus di servizio come endpoint personalizzati.
+Un hub IoT dispone di un [endpoint predefinito][lnk-built-in]. È possibile creare endpoint personalizzati per indirizzare i messaggi collegando all'hub gli altri servizi nella sottoscrizione. L'hub IoT supporta attualmente i contenitori di Archiviazione di Azure, l'Hub eventi, le code e gli argomenti del bus di servizio come endpoint personalizzati.
+
+> [!NOTE]
+> L'hub IoT supporta solo la scrittura dei dati nei contenitori di Archiviazione di Azure come BLOB.
 
 > [!WARNING]
 > Le code del bus di servizio e gli argomenti che hanno abilitato con **Sessioni** o **Rilevamento duplicati** non sono supportati come endpoint personalizzati.
@@ -43,6 +44,7 @@ Per altre informazioni sulla creazione di endpoint personalizzati nell'hub IoT, 
 
 Per altre informazioni sulla lettura da endpoint personalizzati, vedere:
 
+* Lettura dai [contenitori di Archiviazione di Azure][lnk-getstarted-storage].
 * Lettura da [hub eventi][lnk-getstarted-eh].
 * Lettura dalle [code del bus di servizio][lnk-getstarted-queue].
 * Lettura dagli [argomenti del bus di servizio][lnk-getstarted-topic].
@@ -63,4 +65,4 @@ L'esercitazione [Elaborare messaggi da dispositivo a cloud dell'hub IoT usando i
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-
+[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md

@@ -4,7 +4,7 @@ description: Script di esempio di Azure PowerShell per la sincronizzazione tra u
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 07/31/2017
-ms.author: douglasl
+ms.author: jognanay
+ms.reviewer: douglasl
+ms.openlocfilehash: 8d5888904aa7c690e2ee3a2f54e96e663fd96840
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: f44895802103b6c4f347b53fd74af51ab705f7c5
-ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server
 
@@ -387,4 +387,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Per altri esempi, vedere tra gli [script di PowerShell per database SQL di Azure](../sql-database-powershell-samples.md).
-

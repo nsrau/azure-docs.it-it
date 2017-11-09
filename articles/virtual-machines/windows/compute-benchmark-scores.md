@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
 ms.openlocfilehash: dc715a9bf4e5366e1719de7c649feb06b0c4bee7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcolare i punteggi di benchmark per le VM Windows
 I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Windows Server. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

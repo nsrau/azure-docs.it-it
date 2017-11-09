@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 9f820e2e58ee0a105118e590a1206ca89bddba8f
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="actor-timers-and-reminders"></a>Timer e promemoria degli attori
 Gli attori possono pianificare il relativo lavoro periodico registrando timer o promemoria. Questo articolo illustra come usare timer e promemoria e ne spiega le differenze.
@@ -133,7 +133,7 @@ Il runtime di Actors salva le modifiche apportate alla gestione stati dell'attor
 Tutti i timer vengono arrestati quando l'attore viene disattivato come parte di garbage collection. In seguito, non viene richiamato nessun callback di timer. Inoltre, il runtime di Actors non mantiene alcuna informazione sui timer in esecuzione prima della disattivazione. È responsabilità dell'attore registrare gli eventuali timer che saranno necessari quando verrà riattivato in futuro. Per ulteriori informazioni, vedere la sezione sulla [garbage collection degli attori](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Promemoria degli attori
-I promemoria sono un meccanismo per attivare i callback persistenti su un attore in base a orari specificati. La loro funzionalità è simile a quella dei timer. Tuttavia, a differenza dei timer, i promemoria vengono attivati in qualsiasi circostanza finché l'attore non ne annulla la registrazione in modo esplicito o finché l'attore non viene eliminato in modo esplicito. In particolare, i promemoria vengono attivati anche in caso di failover e disattivazione dell'attore perché il runtime di Actors rende persistenti le informazioni sui promemoria dell'attore.
+I promemoria sono un meccanismo per attivare i callback persistenti su un attore in base a orari specificati. La loro funzionalità è simile a quella dei timer. Tuttavia, a differenza dei timer, i promemoria vengono attivati in qualsiasi circostanza finché l'attore non ne annulla la registrazione in modo esplicito o finché l'attore non viene eliminato in modo esplicito. In particolare, i promemoria vengono attivati anche in caso di failover e disattivazione dell'attore perché il runtime di Actors rende persistenti le informazioni sui promemoria dell'attore tramite il provider di stato dell'attore. Si noti che l'affidabilità dei promemoria è collegata alle garanzie di affidabilità degli stati fornite dal provider di stato dell'attore. Questo significa che per gli attori in cui la persistenza dello stato è impostata su None, non verrà attivato alcun promemoria dopo un failover. 
 
 Per registrare un promemoria, un attore chiama il metodo `RegisterReminderAsync` fornito nella classe base, come illustrato nell'esempio seguente.
 

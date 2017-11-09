@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
+ms.openlocfilehash: 06c174387904f30ddd090f8c67ce33837555505b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e55009c72b977ee4a30f6c71043bde483849f78f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemi comuni che comportano il riciclo dei ruoli
 Questo articolo illustra alcune delle cause comuni dei problemi di distribuzione e fornisce suggerimenti per consentirne la risoluzione. La presenza di un problema con un'applicazione viene evidenziata se l'istanza del ruolo non si avvia o se lo stato passa ciclicamente da inizializzazione a occupato e arresto.
@@ -70,4 +69,3 @@ Per altri scenari di riciclo dei ruoli, vedere la [serie di blog di Kevin Willia
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
-

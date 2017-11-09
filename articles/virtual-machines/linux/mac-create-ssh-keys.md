@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 6fcdcc96c7762e2362aebf909ef25f4a5ab62f99
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure
 Con una coppia di chiavi SSH (Secure Shell) è possibile creare macchine virtuali in Azure che per impostazione predefinita usano le chiavi SSH per l'autenticazione, eliminando la necessità di password per l'accesso. Questo articolo illustra come generare rapidamente e usare una coppia di file di chiavi pubblica e privata RSA protocollo SSH versione 2 per le VM Linux. Per una procedura più dettagliata ed esempi aggiuntivi, vedere la [procedura dettagliata per creare coppie di chiavi SSH e certificati](create-ssh-keys-detailed.md).
 
@@ -59,4 +57,3 @@ Per impostazione predefinita, le VM create con le chiavi SSH vengono configurate
 * [Creare una VM Linux protetta usando il portale di Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una VM Linux protetta usando l'interfaccia della riga di comando di Azure 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una VM Linux protetta usando un modello di Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

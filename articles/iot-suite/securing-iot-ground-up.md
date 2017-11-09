@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="internet-of-things-security-from-the-ground-up"></a>Sicurezza dell'Internet of Things sin dall'inizio
 L'Internet of Things (IoT) pone numerose difficoltà in termini di sicurezza, privacy e conformità per le aziende di tutto il mondo. A differenza delle tecnologie informatiche tradizionali in cui questi problemi riguardano il software e la relativa implementazione, l'IoT riguarda le sfide poste dalla convergenza tra il mondo fisico e quello informatico. Per proteggere le soluzioni IoT, è necessario garantire il provisioning sicuro dei dispositivi, la connettività protetta tra questi dispositivi e il cloud e la protezione dei dati nel cloud durante l'elaborazione e l'archiviazione. A sfavore di queste funzionalità, tuttavia, giocano fattori quali dispositivi con risorse limitate, la distribuzione geografica delle implementazioni e un numero elevato di dispositivi all'interno di un'unica soluzione.
 
@@ -124,4 +122,3 @@ Informazioni sulla protezione dell'hub IoT sono disponibili in [Controllare l'ac
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
-

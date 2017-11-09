@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 226fc82abf7aa24a0aa1bd3c21279158e1ce8e95
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer che non hanno Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. Esempi di tali dati sono: tipo e versione del sistema operativo, log del sistema operativo (registri eventi di Windows), processi in esecuzione, nome computer, indirizzi IP, utente connesso e ID tenant. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
@@ -45,7 +44,7 @@ Per abilitare il provisioning automatico di Microsoft Monitoring Agent:
 I dati raccolti dal Centro sicurezza vengono archiviati nell'area di lavoro di Log Analytics.  È possibile scegliere di archiviare i dati raccolti dalle macchine virtuali di Azure nelle aree di lavoro create dal Centro sicurezza o in un'area di lavoro esistente creata dall'utente.
 
 Per usare l'area di lavoro di Log Analytics esistente:
-- l'area di lavoro deve essere associata alla sottoscrizione di Azure selezionata.
+- L'area di lavoro deve essere associata alla sottoscrizione di Azure selezionata.
 - È necessario avere almeno le autorizzazioni di lettura per accedere all'area di lavoro.
 
 Per selezionare l'area di lavoro di Log Analytics esistente:
@@ -141,4 +140,3 @@ In questo articolo è stato illustrato il funzionamento della raccolta dati e de
 [4]: ./media/security-center-enable-data-collection/event-id.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
 [6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
-

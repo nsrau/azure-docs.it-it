@@ -8,14 +8,12 @@ ms.author: markgal
 ms.date: 09/16/2017
 ms.topic: article
 ms.service: backup
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f144db921a8b2d01dbfe883a48574c4fabdae6f7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 
 Quando si esegue il backup di dati in Azure, i dati vengono archiviati in una risorsa di Azure denominata un insieme di credenziali di Servizi di ripristino. La risorsa dell'insieme di credenziali di Servizi di ripristino è disponibile dal menu Impostazioni della maggior parte dei servizi di Azure. Il vantaggio di disporre di un insieme di credenziali di Servizi di ripristino integrato nel menu Impostazioni della maggior parte dei servizi di Azure rende molto semplice eseguire il backup dei dati. Tuttavia, lavorare con ogni singola macchina virtuale o database dell'azienda è noioso. Cosa accade se si desidera eseguire il backup dei dati per tutte le macchine virtuali di un reparto o di un'unica posizione? Il backup di più macchine virtuali può essere eseguito facilmente creando un criterio di backup e applicando tale criterio alle macchine virtuali desiderate. In questa esercitazione viene illustrato come:
@@ -174,7 +172,7 @@ Se si prevede di continuare a usare le esercitazioni successive, non eliminare l
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione verrà usato il portale di Azure per i seguenti scopi:
+In questa esercitazione è stato usato il portale di Azure per eseguire le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali di Servizi di ripristino
@@ -187,4 +185,3 @@ Proseguire con l'esercitazione successiva sul ripristino di una macchina virtual
 
 > [!div class="nextstepaction"]
 > [Ripristino di macchine virtuali con l'interfaccia della riga di comando](./tutorial-restore-disk.md)
-

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 09/18/2017
 ms.author: terrylan
+ms.openlocfilehash: 0616f5e501324bfd821c1455ce234602f1fcf1bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: cb4a7db5666242576bf83abbf10682cc6f53ba69
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso delle raccomandazioni del Centro sicurezza di Azure per migliorare la sicurezza
 Configurando i criteri di sicurezza e implementando le raccomandazioni offerte dal Centro sicurezza di Azure, è possibile ridurre le probabilità di un importante evento di sicurezza. Questo articolo illustra come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza.
@@ -74,15 +73,15 @@ Seguiamo la procedura di Jeff per vedere come usa le raccomandazioni del Centro 
 ## <a name="how-to-implement-this-solution"></a>Come implementare questa soluzione
 Jeff effettua l'accesso al [Portale di Azure](https://azure.microsoft.com/features/azure-portal/) e apre la console del Centro sicurezza. Come parte delle sue attività di monitoraggio giornaliere, controlla se ci sono raccomandazioni sulla sicurezza eseguendo la procedura seguente:
 
-1. Jeff seleziona il riquadro **Raccomandazioni** per aprire il pannello **Raccomandazioni**.
+1. Jeff seleziona il riquadro **Raccomandazioni** per aprire **Raccomandazioni**.
    ![Selezionare il riquadro Raccomandazioni][3]
-2. Jeff esamina l'elenco delle raccomandazioni. Nota che il Centro sicurezza presenta l'elenco delle raccomandazioni in ordine di priorità, dalla priorità più alta a quella più bassa. Decide di risolvere una raccomandazioni con priorità elevata nell'elenco. Nel pannello **Raccomandazioni** seleziona **Installa Endpoint Protection**.
-3. Viene visualizzato il pannello **Installa Endpoint Protection** che mostra un elenco di macchine virtuali per cui non è abilitato l'antimalware. Jeff controlla l'elenco delle macchine virtuali, seleziona tutte le macchine virtuali e quindi seleziona **Installa nelle VM 3**.
+2. Jeff esamina l'elenco delle raccomandazioni. Nota che il Centro sicurezza presenta l'elenco delle raccomandazioni in ordine di priorità, dalla priorità più alta a quella più bassa. Decide di risolvere una raccomandazioni con priorità elevata nell'elenco. In **Raccomandazioni** seleziona **Installa Endpoint Protection**.
+3. Viene visualizzato **Installa Endpoint Protection** che mostra un elenco di macchine virtuali per cui non è abilitato l'antimalware. Jeff controlla l'elenco delle macchine virtuali, seleziona tutte le macchine virtuali e quindi seleziona **Installa nelle VM 3**.
    ![Installare Endpoint Protection][4]
-4. Viene visualizzato il pannello **Select Endpoint Protection** (Seleziona Endpoint Protection) che offre a Jeff due soluzioni antimalware. Jeff seleziona la soluzione **Microsoft Antimalware**.
+4. Viene visualizzato **Seleziona Endpoint Protection** che offre a Jeff due soluzioni antimalware. Jeff seleziona la soluzione **Microsoft Antimalware**.
 5. Vengono visualizzate altre informazioni sulla soluzione antimalware selezionata. Jeff seleziona **Crea**.
    ![Microsoft antimalware][5]
-6. Jeff inserisce le impostazioni di configurazione richieste nel pannello **Installazione** e seleziona **OK**.
+6. Jeff inserisce le impostazioni di configurazione richieste in **Installazione** e seleziona **OK**.
 
 [Microsoft Antimalware](../security/azure-security-antimalware.md) è ora attivo nelle VM selezionate.
 
@@ -90,10 +89,10 @@ Jeff continua sfoglia le raccomandazioni con priorità alta e media, decidendo d
 
 Jeff scopre che il [Microsoft Security Response Center (MSRC)](../security/azure-security-response-center.md) esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni su minacce e segnalazioni di violazioni da terzi. Se Jeff inserisce il contatto per la sicurezza di Contoso per la sottoscrizione di Azure, Microsoft contatta Contoso se MSRC rileva che i dati dei clienti di Contoso sono stati violati da altri utenti non autorizzati in modo illegale. Vediamo come Jeff applica la raccomandazione **Provide security contact details** (Inserisci i dettagli dei contatti per la sicurezza) (una raccomandazione con livello di gravità medio nell'elenco delle raccomandazioni sopra indicato).
 
-1. Jeff seleziona **Provide security contact details** (Inserisci i dettagli dei contatti per la sicurezza) nel pannello **Raccomandazioni**, che consente di aprire il pannello **Provide security contact details** (Inserisci i dettagli dei contatti per la sicurezza).
+1. Jeff seleziona **Specificare i dettagli dei contatti di sicurezza** in **Raccomandazioni**, che consente di aprire **Specificare i dettagli dei contatti di sicurezza**.
 2. Jeff seleziona la sottoscrizione di Azure per cui specifica le informazioni di contatto. Viene visualizzato un altro pannello **Specificare i dettagli dei contatti di sicurezza** .
    ![Dettagli del contatto per la sicurezza][6]
-3. Nel secondo pannello **Provide security contact details** (Inserisci i dettagli dei contatti per la sicurezza), Jeff inserisce:
+3. In **Specificare i dettagli dei contatti di sicurezza** Jeff immette:
 
   - gli indirizzi di posta elettronica dei contatti per la sicurezza separati da virgole (non c'è un limite al numero di indirizzi di posta elettronica che è possibile inserire)
   - un numero di telefono del contatto per la sicurezza
@@ -107,6 +106,18 @@ Infine, Jeff esamina le raccomandazioni con priorità bassa **Remediate OS vulne
 ## <a name="conclusion"></a>Conclusione
 Il monitoraggio delle raccomandazioni nel Centro sicurezza PC può contribuire a eliminare le vulnerabilità di sicurezza prima che si verifichi un attacco. È possibile evitare problemi di sicurezza applicando e gestendo le protezioni con i criteri di protezione nel Centro sicurezza.
 
+## <a name="next-steps"></a>Passaggi successivi
+Questo scenario ha illustrato come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza. Vedere lo [scenario di risposta agli eventi imprevisti](security-center-incident-response.md) per informazioni su come implementare un piano di risposta agli eventi imprevisti prima di un attacco.
+
+Per altre informazioni sul Centro sicurezza, vedere:
+
+* [Monitoraggio dell'integrità della sicurezza](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+* [Gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Monitoraggio ed elaborazione degli eventi di sicurezza](security-center-events-dashboard.md): informazioni su come monitorare ed elaborare gli eventi di sicurezza raccolti nel tempo.
+* [Monitoraggio delle soluzioni dei partner](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
+* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
+* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : informazioni e notizie aggiornate sulla sicurezza di Azure.
+
 <!--Image references-->
 [1]: ./media/security-center-using-recommendations/security-center-policy-inheritance.png
 [2]: ./media/security-center-using-recommendations/scenario-roles.png
@@ -115,4 +126,3 @@ Il monitoraggio delle raccomandazioni nel Centro sicurezza PC può contribuire a
 [5]:./media/security-center-using-recommendations/microsoft-antimalware.png
 [6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
 [7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
-

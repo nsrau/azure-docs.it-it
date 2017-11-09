@@ -3,8 +3,8 @@ title: Creare un'app Web HTML statica in Azure | Microsoft Docs
 description: Informazioni su come eseguire app Web nel servizio app di Azure mediante la distribuzione di un'app HTML statica di esempio.
 services: app-service\web
 documentationcenter: 
-author: rick-anderson
-manager: wpickett
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -12,15 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
-ms.author: riande
+ms.date: 10/26/2017
+ms.author: cephalin
 ms.custom: mvc
+ms.openlocfilehash: bd1b3ad946274bfa6a312d7c2373d45dbcb44541
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: a4b6e0578bb0b45b6be5bdf28af5936d627b1c74
-ms.contentlocale: it-it
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creare un'app Web HTML statica in Azure
 
@@ -46,7 +45,11 @@ In una finestra del terminale eseguire il comando seguente per clonare il reposi
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-Questa finestra del terminale dovrà essere usata per eseguire tutti i comandi presenti in questa guida introduttiva.
+Passare alla directory contenente il codice di esempio.
+
+```bash
+cd html-docs-hello-world
+```
 
 ## <a name="view-the-html"></a>Visualizzare il codice HTML
 
@@ -65,10 +68,6 @@ Passare alla directory contenente il codice HTML di esempio. Aprire il file *ind
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![Pagina dell'app Web vuota](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-È stata creata una nuova app Web vuota in Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -100,11 +99,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>Passare all'app
 
-In un browser passare all'URL dell'app Web di Azure:
-
-```
-http://<app_name>.azurewebsites.net
-```
+In un browser passare all'URL dell'app Web di Azure: `http://<app_name>.azurewebsites.net`.
 
 La pagina è in esecuzione come un'app Web del servizio app di Azure.
 
@@ -116,7 +111,7 @@ La pagina è in esecuzione come un'app Web del servizio app di Azure.
 
 Aprire il file *index.html* in un editor di testo e apportare una modifica al markup. Modificare ad esempio l'intestazione H1 da "Servizio app di Azure - Sito HTML statico di esempio" a "Servizio app di Azure".
 
-Eseguire il commit delle modifiche in Git e quindi effettuare il push delle modifiche al codice in Azure.
+Nella finestra del terminale locale eseguire il commit delle modifiche in Git e quindi eseguire il push delle modifiche al codice in Azure.
 
 ```bash
 git commit -am "updated HTML"
@@ -147,4 +142,3 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 
 > [!div class="nextstepaction"]
 > [Eseguire il mapping di un dominio personalizzato](app-service-web-tutorial-custom-domain.md)
-

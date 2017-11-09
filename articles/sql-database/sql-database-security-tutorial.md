@@ -13,15 +13,14 @@ ms.custom: mvc,security
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
+ms.openlocfilehash: d25a0461bf194808f9bd66ddbd120448620eeba0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteggere il database SQL di Azure
 
@@ -254,5 +253,4 @@ Passare all'esercitazione successiva per informazioni su come implementare un da
 
 > [!div class="nextstepaction"]
 >[Implementare un database con distribuzione geografica](sql-database-implement-geo-distributed-database.md)
-
 

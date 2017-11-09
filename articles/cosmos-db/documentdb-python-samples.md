@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2016
 ms.author: moderakh
+ms.openlocfilehash: 98c00f23a3ce7569c9cc85a62840500cc50ed3a1
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: e5161e61fdfc4d068ed3d7736bb2016dbd18759b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Esempi Python per Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [Esempi di .NET](documentdb-dotnet-samples.md)
 > * [Esempi di Node.js](documentdb-nodejs-samples.md)
 > * [Esempi di Python](documentdb-python-samples.md)
-> * [Raccolta di esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb)
+> * [Raccolta di esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 > 
 > 
 
@@ -40,7 +39,7 @@ Il repository [azure-documentdb-python](https://github.com/Azure/azure-documentd
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+- È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -73,5 +72,4 @@ Il file [Program.py](https://github.com/Azure/azure-documentdb-python/tree/maste
 | [Ottenere il livello di prestazioni di una raccolta](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L139-L161) |[DocumentQueryable.QueryOffers](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Cambiare il livello di prestazioni di una raccolta](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L163-L175) |[document_client.ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Eliminare una raccolta](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) |[document_client.DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
-
 

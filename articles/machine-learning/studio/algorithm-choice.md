@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/25/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 822bed8ffc43459dd053fda5b68f62f839b7d94b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Come scegliere gli algoritmi di Microsoft Azure Machine Learning
 La risposta alla domanda "Quale algoritmo di Machine Learning devo usare" è sempre "Dipende". Dipende dalla dimensione, dalla qualità e dalla natura dei dati. Dipende da cosa si vuole fare con la risposta. Dipende da come i calcoli dell'algoritmo sono stati convertiti in istruzioni per il computer in uso. E dipende dal tempo a disposizione. Nemmeno gli scienziati dei dati più esperti possono stabilire quale algoritmo funzionerà meglio prima di provarlo.
@@ -82,7 +81,7 @@ Gli algoritmi di regressione lineare ipotizzano che le tendenze dei dati seguano
 
 ![Limite di classe non lineare][1]
 
-***Limite di classe non lineare*** *: basarsi su un algoritmo di classificazione lineare produce una precisione ridotta*
+***Limite di classe non lineare****: basarsi su un algoritmo di classificazione lineare produce una precisione ridotta*
 
 ![Dati con una tendenza non lineare][2]
 
@@ -247,4 +246,3 @@ Avviato e condotto da John Langford di Microsoft Research, VW è un elemento da 
 [8]: ./media/algorithm-choice/image8.png
 [9]: ./media/algorithm-choice/image9.png
 [10]: ./media/algorithm-choice/image10.png
-

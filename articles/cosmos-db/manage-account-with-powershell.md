@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
 ms.openlocfilehash: 25c543528119410dff0684845a713dcb0d6151d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Creare un account di Azure Cosmos DB mediante PowerShell
 
@@ -66,7 +66,7 @@ Esempio:
 * L'esempio precedente crea un account di database con due aree. È anche possibile creare un account di database con un'area (designata come area di scrittura con un valore di priorità di failover pari a 0) o con più di due aree. Per altre informazioni, vedere gli [account di database tra più aree][scaling-globally].
 * Le località devono essere aree in cui Azure Cosmos DB è disponibile a livello generale. L'elenco corrente delle aree geografiche è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
 
-## <a id="update-documentdb-account-powershell"> </a> Aggiornare un account di database DocumentDB
+## <a id="update-documentdb-account-powershell"></a> Aggiornare un account di database DocumentDB
 
 Questo comando consente di aggiornare le proprietà di un account del database Azure Cosmos DB. e include il criterio di coerenza e le località in cui esiste l'account di database.
 

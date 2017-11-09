@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 537dd6d64fe49093dd73d8040cde5a9153a7bd5c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-monitor-metrics-explorer"></a>Esplora metriche di Monitoraggio di Azure
 
 Questa guida procedurale descrive la nuova generazione dell'esperienza di creazione di grafici delle metriche di Monitoraggio di Azure che è attualmente disponibile in anteprima pubblica. La nuova esperienza supporta il rendering dei grafici sia di metriche multidimensionali che di metriche di base senza quote. È possibile tracciare grafici che sovrappongono metriche derivanti da tipi di risorse differenti, più gruppi di risorse e sottoscrizioni. È possibile personalizzare i grafici di metriche multidimensionali applicando filtri di dimensione e raggruppamenti. Tutti i grafici, inclusi quelli personalizzati, possono essere aggiunti ai dashboard.

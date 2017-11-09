@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
+ms.openlocfilehash: 5535433c478b989e255451a0bf882dfb8ba8f8fe
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4919fb679eeb4d25eb0066b9bf617b057d44354
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
 Azure Machine Learning è una soluzione integrata per data science end-to-end e analisi avanzate. Consente ai data scientist di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -46,7 +44,7 @@ Azure Machine Learning supporta completamente le tecnologie open source. È poss
 
 Azure Machine Learning è basato sulle tecnologie open source seguenti:
 
-- [Notebook di Jupyter](http://jupyter.org/)
+- [Notebook Jupyter](http://jupyter.org/)
 - [Apache Spark](https://spark.apache.org/)
 - [Docker](https://www.docker.com/)
 - [Kubernetes](https://kubernetes.io/)
@@ -107,7 +105,7 @@ Tramite semplici operazioni di configurazione, è possibile eseguire esperimenti
 
 Il servizio Sperimentazione costruisce ambienti virtuali per assicurare che lo script possa essere eseguito in isolamento con risultati riproducibili. Registra le informazioni sulla cronologia di esecuzione e presenta visivamente la cronologia agli utenti. È possibile selezionare con facilità il modello migliore tra le esecuzioni degli esperimenti. 
 
-Per altre informazioni, vedere [Experimentation Execution Configuration](experiment-execution-configuration.md) (Configurazione dell'esecuzione di esperimenti).
+Per altre informazioni, vedere [Experimentation Service Configuration](experimentation-service-configuration.md) (Configurazione del servizio Sperimentazione).
 
 ## <a name="azure-machine-learning-model-management-service"></a>Servizio Gestione modelli di Azure Machine Learning
 
@@ -179,7 +177,7 @@ Usare Microsoft Machine Learning Server quando è necessario eseguire queste ope
 - Distribuire training R e Python su larga scala in un cluster Hadoop o Spark
 
 ### <a name="data-science-virtual-machine"></a>Macchina virtuale di data science
-La [macchina virtuale di data science](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) è un'immagine di VM personalizzata sul cloud di Microsoft Azure creata in modo specifico per data science. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata. È disponibile in Windows Server e in Linux. L'edizione della DSVM per Windows è disponibile in Windows Server 2016 e Windows Server 2012. L'edizione della DSVM per Linux è disponibile in Ubuntu 16.04 LTS e nelle distribuzioni Linux basate su OpenLogic 7.2 CentOS. 
+La [macchina virtuale di data science](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) è un'immagine di VM personalizzata sul cloud di Microsoft Azure creata in modo specifico per data science. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata. È disponibile in Windows Server e in Linux. L'edizione della DSVM per Windows è disponibile in Windows Server 2016 e Windows Server 2012. L'edizione della DSVM per Linux è disponibile in Ubuntu 16.04 LTS e nelle distribuzioni Linux basate su OpenLogic 7.2 CentOS. 
 
 Usare la macchina virtuale di data science quando è necessario eseguire oppure ospitare processi in un singolo nodo o se è necessario aumentare in modo remoto le prestazioni di elaborazione in un singolo computer. La macchina virtuale di data science è supportata come destinazione per Sperimentazione di Azure Machine Learning Experimentation e Gestione modelli di Azure Machine Learning. 
 
@@ -219,4 +217,3 @@ I Servizi cognitivi Microsoft possono essere usati per sviluppare app in diversi
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Install and create Azure Machine Learning (Installare e creare istanze di Azure Machine Learning)](quickstart-installation.md)
-

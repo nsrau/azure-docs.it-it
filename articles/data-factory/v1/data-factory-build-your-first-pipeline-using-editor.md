@@ -12,17 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: 5c4fb60bde7599daa0ac9d7704c398adcdb0d471
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 19f9686de9face1e53fc84eac23381eadc9fb5cd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Esercitazione: Creare la prima data factory di Azure con il portale di Azure
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
@@ -32,6 +30,9 @@ ms.lasthandoff: 09/25/2017
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere la [guida introduttiva per la creazione di una data factory con Azure Data Factory versione 2](../quickstart-create-data-factory-dot-net.md).
 
 Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com/) per creare la prima istanza di Azure Data Factory. Per eseguire l'esercitazione usando altri strumenti/SDK, selezionare una delle opzioni dall'elenco a discesa. 
 
@@ -400,4 +401,3 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) |Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. |
-

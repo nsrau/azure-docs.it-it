@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f1524fa83de6ce53f853ed6859de15076e20ea3b
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Concedere le autorizzazioni utente per specifici criteri di lab
 ## <a name="overview"></a>Overview
@@ -30,7 +29,7 @@ Come descritto nell'articolo [Controllo degli accessi in base al ruolo di Azure]
 
 Nei lab di sviluppo/test un criterio è un tipo di risorsa che abilita l'azione del controllo degli accessi in base al ruolo **Microsoft.DevTestLab/labs/policySets/policies/**. Ogni criterio di lab è una risorsa del tipo di risorsa Criterio e può essere assegnato come ambito a un ruolo del controllo degli accessi in base al ruolo.
 
-Ad esempio, per concedere le autorizzazioni di lettura/scrittura agli utenti per il criterio **Allowed VM Sizes**, è possibile creare un ruolo personalizzato da usare con l'azione **Microsoft.DevTestLab/labs/policySets/policies/*** e assegnare gli utenti al ruolo nell'ambito di **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Per concedere ad esempio le autorizzazioni di lettura/scrittura agli utenti per il criterio **Allowed VM Sizes**, è possibile creare un ruolo personalizzato da usare con l'azione **Microsoft.DevTestLab/labs/policySets/policies/*** e assegnare gli utenti al ruolo nell'ambito di **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Per altre informazioni sui ruoli personalizzati in RBAC, vedere il [controllo di accesso ai ruoli personalizzati](../active-directory/role-based-access-control-custom-roles.md).
 
@@ -93,5 +92,4 @@ Dopo aver concesso le autorizzazioni utente per specifici criteri di lab, consid
 * [Creare un modello di lab](devtest-lab-create-template.md).
 * [Creare elementi personalizzati per le VM](devtest-lab-artifact-author.md).
 * [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md).
-
 

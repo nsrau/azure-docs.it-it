@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: bffca3b1daa3e909a0b17baf33c7f85d57836d32
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2302f4bfe98c3e731685f5c63774b060caa8c3a9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiare o spostare facilmente i dati con Copia guidata di Azure Data Factory
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere l'[esercitazione sull'attività di copia nella documentazione sulla versione 2](../quickstart-create-data-factory-dot-net.md). 
+
+
 La copia guidata di Azure Data Factory semplifica l'inserimento di dati, che rappresenta in genere il primo passaggio in uno scenario di integrazione dati end-to-end. Quando si esegue la copia guidata di Azure Data Factory, non è necessario comprendere le definizioni JSON per i set di dati, le pipeline e i servizi collegati. Tuttavia, dopo aver completato tutti i passaggi della procedura guidata, verrà automaticamente creata una pipeline per copiare i dati dall'origine dati selezionata alla destinazione scelta. In più, questa procedura guidata consente di convalidare i dati aggiunti al momento della creazione, così da risparmiare tempo, soprattutto al primo inserimento dei dati dall'origine dati. Per avviare Copia guidata, fare clic sul riquadro **Copia dati** nella home page della data factory.
 
 ![Copia guidata](./media/data-factory-copy-wizard/copy-data-wizard.png)
@@ -91,5 +94,4 @@ Un'operazione di copia eseguita una sola volta permette di spostare dati da un'o
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per una procedura dettagliata sull'uso di Copia guidata di Data Factory per creare una pipeline con l'attività di copia, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
-
 

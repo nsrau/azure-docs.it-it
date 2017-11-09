@@ -17,10 +17,10 @@ ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: e61001161e632a5d2e513107e30f1eaf06103989
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Monitorare un cluster del servizio contenitore di Azure con Sysdig
 In questo articolo verranno distribuiti agenti di Sysdig in tutti i nodi agente nel cluster del servizio contenitore di Azure. Per questa configurazione, è necessario un account con Sysdig. 

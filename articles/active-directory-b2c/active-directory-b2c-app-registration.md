@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
+ms.openlocfilehash: 6232459326599d244c6d3f055bf890e78ecf631e
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: registrare l'applicazione
 
-Questa esercitazione introduttiva consente di registrare un'applicazione in un tenant di Microsoft Azure Active Directory (Azure AD) B2C in pochi minuti. Al termine, l'applicazione viene registrata per l'uso nel tenant di Azure B2C.
+Questa esercitazione introduttiva consente di registrare un'applicazione in un tenant di Microsoft Azure Active Directory (Azure AD) B2C in pochi minuti. Al termine, l'applicazione viene registrata per l'uso nel tenant di Azure AD B2C.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -50,6 +49,8 @@ Accedere al [portale di Azure](https://portal.azure.com/) come amministratore gl
 ### <a name="register-a-web-app"></a>Registrare un'app Web
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+
+### <a name="create-a-web-app-client-secret"></a>Creare un segreto client per l'app Web
 
 Se l'applicazione Web chiama un'API Web protetta da Azure AD B2C, seguire questa procedura:
    1. Creare un segreto dell'applicazione passando al pannello **Chiavi** e facendo clic sul pulsante **Genera chiave**. Annotare il valore di **Chiave dell'app**. Questo valore viene usato come segreto dell'applicazione nel codice dell'applicazione.

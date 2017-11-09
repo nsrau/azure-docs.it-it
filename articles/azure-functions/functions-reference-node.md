@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
+ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: a20f6db8bbbc9b7936cf102e8cd2ff1b2a995fb2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
-> [!div class="op_single_selector"]
-> * [Script C#](functions-reference-csharp.md)
-> * [Script F#](functions-reference-fsharp.md)
-> * [JavaScript](functions-reference-node.md)
-> 
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 L'esperienza JavaScript per Funzioni di Azure semplifica l'esportazione di una funzione, che viene passata come oggetto `context` per la comunicazione con il runtime e per la ricezione e l'invio di dati tramite associazioni.
 
@@ -54,14 +48,14 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 
 Le associazioni di `direction === "in"` vengono passate come argomenti della funzione, pertanto è possibile usare [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) per gestire in modo dinamico nuovi input, ad esempio usando `arguments.length` per l'iterazione di tutti gli input. Questa funzionalità è utile se si ha solo un trigger e nessun input aggiuntivo, in quanto consente di accedere ai dati del trigger in modo prevedibile senza fare riferimento all'oggetto `context`.
 
-Gli argomenti vengono sempre passati insieme alla funzione nell'ordine in cui sono indicati nel file *function.json*, anche se non vengono specificati nell'istruzione exports. Se ad esempio si ha `function(context, a, b)` e viene modificato in `function(context, a)`, è comunque possibile ottenere il valore di `b` nel codice della funzione facendo riferimento a `arguments[3]`.
+Gli argomenti vengono sempre passati insieme alla funzione nell'ordine in cui sono indicati nel file *function.json*, anche se non vengono specificati nell'istruzione exports. Se ad esempio si ha `function(context, a, b)` e viene modificato in `function(context, a)`, è comunque possibile ottenere il valore di `b` nel codice della funzione facendo riferimento a `arguments[2]`.
 
 Anche tutte le associazioni, indipendentemente dalla direzione, vengono passate sull'oggetto `context` (vedere lo script seguente). 
 
 ## <a name="context-object"></a>Oggetto context
 Il runtime usa un oggetto `context` per passare dati dalla e alla funzione e consentire la comunicazione con il runtime.
 
-L'oggetto context è sempre il primo parametro di una funzione e deve essere incluso, in quanto contiene i metodi necessari per usare correttamente il runtime, ad esempio `context.done` e `context.log`. È possibile assegnare all'oggetto un nome qualsiasi, ad esempio `ctx` o `c`.
+L'oggetto `context` è sempre il primo parametro di una funzione e deve essere incluso, in quanto contiene i metodi necessari per usare correttamente il runtime, ad esempio `context.done` e `context.log`. È possibile assegnare all'oggetto un nome qualsiasi, ad esempio `ctx` o `c`.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -335,8 +329,5 @@ Per altre informazioni, vedere le seguenti risorse:
 
 * [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
-* [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
-* [Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#](functions-reference-fsharp.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
 ms.openlocfilehash: 2aee0fb8d1ba1ff1584bee91b4d1cc34b654d97f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replicare le macchine virtuali di Azure in un'altra area dopo la migrazione ad Azure usando Azure Site Recovery
 

@@ -12,14 +12,14 @@ ms.custom: develop databases
 ms.devlang: NA
 ms.date: 11/15/2016
 ms.author: jovanpop
-ms.workload: NA
+ms.workload: On Demand
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 883e661107dd838f5c381cdef2c7f891b9a9389c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 8877b0bb779501df003ce11d66d9625c2f99e9ce
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introduzione alle funzionalità JSON nel database SQL di Azure
 Il database SQL di Azure consente di analizzare ed eseguire query sui dati rappresentati in formato JavaScript Object Notation [(JSON)](http://www.json.org/) e di esportare i dati relazionali come testo JSON.

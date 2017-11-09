@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: jingwang
+ms.openlocfilehash: 037cd8ac0065adc7572f7a60bac019c05a6e308a
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4ea7220310f63108f8ec2fa1b28ddcaf992a3a51
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -77,7 +76,7 @@ Per usare l'attività di copia in Azure Data Factory, è necessario:
 
 ### <a name="syntax"></a>Sintassi
 
-Nel modello seguente di un'attività di copia vengono elencate tutte le proprietà supportate. Specificare quelle più adatte per il proprio scenario.
+Nel modello seguente di un'attività di copia è incluso l'elenco completo delle proprietà supportate. Specificare quelle più adatte per il proprio scenario.
 
 ```json
 "activities":[
@@ -108,7 +107,7 @@ Nel modello seguente di un'attività di copia vengono elencate tutte le propriet
             "translator":
             {
                 "type": "TabularTranslator",
-                "ColumnMappings": "<column mapping>"
+                "columnMappings": "<column mapping>"
             },
             "cloudDataMovementUnits": <number>,
             "parallelCopies": <number>,
@@ -156,7 +155,7 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche relative
 | sqlDwPolyBase | Se PolyBase viene usato per copiare i dati in SQL Data Warehouse. | Boolean |
 | redshiftUnload | Se UNLOAD viene usato per copiare i dati da Redshift. | Boolean |
 | hdfsDistcp | Se DistCp viene usato per copiare i dati da HDFS. | Boolean |
-| effectiveIntegrationRuntime | Mostrare quale runtime di integrazione viene usato per migliorare l'esecuzione dell'attività nel formato "<IR name> (<region for Azure IR>)". | Testo (stringa) |
+| effectiveIntegrationRuntime | Mostra i runtime di integrazione usati per migliorare l'esecuzione dell'attività, nel formato "`<IR name> (<region if it's Azure IR>)`". | Testo (stringa) |
 | usedCloudDataMovementUnits | Il numero effettivo di unità di spostamento dati cloud durante la copia. | Valore Int32 |
 | redirectRowPath | Percorso del log delle righe incompatibili ignorate nel contenitore di archiviazione BLOB configurato in "redirectIncompatibleRowSettings". Vedere l'esempio seguente. | Testo (stringa) |
 | billedDuration | La durata fatturata per lo spostamento dei dati. | Valore Int32 in secondi |
@@ -196,4 +195,3 @@ Vedere le guide rapide, le esercitazioni e gli esempi seguenti:
 - [Copiare i dati da una posizione a un'altra nella stessa archiviazione BLOB di Azure](quickstart-create-data-factory-dot-net.md)
 - [Copiare i dati dall'archiviazione BLOB di Azure al database SQL di Azure](tutorial-copy-data-dot-net.md)
 - [Copiare i dati da un'istanza di SQL Server locale ad Azure](tutorial-hybrid-copy-powershell.md)
-

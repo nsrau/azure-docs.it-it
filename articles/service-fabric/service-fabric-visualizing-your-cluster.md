@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: c58de22e29b6403e88bf22bdfe704a25757cdfca
-ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 965ffc0f8cec26cccbe6e6459731afc234111f4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 Service Fabric Explorer è uno strumento basato sul web per analizzare e gestire applicazioni e nodi in un cluster di Service Fabric di Azure. Service Fabric Explorer è ospitato direttamente all'interno del cluster, pertanto è sempre disponibile indipendentemente da dove il cluster sia in esecuzione.
@@ -128,4 +127,3 @@ Se si prova a connettersi a Service Fabric Explorer in un cluster sicuro, a seco
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
-

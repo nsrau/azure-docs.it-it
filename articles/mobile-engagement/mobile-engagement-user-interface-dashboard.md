@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Come visualizzare e gestire i grafici dei dati relativi all'applicazione
 La sezione Dashboard dell'interfaccia utente consente ai clienti di creare grafici personalizzati. In questo modo, potranno sfruttare al meglio il tempo fornendo informazioni precise, invece di cercarle nella sezione delle analisi. Nel dashboard vengono visualizzate le tendenze dell'applicazione e il conteggio degli utenti attivi, suddivisi in base alle differenti versioni dell'applicazione e per un determinato periodo di tempo (ora, giorno, settimana, mese, personalizzato). Le tendenze visualizzate sono basate sugli ultimi 7 giorni.

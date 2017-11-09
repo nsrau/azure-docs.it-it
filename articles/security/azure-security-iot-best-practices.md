@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
 ms.openlocfilehash: 8efc0053458e338ac1afe98d9ce970c1d5cbfa81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>Procedure consigliate per la sicurezza di Internet delle cose
 La protezione dell'infrastruttura di Internet delle cose (IoT) è un'impresa considerevole per tutte le persone coinvolte nelle soluzioni IoT. Dato il numero di dispositivi coinvolti e la natura distribuita di questi dispositivi, l'impatto di un evento di sicurezza che può compromettere milioni di dispositivi IoT non è da sottovalutare perché le conseguenze possono essere enormi.

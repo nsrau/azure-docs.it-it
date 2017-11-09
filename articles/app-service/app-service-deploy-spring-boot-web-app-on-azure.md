@@ -14,14 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 8776142d5452bf5057990702c89aa1a541382ffc
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-spring-boot-application-to-the-azure-app-service"></a>Distribuire un'applicazione Spring Boot nel servizio app di Azure
 
 **[Spring Framework]** è una soluzione open source che consente agli sviluppatori Java di creare applicazioni di livello enterprise; uno dei progetti più comuni che si basa su questa piattaforma è [Spring Boot], che fornisce un approccio semplificato per la creazione di applicazioni Java autonome.
@@ -121,7 +119,7 @@ I passaggi seguenti illustrano la creazione di un'app Web di Azure, la configura
 
    c. Scegliere **Più recenti** per la versione di Java.
 
-   d. Scegliere **Newest Tomcat 8.5** \(Tomcat 8.5 più recente) per il contenitore Web. (Questo contenitore non verrà effettivamente usato; Azure userà il contenitore dall'app Spring Boot.)
+   d. Scegliere **Newest Tomcat 8.5** [Tomcat 8.5 più recente] per il contenitore Web. (Questo contenitore non verrà effettivamente usato; Azure userà il contenitore dall'app Spring Boot.)
 
    e. Fare clic su **Salva**.
 
@@ -243,4 +241,3 @@ Per altre informazioni sulla configurazione delle impostazioni aggiuntive per l'
 [AZ08]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ08.png
 [AZ09]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ09.png
 [AZ10]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ10.png
-

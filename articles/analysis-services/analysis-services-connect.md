@@ -4,7 +4,7 @@ description: Informazioni su come connettersi e ottenere dati da un server di An
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: b37f70a0-9166-4173-932d-935d769539d1
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: deb3ef28d20decef01826450bd6091f87dd069de
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: d6cafc72f74dc0ec891591d3311f93ba1649f922
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="connect-to-an-azure-analysis-services-server"></a>Connettersi a un server di Azure Analysis Services
 

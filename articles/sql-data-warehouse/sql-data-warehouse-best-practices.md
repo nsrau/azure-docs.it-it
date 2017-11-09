@@ -13,15 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
+ms.date: 10/31/2017
 ms.author: shigu;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: aac6261cd3e8a8d6775c44dc6e3b279db4474ff8
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: ef6abba371d3a22d1cbaeb88dbd242f9f97b361c
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Procedure consigliate per Azure SQL Data Warehouse
 Questo articolo è una raccolta di numerose procedure consigliate che consentono di ottenere prestazioni ottimali da Azure SQL Data Warehouse.  Alcuni concetti in questo articolo sono basilari e facili da spiegare, mentre altri sono più avanzati e verranno solo analizzati brevemente.  Lo scopo dell'articolo è quello di offrire alcune indicazioni di base e di far capire quali sono gli aspetti importanti su cui focalizzarsi per la creazione di un data warehouse.  Ogni sezione presenta un concetto e rimanda ad articoli più dettagliati che analizzano il concetto in modo più approfondito.
@@ -84,7 +82,7 @@ Quando si inseriscono temporaneamente i dati in SQL Data Warehouse, una tabella 
 Vedere anche [Tabelle temporanee][Temporary tables], [CREATE TABLE][CREATE TABLE] e [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Ottimizzare le tabelle columnstore cluster
-Gli indici columnstore cluster rappresentano uno dei modi più efficienti per archiviare i dati in Azure SQL Data Warehouse.  Per impostazione predefinita, le tabelle in SQL Data Warehouse vengono create come tabelle columnstore cluster.  Per ottenere prestazioni ottimali per le query sulle tabelle columnstore è importante che la qualità dei segmenti sia buona.  Quando le righe vengono scritte nelle tabelle columnstore in condizioni di utilizzo elevato di memoria, la qualità dei segmenti columnstore potrebbe risentirne.  La qualità del segmento può essere misurata in base al numero di righe in un gruppo di righe compresso.  Per istruzioni dettagliate su come rilevare e migliorare la qualità dei segmenti per le tabelle columnstore cluster, vedere la sezione [Possibili cause di una qualità scadente dell'indice columnstore][Causes of poor columnstore index quality] nell'articolo [Indicizzazione delle tabelle][Table indexes].  Poiché l'elevata qualità dei segmenti columnstore è importante, è consigliabile usare ID di utenti della classe di risorse media o grande per caricare i dati.  Minore è il numero di unità DWU usate, maggiori saranno le dimensioni della classe di risorse da assegnare all'utente incaricato del caricamento.
+Gli indici columnstore cluster rappresentano uno dei modi più efficienti per archiviare i dati in SQL Data Warehouse.  Per impostazione predefinita, le tabelle in SQL Data Warehouse vengono create come tabelle columnstore cluster.  Per ottenere prestazioni ottimali per le query sulle tabelle columnstore è importante che la qualità dei segmenti sia buona.  Quando le righe vengono scritte nelle tabelle columnstore in condizioni di utilizzo elevato di memoria, la qualità dei segmenti columnstore potrebbe risentirne.  La qualità del segmento può essere misurata in base al numero di righe in un gruppo di righe compresso.  Per istruzioni dettagliate su come rilevare e migliorare la qualità dei segmenti per le tabelle columnstore cluster, vedere la sezione [Possibili cause di una qualità scadente dell'indice columnstore][Causes of poor columnstore index quality] nell'articolo [Indicizzazione delle tabelle][Table indexes].  Poiché l'elevata qualità dei segmenti columnstore è importante, è consigliabile usare ID di utenti della classe di risorse media o grande per caricare i dati. L'uso di [livelli di servizio](performance-tiers.md#service-levels) inferiori implica l'intenzione di assegnare una classe di risorse di dimensioni superiori all'utente incaricato del caricamento.
 
 Poiché le tabelle columnstore in genere non effettuano il push dei dati in un segmento columnstore compresso fino a quando non sono presenti più di 1 milione di righe per tabella e ogni tabella di SQL Data Warehouse è suddivisa in 60 tabelle, come regola generale le tabelle columnstore non risultano vantaggiose per una query a meno che non contengano più di 60 milioni di righe.  Per le tabelle con meno di 60 milioni di righe, l'uso di un indice columnstore potrebbe non essere utile,  ma potrebbe anche non avere effetti negativi.  Inoltre, se si partizionano i dati, tenere presente che ogni partizione dovrà contenere 1 milione di righe per trarre vantaggio da un indice columnstore cluster.  Se una tabella ha 100 partizioni, dovrà contenere almeno 6 miliardi di righe per trarre vantaggio da un archivio colonne cluster (60 distribuzioni * 100 partizioni * 1 milione di righe).  Se la tabella non contiene 6 miliardi di righe come in questo esempio, ridurre il numero di partizioni o prendere in considerazione l'utilizzo di una tabella heap.  Potrebbe anche essere utile fare delle prove per verificare se è possibile ottenere prestazioni migliori con una tabella heap con indici secondari al posto di una tabella columnstore.  Le tabelle columnstore al momento non supportano gli indici secondari.
 
@@ -131,7 +129,7 @@ Per inviare richieste di funzionalità è possibile usare la pagina dei [comment
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
 [Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
 [Load data]: ./sql-data-warehouse-overview-load.md
-[Move data with Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
@@ -168,5 +166,4 @@ Per inviare richieste di funzionalità è possibile usare la pagina dei [comment
 [Azure SQL Data Warehouse Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
 [Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
-[Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
-
+[Azure SQL Data Warehouse loading patterns and strategies]: http://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/

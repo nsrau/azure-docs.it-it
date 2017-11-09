@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
-ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute per Cloud Solution Provider (CSP)
 Microsoft fornisce servizi su vasta scala per consentire a rivenditori e distributori tradizionali (CSP) di effettuare rapidamente il provisioning di nuovi servizi e soluzioni per i clienti senza dover investire nello sviluppo di questi nuovi servizi. Per offrire al Cloud Solution Provider (CSP) la possibilità di gestire direttamente questi nuovi servizi, Microsoft fornisce programmi e API che consentono al CSP di gestire le risorse di Microsoft Azure per conto dei clienti. Una di queste risorse è ExpressRoute. ExpressRoute consente al CSP di connettere le risorse esistenti dei clienti ai servizi di Azure. ExpressRoute è un collegamento delle comunicazioni privato a velocità elevata ai servizi in Azure. 
@@ -135,8 +134,6 @@ Il servizio Cloud Solution Provider consente di acquisire un valore maggiore per
 
 Per altre informazioni, fare clic sui collegamenti seguenti:
 
-[Programma Microsoft Cloud Solution Provider](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview).  
+[Azure nel programma Cloud Solution Provider](https://docs.microsoft.com/azure/cloud-solution-provider).  
 [Prepararsi alle transazioni come Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Risorse Microsoft Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
-
-

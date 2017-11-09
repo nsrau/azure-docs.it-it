@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
+ms.openlocfilehash: b884f8bc3a20052fa0cb40772deef591b69d7b10
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: b701172c2345313e236a037f5aa16939cfaac440
-ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="register-for-self-service-password-reset"></a>Eseguire la registrazione per la reimpostazione password self-service
 
@@ -67,4 +66,3 @@ Gli amministratori possono richiedere all'utente di confermare i metodi di auten
 * [Non è possibile accedere all'account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Pagina di registrazione per la reimpostazione della password con metodi registrati e pulsante Fine"
-

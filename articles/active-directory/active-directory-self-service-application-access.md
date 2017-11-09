@@ -16,12 +16,11 @@ ms.date: 09/06/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: 39c62461c9659b0cb4422de88686283ba462c53b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Accesso alle applicazioni self-service e gestione delegata con Azure Active Directory
 L'abilitazione della funzionalità self-service per gli utenti finali è uno scenario comune nell'IT aziendale. Con un numero elevato di utenti e di applicazioni, spesso la persona più informata per decidere a chi concedere l'accesso non è l'amministratore della directory, ma il responsabile del team o un altro amministratore con delega. Tuttavia, la persona più informata su ciò che serve per svolgere il proprio lavoro è proprio l'utente dell'applicazione.
@@ -109,4 +108,3 @@ Il riquadro **Configura** viene visualizzato solo se l'applicazione è stata con
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
-

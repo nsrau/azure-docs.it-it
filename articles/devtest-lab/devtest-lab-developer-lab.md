@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
 ms.openlocfilehash: b829ebd90034031721dfe2e97427e624306da1e9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Usare Azure DevTest Labs per sviluppatori
 Azure DevTest Labs può essere usato per implementare molti scenari chiave. Uno dei più importanti prevede l'uso di DevTest Labs per ospitare computer di sviluppo per gli sviluppatori. In questo scenario DevTest Labs offre i vantaggi seguenti:
@@ -135,5 +134,4 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs che poss
    | [Creare un lab usando un modello di Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Creare lab in Azure DevTest Labs usando modelli di Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-
 

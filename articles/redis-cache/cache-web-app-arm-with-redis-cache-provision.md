@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: sdanie
 ms.openlocfilehash: 810c1cedd4fe0bd6ecdf9bd32dfb241f5f345300
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Creare un’app Web più Cache Redis utilizzando un modello
 In questo argomento viene illustrato come creare un modello di Gestione risorse di Azure che consente di distribuire un'app Web di Azure con Cache Redis. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.

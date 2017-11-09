@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: cf2b506c6d12e6337161aba889b23ad5eca83d96
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Iniziare a creare soluzioni con la libreria di client Batch per .NET
 
@@ -51,13 +50,13 @@ Questo articolo presuppone che si sia in grado di usare C# e Visual Studio e di 
 ### <a name="visual-studio"></a>Visual Studio
 Per compilare il progetto di esempio, è necessario **Visual Studio 2015 o versioni successive**. Le versioni gratuite e di valutazione di Visual Studio sono disponibili nella [panoramica dei prodotti Visual Studio][visual_studio].
 
-### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* 
+### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial*
 L'esempio [DotNetTutorial][github_dotnettutorial] è uno dei molti esempi di codice Batch disponibili nel repository [azure-batch-samples][github_samples] in GitHub. È possibile scaricare tutti gli esempi facendo clic su **Clone or download > Download ZIP** (Clona o scarica > Scarica ZIP) nella home page del repository oppure facendo clic sul collegamento di download diretto [azure-batch-samples-master.zip][github_samples_zip]. Dopo l'estrazione dei contenuti del file ZIP, la soluzione sarà disponibile nella cartella seguente:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### <a name="azure-batch-explorer-optional"></a>Azure Batch Explorer (facoltativo)
-[Azure Batch Explorer][github_batchexplorer] è un'utilità gratuita inclusa nel repository [azure-batch-samples][github_samples] in GitHub. Nonostante non sia necessaria per completare questa esercitazione, può essere utile durante lo sviluppo e il debug delle soluzioni Batch.
+### <a name="batchlabs-optional"></a>BatchLabs (facoltativo)
+[BatchLabs][github_batchlabs] è uno strumento client autonomo, gratuito e ricco di funzionalità che semplifica la creazione, il debug e il monitoraggio delle applicazioni Azure Batch. Nonostante non sia necessaria per completare questa esercitazione, può essere utile durante lo sviluppo e il debug delle soluzioni Batch.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Panoramica del progetto di esempio DotNetTutorial
 L'esempio di codice *DotNetTutorial* è una soluzione di Visual Studio costituita da due progetti: **DotNetTutorial** e **TaskApplication**.
@@ -751,7 +750,7 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[github_batchlabs]: https://azure.github.io/BatchLabs/
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
@@ -806,4 +805,3 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Credenziali di Batch nel portale"
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenziali del servizio di archiviazione nel portale"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flusso di lavoro della soluzione Batch (diagramma minimo)"
-

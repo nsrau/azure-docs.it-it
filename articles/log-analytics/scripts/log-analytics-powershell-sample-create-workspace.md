@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 30d036ae56acc3a798d2776f292243f65cbea43d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>Creare un'area di lavoro di Log Analytics con PowerShell
 
 Questo script consente all'utente di apprendere e usare rapidamente un'area di Log Analytics di Azure, un passo necessario se si desidera iniziare a raccogliere, analizzare o intraprendere un'azione sui dati.  
@@ -48,5 +46,4 @@ Questo script usa i comandi seguenti per creare una nuova area di lavoro di Log 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
-
 

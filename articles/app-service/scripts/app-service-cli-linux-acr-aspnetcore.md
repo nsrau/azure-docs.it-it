@@ -16,14 +16,12 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 0a1c05647d2a01e2b228b654a3347a0c8375ca81
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-aspnet-core-web-app-in-a-docker-container-from-azure-container-registry"></a>Creare un'App Web ASP.NET Core in un contenitore Docker dal Registro di sistema del contenitore di Azure
 
 In questo scenario si apprenderà come creare un gruppo di risorse, un piano di servizio app di Linux e un'App Web e come distribuire un'applicazione ASP.NET Core usando un contenitore Docker dal Registro di sistema del contenitore di Azure.
@@ -37,7 +35,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh?highlight=6-9 "Registro di sistema del contenitore di Azure di Linux")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh?highlight=6-9 "Linux Azure Container Registry")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -57,4 +55,3 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'App Web 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando del servizio app sono disponibili nella [documentazione del servizio app di Azure](../app-service-cli-samples.md).
-

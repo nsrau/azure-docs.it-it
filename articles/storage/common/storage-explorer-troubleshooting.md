@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
 Microsoft Azure Storage Explorer (anteprima) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux. L'app può connettersi ad account di archiviazione ospitati in Azure, Sovereign Clouds e Azure Stack.
@@ -182,4 +180,3 @@ Se nessuna delle soluzioni funziona, comunicare il problema tramite lo strumento
 A tale scopo, fare clic sul menu **Guida** e quindi fare clic su **Commenti e suggerimenti**.
 
 ![Commenti e suggerimenti](./media/storage-explorer-troubleshooting/4022503_en_1.png)
-

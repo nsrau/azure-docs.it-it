@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2017
 ms.author: ganesr;cherylmc
+ms.openlocfilehash: 336f68308f7d4b4dd3c7476a4fabd793939e9e85
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 964ea38569062a7127f60dd6309b328db263bf6f
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Eseguire la migrazione di reti virtuali associate ExpressRoute dal modello di distribuzione classica a Resource Manager
 
@@ -75,8 +74,9 @@ Questa sezione illustra la procedura da seguire per eseguire la migrazione di un
 4. Convalidare, preparare ed eseguire la migrazione. Per spostare la rete virtuale, usare il frammento di codice di PowerShell seguente:
 
   ```powershell
-  Move-AzureVirtualNetwork -Prepare $vnetName  
-  Move-AzureVirtualNetwork -Commit $vnetName
+  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
   ```
 
   È anche possibile interrompere la migrazione eseguendo il cmdlet di PowerShell seguente:
@@ -90,4 +90,3 @@ Questa sezione illustra la procedura da seguire per eseguire la migrazione di un
 * [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 * [FAQs: Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md) (Domande frequenti: Migrazione supportata dalla piattaforma per risorse IaaS dalla distribuzione classica ad Azure Resource Manager)
 * [Rivedere gli errori di migrazione più comuni e le soluzioni](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

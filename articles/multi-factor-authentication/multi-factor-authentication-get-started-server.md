@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
+ms.openlocfilehash: d8a0eec19eea1a75b67f314f204fb769e6eff162
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introduzione al server Azure Multi-Factor Authentication
 
@@ -90,13 +89,29 @@ Se non si usa la funzionalità di conferma dell'evento e gli utenti non usano ap
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-azure-multi-factor-authentication-server"></a>Scaricare il server Azure Multi-Factor Authentication
+## <a name="download-the-mfa-server---public-preview"></a>Scaricare il server MFA - Anteprima pubblica
+
+Seguire questi passaggi per scaricare il server Azure Multi-Factor Authentication dal portale di Azure:
+
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
+2. Selezionare **Active Directory** > **Multi-Factor Authentication**.
+3. Selezionare **Impostazioni server**.
+4. Selezionare **Scarica** e seguire le istruzioni nella pagina di download per salvare il programma di installazione. 
+
+   ![Download del server MFA](./media/multi-factor-authentication-get-started-server/downloadportal.png)
+
+5. Tenere aperta questa pagina, perché sarà necessaria dopo l'esecuzione del programma di installazione.
+
+
+## <a name="download-the-mfa-server"></a>Scaricare il server MFA
+
+Seguire questi passaggi per scaricare il server Azure Multi-Factor Authentication dal portale pfweb:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
 2. A sinistra, selezionare **Active Directory**.
-3. Fare clic su **Utenti e gruppi**.
-4. Fare clic su **Tutti gli utenti**.
-5. Fare clic su **Multi-Factor Authentication**.
+3. Selezionare **Utenti e gruppi**
+4. Selezionare **Tutti gli utenti**
+5. Selezionare **Multi-Factor Authentication**
 6. Nella sezione **Multi-Factor Authentication** selezionare **Impostazioni servizio**.
 
    ![Pagina Impostazioni servizio](./media/multi-factor-authentication-get-started-server/servicesettings.png)
@@ -109,7 +124,7 @@ Se non si usa la funzionalità di conferma dell'evento e gli utenti non usano ap
 
 9. Tenere aperta questa pagina, perché sarà necessaria dopo l'esecuzione del programma di installazione.
 
-## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>Installare e configurare il server Azure Multi-Factor Authentication
+## <a name="install-and-configure-the-mfa-server"></a>Installare e configurare il server MFA
 
 Dopo averlo scaricato, è possibile installare e configurare il server. Assicurarsi che il server in cui viene installato soddisfi i requisiti elencati nella sezione relativa alla pianificazione.
 
@@ -120,7 +135,7 @@ Dopo averlo scaricato, è possibile installare e configurare il server. Assicura
 
    ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 
-5. Tornare nella pagina da cui è stato scaricato il server, scegliere il pulsante relativo alla **generazione delle credenziali di attivazione** . Copiare queste informazioni nel server Azure MFA nelle apposite caselle e fare clic su **Attiva**.
+5. Tornare alla pagina da cui è stato scaricato il server e fare clic sul pulsante **Genera credenziali di attivazione**. Copiare queste informazioni nel server Azure MFA nelle apposite caselle e fare clic su **Attiva**.
 
 ## <a name="send-users-an-email"></a>Inviare agli utenti un messaggio di posta elettronica
 
@@ -201,4 +216,3 @@ Il nuovo server è ora operativo con i dati utente e la configurazione di backup
 - Installare e configurare [Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS](multi-factor-authentication-get-started-server-rdg.md).
 - [Distribuire il servizio Web App Mobile del server Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
 - [Scenari avanzati con Azure Multi-Factor Authentication e soluzioni VPN di terze parti](multi-factor-authentication-advanced-vpn-configurations.md).
-

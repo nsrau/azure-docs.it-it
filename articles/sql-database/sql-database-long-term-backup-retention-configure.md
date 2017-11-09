@@ -9,17 +9,17 @@ editor:
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.custom: business continuity
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: ed9f74a59f0ca512e2758c6db4c5c9075030f859
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Configurare e ripristinare dalla conservazione dei backup a lungo termine del database SQL di Azure
 

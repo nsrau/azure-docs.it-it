@@ -16,10 +16,10 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: 99c27c37218a35d2a3416d6edd5e0a871cd5c011
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Pipeline CI/CD completa per distribuire un'applicazione multi-contenitore nel servizio contenitore di Azure con Docker Swarm tramite Visual Studio Team Services
 

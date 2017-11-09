@@ -10,17 +10,16 @@ tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b49393ecfb6fe639825107c5f038906a36cde687
-ms.openlocfilehash: 3cddd9f9c4b978dfad7ec727be9f43f6ed7c7c8f
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 44d912c8bee1a7c8db79d3626e00108fbcb39352
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
 Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.
@@ -127,4 +126,3 @@ Dopo avere verificato che tutti gli errori sono stati corretti, è possibile dis
 Altri [articoli sulla risoluzione dei problemi](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) per i servizi cloud.
 
 Per informazioni su come risolvere i problemi dei ruoli del servizio cloud utilizzando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
-

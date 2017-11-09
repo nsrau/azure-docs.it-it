@@ -15,10 +15,10 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
 ms.openlocfilehash: 08a05a70d976104d4e0a37b0a0dd15042b0212d8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-self-service-application-access"></a>Come usare l'accesso alle applicazioni self-service
 
@@ -74,7 +74,7 @@ Per abilitare l'accesso self-service per un'applicazione, seguire questa procedu
 
    * I gruppi non sono supportati.
 
-13. **Facoltativo:** **per le applicazioni che espongono i ruoli**, se si desidera assegnare un ruolo agli utenti approvati self-service, fare clic sul selettore accanto all'opzione **A quale ruolo è necessario assegnare gli utenti in questa applicazione?** per selezionare il ruolo a cui devono essere assegnati questi utenti.
+13. **Facoltativo:****per le applicazioni che espongono i ruoli**, se si desidera assegnare un ruolo agli utenti approvati self-service, fare clic sul selettore accanto all'opzione **A quale ruolo è necessario assegnare gli utenti in questa applicazione?** per selezionare il ruolo a cui devono essere assegnati questi utenti.
 
 14. Per terminare, fare clic sul pulsante **Salva** nella parte superiore del pannello.
 

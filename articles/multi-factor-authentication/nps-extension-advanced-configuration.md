@@ -15,14 +15,12 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: ef922668f080b8f02f07c2f9724f5a98171fb754
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 67581624ca00893176e6d31c7b2de92a19fe966a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opzioni di configurazione avanzate per l'estensione NPS per Multi-Factor Authentication
 
 L'estensione Server dei criteri di rete o NPS (Network Policy Server) estende le funzionalità di Azure Multi-Factor Authentication basate sul cloud all'infrastruttura locale. Questo articolo presuppone che l'estensione sia già installata e che sia necessario sapere in che modo personalizzare l'estensione in base alle proprie esigenze. 

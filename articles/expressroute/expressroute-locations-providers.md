@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2017
+ms.date: 10/25/2017
 ms.author: kaanan
+ms.openlocfilehash: 89ca57785819ee0ea54a0514bb7d293d9df6644c
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: bc9803b9ab5c4c6329ffa5933cbc8ff758faa20b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -89,14 +88,14 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport(Wales)** |Dati di nuova generazione |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Parigi** |Colt, Interxion, Equinix, Orange |
+| **Parigi** |Colt, Intercloud, Interxion, Equinix, Orange |
 | **Quebec City** | Megaport |
 | **San Antonio** |Megaport |
 | **Sao Paulo** |Ascenty Data Centers+, Equinix, Level 3 Communications, Neutrona Networks, Telefonica, UOLDIVEO |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
 | **Seoul** |KINX, LG CNS, Sejong Telecom |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Coresite, Equinix, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
-| **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
+| **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** |AT&T NetBond, Bell Canada, Cologix, Console, Equinix, Megaport, Telus, Zayo Group |
@@ -150,7 +149,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 ## <a name="c1partners"></a>Connettività con provider di servizi aggiuntivi
 | **Posizione** | **Exchange** | **Provider di connettività** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet |
+| **Amsterdam** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet, Telia |
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Francoforte** | Telecity | Nianet, QSC AG |
@@ -185,4 +184,3 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mappa delle località"
-

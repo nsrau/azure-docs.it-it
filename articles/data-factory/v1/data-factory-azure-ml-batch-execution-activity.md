@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: 3169584bc884107ccd34b01264683d8c73c0fecb
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 38c0798bc14b094fa788e6e414bad35b34a93d2c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 
@@ -37,6 +36,9 @@ ms.lasthandoff: 09/25/2017
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>Introduzione
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni su come [trasformare dati tramite Machine Learning in Data Factory versione 2](../transform-data-using-machine-learning.md).
+
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) consente di compilare, testare e distribuire soluzioni di analisi predittiva. Da un punto di vista generale, questo avviene in tre passaggi:
@@ -634,4 +636,3 @@ Per specificare i valori per i parametri del servizio Web, aggiungere una sezion
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
-

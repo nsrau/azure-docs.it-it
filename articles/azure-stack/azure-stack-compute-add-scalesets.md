@@ -1,6 +1,6 @@
 ---
-title: Make virtual machine scale sets available in Azure Stack
-description: Learn how a cloud administrator can add virtual machine scale to the Azure Stack Marketplace
+title: "Rendere il set di scalabilità di macchine virtuali disponibili nello Stack di Azure"
+description: "Informazioni su come un amministratore del cloud aggiungere scalabilità della macchina virtuale di Azure Marketplace Stack"
 services: azure-stack
 author: anjayajodha
 ms.service: azure-stack
@@ -8,48 +8,46 @@ ms.topic: article
 ms.date: 9/25/2017
 ms.author: anajod
 keywords: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendere il set di scalabilità di macchine virtuali disponibili nello Stack di Azure
 
-# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Make virtual machine scale sets available in Azure Stack
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+Set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure Stack. È possibile utilizzare tali per distribuire e gestire un set di macchine virtuali identiche. Con tutte le macchine virtuali configurati allo stesso set di scalabilità non richiedono pre-provisioning di macchine virtuali. Risulta più semplice compilare servizi su larga scala destinati a una soluzione big compute, dati e i carichi di lavoro nei contenitori.
 
-Virtual machine scale sets are an Azure Stack compute resource. You can use them to deploy and manage a set of identical virtual machines. With all virtual machines configured the same, scale sets don’t require pre-provisioning of virtual machines. It's easier to build large-scale services that target big compute, big data, and containerized workloads.
+Questo argomento descrive il processo per rendere disponibili i set di scalabilità in Azure Marketplace dello Stack. Dopo aver completato questa procedura, è possibile che gli utenti possono aggiungere scalabilità della macchina virtuale imposta per le sottoscrizioni.
 
-This topic guides you through the process to make scale sets available in the Azure Stack Marketplace. After you complete this procedure, your users can add virtual machine scale sets to their subscriptions.
+Set di scalabilità di macchine virtuali nello Stack di Azure sono simili a set di scalabilità di macchine virtuali in Azure. Per ulteriori informazioni, vedere i video seguenti:
+* [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) (Mark Russinovich illustra i set di scalabilità di Azure)
+* [Set di scalabilità di macchine virtuali con Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-Virtual machine scale sets on Azure Stack are like virtual machine scale sets on Azure. For more information, see the following videos:
-* [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
-* [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+Nello Stack di Azure, il set di scalabilità di macchina virtuale non supportano la scalabilità automatica. È possibile aggiungere più istanze di una scala impostata utilizzando il portale di Azure Stack, i modelli di gestione risorse o PowerShell.
 
-On Azure Stack, Virtual Machine Scale Sets do not support auto-scale. You can add more instances to a scale set using the Azure Stack portal, Resource Manager templates, or PowerShell.
+## <a name="prerequisites"></a>Prerequisiti
+* **PowerShell e strumenti**
 
-## <a name="prerequisites"></a>Prerequisites
-* **Powershell and tools**
+   Installare e PowerShell configurato per lo Stack di Azure e gli strumenti di Azure Stack. Vedere [diventare operativi con PowerShell nello Stack di Azure](azure-stack-powershell-configure-quickstart.md).
 
-   Install and configured PowerShell for Azure Stack and the Azure Stack tools. See [Get up and running with PowerShell in Azure Stack](azure-stack-powershell-configure-quickstart.md).
-
-   After you install the Azure Stack tools, make sure you import the following PowerShell module (path relative to the .\ComputeAdmin folder in the AzureStack-Tools-master folder):
+   Dopo aver installato gli strumenti di Azure Stack, accertarsi di aver importato il modulo di PowerShell seguente (percorso relativo ai. \ComputeAdmin cartella nella cartella AzureStack-strumenti-master):
 
         Import-Module .\AzureStack.ComputeAdmin.psm1
 
-* **Operating system image**
+* **Immagine del sistema operativo**
 
-   If you haven’t added an operating system image to your Azure Stack Marketplace, see [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+   Se è stato aggiunto un'immagine del sistema operativo a Stack Azure Marketplace, vedere [aggiungere l'immagine di macchina virtuale di Windows Server 2016 nel Marketplace Azure Stack](azure-stack-add-default-image.md).
 
-   For Linux support, download Ubuntu Server 16.04 and add it using ```Add-AzsVMImage``` with the following parameters: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+   Per il supporto di Linux, scaricare Ubuntu Server 16.04 e aggiungerlo mediante ```Add-AzsVMImage``` con i seguenti parametri: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
-## <a name="add-the-virtual-machine-scale-set"></a>Add the virtual machine scale set
+## <a name="add-the-virtual-machine-scale-set"></a>Aggiungere il set di scalabilità della macchina virtuale
 
-Edit the following PowerShell script for your environment and then run it to add a virtual machine scale set to your Azure Stack Marketplace. 
+Modificare lo script di PowerShell seguente per l'ambiente e quindi eseguire il codice per aggiungere un scalabilità della macchina virtuale impostato su Stack Azure Marketplace. 
 
-``$User`` is the account you use to connect the administrator portal. For example, serviceadmin@contoso.onmicrosoft.com.
+``$User``è l'account usato per connettere il portale dell'amministratore. ad esempio serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"
@@ -72,17 +70,16 @@ Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 Add-AzsVMSSGalleryItem -Location $Location
 ```
 
-## <a name="remove-a-virtual-machine-scale-set"></a>Remove a virtual machine scale set
+## <a name="remove-a-virtual-machine-scale-set"></a>Rimuovere un set di scalabilità della macchina virtuale
 
-To remove a virtual machine scale set gallery item, run the following PowerShell command:
+Per rimuovere una macchina virtuale elemento della raccolta di set di scalabilità, eseguire il comando PowerShell seguente:
 
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> The gallery item may not be removed immediately. You may need to refresh the portal several times before it is removed from the Marketplace.
+> L'elemento della raccolta non può essere rimosso immediatamente. Si potrebbe essere necessario aggiornare il portale più volte prima che venga rimossa dal Marketplace.
 
 
-## <a name="next-steps"></a>Next steps
-[Frequently asked questions for Azure Stack](azure-stack-faq.md)
-
+## <a name="next-steps"></a>Passaggi successivi
+[Domande frequenti per Azure Stack](azure-stack-faq.md)
 

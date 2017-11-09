@@ -14,15 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
-ms.custom: mvc
+ms.custom: mvc, devcenter
+ms.openlocfilehash: db3be8068ef9e560614daa0e7f0dcf62467fd338
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 810d3281ee1bcf15fb61ecea4e5de0c8fbc0bc8e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Creare un'app ASP.NET in Azure con un database SQL
 
 Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa esercitazione illustra come distribuire un'app Web ASP.NET basata sui dati in Azure e connetterla al [database SQL di Azure](../sql-database/sql-database-technical-overview.md). Al termine sarà disponibile un'applicazione ASP.NET in esecuzione in Azure e connessa al database SQL.
@@ -123,8 +121,8 @@ Nella finestra di dialogo **Configura piano di servizio app** configurare il nuo
 | Impostazione  | Valore consigliato | Per altre informazioni |
 | ----------------- | ------------ | ----|
 |**Piano di servizio app**| myAppServicePlan | [Piani del servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**Posizione**| Europa occidentale | [Aree di Azure](https://azure.microsoft.com/regions/) |
-|**Dimensione**| Free | [Piani tariffari](https://azure.microsoft.com/pricing/details/app-service/)|
+|**Posizione**| Europa occidentale | [Aree di Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**Dimensione**| Free | [Piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>Creare un'istanza di SQL Server
 
@@ -380,7 +378,7 @@ Nell'elenco a discesa **Registrazione applicazioni (file system)** selezionare *
 
 Nel browser passare di nuovo all'app Web in *http://&lt;nome dell'app >. azurewebsites.net*, quindi fare clic sull'elenco delle applicazioni da eseguire in Azure. Viene eseguito lo streaming dei messaggi di traccia nella finestra **Output** in Visual Studio.
 
-```
+```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
 Application: 2017-04-06T23:30:43  PID[8132] Verbose     GET /Todos/Create
 Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create
@@ -431,4 +429,3 @@ Passare all'esercitazione successiva per apprendere come eseguire il mapping di 
 
 > [!div class="nextstepaction"]
 > [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-domain.md)
-

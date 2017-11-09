@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 40641910f904aa0c0516f96d84d0ebbbbe8e5501
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Servizio Azure Batch per i processi di Machine Learning
 
@@ -112,4 +111,3 @@ Se si crea un pool Batch con 4 macchine virtuali e lo si elimina dopo 12 ore, al
 | **Usare l'elaborazione di pool Batch quando**    | **Usare l'elaborazione di batch classica quando**  |
 |---|---|
 |È necessario eseguire un numero elevato di processi<br>Or<br/>È necessario che i processi vengano eseguiti immediatamente<br/>Or<br/>È necessario garantire la velocità effettiva. Ad esempio, è necessario eseguire alcuni processi in un determinato intervallo temporale e aumentare le risorse di calcolo in base alle esigenze.    | Si sta eseguendo un numero limitato di processi<br/>e<br/> non è necessario che i processi vengano eseguiti immediatamente |
-

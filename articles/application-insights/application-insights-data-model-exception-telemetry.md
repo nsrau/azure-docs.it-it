@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: bwren
-ms.openlocfilehash: 6b220b0cb6719bac606f599d657d08ab847c7590
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: 3c3c3a39c7986cc771fe4baf60ad9b316888f6ed
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Telemetria delle eccezioni: modello di dati di Application Insights
 

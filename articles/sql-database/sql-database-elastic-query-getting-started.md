@@ -1,6 +1,6 @@
 ---
 title: "Creare report in database cloud con scalabilità orizzontale (partizionamento orizzontale) | Documentazione Microsoft"
-description: come utilizzare tra le query di database tra database
+description: "Usare query di database tra database per creare report tra più database."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.openlocfilehash: 8eb56d44c3a261f6325d4fc91f169d09bf108160
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: bb5c39a600fb55dffc342535386f8049c9f4ca5a
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Creare report in database cloud con numero maggiore di istanze (anteprima)
 È possibile creare report da più database SQL di Azure da un unico punto di connessione usando una [query elastica](sql-database-elastic-query-overview.md). Il database deve essere con partizionamento orizzontale.

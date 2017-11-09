@@ -12,18 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-f1_keywords:
-- sql13.swb.windowsazurestorage.connect.f1
-ms.date: 01/23/2017
+f1_keywords: sql13.swb.windowsazurestorage.connect.f1
+ms.date: 10/11/2017
 ms.author: tamram
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 848f6b07e51b58b00b81dd42ca1d478fdba20d06
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Informazioni sugli account di archiviazione di Azure
+
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -34,6 +33,7 @@ Un account di archiviazione di Azure offre uno spazio dei nomi univoco per archi
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ## <a name="storage-account-billing"></a>Fatturazione dell'account di archiviazione
+
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -63,7 +63,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Dal menu Hub scegliere **Nuovo** -> **Archiviazione** -> **Account di archiviazione**.
+2. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Altri servizi**. Scorrere quindi verso il basso fino ad **Archiviazione** e scegliere **Account di archiviazione**. Nella finestra **Account di archiviazione** visualizzata scegliere **Aggiungi**.
 3. Immettere un nome per l'account di archiviazione. Per informazioni dettagliate sul modo in cui questo nome verrà usato per indirizzare oggetti in Archiviazione di Azure, vedere [Endpoint dell'account di archiviazione](#storage-account-endpoints) .
    
    > [!NOTE]
@@ -79,7 +79,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 5. Selezionare il tipo di account di archiviazione: **Utilizzo generico** o **Archivio BLOB**. **Utilizzo generico** .
    
-    Se è stata selezionata l'opzione **Utilizzo generico**, specificare il livello di prestazioni: **Standard** o **Premium**. Il livello predefinito è **Standard**. Per informazioni dettagliate sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) e [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md).
+    Se è stata selezionata l'opzione **Utilizzo generico**, specificare il livello di prestazioni: **Standard** o **Premium**. Il livello predefinito è **Standard**. Per informazioni dettagliate sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) e [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md).
    
     Se è stata selezionata l'opzione **Archivio BLOB**, specificare il livello di accesso come **frequente** o **sporadico**. Il livello predefinito è **Frequente**. Per informazioni dettagliate, vedere l'articolo [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico](../blobs/storage-blob-storage-tiers.md) .
 6. Selezionare l'opzione di replica per l'account di archiviazione: **Archiviazione con ridondanza locale**, **Archiviazione con ridondanza geografica**, **Archiviazione con ridondanza geografica e accesso in lettura** o **Archiviazione con ridondanza della zona**. L'opzione predefinita è **Archiviazione con ridondanza geografica e accesso in lettura**. Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
@@ -149,5 +149,4 @@ Se si prova a eliminare un account di archiviazione associato a una macchina vir
 * [Configurare le stringhe di connessione di archiviazione di Azure](../storage-configure-connection-string.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-
 

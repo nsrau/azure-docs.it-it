@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: ffa791cf4c4be15645a67fef4e94bf6ebdc42a6a
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: b29147a37f9a90fc80e16b350ac9b91daac1d7f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurare connessioni coesistenti ExpressRoute e da sito a sito
 > [!div class="op_single_selector"]
@@ -233,4 +232,3 @@ Per altre informazioni sulle VPN da punto a sito, vedere [Configurare una connes
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
-

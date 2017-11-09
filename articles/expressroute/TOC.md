@@ -35,17 +35,19 @@
 ## Configurare i filtri di route per il peering Microsoft
 ### [Portale di Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Interfaccia della riga di comando di Azure](how-to-routefilter-cli.md)
 ## [Spostare un circuito dal modello di distribuzione classica a quello Resource Manager](expressroute-howto-move-arm.md)
 ## [Eseguire la migrazione di reti virtuali associate dal modello classico a Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configurare un router per ExpressRoute
 ### [Configurare un router](expressroute-config-samples-routing.md)
 ### [Esempi di configurazione di router per NAT](expressroute-config-samples-nat.md)
+## [Configurare Monitoraggio prestazioni rete per ExpressRoute](how-to-npm.md)
 
 ## Procedure consigliate
 ### [Procedure consigliate per la sicurezza di rete e i servizi cloud](../best-practices-network-security.md)
 ### [Ottimizzare il routing](expressroute-optimize-routing.md)
 ### [Routing asimmetrico](expressroute-asymmetric-routing.md)
-### [NAT per ExpressRoute](expressroute-routing-nat.md)
+### [NAT per ExpressRoute](expressroute-nat.md)
 
 ## Risoluzione dei problemi
 ### [Verifica della connettività ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

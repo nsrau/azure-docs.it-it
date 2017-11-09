@@ -5,20 +5,17 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
+ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 4440ca81545978ab7438f1684ce71ded24c326e9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
-
-
 # <a name="review-usage-and-costs"></a>Esaminare l'utilizzo e i costi
 
 Gestione dei costi di Azure di Cloudyn visualizza l'utilizzo e i costi consentendo di tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi. Tutti i dati di utilizzo e i dati sui costi sono visualizzati nei dashboard e nei report di Cloudyn. Gli esempi di questa esercitazione illustrano come esaminare l'utilizzo e i costi tramite i dashboard e i report. In questa esercitazione si apprenderà come:
@@ -42,7 +39,7 @@ Di seguito è illustrato un report di esempio:
 
 ![report di esempio](./media/tutorial-review-usage/actual-cost01.png)
 
-Il report visualizza tutte le spese degli ultimi 30 giorni. Per visualizzare solo le spese per i servizi di Azure, applicare il gruppo Servizio e quindi applicare un filtro per tutti i servizi di Azure. La figura seguente illustra i servizi filtrati.
+Il report visualizza tutte le spese degli ultimi 30 giorni. Per visualizzare solo le spese per i servizi di Azure, applicare il gruppo Servizio e quindi applicare un filtro per tutti i servizi di Azure. L'immagine seguente mostra i servizi filtrati.
 
 ![servizi filtrati](./media/tutorial-review-usage/actual-cost02.png)
 
@@ -52,13 +49,15 @@ Nell'esempio precedente è stato speso meno denaro a partire dal 31-08-2017 risp
 
 Nell'esempio è chiaramente visibile che il costo di Archiviazione di Azure è calato a partire dal 31-08-2017 mentre la spesa per gli altri servizi di Azure si è mantenuta costante. Che cosa ha causato il calo della spesa? In questo esempio alcuni dipendenti erano in vacanza e non hanno usato il servizio Archiviazione.
 
+Per guardare un video di esercitazione su come tenere traccia delle tendenze di utilizzo e dei costi, vedere [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g) (Analisi del rapporto fatturazione/tempo per il cloud con Gestione costi di Azure di Cloudyn).
+
 ## <a name="detect-usage-inefficiencies"></a>Rilevare le inefficienze dell'utilizzo
 
 I report dell'utilità di ottimizzazione migliorano l'efficienza, ottimizzano l'utilizzo e identificano i modi in cui è possibile risparmiare il denaro speso nelle risorse cloud. I report sono particolarmente utili con consigli di ridimensionamento che hanno come obiettivo la riduzione del numero di macchine virtuali inattive o costose.
 
 Un problema comune alle organizzazioni che spostano per la prima volta le risorse nel cloud è rappresentato dalla strategia di virtualizzazione. Le organizzazioni usano spesso un approccio simile a quello usato per la creazione di macchine virtuali per l'ambiente di virtualizzazione locale. Presuppongono che per ridurre i costi sia sufficiente spostare le macchine virtuali locali nel cloud, senza apportare altre modifiche. Tuttavia, è probabile che questo approccio non riduca i costi.
 
-Il problema è che l'infrastruttura esistente è già stata pagata. Gli utenti potevano creare e mantenere in esecuzione macchine virtuali di grandi dimensioni, inattive o meno, senza alcuna conseguenza. Lo spostamento di macchine virtuali di grandi dimensioni o inattive nel cloud può *aumentare* i costi. L'allocazione dei costi per le risorse è molto importante quando si sottoscrivono contratti con i provider di servizi cloud. È necessario pagare per quanto sottoscritto, indipendentemente dal fatto che la risorsa venga usata interamente o meno.
+Il problema è che l'infrastruttura esistente è già stata pagata. Gli utenti potevano creare e mantenere in esecuzione macchine virtuali di grandi dimensioni, inattive o meno, senza alcuna conseguenza. Lo spostamento di macchine virtuali di grandi dimensioni o inattive nel cloud può *aumentare* i costi. L'allocazione dei costi per le risorse è importante quando si sottoscrivono contratti con i provider di servizi cloud. È necessario pagare per quanto sottoscritto, indipendentemente dal fatto che la risorsa venga usata interamente o meno.
 
 Il report Cost Effective Sizing Recommendations (Consigli di ridimensionamento per la riduzione dei costi) identifica i risparmi annuali potenziali confrontando la capacità dei tipi di istanza delle macchine virtuali con i dati cronologici di utilizzo della CPU e della memoria.  
 
@@ -73,6 +72,8 @@ In questo esempio è stato possibile risparmiare $ 3.114 seguendo i consigli per
 Fare clic sul segno più accanto a **List of Candidates** (Elenco dei candidati) per visualizzare gli ID delle istanze della macchina virtuale.
 
 ![Elenco dei candidati](./media/tutorial-review-usage/sizing03.png)
+
+Per guardare un video di esercitazione per il rilevamento delle inefficienze di utilizzo, vedere [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704) (Ottimizzazione delle dimensioni delle macchine virtuali in Gestione costi di Azure di Cloudyn).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Creare avvisi per spese inusuali
 
@@ -101,4 +102,3 @@ Passare all'esercitazione successiva per apprendere come controllare l'accesso a
 
 > [!div class="nextstepaction"]
 > [Controllo dell'accesso ai dati](tutorial-user-access.md)
-

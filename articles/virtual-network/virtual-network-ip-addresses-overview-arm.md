@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 8ddd582ed159e10add896252c40feb19780c42fb
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -61,7 +60,7 @@ Tutti gli indirizzi IP pubblici creati prima dell'introduzione degli SKU sono in
 - Assegnati con il metodo di allocazione statica o dinamica.
 - Assegnati a qualsiasi risorsa di Azure a cui può essere assegnato un indirizzo IP pubblico, ad esempio interfacce di rete, gateway VPN e servizi di bilanciamento del carico con connessione Internet.
 - Assegnabili a una zona specifica.
-- Senza ridondanza della zona. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica di Zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Senza ridondanza della zona. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 #### <a name="standard"></a>Standard
 
@@ -74,7 +73,7 @@ Gli indirizzi IP pubblici con SKU Standard sono:
 > [!NOTE]
 > Quando si assegna un indirizzo IP pubblico con SKU Standard all'interfaccia di rete di una macchina virtuale, è necessario consentire in modo esplicito il traffico previsto con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups).  La comunicazione con la risorsa non riesce finché non si crea e si associa un gruppo di sicurezza di rete e si consente in modo esplicito il traffico desiderato.
 
-Lo SKU Standard è in versione di anteprima. Prima di creare un indirizzo IP pubblico con SKU Standard, è necessario eseguire la registrazione per l'anteprima e creare l'indirizzo in una località supportata. Per eseguire la registrazione per l'anteprima, vedere [Eseguire la registrazione per l'anteprima dello SKU Standard](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview). Per un elenco di località (aree) supportate, vedere [Region availability](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) (Disponibilità a livello di area) e monitorare la pagina [Aggiornamenti di Rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network) per ulteriore supporto sulle aree.
+Lo SKU Standard è in versione di anteprima. Prima di creare un indirizzo IP pubblico con SKU Standard, è necessario eseguire la registrazione per l'anteprima e creare l'indirizzo in una località supportata. Per eseguire la registrazione per l'anteprima, vedere [Eseguire la registrazione per l'anteprima dello SKU Standard](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview). Per un elenco delle posizioni (aree) supportate, vedere [Region availability](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) (Disponibilità a livello di area) e monitorare la pagina [Aggiornamenti di Rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network) per altro supporto sulle aree.
 
 
 ### <a name="allocation-method"></a>Metodo di allocazione
@@ -193,4 +192,3 @@ Per gli indirizzi IP pubblici può essere previsto un addebito nominale. Per alt
 * [Distribuire una VM con un IP pubblico statico tramite il portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
 * [Distribuire una VM con un IP pubblico statico tramite un modello](virtual-network-deploy-static-pip-arm-template.md)
 * [Come impostare un indirizzo IP statico privato nel portale di Azure](virtual-networks-static-private-ip-arm-pportal.md)
-

@@ -11,22 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 10/06/2017
 ms.author: bwren
+ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 10b7f3ad23d9c5451bc7ff82b8927c260230f6da
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/16/2017
 ---
-
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Transizione al nuovo linguaggio di query di Azure Log Analytics
-
-> [!NOTE]
-> In [Aggiornare l'area di lavoro di Azure Log Analytics alla nuova ricerca log](log-analytics-log-search-upgrade.md) sono disponibili altre informazioni sul nuovo linguaggio di query di Log Analytics e istruzioni per l'aggiornamento dell'area di lavoro.
-
-Questo articolo offre informazioni utili per la transizione al nuovo linguaggio di query per Log Analytics se si ha già familiarità con il linguaggio legacy.
+Log Analytics ha recentemente implementato un nuovo linguaggio di query.  Questo articolo offre informazioni utili per la transizione a questo linguaggio di Log Analytics se si ha già familiarità con il linguaggio legacy ma è comunque necessaria assistenza.
 
 ## <a name="language-converter"></a>Convertitore di linguaggio
 
@@ -50,7 +44,7 @@ La tabella seguente mette a confronto i comandi equivalenti di svariate query co
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Confronto di date        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
-| Confronto booleano     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat | where IsGatewayInstalled == false |
+| Confronto booleano     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
 | Ordinamento                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Distinzione               | Type=Event &#124; dedup Computer \| select Computer | Event &#124; summarize by Computer, EventLog |
 | Estensione di colonne         | Type=Perf CounterName="% Processor Time" &#124; EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf &#124; where CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |
@@ -65,4 +59,3 @@ La tabella seguente mette a confronto i comandi equivalenti di svariate query co
 ## <a name="next-steps"></a>Passaggi successivi
 - Vedere un'[esercitazione sulla scrittura di query](https://go.microsoft.com/fwlink/?linkid=856078) con il nuovo linguaggio di query.
 - Vedere le [informazioni di riferimento sul linguaggio di query](https://go.microsoft.com/fwlink/?linkid=856079) per informazioni dettagliate su tutti i comandi, gli operatori e le funzioni per il nuovo linguaggio di query.  
-

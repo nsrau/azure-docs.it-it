@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
 ms.openlocfilehash: 8d05fe3ed9a5c66f186a930d4107162c1f322c05
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Introduzione all'archiviazione tabelle di Azure e ai servizi relativi a Visual Studio
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]

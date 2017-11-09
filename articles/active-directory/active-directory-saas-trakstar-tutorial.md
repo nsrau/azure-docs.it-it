@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 757429aa187e6536489b6636a0a11d122c7f9378
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 19948f1e2e77c78b7ce8aed66a7bdb74ba8640dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Esercitazione: Integrazione di Azure Active Directory con Trakstar
 
@@ -38,6 +37,7 @@ Per configurare l'integrazione di Azure AD con Trakstar, sono necessari gli elem
 
 - Sottoscrizione di Azure AD.
 - Sottoscrizione di Trakstar abilitata per l'accesso Single Sign-On
+    - SSO è una funzionalità a pagamento di Trakstar. Per abilitare la funzionalità nell'organizzazione contattare il [team di supporto clienti Trakstar](mailto:support@trakstar.com).
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -111,12 +111,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://app.trakstar.com/auth/saml/callback?namespace=<NAMESPACE>`.
+    a. Nella casella di testo **URL accesso** copiare il valore trovato in **ACS (Consumer) URL** (URL ACS - Consumer) in Trakstar (Settings > Authentication & SSO) (Impostazioni > Autenticazione e SSO) nel formato:`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<subdomain>.trakstar.com`
+    b. Nella casella di testo **Identificatore** lasciare il valore predefinito: `https://app.trakstar.com`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Trakstar](mailto:integrations@trakstar.com). 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Accedere a Trakstar come amministratore per ottenere questi valori.
+    > Se non viene visualizza la scheda "Authentication & SSO" (Autenticazione & SSO) nelle impostazioni, è possibile che non si disponga della funzionalità
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -130,7 +131,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_configure.png) 
 
-7. Per configurare l'accesso Single Sign-On sul lato **Trakstar**, è necessario inviare il file di **Certificato (Base64)** scaricato, **l'URL di disconnessione, l'ID entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di Trakstar](mailto:integrations@trakstar.com). 
+7. Per configurare l'accesso Single Sign-On sul lato **Trakstar**, è necessario accedere come amministratore e inviare il file di **Certificato (Base64)** scaricato, **l'URL di disconnessione, l'ID entità SAML e l'URL del servizio Single Sign-On SAML**. 
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -169,7 +170,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-trakstar-test-user"></a>Creazione di un utente test di Trakstar
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in Trakstar. Collaborare con il [team di supporto di Trakstar](mailto:integrations@trakstar.com) per aggiungere utenti all'account Trakstar. 
+Questa sezione descrive come creare un utente chiamato Britta Simon in Trakstar.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
@@ -227,5 +228,4 @@ Quando si fa clic sul riquadro Trakstar nel pannello di accesso, verrà eseguito
 [201]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_203.png
-
 

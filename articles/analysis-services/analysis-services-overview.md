@@ -4,7 +4,7 @@ description: Ottenere un quadro generale di Analysis Services in Azure.
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 83d7a29c-57ae-4aa0-8327-72dd8f00247d
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8b3a538fc0fe34d0b7af8a99510cfb19abd32d55
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -128,4 +127,3 @@ In caso di suggerimenti sulla documentazione, è possibile aggiungere commenti u
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver ottenuto alcune informazioni su Azure Analysis Services, è possibile iniziare a usarlo. Altre informazioni su come [creare un server](analysis-services-create-server.md) in Azure. Quando il server è pronto, vedere l'[esercitazione di Adventure Works](tutorials/aas-adventure-works-tutorial.md) per informazioni su come creare un modello tabulare completamente funzionale e distribuirlo nel server.
-

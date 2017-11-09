@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: 10d01d5d80e2d111d6b39598eed3612f80162b23
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: c617006bcb122cd3191f5da3ff08191e3c55b04b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>Creare un gateway applicazione con il routing basato sul percorso con l'interfaccia della riga di comando di Azure 2.0
 
@@ -100,7 +99,7 @@ Questo passaggio configura il percorso URL relativo usato dal gateway applicazio
 > [!IMPORTANT]
 > Ogni percorso deve iniziare con una barra rovesciata ("/") e l'unica posizione in cui è consentito l'asterisco è alla fine. Alcuni esempi validi sono /xyz, /xyz* o /xyz/*. La stringa inviata al selettore di percorsi non include alcun testo dopo il primo carattere "?" o "#" e questi caratteri non sono consentiti. 
 
-L'esempio seguente crea una regola per il percorso "/images/*" che instrada il traffico al back-end **imagesBackendPool**. Questa regola assicura che il traffico per ogni set di URL venga indirizzato al back-end. Ad esempio, http://adatum.com/images/figure1.jpg passa a **imagesBackendPool**. In caso di mancata corrispondenza con le regole di percorso predefinite, la configurazione del mapping dei percorsi della regola configura anche un pool di indirizzi back-end predefinito. Ad esempio, http://adatum.com/shoppingcart/test.html passa al **pool1** definito come pool predefinito per il traffico senza corrispondenza.
+L'esempio seguente crea una regola per il percorso "/images/*\" che instrada il traffico al back-end **imagesBackendPool**. Questa regola assicura che il traffico per ogni set di URL venga indirizzato al back-end. Ad esempio, http://adatum.com/images/figure1.jpg passa a **imagesBackendPool**. In caso di mancata corrispondenza con le regole di percorso predefinite, la configurazione del mapping dei percorsi della regola configura anche un pool di indirizzi back-end predefinito. Ad esempio, http://adatum.com/shoppingcart/test.html passa al **pool1** definito come pool predefinito per il traffico senza corrispondenza.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -124,4 +123,3 @@ Per informazioni sull'offload SSL (Secure Sockets Layer), vedere [Configurare un
 [1]: ./media/application-gateway-create-url-route-cli/figure1.png
 [2]: ./media/application-gateway-create-url-route-cli/figure2.png
 [3]: ./media/application-gateway-create-url-route-cli/figure3.png
-

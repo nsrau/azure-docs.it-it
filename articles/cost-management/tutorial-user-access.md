@@ -5,20 +5,17 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
+ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 32e5c2c7c058267c7a2c43d5264922c8a4cab83a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
-
-
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l'accesso ai dati di Gestione dei costi
 
 L'accesso ai dati di Gestione dei costi è fornito per utente o gestione di entità. Gli account utente Cloudyn determinano l'accesso a *entità* e le funzioni amministrative. Esistono due tipi di accesso: amministratore e utente. A meno che non sia modificato per ogni utente, l'accesso amministrativo consente all'utente di usare senza restrizioni tutte le funzioni del portale Cloudyn, tra cui: gestione degli utenti, la gestione degli elenchi di destinatari e accesso all'entità radice per tutti i dati di entità. L'accesso utente consente agli utenti finali di visualizzare e creare report usando l'accesso di cui dispongono ai dati di entità.
@@ -52,6 +49,8 @@ Gli utenti tipici che richiedono l'accesso a dati di gestione dei costi come das
 
 ![aggiungere un nuovo utente con accesso utente](.\media\tutorial-user-access\new-user-access.png)
 
+Per guardare un video di esercitazione sull'aggiunta di utenti, vedere [Aggiungere utenti in Gestione dei costi di Azure](https://youtu.be/Nzn7GLahx30).
+
 ## <a name="create-entities"></a>Creare entità
 
 Quando si definisce la gerarchia delle entità di costi, una procedura consigliata consiste nell'identificare la struttura dell'organizzazione.
@@ -71,6 +70,10 @@ Accanto a **Entità**, fare clic su **Aggiungi entità**. Immettere le informazi
 Al termine, **salvare** l'entità.
 
 
+Per guardare un video di esercitazione sulla creazione di una gerarchia di entità costo, vedere [Creare una gerarchia di entità costo in Gestione dei costi di Azure](https://youtu.be/dAd9G7u0FmU).
+
+Per gli utenti di un Azure Enterprise Agreement, è disponibile un video di esercitazione sull'associazione di account e sottoscrizioni a entità nella pagina [Connessione ad Azure Resource Manager con Gestione dei costi di Azure](https://youtu.be/oCIwvfBB6kk).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione si è appreso come:
@@ -80,8 +83,7 @@ In questa esercitazione si è appreso come:
 > * Creare un utente con accesso utente
 > * Creare entità
 
-Proseguire per passare alla documentazione di Cloudyn e cercare altre informazioni di introduzione a Cloudyn e uso delle funzionalità.
+Passare alla prossima esercitazione per imparare come prevedere la spesa usando i dati cronologici.
 
 > [!div class="nextstepaction"]
-> [Documentazione di Cloudyn](https://support.cloudyn.com/hc/)
-
+> [Prevedere la spesa futura](tutorial-forecast-spending.md)

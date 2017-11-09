@@ -13,24 +13,21 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 05/26/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4f2b70b79e52df902e0f659fc97158d446efdf50
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 803ca6cb9e7c5633920ab44e45cf211eca1517a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Risoluzione dei problemi relativi a specifici messaggi di errore RDP inviati a una VM Windows in Azure
 Quando si usa una connessione Desktop remoto a una macchina virtuale (VM) Windows in Azure, è possibile ricevere uno specifico messaggio di errore. Questo articolo illustra nei dettagli alcuni dei più comuni messaggi di errore visualizzati e spiega le procedure per la risoluzione dei problemi relativi a tali messaggi. Se si verificano problemi di connessione alla VM mediante RDP ma non viene visualizzato un messaggio di errore specifico, vedere la [guida alla risoluzione dei problemi relativi a Desktop remoto](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Per informazioni su messaggi di errore specifici, vedere quanto segue:
 
-* <seg>
-  [La sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza](#rdplicense).</seg>
+* [La sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza](#rdplicense).
 * [Desktop remoto: impossibile rilevare il "nome" del computer](#rdpname).
 * [Si è verificato un errore di autenticazione. Impossibile contattare l'autorità di sicurezza locale](#rdpauth).
 * [Errore di sicurezza di Windows: Le credenziali specificate non funzionano](#wincred).
@@ -112,5 +109,4 @@ Se non è stato visualizzato alcuno di questi messaggi ma si verifica un errore 
 
 * Per la risoluzione dei problemi di accesso alle applicazioni in esecuzione in una VM, vedere [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Risolvere i problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure).
 * Se si verificano problemi relativi all'uso di SSH (Secure Shell) per la connessione a una VM Linux in Azure, vedere [Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 

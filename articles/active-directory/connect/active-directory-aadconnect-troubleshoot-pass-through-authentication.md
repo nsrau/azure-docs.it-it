@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/12/2017
 ms.author: billmath
+ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/14/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
 Questo articolo consente di trovare informazioni utili per risolvere i problemi comuni relativi all'autenticazione pass-through di Azure AD.
@@ -129,6 +127,10 @@ L'applicazione della configurazione richiede tempo. Il periodo di tempo dipende 
 
 In base al tipo di problema, i registri dell'agente di autenticazione pass-through vanno cercati in posizioni diverse.
 
+### <a name="azure-ad-connect-logs"></a>Log di Azure AD Connect
+
+Per gli errori relativi all'installazione, controllare i log di Azure AD Connect in **%ProgramData%\AADConnect\trace-\*.log**.
+
 ### <a name="authentication-agent-event-logs"></a>Registri eventi dell'agente di autenticazione
 
 Per gli errori correlati all'agente di autenticazione aprire l'applicazione Visualizzatore eventi sul server e controllare in **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
@@ -137,7 +139,7 @@ Per un'analisi dettagliata, abilitare il registro "Session". Non eseguire l'agen
 
 ### <a name="detailed-trace-logs"></a>Log di traccia dettagliati
 
-Per risolvere gli errori di accesso utente, esaminare i registri di traccia in **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Questi log includono i motivi per cui l'accesso di un utente specifico non è riuscito tramite la funzionalità di autenticazione pass-through. Questi errori sono anche associati ai motivi degli errori di accesso indicati nella [tabella](#sign-in-failure-reasons-on-the-Azure-portal) precedente. Di seguito è riportato un esempio di voce di registro:
+Per risolvere gli errori di accesso utente, esaminare i log di traccia in **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Questi log includono i motivi per cui l'accesso di un utente specifico non è riuscito tramite la funzionalità di autenticazione pass-through. Questi errori sono anche associati ai motivi degli errori di accesso indicati nella [tabella](#sign-in-failure-reasons-on-the-Azure-portal) precedente. Di seguito è riportato un esempio di voce di registro:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -171,4 +173,3 @@ Un altro metodo per monitorare gli agenti di autenticazione consiste nel monitor
 
 >[!IMPORTANT]
 >L'autenticazione pass-through fornisce disponibilità elevata tramite più agenti di autenticazione, _senza_ il bilanciamento del carico. A seconda della configurazione, _non_ tutti gli agenti di autenticazione ricevono all'incirca un numero _uguale_ di richieste. È possibile che un agente di autenticazione specifico non riceva traffico del tutto.
-

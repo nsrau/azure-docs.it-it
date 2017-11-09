@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 224fbebd40a44dfb2e032150612467af3a8aca8a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Creare rapidamente una macchina virtuale con l'interfaccia della riga di comando di Azure
 
 Questo script crea una macchina virtuale di Azure con Windows Server 2016 e usa l'estensione dello script personalizzato di Macchina virtuale di Azure per installare IIS. Dopo l'esecuzione dello script, è possibile accedere al sito Web IIS predefinito tramite l'indirizzo IP pubblico della macchina virtuale.
@@ -33,7 +31,7 @@ Questo script crea una macchina virtuale di Azure con Windows Server 2016 e usa 
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-windows-iis/create-vm-windows-iis.sh "Creazione rapida della macchina virtuale")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-windows-iis/create-vm-windows-iis.sh "Quick Create VM")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
@@ -60,4 +58,3 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando della macchina virtuale sono reperibili nella [documentazione della macchina virtuale Windows Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

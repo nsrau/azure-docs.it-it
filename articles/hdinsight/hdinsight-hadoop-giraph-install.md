@@ -17,10 +17,10 @@ ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.openlocfilehash: f0eb5c1f457380600463a370043f03e6d655a02c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Installare e usare Giraph nei cluster HDInsight basati su Windows
 

@@ -16,10 +16,10 @@ ms.date: 02/20/2016
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 369802f1a42b8720aa730d5ac7e5576ed20eeddf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>Aggiungere accesso a un'app di Windows universale usando l'endpoint v2.0
   L'esercitazione introduttiva per app universali di Windows non è ancora disponibile... Riprovare più tardi e cercare gli aggiornamenti da @AzureAD su Twitter.

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: nitinme
+ms.openlocfilehash: c1c74c797449c2fa6d76438f9ec33eaf0fe51af4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: af5b05a366c1abbe7c91d186358dba2b4a957f92
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Usare Azure Log Analytics per monitorare i cluster HDInsight (Anteprima)
 
@@ -43,7 +42,7 @@ Log Analytics è un servizio di [Operations Management Suite (OMS)](../operation
     Per istruzioni su come creare un cluster HDInsight, vedere [Introduzione ad Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
-* **Un'area di lavoro di Log Analytics**. Un'area di lavoro è un ambiente di Log Analytics univoco con un archivio dati, origini dati e soluzioni. È necessario avere un'area di lavoro di questo tipo già creata, da poter associare ai cluster Azure HDInsight. Per istruzioni, vedere [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-get-started.md#2-create-a-workspace).
+* **Un'area di lavoro di Log Analytics**. Un'area di lavoro è un ambiente di Log Analytics univoco con un archivio dati, origini dati e soluzioni. È necessario avere un'area di lavoro di questo tipo già creata, da poter associare ai cluster Azure HDInsight. Per istruzioni, vedere [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
 
 ## <a name="configure-hdinsight-cluster-to-use-azure-log-analytics"></a>Configurare il cluster HDInsight per l'uso di Azure Log Analytics
 
@@ -67,4 +66,3 @@ In questa sezione si configura un cluster Hadoop HDInsight esistente per usare u
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere soluzioni di gestione di cluster HDInsight in Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
-

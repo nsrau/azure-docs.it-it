@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
+ms.openlocfilehash: e4f7571acb72d8f099898fffc05eb43083aeabfe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ba5116b1e92fbb34a6a83f20fff661beb66b5d0c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Evitare gli addebiti per l'account gratuito di Azure
 
@@ -50,4 +49,3 @@ I vantaggi associati all'account gratuito di Azure scadono alla fine dei 12 mesi
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-

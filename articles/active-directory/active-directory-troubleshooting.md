@@ -1,5 +1,5 @@
 ---
-title: "Risoluzione dei problemi: Elemento \"Active Directory\" è mancante o non disponibile | Documenti Microsoft"
+title: 'Risoluzione dei problemi: Voce "Active Directory" mancante o non disponibile | Microsoft Docs'
 description: Operazioni da eseguire quando la voce di menu Active Directory non viene visualizzata nel portale di gestione di Azure.
 services: active-directory
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Risoluzione dei problemi: Voce "Active Directory" mancante o non disponibile
 Per la maggior parte delle istruzioni relative all'uso delle funzionalità di Azure Active Directory è necessario accedere al portale di gestione di Azure e fare clic su **Active Directory**. Come procedere però se la voce di menu Active Directory non viene visualizzata o è contrassegnata come **Non disponibile**? Questo argomento illustra come risolvere il problema. Descrive inoltre le condizioni per cui la voce di menu **Active Directory** non viene visualizzata o non è disponibile e illustra le procedure da eseguire.

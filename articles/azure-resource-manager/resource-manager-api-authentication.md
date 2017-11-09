@@ -1,6 +1,6 @@
 ---
 title: Autenticazione di Azure Active Directory e Resource Manager | Microsoft Docs
-description: Guida per gli sviluppatori all&quot;autenticazione con l&quot;API di Azure Resource Manager e Azure Active Directory per l&quot;integrazione di un&quot;app con altre sottoscrizioni di Azure.
+description: Guida per gli sviluppatori all'autenticazione con l'API di Azure Resource Manager e Azure Active Directory per l'integrazione di un'app con altre sottoscrizioni di Azure.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
-ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
-
+ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Usare l'API di autenticazione di Resource Manager per accedere alle sottoscrizioni
 ## <a name="introduction"></a>Introduzione
@@ -89,7 +87,7 @@ I risultati includono l'AppId necessario per autenticarsi come applicazione.
 ### <a name="optional-configuration---certificate-credential"></a>Configurazione facoltativa: credenziali del certificato
 Azure AD supporta anche le credenziali certificato per le applicazioni: creare un certificato autofirmato, mantenere la chiave privata e aggiungere la chiave pubblica alla registrazione dell'applicazione Azure AD. Per l'autenticazione, l'applicazione invia un piccolo payload ad Azure AD firmato usando la chiave privata e Azure AD convalida la firma usando la chiave pubblica registrata.
 
-Per informazioni sulla creazione di un'app Active Directory con un certificato, vedere [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) (Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse) o [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate) (Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse).
+Per informazioni sulla creazione di un'app Active Directory con un certificato, vedere [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) (Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse) o [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md) (Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse).
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Ottenere l'ID tenant dall'ID sottoscrizione
 Per richiedere un token da usare per chiamare Resource Manager, l'applicazione deve conoscere l'ID tenant del tenant di Azure AD che ospita la sottoscrizione di Azure. Molto probabilmente gli utenti conoscono i relativi ID sottoscrizione, ma potrebbero non conoscere gli ID tenant per Azure Active Directory. Per ottenere l'ID tenant dell'utente, chiedere all'utente l'ID sottoscrizione. Fornire questo ID sottoscrizione quando si invia una richiesta relativa alla sottoscrizione:
@@ -363,4 +361,3 @@ Solo gli utenti con l'autorizzazione per la gestione degli accessi possono disco
 Il metodo [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) dell'app di esempio ASP.NET MVC implementa questa chiamata.
 
 Gli utenti ora possono connettere e gestire facilmente le sottoscrizioni di Azure con l'applicazione.
-

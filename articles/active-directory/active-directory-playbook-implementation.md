@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: dstefan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 298ff9b851f604b89e5672e41ab112b67990b0d6
-ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: 10877ee33ec04cf0d350417af59d598eab249aa0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Playbook di PoC di Azure Active Directory: implementazione
 

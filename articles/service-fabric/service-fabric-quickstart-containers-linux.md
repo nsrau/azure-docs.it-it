@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
+ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: d07d5d59632791a52bcb3a2f54bebe194cc76a54
-ms.openlocfilehash: 44eaaae123490934bc62b4ea30968656900d48fc
-ms.contentlocale: it-it
-ms.lasthandoff: 10/04/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Distribuire un'applicazione contenitore Linux di Azure Service Fabric in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
 
@@ -31,7 +29,7 @@ Questa guida introduttiva illustra come distribuire contenitori Linux in un clus
 
 In questa guida introduttiva si apprende come:
 > [!div class="checklist"]
-> * Distribuire contenitori Linux in Service Fabric
+> * Distribuire i contenitori in un cluster di Service Fabric Linux in Azure
 > * Eseguire il ridimensionamento e il failover di contenitori in Service Fabric
 
 ## <a name="prerequisite"></a>Prerequisito
@@ -54,6 +52,10 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Distribuire i contenitori in un cluster di Service Fabric in Azure
 Per distribuire l'applicazione in un cluster in Azure, usare il proprio cluster o un party cluster.
+
+> [!Note]
+> L'applicazione deve essere distribuita in un cluster in Azure e non in un cluster di Service Fabric nel computer di sviluppo locale. 
+>
 
 I party cluster sono cluster di Service Fabric gratuiti disponibili per un periodo di tempo limitato, ospitati in Azure. Sono gestiti dal team di Service Fabric e consentono a chiunque di distribuirvi applicazioni e imparare a usare la piattaforma. Per ottenere l'accesso a un party cluster, [seguire le istruzioni](http://aka.ms/tryservicefabric). 
 
@@ -146,4 +148,3 @@ In questa guida introduttiva si è appreso come:
 [sfxquickstartshownodetype]:  ./media/service-fabric-quickstart-containers-linux/containersquickstartrestart.png
 [containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
 [containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png
-

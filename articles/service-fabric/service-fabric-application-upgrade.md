@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
+ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 23ee3572752030332c5bfdd84edc97df5fb8e58f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Aggiornamento di un'applicazione di infrastruttura di servizi
 Un'applicazione di Azure Service Fabric è una raccolta di servizi. Durante un aggiornamento, Service Fabric confronta il nuovo [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) con la versione precedente e determina quali servizi dell'applicazione richiedono aggiornamenti. Service Fabric confronta i numeri di versione nel manifesto del servizio con quelli della versione precedente. Se un servizio non è cambiato, non viene aggiornato.
@@ -32,6 +31,8 @@ Per questo motivo è necessario che le due versioni siano compatibili con le ver
 I domini di aggiornamento vengono specificati nel manifesto del cluster quando si configura il cluster. I domini di aggiornamento non ricevono gli aggiornamenti in un ordine particolare. Un dominio di aggiornamento è un'unità logica di distribuzione per un'applicazione. I domini di aggiornamento consentono ai servizi di garantire disponibilità elevata durante un aggiornamento.
 
 Gli aggiornamenti non in sequenza sono possibili qualora l'aggiornamento venga applicato a tutti i nodi del cluster, ad esempio nel caso in cui l'applicazione disponga di un solo dominio di aggiornamento. Questo approccio non è consigliato perché durante l'aggiornamento il servizio rimane inattivo e non disponibile. Azure, inoltre, non offre alcuna garanzia per i casi in cui un cluster è configurato con un solo dominio di aggiornamento.
+
+Al termine dell'aggiornamento, tutti i servizi e le repliche (istanze) manterranno la stessa versione. Se l'aggiornamento ha esito positivo, verranno aggiornati alla nuova versione, in caso contrario verrà eseguito il rollback alla versione precedente.
 
 ## <a name="health-checks-during-upgrades"></a>Controlli di integrità durante gli aggiornamenti
 Per un aggiornamento devono essere impostati criteri di integrità oppure possono essere usati valori predefiniti. Un aggiornamento viene considerato riuscito quando tutti i domini di aggiornamento vengono aggiornati entro i valori di timeout specificati e risultano integri.  Un dominio di aggiornamento integro significa che ha superato tutti i controlli di integrità specificati nei criteri di integrità. Un criterio di integrità, ad esempio, può richiedere che tutti i servizi all'interno di un'istanza dell'applicazione siano *integri*, secondo quanto definito per l'integrità da Service Fabric.
@@ -76,4 +77,3 @@ Per informazioni su come usare funzionalità avanzate durante l'aggiornamento de
 Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione](service-fabric-application-upgrade-troubleshooting.md).
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
-

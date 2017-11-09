@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 30173f8eea2ccbbcd44018596cf34b3769a64b50
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 L'attività Lookup può essere usata per la lettura o la ricerca di un record/nome di tabella/valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive. 
@@ -244,4 +243,3 @@ Vedere altre attività del flusso di controllo supportate da Data Factory:
 - [Attività ForEach](control-flow-for-each-activity.md)
 - [Attività Get Metadata](control-flow-get-metadata-activity.md)
 - [Attività Web](control-flow-web-activity.md)
-

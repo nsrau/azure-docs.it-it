@@ -11,17 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: a437c369ac48fd4ac71dee2a85547d787d9dd210
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2424aa2cd5b6c7935338a593fa25a6a5772f4e62
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Informazioni di riferimento sugli script JSON
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA).
+
+
 Questo articolo fornisce gli schemi JSON ed esempi per la definizione di entità di Azure Data Factory (pipeline, attività, set di dati e servizi collegati).  
 
 ## <a name="pipeline"></a>Pipeline 
@@ -83,9 +86,9 @@ Nella tabella seguente vengono descritte le proprietà all'interno della definiz
 | Tag | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | name |Nome dell'attività. Specificare un nome che rappresenta l'azione che l'attività è configurata per eseguire<br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Sì |
-| Descrizione |Testo descrittivo per lo scopo dell'attività. |Sì |
+| Descrizione |Testo descrittivo per lo scopo dell'attività. |No |
 | type |Specifica il tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [ARCHIVIAZIONE DEI DATI](#data-stores) e [ATTIVITÀ DI TRASFORMAZIONE DEI DATI](#data-transformation-activities). |Sì |
-| inputs |Tabelle di input usate dall'attività<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sì |
+| inputs |Tabelle di input usate dall'attività<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |No per le attività HDInsightStreaming e SqlServerStoredProcedure <br/> <br/> Sì per tutte le altre |
 | outputs |Tabelle di output usate dall'attività.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Sì |
 | linkedServiceName |Nome del servizio collegato usato dall'attività. <br/><br/>Per un'attività può essere necessario specificare il servizio collegato che collega all'ambiente di calcolo richiesto. |Sì per attività di HDInsight, attività di Azure Machine Learning e attività delle stored procedure. <br/><br/>No per tutto il resto |
 | typeProperties |Le proprietà nella sezione typeProperties dipendono dal tipo di attività. |No |
@@ -727,7 +730,7 @@ Se si copiano dati da Azure Data Lake Store, impostare il **tipo di origine** de
 Per altre informazioni, vedere [Connettore Azure Data Lake Store](data-factory-azure-datalake-connector.md#copy-activity-properties).
 
 ### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Sink Azure Data Lake Store in attività di copia
-Se si copiano dati in Azure Data Lake Store, impostare il **tipo di sink ** dell'attività di copia su **AzureDataLakeStoreSink**e specificare le proprietà seguenti nella sezione **sink**:
+Se si copiano dati in Azure Data Lake Store, impostare il **tipo di sink**  dell'attività di copia su **AzureDataLakeStoreSink**e specificare le proprietà seguenti nella sezione **sink**:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
@@ -1333,7 +1336,7 @@ Per definire un set di dati di Ricerca di Azure, impostare il **tipo** di set di
 Per altre informazioni, vedere [Connettore Ricerca di Azure](data-factory-azure-search-connector.md#dataset-properties).
 
 ### <a name="azure-search-index-sink-in-copy-activity"></a>Sink Indice di Ricerca di Azure in attività di copia
-Se si copiano dati in un indice di Ricerca di Azure, impostare il **tipo di sink ** dell'attività di copia su **AzureSearchIndexSink**e specificare le proprietà seguenti nella sezione **sink**:
+Se si copiano dati in un indice di Ricerca di Azure, impostare il **tipo di sink**  dell'attività di copia su **AzureSearchIndexSink**e specificare le proprietà seguenti nella sezione **sink**:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |

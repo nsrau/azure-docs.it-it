@@ -17,10 +17,10 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-in-to-azure-from-the-azure-cli"></a>Accedere ad Azure dall'interfaccia della riga di comando di Azure
 L'interfaccia della riga di comando di Azure è un insieme di comandi multipiattaforma open source per l'uso delle risorse di Azure. Questo articolo illustra diverse procedure che consentono di specificare le credenziali necessarie all'account Azure per connettere l'interfaccia della riga di comando di Azure alla sottoscrizione di Azure:

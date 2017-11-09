@@ -1,6 +1,6 @@
 ---
-title: Deploy a VM with securely stored password on Azure Stack | Microsoft Docs
-description: Learn how to deploy a VM using a password stored in Azure Stack Key Vault
+title: Distribuire una macchina virtuale con password archiviate in modo sicuro nello Stack di Azure | Documenti Microsoft
+description: Informazioni su come distribuire una macchina virtuale usando una password archiviate nell'insieme di credenziali chiave di Azure Stack
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,34 +14,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3292a2dfefc17e5034c66122a3eab24d6c03e694
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Create a virtual machine by retrieving the password stored in a Key Vault
+# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Creare una macchina virtuale per il recupero della password archiviata in un insieme di credenziali chiave
 
-When you need to pass a secure value such as a password during deployment, you can store that value as a secret in an Azure Stack key vault and reference it in the Azure Resource Manager templates. You do not need to manually enter the secret each time you deploy the resources, you can also specify which users or service principals can access the secret. 
+Quando è necessario passare un valore sicuro, ad esempio una password durante la distribuzione, è possibile archiviare tale valore come chiave privata in un insieme di credenziali chiave dello Stack di Azure e utilizzarlo come riferimento nei modelli di gestione risorse di Azure. Caso non è necessario immettere manualmente il segreto ogni volta che si distribuisce le risorse, è inoltre possibile specificare quali utenti o entità servizio possono accedere alle informazioni riservate. 
 
-In this article, we walk you through the steps required to deploy a Windows virtual machine in Azure Stack by retrieving the password that is stored in a Key Vault. Therefore the password is never put in plain text in the template parameter file. You can use these steps either from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
+In questo articolo sono illustrati i passaggi necessari per distribuire una macchina virtuale di Windows nello Stack di Azure mediante il recupero della password che viene archiviata in un insieme di credenziali chiave. Pertanto la password non viene mai inserita in testo normale nel file di parametro del modello. Se si è connessi tramite VPN, è possibile utilizzare questi passaggi del Kit di sviluppo dello Stack di Azure o da un client esterno.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
  
-* You must must subscribe to an offer that includes the Key Vault service.  
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure the Azure Stack user's PowerShell environment.](azure-stack-powershell-configure-user.md)
+* È necessario deve sottoscrivere un'offerta che include il servizio insieme di credenziali chiave.  
+* [Installare PowerShell per Azure dello Stack.](azure-stack-powershell-install.md)  
+* [Configurare l'ambiente di PowerShell di Azure Stack dell'utente.](azure-stack-powershell-configure-user.md)
 
-The following steps describe the process required to create a virtual machine by retrieving the password stored in a Key Vault:
+I passaggi seguenti descrivono il processo necessario per creare una macchina virtuale per il recupero della password archiviata in un insieme di credenziali chiave:
 
-1. Create a Key Vault secret.
-2. Update the azuredeploy.parameters.json file.
-3. Deploy the template.
+1. Creare un insieme di credenziali chiave segreta.
+2. Aggiornare il file azuredeploy.parameters.json.
+3. Distribuire il modello.
 
-## <a name="create-a-key-vault-secret"></a>Create a Key Vault secret
+## <a name="create-a-key-vault-secret"></a>Creare un insieme di credenziali chiave segreta
 
-The following script creates a key vault, and stores a password in the key vault as a secret. Use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
+Lo script seguente crea un insieme di credenziali chiave e archivia una password nell'insieme di credenziali chiave come chiave privata. Utilizzare il `-EnabledForDeployment` parametro quando si crea l'insieme di credenziali chiave. Questo parametro assicura che l'insieme di credenziali chiave possono far riferimento dai modelli di gestione risorse di Azure.
 
 ```powershell
 
@@ -69,13 +68,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-When you run the previous script, the output includes the secret URI. Make a note of this URI. You have to reference it in the [Deploy Windows virtual machine with password in key vault template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv). Download the [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) folder onto your development computer. This folder contains the `azuredeploy.json` and `azuredeploy.parameters.json` files, which you will need in the next steps.
+Quando si esegue lo script precedente, l'output include l'URI segreta. Prendere nota dell'URI. È necessario farvi riferimento nel [macchina virtuale di distribuzione Windows con password nel modello di insieme di credenziali chiave](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv). Scaricare il [101-vm--password di protezione](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) cartella sul computer di sviluppo. Questa cartella contiene il `azuredeploy.json` e `azuredeploy.parameters.json` file, sarà necessario nei passaggi successivi.
 
-Modify the `azuredeploy.parameters.json` file according to your environment values. The parameters of special interest are the vault name, the vault resource group, and the secret URI (as generated by the previous script). The following file is an example of a parameter file:
+Modificare il `azuredeploy.parameters.json` file in base ai valori ambiente. I parametri di particolare interesse sono il nome dell'insieme di credenziali, il gruppo di risorse dell'insieme di credenziali e il segreto URI (generati da script precedente). Il file seguente è riportato un esempio di un file di parametro:
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Update the azuredeploy.parameters.json file
+## <a name="update-the-azuredeployparametersjson-file"></a>Aggiornare il file azuredeploy.parameters.json
 
-Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, adminUsername of the virtual machine values as per your environment. The following JSON file shows an example of the template parameters file: 
+Aggiornare il file azuredeploy.parameters.json con l'URI KeyVault, secretName, adminUsername dei valori di macchina virtuale in base al proprio ambiente. Il file JSON seguente mostra un esempio di file dei parametri di modello: 
 
 ```json
 {
@@ -104,9 +103,9 @@ Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, a
 
 ```
 
-## <a name="template-deployment"></a>Template deployment
+## <a name="template-deployment"></a>Distribuzione del modello
 
-Now deploy the template by using the following PowerShell script:
+Ora è possibile distribuire il modello utilizzando lo script di PowerShell seguente:
 
 ```powershell
 New-AzureRmResourceGroupDeployment `
@@ -115,14 +114,13 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
-When the template is deployed successfully, it results in the following output:
+Quando il modello viene distribuito correttamente, otterrà l'output seguente:
 
-![Deployment output](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
+![Output di distribuzione](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy a sample app with Key Vault](azure-stack-kv-sample-app.md)
+## <a name="next-steps"></a>Passaggi successivi
+[Distribuire un'app di esempio con l'insieme di credenziali chiave](azure-stack-kv-sample-app.md)
 
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
+[Distribuire una macchina virtuale con un certificato di chiave dell'insieme di credenziali](azure-stack-kv-push-secret-into-vm.md)
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 86806c5dbafc1fd88c434dcee6292683d050cd2a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-azure-iaas-virtual-machines-between-azure-regions-with-azure-site-recovery"></a>Eseguire la migrazione delle macchine virtuali IaaS di Azure tra aree di Azure con Azure Site Recovery
 ## <a name="overview"></a>Overview
@@ -53,4 +52,3 @@ Questa sezione descrive i passaggi di distribuzione nel nuovo portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui vari scenari di replica, vedere [Che cos'è Site Recovery?](site-recovery-overview.md)
-

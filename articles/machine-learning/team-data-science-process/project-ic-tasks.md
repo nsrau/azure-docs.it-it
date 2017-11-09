@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbe691174409202a8fd9602a69e764f0a8e2816b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="individual-contributor-tasks"></a>Attività del singolo collaboratore
 
 Questo argomento illustra le attività che un collaboratore singolo deve completare per il proprio team di data science. L'obiettivo è di stabilire un ambiente di collaborazione per normalizzare il [processo di data science per il team](overview.md) (TDSP, Team Data Science Process). Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di data science, che vengono standardizzati con il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
@@ -60,9 +57,9 @@ I prerequisiti vengono soddisfatti completando le attività assegnate al respons
 
 Il secondo prerequisito, relativo al repository **TeamUtilities**, è facoltativo, a seconda che il team abbia un repository di utilità specifico del team. Se uno degli altri tre prerequisiti non è stato completato, contattare il responsabile del team, il responsabile del progetto o i delegati per configurarlo seguendo le istruzioni contenute in [Team Lead tasks for a data science team](team-lead-tasks.md) (Attività del responsabile del team per un team di data science) o in [Attività del responsabile di progetto per un team di data science](project-lead-tasks.md).
 
-- Git deve essere installato nel computer. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice in Platforms and tools](platforms-and-tools.md#appendix) (Piattaforme e strumenti).  
-- Se si usa una **DSVM Windows**, è necessario che [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) sia installato nel computer. Nel file README.md scorrere verso il basso fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il programma di installazione EXE ed eseguirlo. 
-- Se si usa una **DSVM Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al server VSTS del gruppo. Per altre informazioni su SSH, vedere la sezione **Create SSH public key** (Creare una chiave pubblica SSH) nell'[appendice in Platforms and tools](platforms-and-tools.md#appendix) (Piattaforme e strumenti). 
+- Git deve essere installato nel computer. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).  
+- Se si usa una **DSVM per Windows**, è necessario avere installato [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) nel computer. Nel file README.md scorrere fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il file con estensione exe del programma di installazione ed eseguirlo. 
+- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al server VSTS del gruppo. Per altre informazioni su SSH, vedere la sezione **Create SSH public key** (Creare una chiave pubblica SSH) nell'[appendice in Platforms and tools](platforms-and-tools.md#appendix) (Piattaforme e strumenti). 
 - Se il responsabile del team e/o del progetto ha creato una risorsa di archiviazione file di Azure che è necessario montare nella DSVM, è consigliabile chiedergli informazioni in proposito. 
 
 ## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Passaggi 1-3: Clonare i repository del gruppo, del team e del progetto nel computer locale
@@ -113,5 +110,4 @@ Ecco i collegamenti alle descrizioni più dettagliate dei ruoli e delle attivit�
 - [Team Lead tasks for a data science team (Attività del responsabile del team per un team di data science)](team-lead-tasks.md)
 - [Attività del responsabile di progetto per un team di data science](project-lead-tasks.md)
 - [Singoli collaboratori al progetto per un team di data science](project-ic-tasks.md)
-
 

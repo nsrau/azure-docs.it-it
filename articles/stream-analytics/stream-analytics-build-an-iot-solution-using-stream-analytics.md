@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 1031cd63dede9ed202fdc11b153a550766d9cb19
-ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
 ## <a name="introduction"></a>Introduzione
 Questa esercitazione illustra come usare Analisi di flusso di Azure per acquisire informazioni approfondite in tempo reale a partire dai dati. Gli sviluppatori possono combinare facilmente flussi di dati, come clickstream, log ed eventi generati da dispositivi, con record cronologici o dati di riferimento per ottenere informazioni aziendali approfondite. Analisi di flusso di Azure è un servizio di calcolo dei flussi in tempo reale completamente gestito, ospitato in Microsoft Azure, con caratteristiche di resilienza predefinita, bassa latenza e scalabilità che consentono la piena operatività in pochi minuti.
@@ -442,6 +440,5 @@ Per altre informazioni su Analisi di flusso di Azure, vedere la [documentazione 
    > Le risorse vengono identificate in base al nome. Assicurarsi di controllare attentamente ogni elemento prima di confermarne la rimozione.
    > 
    > 
-
 
 

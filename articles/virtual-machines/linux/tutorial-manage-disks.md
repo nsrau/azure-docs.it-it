@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 882446ba32252490e27056c7c5c9a8f755e26ee6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure
 
 Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, applicazioni e dati di macchine virtuali. Quando si crea una VM, è importante scegliere dimensione del disco e configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la distribuzione e la gestione dei dischi di VM. Vengono fornite informazioni su:
@@ -302,4 +300,3 @@ Passare all'esercitazione successiva per informazioni sull'automazione della con
 
 > [!div class="nextstepaction"]
 > [Automatizzare la configurazione delle macchine virtuali](./tutorial-automate-vm-deployment.md)
-

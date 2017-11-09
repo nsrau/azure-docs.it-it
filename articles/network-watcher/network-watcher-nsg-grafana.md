@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 44cf074223c88b8fa539144c0d948e68ae6cbd13
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete con Network Watcher e Grafana
 
@@ -203,5 +202,4 @@ Grazie all'integrazione di Network Watcher con ElasticSearch e Grafana è ora po
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Ulteriori informazioni sull'uso di [Network Watcher](network-watcher-monitoring-overview.md).
-
 

@@ -9,17 +9,17 @@ editor:
 ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
-ms.openlocfilehash: 67bcb3c7fe33341103f28bc70e8cc2acbb924cae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: b4827fafdfd2f8b094c4f541a7511d6233dd4e6f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="multi-shard-querying"></a>Esecuzione di query su più partizioni
 ## <a name="overview"></a>Panoramica

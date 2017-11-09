@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 10/10/2017
 ms.author: alkohli
-ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
 ## <a name="overview"></a>Panoramica
@@ -41,7 +41,7 @@ I requisiti software includono le informazioni su Web browser supportati, versio
 | **Hypervisor** | **Versione** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e versioni successive |
-| VMware ESXi |5.5 e versioni successive |
+| VMware ESXi |5.5 e 6.0 |
 
 ### <a name="virtual-device-requirements"></a>Requisiti del dispositivo virtuale
 | **Componente** | **Requisito** |
@@ -119,7 +119,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 | Modello URL | Componente/funzionalità |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |Servizio Gestione dispositivi StorSimple<br>Servizio di controllo di accesso<br>Bus di servizio di Azure |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Servizio Gestione dispositivi StorSimple<br>Servizio di controllo di accesso<br>Bus di servizio di Azure<br>Servizio di autenticazione|
 | `http://*.backup.windowsazure.com` |Registrazione del dispositivo |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revoca del certificato |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Account di archiviazione di Azure e monitoraggio |

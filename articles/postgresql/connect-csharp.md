@@ -7,15 +7,15 @@ ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 06/23/2017
-ms.openlocfilehash: 91e0269e310688dc88d139430ccf386a1d26a61c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 0a59e7b2d683d706d69cdc48c759add9da97d805
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare .NET (C#) per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per PostgreSQL usando un'applicazione C#. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con C#, ma non con Database di Azure per PostgreSQL.
@@ -28,20 +28,7 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 È anche necessario:
 - Installare [.NET Framework](https://www.microsoft.com/net/download). Seguire la procedura descritta nell'articolo collegato per installare .NET per la specifica piattaforma in uso (Windows, Ubuntu Linux o macOS). 
 - Installare [Visual Studio](https://www.visualstudio.com/downloads/) o Visual Studio Code per digitare e modificare il codice.
-- Installare la libreria [Npgsql](http://www.npgsql.org/doc/index.html) come descritto di seguito.
-
-## <a name="install-npgsql-references-into-your-visual-studio-solution"></a>Installare i riferimenti Npgsql nella soluzione di Visual Studio
-Per stabilire la connessione dall'applicazione C# a PostgreSQL, usare la libreria open source ADO.NET denominata Npgsql. NuGet consente di scaricare e gestire facilmente i riferimenti.
-
-1. Creare una nuova soluzione C# o aprirne una esistente: 
-   - In Visual Studio creare una soluzione scegliendo **Nuovo** > **Progetto** dal menu File.
-   - Nella finestra di dialogo Nuovo progetto espandere **Modelli** > **Visual C#**. 
-   - Scegliere un modello appropriato, ad esempio **Console App (.NET Core)** (App console - .NET Core).
-
-2. Usare Gestione pacchetti NuGet per installare Npgsql:
-   - Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti** > **Console di Gestione pacchetti**.
-   - In **Console di Gestione pacchetti** digitare `Install-Package Npgsql`
-   - Il comando di installazione scarica Npgsql.dll e gli assembly correlati e li aggiunge come dipendenze nella soluzione.
+- Scaricare e installare la libreria [Npgsql](https://github.com/npgsql/Npgsql/releases).
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per PostgreSQL. Sono necessari il nome del server completo e le credenziali di accesso.
@@ -51,10 +38,10 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 3. Fare clic sul nome del server **mypgserver-20170401**.
 4. Selezionare la pagina **Panoramica** del server. Annotare il **Nome server** e il **nome di accesso dell'amministratore del server**.
  ![Database di Azure per PostgreSQL - Accesso dell'amministratore del server](./media/connect-csharp/1-connection-string.png)
-5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** per visualizzare il nome di accesso dell'amministratore del server e, se necessario, reimpostare la password.
+5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** per visualizzare il **Nome di accesso dell'amministratore server** e, se necessario, reimpostare la password.
 
 ## <a name="connect-create-table-and-insert-data"></a>Connettersi, creare tabelle e inserire dati
-Usare il codice seguente per connettersi e caricare i dati usando le istruzioni SQL **CREATE TABLE** e **INSERT INTO**. Il codice usa la classe NpgsqlCommand con il metodo [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) per stabilire una connessione a PostgreSQL. Il codice usa quindi il metodo [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) per eseguire i comandi di database. 
+Usare il codice seguente per connettersi e caricare i dati usando le istruzioni SQL **CREATE TABLE** e **INSERT INTO**. Il codice usa la classe NpgsqlCommand con il metodo [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) per stabilire una connessione al database PostgreSQL. Il codice usa quindi il metodo [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) per eseguire i comandi di database. 
 
 Sostituire i parametri Host, DBName, User e Password con i valori specificati al momento della creazione del server e del database. 
 
@@ -201,7 +188,7 @@ namespace Driver
 
 
 ## <a name="update-data"></a>Aggiornare i dati
-Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **UPDATE**. Il codice usa la classe NpgsqlCommand con il metodo [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) per stabilire una connessione a PostgreSQL. Il codice usa quindi il metodo [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) per eseguire i comandi di database.
+Usare il codice seguente per connettersi e aggiornare i dati usando un'istruzione SQL **UPDATE**. Il codice usa la classe NpgsqlCommand con il metodo [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) per stabilire una connessione a PostgreSQL. Il codice usa quindi il metodo [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) per eseguire i comandi di database.
 
 Sostituire i parametri Host, DBName, User e Password con i valori specificati al momento della creazione del server e del database. 
 
@@ -265,9 +252,9 @@ namespace Driver
 
 
 ## <a name="delete-data"></a>Eliminare i dati
-Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **DELETE**. 
+Usare il codice seguente per connettersi ed eliminare i dati usando un'istruzione SQL **DELETE**. 
 
- Il codice usa la classe NpgsqlCommand con il metodo [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) per stabilire una connessione a PostgreSQL. Il codice usa quindi il metodo [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) per eseguire i comandi di database.
+Il codice usa la classe NpgsqlCommand con il metodo [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) per stabilire una connessione al database PostgreSQL. Il codice usa quindi il metodo [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) per eseguire i comandi di database.
 
 Sostituire i parametri Host, DBName, User e Password con i valori specificati al momento della creazione del server e del database. 
 

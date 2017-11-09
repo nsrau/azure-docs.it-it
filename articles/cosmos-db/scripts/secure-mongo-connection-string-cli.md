@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 12e51922db4e9a2ff9b176186a4180ae2238be7d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-the-azure-cli"></a>Ottenere una stringa di connessione di Azure Cosmos DB per app MongoDB mediante l'interfaccia della riga di comando di Azure
 
 Questo esempio ottiene una stringa di connessione di Azure Cosmos DB per app MongoDB mediante l'interfaccia della riga di comando di Azure. 
@@ -34,7 +32,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=36-39 "Ottenere la stringa di connessione di Azure Cosmos DB per app MongoDB")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=36-39 "Get Azure Cosmos DB connection string for MongoDB apps")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -60,4 +58,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili nella [documentazione dell'interfaccia della riga di comando di Azure Cosmos DB](../cli-samples.md).
-

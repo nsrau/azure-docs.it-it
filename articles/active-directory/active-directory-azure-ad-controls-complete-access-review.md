@@ -13,39 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
+ms.openlocfilehash: b301ff06c01d51c02f7d7393801b35cd8965403c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: e83bc42d658c4d6304f98b99d0e0942595bd65d2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Completare una verifica di accesso dei membri di un gruppo o degli utenti che accedono a un'applicazione in Azure AD
 
-Gli amministratori possono richiedere una verifica dei membri di un gruppo o degli utenti assegnati a un'applicazione [creando una verifica di accesso](active-directory-azure-ad-controls-create-access-review.md). Azure AD invia automaticamente ai revisori un messaggio di posta elettronica in cui viene chiesto di verificare l'accesso. Se un utente non ha ricevuto il messaggio di posta elettronica, è possibile inviargli le istruzioni su [come eseguire una verifica dell'accesso](active-directory-azure-ad-controls-perform-access-review.md).  Al termine della verifica di accesso o se l'amministratore ha interrotto la verifica, seguire la procedura descritta in questo articolo per esaminare e applicare i risultati.
+Gli amministratori possono usare Azure Active Directory (Azure AD) per [creare una verifica di accesso](active-directory-azure-ad-controls-create-access-review.md) per gli utenti o i membri del gruppo assegnati a un'applicazione. Azure AD invia automaticamente ai revisori un messaggio di posta elettronica in cui viene chiesto di verificare l'accesso. Se un utente non ha ricevuto il messaggio di posta elettronica, è possibile inviargli le istruzioni su [come eseguire una verifica di accesso](active-directory-azure-ad-controls-perform-access-review.md). Al termine del periodo della verifica di accesso o se l'amministratore interrompe la verifica, seguire la procedura descritta in questo articolo per esaminare e applicare i risultati.
 
-## <a name="viewing-an-access-review-in-the-azure-portal"></a>Visualizzazione di una verifica di accesso nel portale di Azure
+## <a name="view-an-access-review-in-the-azure-portal"></a>Visualizzare una verifica di accesso nel portale di Azure
 
-1. Accedere alla [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), passare alla scheda **Programmi** e selezionare il programma che contiene il controllo della verifica di accesso.
-2. Fare clic sull'opzione di gestione e selezionare il controllo della verifica di accesso.  Se nel programma sono presenti molti controlli, è possibile filtrare i controlli di un tipo specifico, eseguire l'ordinamento in base allo stato e la ricerca in base al nome della verifica di accesso o al nome visualizzato del proprietario che l'ha creata. 
+1. Accedere alla [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), selezionare **Programmi** e selezionare il programma che contiene il controllo della verifica di accesso.
 
-## <a name="stopping-a-review-that-has-not-yet-completed"></a>Interruzione di una verifica non ancora completata
+2. Selezionare **Gestisci** e selezionare il controllo della verifica di accesso. Se sono presenti molti controlli nel programma, è possibile filtrare i controlli di un tipo specifico e ordinarli in base allo stato. È possibile anche cercare il nome del controllo della verifica di accesso o il nome visualizzato del proprietario che lo ha creato. 
 
-Se la verifica non ha ancora raggiunto la data di fine pianificata, un amministratore può farla terminare in anticipo facendo clic sul pulsante **Interrompi**.  Eventuali utenti non sottoposti a verifica fino a questo momento, non potranno essere controllati dopo l'interruzione della verifica. Non è possibile riavviare una verifica dopo che è stata interrotta.
+## <a name="stop-a-review-that-hasnt-finished"></a>Interrompere una verifica non completata
 
-## <a name="applying-the-changes"></a>Applicazione delle modifiche 
+Se la verifica non ha raggiunto la data di fine pianificata, un amministratore può selezionare **Arresta** per terminare in anticipo la verifica. Dopo avere interrotto la verifica, gli utenti non possono più essere verificati. Non è possibile riavviare una verifica dopo che è stata interrotta.
 
-Al termine di una verifica di accesso in corrispondenza della data di fine o in caso di interruzione manuale da parte di un amministratore, il pulsante **Applica** implementa il risultato della verifica aggiornando il gruppo o l'applicazione. Se l'accesso di un utente è stato negato durante la verifica, Azure AD rimuoverà l'assegnazione dell'applicazione o l'appartenenza quando l'amministratore fa clic su questo pulsante. 
+## <a name="apply-the-changes"></a>Applicare le modifiche. 
 
-Facendo clic sul pulsante Applica non si avrà alcun effetto su un gruppo che ha origine in una directory locale o in un gruppo dinamico.  Per modificare un gruppo che ha origine in locale, scaricare i risultati e applicare queste modifiche alla rappresentazione del gruppo in questa directory.
+Al termine di una verifica di accesso, sia che abbia raggiunto la data di fine o che sia stata interrotta manualmente da un amministratore, selezionare **Applica**. Il risultato della verifica viene implementato aggiornando il gruppo o l'applicazione. Se l'accesso di un utente è stato negato durante la verifica, Azure AD rimuoverà l'assegnazione dell'applicazione o l'appartenenza quando l'amministratore seleziona questa opzione. 
 
-## <a name="downloading-the-results-of-the-review"></a>Scaricare i risultati della verifica
+Se si seleziona **Applica**, non si avrà alcun effetto su un gruppo che ha origine in una directory locale o in un gruppo dinamico. Per modificare un gruppo che ha origine in locale, scaricare i risultati e applicare queste modifiche alla rappresentazione del gruppo in questa directory.
 
-Per recuperare i risultati della verifica, passare alla scheda Approvazioni e scegliere il pulsante **Scarica**.  Il file CSV risultante può essere visualizzato in Excel o in altri programmi idonei.
+## <a name="download-the-results-of-the-review"></a>Scaricare i risultati della verifica
 
-## <a name="optional-deleting-a-review"></a>Facoltativo: eliminazione di una verifica
-Se la verifica non è più necessaria, eliminarla. Il pulsante **Elimina** rimuove la verifica da Azure AD.
+Per recuperare i risultati della verifica, selezionare **Approvazioni** e quindi selezionare **Scarica**. Il file CSV risultante può essere visualizzato in Excel o in altri programmi idonei.
+
+## <a name="optional-delete-a-review"></a>Facoltativo: eliminare una verifica
+È possibile eliminare una verifica che non è più utile. Selezionare **Eliminare** per rimuovere la verifica da Azure AD.
 
 > [!IMPORTANT]
 > Non verrà visualizzato un avviso prima dell'eliminazione ed è quindi necessario assicurarsi di voler eseguire questa operazione.
@@ -59,4 +58,3 @@ Se la verifica non è più necessaria, eliminarla. Il pulsante **Elimina** rimuo
 - [Gestire i programmi e i controlli per le verifiche di accesso di Azure AD](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Creare una verifica di accesso per i membri di un gruppo o per l'accesso a un'applicazione](active-directory-azure-ad-controls-create-access-review.md)
 - [Creare una verifica di accesso degli utenti in un ruolo amministrativo Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
-

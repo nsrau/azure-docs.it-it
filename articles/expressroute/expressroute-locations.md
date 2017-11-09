@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2017
+ms.date: 10/25/2017
 ms.author: kaanan
+ms.openlocfilehash: 0ef91f6f952b901bcda981e5375be0b84e1ca0a3
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 61adeecaf71b8b34b8c22eda0b1e90c54ec2740a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -82,14 +81,15 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **China Telecom Global** |Supportato |Non supportato |Hong Kong |
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Supportato |Supportato |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Supportato |Supportato |Amsterdam, Dublino, Londra, Parigi, Tokyo |
-| **Comcast** |Supportato |Supportato |Chicago, Silicon Valley, Washington DC |
+| **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Supportato |Supportato |Chicago, Silicon Valley, Washington DC |
 | **[Console](https://www.consoleconnect.com/partners/cloudsaas/)**| Supportato | Supportato |Silicon Valley, Toronto |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supportato |Supportato |Chicago, Denver, Los Angeles, New York, Silicon Valley, Washinton DC |
+| **Epsilon Global Communications** |Supportato |Supportato |Singapore |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supportato |Supportato |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, Osaka, Parigi, San Paolo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Supportato |Supportato |Amsterdam |
 | **GÉANT** |Supportato |Supportato |Amsterdam |
 | **[Global Cloud Xchange (GCX)] (http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Supportato| Supportato | Chennai, Mumbai |
-| **[InterCloud](https://www.intercloud.com/)** |Supportato |Supportato |Amsterdam, Londra, Singapore, Washington DC |
+| **[InterCloud](https://www.intercloud.com/)** |Supportato |Supportato |Amsterdam, Londra, Parigi, Singapore, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Supportato |Supportato |Osaka, Tokyo |
 | **Internet Solutions - Cloud Connect** |Supportato |Supportato |Amsterdam, Londra |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supportato |Supportato |Amsterdam, Dublino, Londra, Parigi |
@@ -108,7 +108,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Supportato |Supportato |Amsterdam, Hong Kong, Londra, Parigi, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** |Supportato |Supportato |Hong Kong - R.A.S. |
 | **Sejong Telecom** |Supportato |Supportato |Seul |
-| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supportato |Supportato |Chennai |
+| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supportato |Supportato |Chennai, Mumbai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supportato |Supportato |Singapore |
 | **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Supportato |Supportato |Osaka, Tokyo |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Supportato |Supportato |Amsterdam, Chennai, Hong Kong, Londra, Mumbai, Silicon Valley, Singapore, Washington DC |
@@ -130,7 +130,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 ### <a name="us-government-cloud"></a>Cloud del governo degli Stati Uniti
 | **Provider di servizi** | **Microsoft Azure** | **Office 365** | **Località** |
 | --- | --- | --- | --- |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supportato |Supportato |Chicago, Washington DC |
+| **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supportato |Supportato |Chicago, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supportato |Supportato |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supportato |Supportato |Chicago, New York+, Silicon Valley, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supportato | Supportato | Chicago, Dallas |
@@ -202,6 +202,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Francoforte |  
 | **Rogers** | Cologix, Equinix | Montreal, Toronto |
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | Londra | 
+| **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | Amsterdam |
 | **[ThinkTel](http://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
 | **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |  
 | **[United Information Highway (UIH)](https://www.uih.co.th/en/internet-solution/cloud-direct/uih-cloud-direct-for-microsoft-azure-expressroute)**| Equinix | Singapore |
@@ -267,4 +268,3 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mappa delle località"
-

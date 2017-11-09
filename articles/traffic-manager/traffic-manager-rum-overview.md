@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="traffic-manager-real-user-measurements-overview"></a>Panoramica di Misurazioni utente reale in Gestione traffico
 
 >[!NOTE]
@@ -49,5 +47,4 @@ Quando si usa Misurazioni utente reale, la fatturazione viene eseguita in base a
 - Altre informazioni su [Mobile Center](https://docs.microsoft.com/mobile-center/)
 - Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
 - Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-create-profile.md)
-
 

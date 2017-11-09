@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Service Fabric e contenitori | Microsoft Docs
+title: Panoramica di Service Fabric e contenitori | Documentazione Microsoft
 description: "Panoramica di Service Fabric e dell'uso dei contenitori per la distribuzione di applicazioni di microservizi. Questo articolo offre una panoramica di come possono essere usati i contenitori e delle funzionalità disponibili in Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contenitori
 > [!NOTE]
@@ -94,4 +93,3 @@ In questo articolo sono stati illustrati i contenitori, la funzione di agente di
 [Altre informazioni sui contenitori Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
-

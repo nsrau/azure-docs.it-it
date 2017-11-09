@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI
 Configurare un cluster Windows RDMA in Azure con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [Dimensioni delle VM High Performance Computing (HPC)](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per eseguire applicazioni MPI (Message Passing Interface) in parallelo. Quando si configurano nodi con supporto per RDMA e basati su Windows Server in un cluster HPC Pack, le applicazioni MPI comunicano in modo efficiente tramite una rete a bassa latenza e a velocità effettiva elevata in Azure, sulla base della tecnologia di accesso diretto a memoria remota (RDMA).
@@ -192,4 +191,3 @@ Di seguito sono riportate alcune considerazioni riguardanti l'esecuzione di appl
 [iaas]:media/hpcpack-rdma-cluster/iaas.png
 [pingpong1]:media/hpcpack-rdma-cluster/pingpong1.png
 [pingpong2]:media/hpcpack-rdma-cluster/pingpong2.png
-

@@ -13,18 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 010/19/2017
 ms.author: cherylmc
+ms.openlocfilehash: 0e31d58de113f737a48b6d3091650226f04ec69a
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: f19b58ad8f12169acefd74bfe86a28ad950dad34
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="about-point-to-site-vpn"></a>Informazioni sulla VPN da punto a sito
 
-Una connessione gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. Una connessione da punto a sito viene stabilita avviandola dal computer client. Questa soluzione è utile per i telelavoratori che intendono connettersi alle reti virtuali di Azure da una posizione remota, ad esempio da casa o durante una riunione. Una VPN da punto a sito è anche una soluzione utile da usare al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale.
+Una connessione gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. Una connessione da punto a sito viene stabilita avviandola dal computer client. Questa soluzione è utile per i telelavoratori che intendono connettersi alle reti virtuali di Azure da una posizione remota, ad esempio da casa o durante una riunione. Una VPN da punto a sito è anche una soluzione utile da usare al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Questo articolo si applica al modello di distribuzione di Azure Resource Manager.
 
 ## <a name="protocol"></a>Protocollo usato nelle connessioni da punto a sito
 
@@ -37,7 +36,7 @@ Per la VPN da punto a sito può essere usato uno dei protocolli seguenti:
 In presenza di un ambiente client misto con dispositivi Windows e Mac, configurare sia SSTP che IKEv2.
 
 >[!NOTE]
->IKEv2 per P2S è attualmente in fase di anteprima.
+>IKEv2 per P2S è attualmente in anteprima ed è disponibile per il modello di distribuzione di Resource Manager.
 >
 
 ## <a name="authentication"></a>Modalità di autenticazione del client VPN da punto a sito

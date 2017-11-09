@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 916652f2d6336da625be91431c3771a730204a73
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory
 Azure Active Directory (Azure AD) usa OAuth 2.0 per consentire di autorizzare l'accesso ad applicazioni Web e API Web nel proprio tenant di Azure AD. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie open source di Microsoft.
@@ -379,4 +378,3 @@ Una risposta di errore di esempio può avere un aspetto simile al seguente:
 | correlation_id |Identificatore univoco per la richiesta utile per la diagnostica tra i componenti. |
 
 Per una descrizione dei codici di errore e l'azione consigliata per il client, vedere [Codici per gli errori degli endpoint di token](#error-codes-for-token-endpoint-errors).
-

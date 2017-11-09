@@ -1,6 +1,6 @@
 ---
 title: Schemi di rilevamento personalizzati per il monitoraggio B2B - App per la logica di Azure | Documenti di Microsoft
-description: Creare schemi di rilevamento personalizzati per il monitoraggio dei messaggi B2B dalle transazioni nell&quot;account di integrazione di Azure.
+description: Creare schemi di rilevamento personalizzati per il monitoraggio dei messaggi B2B dalle transazioni nell'account di integrazione di Azure.
 author: padmavc
 manager: anneta
 editor: 
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: 9a663a4e79c30b97e6390b7ff7f83deec131384a
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: b71a4938dde2a71f1ce29403af7aa9101358d64c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Abilitare il rilevamento per monitorare il flusso di lavoro completo, end-to-end
 È disponibile un rilevamento predefinito che è possibile abilitare per diverse parti del flusso di lavoro Business to Business, ad esempio il rilevamento dei messaggi AS2 o X12. Quando si creano flussi di lavoro che includono app per la logica, BizTalk Server, SQL Server o qualsiasi altro livello, è possibile abilitare il rilevamento personalizzato che registra gli eventi dall'inizio alla fine del flusso di lavoro. 
@@ -89,4 +87,3 @@ Per informazioni sugli schemi di rilevamento per il protocollo B2B, vedere:
 * Altre informazioni sul [monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md).   
 * Altre informazioni sul [rilevamento dei messaggi B2B nel portale di Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * Altre informazioni su [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
-

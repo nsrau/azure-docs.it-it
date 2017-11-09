@@ -15,12 +15,11 @@ ms.date: 08/12/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
+ms.openlocfilehash: b62900b780884c241d96f0bed8e93a1a0927cfe3
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 9fb25f9f26a220c90f82add02fa5bdb954a926c3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Accedere con il telefono, non con la password
 
@@ -92,4 +91,3 @@ Fino a questo momento, Microsoft non ha sviluppato questa funzionalità per Micr
 Se non è stata scaricata l'app Microsoft Authenticator, cercarla. L'app è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), mentre l'accesso tramite telefono è disponibile sull'app Microsoft Authenticator per [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 In caso di domande sull'app in generale, consultare le [domande frequenti su Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-

@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/17-->
+<!--author=alkohli last changed: 09/28/17-->
 
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Per completare la configurazione minima del dispositivo StorSimple
 
@@ -21,7 +21,7 @@
 
             ![Interfacce di rete della configurazione minima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
-            Gli indirizzi IP fissi per il controller vengono utilizzati per gestire gli aggiornamenti al dispositivo. Di conseguenza, gli indirizzi IP fissi devono essere instradabili e in grado di connettersi a Internet. È possibile verificare che gli indirizzi IP fissi per il controller siano instradabili usando il cmdlet [Test-HcsmConnection][Test]. Nell'esempio seguente viene illustrato come gli indirizzi IP fissi per il controller vengono instradati a Internet e possono accedere al server di Microsoft Update.
+            Gli indirizzi IP fissi per il controller vengono usati per gestire gli aggiornamenti al dispositivo e per Garbage Collection. Di conseguenza, gli indirizzi IP fissi devono essere instradabili e in grado di connettersi a Internet. È possibile verificare che gli indirizzi IP fissi per il controller siano instradabili usando il cmdlet [Test-HcsmConnection][Test]. Nell'esempio seguente viene illustrato come gli indirizzi IP fissi per il controller vengono instradati a Internet e possono accedere al server di Microsoft Update.
 
             ![Test-HcsmConnection con indirizzi IP instradabili](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 

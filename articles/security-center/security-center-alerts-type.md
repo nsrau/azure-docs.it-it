@@ -12,21 +12,21 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
-ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo articolo consente di comprendere i diversi tipi di avvisi di sicurezza e le informazioni significative che ne derivano disponibili nel Centro sicurezza di Azure. Per altre informazioni sulla gestione degli avvisi e degli eventi imprevisti, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
 
+Per configurare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita di 60 giorni. Per eseguire l'aggiornamento, selezionare il **Piano tariffario** nei [criteri di sicurezza](security-center-policies.md). Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+
 > [!NOTE]
-> Per configurare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita di 60 giorni. Per eseguire l'aggiornamento, selezionare il **Piano tariffario** nei [criteri di sicurezza](security-center-policies.md). Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
->
+> Il Centro sicurezza ha rilasciato un'anteprima limitata di un nuovo set di strumenti di rilevamento, che sfruttano i record di controllo, un framework di controllo comune, per rilevare comportamenti dannosi nei computer Linux. Inviare un messaggio di posta elettronica con l'ID sottoscrizione a [Microsoft](mailto:ASC_linuxdetections@microsoft.com) per accedere all'anteprima.
 
 ## <a name="what-type-of-alerts-are-available"></a>Quali tipi di avvisi sono disponibili?
 Il Centro sicurezza di Azure usa una serie di [funzionalità di rilevamento](security-center-detection-capabilities.md) per avvisare i clienti riguardo a potenziali attacchi contro gli ambienti in cui operano. Questi avvisi contengono informazioni importanti relative a cosa ha attivato l'avviso, alle risorse interessate e all'origine dell'attacco. Le informazioni incluse in un avviso variano in base al tipo di analisi usata per rilevare la minaccia. Anche gli eventi imprevisti possono contenere ulteriori informazioni contestuali utili nel corso dell'analisi di una minaccia.  Questo articolo fornisce informazioni sui tipi di avvisi seguenti:
@@ -44,7 +44,7 @@ Il Centro sicurezza di Azure può usare le analisi del comportamento per identif
 >
 
 ### <a name="crash-analysis"></a>Analisi degli arresti anomali
-L'analisi della memoria del dump di arresto anomalo è un metodo usato per rilevare malware sofisticato in grado di eludere le soluzioni di sicurezza tradizionali. Varie forme di malware provano a ridurre le probabilità di essere rilevate dai prodotti antivirus non scrivendo mai sul disco oppure crittografando i componenti software scritti sul disco. Ciò rende il malware difficile da rilevare con gli approcci antimalware tradizionali. Tuttavia, questo tipo di malware può essere rilevato tramite l'analisi della memoria, perché per funzionare il malware deve lasciare tracce in memoria.
+L'analisi della memoria del dump di arresto anomalo è un metodo usato per rilevare malware sofisticato in grado di eludere le soluzioni di sicurezza tradizionali. Varie forme di malware provano a ridurre le probabilità di essere rilevate dai prodotti antivirus non scrivendo mai sul disco oppure crittografando i componenti software scritti sul disco. Questa tecnica rende il malware difficile da rilevare con gli approcci antimalware tradizionali. Tuttavia, questo tipo di malware può essere rilevato tramite l'analisi della memoria, perché per funzionare il malware deve lasciare tracce in memoria.
 
 Quando il software si arresta in modo anomalo, un dump di arresto anomalo acquisisce una porzione della memoria al momento dell'arresto. L'arresto anomalo può essere causato da malware o da problemi generali del sistema o delle applicazioni. Analizzando la memoria nel dump di arresto anomalo, il Centro sicurezza può rilevare le tecniche usate per sfruttare le vulnerabilità del software, accedere ai dati riservati e rimanere permanentemente all'interno di un computer infetto in modo furtivo. Questa operazione viene eseguita con un impatto minimo sulle prestazioni degli host perché l'analisi viene eseguita dal Centro sicurezza in back-end.
 
@@ -61,7 +61,7 @@ L'esempio di avviso Shellcode fornisce il campo aggiuntivo seguente:
 
 * ADDRESS (INDIRIZZO): posizione in memoria dello shellcode.
 
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Avviso per shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
@@ -77,7 +77,7 @@ Oltre ai campi comuni descritti nella sezione "Individuato shellcode" precedente
 * HIJACKEDMODULEPATH (PERCORSO MODULO CONTROLLATO): percorso del modulo di sistema Windows di cui è stato assunto il controllo.
 * HIJACKINGMODULEPATH (PERCORSO MODULO HIJACK): percorso del modulo di hijack.
 
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Avviso di hijack del modulo](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
@@ -96,7 +96,7 @@ Oltre ai campi comuni descritti nella sezione "Individuato shellcode" precedente
 
 Questo avviso, inoltre, estrae e visualizza determinati campi dell'intestazione del modulo PE, ad esempio "CHECKSUM" e "TIMESTAMP". Questi campi vengono visualizzati solo se sono presenti nel modulo. Per informazioni dettagliate su questi campi, vedere il documento [Microsoft PE and COFF Specification](https://msdn.microsoft.com/windows/hardware/gg463119.aspx) (Specifica dei formati PE e COFF Microsoft).
 
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Avviso di modulo Windows mascherato](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
@@ -110,21 +110,21 @@ Oltre ai campi comuni descritti nella sezione "Individuato shellcode" precedente
 * MODULENAME (NOME MODULO): nome del file binario di sistema modificato.
 * MODULEVERSION (VERSIONE MODULO): versione del file binario di sistema modificato.
 
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Avviso di file binario di sistema](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Processo sospetto eseguito
 Centro sicurezza identifica il processo sospetto in esecuzione nella macchina virtuale di destinazione e quindi attiva un avviso. Il rilevamento non cerca un nome specifico, ma cerca i parametri del file eseguibile. Anche se l'autore dell'attacco rinomina il file eseguibile, il Centro sicurezza può quindi rilevare comunque il processo sospetto.
 
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Avviso di processo sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>Tentativi ripetuti di query sugli account di dominio
+### <a name="multiple-domains-accounts-queried"></a>Tentativi ripetuti di query sugli account di dominio
 Il Centro sicurezza può rilevare tentativi di query ripetuti sugli account di dominio di Active Directory, attività in genere eseguita dagli utenti malintenzionati durante la ricognizione della rete. Gli utenti malintenzionati possono sfruttare questa tecnica per eseguire query sul dominio e identificare gli utenti, gli account di amministrazione del dominio, i computer che fungono da controller di dominio e anche potenziali relazioni di trust di dominio con altri domini.
 
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Avviso di tentativi di query multipli su account di dominio](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
@@ -132,7 +132,7 @@ Esempio di questo tipo di avviso:
 
 Il Centro sicurezza attiverà un avviso quando si verifica l'evento di sicurezza 4798 in Windows 10 e Windows Server 2016. L'evento si verifica quando i gruppi Administrators locali vengono enumerati, attività in genere eseguita dagli utenti malintenzionati durante la ricognizione della rete. Gli utenti malintenzionati possono sfruttare questa tecnica per eseguire una query l'identità degli utenti con privilegi amministrativi.
 
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Amministratore locale](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
 
@@ -140,7 +140,7 @@ Esempio di questo tipo di avviso:
 
 Il Centro sicurezza attiva un avviso quando rileva l'uso di una combinazione di lettere maiuscole e minuscole nella riga di comando. Alcuni utenti malintenzionati possono usare questa tecnica per nascondersi da regole della macchina con distinzione tra maiuscole e minuscole o basate su hash.
 
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Combinazione anomala](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
 
@@ -151,7 +151,7 @@ Una chiave [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) comprom
 > [!NOTE] 
 > Per altre informazioni sui Golden Ticket Kerberos, vedere [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx) (Guida alla prevenzione del furto di credenziali in Windows 10).
 
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Golden ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
 
@@ -159,7 +159,7 @@ Esempio di questo tipo di avviso:
 
 Centro sicurezza attiverà un avviso quando viene creato un account molto somigliante a un account predefinito esistente con privilegi amministrativi. Questa tecnica può essere usata da utenti malintenzionati per creare un account non autorizzato e sfuggire a una verifica umana.
  
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Account sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
 
@@ -167,7 +167,7 @@ Esempio di questo tipo di avviso:
 
 Gli utenti malintenzionati possono provare ad aggirare la sicurezza dell'host creando regole del firewall personalizzate per consentire ad applicazioni dannose di comunicare con i server di comando e controllo o di avviare attacchi nella rete tramite l'host compromesso. Il Centro sicurezza attiverà un avviso quando rileva che è stata creata una nuova regola del firewall da un file eseguibile in una posizione sospetta.
  
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![Regola del firewall](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
 
@@ -175,7 +175,7 @@ Esempio di questo tipo di avviso:
 
 Il Centro sicurezza attiverà un avviso quando rileva che un host HTA (HTML Application Host) di Microsoft sta avviando comandi di PowerShell. Si tratta di una tecnica usata dagli utenti malintenzionati per avviare script di PowerShell dannosi.
  
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![HTA e PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
 
@@ -188,7 +188,7 @@ I dispositivi di rete possono essere individuati e profilati così come altri ti
 
 ![Avviso per traffico in uscita sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-Questo avviso fornisce informazioni utili per identificare la risorsa usata per avviare l'attacco. L'avviso fornisce anche informazioni per identificare il computer compromesso, l'ora di rilevamento e il protocollo e la porta usati. Il pannello contiene anche un elenco dei passaggi di correzione che possono essere usati per attenuare il problema.
+Questo avviso fornisce informazioni utili per identificare la risorsa usata per avviare l'attacco. L'avviso fornisce anche informazioni per identificare il computer compromesso, l'ora di rilevamento e il protocollo e la porta usati. Questa pagina contiene anche un elenco dei passaggi di correzione che possono essere usati per attenuare il problema.
 
 ### <a name="network-communication-with-a-malicious-machine"></a>Comunicazione di rete con un computer dannoso
 Sfruttando i feed di intelligence per le minacce di Microsoft, il Centro sicurezza di Azure può rilevare i computer compromessi che comunicano con indirizzi IP dannosi. In molti casi l'indirizzo dannoso corrisponde a un centro di comando e controllo. In questo caso, il Centro sicurezza ha rilevato la comunicazione con il malware Pony Loader, noto anche come [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF).
@@ -205,7 +205,7 @@ L'avviso contiene informazioni che consentono di identificare la risorsa usata p
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Rilevato possibile attacco Denial of Service in uscita
 Il traffico di rete anomalo generato da una macchina virtuale può indurre il Centro sicurezza ad attivare un avviso di potenziale attacco Denial of Service.
 
-Esempio di questo tipo di avviso:
+Ecco un esempio di questo tipo di avviso:
 
 ![DoS in uscita](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
@@ -253,4 +253,3 @@ In questo articolo sono stati descritti i diversi tipi di avvisi di sicurezza de
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md)
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
-

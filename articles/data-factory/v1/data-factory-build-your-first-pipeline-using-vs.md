@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: 835f1804b204b988b86b13f48cd9143f6bc81cee
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b71d5c2303fa33637a95d0979e15236d7f8156bd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Esercitazione: Creare una data factory con Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -30,6 +29,10 @@ ms.lasthandoff: 09/25/2017
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere la [guida introduttiva per la creazione di una data factory con Azure Data Factory versione 2](../quickstart-create-data-factory-dot-net.md).
 
 Questa esercitazione illustra come creare una data factory di Azure con Visual Studio. Si crea un progetto di Visual Studio usando il modello di progetto DataFactory, si definiscono le entità della data factory (servizi collegati, set di dati e pipeline) in formato JSON e quindi si pubblicano/distribuiscono queste entità nel cloud. 
 
@@ -469,7 +472,7 @@ Per aggiungere un file di configurazione per ogni ambiente, seguire questa proce
         "AzureSqlLinkedService1": [
             {
                 "name": "$.properties.typeProperties.connectionString",
-                "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value":  "Server=tcp:<Azure sql server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         ]
     }
@@ -566,4 +569,3 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 | [Attività di trasformazione dei dati](data-factory-data-transformation-activities.md) |Questo articolo fornisce un elenco di attività di trasformazione dei dati (ad esempio, la trasformazione Hive di HDInsight usata in questa esercitazione) supportate da Azure Data Factory. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) |Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. |
-

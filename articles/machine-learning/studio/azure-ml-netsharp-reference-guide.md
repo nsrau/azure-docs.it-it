@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeannt
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 54bef3e257363300ee1a13f7f45fc983e465ddbf
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning
 ## <a name="overview"></a>Panoramica
@@ -415,5 +414,4 @@ La definizione della rete seguente è progettata per riconoscere numeri e illust
 Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stato sviluppato presso Microsoft da Shon Katzenberger (progettista, Machine Learning) e Alexey Kamenev (ingegnere di software, Microsoft Research). Viene usato internamente per progetti Machine Learning e le applicazioni che vanno dal rilevamento immagine alle analisi di testo. Per altre informazioni, vedere [Neural Nets in Azure ML - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Reti neurali in Azure ML - Introduzione a Net #)
 
 [1]:./media/azure-ml-netsharp-reference-guide/formula_large.gif
-
 

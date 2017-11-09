@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
 ms.openlocfilehash: bfba2cf38a0624e8480a32bf153f391d820da5a1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Uso del DNS interno per la risoluzione dei nomi di macchine virtuali in Azure
 

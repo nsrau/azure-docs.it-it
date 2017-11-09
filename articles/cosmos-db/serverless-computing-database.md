@@ -12,16 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/24/2017
 ms.author: mimig
+ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 084dacc6a07b64500652481fbcabf1b0fc44306c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2017
 ---
-
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: elaborazione di database senza server con Funzioni di Azure
 
 L'elaborazione senza server consiste nella possibilità di concentrarsi sulle singole parti logiche ripetibili e senza stato. Queste parti non richiedono la gestione dell'infrastruttura e usano le risorse solo per i secondi o millisecondi in cui vengono eseguite. Alla base dello spostamento di elaborazioni senza server ci sono le funzioni, che vengono rese disponibili all'interno dell'ecosistema di Azure da [Funzioni di Azure](https://azure.microsoft.com/services/functions).
@@ -103,7 +101,7 @@ Nelle implementazioni della vendite al dettaglio, quando un utente aggiunge un e
 
 **Implementazione:** più trigger di Azure Cosmos DB in ascolto in una raccolta
 
-1. È possibile creare più Funzioni di Azure aggiungendo i trigger di Azure Cosmos DB a ognuno di essi, tutti in ascolto dello stesso feed di modifiche dei dati del carrello. 
+1. È possibile creare più funzioni di Azure aggiungendo a ognuna trigger di Azure Cosmos DB, tutti in ascolto dello stesso feed di modifiche dei dati del carrello. Si noti che quando più funzioni sono in ascolto dello stesso feed di modifiche, è necessaria una nuova raccolta di lease per ogni funzione.
 2. Ogni volta che viene aggiunto un nuovo elemento a un carrello dell'utente, ogni funzione viene richiamata in modo indipendente dal feed di modifiche dal contenitore del carrello.
     * Una funzione può usare i contenuti del carrello corrente per modificare la visualizzazione di altri elementi a cui l'utente potrebbe essere interessato.
     * Un'altra funzione può aggiornare i totali dell'inventario.
@@ -159,7 +157,6 @@ Ora bisogna davvero collegare Funzioni di Azure e Azure Cosmos DB:
 
 
  
-
 
 
 

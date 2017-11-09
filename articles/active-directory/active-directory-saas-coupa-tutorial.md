@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Coupa | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Coupa | Microsoft Docs'
 description: Informazioni su come usare Coupa con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Esercitazione: Integrazione di Azure Active Directory con Coupa
 Questa esercitazione descrive l'integrazione di Azure e Coupa.  
@@ -142,7 +142,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 **Per assegnare gli utenti a Coupa, seguire questa procedura:**
 
 1. Nel portale di Azure classico creare un account di test.
-2. Nel * * Coupa * * pagina di integrazione dell'applicazione, fare clic su **assegnare gli utenti**.
+2. Nella pagina di integrazione dell'applicazione **Coupa** fare clic su **Assegna utenti**.
    
    ![Assegnare utenti](./media/active-directory-saas-coupa-tutorial/IC791911.png "Assegnare utenti")
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.

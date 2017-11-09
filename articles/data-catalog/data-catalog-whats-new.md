@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/06/2017
 ms.author: maroche
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novità di Azure Data Catalog
 Gli aggiornamenti ad **Azure Data Catalog** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includono tuttavia nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio Azure Data Catalog.
@@ -264,5 +263,4 @@ A partire da agosto 2015 sono state aggiunte ad Azure Data Catalog le funzionali
 * Nuovo menu e pulsante "User" nella barra di spostamento superiore. Questo menu consente di vedere l'account usato per accedere ad Azure Data Catalog ed eventualmente disconnettersi. Questo menu visualizza anche il nome del catalogo, utile per gli sviluppatori che usano l'API REST di Azure Data Catalog.
 * Solo edizione Standard: nell'aggiunta di proprietari ad asset di dati, Azure Data Catalog ora supporta sia gli account utente che i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 * Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
-
 

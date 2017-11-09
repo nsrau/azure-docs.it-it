@@ -3,7 +3,7 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Cos'è Azure Machine Learning?
+    - name: Informazioni su Azure Machine Learning
       href: overview-what-is-azure-ml.md
     - name: Panoramica della gestione dei modelli
       href: model-management-overview.md
@@ -27,37 +27,38 @@
       href: overview-general-concepts.md
 - name: Guide alle procedure
   items:
-    - name: Usare Machine Learning Workbench
+    - name: Usare Workbench
       items:
         - name: Usare gli ambienti di sviluppo integrato Python
           href: how-to-configure-your-IDE.md
         - name: Usare i notebook di Jupyter
           href: how-to-use-jupyter-notebooks.md
-        - name: Eseguire l'integrazione con un repository Git
+        - name: Eseguire l'integrazione con i repository Git
           href: using-git-ml-project.md
-        - name: Strutturare un progetto con TDSP
+        - name: Strutturare progetti con TDSP
           href: how-to-use-tdsp-in-azure-ml.md
-        - name: Come effettuare il roaming e la collaborazione
+        - name: Roaming e collaborazione
           href: roaming-and-collaboration.md
-    - name: Usare gli strumenti di Visual Studio
+    - name: Usare Visual Studio Code Tools for AI
       href: quickstart-visual-studio-tools.md
     - name: Configurare l'ambiente di calcolo
       items:
-        - name: Configurare le destinazioni di esecuzione
-          href: experiment-execution-configuration.md
+        - name: Configurare la sperimentazione
+          href: experimentation-service-configuration.md
         - name: Creare la DSVM e il cluster Spark per HDI
           href: how-to-create-dsvm-hdi.md
         - name: Eseguire il training con GPU
           href: how-to-use-gpu.md
     - name: Acquisire e comprendere dati
       items:
-        - name: Accedere ai dati con la Creazione guidata origine dati
+        - name: Aggiungere l'origine dati
           href: data-source-wizard.md
-        - name: Introduzione alla preparazione dei dati
-          href: data-prep-getting-started.md
         - name: Guida alla preparazione dati
+          href: data-prep-getting-started.md
+        - name: Preparazione avanzata dei dati
           href: data-prep-user-guide.md
         - name: Trasformazioni per la preparazione dei dati
+          href: data-prep-appendix3-supported-transforms.md
           items:
             - name: Combinare le colonne in base a un esempio
               href: data-prep-combine-columns-by-example.md
@@ -65,7 +66,7 @@
               href: data-prep-derive-column-by-example.md
             - name: Dividere le colonne in base a un esempio
               href: data-prep-split-column-by-example.md
-            - name: Espandere JSON
+            - name: Expand JSON (Espandi JSON)
               href: data-prep-expand-json.md
     - name: Sviluppare modelli
       items:
@@ -73,22 +74,26 @@
           href: tutorial-iris-azure-cli.md
         - name: Tenere traccia della cronologia di esecuzione e della metrica del modello
           href: how-to-use-run-history-model-metrics.md
-        - name: Come trovare le esecuzioni con la precisione migliore e la durata minima
+        - name: Trovare l'esecuzione con la precisione migliore
           href: how-to-find-best-accuracy-cli.md
         - name: Leggere e scrivere file
           href: how-to-read-write-files.md
-        - name: Libreria MMLSpark
+        - name: Usare la libreria MMLSpark
           href: how-to-use-mmlspark.md
-    - name: Distribuire i modelli
+    - name: Rendere operativi i modelli
       items:
         - name: Configurare Gestione modelli
           href: deployment-setup-configuration.md
+        - name: Ridimensionare cluster e servizi
+          href: how-to-scale-clusters.md
         - name: Distribuire un servizio Web
           href: model-management-service-deploy.md
         - name: Usare un servizio Web
           href: model-management-consumption.md
-        - name: Come usare la raccolta di dati del modello
+        - name: Raccogliere i dati dei modelli
           href: how-to-use-model-data-collection.md
+        - name: Guida alla risoluzione dei problemi di distribuzione
+          href: how-to-deploy-troubleshooting-guide.md
     - name: Esempi reali
       items:
         - name: Analisi della raccolta di documenti
@@ -121,8 +126,6 @@
           href: data-prep-python-extensibility-overview.md
         - name: Origini dati supportate
           href: data-prep-appendix2-supported-data-sources.md
-        - name: Trasformazioni supportate
-          href: data-prep-appendix3-supported-transforms.md
         - name: Controlli supportati
           href: data-prep-appendix4-supported-inspectors.md
         - name: Destinazioni di dati supportate
@@ -143,8 +146,8 @@
           href: data-prep-python-execution-api.md
     - name: Sperimentazione
       items:
-        - name: Configurazione dell'esecuzione
-          href: experiment-execution-configuration-reference.md
+        - name: Configurazione del servizio Sperimentazione
+          href: experimentation-service-configuration-reference.md
         - name: API di registrazione
           href: reference-logging-api.md
     - name: Gestione modelli
@@ -155,11 +158,15 @@
           href: model-management-cli-reference.md
         - name: API di raccolta di dati del modello
           href: model-data-collection-api-reference.md
+    - name: Note sulla versione
+      items:
+        - name: Sprint 0 - Ottobre 2017
+          href: release-notes-sprint-0.md
 - name: Risorse
   items:
-    - name: domande frequenti
+    - name: Domande frequenti
       href: frequently-asked-questions.md
-    - name: Guida alla risoluzione dei problemi e problemi noti
+    - name: Problemi noti e risoluzione dei problemi
       href: known-issues-and-troubleshooting-guide.md
     - name: Documentazione del processo di analisi scientifica dei dati per i team
       href: ../team-data-science-process/overview.md
@@ -168,9 +175,9 @@
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning'
+      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Video

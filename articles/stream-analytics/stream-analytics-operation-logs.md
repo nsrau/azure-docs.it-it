@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 2ee0871752dc2a3da345339fb826340d44ae48d7
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-stream-analytics-jobs-using-service-and-operation-logs"></a>Eseguire il debug dei processi di analisi di flusso con i log dei servizi e delle operazioni
 Tutti i servizi di Azure forniscono messaggi di registrazione operativi agli utenti per registrare i dettagli relativi alle operazioni di gestione. Nell’analisi di flusso di Azure, queste informazioni possono essere utilizzate per operazioni relative al debug, quali la visualizzazione dello stato del processo, dell’avanzamento del processo, e dei messaggi di errore per rilevare l’avanzamento di un processo nel tempo, dall’avvio, all’elaborazione, fino all’output.
 
 ## <a name="find-operation-logs-in-the-azure-portal"></a>Trovare i log delle operazioni nel portale di Azure
-È possibile accedere ai log delle operazioni in due modi:  
+E’ possibile accedere ai log delle operazioni in due modi:  
 
 * Dashboard del processo di analisi di flusso  
 * Servizi di gestione nel portale di Azure classico  
@@ -92,5 +91,4 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

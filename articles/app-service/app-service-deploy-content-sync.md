@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 ms.openlocfilehash: 010e7dc492abefaa3afe814c0322af9f6fe5acd2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizzare i contenuti da una cartella nel cloud per il servizio app di Azure
 Questa esercitazione spiega come effettuare una distribuzione nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) sincronizzando i contenuti dai servizi di archiviazione cloud più diffusi, come Dropbox e OneDrive. 

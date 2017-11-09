@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: b04e9b22fa35f6202bc3fee547519b679f439a3d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
 
 Questo script di esempio crea tutti gli elementi necessari per eseguire più macchine virtuali Ubuntu configurate in una configurazione a disponibilità elevata e con bilanciamento del carico. Dopo aver eseguito lo script, si disporrà di tre macchine virtuali, aggiunte a un set di disponibilità di Azure e accessibili tramite Azure Load Balancer. 
@@ -33,7 +31,7 @@ Questo script di esempio crea tutti gli elementi necessari per eseguire più mac
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Creazione rapida della macchina virtuale")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Quick Create VM")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 

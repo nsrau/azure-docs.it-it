@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: b07386eeb0d3e05a0b4545be39030066fbdafd3d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Aggiungere un nuovo dispositivo Windows 10 con Azure AD in fase di completamento dell'installazione
 
@@ -87,4 +86,3 @@ Per verificare se un dispositivo è stato aggiunto ad Azure AD, esaminare la fin
 - Per altre informazioni, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](device-management-introduction.md).
 
 - Per altre informazioni sulla gestione di dispositivi nel portale di Azure AD, vedere [Gestione dei dispositivi tramite il portale di Azure](device-management-azure-portal.md).
-

@@ -16,10 +16,10 @@ ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 73b8ed7e6a153a0790f7eae9bd51bb2e554ae72e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Come abilitare l'accesso Single Sign-On tra app in iOS usando ADAL
 Ora i clienti si aspettano che l'accesso SSO (Single Sign-On) venga fornito in modo che gli utenti debbano inserire le loro credenziali una volta sola e che le credenziali funzionino automaticamente per le varie applicazioni. La difficoltà di immissione di nome utente e password su uno schermo di piccole dimensioni, spesso abbinata a un fattore aggiuntivo (2FA) come una telefonata o un codice inviato tramite SMS, rende l'utente insoddisfatto se questa procedura va ripetuta più volte per il prodotto.
@@ -296,7 +296,7 @@ ADAL usa –canOpenURL: per controllare se il broker è installato nel dispositi
 
 <key>LSApplicationQueriesSchemes</key>
 
-<array><string>msauth</string>
+<array> <string>msauth</string>
 </array>
 
 ### <a name="youve-configured-sso"></a>L'SSO è stato configurato!

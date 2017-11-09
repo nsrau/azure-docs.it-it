@@ -10,17 +10,15 @@ ms.service: MySQL
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 07/10/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: f87c3c302ec25f33af4334c3753dfae0084e4393
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: f1488f6b4a240165c71c95f759af73d6b9fd7bfe
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Database di Azure per MySQL: usare .NET (C#) per connettersi ed eseguire query sui dati
-Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione C#. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con C#, ma non con Database di Azure per MySQL.
+Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione C#. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con C#, ma non con Database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
@@ -36,14 +34,14 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per MySQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e cercare il server creato, ad esempio **myserver4demo**.
+2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **myserver4demo**.
 3. Fare clic sul nome del server.
-4. Selezionare la pagina **Proprietà** del server. Annotare il **Nome server** e il **nome di accesso dell'amministratore del server**.
+4. Selezionare la pagina **Proprietà** del server e prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**.
  ![Nome del server del database di Azure per MySQL](./media/connect-csharp/1_server-properties-name-login.png)
 5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** per visualizzare il nome di accesso dell'amministratore del server e, se necessario, reimpostare la password.
 
 ## <a name="connect-create-table-and-insert-data"></a>Connettersi, creare tabelle e inserire dati
-Usare il codice seguente per connettersi e caricare i dati usando le istruzioni SQL **CREATE TABLE** e **INSERT INTO**. Il codice usa la classe ODBC con il metodo [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) per stabilire una connessione a MySQL. Il codice usa quindi il metodo [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) per eseguire i comandi di database. 
+Usare il codice seguente per connettersi e caricare i dati usando le istruzioni SQL **CREATE TABLE** e **INSERT INTO**. Il codice usa la classe ODBC con il metodo [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) per stabilire una connessione a MySQL. Il codice usa quindi il metodo [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) per eseguire i comandi di database. 
 
 Sostituire i parametri Host, DBName, User e Password con i valori specificati al momento della creazione del server e del database. 
 
@@ -104,7 +102,7 @@ namespace driver
 
 ## <a name="read-data"></a>Leggere i dati
 
-Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **SELECT**. Il codice usa la classe ODBC con il metodo [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) per stabilire una connessione a MySQL. Il codice usa quindi il metodo [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) e il metodo [ExecuteReader()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executereader(v=vs.110).aspx) per eseguire i comandi di database. Il codice usa poi [Read()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcdatareader.read(v=vs.110).aspx) per passare ai record nei risultati. Il codice usa quindi GetInt32 e GetString per analizzare i valori nel record.
+Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **SELECT**. Il codice usa la classe ODBC con il metodo [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) per stabilire una connessione a MySQL. Il codice usa quindi il metodo [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) e il metodo [ExecuteReader()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executereader(v=vs.110).aspx) per eseguire i comandi di database. Il codice usa poi [Read()](https://msdn.microsoft.com/library/system.data.odbc.odbcdatareader.read(v=vs.110).aspx) per passare ai record nei risultati. Il codice usa quindi GetInt32 e GetString per analizzare i valori nel record.
 
 Sostituire i parametri Host, DBName, User e Password con i valori specificati al momento della creazione del server e del database. 
 
@@ -160,7 +158,7 @@ namespace driver
 ```
 
 ## <a name="update-data"></a>Aggiornare i dati
-Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **UPDATE**. Il codice usa la classe ODBC con il metodo [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) per stabilire una connessione a MySQL. Il codice usa quindi il metodo [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) per eseguire i comandi di database.
+Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **UPDATE**. Il codice usa la classe ODBC con il metodo [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) per stabilire una connessione a MySQL. Il codice usa quindi il metodo [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) per eseguire i comandi di database.
 
 Sostituire i parametri Host, DBName, User e Password con i valori specificati al momento della creazione del server e del database. 
 
@@ -211,7 +209,7 @@ namespace driver
 ## <a name="delete-data"></a>Eliminare i dati
 Usare il codice seguente per connettersi ed eliminare i dati usando un'istruzione SQL **DELETE**. 
 
-Il codice usa la classe ODBC con il metodo [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) per stabilire una connessione a MySQL. Il codice usa quindi il metodo [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) per eseguire i comandi di database.
+Il codice usa la classe ODBC con il metodo [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) per stabilire una connessione a MySQL. Il codice usa quindi il metodo [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), imposta la proprietà CommandText e chiama il metodo [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) per eseguire i comandi di database.
 
 Sostituire i parametri Host, DBName, User e Password con i valori specificati al momento della creazione del server e del database. 
 
@@ -256,4 +254,3 @@ namespace driver
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database MySQL a Database di Azure per MySQL usando dump e ripristino](concepts-migrate-dump-restore.md)
-

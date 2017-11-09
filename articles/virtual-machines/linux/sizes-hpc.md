@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 10/10/2017
 ms.author: jonbeck
-ms.openlocfilehash: b7a3844ce86b4efac8a4fc3c2540e7b6460873a2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: fecc0656264f1c1d44aa8ad3aea321aa8cc4a0c8
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-performance-compute-linux-vm-sizes"></a>Dimensioni delle macchine virtuali High Performance Computing (HPC) Linux
 
@@ -32,35 +32,33 @@ ms.lasthandoff: 08/03/2017
 ## <a name="rdma-capable-instances"></a>Istanze con supporto per RDMA
 Un subset delle istanze a elevato uso di calcolo (H16r, H16mr, A8 e A9) è dotato di un'interfaccia di rete per la connettività ad accesso diretto a memoria remota (RDMA). Questa interfaccia è un'aggiunta all'interfaccia di rete di Azure standard disponibile per gli altri formati di VM. 
   
-Questa interfaccia consente alle istanze con supporto per RDMA di comunicare attraverso una rete InfiniBand che funziona a velocità FDR per macchine virtuali H16r e H16mr e a velocità QDR per macchine virtuali A8 e A9. Queste funzionalità RDMA possono migliorare la scalabilità e le prestazioni delle applicazioni di interfaccia MPI (Message Passing).
+Questa interfaccia consente alle istanze con supporto per RDMA di comunicare attraverso una rete InfiniBand che funziona a velocità FDR per macchine virtuali H16r e H16mr e a velocità QDR per macchine virtuali A8 e A9. Queste funzionalità RDMA possono migliorare la scalabilità e le prestazioni delle applicazioni di interfaccia MPI (Message Passing) in esecuzione in Intel MPI 5.x o versione successiva.
 
-Di seguito sono riportati i requisiti per le macchine virtuali Linux con supporto per RDMA per accedere alla rete RDMA di Azure:
+Distribuire le VM con supporto per RDMA nello stesso set di disponibilità, se si usa il modello di distribuzione Azure Resource Manager, o nello stesso servizio cloud, se si usa il modello di distribuzione classica. Seguono altri requisiti per le macchine virtuali Linux con supporto per RDMA per accedere alla rete RDMA di Azure.
+
+### <a name="distributions"></a>Distribuzioni
  
-* **Distribuzioni**: è necessario distribuire le macchine virtuali da immagini SLES (SUSE Linux Enterprise Server) con supporto per RDMA o da immagini Rogue Wave Software (in precedenza OpenLogic) basate su CentOS in Azure Marketplace. Le immagini Marketplace seguenti supportano la connettività RDMA:
+Distribuire una VM a elevato utilizzo di calcolo da una delle immagini in Azure Marketplace che supporta la connettività RDMA:
   
-    * SLES 12 SP1 per HPC o SLES 12 SP1 per HPC (Premium)
+* **Ubuntu**: Ubuntu Server 16.04 LTS. Configurare i driver RDMA nella VM ed eseguire la registrazione con Intel per scaricare Intel MPI:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+
+* **SUSE Linux Enterprise Server**: SLES 12 SP3 per HPC, SLES 12 SP3 per HPC (Premium), SLES 12 SP1 per HPC, SLES 12 SP1 per HPC (Premium). I driver RDMA vengono installati e i pacchetti Intel MPI vengono distribuiti nella VM. Installare MPI con questo comando:
+
+  ```bash
+  sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
+  ```
     
-    * HPC basata su CentOS 7.3, HPC basata su CentOS 7.1, HPC basata su CentOS 6.8 o HPC basata su CentOS 6.5  
+* **HPC basato su CentOS**: HPC basato su CentOS 7.3, HPC basato su CentOS 7.1, HPC basato su CentOS 6.8 o HPC basato su CentOS 6.5. Per la serie H, si consiglia la versione 7.1 o successiva. I driver RDMA e Intel MPI 5.1 vengono installati nella VM.  
  
-        > [!NOTE]
-        > Per le macchine virtuali serie H è consigliabile un'immagine SLES 12 SP1 per HPC o un'immagine HPC basata su CentOS 7.1 o versione successiva.
-        >
-        > Nelle immagini HPC basate su CentOS gli aggiornamenti del kernel sono disabilitati nel file di configurazione **yum** . In questo modo i driver Linux RDMA vengono distribuiti come pacchetto RPM e gli aggiornamenti dei driver potrebbero non funzionare se il kernel viene aggiornato.
-        > 
-        > 
-* **MPI** : Intel MPI Library 5.x.
-  
-    A seconda dell'immagine Marketplace scelta, può essere necessario separare licenze, installazione o configurazione di Intel MPI, come illustrato di seguito: 
-  
-  * **Immagine SLES 12 SP1 per HPC** - I pacchetti Intel MPI vengono distribuiti nella macchina virtuale. Eseguire l'installazione con questo comando:
-
-      ```bash
-      sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-      ```
-
-  * **Immagini HPC basate su CentOS** : Intel MPI 5.1 è già installato.  
+  > [!NOTE]
+  > Nelle immagini HPC basate su CentOS gli aggiornamenti del kernel sono disabilitati nel file di configurazione **yum** . In questo modo i driver Linux RDMA vengono distribuiti come pacchetto RPM e gli aggiornamenti dei driver potrebbero non funzionare se il kernel viene aggiornato.
+  > 
+ 
+### <a name="cluster-configuration"></a>Configurazione del cluster 
     
-    Per eseguire processi MPI su macchine virtuali n cluster, è necessaria una configurazione di sistema aggiuntiva. In un cluster di macchine virtuali, ad esempio, è necessario stabilire una relazione di trust tra i nodi di calcolo. Per le impostazioni tipiche, vedere [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Per eseguire processi MPI su macchine virtuali n cluster, è necessaria una configurazione di sistema aggiuntiva. In un cluster di macchine virtuali, ad esempio, è necessario stabilire una relazione di trust tra i nodi di calcolo. Per le impostazioni tipiche, vedere [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### <a name="network-topology-considerations"></a>Considerazioni sulla topologia di rete
 * Nelle macchine virtuali Linux con supporto per RDMA in Azure, Eth1 è riservato al traffico di rete RDMA. Non modificare le impostazioni di Eth1 o le informazioni nel file di configurazione riferite a questa rete. Eth0 è riservato per il normale traffico di rete di Azure.

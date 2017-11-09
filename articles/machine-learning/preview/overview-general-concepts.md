@@ -9,14 +9,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d4ba2ca6f7adc8b51030c02d9e9eeb2b9995bb4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - Concetti
 
 Questo articolo definisce e descrive i concetti necessari per l'uso di Azure Machine Learning. 
@@ -58,4 +56,3 @@ Questo articolo definisce e descrive i concetti necessari per l'uso di Azure Mac
 - **Immagini:** è possibile usare i manifesti per generare e rigenerare immagini Docker. Le immagini Docker nei contenitori creano flessibilità per l'esecuzione nel cloud, nei computer locale o nel dispositivo IoT. Le immagini sono compete e includono tutte le dipendenze necessarie per il punteggio di nuovi dati con i modelli. 
 
 - **Servizi:** Gestione modelli consente di distribuire i modelli come servizi Web. La logica e le dipendenze del servizio Web sono incapsulate in un'immagine. Ogni servizio Web è un set di contenitori basati sulle immagini pronto per le richieste di servizio a un determinato URL. Un servizio Web viene conteggiato come una singola distribuzione.
-

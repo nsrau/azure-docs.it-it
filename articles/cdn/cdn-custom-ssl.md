@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: casoper
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: c92f1e20acf55b8bd791fad43f17e162a5cb3847
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>Abilitare o disabilitare HTTPS in un dominio personalizzato della rete per la distribuzione di contenuti di Azure
 
@@ -184,6 +183,5 @@ La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazion
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come configurare un [dominio personalizzato nell'endpoint della rete CDN di Azure](./cdn-map-content-to-custom-domain.md)
-
 
 

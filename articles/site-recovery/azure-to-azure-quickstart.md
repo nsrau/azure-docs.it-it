@@ -9,15 +9,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: rajanaki
 ms.custom: mvc
+ms.openlocfilehash: 369ffed823bc76ee4273d7866935c0ddc7ffa515
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 614193fd61f976c61ef0de8be14c7bc55d7c28da
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Replicare una macchina virtuale di Azure in un'altra area di Azure (anteprima)
 
@@ -74,4 +73,3 @@ In questa guida introduttiva è stata replicata una singola macchina virtuale in
 
 > [!div class="nextstepaction"]
 > [Configurare il ripristino di emergenza per macchine virtuali di Azure](azure-to-azure-tutorial-enable-replication.md)
-

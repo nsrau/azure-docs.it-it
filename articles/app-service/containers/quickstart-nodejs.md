@@ -1,6 +1,6 @@
 ---
-title: Creare un'app Web Node.js in un contenitore Linux in Azure | Microsoft Docs
-description: Distribuire la prima app Node.js Hello World in un'app Web del servizio app di Azure in pochi minuti.
+title: Creare un Node.js nel Servizio app di Azure in Linux | Microsoft Docs
+description: Distribuire la prima app Hello World Node.js in un Servizio app di Azure in Linux in pochi minuti.
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -15,16 +15,15 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
+ms.openlocfilehash: a40dc540884454fed9c374ba1365fdf7b85e4531
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 6a7e2a99af7bca9bd0b12f877511f765593acb0a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>Creare un'app Web Node.js in un contenitore Linux in Azure
+# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web Node.js nel Servizio app di Azure in Linux
 
-[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web ad alta scalabilità e con correzione automatica basato sul sistema operativo Linux. Questa guida introduttiva mostra come distribuire un'app Node.js in App Web di Azure per contenitori. È necessario creare l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e Git per distribuire il codice Node.js nell'app Web.
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa Guida introduttiva illustra come distribuire un'app Node.js nel Servizio app in Linux usando un'immagine incorporata. È necessario creare l'app Web con immagine incorporata usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e Git per distribuire il codice Node.js nell'app Web.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -79,11 +78,11 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Creare un'app Web
+## <a name="create-a-web-app-with-built-in-image"></a>Creare un'app Web con immagine incorporata
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Passare al sito per visualizzare l'app Web appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
+Passare all'app Web appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -135,11 +134,11 @@ Passare all'applicazione distribuita con il Web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-Il codice di esempio Node.js è in esecuzione in un'app Web del servizio app di Azure.
+Il codice di esempio Node.js è in esecuzione in un'app Web con immagine incorporata.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-**Congratulazioni.** La distribuzione della prima app Node.js nel servizio app è stata completata.
+**Congratulazioni.** La distribuzione della prima app Node.js nel Servizio app in Linux è stata completata.
 
 ## <a name="update-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice
 
@@ -180,4 +179,3 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 
 > [!div class="nextstepaction"]
 > [Node.js con MongoDB](tutorial-nodejs-mongodb-app.md)
-

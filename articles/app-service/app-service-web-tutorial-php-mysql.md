@@ -12,15 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 07/21/2017
+ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
+ms.openlocfilehash: 08e9f58cc81122ae36db67d916cf2550490ec4ef
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 64baee04c43442a73dbb9ef657c091f307204ce4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Creare un'app Web PHP e MySQL in Azure
 
@@ -325,23 +324,18 @@ L'app è pronta per la distribuzione.
 
 In questo passaggio viene distribuita l'applicazione PHP connessa a MySQL nel servizio app di Azure.
 
+### <a name="configure-a-deployment-user"></a>Configurare un utente della distribuzione
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+
 ### <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
+<a name="create"></a>
 ### <a name="create-a-web-app"></a>Creare un'app Web
 
-[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)]
-
-### <a name="set-the-php-version"></a>Impostare la versione di PHP
-
-In Cloud Shell impostare la versione PHP necessaria all'applicazione usando il comando [az webapp config set](/cli/azure/webapp/config#set).
-
-Il comando seguente imposta la versione PHP su _7.0_.
-
-```azurecli-interactive
-az webapp config set --name <app_name> --resource-group myResourceGroup --php-version 7.0
-```
+[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Configurare le impostazioni del database
 
@@ -398,17 +392,9 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 Per impostazione predefinita, il servizio app di Azure fa in modo che il percorso virtuale dell'applicazione radice (_/_) punti alla directory radice dei file dell'applicazione distribuiti (_sites\wwwroot_).
 
-### <a name="configure-a-deployment-user"></a>Configurare un utente della distribuzione
-
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
-
-### <a name="configure-local-git-deployment"></a>Configurare la distribuzione con l'istanza Git locale
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git-no-h.md)]
-
 ### <a name="push-to-azure-from-git"></a>Effettuare il push in Azure da Git
 
-Nella finestra del terminale locale aggiungere un'istanza remota di Azure al repository Git locale.
+Nella finestra del terminale locale aggiungere un'istanza remota di Azure al repository Git locale. Sostituire _&lt;paste\_copied\_url\_here>_ con l'URL dell'istanza remota di Git salvata da [Creare un'app Web](#create).
 
 ```bash
 git remote add azure <paste_copied_url_here>
@@ -652,4 +638,3 @@ Passare all'esercitazione successiva per apprendere come eseguire il mapping di 
 
 > [!div class="nextstepaction"]
 > [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-domain.md)
-

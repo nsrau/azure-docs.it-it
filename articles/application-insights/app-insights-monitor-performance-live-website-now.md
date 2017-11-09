@@ -3,7 +3,7 @@ title: Monitorare un'app Web ASP.NET live con Azure Application Insights | Micro
 description: "Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: bwren
-ms.openlocfilehash: d07a0c81f89100c378456bbea8dca1c009cc8d77
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentare app Web in fase di esecuzione con Application Insights
 

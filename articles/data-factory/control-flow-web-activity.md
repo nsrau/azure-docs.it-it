@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
+ms.openlocfilehash: b5661dea3a63f6e7e5b67261bc9704061ae9c5b6
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: dec7a446251545461f32cddea4d8c3e433dc21e2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Attività Web in Azure Data Factory
 L'attività Web può essere usata per chiamare un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi. 
+
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -227,4 +229,3 @@ Vedere altre attività del flusso di controllo supportate da Data Factory:
 - [Attività ForEach](control-flow-for-each-activity.md)
 - [Attività Get Metadata](control-flow-get-metadata-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
-

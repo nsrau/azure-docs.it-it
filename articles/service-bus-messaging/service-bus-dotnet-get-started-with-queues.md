@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -56,7 +56,7 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
 
 ### <a name="add-the-service-bus-nuget-package"></a>Aggiungere il pacchetto NuGet del bus di servizio
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
-2. Fare clic sulla scheda **Esplora**, cercare **Bus di servizio di Microsoft Azure** e quindi selezionare l'elemento **WindowsAzure.ServiceBus**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
+2. Fare clic sulla scheda **Esplora**, cercare **WindowsAzure.ServiceBus** e quindi selezionare l'elemento **WindowsAzure.ServiceBus**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
    
     ![Selezionare un pacchetto NuGet][nuget-pkg]
 
@@ -115,7 +115,7 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
         }
     }
     ```
-3. Eseguire il programma e controllare il portale di Azure: fare clic sul nome della coda nel pannello **Panoramica** dello spazio dei nomi. Viene visualizzato il pannello **Informazioni di base** della coda. Si noti che ora il valore di **Numero di messaggi attivi** è 1. Ogni volta che si avvia l'applicazione mittente senza recuperare i messaggi, questo valore aumenta di 1. Tenere anche presente che la dimensione corrente della coda aumenta ogni volta che l'app aggiunge un messaggio alla coda.
+3. Eseguire il programma e nel portale di Azure fare clic sul nome della coda nella finestra **Panoramica** dello spazio dei nomi. Verrà visualizzata la finestra **Informazioni di base** della coda. Si noti che ora il valore di **Numero di messaggi attivi** è 1. Ogni volta che si avvia l'applicazione mittente senza recuperare i messaggi, questo valore aumenta di 1. Tenere anche presente che la dimensione corrente della coda aumenta ogni volta che l'app aggiunge un messaggio alla coda.
    
       ![Dimensioni dei messaggi][queue-message]
 
@@ -178,7 +178,7 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
    
     ![Lunghezza coda][queue-message-receive]
 
-Congratulazioni. È stata creata una coda ed è stato inviato e ricevuto un messaggio.
+Congratulazioni. È stata creata una coda, è stato inviato un messaggio alla coda ed è stato ricevuto un messaggio dalla stessa coda.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -189,4 +189,4 @@ Vedere il [repository GitHub con esempi](https://github.com/Azure/azure-service-
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+

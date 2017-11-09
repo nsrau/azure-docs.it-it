@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: aa1f4f0a264c58024206304b2bf9a43610cb835d
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c53725806845095c55add65fb65a247d8873dc74
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Attività di stored procedure di SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -34,6 +33,9 @@ ms.lasthandoff: 09/25/2017
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> Questo articolo si applica alla versione 1 di Azure Data Factory, disponibile a livello generale. Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Trasformare dati tramite l'attività stored procedure in Data Factory versione 2](../transform-data-using-stored-procedure.md).
 
 ## <a name="overview"></a>Panoramica
 Le attività di trasformazione dei dati in una [pipeline](data-factory-create-pipelines.md) di Data factory trasformano ed elaborano i dati non elaborati in stime e approfondimenti. L'attività di stored procedure è una delle attività di trasformazione supportate da Data factory. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate in Data Factory.

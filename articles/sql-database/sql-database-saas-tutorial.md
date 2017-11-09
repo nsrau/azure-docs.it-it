@@ -1,5 +1,5 @@
 ---
-title: Distribuire ed esplorare un'applicazione SaaS multi-tenant che usa il database SQL di Azure | Microsoft Docs
+title: Esercitazione sulle app SaaS multi-tenant - Database SQL di Azure | Microsoft Docs
 description: Distribuire ed esplorare l'applicazione SaaS Wingtip multi-tenant, che illustra i modelli di SaaS utilizzando il database SQL di Azure.
 keywords: esercitazione database SQL
 services: sql-database
@@ -10,18 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: f624485d32901abb5f0d01c86fc30ddaaae261a3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 14d2fd007e88c9cb20cf2b4a24262e2bebc42d63
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Distribuire ed esplorare un'applicazione multi-tenant che utilizza il database SQL di Azure - SaaS Wingtip
 
@@ -203,4 +202,3 @@ In questa esercitazione si è appreso:
 * Per informazioni sui pool elastici, vedere [*Informazioni sul pool elastico di Azure SQL*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
 * Per informazioni sui processi elastici, vedere [*Gestione dei database cloud con scalabilità orizzontale*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
 * Per informazioni sulle applicazioni SaaS multi-tenant, vedere [*Modelli di progettazione per le applicazioni SaaS multi-tenant*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)
-

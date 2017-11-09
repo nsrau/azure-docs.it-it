@@ -13,10 +13,10 @@ ms.date: 03/30/2017
 ms.author: rupesk@microsoft.com
 ms.robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guida per i venditori di Azure Marketplace
 
@@ -190,7 +190,7 @@ Altre informazioni sui nostri [programmi di commercializzazione](https://partner
 
 Prima del lancio, è consigliabile eseguire alcuni passaggi per ottenere una rapida adesione dell'offerta sul Marketplace. Utilizzare questo elenco di controllo per determinare se si è pronti:
 
-- **Ho annunciato che l&#39;offerta è disponibile sul Marketplace** pubblicando un articolo di blog, inviando messaggi di posta elettronica o rilasciando una conferenza stampa.
+- **Ho annunciato che I&#39;offerta è disponibile sul Marketplace** pubblicando un articolo di blog, inviando messaggi di posta elettronica o rilasciando una conferenza stampa.
 - **Sto promuovendo l&#39;offerta sul sito Web personale** , indirizzando i clienti sull'offerta sul Marketplace.
 - **Ho pubblicato un test drive** in modo che i clienti possano scoprire l'offerta in esecuzione su Azure nella pausa caffè.
 - **Ho attivato la generazione dei lead su richiesta** in modo che ogni volta che un cliente fa clic per distribuire l'applicazione, io ricevo le informazioni di contatto e il nome.

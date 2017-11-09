@@ -1,5 +1,5 @@
 ---
-title: Autenticazione e autorizzazione nel servizio app di Azure | Documentazione Microsoft
+title: Autenticazione e autorizzazione nel servizio app di Azure | Microsoft Docs
 description: "Riferimento concettuale e panoramica della funzionalità di Autenticazione/Autorizzazione per il servizio app di Azure"
 services: app-service
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
+ms.openlocfilehash: f0d2644903181cd2e20166feae4f90ddd4037fa8
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: b67f95847ac3228aa1d04d89af7e9fe4eeff3220
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
 ## <a name="what-is-app-service-authentication--authorization"></a>Informazioni sull’autenticazione / autorizzazione di servizio app
@@ -27,10 +26,7 @@ L'autenticazione/autorizzazione del servizio app è una funzionalità che consen
 
 Il servizio app usa identità federate, in cui un provider di identità di terze parti archivia gli account e autentica gli utenti. L'applicazione si basa sulle informazioni di identità del provider in modo da non doverle archiviare. Il servizio app supporta cinque provider di identità predefiniti: Azure Active Directory, Facebook, Google, Account Microsoft e Twitter. L'app può usare un numero qualsiasi di questi provider di identità per offrire agli utenti diverse opzioni di accesso. Per espandere il supporto predefinito, è possibile integrare un altro provider di identità o [la soluzione di gestione delle identità personalizzata][custom-auth].
 
-Se si vuole iniziare subito, vedere una delle esercitazioni seguenti:
-
-* [Aggiungere l'autenticazione all'app iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
-* [Autenticazione utente per le app per le API nel Servizio app di Azure][apia-user]
+Se si desidera iniziare subito, vedere una delle esercitazioni seguenti [Aggiungere l'autenticazione all'app iOS] [ iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], o [Cordova]).
 
 ## <a name="how-authentication-works-in-app-service"></a>Funzionamento dell'autenticazione nel servizio app
 Per eseguire l'autenticazione con uno dei provider di identità, è prima necessario configurare il provider di identità per l'applicazione. Il provider di identità fornirà quindi gli ID e i segreti da includere nel servizio app. Questo completa la relazione di trust e consente al servizio app di convalidare le asserzioni utente dal provider di identità, ad esempio i token di autenticazione.
@@ -80,7 +76,7 @@ Si ha il controllo completo sulle richieste che possono accedere all'applicazion
 
 * Consentire solo alle richieste autenticate di raggiungere l'applicazione.
   
-    Se un browser riceve una richiesta anonima, il servizio app la reindirizzerà a una pagina del provider di identità scelto per consentire l'accesso degli utenti. Se la richiesta proviene da un dispositivo mobile, verrà restituita una risposta HTTP *401 Non autorizzato*.
+    Se un browser invia una richiesta anonima, il servizio app la reindirizzerà a una pagina del provider di identità scelto per consentire l'accesso degli utenti. Se la richiesta proviene da un dispositivo mobile, verrà restituita una risposta HTTP *401 Non autorizzato*.
   
     Con questa opzione non è necessario scrivere alcun codice di autenticazione nell'app. Se è necessaria un'autorizzazione più specifica, le informazioni sull'utente sono disponibili nel codice.
 * Consentire alle richieste di raggiungere l'applicazione, ma convalidare le richieste autenticate e passare le informazioni di autenticazione nelle intestazioni HTTP.
@@ -116,11 +112,6 @@ Le esercitazioni seguenti illustrano come configurare il servizio app per usare 
 
 Per usare un sistema di gestione delle identità diverso da quelli qui forniti, è anche possibile sfruttare l'[anteprima del supporto per l'autenticazione personalizzata dell'SDK del server .NET per app per dispositivi mobili][custom-auth], che può essere usato in app Web, app per dispositivi mobili o app per le API.
 
-### <a name="web-applications"></a>Applicazioni Web
-Le esercitazioni seguenti illustrano come aggiungere l'autenticazione a un'applicazione Web:
-
-* [Introduzione a Servizio app di Azure - Parte 2][web-getstarted]
-
 ### <a name="mobile-applications"></a>Applicazioni per dispositivi mobili
 Le esercitazioni seguenti illustrano come aggiungere l'autenticazione ai client per dispositivi mobili usando il flusso verso il server:
 
@@ -150,11 +141,11 @@ Se si vuole usare il flusso verso il client per Google, vedere le risorse seguen
 
 * [Usare Google Sign-In SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
-### <a name="api-applications"></a>Applicazioni per le API
-Le esercitazioni seguenti illustrano come proteggere le app per le API:
+<!-- ### API applications
+The following tutorials show how to protect your API apps:
 
-* [Autenticazione utente per le app per le API nel Servizio app di Azure][apia-user]
-* [Autenticazione dell'entità servizio per app per le API nel Servizio app di Azure][apia-service]
+* [User authentication for API Apps in Azure App Service][apia-user]
+* [Service principal authentication for API Apps in Azure App Service][apia-service] -->
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
@@ -175,4 +166,3 @@ Le esercitazioni seguenti illustrano come proteggere le app per le API:
 [ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
-

@@ -63,12 +63,40 @@
       href: regions-and-availability.md
     - name: Tipi e dimensioni di VM
       href: sizes.md
+      items:
+        - name: Scopo generico
+          href: sizes-general.md
+          items:
+            - name: Serie B con possibilità di burst
+              href: b-series-burstable.md
+        - name: Ottimizzate per il calcolo
+          href: sizes-compute.md
+        - name: Ottimizzate per la memoria
+          href: sizes-memory.md
+        - name: Ottimizzate per l'archiviazione
+          href: sizes-storage.md
+        - name: Ottimizzate per la GPU
+          href: sizes-gpu.md
+          items:
+            - name: Configurare i driver GPU
+              href: n-series-driver-setup.md
+        - name: High Performance Computing (HPC)
+          href: sizes-hpc.md
+        - name: Unità di calcolo di Azure
+          href: sizes-general.md
     - name: Distribuzioni approvate
       href: endorsed-distros.md
     - name: Manutenzione e aggiornamenti
       href: maintenance-and-updates.md
     - name: Archiviazione
       href: azure-vm-storage-overview.md
+      items:
+        - name: Archiviazione Premium
+          href: premium-storage.md
+        - name: Prestazioni di Archiviazione Premium
+          href: premium-storage-performance.md
+        - name: Archiviazione standard
+          href: standard-storage.md
     - name: Rete
       href: network-overview.md
     - name: Ridimensionare automaticamente le applicazioni
@@ -205,6 +233,17 @@
               href: terraform-install-configure.md
             - name: Creare una VM completa
               href: terraform-create-complete-vm.md
+        - name: Jenkins
+          href: ../../jenkins/overview.md
+          items:
+            - name: Creare un server Jenkins
+              href: ../../jenkins/install-jenkins-solution-template.md
+            - name: Scalabilità con gli agenti di macchine virtuali
+              href: ../../jenkins/jenkins-azure-vm-agents.md
+            - name: Pubblicare elementi in Archiviazione
+              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+            - name: Proteggere Jenkins
+              href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Eseguire contenitori
       items:
         - name: Creare un host Docker
@@ -222,11 +261,25 @@
             - name: Distribuire la prima app
               href: cloudfoundry-deploy-your-first-app.md
         - name: OpenShift
-          href: openshift-get-started.md
+          items:
+            - name: Panoramica di OpenShift
+              href: openshift-get-started.md
+            - name: Prerequisiti di OpenShift
+              href: openshift-prerequisites.md
+            - name: OpenShift Origin
+              href: openshift-origin.md
+            - name: OpenShift Container Platform
+              href: openshift-container-platform.md
+            - name: Attività post-distribuzione per OpenShift
+              href: openshift-post-deployment.md
+            - name: Risoluzione dei problemi relativi alla distribuzione
+              href: openshift-troubleshooting.md
         - name: SAP in Azure
           href: ../workloads/sap/get-started.md
         - name: Oracle
           href: ../workloads/oracle/oracle-database-quick-create.md
+        - name: Elasticsearch
+          href: tutorial-elasticsearch.md
         - name: Packet Filter di FreeBSD
           href: freebsd-pf-nat.md
         - name: Database
@@ -264,6 +317,8 @@
           href: expand-disks.md
         - name: Snapshot di un disco
           href: snapshot-copy-managed-disk.md
+        - name: Backup e ripristino di emergenza per i dischi
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Eseguire il backup di dischi non gestiti
           href: incremental-snapshots.md
         - name: Eseguire la conversione in Managed Disks
@@ -272,6 +327,8 @@
           href: convert-disk-storage.md
         - name: Copiare file in una VM
           href: copy-files-to-linux-vm-using-scp.md
+        - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Usare Archiviazione file
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Eseguire la distribuzione di dischi con un modello

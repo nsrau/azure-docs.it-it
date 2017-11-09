@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
 ms.openlocfilehash: 55e1cd90df0e4413ce027361c636257d823a50d6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-software-high-availability-and-networking-requirements"></a>Software, disponibilità elevata e requisiti di rete di StorSimple
 ## <a name="overview"></a>Panoramica
@@ -151,13 +150,13 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 
 * L'ordine in cui il traffico cloud verrà instradato tramite le interfacce di rete è:
   
-    *Data 0 > Data 1 > Data 2 > Data 3 > Data 4 > Data 5*
+    *Data 0 &gt; Data 1 &gt; Data 2 &gt; Data 3 &gt; Data 4 &gt; Data 5*
   
     Questo può essere spiegato dall'esempio seguente.
   
     Si consideri un dispositivo StorSimple con due interfacce di rete abilitate per il cloud, Data 0 e Data 5. Le interfacce da Data 1 a Data 4 sono disabilitate per il cloud ma dispongono di un gateway configurato. L'ordine in cui verrà instradato il traffico per questo dispositivo sarà:
   
-    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+    *Data 0 (1) &gt; Data 5 (6) &gt; Data 1 (20) &gt; Data 2 (30) &gt; Data 3 (40) &gt; Data 4 (50)*
   
     *in cui i numeri tra parentesi indicano le rispettive metriche di routing.*
   
@@ -251,4 +250,3 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-

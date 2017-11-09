@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/23/2017
 ms.author: genli
+ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: f6e068e60e8c7b3b095e10cb7e109eb68a483de4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -264,4 +263,3 @@ Si rimuove la connessione VPN da punto a sito e quindi si reinstalla il client V
 ### <a name="solution"></a>Soluzione
 
 Per risolvere il problema, eliminare i file di configurazione del client VPN precedenti da **C:\Utenti\NomeUtente\AppData\Roaming\Microsoft\Network\Connections** e quindi eseguire di nuovo il programma di installazione del client VPN.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Uso dell'API REST del servizio Importazione/Esportazione di Azure
 
@@ -45,7 +44,7 @@ Le richieste al servizio Importazione/Esportazione devono specificare il paramet
 
 [Creazione di un processo di esportazione](../storage-import-export-creating-an-export-job.md)
 
-[Recupero delle informazioni sullo stato per un processo](storage-import-export-retrieving-state-info-for-a-job.md)
+[Retrieving state information for a job](storage-import-export-retrieving-state-info-for-a-job.md) (Recupero delle informazioni sullo stato per un processo)
 
 [Enumerazione dei processi](../storage-import-export-enumerating-jobs.md)
 
@@ -58,4 +57,3 @@ Le richieste al servizio Importazione/Esportazione devono specificare il paramet
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [REST di importazione/esportazione dell'archiviazione](/rest/api/storageimportexport)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
+ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: f5ffcb5be1c52f27948414304f1fc2e82c76709b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di scalabilità automatica
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Service Fabric viene configurato come set di scalabilità di macchine virtuali distinto. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. Per altre informazioni, vedere il documento sui [tipi di nodo di Service Fabric](service-fabric-cluster-nodetypes.md) . Poiché i tipi di nodi di Service Fabric nel cluster sono costituiti da set di scalabilità di macchine virtuali nel back-end, è necessario configurare regole di ridimensionamento automatico per ogni tipo di nodo o set di scalabilità di macchine virtuali.
@@ -53,7 +52,7 @@ Attualmente la funzionalità di ridimensionamento automatico non è determinata 
 Seguire le istruzioni [per configurare il ridimensionamento automatico per ogni set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> In uno scenario di riduzione delle istanze, a meno che il tipo di nodo non abbia un livello di durabilità Gold o Silver, sarà necessario chiamare il cmdlet [Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) con il nome del nodo appropriato.
+> In uno scenario di riduzione delle istanze, a meno che il tipo di nodo non abbia un livello di durabilità Gold o Silver, sarà necessario chiamare il cmdlet [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) con il nome del nodo appropriato.
 > 
 > 
 
@@ -120,4 +119,3 @@ Per altre informazioni sulla pianificazione della capacità del cluster, l'aggio
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
-

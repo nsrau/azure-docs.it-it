@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
+  ms.date: 11/03/2017
   ms.author: carolz
 abstract:
   description: 'Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la disposizione in pacchetti, la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. Gli sviluppatori e gli amministratori non devono più occuparsi di risolvere complessi problemi di infrastruttura e possono concentrarsi sull''implementazione di carichi di lavoro cruciali e impegnativi, con la certezza di assicurare scalabilità, affidabilità e gestibilità. Informazioni su come usare Azure Service Fabric con le guide rapide, le esercitazioni e gli esempi.'
@@ -26,9 +26,13 @@ sections:
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/azure/app-service-web/media/index/logo_net.svg'
+              src: 'https://docs.microsoft.com/media/logos/logo_net.svg'
             text: .NET
             href: service-fabric-quickstart-dotnet
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_Java.svg'
+            text: Java
+            href: service-fabric-quickstart-java
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
             text: Contenitori Linux
@@ -42,11 +46,11 @@ sections:
       - type: paragraph
         text: 'Informazioni su come distribuire, gestire e monitorare applicazioni Web sicure in Azure'
       - type: list
-        style: ordered
+        style: unordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">Distribuire un'applicazione .NET</a>
-          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Trasferire in modalità lift-and-shift un'applicazione .NET esistente</a>
-          - html: <a href="service-fabric-tutorial-create-container-images">Creare un'app contenitore Linux</a>
+          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Distribuire un'applicazione .NET esistente in un contenitore</a>
+          - html: <a href="service-fabric-tutorial-create-container-images">Creare un'applicazione contenitore Linux</a>
           - html: Creare e gestire un cluster <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> o <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>
   - title: Video di formazione gratuiti su PluralSight
     items:
@@ -96,8 +100,8 @@ sections:
         className: cardsD
         items:
           - title: Riga di comando
-            html: <p><a href="/cli/azure/sf">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+            html: '<p><a href="/cli/azure/sf">Interfaccia della riga di comando di Azure</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Interfaccia della riga di comando di Service Fabric</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
           - title: Lingue
-            html: <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
+            html: <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">Schema XML del modello del servizio</a></p>
           - title: REST
             html: <p><a href="/rest/api/servicefabric">Informazioni di riferimento sulle API REST</a></p>

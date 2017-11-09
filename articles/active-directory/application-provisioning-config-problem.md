@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 44e344095352f2bc6b27e389fc8be2cdf3e368d8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD
 
@@ -31,7 +31,7 @@ Dopo aver configurato il servizio, sarà possibile ricavare la maggior parte del
 
 -   **Log di controllo**: i log di controllo di provisioning registrano tutte le operazioni eseguite dal servizio di provisioning, ad esempio l'esecuzione in Azure AD di query sugli utenti assegnati che rientrano nell'ambito del provisioning, l'esecuzione nell'app di destinazione di query per l'esistenza di tali utenti, il confronto degli oggetti utente tra i sistemi e quindi l'aggiunta, l'aggiornamento o la disabilitazione dell'account utente nel sistema di destinazione in base al confronto. I log di controllo di provisioning sono accessibili nella scheda **Azure Active Directory &gt; App aziendali &gt; \[Nome applicazione\] &gt; Log di controllo** del Portale di Azure. Filtrare i log nella categoria **Provisioning account** per visualizzare solo gli eventi di provisioning per l'app specifica.
 
--   **Stato del provisioning**: un riepilogo dell'ultimo provisioning eseguito per una specifica app è disponibile nella sezione **Azure Active Directory &gt; App aziendali &gt; \[Nome applicazione\] &gt;Provisioning** nella parte inferiore dello schermo in Impostazioni servizio. Questa sezione contiene un riepilogo del numero di utenti (e/o gruppi) attualmente sincronizzati tra i due sistemi e segnala la presenza di eventuali errori. I dettagli degli errori sono disponibili nei log di controllo. Si noti che lo stato di provisioning non verrà popolato fino al completamento di una sincronizzazione iniziale completa tra Azure AD e l'app.
+-   **Stato del provisioning**: un riepilogo dell'ultimo provisioning eseguito per una specifica app è disponibile nella sezione **Azure Active Directory &gt; App aziendali &gt;\[Nome applicazione\]&gt;Provisioning** nella parte inferiore dello schermo in Impostazioni servizio. Questa sezione contiene un riepilogo del numero di utenti (e/o gruppi) attualmente sincronizzati tra i due sistemi e segnala la presenza di eventuali errori. I dettagli degli errori sono disponibili nei log di controllo. Si noti che lo stato di provisioning non verrà popolato fino al completamento di una sincronizzazione iniziale completa tra Azure AD e l'app.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Aree problematiche generali con provisioning da considerare
 

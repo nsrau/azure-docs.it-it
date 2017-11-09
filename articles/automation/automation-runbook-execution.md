@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/17/2017
 ms.author: bwren
+ms.openlocfilehash: 6f627140e6c5583636f7979889f74e489fe66496
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 14f923e3f08dd3b286218ae56012ce14edcc4058
-ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 Quando si avvia un runbook in Automazione di Azure, viene creato un processo. Un processo è una singola istanza di esecuzione di un runbook. Per eseguire ogni processo, viene assegnato un computer di lavoro di Automazione di Azure. I computer di lavoro sono condivisi da più account Azure, mentre i processi di account di automazione diversi sono isolati l'uno dall'altro. Non si dispone di alcun controllo sul computer di lavoro che gestisce la richiesta per il processo.  In un singolo runbook possono venire eseguiti più processi contemporaneamente. Quando si visualizza l'elenco dei runbook nel portale di Azure, è visibile lo stato di tutti i processi avviati per ogni runbook. È possibile visualizzare l'elenco dei processi per il singolo runbook per tenere traccia dello stato di ognuno. Per una descrizione dei diversi stati dei processi, vedere [Stati dei processi](#job-statuses).
@@ -99,5 +98,4 @@ Quando si crea un runbook, è consigliabile assicurarsi che il tempo necessario 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sui diversi metodi che possono essere usati per avviare un runbook in Automazione di Azure, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
-
 

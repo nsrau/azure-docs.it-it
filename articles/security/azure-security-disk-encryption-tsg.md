@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: devtiw
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: f2b9aad02a1ae3d5117ffd59b448eabe65a936fc
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
 
@@ -124,4 +123,3 @@ In questo documento sono stati esaminati alcuni problemi comuni di Crittografia 
 - [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Crittografare una macchina virtuale di Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Crittografia dei dati inattivi in Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
-

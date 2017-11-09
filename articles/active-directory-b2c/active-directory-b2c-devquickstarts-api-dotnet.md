@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: compilare un'API Web .NET
 
@@ -40,7 +39,7 @@ Successivamente, è necessario creare un'app per le API Web nella directory B2C.
 * Includere un'**app Web** o un'**API Web** nell'applicazione.
 * Usare l'**URI di reindirizzamento** `https://localhost:44332/` per l'app Web. Si tratta della posizione predefinita del client dell'app Web per questo codice di esempio.
 * Copiare l' **ID applicazione** assegnato all'app. Sarà necessario più avanti.
-* Immettere un identificatore app in **URI ID app**.
+* Immettere un identificatore app in **URI ID app**. Copiare l'**URI ID app** completo. Sarà necessario più avanti.
 * Aggiungere le autorizzazioni tramite il menu **Ambiti pubblicati**.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -83,6 +82,7 @@ L'esempio è configurato per l'uso dei criteri e dell'ID client del tenant di de
     * `ida:SignUpSignInPolicyId` con il nome del criterio "Iscrizione o accesso"
     * `ida:EditProfilePolicyId` con il nome del criterio "Modifica profilo"
     * `ida:ResetPasswordPolicyId` con il nome del criterio "Reimposta password"
+    * `api:ApiIdentifier` con "URI ID app"
 
 
 ## <a name="secure-the-api"></a>Proteggere l'API
@@ -212,4 +212,3 @@ Compilare ed eseguire infine `TaskWebApp` e `TaskService`. Creare alcune attivit
 ## <a name="edit-your-policies"></a>Modificare i criteri
 
 Dopo aver protetto l'API con Azure AD B2C, è possibile provare i criteri di iscrizione/di accesso dell'app e visualizzarne gli effetti o l'assenza di effetti nell'API. È possibile modificare le attestazioni dell'applicazione nei criteri nonché le informazioni utente disponibili nell'API Web. Le eventuali attestazioni aggiunte saranno disponibili per l'API Web MVC .NET nell'oggetto `ClaimsPrincipal` , come descritto in precedenza in questo articolo.
-

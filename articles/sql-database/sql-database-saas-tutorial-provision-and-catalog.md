@@ -10,18 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
+ms.openlocfilehash: eda330a7202de8a325d645b37a0d05ef8df8985b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: febf9d9f8a32a95ae61734cc2d3632bb74f6c8f5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="learn-how-to-provision-and-catalog-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant, catalogarli e registrarli nel catalogo
 
@@ -176,4 +175,3 @@ Provare l'[Esercitazione sul monitoraggio delle prestazioni](sql-database-saas-t
 * Altre [esercitazioni basate sull'applicazione SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Libreria client dei database elastici](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Modalità di esecuzione del debug degli script in Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
-

@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
 ms.openlocfilehash: 3d195d0d67f8f82c9450ffd93767917698addee3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chiamare l'API di Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 47257bdb054b069c864ebf545b0c00bdfb05a9ad
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
 La serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti) offre in cinque brevi video una rapida introduzione all'analisi scientifica dei dati offerta da un esperto in materia. Questi video sono basilari, ma utili per chi è interessati a eseguire l'analisi scientifica dei dati oppure lavora con addetti a questa operazione.
@@ -142,4 +141,3 @@ Ecco, queste sono le 5 domande a cui l'analisi scientifica dei dati per principi
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](what-is-machine-learning.md)
-

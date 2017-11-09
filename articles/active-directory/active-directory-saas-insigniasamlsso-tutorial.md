@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: ac2f5dad7c0af29772b4c4064cc9700ebcf2a22d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Insignia SAML SSO
 
@@ -233,5 +232,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-insigniasamlsso-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-insigniasamlsso-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-insigniasamlsso-tutorial/tutorial_general_203.png
-
 

@@ -3,7 +3,7 @@ title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft D
 description: "Analizzare l'uso, la disponibilità e le prestazioni dell'applicazione locale o Web di Microsoft Azure con Application Insights."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: bwren
-ms.openlocfilehash: 6e0b67ba98af27017901608dde4401600eb9957f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: fe02adafbf96df22462683c69813b05c182d3106
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Impostare Application Insights: tenere traccia delle dipendenze
 Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](app-insights-overview.md) misura per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce. È possibile esaminare chiamate specifiche e correlarle a richieste ed eccezioni.

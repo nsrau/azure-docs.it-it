@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: ba5bdf7daba6086b70aec54ebe25d4445fa708c3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Aggiungere l'accesso a un'app Web .NET MVC
 Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app Web con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione.  Nelle app Web ASP.NET, a questo scopo si usa il middleware OWIN di Microsoft incluso in .NET Framework 4.5.
@@ -208,11 +208,11 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 ## <a name="next-steps"></a>Passaggi successivi
 Ora è possibile passare ad argomenti più avanzati.  È possibile:
 
-[Proteggere un'API Web con l'endpoint 2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Proteggere un'API Web con l'endpoint 2.0 &gt;&gt;](active-directory-devquickstarts-webapi-dotnet.md)
 
 Per altre risorse, vedere:
 
-* [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
+* [Guida per sviluppatori v2.0 &gt;&gt;](active-directory-appmodel-v2-overview.md)
 * [StackOverflow: tag "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti

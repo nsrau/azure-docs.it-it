@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Modelli di progettazione per modelli di Azure Resource Manager durante la distribuzione di soluzioni complesse
 Usando un approccio flessibile basato sui modelli di Azure Resource Manager, è possibile distribuire topologie complesse in modo rapido e coerente. È possibile adattare facilmente queste distribuzioni man mano che le offerte principali cambiano o inserire varianti per scenari o clienti esterni.

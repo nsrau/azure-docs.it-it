@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Servizi di dominio Azure Active Directory
 Questo articolo offre suggerimenti per la risoluzione dei problemi che possono verificarsi quando si configura o si amministra Servizi di dominio di Azure Active Directory (AD).
@@ -141,7 +141,7 @@ Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dom
 
   * È stata eseguita la distribuzione o l'aggiornamento all' [ultima versione consigliata di Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
   * Azure AD Connect è stato configurato per [eseguire una sincronizzazione completa](active-directory-ds-getting-started-password-sync.md).
-  * A seconda delle dimensioni della directory, potrebbero essere necessari alcuni minuti prima che gli account utente e gli hash delle credenziali siano disponibili in Servizi di dominio di Azure AD. Assicurarsi di attendere il tempo sufficiente prima di ritentare l'autenticazione (il tempo può variare a seconda delle dimensioni della directory - da alcune ore fino a un giorno o due per directory di grandi dimensioni).
+  * A seconda delle dimensioni della directory, potrebbero essere necessari alcuni minuti prima che gli account utente e gli hash delle credenziali siano disponibili in Servizi di dominio di Azure AD. Assicurarsi di attendere un periodo sufficiente prima di ritentare l'autenticazione.
   * Se il problema persiste dopo la verifica dei passaggi precedenti, provare a riavviare il servizio Microsoft Azure AD Sync. Dal computer di sincronizzazione avviare un prompt dei comandi ed eseguire i comandi seguenti:
 
     1. net stop 'Microsoft Azure AD Sync'

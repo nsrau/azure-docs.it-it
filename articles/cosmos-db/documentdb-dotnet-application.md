@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
+ms.custom: devcenter
+ms.openlocfilehash: b7c967550f9f89eec29288b24525b5f043615437
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 985962c4f2db21526291981ad5180fc0a16e2ab8
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="_Toc395809351"></a>Esercitazione su ASP.NET MVC: Sviluppo di applicazioni Web con Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -553,4 +553,3 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
-

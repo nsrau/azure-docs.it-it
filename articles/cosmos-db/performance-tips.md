@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
+ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: cab019480a14de1a1481abee800553c6545add70
-ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB
 Azure Cosmos DB è un database distribuito veloce e flessibile, facilmente scalabile e con latenza e velocità effettiva garantite. Non è necessario apportare modifiche significative all'architettura o scrivere codice complesso per ridimensionare il database con Cosmos DB. Aumentare o ridurre le prestazioni è semplice come eseguire una singola chiamata API o una [chiamata al metodo SDK](set-throughput.md#set-throughput-sdk). Dato che si accede a Cosmos DB tramite chiamate di rete, tuttavia, è possibile apportare ottimizzazioni lato client per ottenere prestazioni ottimali.
@@ -145,14 +144,8 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     - Per le applicazioni Web ASP.NET distribuite in Azure questa operazione può essere eseguita selezionando **Platform as 64-bit** (Piattaforma 64 bit) in **Impostazioni applicazione** nel Portale di Azure.
 
 ## <a name="indexing-policy"></a>Criterio di indicizzazione
-1. **Usare l'indicizzazione differita per frequenze di inserimento più veloci nei momenti di massima attività**
-
-    Cosmos DB consente di specificare criteri di indicizzazione a livello di raccolta che permettono di scegliere se i documenti di una raccolta devono essere indicizzati automaticamente o meno.  È anche possibile scegliere tra aggiornamenti sincroni (coerenti) e asincroni (differiti). Per impostazione predefinita, l'indice viene aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un documento nella raccolta. La modalità sincrona consente alle query di rispettare lo stesso [livello di coerenza](consistency-levels.md) delle letture di documenti, senza che l'indice debba recuperare alcun ritardo.
-
-    L'indicizzazione differita è consigliabile per gli scenari in cui i dati vengono scritti in burst e si vuole ammortizzare il lavoro necessario per indicizzare il contenuto dell'indice in un periodo di tempo più lungo. L'indicizzazione differita consente di usare in modo efficiente la velocità effettiva con provisioning e di gestire le richieste di scrittura nei momenti di massima attività con latenza minima. È importante notare, tuttavia, che con l'indicizzazione differita attivata i risultati delle query sono comunque coerenti indipendentemente dal livello di coerenza configurato per l'account Cosmos DB.
-
-    La modalità di indicizzazione coerente (IndexingPolicy.IndexingMode impostato su Consistent) comporta gli addebiti più elevati per unità richiesta per ogni scrittura, mentre la modalità di indicizzazione differita (IndexingPolicy.IndexingMode impostato su Lazy) e l'assenza di indicizzazione (IndexingPolicy.Automatic impostato su False) non comportano alcun costo di indicizzazione al momento della scrittura.
-2. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
+ 
+1. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
 
     I criteri di indicizzazione di Cosmos DB consentono anche di specificare i percorsi dei documenti da includere o escludere dall'indicizzazione sfruttando i percorsi di indicizzazione (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). L'uso dei percorsi di indicizzazione può consentire di ottenere prestazioni migliori e di ridurre le risorse di archiviazione dell'indice per gli scenari in cui i modelli di query sono noti in anticipo, poiché i costi dell'indicizzazione sono correlati direttamente al numero di percorsi univoci indicizzati.  Ad esempio, il codice seguente illustra come escludere un'intera sezione dei documenti, detta anche sottoalbero, dall'indicizzazione usando il carattere jolly "*".
 
@@ -214,4 +207,3 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 Per un'applicazione di esempio usata per valutare Cosmos DB per scenari a prestazioni elevate su un numero ridotto di computer client, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
 
 Per altre informazioni sulla progettazione dell'applicazione per scalabilità e prestazioni elevate, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](partition-data.md).
-

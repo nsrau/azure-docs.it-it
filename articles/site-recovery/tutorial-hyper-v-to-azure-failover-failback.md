@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/15/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e1cc21661450a983c25b24fe2a6228e26ceecec6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Failover e failback di macchine virtuali Hyper-V replicate in Azure
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) gestisce e controlla la replica, il failover e il failback dei computer locali e delle macchine virtuali di Azure.
@@ -56,7 +54,7 @@ Per connettersi alle macchine virtuali di Azure con RDP dopo il failover, seguir
 ##### <a name="azure-vms-running-windows"></a>Macchine virtuali di Azure che eseguono Windows
 
 1. Per accedere alle macchine virtuali di Azure tramite Internet, abilitare RDP nella macchina virtuale locale prima del failover. Assicurarsi che le regole TCP e UDP siano aggiunte per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.
-2. Per accedere tramite VPN da sito a sito, abilitare RDP nel computer locale. RDP deve essere consentito in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**. Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135). Quando si attiva un failover, nella macchina virtuale non devono essere presenti aggiornamenti di Windows in sospeso. Se sono presenti aggiornamenti in sospeso, non sarà possibile accedere alla macchina virtuale fino al completamento dell'aggiornamento. 
+2. Per accedere tramite VPN da sito a sito, abilitare RDP nel computer locale. RDP deve essere consentito in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**. Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135) Quando si attiva un failover, nella macchina virtuale non devono essere presenti aggiornamenti di Windows in sospeso. Se sono presenti aggiornamenti in sospeso, non sarà possibile accedere alla macchina virtuale fino al completamento dell'aggiornamento. 
 3. Dopo il failover nella macchina virtuale Windows di Azure selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale. Se non è possibile connettersi, controllare che la macchina virtuale sia in esecuzione e rivedere i [suggerimenti per la risoluzione dei problemi](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 
@@ -81,7 +79,7 @@ Verificare le proprietà della macchina virtuale e assicurarsi che sia conforme 
 
 Per le macchine virtuali Hyper-V è possibile eseguire un failover regolare o pianificato
 
-- Usare un failover regolare per interruzioni impreviste. Quando si esegue questo tipo di failover, Site Recovery crea una macchina virtuale di Azure e la accende. Il failover viene eseguito su un punto di ripristino specifico. Può verificarsi una perdita di dati, a seconda del punto di ripristino usato.
+- Usare un failover regolare per interruzioni impreviste. Quando si esegue questo tipo di failover, Site Recovery crea una macchina virtuale di Azure e la accende. Il failover viene eseguito su un punto di ripristino specifico. Può verificarsi una perdita di dati, a seconda del punto di recupero usato.
 - È possibile usare un failover pianificato per le attività di manutenzione o durante un'interruzione prevista. Questa opzione offre una perdita di dati pari a zero. Quando viene attivato un failover pianificato, le macchine virtuali di origine vengono arrestate. I dati non sincronizzati vengono sincronizzati e il failover viene attivato.
 
 Questa procedura descrive come eseguire un failover regolare.
@@ -130,5 +128,4 @@ Eseguire il failover da Azure nel sito locale e avviare la replica delle macchin
 
 > [!NOTE]
 > La replica inversa replica solo le modifiche apportate dopo che la macchina virtuale di Azure è stata spenta e vengono inviate solo le modifiche differenziali.
-
 

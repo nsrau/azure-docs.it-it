@@ -3,7 +3,7 @@ title: Presentazione di Analisi in Azure Application Insights | Microsoft Docs
 description: Brevi esempi di tutte le principali query in Analisi, lo strumento di ricerca avanzato di Application Insights.
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ccea92dda99c3b76cbb7d37b20ce810b210a8217
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Presentazione dello strumento Analisi in Application Insights
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics.
@@ -569,7 +568,7 @@ Per verificare se una dimensione personalizzata è di tipo specifico:
 ## <a name="dashboards"></a>Dashboard
 È possibile aggiungere i risultati a un dashboard in modo da riunire tutti i grafici e le tabelle più importanti.
 
-* [Dashboard condiviso di Azure](app-insights-dashboards.md#share-dashboards): fare clic sull'icona di aggiunta. Per poterlo fare, è necessario disporre di un dashboard condiviso. Nel portale di Azure, aprire o creare un dashboard e fare clic su Condividi.
+* [Dashoboard condiviso di Azure](app-insights-dashboards.md#share-dashboards): fare clic sull'icona di aggiunta. Per poterlo fare, è necessario disporre di un dashboard condiviso. Nel portale di Azure, aprire o creare un dashboard e fare clic su Condividi.
 * [Dashboard di Power BI](app-insights-export-power-bi.md): fare clic su Esporta, Power BI Query (Query Power BI). Un vantaggio di questa alternativa consiste nel fatto che è possibile visualizzare la query insieme ad altri risultati da un'ampia gamma di origini.
 
 ## <a name="combine-with-imported-data"></a>Combinare con dati importati
@@ -714,4 +713,3 @@ Query avanzate:
 * Il [foglio informativo sugli utenti SQL](https://aka.ms/sql-analytics) traduce i linguaggi più comuni.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-

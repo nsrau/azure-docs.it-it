@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
 ms.openlocfilehash: 51c0b98727e148671cfd7ab2b31ffd1c705d8a4e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="peer-two-virtual-networks"></a>Eseguire il peering di due reti virtuali
 
@@ -31,7 +31,7 @@ Se necessario, installare Azure PowerShell usando l'istruzione presente nella [G
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurepowershell[main](../../../powershell_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.ps1 "Eseguire il peering di due reti")]
+[!code-azurepowershell[main](../../../powershell_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.ps1 "Peer two networks")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 

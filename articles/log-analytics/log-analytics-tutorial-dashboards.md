@@ -2,7 +2,7 @@
 title: Creare e condividere i dashboard dei dati di Azure Log Analytics | Microsoft Docs
 description: Questa esercitazione spiega in che modo i dashboard di Log Analytics visualizzano tutte le ricerche log salvate, offrendo un punto di vista unico su tutto l'ambiente.
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: 
@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
+ms.custom: mvc
+ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b065269a27ad3764399802b4a2bc3076b7349623
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creare e condividere i dashboard dei dati di Log Analytics
 

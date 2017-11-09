@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fafd83c337e3c73260d89cdad7409a01ce5855b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
@@ -110,6 +110,11 @@ L'obiettivo di questo passaggio è concedere le autorizzazioni **Legge i dati de
 6. Nel barra degli strumenti in alto fare clic su **Salva**.
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
+
+7. Fare clic su **Concedi autorizzazioni** e quindi su **Sì**.
+
+    ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
+
 
 ## <a name="gather-configuration-settings"></a>Ottenere le impostazioni di configurazione 
 Questa sezione illustra come ottenere le impostazioni seguenti dalla directory:

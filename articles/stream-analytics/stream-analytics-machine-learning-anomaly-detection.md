@@ -3,7 +3,7 @@ title: Guida all'utilizzo del rilevamento delle anomalie in Azure (anteprima)| M
 description: Usare l'analisi di flusso e Machine Learning per rilevare le anomalie.
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: dubansal
 manager: jhubbard
 ms.service: stream-analytics
 ms.devlang: na
@@ -11,15 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: dubansal
+ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 7ab489f6ae7da2640ba199b20e7727da60497918
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-the-anomalydetection-operator"></a>Uso dell'operatore ANOMALYDETECTION
 
 > [!IMPORTANT]
@@ -80,7 +78,7 @@ La funzione restituisce un record che contiene tutti i tre punteggi come output.
 - SlowPosTrendScore
 - SlowNegTrendScore
 
-Per estrarre i singoli valori dal record, usare la funzione **GetRecordPropertyValue**. Ad esempio:
+Per estrarre i singoli valori dal record, usare la funzione **GetRecordPropertyValue**. ad esempio:
 
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
 
@@ -101,7 +99,7 @@ Un'anomalia di un determinato tipo viene rilevata quando uno di questi punteggi 
 - La latenza cui è soggetta una query partizionata varia leggermente con il numero di partizioni, perché il numero di calcoli è maggiore. Tuttavia, la latenza è circa la stessa del caso non partizionato per un numero totale di eventi simile su tutte le partizioni.
 - Durante la lettura di dati non in tempo reale, viene rapidamente inserita una quantità elevata di dati. L'elaborazione di questi dati è attualmente molto più lenta. Si è riscontrato che in questi scenari la latenza aumenta in modo lineare in base al numero di punti dati nella finestra anziché alle dimensioni della finestra o all'intervallo di eventi stesso. Per ridurre la latenza nei casi non in tempo reale, provare a usare una finestra di dimensioni minori. In alternativa, provare ad avviare il processo dall'ora corrente. Alcuni esempi di latenza in una query non partizionata: 
     - 60 punti dati nella finestra di rilevamento possono produrre una latenza di 10 secondi con una velocità effettiva di 3 Mbps. 
-    - A 600 punti dati, la finestra può raggiungere circa 80 secondi con una velocità effettiva di 0,4 Mbps.
+    - A 600 punti dati, la latenza può raggiungere circa 80 secondi con una velocità effettiva di 0,4 Mbps.
 
 ## <a name="example"></a>Esempio
 
@@ -186,5 +184,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

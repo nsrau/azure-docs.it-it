@@ -53,6 +53,8 @@
           href: concepts-extensions.md
         - name: Log del server
           href: concepts-server-logs.md
+        - name: Disponibilità elevata
+          href: concepts-high-availability.md
     - name: Risorse
       items:
         - name: Piani tariffari
@@ -67,6 +69,8 @@
           href: concepts-firewall-rules.md
         - name: Configurare SSL
           href: concepts-ssl-connection-security.md
+    - name: Monitorare
+      href: concepts-monitoring.md
     - name: Sviluppo.
       items:
         - name: Raccolte di connessioni
@@ -91,15 +95,21 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Importazione ed esportazione
           href: howto-migrate-using-export-and-import.md
-    - name: Personalizzare i parametri di configurazione server
+    - name: Configurare i parametri del server
       items:
         - name: Interfaccia della riga di comando di Azure
           href: howto-configure-server-parameters-using-cli.md
-    - name: Log del server
+    - name: Accesso ai registri server
       items:
+        - name: Portale di Azure
+          href: howto-configure-server-logs-in-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-configure-server-logs-using-cli.md
-- name: Riferimento
+    - name: Monitorare
+      items:
+        - name: Creare avvisi relativi alle metriche
+          href: howto-alert-on-metric.md
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/postgres
@@ -107,6 +117,8 @@
       href: /rest/api/postgresql
 - name: Risorse
   items:
+    - name: Modelli di distribuzione
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Prezzi
@@ -124,4 +136,4 @@
     - name: Opzioni di supporto
       href: 'https://azure.microsoft.com/support/options/'
     - name: Casi di successo dei clienti
-      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL%20"'
+      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'

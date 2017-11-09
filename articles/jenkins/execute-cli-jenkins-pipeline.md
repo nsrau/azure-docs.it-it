@@ -15,14 +15,12 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Distribuire nel servizio app di Azure con Jenkins e l'interfaccia della riga di comando di Azure
 Per distribuire un'app Web di Java in Azure, è possibile usare l'interfaccia della riga di comando di Azure in [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). In questa esercitazione viene creata una pipeline CI/CD in una macchina virtuale di Azure e viene illustrato come:
 
@@ -93,7 +91,7 @@ Quando il piano è pronto, l'output dell'interfaccia della riga di comando di Az
 
 ### <a name="create-an-azure-web-app"></a>Creare un'app Web di Azure
 
- Usare il comando dell'interfaccia della riga di comando [az webapp create](/cli/azure/appservice/web#create) per creare la definizione di un'app Web nel piano di servizio app `myAppServicePlan`. La definizione dell'app Web fornisce un URL con cui accedere all'applicazione e configura diverse opzioni per distribuire il codice in Azure. 
+ Usare il comando dell'interfaccia della riga di comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) per creare la definizione di un'app Web nel piano di servizio app `myAppServicePlan`. La definizione dell'app Web fornisce un URL con cui accedere all'applicazione e configura diverse opzioni per distribuire il codice in Azure. 
 
 ```azurecli-interactive
 az webapp create \
@@ -233,4 +231,3 @@ In questa esercitazione è stata configurata la pipeline Jenkins che estrae il c
 > * Preparare un repository GitHub
 > * Creare una pipeline Jenkins
 > * Eseguire la pipeline e verificare l'app Web
-

@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: mahender; mblythe
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: efa5a50564d94dbecd4bc7fcb4082b01d16f680d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Esportazione di un'API ospitata in Azure in PowerApps e Microsoft Flow
 
@@ -178,6 +177,5 @@ Sono richiesti i valori di configurazione seguenti:
 - **URL dell'autorizzazione** - L'URL dell'autorizzazione OAuth 2.0
 - **URL del token** - L'URL del token OAuth 2.0
 - **Aggiorna URL** - L'URL di aggiornamento OAuth 2.0
-
 
 

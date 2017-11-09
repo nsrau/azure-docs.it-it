@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: juliako
+ms.openlocfilehash: 6cfb7b558b8dce511d517e69c022765feae245fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 993e0a50e1598dd51969655c94730252a5a9dc42
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Uso della crittografia comune dinamica PlayReady e/o Widevine
 
@@ -594,4 +593,3 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 [Configurare i pacchetti Widevine con AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
 [Annuncio dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
-

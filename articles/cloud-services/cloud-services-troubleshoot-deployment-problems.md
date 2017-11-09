@@ -10,17 +10,16 @@ tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fae727ec3496737fca37236b4f36b4accf0afc63
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 29529978a2f6a1454c7a97b5f5baac214a90d63b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Risolvere eventuali problemi di distribuzione dei servizi cloud
 Quando si distribuisce un pacchetto dell'applicazione di servizi cloud in Azure, è possibile ottenere informazioni sulla distribuzione nel riquadro **Proprietà** del portale di Azure. I dettagli riportati in questo riquadro possono essere usati per risolvere i problemi relativi al servizio cloud e queste informazioni possono essere fornite al supporto tecnico di Azure quando viene aperta una nuova richiesta di supporto.
@@ -84,7 +83,6 @@ Per altre informazioni sulla risoluzione di questo problema, vedere il post di b
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altri [articoli sulla risoluzione dei problemi](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) per i servizi cloud.
+Altri [articoli sulla risoluzione dei problemi](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) per i servizi cloud.
 
 Per informazioni su come risolvere i problemi dei ruoli del servizio cloud utilizzando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
-

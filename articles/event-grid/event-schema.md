@@ -6,16 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/20/2017
 ms.author: babanisa
+ms.openlocfilehash: e251cbfe7c4d8dfbd492817a8fa7af48e6b379df
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
 
 Questo articolo illustra le proprietà e lo schema per gli eventi. Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio. Le proprietà sono comuni a tutti gli eventi di tutti gli autori. L'oggetto data contiene le proprietà specifiche per ogni editore. Per gli argomenti di sistema, le proprietà sono specifiche del provider di risorse, ad esempio Archiviazione di Azure o Hub eventi di Azure.
@@ -165,10 +163,6 @@ Questo evento di esempio mostra lo schema di un evento di Hub eventi generato qu
 
 ## <a name="azure-blob-storage"></a>Archivio BLOB di Azure
 
->[!IMPORTANT]
->Per usare eventi di archiviazione BLOB, è necessario avere eseguito la registrazione all'anteprima degli eventi di archiviazione BLOB. Per altre informazioni sul programma di anteprima, vedere [eventi di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview#join-the-preview).  
-
-
 ### <a name="available-event-types"></a>Tipi di evento disponibili
 
 - **Microsoft.Storage.BlobCreated**: generato quando viene creato un BLOB.
@@ -235,4 +229,3 @@ L'esempio seguente mostra un evento per un argomento personalizzato:
 
 * Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](overview.md).
 * Per altre informazioni sulla creazione di una sottoscrizione di Griglia di eventi di Azure, vedere [Schema di sottoscrizione per Griglia di eventi](subscription-creation-schema.md).
-

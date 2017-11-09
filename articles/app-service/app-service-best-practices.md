@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedure consigliate per il servizio app di Azure
 Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -50,5 +49,4 @@ Quando si verifica la mancata esecuzione del backup, esaminare i risultati più 
 
 ## <a name="nodejs"></a>Quando vengono distribuite nuove app Node.js nel Servizio app di Azure
 La configurazione predefinita del Servizio app di Azure per le app Node.js mira a soddisfare al meglio le esigenze delle app più comuni. Se la configurazione dell'app Node.js può trarre vantaggio dall'ottimizzazione personalizzata per migliorare le prestazioni oppure per ottimizzare l'uso per le risorse di rete, della memoria o della CPU, esaminare le procedure consigliate e i passaggi per la risoluzione dei problemi. Questo articolo della documentazione descrive le impostazioni di iisnode eventualmente necessarie per la configurazione dell'app Node.js, illustra i vari scenari o problemi possibili per l'app e indica la risoluzione di questi problemi: [le procedure consigliate e la Guida per la risoluzione dei problemi per le applicazioni Node.js nel Servizio app di Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md).   
-
 

@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 4835610eed8df46f3ba9302cf87163b37a6fa124
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 0a030c635255d2e6fcbacd5c138f8d09b1ef85b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Domande frequenti su Azure Active Directory Identity Protection
 
@@ -39,5 +38,4 @@ ms.lasthandoff: 05/17/2017
 **R:** Per la risposta a questa domanda, vedere [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md).
 
 ---
-
 

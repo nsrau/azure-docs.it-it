@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Risoluzione dei problemi di scalabilità automatica con set di scalabilità di macchine virtuali
 **Problema**: è stata creata un'infrastruttura per il ridimensionamento automatico in Azure Resource Manager tramite set di scalabilità di macchine virtuali di Azure, ad esempio distribuendo un modello simile al seguente:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. Le regole di scalabilità impostate funzionano ma, indipendentemente dal carico delle VM, il ridimensionamento automatico non funziona.

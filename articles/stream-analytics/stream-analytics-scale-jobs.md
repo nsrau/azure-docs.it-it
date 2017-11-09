@@ -4,7 +4,7 @@ description: "Informazioni su come ridimensionare i processi di Analisi di fluss
 keywords: flusso di dati, elaborazione del flusso di dati, ottimizzare analisi
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: JSeb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
@@ -14,83 +14,43 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
-ms.author: samacha
+ms.author: jeanb
+ms.openlocfilehash: a38394d825c9a9b3007b30f598b37caa08f7325f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: f1e5e11e82d344508aa4375c42d509f96aaa1d00
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput"></a>Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati
-Questo articolo illustra come ottimizzare una query per aumentare la velocità effettiva per i processi di Analisi di flusso. Si apprenderà come ridimensionare tali processi configurando partizioni di input, ottimizzando la definizione di query, calcolando e impostando le *unità di streaming* dei processi. 
-
-## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Quali sono le parti di un processo di Analisi di flusso?
-Una definizione del processo di Analisi di flusso include input, query e output. Gli input sono le origini da cui il processo legge il flusso di dati, la query viene usata per trasformare il flusso di input dei dati e l'output è la destinazione a cui il processo invia i risultati.  
-
-Un processo richiede almeno un'origine di input per il flusso dei dati. L'origine dell'input del flusso dei dati può essere archiviata in un hub eventi di Azure o in una risorsa di archiviazione BLOB di Azure. Per altre informazioni, vedere [Introduzione all'analisi di flusso di Azure](stream-analytics-introduction.md) e [Introduzione all'uso dell'analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md).
-
-## <a name="partitions-in-event-hubs-and-azure-storage"></a>Partizioni negli hub eventi e nell'archiviazione di Azure
-Il ridimensionamento di un processo di Analisi di flusso sfrutta i vantaggi offerti dall'uso di partizioni nell'input o nell'output. Il partizionamento consente di suddividere i dati in subset in base a una chiave di partizione. Un processo che utilizza i dati, come avviene per i processi di Analisi di flusso, può utilizzare diverse partizioni e scrivervi in parallelo, aumentando così la velocità effettiva. Quando si usa Analisi di flusso di Azure, è possibile sfruttare il partizionamento negli hub eventi e nell'archiviazione BLOB. 
-
-Per altre informazioni sulle partizioni, vedere gli articoli seguenti:
-
-* [Panoramica delle funzionalità di Hub eventi](../event-hubs/event-hubs-features.md#partitions)
-* [Partizionamento dei dati](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
+# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva
+Questo articolo illustra come ottimizzare una query per aumentare la velocità effettiva per i processi di Analisi di flusso. È possibile usare la seguente guida per ridimensionare il processo per gestire carichi più elevati e sfruttare i vantaggi di più risorse di sistema (ad esempio maggiore larghezza di banda, più risorse della CPU, una maggiore memoria).
+Come prerequisito, è necessario leggere gli articoli seguenti:
+-   [Informazioni e modifica delle unità di streaming](stream-analytics-streaming-unit-consumption.md)
+-   [Creare processi che possono essere parallelizzati](stream-analytics-parallelization.md)
 
 
-## <a name="streaming-units-sus"></a>Unità di streaming
-Le unità di streaming rappresentano le risorse e la potenza di elaborazione necessarie per eseguire un processo di Analisi di flusso di Azure. Le unità di streaming descrivono la capacità relativa di elaborazione di eventi in base a una misurazione combinata di CPU, memoria e frequenze di lettura e scrittura. Ogni unità di streaming corrisponde a circa 1 MB al secondo di velocità effettiva. 
+## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1: la query è intrinsecamente completamente eseguibile in parallelo tra le partizioni di input
+Se la query è intrinsecamente completamente eseguibile in parallelo tra le partizioni di input, è possibile seguire la procedura seguente:
+1.  Creare la query in modo che sia perfettamente parallela usando la parola chiave **PARTITION BY**. Visualizzare altri dettagli nella sezione dei processi perfettamente paralleli [in questa pagina](stream-analytics-parallelization.md).
+2.  A seconda dei tipi di output usati nella query, alcuni output potrebbero non essere eseguibili in parallelo, o richiederebbero un'altra configurazione perfettamente parallela. Ad esempio, gli output SQL, SQL DW e Power BI non sono eseguibili in parallelo. Gli output vengono sempre uniti prima di essere inviati al sink di output. I BLOB, le tabelle, l'ADLS, il Bus di servizio e la funzione di Azure vengono parallelizzati automaticamente. CosmosDB e Hub eventi devono avere il set di configurazione PartitionKey per la corrispondenza con il campo **PARTITION BY** (in genere PartitionId). Per l'Hub eventi, prestare anche particolare attenzione a far corrispondere il numero di partizioni per tutti gli input e output per evitare il cross-over tra le partizioni. 
+3.  Eseguire la query con **SU 6** (ovvero la capacità massima di un singolo nodo di calcolo) per misurare la velocità effettiva massima ottenibile, e se si usa **GROUP BY**, misurare il numero di gruppi (cardinalità) che il processo riesce a gestire. Di seguito sono elencati i sintomi generali dei limiti della risorsa del sistema nel raggiungere il processo.
+    - La metrica di utilizzo % SU è superiore all'80%. Indica che l'uso della memoria è elevato. I fattori che contribuiscono all'aumento della metrica sono descritti [qui](stream-analytics-streaming-unit-consumption.md). 
+    -   Il timestamp di output è in ritardo rispetto all'ora. A seconda della logica della query, il timestamp di output potrebbe avere un offset della logica dall'ora. Tuttavia, dovrebbero procedere approssimativamente allo stesso ritmo. Se il timestamp di output è sempre più in ritardo, è un indicatore del fatto che il sistema è in overworking. Può trattarsi di un risultato della limitazione del sink di output di downstream o dell'uso elevato del CPU. Non si fornisce una metrica di utilizzo del CPU in questa fase, pertanto può essere difficile distinguere i due.
+        - Se il problema è dovuto alla limitazione del sink, potrebbe essere necessario aumentare il numero di partizioni di output (e anche le partizioni di input per mantenere il processo completamente eseguibili in parallelo) o aumentare la quantità di risorse del sink (ad esempio il numero di unità di richiesta per CosmosDB).
+    - Nel diagramma del processo è presente una metrica dell'evento per backlog di partizione per ogni input. Se la metrica dell'evento di backlog continua ad aumentare, è anche un indicatore del fatto che la risorsa del sistema è vincolata (o a causa della limitazione del sink di output o a causa del CPU elevato).
+4.  Dopo aver determinato i limiti di ciò che può essere raggiunto da un processo di 6 unità di ricerca, è possibile estrapolare in modo lineare la capacità di elaborazione del processo quando si aggiungono altre unità di ricerca, presupponendo che non siano presenti asimmetrie di dati che rendono una determinata partizione "critica".
+>[!Note]
+> Scegliere il numero giusto di Unità di Streaming: poiché l'Analisi di flusso di Azure crea un nodo di elaborazione per ogni 6 unità di ricerca aggiunta, è consigliabile rendere il numero di nodi un divisore del numero di partizioni di input, in modo che le partizioni possano essere distribuite uniformemente tra i nodi.
+> Ad esempio, si è misurato che il processo delle 6 unità di ricerca può raggiungere i 4 MB/s di velocità di elaborazione e il conteggio delle partizioni di input è pari a 4. È possibile scegliere di eseguire il processo con 12 unità di ricerca per ottenere una velocità di elaborazione di circa 8 MB/s, o 24 unità di ricerca per raggiungere i 16 MB/s. È possibile decidere quando aumentare il numero di unità di ricerca per il processo a qualsiasi valore, come una funzione del tasso di input.
 
-Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione delle partizioni per gli input e dalla query definita per il processo. È prevista una quota massima di unità di streaming che è possibile selezionare per un processo. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota massima di 50 unità di streaming per tutti i processi di analisi in un'area specifica. Per superare la quota massima di unità di streaming per le sottoscrizioni, contattare il [supporto tecnico Microsoft](http://support.microsoft.com). I valori validi di unità di streaming per processo sono 1, 3, 6 e poi a salire, con incrementi di 6.
 
-## <a name="embarrassingly-parallel-jobs"></a>Processi perfettamente paralleli
-Un processo *perfettamente parallelo* è lo scenario più scalabile che può presentarsi in Analisi di flusso di Azure. Connette una partizione dell'input inviato a un'istanza della query a una partizione dell'output. Questo parallelismo presenta i requisiti seguenti:
 
-1. Se la logica di query richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è necessario verificare che gli eventi siano diretti alla stessa partizione dell'input. Per gli hub eventi, questo significa che per i dati di evento deve essere impostata la proprietà **PartitionKey**. In alternativa, è possibile usare mittenti partizionati. Per l'archiviazione BLOB, questo significa che gli eventi vengono inviati alla stessa cartella di partizione. Se la logica di query non richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è possibile ignorare questo requisito. Un esempio di questa logica è offerto da una query semplice select-project-filter.  
-
-2. Quando i dati sono disposti a livello di input, si deve verificare che la query sia partizionata. A questo scopo, è necessario usare la clausola **Partition By** in tutti i passaggi. È possibile eseguire più passaggi, ma tutti devono essere partizionati con la stessa chiave. Per ottenere un processo completamente parallelo, è attualmente necessario impostare la chiave di partizionamento su **PartitionId**.  
-
-3. Solo gli hub eventi e l'archiviazione BLOB supportano attualmente l'output partizionato. Per l'output degli hub eventi, è necessario configurare la chiave di partizione come **PartitionId**. Per l'output dell'archiviazione BLOB, non è necessario eseguire operazioni.  
-
-4. Il numero delle partizioni di input deve essere uguale a quello delle partizioni di output. L'output dell'archiviazione BLOB attualmente non supporta le partizioni, ma questo non è un problema perché lo schema di partizionamento viene ereditato dalla query upstream. Ecco alcuni esempi di valori di partizioni che consentono un processo perfettamente parallelo:  
-
-   * 8 partizioni di input di hub eventi e 8 partizioni di output di hub eventi
-   * 8 partizioni di input di hub eventi e output di archiviazione BLOB  
-   * 8 partizioni di input di archiviazione BLOB e output di archiviazione BLOB  
-   * 8 partizioni di input di archiviazione BLOB e 8 partizioni di output di hub eventi  
-
-Le sezioni seguenti illustrano alcuni esempi di scenari perfettamente paralleli.
-
-### <a name="simple-query"></a>Query semplice
-
-* Input: hub eventi con 8 partizioni
-* Output: hub eventi con 8 partizioni
-
-Query:
-
-    SELECT TollBoothId
-    FROM Input1 Partition By PartitionId
-    WHERE TollBoothId > 100
-
-Questa query è un filtro semplice. Non è pertanto necessario preoccuparsi del partizionamento dell'input inviato all'hub eventi. Si noti che la query include la clausola **Partition By PartitionId** e quindi il requisito 2 illustrato in precedenza è pienamente soddisfatto. A livello di output, è necessario configurare l'output dell'hub eventi nel processo in modo che la chiave di partizione sia impostata su **PartitionId**. È infine necessario verificare che il numero delle partizioni di input sia uguale a quello delle partizioni di output.
-
-### <a name="query-with-a-grouping-key"></a>Query con chiave di raggruppamento
-
-* Input: hub eventi con 8 partizioni
-* Output: archiviazione BLOB
-
-Query:
-
-    SELECT COUNT(*) AS Count, TollBoothId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-
-Questa query include una chiave di raggruppamento. La stessa chiave deve pertanto essere elaborata dalla stessa istanza di query. Ciò significa che gli eventi devono essere inviati all'hub eventi in modo partizionato. Ma quale chiave è necessario usare? **PartitionId** corrisponde a un concetto della logica di processo. La chiave effettiva di cui occuparsi è **TollBoothId** e quindi il valore di **PartitionKey** dei dati di evento deve essere **TollBoothId**. A questo scopo è necessario impostare **Partition By** su **PartitionId** nella query. Poiché l'output è costituito dall'archiviazione BLOB, non occorre preoccuparsi di configurare un valore di chiave di partizione, come definito dal requisito 4.
-
-### <a name="multi-step-query-with-a-grouping-key"></a>Query a più passaggi con chiave di raggruppamento
-* Input: hub eventi con 8 partizioni
-* Output: istanza di hub eventi con 8 partizioni
+## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Caso 2 - se la query non è perfettamente parallela.
+Se la query non è perfettamente parallela, è possibile seguire la procedura seguente.
+1.  Iniziare prima con una query senza **PARTITION BY** per evitare la complessità del partizionamento ed eseguire la query con 6 unità di ricerca per misurare il carico massimo come nel [Caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
+2.  Se è possibile ottenere il carico previsto in termini di velocità effettiva, l'operazione è conclusa. In alternativa è possibile scegliere di misurare lo stesso processo in esecuzione su SU 3 e SU 1 per determinare il numero minimo di SU adeguato per il proprio scenario.
+3.  Se non è possibile ottenere la velocità effettiva desiderata, provare a suddividere la query in più passaggi, se possibile e se non dispone già di più passaggi e allocare fino a SU 6 per ogni passaggio nella query. Ad esempio, se si dispone di 3 passaggi, allocare 18 unità di ricarca nell'opzione "Scalabilità".
+4.  Durante l'esecuzione di un processo di questo tipo, l'Analisi di flusso di Azure colloca ogni passaggio nel proprio nodo con 6 risorse dell'unità di risorse dedicate. 
+5.  Se ancora non è stata raggiunta la destinazione del carico, è possibile tentare di usare **PARTITION BY** a partire dai passaggi più vicini all'input. Per l'operatore **GROUP BY** che non può essere partizionabile naturalmente, è possibile usare il modello di aggregazione globale o locale per eseguire un **GROUP BY** partizionato seguito da un **GROUP BY**  non partizionato. Ad esempio, se si desidera contare quante automobili attraversano ciascun casello ogni 3 minuti e il volume dei dati va oltre ciò che può essere gestito da 6 unità di ricerca.
 
 Query:
 
@@ -99,176 +59,31 @@ Query:
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
     )
-
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-
-Questa query include una chiave di raggruppamento ed è quindi necessario che la stessa chiave venga elaborata dalla stessa istanza di query. È possibile adottare la stessa strategia usata nell'esempio precedente. In questo caso, la query è articolata in più passaggi. Per ogni passaggio è presente la clausola **Partition By PartitionID**? Sì, quindi la query soddisfa il requisito 3. A livello di output, è necessario impostare la chiave di partizione su **PartitionId**, come descritto in precedenza. Si può anche osservare che il numero di partizioni dell'output è identico a quello dell'input.
-
-## <a name="example-scenarios-that-are-not-embarrassingly-parallel"></a>Esempi di scenari *non* perfettamente paralleli
-
-Nella sezione precedente sono stati presentati alcuni scenari perfettamente paralleli. In questa sezione si illustreranno scenari che non soddisfano tutti i requisiti di parallelismo perfetto. 
-
-### <a name="mismatched-partition-count"></a>Numero di partizioni non corrispondente
-* Input: hub eventi con 8 partizioni
-* Output: hub eventi con 32 partizioni
-
-In questo caso, la query non è rilevante. Se il numero delle partizioni di input non corrisponde a quello delle partizioni di output, la topologia non è perfettamente parallela.
-
-### <a name="not-using-event-hubs-or-blob-storage-as-output"></a>Uso di un output diverso da hub eventi o archiviazione BLOB
-* Input: hub eventi con 8 partizioni
-* Output: Power BI
-
-L'output Power BI attualmente non supporta il partizionamento. Pertanto, questo scenario non è perfettamente parallelo.
-
-### <a name="multi-step-query-with-different-partition-by-values"></a>Query a più passaggi con valori diversi per Partition By
-* Input: hub eventi con 8 partizioni
-* Output: hub eventi con 8 partizioni
-
-Query:
-
-    WITH Step1 AS (
-    SELECT COUNT(*) AS Count, TollBoothId, PartitionId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1 Partition By TollBoothId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId
-
-Come è possibile osservare, il secondo passaggio usa **TollBoothId** come chiave di partizionamento, a differenza del primo passaggio. È quindi necessario eseguire una riproduzione in ordine casuale. 
-
-Gli esempi precedenti illustrano alcuni processi di Analisi di flusso che sono o non sono conformi a una topologia perfettamente parallela. Se sono conformi, possono raggiungere il livello massimo di scalabilità. Per i processi che non rientrano in nessuno di questi profili, in futuro saranno disponibili aggiornamenti con le linee guida per il ridimensionamento. Per il momento, seguire le indicazioni generali riportate nelle sezioni seguenti.
-
-## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcolare il numero massimo di unità di streaming di un processo
-Il numero totale di unità di streaming che possono essere usate da un processo di Analisi dei flussi dipende dal numero di passaggi nella query definita per il processo e dal numero di partizioni per ogni passaggio.
-
-### <a name="steps-in-a-query"></a>Passaggi in una query
-Una query può includere uno o più passaggi. Ogni passaggio è una sottoquery definita mediante la parola chiave **WITH**. Anche la query esterna alla parola chiave **WITH** (una sola query) viene contata come passaggio. Ad esempio, l'istruzione **SELECT** nella query seguente:
-
-    WITH Step1 AS (
-        SELECT COUNT(*) AS Count, TollBoothId
-        FROM Input1 Partition By PartitionId
-        GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1
-    GROUP BY TumblingWindow(minute,3), TollBoothId
-
-Questa query include due passaggi.
-
-> [!NOTE]
-> Questa query viene illustrata in dettaglio più avanti nell'articolo.
->  
-
-### <a name="partition-a-step"></a>Partizionamento di un passaggio
-Il partizionamento di un passaggio richiede le condizioni seguenti:
-
-* L'origine di input deve essere partizionata. 
-* L'istruzione **SELECT** della query deve leggere da un'origine di input partizionata.
-* La query all'interno del passaggio deve includere la parola chiave **Partition By**.
-
-Quando una query è partizionata, gli eventi di input vengono elaborati e aggregati in gruppi separati di partizioni e per ogni gruppo vengono generati eventi di output. Se si vuole un aggregato combinato, è necessario creare un secondo passaggio non partizionato per l'aggregazione.
-
-### <a name="calculate-the-max-streaming-units-for-a-job"></a>Calcolare il numero massimo di unità di streaming per un processo
-Per un processo di Analisi di flusso, l'insieme di tutti i passaggi non partizionati può raggiungere un massimo di sei unità di streaming. Per aggiungere altre unità, è necessario partizionare un passaggio. Ogni partizione può includere sei unità di streaming.
-
-<table border="1">
-<tr><th>Query</th><th>Numero massimo di unità di streaming per il processo</th></td>
-
-<tr><td>
-<ul>
-<li>La query contiene un unico passaggio.</li>
-<li>Il passaggio non è partizionato.</li>
-</ul>
-</td>
-<td>6</td></tr>
-
-<tr><td>
-<ul>
-<li>Il flusso di dati di input è suddiviso in 3 partizioni.</li>
-<li>La query contiene un unico passaggio.</li>
-<li>Il passaggio è partizionato.</li>
-</ul>
-</td>
-<td>18</td></tr>
-
-<tr><td>
-<ul>
-<li>La query contiene due passaggi.</li>
-<li>Nessuno dei passaggi è partizionato.</li>
-</ul>
-</td>
-<td>6</td></tr>
-
-<tr><td>
-<ul>
-<li>Il flusso di dati di input è suddiviso in 3 partizioni.</li>
-<li>La query contiene due passaggi. Il passaggio di input viene partizionato, al contrario del secondo passaggio.</li>
-<li>L'istruzione <strong>SELECT</strong> legge dall'input partizionato.</li>
-</ul>
-</td>
-<td>24 (18 per i passaggi partizionati + 6 per i passaggi non partizionati)</td></tr>
-</table>
-
-### <a name="examples-of-scaling"></a>Esempi di ridimensionamento
-
-La query seguente calcola il numero di automobili che passano per una stazione di pedaggio con tre caselli in un intervallo di tre minuti. Il numero di unità di streaming di questa query può essere aumentato fino a sei.
-
-    SELECT COUNT(*) AS Count, TollBoothId
-    FROM Input1
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-
-Per usare più unità di streaming per la query, è necessario che il flusso di dati di input e la query siano entrambi partizionati. Se il partizionamento del flusso di dati è impostato su 3, la query modificata seguente può essere ridimensionata fino a un massimo di 18 unità di streaming:
-
-    SELECT COUNT(*) AS Count, TollBoothId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-
-Quando una query è partizionata, gli eventi di input vengono elaborati e aggregati in gruppi di partizioni separati e vengono anche generati eventi di output per ognuno dei gruppi. Quando il campo **GROUP BY** non corrisponde alla chiave di partizione nel flusso di dati di input, il partizionamento può causare risultati imprevisti. Ad esempio, il campo **TollBoothId** nella query precedente non corrisponde alla chiave di partizione **Input1**. I dati provenienti dal casello 1 possono pertanto essere distribuiti in più partizioni.
-
-Le singole partizioni di **Input1** verranno elaborate separatamente da Analisi di flusso. Verranno pertanto creati più record del conteggio relativo al passaggio di automobili dallo stesso casello nella stessa finestra a cascata. Se la chiave di partizione di input non può essere modificata, è possibile risolvere questo problema aggiungendo un altro passaggio non di partizione, come nell'esempio seguente:
-
-    WITH Step1 AS (
-        SELECT COUNT(*) AS Count, TollBoothId
-        FROM Input1 Partition By PartitionId
-        GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 
-Per questa query è possibile aumentare il numero di unità di streaming fino a 24.
+Nella query precedente si conteggiano le automobili per casello per partizione e quindi si somma il conteggio da tutte le partizioni insieme.
 
-> [!NOTE]
-> Se si uniscono due flussi, verificare che tali flussi siano partizionati in base alla chiave di partizione della colonna usata per le unioni. Controllare inoltre che in entrambi i flussi sia presente lo stesso numero di partizioni.
-> 
-> 
+Una volta partizionata, per ogni partizione del passaggio, allocare fino a 6 unità di risorsa, ogni partizione con 6 unità di risorsa è il valore massimo, pertanto ogni partizione può essere posizionata nel proprio nodo di elaborazione.
 
-## <a name="configure-stream-analytics-streaming-units"></a>Configurare le unità di streaming di Analisi di flusso
+> [!Note]
+> Se la query non può essere partizionata, l'aggiunta di altre unità di risorse in una query a più passaggi non sempre servirà a migliorare la velocità effettiva. Un modo per ottenere prestazioni è quello di ridurre il volume sui passaggi iniziali usando il modello di aggregazione locale o globale, come descritto in precedenza nel passaggio 5.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nell'elenco delle risorse trovare il processo di Analisi di flusso da ridimensionare e aprirlo.
-3. Nel pannello del processo, in **Configura**, fare clic su **Scale** (Ridimensiona).
+## <a name="case-3---you-are-running-lots-of-independent-queries-in-a-job"></a>Caso 3: si esegue un numero elevato di query indipendenti in un processo.
+Per determinati casi d'uso ISV, in cui è più conveniente elaborare dati da più tenant in un singolo processo, usando input e output separati per ogni tenant, si finisce per eseguire delle query (ad esempio 20) indipendenti in un singolo processo. Il presupposto è che ogni carico di tale sottoquery è relativamente piccolo. In questo caso, è possibile seguire la procedura seguente.
+1.  In questo caso, non usare **PARTITION BY** nella query
+2.  Se si usa l'Hub eventi, ridurre il numero di partizione di input portandolo al valore minimo di 2.
+3.  Eseguire la query con 6 unità di ricerca. Con il carico previsto per ogni sottoquery, aggiungere più sottoquery possibili, fino a quando il processo non supera i limiti delle risorse di sistema. Fare riferimento al [Caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) per i sintomi riportati in questo caso.
+4.  Quando si raggiunge il limite di sottoquery misurato in precedenza, iniziare ad aggiungere la sottoquery ad un nuovo processo. Il numero di processi per l'esecuzione come una funzione del numero di query indipendente dovrebbe essere piuttosto lineare, presupponendo che non siano presenti asimmetrie del carico. È quindi possibile prevedere il numero di processi di 6 unità di ricerca necessari ad eseguire come una funzione del numero di tenant che si desidera gestire.
+5.  Quando si usano i join dei dati di riferimento con tali query, si dovrebbero unire gli input insieme, prima di creare un join con gli stessi dati di riferimento, quindi suddividere gli eventi se necessario. In caso contrario, ogni join dei dati di riferimento mantiene una copia dei dati di riferimento nella memoria, probabilmente ingrandendo inutilmente l'uso della memoria.
 
-    ![Configurazione del processo di Analisi di flusso nel portale di Azure][img.stream.analytics.preview.portal.settings.scale]
-
-4. Usare il dispositivo di scorrimento per impostare le unità di streaming per il processo. Si noti che è possibile definire solo impostazioni specifiche delle unità di streaming.
-
-
-## <a name="monitor-job-performance"></a>Monitorare le prestazioni del processo
-Nel portale di Azure è possibile rilevare la velocità effettiva di un processo:
-
-![Processi di monitoraggio di Analisi dei flussi di Azure][img.stream.analytics.monitor.job]
-
-Calcolare la velocità effettiva prevista del carico di lavoro. Se la velocità effettiva è inferiore al previsto, ottimizzare la partizione di input e la query, quindi aggiungere unità di streaming al processo.
+> [!Note] 
+> Quanti tenant inserire in ogni processo?
+> Questo modello di query spesso ha un numero elevato di sottoquery e ciò comporta una topologia molto grande e complessa. Il controller del processo potrebbe non essere in grado di gestire una topologia di così grandi dimensioni. Come regola generale, rimanere al di sotto di 40 tenant per il processo di 1 unità di ricerca al di sotto di 60 tenant per i processi di 3 unità di ricerca e 6 unità di ricerca. Quando si supera la capacità del controller, il processo non verrà avviato correttamente.
 
 
-## <a name="visualize-stream-analytics-throughput-at-scale-the-raspberry-pi-scenario"></a>Visualizzare la velocità effettiva di Analisi di flusso su larga scala: scenario Raspberry Pi
+## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>Un esempio di velocità effettiva di Analisi di flusso di Azure su larga scala
 Per illustrare la scalabilità dei processi di Analisi di flusso, è stato eseguito un esperimento in base all'input di un dispositivo Raspberry Pi. L'esperimento ha consentito di osservare l'effetto prodotto da più unità di streaming e partizioni sulla velocità effettiva.
 
 In questo scenario il dispositivo invia i dati dei sensori (client) a un hub eventi. Analisi di flusso elabora i dati e invia come output un avviso o dati statistici a un altro hub eventi. 
@@ -279,12 +94,10 @@ Il client invia i dati dei sensori in formato JSON e anche l'output dei dati è 
 
 La query seguente consente di inviare un avviso quando una luce si spegne:
 
-    SELECT AVG(lght),
-     "LightOff" as AlertText
-    FROM input TIMESTAMP
-    BY devicetime
-     WHERE
-        lght< 0.05 GROUP BY TumblingWindow(second, 1)
+    SELECT AVG(lght), "LightOff" as AlertText
+    FROM input TIMESTAMP BY devicetime 
+    PARTITION BY PartitionID
+    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
 
 ### <a name="measure-throughput"></a>Misurare la velocità effettiva
 
@@ -364,5 +177,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-
 

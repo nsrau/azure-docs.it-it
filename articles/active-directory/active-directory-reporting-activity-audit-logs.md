@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: e454c783242bd46f70f6dbe2e0768d61a9d2d504
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 

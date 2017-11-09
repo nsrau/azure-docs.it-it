@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 58943e1e29755c983e55c675dd4fe7b75ac47b34
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 8fd9f3a51651fc163abd79aaf21ec3dd92502bb5
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Abilitare Microsoft Windows Hello for Business nell'organizzazione
 Dopo [aver connesso i dispositivi appartenenti a un dominio di Windows 10 ad Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), seguire questa procedura per abilitare Microsoft Windows Hello for Business nell'organizzazione:
@@ -108,7 +108,7 @@ Nella pagina **Registrazione SCEP** del profilo certificato è necessario scegli
 ## <a name="next-steps"></a>Passaggi successivi
 * [Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
-* [Autenticazione delle identità senza password con Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [Authenticate without passwords](active-directory-azureadjoin-passport.md) (Autenticazione senza password)
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)

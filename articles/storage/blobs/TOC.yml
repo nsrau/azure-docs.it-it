@@ -1,3 +1,5 @@
+- name: Documentazione di Archiviazione di Azure
+  href: /azure/storage/
 - name: Panoramica
   items:
     - name: Introduzione
@@ -16,6 +18,12 @@
       href: storage-quickstart-blobs-cli.md
     - name: Usare i BLOB - .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Usare i BLOB - Java
+      href: storage-quickstart-blobs-java.md
+    - name: Usare i BLOB - Python
+      href: storage-quickstart-blobs-python.md
+    - name: Usare i BLOB - Node.js
+      href: storage-quickstart-blobs-nodejs.md
 - name: Esercitazioni
   items:
     - name: Caricare ed elaborare un'immagine
@@ -28,6 +36,14 @@
           href: storage-secure-access-application.md
         - name: 4 - Monitorare e risolvere i problemi relativi alle risorse di archiviazione
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Progettare per la disponibilità elevata nella risorsa di archiviazione cloud
+      items:
+        - name: Rendere l'applicazione a disponibilità elevata
+          href: storage-create-geo-redundant-storage.md
+        - name: Simulare un errore con l'archiviazione con ridondanza geografica e accesso in lettura
+          href: storage-simulate-failure-ragrs-account-app.md
+    - name: Cercare dati non strutturati nell'archiviazione cloud
+      href: storage-unstructured-search.md
 - name: Esempi
   items:
     - name: Azure PowerShell
@@ -138,8 +154,12 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gestisci
       items:
-        - name: PowerShell
+        - name: PowerShell per BLOB di Azure
+          href: storage-how-to-use-blobs-powershell.md
+        - name: PowerShell per Archiviazione di Azure
           href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'PowerShell per i cloud per la Cina, gli enti pubblici e la Germania'
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Interfaccia della riga di comando di Azure 2.0
           href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Interfaccia della riga di comando di Azure 1.0
@@ -265,14 +285,18 @@
       href: /cli/azure/storage
     - name: .NET
       items:
-        - name: Gestione risorse
-          href: /dotnet/api/microsoft.azure.management.storage
-        - name: Spostamento dati
-          href: /dotnet/api/microsoft.windowsazure.storage.datamovement
         - name: 'BLOB, code, tabelle e file'
-          href: 'https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet'
+        - name: Spostamento dati
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
+        - name: Gestione risorse
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet'
     - name: Java
-      href: 'http://azure.github.io/azure-storage-java/'
+      items:
+        - name: 'BLOB, code, tabelle e file'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary'
+        - name: Gestione risorse
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/managementapi'
     - name: Node.js
       href: 'http://azure.github.io/azure-storage-node'
     - name: Ruby

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
 La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita implicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) autorizzato di tipi di .NET Framework.  
@@ -74,7 +73,7 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 > [!IMPORTANT]
 >  Si noti che quando si usano espressioni di criteri, è prevista solo una verifica limitata di tali espressioni quando i criteri vengono definiti. Poiché le espressioni vengono eseguite dal gateway al momento del runtime nella pipeline in entrata o in uscita, eventuali eccezioni di runtime generate dalle espressioni di criteri porteranno a un errore di runtime nella chiamata dell'API.  
   
-##  <a name="CLRTypes"></a> Tipi di .NET framework consentiti nelle espressioni di criteri  
+##  <a name="CLRTypes"></a> Tipi di .NET Framework consentiti nelle espressioni di criteri  
  Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membri consentiti nelle espressioni di criteri.  
   
 |Tipo CLR|Metodi supportati|  
@@ -203,4 +202,3 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2d0c36990ba897bef83601bd4295518618224733
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Spostamento dei dati in un database di SQL Azure per Azure Machine Learning
 Questo argomento indica le opzioni per lo spostamento dei dati da file flat, con estensione csv o tsv, o da dati archiviati in SQL Server locale a un database SQL di Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Processo di analisi scientifica dei dati per i team.
@@ -78,4 +77,3 @@ I passaggi per l'utilizzo del backup e ripristino del database sono simili a que
 La procedura per lo spostamento di dati in un database SQL di Azure con Azure Data Factory (ADF) è illustrata nell'argomento [Spostare i dati da SQL Server locale a SQL Azure con Azure Data Factory](move-sql-azure-adf.md). Questo argomento descrive come spostare i dati da un database di SQL Server locale a un database SQL di Azure tramite l'archiviazione BLOB di Azure con ADF.
 
 È consigliabile usare ADF quando i dati devono essere migrati continuamente in uno scenario ibrido che accede a risorse locali e cloud e quando i dati sono transazionali o devono essere modificati o avere una logica di business aggiunta durante la migrazione. L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. ADF dispone anche di altre funzionalità quali il supporto di operazioni complesse.
-

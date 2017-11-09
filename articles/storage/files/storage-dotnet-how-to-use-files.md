@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 51180530790fc0077cea4d8aea7088f1f871681b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/19/2017
 ---
-
 # <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET 
 > [!NOTE]
 > Questo articolo illustra come gestire File di Azure con codice .NET. Per altre informazioni su File di Azure, vedere l'[introduzione a File di Azure](storage-files-introduction.md).
@@ -31,8 +29,7 @@ ms.lasthandoff: 09/25/2017
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="about-this-tutorial"></a>Informazioni sull'esercitazione
-Questa esercitazione illustra le nozioni di base per l'uso di .NET per sviluppare applicazioni o servizi che usano File di Azure per archiviare i dati dei file. In questa esercitazione verrà creata una semplice applicazione console e verrà mostrato come eseguire azioni di base con .NET e File di Azure:
+Questa esercitazione illustra le nozioni di base per l'uso di .NET per sviluppare applicazioni o servizi che usano File di Azure per archiviare i dati dei file. In questa esercitazione viene creata una semplice applicazione console e viene mostrato come eseguire azioni di base con .NET e File di Azure:
 
 * Ottenere il contenuto di un file
 * Impostare la quota (dimensione massima) per la condivisione file.
@@ -138,7 +135,7 @@ if (share.Exists())
 Eseguire l'applicazione console per visualizzare l'output.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Impostare la dimensione massima per una condivisione file
-A partire dalla versione 5.x della libreria del client di archiviazione di Azure, è possibile impostare la quota (o dimensione massima) per una condivisione file, in gigabyte. È anche possibile controllare la quantità di dati archiviata attualmente nella condivisione.
+A partire dalla versione 5.x della libreria client di archiviazione di Azure, è possibile impostare la quota (o dimensione massima) per una condivisione file, in gigabyte. È anche possibile controllare la quantità di dati archiviata attualmente nella condivisione.
 
 Impostando la quota per una condivisione, è possibile limitare la dimensione totale dei file archiviati nella condivisione. Se la dimensione totale dei file nella condivisione supera la quota impostata per la condivisione, i client non saranno in grado di aumentare le dimensioni dei file esistenti o creare nuovi file, a meno che tali file non siano vuoti.
 
@@ -327,10 +324,84 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 È possibile copiare un BLOB in un file nello stesso modo. Se l'oggetto di origine è un BLOB, creare una firma di accesso condiviso per consentire l'accesso al BLOB durante l'operazione di copia.
 
+## <a name="share-snapshots-preview"></a>Snapshot di condivisione (anteprima)
+A partire dalla versione 8.5 della libreria client di archiviazione di Azure, è possibile creare uno snapshot di condivisione (anteprima), nonché elencare, esplorare ed eliminare snapshot di condivisione. Gli snapshot di condivisione sono di sola lettura, di conseguenza non sono consentite operazioni di scrittura su di essi.
+
+**Creare snapshot di condivisione**
+
+L'esempio seguente crea uno snapshot di condivisione file.
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**Elencare gli snapshot di condivisione**
+
+L'esempio seguente elenca gli snapshot di condivisione in una condivisione.
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**Esplorare i file e le directory negli snapshot di condivisione**
+
+L'esempio seguente esplora file e directory all'interno degli snapshot di condivisione.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**Elencare condivisioni e snapshot di condivisione e ripristinare condivisioni file o file da snapshot di condivisione** 
+
+La creazione di uno snapshot di una condivisione file consente di ripristinare in futuro singoli file o l'intera condivisione. 
+
+È possibile ripristinare un file da uno snapshot di condivisione file eseguendo una query sugli snapshot di condivisione di una condivisione file. Si può quindi recuperare un file appartenente a un determinato snapshot di condivisione e usare tale versione per eseguire direttamente la lettura e il confronto oppure per il ripristino.
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**Eliminare snapshot di condivisione**
+
+L'esempio seguente elimina uno snapshot di condivisione file.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
+
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Risoluzione dei problemi di File di Azure con le metriche
 Analisi archiviazione di Azure supporta ora metriche per File di Azure. Grazie ai dati di metrica, è possibile monitorare le richieste e diagnosticare i problemi.
 
-È possibile abilitare le metriche per File di Azure dal [portale di Azure](https://portal.azure.com). È anche possibile abilitare le metriche a livello ci codice chiamando l'operazione Set File Service Properties tramite l'API REST o una delle soluzioni analoghe disponibili nella libreria client di archiviazione.
+È possibile abilitare le metriche per File di Azure dal [portale di Azure](https://portal.azure.com). È anche possibile abilitare le metriche a livello di codice chiamando l'operazione Set File Service Properties tramite l'API REST o una delle soluzioni analoghe disponibili nella libreria client di archiviazione.
 
 L'esempio di codice seguente mostra come usare la libreria client di archiviazione per .NET per abilitare le metriche per File di Azure.
 
@@ -387,7 +458,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 È anche possibile fare riferimento all'articolo sulla [risoluzione dei problemi di archiviazione file di Azure](storage-troubleshoot-windows-file-connection-problems.md) per indicazioni sulla risoluzione dei problemi end-to-end.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere questi collegamenti per altre informazioni su File di Azure.
+Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 
 ### <a name="conceptual-articles-and-videos"></a>Articoli concettuali e video
 * [File di Azure: un file system SMB nel cloud senza conflitti per Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
@@ -403,7 +474,7 @@ Vedere questi collegamenti per altre informazioni su File di Azure.
 * [Riferimento API REST del servizio File](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>Post di BLOG
-* [File di Azure è ora disponibile a livello generale](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Analisi di File di Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/) (File di Azure è ora disponibile a livello generale)
+* [Inside Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/) (Analisi di File di Azure)
 * [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

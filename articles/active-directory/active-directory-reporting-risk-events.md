@@ -1,5 +1,5 @@
 ---
-title: Eventi di rischio di Azure Active Directory | Documentazione Microsoft
+title: Eventi di rischio di Azure Active Directory | Microsoft Docs
 description: Questo argomento presenta una panoramica dettagliata degli eventi di rischio.
 services: active-directory
 keywords: "Azure Active Directory Identity Protection, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventi di rischio di Azure Active Directory
 
@@ -29,10 +29,9 @@ Azure Active Directory rileva attualmente sei tipi di eventi di rischio:
 - [Utenti con credenziali perse](#leaked-credentials) 
 - [Accessi da indirizzi IP anonimi](#sign-ins-from-anonymous-ip-addresses) 
 - [Trasferimento impossibile a posizioni atipiche](#impossible-travel-to-atypical-locations) 
-- [Accessi da posizioni non note](#sign-in-from-unfamiliar-locations)
 - [Accessi da dispositivi infetti](#sign-ins-from-infected-devices) 
 - [Accessi da indirizzi IP con attività sospette](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-
+- [Accessi da posizioni non note](#sign-in-from-unfamiliar-locations) (esclusivamente per le edizioni di **Azure Active Directory Premium P2**)
 
 ![Evento di rischio](./media/active-directory-reporting-risk-events/91.png)
 

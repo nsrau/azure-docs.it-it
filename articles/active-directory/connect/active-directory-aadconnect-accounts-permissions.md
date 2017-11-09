@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: fdd90721b6823c20c1ff27383769bfff24e80eae
-ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
 L'installazione guidata di Azure AD Connect offre due percorsi diversi:
@@ -97,6 +96,10 @@ Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate
 
 ## <a name="upgrade"></a>Aggiornamento
 Quando si aggiorna da una versione di Azure AD Connect a una nuova versione, è necessario avere le autorizzazioni seguenti:
+
+>[!IMPORTANT]
+>A partire dalla build 1.1.484, in Azure AD Connect è stato introdotto un bug di regressione che richiede autorizzazioni sysadmin per aggiornare il database SQL.  Questo bug è ancora presente nell'ultima build 1.1.614.  Se si esegue l'aggiornamento a questa build, saranno necessarie autorizzazioni sysadmin.  Le autorizzazioni dbo non sono sufficienti.  Se si tenta di eseguire l'aggiornamento di Azure AD Connect senza disporre delle autorizzazioni sysadmin, l'aggiornamento avrà esito negativo e Azure AD Connect non funzionerà più correttamente in seguito.  Microsoft è al corrente di questo problema e sta lavorando a una soluzione.
+
 
 | Entità | Autorizzazioni necessarie | Utilizzo |
 | --- | --- | --- |
@@ -194,4 +197,3 @@ Per rimuovere gli account del servizio Azure AD inutilizzati, eseguire il cmdlet
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md).
-

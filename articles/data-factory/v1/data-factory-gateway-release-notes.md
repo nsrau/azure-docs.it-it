@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
+ms.openlocfilehash: 3cc96b22b45e5c741991b11e1bbee758a569bed9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 50406e50363054fb92a1783751ba62ca7b3455e4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Note sulla versione di Gateway di gestione dati
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere il [runtime di integrazione self-hosted nella versione 2](../create-self-hosted-integration-runtime.md).
+
 Una delle maggiori difficoltà relative all'integrazione moderna dei dati consiste nello spostamento di dati da ambienti locali al cloud e viceversa. Data Factory esegue questa integrazione con Gateway di gestione dati, un agente che è possibile installare in locale per abilitare lo spostamento di dati ibridi.
 
 Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione dati e su come usarlo:
@@ -30,16 +32,19 @@ Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione
 *  [Spostare dati tra un ambiente locale e il cloud mediante Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-21063477"></a>VERSIONE CORRENTE (2.10.6347.7)
+## <a name="current-version"></a>VERSIONE ATTUALE 
+Non è più possibile mantenere le note sulla versione qui. Ottenere le note sulla versione più recente [qui](https://go.microsoft.com/fwlink/?linkid=853077)
 
+
+
+
+## <a name="earlier-versions"></a>Versioni precedenti
+## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Miglioramenti
 - È possibile aggiungere le voci DNS per aggiungere il bus di servizio all'elenco elementi consentiti, invece di inserire in tale elenco tutti gli indirizzi IP di Azure IP dal firewall (se necessario). È possibile trovare la rispettiva voce DNS nel portale di Azure (Data Factory -> "Creare e distribuire" -> "Gateway" -> "serviceUrls" (in JSON)
 - Il connettore HDFS supporta ora il certificato pubblico autofirmato, consentendo di saltare la convalida SSL.
 - Corretto: problema relativo al gateway offline durante l'aggiornamento (a causa di uno sfasamento del clock)
 
-
-
-## <a name="earlier-versions"></a>Versioni precedenti
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Miglioramenti
@@ -252,4 +257,3 @@ Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione
 ### <a name="1051442"></a>1.0.5144.2
 
 *  Nessuna modifica che interessi gli scenari di Data factory di Azure.
-

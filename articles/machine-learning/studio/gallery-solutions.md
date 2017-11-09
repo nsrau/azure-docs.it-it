@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d249a12b31418b159b3e5391528488f5d9d57a9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="discover-solutions-in-the-cortana-intelligence-gallery"></a>Scoprire soluzioni in Cortana Intelligence Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -46,8 +45,7 @@ Se si vuole usare una soluzione, fare clic su **Deploy** (Distribuisci). Seguire
 
 ![Distribuire una soluzione di Gallery](./media/gallery-solutions/deploy-solution.png)
 
-**[VAI A GALLERY >>](http://gallery.cortanaintelligence.com)**
+**[VAI A GALLERY &gt;&gt;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

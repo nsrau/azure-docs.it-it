@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 413e72e9a39fcde84f56bfc61a6bc72dbadf1c97
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
 
 > [!div class="op_single_selector"]
@@ -137,4 +135,3 @@ Il file [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 [Domande frequenti sui servizi cloud - Desktop remoto](cloud-services-faq.md)
-

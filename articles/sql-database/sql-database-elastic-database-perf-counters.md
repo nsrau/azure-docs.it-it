@@ -9,17 +9,17 @@ editor:
 ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
-ms.openlocfilehash: 60bb26fe6833998137ede71b363d5d40479a4c60
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 4a7a2e0b4f2be852c61fc3ccdd4dea2034b80918
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Contatori delle prestazioni per Gestore mappe partizioni
 È possibile acquisire le prestazioni di un [gestore mappe partizioni](sql-database-elastic-scale-shard-map-management.md), soprattutto quando si usa il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md). Per creare i contatori si usano i metodi della classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  

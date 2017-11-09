@@ -3,7 +3,7 @@ title: "Probe personalizzati del servizio di bilanciamento del carico e monitora
 description: Informazioni su come usare probe personalizzati per il servizio di bilanciamento del carico di Azure per monitorare le relative istanze
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: ce2550ca8301fd12d61cca143b2851b84f1a0f50
-ms.openlocfilehash: 01afa3a08bbb56d4c6b8b18c5eb07f49706c6482
-
+ms.openlocfilehash: 102c07ff0994b3b411f2a13d7a43c5398d5dfd42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-load-balancer-probes"></a>Informazioni sui probe di bilanciamento del carico
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Il servizio di bilanciamento del carico di Azure consente di monitorare l'integrità delle istanze del server tramite probe. Se un probe non risponde, il servizio di bilanciamento del carico interrompe l'invio di nuove connessioni all'istanza non integra. Le connessioni esistenti non sono interessate, mentre quelle nuove vengono inviate alle istanze integre.
 
@@ -94,9 +96,3 @@ I probe TCP e HTTP sono considerati integri e contrassegnano come integra l'ista
 ## <a name="use-log-analytics-for-load-balancer"></a>Usare Analisi dei log per il servizio di bilanciamento del carico
 
 È possibile usare [Analisi dei log per il servizio di bilanciamento del carico](load-balancer-monitor-log.md) per verificare lo stato di integrità e il conteggio dei probe. Per fornire statistiche dello stato di integrità del servizio di bilanciamento del carico, è possibile usare la registrazione con Power BI o con Operational Insights.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

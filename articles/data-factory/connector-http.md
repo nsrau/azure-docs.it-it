@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/12/2017
 ms.author: jingwang
+ms.openlocfilehash: 07f6d0ddac0daf5810d5433c1089114966e80719
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b27e852b70651cec34b200bde362ff0efae30226
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +42,7 @@ In particolare, il connettore HTTP supporta:
 La differenza tra questo connettore e [il connettore della tabella Web](connector-web-table.md) è che quest'ultimo viene usato per estrarre il contenuto di una tabella da una pagina Web HTML.
 
 ## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello di Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di data factory specifiche per il connettore HTTP.
 
@@ -57,7 +56,7 @@ Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 | URL | URL di base al server Web | Sì |
 | enableServerCertificateValidation | Specificare se abilitare la convalida del certificato SSL del server quando si esegue la connessione all'endpoint HTTP. | No, il valore predefinito è true |
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono: **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni sotto questa tabella per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted se l'archivio dati si trova in una rete privata. Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando l'autenticazione Basic, Digest o Windows
 
@@ -75,7 +74,7 @@ Impostare la proprietà "authenticationType" su **Base**, **Digest** o **Windows
     "name": "HttpLinkedService",
     "properties":
     {
-        "type": "Http",
+        "type": "HttpServer",
         "typeProperties":
         {
             "authenticationType": "Basic",

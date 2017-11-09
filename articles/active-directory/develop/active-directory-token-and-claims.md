@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui diversi tipi di token e di attestazione supportati da Azure AD | Microsoft Docs
+title: Informazioni sui diversi tipi di token e di attestazione supportati da Azure AD | Documentazione Microsoft
 description: Una guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JSON Web Tokens (JWT) emessi da Azure Active Directory (AAD)
 documentationcenter: na
 author: dstrockis
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Riferimento al token di Azure AD
 Azure Active Directory (Azure AD) rilascia tipi diversi di token di sicurezza durante l'elaborazione di ogni flusso di autenticazione. Questo documento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
@@ -304,4 +303,3 @@ Oltre alle attestazioni, il token include un numero di versione **ver** e **appi
 ## <a name="related-content"></a>Contenuti correlati
 * Per altre informazioni sulla gestione dei criteri di durata dei token tramite l'API Graph di Azure AD, vedere gli articoli relativi alle [operazioni sui criteri](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) e all'[entità dei criteri](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) di Azure AD Graph.
 * Per altre informazioni ed esempi sulla gestione dei criteri tramite i cmdlet PowerShell, vedere [Configurable token lifetimes in Azure AD](../active-directory-configurable-token-lifetimes.md) (Durata dei token configurabile in Azure AD). 
-

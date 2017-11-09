@@ -22,6 +22,7 @@
 
 # Procedure
 ## Pianificare e progettare
+### [Ripristino di emergenza geografico e replica geografica](event-hubs-geo-dr.md)
 ### [Hub eventi dedicati](event-hubs-dedicated-overview.md)
 ### [Panoramica sul modello di autenticazione e di protezione](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilità e coerenza](event-hubs-availability-and-consistency.md)
@@ -32,7 +33,8 @@
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Log di diagnostica](event-hubs-diagnostic-logs.md)
 ### [Guida al protocollo AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## Manage
+## Gestisci
+### [Monitorare Hub eventi con Monitoraggio di Azure](event-hubs-metrics-azure-monitor.md)
 ### [Librerie di gestione di Hub eventi](event-hubs-management-libraries.md)
 ### Acquisizione
 #### [Acquisizione di hub eventi](event-hubs-capture-overview.md)

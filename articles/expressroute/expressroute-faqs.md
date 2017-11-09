@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
+ms.openlocfilehash: 0456cde7e30e9b25f8baebdcd15e0e029f89d7ff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 39b79dce555ba1b57f48ca2b431c13b1c1e4d90b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -51,7 +50,7 @@ No. È possibile acquistare una connessione VPN di qualsiasi velocità dal provi
 
 Sì. I circuiti ExpressRoute sono configurati per consentire di potenziare fino al doppio il limite di larghezza di banda acquistato, senza alcun costo aggiuntivo. Contattare il provider di servizi per vedere se supporta questa funzionalità.
 
-### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Si può usare la stessa connessione di rete privata con la rete virtuale e altri servizi di Azure contemporaneamente?
+### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Si possono usare contemporaneamente la stessa connessione di rete privata con la rete virtuale e altri servizi di Azure?
 
 Sì. Dopo l'installazione, il circuito ExpressRoute consente di accedere ai servizi all'interno di una rete virtuale e ad altri servizi di Azure contemporaneamente. La connessione alle reti virtuali viene eseguita tramite il percorso di peering privato e ad altri servizi tramite il percorso di peering pubblico.
 
@@ -85,6 +84,14 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
+* Usando i [filtri route](#route-filters-for-microsoft-peering), si ottiene l'accesso per gli stessi servizi pubblici con il peering Microsoft:
+  * Power BI
+  * Dynamics 365 per Finanza e operazioni
+  * La maggior parte dei servizi di Azure, con le eccezioni seguenti:
+    * RETE CDN
+    * Test del carico di Visual Studio Team Services
+    * Multi-Factor Authentication
+    * Gestione traffico
 
 ## <a name="data-and-connections"></a>Dati e connessioni
 
@@ -116,6 +123,10 @@ Sì. Ogni circuito ExpressRoute ha una coppia ridondante di connessioni incrocia
 
 In caso di errore di una delle connessioni incrociate, la connettività non verrà persa. È attualmente disponibile una connessione ridondante per supportare il carico della rete. Si possono creare più circuiti in sedi di peering diverse per ottenere una maggiore resilienza agli errori.
 
+## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Come è possibile garantire la disponibilità elevata in una rete virtuale connessa a ExpressRoute?
+
+È possibile ottenere la disponibilità elevata connettendo alla rete virtuale più circuiti ExpressRoute in posizioni di peering diverse. Ad esempio, se si arresta un sito di ExpressRoute, la connettività eseguirà il failover a un altro sito di ExpressRoute. Per impostazione predefinita, il traffico in uscita dalla rete virtuale viene instradato sul routing ECMP (Equal-Cost-Multi-Path). È possibile usare il peso della connessione per preferire una connessione a un'altra. Vedere [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) (Ottimizzazione del routing di ExpressRoute).
+
 ### <a name="onep2plink"></a>Se non si condivide un percorso in un'infrastruttura Cloud Exchange e il provider di servizi offre una connessione punto a punto, è necessario ordinare due connessioni fisiche tra la rete locale e Microsoft?
 
 Se il provider di servizi è in grado di stabilire due circuiti virtuali Ethernet sulla connessione fisica, è sufficiente una connessione fisica. La connessione fisica, ad esempio una fibra ottica, viene terminata su un dispositivo di livello 1 (L1) (vedere l'immagine). I due circuiti virtuali Ethernet sono contrassegnati con ID VLAN diversi, uno per il circuito primario e uno per quello secondario. Gli ID VLAN sono nell'intestazione Ethernet 802.1Q esterna. L'intestazione Ethernet 802.1Q interna, non indicata nella figura, viene mappata a un [dominio di routing ExpressRoute](expressroute-circuit-peerings.md)specifico.
@@ -136,14 +147,14 @@ Sì. È possibile usare i circuiti ExpressRoute con molti provider di servizi. O
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>È possibile avere più circuiti ExpressRoute nello stesso percorso?
 
-Sì. È possibile avere più circuiti ExpressRoute con provider di servizi uguali o diversi nello stesso percorso. Non è tuttavia possibile collegare più di un circuito ExpressRoute alla stessa rete virtuale dallo stesso percorso.
+Sì. È possibile avere più circuiti ExpressRoute con provider di servizi uguali o diversi nello stesso percorso. Non è tuttavia possibile collegare più di un circuito ExpressRoute alla stessa rete virtuale dalla stessa località.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Come si connettono le reti virtuali a un circuito ExpressRoute?
 
 I passaggi di base sono:
 
 * Stabilire un circuito ExpressRoute e richiedere al provider di servizi di abilitarlo.
-* L'utente o il provider devono configurare i peering BGP.
+* L'utente o il provider deve configurare i peering BGP.
 * Collegare la rete virtuale al circuito ExpressRoute.
 
 Per altre informazioni, vedere [Flussi di lavoro e stati di provisioning di un circuito ExpressRoute](expressroute-workflows.md).
@@ -162,9 +173,15 @@ Sì. È possibile autorizzare fino a 10 sottoscrizioni di Azure a usare un unico
 
 Per altre informazioni, vedere [Condivisione di un circuito ExpressRoute tra più sottoscrizioni](expressroute-howto-linkvnet-arm.md).
 
+### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>Sono disponibili più sottoscrizioni di Azure associate a diversi tenant di Azure Active Directory o le registrazioni di Enterprise Agreement. È possibile connettere reti virtuali presenti in tenant separati e registrazioni a un singolo circuito ExpressRoute che non si trova nello stesso tenant o registrazione?
+
+Sì. Le autorizzazioni di ExpressRoute possono estendersi a sottoscrizione, tenant e registrazione, senza richiedere alcuna configurazione aggiuntiva. 
+
+Per altre informazioni, vedere [Condivisione di un circuito ExpressRoute tra più sottoscrizioni](expressroute-howto-linkvnet-arm.md).
+
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>Le reti virtuali connesse allo stesso circuito sono isolate tra loro?
 
-No. Da un punto di vista del routing, tutte le reti virtuali collegate allo stesso circuito ExpressRoute appartengono allo stesso dominio di routing e non sono isolate tra loro. Se è necessario l'isolamento delle route, creare un circuito ExpressRoute separato.
+No. Da un punto di vista del routing, tutte le reti virtuali collegate allo stesso circuito ExpressRoute appartengono allo stesso dominio di routing e non sono isolate le une dalle altre. Se è necessario l'isolamento delle route, creare un circuito ExpressRoute separato.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>È possibile connettere una sola rete virtuale a più circuiti ExpressRoute?
 
@@ -178,7 +195,7 @@ Sì. Se non è stata eseguita la pubblicazione di route predefinite (0.0.0.0/0) 
 
 Sì. È possibile pubblicare route predefinite (0.0.0.0/0) per bloccare tutta la connettività Internet per le macchine virtuali distribuite in una rete virtuale e indirizzare tutto il traffico in uscita attraverso il circuito ExpressRoute.
 
-Se si pubblicano route predefinite, il traffico viene forzato verso i servizi offerti tramite peering pubblico, ad esempio l'archiviazione di Azure e database SQL, nella sede locale. Sarà necessario configurare i router in modo che restituiscano traffico ad Azure tramite il percorso di peering pubblico su Internet.
+Se si pubblicano route predefinite, il traffico verso i servizi offerti tramite peering pubblico, ad esempio l'archiviazione di Azure e database SQL, viene forzato verso l'istanza locale. Sarà necessario configurare i router in modo che restituiscano traffico ad Azure tramite il percorso di peering pubblico su Internet. Se è stato abilitato un endpoint del servizio (anteprima) per il servizio, il traffico verso il servizio non viene forzato in locale, ma rimane all'interno della rete backbone di Azure. Per altre informazioni sugli endpoint del servizio, vedere [Endpoint del servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Le reti virtuali collegate allo stesso circuito ExpressRoute possono comunicare tra loro?
 
@@ -232,7 +249,7 @@ I passaggi seguenti permettono ad Azure di riconoscere la richiesta di attivazio
 
 Sì, è possibile provare ad aumentare la larghezza di banda del circuito ExpressRoute nel portale di Azure o con PowerShell. Se è disponibile capacità sulla porta fisica in cui è stato creato il circuito, la modifica ha esito positivo. 
 
-Se la modifica ha esito negativo, significa o che la capacità residua sulla porta corrente non è sufficiente e che è necessario creare un nuovo circuito ExpressRoute con maggiore larghezza di banda, oppure che il percorso non ha altra capacità. In quest'ultimo caso non è possibile aumentare la larghezza di banda. 
+Se la modifica ha esito negativo, significa che la capacità residua sulla porta corrente non è sufficiente e che è necessario creare un nuovo circuito ExpressRoute con maggiore larghezza di banda, oppure che la località non ha altra capacità. In quest'ultimo caso non è possibile aumentare la larghezza di banda. 
 
 Sarà anche necessario contattare il provider di connettività per assicurare che aggiorni le limitazioni della propria rete per supportare l'incremento della larghezza di banda. Non è tuttavia possibile ridurre la larghezza di banda del circuito ExpressRoute. È necessario creare un nuovo circuito ExpressRoute con larghezza di banda inferiore ed eliminare il circuito precedente.
 
@@ -247,13 +264,13 @@ Sarà anche necessario contattare il provider di connettività per assicurare ch
 ExpressRoute Premium è una raccolta delle funzionalità seguenti:
 
 * Aumento del limite delle tabelle di routing da 4000 a 10.000 route per il peering privato.
-* Incremento del numero di VNet che possono essere connesse al circuito ExpressRoute (il valore predefinito è 10). Per altre informazioni, vedere la scheda [Limiti di ExpressRoute](#limits).
+* Incremento del numero di VNet che possono essere connesse al circuito ExpressRoute (il valore predefinito è 10). Per altre informazioni, vedere la tabella [Limiti di ExpressRoute](#limits).
 * Connettività a Office 365 e Dynamics 365.
 * Connettività globale sulla rete di base Microsoft. È ora possibile collegare una VNet in un'area geopolitica a un circuito ExpressRoute in un'altra area.<br>
     **Esempi:**
 
     *  È possibile collegare una VNet creata in Europa occidentale a un circuito ExpressRoute creato a Silicon Valley. 
-    *  Sul peering pubblico, i prefissi di altre aree geopolitiche vengono annunciati in modo che sia ad esempio possibile connettersi a SQL Azure in Europa occidentale da un circuito di Silicon Valley.
+    *  Sul peering pubblico, i prefissi di altre aree geopolitiche vengono pubblicati in modo che sia ad esempio possibile connettersi a SQL Azure in Europa occidentale da un circuito di Silicon Valley.
 
 
 ### <a name="limits"></a>Quante VNet possono essere collegate a un circuito ExpressRoute se è stato abilitato ExpressRoute Premium?
@@ -320,7 +337,7 @@ Vedere [Partner e località di peering per Azure ExpressRoute](expressroute-loca
 
 ### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>È possibile accedere a Office 365 tramite Internet anche se ExpressRoute è stato configurato per l'organizzazione specifica?
 
-Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se ExpressRoute è stato configurato per la rete specifica. Se ci si trova in una località configurata per la connessione ai servizi di Office 365 tramite ExpressRoute, la connessione verrà effettuata tramite ExpressRoute.
+Sì. Gli endpoint del servizio di Office 365 sono raggiungibili tramite Internet anche se ExpressRoute è stato configurato per la rete specifica. Se ci si trova in una località configurata per la connessione ai servizi di Office 365 tramite ExpressRoute, la connessione verrà effettuata tramite ExpressRoute.
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>È possibile accedere ai servizi US Government Community (GCC) di Office 365 tramite un circuito ExpressRoute di Azure per enti pubblici statunitensi?
 
@@ -332,25 +349,24 @@ Sì. [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operati
 
 ## <a name="route-filters-for-microsoft-peering"></a>Filtri di route per il peering Microsoft
 
-### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>Sto attivando il peering di Microsoft per la prima volta, quale sarà la route visualizzata?
+### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>Sto attivando il peering Microsoft per la prima volta, quale sarà la route visualizzata?
 
-Non verrà visualizzata nessuna route. È necessario allegare un filtro di route per il circuito per avviare gli annunci di prefisso. Per ottenere delle istruzioni, vedere [Configurare i filtri di route per il peering di Microsoft](how-to-routefilter-powershell.md).
+Non verrà visualizzata nessuna route. È necessario allegare un filtro di route per il circuito per avviare gli annunci di prefisso. Per istruzioni, vedere [Configurare i filtri di route per il peering Microsoft](how-to-routefilter-powershell.md).
 
-### <a name="i-turned-on-microsoft-peering-and-now-i-am-trying-to-select-exchange-online-but-it-is-giving-me-an-error-that-i-am-not-authorized-to-do-it"></a>Ho attivato il peering di Microsoft e ora sto cercando di selezionare Exchange Online, ma compare un messaggio di errore che indica che non sono autorizzato a eseguire l'operazione.
+### <a name="i-turned-on-microsoft-peering-and-now-i-am-trying-to-select-exchange-online-but-it-is-giving-me-an-error-that-i-am-not-authorized-to-do-it"></a>Ho attivato il peering Microsoft e ora sto cercando di selezionare Exchange Online, ma compare un messaggio di errore che indica che non sono autorizzato a eseguire l'operazione.
 
-Quando si uso filtri di route, tutti i clienti possono attivare il peering di Microsoft. Tuttavia, per l'uso dei servizi di Office 365, è comunque necessario ottenere l'autorizzazione da Office 365.
+Quando si usano filtri di route, tutti i clienti possono attivare il peering Microsoft. Tuttavia, per l'uso dei servizi di Office 365, è comunque necessario ottenere l'autorizzazione da Office 365.
 
-### <a name="do-i-need-to-get-authorization-for-turning-on-dynamics-365-over-microsoft-peering"></a>È necessario ottenere l'autorizzazione per l'attivazione di Dynamics 365 tramite il peering di Microsoft?
+### <a name="do-i-need-to-get-authorization-for-turning-on-dynamics-365-over-microsoft-peering"></a>È necessario ottenere l'autorizzazione per l'attivazione di Dynamics 365 tramite il peering Microsoft?
 
 No, non è necessaria l'autorizzazione per Dynamics 365. È possibile creare una regola e selezionare la community di Dynamics 365 senza autorizzazione.
 
-### <a name="i-already-have-microsoft-peering-how-can-i-take-advantage-of-route-filters"></a>Dispongo già del peering di Microsoft, come posso usare al meglio i filtri di route?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>Il peering Microsoft è stato abilitato prima del 1 agosto 2017. Come posso usare al meglio i filtri di route?
 
-È possibile creare un filtro di route, selezionare i servizi che si desidera usare e allegare il filtro al peering di Microsoft. Per ottenere delle istruzioni, vedere [Configurare i filtri di route per il peering di Microsoft](how-to-routefilter-powershell.md).
+Il circuito esistente continuerà ad annunciare i prefissi per Office 365 e Dynamics 365. Per aggiungere annunci di prefissi pubblici di Azure tramite lo stesso peering Microsoft, creare un filtro di route, selezionare i servizi che si vuole annunciare (inclusi i servizi di Office 365 e Dynamics 365 necessari) e collegare il filtro al peering Microsoft in uso. Per istruzioni, vedere [Configurare i filtri di route per il peering Microsoft](how-to-routefilter-powershell.md).
 
-### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Sono in possesso di un peering di Microsoft in una posizione, ora sto cercando di abilitarlo in un'altra posizione e non vengono visualizzati i prefissi.
+### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Ho un peering Microsoft in una località, ora sto cercando di abilitarlo in un'altra località e non vengono visualizzati i prefissi.
 
-* Il peering di Microsoft dei circuiti ExpressRoute che sono stati configurati prima del 1 agosto 2017, avranno tutti i prefissi di servizio pubblicati tramite il peering di Microsoft, anche se non sono definiti i filtri di route.
+* Il peering Microsoft dei circuiti ExpressRoute che sono stati configurati prima del 1° agosto 2017, avranno tutti i prefissi di servizio pubblicati tramite il peering Microsoft, anche se non sono definiti i filtri di route.
 
-* Il peering di Microsoft dei circuiti ExpressRoute che vengono configurati dopo il 1 agosto 2017 non avrà alcun prefisso annunciato fino a quando non viene associato un filtro di route per il circuito. Per impostazione predefinita, non verrà visualizzato alcun prefisso.
-
+* Il peering Microsoft dei circuiti ExpressRoute che vengono configurati dopo il 1° agosto 2017 non avrà alcun prefisso annunciato fino a quando non viene associato un filtro di route per il circuito. Per impostazione predefinita, non verrà visualizzato alcun prefisso.

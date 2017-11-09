@@ -9,12 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
+ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Domande frequenti su Azure Machine Learning
 
@@ -109,7 +108,7 @@ Sì, il Servizio Sperimentazione e Gestione modelli funzionano insieme a diversi
 
 **Sono supportati scenari di distribuzione in locale e nel cloud?**
 
-Sì. Gli scenari di distribuzione in locale sono supportati tramite i contenitori Docker. Le destinazioni di esecuzione includono distribuzioni Docker su nodo singolo, [Microsoft SQL Server con servizi di Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop o Spark. Sono supportate anche distribuzioni cloud tramite Docker, incluse distribuzioni in cluster tramite il servizio contenitore di Azure e Kubernetes, HDInsight o cluster Spark. Gli scenari con nodo perimetrale sono supportati tramite container Docker e Azure IoT Edge. 
+Sì. Gli scenari di distribuzione in locale e nel cloud sono supportati tramite i contenitori Docker. Le destinazioni di esecuzione includono distribuzioni Docker su nodo singolo, [Microsoft SQL Server con servizi di Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop o Spark. Sono supportate anche distribuzioni cloud tramite Docker, incluse distribuzioni in cluster tramite il servizio contenitore di Azure e Kubernetes, HDInsight o cluster Spark. Gli scenari con nodo perimetrale sono supportati tramite container Docker e Azure IoT Edge. 
 
 **È possibile eseguire un'immagine Docker creata con l'interfaccia della riga di comando di Azure Machine Learning in un altro host?**
 
@@ -230,4 +229,3 @@ Nel [centro di documentazione di Azure Machine Learning](./overview-what-is-azur
 **Come si ottiene il supporto per Azure Machine Learning?**
 
 Per ottenere supporto tecnico per Azure Machine Learning, accedere a Supporto tecnico di Azure e selezionare Machine Learning. Ad Azure Machine Learning è associata una community attiva in [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) contrassegnata con "Azure-Machine Learning" e monitorata dal team.  Le richieste di nuove funzionalità e i suggerimenti possono essere inviati al sito dei [commenti e suggerimenti di Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). 
-

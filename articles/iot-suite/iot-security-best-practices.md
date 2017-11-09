@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
 ms.openlocfilehash: dcab91856bcebb8f3bfab8cc69b63fad487f8ace
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>Procedure consigliate per la sicurezza di Internet of Things
 Per proteggere un'infrastruttura Internet of Things (IoT) è richiesta una strategia di sicurezza rigorosa e approfondita. Questa strategia richiede la protezione dei dati nel cloud, dell'integrità dei dati in transito sulla rete internet pubblica e il provisioning sicuro dei dispositivi. Ogni livello crea maggiori garanzie di sicurezza dell'infrastruttura complessiva.

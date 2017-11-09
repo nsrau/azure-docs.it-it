@@ -3,7 +3,7 @@ title: Eseguire il debug delle applicazioni con Azure Application Insights in Vi
 description: Diagnostica e analisi delle prestazioni delle app Web durante il debug e nell'ambiente di produzione.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 656c62e7227eef967696715f0882114631249c6c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: e26186f7dfc81563d72478bf3cf1d306f0203fa5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Eseguire il debug delle applicazioni con Azure Application Insights in Visual Studio
 In Visual Studio 2015 e versioni successive è possibile analizzare le prestazioni e diagnosticare i problemi nell'app Web ASP.NET sia durante il debug che nell'ambiente di produzione, usando i dati di telemetria di [Azure Application Insights](app-insights-overview.md).
@@ -104,5 +103,4 @@ Questo è consigliabile se è già stata pubblicata una versione precedente dell
 | --- | --- |
 | **[Aggiungere altri dati](app-insights-asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
 | **[Uso del portale Application Insights](app-insights-dashboards.md)**<br/>Visualizzare i dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, una mappa attiva delle dipendenze dell'applicazione e i dati di telemetria esportati. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
-
 

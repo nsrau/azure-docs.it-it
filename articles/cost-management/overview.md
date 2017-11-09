@@ -5,22 +5,22 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2017
+ms.date: 10/11/2017
 ms.topic: overview
-ms.service: Cost Management
+ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
+ms.openlocfilehash: 969340080bfe2b04704367c2225895728773119e
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: d68e11757717ed23e2413c683d6e82c44c719010
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
-
 # <a name="what-is-azure-cost-management"></a>Che cos'è la gestione dei costi di Azure?
 
 La gestione dei costi di Azure di Cloudyn consente di tenere traccia dell'uso del cloud e delle spese per le risorse di Azure e altri provider di cloud, tra cui AWS e Google. I dashboard report di facile comprensione agevolano l'allocazione dei costi e gli showback/chargeback. La gestione dei costi consente di ottimizzare la spesa per il cloud individuando le risorse scarsamente usate che è quindi possibile gestire e adattare.
+
+Per guardare un video introduttivo, vedere [Introduction to Azure Cost Management by Cloudyn](https://youtu.be/NWIRny6Wpsk) (Introduzione a Gestione dei costi di Azure di Cloudyn).
 
 ## <a name="monitor-usage-and-spending"></a>Monitorare l'uso e le spese
 
@@ -39,11 +39,11 @@ L'allocazione dei costi gestisce i costi analizzandoli in base ai criteri di tag
 
 Il controllo degli accessi consente di gestire i costi assicurando che gli utenti e i team accedano unicamente ai dati di gestione dei costi necessari. Per assegnare gli accessi vengono utilizzati la struttura delle entità, la gestione degli utenti e i report programmati con elenchi di destinatari.
 
-Gli avvisi contribuiscono a gestire i costi inviando una notifica automatica quando si verifica una spesa insolita o una spesa eccessiva. Gli avvisi possono inviare una notifica automaticamente anche ad altre parti interessate per le anomalie di spesa e i rischi di spesa eccessiva. Vari report supportano gli avvisi basati su soglie di budget e di costi.
+Gli avvisi contribuiscono a gestire i costi inviando una notifica automatica quando si verifica una spesa insolita o una spesa eccessiva. Gli avvisi possono inviare una notifica automaticamente anche ad altre parti interessate per le anomalie di spesa e i rischi di spesa eccessiva. Vari report supportano gli avvisi basati su soglie di budget e di costi. Tuttavia gli avvisi non sono attualmente supportati per le sottoscrizioni o gli account dei partner CSP.
 
 ## <a name="improve-efficiency"></a>Migliorare l'efficienza
 
-È possibile stabilire l'uso ottimale delle macchine virtuali e identificare le macchine virtuali inattive o rimuoverle, oltre ai dischi non collegati, con la gestione dei costi. Usando le informazioni contenute nei report di ottimizzazione del ridimensionamento e dell'inefficienza, è possibile creare un piano per ridimensionare o rimuovere le macchine virtuali inattive.
+È possibile stabilire l'uso ottimale delle macchine virtuali e identificare le macchine virtuali inattive o rimuoverle, oltre ai dischi non collegati, con la gestione dei costi. Usando le informazioni contenute nei report di ottimizzazione del ridimensionamento e dell'inefficienza, è possibile creare un piano per ridimensionare o rimuovere le macchine virtuali inattive. Tuttavia i report di ottimizzazione non sono attualmente supportati per le sottoscrizioni o gli account dei partner CSP.
 
 ![consigli sul ridimensionamento](.\media\overview\sizing.png)
 
@@ -54,4 +54,3 @@ Se è stato eseguito il provisioning delle istanze riservate di AWS, è possibil
 Una volta acquisita familiarità con la gestione dei costi, il passaggio successivo consiste nel registrare l'ambiente cloud e iniziare a esplorare i dati.
 
 - [Registrare una singola sottoscrizione di Azure](quick-register-azure-sub.md)
-

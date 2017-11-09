@@ -11,15 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 9d9360d77c6a0db82d3708baf4af15a0fcdc188e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: e16866501fd34f0b998ba929771a423866759b55
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
-
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Invio degli ID del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights
 
 ## <a name="tracking-users"></a>Monitorare gli utenti
@@ -97,4 +95,3 @@ Questo esempio imposta l'ID utente su un identificatore che scade al termine del
     * [Grafici a imbuto](usage-funnels.md)
     * [Conservazione](app-insights-usage-retention.md)
     * [Cartelle di lavoro](app-insights-usage-workbooks.md)
-

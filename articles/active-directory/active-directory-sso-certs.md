@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 1283b570200f05003658824760ecbb6722f241d9
-ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gestione di certificati per accesso Single Sign-On federato in Azure Active Directory
 Questo articolo tratta domande comuni e informazioni relative ai certificati creati da Azure Active Directory (Azure AD) per stabilire l'accesso Single Sign-On federato (SSO) alle applicazioni SaaS. Queste applicazioni possono essere aggiunte dalla raccolta di app di Azure AD o usando il modello di applicazione non inclusa nella raccolta. Configurare l'applicazione utilizzando l'opzione di SSO federato.
@@ -79,4 +78,3 @@ I passaggi per il rinnovo illustrati di seguito non dovrebbero idealmente compor
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md)
-

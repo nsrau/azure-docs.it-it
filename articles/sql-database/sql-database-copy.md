@@ -1,6 +1,6 @@
 ---
 title: Copiare un database SQL di Azure | Documentazione Microsoft
-description: Creare una copia di un database SQL di Azure
+description: Creare una copia coerente a livello transazionale di un database SQL di Azure esistente nello stesso server o su un altro server.
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -12,14 +12,14 @@ ms.custom: load & move data
 ms.devlang: NA
 ms.date: 06/15/2017
 ms.author: carlrab
-ms.workload: data-management
+ms.workload: On Demand
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 8c1e3c80b9f24089dc99463d6ea8ae5d0ea7b19d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 7999c52a81165a9f8efb2f1302d04c9cb851faca
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="copy-an-azure-sql-database"></a>Copiare un database SQL di Azure
 

@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 31b859d86e82c92839462280721c5f84f1d923cd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-management"></a>Gestione modelli di Azure Machine Learning
 
@@ -126,4 +125,3 @@ Il flusso di lavoro completo che descrive questi concetti è presentato nella fi
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per iniziare a usare Gestione modelli, vedere l'articolo sulla [configurazione di Gestione modelli](model-management-configuration.md).
-

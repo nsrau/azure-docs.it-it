@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: cynthn
+ms.openlocfilehash: 8157b77976a2152cc0b012fe6ad5fa116223bef6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 4b2593067193fe928cb8ac2b662fc3fd8ba7aedf
-ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creare una macchina virtuale da un'immagine gestita
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 07/22/2017
 
 Verificare di disporre della versione più recente dei moduli di PowerShell AzureRM.Compute e AzureRM.Network. Aprire un prompt dei comandi di PowerShell come Amministratore ed eseguire il comando seguente per installarli.
 
-```powershell
+```azurepowershell-interactive
 Install-Module AzureRM.Compute,AzureRM.Network
 ```
 Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](/powershell/azure/overview).
@@ -44,7 +43,7 @@ Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](/p
 
 Innanzitutto, è necessario raccogliere le informazioni di base dell'immagine e creare una variabile per l'immagine. Questo esempio usa un'immagine di macchina virtuale gestita denominata **myImage** nel gruppo di risorse **myResourceGroup** nell'area **Stati Uniti centro-occidentali**. 
 
-```powershell
+```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $location = "West Central US"
 $imageName = "myImage"
@@ -56,13 +55,13 @@ Creare la rete virtuale e la subnet della [rete virtuale](../../virtual-network/
 
 1. Creare la subnet. Questo esempio crea una subnet denominata **mySubnet** con un prefisso di indirizzo di **10.0.0.0/24**.  
    
-    ```powershell
+    ```azurepowershell-interactive
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
 2. Creare la rete virtuale. Questo esempio crea una rete virtuale denominata **myVnet** con un prefisso di indirizzo di **10.0.0.0/16**.  
    
-    ```powershell
+    ```azurepowershell-interactive
     $vnetName = "myVnet"
     $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
@@ -74,14 +73,14 @@ Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, son
 
 1. Creare un indirizzo IP pubblico. In questo esempio viene creato un indirizzo IP pubblico denominato **myPip**. 
    
-    ```powershell
+    ```azurepowershell-interactive
     $ipName = "myPip"
     $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
 2. Creare la scheda NIC. In questo esempio viene creata una scheda NIC denominata **myNic**. 
    
-    ```powershell
+    ```azurepowershell-interactive
     $nicName = "myNic"
     $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
         -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
@@ -93,7 +92,7 @@ Per essere in grado di accedere alla VM tramite RDP, è necessario disporre di u
 
 In questo esempio viene creato un gruppo di sicurezza di rete denominato **myNsg** contenente una regola denominata **myRdpRule** che consente il traffico RDP sulla porta 3389. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Apertura di porte a una VM tramite PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-```powershell
+```azurepowershell-interactive
 $nsgName = "myNsg"
 $ruleName = "myRdpRule"
 $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description "Allow RDP" `
@@ -110,7 +109,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 
 Creare una variabile per la rete virtuale realizzata. 
 
-```powershell
+```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ```
@@ -119,7 +118,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 Il cmdlet seguente apre una finestra in cui verrà immesso un nuovo nome utente e una nuova password da usare come account dell'amministratore locale per accedere in da remoto alla macchina virtuale. 
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
@@ -127,19 +126,19 @@ $cred = Get-Credential
 
 1. Creare variabili per il nome della macchina virtuale e per il nome del computer. In questo il nome della macchina virtuale viene impostato su **myVM** e il nome del computer viene impostato su **myComputer**.
 
-    ```powershell
+    ```azurepowershell-interactive
     $vmName = "myVM"
     $computerName = "myComputer"
     ```
 2. Impostare le dimensioni della macchina virtuale. Questo esempio crea una macchina virtuale con dimensione **Standard_DS1_v2**. Per altre informazioni, vedere la documentazione [Dimensioni per le macchine virtuali Windows in Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/).
 
-    ```powershell
+    ```azurepowershell-interactive
     $vmSize = "Standard_DS1_v2"
     ```
 
 3. Aggiungere il nome della macchina virtuale e le dimensioni per la configurazione della macchina virtuale.
 
-```powershell
+```azurepowershell-interactive
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 ```
 
@@ -147,7 +146,7 @@ $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 
 Impostare l'immagine di origine usando l'ID dell'immagine di macchina virtuale gestita.
 
-```powershell
+```azurepowershell-interactive
 $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 ```
 
@@ -155,7 +154,7 @@ $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 
 Immettere il tipo di archiviazione (PremiumLRS o StandardLRS) e le dimensioni del disco del sistema operativo. In questo esempio il tipo di account viene impostato su **PremiumLRS**, le dimensioni del disco su **128 GB** e il caching del disco su **ReadWrite**.
 
-```powershell
+```azurepowershell-interactive
 $vm = Set-AzureRmVMOSDisk -VM $vm  -StorageAccountType PremiumLRS -DiskSizeInGB 128 `
 -CreateOption FromImage -Caching ReadWrite
 
@@ -169,19 +168,18 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
 Creare la nuova macchina virtuale usando la configurazione creata e archiviata nella variabile **$vm**.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location
 ```
 
 ## <a name="verify-that-the-vm-was-created"></a>Verificare che la VM sia stata creata
 Al termine, la VM appena creata dovrebbe essere visualizzata nel [portale di Azure](https://portal.azure.com) in **Browse** (Sfoglia)  > **Macchine virtuali**. In alternativa, è possibile usare i comandi PowerShell seguenti:
 
-```powershell
+```azurepowershell-interactive
     $vmList = Get-AzureRmVM -ResourceGroupName $rgName
     $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Creare e gestire VM di Windows con il modulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

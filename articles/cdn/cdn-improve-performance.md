@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure
 La compressione è un metodo semplice ed efficace per aumentare la velocità di trasferimento dei file e migliorare le prestazioni di caricamento delle pagine mediante la riduzione delle dimensioni del file prima che venga inviato dal server. Riduce i costi della larghezza di banda e offre un'esperienza più reattiva per gli utenti.
@@ -53,7 +52,7 @@ Esistono due modi per abilitare la compressione:
     Viene aperta la pagina dell'endpoint della rete CDN.
 2. Fare clic sul pulsante **Configura** .
    
-    ![Pulsante per la gestione del profilo di rete CDN](./media/cdn-file-compression/cdn-config-btn.png)
+    ![Pulsante di gestione del profilo della rete CDN](./media/cdn-file-compression/cdn-config-btn.png)
    
     Viene aperta la pagina di configurazione della rete CDN.
 3. Attivare **compressione**.
@@ -75,7 +74,7 @@ Esistono due modi per abilitare la compressione:
 
 1. Nella pagina del profilo della rete CDN fare clic sul pulsante **Gestisci**.
    
-    ![Pulsante per la gestione del profilo di rete CDN](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![Pulsante di gestione del profilo della rete CDN](./media/cdn-file-compression/cdn-manage-btn.png)
    
     Si aprirà il portale di gestione della rete CDN.
 2. Passare il puntatore sulla scheda **HTTP Large** (HTTP esteso) e quindi sul riquadro a comparsa **Impostazioni cache**.  Fare clic su **Compressione**.
@@ -139,5 +138,4 @@ Non è possibile abilitare o disabilitare la compressione per i tipi indicati us
 
 ## <a name="see-also"></a>Vedere anche
 * [Risoluzione dei problemi della compressione dei file CDN](cdn-troubleshoot-compression.md)    
-
 

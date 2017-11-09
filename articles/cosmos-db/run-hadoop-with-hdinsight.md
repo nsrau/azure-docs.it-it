@@ -16,10 +16,10 @@ ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 427864fc4e494c19fcda4cfd454a9923499f6337
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Eseguire un processo Apache Hive, Pig o Hadoop usando Azure Cosmos DB e HDInsight
 Questa esercitazione illustra come eseguire processi [Apache Hive][apache-hive], [Apache Pig][apache-pig] e [Apache Hadoop][apache-hadoop] MapReduce in Azure HDInsight con il connettore Hadoop di Cosmos DB. Il connettore Hadoop di Cosmos DB consente a quest'ultimo di fungere da origine e sink per i processi Hive, Pig e MapReduce. Questa esercitazione userà Cosmos DB come origine dati e destinazione per i processi Hadoop.

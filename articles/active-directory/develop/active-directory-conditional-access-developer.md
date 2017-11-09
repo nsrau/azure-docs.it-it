@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ea4421f7b22cf60b2c3e42b59057162ad56f412e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
-
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
 Azure Active Directory (AD) offre diversi modi per proteggere l'app e un servizio.  Una di queste funzionalità uniche è l'accesso condizionale.  L'accesso condizionale consente agli sviluppatori e ai clienti aziendali di proteggere i servizi in molti modi, tra cui:
@@ -38,7 +36,7 @@ Verrà esaminato l'impatto dell'accesso alle risorse su cui non si ha il control
 
 ## <a name="how-does-conditional-access-impact-an-app"></a>Qual è l'impatto dell'accesso condizionale su un'app?
 
-### <a name="app-topologies-impacted"></a>Topologie di app interessate
+### <a name="app-types-impacted"></a>Tipi di app interessati
 
 Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app né richiede modifiche da parte dello sviluppatore.  Solo in alcuni casi, quando un'app richiede in modo indiretto o automatico un token per un servizio, sono necessarie modifiche al codice per gestire le richieste di accesso condizionale.  L'operazione può essere semplice quanto l'esecuzione di una richiesta di accesso interattiva. 
 
@@ -48,8 +46,9 @@ In particolare, gli scenari seguenti richiedono che il codice gestisca le richie
 * App che eseguono il flusso on-behalf-of
 * App che accedono a più servizi o risorse
 * App a pagina singola che usano ADAL.js
+* App Web che chiamano una risorsa
 
-I criteri di accesso condizionale possono essere applicati all'app, ma anche a un'API Web a cui l'app accede. Per altre informazioni su come configurare i criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale di Azure Active Directory](../active-directory-conditional-access-azuread-connected-apps.md#configure-per-application-access-rules).
+I criteri di accesso condizionale possono essere applicati all'app, ma anche a un'API Web a cui l'app accede. Per altre informazioni su come configurare i criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale di Azure Active Directory](../active-directory-conditional-access-azuread-connected-apps.md).
 
 A seconda dello scenario, un cliente aziendale può applicare e rimuovere i criteri di accesso condizionale in qualsiasi momento.  Affinché l'app continui a funzionare quando vengono applicati nuovi criteri, è necessario implementare la gestione delle richieste. Gli esempi seguenti illustrano la gestione delle richieste. 
 
@@ -58,8 +57,8 @@ A seconda dello scenario, un cliente aziendale può applicare e rimuovere i crit
 Alcuni scenari richiedono modifiche al codice per la gestione dell'accesso condizionale, mentre altri funzionano senza modifiche.  Ecco alcuni scenari in cui l'accesso condizionale viene usato per l'autenticazione a più fattori e che aiutano a comprendere la differenza.
 
 * Si sta creando un'app iOS a tenant singolo e si applicano criteri di accesso condizionale.  L'app consente l'accesso di un utente e non richiede l'accesso a un'API.  Quando l'utente accede, i criteri vengono richiamati automaticamente e l'utente deve eseguire l'autenticazione a più fattori (MFA). 
-* Si sta creando un'app Web multi-tenant che usa Microsoft Graph per accedere a Exchange, tra gli altri servizi.  Un cliente aziendale che usa questa app imposta criteri in SharePoint Online.  Quando l'app Web richiede un token per Microsoft Graph, i criteri vengono applicati a qualsiasi servizio Microsoft, in particolare ai servizi a cui è possibile accedere tramite Graph.  All'utente finale viene richiesta l'autenticazione a più fattori (MFA). L'utente esegue l'accesso con i token validi e all'app Web viene restituita una richiesta di attestazioni.  
-* Si sta creando un'app nativa che usa un servizio di livello intermedio per accedere a Microsoft Graph.  Un cliente aziendale che usa questa app applica criteri a Exchange Online.  Quando un utente finale esegue l'accesso, l'app nativa richiede l'accesso al livello intermedio e invia il token.  Il livello intermedio esegue il flusso on-behalf-of per richiedere l'accesso a Microsoft Graph.  A questo punto, viene presentata una richiesta di attestazioni al livello intermedio. Il livello intermedio invia la richiesta di nuovo all'app nativa, che deve rispettare i criteri di accesso condizionale.
+* Si sta creando un'app Web multi-tenant che usa Microsoft Graph per accedere a Exchange, tra gli altri servizi.  Un cliente aziendale che usa questa app imposta i criteri in Exchange.  Quando l'app Web richiede un token per Microsoft Graph, non verrà visualizzata una richiesta di conformarsi ai criteri.  L'accesso dell'utente finale viene eseguito con token validi. Quando l'app tenta di usare questo token con Microsoft Graph per accedere ai dati di Exchange, viene restituita una richiesta di autenticazione claims all'app Web tramite l'intestazione ```WWW-Authenticate```.  L'app può quindi usare ```claims``` in una nuova richiesta e all'utente finale verrà richiesto di conformarsi alle condizioni. 
+* Si sta creando un'app nativa che usa un servizio di livello intermedio per accedere a un'API downstream.  Un cliente aziendale in azienda che usa questa app applica i criteri all'API downstream.  Quando un utente finale esegue l'accesso, l'app nativa richiede l'accesso al livello intermedio e invia il token.  Il livello intermedio esegue il flusso on-behalf-of per richiedere l'accesso all'API downstream.  A questo punto, viene presentata una richiesta di attestazioni al livello intermedio. Il livello intermedio invia la richiesta di nuovo all'app nativa, che deve rispettare i criteri di accesso condizionale.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Conformità ai criteri di accesso condizionale
 
@@ -90,7 +89,7 @@ Le informazioni seguenti si applicano solo a questi scenari di accesso condizion
 
 Nelle sezioni seguenti vengono descritti scenari comuni più complessi.  Il concetto principale in relazione al funzionamento è che i criteri di accesso condizionale vengono valutati nel momento in cui viene richiesto il token per il servizio a cui i criteri sono applicati, a meno che l'accesso non avvenga tramite Microsoft Graph.
 
-### <a name="scenario-app-accessing-microsoft-graph"></a>Scenario: app che accede a Microsoft Graph
+## <a name="scenario-app-accessing-microsoft-graph"></a>Scenario: app che accede a Microsoft Graph
 
 In questo scenario viene illustrato il caso in cui un'app Web richiede l'accesso a Microsoft Graph. In questo caso i criteri di accesso condizionale potrebbero essere assegnati a SharePoint, Exchange o qualche altro servizio a cui viene eseguito l'accesso per il carico di lavoro tramite Microsoft Graph.  In questo esempio si presuppone che i criteri di accesso condizionale siano applicati a SharePoint Online.
 
@@ -109,9 +108,41 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
 
 La richiesta di attestazioni si trova all'interno dell'intestazione ```WWW-Authenticate```, che può essere analizzata per estrarre il parametro claims per la richiesta successiva.  Dopo l'aggiunta alla nuova richiesta, Azure AD è in grado di valutare i criteri di accesso condizionale al momento dell'accesso dell'utente e l'app è ora conforme ai criteri di accesso condizionale.  Una nuova richiesta all'endpoint SharePoint Online avrà esito positivo.
 
-Per esempi di codice che illustrano come gestire la richiesta di attestazioni, vedere l'[esempio di codice .NET Desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) per ADAL .NET o l'[esempio di codice on-behalf-of](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) per ADAL .NET.
+L'intestazione ```WWW-Authenticate``` presenta una struttura univoca e non è semplice da analizzare per estrarre i valori.  Di seguito è riportato un metodo rapido.
 
-### <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App che esegue il flusso on-behalf-of
+    ```C#
+        /// <summary>
+        /// This method extracts the claims value from the 403 error response from MS Graph. 
+        /// </summary>
+        /// <param name="wwwAuthHeader"></param>
+        /// <returns>Value of the claims entry. This should be considered an opaque string. 
+        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
+        private String extractClaims(String wwwAuthHeader)
+        {
+            String ClaimsKey = "claims=";
+            String ClaimsSubstring = "";
+            if (wwwAuthHeader.Contains(ClaimsKey))
+            {
+                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
+                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
+                string ClaimsChallenge;
+                if (Regex.Match(ClaimsSubstring, @"}$").Success)
+                {
+                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
+                }
+                else
+                {
+                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
+                }
+                return ClaimsChallenge;
+            }
+            return null; 
+        }
+    ```
+
+Per esempi di codice che illustrano come gestire la richiesta di autenticazione claims, vedere l'[esempio di codice on-behalf-of](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) per ADAL .NET.
+
+## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App che esegue il flusso on-behalf-of
 
 In questo scenario viene illustrato il caso in cui un'app nativa chiama un'API o un servizio Web.  A sua volta, il servizio esegue il [flusso "on-behalf-of"](active-directory-authentication-scenarios.md#application-types-and-scenarios) per chiamare un servizio downstream.  In questo caso sono stati applicati criteri di accesso condizionale al servizio downstream (API Web 2) e viene usata un'app nativa invece di un'app demon/server. 
 
@@ -135,7 +166,7 @@ Nell'API Web 1 viene intercettato l'errore `error=interaction_required` e viene 
 
 Per provare questo scenario, vedere l'[esempio di codice .NET](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca).  Viene illustrato come passare la richiesta di attestazioni dall'API Web 1 all'app nativa e costruire una nuova richiesta all'interno dell'app client. 
 
-### <a name="scenario-app-accessing-multiple-services"></a>Scenario: App che accede a più servizi
+## <a name="scenario-app-accessing-multiple-services"></a>Scenario: App che accede a più servizi
 
 In questo scenario viene illustrato il caso in cui un'app Web accede a due servizi di cui uno ha criteri di accesso condizionale assegnati.  A seconda della logica dell'app, potrebbe esserci un percorso in cui l'app non richiede l'accesso a entrambi i servizi Web.  In questo scenario, l'ordine in cui si richiede un token ha un ruolo importante nell'esperienza dell'utente finale.
 
@@ -156,7 +187,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 Se l'app usa la libreria ADAL, in caso di errore di acquisizione del token viene sempre eseguito un nuovo tentativo in modo interattivo.  Quando si verifica questa richiesta interattiva, l'utente finale ha la possibilità di rispettare l'accesso condizionale.  Questo vale solo se la richiesta non è `AcquireTokenSilentAsync` o `PromptBehavior.Never`, nel qual caso l'app deve eseguire una richiesta ```AcquireToken``` interattiva per consentire all'utente finale di rispettare i criteri. 
 
-### <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: App a pagina singola che usa ADAL.js
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: App a pagina singola che usa ADAL.js
 
 In questo scenario viene illustrato il caso di un'app a pagina singola (SPA) che usa ADAL.js per chiamare un'API Web protetta con accesso condizionale.  Si tratta di un'architettura semplice, ma ci sono alcuni aspetti da prendere in considerazione in caso di sviluppo incentrato sull'accesso condizionale.
 
@@ -191,4 +222,3 @@ Per provare questo scenario, vedere l'[esempio di codice on-behalf-of JS SPA](ht
 * Per altri esempi di codice di Azure AD, vedere il [repository GitHub di esempi di codice](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Per altre informazioni su ADAL SDK e sull'accesso alla documentazione di riferimento, vedere la [guida alle librerie](active-directory-authentication-libraries.md).
 * Per altre informazioni sugli scenari multi-tenant, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](active-directory-devhowto-multi-tenant-overview.md).
-

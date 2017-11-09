@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 1a8bc500c837d60b4106f37f1803415a12b62a88
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Funzionalità di Log Analytics per i provider di servizi
 Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi dimensioni, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura cloud o locale del cliente. 
@@ -26,7 +26,7 @@ Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi d
 Le aziende di grandi dimensioni hanno molti punti in comune con i provider di servizi, soprattutto quando c'è un team IT centralizzato che si occupa della gestione dell'IT per molte business unit diverse tra loro. Per semplicità, in questo documento si usa il termine *provider di servizi* ma la stessa funzionalità è disponibile anche per le aziende e gli altri clienti.
 
 ## <a name="cloud-solution-provider"></a>Provider di soluzioni cloud
-Per i partner e i provider di servizi che fanno parte del programma per i [Provider di soluzioni cloud (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview), Log Analytics è uno dei servizi di Azure disponibili in una sottoscrizione CSP. 
+Per i partner e i provider di servizi che fanno parte del programma [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview), Log Analytics è uno dei servizi di Azure disponibili in una [sottoscrizione di Azure CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 Per Log Analytics, le seguenti funzionalità sono abilitate nelle sottoscrizioni *Provider di soluzioni cloud*.
 

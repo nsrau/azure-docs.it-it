@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f4d8efe9814bd28bb902567a23b541bc9b5414a1
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 0ba30ca4687248a27d9fe72acdc65a95114a437f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>Procedura di configurazione della distribuzione globale in Azure Cosmos DB mediante l'API di DocumentDB
 
@@ -46,7 +45,7 @@ L'SDK invia automaticamente tutte le scritture all'area di scrittura corrente.
 
 Tutte le letture verranno inviate alla prima area disponibile nell'elenco PreferredLocations. Se la richiesta ha esito negativo, il client trasferisce l'elenco all'area successiva e così via.
 
-Gli SDK tenteranno di leggere solo dalle aree specificate nell'elenco PreferredLocations. Quindi se l'Account di database è disponibile ad esempio in tre aree, ma il client specifica solo due delle aree di non scrittura per PreferredLocations, le letture non verranno distribuite fuori dall'area di scrittura, anche in caso di failover.
+Gli SDK tenteranno di leggere solo dalle aree specificate nell'elenco PreferredLocations. Perciò, se l'account di database è disponibile, ad esempio, in quattro aree, ma il client specifica solo due aree di lettura (non scrittura) per PreferredLocations, le letture non verranno distribuite dall'area di lettura che non è specificata in PreferredLocations. Se le aree di lettura specificate in PreferredLocations non sono disponibili, le operazioni di lettura verranno distribuite dalle area di scrittura.
 
 L'applicazione può verificare l'endpoint di scrittura e lettura corrente scelto dall'SDK controllando due proprietà, WriteEndpoint e ReadEndpoint, disponibili nella versione dell'SDK 1.8 e nelle versioni successive.
 
@@ -177,5 +176,4 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 > [Sviluppare in locale con l'emulatore](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-
 

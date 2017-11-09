@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7b0e76f86ec6443fcb394f7be1e6b417de99d4b7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurazione di SSL per un'applicazione in Azure
 > [!div class="op_single_selector"]
@@ -51,7 +50,7 @@ Per eseguire delle prove, è possibile [creare](cloud-services-certs-create.md) 
 
 A questo punto, è necessario includere le informazioni sul certificato nei file di definizione e configurazione del servizio.
 
-<a name="modify"> </a>
+<a name="modify"></a>
 
 ## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Passaggio 2: Modificare i file di definizione e configurazione del servizio
 L'applicazione deve essere configurata per utilizzare il certificato ed è necessario aggiungere un endpoint HTTPS. Di conseguenza, è necessario aggiornare i file di definizione e configurazione del servizio.
@@ -186,4 +185,3 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
-

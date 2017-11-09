@@ -1,5 +1,5 @@
 ---
-title: "Funzionalità di PowerShell in Azure Cloud Shell (anteprima) | Documentazione Microsoft"
+title: "Funzionalità di PowerShell in Azure Cloud Shell (anteprima) | Microsoft Docs"
 description: "Panoramica delle funzionalità di PowerShell in Azure Cloud Shell"
 services: Azure
 documentationcenter: 
@@ -12,16 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/25/2017
 ms.author: damaerte
+ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9eacb57b5a00ff11739695ed3311be0c638ba25f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Funzionalità e strumenti per PowerShell in Azure Cloud Shell
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
@@ -93,7 +91,7 @@ Questi comandi si basano sulla comunicazione remota di PowerShell e richiedono l
 
 |**Categoria**    |**Nome**                                 |
 |----------------|-----------------------------------------|
-|Strumenti di Azure     |[Azure PowerShell (4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1) |
+|Strumenti di Azure     |[Azure PowerShell (4.4.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1)<br> [Interfaccia della riga di comando di Azure (2.0.20)](https://docs.microsoft.com/en-us/cli/azure/overview)|
 |Editor di testo    |vim<br> nano                             |
 |Gestione pacchetti |PowerShellGet<br> Modulo PackageManagement<br> npm<br> pip |
 |Controllo del codice sorgente  |git                                      |
@@ -111,6 +109,6 @@ Questi comandi si basano sulla comunicazione remota di PowerShell e richiedono l
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Avvio rapido con PowerShell in Cloud Shell](quickstart-powershell.md) <br>
-[Informazioni su Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
+[Avvio rapido con PowerShell in Cloud Shell](quickstart-powershell.md)
 
+[Informazioni su Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

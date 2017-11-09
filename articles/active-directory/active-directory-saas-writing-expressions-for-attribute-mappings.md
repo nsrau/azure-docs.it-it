@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: c944a355c07b96c27dcdd477f625638284eabdf3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 2811b4d57f69425ef119c88f80b32d24c6c32195
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -26,8 +26,8 @@ Quando si configura il provisioning in un'applicazione SaaS, come mapping degli 
 La sintassi per le espressioni per i mapping degli attributi è simile a quella delle funzioni di Visual Basic for Applications (VBA).
 
 * L'intera espressione deve essere definita in termini di funzioni, che sono costituite da un nome seguito da argomenti racchiusi tra parentesi:  <br>
-  *NomeFunzione(<<argomento 1>>,<<argument N>>)*
-* È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *FunzioneUno(FunzioneDue(<<argument1>>))*
+  *NomeFunzione(&lt;&lt;argomento 1&gt;&gt;,&lt;<argument N>&gt;)*
+* È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *FunzioneUno(FunzioneDue(&lt;<argument1>&gt;))*
 * È possibile passare tre tipi diversi di argomenti nelle funzioni:
   
   1. Attributi, che devono essere racchiusi tra parentesi quadre. Ad esempio: [NomeAttributo]
@@ -36,7 +36,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 * Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio: "Nome società: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Elenco di funzioni
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append)&nbsp;&nbsp;&nbsp;&nbsp;[FormatDateTime](#formatdatetime)&nbsp;&nbsp;&nbsp;&nbsp;[Join](#join)&nbsp;&nbsp;&nbsp;&nbsp;[Mid](#mid)&nbsp;&nbsp;&nbsp;&nbsp;[Not](#not)&nbsp;&nbsp;&nbsp;&nbsp;[Replace](#replace)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces)&nbsp;&nbsp;&nbsp;&nbsp;[Switch](#switch)
 
 - - -
 ### <a name="append"></a>Append

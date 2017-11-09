@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 79d4084deb6d8c028918690c339c21c720e63594
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-an-app-in-azure"></a>Ripristinare un'app in Azure
 Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](../app-service/app-service-web-overview.md) in precedenza sottoposta a un backup. Vedere [Eseguire il backup di un'app Web del Servizio app di Azure](web-sites-backup.md). È possibile ripristinare su richiesta a uno stato precedente l'app con i relativi database collegati oppure creare una nuova app basata su uno dei backup dell'applicazione originale. Servizio app di Azure supporta il backup e il ripristino dei seguenti database:
@@ -87,4 +86,3 @@ You can backup and restore App Service apps using REST API. -->
 <!-- IMAGES -->
 [ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow1.png
 [ViewContainers]: ./media/web-sites-restore/03ViewContainers.png
-

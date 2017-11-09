@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 4105392f58eaf37e88c1d9ffb74f3f4133fa5482
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Autenticazione e autorizzazione in App per dispositivi mobili di Azure
 ## <a name="what-is-app-service-authentication--authorization"></a>Informazioni sull’autenticazione / autorizzazione di servizio app
@@ -107,4 +106,3 @@ Se si desidera utilizzare un sistema di identità diverso da quelli qui forniti,
 [Come configurare un'applicazione per usare l'account di accesso di Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
 [Come configurare un'applicazione per usare l'account di accesso Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Come configurare un'applicazione per usare l'account di accesso di Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
-

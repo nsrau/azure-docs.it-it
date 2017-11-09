@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/04/2017
+ms.date: 10/24/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 0853e8605e07c28867676e9c13b89263ade67c88
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 68229487f45c3246500875303105b0ebcc8079cb
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 

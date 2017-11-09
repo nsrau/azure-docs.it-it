@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 3c83645f61cd42c8c2b46f787c9e7531726d3fbb
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-database-security-overview"></a>Panoramica della sicurezza del database di Azure
 
@@ -69,7 +69,7 @@ Un problema quando si amministra una rete riguarda la protezione dei dati inviat
 
 Nel processo di autenticazione, un client TLS/SSL invia un messaggio a un server TLS/SSL e il server risponde con le informazioni necessarie per autenticare se stesso. Il client e il server eseguono un ulteriore scambio di chiavi di sessione e le comunicazioni di autenticazione terminano. Al termine dell'autenticazione, può iniziare la comunicazione protetta con SSL tra il server e il client usando le chiavi di crittografia simmetrica stabilite durante il processo di autenticazione.
 
-Tutte le connessioni al database SQL di Azure richiedono la crittografia SSL/TLS (SSL/TLS) in qualsiasi caso quando i dati sono "in transito" da e verso il database in qualsiasi momento. SQL Azure usa TLS/SSL per autenticare server e client, quindi usa questa tecnologia per crittografare i messaggi tra le entità autenticate. Nella stringa di connessione dell'applicazione, è necessario specificare parametri per crittografare la connessione e non considerare attendibile il certificato del server (ciò avviene automaticamente se si copia la stringa di connessione dal portale di Azure classico), in caso contrario durante le connessioni non verrà verificata l'identità del server e saranno possibili attacchi "man-in-the-middle". Per il driver ADO.NET, ad esempio, questi parametri della stringa di connessione sono Encrypt=True e TrustServerCertificate=False.
+Tutte le connessioni al database SQL di Azure richiedono la crittografia SSL/TLS (SSL/TLS) in qualsiasi caso quando i dati sono "in transito" da e verso il database in qualsiasi momento. SQL Azure usa TLS/SSL per autenticare server e client, quindi usa questa tecnologia per crittografare i messaggi tra le entità autenticate. Nella stringa di connessione dell'applicazione è necessario specificare i parametri per crittografare la connessione e non considerare attendibile il certificato del server (ciò avviene automaticamente se si copia la stringa di connessione dal portale di Azure), in caso contrario durante la connessione non verrà verificata l'identità del server e saranno possibili attacchi "man-in-the-middle". Per il driver ADO.NET, ad esempio, questi parametri della stringa di connessione sono Encrypt=True e TrustServerCertificate=False.
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 È possibile adottare diverse precauzioni per proteggere il database, ad esempio la progettazione di un sistema sicuro, la crittografia di asset riservati e la creazione di un firewall che protegga i server di database. Tuttavia, nell'ipotesi del furto dei supporti fisici, come unità o nastri di backup, un malintenzionato potrebbe semplicemente ripristinare o collegare il database e accedere ai dati in esso contenuti.

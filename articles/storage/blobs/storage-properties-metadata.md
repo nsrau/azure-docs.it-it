@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: tamram
+ms.openlocfilehash: a3eb598b2dabd4986c72b8814926eb0944707050
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 6fe7d46e39de204874c8bc91a0101b9e0541539b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Impostare e recuperare proprietà e metadati
 
@@ -29,16 +28,16 @@ Oggetti nelle proprietà di sistema di supporto di Archiviazione di Azure e meta
 
 * **Metadati definiti dall'utente**: i metadati definiti dall'utente sono metadati specificati in una determinata risorsa, sotto forma di coppia nome-valore. È possibile usare i metadati per archiviare valori aggiuntivi con una risorsa di archiviazione. Questi valori di metadati aggiuntivi sono solo per le proprie esigenze e non influiscono sul comportamento della risorsa.
 
-Il recupero dei valori di proprietà e dei metadati per una risorsa è un processo in due fasi. Prima di leggere questi valori, è necessario recuperarli in modo esplicito chiamando il metodo **FetchAttributes** .
+Il recupero dei valori di proprietà e dei metadati per una risorsa è un processo in due fasi. Prima di leggere questi valori, è necessario recuperarli in modo esplicito chiamando il metodo **FetchAttributesAsync**.
 
 > [!IMPORTANT]
-> I valori di proprietà e i metadati per una risorsa di archiviazione non vengono popolati a meno che non si chiami uno dei metodi **FetchAttributes** .
+> I valori di proprietà e i metadati per una risorsa di archiviazione non vengono popolati a meno che non si chiami uno dei metodi **FetchAttributesAsync**.
 >
 > Verrà visualizzato un messaggio `400 Bad Request`, se una qualsiasi coppia nome/valore contiene caratteri non ASCII. Le coppie nome/valore di metadati sono intestazioni HTTP valide e devono essere conformi alle restrizioni imposte sulle intestazioni HTTP. È quindi consigliabile usare la codifica URL o la codifica Base64 per i nomi e i valori contenenti caratteri non ASCII.
 >
 
 ## <a name="setting-and-retrieving-properties"></a>Impostazione e recupero di proprietà
-Per recuperare i valori della proprietà, chiamare il metodo **FetchAttributes** sul BLOB o sul contenitore per popolare le proprietà, quindi leggere i valori.
+Per recuperare i valori della proprietà, chiamare il metodo **FetchAttributesAsync** sul BLOB o sul contenitore per popolare le proprietà, quindi leggere i valori.
 
 Per impostare le proprietà di un oggetto, specificare il valore della proprietà, quindi chiamare il metodo **SetProperties** .
 
@@ -59,7 +58,7 @@ CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 container.CreateIfNotExists();
 
 // Fetch container properties and write out their values.
-container.FetchAttributes();
+await container.FetchAttributesAsync();
 Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
 Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
 Console.WriteLine("ETag: {0}", container.Properties.ETag);
@@ -77,26 +76,26 @@ Console.WriteLine();
 Il seguente codice di esempio imposta i metadati in un contenitore. Un valore è impostato mediante l'utilizzo del metodo di raccolta **Aggiungi** . L'altro valore è impostato utilizzando la sintassi implicita chiave/valore. Entrambi sono validi.
 
 ```csharp
-public static void AddContainerMetadata(CloudBlobContainer container)
+public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 {
-    //Add some metadata to the container.
+    // Add some metadata to the container.
     container.Metadata.Add("docType", "textDocuments");
     container.Metadata["category"] = "guidance";
 
-    //Set the container's metadata.
-    container.SetMetadata();
+    // Set the container's metadata.
+    await container.SetMetadataAsync();
 }
 ```
 
 Per recuperare i metadati, chiamare il metodo **FetchAttributes** nel BLOB o nel contenitore per popolare la raccolta **Metadati**, quindi leggere i valori, come nell'esempio mostrato di seguito.
 
 ```csharp
-public static void ListContainerMetadata(CloudBlobContainer container)
+public static async Task ListContainerMetadataAsync(CloudBlobContainer container)
 {
-    //Fetch container attributes in order to populate the container's properties and metadata.
-    container.FetchAttributes();
+    // Fetch container attributes in order to populate the container's properties and metadata.
+    await container.FetchAttributesAsync();
 
-    //Enumerate the container's metadata.
+    // Enumerate the container's metadata.
     Console.WriteLine("Container metadata:");
     foreach (var metadataItem in container.Metadata)
     {
@@ -109,4 +108,3 @@ public static void ListContainerMetadata(CloudBlobContainer container)
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni di riferimento sulla libreria client di archiviazione di Azure per .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
 * [Pacchetto NuGet per la libreria client di Archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-

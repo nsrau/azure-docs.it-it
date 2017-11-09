@@ -2,21 +2,19 @@
 title: Inviare avvisi da Azure Application Insights | Microsoft Docs
 description: Esercitazione per l'invio di avvisi in risposta agli errori dell'applicazione con Azure Application Insights.
 keywords: 
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 39e2f136e30ebb6dcfc003c435382f3384af1052
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 40b3cd74fc68158b679db462278edef4827d8603
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorare e inviare avvisi sullo stato di integrità dell'applicazione con Azure Application Insights
 
 Azure Application Insights consente di monitorare l'applicazione e inviare avvisi quando l'applicazione non è disponibile, si verificano errori o si riscontrano problemi di prestazioni.  Questa esercitazione illustra il processo di creazione di test per controllare in modo continuativo la disponibilità dell'applicazione e per inviare diversi tipi di avvisi in risposta ai problemi rilevati.  Si apprenderà come:

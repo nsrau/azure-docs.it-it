@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: f6dc9657e64160be1e68a7356863b53131e9b3c3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Configurare un cluster ibrido HPC (high performance computing) con Microsoft HPC Pack e nodi di calcolo di Azure su richiesta
 Usare Microsoft HPC Pack 2012 R2 e Azure per configurare un piccolo cluster HPC (high performance computing) ibrido. Il cluster illustrato in questo articolo è costituito da un nodo head HPC Pack locale e da alcuni nodi di calcolo distribuiti su richiesta in un servizio cloud di Azure. In seguito sarà possibile eseguire processi di calcolo nel cluster ibrido.
@@ -299,4 +298,3 @@ Dopo aver provato il cluster, arrestare i nodi di Azure per evitare l'addebito d
 [stop_node1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node1.png
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
-

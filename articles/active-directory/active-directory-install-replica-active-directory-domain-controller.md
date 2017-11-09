@@ -1,25 +1,26 @@
 ---
 title: Installare un dominio di Active Directory di replica in Azure | Documentazione Microsoft
 description: Esercitazione che illustra come installare un controller di dominio da una foresta Active Directory locale in una macchina virtuale di Azure.
-services: virtual-network
+services: active-directory
 documentationcenter: 
 author: curtand
 manager: femila
 editor: 
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0
-ms.service: virtual-network
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: f36a78fb8f8712ae8bb0ed6b5b8b081867198687
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: fb0bacac346445e6bde9df22f3355419e3162a3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure
 Questo argomento descrive come installare altri controller di dominio (anche noti come controller di dominio di replica) per un dominio Active Directory locale in Macchine virtuali di Azure in una rete virtuale di Azure.

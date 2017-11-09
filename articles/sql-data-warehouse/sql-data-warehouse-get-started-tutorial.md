@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
+ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Introduzione a SQL Data Warehouse
 
@@ -62,7 +61,7 @@ SQL Data Warehouse Ã¨ un tipo di database speciale, progettato per l'elaborazion
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Nuovo** > **Database** > **SQL Data Warehouse**.
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Compilare i dettagli della distribuzione
 
@@ -669,4 +668,3 @@ Al termine dell'esplorazione, ricordare di sospendere l'istanza. In produzione Ã
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/
 [SQL Server Management Studio]: https://msdn.microsoft.com/en-us/library/mt238290.aspx
-

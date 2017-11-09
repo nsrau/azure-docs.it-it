@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 10/15/2017
 ms.author: jingwang
 robots: noindex
+ms.openlocfilehash: 85a3b1b96effb716b8a33da8ad37309462042a44
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cc92f046267f2c4abc2ce46960a54487aa205ea8
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Spostare dati da HDFS locale con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +69,7 @@ Un servizio collegato collega un archivio dati a una data factory. Viene creato 
 | type |La proprietà type deve essere impostata su: **Hdfs** |Sì |
 | Url |URL di HDFS |Sì |
 | authenticationType |Anonima o Windows. <br><br> Per usare l'**autenticazione Kerberos** per il connettore HDFS, fare riferimento a [questa sezione](#use-kerberos-authentication-for-hdfs-connector) per impostare correttamente l'ambiente locale. |Sì |
-| userName |Nome utente per l'autenticazione di Windows |Sì (per l'autenticazione di Windows) |
+| userName |Nome utente per l'autenticazione di Windows Per l'autenticazione Kerberos specificare `<username>@<domain>.com`. |Sì (per l'autenticazione di Windows) |
 | password |Password per l'autenticazione di Windows |Sì (per l'autenticazione di Windows) |
 | gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi a HDFS. |Sì |
 | encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) delle credenziali di accesso. |No |
@@ -105,7 +104,7 @@ Un servizio collegato collega un archivio dati a una data factory. Viene creato 
         "typeProperties":
         {
             "authenticationType": "Windows",
-            "userName": "Administrator",
+            "userName": "<username>@<domain>.com (for Kerberos auth)",
             "password": "password",
             "url" : "http://<machine>:50070/webhdfs/v1/",
             "gatewayName": "mygateway"
@@ -495,4 +494,3 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
-

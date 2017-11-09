@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb2e480a45871ad0c956dc976de955ca48ecdfd0
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.contentlocale: it-it
-ms.lasthandoff: 01/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Esempio 1: creare una semplice rete perimetrale usando un NSG con PowerShell classico
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -41,7 +40,7 @@ Una sottoscrizione in questo esempio include le risorse seguenti:
 * Una rete virtuale, "CorpNetwork", con due subnet, "FrontEnd" e "BackEnd"
 * Un gruppo di sicurezza di rete applicato a entrambe le subnet
 * Un server Windows che rappresenta un server Web applicazioni ("IIS01")
-* Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
+* Due server Windows che rappresentano i server applicazioni back-end ("AppVM01", "AppVM02")
 * Un server Windows che rappresenta un server DNS ("DNS01")
 
 Nella sezione Riferimenti è disponibile uno script di PowerShell per creare la maggior parte dell'ambiente descritto in questo esempio. La creazione di macchine virtuali e reti virtuali, anche se eseguita dallo script di esempio, non è descritta in dettaglio in questo documento. 
@@ -62,7 +61,7 @@ Se l'esecuzione dello script viene completata correttamente, è possibile effett
 Le sezioni seguenti forniscono una descrizione dettagliata dei gruppi di sicurezza di rete e del relativo funzionamento per questo esempio spiegando le righe principali dello script di PowerShell.
 
 ## <a name="network-security-groups-nsg"></a>Gruppi di sicurezza di rete (NGS)
-Per questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono poi caricate sei regole. 
+Per questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono caricate sei regole. 
 
 > [!TIP]
 > In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega" più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita, dal punto di vista della subnet.
@@ -95,7 +94,7 @@ Nel seguito le singole regole vengono descritte in modo più dettagliato. **Nota
 2. La prima regola in questo esempio consente il traffico DNS fra tutte le reti interne e il server DNS nella subnet back-end. Nella regola sono inclusi alcuni parametri importanti:
    
    * "Type" indica in quale direzione del flusso di traffico verrà applicata questa regola. La direzione è dal punto di vista del subnet o della macchina virtuale, in base al punto in cui è associato questo gruppo di sicurezza di rete. Pertanto, se Type è impostato su "Inbound", la regola verrà applicata al traffico in ingresso nella subnet, ma non al traffico in uscita da essa.
-   * "Priority" consente di impostare l'ordine in base al quale viene valutato un flusso di traffico. Più è basso il numero, maggiore sarà la priorità. Quando a un flusso di traffico specifico è applicabile una determinata regola, non vengono elaborate altre regole. Se quindi una regola con priorità 1 consente il traffico e una regola con priorità 2 lo blocca ed entrambe le regole sono applicabili, il passaggio del traffico viene consentito perché viene applicata la regola 1 con priorità più alta e non vengono considerate altre regole.
+   * "Priority" consente di impostare l'ordine in base al quale viene valutato un flusso di traffico. Più è basso il numero, maggiore sarà la priorità. Quando un flusso di traffico specifico è applicabile a una determinata regola, non vengono elaborate altre regole. Se quindi una regola con priorità 1 consente il traffico e una regola con priorità 2 lo blocca ed entrambe le regole sono applicabili, il passaggio del traffico viene consentito perché viene applicata la regola 1 con priorità più alta e non vengono considerate altre regole.
    * "Action" indica se il traffico a cui si applica la regola viene bloccato o consentito.
 
     ```PowerShell    
@@ -255,7 +254,7 @@ Nel seguito le singole regole vengono descritte in modo più dettagliato. **Nota
 5. IIS01 non è in ascolto sulla porta 1433, pertanto la richiesta non ottiene risposta.
 
 ## <a name="conclusion"></a>Conclusioni
-Questo esempio consente di isolare la subnet back-end dal traffico in ingresso in un modo semplice e diretto.
+Questo esempio consente di isolare la subnet back-end dal traffico in ingresso in un modo relativamente semplice e diretto.
 
 Altri esempi e una panoramica dei limiti di sicurezza della rete sono disponibili [qui][HOME].
 
@@ -590,5 +589,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
-
 

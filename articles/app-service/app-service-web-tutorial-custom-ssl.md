@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
+ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 1923a145d258e558811b610be9a6bb8ea0e4c933
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Associare un certificato SSL personalizzato esistente ad app Web di Azure
 
@@ -140,7 +139,7 @@ Esportare il certificato SSL unito con la chiave privata con cui è stata genera
 
 Se è stato usato OpenSSL per generare la richiesta del certificato, è stato creato un file di chiave privata. Per esportare il certificato in un file PFX, eseguire il comando seguente. Sostituire i segnaposto _&lt;private-key-file>_ e _&lt;merged-certificate-file>_ con i percorsi della chiave privata e del file di certificato unito.
 
-```
+```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
@@ -280,7 +279,7 @@ Questa regola restituisce un errore HTTP 301 (reindirizzamento permanente) al pr
 Il comando seguente carica un file PFX esportato e ottiene l'identificazione personale.
 
 ```bash
-thumbprint=$(az appservice web config ssl upload \
+thumbprint=$(az webapp config ssl upload \
     --name <app_name> \
     --resource-group <resource_group_name> \
     --certificate-file <path_to_PFX_file> \
@@ -292,7 +291,7 @@ thumbprint=$(az appservice web config ssl upload \
 Il comando seguente aggiunge un'associazione SSL basata su SNI, usando l'identificazione personale ottenuta con il comando precedente.
 
 ```bash
-az appservice web config ssl bind \
+az webapp config ssl bind \
     --name <app_name> \
     --resource-group <resource_group_name>
     --certificate-thumbprint $thumbprint \
@@ -327,4 +326,3 @@ Passare all'esercitazione successiva per imparare a usare la rete di distribuzio
 
 > [!div class="nextstepaction"]
 > [Aggiungere una rete per la distribuzione di contenuti (CDN) a un servizio app di Azure](app-service-web-tutorial-content-delivery-network.md)
-

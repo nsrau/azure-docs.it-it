@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: guida introduttiva all''accesso Single Sign-On facile | Documentazione Microsoft'
+title: 'Azure AD Connect: guida introduttiva all''accesso Single Sign-On facile | Microsoft Docs'
 description: "In questo articolo vengono descritte le attività iniziali dell'accesso Single Sign-On facile di Azure Active Directory."
 services: active-directory
 keywords: "che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On"
@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
+ms.openlocfilehash: 8975a82c5573cc0c284e1fc76cd0ef2c19fbbd72
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
 ## <a name="how-to-deploy-seamless-sso"></a>Come distribuire l'accesso Single Sign-On facile
@@ -34,10 +32,13 @@ Per distribuire l'accesso SSO facile, è necessario seguire questa procedura:
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
-1. Configurare il server di Azure AD Connect: se si usa l'[autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md) come metodo di accesso, non è necessaria alcuna altra azione. Se come metodo di accesso si usa la [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) e se vi è un firewall tra Azure AD Connect e Azure AD, assicurarsi che:
-- Si usi la versione 1.1.484.0 o versioni successive di Azure AD Connect.
-- Azure AD Connect possa comunicare con gli URL `*.msappproxy.net` e tramite la porta 443. Questo prerequisito è applicabile solo quando si abilita la funzionalità, non per gli accessi utente effettivi.
-- Azure AD Connect possa eseguire connessioni IP dirette agli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Anche questo prerequisito è applicabile solo quando si abilita la funzionalità.
+1. Configurare il server di Azure AD Connect: se si usa l'[autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md) come metodo di accesso, non sono necessari altri controlli dei prerequisiti. Se come metodo di accesso si usa la [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) e se vi è un firewall tra Azure AD Connect e Azure AD, assicurarsi che:
+- Si usi la versione 1.1.644.0 o versioni successive di Azure AD Connect. 
+- Se il firewall o il proxy consente l'inserimento di DNS nell'elenco elementi consentiti, aggiungere le connessioni agli URL **\*.msappproxy.net** tramite la porta 443. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana. Questo prerequisito è applicabile solo quando si abilita la funzionalità, non per gli accessi utente effettivi.
+
+    >[!NOTE]
+    >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si prevede di utilizzare la sincronizzazione dell'hash delle password in combinazione con l'autenticazione pass-through, leggere le [note sulla versione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) per altre informazioni.
+
 2. Sono necessarie le credenziali di amministratore di dominio per ogni foresta di AD che si sincronizza con Azure AD, tramite Azure AD Connect, e per i cui utenti si vuole abilitare la funzionalità Accesso SSO facile.
 
 ## <a name="step-2-enable-the-feature"></a>Passaggio 2: Abilitare la funzionalità
@@ -75,6 +76,8 @@ Per distribuire la funzionalità agli utenti, è necessario aggiungere gli URL d
 - https://autologon.microsoftazuread-sso.com
 - https://aadg.windows.net.nsatc.net
 
+Inoltre, è necessario abilitare l'impostazione dei criteri di un'area Intranet (tramite Criteri di gruppo) denominata "Consenti aggiornamenti alla barra di stato tramite script".
+
 >[!NOTE]
 > Le istruzioni seguenti valgono solo per Internet Explorer e Google Chrome in Windows, se condivide l'insieme di URL di siti attendibili con Internet Explorer. Vedere la sezione successiva per istruzioni sulla configurazione di Mozilla Firefox e Google Chrome su Mac.
 
@@ -87,7 +90,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area giusta, 
 1. Aprire lo strumento Gestione criteri di gruppo.
 2. Modificare i Criteri di gruppo applicati ad alcuni utenti o a tutti. In questo esempio viene usato **Criterio dominio predefinito**.
 3. Passare a **Configurazione utente\Modelli amministrativi\Componenti di Windows\Internet Explorer\Pannello di controllo Internet\Scheda Sicurezza** e selezionare **Elenco di assegnazione siti ad aree**.
-![Single Sign-On](./media/active-directory-aadconnect-sso/sso6.png)  
+![Single Sign-On](./media/active-directory-aadconnect-sso/sso6.png)
 4. Abilitare i criteri e immettere i valori seguenti (URL di Azure AD in cui vengono inoltrati i ticket Kerberos) e i dati (*1* indica l'area Intranet) nella finestra di dialogo.
 
         Value: https://autologon.microsoftazuread-sso.com
@@ -98,8 +101,11 @@ Per impostazione predefinita, il browser calcola automaticamente l'area giusta, 
 > Se si vuole impedire ad alcuni utenti di usare l'accesso SSO facile, ad esempio se tali utenti accedono da chioschi multimediali condivisi, impostare i valori precedenti su *4*. Questa azione aggiunge gli URL di Azure AD all'Area con restrizioni e fa sì che l'accesso SSO facile abbia sempre esito negativo.
 
 5. Fare clic su **OK**, quindi nuovamente su **OK**.
-
-![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
+![Single Sign-On](./media/active-directory-aadconnect-sso/sso7.png)
+6. Passare a **Configurazione utente\Modelli amministrativi\Componenti di Windows\Internet Explorer\Pannello di controllo Internet\Scheda Sicurezza\Area Intranet** e selezionare **Consenti aggiornamenti alla barra di stato tramite script**.
+![Single Sign-On](./media/active-directory-aadconnect-sso/sso11.png)
+7. Abilitare l'impostazione di criteri e fare clic su **OK**.
+![Single Sign-On](./media/active-directory-aadconnect-sso/sso12.png)
 
 ### <a name="browser-considerations"></a>Considerazioni sui browser
 
@@ -153,8 +159,7 @@ Nel passaggio 2, Azure AD Connect crea gli account computer, che rappresentano A
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [**Approfondimento tecnico**](active-directory-aadconnect-sso-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
-- [**Domande frequenti**](active-directory-aadconnect-sso-faq.md): risposte alle domande più frequenti.
-- [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-sso.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.
-
+- [Approfondimento tecnico](active-directory-aadconnect-sso-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
+- [Domande frequenti](active-directory-aadconnect-sso-faq.md): risposte alle domande più frequenti.
+- [Risoluzione dei problemi](active-directory-aadconnect-troubleshoot-sso.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.

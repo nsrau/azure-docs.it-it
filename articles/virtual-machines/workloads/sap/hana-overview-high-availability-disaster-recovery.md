@@ -11,15 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/27/2016
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 09aa98a35fa8286828a99c49a33a80d5938afe3a
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: c7f3da9a92d5e9c60355c93a7205d16dc9ab8390
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure 
 
@@ -113,7 +112,7 @@ L'infrastruttura di archiviazione sottostante di SAP HANA in Azure (istanze Larg
 
 È possibile eseguire snapshot di archiviazione su tre classi diverse di volumi:
 
-- Snapshot combinato su /hana/data, /hana/log e /hana/shared (che include /usr/sap). Questo snapshot richiede l'esecuzione di uno snapshot SAP HANA.
+- Snapshot combinato su /hana/data e /hana/shared (che include /usr/sap). Questo snapshot richiede la creazione di uno snapshot SAP HANA come fase preliminare per lo snapshot di archiviazione. Lo snapshot SAP HANA verificherà che il database sia in uno stato coerente dal punto di vista dell'archiviazione.
 - Snapshot separato su /hana/logbackups.
 - Partizione del sistema operativo (solo per il tipo I di istanze Large di HANA).
 
@@ -223,12 +222,12 @@ Immettere il comando `hdbuserstore` come segue:
 
 **Per installazione HANA non MDC**
 ```
-hdbuserstore set <key> <host><3[instance]15> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]15> <user> <password>
 ```
 
 **Per installazione HANA MDC**
 ```
-hdbuserstore set <key> <host><3[instance]13> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]13> <user> <password>
 ```
 
 Nell'esempio seguente, l'utente è **SCADMIN01**, il nome host è **lhanad01** e il numero di istanza è **01**:
@@ -386,7 +385,7 @@ Al termine di tutti i passaggi di preparazione, è possibile iniziare a definire
 È possibile creare tre tipi di backup di snapshot:
 - **HANA**: backup di snapshot combinato che copre i volumi che contengono /hana/data e /hana/shared, che contiene anche /usr/sap. Da questo snapshot è possibile eseguire il ripristino di un singolo file.
 - **Logs**: backup di snapshot del volume /hana/logbackups. Non viene attivato nessuno snapshot HANA per eseguire questo snapshot di archiviazione. Questo volume di archiviazione è il volume progettato per contenere i backup del log delle transazioni SAP HANA, che vengono eseguiti più spesso per limitare l'aumento delle dimensioni dei log e impedire la potenziale perdita di dati. Da questo snapshot è possibile eseguire il ripristino di un singolo file. Non è consigliabile ridurre la frequenza al di sotto di cinque minuti.
-- **Boot**: snapshot del volume che contiene il numero di unità logica (LUN, Logical Unit Number) di avvio dell'istanza Large di HANA. Questo backup di snapshot è possibile solo con SKU di tipo I di istanze Large di HANA. Non è possibile eseguire ripristini di file singoli dallo snapshot del volume che contiene il LUN di avvio.  
+- **Boot**: snapshot del volume che contiene il numero di unità logica (LUN, Logical Unit Number) di avvio dell'istanza Large di HANA. Questo backup di snapshot è possibile solo con SKU di tipo I di istanze Large di HANA. Non è possibile eseguire ripristini di file singoli dallo snapshot del volume che contiene il LUN di avvio. Per gli SKU di tipo II di istanze di grandi dimensioni di HANA, è possibile eseguire il backup a livello di sistema operativo e anche ripristinare i singoli file. Vedere "[How to Perform OS Backup for Type II SKUs](os-backup-type-ii-skus.md)" (Come eseguire il backup a livello di sistema operativo per gli SKU Classe di tipo II) per maggiori dettagli.
 
 
 La sintassi di chiamata per questi tre diversi tipi di snapshot è simile alla seguente:
@@ -825,7 +824,7 @@ Dovrebbe venire visualizzata una finestra di stato, come quella illustrata qui. 
 
 ![Stato del ripristino](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-Se il ripristino sembra bloccarsi nella schermata di completamento ****e non viene visualizzata la schermata di stato, verificare che tutte le istanze di SAP HANA nei nodi di lavoro siano in esecuzione. Se necessario, avviare manualmente le istanze di SAP HANA.
+Se il ripristino sembra bloccarsi nella schermata di completamento e non viene visualizzata la schermata di stato, verificare che tutte le istanze di SAP HANA nei nodi di lavoro siano in esecuzione. Se necessario, avviare manualmente le istanze di SAP HANA.
 
 
 ### <a name="failback-from-dr-to-a-production-site"></a>Failback dal ripristino di emergenza al sito di produzione
@@ -870,7 +869,6 @@ Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154
 Size of Latest Snapshot Replicated: 244KB
 Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
 ```
-
 
 
 

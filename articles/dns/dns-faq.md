@@ -11,16 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 09/22/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f365574a12047f6952209dc3883af32a2e9ecd1e
-ms.contentlocale: it-it
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 9d786ce4d06ec95a647a755bed51f824e72ad04c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-dns-faq"></a>Domande frequenti su DNS di Azure
 
 ## <a name="about-azure-dns"></a>DNS di Azure
@@ -76,12 +74,9 @@ No. DNS di Azure attualmente non supporta l'acquisto dei nomi di dominio. Se si 
 Questa è una funzionalità che Microsoft sta verificando nel backlog. È possibile usare il sito per i commenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
 ### <a name="does-azure-dns-support-private-domains"></a>DNS di Azure supporta domini "privati"?
+Il supporto dei domini "privati" viene implementato usando zone DNS private.  Questa funzionalità è attualmente disponibile come anteprima.  Le zone DNS private vengono gestite tramite gli stessi strumenti usati per le zone DNS di Azure con connessione Internet, ma sono risolvibili solo all'interno di reti virtuali specificate.  Vedere la [panoramica](private-dns-overview.md) per informazioni dettagliate.
 
-No. DNS di Azure attualmente supporta solo i domini con connessione Internet.
-
-Questa è una funzionalità che Microsoft sta verificando nel backlog. È possibile usare il sito per i commenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/10737696-enable-split-dns-for-providing-both-public-and-int).
-
-Per informazioni sulle opzioni DNS interne in Azure, vedere [Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Per informazioni sulle altre opzioni DNS interne in Azure, vedere [Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ### <a name="does-azure-dns-support-dnssec"></a>DNS di Azure supporta DNSSEC?
 
@@ -155,8 +150,9 @@ I nomi di dominio internazionali, IDN, usano la codifica per ogni nome DNS con "
 
 [Altre informazioni su DNS di Azure](dns-overview.md)
 <br>
+[Altre informazioni sull'uso di DNS di Azure per i domini privati](private-dns-overview.md)
+<br>
 [Altre informazioni su zone e record DNS](dns-zones-records.md)
 <br>
 [Introduzione a DNS di Azure](dns-getstarted-portal.md)
-
 

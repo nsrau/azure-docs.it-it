@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 3e44e876dcbac704a9809ae5b3957bf94be21c48
-ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 1345f77df1945d3fa5bc7adc185ee5e6b6c0cc3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Modificare il nome o il logo di un'app aziendale in Azure Active Directory
 Modificare il nome o il logo per un'applicazione aziendale personalizzata in Azure Active Directory (Azure AD) è un'operazione facile. È necessario disporre delle autorizzazioni appropriate per apportare queste modifiche ed essere l'autore dell'app personalizzata.
@@ -47,4 +46,3 @@ Modificare il nome o il logo per un'applicazione aziendale personalizzata in Azu
 * [Assegnare un utente o gruppo a un'app aziendale](active-directory-coreapps-assign-user-azure-portal.md)
 * [Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Disabilitare l'accesso degli utenti per un'app aziendale](active-directory-coreapps-disable-app-azure-portal.md)
-

@@ -12,20 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/29/2017
 ms.author: juliako
+ms.openlocfilehash: e2a580b835496c677f048599ae83287dbb61621d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 1f0c5cf93b44433aab2163548de916626a7fa480
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
 Questo articolo contiene le domande frequenti sollevate dalla community di utenti di Servizi multimediali di Azure (AMS).
 
 ## <a name="general-ams-faqs"></a>Domande frequenti generali su AMS
+
+D: Come si esegue il flusso a dispositivi Apple iOS?
+
+R: Aggiungere il percorso "(format=m3u8-aapl)" alla parte "/Manifest" dell'URL per indicare al server di origine di streaming di restituire contenuto HLS per l'utilizzo in dispositivi nativi Apple iOS. Per informazioni, vedere (Distribuzione di contenuto)[media-services-deliver-content-overview.md].
+
 D: Come scalare l'indicizzazione?
 
 R: Le unità riservate sono le stesse per le attività di codifica e indicizzazione. Seguire le istruzioni in [Come scalare le unità riservate di codifica](media-services-scale-media-processing-overview.md). **Tenere presente** che le prestazioni dell'indicizzatore non vengono influenzate dal tipo di unità riservata.
@@ -81,4 +85,3 @@ R: Il [codificatore multimediale standard](media-services-dotnet-encode-with-med
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
+ms.openlocfilehash: 83cbc622975344ec2a5700d2e10a5c77371e9899
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7a4efc0fb9b3855b9dbbe445768ceb2a9940d0b2
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di Azure Cosmos DB. Per altre informazioni, vedere [Stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs).
@@ -33,14 +32,14 @@ Azure Cosmos DB supporta una serie di API con operazioni diverse, che vanno dall
 
 Per prestazioni prevedibili, è necessario riservare una velocità effettiva in unità di 100 UR/secondo. 
 
-Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:  
+Alla fine della lettura, si avranno le risposte alle domande seguenti:  
 
 * Cosa sono le unità richiesta e gli addebiti richiesta?
 * Come è possibile specificare la capacità delle unità richiesta per una raccolta?
 * Come si possono stimare le esigenze relative alle unità richiesta per l'applicazione?
 * Cosa accade se si supera la capacità delle unità richiesta per una raccolta?
 
-Azure Cosmos DB è un database multimodello. Si noti che in questo articolo l'API di documento è detta raccolta/documento, l'API Graph è detta grafo/nodo e l'API di tabella è detta tabella/entità. Per la velocità effettiva nell'articolo vengono usati i concetti generali di contenitore/elemento.
+Azure Cosmos DB è un database multimodello. Si noti che in questo articolo l'API di documento è detta raccolta/documento, l'API Graph è detta grafo/nodo e l'API di tabella è detta tabella/entità. In questo articolo vengono usati i concetti generali di contenitore/elemento.
 
 ## <a name="request-units-and-request-charges"></a>Unità richiesta e addebiti richiesta
 Azure Cosmos DB offre prestazioni veloci e prevedibili, *riservando* risorse per soddisfare le esigenze a livello di velocità effettiva dell'applicazione.  Poiché i modelli di carico e accesso dell'applicazione cambiano nel tempo, Azure Cosmos DB consente di aumentare o diminuire facilmente la quantità di velocità effettiva riservata disponibile per l'applicazione.
@@ -365,4 +364,3 @@ Per iniziare a testare la scalabilità e le prestazioni con Azure Cosmos DB, ved
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
 [6]: ./media/request-units/api-for-mongodb-metrics.png
-

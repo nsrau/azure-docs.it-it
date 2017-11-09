@@ -15,19 +15,18 @@ ms.workload: identity
 ms.date: 09/26/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: b409aa762b60c6bed0ee26f4b9fa7c347d9eb997
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant
 Se si offre un'applicazione Software as a Service a molte organizzazioni, è possibile configurare l'applicazione in modo da consentire accessi da qualsiasi tenant di Azure AD.  In Azure AD questa configurazione viene definita impostazione dell'applicazione multi-tenant.  Gli utenti in qualsiasi tenant Azure AD saranno in grado di accedere all'applicazione dopo il consenso ad usare il loro account con l'applicazione.  
 
 Se si dispone di un'applicazione esistente che ha un proprio sistema di account, o supporta altri tipi di accesso da altri provider di cloud, l'aggiunta dell'accesso di Azure AD da un qualsiasi tenant è semplice. Registrare l'app, aggiungere il codice di accesso tramite OAuth2, OpenID Connect o SAML e inserire un pulsante "Accedi con Microsoft" all'applicazione. Fare clic sul pulsante seguente per ottenere altre informazioni sulla personalizzazione dell'applicazione.
 
-[![Pulsante di accesso][AAD-Sign-In]][AAD-App-Branding]
+[![Pulsante Accedi][AAD-Sign-In]][AAD-App-Branding]
 
 Questo articolo presuppone che l'utente abbia già familiarità con la creazione di un'applicazione single-tenant per Azure AD.  In caso contrario, tornare alla [home page della Guida per sviluppatori][AAD-Dev-Guide] e provare una delle procedure di avvio rapido.
 
@@ -62,7 +61,7 @@ La risposta di accesso all'applicazione di accesso contiene un token che rappres
 
 Come indicato in precedenza, le applicazioni multi-tenant devono offrire anche un'esperienza di accesso coerente per gli utenti, adeguandosi alle linee guida di personalizzazione delle applicazioni di Azure AD. Fare clic sul pulsante seguente per ottenere altre informazioni sulla personalizzazione dell'applicazione.
 
-[![Pulsante di accesso][AAD-Sign-In]][AAD-App-Branding]
+[![Pulsante Accedi][AAD-Sign-In]][AAD-App-Branding]
 
 È ora possibile esaminare in modo più dettagliato l'uso dell'endpoint /common e l'implementazione del codice.
 
@@ -240,7 +239,6 @@ Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
 
 
 

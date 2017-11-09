@@ -3,7 +3,7 @@ title: Risoluzione dei problemi comuni di Automazione di Azure | Documentazione 
 description: Questo articolo fornisce informazioni utili per la risoluzione dei problemi e la correzione degli errori comuni di Automazione di Azure.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2017
+ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
-ms.contentlocale: it-it
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Risoluzione dei problemi comuni in Automazione di Azure 
 Questo articolo fornisce informazioni utili per la risoluzione degli errori comuni che si possono verificare in Automazione di Azure e suggerisce possibili soluzioni.
@@ -78,7 +77,7 @@ Questo articolo fornisce informazioni utili per la risoluzione degli errori comu
 
 * Metodi consigliati per operare entro il limite di memoria sono, ad esempio, dividere il carico di lavoro tra diversi runbook, non elaborare tutti i dati in memoria, non scrivere output non necessari dai runbook oppure tenere in considerazione il numero di checkpoint scritti nei runbook del flusso di lavoro PowerShell.  
 
-* È necessario aggiornare i moduli di Azure eseguendo i passaggi [Come aggiornare i moduli PowerShell di Azure in automazione di Azure](automation-update-azure-modules.md).  
+* È necessario aggiornare i moduli di Azure eseguendo i passaggi [Come aggiornare i moduli Azure PowerShell in automazione di Azure](automation-update-azure-modules.md).  
 
 
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Scenario: Runbook con esito negativo a causa di un oggetto deserializzato
@@ -102,8 +101,8 @@ una qualsiasi delle tre soluzioni seguenti consente di correggere questo problem
 
 1. Accedere alla sottoscrizione di Azure.  
 2. Selezionare l'account di automazione che si vuole aggiornare.  
-3. Fare clic su **Impostazioni** > **Piano tariffario e utilizzo** > **Piano tariffario**  
-4. Nel pannello **Scegliere il piano tariffario** selezionare **Basic**    
+3. Fare clic su **Impostazioni** > **Prezzi**.
+4. Fare clic su **Abilita** nella parte inferiore della pagina per aggiornare l'account al livello **Basic**.
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>Scenario: Cmdlet non riconosciuto durante l'esecuzione di un runbook
 **Errore:** il processo del runbook ha esito negativo e restituisce un errore simile al seguente "``<cmdlet name>``: il termine ``<cmdlet name>`` non viene riconosciuto come nome di cmdlet, funzione, file di script o programma eseguibile".
@@ -118,7 +117,7 @@ una qualsiasi delle tre soluzioni seguenti consente di correggere questo problem
 * Se si eseguono i runbook in locale in un gruppo di lavoro ibrido, verificare che il modulo/cmdlet sia installato nel computer che ospita il processo di lavoro ibrido.
 
 ### <a name="scenario-a-long-running-runbook-consistently-fails-with-the-exception-the-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-the-same-checkpoint"></a>Scenario: un runbook a esecuzione prolungata ha esito negativo e restituisce un'eccezione simile alla seguente "L'esecuzione del processo non può continuare perché è stato rimosso ripetutamente dallo stesso checkpoint".
-**Motivo dell'errore:** si tratta di un comportamento previsto, causato dalla "condivisione equa" del monitoraggio dei processi in Automazione di Azure, che prevede la sospensione automatica di un runbook se viene eseguito per più di 3 ore. Tuttavia, il messaggio di errore restituito non offre opzioni relative ai passaggi successivi. Un runbook può essere sospeso per una serie di motivi. Le sospensioni si verificano principalmente a causa di errori. Ad esempio, un'eccezione non rilevata in un runbook, un errore di rete o un arresto anomalo nel ruolo di lavoro Runbook che esegue il runbook: in tutti questi casi, il runbook viene sospeso e quando riprende viene avviato dall'ultimo checkpoint.
+**Motivo dell'errore:** si tratta di un comportamento previsto, causato dalla "condivisione equa" del monitoraggio dei processi in Automazione di Azure, che prevede la sospensione automatica di un runbook se viene eseguito per più di tre ore. Tuttavia, il messaggio di errore restituito non offre opzioni relative ai passaggi successivi. Un runbook può essere sospeso per una serie di motivi. Le sospensioni si verificano principalmente a causa di errori. Ad esempio, un'eccezione non rilevata in un runbook, un errore di rete o un arresto anomalo nel ruolo di lavoro Runbook che esegue il runbook: in tutti questi casi, il runbook viene sospeso e quando riprende viene avviato dall'ultimo checkpoint.
 
 **Suggerimenti per la risoluzione dei problemi:** la soluzione documentata per evitare questo problema consiste nell'usare i checkpoint in un flusso di lavoro.  Per altre informazioni, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](automation-powershell-workflow.md#checkpoints).  Una spiegazione più completa della "condivisione equa" e dei checkpoint è disponibile nell'articolo del blog dedicato all'[uso dei checkpoint nei runbook](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
@@ -134,7 +133,7 @@ una qualsiasi delle tre soluzioni seguenti consente di correggere questo problem
 * Il cmdlet **New AzureRmAutomationModule** viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.  
 
 **Suggerimenti per la risoluzione dei problemi:**  
-una qualsiasi delle soluzioni seguenti consente di correggere il problema.  
+una qualsiasi delle soluzioni seguenti consente di correggere il problema:  
 
 * Assicurarsi che il modulo rispetti il formato seguente:  
   ModuleName.Zip **->** Nome modulo o numero versione **->** (ModuleName.psm1, ModuleName.psd1)
@@ -152,7 +151,7 @@ una qualsiasi delle soluzioni seguenti consente di correggere il problema.
 * Assicurarsi di assegnare al nodo un "nome di configurazione di nodo" e non un "nome di configurazione".  
 * È possibile assegnare a un nodo una configurazione di nodo usando il portale di Azure o un cmdlet di PowerShell.
 
-  * Per assegnare a un nodo una configurazione nodo mediante il portale di Azure, aprire il pannello **Nodi DSC**, selezionare un nodo e quindi fare clic sul pulsante **Assegna configurazione nodo**.  
+  * Per assegnare a un nodo una configurazione nodo mediante il portale di Azure, aprire il riquadro **Nodi DSC**, selezionare un nodo e quindi fare clic sul pulsante **Assegna configurazione nodo**.  
   * Per assegnare a un nodo una configurazione nodo mediante PowerShell, usare il cmdlet **Set-AzureRmAutomationDscNode** .
 
 ### <a name="scenario--no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Scenario: non sono state prodotte configurazioni di nodo (file con estensione MOF) durante la compilazione di una configurazione
@@ -161,7 +160,7 @@ una qualsiasi delle soluzioni seguenti consente di correggere il problema.
 **Motivo dell'errore:** quando l'espressione accanto alla parola chiave **Node** nella configurazione di DSC restituisce $null, non vengono prodotte configurazioni di nodo.    
 
 **Suggerimenti per la risoluzione dei problemi:**  
-una qualsiasi delle soluzioni seguenti consente di correggere il problema.  
+una qualsiasi delle soluzioni seguenti consente di correggere il problema:  
 
 * Verificare che l'espressione accanto alla parola chiave **Node** nella definizione di configurazione non restituisca $null.  
 * Se durante la compilazione della configurazione si passano dei dati di configurazione, verificare di specificare i valori previsti necessari per la configurazione da [ConfigurationData](automation-dsc-compile.md#configurationdata).
@@ -189,4 +188,3 @@ Se è stata seguita la procedura precedente per la risoluzione dei problemi e no
 * Archiviare un incidente del supporto tecnico di Azure. Aprire il [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto** in **Supporto tecnico e di fatturazione**.
 * Se si sta cercando una soluzione per i runbook oppure un modulo di integrazione di Automazione di Azure, inviare una richiesta di script a [Script Center](https://azure.microsoft.com/documentation/scripts/) .
 * Inviare commenti o suggerimenti oppure richieste di funzionalità per Automazione di Azure al forum dedicato ai [suggerimenti degli utenti](https://feedback.azure.com/forums/34192--general-feedback).
-

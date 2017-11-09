@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Applicazione ibrida cloud/locale (.NET) usando il servizio d'inoltro WCF di Azure
 ## <a name="introduction"></a>Introduzione
@@ -482,4 +481,3 @@ Per altre informazioni sul servizio d'inoltro di Azure, vedere le risorse seguen
 [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
 [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-

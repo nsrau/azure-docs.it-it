@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d1ee6870ba0188ff2c473e4cca12a5bdc1f97d3d
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: c865793190e6079227ca093a018b0a6f98528d4f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Individuare il tipo di hop successivo tramite la funzionalità Hop successivo di Azure Network Watcher usando l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
@@ -89,4 +87,3 @@ L'elenco seguente mostra i valori NextHopType attualmente disponibili:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su come verificare le impostazioni del gruppo di sicurezza di rete a livello di codice, consultare l'articolo su come [verificare i gruppi di sicurezza di rete con Network Watcher](network-watcher-nsg-auditing-powershell.md)
-

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: c1e0be0e305ba4d53d8e26c55a92b63e1291171d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-vm-with-docker"></a>Creare una VM con Docker
 
 Questo script crea una macchina virtuale con Docker abilitato e avvia un contenitore Docker che esegue NGINX. Dopo aver eseguito lo script, è possibile accedere al server Web NGINX tramite il nome di dominio completo della macchina virtuale di Azure. 
@@ -61,4 +59,3 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando della macchina virtuale sono reperibili nella [documentazione della VM Linux di Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

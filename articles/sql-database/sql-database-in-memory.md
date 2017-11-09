@@ -1,6 +1,6 @@
 ---
 title: Tecnologie in memoria del database SQL di Azure | Documentazione Microsoft
-description: Le tecnologie in memoria del database SQL di Azure migliorano notevolmente le prestazioni dei carichi di lavoro transazionali e analitici. Informazioni su come sfruttare i vantaggi di queste tecnologie.
+description: Le tecnologie in memoria del database SQL di Azure migliorano notevolmente le prestazioni dei carichi di lavoro transazionali e analitici.
 services: sql-database
 documentationCenter: 
 author: jodebrui
@@ -9,17 +9,17 @@ editor:
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jodebrui
-ms.openlocfilehash: 4cb45551c486263f26947e5684d54b4f2ecc7410
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 8930595821cc7662c4ff792b73eb357f1ba29307
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Ottimizzare le prestazioni tramite le tecnologie in memoria nel database SQL
 

@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 15269f9728e9dc45e6436e53b1859f76d4a7a0c9
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Python
 
@@ -140,7 +139,7 @@ msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lo
 print(msg.body)
 ```
 
-I messaggi vengono eliminati dalla sottoscrizione non appena vengono letti quando il parametro `peek_lock` è impostato su **False**. È possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro `peek_lock` su **True**.
+I messaggi vengono eliminati dalla sottoscrizione non appena vengono letti quando il parametro `peek_lock` è impostato su **False**. È possibile leggere e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro `peek_lock` su **True**.
 
 Il comportamento di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
 
@@ -184,4 +183,3 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Service Bus quotas]: service-bus-quotas.md 
-

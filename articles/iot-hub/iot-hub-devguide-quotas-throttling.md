@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/18/2017
 ms.author: dobett
+ms.openlocfilehash: 8ffe25f1950f8535983c2c344b5c4331b7157869
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 3f4f19eba5ed1a7b3176be4d3505998f97667200
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -41,7 +40,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Connessioni del dispositivo | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
 | Inoltri dal dispositivo al cloud | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
 | Inoltri dal cloud al dispositivo | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
-| Ricezioni dal cloud al dispositivo <br/> (solo quando il dispositivo usa HTTP)| 16,67/sec/unità (1000/min/unità) | 16,67/sec/unità (1000/min/unità) | 833,33/sec/unità (50000/min/unità) |
+| Ricezioni dal cloud al dispositivo <br/> (solo quando il dispositivo usa HTTPS)| 16,67/sec/unità (1000/min/unità) | 16,67/sec/unità (1000/min/unità) | 833,33/sec/unità (50000/min/unità) |
 | Caricamento di file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 83,33 notifice caricamento file/sec/unità (5000/min/unità) |
 | Metodi diretti | 20/sec/unità | 60/sec/unità | 3000/sec/unità | 
 | Letture del dispositivo gemello | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
@@ -70,7 +69,7 @@ L'hub IoT applica altri limiti operativi:
 | Operazione | Limite |
 | --------- | ----- |
 | URI per il caricamento di file | 10000 URI di firma di accesso condiviso possono essere generati contemporaneamente per un account di archiviazione. <br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
-| Processi | La cronologia dei processi viene mantenuta per un massimo di 30 giorni. <br/> Il numero massimo di processi simultanei è 1 (per il livello Gratuito e S1, 5 (per S2), 10 (per S3). |
+| Processi | La cronologia dei processi viene mantenuta per un massimo di 30 giorni. <br/> Il numero massimo di processi simultanei è 1 (per il livello Gratuito) e S1, 5 (per S2), 10 (per S3). |
 | Altri endpoint | Agli hub SKU a pagamento possono essere associati 10 endpoint aggiuntivi. Agli hub SKU gratuiti può essere associato solo un endpoint aggiuntivo. |
 | Regole di routing dei messaggi | Agli hub SKU a pagamento possono essere associate 100 regole di routing. Agli hub SKU gratuiti possono essere associate cinque regole di routing. |
 | Messaggistica da dispositivo a cloud | Dimensioni massime dei messaggi 256 KB |
@@ -104,4 +103,3 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-

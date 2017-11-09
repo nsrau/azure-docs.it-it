@@ -1,5 +1,5 @@
 ---
-title: Schema di configurazione dell&quot;estensione di Diagnostica di Azure 1.3 e versioni successive | Microsoft Docs
+title: Schema di configurazione dell'estensione di Diagnostica di Azure 1.3 e versioni successive | Microsoft Docs
 description: Schema di Diagnostica di Azure 1.3 e versioni successive fornito con Microsoft Azure SDK 2.4 e versioni successive.
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 90d39f75f547eff9c87997eb83460875c12dcfe4
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 2ee66e0f41868d7d5411605596a22c00b5712896
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Schema di configurazione di Diagnostica di Azure 1.3 e versioni successive
 > [!NOTE]
@@ -526,7 +524,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Consente di generare una tabella di contatori delle prestazioni ottimizzata per le query veloci. Ogni contatore delle prestazioni definito nell'elemento **PerformanceCounters** viene archiviato nella tabella delle metriche oltre che nella tabella dei contatori delle prestazioni.  
 
- L'attributo **resourceId** è obbligatorio.  L'ID risorsa della macchina virtuale nella quale si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Esplora** -> **Gruppi di risorse** -> **<Nome\>**. Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.  
+ L'attributo **resourceId** è obbligatorio.  L'ID risorsa della macchina virtuale o del set di scalabilità di macchine virtuali in cui si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Esplora** -> **Gruppi di risorse** -> **<Nome\>**. Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.  
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
@@ -647,11 +645,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
-|**StorageAccount**|Account di archiviazione da usare. Gli attributi seguenti sono obbligatori:<br /><br /> - **name**: nome dell'account di archiviazione.<br /><br /> - **key**: chiave dell'account di archiviazione.<br /><br /> - **endpoint**: endpoint per accedere all'account di archiviazione. <br /><br /> -**sasToken** (elemento aggiunto alla versione 1.8.1): è possibile specificare un token di firma di accesso condiviso anziché una chiave dell'account di archiviazione in PrivateConfig. Se viene fornito, la chiave dell'account di archiviazione viene ignorata. <br />Requisiti per il token di firma di accesso condiviso: <br />- Supporta solo il token di firma di accesso condiviso dell'account <br />Sono obbligatori i tipi di servizio - *b* e *t*. <br />Sono obbligatorie le autorizzazioni  - *a*, *c*, *u*, *w*. <br />Sono obbligatori i tipi di risorse  - *c*, *o*. <br /> - Supporta solo il protocollo HTTPS <br /> -I valori dell'ora di inizio e di scadenza devono essere validi.|  
+|**StorageAccount**|Account di archiviazione da usare. Gli attributi seguenti sono obbligatori:<br /><br /> - **name**: nome dell'account di archiviazione.<br /><br /> - **key**: chiave dell'account di archiviazione.<br /><br /> - **endpoint**: endpoint per accedere all'account di archiviazione. <br /><br /> -**sasToken** (elemento aggiunto alla versione 1.8.1): è possibile specificare un token di firma di accesso condiviso anziché una chiave dell'account di archiviazione in PrivateConfig. Se viene fornito, la chiave dell'account di archiviazione viene ignorata. <br />Requisiti per il token di firma di accesso condiviso: <br />- Supporta solo il token di firma di accesso condiviso dell'account <br />Sono obbligatori i tipi di servizio - *b* e *t*. <br /> Sono obbligatorie le autorizzazioni - *a*, *c*, *u*, *w*. <br /> Sono obbligatori i tipi di risorse - *c*, *o*. <br /> - Supporta solo il protocollo HTTPS <br /> -I valori dell'ora di inizio e di scadenza devono essere validi.|  
 
 
 ## <a name="isenabled-element"></a>Elemento IsEnabled  
  *Albero: radice - DiagnosticsConfiguration - IsEnabled*
 
  Booleano. Usare `true` per abilitare la diagnostica o `false` per disabilitarla.
-

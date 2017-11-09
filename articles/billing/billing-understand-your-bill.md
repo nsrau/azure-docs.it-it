@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendere la fattura per Microsoft Azure
 Per comprendere la fattura di Azure, confrontare la fattura con il file dei dettagli di utilizzo giornaliero e con i report di gestione dei costi nel portale di Azure.
@@ -111,4 +110,3 @@ Se si [paga tramite fattura](billing-how-to-pay-by-invoice.md), inviare il pagam
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-

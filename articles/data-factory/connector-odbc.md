@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: jingwang
+ms.openlocfilehash: 9e65735ed6d19c8b94496fc3d3445e3a9dca2b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4acc29dc74a37d16a9e90101aa9b7706c55af58e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiare i dati da e verso archivi dati ODBC con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +43,7 @@ Per usare il connettore ODBC è necessario:
 - Installare il driver ODBC per l'archivio dati nel computer del runtime di integrazione.
 
 ## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello di Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di data factory specifiche per il connettore ODBC.
 
@@ -55,7 +54,7 @@ Per il servizio collegato ODBC sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **ODBC** | Sì |
-| connectionString | Stringa di connessione ad esclusione della parte relativa alle credenziali. Vedere gli esempi nella sezione successiva. | Sì |
+| connectionString | Stringa di connessione ad esclusione della parte relativa alle credenziali. È possibile specificare la stringa di connessione con un modello come `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, o usare il sistema DSN, ovvero il nome dell'origine dati, configurato nel computer Integration Runtime con `"DSN=<name of the DSN on IR machine>;"`. È necessario comunque specificare la parte delle credenziali nel servizio collegato in base alle esigenze.| Sì |
 | authenticationType | Tipo di autenticazione usato per connettersi all'archivio dati ODBC.<br/>I valori consentiti sono **Base** e **Anonimo**. | Sì |
 | userName | Specificare il nome utente se si usa l'autenticazione di base. | No |
 | password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString. | No |
@@ -72,11 +71,11 @@ Per il servizio collegato ODBC sono supportate le proprietà seguenti:
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -101,11 +100,11 @@ Per il servizio collegato ODBC sono supportate le proprietà seguenti:
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Anonymous",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Anonymous",
             "credential": {
                 "type": "SecureString",
                 "value": "RefreshToken=<secret refresh token>;"
@@ -127,7 +126,7 @@ Per copiare dati da e verso un archivio dati compatibile con ODBC, impostare la 
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su **RelationalTable** | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Sì |
 | tableName | Nome della tabella nell'archivio dati ODBC. | No per l'origine (se nell'origine dell'attività è specificato "query");<br/>sì per il sink |
 
 **Esempio**
@@ -160,7 +159,7 @@ Per copiare dati dall'archivio dati compatibile con ODBC, impostare il tipo di o
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **RelationalSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **RelationalSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
@@ -202,7 +201,7 @@ Per copiare i dati nell'archivio dati compatibile con ODBC, impostare il tipo di
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **OdbcSink** | Sì |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>Il valore consentito è un intervallo di tempo. Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono: intervallo di tempo. Ad esempio: "00:30:00" (30 minuti). |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize.<br/>I valori consentiti sono integer, ovvero il numero di righe. |No (l'impostazione predefinita è 0 - rilevamento automatico) |
 | preCopyScript |Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nell'archivio dati in ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. |No |
 
@@ -241,9 +240,93 @@ Per copiare i dati nell'archivio dati compatibile con ODBC, impostare il tipo di
 ]
 ```
 
+## <a name="ibm-informix-source"></a>Origine IBM Informix
+
+È possibile copiare i dati dal database IBM Informix usando il connettore ODBC generico.
+
+Configurare un runtime di integrazione self-hosted in un computer con accesso all'archivio dati. Integration Runtime usa il driver ODBC per Informix per eseguire la connessione all'archivio dati. Installare quindi il driver se non è già installato nel computer. Ad esempio, è possibile usare i driver "DRIVER ODBC INFORMIX IBM (64 bit)". Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites).
+
+Prima di usare l'origine Informix in una soluzione Data Factory, verificare che Integration Runtime sia in grado di connettersi all'archivio dati usando le istruzioni nella sezione [Risoluzione dei problemi di connettività](#troubleshoot-connectivity-issues).
+
+Creare un servizio collegato ODBC per collegare un archivio dati IBM Informix a una data factory di Azure come illustrato nell'esempio seguente:
+
+```json
+{
+    "name": "InformixLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "<Informix connection string or DSN>"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Leggere l'articolo dall'inizio per avere una panoramica dettagliata dell'uso degli archivi dati ODBC come archivi dati di origine o sink in un'operazione di copia.
+
+## <a name="microsoft-access-source"></a>Origine Microsoft Access
+
+È possibile copiare i dati dal database Microsoft Access usando il connettore ODBC generico.
+
+Configurare un runtime di integrazione self-hosted in un computer con accesso all'archivio dati. Integration Runtime usa il driver ODBC per eseguire la connessione di Microsoft Access all'archivio dati. Installare quindi il driver se non è già installato nel computer. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites).
+
+Prima di usare l'origine Microsoft Access in una soluzione Data Factory, verificare che Integration Runtime sia in grado di connettersi all'archivio dati usando le istruzioni nella sezione [Risoluzione dei problemi di connettività](#troubleshoot-connectivity-issues).
+
+Creare un servizio collegato ODBC per collegare un database Microsoft Access a una data factory di Azure come illustrato nell'esempio seguente:
+
+```json
+{
+    "name": "MicrosoftAccessLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Leggere l'articolo dall'inizio per avere una panoramica dettagliata dell'uso degli archivi dati ODBC come archivi dati di origine o sink in un'operazione di copia.
+
 ## <a name="ge-historian-source"></a>Origine GE Historian
 
-Creare un servizio collegato ODBC per collegare un archivio dati [GE Proficy Historian (ora GE Historian)](http://www.geautomation.com/products/proficy-historian) a un'istanza di Azure Data Factory, come illustrato nell'esempio seguente:
+È possibile copiare i dati da GE Historian usando il connettore ODBC generico.
+
+Configurare un runtime di integrazione self-hosted in un computer con accesso all'archivio dati. Il runtime di integrazione usa il driver ODBC per GE Historian ed esegue la connessione all'archivio dati. Installare quindi il driver se non è già installato nel computer. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites).
+
+Prima di usare l'origine GE Historian in una soluzione Data Factory, verificare se Integration Runtime è in grado di connettersi all'archivio dati usando le istruzioni nella sezione [Risoluzione dei problemi di connettività](#troubleshoot-connectivity-issues).
+
+Creare un servizio collegato ODBC per collegare un database Microsoft Access a una data factory di Azure come illustrato nell'esempio seguente:
 
 ```json
 {
@@ -253,11 +336,11 @@ Creare un servizio collegato ODBC per collegare un archivio dati [GE Proficy His
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<GE Historian store connection string or DSN>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -271,10 +354,6 @@ Creare un servizio collegato ODBC per collegare un archivio dati [GE Proficy His
     }
 }
 ```
-
-Configurare un runtime di integrazione self-hosted in un computer con accesso all'archivio dati. Il runtime di integrazione usa il driver ODBC per GE Historian ed esegue la connessione all'archivio dati. Installare quindi il driver se non è già installato nel computer. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites).
-
-Prima di usare l'archivio GE Historian in una soluzione Data Factory, verificare se il runtime di integrazione è in grado di connettersi all'archivio dati usando le istruzioni indicate nella sezione successiva.
 
 Leggere l'articolo dall'inizio per avere una panoramica dettagliata dell'uso degli archivi dati ODBC come archivi dati di origine o sink in un'operazione di copia.
 
@@ -284,7 +363,13 @@ Leggere l'articolo dall'inizio per avere una panoramica dettagliata dell'uso deg
 >Per copiare i dati dall'archivio dati di SAP HANA, fare riferimento al [connettore SAP HANA](connector-sap-hana.md) nativo. Per copiare dati in SAP HANA, seguire questa istruzione per usare il connettore ODBC. Si noti che i servizi collegati per i connettori SAP HANA e ODBC sono associati a tipi diversi e pertanto non possono essere riusati.
 >
 
-Creare un servizio collegato ODBC per collegare un archivio dati SAP HANA a un data factory di Azure come illustrato nell'esempio seguente:
+È possibile copiare i dati dal database SAP HANA usando il connettore ODBC generico.
+
+Configurare un runtime di integrazione self-hosted in un computer con accesso all'archivio dati. Il runtime di integrazione usa il driver ODBC per SAP HANA per eseguire la connessione all'archivio dati. Installare quindi il driver se non è già installato nel computer. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites).
+
+Prima di usare il sink SAP HANA in una soluzione Data Factory, verificare che Integration Runtime sia in grado di connettersi all'archivio dati usando le istruzioni nella sezione [Risoluzione dei problemi di connettività](#troubleshoot-connectivity-issues).
+
+Creare un servizio collegato ODBC per collegare un archivio dati SAP HANA a una data factory di Azure come illustrato nell'esempio seguente:
 
 ```json
 {
@@ -294,11 +379,11 @@ Creare un servizio collegato ODBC per collegare un archivio dati SAP HANA a un d
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -312,10 +397,6 @@ Creare un servizio collegato ODBC per collegare un archivio dati SAP HANA a un d
     }
 }
 ```
-
-Configurare un runtime di integrazione self-hosted in un computer con accesso all'archivio dati. Il runtime di integrazione usa il driver ODBC per SAP HANA per eseguire la connessione all'archivio dati. Installare quindi il driver se non è già installato nel computer. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites).
-
-Prima di usare il sink SAP HANA in una soluzione Data Factory, verificare che il runtime di integrazione sia in grado di connettersi all'archivio dati usando le istruzioni indicate nella sezione successiva.
 
 Leggere l'articolo dall'inizio per avere una panoramica dettagliata dell'uso degli archivi dati ODBC come archivi dati di origine o sink in un'operazione di copia.
 

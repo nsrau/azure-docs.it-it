@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: e2987b37d0146a68635c9190cf42ac7aeac48ed5
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 75213a4d0297c96ec32200158d8b60db4b8b2da4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>Elaborazione di fogli dati su larga scala con Data Factory e Batch
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le [attività personalizzate in Data Factory versione 2](../transform-data-using-dotnet-custom-activity.md).
+
 Questo articolo descrive l'architettura di una soluzione di esempio che sposta ed elabora set di dati su larga scala in modo automatico e pianificato. Fornisce inoltre una procedura dettagliata end-to-end per implementare la soluzione mediante Azure Data Factory e Azure Batch.
 
 Questo articolo è più lungo dei nostri articoli tipici perché contiene la procedura dettagliata per un'intera soluzione di esempio. Se non si ha familiarità con Batch e Data Factory, sarà possibile conoscere questi servizi e come interagiscono. Se si conoscono i servizi parzialmente e si intende progettare un'architettura o una soluzione, è possibile concentrarsi solo sulla [sezione dell'articolo relativa all'architettura](#architecture-of-sample-solution), se invece si intende sviluppare una soluzione o un prototipo, è possibile provare anche le istruzioni della [procedura dettagliata](#implementation-of-sample-solution). Microsoft invita gli utenti a inviare i loro commenti su questo contenuto e sulle relative modalità di impiego.
@@ -86,7 +88,7 @@ Se non si ha una sottoscrizione di Azure, è possibile creare un account di valu
 In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si ha un account di archiviazione di Azure, vedere [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md#create-a-storage-account). La soluzione di esempio usa l'archivio BLOB.
 
 #### <a name="azure-batch-account"></a>Account Azure Batch
-Creare un account di Azure Batch tramite il [portale di Azure](http://manage.windowsazure.com/). Vedere [Creare e gestire un account Azure Batch nel portale di Azure](../../batch/batch-account-create-portal.md). Annotare il nome e la chiave dell'account Azure Batch. È anche possibile usare il cmdlet [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) per creare un account Azure Batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Azure Batch](../../batch/batch-powershell-cmdlets-get-started.md) .
+Creare un account di Azure Batch tramite il [portale di Azure](http://portal.azure.com/). Vedere [Creare e gestire un account Azure Batch nel portale di Azure](../../batch/batch-account-create-portal.md). Annotare il nome e la chiave dell'account Azure Batch. È anche possibile usare il cmdlet [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) per creare un account Azure Batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Azure Batch](../../batch/batch-powershell-cmdlets-get-started.md) .
 
 Per elaborare i dati in modalità parallela in un pool di nodi di calcolo, ovvero una raccolta gestita di macchine virtuali, la soluzione di esempio usa Azure Batch indirettamente tramite una pipeline di Azure Data Factory.
 
@@ -911,4 +913,3 @@ Dopo l'elaborazione dei dati, è possibile usarli con strumenti online come **Mi
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-

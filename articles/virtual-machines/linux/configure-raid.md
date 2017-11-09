@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-software-raid-on-linux"></a>Configurare RAID software in Linux
 I RAID software vengono spesso usati nelle macchine virtuali Linux in Azure per presentare più dischi dati collegati come se si trattasse di un singolo dispositivo RAID. In genere questa configurazione consente di migliorare le prestazioni e la velocità effettiva rispetto all'utilizzo di un unico disco.
@@ -61,7 +61,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
                     sectors (command 'u').
     ```
 
-2. Premere ' n'alla richiesta di creazione di un  **n** partizione uovo:
+2. Premere 'n' al prompt per creare una **n**uova partizione:
 
     ```bash
     Command (m for help): n

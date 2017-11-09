@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Informazioni di riferimento sulle API di raccolta di dati del modello di Azure Machine Learning
 
@@ -95,5 +94,4 @@ Vedere i dettagli di Metodo e Parametro:
 |-------------|------------|-------------------------|
 | input_data | più tipi | I dati da raccogliere (attualmente accetta l'elenco di tipi, numpy.array, pandas.DataFrame, pyspark.sql.DataFrame). Per i tipi di frame di dati, se esiste un'intestazione con i nomi delle funzionalità, queste informazioni vengono incluse nella destinazione dei dati (senza la necessità di passare in modo esplicito i nomi delle funzionalità nel costruttore ModelDataCollector) |
 | user_correlation_id | string | Un ID di correlazione facoltativo che può essere fornito dall'utente per correlare questa stima |
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
 ms.openlocfilehash: d6c1707f67d986487e5a45e76ffc9a02ddf16eb1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Come configurare l'applicazione del servizio app per usare l'account di accesso di Google
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -27,7 +27,7 @@ Questo argomento descrive come configurare il servizio app di Azure per usare Go
 
 Per completare la procedura descritta in questo argomento, è necessario avere un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-## <a name="register"> </a>Registrare l'applicazione con Google
+## <a name="register"></a>Registrare l'applicazione con Google
 1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l' **URL**, che verrà usato in seguito per configurare l'app Google.
 2. Passare al sito Web delle [API di Google](http://go.microsoft.com/fwlink/p/?LinkId=268303)accedere con le credenziali dell'account Google, fare clic su **Crea progetto**, specificare un valore in **Nome progetto**, quindi fare clic su **Crea**.
 3. In **API Social** fare clic **Google+ API** e quindi su **Abilita**.
@@ -53,7 +53,7 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 
 È ora possibile usare un account Google per l'autenticazione nell'app.
 
-## <a name="related-content"> </a>Contenuti correlati
+## <a name="related-content"></a>Contenuti correlati
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Anchors. -->

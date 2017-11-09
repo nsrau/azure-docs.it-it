@@ -14,18 +14,21 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
+ms.openlocfilehash: eb026d44eedf3b393408c8453a8ed1cfed3ce415
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
-Questo articolo consente di configurare una soluzione di disponibilità elevata e scalabilità con Gateway di gestione dati.    
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni sul [Runtime di integrazione (self-hosted) nella versione 2](../create-self-hosted-integration-runtime.md). 
+
+
+Questo articolo consente di configurare una soluzione di disponibilità elevata e scalabilità con Gateway di gestione dati/Integration Runtime.    
 
 > [!NOTE]
-> Questo articolo presuppone che l'utente abbia già familiarità con i concetti di base relativi a Gateway di gestione dati. In caso contrario, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md).
+> Questo articolo presuppone che l'utente abbia già familiarità con i concetti di base relativi a Integration Runtime (in precedenza, Gateway di gestione dati). In caso contrario, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md).
 
 >**Questa funzionalità di anteprima è ufficialmente supportata in Gateway di gestione dati versione 2.12.xxxx.x e successive**. Assicurarsi quindi che sia in uso la versione 2.12.xxxx.x o successiva. Scaricare la versione più recente di Gateway di gestione dati [qui](https://www.microsoft.com/download/details.aspx?id=39717).
 
@@ -156,14 +159,21 @@ Questa sezione presuppone che siano stati letti i due articoli seguenti o che si
 - Aggiungere almeno due nodi per assicurare la disponibilità elevata.  
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisiti del certificato TLS/SSL
-Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazioni tra i nodi del gateway:
+Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazioni tra i nodi di Integration Runtime:
 
-- Deve essere un certificato X509 v3 pubblicamente attendibile.
-- Tutti i nodi del gateway devono considerare attendibile questo certificato. 
-- È consigliabile usare certificati rilasciati da un'autorità di certificazione (CA) pubblica (terza parte).
+- Deve essere un certificato X509 v3 pubblicamente attendibile. È consigliabile usare certificati rilasciati da un'autorità di certificazione (CA) pubblica (terza parte).
+- Ogni nodo di Integration Runtime deve considerare attendibile questo certificato, nonché il computer client che esegue l'applicazione di gestione delle credenziali. 
+> [!NOTE]
+> L'applicazione di gestione delle credenziali viene usata durante l'impostazione sicura delle credenziali tramite Copia guidata nel portale di Azure. Può inoltre essere attivata da qualsiasi computer all'interno della stessa rete dell'archivio dati locale/privato.
+- I certificati con caratteri jolly sono supportati. Se il nome FQDN è **node1.domain.contoso.com**, è possibile usare ***.domain.contoso.com** come nome del soggetto del certificato.
+- I certificati SAN non sono consigliati poiché verrà usato solo l'ultimo elemento dei nomi alternativi dei soggetti, mentre tutti gli altri verranno ignorati a causa della limitazione attuale. Ad esempio, se si dispone di un certificato SAN i cui nomi alternativi dei soggetti sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare solo questo certificato nel computer il cui nome di dominio completo è **node2.domain.contoso.com**.
 - Deve supportare tutte le dimensioni chiave supportate da Windows Server 2012 R2 per i certificati SSL.
-- Non deve supportare certificati che usano chiavi CNG.
-- I certificati con caratteri jolly sono supportati. 
+- Non sono supportati i certificati che usano chiavi CNG. Non sono supportati i certificati che usano chiavi CNG.
+
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>Domande frequenti: Quando non è consigliabile abilitare questo tipo di crittografia?
+L'abilitazione della crittografia può generare costi a livello di infrastruttura proprietaria del certificato pubblico. È pertanto consigliabile evitare di abilitare la crittografia nei casi seguenti:
+- Quando Integration Runtime è in esecuzione in una rete attendibile o in una rete con crittografia trasparente, ad esempio IP/SEC. Poiché questa comunicazione del canale è limitata solo all'interno della rete attendibile, una crittografia aggiuntiva potrebbe non essere necessaria.
+- Quando Integration Runtime non è in esecuzione in un ambiente di produzione. Ciò consente di ridurre il costo dei certificati TLS/SSL.
 
 
 ## <a name="monitor-a-multi-node-gateway"></a>Monitorare un gateway multinodo
@@ -250,4 +260,3 @@ Dopo l'eliminazione fare clic su **Funzionalità in anteprima** nella stessa pag
 Vedere gli articoli seguenti:
 - [Gateway di gestione dati](data-factory-data-management-gateway.md): offre una panoramica dettagliata del gateway.
 - [Spostare dati tra archivi dati locali e cloud](data-factory-move-data-between-onprem-and-cloud.md): contiene una procedura dettagliata con le istruzioni per usare un gateway a nodo singolo. 
-

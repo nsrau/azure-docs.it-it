@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
+ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 908bf4c34295168024afd11d24c7a3d2044ff518
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Multi-Factor Authentication: proteggere i dati personali usando l'identità e i controlli di accesso
 
@@ -188,4 +187,3 @@ Per informazioni su come configurare le impostazioni di Azure MFA per definire g
 - [Risoluzione dei problemi del controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
-

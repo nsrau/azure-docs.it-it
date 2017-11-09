@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 ms.openlocfilehash: b2bb9caf82a580dc5f67ea0b0b1c2e9a46363e9c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Creare il nodo head di un cluster HPC Pack in una macchina virtuale di Azure con un'immagine del Marketplace
 Usare un'[immagine di macchina virtuale Microsoft HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) in Azure Marketplace e nel portale di Azure per creare il nodo head di un cluster HPC. L'immagine di macchina virtuale HPC Pack è basata su Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 preinstallato. Usare questo nodo head per una distribuzione basata sul modello di verifica di HPC Pack in Azure. Sarà quindi possibile aggiungere nodi di calcolo al cluster per eseguire carichi di lavoro HPC.

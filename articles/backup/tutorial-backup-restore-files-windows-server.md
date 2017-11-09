@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/20/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 28e0bc1414b0fea614f217dc3adf1484c1374018
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperare i file da Azure in un'istanza di Windows Server
 
@@ -29,7 +28,7 @@ Backup di Azure consente il ripristino dei singoli elementi dai backup di Window
 
 > [!div class="checklist"]
 > * Avviare il ripristino di singoli elementi 
-> * Selezionare un punto di ripristino 
+> * selezione di un punto di ripristino 
 > * Ripristinare gli elementi da un punto di ripristino
 
 Questa esercitazione presuppone che sia già stata eseguita la procedura per [eseguire il backup di un'istanza di Windows Server in Azure](backup-configure-vault.md) e sia abbia a disposizione almeno un backup dei file di Windows Server in Azure.
@@ -82,4 +81,3 @@ L'argomento seguente completa le esercitazioni sul backup e il ripristino dei da
 
 > [!div class="nextstepaction"]
 > [Back up encrypted VM](./scripts/backup-powershell-sample-backup-encrypted-vm.md) (Eseguire il backup di VM crittografate)
-

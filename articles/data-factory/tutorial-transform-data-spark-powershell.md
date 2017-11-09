@@ -11,18 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/10/2017
+ms.date: 10/06/2017
 ms.author: shengc
+ms.openlocfilehash: 78fc72826229ef5d246884db868757dadd2deed2
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 93031615b271e542d8832b980a40ca25d1cd6d5c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando l'attività Spark in Azure Data Factory
-Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI). 
+
+[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
+
+#### <a name="this-tutorial"></a>Questa esercitazione
+
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data Factory che trasforma i dati con un'attività Spark e un servizio collegato HDInsight su richiesta. In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -340,7 +344,6 @@ Passare alla prossima esercitazione per informazioni su come trasformare i dati 
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Trasformare dati usando Hive nella rete virtuale di Azure](tutorial-transform-data-hive-virtual-network.md).
-
 
 
 

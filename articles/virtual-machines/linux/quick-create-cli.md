@@ -13,17 +13,15 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/14/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: dab783e574ef4f5507737d5004fd8d2a98629458
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: b3359b4e175ca4c3a96b49ab55c224589dea9190
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/16/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida illustra in dettaglio l'uso dell'interfaccia della riga di comando di Azure per distribuire una macchina virtuale che esegue Ubuntu Server. Dopo aver distribuito il server viene creata una connessione SSH e viene installato un server Web NGINX.
@@ -87,16 +85,14 @@ ssh <publicIpAddress>
 
 ## <a name="install-nginx"></a>Installare NGINX
 
-Usare lo script bash seguente per aggiornare le origini dei pacchetti e installare il pacchetto NGINX più recente. 
+Usare i comandi seguenti per aggiornare le origini dei pacchetti e installare il pacchetto NGINX più recente. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## <a name="view-the-nginx-welcome-page"></a>Visualizzare la pagina iniziale di NGINX
@@ -121,4 +117,3 @@ In questa guida introduttiva è stata distribuita una macchina virtuale semplice
 
 > [!div class="nextstepaction"]
 > [Esercitazioni per le macchine virtuali di Linux in Azure](./tutorial-manage-vm.md)
-

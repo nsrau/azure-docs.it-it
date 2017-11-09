@@ -14,8 +14,9 @@
 # Guide alle procedure
 ## Usare le VM in un lab
 ### [Creare VM](devtest-lab-add-vm.md)
-### [Creare VM a disposizione degli utenti](devtest-lab-add-claimable-vm.md)
+### [Creare e gestire macchine virtuali richiedibili](devtest-lab-add-claimable-vm.md)
 ### [Creare e gestire VM con l'interfaccia della riga di comando di Azure](devtest-lab-vmcli.md)
+### [Riavviare una macchina virtuale](devtest-lab-restart-vm.md)
 
 ## Usare gli ambienti in un lab
 ### [Creare un ambiente](devtest-lab-create-environment-from-arm.md)
@@ -28,6 +29,7 @@
 ### [Configurare criteri e pianificazioni](devtest-lab-set-lab-policy.md)
 ### [Configurare la gestione dei costi](devtest-lab-configure-cost-management.md)
 ### [Configurare immagini del Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Abilitare un'immagine con licenza](devtest-lab-enable-licensed-images.md)
 ### [Aggiungere tag a un lab](devtest-lab-add-tag.md)
 
 ## [Selezionare un'immagine o una formula personalizzata](devtest-lab-comparing-vm-base-image-types.md)
@@ -55,9 +57,9 @@
 
 ## [Ridimensionare il lab](devtest-lab-scale-lab.md)
 
-# riferimento
-## [Interfaccia della riga di comando di Azure](/cli/azure/lab)
-## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+# Riferimento
+## [Interfaccia della riga di comando 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Creare o modificare automaticamente i lab](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [API REST](https://docs.microsoft.com/rest/api/dtl/)
 ## [Modelli di Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

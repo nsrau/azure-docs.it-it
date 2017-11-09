@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: magoedte; bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portali per la creazione e la modifica di ricerche log in Azure Log Analytics
 
@@ -47,5 +46,4 @@ Il portale Advanced Analytics offre funzionalità avanzate e viene per questo di
 
 - Per informazioni sulla creazione di query tramite il linguaggio di query, vedere l'esercitazione dettagliata sull'uso di [Ricerca log](log-analytics-tutorial-viewdata.md)
 - Per creare query avanzate e usare un ambiente di sviluppo per le ricerche nei log, vedere il [portale Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587).
-
 

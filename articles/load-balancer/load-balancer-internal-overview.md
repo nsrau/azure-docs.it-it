@@ -1,6 +1,6 @@
 ---
-title: Panoramica del bilanciamento del carico interno | Documentazione Microsoft
-description: "Panoramica del bilanciamento del carico interno e delle relative funzionalità. Modalità di funzionamento del bilanciamento del carico di Azure e possibili scenari per la configurazione di endpoint interni"
+title: Panoramica del bilanciamento del carico interno di Azure | Microsoft Docs
+description: Funzionamento del bilanciamento del carico interno in Azure e scenari di configurazione degli endpoint interni.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,81 +14,70 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
+ms.openlocfilehash: 54e390dbdb07cb4c45c801b638099aa0dcc6db1a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ec07c77119c2da408da21fbdc7877d0b43d16556
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2017
 ---
-
-# <a name="internal-load-balancer-overview"></a>Panoramica del bilanciamento del carico interno
+# <a name="overview-of-azure-internal-load-balancer"></a>Panoramica del bilanciamento del carico interno di Azure
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-A differenza del bilanciamento del carico Internet, il bilanciamento del carico interno indirizza il traffico solo alle risorse all'interno del servizio cloud o che accedono all'infrastruttura di Azure tramite una rete VPN. L'infrastruttura limita l'accesso agli indirizzi IP virtuali con carico bilanciato di un servizio cloud o una rete virtuale, senza esposizione diretta a un endpoint Internet. Ciò consente di eseguire le applicazioni line-of-business (LOB) interne in Azure e di accedervi dal cloud o dalle risorse locali.
+Il bilanciamento del carico interno (ILB) di Azure indirizza il traffico alle risorse che si trovano all'interno di un servizio cloud o che usano una VPN per accedere all'infrastruttura di Azure. In questo senso il bilanciamento del carico interno è diverso da un bilanciamento del carico con connessione a Internet. L'infrastruttura di Azure limita l'accesso agli indirizzi IP virtuali (VIP) con carico bilanciato di un servizio cloud o a una rete virtuale. Gli indirizzi VIP e le reti virtuali non sono mai esposti direttamente a un endpoint di Internet. Le applicazioni line-of-business interne vengono eseguite in Azure e sono accessibili dall'interno di Azure o da risorse locali.
 
-## <a name="why-you-may-need-an-internal-load-balancer"></a>Perché potrebbe servire il bilanciamento del carico interno
+## <a name="why-you-might-need-an-internal-load-balancer"></a>Perché potrebbe essere necessario un bilanciamento del carico interno
 
-Il bilanciamento del carico interno di Azure consente di bilanciare il carico tra macchine virtuali che si trovano in un servizio cloud o una rete virtuale nell'ambito di un'area. Per informazioni sull'uso e sulla configurazione di reti virtuali nell'ambito di un'area, vedere [Reti virtuali di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) nel blog di Azure. Le reti virtuali esistenti che sono state configurate per un gruppo di affinità non possono usare il bilanciamento del carico interno.
+Il bilanciamento del carico interno di Azure consente di bilanciare il carico tra le macchine virtuali (VM) che risiedono in un servizio cloud o una rete virtuale nell'ambito di un'area. Per informazioni sulle reti virtuali con ambito di area, vedere [Reti virtuali di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) nel blog di Azure. Le reti virtuali esistenti configurate per un gruppo di affinità non possono usare il bilanciamento del carico interno.
 
 Il bilanciamento del carico interno permette di bilanciare i tipi di carico seguenti:
 
-* In un servizio cloud, dalle macchine virtuali a un set di macchine virtuali che si trovano nello stesso servizio cloud (vedere la figura 1).
-* In una rete virtuale, dalle macchine virtuali nella rete virtuale a un set di macchine virtuali che si trovano nello stesso servizio cloud della rete virtuale (vedere la figura 2).
-* Per una rete virtuale cross-premise, dai computer locali a un set di macchine virtuali che si trovano nello stesso servizio cloud della rete virtuale (vedere la figura 3).
-* Applicazioni multilivello con connessione Internet in cui i livelli di back-end non sono connessi a Internet, ma che richiedono il bilanciamento del carico per il traffico dal livello con connessione Internet.
-* Bilanciamento del carico per applicazioni LOB ospitate in Azure senza la necessità di applicazioni software o componenti hardware aggiuntivi per il bilanciamento del carico. Inserimento di server locali nel set di computer il cui traffico viene sottoposto a bilanciamento del carico.
+* All'interno di un servizio cloud: il bilanciamento del carico dalle macchine virtuali a un set di macchine virtuali che risiedono all'interno dello stesso servizio cloud. Vedere questo <a href="#figure1">esempio</a>.
+* In una rete virtuale: bilanciamento del carico dalle macchine virtuali nella rete virtuale a un set di macchine virtuali che si trovano nello stesso servizio cloud della rete virtuale. Vedere questo <a href="#figure2">esempio</a>.
+* Per una rete virtuale cross-premise: bilanciamento del carico dai computer locali a un set di macchine virtuali che si trovano nello stesso servizio cloud della rete virtuale. Vedere questo <a href="#figure3">esempio</a>.
+* Per le applicazioni a più livelli: bilanciamento del carico per le applicazioni multilivello e con connessione a Internet in cui i livelli di back-end non sono esposti a Internet. I livelli di back-end richiedono il bilanciamento del carico per il traffico dal livello con connessione a Internet.
+* Per le applicazioni line-of-business: bilanciamento del carico per le applicazioni line-of-business ospitate in Azure senza applicazioni software o componenti hardware aggiuntivi per il bilanciamento del carico. Questo scenario include server locali che si trovano nel set di computer il cui traffico ha il carico bilanciato.
 
-## <a name="internet-facing-multi-tier-applications"></a>Applicazioni multilivello con connessione Internet
+## <a name="load-balancing-for-internet-facing-multi-tier-applications"></a>Bilanciamento del carico per le applicazioni multilivello con connessione a Internet
 
-Il livello Web presenta endpoint con connessione Internet per i client Internet e fa parte di un set con carico bilanciato. Il bilanciamento del carico distribuisce il traffico in ingresso dai client Web per la porta TCP 443 (HTTPS) ai server Web.
+Il livello Web presenta endpoint con connessione a Internet per i client Internet e fa parte di un set con carico bilanciato. Il sevizio di bilanciamento del carico interno distribuisce il traffico in ingresso dai client Web per la porta TCP 443 (HTTPS) ai server Web.
 
-I server di database si servono di un endpoint di bilanciamento del carico interno usato dai server Web per l'archiviazione. Questo database serve l'endpoint con carico bilanciato, il cui traffico viene sottoposto a bilanciamento del carico tra i server di database nel set di bilanciamento del carico interno.
+I server di database si trovano dietro un endpoint di bilanciamento del carico interno utilizzato dai server Web per l'archiviazione. L'endpoint di bilanciamento del carico interno è un endpoint con carico bilancisto del servizio database. Il traffico viene sottoposto a bilanciamento del carico in tutti i server di database del set di bilanciamento del carico interno.
 
-L'immagine seguente illustra l'applicazione multilivello con connessione Internet all'interno dello stesso servizio cloud.
+L'immagine seguente illustra il bilanciamento del carico interno per l'applicazione multilivello con connessione a Internet all'interno dello stesso servizio cloud.
 
-![Bilanciamento del carico interno di un singolo servizio cloud](./media/load-balancer-internal-overview/IC736321.png)
+<a name="figure1"></a>
+![Applicazione multilivello con connessione Internet](./media/load-balancer-internal-overview/IC736321.png)
 
-Figura 1. Applicazione multilivello con connessione Internet
+Per le applicazioni multilivello è disponibile un altro scenario. Il bilanciamento del carico viene distribuito a un servizio cloud diverso da quello che usa il servizio per il bilanciamento del carico interno.
 
-Un altro possibile uso per un'applicazione multilivello consiste nella distribuzione del bilanciamento del carico interno in un servizio cloud diverso rispetto a quello che utilizza il servizio per il bilanciamento del carico interno.
+I servizi cloud che usano la stessa rete virtuale possono accedere all'endpoint di bilanciamento del carico interno. Nella figura seguente è possibile vedere che i server Web front-end si trovano in un servizio cloud diverso rispetto al back-end di database. I server front-end usano l'endpoint di bilanciamento del carico interno nella stessa rete virtuale come back-end.
 
-I servizi cloud che usano la stessa rete virtuale avranno accesso all'endpoint di bilanciamento del carico interno. Nella figura seguente è possibile vedere che i server Web front-end si trovano in un servizio cloud diverso rispetto al back-end di database e usano l'endpoint di bilanciamento del carico interno nella stessa rete virtuale.
+<a name="figure2"></a>
+![Server front-end in un altro servizio cloud](./media/load-balancer-internal-overview/IC744147.png)
 
-![Bilanciamento del carico interno tra servizi cloud](./media/load-balancer-internal-overview/IC744147.png)
+## <a name="load-balancing-for-intranet-line-of-business-applications"></a>Il bilanciamento del carico per le applicazioni intranet line-of-business
 
-Figura 2. Server front-end in un altro servizio cloud
+Il traffico dai client nella rete locale viene sottoposto a bilanciamento del carico nel set di server line-of-business che usano una connessione VPN alla rete di Azure.
 
-## <a name="intranet-line-of-business-applications"></a>Applicazioni Intranet line-of-business
+I client possono accedere a un indirizzo IP dal servizio VPN di Azure tramite una VPN da punto a sito. L'applicazione line-of-business può essere ospitata dietro l'endpoint di bilanciamento del carico interno.
 
-Il traffico dai client nella rete locale viene sottoposto a bilanciamento del carico nel set di server line-of-business usando la connessione VPN alla rete di Azure.
+<a name="figure3"></a>
+![L'applicazione line-of-business ospitata dietro l'endpoint di bilanciamento del carico interno](./media/load-balancer-internal-overview/IC744148.png)
 
-I client avranno accesso a un indirizzo IP dal servizio VPN di Azure tramite una connessione VPN da punto a sito. È quindi possibile usare l'applicazione LOB ospitata dietro l'endpoint di bilanciamento del carico interno.
+Un altro scenario per le applicazioni line-of-business prevede l'uso di una rete VPN da sito a sito per la connessione alla rete virtuale in cui è stato configurato l'endpoint di bilanciamento del carico interno. Il traffico di rete locale può essere instradato all'endpoint di bilanciamento del carico interno.
 
-![Bilanciamento del carico interno tramite VPN da punto a sito](./media/load-balancer-internal-overview/IC744148.png)
-
-Figura 3. Applicazioni LOB ospitate dietro l'endpoint di bilanciamento carico
-
-Un altro scenario di tipo line-of-business prevede l'uso di una rete VPN da sito a sito per la connessione alla rete virtuale in cui è stato configurato l'endpoint di bilanciamento del carico interno. In questo modo, il traffico di rete locale può essere instradato all'endpoint di bilanciamento del carico interno.
-
-![Bilanciamento del carico interno tramite VPN da sito a sito](./media/load-balancer-internal-overview/IC744150.png)
-
-Figura 4. Il traffico di rete locale può essere instradato all'endpoint di bilanciamento del carico interno
+<a name="figure4"></a>
+![Il traffico di rete locale può essere instradato all'endpoint di bilanciamento del carico interno](./media/load-balancer-internal-overview/IC744150.png)
 
 ## <a name="limitations"></a>Limitazioni
 
-SNAT non è supportato dalle configurazioni del servizio di bilanciamento del carico interno. Nel contesto di questo documento, SNAT fa riferimento alla traduzione dell'indirizzo di rete di origine mascherato della porta.  Questo vale per gli scenari in cui una macchina virtuale in un pool di bilanciamento del carico deve raggiungere l'indirizzo IP front-end del rispettivo servizio di bilanciamento del carico interno. Questo scenario non è supportato per il servizio di bilanciamento del carico interno. Si verificheranno errori di connessione una volta eseguito il bilanciamento del carico del flusso sulla macchina virtuale che ha originato il flusso. È necessario usare un servizio di bilanciamento del carico di tipo proxy per questi scenari.
+SNAT non è supportato dalle configurazioni del bilanciamento del carico interno. In questo articolo, SNAT fa riferimento a scenari che coinvolgono Network Address Translation di origine con port-masquerading. Una VM in un pool di bilanciamento del carico deve raggiungere l'indirizzo IP front-end del rispettivo bilanciamento del carico interno. Si verificano errori di connessione una volta eseguito il bilanciamento del carico del flusso sulla macchina virtuale che ha originato il flusso. Questi scenari non sono supportati per il bilanciamento del carico interno. Si deve usare invece un bilanciamento del carico di tipo proxy.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Supporto di Azure Resource Manager per Azure Load Balancer](load-balancer-arm.md)
-
-[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
-
-[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
-
-[Configurare una modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
-
-[Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
+* [Supporto di Azure Resource Manager per Azure Load Balancer](load-balancer-arm.md)
+* [Introduzione alla configurazione del bilanciamento del carico con connessione a Internet](load-balancer-get-started-internet-arm-ps.md)
+* [Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
+* [Configurare la modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
+* [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)

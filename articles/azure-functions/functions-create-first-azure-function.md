@@ -13,19 +13,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 10/17/2017
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 638c3bfb5a312c196d09216f3f7bf95bbc983c10
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3ec1f278f21d89782137625aff200f07f15fd9fb
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creare la prima funzione nel portale di Azure
 
-Funzioni di Azure consente di eseguire il codice in un ambiente senza server senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. Questo argomento fornisce informazioni su come usare Funzioni per creare una funzione di benvenuto nel portale di Azure.
+Funzioni di Azure consente di eseguire il codice in un ambiente [senza server](https://azure.microsoft.com/overview/serverless-computing/), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. Questo argomento fornisce informazioni su come usare Funzioni per creare una funzione di benvenuto nel portale di Azure.
 
 ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -82,7 +81,6 @@ Viene creata una funzione nel linguaggio prescelto usando il modello per una fun
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Per altre informazioni rivedere [Binding HTTP e webhook in Funzioni di Azure](functions-bindings-http-webhook.md).
-
 
 
 

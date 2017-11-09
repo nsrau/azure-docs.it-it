@@ -3,7 +3,7 @@ title: Cosa fare in Azure Application Insights | Microsoft Docs
 description: Domande frequenti in Application Insights
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: bwren
-ms.openlocfilehash: ef63e06c0621753e0a706d6efb709b943e38ee42
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: a32127f14c93012b5ace11ff982824f9ecba7d94
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="how-do-i--in-application-insights"></a>Cosa fare in Application Insights?
 ## <a name="get-an-email-when-"></a>Per ricevere un messaggio di posta elettronica quando...

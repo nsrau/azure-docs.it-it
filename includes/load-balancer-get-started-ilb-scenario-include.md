@@ -1,11 +1,11 @@
-## <a name="scenario"></a>Scenario
+## <a name="configuration-scenario"></a>Scenario di configurazione
 
-Si sta creando un servizio di bilanciamento del carico interno in base allo scenario seguente
+In questo scenario si crea un servizio di bilanciamento del carico interno in una rete virtuale, come illustrato nella figura seguente:
 
-![DESCRIZIONE DELL’IMMAGINE](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+![Scenario di bilanciamento del carico interno](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-Un servizio di bilanciamento del carico interno viene configurato in una rete virtuale
+La configurazione dello scenario è la seguente:
 
-* 2 macchine virtuali denominate DB1 e DB2
-* Endpoint
+* Due macchine virtuali denominate **DB1** e **DB2**
+* Endpoint per il servizio di bilanciamento del carico interno
 * Servizio di bilanciamento del carico interno

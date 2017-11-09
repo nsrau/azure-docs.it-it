@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
+ms.openlocfilehash: 98635ea6695fdb1e55456b5b6a293a3b4ad9d839
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Eseguire la scalabilità automatica usando metriche guest in un modello di set di scalabilità Linux
 
-In Azure esistono due tipi di metriche raccolte da macchine virtuali e set di scalabilità: alcune provengono dalla macchina virtuale host e altre dalla macchina virtuale guest. Le metriche host non richiedono passaggi di configurazione aggiuntivi perché vengono raccolte direttamente dalla macchina virtuale host, mentre le metriche guest richiedono di installare [Windows Azure Diagnostics Extension](../virtual-machines/windows/extensions-diagnostics-template.md) o l'[estensione di Diagnostica di Azure per Windows](../virtual-machines/linux/diagnostic-extension.md) nella macchina virtuale guest. È preferibile usare metriche guest anziché metriche host perché le metriche guest offrono una selezione più ampia di metriche. Le metriche relative al consumo di memoria, disponibili solo tramite metriche guest, ne sono un esempio. Le metriche host supportate sono elencate [qui](../monitoring-and-diagnostics/monitoring-supported-metrics.md), mentre le metriche guest usate comunemente sono elencate [qui](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Questo articolo illustra come modificare il [modello di set di scalabilità a validità minima](./virtual-machine-scale-sets-mvss-start.md) per usare le regole di scalabilità automatica in base alle metriche guest per i set di scalabilità Linux.
+In Azure esistono due tipi di metriche raccolte da macchine virtuali e set di scalabilità: alcune provengono dalla macchina virtuale host e altre dalla macchina virtuale guest. In generale, se si usano CPU, disco e metriche di rete standard, le metriche host sono probabilmente ottimali. Se tuttavia è necessaria una scelta di metriche più ampia, le metriche guest rappresentano probabilmente una soluzione migliore. Ecco le differenze tra i due tipi di metriche:
+
+Le metriche host sono più semplici e più affidabili. Non richiedono passaggi di configurazione aggiuntivi perché vengono raccolte direttamente dalla macchina virtuale host, mentre le metriche guest richiedono l'installazione dell'[estensione Diagnostica di Azure per Windows](../virtual-machines/windows/extensions-diagnostics-template.md) o dell'[estensione Diagnostica di Azure per Linux](../virtual-machines/linux/diagnostic-extension.md) nella macchina virtuale guest. È preferibile usare metriche guest anziché metriche host perché le metriche guest offrono una selezione più ampia di metriche. Le metriche relative al consumo di memoria, disponibili solo tramite metriche guest, ne sono un esempio. Le metriche host supportate sono elencate [qui](../monitoring-and-diagnostics/monitoring-supported-metrics.md), mentre le metriche guest usate comunemente sono elencate [qui](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Questo articolo illustra come modificare il [modello di set di scalabilità a validità minima](./virtual-machine-scale-sets-mvss-start.md) per usare le regole di scalabilità automatica in base alle metriche guest per i set di scalabilità Linux.
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
 
@@ -189,4 +189,3 @@ Viene aggiunta infine una risorsa `autoscaleSettings` per configurare la scalabi
 ## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

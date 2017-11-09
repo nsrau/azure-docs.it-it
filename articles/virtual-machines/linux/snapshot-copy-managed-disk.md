@@ -1,8 +1,8 @@
 ---
-title: Copiare un disco gestito di Azure per il backup | Documentazione Microsoft
-description: Informazioni su come creare una copia di un disco gestito di Azure da usare per il backup o sulla risoluzione dei problemi relativi al disco.
+title: Creare uno snapshot di un disco rigido virtuale in Azure | Microsoft Docs
+description: Informazioni su come creare una copia di un disco rigido virtuale in Azure come backup o per la risoluzione dei problemi.
 documentationcenter: 
-author: squillace
+author: cynthn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -11,27 +11,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 2/6/2017
-ms.author: rasquill
-ms.openlocfilehash: c91367ef11c9d531bebac7c069d2df586607ec29
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.date: 10/09/2017
+ms.author: cynthn
+ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/14/2017
 ---
-# <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Creare una copia di un disco rigido virtuale archiviato come disco gestito di Azure usando snapshot gestiti
-Creare uno snapshot di un disco gestito per il backup o creare un disco gestito dallo snapshot e collegarlo a una macchina virtuale di prova per risolvere i problemi. Uno snapshot gestito è una copia temporizzata completa di un disco gestito di macchina virtuale. Uno snapshot crea una copia di sola lettura del disco rigido virtuale che, per impostazione predefinita, viene memorizzato come disco gestito Standard. 
+# <a name="create-a-snapshot"></a>Creare uno snapshot 
 
-Per informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
-
-Usare il portale di Azure o l'interfaccia della riga di comando Azure 2.0 per creare uno snapshot del disco gestito.
+Fare uno snapshot di un disco rigido virtuale del sistema operativo o di un disco dati per il backup o per risolvere i problemi della macchina virtuale. Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. 
 
 ## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Usare l'interfaccia della riga di comando Azure 2.0 per creare uno snapshot
 
-> [!NOTE] 
-> L'esempio seguente richiede che sia installata l'interfaccia della riga di comando Azure 2.0 e che venga eseguito l'accesso all'account Azure.
+L'esempio seguente richiede che sia installata l'interfaccia della riga di comando Azure 2.0 e che venga eseguito l'accesso all'account Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
-La procedura seguente illustra come ottenere e creare uno snapshot di un disco del sistema operativo gestito usando il comando `az snapshot create` con il parametro `--source-disk`. Nell'esempio seguente si presuppone che esista una macchina virtuale denominata `myVM` creata con un disco del sistema operativo gestito nel gruppo di risorse `myResourceGroup`.
+La procedura seguente illustra come fare uno snapshot usando il comando `az snapshot create` con il parametro `--source-disk`. Nell'esempio seguente si presuppone che esista una macchina virtuale denominata `myVM` creata con un disco del sistema operativo gestito nel gruppo di risorse `myResourceGroup`.
 
 ```azure-cli
 # take the disk id with which to create a snapshot
@@ -80,4 +76,8 @@ L'output dovrebbe essere simile a quanto segue:
 
 Se si prevede di usare lo snapshot per creare un disco gestito e associarlo a una macchina virtuale a prestazioni elevate, usare il parametro `--sku Premium_LRS` con il comando `az snapshot create`. In questo modo si crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. Managed Disks Premium offre prestazioni migliori perché consiste in unità SSD, ma con un costo superiore rispetto ai dischi Standard (HDD).
 
+
+## <a name="next-steps"></a>Passaggi successivi
+
+ Creare una macchina virtuale da uno snapshot creando un disco gestito dallo snapshot e quindi collegando il nuovo disco gestito come disco del sistema operativo. Per altre informazioni, vedere lo script [Creare una macchina virtuale da uno snapshot](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json).
 

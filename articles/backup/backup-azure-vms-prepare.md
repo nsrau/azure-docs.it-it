@@ -1,6 +1,6 @@
 ---
-title: Preparazione dell&quot;ambiente per il backup di macchine virtuali di Azure | Microsoft Docs
-description: Assicurarsi che l&quot;ambiente sia pronto per il backup di macchine virtuali in Azure
+title: Preparazione dell'ambiente per il backup di macchine virtuali di Azure | Microsoft Docs
+description: Assicurarsi che l'ambiente sia pronto per il backup di macchine virtuali in Azure
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,15 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/25/2017
+ms.date: 9/10/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 072efdccaa8df5d430314d753a437b524986b53c
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: 35b40f80c5a9ccc67830429a5a75d2974d0d138c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-your-environment-to-back-up-azure-virtual-machines"></a>Preparare l'ambiente per il backup di macchine virtuali di Azure
 > [!div class="op_single_selector"]
@@ -69,7 +67,7 @@ Un insieme di credenziali di backup è un'entità che archivia tutti i backup e 
 > A partire da marzo 2017, non è più possibile usare il portale classico per creare insiemi di credenziali di backup. Gli insiemi di credenziali di backup esistenti sono ancora supportati ed è possibile [usare Azure PowerShell per creare insiemi di credenziali di backup](./backup-client-automation-classic.md#create-a-backup-vault). È tuttavia consigliabile creare insiemi di credenziali dei servizi di ripristino per tutte le distribuzioni, perché i miglioramenti futuri si applicheranno solo a tali insiemi di credenziali.
 
 
-Questa figura mostra le relazioni tra le diverse entità di Backup di Azure:     ![Entità e relazioni di Backup di Azure](./media/backup-azure-vms-prepare/vault-policy-vm.png)
+Questa figura mostra le relazioni tra le diverse entità di Backup di Azure: ![Entità e relazioni di Backup di Azure](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
 
 
@@ -189,13 +187,13 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 Prima di eseguire il backup della macchina virtuale di Azure, è consigliabile assicurarsi che l'agente di macchine virtuali di Azure (agente VM) sia installato correttamente nella macchina virtuale. Poiché al momento della creazione della macchina virtuale l'agente VM è un componente opzionale, assicurarsi che la relativa casella di controllo sia selezionata prima di eseguire il provisioning della macchina virtuale.
 
 ### <a name="manual-installation-and-update"></a>Installazione e aggiornamento manuali
-L'agente VM è già presente nelle VM create dalla raccolta di Azure. Nelle macchine virtuali di cui viene eseguita la migrazione da data center locali non è installato l'agente VM. Per queste VM è necessario installare esplicitamente l'agente VM. Altre informazioni sull' [installazione dell'agente di VM in una VM esistente](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+L'agente VM è già presente nelle VM create dalla raccolta di Azure. Nelle macchine virtuali di cui viene eseguita la migrazione da data center locali non è installato l'agente VM. Per queste VM è necessario installare esplicitamente l'agente VM. 
 
 | **Operazione** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installazione dell'agente di VM |<li>Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore. <li>[Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. |<li> Installare l' [agente Linux](https://github.com/Azure/WALinuxAgent) più recente da GitHub. Per completare l'installazione sono necessari privilegi di amministratore. <li> [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. |
-| Aggiornamento dell'agente di VM |L'aggiornamento dell'agente VM è semplice quanto la reinstallazione dei [file binari dell'agente VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente VM. |Seguire le istruzioni sull'[aggiornamento dell'agente di VM Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br><br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente VM. |
-| Convalida dell'installazione dell'agente di VM |<li>Passare alla cartella *C:\WindowsAzure\Packages* nella VM di Azure, <li>che dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. |N/D |
+| Installazione dell'agente di macchine virtuali |Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore.<li>[Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. |<li> Installare l'[agente Linux](../virtual-machines/linux/agent-user-guide.md) più recente. Per completare l'installazione sono necessari privilegi di amministratore. È consigliabile installare l'agente dal repository di distribuzione. **Non è consigliabile** installare l'agente di macchine virtuali Linux direttamente da GitHub.  |
+| Aggiornamento dell'agente di VM |L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. |Seguire le istruzioni sull'[aggiornamento dell'agente di macchine virtuali Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È consigliabile aggiornare l'agente dal repository di distribuzione. **Non è consigliabile** aggiornare l'agente di macchine virtuali Linux direttamente da GitHub.<br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. |
+| Convalida dell'installazione dell'agente di macchine virtuali |<li>Passare alla cartella *C:\WindowsAzure\Packages* nella VM di Azure, <li>che dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. |N/D |
 
 Per altre informazioni, vedere gli articoli sull'[agente di macchine virtuale](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e sulla relativa [installazione](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
@@ -213,4 +211,3 @@ Ora che è stato preparato l'ambiente per il backup della VM, il passaggio logic
 * [Eseguire il backup di macchine virtuali](backup-azure-vms.md)
 * [Pianificare l'infrastruttura di backup delle VM](backup-azure-vms-introduction.md)
 * [Gestire backup di macchine virtuali](backup-azure-manage-vms.md)
-

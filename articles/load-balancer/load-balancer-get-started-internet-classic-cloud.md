@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 1ceaafebcaebecb04314c7da62c69b2e9b5ba39a
-ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 52824d5c39bb821351650584c33f70e2e84749cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Introduzione alla creazione del servizio di bilanciamento del carico Internet per i servizi cloud
 
 > [!div class="op_single_selector"]
@@ -91,5 +89,4 @@ Per altre informazioni, fare riferimento allo schema di definizione del servizio
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
 

@@ -4,7 +4,7 @@ description: Viene descritto come eseguire backup e ripristino di un database di
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 ms.assetid: 
 ms.service: analysis-services
@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: bffa481a498b130ef1f2388a5ba856da5d164ee0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: f96e72e4decd475e7859eb7f70046a277b718ac8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
 

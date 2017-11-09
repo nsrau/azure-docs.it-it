@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Creare una macchina virtuale con Windows nel portale di Azure
 > [!div class="op_single_selector"]
@@ -42,11 +41,10 @@ Questa sezione illustra come usare il **dashboard** nel portale di Azure per sel
 
 <!-- 02/27/2017 Video removed as it was based on the classic portal. -->
 
-## <a id="createvirtualmachine"> </a>Creare la macchina virtuale
+## <a id="createvirtualmachine"></a>Creare la macchina virtuale
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [creare una VM con il modello di distribuzione Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nel portale di Azure.
 * Accedere alla macchina virtuale. Per istruzioni, vedere [Accedere a una macchina virtuale di Windows tramite il portale di Azure classico](connect-logon.md).
 * Collegare un disco per archiviare i dati. È possibile collegare sia dischi vuoti sia dischi contenenti dati. Per istruzioni, vedere [Collegare un disco dati da una macchina virtuale di Windows creata con il modello di distribuzione classico](attach-disk.md).
-

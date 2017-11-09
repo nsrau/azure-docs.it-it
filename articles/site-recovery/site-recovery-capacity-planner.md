@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 10/30/2017
 ms.author: nisoneji
-ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>Pianificare la capacità per la protezione delle macchine virtuali e dei server fisici in Azure Site Recovery
+# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Pianificare la capacità per la protezione di macchine virtuali Hyper-V tramite Site Recovery
 
-Lo strumento Azure Site Recovery Capacity Planner consente di determinare i requisiti di capacità per la replica di VM Hyper-V e VMware e di server fisici Windows/Linux con Azure Site Recovery.
+Lo strumento Azure Site Recovery Capacity Planner consente di determinare i requisiti di capacità per la replica di VM Hyper-V con Azure Site Recovery.
 
 Usare Site Recovery Capacity Planner per analizzare l'ambiente di origine e i carichi di lavoro e stimare le esigenze di larghezza di banda, le risorse server necessarie per la posizione di origine e le risorse (macchine virtuali, archiviazione e così via) necessarie nella posizione di destinazione.
 
@@ -35,11 +35,8 @@ Usare Site Recovery Capacity Planner per analizzare l'ambiente di origine e i ca
 
 
 1. Raccogliere informazioni sull'ambiente, incluse le macchine virtuali, i dischi per ogni macchina virtuale e l'archiviazione per ogni disco.
-2. Identificare la frequenza di modifica giornaliera (varianza) per i dati replicati. A tale scopo, seguire questa procedura:
-
-   * Se si esegue la replica di VM Hyper-V, scaricare lo [strumento di pianificazione della capacità per Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) per ottenere la frequenza di modifica. [Altre informazioni](site-recovery-capacity-planning-for-hyper-v-replication.md) su questo strumento. È consigliabile eseguire lo strumento nel corso di una settimana per acquisire le medie.
-   * Se si replicano macchine virtuali VMware, usare [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) per determinare la varianza.
-   * Per la replica di server fisici, è necessario eseguire la stima manualmente.
+2. Identificare la frequenza di modifica giornaliera (varianza) per i dati replicati. A tale scopo, scaricare lo [strumento di pianificazione della capacità di Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) per ottenere la frequenza di modifica. [Altre informazioni](site-recovery-capacity-planning-for-hyper-v-replication.md) su questo strumento. È consigliabile eseguire lo strumento nel corso di una settimana per acquisire le medie.
+   
 
 ## <a name="run-the-quick-planner"></a>Eseguire lo strumento di pianificazione rapida
 1. Scaricare e aprire lo strumento [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) . Dato che è necessario eseguire macro, selezionare le opzioni per abilitare la modifica e il contenuto quando richiesto.
@@ -50,8 +47,8 @@ Usare Site Recovery Capacity Planner per analizzare l'ambiente di origine e i ca
 
    * In **Select your scenario** (Selezionare uno scenario) scegliere **Hyper-V to Azure** (Da Hyper-V ad Azure) o **VMware/Physical to Azure** (Da fisico/VMware ad Azure).
    * In **Average daily data change rate (%)** (Frequenza di modifica dei dati giornaliera media - %) inserire le informazioni raccolte con lo [strumento di pianificazione della capacità per Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).  
-   * **Compression** si applica solo alla compressione disponibile quando si esegue la replica di macchine virtuali VMware o server fisici in Azure. È stimata una compressione minima del 30%, ma è possibile modificare l'impostazione in base alle esigenze. Per la replica di VM Hyper-V in Azure con compressione, è possibile usare uno strumento di terze parti come Riverbed.
-   * In **Retention Inputs** (Input per conservazione) specificare per quanto tempo devono essere conservate le repliche. Se si esegue la replica di server fisici o VMware, inserire il valore in giorni. Se si esegue la replica di Hyper-V, specificare il tempo in ore.
+   * L'impostazione **Compression** (Compressione) non viene usata in caso di replica di VM Hyper-V in Azure. Per la compressione, usare un appliance di terze parti, ad esempio Riverbed.
+   * In **Retention Inputs** (Input per conservazione) specificare per quanto tempo (in ore) devono essere conservate le repliche.
    * In **Number of hours in which initial replication for the batch of virtual machines should complete** (Numero di ore in cui deve essere completata la replica iniziale per il batch delle macchine virtuali) e in **Number of virtual machines per initial replication batch** (Numero di macchine virtuali per batch di replica iniziale) inserire le impostazioni usate per calcolare i requisiti della replica iniziale.  Quando viene distribuito Site Recovery, è necessario caricare l'intero set di dati iniziale.
 
    ![Input](./media/site-recovery-capacity-planner/inputs.png)
@@ -126,3 +123,7 @@ Dopo aver specificato tutti i dettagli, fare clic su **Submit data to the planne
 2. Per apportare modifiche è necessario modificare il foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro) e fare clic di nuovo su **Submit data To the planner tool** (Invia dati a strumento di pianificazione).  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Informazioni su come eseguire lo](site-recovery-capacity-planning-for-hyper-v-replication.md) strumento di pianificazione della capacità.

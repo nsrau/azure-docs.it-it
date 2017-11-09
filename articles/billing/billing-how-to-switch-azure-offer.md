@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 48f5f4db60c104778a6c391d254e0bc0c4c95cee
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Modificare la sottoscrizione con pagamento in base al consumo in un'offerta diversa
 
@@ -30,7 +29,7 @@ I clienti [con pagamento in base al consumo](https://azure.microsoft.com/offers/
 
 ## <a name="whats-supported"></a>Attività supportate:
 
-| Da | A |
+| Da | To |
 | --- | --- |
 | Pagamento in base al consumo |[Sviluppo/test con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | Pagamento in base al consumo |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
@@ -117,4 +116,3 @@ Il giorno del passaggio viene generata una fattura per tutti gli addebiti in sos
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-

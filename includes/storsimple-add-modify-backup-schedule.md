@@ -2,7 +2,7 @@
 <!--author=SharS last changed: 9/15/15-->
 
 #### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Per aggiungere o modificare una pianificazione di backup StorSimple
-1. Nella pagina **Avvio rapido** del dispositivo fare clic sulla scheda **Criteri di backup**. Verrà visualizzata la pagina **Criteri di backup** .
+1. Nella pagina **Avvio rapido** fare clic sulla scheda **Criteri di backup**. Verrà visualizzata la pagina **Criteri di backup** .
 2. Nell'elenco tabulare dei criteri, selezionare e fare clic sul criterio che si desidera modificare.
 3. In **Generale**è possibile modificare il nome del criterio di backup.
 4. In **Pianificazioni** fare clic su **Gestisci pianificazioni** per aggiungere o rimuovere pianificazioni. Nella finestra di dialogo **Gestione pianificazioni** procedere come segue:

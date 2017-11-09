@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-workspaces"></a>Gestire le aree di lavoro
 
@@ -169,7 +168,7 @@ L'assegnazione di ruolo nel portale di OMS viene determinata come segue:
 |--------------------------------------------------------------|----------------------------------|-------|
 | L'account appartiene a un ruolo utente di Log Analytics legacy     | Ruolo utente di Log Analytics specificato | |
 | L'account non appartiene a un ruolo utente di Log Analytics legacy <br> Autorizzazioni di Azure complete per l'area di lavoro (autorizzazione `*` <sup>1</sup>) | Amministratore ||
-| L'account non appartiene a un ruolo utente di Log Analytics legacy <br> Autorizzazioni di Azure complete per l'area di lavoro (autorizzazione `*` <sup>1</sup>) <br> *non azioni* `Microsoft.Authorization/*/Delete` e `Microsoft.Authorization/*/Write` | Collaboratore ||
+| L'account non appartiene a un ruolo utente di Log Analytics legacy <br> Autorizzazioni di Azure complete per l'area di lavoro (autorizzazione `*` <sup>1</sup>) <br> *non azioni*`Microsoft.Authorization/*/Delete` e `Microsoft.Authorization/*/Write` | Collaboratore ||
 | L'account non appartiene a un ruolo utente di Log Analytics legacy <br> Autorizzazione di lettura di Azure | Sola lettura ||
 | L'account non appartiene a un ruolo utente di Log Analytics legacy <br> Le autorizzazioni di Azure non vengono riconosciute | Sola lettura ||
 | Per le sottoscrizioni gestite da un Cloud Solution Provider (CSP) <br> L'account con cui è stato eseguito l'accesso si trova nell'istanza di Azure Active Directory collegata all'area di lavoro | Amministratore | In genere il cliente di un CSP |

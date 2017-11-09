@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Uso di Archivio Data Lake di Azure per requisiti Big Data
 L'elaborazione di Big Data prevede quattro fasi principali:
@@ -133,4 +132,3 @@ In questi casi, è possibile usare le opzioni seguenti:
 
 * Iniziare usando [Azure Data Factory per spostare i dati da Data Lake Store ad Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
 * Successivamente è possibile [integrare Power BI con Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) per creare la rappresentazione visiva dei dati.
-

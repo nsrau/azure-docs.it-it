@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/21/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d32980f05ad17a76793021d0a5355d597974a4e4
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 23212bc947dc523561acdf9d1ca784d1bab2c84c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Creare un'immagine personalizzata di una macchina virtuale di Azure tramite l'interfaccia della riga di comando
 
 Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. Le immagini personalizzate possono essere usate per le configurazioni di avvio, ad esempio il precaricamento e le configurazioni di applicazioni e altre configurazioni del sistema operativo. In questa esercitazione viene creata un'immagine personalizzata di una macchina virtuale di Azure. Si apprenderà come:
@@ -145,5 +143,4 @@ Passare all'esercitazione successiva per la descrizione delle macchine virtuali 
 
 > [!div class="nextstepaction"]
 > [Creare macchine virtuali a disponibilità elevata](tutorial-availability-sets.md).
-
 

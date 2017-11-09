@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/16/2017
+ms.date: 11/01/2017
 ms.author: raynew
+ms.custom: MVC
+ms.openlocfilehash: cfd44f7f06faa7d1d00efa9427dbf5d1d0a89ef1
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bbee77e669f49bdebb57121df8672a9253945b3c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
@@ -117,4 +117,3 @@ In alcuni scenari il failover richiede un'ulteriore elaborazione il cui completa
 
 > [!div class="nextstepaction"]
 > [Replicare le macchine virtuali di Azure in un'altra area dopo la migrazione ad Azure](site-recovery-azure-to-azure-after-migration.md)
-

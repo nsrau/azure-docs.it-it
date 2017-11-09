@@ -13,17 +13,15 @@ ms.custom: mvc,business continuity
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: On Demand
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 9f53f318e20dac9248906bdbe898ba4dacb286ac
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 910be8ff5f9a882c7bb8ae875b8bf5fc74d1fb9a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="implement-a-geo-distributed-database"></a>Implementare un database con distribuzione geografica
 
 In questa esercitazione vengono configurati un database SQL di Azure e l'applicazione per il failover in un'area remota e viene quindi testato il piano di failover. Si apprenderà come: 
@@ -390,4 +388,3 @@ Installare [Maven](https://maven.apache.org/download.cgi) tramite il programma d
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere l'articolo relativo a [gruppi di failover e replica geografica attiva](sql-database-geo-replication-overview.md).
-

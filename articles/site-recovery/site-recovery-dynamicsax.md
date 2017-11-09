@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: c235102a60b6d11c8b77203121352bd1400f4325
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione Dynamics AX multilivello usando Azure Site Recovery
 
@@ -193,4 +192,3 @@ Con Azure Site Recovery è possibile creare un piano di ripristino di emergenza 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla protezione dei carichi di lavoro aziendali con Azure Site Recovery, vedere [Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?](site-recovery-workload.md)
-

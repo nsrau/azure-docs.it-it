@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 1309985d7f1b93230b38ada2ee2687b1db10a791
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure
 Dopo aver inizializzato l'app Web Java nel [servizio app di Azure][Azure App Service] come indicato in [Creazione di un'app Web Java nel servizio app di Azure](app-service-web-get-started-java.md), è possibile caricare l'applicazione inserendo il file WAR nella cartella **webapps**.
@@ -44,4 +43,3 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
-

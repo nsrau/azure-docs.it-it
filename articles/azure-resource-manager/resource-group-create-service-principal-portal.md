@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2017
 ms.author: tomfitz
+ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 56b73ff30e7fdaa3c21bc1e5528e2f6118597ef1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse
 
@@ -188,7 +187,7 @@ Per accedere alle risorse della propria sottoscrizione è necessario assegnare l
 L'applicazione è ora configurata in Azure Active Directory. Si dispone di un ID e una chiave da usare per eseguire l'accesso come applicazione. L'applicazione viene assegnata a un ruolo che le consente di eseguire alcune azioni. Per informazioni su come effettuare l'accesso all'applicazione su diverse piattaforme, vedere:
 
 * [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
-* [Interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [Interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md)
 * [REST](/rest/api/#create-the-request)
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)
@@ -200,4 +199,3 @@ L'applicazione è ora configurata in Azure Active Directory. Si dispone di un ID
 * Per configurare un'applicazione multi-tenant, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
 * Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-configure.md).  
 * Per un elenco di azioni disponibili che è possibile concedere o negare agli utenti, vedere [Operazioni di provider di risorse con Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
-

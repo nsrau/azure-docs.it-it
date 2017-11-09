@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 7ba8a79df39c135ef1831b46d38babeedfb722ba
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: d86e47507f7a578e8a0affb690b6d96673b6b69a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Messaggio "Non è possibile accedervi da qui" in un dispositivo Windows
 
@@ -160,5 +159,4 @@ Se il dispositivo non è aggiunto al dominio ed esegue Windows 8.1, per eseguire
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Accesso condizionale di Azure Active Directory](active-directory-conditional-access.md)
-
 

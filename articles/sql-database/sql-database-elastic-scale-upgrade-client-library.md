@@ -1,6 +1,6 @@
 ---
 title: Eseguire l'aggiornamento alla libreria client dei database elastici | Documentazione Microsoft
-description: Eseguire l'aggiornamento alle applicazioni e librerie mediante Nuget
+description: Usare NuGet per aggiornare la libreria client dei database elastici.
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
-ms.openlocfilehash: 7e28d128645e856c0efa6e4f78d8f9f36982a76c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: e0334f701548d938c98aaa2a946b1e5e892c0700
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Aggiornare un'app in modo da usare la libreria client dei database elastici più recente
 Le nuove versioni della [libreria client dei database elastici](sql-database-elastic-database-client-library.md) sono disponibili tramite NuGet e l'interfaccia NuGetPackage Manager in Visual Studio. Gli aggiornamenti contengono correzioni di bug e supporto delle nuove funzionalità della libreria client.

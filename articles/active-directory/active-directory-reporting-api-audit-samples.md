@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 10/31/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: 98e1d09cbf638032fe1b5b9dcf19332f9158d7a7
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: aab705688079601bbce93455f7dda80cdd733110
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Esempi dell'API di creazione report di Azure Active Directory
 Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory.  
@@ -152,7 +151,7 @@ Lo script restituisce l'output del report di controllo in formato JSON. Crea anc
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
-    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
+    request_string = 'https://graph.windows.net/' + tenant_domain + '/activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
     response = requests.get(request_string, headers = header_params)
 
     if response.status_code is 200:
@@ -168,5 +167,4 @@ Lo script restituisce l'output del report di controllo in formato JSON. Crea anc
 * Si desidera personalizzare gli esempi contenuti in questo argomento? Vedere le [informazioni di riferimento sull'API di controllo Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 * Se si desidera visualizzare una panoramica completa sull'uso dell'API di creazione report di Azure Active Directory, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
-
 

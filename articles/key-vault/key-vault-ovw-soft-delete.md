@@ -5,13 +5,12 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/10/2017
+ms.date: 09/25/2017
+ms.openlocfilehash: 384b65bc89401780b174c143d84b3b8f552fba3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c873b153ef9c7d5f55672a5918c9dc4fb7256701
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -20,9 +19,11 @@ La funzionalità di eliminazione temporanea di Key Vault consente il ripristino 
 - Supporto per l'eliminazione reversibile di un insieme di credenziali delle chiavi
 - Supporto per l'eliminazione reversibile di oggetti di insiemi di credenziali delle chiavi (ad esempio, chiavi, segreti e certificati)
 
-## <a name="supporting-interfaces"></a>Supporto di interfacce
+## <a name="supporting-interfaces"></a>Interfacce di supporto
 
-La funzionalità di eliminazione temporanea è inizialmente disponibile attraverso le interfacce REST, .NET/C# e PowerShell. Per informazioni dettagliate, vedere [Documentazione sull'insieme di credenziali delle chiavi](https://docs.microsoft.com/azure/key-vault/).
+La funzionalità di eliminazione temporanea è inizialmente disponibile attraverso le interfacce REST, .NET/C#, PowerShell e della riga di comando.
+
+Per informazioni dettagliate, vedere [Documentazione sull'insieme di credenziali delle chiavi](https://docs.microsoft.com/azure/key-vault/).
 
 ## <a name="scenarios"></a>Scenari
 
@@ -36,7 +37,7 @@ Gli insiemi di credenziali delle chiavi di Azure sono risorse tracciate, gestite
 
 Con questa funzionalità, l'operazione di eliminazione eseguita su un insieme di credenziali delle chiavi o su un oggetto di un insieme di credenziali delle chiavi è di fatto un'operazione di eliminazione temporanea, poiché in realtà le risorse vengono mantenute per un periodo di memorizzazione specifico, seppur risultino apparentemente eliminate. Il servizio offre anche un meccanismo per il ripristino dell'oggetto eliminato, essenzialmente annullando l'operazione di eliminazione. 
 
-L'eliminazione temporanea è un comportamento facoltativo di Key Vault e in questa versione **non è abilitato per impostazione predefinita**. Per informazioni dettagliate sull'abilitazione dell'eliminazione temporanea per un insieme di credenziali delle chiavi, vedere le istruzioni corrispondenti negli argomenti di riferimento per l'interfaccia in uso in [Documentazione sull'insieme di credenziali delle chiavi](https://docs.microsoft.com/azure/key-vault/).
+L'eliminazione temporanea è un comportamento facoltativo di Key Vault e in questa versione **non è abilitato per impostazione predefinita**. 
 
 ### <a name="key-vault-recovery"></a>Recupero di un insieme di credenziali delle chiavi
 
@@ -67,6 +68,10 @@ L'eliminazione permanente di un insieme di credenziali delle chiavi non è possi
 
 Unica eccezione a questa conseguenza è che la sottoscrizione di Azure sia stata contrassegnata come *non cancellabile*. In questo caso solo il servizio può eseguire l'eliminazione effettiva, sotto forma di processo pianificato. 
 
+## <a name="next-steps"></a>Passaggi successivi
 
+Le due guide seguenti descrivono gli scenari principali di utilizzo dell'eliminazione temporanea.
 
+- [Come usare l'eliminazione temporanea di Key Vault con PowerShell](key-vault-soft-delete-powershell.md) 
+- [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](key-vault-soft-delete-cli.md)
 

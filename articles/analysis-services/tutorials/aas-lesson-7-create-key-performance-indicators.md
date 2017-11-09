@@ -4,7 +4,7 @@ description: Descrive come creare indicatori di prestazioni chiave nel progetto 
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: ca386cfd23b010af25fa9afb00fdad322e3e2946
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Lezione 7: Creare indicatori di prestazioni chiave
 
@@ -49,7 +48,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
 
     Questa misura viene usata come misura di base per l'indicatore KPI.  
   
-4.  Fare clic con il pulsante destro del mouse su **InternetCurrentQuarterSalesPerformance** > **Crea KPI**.   
+4.  Nella griglia delle misure fare clic con il pulsante destro del mouse su **InternetCurrentQuarterSalesPerformance** > **Crea KPI**.   
   
 5.  Nella finestra di dialogo Indicatore di prestazioni chiave (KPI) selezionare **Valore assoluto** in **Destinazione** e quindi digitare **1,1**.  
   
@@ -88,4 +87,3 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
 [Lezione 8: Creare prospettive](../tutorials/aas-lesson-8-create-perspectives.md).
   
   
-

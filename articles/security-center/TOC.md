@@ -1,6 +1,5 @@
 # Panoramica
 ## [Informazioni sul Centro sicurezza di Azure](security-center-intro.md)
-## [Ottenere informazioni dettagliate con Power BI](security-center-powerbi.md)
 ## [Sicurezza dei dati](security-center-data-security.md)
 ## Scenari
 ### [Risposta agli eventi imprevisti](security-center-incident-response.md)
@@ -13,14 +12,13 @@
 ## [Pianificazione e gestione](security-center-planning-and-operations-guide.md)
 ## [Autorizzazioni](security-center-permissions.md)
 ## [Piattaforme supportate](security-center-os-coverage.md)
-## [Integrazione di partner](security-center-partner-integration.md)
 ## [Domande frequenti](security-center-faq.md)
 
 # Procedure
-
-## Criteri di sicurezza
+## [Criteri di sicurezza](security-center-policies-overview.md)
 ### [Raccolta di dati](security-center-enable-data-collection.md)
 ### [Criteri di sicurezza](security-center-policies.md)
+### [Criteri di sicurezza con i criteri di Azure](security-center-azure-policy.md)
 ### [Notifiche tramite posta elettronica](security-center-provide-security-contact-details.md)
 ### [Piano tariffario](security-center-pricing.md)
 
@@ -29,6 +27,10 @@
 ## [Ricerca](security-center-search.md)
 
 ## Prevenzione
+### [Soluzioni di sicurezza](security-center-partner-integration.md)
+#### [Monitorare le soluzioni connesse](security-center-partner-solutions.md)
+#### [Connettere Microsoft Advanced Threat Analytics (ATA)](security-center-ata-integration.md)
+#### [Connettere Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Implementare le raccomandazioni sulla sicurezza](security-center-recommendations.md)
 ### [Raccomandazioni sulle applicazioni](security-center-application-recommendations.md)
 #### [Aggiungere un Web Application Firewall](security-center-add-web-application-firewall.md)
@@ -52,12 +54,10 @@
 #### [Abilita l'agente di macchine virtuali](security-center-enable-vm-agent.md)
 #### [Installa Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Riavvia dopo gli aggiornamenti del sistema](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [Risolvere le vulnerabilità del sistema operativo](security-center-remediate-os-vulnerabilities.md)
-#### [Risolvere gli avvisi sull'integrità della protezione degli endpoint](security-center-resolve-endpoint-protection-health-alerts.md)
+#### [Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)](security-center-remediate-os-vulnerabilities.md)
 #### [Aggiornare la versione sistema operativo](security-center-update-os-version.md)
 #### [La valutazione della vulnerabilità non è installata](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitorare l'integrità della sicurezza](security-center-monitoring.md)
-### [Monitorare le soluzioni dei partner](security-center-partner-solutions.md)
 ### [Identità e accesso](security-center-identity-access.md)
 
 ## Rilevare e rispondere

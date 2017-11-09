@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
-ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
-ms.contentlocale: it-it
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: de56e8b5fb7866183b0f06c4ac877d7b80a282f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-documentation"></a>Documentazione di Gestione API
 
@@ -142,7 +141,6 @@ Informazioni su come usare Gestione API per pubblicare API per sviluppatori este
         </div>
     </li>
 </ul>
-
 
 
 

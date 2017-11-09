@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 4065727aef04d7969d438c6ef79127bb44568be1
-ms.contentlocale: it-it
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="set-up-your-project"></a>Configurare il progetto
 
 Questa sezione fornisce istruzioni dettagliate su come creare un nuovo progetto per illustrare come integrare un'applicazione .NET per Windows Desktop (XAML) con *Accedi con Microsoft* in modo da poter eseguire query su API Web che richiedono un token.
@@ -92,4 +91,3 @@ Sostituire il valore `<Grid>` dell'applicazione con il seguente:
     </StackPanel>
 </Grid>
 ```
-

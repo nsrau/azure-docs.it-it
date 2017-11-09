@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: raynew
+ms.custom: MVC
+ms.openlocfilehash: 28a14a9b28dfe9c2014add9b9f691bce6ba91a4c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 45f1c61189b338d38681c8e93be01953da65913f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover e failback di macchine virtuali VMware e server fisici replicati in Azure
 
@@ -154,4 +154,3 @@ I dati dovrebbero ora essere tornati nel sito locale, ma non vengono replicati i
 2. Selezionare il server di elaborazione usato per inviare i dati replicati in Azure e fare clic su **OK**.
 
 Al termine della riprotezione, la macchina virtuale viene replicata in Azure e sarà possibile eseguire un failover in base alle esigenze.
-

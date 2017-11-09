@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Eseguire operazioni in Archiviazione Blob di Azure con Azure PowerShell
 
 Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati oggetto non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. L'articolo illustra le operazioni di base in Archiviazione Blob di Azure, ad esempio il caricamento, il download e l'eliminazione dei BLOB. Si apprenderà come:

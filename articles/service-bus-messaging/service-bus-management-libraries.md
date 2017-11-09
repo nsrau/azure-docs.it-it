@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/18/2017
 ms.author: sethm
-ms.openlocfilehash: 1db00dc1f91e8976b622030450445babbe547ad8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 3b7096a073b509217a6ed29b53f88f912e6613f6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="service-bus-management-libraries"></a>Librerie di gestione del bus di servizio
 
@@ -51,8 +51,7 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
-
-1. Creare l'oggetto `ServiceBusManagementClient`.
+2. Creare l'oggetto `ServiceBusManagementClient`.
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -61,8 +60,7 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-
-1. Impostare i parametri `CreateOrUpdate` sui valori specificati.
+3. Impostare i parametri `CreateOrUpdate` sui valori specificati.
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -71,8 +69,7 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
        EnablePartitioning = true
    };
    ```
-
-1. Effettuare la chiamata.
+4. Effettuare la chiamata.
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);

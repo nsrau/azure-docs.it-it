@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 2c581a2d152a6d3f16de8f249e27a426aa9f844f
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: f4175875b68c52e68588b8d0debd003ab73427ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Introduzione alla visualizzazione dei gruppi di sicurezza di rete in Azure Network Watcher
 
 I gruppi di sicurezza di rete sono associati a un livello di subnet o a un livello di scheda di interfaccia di rete. Se associato a livello di subnet, si applica a tutte le istanze delle VM della subnet. La visualizzazione dei gruppi di sicurezza di rete restituisce tutti i gruppi di sicurezza di rete configurati e le regole associate a livello di scheda di interfaccia di rete e di subnet per una macchina virtuale, offrendo così informazioni approfondite sulla configurazione. Vengono anche restituite le regole di sicurezza effettive per ogni scheda di interfaccia di rete in una VM. Usando la visualizzazione dei gruppi di sicurezza di rete, è possibile valutare le vulnerabilità di rete di una VM, ad esempio le porte aperte. È anche possibile verificare se il gruppo di sicurezza di rete funziona come previsto [confrontando le regole di sicurezza configurate e quelle effettive](network-watcher-nsg-auditing-powershell.md).
@@ -42,7 +40,6 @@ Per informazioni su come controllare le impostazioni del gruppo di sicurezza di 
 
 [1]: ./media/network-watcher-security-group-view-overview/securitygroupview.png
 [2]: ./media/network-watcher-security-group-view-overview/figure1.png
-
 
 
 

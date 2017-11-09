@@ -1,4 +1,3 @@
-
 ---
 title: Domande frequenti su Backup di Azure | Microsoft Docs
 description: "Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. "
@@ -16,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. Per inserire commenti, è necessario un account Livefyre. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -185,4 +183,3 @@ Quando si usa l'agente di Backup di Azure, la chiave di crittografia deve conten
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>Cosa accade se si smarrisce la chiave di crittografia? È possibile ripristinare i dati? Microsoft può recuperarli? <br/>
 La chiave usata per crittografare i dati di backup è disponibile solo nelle risorse del cliente. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se il cliente smarrisce la chiave, Microsoft non può recuperare i dati di backup.
-

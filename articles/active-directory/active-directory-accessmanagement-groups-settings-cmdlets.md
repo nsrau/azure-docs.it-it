@@ -1,5 +1,5 @@
 ---
-title: Configurare le impostazioni di gruppo usando i cmdlet di Azure Active Directory | Microsoft Docs
+title: Configurare le impostazioni di gruppo usando PowerShell in Azure Active Directory | Microsoft Docs
 description: Come gestire le impostazioni dei gruppi con i cmdlet di Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,21 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 10/04/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
+ms.openlocfilehash: 06384d1a1fb7fcc36e9ab97e38c6524a7e260140
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 28054e91e91933b939f4ba700e317d63a614e1d9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
 > [!IMPORTANT]
-> Questo contenuto si applica solo ai gruppi di Office 365. Per altre informazioni su come consentire agli utenti di creare gruppi di sicurezza, configurare il valore `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` come illustrato in [Set-MSOLCompanySettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+> Questo contenuto si applica solo ai gruppi di Office 365. Per altre informazioni su come consentire agli utenti di creare gruppi di sicurezza, configurare il valore `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` come illustrato in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Le impostazioni di Gruppi di Office 365 vengono configurare con un oggetto Settings e un oggetto SettingsTemplate. Non vengono inizialmente visualizzati oggetti Settings nella directory, perché la directory è configurata con le impostazioni personalizzate. Per modificarle, è necessario creare un nuovo oggetto Settings usando un modello di impostazioni. I modelli di impostazioni sono definiti da Microsoft. Sono disponibili diversi modelli di impostazioni. Per configurare le impostazioni di gruppo di Office 365 per la directory, usare il modello denominato "Group.Unified". Per configurare le impostazioni di gruppo di Office 365 per un singolo gruppo, usare il modello denominato "Group.Unified.Guest". Questo modello viene usato per gestire l'accesso guest a un gruppo di Office 365. 
 
@@ -95,7 +94,9 @@ Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Predefinito: "" |Collegamento alle linee guida sull'utilizzo dei gruppi. |
 |  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Predefinito: "" | Elenco delimitato da virgole di descrizioni di classificazione. |
 |  <ul><li>DefaultClassification<li>Tipo: String<li>Predefinito: "" | Classificazione da usare come classificazione predefinita per un gruppo, se non specificata.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Predefinito: "" |Non ancora implementato
+|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Predefinito: "" | Non usare. Non ancora implementato. |
+| <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Predefinito: "" | Non usare. Non ancora implementato. |
+| <ul><li>EnableMSStandardBlockedWords<li>Tipo: Boolean<li>Valore predefinito: "False". | Non usare
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: booleano<li>Valore predefinito: False | Valore booleano che indica se un utente guest può essere o meno un proprietario di gruppi. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booleano<li>Valore predefinito: True | Valore booleano che indica se un utente guest ha o meno accesso al contenuto dei gruppi unificati. |
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Predefinito: "" | URL di un collegamento alle linee guida per l'utilizzo dei gruppi. |
@@ -217,4 +218,3 @@ Per altre informazioni su Azure Active Directory PowerShell, consultare la docum
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-

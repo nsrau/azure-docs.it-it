@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
 ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routing asimmetrico con più percorsi di rete
 Questo articolo illustra il modo in cui il traffico di rete di inoltro e di ritorno può seguire route diverse quando sono disponibili più percorsi tra l'origine e la destinazione di rete.
@@ -72,5 +71,4 @@ Per usare ExpressRoute per l'autenticazione, è necessario assicurarsi che gli i
 
 ## <a name="asymmetric-routing-detection"></a>Rilevamento del routing asimmetrico
 Il modo migliore per assicurarsi che il traffico attraversi il percorso previsto è il comando traceroute. Se il traffico dal server SMTP locale a Microsoft deve passare per Internet, eseguire il comando traceroute dal server SMTP a Office 365. Il risultato permette di verificare che il traffico in uscita dalla rete sia effettivamente diretto verso Internet e non verso ExpressRoute.
-
 

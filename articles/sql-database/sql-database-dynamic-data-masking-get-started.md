@@ -12,14 +12,14 @@ ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: On Demand
 ms.date: 03/09/2017
 ms.author: ronitr; ronmat
-ms.openlocfilehash: 83deadce3cbdd30aa50d22d99378bd86133677c4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: b75f170870a5f595fcda41196f4de81f237f88b8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Maschera dati dinamica del database SQL
 

@@ -9,19 +9,18 @@ editor: CarlRabeler
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop databases, mvc
+ms.custom: develop databases, mvc, devcenter
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: genemi
+ms.openlocfilehash: 7d6c1ca0f48974f8a7d839b23f71d43bfeb400ba
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: d9731cf5399cce6f103129ccda521f2867bd8da6
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Progettare un database SQL di Azure e connettersi con C&#x23; e ADO.NET
 
@@ -70,5 +69,4 @@ Passare all'esercitazione successiva per ottenere informazioni sulla migrazione 
 
 > [!div class="nextstepaction"]
 >[Eseguire la migrazione di un database SQL Server a un database SQL di Azure](sql-database-migrate-your-sql-server-database.md)
-
 

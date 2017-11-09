@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
-ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-service-bus"></a>Bus di servizio di Azure
 
@@ -59,15 +58,15 @@ Il processo è semplice: un mittente invia un messaggio a una coda del bus di se
 
 Ogni messaggio è costituito da due parti: un set di proprietà, ognuno costituito da una coppia chiave-valore, e un payload dei messaggi. Il payload può essere di tipo binario, testo o anche XML. Il modo in cui vengono usati dipende dall'operazione che l'applicazione sta tentando di eseguire. Ad esempio, un'applicazione che invia un messaggio relativo a una vendita recente, potrebbe includere le proprietà **Seller="Ava"** e **Amount=10000**. Il corpo del messaggio potrebbe contenere un'immagine digitalizzata del contratto di vendita firmato oppure, se questo non è disponibile, rimanere vuoto.
 
-Un ricevitore può leggere un messaggio da una coda del bus di servizio in due modi. La prima opzione, denominata *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, rimuove un messaggio dalla coda e lo elimina immediatamente. Questa opzione è semplice, ma se il ricevitore si arresta in modo anomalo prima di aver terminato l'elaborazione del messaggio, il messaggio andrà perso. Poiché è stato rimosso dalla coda, nessun altro ricevitore potrà accedervi. 
+Un ricevitore può leggere un messaggio da una coda del bus di servizio in due modi. La prima opzione, denominata *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, riceve un messaggio dalla coda e lo elimina immediatamente. Questa opzione è semplice, ma se il ricevitore si arresta in modo anomalo prima di aver terminato l'elaborazione del messaggio, il messaggio andrà perso. Poiché è stato rimosso dalla coda, nessun altro ricevitore potrà accedervi. 
 
-La seconda opzione, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, consente di risolvere il problema. Come **ReceiveAndDelete**, anche la modalità di lettura **PeekLock** rimuove un messaggio dalla coda, ma non lo elimina. Il messaggio viene invece bloccato e quindi reso invisibile agli altri utenti e rimane in attesa di uno dei tre eventi seguenti:
+La seconda opzione, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)*, consente di risolvere il problema. Come **ReceiveAndDelete**, anche la modalità di lettura **PeekLock** rimuove un messaggio dalla coda, ma non lo elimina. Il messaggio viene invece bloccato e quindi reso invisibile agli altri utenti e rimane in attesa di uno dei tre eventi seguenti:
 
-* Se il ricevitore elabora correttamente il messaggio, chiama il metodo [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) e la coda elimina il messaggio. 
-* Se il ricevitore stabilisce che non è possibile elaborare il messaggio, chiama il metodo [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). La coda rimuove quindi il blocco dal messaggio e lo rende disponibile per gli altri ricevitori.
+* Se il ricevitore elabora correttamente il messaggio, chiama il metodo [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) e la coda elimina il messaggio. 
+* Se il ricevitore stabilisce che non è possibile elaborare il messaggio, chiama il metodo [Abandon()](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync). La coda rimuove quindi il blocco dal messaggio e lo rende disponibile per gli altri ricevitori.
 * Se il ricevitore non chiama uno di questi metodi entro un periodo di tempo configurabile (per impostazione predefinita, 60 secondi), la coda presuppone che si sia verificato un errore nel ricevitore. In questo caso si comporta come se il ricevitore avesse chiamato il metodo **Abandon**, rendendo così il messaggio disponibile per altri ricevitori.
 
-Possibili risultati: lo stesso messaggio potrebbe essere recapitato due volte, anche a due ricevitori diversi. Le applicazioni che usano le code del bus di servizio devono prevedere questa eventualità. Per semplificare il rilevamento dei duplicati, ogni messaggio ha una proprietà [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) univoca che per impostazione predefinita rimane invariata indipendentemente dal numero di letture del messaggio da una coda. 
+Possibili risultati: lo stesso messaggio potrebbe essere recapitato due volte, anche a due ricevitori diversi. Le applicazioni che usano le code del bus di servizio devono prevedere questa eventualità. Per semplificare il rilevamento dei duplicati, ogni messaggio ha una proprietà [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId) univoca che per impostazione predefinita rimane invariata indipendentemente dal numero di letture del messaggio da una coda. 
 
 Le code risultano utili in un numero limitato di situazioni. Permettono alle applicazioni di comunicare anche se non sono in esecuzione contemporaneamente, sono quindi ideali per l'uso con applicazioni batch e mobili. Una coda con più ricevitori garantisce inoltre il bilanciamento del carico automatico, in quanto i messaggi vengono distribuiti tra i vari ricevitori.
 
@@ -85,7 +84,7 @@ Un *argomento* e una coda presentano caratteristiche simili. I mittenti inviano 
 * Il sottoscrittore 2 riceve i messaggi che contengono la proprietà *Seller="Ruby"* e/o che contengono una proprietà *Amount* il cui valore è maggiore di 100.000. Ruby potrebbe essere una responsabile vendite che vuole visualizzare sia le proprie vendite che le vendite di importo elevato, indipendentemente da chi le abbia concluse.
 * Il sottoscrittore 3 presenta un filtro impostato su *True*e pertanto riceve tutti i messaggi. Questa applicazione potrebbe ad esempio essere responsabile del mantenimento di un audit trail, pertanto è necessario che possa visualizzare tutti i messaggi.
 
-Come con le code, i sottoscrittori di un argomento possono leggere i messaggi usando la modalità di ricezione [ReceiveAndDelete o PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). A differenza delle code, tuttavia, un singolo messaggio inviato a un argomento può essere ricevuto da più sottoscrizioni. Questo approccio, comunemente denominato di *pubblicazione e sottoscrizione* o *pub/sub*, risulta utile qualora più applicazioni siano interessate agli stessi messaggi. Con la definizione del filtro corretto, ogni sottoscrittore può accedere solo alla parte del flusso dei messaggi che gli interessa.
+Come con le code, i sottoscrittori di un argomento possono leggere i messaggi usando la modalità di ricezione [ReceiveAndDelete o PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). A differenza delle code, tuttavia, un singolo messaggio inviato a un argomento può essere ricevuto da più sottoscrizioni. Questo approccio, comunemente denominato di *pubblicazione e sottoscrizione* o *pub/sub*, risulta utile qualora più applicazioni siano interessate agli stessi messaggi. Con la definizione del filtro corretto, ogni sottoscrittore può accedere solo alla parte del flusso dei messaggi che gli interessa.
 
 ## <a name="relays"></a>Inoltri
 
@@ -124,4 +123,3 @@ A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azur
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
-

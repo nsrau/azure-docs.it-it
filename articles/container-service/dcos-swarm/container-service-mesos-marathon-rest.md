@@ -18,10 +18,10 @@ ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 65f8e0170fa7b89162e811a1d5dd58775fd20d7b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>Gestione dei contenitori DC/OS tramite l'API REST Marathon
 DC/OS offre un ambiente di distribuzione e ridimensionamento dei carichi di lavoro cluster con l'astrazione dell'hardware sottostante. In DC/OS è disponibile anche un framework che gestisce la pianificazione e l'esecuzione dei carichi di lavoro di calcolo. Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo documento illustra come iniziare a creare e ridimensionare le distribuzioni di contenitori usando l'API REST di Marathon. 

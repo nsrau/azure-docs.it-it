@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione
 
@@ -123,7 +123,7 @@ Verificare quanto segue:
 ### <a name="deallocate-the-vm"></a>Deallocare la VM
 Deallocare la VM, operazione che consente di liberare il disco rigido virtuale da copiare. 
 
-* **Portale**: fare clic su  **Macchine virtuali** > **myVM** > Stop (Termina)
+* **Portale**: fare clic su  **Macchine virtuali** > **myVM** &gt; Stop (Termina)
 * **PowerShell**: usare [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) per arrestare (deallocare) la VM denominata **myVM** nel gruppo di risorse **myResourceGroup**.
 
 ```powershell

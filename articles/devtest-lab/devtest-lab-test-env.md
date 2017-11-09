@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
 ms.openlocfilehash: 6926fe1be44c078482dd5073788e36d7ae77efef
-ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Usare Azure DevTest Labs per macchine virtuali e ambienti di test PaaS
 
@@ -150,5 +149,4 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs usate pe
    | [Creare un lab usando un modello di Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Creare lab in Azure DevTest Labs usando modelli di Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-
 

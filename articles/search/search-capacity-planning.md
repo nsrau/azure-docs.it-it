@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
 ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Ridimensionare i livelli di risorse per i carichi di lavoro di indicizzazione e query in Ricerca di Azure
 Dopo aver [scelto un piano tariffario](search-sku-tier.md) ed [eseguito il provisioning di un servizio di ricerca](search-create-service-portal.md), il passaggio successivo consente di aumentare il numero di repliche o partizioni usate dal servizio. Ogni livello offre un numero fisso di unità di fatturazione. Questo articolo illustra come assegnare le unità per ottenere una configurazione ottimale che bilanci i requisiti per l'esecuzione di query, indicizzazione e archiviazione.

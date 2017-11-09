@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 77bc78e7ed27f1566e5e5f6a3539c93c9aa73e2d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Ripetere il training di un nuovo servizio Web basato su Resource Manager usando i cmdlet di gestione di PowerShell per Machine Learning
 Quando si ripete il training di un nuovo servizio Web, si aggiorna la definizione del servizio Web predittivo perché faccia riferimento al nuovo modello sottoposto a training.  
@@ -107,5 +106,4 @@ Usando i cmdlet di gestione PowerShell per Machine Learning, è possibile aggior
 
 * Ripetizione periodica del training del modello con nuovi dati.
 * Distribuzione di un modello ai clienti per fare in modo che possano ripetere il training del modello con i propri dati.
-
 

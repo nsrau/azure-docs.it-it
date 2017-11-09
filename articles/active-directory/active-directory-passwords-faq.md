@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -57,10 +56,6 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 * **D: Gli utenti possono registrare i dati in modo che non siano visibili ad altri utenti?**
 
   > **R:** Sì. I dati che gli utenti registrano tramite il portale di registrazione per la reimpostazione della password vengono salvati in campi di autenticazione privati visibili solo agli amministratori globali e agli utenti.
-    >
-    > [!NOTE]
-    > Se un **account amministratore di Azure** registra il numero di telefono di autenticazione, questo viene inserito anche nel campo Cellulare ed è visibile.
-    >
   >
   >
 * **D: Gli utenti devono essere registrati prima di poter usare la funzionalità di reimpostazione della password?**
@@ -178,7 +173,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: Per quanto tempo è valido il passcode monouso inviato per posta elettronica o SMS?**
 
-  > **R:** La durata della sessione per la reimpostazione della password è di 105 minuti. Dall'inizio dell'operazione di reimpostazione della password l'utente ha 105 minuti per completare l'operazione. Allo scadere di questo periodo di tempo, il passcode monouso inviato per SMS o posta elettronica non sarà più valido.
+  > **R:** La durata della sessione per la reimpostazione della password è di 15 minuti. Dall'inizio dell'operazione di reimpostazione della password l'utente ha 15 minuti per completare l'operazione. Allo scadere di questo periodo di tempo, il passcode monouso inviato per SMS o posta elettronica non sarà più valido.
   >
   >
 
@@ -268,16 +263,14 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
-
-* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
-* [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
-* [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
-* [**Implementazione**](active-directory-passwords-best-practices.md): pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
-* [**Personalizzazione**](active-directory-passwords-customize.md): personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
-* [**Reporting** ](active-directory-passwords-reporting.md): verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
-* [**Criteri**](active-directory-passwords-policy.md): comprendere e impostare i criteri password di Azure AD
-* [**Writeback delle password**](active-directory-passwords-writeback.md): funzionamento del writeback delle password con la directory locale
-* [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
-* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
-
+* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](active-directory-passwords-best-practices.md)
+* [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md).
+* [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md).
+* [Domande sulle licenze](active-directory-passwords-licensing.md)
+* [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](active-directory-passwords-data.md)
+* [Metodi di autenticazione disponibili per gli utenti](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Opzioni dei criteri per la reimpostazione della password self-service](active-directory-passwords-policy.md)
+* [Panoramica del writeback delle password](active-directory-passwords-writeback.md)
+* [Come creare un report sull'attività relativa alla reimpostazione della password self-service](active-directory-passwords-reporting.md)
+* [Informazioni sulle opzioni della reimpostazione della password self-service](active-directory-passwords-how-it-works.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)

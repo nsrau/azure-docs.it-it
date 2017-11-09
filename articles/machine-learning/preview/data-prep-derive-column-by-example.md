@@ -11,15 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="derive-column-by-example-transformation"></a>Trasformazione Deriva colonna dall'esempio
 
 La trasformazione **Deriva colonna dall'esempio** consente agli utenti di creare un derivato di una o più colonne esistenti tramite gli esempi del risultato derivato offerti dall'utente. Il derivato può essere una qualsiasi combinazione delle trasformazioni supportate di numero, stringa e data. 
@@ -289,7 +286,7 @@ Numero di esempi necessari per questo caso: 1
 
 Queste parti della data sono state estratte tramite trasformazioni diverse dall'esempio sullo stesso set di dati. Le stringhe in grassetto rappresentano gli esempi inseriti per la relativa trasformazione.
 
-|DateTime|Giorno della settimana|Date|Mese|Year|Hour|Minuto|Secondi|
+|DateTime|Giorno della settimana|Date|Mese|Year|Hour|Minuto|Second|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-gen-2031 05:54:18|**Ven**|**31**|**gen**|**2031**|**5**|**54**|**18**|
 |17-gen-1990 13:32:01|Mer|17|gen|1990|13|32|01|
@@ -390,4 +387,3 @@ In alcuni casi, è impossibile trovare una trasformazione che soddisfi gli esemp
 
 ### <a name="reference"></a>riferimento
 Altre informazioni sulla tecnologia di trasformazione della stringa dall'esempio sono reperibili in [questa pubblicazione](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).
-

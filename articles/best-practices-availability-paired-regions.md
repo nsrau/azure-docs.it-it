@@ -12,16 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2017
+ms.date: 09/27/2017
 ms.author: raynew
+ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2984daa3b99fa9c858d43c3dcfb930add2040e2e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
 ## <a name="what-are-paired-regions"></a>Definizione di aree abbinate
@@ -51,9 +49,8 @@ Figura 1: Diagramma di una coppia di aree di Azure
 | Giappone |Giappone orientale |Giappone occidentale |
 | Brasile |Brasile meridionale (1) |Stati Uniti centro-meridionali |
 | Governo degli Stati Uniti |Governo degli Stati Uniti - Iowa |Governo degli Stati Uniti - Virginia |
-| Governo degli Stati Uniti |Governo degli Stati Uniti - Virginia |Governo degli Stati Uniti - Texas |
-| Governo degli Stati Uniti |Governo degli Stati Uniti - Texas |Governo degli Stati Uniti - Arizona |
 | Governo degli Stati Uniti |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
+| Dipartimento della difesa degli Stati Uniti |Dipartimento della difesa Stati Uniti orientali |Dipartimento della difesa Stati Uniti centrali |
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
 | Germania |Germania centrale |Germania nord-orientale |
 
@@ -80,7 +77,7 @@ Come indicato nella figura 2.
 
 ![SQL Azure](./media/best-practices-availability-paired-regions/3Green.png) **Database SQL Azure**: con la replica geografica Standard di SQL Azure è possibile configurare la replica asincrona delle transazioni in un'area associata. Con la replica geografica Premium è possibile configurare la replica per tutte le aree del mondo, tuttavia è consigliabile distribuire queste risorse in un'area abbinata per la maggior parte degli scenari di ripristino di emergenza. Per altre informazioni, vedere l'articolo relativo alla [replica geografica nel database SQL di Azure](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager**: Resource Manager fornisce implicitamente l'isolamento logico dei componenti di gestione del servizio tra le aree. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
+![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager**: Resource Manager fornisce implicitamente l'isolamento logico dei componenti di gestione del servizio tra le aree. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
 
 ## <a name="benefits-of-paired-regions"></a>Vantaggi delle aree abbinate
 Come indicato nella figura 2.  
@@ -99,4 +96,3 @@ Come indicato nella figura 2.
 
 ![Dati](./media/best-practices-availability-paired-regions/9Orange.png)
  **Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.
-

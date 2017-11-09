@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: 3e4b73f432f2695fa8b66b4d2bca23d32bfa9f3a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f2af15189a7c8643d51e8567b4366726b4b8051c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -452,4 +451,3 @@ Dopo aver creato e distribuito una pipeline, è possibile gestire e monitorare l
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sulle pipeline, vedere [Pipeline e attività in Azure Data Factory](data-factory-create-pipelines.md). 
 - Per altre informazioni sulle modalità di pianificazione ed esecuzione delle pipeline, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
-

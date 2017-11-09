@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/17/2017
 ms.author: magoedte;bwren
+ms.openlocfilehash: b8accf16c43b7a01233742161e68db6f831a2d30
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: d06052099acbb5544581ef3e8e2007dd751a7544
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="my-first-graphical-runbook"></a>Il primo runbook grafico
 
@@ -85,7 +84,7 @@ Il runbook creato è ancora in modalità Bozza. È necessario pubblicarlo prima 
    Le opzioni nella parte superiore consentono di avviare il runbook, pianificarlo per avviarlo in qualsiasi momento in futuro o creare un [webhook](automation-webhooks.md) per poterlo avviare con una chiamata HTTP.
 4. Si vuole solo avviare il runbook, quindi fare clic su **Avvia** e poi su **Sì** quando richiesto.<br> ![Avvia runbook](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
 5. Viene aperto un pannello per il processo del runbook creato.  È possibile chiudere questo pannello, ma in questo caso lo si lascerà aperto per poter controllare lo stato del processo.
-6. Lo stato del processo è visualizzato in **Riepilogo processi** e corrisponde agli stati osservati quando è stato testato il runbook.<br> ![Riepilogo processi](media/automation-first-runbook-graphical/runbook-job-summary.png)
+6. Lo stato del processo è visualizzato in **Riepilogo processi** e corrisponde agli stati osservati quando è stato testato il runbook.<br> ![Riepilogo dei processi](media/automation-first-runbook-graphical/runbook-job-summary.png)
 7. Quando lo stato del runbook risulta *Completato*fare clic su **Output**. Viene aperto il pannello **Output** dove si può vedere il testo *Hello World* nel riquadro.<br> ![Riepilogo dei processi](media/automation-first-runbook-graphical/runbook-job-output.png)  
 8. Chiudere il pannello Output.
 9. Fare clic su **Tutti i log** per aprire il pannello Flussi relativo al processo del runbook.  Nel flusso di output dovrebbe essere visibile solo *Hello World* , ma potrebbero essere visualizzati altri flussi per un processo del runbook, ad esempio Verbose ed Error se il runbook scrive in questi flussi.<br> ![Riepilogo dei processi](media/automation-first-runbook-graphical/runbook-job-AllLogs.png)
@@ -211,5 +210,4 @@ Ora si modificherà il runbook in modo che provi solo ad avviare la macchina vir
 * Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
 * Per iniziare a usare i runbook PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md)
 * Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
-
 

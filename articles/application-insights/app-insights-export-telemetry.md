@@ -3,7 +3,7 @@ title: Esportazione continua dei dati di telemetria da Application Insights | Mi
 description: "Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: bwren
-ms.openlocfilehash: 6ac3bda5101593b5ca66b4c9035e2fdac9d1e833
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: 7d1f648bc2c2a42cfbd668f180bce8f56ebd065b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  

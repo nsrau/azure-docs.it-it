@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f7ecb22ee46d83867453e035f8a639bc7f7f2d81
-ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 7936f47007285e3f7fa1d3220efa022a6e3881ca
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
@@ -138,15 +137,14 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
-
-* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
-* [**Licenze**](active-directory-passwords-licensing.md) - configurare le licenze di Azure AD
-* [**Implementazione**](active-directory-passwords-best-practices.md) - pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
-* [**Personalizzazione**](active-directory-passwords-customize.md) - personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
-* [**Criteri**](active-directory-passwords-policy.md) - comprendere e impostare i criteri password di Azure AD
-* [**Creazione di report**](active-directory-passwords-reporting.md) - verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
-* [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
-* [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
-* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
-
+* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](active-directory-passwords-best-practices.md)
+* [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md).
+* [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md).
+* [Domande sulle licenze](active-directory-passwords-licensing.md)
+* [Metodi di autenticazione disponibili per gli utenti](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Opzioni dei criteri per la reimpostazione della password self-service](active-directory-passwords-policy.md)
+* [Panoramica del writeback delle password](active-directory-passwords-writeback.md)
+* [Come creare un report sull'attività relativa alla reimpostazione della password self-service](active-directory-passwords-reporting.md)
+* [Informazioni sulle opzioni della reimpostazione della password self-service](active-directory-passwords-how-it-works.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 773b37ec8f775d68f1faca0d252f3064c7de0317
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: cee283268057a407003a38f8db5af8cac151439f
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
-
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>Creare un'immagine personalizzata di una VM di Azure con PowerShell
 
 Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. Le immagini personalizzate possono essere usate per le configurazioni di avvio, ad esempio il precaricamento e le configurazioni di applicazioni e altre configurazioni del sistema operativo. In questa esercitazione viene creata un'immagine personalizzata di una macchina virtuale di Azure. Si apprenderà come:
@@ -100,7 +98,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Creare VM dall'immagine
 
-Ora che si dispone di un'immagine, è possibile creare una o più nuove VM dall'immagine. Creare una VM da un'immagine personalizzata è molto simile a creare una VM usando un'immagine del Marketplace. Quando si usa un'immagine del Marketplace, è necessario fornire informazioni sull'immagine, il provider dell'immagine, l'offerta, lo SKU e la versione. Con un'immagine personalizzata è sufficiente fornire l'ID della risorsa immagine personalizzata. 
+Ora che si dispone di un'immagine, è possibile creare una o più nuove VM dall'immagine. Creare una VM da un'immagine personalizzata è molto simile a creare una VM usando un'immagine del Marketplace. Quando si usa un'immagine del Marketplace, è necessario immettere le informazioni sull'immagine, il provider dell'immagine, l'offerta, lo SKU e la versione. Con un'immagine personalizzata è sufficiente fornire l'ID della risorsa immagine personalizzata. 
 
 Nello script seguente si crea la variabile *$image* per memorizzare le informazioni sull'immagine personalizzata usando [Get-AzureRmImage](/powershell/module/azurerm.compute/get-azurermimage) e quindi si usa [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) e si specifica l'ID mediante la variabile *$image* appena creata. 
 
@@ -211,7 +209,6 @@ Passare all'esercitazione successiva per la descrizione delle macchine virtuali 
 
 > [!div class="nextstepaction"]
 > [Creare VM a disponibilità elevata](tutorial-availability-sets.md)
-
 
 
 

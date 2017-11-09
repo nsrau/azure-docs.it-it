@@ -4,7 +4,7 @@ description: Abilitare o disabilitare i moduli di raccolta dati e aggiungere i c
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
-editor: alancameronwills
+editor: mrbullwinkle
 manager: carmonm
 ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
 ms.service: application-insights
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 52b5be98742c9bf0834c12136416e856af5d99cc
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: e59df358f25663c742b0da09cf27b974787536dc
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare parametri per alcuni di essi.
@@ -59,19 +58,19 @@ Il modulo `DiagnosticsTelemetryModule` segnala errori nel codice di strumentazio
 `DeveloperModeWithDebuggerAttachedTelemetryModule` impone a `TelemetryChannel` di Application Insights di inviare immediatamente i dati, un elemento di telemetria alla volta, quando un debugger viene collegato al processo dell'applicazione. Ciò permette di ridurre la quantità di tempo tra il momento in cui l'applicazione rileva i dati di telemetria e il momento in cui vengono visualizzati nel portale di Application Insights. Questo causa un costo significativo per la CPU e la larghezza di banda di rete.
 
 * `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
-* [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) 
+* [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)
 
 ### <a name="web-request-tracking"></a>Rilevamento delle richieste web
 Riporta il [tempo di risposta e il codice dei risultati](app-insights-asp-net.md) delle richieste HTTP.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) 
+* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
 
 ### <a name="exception-tracking"></a>Rilevamento delle eccezioni
 `ExceptionTrackingTelemetryModule` rileva le eccezioni non gestite nell'app Web. Vedere [Errori ed eccezioni][exceptions].
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) 
+* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
 * `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - rileva le [eccezioni delle attività non notate](http://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - rileva le eccezioni non gestite per i ruoli di lavoro, servizi windows, e applicazioni della console.
 * [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) .
@@ -276,4 +275,3 @@ Per ottenere una nuova chiave, [creare una nuova risorsa nel portale di Applicat
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-

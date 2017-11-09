@@ -13,29 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
+ms.openlocfilehash: 9e96d0a68c2ebd2c05887c71a4054e0ec35b7bc9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: f6d7c2a1a3e3bf78b568f2f6b079476e403b9911
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="manage-programs-and-their-controls"></a>Gestire i programmi e i relativi controlli 
 
-Azure AD include verifiche di accesso dei membri del gruppo e dell'accesso alle applicazioni, che sono esempi di controlli che assicurano la supervisione degli utenti con accesso. Questi controlli consentono alle organizzazioni di gestire in modo efficiente la governance, i requisiti di conformità e la gestione dei rischi.  
+Azure Active Directory (Azure AD) include le verifiche di accesso dell'accesso delle applicazioni e di membri del gruppo. Questi esempi di controlli assicurano la supervisione per chi ha accesso alle applicazioni e alle appartenenze ai gruppi dell'organizzazione. Le organizzazioni possono usare questi controlli per gestire in modo efficiente la governance, i requisiti di conformità e la gestione dei rischi.
 
-## <a name="how-to-manage-programs-and-their-controls"></a>Come gestire i programmi e i relativi controlli
-È possibile semplificare il rilevamento e la raccolta delle verifiche di accesso per scopi diversi organizzandole nei programmi.  Ogni verifica di accesso può essere collegata a un programma, in modo che quando si preparano i report per un revisore siano visibili solo le verifiche di accesso nell'ambito per un'iniziativa particolare.
+## <a name="create-and-manage-programs-and-their-controls"></a>Creare e gestire i programmi e i relativi controlli
+È possibile semplificare il rilevamento e la raccolta delle verifiche di accesso per scopi diversi organizzandole nei programmi. Ogni verifica di accesso può essere collegata a un programma. Quando si preparano i report per un revisore, sono visibili solo le verifiche di accesso nell'ambito per un'iniziativa specifica.
 
-Per visualizzare un elenco di programmi, accedere alla [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) e passare alla scheda **Programmi**.
+Per visualizzare un elenco di programmi, accedere alla [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) e selezionare **Programmi**.
 
-Esiste un programma sempre presente, il "programma predefinito".  Gli utenti con un ruolo di amministratore globale possono creare programmi aggiuntivi.  Ad esempio, è possibile scegliere che sia disponibile un programma per ogni obiettivo di business o iniziativa di conformità.
+**Programma predefinito** è sempre presente. Gli utenti con un ruolo di amministratore globale possono creare programmi aggiuntivi. Ad esempio, è possibile scegliere che sia disponibile un programma per ogni obiettivo di business o iniziativa di conformità.
 
 Se un programma non è più necessario e non dispone di controlli collegati, è possibile eliminarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare una verifica di accesso per i membri di un gruppo o per l'accesso a un'applicazione](active-directory-azure-ad-controls-create-access-review.md)
-
+[Creare una verifica di accesso per i membri di un gruppo o per l'accesso a un'applicazione](active-directory-azure-ad-controls-create-access-review.md)
 

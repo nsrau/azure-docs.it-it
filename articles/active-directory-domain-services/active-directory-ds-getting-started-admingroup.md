@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Introduzione | Microsoft Docs'
-description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure (Anteprima)
+description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 32d51f883ad92b5be6b1f455dfb1a865748f3102
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f87bcf33d3b1eb21c7d84814e4c4086f664e293d
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure (Anteprima)
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 
 
 ## <a name="task-3-configure-administrative-group"></a>Attività 3: Configurare un gruppo amministrativo
@@ -57,11 +56,11 @@ Il processo di provisioning del dominio gestito può richiedere fino a un'ora.
 
     ![Trovare il dominio gestito di cui viene effettuato il provisioning](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. Fare clic sul nome del dominio gestito (ad esempio, "contoso100.com") per visualizzare altre informazioni sul dominio.
+2. Fare clic sul nome del dominio gestito (ad esempio, 'contoso100.com') per visualizzare altre informazioni sul dominio gestito.
 
     ![Domain Services - Stato del provisioning](./media/getting-started/domain-services-provisioning-state.png)
 
-3. La scheda **Panoramica** indica che il dominio è attualmente sottoposto a provisioning. Non è possibile configurare il dominio gestito fino a quando non ne è stato completato il provisioning. Per completare il provisioning del dominio gestito può essere necessaria fino a un'ora.
+3. La scheda **Panoramica** indica che il dominio gestito è attualmente sottoposto a provisioning. Non è possibile configurare il dominio gestito fino a quando non ne è stato completato il provisioning. Per completare il provisioning del dominio gestito può essere necessaria fino a un'ora.
 
     ![Domain Services - Scheda Panoramica durante lo stato di provisioning ](./media/getting-started/domain-services-provisioning-state-details.png)
 
@@ -74,6 +73,9 @@ Il processo di provisioning del dominio gestito può richiedere fino a un'ora.
     ![Domain Services - Scheda Proprietà al termine del provisioning](./media/getting-started/domain-services-provisioned-properties.png)
 
 
+## <a name="need-help"></a>Richiesta di assistenza
+Eseguire il provisioning di entrambi i controller di dominio del dominio gestito potrebbe richiedere un'ora o due. Se la distribuzione non è riuscita o è bloccata nello stato 'In sospeso' per più di un paio d'ore, [contattare il team del prodotto per assistenza](active-directory-ds-contact-us.md).
+
+
 ## <a name="next-step"></a>Passaggio successivo
 [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-dns.md)
-

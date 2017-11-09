@@ -35,9 +35,9 @@
 ### [Collegare il tenant di Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Pagare le sottoscrizioni con fattura](billing-how-to-pay-by-invoice.md)
 ## Risoluzione dei problemi
-### [Problemi di iscrizione](billing-troubleshoot-azure-sign-up-issues.md)
-### [Carta rifiutata](billing-credit-card-fails-during-azure-sign-up.md)
-### [Problemi di accesso](billing-cannot-login-subscription.md)
+### [Problemi di iscrizione](https://support.microsoft.com/en-us/help/4042959)
+### [Carta rifiutata](https://support.microsoft.com/en-us/help/4042960)
+### [Problemi di accesso](https://support.microsoft.com/en-us/help/4042961)
 ### [Non sono state trovate sottoscrizioni](billing-no-subscriptions-found.md)
 ### [Vista dei costi Enterprise disabilitata](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

@@ -3,7 +3,7 @@ title: Configurare l'analisi di app Web per ASP.NET con Azure Application Insigh
 description: "Configurare l'analisi delle prestazioni, della disponibilità e dell'utilizzo per un sito Web ASP.NET, ospitato in locale o in Azure."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
-ms.author: bwren
-ms.openlocfilehash: cb247ee68da88265f7c51258644064463d44f8b5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: d94abbd24aee5217cc460e0c48df177aaff80920
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Installare Application Insights per un sito Web ASP.NET
 

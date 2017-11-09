@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
 ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (Windows PowerShell script)
 Consente di distribuire un'applicazione Web in una macchina virtuale. Se non sono presenti, lo script crea le risorse necessarie nella sottoscrizione di Azure.
@@ -79,7 +79,7 @@ Se true, consente l'utilizzo di certificati che non sono firmati da un'autorità
 | Caratteri jolly accettati? |false |
 
 ### <a name="vmpassword"></a>VMPassword
-Le credenziali per l'account della macchina virtuale. Esempio: - VMPassword @{nome = "admin"; Password = "password"}
+Le credenziali per l'account della macchina virtuale. Esempio: -VMPassword @{Name = "admin"; Password = "password"}
 
 | Alias | nessuno |
 | --- | --- |
@@ -90,7 +90,7 @@ Le credenziali per l'account della macchina virtuale. Esempio: - VMPassword @{no
 | Caratteri jolly accettati? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
-Le credenziali del database SQL in Azure. Esempio: - DatabaseServerPassword @{nome = "admin"; Password = "password"}
+Le credenziali del database SQL in Azure. Esempio: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
 
 | Alias | nessuno |
 | --- | --- |

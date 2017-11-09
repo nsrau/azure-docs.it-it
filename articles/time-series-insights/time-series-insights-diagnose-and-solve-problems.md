@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/24/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 4b8d5fdab1744b2db658917f91d6dac05db30d2f
-ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 4e10a009eb67706d927ece5692134d802094cdf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights
 
@@ -80,4 +79,3 @@ Per correggere il ritardo, procedere come segue:
 Verificare che il nome e il valore siano conformi alle regole seguenti:
 * Il nome della proprietà Timestamp _fa distinzione fra maiuscole e minuscole_.
 * Il valore della proprietà Timestamp proveniente dall'origine evento, come stringa JSON, deve avere il formato _aaaa-MM-ggTHH:mm:ss.FFFFFFFK_. Un esempio di tale stringa è "2008-04-12T12:53Z".
-

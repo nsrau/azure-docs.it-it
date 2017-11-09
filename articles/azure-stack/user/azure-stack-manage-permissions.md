@@ -1,6 +1,6 @@
 ---
-title: Manage permissions to resources per user in Azure Stack | Microsoft Docs
-description: As a service administrator or tenant, learn how to manage RBAC permissions.
+title: Gestire le autorizzazioni alle risorse per ogni utente nello Stack di Azure | Documenti Microsoft
+description: Come amministratore del servizio o tenant, informazioni su come gestire le autorizzazioni RBAC.
 services: azure-stack
 documentationcenter: 
 author: Heathl17
@@ -14,30 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e0ced4b2d65456034ba3f8543152702c089a0b0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-role-based-access-control"></a>Manage Role-Based Access Control
+# <a name="manage-role-based-access-control"></a>Gestire il controllo degli accessi in base al ruolo
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-A user in Azure Stack can be a reader, owner, or contributor for each instance of a subscription, resource group, or service. For example, User A might have reader permissions to Subscription 1, but have owner permissions to Virtual Machine 7.
+Un utente in Azure Stack può essere un lettore, proprietario o collaboratore per ogni istanza di una sottoscrizione, un gruppo di risorse o un servizio. Ad esempio, l'utente A può avere autorizzazioni di lettura per la Sottoscrizione 1, ma autorizzazioni di proprietario per la Macchina virtuale 7.
 
-* Reader: User can view everything, but can’t make any changes.
-* Contributor: User can manage everything except access to resources.
-* Owner: User can manage everything, including access to resources.
+* Lettore: l'utente può visualizzare tutti gli elementi, ma non può apportare modifiche.
+* Collaboratore: l'utente può gestire qualsiasi elemento, ad eccezione dell'accesso alle risorse.
+* Proprietario: l'utente può gestire qualsiasi elemento, incluso l'accesso alle risorse.
 
-## <a name="set-access-permissions-for-a-user"></a>Set access permissions for a user
-1. Sign in with an account that has owner permissions to the resource you want to manage.
-2. In the blade for the resource, click the **Access** icon ![](media/azure-stack-manage-permissions/image1.png).
-3. In the **Users** blade, click **Roles**.
-4. In the **Roles** blade, click **Add** to add permissions for the user.
+## <a name="set-access-permissions-for-a-user"></a>Impostare le autorizzazioni di accesso per un utente
+1. Accedere con un account con autorizzazioni di proprietario per la risorsa da gestire.
+2. Nel pannello della risorsa, fare clic su di **accesso** icona ![](media/azure-stack-manage-permissions/image1.png).
+3. Nel **utenti** pannello, fare clic su **ruoli**.
+4. Nel **ruoli** pannello, fare clic su **Aggiungi** per aggiungere autorizzazioni per l'utente.
 
-## <a name="next-steps"></a>Next steps
-
+## <a name="next-steps"></a>Passaggi successivi
 
 

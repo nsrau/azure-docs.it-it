@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
+ms.openlocfilehash: 19f27aa81d7b5e03828f18f5a38cf3362df17694
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 7d6f16f9aad41cc2867ce86361fcea2f93aca7c5
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Errore Non sono state trovate sottoscrizioni nel portale di Azure o nel Centro account di Azure
 
 Potrebbe essere visualizzato il messaggio di errore "Non sono state trovate sottoscrizioni" quando si prova ad accedere al [portale di Azure](https://portal.azure.com/) o al [Centro account di Azure](https://account.windowsazure.com/Subscriptions). Questo articolo offre una soluzione al problema.
@@ -57,4 +55,3 @@ Controllare se l'account usato Ã¨ l'amministratore account. Per verificare chi Ã
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per ottenere una rapida risoluzione del problema. 
-

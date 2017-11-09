@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introduzione alle impostazioni rapide per Azure AD Connect
 La funzione **Impostazioni rapide** di Azure AD Connect viene usata quando è presente una topologia a singola foresta e si usa la [sincronizzazione password](active-directory-aadconnectsync-implement-password-synchronization.md) per l'autenticazione. **Impostazioni rapide** è l'opzione predefinita e viene usata nello scenario distribuito più comune. Questa opzione richiede solo pochi clic per estendere la directory locale nel cloud.
@@ -73,5 +72,4 @@ Ulteriori informazioni su [Integrazione delle identità locali con Azure Active 
 | Eseguire l'installazione con le impostazioni personalizzate |
 | Aggiornamento da DirSync |
 | Account usati per l'installazione |
-
 

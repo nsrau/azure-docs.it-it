@@ -12,28 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 09/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: c5971a137d9081be8c5978f481ec42a1f91e5a56
-ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
-
+ms.openlocfilehash: 431c974401c201a76b6d20de9837e44374716417
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Introduzione ad Azure Data Lake Store con l'interfaccia della riga di comando di Azure 2.0
 > [!div class="op_single_selector"]
 > * [Portale](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [SDK per Java](data-lake-store-get-started-java-sdk.md)
-> * [API REST](data-lake-store-get-started-rest-api.md)
 > * [Interfaccia della riga di comando di Azure 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
 >
->
+> 
 
 Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica di Data Lake Store](data-lake-store-overview.md).
 
@@ -240,11 +233,7 @@ az dls account delete --account mydatalakestore
 Quando viene richiesto, immettere **Y** per eliminare l'account.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-* [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dls) (Informazioni di riferimento sull'interfaccia della riga di comando di Azure Data Lake Store 2.0)
+* [Usare Azure Data Lake Store per i requisiti di Big Data](data-lake-store-data-scenarios.md) 
 * [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 * [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-[azure-command-line-tools]: ../xplat-cli-install.md
-

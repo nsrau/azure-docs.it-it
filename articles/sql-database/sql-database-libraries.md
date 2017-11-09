@@ -1,6 +1,6 @@
 ---
 title: Raccolte di connessioni per database SQL | Documentazione Microsoft
-description: Indica collegamenti per il download di moduli che consentono la connessione a SQL Server e a database SQL da una vasta gamma di linguaggi di programmazione client. I moduli vengono rilasciati dalla community o da Microsoft.
+description: Indica collegamenti per il download di moduli che consentono la connessione a SQL Server e a database SQL da una vasta gamma di linguaggi di programmazione client.
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -9,17 +9,17 @@ editor: genemi
 ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: genemi
-ms.openlocfilehash: 082abf57b139b9f7d44774dce3a80e20b97f0e3b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: bdf83fac9bd0ac6790062f802748a18045c7a171
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Librerie di connettività e framework per Microsoft SQL Server
 
@@ -31,9 +31,9 @@ La tabella seguente elenca le librerie di connettività o *driver* che le applic
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET per SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Scaricare](https://www.microsoft.com/net/download/) | [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Driver Microsoft JDBC per SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Scaricare](https://go.microsoft.com/fwlink/?linkid=852460) |  [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [Driver SQL PHP per SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Sistema operativo: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
+| PHP | Windows, Linux, macOS| [Driver SQL PHP per SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Sistema operativo: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
 | Node.js | Windows, Linux, macOS | [Driver Node.js per SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installare](https://msdn.microsoft.com/library/mt652094.aspx) |  [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Driver Python SQL](http://msdn.microsoft.com/library/mt652092.aspx) | Opzioni di installazione: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
+| Python | Windows, Linux, macOS | [Driver Python SQL](http://msdn.microsoft.com/library/mt652092.aspx) | Opzioni di installazione: <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Driver Ruby per SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installare](https://msdn.microsoft.com/library/mt711041.aspx) | [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Driver Microsoft ODBC per SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Scaricare](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
 

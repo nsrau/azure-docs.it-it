@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
-ms.contentlocale: it-it
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -61,7 +60,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 |cross-domain|Elemento radice. Gli elementi figlio devono essere conformi alla [specifica dei file di criteri tra domini Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sì|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere utilizzato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** in ingresso  
   
@@ -145,7 +144,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 |preflight-result-max-age|L'intestazione `Access-Control-Max-Age` nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità dell'agente utente di memorizzare nella cache la risposta preliminare.|No|0|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere utilizzato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** in ingresso  
   
@@ -190,4 +189,4 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
+Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  

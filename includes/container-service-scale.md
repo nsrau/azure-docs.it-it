@@ -1,4 +1,3 @@
-# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Ridimensionare i nodi agente in un cluster del servizio contenitore
 Dopo aver [distribuito un cluster del servizio contenitore di Azure](../articles/container-service/dcos-swarm/container-service-deployment.md), potrebbe essere necessario modificare il numero di nodi agente. Ad esempio, potrebbero essere necessari più agenti in modo da eseguire più applicazioni o istanze contenitore. 
 
 È possibile modificare il numero di nodi agente in un cluster DC/OS, Docker Swarm o Kubernetes tramite il portale di Azure o l'interfaccia della riga di comando di Azure 2.0. 

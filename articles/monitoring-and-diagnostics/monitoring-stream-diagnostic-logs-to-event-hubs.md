@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
 ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Trasmettere log di diagnostica di Azure a uno spazio dei nomi di Hub eventi
 I **[log di diagnostica di Azure](monitoring-overview-of-diagnostic-logs.md)** possono essere trasmessi quasi in tempo reale a qualsiasi applicazione con l'opzione "Esporta in hub eventi" incorporata nel portale oppure abilitando l'ID regola del bus di servizio in un'impostazione di diagnostica tramite i cmdlet di Azure PowerShell o l'interfaccia della riga di comando di Azure.

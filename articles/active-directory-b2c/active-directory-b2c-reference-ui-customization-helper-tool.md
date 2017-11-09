@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: swkrish
 ms.openlocfilehash: e0c2d827553567ddbc7d006192dc35574e66f1cd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina
 Questo articolo è complementare all' [articolo principale sulla personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. I passaggi seguenti descrivono come verificare la funzionalità di personalizzazione dell'interfaccia utente delle pagine usando il contenuto HTML e CSS di esempio fornito.

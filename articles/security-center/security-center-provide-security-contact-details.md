@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 09/15/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
-ms.openlocfilehash: 1a6e5e915745dd3588fbc54b353daa947b1c4289
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 726b59c45e2eb18eebe28a180db23336ae141408
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglierà di specificare i dettagli dei contatti di sicurezza per la sottoscrizione di Azure, se non è già stato fatto. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Microsoft Security Response Center esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi.
@@ -33,17 +31,18 @@ Alla prima occorrenza giornaliera di un avviso e solo per gli avvisi di elevata 
 >
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
-1. Nel pannello **Indicazioni** selezionare **Specificare i dettagli dei contatti di sicurezza**.
+1. In **Raccomandazioni** selezionare **Specificare i dettagli dei contatti di sicurezza**.
    ![Specificare contatti per la sicurezza][1]
-2. Verrà visualizzato il pannello **Specificare i dettagli dei contatti di sicurezza**. Selezionare la sottoscrizione di Azure per cui specificare le informazioni di contatto.
-   ![Specificare i dettagli dei contatti di sicurezza][2]
-3. Viene visualizzato un altro pannello **Specificare i dettagli dei contatti di sicurezza** .
+2. Selezionare la sottoscrizione di Azure per cui specificare le informazioni di contatto.
+3. Si apre **Criteri di sicurezza - Notifiche tramite posta elettronica**.
+
+   ![Specificare dettagli del contatto per la sicurezza][2]
 
    * Immettere l'indirizzo o gli indirizzi di posta elettronica del contatto di sicurezza, separati da virgole. Non è previsto alcun limite per il numero di indirizzi di posta elettronica che è possibile immettere.
    * Immettere un numero di telefono internazionale per il contatto di sicurezza.
    * Per ricevere messaggi di posta elettronica relativi agli avvisi di elevata gravità, attivare l'opzione **Send me emails about alerts**(Invia messaggi di posta elettronica sugli avvisi).
    * In futuro, sarà possibile inviare notifiche tramite posta elettronica ai proprietari di sottoscrizioni. Attualmente questa opzione non è disponibile.
-   * Selezionare **OK** per applicare le informazioni di contatto di sicurezza alla sottoscrizione.
+   * Selezionare **Salva** per applicare le informazioni di contatto di sicurezza alla sottoscrizione.
 
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -59,4 +58,3 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 <!--Image references-->
 [1]: ./media/security-center-provide-security-contacts/provide-contacts.png
 [2]:./media/security-center-provide-security-contacts/provide-contact-details.png
-

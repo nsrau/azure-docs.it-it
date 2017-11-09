@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
-ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 934580f6fcfdbff6e61626ed685459478559717d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-and-linux-vm-storage"></a>Archiviazione delle macchine virtuali Linux e Azure
 Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti.  Oltre a consentire agli sviluppatori di compilare applicazioni di grande portata per supportare nuovi scenari, Archiviazione di Azure offre anche la base di archiviazione per le macchine virtuali di Azure.
@@ -91,7 +91,7 @@ Funzionalità di Archiviazione Premium:
 * Dischi di Archiviazione Premium: Archiviazione Premium di Azure supporta dischi VM che possono essere collegati a VM di Azure della serie DS, DSv2 o GS.
 * BLOB di pagine Premium: Archiviazione Premium supporta i BLOB di pagine di Azure, che vengono usati per conservare dischi persistenti per Macchine virtuali di Azure.
 * Archiviazione con ridondanza locale Premium: un account di Archiviazione Premium supporta solo l'opzione di replica di archiviazione con ridondanza locale e mantiene tre copie dei dati in una singola area.
-* [Archiviazione Premium](../../storage/common/storage-premium-storage.md)
+* [Archiviazione Premium](../windows/premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>VM supportate da Archiviazione Premium
 Archiviazione Premium supporta Macchine virtuali di Azure (VM) delle serie DS, DSv2, GS e Fs. Con le VM supportate da Archiviazione Premium è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. Non è tuttavia possibile usare i dischi di Archiviazione Premium con le macchine virtuali di serie non compatibili con Archiviazione Premium.

@@ -16,14 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica
 
 È possibile esporre a livello nativo gli endpoint HTTP sincroni come trigger sulle app per la logica, permettendo in tal modo di attivare o di chiamare le app per la logica tramite un URL. È inoltre possibile annidare i flussi di lavoro nell'app per la logica usando un modello di endpoint richiamabile.
@@ -86,7 +84,7 @@ Per creare un endpoint HTTP, aggiungere un trigger in grado di ricevere le richi
     genera questo schema:
 
     ```json
-    }
+    {
        "type": "object",
        "properties": {
           "address": {
@@ -147,8 +145,7 @@ Quando si desidera che l'URL dell'endpoint HTTP accetti i parametri, personalizz
 5. Nel **corpo** della risposta includere il token per il parametro specificato nel percorso relativo del trigger.
 
     Ad esempio, per restituire `Hello {customerID}`, aggiornare il **corpo** della risposta con `Hello {customerID token}`. 
-    Viene visualizzato l'elenco del contenuto dinamico che mostra il token `customerID` 
-    per la selezione.
+    Viene visualizzato l'elenco del contenuto dinamico che mostra il token `customerID` da selezionare.
 
     ![Aggiungere un parametro al corpo della risposta](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
@@ -320,4 +317,3 @@ Per contribuire al miglioramento delle App per la logica di Azure e dei connetto
 [1]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-

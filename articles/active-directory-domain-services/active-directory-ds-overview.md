@@ -4,7 +4,7 @@ description: Panoramica dei Servizi di dominio Azure Active Directory
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory-ds
@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 10/26/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c70e80c413d0637f956c43686df29b8073daaa3b
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: be18ee0266a97057499baccc5bb39a35224336d7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-ad-domain-services"></a>Servizi di dominio Azure Active Directory
+# <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Panoramica
 I servizi di infrastruttura di Azure consentono di distribuire un'ampia gamma di soluzioni di computing in modo agile. Con Macchine virtuali di Azure, è possibile eseguire la distribuzione quasi istantaneamente, con un pagamento al minuto. Grazie al supporto per Windows, Linux, SQL Server, Oracle, IBM, SAP e BizTalk, è possibile distribuire qualsiasi carico di lavoro e qualunque linguaggio su quasi tutti i sistemi operativi. Questi vantaggi permettono di eseguire la migrazione di applicazioni legacy distribuite in locale in Azure, per generare risparmi sulle spese operative.
 
@@ -36,6 +35,10 @@ Per soddisfare le esigenze in termini di gestione delle identità delle applicaz
 Tutti questi approcci tuttavia prevedono costi elevati e un carico di lavoro amministrativo significativo. Gli amministratori devono distribuire i controller di dominio tramite macchine virtuali in Azure. In più, devono gestire, proteggere, applicare patch, monitorare, eseguire il backup e risolvere i problemi relativi a tali macchine virtuali. L'utilizzo di connessioni VPN alla directory locale rende i carichi di lavoro distribuiti in Azure vulnerabili a errori o interruzioni di rete temporanee. Queste interruzioni di rete determinano tempi di attività inferiori e affidabilità ridotta delle applicazioni.
 
 Servizi di dominio Azure Active Directory è pensata per offrire un'alternativa più semplice.
+
+### <a name="watch-an-introductory-video"></a>Guardare un video introduttivo
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
+
 
 ## <a name="introducing-azure-ad-domain-services"></a>Introduzione a Servizi di dominio Azure AD
 Servizi di dominio Azure Active Directory offre servizi di dominio gestiti, ad esempio aggiunta a un dominio, Criteri di gruppo, LDAP e autenticazione Kerberos/NTLM, completamente compatibili con Windows Server Active Directory. È possibile utilizzare questi servizi di dominio senza dover distribuire, gestire e applicare patch ai controller di dominio nel cloud. Servizi di dominio Azure Active Directory si integra con il tenant Azure AD esistente per consentire agli utenti di eseguire l'accesso usando le proprie credenziali aziendali. È anche possibile usare i gruppi e gli account utente esistenti per proteggere l'accesso alle risorse e garantire uno spostamento semplificato delle risorse locali nei servizi di infrastruttura di Azure.
@@ -84,3 +87,13 @@ Servizi di dominio Azure AD offre i vantaggi seguenti:
 * **Compatibile** : Servizi di dominio Azure Active Directory è realizzata sull'infrastruttura di livello aziendale collaudata di Windows Server Active Directory. Di conseguenza, le applicazioni possono dipendere da un più alto livello di compatibilità con le funzionalità di Windows Server Active Directory. Non tutte le funzionalità disponibili in Windows Server Active Directory sono attualmente disponibili in Servizi di dominio Azure AD. Le funzionalità disponibili sono tuttavia compatibili con le funzionalità di Windows Server Active Directory corrispondenti usate nell'infrastruttura locale. Le funzionalità LDAP, Kerberos, NTLM, Criteri di gruppo e di aggiunta a un dominio costituiscono un'offerta matura testata e perfezionata nel corso di diverse versioni di Windows Server.
 * **Conveniente** : Servizi di dominio Azure AD consente di evitare i costi di gestione e di infrastruttura associati alla gestione dell'infrastruttura di identità per il supporto delle applicazioni compatibili con le directory tradizionali. È possibile spostare queste applicazioni nei servizi di infrastruttura di Azure e ottenere maggiori risparmi sulle spese operative.
 
+
+## <a name="next-steps"></a>Passaggi successivi
+### <a name="learn-more-about-azure-ad-domain-services"></a>Ulteriori informazioni su Azure AD Domain Services
+* [Funzionalità](active-directory-ds-features.md)
+* [Scenari di distribuzione](active-directory-ds-scenarios.md)
+* [Scoprire se Azure AD Domain Services sono appropriati ai casi d'uso](active-directory-ds-comparison.md)
+* [Comprendere come Azure AD Domain Services si sincronizza con la directory di Azure AD](active-directory-ds-synchronization.md)
+
+### <a name="get-started-with-azure-ad-domain-services"></a>Introduzione ai servizi di dominio Azure AD
+* [Abilitare Azure AD Domain Services tramite il portale di Azure](active-directory-ds-getting-started.md)

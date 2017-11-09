@@ -13,32 +13,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 4cfc1652377f0cfd059e336aec6994b40d32c559
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="roll-out-password-reset-for-users"></a>Implementare la reimpostazione della password per gli utenti
+# <a name="how-to-successfully-rollout-self-service-password-reset"></a>Come implementare la reimpostazione della password self-service
 
-La maggior parte dei clienti segue questa procedura per garantire un'implementazione semplice della reimpostazione password self-service.
+La maggior parte dei clienti segue questa procedura per garantire un'implementazione semplice della reimpostazione della password self-service.
 
-1. [Abilitare la reimpostazione della password nella directory](active-directory-passwords-getting-started.md)
-2. [Configurare le autorizzazioni AD locali per il writeback delle password](active-directory-passwords-how-it-works.md#active-directory-permissions)
-3. [Configurare il writeback delle password](active-directory-passwords-writeback.md#configuring-password-writeback) per riscrivere le password da Azure AD alla directory locale
-4. [Assegnare e verificare le licenze necessarie](active-directory-passwords-licensing.md)
-5. Per un'implementazione graduale nel tempo è possibile limitare la reimpostazione della password a un gruppo di utenti. A tale scopo impostare l'interruttore **Reimpostazione password self-service abilitata** da **Tutti** a **Un gruppo** e selezionare un gruppo di sicurezza da abilitare per la reimpostazione della password. I membri di questo gruppo devono tutti avere licenze assegnate ed è consigliabile abilitare le [licenze basate sui gruppi](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
-6. Popolare il set minimo di [dati di autenticazione](active-directory-passwords-data.md) in base ai criteri.
-7. Illustrare agli utenti l'uso della reimpostazione password self-service inviando istruzioni per la registrazione e la reimpostazione.
-    > [!NOTE]
+1. [Abilitare la reimpostazione della password nella directory](active-directory-passwords-getting-started.md).
+2. [Configurare le autorizzazioni AD locali per il writeback delle password](active-directory-passwords-writeback.md#active-directory-permissions).
+3. [Configurare il writeback delle password](active-directory-passwords-writeback.md#configuring-password-writeback) per riscrivere le password da Azure AD alla directory locale.
+4. [Assegnare e verificare le licenze necessarie](active-directory-passwords-licensing.md).
+5. Per implementare gradualmente la reimpostazione della password nella directory, è possibile limitare l'accesso a un gruppo di utenti per poter eseguire progetti pilota con un gruppo specifico. A tale scopo impostare l'opzione **Reimpostazione password self-service abilitata** su **Selezionato** e selezionare il gruppo di sicurezza da abilitare per la reimpostazione della password. 
+6. Immettere i [dati di autenticazione](active-directory-passwords-data.md) degli utenti, ad esempio il telefono dell'ufficio, il telefono cellulare e l'indirizzo di posta elettronica alternativo.
+7. [Personalizzare l'esperienza di accesso di Azure AD per includere le informazioni personalizzate distintive dell'azienda](active-directory-passwords-customize.md).
+8. Illustrare agli utenti l'uso della reimpostazione password self-service inviando istruzioni per la registrazione e la reimpostazione.
+9. È possibile scegliere di imporre la registrazione in qualsiasi momento e richiedere agli utenti di riconfermare le informazioni di autenticazione dopo un certo periodo di tempo.
+10. Nel tempo, esaminare gli utenti che eseguono la registrazione e usano la funzionalità tramite i [report messi a disposizione da Azure AD](active-directory-passwords-reporting.md).
+11. Quando si è pronti, abilitare la reimpostazione della password per tutti gli utenti e impostare l'opzione **Reimpostazione delle password self-service abilitata** su **Tutti**. 
+
+    > [!IMPORTANT]
     > Testare la reimpostazione password self-service con un utente e non con un amministratore, perché Microsoft applica requisiti di autenticazione avanzata per gli account di tipo amministratore di Azure. Per altre informazioni sui criteri delle password amministratore, vedere l'[articolo di approfondimento](active-directory-passwords-how-it-works.md).
-
-8. È possibile scegliere di imporre la registrazione in qualsiasi momento e richiedere agli utenti di riconfermare le informazioni di autenticazione dopo un certo periodo di tempo. Se non si vuole che gli utenti eseguano la registrazione, è possibile [distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale](active-directory-passwords-data.md).
-9. Nel tempo, esaminare gli utenti che eseguono la registrazione e usano la funzionalità tramite i [report messi a disposizione da Azure AD](active-directory-passwords-reporting.md).
 
 ## <a name="email-based-rollout"></a>Implementazione basata sulla posta elettronica
 
@@ -48,13 +49,17 @@ Molti clienti ritengono che una campagna di posta elettronica con istruzioni sem
 * Modello di messaggio **Ora disponibile** da usare il giorno del lancio per invitare gli utenti a eseguire la registrazione e verificare i dati di autenticazione per usare la reimpostazione password self-service quando necessario.
 * Modello di messaggio **Promemoria di registrazione** da usare per alcuni giorni o settimane dopo l'implementazione per ricordare agli utenti di eseguire la registrazione e verificare i dati di autenticazione.
 
+![Indirizzo di posta elettronica][Email]
+
 ## <a name="creating-your-own-password-portal"></a>Creazione del portale delle password
 
 Molti dei nostri clienti più grandi scelgono di ospitare una pagina Web e creare una voce DNS radice, ad esempio https://passwords.contoso.com. Popolano questa pagina con collegamenti per la reimpostazione della password di Azure AD, la registrazione per la reimpostazione della password e i portali di modifica della password, oltre ad altre informazioni specifiche dell'organizzazione. In qualsiasi comunicazione cartacea o di posta elettronica inviata è possibile includere un URL personalizzato facile da ricordare al quale gli utenti possono accedere quando devono usare i servizi.
 
-* Portale di reimpostazione della password: https://passwordreset.microsoftonline.com/
+* Portale di reimpostazione della password: https://aka.ms/sspr
 * Portale di registrazione per la reimpostazione della password: http://aka.ms/ssprsetup
 * Portale di modifica della password: https://account.activedirectory.windowsazure.com/ChangePassword.aspx
+
+È stata creata una pagina di esempio, che è possibile usare e personalizzare in base alle esigenze dell'organizzazione, scaricabile da [GitHub](https://github.com/ajamess/password-reset-page).
 
 ## <a name="using-enforced-registration"></a>Uso della registrazione applicata
 
@@ -74,15 +79,15 @@ Per disabilitare la reimpostazione self-service della password è sufficiente ap
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
+* [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md).
+* [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md).
+* [Domande sulle licenze](active-directory-passwords-licensing.md)
+* [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](active-directory-passwords-data.md)
+* [Opzioni dei criteri per la reimpostazione della password self-service](active-directory-passwords-policy.md)
+* [Panoramica del writeback delle password](active-directory-passwords-writeback.md)
+* [Come creare un report sull'attività relativa alla reimpostazione della password self-service](active-directory-passwords-reporting.md)
+* [Informazioni sulle opzioni della reimpostazione della password self-service](active-directory-passwords-how-it-works.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
-* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
-* [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
-* [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
-* [**Personalizzazione**](active-directory-passwords-customize.md): personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
-* [**Criteri**](active-directory-passwords-policy.md): comprendere e impostare i criteri password di Azure AD
-* [**Writeback delle password**](active-directory-passwords-writeback.md): funzionamento del writeback delle password con la directory locale
-* [**Creazione di report**](active-directory-passwords-reporting.md) - verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
-* [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
-* [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
-* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
+[Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "Personalizzare questi modelli di messaggi di posta elettronica in base ai requisiti aziendali"

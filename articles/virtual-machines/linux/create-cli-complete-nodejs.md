@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure 1.0
 In questo articolo viene spiegato come creare una semplice rete con un servizio di bilanciamento del carico e un paio di VM utili per lo sviluppo e per calcoli semplici. Viene presentato in dettaglio l'intero processo, comando dopo comando, fino a creare due VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet. Si potrà quindi passare a reti e ambienti più complessi.

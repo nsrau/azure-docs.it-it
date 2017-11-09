@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
-ms.contentlocale: it-it
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuire una soluzione di bilanciamento del carico con connessione Internet con IPv6 usando un modello
 
 > [!div class="op_single_selector"]
@@ -136,4 +134,3 @@ Il modello di esempio usato in questo articolo include le variabili e i parametr
 | lbName |Specificare il nome del servizio di bilanciamento del carico. Questo nome viene visualizzato nel portale o usato nei comandi di PowerShell o dell'interfaccia della riga di comando. |
 
 Le altre variabili nel modello contengono valori derivati assegnati quando Azure crea le risorse. Non modificare queste variabili.
-

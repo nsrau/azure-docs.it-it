@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: e4fe5400ffcf4446392015aada031dd4dfbf238a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -31,8 +31,6 @@ L'articolo illustra:
 * Come definire l'ambito delle credenziali per limitare l'accesso a risorse specifiche.
 * Supporto dell'hub IoT per i certificati x.509.
 * Meccanismo di autenticazione personalizzata del dispositivo che usa gli schemi di autenticazione o i registri di identità del dispositivo esistenti.
-
-### <a name="when-to-use"></a>Quando usare le autorizzazioni
 
 È necessario avere le autorizzazioni appropriate per accedere agli endpoint dell'hub IoT. Un dispositivo, ad esempio, deve includere un token contenente le credenziali di sicurezza con ogni messaggio inviato all'hub IoT.
 
@@ -72,7 +70,7 @@ Per altre informazioni sulla creazione e sull'uso di token di sicurezza, vedere 
 
 ### <a name="protocol-specifics"></a>Specifiche del protocollo
 
-Ogni protocollo supportato, ad esempio MQTT, AMQP e HTTP, trasporta i token in modo diverso.
+Ogni protocollo supportato, ad esempio MQTT, AMQP e HTTPS, trasporta i token in modo diverso.
 
 Quando si usa MQTT, il pacchetto CONNECT ha deviceId come valore di ClientId, {iothubhostname}/{deviceId} nel campo Username e un token di firma di accesso condiviso nel campo Password. Il valore di {iothubhostname} deve essere il record CName completo dell'hub IoT, ad esempio contoso.azure-devices.net.
 
@@ -87,7 +85,7 @@ Per SASL PLAIN **username** può essere:
 
 In entrambi i casi, il campo della password contiene il token, come descritto in [Token di sicurezza dell'hub IoT][lnk-sas-tokens].
 
-Il protocollo HTTP implementa l'autenticazione includendo un token valido nell'intestazione della richiesta **Authorization** .
+Il protocollo HTTPS implementa l'autenticazione includendo un token valido nell'intestazione della richiesta **Authorization** .
 
 #### <a name="example"></a>Esempio
 
@@ -115,7 +113,7 @@ Questo meccanismo è simile ai [criteri dell'entità di pubblicazione di Hub eve
 
 Hub IoT usa i token di sicurezza per autenticare i dispositivi e i servizi ed evitare l'invio in rete delle chiavi. Inoltre, i token di sicurezza hanno una validità limitata in termini di tempo e portata. Gli [Azure IoT SDK][lnk-sdks] generano automaticamente i token senza richiedere una configurazione speciale. In alcuni scenari è necessario generare e usare direttamente i token di sicurezza. Tali scenari includono:
 
-* L'uso diretto di superfici MQTT, AMQP o HTTP.
+* L'uso diretto di superfici MQTT, AMQP o HTTPS.
 * L'implementazione del modello di servizio token, come descritto in [Autenticazione personalizzata del dispositivo][lnk-custom-auth].
 
 Hub IoT consente ai dispositivi di autenticarsi con l'hub IoT usando [certificati X.509][lnk-x509].
@@ -193,6 +191,39 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
 
+La funzionalità di C# per generare un token di sicurezza è la seguente:
+
+```C#
+using System;
+using System.Globalization;
+using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
+
+public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+{
+    TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
+
+    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+
+    HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
+    string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+
+    if (!String.IsNullOrEmpty(policyName))
+    {
+        token += "&skn=" + policyName;
+    }
+
+    return token;
+}
+
+```
+
+
 > [!NOTE]
 > Poiché la validità temporale del token viene verificata sui computer hub IoT, lo sfasamento dell'orologio del computer che genera il token deve essere minimo.
 
@@ -210,7 +241,7 @@ Gli endpoint per il dispositivo sono, indipendentemente dal protocollo:
 | Endpoint | Funzionalità |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Invio di messaggi da dispositivo a cloud. |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |Ricezione di messaggi da cloud a dispositivo. |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Ricezione di messaggi da cloud a dispositivo. |
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Usare una chiave simmetrica nel registro identità
 
@@ -412,13 +443,13 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come controllare l'accesso all'hub IoT. Altri argomenti di interesse reperibili nella Guida per sviluppatori sono i seguenti:
+In questa esercitazione si è appreso come controllare l'accesso all'hub IoT. Altri argomenti di interesse disponibili nella Guida per sviluppatori sono i seguenti:
 
 * [Use device twins to synchronize state and configurations][lnk-devguide-device-twins] (Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni)
 * [Richiamare un metodo diretto in un dispositivo][lnk-devguide-directmethods]
 * [Pianificare processi in più dispositivi][lnk-devguide-jobs]
 
-Per provare alcuni dei concetti descritti in questo articolo, possono essere utili le esercitazioni di hub IoT seguenti:
+Per provare alcuni dei concetti descritti in questo articolo, vedere le esercitazioni sull'hub IoT seguenti:
 
 * [Introduzione all'hub IoT di Azure][lnk-getstarted-tutorial]
 * [Inviare messaggi da cloud a dispositivo con l'hub IoT][lnk-c2d-tutorial]

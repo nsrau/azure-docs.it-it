@@ -1,9 +1,9 @@
 ---
-title: Migliorare le prestazioni dell'indice columnstore in Azure SQL | Documentazione Microsoft
+title: Migliorare le prestazioni dell'indice columnstore in Azure SQL Data Warehouse| Microsoft Docs
 description: Ridurre i requisiti di memoria o aumentare la memoria disponibile per accrescere al massimo il numero di righe che un indice columnstore comprime in ogni gruppo di righe.
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 6/2/2017
-ms.author: shigu;barbkess
-ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.date: 10/23/2017
+ms.author: barbkess
+ms.openlocfilehash: 0476afb875616ed0758835aa52fb2334b63959a9
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
 
@@ -85,7 +85,7 @@ La memoria massima necessaria per comprimere un gruppo di righe è circa
 
 - 72 MB +
 - \#righe \* \#colonne \* 8 byte +
-- \#righe \* \#colonne stringa breve \* 32 byte +
+- \#righe \*\#colonne stringa breve \* 32 byte +
 - \#colonne stringa lunga \* 16 MB per il dizionario di compressione
 
 dove le colonne stringa breve usano tipi di dati stringa < = 32 byte e le colonne stringa lunga usano tipi di dati stringa > 32 byte.

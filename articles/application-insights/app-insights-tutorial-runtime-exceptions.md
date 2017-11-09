@@ -3,21 +3,19 @@ title: Diagnosticare le eccezioni di runtime con Azure Application Insights | Mi
 description: Esercitazione per il rilevamento e la diagnosi delle eccezioni di runtime in un'applicazione con Azure Application Insights.
 services: application-insights
 keywords: 
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/19/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 58c69e9c75f3a97c04b2c5b2e3b9acfc7065c658
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rilevare e diagnosticare le eccezioni di runtime con Azure Application Insights
 
 Azure Application Insights raccoglie i dati di telemetria dall'applicazione per consentire di identificare e diagnosticare le eccezioni di runtime.  Questa esercitazione illustra l'esecuzione di questo processo con l'applicazione in uso.  Si apprenderà come:
@@ -39,6 +37,7 @@ Per completare questa esercitazione:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
 - Scaricare e installare il [debugger di snapshot di Visual Studio](http://aka.ms/snapshotdebugger).
+- Abilitare il [debugger di snapshot di Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger)
 - Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](app-insights-asp-net.md). 
 - L'esercitazione tiene traccia dell'identificazione di un'eccezione nell'applicazione, quindi modificare il codice nell'ambiente di sviluppo o di test per generare un'eccezione. 
 

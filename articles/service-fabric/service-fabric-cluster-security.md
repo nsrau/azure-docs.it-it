@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: e75929ee5d3f57af77c66910cc294a7c0fb6629a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
 Un cluster di Azure Service Fabric è una risorsa di cui si è proprietari. È necessario proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. La creazione di cluster non protetti, anche se possibile, potrebbe consentire a utenti anonimi di connettersi a un cluster che espone gli endpoint di gestione a Internet pubblico. 
@@ -71,14 +70,14 @@ Per i cluster eseguiti in Azure è anche possibile proteggere l'accesso agli end
 ## <a name="security-recommendations"></a>Suggerimenti per la sicurezza
 Per i cluster di Azure si consiglia di usare la sicurezza di Azure AD per l'autenticazione dei client e dei certificati per la sicurezza da nodo a nodo.
 
-Per i cluster di Windows Server autonomi, se sono presenti Windows Server 2012 R2 e Active Directory è consigliabile usare la sicurezza di Windows con account gestiti di gruppo. In caso contrario, usare comunque la sicurezza di Windows con account di Windows.
+Per i cluster di Windows Server autonomi, se sono presenti Windows Server 2012 R2 e Active Directory è consigliabile usare la sicurezza di Windows con account del servizio gestito del gruppo. In caso contrario, usare comunque la sicurezza di Windows con account di Windows.
 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
-È possibile usare il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per diversi gruppi di utenti. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster, sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.
+È possibile usare il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster, sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.
 
-Gli utenti assegnati al ruolo di Amministratore hanno accesso completo alle funzionalità di gestione, incluse funzionalità di lettura/scrittura. Gli utenti assegnati al ruolo di Utente, per impostazione predefinita, hanno solo l'accesso in lettura alle funzionalità di gestione, ad esempio funzionalità di query, e la possibilità di risolvere applicazioni e servizi.
+Gli utenti assegnati al ruolo di amministratore hanno accesso completo alle funzionalità  di gestione, incluse funzionalità  di lettura/scrittura. Gli utenti assegnati al ruolo di utente, per impostazione predefinita, hanno solo l'accesso in lettura alle funzionalità di gestione, ad esempio funzionalità di query, e la possibilità di risolvere applicazioni e servizi.
 
-Impostare i ruoli del client di Amministratore e Utente quando si crea il cluster. Assegnare i ruoli fornendo identità separate (ad esempio, tramite certificati o Azure AD) per ogni tipo di ruolo. Per altre informazioni sulle impostazioni predefinite del controllo di accesso e su come modificarle, vedere [Controllo di accesso basato sui ruoli per i client di Service Fabric](service-fabric-cluster-security-roles.md).
+Impostare i ruoli del client di amministratore e utente quando si crea il cluster. Assegnare i ruoli fornendo identità separate (ad esempio, tramite certificati o Azure AD) per ogni tipo di ruolo. Per altre informazioni sulle impostazioni predefinite del controllo di accesso e su come modificarle, vedere [Controllo di accesso basato sui ruoli per i client di Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificati X.509 e Service Fabric
 I certificati digitali X.509 vengono comunemente usati per autenticare client e server, oltre a essere usati per crittografare e firmare digitalmente i messaggi. Per altre informazioni sui certificati digitali X.509, vedere [Uso dei certificati](http://msdn.microsoft.com/library/ms731899.aspx).
@@ -86,20 +85,20 @@ I certificati digitali X.509 vengono comunemente usati per autenticare client e 
 Alcuni elementi importanti da considerare:
 
 * Per creare i certificati usati nei cluster che eseguono carichi di lavoro di produzione, usare un servizio certificati di Windows Server configurato correttamente oppure ottenerli da un'[Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority) approvata.
-* Non usare mai certificatii temporanei o di test creati mediante strumenti come MakeCert.exe in un ambiente di produzione.
+* Non usare mai certificati temporanei o di test creati mediante strumenti come MakeCert.exe in un ambiente di produzione.
 * È possibile usare un certificato autofirmato, ma solo in un cluster di test. Non usare un certificato autofirmato nell'ambiente di produzione.
 
 ### <a name="server-x509-certificates"></a>Certificati server X.509
-L'attività principale dei certificati del server è l'autenticazione di un server (nodo) nei client o di un server (nodo) in un server (nodo). Uno dei primi controlli eseguiti quando un client o un nodo autentica un nodo consiste nel controllare il valore del nome comune nel campo **Oggetto**. Questo nome comune o uno dei nomi alternativi del soggetto (SAN) dei certificati deve essere presente nell'elenco di nomi comuni consentiti.
+L'attività principale dei certificati del server è l'autenticazione di un server (nodo) nei client o di un server (nodo) in un server (nodo). Uno dei primi controlli eseguiti quando un client o un nodo autentica un nodo consiste nel controllare il valore del nome comune nel campo **Oggetto**. Questo nome comune o uno dei nomi alternativi del soggetto dei certificati deve essere presente nell'elenco di nomi comuni consentiti.
 
-Per informazioni su come generare certificati che dispongano di SAN, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](http://support.microsoft.com/kb/931351).
+Per informazioni su come generare certificati con nomi alternativi del soggetto, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](http://support.microsoft.com/kb/931351).
 
-Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. L'inizializzazione è di norma **CN** per il *nome comune*, ad esempio, **CN = www.contoso.com**. Il campo **Soggetto** può essere vuoto. Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Queste voci vengono immesse come valori di **nomi DNS**.
+Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. L'inizializzazione è in genere **CN** per il *nome comune*, ad esempio, **CN = www.contoso.com**. Il campo **Soggetto** può essere vuoto. Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Queste voci vengono immesse come valori di **nomi DNS**.
 
 Il valore del campo **Scopi designati** del certificato deve includere un valore appropriato, ad esempio **Autenticazione server** o **Autenticazione client**.
 
 ### <a name="client-x509-certificates"></a>Certificati client X.509
-I certificati client in genere non vengono rilasciati da un'autorità di certificazione di terze parti. In genere l'archivio personale della località utente corrente contiene invece certificati client inseriti da un'autorità radice, con lo **scopo designato** **Autenticazione client**. Il client può usare tali certificati quando è necessaria l'autenticazione reciproca.
+I certificati client in genere non vengono rilasciati da un'autorità di certificazione di terze parti. In genere l'archivio personale del percorso utente corrente contiene invece certificati client inseriti da un'autorità radice, con lo **scopo designato** **Autenticazione client**. Il client può usare tali certificati quando è necessaria l'autenticazione reciproca.
 
 > [!NOTE]
 > Tutte le operazioni di gestione in un cluster di Service Fabric richiedono certificati server. I certificati client non possono essere usati per la gestione.
@@ -111,4 +110,3 @@ I certificati client in genere non vengono rilasciati da un'autorità di certifi
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
-

@@ -1,12 +1,14 @@
 # Panoramica
 ## [Informazioni su Azure AD Domain Services](active-directory-ds-overview.md)
-## [È la scelta giusta?](active-directory-ds-comparison.md)
+## È la scelta giusta?
+### [Confronto con AD di Windows Server](active-directory-ds-comparison.md)
+### [Confronto con l'aggiunta ad Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
 ## [Funzionalità](active-directory-ds-features.md)
 ## [Scenari](active-directory-ds-scenarios.md)
 ## [Funzionamento della sincronizzazione](active-directory-ds-synchronization.md)
 ## [Software di terze parti compatibile](active-directory-ds-compatible-software.md)
 
-# Attività iniziali
+# Introduzione
 ## [Attività 1: Configurare le impostazioni di base](active-directory-ds-getting-started.md)
 ## [Attività 2: Configurare le impostazioni di rete](active-directory-ds-getting-started-network.md)
 ## [Attività 3: Configurare un gruppo di amministratori e abilitare Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
@@ -15,9 +17,11 @@
 
 # Procedure
 ## Aggiungere un dominio gestito
-### [Aggiungere una VM Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Aggiungere una VM Windows tramite PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [VM Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+### [VM Windows Server da un modello](active-directory-ds-join-windows-vm-template.md)
+### [CentOS](active-directory-ds-join-centos-linux-vm.md)
+### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
+### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Amministrare un dominio gestito
 ### [Amministrare un dominio gestito](active-directory-ds-admin-guide-administer-domain.md)
@@ -34,7 +38,8 @@
 ### [Configurare il supporto per la sincronizzazione del profilo per SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Configurare la delega vincolata di Kerberos](active-directory-ds-enable-kcd.md)
 ### [Distribuire il proxy dell'applicazione di Azure AD](active-directory-ds-deploy-azure-app-proxy.md)
-## Risolvere problemi
+## [Eliminare un dominio gestito](active-directory-ds-disable-aadds.md)
+## Risoluzione dei problemi
 ### [Domande frequenti](active-directory-ds-faqs.md)
 ### [Guida per la risoluzione dei problemi](active-directory-ds-troubleshooting.md)
 ### [Risolvere gli errori relativi ai tenant non corrispondenti](active-directory-ds-mismatched-tenant-error.md)

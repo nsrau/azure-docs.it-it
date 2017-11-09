@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/23/2017
 ms.author: terrylan
+ms.openlocfilehash: abbcb0a8e0206d78ca94520dfa81ab92506c47af
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: b3b4a6df431ccdb882dd354aac9cb86a96a81b11
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gestire i problemi di protezione degli endpoint con il Centro sicurezza di Azure
 Il Centro sicurezza di Azure monitora lo stato della protezione antimalware e lo segnala nel pannello dei problemi di protezione endpoint. Il Centro sicurezza evidenzia i problemi, quali minacce rilevate e protezione insufficiente, che può rendere i computer e le macchine virtuali vulnerabili ai rischi antimalware. Usando le informazioni in **Problemi di protezione degli endpoint**, è possibile sviluppare un piano per risolvere eventuali problemi identificati.
@@ -34,6 +33,11 @@ Il Centro sicurezza segnala i problemi di protezione endpoint seguenti:
    - Protezione non in tempo reale: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non è configurata per la protezione in tempo reale.   È possibile che il servizio sia disattivato o che il Centro sicurezza non riesca a ottenere lo stato perché la soluzione non è supportata. Vedere l'[integrazione dei partner](security-center-partner-integration.md) per un elenco delle soluzioni supportate.
    - Segnalazioni non inviate: è installata una soluzione antimalware che non invia le segnalazioni dei dati.
    - Sconosciuto: è installata una soluzione antimalware il cui stato è stato è sconosciuto o segnala un errore sconosciuto.
+
+   > [!NOTE]
+   > Vedere [Integrare soluzioni di sicurezza](security-center-partner-integration.md#integrated-azure-security-solutions) per un elenco delle soluzioni di sicurezza di Endpoint Protection integrate nel Centro sicurezza.
+   >
+   >
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
 I problemi di protezione dell'endpoint vengono presentati sotto forma di suggerimento nel Centro sicurezza.  Se l'ambiente è esposto a minacce antimalware, la raccomandazione verrà visualizzata in **Raccomandazioni** e **Calcolo**. Per vedere il **dashboard dei problemi di protezione endpoint**, è necessario seguire il flusso di lavoro di Calcolo.
@@ -114,4 +118,3 @@ Per altre informazioni sul Centro sicurezza, vedere i documenti seguenti:
 [4]:./media/security-center-install-endpoint-protection/endpoint-protection-issues-computers.png
 [5]:./media/security-center-install-endpoint-protection/log-search.png
 [6]:./media/security-center-install-endpoint-protection/info-filtered-to-computer.png
-

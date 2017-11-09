@@ -3,7 +3,7 @@ title: Esplorazione dei dati HockeyApp in Application Insights | Microsoft Docs
 description: Analizzare l'utilizzo e le prestazioni dell'app Azure con Application Insights.
 services: application-insights
 documentationcenter: windows
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
 ms.service: application-insights
@@ -12,15 +12,21 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: bwren
-ms.openlocfilehash: 450ca10613d137393090578619f3766734d1d493
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: a925241d10b068e377fa9a11fc854db34c808343
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Esplorazione dei dati HockeyApp in Application Insights
-[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) è la piattaforma consigliata per il monitoraggio di live app per desktop e per dispositivi mobili. Da HockeyApp è possibile inviare dati di telemetria di traccia e personalizzata per monitorare l'utilizzo e facilitare la diagnosi, oltre a ottenere dati di arresto anomalo. È possibile effettuare una query di questo flusso di dati di telemetria con la funzionalità [Analytics](app-insights-analytics.md) di [Azure Application Insights](app-insights-overview.md). È anche possibile [esportare i dati di telemetria di traccia e personalizzata](app-insights-export-telemetry.md). Per abilitare queste funzionalità, configurare un bridge che inoltra i dati HockeyApp personalizzati ad Application Insights.
+
+> [!NOTE]
+> Visual Studio Mobile Center è ora il servizio consigliato di Microsoft per il monitoraggio delle nuove app per dispositivi mobili. [Informazioni su come configurare le app con Mobile Center e Application Insights](app-insights-mobile-center-quickstart.md).
+> 
+> 
+
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) è un servizio per il monitoraggio di live app per desktop e per dispositivi mobili. Da HockeyApp è possibile inviare dati di telemetria di traccia e personalizzata per monitorare l'utilizzo e facilitare la diagnosi, oltre a ottenere dati di arresto anomalo. È possibile effettuare una query di questo flusso di dati di telemetria con la funzionalità [Analytics](app-insights-analytics.md) di [Azure Application Insights](app-insights-overview.md). È anche possibile [esportare i dati di telemetria di traccia e personalizzata](app-insights-export-telemetry.md). Per abilitare queste funzionalità, configurare un bridge che inoltra i dati HockeyApp personalizzati ad Application Insights.
 
 ## <a name="the-hockeyapp-bridge-app"></a>App bridge HockeyApp
 L'app bridge HockeyApp è la funzionalità di base che consente di accedere ai dati di telemetria di traccia e personalizzata HockeyApp in Application Insights tramite le funzionalità Analisi ed Esportazione continua. Gli eventi di traccia e personalizzati raccolti da HockeyApp dopo la creazione dell'app bridge HockeyApp saranno accessibili da queste funzionalità. Ora verrà descritto come configurare una di queste app bridge.

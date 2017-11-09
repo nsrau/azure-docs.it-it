@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: cf1455dc3d55ea3581195f7a315556d134c23a26
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Aggiungere informazioni di accesso a un'app iOS usando una libreria di terze parti con l'API Graph mediante l'endpoint v2.0
 La piattaforma delle identità Microsoft usa standard aperti, ad esempio OAuth2 e OpenID Connect. Gli sviluppatori possono usare qualsiasi libreria che desiderano integrare ai servizi. Per aiutare gli sviluppatori a usare la piattaforma con altre librerie, sono state scritte alcune procedure dettagliate come questa, che illustrano come configurare le librerie di terze parti per connettersi alla piattaforma delle identità Microsoft. La maggior parte delle librerie che implementano [la specifica OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) possono connettersi alla piattaforma delle identità Microsoft.

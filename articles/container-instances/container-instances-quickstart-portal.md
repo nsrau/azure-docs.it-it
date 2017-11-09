@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/25/2017
 ms.author: marsma
 ms.custom: mvc
+ms.openlocfilehash: 0179107ece1e150246ab40836783d810425be3ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 16ae3d77c084651416cbc3bb1c5d28fee5e9124b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creare il primo contenitore in Istanze di contenitore di Azure
 
 Istanze di contenitore di Azure semplifica la creazione e la gestione dei contenitori in Azure. In questo avvio rapido si crea un contenitore in Azure e lo si espone a Internet con un indirizzo IP pubblico. Questa operazione viene eseguita nel portale di Azure. Bastano pochi clic per visualizzare quanto segue nel browser:

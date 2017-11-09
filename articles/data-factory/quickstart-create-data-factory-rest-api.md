@@ -11,19 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: rest-api
 ms.topic: hero-article
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: jingwang
+ms.openlocfilehash: c48e99c0e3248a80aae864c9d11edec740f3bb41
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a4b5940b243cdaf24bda215ab25bc7c2f3db72d8
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Creare una data factory di Azure e una pipeline usando l'API REST
-Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi dati diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI). 
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versione 1 - Disponibilità generale](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Versione 2 - Anteprima](quickstart-create-data-factory-rest-api.md)
+
+Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI). 
 
 Questa guida introduttiva descrive come usare l'API REST per creare una data factory di Azure. La pipeline in questa data factory copia i dati da un percorso a un altro nell'archiviazione BLOB di Azure.
+
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere l'[introduzione a Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -31,10 +37,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile creare un account di [valutazione gratuito](http://azure.microsoft.com/pricing/free-trial/).
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine** e **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
-* Creare un **contenitore BLOB** in Archiviazione BLOB, creare una **cartella** di input nel contenitore e caricare alcuni file nella cartella. 
+* Creare un **contenitore BLOB** in Archiviazione BLOB, creare una **cartella** di input nel contenitore e caricare alcuni file nella cartella. È possibile usare strumenti come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per connettersi all'archivio BLOB di Azure, creare un contenitore BLOB, caricare il file di input e verificare il file di output.
 * Installare **Azure PowerShell**. Seguire le istruzioni in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Come installare e configurare Azure PowerShell). Questa guida introduttiva usa PowerShell per richiamare le chiamate API REST.
 * **Creare un'applicazione in Azure Active Directory** seguendo [queste istruzioni](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Annotare i valori seguenti, da usare nei passaggi successivi: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore**.
-* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). È possibile usare questo strumento per connettersi all'archiviazione BLOB di Azure, creare un contenitore BLOB, caricare il file di input e verificare il file di output. 
 
 ## <a name="set-global-variables"></a>Configurare le variabili globali
 
@@ -420,7 +425,7 @@ Di seguito è riportato l'output di esempio:
                         "activityEnd":  "2017-09-07T13:12:38.4780542Z",
                         "duration":  36148,
                         "input":  "@{source=; sink=}",
-                        "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]}",
+                        "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedCloudDataMovementUnits=2; billedDuration=22}",
                         "error":  "@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}"
                     }
                 ]

@@ -21,20 +21,22 @@
 ### [Creare con Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Creare con Azure PowerShell o con l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-create.md)
 ### [Set di scalabilità con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
-### [Set di scalabilità Linux con scalabilità automatica](virtual-machine-scale-sets-linux-autoscale.md)
-### [Set di scalabilità Windows con scalabilità automatica](virtual-machine-scale-sets-windows-autoscale.md)
+### [Ridimensionare automaticamente un set di scalabilità](virtual-machine-scale-sets-autoscale-overview.md)
+#### [Usare il portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
+#### [Usare l'interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+#### [Usare Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Scalabilità automatica avanzata](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Applicazioni nei set di scalabilità](virtual-machine-scale-sets-deploy-app.md)
 ### [Usare dischi di dati con set di scalabilità](virtual-machine-scale-sets-attached-disks.md)
 ### [Usare set di scalabilità di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md)
 ### [Convertire un modello di set di scalabilità per l'uso di dischi gestiti](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Gestisci
-### [Set di scalabilità di Windows con Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
-### [Scalabilità automatica e set di scalabilità](virtual-machine-scale-sets-autoscale-overview.md)
-### [Scalabilità automatica avanzata](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### Attività di gestione comuni
+#### [Usare l'interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-manage-cli.md)
+#### [Usare Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Ridimensionamento verticale in un set di scalabilità](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+### [Aggiornamenti automatici del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md)
 ### [Aggiornamenti per i set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Uso di DSC e di set di scalabilità](virtual-machine-scale-sets-dsc.md)
 ### [Risorse di rete per i set di scalabilità](virtual-machine-scale-sets-networking.md)

@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: kgremban
+ms.date: 10/11/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: c15808a97d4efa5f9453f33d9ac70ebde5288201
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure
 
 Quando si pubblica un'applicazione tramite il proxy di applicazione di Azure Active Directory, si crea un URL esterno a cui gli utenti possono passare quando lavorano in remoto. Questo URL ottiene il dominio predefinito *tenant.msappproxy.net*. Ad esempio, se è stata pubblicata un'app chiamata Spese e il tenant si chiama Contoso, l'URL esterno sarà https://spese-contoso.msappproxy.net. Per usare il proprio nome di dominio, configurare un dominio personalizzato per l'applicazione. 
@@ -72,8 +70,6 @@ Non ci sono restrizioni per i metodi di firma del certificato. Sono supportati c
 
 È possibile usare un certificato con caratteri jolly, purché i caratteri jolly corrispondano all'URL esterno desiderato. 
 
-È anche possibile usare certificati autofirmati. Se si usa un'autorità di certificazione privata, il CDP (punto di distribuzione dell'elenco di revoche di certificati) per il certificato deve essere pubblico.
-
 ### <a name="changing-the-domain"></a>Modifica del dominio
 Tutti i domini verificati vengono visualizzati nell'elenco a discesa URL esterno per l'applicazione. Per modificare il dominio, è sufficiente aggiornare tale campo per l'applicazione. Se il dominio desiderato non è nell'elenco, [aggiungerlo come dominio verificato](active-directory-domains-add-azure-portal.md). Se si seleziona un dominio cui non è ancora associato un certificato, seguire i passaggi da 5 a 7 per aggiungere il certificato. Assicurarsi quindi di aggiornare il record DNS per il reindirizzamento dal nuovo URL esterno. 
 
@@ -88,6 +84,5 @@ Attualmente la gestione di tutti i certificati avviene tramite singole pagine de
 * [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md) alle app pubblicate con l'autenticazione di Azure AD.
 * [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md) alle app pubblicate.
 * [Aggiungere un nome di dominio personalizzato ad Azure AD](active-directory-domains-add-azure-portal.md)
-
 
 

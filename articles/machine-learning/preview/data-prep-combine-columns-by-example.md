@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="combine-columns-by-example-transformation"></a>Trasformazione "Combine Columns by Example" (Combina colonne in base all'esempio)
 Questa trasformazione consente all'utente di aggiungere una nuova colonna combinando i valori di più colonne. L'utente può specificare un separatore o fornire esempi di valori combinati per eseguire questa trasformazione. Quando l'utente fornisce esempi di combinazione, la trasformazione viene gestita dallo stesso motore **By-Example** usato nella trasformazione **Derive Column by Example** (Deriva colonna in base all'esempio).
 
@@ -66,13 +64,12 @@ Il valore in **grassetto** è stato fornito come esempio.
 
 |Date|Mese|Year|Hour|Minuto|Second|Colonna combinata|
 |:----|:----|:----|:----|:----|:----|:----|
-|13|Oct|2016|15|01|23|**13-Oct-2016 15:01:23 PDT**|
-|16|Oct|2016|16|22|33|16-Oct-2016 15:01:33 PDT|
-|17|Oct|2016|12|43|12|17-Oct-2016 15:01:12 PDT|
-|12|Nov|2016|14|22|44|12-Nov-2016 15:01:44 PDT|
-|23|Nov|2016|01|52|45|23-Nov-2016 15:01:45 PDT|
-|16|Jan|2017|22|34|56|16-Jan-2016 15:01:56 PDT|
-|23|Mar|2017|01|55|25|23-Mar-2016 15:01:25 PDT|
-|16|Apr|2017|11|34|36|16-Apr-2016 15:01:36 PDT|
-
+|13|ott|2016|15|01|23|**13-Oct-2016 15:01:23 PDT**|
+|16|ott|2016|16|22|33|16-Oct-2016 15:01:33 PDT|
+|17|ott|2016|12|43|12|17-Oct-2016 15:01:12 PDT|
+|12|nov|2016|14|22|44|12-Nov-2016 15:01:44 PDT|
+|23|nov|2016|01|52|45|23-Nov-2016 15:01:45 PDT|
+|16|gen|2017|22|34|56|16-Jan-2016 15:01:56 PDT|
+|23|mar|2017|01|55|25|23-Mar-2016 15:01:25 PDT|
+|16|apr|2017|11|34|36|16-Apr-2016 15:01:36 PDT|
 

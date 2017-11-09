@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
+ms.openlocfilehash: d1cb92e15109775fd120d82df6cfa94b7023d5b9
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b320581011c27a2efc49fa784f184a37bdb7f6fe
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/30/2017
 ---
-
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Usare Draft con il servizio contenitore di Azure e il Registro contenitori di Azure per compilare e distribuire un'applicazione in Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 [Draft](https://aka.ms/draft) è un nuovo strumento open source che semplifica lo sviluppo di applicazioni basate su contenitori e la loro distribuzione in cluster Kubernetes senza necessità di conoscere a fondo Docker e Kubernetes, né di installarli. Con strumenti come Draft, gli sviluppatori e i loro team possono concentrarsi sulla compilazione dell'applicazione con Kubernetes, senza fare molta attenzione all'infrastruttura.
 
@@ -197,7 +197,7 @@ $ helm install stable/traefik --name ingress
 Impostare quindi un'espressione di controllo sul controller `ingress` per acquisire il valore IP esterno quando viene distribuito. Questo indirizzo IP sarà quello [mappato al dominio di distribuzione](#wire-up-deployment-domain) nella sezione successiva.
 
 ```bash
-kubectl get svc -w
+$ kubectl get svc -w
 NAME                          CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
 ingress-traefik               10.0.248.104   13.64.108.240   80:31046/TCP,443:32556/TCP   1h
 kubernetes                    10.0.0.1       <none>          443/TCP                      7h
@@ -271,16 +271,16 @@ L'output è simile al seguente:
   }
   ```
 5. Reinstallare **Draft**
-  1. Rimuovere **draftd** dal cluster digitando `helm delete --purge draft`. 
-  2. Reinstallare **Draft** usando lo stesso comando `draft-init`, ma con l'opzione `--ingress-enabled`:
+
+   1. Rimuovere **draftd** dal cluster digitando `helm delete --purge draft`. 
+   2. Reinstallare **Draft** usando lo stesso comando `draft-init`, ma con l'opzione `--ingress-enabled`:
     ```bash
     draft init --ingress-enabled
     ```
-Rispondere alle richieste, come la prima volta. Occorre tuttavia rispondere a un'altra domanda usando il percorso completo del dominio configurato con DNS di Azure.
-```bash
-4. Enter your top-level domain for ingress (e.g. draft.example.com): draft.squillace.io
-```
-5. Quando si chiama `draft up` questa volta, sarà possibile visualizzare l'applicazione (o `curl`) nell'URL nel formato `<appname>.draft.<domain>.<top-level-domain>`. Nel caso descritto in questo esempio, `http://handy-labradoodle.draft.squillace.io`. 
+   Rispondere alle richieste, come la prima volta. Occorre tuttavia rispondere a un'altra domanda usando il percorso completo del dominio configurato con DNS di Azure.
+
+6. Immettere il dominio di primo livello per il traffico in ingresso (ad esempio draft.example.com): draft.squillace.io
+7. Quando si chiama `draft up` questa volta, sarà possibile visualizzare l'applicazione (o `curl`) nell'URL nel formato `<appname>.draft.<domain>.<top-level-domain>`. Nel caso descritto in questo esempio, `http://handy-labradoodle.draft.squillace.io`. 
 ```bash
 curl -s http://handy-labradoodle.draft.squillace.io
 Hello World, I'm Java!
@@ -290,7 +290,6 @@ Hello World, I'm Java!
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che è stato creato un cluster Kubernetes ACS, è possibile provare a usare il [Registro contenitori di Azure](../../container-registry/container-registry-intro.md) per creare altre distribuzioni diverse di questo scenario. È ad esempio possibile creare un recordset DNS di dominio draft._basedomain.toplevel_ che controlla le attività all'esterno di un sottodominio più profondo per distribuzioni specifiche del servizio contenitore di Azure.
-
 
 
 

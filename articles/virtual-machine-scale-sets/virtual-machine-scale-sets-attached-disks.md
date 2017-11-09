@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Set di scalabilità di macchine virtuali di Azure e dischi di dati collegati
 I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure supportano ora macchine virtuali con dischi di dati collegati. I dischi di dati possono essere definiti nel profilo di archiviazione per i set di scalabilità creati con Azure Managed Disks. In precedenza, le uniche opzioni di archivi collegati direttamente disponibili con le macchine virtuali nei set di scalabilità erano le unità del sistema operativo e le unità temporanee.
@@ -128,6 +127,5 @@ Il supporto per Azure Managed Disks e i set di scalabilità con dischi di dati c
 Nell'implementazione iniziale del supporto di dischi collegati per set di scalabilità, non è possibile collegare o scollegare dischi di dati a/da singole macchine virtuali in un set di scalabilità.
 
 Il supporto del portale di Azure per i dischi di dati collegati nei set di scalabilità è inizialmente limitato. A seconda dei requisiti è possibile usare modelli di Azure, interfaccia della riga di comando, PowerShell, SDK e API REST per gestire i dischi collegati.
-
 
 

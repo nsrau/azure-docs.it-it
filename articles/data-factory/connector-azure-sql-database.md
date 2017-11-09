@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b9582ccab1e0c580fe09de39e55ea0660c3866d0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,10 +37,10 @@ In particolare, il connettore database SQL di Azure supporta:
 
 - La copia di dati usando l'autenticazione SQL.
 - Come origine, il recupero di dati tramite query SQL o stored procedure.
-- Come sink, l'aggiunta di dati alla tabella di destinazione o la chiamata a una stored procedure con la logica personalizzata durante la copia.
+- Come sink, l'aggiunta di dati alla tabella di destinazione o la chiamata a una stored procedure con logica personalizzata durante la copia.
 
 ## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello di Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate per definire entità di data factory specifiche in un connettore del database SQL di Azure.
 
@@ -53,7 +52,7 @@ Per il servizio collegato database SQL di Azure sono supportate le proprietà se
 |:--- |:--- |:--- |
 | type | La proprietà del tipo deve essere impostata su: **AzureSqlDatabase** | Sì |
 | connectionString |Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. È supportata solo l'autenticazione di base. Contrassegnare questo campo come SecureString. |Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted se l'archivio dati si trova in una rete privata. Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 > [!IMPORTANT]
 > Configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e il server di database in modo da [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Se si copiano dati nel database SQL di Azure dall'esterno di Azure e da origini dati locali con runtime di integrazione self-hosted di data factory, configurare anche un intervallo di indirizzi IP appropriato per il computer che invia dati al database SQL di Azure.
@@ -119,10 +118,10 @@ Per copiare i dati da un database SQL di Azure, impostare il tipo di origine nel
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SqlSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **SqlSource** | Sì |
 | SqlReaderQuery |Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
-| storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono le coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
+| storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono: coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
 
 **Punti da notare:**
 
@@ -162,7 +161,7 @@ Per copiare i dati da un database SQL di Azure, impostare il tipo di origine nel
 ]
 ```
 
-**Esempio: uso di stored procedure**
+**Esempio: uso della stored procedure**
 
 ```json
 "activities":[
@@ -225,9 +224,9 @@ Per copiare i dati da un database SQL di Azure, impostare il tipo di sink nell'a
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SqlSink** | Sì |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize.<br/>I valori consentiti sono integer, ovvero il numero di righe. |No (il valore predefinito è 10.000) |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>Il valore consentito è un intervallo di tempo. Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono: intervallo di tempo. Ad esempio: "00:30:00" (30 minuti). |No |
 | sqlWriterStoredProcedureName |Nome della stored procedure che esegue l'upsert (aggiornamenti/inserimenti) nella tabella di destinazione. |No |
-| storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono le coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
+| storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono: coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
 | sqlWriterTableType |Specificare il nome di un tipo di tabella da usare nella stored procedure. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. |No |
 | preCopyScript |Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nel database SQL di Azure in ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. |No |
 
@@ -416,7 +415,7 @@ Definire la sezione "SqlSink" nell'attività di copia come indicato di seguito.
 }
 ```
 
-Nel database definire la stored procedure con lo stesso nome di "SqlWriterStoredProcedureName", che gestisce i dati di input dell'origine specificata e li inserisce nella tabella di output. Si noti che il nome del parametro della stored procedure deve essere identico al "tableName" definito nel set di dati.
+Nel database definire la stored procedure con lo stesso nome di "SqlWriterStoredProcedureName", che gestisce i dati di input dell'origine specificata e li inserisce nella tabella di output. Il nome del parametro della stored procedure deve essere identico al valore "tableName" definito nel set di dati.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -433,7 +432,7 @@ BEGIN
 END
 ```
 
-Nel database definire il tipo di tabella con lo stesso nome di SqlWriterTableType. Si noti che lo schema del tipo di tabella deve essere identico allo schema restituito dai dati di input.
+Nel database definire il tipo di tabella con lo stesso nome di sqlWriterTableType. Si noti che lo schema del tipo di tabella deve essere identico allo schema restituito dai dati di input.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(

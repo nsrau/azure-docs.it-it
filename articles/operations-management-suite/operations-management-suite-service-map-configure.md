@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 9af6c0fc3df2863c8e7b9a6a62acf5ba6b7d2d0a
-ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: daef11a0cea11b0f6633ab32f7d84fac4591180a
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurare Mapping dei servizi in Operations Management Suite
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -38,8 +37,8 @@ Elenco dei servizi ottiene i dati da Microsoft Dependency Agent, che dipende dal
 
 | Origine connessa | Supportato | Descrizione |
 |:--|:--|:--|
-| Agenti di Windows | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Windows. <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-windows-agents.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, consultare i [sistemi operativi supportati](#supported-operating-systems). |
-| Agenti Linux | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Linux. <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-linux-agents.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, consultare i [sistemi operativi supportati](#supported-operating-systems). |
+| Agenti di Windows | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Windows. <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-windows-agents.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
+| Agenti Linux | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Linux. <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-linux-agents.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
 | Gruppo di gestione di System Center Operations Manager | Sì | Mapping dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione System Center Operations Manager](../log-analytics/log-analytics-om-agents.md) connesso. <br><br>È necessaria una connessione diretta dal computer agente System Center Operations Manager a Operations Management Suite. I dati vengono inoltrati dal gruppo di gestione al repository Operations Management Suite.|
 | Account di archiviazione di Azure | No | Mapping dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'Archiviazione di Azure. |
 
@@ -78,10 +77,10 @@ Per installare Dependency Agent in ogni computer Windows, seguire questa procedu
 1.  Installare l'agente OMS seguendo le istruzioni in [Connettere computer Windows al servizio Log Analytics in Azure](../log-analytics/log-analytics-windows-agents.md).
 2.  Scaricare l'agente Windows ed eseguirlo usando il comando seguente: <br>`InstallDependencyAgent-Windows.exe`
 3.  Seguire la procedura guidata per installare l'agente.
-4.  Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows la directory di log è %Programfiles%\Microsoft Dependency Agent\logs. 
+4.  Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs. 
 
 #### <a name="windows-command-line"></a>Riga di comando di Windows
-Usare le opzioni della tabella seguente per eseguire l'installazione dalla riga di comando. Per vedere un elenco dei flag di installazione eseguire il programma di installazione con /? come segue.
+Usare le opzioni della tabella seguente per eseguire l'installazione dalla riga di comando. Per visualizzare un elenco dei flag di installazione, eseguire il programma di installazione con il flag /? come segue.
 
     InstallDependencyAgent-Windows.exe /?
 
@@ -90,7 +89,7 @@ Usare le opzioni della tabella seguente per eseguire l'installazione dalla riga 
 | /? | Ottenere un elenco delle opzioni della riga di comando. |
 | /S | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
 
-Per impostazione predefinita, i file di Windows Dependency Agent sono posizionati in C:\Program Files\Microsoft Dependency Agent.
+Per impostazione predefinita, i file di Dependency Agent per Windows si trovano in C:\Program Files\Microsoft Dependency Agent.
 
 ### <a name="install-the-dependency-agent-on-linux"></a>Installare Dependency Agent in Linux
 Per installare o configurare l'agente è necessario l'accesso alla radice.
@@ -124,7 +123,7 @@ I file relativi a Dependency Agent sono memorizzati nelle directory seguenti.
 | File binary di archiviazione | /var/opt/microsoft/dependency-agent/storage |
 
 ## <a name="installation-script-examples"></a>Esempi di script di installazione
-Per distribuire facilmente Dependency Agent su più server contemporaneamente è utile usare uno script. È possibile usare gli esempi di script seguenti per scaricare e installare Dependency Agent in Windows o Linux.
+Per distribuire facilmente Dependency Agent in più server contemporaneamente, è utile usare uno script. È possibile usare gli esempi di script seguenti per scaricare e installare Dependency Agent in Windows o Linux.
 
 ### <a name="powershell-script-for-windows"></a>Script di PowerShell per Windows
 ```PowerShell
@@ -133,11 +132,60 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 .\InstallDependencyAgent-Windows.exe /S
 ```
 
-### <a name="shell-script-for-linux"></a>Script Shell per Linux
+### <a name="shell-script-for-linux"></a>Script della shell per Linux
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
 sh InstallDependencyAgent-Linux64.bin -s
 ```
+
+## <a name="azure-vm-extension"></a>Estensione di VM Azure
+È possibile distribuire facilmente Dependency Agent nelle macchine virtuali Azure usando un'[Estensione di VM Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Con l'estensione di VM Azure è possibile distribuire Dependency Agent nelle macchine virtuali usando uno script PowerShell o direttamente nel modello di Azure Resource Manager della macchina virtuale.  È disponibile un'estensione sia per Windows (DependencyAgentWindows) che per Linux (DependencyAgentLinux).  Se si esegue la distribuzione con l'estensione di VM Azure, gli agenti vengono automaticamente aggiornati alle versioni più recenti.
+
+Per distribuire l'estensione di VM Azure tramite PowerShell, è possibile usare l'esempio seguente:
+```PowerShell
+#
+# Deploy the Dependency Agent to every VM in a Resource Group
+#
+
+$version = "9.1"
+$ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
+$OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
+$rmgroup = "<Your Resource Group Here>"
+
+Get-AzureRmVM -ResourceGroupName $rmgroup |
+ForEach-Object {
+    ""
+    $name = $_.Name
+    $os = $_.StorageProfile.OsDisk.OsType
+    $location = $_.Location
+    $vmRmGroup = $_.ResourceGroupName
+    "${name}: ${os} (${location})"
+    Date -Format o
+    $ext = $OsExtensionMap.($os.ToString())
+    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
+    $result.IsSuccessStatusCode
+}
+```
+
+Un modo ancora più semplice per assicurarsi che Dependency Agent sia presente in tutte le macchine virtuali è di includere l'agente nel modello di Azure Resource Manager.  Si noti che Dependency Agent dipende dall'agente OMS, quindi è necessario distribuire prima l'[estensione di VM dell'agente OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension).  È possibile aggiungere il frammento seguente di JSON alla sezione delle *risorse* del modello.
+```JSON
+"type": "Microsoft.Compute/virtualMachines/extensions",
+"name": "[concat(parameters('vmName'), '/DependencyAgent')]",
+"apiVersion": "2017-03-30",
+"location": "[resourceGroup().location]",
+"dependsOn": [
+"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+],
+"properties": {
+    "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+    "type": "DependencyAgentWindows",
+    "typeHandlerVersion": "9.1",
+    "autoUpgradeMinorVersion": true
+}
+
+```
+
 
 ## <a name="desired-state-configuration"></a>Configurazione dello stato desiderato
 Per distribuire Dependency Agent tramite Desired State Configuration, è possibile usare il modulo xPSDesiredStateConfiguration e un frammento di codice simile al seguente:
@@ -177,7 +225,7 @@ Node localhost
 ### <a name="uninstall-the-dependency-agent-on-windows"></a>Disinstallare Dependency Agent in Windows
 Dependency Agent per Windows può essere disinstallato da un amministratore tramite il Pannello di controllo.
 
-Per disinstallare Dependency Agent l'amministratore può anche eseguire %Programfiles%\Microsoft Dependency Agent\Uninstall.exe.
+Per disinstallare Dependency Agent, un amministratore può anche eseguire %Programfiles%\Microsoft Dependency Agent\Uninstall.exe.
 
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Disinstallare Dependency Agent in Linux
 Per disinstallare completamente Dependency Agent da Linux, è necessario rimuovere l'agente stesso e il connettore che viene installato automaticamente con l'agente. È possibile disinstallare entrambi con il seguente comando singolo:
@@ -235,6 +283,7 @@ Mapping dei servizi è attualmente disponibile nelle aree seguenti:
 - Stati Uniti orientali
 - Europa occidentale
 - Stati Uniti centro-occidentali
+- Asia sudorientale
 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
@@ -257,7 +306,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 - Le versioni del kernel non standard, ad esempio PAE e Xen, non sono supportate per le distribuzioni Linux. Ad esempio, un sistema con la stringa di versione "2.6.16.21-0.8-xen" non è supportato.
 - I kernel personalizzati, tra cui le ricompilazioni dei kernel standard, non sono supportate.
 - Il kernel CentOSPlus non è supportato.
-- In una sezione successiva di questo articolo viene illustrato Unbreakable Enterprise Kernel (UEK) di Oracle.
+- Unbreakable Enterprise Kernel (UEK) di Oracle è illustrato in una sezione successiva di questo articolo.
 
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
@@ -334,4 +383,3 @@ Per altre informazioni sulla raccolta e l'uso dei dati, vedere l'[Informativa su
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [usare Mapping dei servizi](operations-management-suite-service-map.md) dopo averlo distribuito e configurato.
-

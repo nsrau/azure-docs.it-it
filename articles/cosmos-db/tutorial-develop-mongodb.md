@@ -16,12 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a0598d32b5bad240c0a5d77a6e19285115a9f6b0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB: Connettersi a un'app MongoDB usando .NET
 
@@ -229,5 +228,4 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="nextstepaction"]
 > [Importare i dati di MongoDB in Azure Cosmos DB](mongodb-migrate.md)
-
 

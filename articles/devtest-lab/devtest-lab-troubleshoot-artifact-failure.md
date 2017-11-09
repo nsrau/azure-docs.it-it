@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 9a79e50902e8e99e94148f8ef534e6745e31809a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticare errori di elementi nel lab 
 Dopo aver creato un elemento, è possibile verificare se l'operazione ha avuto esito positivo o negativo. I log degli elementi in Azure DevTest Labs forniscono informazioni che è possibile usare per diagnosticare un errore di un elemento. Ci sono due modi per visualizzare le informazioni del log degli elementi per una macchina virtuale Windows:
@@ -59,5 +58,4 @@ Dopo aver creato un elemento, è possibile verificare se l'operazione ha avuto e
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Aggiungere un archivio Git a un lab](devtest-lab-add-artifact-repo.md).
-
 

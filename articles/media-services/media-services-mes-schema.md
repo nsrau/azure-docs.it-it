@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
 ms.openlocfilehash: 0d034e2c3827b297173262d294a2e566a6b45fac
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
 In questo argomento vengono descritti alcuni elementi e tipi di schema XML su cui si basa il [set di impostazioni di Media Encoder Standard](media-services-mes-presets-overview.md). L'argomento spiega gli elementi e i valori possibili per ognuno. Lo schema completo verrà pubblicato in un secondo momento.  

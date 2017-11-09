@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: 304323c1816302e8c1f68f36a029aee55e02c54e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Abilitare la sincronizzazione offline per l'app per dispositivi mobili di Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -92,7 +92,7 @@ Quando si preme il pulsante, viene avviata una nuova attività in background. Vi
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
-* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure] \(nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure\)
+* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]\(nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure\)
 
 <!-- URLs. -->
 

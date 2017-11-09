@@ -3,7 +3,7 @@ title: Separazione della telemetria da sviluppo, test e rilascio in Azure Applic
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: bwren
-ms.openlocfilehash: f51fa4639aaa60686cc349683713c6e5f9732bb9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: 8d95958bce0597bfb16ef1c6b99b72ce9134e66f
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separazione della telemetria da sviluppo, test e produzione
 

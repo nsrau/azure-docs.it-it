@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Creare funzionalità per i dati di archiviazione BLOB di Azure tramite Panda
 Questo documento tratta come creare funzionalità per i dati archiviati nel contenitore BLOB di Azure mediante il pacchetto Python [Pandas](http://pandas.pydata.org/) . Una volta mostrato come caricare i dati in un frame di dati Panda, viene illustrato come generare funzionalità relative alle categorie usando script Python con i valori di indicatore e funzionalità per la creazione di contenitori.
@@ -124,5 +123,4 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
 
 ![lettore BLOB](./media/data-blob/reader_blob.png)
-
 

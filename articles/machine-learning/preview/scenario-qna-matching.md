@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 ms.manager: tihazen
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Associazione di domande e risposte con Azure Machine Learning Workbench
 È difficile rispondere a domande aperte e spesso a questo scopo è necessario l'intervento di esperti in materia. Per ridurre l'esigenza di ricorrere a esperti in materia interni, le società spesso creano elenchi di domande frequenti come strumento per offrire assistenza agli utenti. Questo esempio mostra diversi metodi di apprendimento automatico efficaci per associare query aperte a coppie di domande frequenti e risposte preesistenti. Questo esempio mostra un semplice processo di sviluppo per creare la soluzione con Azure Machine Learning Workbench. 
 
@@ -101,7 +99,7 @@ L'esempio di associazione di domande e risposte viene presentato tramite tre tip
 
 I file in questo esempio sono organizzati come indicato di seguito.
 
-| Nome file | Tipo | Descrizione
+| File Name | Tipo | Descrizione
 | ----------|------------|--------
 | `Image` | Cartella | Cartella usata per salvare le immagini per il file README
 | `notebooks` | Cartella | Cartella dei notebook di Jupyter
@@ -137,7 +135,7 @@ Il modello di classificazione usa un metodo di insieme per aggregare tre classif
 
 Il processo di training del modello viene descritto in `Part_3_Model_Training_and_Evaluation.ipynb`.
 
-### <a name="evaluation"></a>Valutazione
+### <a name="evaluation"></a>Versione di valutazione
 
 Per valutare le prestazioni, vengono usate due metriche di valutazione diverse. 
 1. `Average Rank (AR)`: indica la posizione media in cui si trova la risposta corretta nell'elenco delle coppie di domande e risposte recuperate (rispetto al set completo delle 103 classi di risposta). 
@@ -162,4 +160,3 @@ Ecco alcune delle principali caratteristiche di questo esempio:
 Timothy J. Hazen, Fred Richardson, [_Modeling Multiword Phrases with Constrained Phrases Tree for Improved Topic Modeling of Conversational Speech_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf). Spoken Language Technology Workshop (SLT), 2012 IEEE. IEEE, 2012.
 
 Timothy J. Hazen, [_MCE Training Techniques for Topic Identification of Spoken Audio Documents_](http://ieeexplore.ieee.org/abstract/document/5742980/) in IEEE Transactions on Audio, Speech, and Language Processing, vol. 19, n. 8, pagine 2451-2460, novembre 2011.
-

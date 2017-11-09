@@ -4,7 +4,7 @@ description: Descrive come creare misure nel progetto per l'esercitazione su Azu
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-6-create-measures"></a>Lezione 6: Creare misure
 
@@ -53,7 +52,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
   
-    Si noti che la cella in alto a sinistra contiene ora un nome di misura, **DaysCurrentQuarterToDate**, seguito dal risultato, **92**.
+    Si noti che la cella in alto a sinistra contiene ora un nome di misura, **DaysCurrentQuarterToDate**, seguito dal risultato, **92**. Il risultato non è pertinente a questo punto perché non è stato applicato alcun filtro utente.
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
@@ -102,7 +101,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
     |TaxAmt|InternetTotalTaxAmt|Somma|=SUM([TaxAmt])|  
     |Freight|InternetTotalFreight|Somma|=SUM([Freight])|  
   
-2.  Facendo clic su una cella vuota nella griglia delle misure e usando quindi la barra della formula, creare le misure seguenti con il nome indicato in ordine:  
+2.  Facendo clic su una cella vuota nella griglia delle misure e usando la barra della formula, creare le misure personalizzate seguenti in ordine:  
   
       ```
       InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
@@ -134,4 +133,3 @@ Le misure create per la tabella FactInternetSales possono essere usate per anali
 [Lezione 7: Creare indicatori di prestazioni chiave](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   
-

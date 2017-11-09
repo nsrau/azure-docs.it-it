@@ -11,16 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/30/2017
 ms.author: jingwang
+ms.openlocfilehash: d8db545fc58f3cc2e18bbc9a732ed16ef8b563c4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ae4537ee37103392f78c4fa554984f1375634f17
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiare dati in un indice di Ricerca di Azure usando Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -117,8 +115,8 @@ Per copiare dati in Ricerca di Azure, impostare il tipo di origine nell'attivit�
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureSearchIndexSink** | Sì |
-| WriteBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono: **Merge** (predefinito) e **Carica**. | No |
-| WriteBatchSize | Consente di caricare dati nell'indice di Ricerca di Azure quando le dimensioni del buffer raggiungono il valore indicato da writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property).<br/><br/>I valori consentiti sono: integer da 1 a 1.000; il valore predefinito è 1000. | No |
+| writebehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono: **Merge** (predefinito) e **Carica**. | No |
+| writeBatchSize | Consente di caricare dati nell'indice di Ricerca di Azure quando le dimensioni del buffer raggiungono il valore indicato da writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property).<br/><br/>I valori consentiti sono: integer da 1 a 1.000; il valore predefinito è 1000. | No |
 
 ### <a name="writebehavior-property"></a>Proprietà WriteBehavior
 
@@ -160,7 +158,7 @@ Il servizio Ricerca di Azure supporta la scrittura di documenti come batch. Un b
             },
             "sink": {
                 "type": "AzureSearchIndexSink",
-                "WriteBehavior": "Merge"
+                "writeBehavior": "Merge"
             }
         }
     }

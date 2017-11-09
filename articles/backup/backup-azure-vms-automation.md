@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/30/2017
+ms.date: 10/13/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: db04f8c6ab61d33df80cd442abc5636867e5809a
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 414fb9adaa1535d82b1bc385ff0864394efb837c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Usare i cmdlet AzureRM.RecoveryServices.Backup per eseguire il backup di macchine virtuali
 > [!div class="op_single_selector"]
@@ -447,6 +446,29 @@ Dopo aver ripristinato i dischi, seguire questa procedura per creare e configura
     }
     ```
 
+    #### <a name="managed-encrypted-vms-bek-only"></a>Macchine virtuali gestite, crittografate (solo con BEK)
+
+    Per le macchine virtuali gestite e crittografate (solo con BEK), sarà necessario creare dischi gestiti dall'archiviazione BLOB e quindi collegarli. Per informazioni dettagliate, vedere l'articolo [Collegare un disco dati a una macchina virtuale Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md). Il codice di esempio seguente illustra come collegare dischi di dati per le macchine virtuali crittografate.
+
+     ```
+    PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+    PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+    PS C:\> $storageType = "StandardLRS"
+    PS C:\> $osDiskName = $vm.Name + "_osdisk"
+    PS C:\> $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
+    PS C:\> $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
+    PS C:\> $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
+    PS C:\> foreach($dd in $obj.'properties.storageProfile'.dataDisks)
+     {
+     $dataDiskName = $vm.Name + $dd.name ;
+     $dataVhdUri = $dd.vhd.uri ;
+     $dataDiskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $dataVhdUri ;
+     $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $dataDiskConfig -ResourceGroupName "test" ;
+     Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
+     }
+    ```
+
     #### <a name="managed-encrypted-vms-bek-and-kek"></a>Macchine virtuali gestite, crittografate (con BEK e KEK)
 
     Per le macchine virtuali gestite e crittografate (con BEK e KEK) , è necessario creare dischi gestiti dall'archiviazione BLOB e quindi collegarli. Per informazioni dettagliate, vedere l'articolo [Collegare un disco dati a una macchina virtuale Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md). Il codice di esempio seguente illustra come collegare dischi di dati per le macchine virtuali crittografate.
@@ -488,4 +510,3 @@ Dopo aver ripristinato i dischi, seguire questa procedura per creare e configura
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si preferisce usare PowerShell per coinvolgere le risorse di Azure, vedere l'articolo PowerShell [Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell](backup-client-automation.md). Se si gestiscono i backup DPM, vedere l'articolo [Distribuire e gestire il backup per DPM](backup-dpm-automation.md). Entrambi gli articoli prevedono due versioni: una per le distribuzioni con Resource Manager, l'altra per le distribuzioni classiche.  
-

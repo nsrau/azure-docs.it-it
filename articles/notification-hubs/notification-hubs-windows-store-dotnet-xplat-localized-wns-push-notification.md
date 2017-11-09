@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Utilizzo di Hub di notifica per inviare notizie localizzate
 > [!div class="op_single_selector"]
@@ -212,4 +211,3 @@ Modificare il file MainPage.xaml in modo da includere una casella combinata per 
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-

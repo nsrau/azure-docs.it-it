@@ -1,5 +1,5 @@
 ---
-title: Distribuire il gateway di connected factory di Azure IoT Suite | Microsoft Docs
+title: Distribuire il gateway di connected factory di Azure | Microsoft Docs
 description: "Come distribuire un gateway in Windows o Linux per abilitare la connettività alla soluzione preconfigurata di connected factory."
 services: 
 suite: iot-suite
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
+ms.openlocfilehash: 9f11d93be49f7d88012b1274ad61495e38a2e9a9
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: caa12f4ef55006cd3edbe2d9606397d34fed3a3e
-ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Distribuire un gateway in Windows o Linux per la soluzione preconfigurata di connected factory
 
 Il software necessario per distribuire un gateway nella soluzione preconfigurata del factory connesso presenta due componenti:
@@ -155,6 +153,8 @@ Creare quindi una cartella denominata **docker** nella radice dell'unità condiv
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'architettura della soluzione preconfigurata di connected factory, vedere [Procedura dettagliata per la soluzione preconfigurata di connected factory][lnk-walkthrough].
+
+Informazioni sull'[implementazione di riferimento del modulo di pubblicazione OPC](iot-suite-connected-factory-publisher.md).
 
 [img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
 [img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: b1870b5db6e194f61d2f8b526e0c81b4d46699e4
-ms.contentlocale: it-it
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 1f6ded87b551f660853ea4eb0548f3d942e28fa8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>Creazione di un progetto di servizio cloud di Azure con Visual Studio
 Gli strumenti di Azure per Visual Studio offrono un modello del progetto che consente di creare un servizio cloud di Azure. Dopo aver creato il progetto, Visual Studio consente di configurare, eseguire il debug e distribuire il servizio cloud in Azure.
@@ -58,4 +57,3 @@ Per altre informazioni su queste impostazioni, vedere [Configurare i ruoli di un
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Gestione dei ruoli nei progetti di servizi cloud di Azure con Visual Studio](./vs-azure-tools-cloud-service-project-managing-roles.md)
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-platforms"></a>Piattaforme di dati
 
 La macchina virtuale per data science consente di compilare l'analisi per un'ampia gamma di piattaforme di dati. Oltre alle interfacce di piattaforme di dati remote, la macchina virtuale per data science offre un'istanza locale per il rapido sviluppo e la creazione di prototipi. 
@@ -106,5 +104,4 @@ Prima di eseguire nel contesto Spark in Microsoft R Server nella versione della 
 
 
 Le librerie di accesso ai dati di BLOB di Azure o dell'archiviazione di Azure Data Lake tramite l'uso delle librerie di machine learning MMLSpark di Microsoft sono preinstallate in $SPARK_HOME/JAR. Questi JAR vengono caricati automaticamente all'avvio di Spark. Per impostazione predefinita Spark usa i dati sul disco locale. Affinché l'istanza di Spark sulla macchina virtuale per data science acceda ai dati archiviati nel BLOB di Azure o in Azure Data Lake Storage è necessario creare o configurare il file `core-site.xml` basato sul modello che si trova in $SPARK_HOME/conf/core-site.xml.template, in cui sono presenti i segnaposto per le configurazione BLOB e di Azure Data Lake Storage, con le credenziali appropriate per i BLOB di Azure e Azure Data Lake Storage. Una procedura più dettagliata sulla creazione delle credenziali del servizio Azure Data Lake Storage è disponibile [qui](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Dopo aver inserito le credenziali per il BLOB di Azure o di Azure Data Lake Storage nel file core-site.xml file, è possibile fare riferimento ai dati archiviati nelle origini con il prefisso URI wasb:// o adl://. 
-
 

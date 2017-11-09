@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Failover a livello di area automatici per la continuità aziendale in Azure Cosmos DB
 Azure Cosmos DB semplifica la distribuzione globale dei dati, offrendo [account di database con più aree](distribute-data-globally.md) e completamente gestiti, che forniscono compromessi espliciti tra coerenza, disponibilità e prestazioni, il tutto con le relative garanzie. Gli account Cosmos DB offrono disponibilità elevata, latenze di pochi millisecondi, più [livelli di coerenza ben definiti](consistency-levels.md), failover a livello di area trasparente con API multihosting e la possibilità di ridimensionare in modo flessibile la velocità effettiva e le risorse di archiviazione in tutto il mondo. 
@@ -85,19 +85,40 @@ Dopo il ripristino dell'area interessata da un'interruzione del servizio, tutti 
 
 **Cosa accade se si verifica un'interruzione del servizio in un'area di scrittura?**
 
-Se l'area interessata è l'area di scrittura corrente per un determinato account Cosmos DB, questa viene automaticamente contrassegnata come offline. Viene quindi promossa un'area alternativa come area di scrittura per ogni account Cosmos DB interessato. È possibile controllare completamente l'ordine di selezione dell'area per gli account Cosmos DB tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Se l'area interessata è l'area di scrittura corrente e per l'account Azure Cosmos DB è abilitato il failover automatico, l'area viene automaticamente contrassegnata come offline. Viene quindi promossa un'area alternativa come area di scrittura per l'account Azure Cosmos DB interessato. È possibile abilitare il failover automatico e controllare completamente l'ordine di selezione dell'area per gli account Azure Cosmos DB tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Priorità di failover per Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
-Durante i failover automatici, Cosmos DB sceglie automaticamente l'area di scrittura successiva per un determinato account Cosmos DB in base all'ordine di priorità specificato. 
+Durante i failover automatici, Azure Cosmos DB sceglie automaticamente l'area di scrittura successiva per un determinato account Azure Cosmos DB in base all'ordine di priorità specificato. Le applicazioni possono usare la proprietà WriteEndpoint della classe DocumentClient per rilevare le modifiche dell'area di scrittura.
 
 ![Errori di un'area di scrittura in Azure Cosmos DB](./media/regional-failover/write-region-failures.png)
 
 Dopo il ripristino dell'area interessata da un'interruzione del servizio, tutti gli account Cosmos DB interessati nell'area vengono ripristinati automaticamente dal servizio. 
 
-* Gli account Cosmos DB con l'area di scrittura precedente nell'area interessata rimangono in modalità offline, con disponibilità di lettura anche dopo il ripristino dell'area. 
-* È possibile eseguire una query su questa area per calcolare eventuali scritture non replicate durante l'interruzione del servizio tramite il confronto con i dati disponibili nell'area di scrittura corrente. In base alle esigenze dell'applicazione, è possibile completare l'unione e/o la risoluzione dei conflitti ed eseguire il writeback del set finale di modifiche nell'area di scrittura corrente. 
-* Dopo aver completato l'unione delle modifiche, è possibile ripristinare la modalità online dell'area interessata rimuovendola e aggiungendola nuovamente all'account Cosmos DB. Dopo aver aggiunto di nuovo l'area, è possibile riconfigurarla come l'area di scrittura eseguendo un failover manuale tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* I dati presenti nell'area di scrittura precedente di cui non è stata eseguita la replica nelle aree di lettura durante l'interruzione vengono pubblicati come feed in conflitto. Le applicazioni possono leggere il feed in conflitto, risolvere i conflitti in base alla logica specifica dell'applicazione e scrivere di nuovo i dati aggiornati nell'account Azure Cosmos DB come appropriato. 
+* L'area di scrittura precedente viene ricreata come area di lettura e riportata automaticamente online. 
+* È possibile riconfigurare l'area di lettura che è stata riportata automaticamente online come area di scrittura eseguendo un failover manuale tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+
+Il frammento di codice seguente illustra come elaborare i conflitti dopo il ripristino dell'area interessata dall'interruzione.
+
+```cs
+string conflictsFeedContinuationToken = null;
+do
+{
+    FeedResponse<Conflict> conflictsFeed = client.ReadConflictFeedAsync(collectionLink,
+        new FeedOptions { RequestContinuation = conflictsFeedContinuationToken }).Result;
+
+    foreach (Conflict conflict in conflictsFeed)
+    {
+        Document doc = conflict.GetResource<Document>();
+        Console.WriteLine("Conflict record ResourceId = {0} ResourceType= {1}", conflict.ResourceId, conflict.ResourceType);
+
+        // Perform application specific logic to process the conflict record / resource
+    }
+
+    conflictsFeedContinuationToken = conflictsFeed.ResponseContinuation;
+} while (conflictsFeedContinuationToken != null);
+```
 
 ## <a id="ManualFailovers"></a>Failover manuali
 

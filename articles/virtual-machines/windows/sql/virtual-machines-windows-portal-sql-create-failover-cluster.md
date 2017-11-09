@@ -16,14 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
+ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
 Questo articolo illustra come creare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure con il modello Resource Manager. Questa soluzione usa la funzionalità [Spazi di archiviazione diretta \(S2D\) di Windows Server 2016 Datacenter Edition](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) come SAN virtuale basata su software per la sincronizzazione delle risorse di archiviazione (dischi dati) tra i nodi (VM di Azure) in un cluster Windows. S2D è una novità di Windows Server 2016.
@@ -164,7 +162,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
    | SQL Server | 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta.
    | Probe di integrità | 59999 | Qualsiasi porta TCP aperta. In un passaggio successivo, configurare il [probe di integrità](#probe) del servizio di bilanciamento del carico e il cluster per l'uso di questa porta.  
 
-1. Aggiungere risorse di archiviazione alla macchina virtuale. Per informazioni dettagliate, vedere l'articolo relativo all'[aggiunta dell'archiviazione](../../../storage/common/storage-premium-storage.md).
+1. Aggiungere risorse di archiviazione alla macchina virtuale. Per informazioni dettagliate, vedere l'articolo relativo all'[aggiunta dell'archiviazione](../premium-storage.md).
 
    Entrambe le macchine virtuali necessitano di almeno due dischi dati.
 
@@ -492,4 +490,3 @@ Nelle macchine virtuali di Azure, Microsoft Distributed Transaction Coordinator 
 [Panoramica di Spazi di archiviazione diretta](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [Supporto di SQL Server per S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
-

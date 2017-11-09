@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.openlocfilehash: cd36e46821eb85db523a5c84ec44895f68cc60e1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilizzare Azure Media Packager per eseguire attività di creazione statica dei pacchetti
 > [!NOTE]
@@ -701,7 +701,7 @@ Se si desidera crittografare il contenuto HLS con AES-128, è possibile sceglier
 > [!NOTE]
 > Per convertire il contenuto in formato HLS, è necessario prima convertire/codificare il contenuto in formato Smooth Streaming.
 > Inoltre, per crittografare HLS con AES assicurarsi di impostare le proprietà seguenti nel file MediaPackager_SmoothToHLS.xml: impostare la proprietà encrypt su true, impostare il valore della chiave e il valore keyuri in modo che punti al server di autenticazione\autorizzazione.
-> Servizi multimediali creerà un file di chiave e lo posizionerà nel contenitore di asset. Si deve copiare il file /asset-containerguid/*.key al server (o creare un file chiave) e quindi eliminare il file *.key dal contenitore di asset.
+> Servizi multimediali creerà un file di chiave e lo posizionerà nel contenitore di asset. È necessario copiare il file /guidcontenitore-asset/*.key nel server, oppure creare il file di chiave personalizzato, e quindi eliminare il file *.key dal contenitore di asset.
 > 
 > 
 

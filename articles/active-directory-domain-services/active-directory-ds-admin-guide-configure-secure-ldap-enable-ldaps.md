@@ -12,34 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 245ad4948cf4b8c2d44a0dafb61923b0b4267856
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 3b19f078b0d6dc3e02d951014056406fd1b099a8
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Azure AD Domain Services
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Assicurarsi di aver completato l'[Attività 2: Esportare il certificato LDAP sicuro in un file PFX](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
-Scegliere se usare l'esperienza di anteprima del portale di Azure o il portale di Azure classico per completare questa attività.
-> [!div class="op_single_selector"]
-> * **Portale di Azure (anteprima)**: [Abilitare l'accesso LDAP sicuro tramite il portale di Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-> * **Portale di Azure classico**: [Abilitare l'accesso LDAP sicuro usando il portale di Azure classico](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
->
->
 
-
-## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview"></a>Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito usando il portale di Azure (anteprima)
+## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito usando il portale di Azure
 Per abilitare l'accesso LDAP sicuro, seguire questa procedura di configurazione:
 
 1. Passare al **[portale di Azure](https://portal.azure.com)**.
 
-2. Cercare "servizi di dominio" nella casella di ricerca **Cerca risorse**. Selezionare **Azure AD Domain Services** dai risultati della ricerca. Nel pannello **Azure AD Domain Services** è indicato il dominio gestito.
+2. Cercare "servizi di dominio" nella casella di ricerca **Cerca risorse**. Selezionare **Azure AD Domain Services** dai risultati della ricerca. Il dominio gestito viene elencato nella pagina **Azure AD Domain Services**.
 
     ![Trovare il dominio gestito di cui viene effettuato il provisioning](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
@@ -49,12 +41,16 @@ Per abilitare l'accesso LDAP sicuro, seguire questa procedura di configurazione:
 
 3. Fare clic su **LDAP sicuro** nel riquadro di spostamento.
 
-    ![Domain Services - Pannello LDAP sicuro](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
+    ![Domain Services - Pagina LDAP sicuro](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
 
 4. Per impostazione predefinita, l'accesso LDAP sicuro al dominio gestito è disabilitato. Impostare **LDAP sicuro** su **Abilita**.
 
     ![Abilitare LDAP sicuro](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. Per impostazione predefinita, l'accesso LDAP sicuro al dominio gestito su Internet è disabilitato. Impostare **Abilita accesso LDAP sicuro tramite Internet** su **Abilita**, se necessario. 
+
+    > [!TIP]
+    > Se si abilita l'accesso LDAP sicuro tramite Internet, è consigliabile configurare un gruppo di sicurezza di rete per bloccare l'accesso agli intervalli di indirizzi IP di origine necessari. Vedere le istruzioni in [Blocco dell'accesso LDAPS al dominio gestito su Internet](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet).
+    >
 
 6. Fare clic sull'icona della cartella accanto a **File PFX con certificato LDAP sicuro**. Specificare il percorso del file PFX con il certificato per l'accesso LDAP sicuro al dominio gestito.
 
@@ -81,7 +77,7 @@ Per abilitare l'accesso LDAP sicuro, seguire questa procedura di configurazione:
 
 Prima di iniziare questa attività, assicurarsi di aver completato la procedura descritta nell' [attività 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
 
-Dopo aver attivato l'accesso LDAP sicuro tramite Internet al dominio gestito, è necessario aggiornare il server DNS in modo che i computer client possano trovare il dominio gestito. Al termine dell'attività 3, nel campo **INDIRIZZO IP ESTERNO PER L'ACCESSO LDAPS** del pannello **Proprietà** viene visualizzato un indirizzo IP esterno.
+Dopo aver attivato l'accesso LDAP sicuro tramite Internet al dominio gestito, è necessario aggiornare il server DNS in modo che i computer client possano trovare il dominio gestito. Al termine dell'attività 3, nel campo **INDIRIZZO IP ESTERNO PER L'ACCESSO LDAPS** della scheda **Proprietà** viene visualizzato un indirizzo IP esterno.
 
 Configurare il provider DNS esterno in modo che il nome DNS del dominio gestito, ad esempio "ldaps.contoso100.com", punti a questo indirizzo IP esterno. Nell'esempio è necessario creare la voce DNS seguente:
 
@@ -119,4 +115,3 @@ La tabella seguente illustra un esempio di gruppo di sicurezza di rete che è po
 * [Administer Group Policy on an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-group-policy.md) (Amministrare i Criteri di gruppo in un dominio gestito da Azure AD Domain Services)
 * [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
 * [Creare un gruppo di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-

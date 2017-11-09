@@ -3,7 +3,7 @@ title: Profilatura delle app Web attive in Azure con Application Insights | Micr
 description: Identificare il percorso ricorrente nel codice del server web con un profiler con footprint ridotto.
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: f6669d90878398dcd4592df97180dcd59b146350
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ddfed2be315ae261e9c3015aa21d0b44405d6109
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Profilatura delle app Web di Azure attive con Application Insights
 
@@ -46,9 +45,9 @@ Le app Web configurate con Application Insights sono elencate nel pannello Confi
 
 Usare i pulsanti *Enable Profiler* (Abilita profiler) o *Disable Profiler* (Disabilita profiler) nel pannello Configura per controllare il profiler in tutte le app Web collegate.
 
-
-
 ![Pannello Configura][linked app services]
+
+A differenza delle app Web ospitate attraverso i piani di servizio app, le applicazioni ospitate nelle risorse del *Calcolo di Azure* (ad esempio: macchina virtuale, set di scalabilità di macchine virtuali, Service Fabric, servizi Cloud) non sono gestite direttamente da Azure. In questo caso non sono presenti app Web a cui collegarsi ed è sufficiente fare clic per abilitare il Profiler nella schermata.
 
 ## <a name="disable-the-profiler"></a>Disabilitare Profiler
 Per arrestare o riavviare il profiler per una singola istanza del servizio app, è possibile trovarlo nella **risorsa del servizio app** in **Processi Web**. Per eliminarlo, cercare in **Estensioni**.
@@ -251,4 +250,3 @@ L'applicazione ASP.NET Core deve installare il pacchetto NuGet Microsoft.Applica
 [enable-profiler-banner]: ./media/app-insights-profiler/enable-profiler-banner.png
 [disable-profiler-webjob]: ./media/app-insights-profiler/disable-profiler-webjob.png
 [linked app services]: ./media/app-insights-profiler/linked-app-services.png
-

@@ -1,6 +1,6 @@
 ---
 title: Salvare i messaggi dell'hub IoT nell'archivio dati di Azure | Microsoft Docs
-description: Usare l'app per le funzioni di Azure per salvare i messaggi dell'hub IoT nell'archiviazione tabelle di Azure. I messaggi dell'hub IoT contengono informazioni, come i dati di sensori, inviate dal dispositivo IoT.
+description: Usare il routing dei messaggi dell'hub IoT per salvare i messaggi dell'hub IoT nel servizio Archiviazione BLOB di Azure. I messaggi dell'hub IoT contengono informazioni, come i dati di sensori, inviate dal dispositivo IoT.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -13,18 +13,17 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
+ms.date: 10/04/2017
 ms.author: xshi
+ms.openlocfilehash: aa33800de82b27d4819fe0eade127c2a40e3a493
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 06503f9564e00ef62587d02f2da4778974e246c5
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-table-storage"></a>Salvare i messaggi dell'hub IoT che contengono dati di sensori nell'archiviazione tabelle di Azure
+# <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Salvare i messaggi dell'hub IoT che contengono dati di sensori nel servizio Archiviazione BLOB di Azure
 
-![Diagramma end-to-end](media/iot-hub-get-started-e2e-diagram/3.png)
+![Diagramma end-to-end](media/iot-hub-store-data-in-azure-table-storage/1_route-to-storage.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -35,8 +34,7 @@ Si apprenderà come creare un account di archiviazione di Azure e un'app per le 
 ## <a name="what-you-do"></a>Operazioni da fare
 
 - Creare un account di archiviazione di Azure
-- Preparare la connessione dell'hub IoT per la lettura dei messaggi.
-- Creare e distribuire un'app per le funzioni di Azure.
+- Preparare l'hub IoT per il routing dei messaggi nel servizio di archiviazione.
 
 ## <a name="what-you-need"></a>Elementi necessari
 
@@ -61,146 +59,34 @@ Si apprenderà come creare un account di archiviazione di Azure e un'app per le 
 
 3. Fare clic su **Crea**.
 
-## <a name="prepare-your-iot-hub-connection-to-read-messages"></a>Preparare la connessione dell'hub IoT per la lettura dei messaggi
+## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>Preparare l'hub IoT per il routing dei messaggi nel servizio di archiviazione
 
-L'hub IoT espone un endpoint predefinito compatibile con l'hub eventi per consentire alle applicazioni di leggere i messaggi dell'hub IoT. Nel frattempo, le applicazioni usano gruppi di consumer per leggere i dati dall'hub IoT. Prima di creare un'app per le funzioni di Azure per la lettura dei dati dall'hub IoT, è necessario:
+L'hub IoT supporta a livello nativo il routing dei messaggi nel servizio di archiviazione di Azure sotto forma di BLOB.
 
-- Ottenere la stringa di connessione dell'endpoint dell'hub IoT.
-- Creare un gruppo di consumer per l'hub IoT.
+### <a name="add-storage-as-a-custom-endpoint"></a>Aggiungere risorse di archiviazione come endpoint personalizzato
 
-### <a name="get-the-connection-string-of-your-iot-hub-endpoint"></a>Ottenere la stringa di connessione dell'endpoint dell'hub IoT
+Passare all'hub IoT nel portale di Azure. Fare clic su **Endpoint** > **Aggiungi**. Assegnare un nome all'endpoint e selezionare **Contenitore di archiviazione di Azure** come tipo di endpoint. Utilizzare la selezione per selezionare l'account di archiviazione creato nella sezione precedente. Creare un contenitore di archiviazione, selezionarlo e quindi fare clic su **OK**.
 
-1. Aprire l'hub IoT.
+  ![Creare un endpoint personalizzato nell'hub IoT](media\iot-hub-store-data-in-azure-table-storage\2_custom-storage-endpoint.png)
 
-2. Nel riquadro **Hub IoT**, in **Messaggistica**, fare clic su **Endpoint**.
+### <a name="add-a-route-to-route-data-to-storage"></a>Aggiungere una route per eseguire il routing dei dati alla risorsa di archiviazione
 
-3. Nel riquadro destro, in **Endpoint predefiniti**, fare clic su **Eventi**.
+Fare clic su **Route** > **Aggiungi** e quindi immettere il nome della route. Selezionare **Messaggi del dispositivo** come origine dati e selezionare l'endpoint della risorsa di archiviazione creata come endpoint nella route. Immettere `true` come stringa di query e quindi fare clic su **Salva**.
 
-4. Nel riquadro **Proprietà** prendere nota dei valori seguenti:
-   - Endpoint compatibile con l'hub eventi
-   - Nome compatibile con l'hub eventi
+  ![Creare una route nell'hub IoT](media\iot-hub-store-data-in-azure-table-storage\3_create-route.png)
+  
+### <a name="add-a-route-for-hot-path-telemetry-optional"></a>Aggiungere una route per i dati di telemetria con percorso prioritario (facoltativo)
 
-   ![Ottenere la stringa di connessione dell'endpoint dell'hub IoT nel portale di Azure](media\iot-hub-store-data-in-azure-table-storage\2_azure-portal-iot-hub-endpoint-connection-string.png)
-
-5. Nel riquadro **Hub IoT**, in **Impostazioni**, fare clic su **Criteri di accesso condivisi**.
-
-6. Fare clic su **iothubowner**.
-
-7. Prendere nota del valore presente in **Chiave primaria**.
-
-8. Creare la stringa di connessione dell'endpoint dell'hub IoT nel modo seguente:
-
-   `Endpoint=<Event Hub-compatible endpoint>;SharedAccessKeyName=iothubowner;SharedAccessKey=<Primary key>`
-
-   > [!NOTE]
-   > Sostituire `<Event Hub-compatible endpoint>` e `<Primary key>` con i valori annotati in precedenza.
-
-### <a name="create-a-consumer-group-for-your-iot-hub"></a>Creare un gruppo di consumer per l'hub IoT
-
-1. Aprire l'hub IoT.
-
-2. Nel riquadro **Hub IoT**, in **Messaggistica**, fare clic su **Endpoint**.
-
-3. Nel riquadro destro, in **Endpoint predefiniti**, fare clic su **Eventi**.
-
-4. Nel riquadro **Proprietà** immettere un nome in **Gruppi di consumer** e prendere nota del nome.
-
-5. Fare clic su **Salva**.
-
-## <a name="create-and-deploy-an-azure-function-app"></a>Creare e distribuire un'app per le funzioni di Azure
-
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuovo** > **Calcolo** > **App per le funzioni** > **Crea**.
-
-2. Immettere le informazioni necessarie per l'app per le funzioni.
-
-   ![Creare un'app per le funzioni nel portale di Azure](media\iot-hub-store-data-in-azure-table-storage\3_azure-portal-create-function-app.png)
-
-   * **Nome app**: nome dell'app per le funzioni. Il nome deve essere univoco a livello globale.
-
-   * **Gruppo di risorse**: usare lo stesso gruppo di risorse usato da hub IoT.
-
-   * **Account di archiviazione**: selezionare l'account di archiviazione creato.
-
-   * **Aggiungi al dashboard**: selezionare questa opzione per semplificare l'accesso all'app per le funzioni dal dashboard.
-
-3. Fare clic su **Crea**.
-
-4. Dopo aver creato l'app per le funzioni, aprirla.
-
-5. Nell'app per le funzioni creare una nuova funzione seguendo questa procedura:
-
-   a. Fare clic su **Nuova funzione**.
-
-   b. Selezionare **JavaScript** per **Linguaggio** ed **Elaborazione dati** per **Scenario**.
-
-   c. Fare clic su **Creare questa funzione** e quindi su **Nuova funzione**.
-
-   d. Selezionare **JavaScript** per il linguaggio e **Elaborazione dati** per lo scenario.
-
-   e. Fare clic sul modello **EventHubTrigger-JavaScript**.
-
-   f. Immettere le informazioni necessarie per il modello.
-
-      * **Assegnare un nome alla funzione**: nome della funzione.
-
-      * **Nome hub eventi**: nome compatibile con l'hub eventi annotato in precedenza.
-
-      * **Connessione dell'hub eventi**: fare clic su **Nuovo** per aggiungere la stringa di connessione dell'endpoint dell'hub IoT creata.
-
-   g. Fare clic su **Crea**.
-
-6. Configurare un output della funzione seguendo questa procedura:
-
-   a. Fare clic su **Integrazione** > **Nuovo output** > **Archiviazione tabelle di Azure** > **Seleziona**.
-
-      ![Aggiungere l'archiviazione tabelle all'app per le funzioni nel portale di Azure](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
-
-   b. Immettere le informazioni necessarie.
-
-      * **Nome del parametro della tabella**: usare `outputTable`, che verrà usato nel codice di Funzioni di Azure.
-      
-      * **Nome tabella**: usare `deviceData`.
-
-      * **Connessione dell'account di archiviazione**: fare clic su **nuovo** e selezionare o immettere l'account di archiviazione. Se l'account di archiviazione non viene visualizzato, vedere [Requisiti dell'account di archiviazione](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
-      
-   c. Fare clic su **Salva**.
-
-7. In **Trigger** fare clic su **Hub eventi di Azure (eventHubMessages)**.
-
-8. In **Gruppo di consumer dell'hub eventi** immettere il nome del gruppo di consumer creato, quindi fare clic su **Salva**.
-
-9. Fare clic sulla funzione creata a sinistra e quindi fare clic su **Visualizza file** a destra.
-
-10. Sostituire il codice in `index.js` con il codice seguente:
-
-   ```javascript
-   'use strict';
-
-   // This function is triggered each time a message is received in the IoT hub.
-   // The message payload is persisted in an Azure storage table
- 
-   module.exports = function (context, iotHubMessage) {
-    context.log('Message received: ' + JSON.stringify(iotHubMessage));
-    var date = Date.now();
-    var partitionKey = Math.floor(date / (24 * 60 * 60 * 1000)) + '';
-    var rowKey = date + '';
-    context.bindings.outputTable = {
-     "partitionKey": partitionKey,
-     "rowKey": rowKey,
-     "message": JSON.stringify(iotHubMessage)
-    };
-    context.done();
-   };
-   ```
-
-11. Fare clic su **Salva**.
-
-È stata creata l'app per le funzioni, che archivia i messaggi ricevuti dall'hub IoT nell'archiviazione tabelle di Azure.
+Per impostazione predefinita, l'hub IoT esegue il routing all'endpoint predefinito di tutti i messaggi che non corrispondono ad altre route. Poiché tutti i messaggi relativi ai dati di telemetria ora corrispondono alla regola che esegue il routing dei messaggi alla risorsa di archiviazione, è necessario aggiungere un'altra route per i messaggi da scrivere nell'endpoint predefinito. Non è previsto alcun costo aggiuntivo per il routing dei messaggi a più endpoint.
 
 > [!NOTE]
-> È possibile usare il pulsante **Esegui** per testare l'app per le funzioni. Quando fa clic su **Esegui**, il messaggio di test viene inviato all'hub IoT. All'arrivo del messaggio, l'app per le funzioni si avvia e salva il messaggio nell'archiviazione tabelle di Azure. Il riquadro **Log** registra i dettagli del processo.
+> Se non vengono eseguite altre operazioni di elaborazione dei messaggi relativi ai dati di telemetria, è possibile ignorare questo passaggio.
 
-## <a name="verify-your-message-in-your-table-storage"></a>Verificare il messaggio nell'archivio tabelle
+Fare clic su **Aggiungi** nel riquadro Route e immettere un nome per la route. Selezionare **Messaggi del dispositivo** come origine dei dati ed **venti** come endpoint. Immettere `true` come stringa di query e quindi fare clic su **Salva**.
+
+  ![Creare una route con percorso prioritario nell'hub IoT](media\iot-hub-store-data-in-azure-table-storage\4_hot-path-route.png)
+
+## <a name="verify-your-message-in-your-storage-container"></a>Verificare il messaggio nel contenitore di archiviazione
 
 1. Eseguire l'applicazione di esempio nel dispositivo per inviare messaggi all'hub IoT.
 
@@ -208,13 +94,12 @@ L'hub IoT espone un endpoint predefinito compatibile con l'hub eventi per consen
 
 3. Aprire Storage Explorer, fare clic su **Add an Azure Account** (Aggiungi un account Azure)  >  **Accedi** e quindi accedere all'account Azure.
 
-4. Fare clic sulla sottoscrizione di Azure > **Account di archiviazione** > account di archiviazione > **Tabelle** > **deviceData**.
+4. Fare clic sulla sottoscrizione di Azure in uso > **Account di archiviazione** > account di archiviazione in uso > **contenitori BLOB** > contenitore BLOB in uso.
 
-   Nella tabella `deviceData` saranno visibili i messaggi inviati dal dispositivo all'hub IoT.
+   Nel contenitore BLOB saranno visibili i messaggi inviati dal dispositivo all'hub IoT.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Sono stati creati l'account di archiviazione di Azure e l'app per le funzioni di Azure, che archivia i messaggi ricevuti dall'hub IoT nell'archiviazione tabelle di Azure.
+È stato creato correttamente l'account di archiviazione di Azure ed è stato eseguito il routing dei messaggi dall'hub IoT a un contenitore BLOB in tale account di archiviazione.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

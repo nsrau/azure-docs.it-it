@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.openlocfilehash: 9159960af396e89f373da711e0cc46fdd996ab83
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Caricare e creare una VM Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure 2.0
 Questo articolo illustra come caricare un disco rigido virtuale su un account di archiviazione di Azure con l'interfaccia della riga di comando di Azure 2.0 e come creare VM Linux da questo disco personalizzato. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Questa funzionalità consente di installare e configurare una distribuzione Linux in base ai propri requisiti e quindi di usare il disco rigido virtuale per creare rapidamente macchine virtuali di Azure.
@@ -99,7 +99,7 @@ Assicurarsi di avere installato la versione più recente dell'[interfaccia della
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
-<a id="prepimage"> </a>
+<a id="prepimage"></a>
 
 ## <a name="prepare-the-disk-to-be-uploaded"></a>Preparare il disco da caricare
 Azure supporta svariate distribuzioni di Linux (vedere la sezione [Distribuzioni approvate](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Gli articoli seguenti forniscono le istruzioni per preparare le diverse distribuzioni Linux supportate in Azure:

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ce5d333ad5d339b64d1fc1d081651052f71a8b67
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Come inviare le Misurazioni utente reale a Gestione traffico di Azure usando le pagine Web
 
 >[!NOTE]
@@ -76,5 +74,4 @@ Dopo aver ottenuto la chiave RUM, il passaggio successivo consiste nell'incorpor
 - Informazioni sul [funzionamento di Gestione traffico](traffic-manager-overview.md)
 - Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
 - Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-create-profile.md)
-
 

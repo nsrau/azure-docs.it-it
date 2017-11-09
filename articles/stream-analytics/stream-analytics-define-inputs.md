@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
+ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
 La connessione dati a un processo di Analisi di flusso è un flusso di eventi da un'origine dati, definito *input* del processo. Analisi di flusso si integra perfettamente con le origini del flusso dei dati di Azure, come [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) e [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/). Queste origini di input possono appartenere alla stessa sottoscrizione di Azure del processo di analisi o a un'altra sottoscrizione.
@@ -35,6 +34,12 @@ Un flusso dei dati è una sequenza non associata di eventi che accadono nel temp
 Analisi di flusso supporta anche l'input noto come *dati di riferimento*. Si tratta di dati ausiliari che sono statici o cambiano lentamente e che di solito sono usati per eseguire correlazioni e ricerche. È ad esempio possibile unire i dati nell'input del flusso dei dati con quelli inclusi nei dati di riferimento, proprio come si esegue un join SQL per cercare valori statici. L'archiviazione BLOB di Azure è attualmente l'unica origine di input supportata per i dati di riferimento. I BLOB di origine dei dati di riferimento non possono avere una dimensione superiore a 100 MB.
 
 Per informazioni su come creare input dei dati di riferimento, vedere [Uso dei dati di riferimento](stream-analytics-use-reference-data.md).  
+
+## <a name="compression"></a>Compressione
+
+Analisi di flusso di Azure supporta la compressione in tutte le origini di input del flusso di dati (Hub eventi, hub IoT e archiviazione BLOB). Questa funzionalità aggiunge una nuova opzione nell'elenco a discesa del pannello **Nuovo input** del portale di Azure consentendo di scegliere facoltativamente di comprimere i flussi di dati. I tipi di compressione attualmente supportati sono None, GZip e Deflate. 
+
+La compressione non è supportata in parallelo con la serializzazione Avro e non è applicabile ai dati di riferimento. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Creare un input del flusso dei dati dagli hub eventi
 
@@ -57,6 +62,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nel pan
 | **Gruppo di consumer dell'hub eventi** (facoltativa) |Gruppo di consumer da usare per l'inserimento di dati dall'hub eventi. Se non è specificato alcun gruppo di consumer, il processo di Analisi di flusso usa quello predefinito. È consigliabile usare un gruppo di consumer distinto per ogni processo di Analisi di flusso. |
 | **Formato di serializzazione eventi** |Formato di serializzazione (JSON, CSV o Avro) del flusso dei dati in ingresso. |
 | **Codifica** | L'unico formato di codifica attualmente supportato è UTF-8. |
+| **Compressione** (facoltativo) | Il tipo di compressione (None, GZip o Deflate) del flusso dei dati in ingresso. |
 
 Quando i dati provengono da un hub eventi, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
@@ -75,6 +81,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> Quando si usa Hub eventi come un endpoint delle route dell'hub IoT, è possibile accedere ai metadati dell'hub IoT usando la funzione [GetMetadataPropertyValue](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
+> 
 
 ## <a name="create-data-stream-input-from-iot-hub"></a>Creare un input del flusso dei dati dall'hub IoT
 Hub IoT di Azure è un servizio di inserimento di eventi di pubblicazione-sottoscrizione altamente scalabile ottimizzato per scenari IoT.
@@ -102,6 +112,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nel pan
 | **Gruppo di consumer** (facoltativa) |Gruppo di consumer da usare per inserire dati dall'hub IoT. Se non è specificato alcun gruppo di consumer, un processo di Analisi di flusso usa quello predefinito. È consigliabile usare un gruppo di consumer diverso per ogni processo di Analisi di flusso. |
 | **Formato di serializzazione eventi** |Formato di serializzazione (JSON, CSV o Avro) del flusso dei dati in ingresso. |
 | **Codifica** |L'unico formato di codifica attualmente supportato è UTF-8. |
+| **Compressione** (facoltativo) | Il tipo di compressione (None, GZip o Deflate) del flusso dei dati in ingresso. |
 
 Quando i dati provengono da un hub IoT, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
@@ -144,6 +155,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nel pan
 | **Formato ora** (facoltativa) |  Formato dell'ora in base al quale vengono organizzati i file, se si usa la variabile time nel percorso. L'unico valore attualmente supportato è `HH`. |
 | **Formato di serializzazione eventi** | Formato di serializzazione (JSON, CSV o Avro) per i flussi dei dati in ingresso. |
 | **Codifica** | Per CSV e JSON, l'unico formato di codifica attualmente supportato è UTF-8. |
+| **Compressione** (facoltativo) | Il tipo di compressione (None, GZip o Deflate) del flusso dei dati in ingresso. |
 
 Quando i dati provengono da un'origine di archiviazione BLOB, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
@@ -182,4 +194,3 @@ Sono state apprese le opzioni di connessione dei dati in Azure per i processi di
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

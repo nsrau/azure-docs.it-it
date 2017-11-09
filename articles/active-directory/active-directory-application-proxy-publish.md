@@ -15,14 +15,12 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Pubblicare applicazioni mediante il proxy di applicazione AD Azure
 
 > [!div class="op_single_selector"]
@@ -103,5 +101,4 @@ Per eliminare un'applicazione, selezionare un'applicazione nell'elenco e fare cl
 * [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
 
 Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-
 

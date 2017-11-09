@@ -1,5 +1,5 @@
 ---
-title: Panoramica del processo data science per i team con Azure | Microsoft Docs
+title: Introduzione a Team Data Science Process | Microsoft Docs
 description: Fornisce una metodologia di data science per offrire soluzioni di analisi predittiva e applicazioni intelligenti.
 services: machine-learning
 documentationcenter: 
@@ -12,16 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2017
+ms.date: 10/20/2017
 ms.author: bradsev;
+ms.openlocfilehash: 75e170f29f9a6abeeb3393e43e6a4c355749044d
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d92c8df7ad8cf522079bdea86e7b33d8441452ab
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/21/2017
 ---
-# <a name="team-data-science-process-overview"></a>Panoramica del processo di data science per i team
+# <a name="what-is-the-team-data-science-process"></a>Introduzione a Team Data Science Process
 
 Il processo di data science per i team (TDSP) è una metodologia di data science agile e iterativa mirata a offrire soluzioni di analisi predittiva e applicazioni intelligenti in modo efficiente. Il TDSP consente di migliorare la collaborazione tra team e l'apprendimento. Contiene procedure consigliate e strutture messe a punto da Microsoft e altre aziende del settore che facilitano la corretta implementazione delle iniziative di data science. L'obiettivo è aiutare le aziende a realizzare completamente i vantaggi del proprio programma di analisi.
 
@@ -108,4 +107,3 @@ Introdurre processi nella maggior parte delle organizzazioni è complesso. Gli s
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Processo di data science per i team: ruoli e attività](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) descrive i ruoli del personale chiave e le relative attività associate per un team di data science che standardizza il processo. 
-

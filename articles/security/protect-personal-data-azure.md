@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Proteggere i dati personali in Microsoft Azure
 
@@ -78,4 +77,3 @@ Gli articoli seguenti contengono indicazioni sulle procedure tecniche che consen
 - [Blog del team di sicurezza di Azure](https://www.azuresecurityorg)
 
 - [Blog di Azure.com - Sicurezza](https://azure.microsoft.com/blog/topics/security/)
-

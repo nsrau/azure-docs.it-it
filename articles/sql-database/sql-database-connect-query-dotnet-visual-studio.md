@@ -8,19 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.custom: devcenter
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/05/2017
 ms.author: carlrab
+ms.openlocfilehash: 5fc50c78af7c88cc2d0c537456cb8323002f8696
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 105dab17823a7e7f6957a604833f4ecad35c14bd
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Usare .NET (C#) con Visual Studio Code per connettersi a un database SQL ed eseguire query
 
@@ -143,4 +142,3 @@ namespace sqltest
 - Informazioni su come [iniziare a usare .NET Core in Windows/Linux/macOS con la riga di comando](/dotnet/core/tutorials/using-with-xplat-cli).
 - Informazioni su come [progettare il primo database SQL di Azure con SSMS](sql-database-design-first-database.md) o su come [progettare il primo database SQL di Azure con .NET](sql-database-design-first-database-csharp.md).
 - Per altre informazioni su .NET, vedere la [documentazione di .NET](https://docs.microsoft.com/dotnet/).
-

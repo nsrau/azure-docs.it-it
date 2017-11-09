@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: a9df3f4e27e0d6e11b9d85a44467f3c62f453121
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Provisioning di dispositivi con il servizio Device Provisioning in hub IoT di Azure (anteprima)
 Microsoft Azure include un ampio set di servizi cloud pubblici integrati per tutte le esigenze di soluzioni IoT. Device Provisioning in hub IoT di Azure è un servizio di assistenza per l'hub IoT che consente il provisioning JIT automatico, permettendo ai clienti di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.
 
@@ -116,4 +114,3 @@ Dopo questa panoramica del provisioning dei dispositivi IoT in Azure, il passagg
 > [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) (Configurare il servizio Device Provisioning in hub IoT con il portale di Azure) 
 > [Create and provision a simulated device](quick-create-simulated-device.md) (Creare un dispositivo simulato ed effettuarne il provisioning) 
 > [Set up device for provisioning](tutorial-set-up-device.md) (Configurare il dispositivo per il provisioning)
-

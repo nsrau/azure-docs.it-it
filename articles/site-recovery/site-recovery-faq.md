@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/22/2017
+ms.date: 10/19/2017
 ms.author: raynew
+ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 95e31d0ca5983e0946ad6fb993e7a89a6a63d2c3
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: domande frequenti
 In questo articolo sono riportate le domande frequenti su Azure Site Recovery. Eventuali domande successive alla lettura di questo articolo possono essere pubblicate nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -34,8 +33,7 @@ Site Recovery favorisce l'attuazione della strategia di continuità aziendale e 
 * **Server fisici**: Site Recovery può proteggere server fisici che eseguono Windows o Linux.
 * **Macchine virtuali VMware**: Site Recovery può proteggere qualsiasi carico di lavoro in esecuzione in una macchina virtuale VMware.
 
-### <a name="does-site-recovery-support-the-azure-resource-manager-model"></a>Site Recovery supporta il modello Azure Resource Manager?
-Site Recovery è disponibile nel portale di Azure con il supporto per Resource Manager. Site Recovery supporta le distribuzioni legacy nel portale di Azure classico. Non è possibile creare nuovi insiemi di credenziali nel portale classico e le nuove funzionalità non sono supportate.
+
 
 ### <a name="can-i-replicate-azure-vms"></a>È possibile replicare le macchine virtuali di Azure?
 Sì, è possibile replicare le macchine virtuali di Azure supportate tra le aree di Azure. [Altre informazioni](site-recovery-azure-to-azure.md).
@@ -56,7 +54,7 @@ No, le VM devono trovarsi in un server host Hyper-V in esecuzione in un computer
 È possibile usare Site Recovery per proteggere la maggior parte dei carichi di lavoro in esecuzione in una VM o in un server fisico supportati. Site Recovery fornisce il supporto per la replica compatibile con l'applicazione per consentire il ripristino delle app a uno stato intelligente. Si integra con le applicazioni Microsoft, ad esempio SharePoint, Exchange, Dynamics, SQL Server e Active Directory, e opera a stretto contatto con importanti fornitori, tra cui Oracle, SAP, IBM e Red Hat. [Altre informazioni](site-recovery-workload.md) sulla protezione del carico di lavoro.
 
 ### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Gli host Hyper-V devono trovarsi nei cloud VMM?
-Per la replica in un data center secondario, le VM Hyper-V devono trovarsi in server host Hyper-V in un cloud VMM. Se si vuole eseguire la replica in Azure, è possibile replicare le VM nei server host Hyper-V con o senza cloud VMM. [Altre informazioni](site-recovery-hyper-v-site-to-azure.md).
+Per la replica in un data center secondario, le VM Hyper-V devono trovarsi in server host Hyper-V in un cloud VMM. Se si vuole eseguire la replica in Azure, è possibile replicare le VM con o senza cloud VMM. [Altre informazioni](tutorial-hyper-v-to-azure.md) sulla replica Hyper-V in Azure.
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>È possibile distribuire Site Recovery con VMM se si dispone di un solo server VMM?
 
@@ -133,8 +131,7 @@ Sì. È possibile automatizzare i flussi di lavoro di Site Recovery usando l'API
 * [Replica da VM Hyper-V senza VMM ad Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Se si esegue la replica in Azure che tipo di account di archiviazione è necessario?
-* **Portale di Azure classico**: se si distribuisce Site Recovery nel portale di Azure classico, sarà necessario un [account di archiviazione con ridondanza geografica standard](../storage/common/storage-redundancy.md#geo-redundant-storage). Archiviazione Premium non è attualmente supportata. L'account deve trovarsi nella stessa area dell'insieme di credenziali di Site Recovery.
-* **Portale di Azure**: se si distribuisce Site Recovery nel portale di Azure, sarà necessario un account di archiviazione con ridondanza locale o con ridondanza geografica. È consigliabile usare l'archiviazione con ridondanza geografica per una maggiore resilienza dei dati in caso di interruzione del servizio a livello di area o se non è possibile recuperare l'area primaria. L'account deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino. Archiviazione Premium è ora supportato per le macchine virtuali VMware e Hyper-V e la replica di server fisici, quando si distribuisce Site Recovery nel portale di Azure.
+È necessario un account di archiviazione con ridondanza locale o con ridondanza geografica. È consigliabile usare l'archiviazione con ridondanza geografica per una maggiore resilienza dei dati in caso di interruzione del servizio a livello di area o se non è possibile recuperare l'area primaria. L'account deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino. Archiviazione Premium è supportato per la replica di macchine virtuali VMware e Hyper-V e di server fisici, quando si distribuisce Site Recovery nel portale di Azure.
 
 ### <a name="how-often-can-i-replicate-data"></a>Con quale frequenza è possibile eseguire la replica dei dati?
 * **Hyper-V:** le macchine virtuali Hyper-V possono essere replicate ogni 30 secondi (eccetto per Archiviazione Premium), 5 minuti o 15 minuti. Se è stata configurata la replica SAN, questa sarà sincrona.
@@ -161,8 +158,7 @@ L'aggiunta di nuovi computer ai gruppi di replica esistenti è supportata. A tal
 Sì. Ulteriori informazioni sulla limitazione della larghezza di banda sono disponibili negli articoli sulla distribuzione:
 
 * [Pianificazione della capacità per la replica da VM VMware e server fisici](site-recovery-plan-capacity-vmware.md)
-* [Pianificazione della capacità per la replica da VM Hyper-V nei cloud VMM](site-recovery-vmm-to-azure.md#capacity-planning)
-* [Pianificazione della capacità per la replica da VM Hyper-V senza VMM](site-recovery-hyper-v-site-to-azure.md)
+* [Pianificazione della capacità per la replica da VM Hyper-V in Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 ## <a name="failover"></a>Failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Se si esegue il failover in Azure, come è possibile accedere alle macchine virtuali dopo il failover?
@@ -220,4 +216,3 @@ Sì, è possibile eseguire la replica da macchine virtuali Hyper-V ad Azure o tr
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere la [panoramica di Site Recovery](site-recovery-overview.md)
 * Informazioni sull' [architettura di Site Recovery](site-recovery-components.md)  
-

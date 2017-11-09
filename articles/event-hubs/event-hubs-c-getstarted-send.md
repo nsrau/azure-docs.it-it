@@ -14,14 +14,12 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
+ms.openlocfilehash: 25311958314cca049d109ecbe3f46aaaa36b694d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: a615ee39b6c3731cc7df366e9fabeed5219a71b4
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Inviare eventi a Hub di eventi di Azure usando C
 
 ## <a name="introduction"></a>Introduzione
@@ -163,4 +161,3 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
-

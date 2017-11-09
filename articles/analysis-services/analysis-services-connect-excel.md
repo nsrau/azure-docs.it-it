@@ -4,7 +4,7 @@ description: Informazioni su come connettersi a un server di Azure Analysis Serv
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: d51b6980120f1cf9bc8d053d463a73ac600b915f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 7597792a525583497ec6a400e668eda2adc9a93e
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="connect-with-excel"></a>Connettersi con Excel
 

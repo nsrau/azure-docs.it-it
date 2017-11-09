@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: a37df79a38a35b61cca72918d4d893a4bfc83b7e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 44dc7b18d46d1e75e8b55b6e32a346272a06bda9
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Confronto tra l'hub IoT e Hub eventi di Azure
 Uno degli usi principali dell'hub IoT è la raccolta di dati di telemetria dai dispositivi. Per questo motivo, l'hub IoT viene spesso paragonato all'[Hub eventi di Azure][Azure Event Hubs]. Come l'hub IoT, Hub eventi è un servizio di elaborazione eventi che consente l'ingresso di eventi e telemetria nel cloud su vasta scala, con bassa latenza e affidabilità elevata.
@@ -29,11 +29,11 @@ I servizi presentano tuttavia molte differenze, illustrate in dettaglio nella ta
 | --- | --- | --- |
 | Modelli di comunicazione | Abilita le [comunicazioni da dispositivo a cloud][lnk-d2c-guidance] (messaggistica, caricamenti di file e proprietà segnalate) e le [comunicazioni da cloud a dispositivo][lnk-c2d-guidance] (metodi diretti, proprietà desiderate, messaggistica). |Consente solo l'ingresso di eventi, considerato di solito per scenari da dispositivo a cloud. |
 | Informazioni sullo stato dei dispositivi | I [dispositivi gemelli][lnk-twins] possono archiviare le informazioni sullo stato dei dispositivi ed eseguire query su tali informazioni. | Nessuna informazioni sullo stato dei dispositivi può essere archiviata. |
-| Supporto dei protocolli del dispositivo |Supporta MQTT, MQTT su WebSockets, AMQP, AMQP su WebSockets e HTTP. L'hub IoT funziona anche con il [Gateway del protocollo di IoT di Azure][lnk-azure-protocol-gateway], un'implementazione di gateway del protocollo personalizzabile per supportare i protocolli personalizzati. |Supporta AMQP, AMQP su WebSocket e HTTP. |
+| Supporto dei protocolli del dispositivo |Supporta MQTT, MQTT su WebSockets, AMQP, AMQP su WebSockets e HTTPS. L'hub IoT funziona anche con il [Gateway del protocollo di IoT di Azure][lnk-azure-protocol-gateway], un'implementazione di gateway del protocollo personalizzabile per supportare i protocolli personalizzati. |Supporta AMQP, AMQP su WebSocket e HTTPS. |
 | Sicurezza |Garantisce l’identità per dispositivo e il controllo di accesso revocabile. Vedere la [sezione protezione della Guida per gli sviluppatori di hub IoT]. |Garantisce [criteri di accesso condivisi][Event Hubs - security] a livello di Hub eventi, con supporto limitato per la revoca tramite [criteri dell'entità di pubblicazione][Event Hubs publisher policies]. Per le soluzioni IoT è spesso necessario implementare una soluzione personalizzata per supportare le credenziali per dispositivo e le misure antispoofing. |
 | Monitoraggio delle operazioni |Consente alle soluzioni IoT di sottoscrivere un'ampia gamma di eventi di gestione delle identità dei dispositivi e di connettività, ad esempio errori di autenticazione di singoli dispositivi, limitazione ed eccezioni con un formato non valido. Questi eventi consentono di identificare rapidamente i problemi di connettività a livello di singolo dispositivo. |Espone solo le metriche aggregate. |
 | Scalabilità |È ottimizzato per supportare milioni di dispositivi connessi simultaneamente. |Contatori per le connessioni in base alle [quote di Hub eventi di Azure][Azure Event Hubs quotas]. D'altra parte, Hub eventi consente di specificare la partizione per ogni messaggio inviato. |
-| SDK del dispositivo |Fornisce [SDK di dispositivi][Azure IoT SDKs] per una vasta gamma di piattaforme e linguaggi, oltre a indirizzare le API MQTT, AMQP e HTTP. |È supportato su .NET, Java e C, oltre alle interfacce di invio AMQP e HTTP. |
+| SDK del dispositivo |Fornisce [SDK di dispositivi][Azure IoT SDKs] per una vasta gamma di piattaforme e linguaggi, oltre a indirizzare le API MQTT, AMQP e HTTPS. |È supportato su .NET, Java e C, oltre alle interfacce di invio AMQP e HTTPS. |
 | Caricamento di file |Consente alle soluzioni IoT di caricare file dai dispositivi al cloud. Include un endpoint di notifica di file per l'integrazione del flusso di lavoro e una categoria di monitoraggio delle operazioni per il supporto del debug. | Non supportati. |
 | Inviare messaggi a più endpoint | Sono supportati fino a 10 endpoint personalizzati. Le regole determinano il modo in cui i messaggi vengono indirizzati agli endpoint personalizzati. Per altre informazioni, vedere [Inviare e ricevere messaggi con l'hub IoT][lnk-devguide-messaging]. | È necessario scrivere e ospitare codice aggiuntivo per l'invio del messaggio. |
 

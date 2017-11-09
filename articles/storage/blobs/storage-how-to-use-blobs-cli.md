@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: c37fc0b701b668ab6bb9213a487ec8baa33fe663
-ms.contentlocale: it-it
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Eseguire operazioni di archiviazione BLOB con l'interfaccia della riga di comando di Azure
 
 Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati oggetto non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Questa esercitazione illustra le operazioni di base nell'archiviazione BLOB di Azure, ad esempio il caricamento, il download e l'eliminazione dei BLOB. Si apprenderà come:
@@ -283,4 +281,3 @@ Le risorse seguenti forniscono ulteriori informazioni sull'uso dell'interfaccia 
   * [Riferimento ai comandi dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/)
 * Microsoft Azure Storage Explorer
   * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente i dati di Archiviazione di Azure in Windows, macOS e Linux.
-

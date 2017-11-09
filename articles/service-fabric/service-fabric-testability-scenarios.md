@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: d06026c750e01ad5825338a78d9af331265f434a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testability-scenarios"></a>Scenari di testabilità
 Sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric offre agli sviluppatori la possibilità di scrivere servizi destinati ad essere eseguiti in infrastrutture inaffidabili. Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova un'infrastruttura inaffidabile in modo da testarne la stabilità dei servizi.

@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4af93d03fc4d3ffa0956d72cc0fc90bc98d15020
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Richiamare i programmi MapReduce da Data factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -34,6 +33,10 @@ ms.lasthandoff: 09/25/2017
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Trasformare dati tramite l'attività MapReduce in Data Factory versione 2](../transform-data-using-hadoop-map-reduce.md).
+
 
 L'attività HDInsight MapReduce in una [pipeline](data-factory-create-pipelines.md) di Data Factory esegue i programmi di MapReduce nei cluster HDInsight [personalizzati](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o [su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basati su Windows/Linux. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
@@ -250,5 +253,4 @@ La pipeline in questo esempio contiene una sola attività che è di tipo: HDInsi
 * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)
 * [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
 

@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dd9e7f672a9f991fd06530a968a3369b752148a2
 ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Quali sono i limiti relativi al sistema StorSimple serie 8000?
 ## <a name="overview"></a>Panoramica
@@ -58,5 +57,4 @@ StorSimple fornisce una risorsa di archiviazione scalabile e flessibile per il d
 
 ## <a name="next-steps"></a>Passaggi successivi
 Consultare i [requisiti di sistema di StorSimple](storsimple-system-requirements.md). 
-
 

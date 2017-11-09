@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
-ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
 ms.openlocfilehash: 3d032593b8eba89479829121a9745692e0f1f456
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Assegnare a un'Identità del servizio gestito, ovvero MSI, l'accesso a una risorsa tramite PowerShell
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -60,9 +58,8 @@ Se una delle due opzioni è errata, è necessario ridistribuire l'Identità del 
 
 ## <a name="related-content"></a>Contenuti correlati
 
-- Per una panoramica dell'Identità del servizio gestito, vedere [Panoramica dell'Identità del servizio gestito](msi-overview.md).
+- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](msi-overview.md).
 - Per abilitare l'Identità del servizio gestito in una macchina virtuale di Azure, vedere [Configurare un'Identità del servizio gestito della macchina virtuale di Azure mediante PowerShell](msi-qs-configure-powershell-windows-vm.md).
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
-
 

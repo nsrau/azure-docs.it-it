@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 3063647671fea94da3ce635b887f6f0f7de89f70
-ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-movement-cost"></a>Costo di spostamento dei servizi
 Un fattore preso in considerazione da Cluster Resource Manager di Service Fabric nel tentativo di determinare le modifiche da apportare a un cluster è il costo di tali modifiche. Il concetto di "costo" viene compensato sulla base di quanto il cluster può essere migliorato. Il factoring del costo avviene durante lo spostamento di servizi di bilanciamento del carico, la deframmentazione e altri requisiti. L'obiettivo è soddisfare i requisiti nel modo meno problematico o costoso. 
@@ -121,4 +120,3 @@ mediante ClusterConfig.json per le distribuzioni autonome o Template.json per i 
 - Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere [Bilanciamento del carico nel cluster di Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
-

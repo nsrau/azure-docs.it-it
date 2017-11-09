@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2017
+ms.date: 10/09/2017
 ms.author: tomfitz
+ms.openlocfilehash: cfdbf35b76b6a7f3cddb2deb35dfc475e0fc600f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0ee2624f45a1de0c23cae4538a38ae3e302eedd3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-policy-overview"></a>Cenni preliminari sui criteri delle risorse
 I criteri delle risorse consentono di definire le convenzioni per le risorse nell'organizzazione. Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se quindi un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
@@ -32,11 +31,6 @@ I criteri delle risorse consentono di definire le convenzioni per le risorse nel
 In questo argomento viene illustrata la definizione di criteri. Per informazioni sull'assegnazione dei criteri, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse) o [Assegnare e gestire i criteri tramite script](resource-manager-policy-create-assign.md).
 
 I criteri vengono valutati durante la creazione e l'aggiornamento delle risorse (operazioni PUT e PATCH).
-
-> [!NOTE]
-> I tipi di risorsa che non supportano tag, tipologia, percorso non vengono attualmente valutati dal criterio, come ad esempio il tipo di risorsa Microsoft.Resources/deployments. Il supporto di questo tipo di risorsa verrà aggiunto in futuro. Per evitare problemi di compatibilità con le versioni precedenti, è consigliabile specificare in modo esplicito il tipo durante la creazione di criteri. A tutti i tipi viene ad esempio applicato un criterio per i tag che non specifica i tipi, in modo che la distribuzione del modello non venga completata in presenza di una risorsa annidata che non supporta il tag, mentre il tipo di risorsa della distribuzione sarà aggiunto alla valutazione criteri. 
-> 
-> 
 
 ## <a name="how-is-it-different-from-rbac"></a>Quali sono le differenze rispetto al controllo degli accessi in base al ruolo?
 Esistono differenze importanti tra i criteri e il controllo degli accessi in base al ruoli (RBAC). Il Controllo degli accessi in base al ruolo è incentrato sulle azioni dell'**utente** in ambiti diversi. Ad esempio, un utente viene aggiunto al ruolo di collaboratore per un gruppo di risorse nell'ambito desiderato, in modo che possa apportare modifiche a tale gruppo di risorse. I criteri si concentrano sulle proprietà delle **risorse** durante la distribuzione. Tramite i criteri, ad esempio, si possono controllare i tipi di risorse di cui è possibile effettuare il provisioning. In alternativa, si possono limitare le posizioni in cui è possibile effettuare il provisioning delle risorse. A differenza del controllo degli accessi in base al ruolo, i criteri rappresentano un sistema con autorizzazioni predefinite e negazione esplicita. 
@@ -67,6 +61,7 @@ Azure offre alcune definizioni di criteri predefiniti che possono ridurre il num
 ## <a name="policy-definition-structure"></a>Struttura delle definizioni di criteri
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
+* mode
 * parameters
 * nome visualizzato
 * description
@@ -79,6 +74,7 @@ L'esempio seguente illustra un criterio che limita i punti in cui vengono distri
 ```json
 {
   "properties": {
+    "mode": "all",
     "parameters": {
       "allowedLocations": {
         "type": "array",
@@ -105,6 +101,12 @@ L'esempio seguente illustra un criterio che limita i punti in cui vengono distri
   }
 }
 ```
+
+## <a name="mode"></a>Mode
+
+È consigliabile impostare `mode` su `all`. Quando l'impostazione è **tutti** i gruppi di risorse e tutti i tipi di risorse vengono valutati per il criterio. Il portale usa **tutti** per tutti i criteri. Se si usa PowerShell o l'interfaccia della riga di comando di Azure, è necessario specificare il parametro `mode` e impostarlo su **tutti**.
+ 
+In precedenza, i criteri sono stati valutati solo sui tipi di risorse che supportavano i tag e il percorso. La modalità `indexed` mantiene questo comportamento. Se si usa la modalità **tutti** i criteri vengono valutati anche sui tipi di risorse che non supportano i tag e il percorso. [Subnet della rete virtuale](https://github.com/Azure/azure-policy-samples/tree/master/samples/Network/enforce-nsg-on-subnet) è un esempio di un tipo aggiunto di recente. I gruppi di risorse vengono inoltre valutati quando la modalità è impostata su **tutti**. Ad esempio, è possibile [applicare tag in un gruppo di risorse](https://github.com/Azure/azure-policy-samples/tree/master/samples/ResourceGroup/enforce-resourceGroup-tags). 
 
 ## <a name="parameters"></a>Parametri
 L'uso dei parametri consente di semplificare la gestione dei criteri, riducendone il numero di definizioni. Definire un criterio per una proprietà della risorsa (ad esempio limitando i percorsi in cui le risorse possono essere distribuite) e includere i parametri nella definizione. Quindi, riutilizzare tale definizione dei criteri per diversi scenari passando per valori diversi (ad esempio specificando un insieme di percorsi per una sottoscrizione) quando viene assegnato il criterio.
@@ -210,11 +212,13 @@ Sono supportati i seguenti campi:
 * alias delle proprietà; per un elenco, vedere [alias](#aliases).
 
 ### <a name="effect"></a>Effetto
-Il criterio supporta tre tipi di effetto: `deny`, `audit` e `append`. 
+Il criterio supporta i tipi di effetto seguenti: `deny`, `audit`, `append`, `AuditIfNotExists` e `DeployIfNotExists`. 
 
 * **Deny** genera un evento nel log di controllo e nega la richiesta
 * **Audit** genera un evento di avviso nel log di controllo, ma non nega la richiesta
 * **Append** aggiunge il set di campi definiti alla richiesta 
+* **AuditIfNotExists** - abilita il controllo se una risorsa non esiste
+* **DeployIfNotExists** - distribuisce una risorsa se non esiste già. Attualmente questo effetto è supportato solo tramite criteri predefiniti.
 
 In caso di **aggiunta**, è necessario specificare questi dettagli:
 
@@ -229,6 +233,10 @@ In caso di **aggiunta**, è necessario specificare questi dettagli:
 ```
 
 Il valore può essere una stringa o un oggetto formato JSON. 
+
+Con **AuditIfNotExists** e **DeployIfNotExists** è possibile valutare l'esistenza di una risorsa figlio e applicare una regola quando tale risorsa non esiste. È possibile ad esempio richiedere che venga distribuito un Network Watcher per tutte le reti virtuali.
+
+Per un esempio di controllo quando non è stata distribuita un'estensione della macchina virtuale, vedere [Audit VM extensions](https://github.com/Azure/azure-policy-samples/blob/master/samples/Compute/audit-vm-extension/azurepolicy.json) (Controllo delle estensioni VM).
 
 ## <a name="aliases"></a>Alias
 
@@ -347,20 +355,96 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 | Microsoft.Storage/storageAccounts/sku.name | Impostare il nome di SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Impostato per consentire solo il traffico https al servizio di archiviazione. |
 
+## <a name="policy-sets"></a>Set di criteri
 
-## <a name="policy-examples"></a>Esempi di criteri
+I set di criteri consentono di raggruppare diverse definizioni di criteri correlate. I set di criteri semplificano l'assegnazione e la gestione in quanto si lavora con i gruppi come un singolo elemento. È possibile ad esempio raggruppare tutti i criteri relativi ai tag in un singolo set di criteri. Invece di assegnare ciascun criterio singolarmente, si applica il set di criteri.
+ 
+L'esempio seguente illustra come creare un set di criteri per la gestione di due tag (costCenter e productName). L'esempio usa due criteri predefiniti per l'applicazione del valore di tag predefinito e per l'applicazione di tale valore. Il set di criteri dichiara due parametri, costCenterValue e productNameValue per la riusabilità. Fa riferimento a due definizioni di criteri predefinite più volte con parametri diversi. Per ogni parametro è possibile fornire un valore fisso, come illustrato per tagName, oppure un parametro dal set di criteri, come illustrato per tagValue.
 
-I seguenti argomenti contengono esempi di criteri:
+```json
+{
+    "properties": {
+        "displayName": "Billing Tags Policy",
+        "policyType": "Custom",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    },
+    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "name": "billingTagsPolicy"
+}
+```
 
-* Per gli esempi di criteri di tag, vedere [Applicare criteri delle risorse per i tag](resource-manager-policy-tags.md).
-* Per alcuni esempi di modelli di denominazione e di testo, vedere [Apply resource policies for names and text](resource-manager-policy-naming-convention.md) (Applicare criteri di risorse per nomi e testo).
-* Per gli esempi di criteri di archiviazione, vedere [Applicare i criteri delle risorse agli account di archiviazione](resource-manager-policy-storage.md).
-* Per gli esempi di criteri di macchine virtuali, vedere [Applicare criteri delle risorse alle macchine virtuali di Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) e [Applicare criteri delle risorse alle macchine virtuali di Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+Si aggiunge un set di criteri con il comando **New-AzureRMPolicySetDefinition** di PowerShell.
 
+Per le operazioni REST usare la versione API **2017-06-01-preview** come illustrato nell'esempio seguente:
+
+```
+PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicySet?api-version=2017-06-01-preview
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver definito una regola dei criteri, assegnarla a un ambito. Per assegnare i criteri tramite il portale, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse). Per assegnare i criteri tramite l'API REST, PowerShell o l'interfaccia della riga di comando di Azure, vedere [Assegnare e gestire i criteri tramite script](resource-manager-policy-create-assign.md).
+* Per dei criteri di esempio vedere [Azure resource policy GitHub repository](https://github.com/Azure/azure-policy-samples).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
 * Lo schema del criterio è pubblicato in [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
 

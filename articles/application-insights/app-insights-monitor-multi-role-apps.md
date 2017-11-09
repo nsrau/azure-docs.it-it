@@ -3,7 +3,7 @@ title: "Supporto di Azure Application Insights per più componenti, microservizi
 description: "Monitoraggio di applicazioni costituite da più componenti o ruoli per le prestazioni e l'uso."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: d8b466caba7201a5bb8612e773ad61943f6d1cf2
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Monitorare le applicazioni multi-componente con Application Insights (anteprima)
 
@@ -129,4 +128,3 @@ Fare clic per visualizzare un elenco correlato di dati di telemetria per questa 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Separare la telemetria da sviluppo, test e produzione](app-insights-separate-resources.md)
-

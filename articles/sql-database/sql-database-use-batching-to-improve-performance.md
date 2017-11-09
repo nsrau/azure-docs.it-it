@@ -12,14 +12,14 @@ ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 07/12/2016
 ms.author: sstein
-ms.openlocfilehash: 22cff47444306e599325ba3035d83a0266d69c72
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 8622bddc809c9d95f7acf359ff708d5ab31cf620
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 Le operazioni di invio in batch al database SQL di Azure migliorano in modo significativo le prestazioni e la scalabilità delle applicazioni. Per comprendere i vantaggi, la prima parte di questo articolo descrive alcuni risultati dei test di esempio che confrontano le richieste sequenziali e in batch inviate a un database SQL. Il resto dell'articolo illustra le tecniche, gli scenari e le considerazioni che facilitano l'uso corretto dell'invio in batch nelle applicazioni Azure.

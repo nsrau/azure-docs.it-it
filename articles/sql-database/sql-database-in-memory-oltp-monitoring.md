@@ -9,18 +9,17 @@ editor:
 ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jodebrui
+ms.openlocfilehash: 613a9ced91d71cc9a65ea67e6ede1a78a03b4bd5
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: e953b60493c5a7c7a7ad74533471bd321d42abef
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitorare l'archiviazione OLTP in memoria
 Quando si usa [OLTP in memoria](sql-database-in-memory.md), i dati nelle tabelle con ottimizzazione per la memoria e le variabili di tabella si trovano nell'archiviazione OLTP in memoria. Ogni livello di servizio Premium ha dimensioni massime di archiviazione OLTP in memoria documentate nell'articolo sui [limiti delle risorse del database singolo](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) e sui [limiti delle risorse del pool elastico](sql-database-resource-limits.md#elastic-pool-change-storage-size). Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con errore 41823. Sarà quindi necessario eliminare dati per recuperare memoria oppure aggiornare il livello di prestazioni del database.
@@ -56,4 +55,3 @@ Per risolvere l'errore:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per le linee guida sul monitoraggio, vedere [Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica](sql-database-monitoring-with-dmvs.md).
-

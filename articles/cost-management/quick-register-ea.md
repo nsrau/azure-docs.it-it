@@ -5,20 +5,17 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2017
+ms.date: 10/11/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
+ms.openlocfilehash: 41a9df712b07253d9f5f9db8542fb9917592320f
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 5b2fa44eaf801715d50282b4c1460c58d3631637
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
-
-
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrare un Azure Enterprise Agreement e visualizzare i dati sui costi
 
 Usare Azure Enterprise Agreement per registrarsi in Gestione costi di Azure di Cloudyn. La registrazione consente di accedere al portale di Cloudyn. Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale. Descrive anche come iniziare a visualizzare da subito i dati sui costi.
@@ -29,8 +26,8 @@ Usare Azure Enterprise Agreement per registrarsi in Gestione costi di Azure di C
 
 ## <a name="create-a-trial-registration"></a>Creare una registrazione di valutazione
 
-1. Nel portale di Azure fare clic su **Cost Management + Billing** (Gestione costi e fatturazione) nell'elenco dei servizi.
-2. In **Panoramica** fare clic su **Gestione costi**  
+1. Nel portale di Azure fare clic su **Gestione dei costi e fatturazione** nell'elenco dei servizi.
+2. In **Panoramica** fare clic su **Gestione dei costi**  
     ![Pagina Gestione costi](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. Nella pagina **Gestione dei costi** fare clic su **Go to Cost Management** (Vai a Gestione costi) per aprire la pagina di registrazione di Cloudyn in una nuova finestra.
 4. Nella pagina della registrazione di valutazione del portale Cloudyn digitare il nome della società e quindi selezionare **Azure Enterprise Enrollment Administrator** (Amministratore delle registrazioni di Azure Enterprise).  
@@ -44,12 +41,13 @@ Usare Azure Enterprise Agreement per registrarsi in Gestione costi di Azure di C
 7. In **Invite other stakeholder** (Invita altri stakeholder) è possibile aggiungere utenti digitando i loro indirizzi di posta elettronica. Al termine, fare clic su **Avanti**. I dati di fatturazione saranno aggiunti a Cloudyn in circa due ore.
 8. Fare clic su **Go to Cloudyn** (Passa a Cloudyn) per aprire il portale di Cloudyn. Nella pagina **Cloud Accounts Management** (Gestione account cloud) saranno visualizzate le informazioni sugli account EA registrati.
 
+Per guardare un video di esercitazione su come eseguire la registrazione di un contratto Enterprise Agreement, vedere [How to Find Your EA Enrollment ID and API Key for use in Azure Cost Management by Cloudyn](https://youtu.be/u_phLs_udig) (Come individuare l'ID di registrazione EA e la chiave API da usare in Gestione costi di Azure di Cloudyn).
+
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida rapida sono state usate le informazioni su Azure Enterprise Agreement per registrarsi in Gestione costi. È stato anche eseguito l'accesso al portale di Cloudyn e avviata la visualizzazione dei dati sui costo. Per altre informazioni su Gestione costi di Azure di Cloudyn, continuare l'esercitazione su Gestione costi.
+In questa guida rapida sono state usate le informazioni su Azure Enterprise Agreement per registrarsi in Gestione costi. È stato anche eseguito l'accesso al portale di Cloudyn e avviata la visualizzazione dei dati sui costo. Per altre informazioni su Gestione costi di Azure di Cloudyn, continuare l'esercitazione su Gestione dei costi.
 
 > [!div class="nextstepaction"]
-> [Visualizzare i dati sui costi](./tutorial-review-usage.md)
-
+> [Esaminare l'utilizzo e i costi](./tutorial-review-usage.md)

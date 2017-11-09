@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: c3a2d4b126d43017ec004bde82deb190584455c4
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 66db18d2d6cb03548631a275a0a5ecf7b9d4a364
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Esercitazione: Copiare dati da un archivio BLOB al database SQL usando Data Factory
 > [!div class="op_single_selector"]
@@ -32,6 +31,9 @@ ms.lasthandoff: 09/25/2017
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere l'[esercitazione sull'attività di copia nella documentazione sulla versione 2](../quickstart-create-data-factory-dot-net.md). 
 
 In questa esercitazione si crea una data factory con una pipeline per copiare i dati dall'archivio BLOB al database SQL.
 
@@ -108,7 +110,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **Se nel computer è installato SQL Server 2012/2014**, seguire le istruzioni fornite in [Gestione del database SQL di Azure con SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) per connettersi al server SQL di Azure ed eseguire lo script SQL. Per configurare il firewall per un server SQL di Azure, questo articolo usa il [portale di Azure classico](http://manage.windowsazure.com), non il [nuovo portale di Azure](https://portal.azure.com).
+    **Se nel computer è installato SQL Server 2012/2014**, seguire le istruzioni fornite in [Gestione del database SQL di Azure con SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) per connettersi al server SQL di Azure ed eseguire lo script SQL. 
 
     Se il client non è autorizzato ad accedere al server di Azure SQL, è necessario configurare il firewall per il server di Azure SQL in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server Azure SQL, vedere [questo articolo](../../sql-database/sql-database-configure-firewall-settings.md) .
 
@@ -127,4 +129,3 @@ I passaggi relativi ai prerequisiti sono stati completati. È possibile creare u
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Non trasforma i dati di input per produrre dati di output. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare la prima pipeline per elaborare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
 > 
 > È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
-

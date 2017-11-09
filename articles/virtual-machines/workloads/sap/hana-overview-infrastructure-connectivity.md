@@ -11,17 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastruttura e connettività a SAP HANA (istanze di grandi dimensioni) in Azure 
 
 Alcune definizioni prima di leggere questa guida. In [Panoramica e architettura di SAP HANA (istanze Large) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) vengono illustrate le due classi diverse di istanze Large di Hana con:
@@ -42,8 +40,7 @@ Dopo aver finalizzato l'acquisto di SAP HANA in Azure (istanze Large) con il tea
 - Informazioni di contatto aziendali (inclusi indirizzo e-mail e numero di telefono)
 - Informazioni di contatto tecniche (inclusi indirizzo e-mail e numero di telefono)
 - Informazioni di contatto di rete tecniche (inclusi indirizzo e-mail e numero di telefono)
-- Area di distribuzione di Azure: Stati Uniti occidentali, Stati Uniti orientali, Australia orientale, Australia sudorientale, Europa occidentale e Nord Europa a partire da luglio 
-- 2017)
+- Area di distribuzione di Azure: Stati Uniti occidentali, Stati Uniti orientali, Australia orientale, Australia sud-orientale, Europa occidentale e Europa settentrionale a partire da luglio 2017
 - Confermare l'SKU (configurazione) di SAP HANA in Azure (istanze grandi)
 - Come già illustrato in dettaglio nel documento di panoramica e architettura per le istanze Large di HANA, per ogni area di Azure in cui viene distribuito è necessario specificare:
     - Intervallo di indirizzi IP da /29 per le connessioni ER-P2P che connettono reti virtuali di Azure a istanze Large di HANA
@@ -299,6 +296,5 @@ Per garantire una rimozione completa, rimuovere gli elementi seguenti:
 Per rimuovere un circuito ExpressRoute aggiuntivo per SAP HANA in Azure (istanze Large), aprire una richiesta di supporto di Azure con SAP HANA in Azure Service Management e richiedere l'eliminazione del circuito. È possibile eliminare o mantenere la rete virtuale nella sottoscrizione di Azure in base alle necessità. Tuttavia, è necessario eliminare la connessione tra il circuito ExpressRoute per istanze Large di HANA e il gateway di rete virtuale collegato.
 
 Se si desidera rimuovere una rete virtuale, seguire le linee guida indicate in Eliminazione di una rete virtuale nella sezione precedente.
-
 
 

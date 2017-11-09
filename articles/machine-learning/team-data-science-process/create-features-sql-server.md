@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;fashah;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 06c165d25361694cf660f391b3d221ad1d63e95d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creare funzionalità per i dati in SQL Server tramite SQL e Python
 Questo documento illustra come creare funzionalità per i dati archiviati in una VM di SQL Server in Azure che consentono agli algoritmi di apprendere in modo più efficiente dai dati. Questa operazione può essere eseguita tramite SQL o usando un linguaggio di programmazione come Python. Questo esempio include una dimostrazione di entrambi.
@@ -122,5 +121,4 @@ La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
 A questo punto è possibile usare il frame di dati di Pandas, come descritto nell'argomento relativo alla [creazione di funzionalità per i dati di archiviazione BLOB di Azure tramite Panda](create-features-blob.md).
-
 

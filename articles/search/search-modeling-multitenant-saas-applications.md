@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
 ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con Ricerca di Azure.

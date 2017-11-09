@@ -11,15 +11,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: masaran;jimpark;delhan;trinadhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2ee4bfa8c7dce45c6366ddc8aa6e723fe91431a7
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 9dc0105034e0d354a6cbbd7ba70634bdff83c1bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 Questo articolo descrive come configurare un server di System Center 2012 R2 Data Protection Manager (DPM) per eseguire il backup di un server di Microsoft Exchange per Backup di Azure.  
@@ -67,7 +66,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 
    * Protezione dati breve termine tramite: Disco.
    * Protezione dati online.
-6. Fare clic su **Next**.
+6. Fare clic su **Avanti**.
 7. Selezionare l'opzione **Esegui Eseutil per controllare l'integrità dei dati** se si vuole controllare l'integrità dei database di Exchange Server.
 
     Dopo aver selezionato questa opzione, la verifica coerenza del backup verrà eseguito nel server DPM per evitare il traffico di I/O che viene generato eseguendo il comando **eseutil** sul server di Exchange.
@@ -77,7 +76,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
    > ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Fare clic su **Next**.
+8. Fare clic su **Avanti**.
 9. Selezionare il database per **Backup di copia**, quindi fare clic su **Avanti**.
 
    > [!NOTE]
@@ -126,4 +125,3 @@ Per i punti di ripristino online sono disponibili cinque tipi:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
-

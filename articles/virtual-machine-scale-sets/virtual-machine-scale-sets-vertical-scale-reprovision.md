@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
 ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali
 In questo articolo viene descritto come ridimensionare in verticale i [set di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/) di Azure con o senza un nuovo provisioning. Per il ridimensionamento verticale delle VM non incluse nei set di scalabilità, vedere l'articolo [Ridimensionamento verticale di macchine virtuali di Azure tramite Automazione di Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

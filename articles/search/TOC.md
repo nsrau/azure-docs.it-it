@@ -1,6 +1,8 @@
-# Panoramica
+# [Panoramica](search-what-is-azure-search.md)
 ## [Che cos'è la Ricerca di Azure?](search-what-is-azure-search.md)
+
 # Attività iniziali
+
 ## [Scegliere una SKU](search-sku-tier.md)
 ## [Creare un servizio](search-create-service-portal.md)
 ## [Creare un indice](search-what-is-an-index.md)
@@ -15,18 +17,22 @@
 ### [Portale di Azure](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
+
 # Esercitazioni
+
 ## [.NET](search-howto-dotnet-sdk.md)
 ## [Sinonimi .NET (anteprima)](search-synonyms-tutorial-sdk.md)
 ## [Portale](search-get-started-portal.md)
-## [Node.JS](search-get-started-nodejs.md)
+## [Eseguire ricerche su dati semistrutturati ](search-semi-structured-data.md)
+## [Node.js](search-get-started-nodejs.md)
 ## [Java](search-get-started-java.md)
+
 # Procedure
+
 ## Pianificare e progettare
 ### [Limiti del servizio](search-limits-quotas-capacity.md)
 ### [Scalabilità del servizio](search-capacity-planning.md)
 ### [Progettare modelli per la multi-tenancy](search-modeling-multitenant-saas-applications.md)
-
 ## Sviluppare
 ### [Versioni dell'API](search-api-versions.md)
 ### [Aggiornare l'SDK](search-dotnet-sdk-migration.md)
@@ -34,11 +40,10 @@
 ### [Modellare tipi di dati complessi](search-howto-complex-data-types.md)
 ### [Gestire gli aggiornamenti simultanei](search-howto-concurrency.md)
 ### [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=search)
-
 ## Gestisci
 ### Gestire Ricerca di Azure
 #### [Portale di Azure](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md) di Azure
+#### [Azure PowerShell](search-manage-powershell.md)
 ### [Monitorare l'utilizzo e le statistiche](search-monitor-usage.md)
 ### [Analisi del traffico di ricerca](search-traffic-analytics.md)
 ### [Prestazioni e ottimizzazione](search-performance-optimization.md)
@@ -57,30 +62,35 @@
 ### Costruzione delle query
 #### [Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 #### [Sintassi di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Esempi di query con la sintassi Lucene](search-query-lucene-examples.md)
-#### [Sintassi delle espressioni di filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+#### [Esempi di query Lucene](search-query-lucene-examples.md)
 ### Analizzatori in Ricerca di Azure
 #### [Panoramica](search-analyzers.md)
 #### [Analizzatori di linguaggi](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### Filtri in Ricerca di Azure
+#### [Panoramica](search-filters.md)
+#### [Filtri facet](search-filters-facets.md)
+#### [Filtri per linguaggio](search-filters-language.md)
+#### [Limitazione per motivi di sicurezza](search-security-trimming-for-azure-search.md)
+#### [Informazioni di riferimento sulla sintassi delle espressioni](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Risultati di paging](search-pagination-page-layout.md)
 ### [Assegnazione dei punteggi](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Esplorazione in base a facet](search-faceted-navigation.md)
 ### [Sinonimi (anteprima)](search-synonyms.md)
+### [Anteprima di moreLikeThis](search-more-like-this.md)
 
-# Riferimento
+# riferimento
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (gestione)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (gestione)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (gestione)](/rest/api/searchmanagement)
-## [REST del servizio (anteprima)](search-api-2015-02-28-preview.md)
+## [REST del servizio (anteprima)](search-api-2016-09-01-preview.md)
 
 # Risorse
 
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Domande frequenti](search-faq-frequently-asked-questions.md)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/search/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

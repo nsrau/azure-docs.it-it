@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afcc04c80ec15872a22de5d5969a7ef6a583562f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: d1f9951c9cc1b9380e166834afaeb18a4687e2d8
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
 
@@ -262,11 +262,11 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Nei nodi di Linux, il formato è leggermente diverso. Punti (.), trattini (-) e simboli di cancelletto (#) vengono convertiti in caratteri di sottolineatura nella variabile di ambiente. ad esempio:
+Nei nodi di Linux, il formato è leggermente diverso. Punti (.), trattini (-) e simboli di cancelletto (#) vengono convertiti in caratteri di sottolineatura nella variabile di ambiente. Si noti inoltre che il caso dell'ID dell'applicazione viene mantenuto. ad esempio:
 
 ```
 Linux:
-AZ_BATCH_APP_PACKAGE_APPLICATIONID_version
+AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
 `APPLICATIONID` e `version` sono valori che corrispondono all'applicazione e alla versione del pacchetto specificati per la distribuzione. Se ad esempio si specifica l'installazione della versione 2.7 dell'applicazione *blender* nei nodi di Windows, le righe di comando dell'attività useranno questa variabile di ambiente per accedere ai file corrispondenti:
@@ -276,11 +276,11 @@ Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-Nei nodi di Linux, specificare la variabile di ambiente nel formato seguente:
+Nei nodi di Linux, specificare la variabile di ambiente nel formato seguente: Convertire punti (.), trattini (-) e cancelletti (#) in caratteri di sottolineatura e mantenere il caso dell'ID applicazione:
 
 ```
 Linux:
-AZ_BATCH_APP_PACKAGE_BLENDER_2_7
+AZ_BATCH_APP_PACKAGE_blender_2_7
 ``` 
 
 Quando si carica un pacchetto dell'applicazione, è possibile specificare una versione predefinita da distribuire ai nodi di calcolo. Se è stata specificata una versione predefinita per un'applicazione, è possibile omettere il suffisso della versione quando si fa riferimento l'applicazione. È possibile specificare la versione predefinita dell'applicazione nel pannello Applicazioni del portale di Azure, come illustrato in [Caricare e gestire le applicazioni](#upload-and-manage-applications).

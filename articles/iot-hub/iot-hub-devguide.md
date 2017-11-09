@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 10/13/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: adb9a12899e9040cd83d522c734448989636fe29
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guida per gli sviluppatori dell'hub IoT di Azure
 
@@ -49,11 +48,11 @@ Questa Guida per gli sviluppatori dell'hub IoT include gli articoli seguenti:
 * [Richiamare un metodo diretto in un dispositivo][devguide-directmethods], che descrive il ciclo di vita di un metodo diretto, informazioni su come richiamare i metodi in un dispositivo dall'app back-end e gestire il metodo diretto nel dispositivo.
 * [Pianificare processi in più dispositivi][devguide-jobs], che descrive come pianificare processi in più dispositivi. Questo articolo descrive come inviare processi che eseguono attività come un metodo diretto, aggiornando un dispositivo tramite un dispositivo gemello. Viene descritto anche come eseguire una query sullo stato di un processo.
 * [Reference - choose a communication protocol][devguide-protocol] (Informazioni di riferimento: scegliere un protocollo di comunicazione) descrive i protocolli di comunicazione supportati dall'hub IoT per la comunicazione tra dispositivi ed elenca le porte che devono essere aperte.
-* [Reference - IoT Hub endpoints][devguide-endpoints] (Informazioni di riferimento: Endpoint dell'hub IoT) illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione. L'articolo descrive anche come è possibile creare endpoint aggiuntivi nell'hub IoT e come usare un gateway di campo per abilitare la connettività di dispositivi per gli endpoint dell'hub IoT in scenari non standard.
+* [Reference - IoT Hub endpoints][devguide-endpoints] (Informazioni di riferimento: Endpoint dell'hub IoT) illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione. L'articolo descrive anche come creare endpoint aggiuntivi nell'hub IoT e come usare un gateway di campo per abilitare la connettività agli endpoint dell'hub IoT in scenari non standard.
 * [Informazioni di riferimento: linguaggio di query dell'hub IoT per dispositivi gemelli e processi][devguide-query] illustra il linguaggio di query dell'hub IoT che consente di recuperare informazioni dall'hub sui dispositivi gemelli e sui processi.
-* [Reference - quotas and throttling][devguide-quotas] (Informazioni di riferimento: Quote e limitazioni), che riepiloga le quote impostate nel servizio dell'hub IoT e il comportamento previsto quando viene superata una quota.
+* [Informazioni di riferimento: quote e limitazioni][devguide-quotas] riepiloga le quote impostate nel servizio dell'hub IoT e le limitazioni che si verificano quando viene superata una quota.
 * [Informazioni di riferimento - prezzi][devguide-pricing] contiene informazioni generali sui diversi SKU e sui prezzi dell'hub IoT e informazioni su come le diverse funzionalità dell'hub IoT vengono misurate come messaggi dall'hub IoT stesso.
-* [Informazioni di riferimento - SDK per dispositivi e servizi][devguide-sdks] elenca gli SDK di Azure IoT da usare per sviluppare app per dispositivi e servizi che interagiscono con l'hub IoT. In questo articolo sono inclusi i collegamenti alla documentazione API online.
+* [Informazioni di riferimento: SDK per dispositivi e servizi][devguide-sdks] elenca gli SDK di Azure IoT da usare per sviluppare app per dispositivi e servizi che interagiscono con l'hub IoT. In questo articolo sono inclusi i collegamenti alla documentazione API online.
 * [Informazioni di riferimento - Supporto di MQTT nell'hub IoT][devguide-mqtt], che fornisce informazioni dettagliate sul supporto dell'hub IoT per il protocollo MQTT. Questo articolo descrive il supporto del protocollo MQTT incorporato negli Azure IoT SDK e offre informazioni sull'uso diretto del protocollo MQTT.
 * Il [glossario][devguide-glossary], che include un elenco dei termini più comuni correlati all'hub IoT.
 
@@ -79,4 +78,3 @@ Questa Guida per gli sviluppatori dell'hub IoT include gli articoli seguenti:
 [devguide-messages-c2d]: iot-hub-devguide-messages-c2d.md
 [devguide-format]: iot-hub-devguide-messages-construct.md
 [devguide-protocol]: iot-hub-devguide-protocols.md
-

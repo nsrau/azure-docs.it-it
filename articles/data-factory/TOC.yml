@@ -71,6 +71,8 @@
               href: connector-azure-cosmos-db.md
             - name: Archivio Azure Data Lake
               href: connector-azure-data-lake-store.md
+            - name: Archiviazione file di Azure
+              href: connector-azure-file-storage.md
             - name: Ricerca di Azure
               href: connector-azure-search.md
             - name: Database SQL di Azure
@@ -91,10 +93,16 @@
               href: connector-file-system.md
             - name: FTP
               href: connector-ftp.md
+            - name: GE Historian
+              href: 'connector-odbc.md#ge-historian-source'
             - name: HDFS
               href: connector-hdfs.md
             - name: HTTP
               href: connector-http.md
+            - name: Informix
+              href: 'connector-odbc.md#ibm-informix-source'
+            - name: Microsoft Access
+              href: 'connector-odbc.md#microsoft-access-source'
             - name: MongoDB
               href: connector-mongodb.md
             - name: MySQL
@@ -121,7 +129,7 @@
               href: connector-sybase.md
             - name: Teradata
               href: connector-teradata.md
-            - name: WebTable
+            - name: Tabella Web
               href: connector-web-table.md
         - name: Formato e supporto della compressione
           href: supported-file-formats-and-compression-codecs.md
@@ -158,6 +166,8 @@
           href: compute-linked-services.md
     - name: Flusso di controllo
       items:
+        - name: Attività della condizione If
+          href: control-flow-if-condition-activity.md
         - name: Attività Web
           href: control-flow-web-activity.md
         - name: Attività di ricerca
@@ -182,10 +192,12 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Monitorare e gestire
       items:
-        - name: Usare .NET
-          href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
+        - name: Usare SDK
+          href: monitor-programmatically.md
         - name: Usare Monitoraggio di Azure
           href: monitor-using-azure-monitor.md
+        - name: Monitorare visivamente
+          href: monitor-visually.md
         - name: Gestire il runtime di integrazione SSIS di Azure
           href: manage-azure-ssis-integration-runtime.md
         - name: Monitorare il runtime di integrazione

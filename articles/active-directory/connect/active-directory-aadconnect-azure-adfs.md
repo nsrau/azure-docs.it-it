@@ -17,10 +17,10 @@ ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuzione di Active Directory Federation Services in Azure
 AD FS offre funzionalità di federazione delle identità e Single Sign-On (SSO) Web protette e semplificate. La federazione con Azure AD o O365 consente agli utenti di eseguire l'autenticazione con credenziali locali e accedere a tutte le risorse nel cloud. Di conseguenza, diventa importante la presenza di un'infrastruttura AD FS a disponibilità elevata per garantire l'accesso alle risorse sia in locale sia nel cloud. La distribuzione di AD FS in Azure consente di raggiungere facilmente la disponibilità elevata necessaria.

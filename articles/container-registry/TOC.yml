@@ -15,10 +15,28 @@
       href: container-registry-get-started-powershell.md
 - name: Esercitazioni
   items:
+    - name: Replica geografica (anteprima)
+      items:
+        - name: '1: Preparare un registro contenitori'
+          href: container-registry-tutorial-prepare-registry.md
+        - name: '2: Distribuire l''applicazione Web'
+          href: container-registry-tutorial-deploy-app.md
+        - name: '3: Aggiornare l''applicazione Web'
+          href: container-registry-tutorial-deploy-update.md
     - name: Istanze di contenitore di Azure
       href: ../container-instances/container-instances-tutorial-prepare-app.md
     - name: Servizio contenitore di Azure
-      href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+      href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Service Fabric
+      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Concetti
+  items:
+    - name: SKU Registro contenitori
+      href: container-registry-skus.md
+    - name: Replica geografica (anteprima)
+      href: container-registry-geo-replication.md
+    - name: Procedure consigliate per il registro contenitori
+      href: container-registry-best-practices.md
 - name: Guide alle procedure
   items:
     - name: Effettuare il push e il pull di un'immagine
@@ -41,8 +59,8 @@
       href: /powershell/module/azurerm.containerregistry
 - name: Risorse
   items:
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Guida di orientamento
+      href: 'https://aka.ms/acr/roadmap'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Aree di disponibilità

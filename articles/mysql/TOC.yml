@@ -57,6 +57,10 @@
           href: concepts-servers.md
         - name: Versioni supportate
           href: concepts-supported-versions.md
+        - name: Log del server
+          href: concepts-server-logs.md
+        - name: Disponibilità elevata
+          href: concepts-high-availability.md
     - name: Risorse
       items:
         - name: Piani tariffari
@@ -71,10 +75,12 @@
           href: concepts-firewall-rules.md
         - name: Configurazione di SSL
           href: concepts-ssl-connection-security.md
+    - name: Monitorare
+      href: concepts-monitoring.md
     - name: Sviluppo.
       items:
-        - name: Raccolte di connessioni
-          href: concepts-connection-libraries.md
+        - name: Compatibilità di driver e strumenti
+          href: concepts-compatibility.md
         - name: Sviluppo di applicazioni
           href: concepts-database-application-development.md
     - name: Eseguire la migrazione del database
@@ -99,6 +105,8 @@
       items:
         - name: Portale di Azure
           href: howto-restore-server-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-restore-server-cli.md
     - name: Connettere le applicazioni
       items:
         - name: Stringhe di connessione
@@ -111,7 +119,19 @@
       items:
         - name: Portale di Azure
           href: howto-server-parameters.md
-- name: Riferimento
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-configure-server-parameters-using-cli.md
+    - name: Accesso ai registri server
+      items:
+        - name: Portale di Azure
+          href: howto-configure-server-logs-in-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-configure-server-logs-in-cli.md
+    - name: Monitorare
+      items:
+        - name: Creare avvisi relativi alle metriche
+          href: howto-alert-on-metric.md
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/mysql
@@ -119,6 +139,8 @@
       href: /rest/api/mysql
 - name: Risorse
   items:
+    - name: Modelli di distribuzione
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Prezzi

@@ -13,14 +13,14 @@ ms.custom: overview-samples
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
-ms.workload: database
+ms.workload: On Demand
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 5a5f77b9adafe32e8559d0b3396febca4b191de3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 1d1692cc43a7a5ec50c0689706d93a784a5fed88
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Esempi di Azure PowerShell per database SQL di Azure
 

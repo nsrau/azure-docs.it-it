@@ -12,28 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
-ms.author: shvija;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: b085091ea7bfd601efb0eee84144ddd091422d6e
-ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: 1cd31e0866ee6088483f88e8f80d01f75764c771
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Aumentare automaticamente le unità elaborate di Hub eventi di Azure
 
-## <a name="overview"></a>Panoramica
-
-Hub eventi di Azure è una piattaforma di streaming dei dati altamente scalabile. In quanto tale, i clienti di Hub eventi aumentano spesso il loro uso dopo l'onboarding al servizio. Questi aumenti richiedono un aumento delle unità elaborate (TU) predeterminate per scalare Hub eventi e gestire velocità di trasferimento più alte. La funzionalità *Aumento automatico* di Hub eventi aumenta automaticamente il numero di unità elaborate per soddisfare le esigenze di utilizzo. L'aumento delle unità elaborate previene scenari di limitazione, in cui:
+Hub eventi di Azure è una piattaforma di streaming dei dati altamente scalabile. In quanto tale, i clienti di Hub eventi aumentano spesso il loro uso dopo l'onboarding al servizio. Questi aumenti richiedono un aumento delle unità elaborate predeterminate per scalare Hub eventi e gestire velocità di trasferimento più alte. La funzionalità *Aumento automatico* di Hub eventi aumenta automaticamente il numero di unità elaborate per soddisfare le esigenze di utilizzo. L'aumento delle unità elaborate previene scenari di limitazione in cui:
 
 * Le velocità di ingresso dei dati superano le unità elaborate impostate.
-* Le velocità di richiesta di uscita dei dati superano le unità elaborate impostate.
+* Le velocità di richiesta dei dati in uscita superano le unità elaborate impostate.
 
 ## <a name="how-auto-inflate-works"></a>Funzionamento di Aumento automatico
 
-Il traffico di Hub eventi è controllato tramite le unità elaborate. Una singola unità elaborata consente l'ingresso di 1 MB al secondo e l'uscita del doppio. Gli Hub eventi standard possono essere configurati con 1-20 unità elaborate. Aumento automatico consente di iniziare gradualmente con il minimo di unità elaborate richiesto. La funzionalità aumenta quindi automaticamente le unità elaborate fino al limite massimo necessario, a seconda dell'aumento del traffico. Aumento automatico offre i seguenti vantaggi:
+Il traffico di Hub eventi è controllato tramite le unità elaborate. Una singola unità elaborata consente 1 MB al secondo in ingresso e il doppio in uscita. Gli Hub eventi standard possono essere configurati con 1-20 unità elaborate. Aumento automatico consente di iniziare gradualmente con il minimo di unità elaborate richiesto. La funzionalità aumenta quindi automaticamente le unità elaborate fino al limite massimo necessario, a seconda dell'aumento del traffico. Aumento automatico offre i seguenti vantaggi:
 
 - Un meccanismo di scala efficiente per iniziare con poche unità elaborate e aumentarle al bisogno.
 - Aumenta automaticamente le unità elaborate fino al limite superiore specificato senza problemi di limitazioni.
@@ -52,7 +48,7 @@ Il traffico di Hub eventi è controllato tramite le unità elaborate. Una singol
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-Dopo aver abilitato questa opzione, è possibile iniziare con un numero ridotto di unità elaborate e aumentarle in funzione delle esigenze di utilizzo. Il limite superiore per l'aumento non influisce sul prezzo, che dipende dal numero di unità elaborate usate all'ora.
+Dopo aver abilitato questa opzione, è possibile iniziare con un numero ridotto di unità elaborate e aumentarle in funzione delle esigenze di utilizzo. Il limite superiore per l'aumento non influisce sul prezzo che dipende dal numero di unità elaborate usate all'ora.
 
 È possibile anche abilitare la funzionalità Aumento automatico usando l'opzione di **ridimensionamento** nel pannello Impostazioni del portale:
  
@@ -111,4 +107,3 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
-

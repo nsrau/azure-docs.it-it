@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 679cda28bf3ce9fb207fe3693a3453b355f1de15
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.openlocfilehash: 0bb18f1b289dd01866842a5193437dabdb5fd20b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>Usare le proprietà desiderate per configurare i dispositivi
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -199,7 +199,7 @@ In questa sezione si crea un'app console .NET che si connette all'hub come **myD
             InitTelemetry();
 
             Console.WriteLine("Wait for desired telemetry...");
-            Client.SetDesiredPropertyUpdateCallback(OnDesiredPropertyChanged, null).Wait();
+            Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
             Console.ReadKey();
         }
         catch (AggregateException ex)

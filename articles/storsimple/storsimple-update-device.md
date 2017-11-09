@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: v-sharos
 ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Aggiornare il dispositivo StorSimple 8000 serie
 ## <a name="overview"></a>Panoramica

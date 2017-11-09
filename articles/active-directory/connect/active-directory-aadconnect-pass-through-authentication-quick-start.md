@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/19/2017
 ms.author: billmath
+ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0327b37b56987d52557f3f4e305f27eb2e5296d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory - Avvio rapido
 
 ## <a name="how-to-deploy-azure-ad-pass-through-authentication"></a>Come distribuire l'autenticazione pass-through di Azure AD
@@ -45,7 +43,11 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
 1. Identificare un server che esegue Windows Server 2012 R2 o versione successiva in cui eseguire Azure AD Connect. Aggiungere il server alla stessa foresta AD degli utenti le cui password devono essere convalidate.
-2. Installare la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) nel server identificato nel passaggio precedente. Se Azure AD Connect è già in esecuzione, assicurarsi che la versione sia 1.1.557.0 o successiva.
+2. Installare la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) nel server identificato nel passaggio precedente. Se Azure AD Connect è già in esecuzione, assicurarsi che la versione sia 1.1.644.0 o successiva.
+
+    >[!NOTE]
+    >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla **sincronizzazione dell'hash delle password**. Se _non_ si prevede di utilizzare la sincronizzazione dell'hash delle password in combinazione con l'autenticazione pass-through, leggere le [note sulla versione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) per altre informazioni.
+
 3. Identificare un server aggiuntivo che esegue Windows Server 2012 R2 o versione successiva in cui eseguire un agente di autenticazione autonomo. La versione dell'agente di autenticazione deve essere 1.5.193.0 o successiva. Questo server è necessario per garantire la disponibilità elevata delle richieste di accesso. Aggiungere il server alla stessa foresta AD degli utenti le cui password devono essere convalidate.
 4. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
    - Assicurarsi che gli agenti di autenticazione possano effettuare richieste **in uscita** ad Azure AD sulle porte seguenti:
@@ -89,7 +91,7 @@ Se si installa Azure AD Connect per la prima volta, scegliere il [percorso di in
 
 ![Azure AD Connect - Accesso utente](./media/active-directory-aadconnect-sso/sso3.png)
 
-Se Azure AD Connect è già installata, (usando il percorso di [installazione rapida](active-directory-aadconnect-get-started-express.md) o di [installazione personalizzata](active-directory-aadconnect-get-started-custom.md)), scegliere la pagina **Cambia l'accesso utente** in Azure AD Connect e fare clic su **Avanti**. Selezionare quindi **Autenticazione pass-through** come il metodo di accesso. Al completamento, nello stesso server di Azure AD Connect viene installato un agente di autenticazione e la funzionalità è abilitata per il tenant.
+Se Azure AD Connect è già installato, (usando il percorso di [installazione rapida](active-directory-aadconnect-get-started-express.md) o di [installazione personalizzata](active-directory-aadconnect-get-started-custom.md)), scegliere l'attività **Cambia l'accesso utente** in Azure AD Connect e fare clic su **Avanti**. Selezionare quindi **Autenticazione pass-through** come il metodo di accesso. Al completamento, nello stesso server di Azure AD Connect viene installato un agente di autenticazione e la funzionalità è abilitata per il tenant.
 
 ![Azure AD Connect - Cambiare l'accesso utente](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -130,10 +132,11 @@ Se si prevede di distribuire l'autenticazione pass-through in un ambiente di pro
 >È inoltre possibile scaricare l'agente di autenticazione da [qui](https://aka.ms/getauthagent). Assicurarsi di leggere e accettare le [Condizioni d'uso](https://aka.ms/authagenteula) dell'agente di autenticazione _prima_ di installarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
+- [**Blocco intelligente**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
 - [**Limitazioni correnti**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): informazioni su quali scenari sono supportati e quali non lo sono.
 - [**Approfondimento tecnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
 - [**Domande frequenti**](active-directory-aadconnect-pass-through-authentication-faq.md): risposte alle domande più frequenti.
 - [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
+- [**Approfondimento sulla sicurezza**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): informazioni tecniche approfondite sulla funzionalità.
 - [**Seamless Single Sign-On di Azure AD**](active-directory-aadconnect-sso.md): altre informazioni su questa funzionalità complementare.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.
-

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 6adf4e43aa80c28c6f5f8d8a071966323ba85723
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Personalizzare una macchina virtuale al primo avvio
 In un'esercitazione precedente si è appreso come eseguire una connessione SSH a una macchina virtuale (VM) e come installare manualmente NGINX. Per creare macchine virtuali in modo rapido e coerente, di norma è consigliabile una qualche forma di automazione. Un approccio comune per personalizzare una macchina virtuale al primo avvio consiste nell'usare [cloud-init](https://cloudinit.readthedocs.io). In questa esercitazione si apprenderà come:
 
@@ -286,4 +284,3 @@ Passare all'esercitazione successiva per imparare a creare immagini di macchine 
 
 > [!div class="nextstepaction"]
 > [Creare un'immagine di VM personalizzata](./tutorial-custom-images.md)
-

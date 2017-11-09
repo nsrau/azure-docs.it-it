@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
 ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>Crittografare i dischi di una VM Linux usando l'interfaccia della riga di comando di Azure 1.0
 Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (VM), i dischi virtuali in Azure possono essere crittografati a riposo. I dischi vengono crittografati usando chiavi di crittografia protette in un insieme di credenziali delle chiavi di Azure. È possibile controllare queste chiavi di crittografia e il loro uso. In questo articolo viene spiegato come crittografare i dischi virtuali di una VM Linux tramite l'interfaccia della riga di comando di Azure 1.0 e il modello di distribuzione di Resource Manager.

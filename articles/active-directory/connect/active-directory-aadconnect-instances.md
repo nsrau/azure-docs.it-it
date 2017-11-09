@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/26/2017
 ms.author: billmath
-ms.openlocfilehash: e8321c3d16253226a5931cacbce6fa5d50b697bd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: abf234caa4c26cf3554911aabb839c696b1ba8cb
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Considerazioni speciali per le istanze
 Azure AD Connect si usa soprattutto con l'istanza di Azure AD e Office 365 disponibili in tutto il mondo. Ma esistono anche altre istanze e hanno requisiti diversi per gli URL e altre considerazioni speciali.
@@ -50,15 +50,12 @@ Il [cloud di Microsoft Azure per enti pubblici](https://azure.microsoft.com/feat
 | --- |
 | \*.microsoftonline.com |
 | \*. microsoftonline.us |
+| \*.windows.net (necessario per il rilevamento automatico del tenant di Azure AD per enti pubblici) |
 | \*.gov.us.microsoftonline.com |
 | +Elenchi di revoche dei certificati |
 
-Azure AD Connect non è in grado di rilevare automaticamente che il tenant di Azure AD si trova nel cloud per enti pubblici. È necessario intraprendere le azioni seguenti quando si installa Azure AD Connect.
-
-1. Avviare l'installazione di Azure AD Connect.
-2. Quando viene visualizzata la prima pagina in cui si accetta il contratto di licenza, non continuare ma lasciare che venga eseguita l'installazione guidata.
-3. Avviare regedit e modificare la chiave del Registro di sistema `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` impostandola sul valore `2`.
-4. Tornare all'installazione guidata di Azure AD Connect, accettare il contratto di licenza e continuare. Durante l'installazione, assicurarsi di usare il percorso di installazione della **configurazione personalizzata** e non l'installazione rapida. Continuare l'installazione come di consueto.
+> [!NOTE]
+> A partire da AAD Connect versione 1.1.647.0, l'impostazione del valore di AzureInstance nel Registro di sistema non è più necessaria, a condizione che *.windows.net sia aperto nel server proxy.
 
 Funzionalità attualmente non presenti nel cloud di Microsoft Azure per enti pubblici:
 

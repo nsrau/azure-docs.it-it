@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d3ba2d11d66ecc253a34e7c4da422bf9fdbd1bd
-ms.openlocfilehash: da69c6f8d0d831349e50548c8883db249b4ee60f
-ms.contentlocale: it-it
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: 51082ad453d53f56f30f814b78578801c00f4827
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura
 Questo argomento illustra l'architettura di base per il servizio di sincronizzazione Azure AD Connect. Sotto diversi aspetti è simile ai predecessori MIIS 2003, ILM 2007 e FIM 2010. Il servizio di sincronizzazione Azure AD Connect è l'evoluzione di queste tecnologie. Se si ha familiarità con qualcuna delle tecnologie precedenti, anche il contenuto di questo argomento risulterà familiare. Se invece non si ha esperienza con la sincronizzazione, è consigliabile leggere questo argomento. Non è tuttavia indispensabile conoscere in dettaglio questo argomento per apportare personalizzazioni al servizio di sincronizzazione Azure AD Connect (chiamato qui motore di sincronizzazione).
@@ -34,7 +33,7 @@ Il motore di sincronizzazione incapsula l'interazione con un'origine dati connes
 
 I connettori effettuano chiamate API per scambiare informazioni sull'identità (sia in lettura che in scrittura) con un'origine dati connessa. È anche possibile aggiungere un connettore personalizzato usando il framework di connettività estendibile. La figura seguente illustra come un connettore connette un'origine dati connessa al motore di sincronizzazione.
 
-![Architettura&1;](./media/active-directory-aadconnectsync-understanding-architecture/arch1.png)
+![Architettura 1](./media/active-directory-aadconnectsync-understanding-architecture/arch1.png)
 
 I dati possono scorrere in una direzione o nell'altra, ma non in entrambe contemporaneamente. In altre parole, un connettore può essere configurato per consentire ai dati di scorrere dall'origine dati connessa al motore di sincronizzazione o dal motore di sincronizzazione all'origine dati connessa, ma solo una di tali operazioni può essere in qualsiasi momento per un oggetto e un attributo. La direzione può essere diversa a seconda degli oggetti e degli attributi.
 
@@ -60,7 +59,7 @@ Il **metaverse** è un'area di archiviazione che contiene le informazioni sull'i
 
 La figura seguente illustra lo spazio dei nomi dello spazio connettore e lo spazio dei nomi del metaverse nel motore di sincronizzazione.
 
-![Architettura&2;](./media/active-directory-aadconnectsync-understanding-architecture/arch2.png)
+![Architettura 2](./media/active-directory-aadconnectsync-understanding-architecture/arch2.png)
 
 ## <a name="sync-engine-identity-objects"></a>Oggetti identità del motore di sincronizzazione
 Gli oggetti nel motore di sincronizzazione sono rappresentazioni degli oggetti nell'origine dati connessa o della visualizzazione integrata di tali oggetti offerta dal motore di sincronizzazione. Ogni oggetto del motore di sincronizzazione deve avere un identificatore univoco globale (GUID). I GUID garantiscono l'integrità dei dati ed esprimono le relazioni tra gli oggetti.
@@ -95,13 +94,13 @@ Un oggetto di staging può essere un oggetto di importazione o un oggetto di esp
 
 La figura seguente illustra un oggetto di importazione che rappresenta un oggetto nell'origine dati connessa.
 
-![Architettura&3;](./media/active-directory-aadconnectsync-understanding-architecture/arch3.png)
+![Architettura 3](./media/active-directory-aadconnectsync-understanding-architecture/arch3.png)
 
 Il motore di sincronizzazione crea un oggetto di esportazione usando le informazioni sull'oggetto nel metaverse. Gli oggetti di esportazione vengono esportati nell'origine dati connessa durante la sessione di comunicazione successiva. Dal punto di vista del motore di sincronizzazione, gli oggetti di esportazione non esistono ancora nell'origine dati connessa. Quindi l'attributo di ancoraggio per un oggetto di esportazione non è disponibile. L'origine dati connessa, dopo avere ricevuto l'oggetto dal motore di sincronizzazione, crea un valore univoco per l'attributo di ancoraggio dell'oggetto.
 
 La figura seguente illustra come viene creato un oggetto di esportazione usando le informazioni sull'identità nel metaverse.
 
-![Architettura&4;](./media/active-directory-aadconnectsync-understanding-architecture/arch4.png)
+![Architettura 4](./media/active-directory-aadconnectsync-understanding-architecture/arch4.png)
 
 Il motore di sincronizzazione conferma l'esportazione dell'oggetto reimportando l'oggetto dall'origine dati connessa. Gli oggetti di esportazione diventano oggetti di importazione quando il motore di sincronizzazione li riceve durante l'importazione successiva da tale origine dati connessa.
 
@@ -130,7 +129,7 @@ Quando un oggetto di staging diventa un oggetto unito durante la sincronizzazion
 
 Un singolo oggetto dello spazio connettore può essere collegato a un solo oggetto del metaverse. Ogni oggetto del metaverse, tuttavia, può essere collegato a più oggetti dello spazio connettore nello stesso spazio connettore o in spazi connettore diversi, come illustrato nella figura seguente.
 
-![Architettura&5;](./media/active-directory-aadconnectsync-understanding-architecture/arch5.png)
+![Architettura 5](./media/active-directory-aadconnectsync-understanding-architecture/arch5.png)
 
 La relazione collegata tra l'oggetto di staging e un oggetto del metaverse è persistente e può essere rimossa solo dalle regole specificate.
 
@@ -155,7 +154,7 @@ Durante il processo di esportazione, il motore di sincronizzazione effettua il p
 
 La figura seguente illustra dove avviene ogni processo mentre le informazioni sull'identità scorrono da un'origine dati connessa a un'altra.
 
-![Architettura&6;](./media/active-directory-aadconnectsync-understanding-architecture/arch6.png)
+![Architettura 6](./media/active-directory-aadconnectsync-understanding-architecture/arch6.png)
 
 ### <a name="import-process"></a>Processo di importazione
 Durante il processo di importazione, il motore di sincronizzazione valuta gli aggiornamenti alle informazioni sull'identità. Il motore di sincronizzazione confronta le informazioni sull'identità ricevute dall'origine dati connessa con le informazioni sull'identità di un oggetto di staging e determina se l'oggetto di staging richiede aggiornamenti. Se l'oggetto di staging deve essere aggiornato con nuovi dati, viene contrassegnato come pending import.
@@ -250,13 +249,12 @@ Ad esempio, un processo nell'origine dati connessa può reimpostare gli attribut
 
 Il motore di sincronizzazione archivia le informazioni sullo stato dell'importazione e dell'esportazione di ogni oggetto di staging. Se i valori degli attributi specificati nell'elenco di inclusione degli attributi sono stati modificati dopo l'ultima esportazione, l'archiviazione dello stato dell'importazione e dell'esportazione consente al motore di sincronizzazione di reagire in modo appropriato. Il motore di sincronizzazione usa il processo di importazione per confermare i valori degli attributi esportati nell'origine dati connessa. Un confronto tra le informazioni importate e quelle esportate, come illustrato nella figura seguente, consente al motore di sincronizzazione di determinare se l'esportazione è riuscita o se è necessario ripeterla.
 
-![Architettura&7;](./media/active-directory-aadconnectsync-understanding-architecture/arch7.png)
+![Architettura 7](./media/active-directory-aadconnectsync-understanding-architecture/arch7.png)
 
 Il motore di sincronizzazione, ad esempio, se esporta l'attributo C, che ha valore 5, in un'origine dati connessa, archivia C=5 nella memoria degli stati di esportazione. Ogni ulteriore esportazione eseguita su questo oggetto comporta un tentativo di esportare di nuovo C=5 nell'origine dati connessa perché il motore di sincronizzazione presuppone che questo valore non sia stato applicato in modo persistente all'oggetto (a meno che di recente non sia stato importato un valore diverso dall'origine dati connessa). La memoria di esportazione viene cancellata quando C=5 viene ricevuto durante un'operazione di importazione eseguita sull'oggetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
 

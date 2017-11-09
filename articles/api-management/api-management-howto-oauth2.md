@@ -3,7 +3,7 @@ title: Autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestion
 description: Informazioni su come autorizzare gli utenti tramite OAuth 2.0 in Gestione API.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: a19c453bb3271374b587f3d0b35adad55863b490
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: c61b4969757d62d7e16e7acecf7d7bed4b31c9b1
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Come autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestione API di Azure
 Molte API supportano [OAuth 2.0](http://oauth.net/2/) per proteggere l'API e assicurare che solo gli utenti validi siano autorizzati all'accesso e che possano accedere solo alle risorse a cui hanno diritto. Per usare la console per sviluppatori interattiva di Gestione API di Azure con queste API, il servizio permette di configurare l'istanza del servizio per l'uso delle API abilitate per OAuth 2.0.
@@ -90,7 +90,7 @@ Se **Authorization code grant types** è impostato su **Resource owner password*
 
 Dopo aver completato il modulo, fare clic su **Salva** per salvare la configurazione del server autorizzazione OAuth 2.0 di Gestione API. Dopo aver salvato la configurazione del server, è possibile configurare le API in modo che usino questa configurazione, come illustrato nella sezione successiva.
 
-## <a name="step2"> </a>Configurare un'API per l'uso di un'autorizzazione utente OAuth 2.0
+## <a name="step2"></a>Configurare un'API per l'uso di un'autorizzazione utente OAuth 2.0
 Fare clic su **API** dal menu **Gestione API** a sinistra, fare clic sul nome dell'API desiderata, scegliere **Sicurezza**, quindi selezionare la casella relativa a **OAuth 2.0**.
 
 ![Autorizzazione utente][api-management-user-authorization]
@@ -99,7 +99,7 @@ Selezionare il **server autorizzazione** desiderato dall'elenco a discesa e fare
 
 ![Autorizzazione utente][api-management-user-authorization-save]
 
-## <a name="step3"> </a>Test dell'autorizzazione utente OAuth 2.0 nel Portale per sviluppatori
+## <a name="step3"></a>Test dell'autorizzazione utente OAuth 2.0 nel Portale per sviluppatori
 Dopo aver configurato il server autorizzazione OAuth 2.0 e l'API per l'uso di tale server, è possibile testarlo andando al portale per sviluppatori e chiamando un'API.  Fare clic su **Developer portal** nel menu in alto a destra.
 
 ![Portale per sviluppatori][api-management-developer-portal-menu]

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
+ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: b85003a94df3b97f5c64eb3b7e62071f07674c5e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-communication-security--mitigations"></a>Infrastruttura di sicurezza: sicurezza della comunicazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
@@ -102,7 +100,7 @@ ms.lasthandoff: 08/23/2017
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | Tipo di ambiente: Azure |
-| **Riferimenti**              | [Abilitare HTTPS per un'app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/) |
+| **Riferimenti**              | [Abilitare HTTPS per un'app in Azure App Service](../app-service/app-service-web-tutorial-custom-ssl.md) |
 | **Passaggi** | Per impostazione predefinita, Azure abilita già HTTPS per ogni app con un certificato con caratteri jolly per il dominio *.azurewebsites.net. Come tutti i domini con caratteri jolly, tuttavia, non è sicuro quanto un dominio personalizzato con un proprio certificato ([riferimento](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)). È consigliabile abilitare SSL per il dominio personalizzato tramite il quale si accederà all'app distribuita.|
 
 ## <a id="appservice-https"></a>Forzare tutto il traffico verso il servizio app di Azure su una connessione HTTPS
@@ -113,7 +111,7 @@ ms.lasthandoff: 08/23/2017
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | Tipo di ambiente: Azure |
-| **Riferimenti**              | [Abilitare HTTPS nel servizio app di Azure]https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/#4-enforce-https-on-your-app) |
+| **Riferimenti**              | [Imporre HTTPS nel servizio app di Azure](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
 | **Passaggi** | <p>Nonostante Azure abiliti già HTTPS per i servizi app di Azure con un certificato con caratteri jolly per il dominio *.azurewebsites.net, non impone HTTPS. I visitatori possono comunque accedere all'app usando HTTP e questo potrebbe compromettere la sicurezza dell'app. È quindi necessario imporre HTTPS in modo esplicito. Le applicazioni ASP.NET MVC dovranno usare il [filtro RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) che forza il nuovo invio di una richiesta HTTP non protetta su HTTPS.</p><p>In alternativa, per imporre HTTPS è possibile usare il modulo URL Rewrite incluso con Servizio app di Azure. Il modulo URL Rewrite consente agli sviluppatori di definire le regole applicate alle richieste in ingresso prima che queste vengano passate all'applicazione. Le regole di URL Rewrite sono definite in un file web.config archiviato nella radice dell'applicazione.</p>|
 
 ### <a name="example"></a>Esempio
@@ -407,4 +405,3 @@ Si noti che Redis è progettato per essere accessibile da client attendibili all
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | [Scegliere il protocollo di comunicazione](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
 | **Passaggi** | Proteggere i protocolli HTTP/AMQP e MQTT con SSL/TLS. |
-

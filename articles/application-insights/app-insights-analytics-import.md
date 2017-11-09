@@ -4,21 +4,20 @@ description: Importare i dati statici per creare un join con la telemetria dell'
 services: application-insights
 keywords: schema aperto, importazione dei dati
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-ms.author: bwren
+ms.date: 10/04/2017
+ms.author: mbullwin
+ms.openlocfilehash: f124748434be1b8f0c4704fe6ffba70414c47916
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="import-data-into-analytics"></a>Importazione di dati in Analytics
 
@@ -367,5 +366,4 @@ Usare questo codice per ogni BLOB.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Presentazione del linguaggio di query di Log Analytics](app-insights-analytics-tour.md)
-* [Usare *Logstash* per inviare i dati ad Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
-
+* Se si usa Logstash, usare il [plug-in Logstash per inviare dati ad Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

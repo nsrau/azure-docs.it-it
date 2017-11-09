@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 86b8300553caa0741e8aca3c0e7621ec80cc5b21
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
 ## <a name="overview"></a>Panoramica
@@ -91,7 +91,7 @@ L'appliance cloud presenta le seguenti funzionalità:
 * È possibile creare un numero illimitato di appliance cloud nel cloud e attivarle e disattivarle in base alle esigenze.
 * Consente di simulare ambienti locali in scenari di ripristino di emergenza, sviluppo e test ed è in grado di facilitare il recupero a livello di elementi dai backup.
 
-L'appliance cloud StorSimple è disponibile in due modelli: il dispositivo 8010, precedentemente noto come modello 1100, e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB Nei livelli locali l'archiviazione Premium di Azure archivia i dati all'interno di unità SSD, mentre l'archiviazione Standard archivia i dati in unità disco rigido. Si noti che è necessario un account di archiviazione Premium di Azure per usare l'archiviazione Premium. Per altre informazioni sull'archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/common/storage-premium-storage.md).
+L'appliance cloud StorSimple è disponibile in due modelli: il dispositivo 8010, precedentemente noto come modello 1100, e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB Nei livelli locali l'archiviazione Premium di Azure archivia i dati all'interno di unità SSD, mentre l'archiviazione Standard archivia i dati in unità disco rigido. Si noti che è necessario un account di archiviazione Premium di Azure per usare l'archiviazione Premium. Per altre informazioni sull'archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../virtual-machines/windows/premium-storage.md).
 
 Per altre informazioni sull'appliance cloud StorSimple, vedere [Distribuire e gestire un'appliance cloud StorSimple in Azure](storsimple-8000-cloud-appliance-u2.md).
 
@@ -216,7 +216,7 @@ Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati
 | Backup |Backup di destinazione primario |Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro |Aggiornamento 3 e successivi |
 | Backup |Backup di destinazione secondario |Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro |Aggiornamento 3 e successivi |
 
-*Sì&#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
+*Sì&#42; - devono essere applicate le restrizioni e le linee guida per la soluzione.*
 
 I carichi di lavoro seguenti non sono supportati dai dispositivi StorSimple della serie 8000. Se distribuiti in StorSimple, questi carichi di lavoro comportano una configurazione non supportata.
 
@@ -239,7 +239,7 @@ Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati 
 | Generale |Indicizzazione |Sì* |Per i volumi a più livelli, è supportata solo l'indicizzazione dei metadati (nessun dato).<br>Per i volumi aggiunti in locale, è supportata l'indicizzazione completa. |Tutte le versioni |
 | Generale |Anti-virus |Sì* |Per i volumi a più livelli, è supportata solo l'analisi in apertura e in chiusura.<br> Per i volumi aggiunti in locale, è supportata l'analisi completa. |Tutte le versioni |
 
-*Sì&#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
+*Sì&#42; - devono essere applicate le restrizioni e le linee guida per la soluzione.*
 
 Di seguito è riportato un elenco di altri prodotti software che vengono usati con StorSimple per compilare soluzioni.
 

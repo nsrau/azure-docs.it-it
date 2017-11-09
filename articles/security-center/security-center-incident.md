@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: yurid
 ms.openlocfilehash: a302f8cb2555eef469a24da2523fdd9b97cc5730
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Gestione degli eventi imprevisti della sicurezza nel Centro sicurezza di Azure
 La valutazione e l'analisi degli avvisi di sicurezza possono essere dispendiose in termini di tempo anche per gli analisti della sicurezza più esperti e per molti è difficile addirittura stabilire da dove iniziare. Usando funzionalità di [analisi](security-center-detection-capabilities.md) per collegare le informazioni di [avvisi di sicurezza](security-center-managing-and-responding-alerts.md) distinti, il Centro sicurezza può offrire una singola visualizzazione di una campagna di attacco e di tutti gli avvisi correlati, consentendo di comprendere rapidamente le azioni intraprese dall'utente malintenzionato e le risorse interessate.

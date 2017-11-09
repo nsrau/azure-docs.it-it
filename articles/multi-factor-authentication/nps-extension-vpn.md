@@ -16,14 +16,12 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
-ms.contentlocale: it-it
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure Multi-Factor Authentication (MFA) usando l'estensione NPS (Network Policy Server, Server dei criteri) per Azure
 
 ## <a name="overview"></a>Panoramica
@@ -476,5 +474,4 @@ Per altre informazioni, vedere [Integrare l'infrastruttura NPS esistente con Azu
 [Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
 [Integrare le directory locali con Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
-
 

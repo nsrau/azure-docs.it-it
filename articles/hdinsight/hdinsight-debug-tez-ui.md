@@ -16,10 +16,10 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.openlocfilehash: 3889fa1c3523eb0330cbe3b7640fd8590a5ceadf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Usare l'interfaccia utente di Tez per il debug di processi Tez in HDInsight basato su Windows
 L'interfaccia utente di Tez è una pagina Web che può essere usata per la comprensione e il debug di processi che usano Tez come motore di esecuzione nei cluster HDInsight basati su Windows. L'interfaccia utente di Tez consente di visualizzare il processo come grafico di elementi connessi, esaminare ogni elemento e recuperare statistiche e informazioni sulla registrazione.
@@ -128,7 +128,7 @@ Usare la procedura seguente per eseguire una query Hive che verrà eseguita con 
     * **Vertex Counters** (Contatori vertice) visualizza informazioni sui contatori per il vertice.
     * **Tasks** (Attività) visualizza le attività per il vertice.
     * **Task Attempts** (Tentativi attività) visualizza informazioni sui tentativi di eseguire attività per il vertice.
-    * **Sources & Sinks** (Origini e sink) visualizza le origini dati e i sink per il vertice.
+    * **Sources &amp; Sinks** (Origini e sink) visualizza le origini dati e i sink per il vertice.
 
       > [!NOTE]
       > Come per il menu precedente, è possibile scorrere la visualizzazione colonne per Tasks, Task Attempts e Sources & Sinks per visualizzare i collegamenti ad altre informazioni per ogni elemento.

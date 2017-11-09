@@ -12,15 +12,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/25/2017
+ms.workload: Active
+ms.date: 10/13/2017
 ms.author: carlrab
+ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: df6e4bba9290c6129c9cba1440bb0c903aacc3c8
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 Il database SQL prevede queste opzioni per il ripristino del database mediante [backup automatici del database](sql-database-automated-backups.md) e [backup nella conservazione a lungo termine](sql-database-long-term-retention.md). È possibile ripristinare un backup di database in:
@@ -117,7 +116,7 @@ Il ripristino geografico è l'opzione di ripristino predefinita quando il databa
 Il ripristino temporizzato in un database di replica geografica secondaria non è attualmente supportato. Il ripristino temporizzato può essere eseguito solo in un database primario. Per informazioni dettagliate sull'uso del ripristino geografico in caso di un'interruzione del servizio, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Il ripristino da backup è la più semplice delle soluzioni di ripristino di emergenza disponibili nel database SQL con il massimo valore per RPO e tempo di recupero stimato. Per soluzioni che usano i database Basic, il ripristino geografico è spesso una soluzione ragionevole di ripristino di emergenza con un ERT di 12 ore. Per soluzioni che usano i database Standard o Premium di dimensioni maggiori, che richiedono tempi di ripristino inferiori, è consigliabile usare la [replica geografica attiva](sql-database-geo-replication-overview.md). La replica geografica attiva offre un obiettivo del punto di ripristino e un tempo di recupero stimato decisamente inferiori perché richiede solo l'avvio di un failover in un database secondario con replica continua. Per altre informazioni sulle opzioni di continuità aziendale, vedere [Overview of business continuity](sql-database-business-continuity.md) (Panoramica sulla continuità aziendale).
+> Il ripristino da backup è la più semplice delle soluzioni di ripristino di emergenza disponibili nel database SQL con il massimo valore per l'obiettivo del punto di ripristino e il tempo di recupero stimato. Per soluzioni che usano i database Basic, il ripristino geografico è spesso una soluzione ragionevole di ripristino di emergenza con un ERT di 12 ore. Per soluzioni che usano i database Standard o Premium di dimensioni maggiori, che richiedono tempi di ripristino inferiori, è consigliabile usare la [replica geografica attiva](sql-database-geo-replication-overview.md). La replica geografica attiva offre un obiettivo del punto di ripristino e un tempo di recupero stimato decisamente inferiori perché richiede solo l'avvio di un failover in un database secondario con replica continua. Per altre informazioni sulle opzioni di continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 > 
 
 ### <a name="azure-portal"></a>Portale di Azure
@@ -147,9 +146,8 @@ Come indicato in precedenza, oltre al portale di Azure, il ripristino di databas
 I backup automatici proteggono i database da errori dell'utente e delle applicazioni, dall'eliminazione accidentale e da interruzioni prolungate. Questa funzionalità incorporata è disponibile per tutti i livelli di servizio e di prestazioni. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
-* Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
-* Per altre informazioni, vedere l'articolo sulla [conservazione dei backup a lungo termine](sql-database-long-term-retention.md)
+* Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
+* Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
+* Per altre informazioni sulla conservazione dei backup a lungo termine, vedere [Conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 * Per la configurazione, la gestione e il ripristino dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite il portale di Azure, vedere l'articolo [Configurare e ripristinare dalla conservazione dei backup a lungo termine del database SQL di Azure](sql-database-long-term-backup-retention-configure.md). 
-* Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md).  
-
+* Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Gruppi di failover e replica geografica attiva](sql-database-geo-replication-overview.md).  

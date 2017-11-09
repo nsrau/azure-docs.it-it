@@ -13,14 +13,14 @@ ms.custom: overview-samples
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
-ms.workload: database
+ms.workload: On Demand
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 91b02d1099dc1683abb1042b3dc65cbee5aeae5b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: b21dbee47ec9597250ef048a743d458eca3cff79
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Esempi di interfaccia della riga di comando di Azure per un database SQL di Azure
 

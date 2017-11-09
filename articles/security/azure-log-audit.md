@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Registrazione e controllo di Azure
 ## <a name="introduction"></a>Introduzione
@@ -355,7 +355,7 @@ Esistono quattro diversi modi per [raccogliere log e metriche per i servizi di A
 | Service | Tipo di risorsa | Log | Metrica | Soluzione |
 | :------ | :------------ | :--- | :------ | :------- |
 |Gateway di applicazione|  Microsoft.Network/<br>applicationGateways|  Diagnostica|Diagnostica|    [Analisi dei ](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)gateway applicazione[ di Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
-|Application Insights||     Connettore|  Connettore|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (Anteprima)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
+|Application Insights||     Connettore|  Connettore|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)[Connector (Anteprima)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Account di Automazione|   Microsoft.Automation/<br>AutomationAccounts|    Diagnostica||       [Altre informazioni](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Account Batch|    Microsoft.Batch/<br>batchAccounts|  Diagnostica|    Diagnostica||
 |Servizi cloud classici||       Archiviazione||       [Altre informazioni](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|

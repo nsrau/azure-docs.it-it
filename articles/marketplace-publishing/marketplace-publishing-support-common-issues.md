@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
 ms.openlocfilehash: dcd87ae977d5b4b4a2353e446ab89ac81b239195
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>Come risolvere i problemi comuni degli editori in Azure Marketplace
 Questo articolo spiega come risolvere o ottenere supporto per alcuni scenari comuni relativi al Marketplace.
@@ -75,7 +75,7 @@ Per aggiornare il proprio profilo di pubblicazione, usare Microsoft Dev Center:
 
 ![inprivate][4]
 
-**2. Accedere con l'organizzazione account aziendale o dell'istituto di istruzione** (vale a dire AzureStore@yourcompany.com).
+**2. Accedere con l'account aziendale o dell'istituto di istruzione**, ovvero AzureStore@yourcompany.com.
 
 ![signin][5]
 

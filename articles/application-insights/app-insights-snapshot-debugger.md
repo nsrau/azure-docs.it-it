@@ -11,19 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0761339dfdaaaed418a1414472393ce8e0f37b9c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 
 Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Snapshot Debugger (anteprima) di [Azure Application Insights](app-insights-overview.md) monitora la telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet Snapshot Collector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e configurare facoltativamente i parametri di raccolta in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati per le [eccezioni](app-insights-asp-net-exceptions.md) nel portale Application Insights.
 
-È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. Per eseguire più efficacemente il debug del codice sorgente, aprire gli snapshot con Visual Studio 2017 Enterprise [scaricando l'estensione Snapshot Debugger per Visual Studio](https://aka.ms/snapshotdebugger).
+È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. Per eseguire più efficacemente il debug del codice sorgente, aprire gli snapshot con Visual Studio 2017 Enterprise [scaricando l'estensione Snapshot Debugger per Visual Studio](https://aka.ms/snapshotdebugger). In Visual Studio è anche possibile [impostare punti di ancoraggio per creare in modo interattivo snapshot](https://aka.ms/snappoint) senza attendere un'eccezione.
 
 La raccolta di snapshot è disponibile per:
 * Applicazioni .NET Framework e ASP.NET che eseguono .NET Framework 4.5 o versione successiva.
@@ -73,25 +72,56 @@ La raccolta di snapshot è disponibile per:
 
 2. Includere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
 
-3. Modificare il metodo `ConfigureServices` nella classe `Startup` dell'applicazione per aggiungere il processore di telemetria dell'agente di raccolta snapshot.
+3. Modificare la classe `Startup` dell'applicazione per aggiungere e configurare il processore di telemetria dell'agente di raccolta snapshot.
 
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
+   using Microsoft.Extensions.Options;
    ...
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
        {
-           public ITelemetryProcessor Create(ITelemetryProcessor next) =>
-               new SnapshotCollectorTelemetryProcessor(next);
+           private readonly IServiceProvider _serviceProvider;
+
+           public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
+               _serviceProvider = serviceProvider;
+
+           public ITelemetryProcessor Create(ITelemetryProcessor next)
+           {
+               var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
+               return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
+           }
        }
 
-       // This method is called by the runtime. Use it to add services to the container.
+       public Startup(IConfiguration configuration) => Configuration = configuration;
+
+       public IConfiguration Configuration { get; }
+
+       // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
-            services.AddSingleton<ITelemetryProcessorFactory>(new SnapshotCollectorTelemetryProcessorFactory());
-           // TODO: Add any other services your application needs here.
+           // Configure SnapshotCollector from application settings
+           services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
+
+           // Add SnapshotCollector telemetry processor.
+           services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
+
+           // TODO: Add other services your application needs here.
        }
+   }
+   ```
+
+4. Configurare l'agente di raccolta snapshot aggiungendo una sezione SnapshotCollectorConfiguration ad appsettings.json. ad esempio:
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "IsEnabledInDeveloperMode": true
+     }
    }
    ```
 
@@ -259,7 +289,6 @@ Se ancora non vengono visualizzate eccezioni con tale ID snapshot, significa che
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Impostare punti di ancoraggio nel codice](https://azure.microsoft.com/blog/snapshot-debugger-for-azure/) per ottenere gli snapshot senza attendere un'eccezione.
+* [Impostare punti di ancoraggio nel codice](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) per ottenere gli snapshot senza attendere un'eccezione.
 * L'articolo [Diagnosticare eccezioni nelle app Web](app-insights-asp-net-exceptions.md) spiega come rendere visibile un maggior numero di eccezioni in Application Insights. 
 * Il [rilevamento intelligente](app-insights-proactive-diagnostics.md) rileva automaticamente le anomalie delle prestazioni.
-

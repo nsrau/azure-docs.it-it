@@ -7,14 +7,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-source-wizard"></a>Creazione guidata dell'origine dati #
 
 La creazione guidata dell'origine dati è un modo semplice e rapido per portare un set di dati in Azure Machine Learning Workbench senza codice. Consente anche di scegliere una strategia di esempio per il set di dati. 
@@ -74,4 +72,3 @@ Se il percorso del file include dati importanti, è possibile scegliere di inclu
 ![passaggio 7](media/data-source-wizard/step6.png)
 
 Dopo aver fatto clic su Fine, verrà aggiunta al progetto una nuova origine dati. È possibile trovarla nel gruppo Origini dati in Visualizzazione Dati o come file .dsource in **Visualizzazione file**.
-

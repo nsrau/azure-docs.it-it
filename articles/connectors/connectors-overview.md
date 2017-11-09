@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Uso dei connettori in un'app per la logica
 I connettori consentono di accedere rapidamente a eventi, dati e azioni tra servizi, protocolli e piattaforme.  L'elenco completo dei connettori supportati dalle app per la logica è [disponibile qui](apis-list.md).  I connettori possono essere usati come trigger o azioni in un'app per la logica e possono richiedere una *connessione* configurata da usare (ad esempio l'autorizzazione di un account Twitter a effettuare l'accesso o a postare contenuti per conto del cliente).

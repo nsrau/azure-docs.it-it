@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
+ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0d5091b682d1b25c47b224394bcc2c46366eeb2a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
 I gateway di rete virtuale forniscono la connettività tra le risorse locali e altre reti virtuali in Azure. Il monitoraggio di questi gateway e delle rispettive connessioni è essenziale per assicurare che le comunicazioni non siano interrotte. Network Watcher consente di risolvere i problemi dei gateway di rete virtuale e delle connessioni. Questo può essere chiamato dal portale, da PowerShell, dall'interfaccia della riga di comando o dall'API REST. Quando viene chiamato, Network Watcher esegue la diagnostica dell'integrità del gateway di rete virtuale o della connessione e restituisce i risultati appropriati. Questa richiesta è una transazione a esecuzione prolungata e i risultati vengono restituiti al termine della diagnosi.
@@ -219,4 +217,3 @@ Per informazioni sulla diagnosi dei gateway VPN e delle connessioni con il porta
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
 [2]: ./media/network-watcher-troubleshoot-overview/portal.png
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 644713d365191bf5e51517d0cc565efbc2abc144
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: b541cd5cb7e49468af2c522b16c3a3b9fe75fd54
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Individuare il tipo di hop successivo tramite la funzionalità Hop successivo di Network Watcher di Azure usando l'API REST di Azure
 
 > [!div class="op_single_selector"]
@@ -132,7 +130,6 @@ Di seguito sono riportati i risultati in formato json.
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver scoperto l'hop successivo per una macchina virtuale, è possibile visualizzare le informazioni sulla sicurezza delle risorse di rete visitando [Security View overview](network-watcher-security-group-view-overview.md) (Panoramica della visualizzazione della sicurezza)
-
 
 
 

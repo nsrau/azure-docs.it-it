@@ -11,14 +11,12 @@ ms.devlang: azure-cli
 ms.topic: hero-article
 ms.date: 06/13/2017
 ms.custom: mvc
+ms.openlocfilehash: 0da8e52ae568e1e471cb5556cfde063bdd94911c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 3d66efa6935150c665a3f568e60c35ddbd70e8be
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/30/2017
 ---
-
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
 Questa guida di avvio rapido descrive come usare l'interfaccia della riga di comando di Azure per creare un database di Azure per il server MySQL in un gruppo di risorse di Azure in circa cinque minuti. L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script.
 
@@ -65,7 +63,7 @@ Per impostazione predefinita, tra il server e le applicazioni client vengono app
 L'esempio seguente disabilita l'applicazione di SSL nel server MySQL.
  
  ```azurecli-interactive
- az mysql server update --resource-group myresourcegroup --name myserver4demo -g -n --ssl-enforcement Disabled
+ az mysql server update --resource-group myresourcegroup --name myserver4demo --ssl-enforcement Disabled
  ```
 
 ## <a name="get-the-connection-information"></a>Ottenere le informazioni di connessione
@@ -190,4 +188,3 @@ az group delete --name myresourcegroup
 
 > [!div class="nextstepaction"]
 > [Progettare un database MySQL con l'interfaccia della riga di comando di Azure](./tutorial-design-database-using-cli.md)
-

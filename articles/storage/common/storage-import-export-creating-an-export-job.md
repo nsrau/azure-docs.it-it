@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Creazione di un processo di esportazione per Importazione/Esportazione di Azure
 La creazione di un processo di esportazione per il servizio Importazione/Esportazione di Microsoft Azure con l'API REST prevede i passaggi seguenti:

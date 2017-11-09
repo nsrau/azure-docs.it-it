@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 10/06/2017
 ms.author: juanpere
+ms.openlocfilehash: 4f716d85a60650a77d393eb725493e2e4d11de7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 20e6cdaa2ab92b6f832b9d23344a10aa2f4e0763
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Pianificare e trasmettere processi (Node)
 
@@ -40,10 +39,10 @@ Altre informazioni su queste funzionalità sono disponibili in questi articoli:
 
 Questa esercitazione illustra come:
 
-* Creare un'app per dispositivo simulato con un metodo diretto che abilita il metodo diretto **lockDoor** che può essere chiamato dal back-end della soluzione.
+* Creare un'app Node.js per dispositivo simulato con un metodo diretto che abilita il metodo diretto **lockDoor** che può essere chiamato dal back-end della soluzione.
 * Creare un'app console Node.js che chiama il metodo diretto **lockDoor** nell'app per dispositivo simulato tramite un processo e aggiorna le proprietà desiderate tramite un processo del dispositivo.
 
-Al termine di questa esercitazione si avranno due app console Node.js:
+Al termine di questa esercitazione si avranno due app Node.js:
 
 **simDevice.js**, che si connette all'hub IoT con l'identità del dispositivo e riceve un metodo diretto **lockDoor**.
 
@@ -59,7 +58,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Creare un'app di dispositivo simulato
-In questa sezione si crea un'app console Node.js che risponde a un metodo diretto chiamato dal cloud, che attiva un riavvio del dispositivo simulato e usa le proprietà segnalate per abilitare le query del dispositivo gemello che consentono di identificare i dispositivi e di sapere quando sono stati riavviati l'ultima volta.
+In questa sezione viene creata un'applicazione console Node.js che risponde a un metodo chiamato dal cloud, che attiva un metodo **lockDoor** simulato.
 
 1. Creare una nuova cartella vuota chiamata **simDevice**.  Nella cartella **simDevice** creare un file package.json eseguendo questo comando al prompt dei comandi.  Accettare tutte le impostazioni predefinite:
    
@@ -215,7 +214,6 @@ In questa sezione si creerà un'app console Node.js che avvia un **lockDoor** re
        }
     };
    
-   
     var twinJobId = uuid.v4();
    
     console.log('scheduling Twin Update job with id: ' + twinJobId);
@@ -273,4 +271,3 @@ Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Introduzi
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-

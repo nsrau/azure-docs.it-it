@@ -12,17 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 11/01/2017
 ms.author: abnarain
 robots: noindex
+ms.openlocfilehash: 39e283e4b0bb5e50d1268e1b2cac53bf9ee71028
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 712b29a347e246ad5afbf842930b0e01749c1203
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Spostare dati tra origini locali e il cloud con Gateway di gestione dati
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, che è in anteprima, vedere le informazioni su come [copiare dati fra percorsi locali e cloud con Data Factory versione 2](../tutorial-hybrid-copy-powershell.md).
+
 Questo articolo offre una panoramica sull'integrazione tra archivi dati locali e archivi dati cloud con Data Factory. Si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) e su altri articoli che illustrano i concetti di base relativi a Data Factory: [set di dati](data-factory-create-datasets.md) e [pipeline](data-factory-create-pipelines.md).
 
 ## <a name="data-management-gateway"></a>Gateway di gestione dati
@@ -413,4 +415,3 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere l’articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per tutti i dettagli sul gateway di gestione dati.
 * Per informazioni su come usare l'attività di copia per spostare i dati da un archivio dati di origine a un archivio dati sink, vedere l'articolo [Copiare dati dal BLOB di Azure in SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
-

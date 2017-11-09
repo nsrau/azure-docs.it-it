@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: c837713fd9e7d03287ae5a3644fd6bb47714c9d4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="repairing-an-import-job"></a>Riparazione di un processo di importazione
 Il servizio Importazione/Esportazione di Microsoft Azure potrebbe non riuscire a copiare alcuni file o parti di file nel servizio BLOB di Windows Azure. I motivi includono:  
@@ -37,14 +37,14 @@ Il servizio Importazione/Esportazione di Microsoft Azure potrebbe non riuscire a
   
 |||  
 |-|-|  
-|**/r:**<RepairFile\>|**Obbligatorio.** Percorso del file di ripristino che tiene traccia dell'avanzamento del ripristino e consente di riprendere un ripristino interrotto. Ogni unità deve contenere un solo file di ripristino. Quando si avvia un ripristino per una determinata unità, si viene spostati nel percorso di un file di ripristino che non esiste ancora. Per riprendere un ripristino interrotto, è consigliabile inserire il nome di un file di ripristino esistente. Il file di ripristino corrispondente all'unità di destinazione deve essere sempre specificato.|  
+|**/r:**&lt;RepairFile\>|**Obbligatorio.** Percorso del file di ripristino che tiene traccia dell'avanzamento del ripristino e consente di riprendere un ripristino interrotto. Ogni unità deve contenere un solo file di ripristino. Quando si avvia un ripristino per una determinata unità, si viene spostati nel percorso di un file di ripristino che non esiste ancora. Per riprendere un ripristino interrotto, è consigliabile inserire il nome di un file di ripristino esistente. Il file di ripristino corrispondente all'unità di destinazione deve essere sempre specificato.|  
 |**/logdir:**<LogDirectory\>|**Facoltativo.** Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificata alcuna directory dei log, viene usata la directory corrente.|  
 |**/d:**<TargetDirectories\>|**Obbligatorio.** Una o più directory separate da punto e virgola contenenti i file originali che sono stati importati. È possibile usare anche l'unità di importazione, ma non è obbligatorio se sono disponibili posizioni alternative per i file originali.|  
-|**/bk:**<BitLockerKey\>|**Facoltativo.** È necessario specificare la chiave BitLocker se si desidera che lo strumento sblocchi un'unità crittografata in cui sono disponibili i file originali.|  
+|**/bk:**&lt;BitLockerKey\>|**Facoltativo.** È necessario specificare la chiave BitLocker se si desidera che lo strumento sblocchi un'unità crittografata in cui sono disponibili i file originali.|  
 |**/sn:**<StorageAccountName\>|**Obbligatorio.** Nome dell'account di archiviazione per il processo di importazione.|  
 |**/sk:**<StorageAccountKey\>|**Obbligatorio** solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di importazione.|  
-|**/csas:**<ContainerSas\>|**Obbligatorio** solo se non è specificata la chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'accesso ai BLOB associati al processo di importazione.|  
-|**/CopyLogFile:**<DriveCopyLogFile\>|**Obbligatorio.** Percorso del file dei log di copia dell'unità (log dettagliato o log di errore). Il file viene generato dal servizio di Importazione/Esportazione di Azure e può essere scaricato dall'archiviazione BLOB associata al processo. Il file dei log di copia contiene informazioni sui BLOB non riusciti o sui file da ripristinare.|  
+|**/csas:**&lt;ContainerSas\>|**Obbligatorio** solo se non è specificata la chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'accesso ai BLOB associati al processo di importazione.|  
+|**/CopyLogFile:**&lt;DriveCopyLogFile\>|**Obbligatorio.** Percorso del file dei log di copia dell'unità (log dettagliato o log di errore). Il file viene generato dal servizio di Importazione/Esportazione di Azure e può essere scaricato dall'archiviazione BLOB associata al processo. Il file dei log di copia contiene informazioni sui BLOB non riusciti o sui file da ripristinare.|  
 |**/PathMapFile:**<DrivePathMapFile\>|**Facoltativo.** Percorso di un file di testo che può essere usato per risolvere le ambiguità, se si dispone di più file con lo stesso nome importati nello stesso processo. La prima volta che viene eseguito lo strumento, è possibile popolare questo file con tutti i nomi ambigui. Le esecuzioni successive dello strumento useranno questo file per risolvere le ambiguità.|  
   
 ## <a name="using-the-repairimport-command"></a>Uso del comando RepairImport  

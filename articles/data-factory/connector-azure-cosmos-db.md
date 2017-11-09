@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7d914684a0ee5598cee7972b78c3ec6296184466
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiare dati da o in Azure Cosmos DB usando Azure Data Factory
 
@@ -42,7 +41,7 @@ In particolare, il connettore Azure Cosmos DB supporta:
 
 Per copiare documenti così come sono da/in file JSON o in un'altra raccolta Cosmos DB, vedere [Importare/esportare documenti JSON](#importexport-json-documents).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>introduttiva
 È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per Azure Cosmos DB.

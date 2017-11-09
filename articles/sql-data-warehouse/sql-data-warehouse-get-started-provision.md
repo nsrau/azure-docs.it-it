@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;istanza di SQL Data Warehouse nel portale di Azure | Documentazione Microsoft
-description: Informazioni su come creare un&quot;istanza di SQL Data Warehouse nel portale di Azure
+title: Creare un'istanza di SQL Data Warehouse nel portale di Azure | Documentazione Microsoft
+description: Informazioni su come creare un'istanza di SQL Data Warehouse nel portale di Azure
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 75f4792ff2aa2b73ebc3ff976887a74ce09988f3
-ms.contentlocale: it-it
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 24ed2d8bad3090e378acf2a42fb909dee0a8517b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-sql-data-warehouse"></a>Creare un Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -102,4 +100,3 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

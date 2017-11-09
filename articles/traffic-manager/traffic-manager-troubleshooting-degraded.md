@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
 In questo articolo viene descritto come risolvere i problemi relativi al profilo di Gestione traffico di Azure che mostra uno stato danneggiato. Si supponga di aver configurato un profilo di Gestione traffico che punta ad alcuni dei servizi ospitati cloudapp.net. Se lo stato di integrità di Gestione traffico è **Danneggiato**, anche lo stato di uno o più endpoint può essere **Danneggiato**:
@@ -96,4 +94,3 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [Cmdlet di Gestione traffico di Azure][1]
 
 [1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
-

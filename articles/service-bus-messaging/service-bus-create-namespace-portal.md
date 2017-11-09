@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: c8654ed547a9001e2e968d2a45d990a73ef27d3b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 38c79495683f0aa619247d486bfb8d843dfdfdc0
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Creare uno spazio dei nomi del bus di servizio usando il portale di Azure
 
-Uno spazio dei nomi è un contenitore di ambito per tutti i componenti di messaggistica. Più code e argomenti possono risiedere in un unico spazio dei nomi e gli spazi dei nomi vengono spesso usati come contenitori di applicazioni. Esistono due diversi modi per creare uno spazio dei nomi del bus di servizio:
+Uno spazio dei nomi è un contenitore di ambito per tutti i componenti di messaggistica. Più code e argomenti possono risiedere in un unico spazio dei nomi e gli spazi dei nomi vengono spesso usati come contenitori di applicazioni. Esistono due modi per creare uno spazio dei nomi del bus di servizio:
 
 1. Portale di Azure (in questo articolo)
 2. [Modelli di Gestione risorse][create-namespace-using-arm]
@@ -35,7 +35,7 @@ Congratulazioni. È stato creato uno spazio dei nomi per la messaggistica del bu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere gli [esempi nel repository GitHub][github-samples], che illustrano alcune delle funzionalità più avanzate della messaggistica del bus di servizio di Azure.
+Vedere gli [esempi nel repository GitHub][github-samples], che illustrano alcune delle funzionalità più avanzate della messaggistica del bus di servizio.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.openlocfilehash: 3b8653b3bddd8bf2ee01c2e68da763e803711633
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codici di errore del report delle attività di accesso nel portale di Azure Active Directory
 
@@ -61,12 +61,13 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 | 50001| L'entità servizio denominata X non è stata trovata nel tenant denominato Y. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant. In alternativa, l'entità di sicurezza della risorsa non è stata trovata nella directory oppure non è valida.|
 | 50008| L'asserzione SAML manca o non è configurata correttamente nel token.|
 | 50011| L'indirizzo di risposta manca, non è configurato correttamente o non corrisponde agli indirizzi di risposta configurati per l'applicazione.|
+| 50012| L'utente ha segnalato un illecito durante l'autenticazione a più fattori.|
 | 50053| L'account è bloccato perché l'utente ha cercato di accedere troppe volte con una combinazione non corretta di ID utente e password.|
 | 50054| Per l'autenticazione è stata usata la password precedente.|
 | 50055| È stata immessa una password non valida o scaduta.|
 | 50057| L'account utente è disabilitato.|
 | 50058| Non sono state trovate informazioni sull'identità dell'utente tra le credenziali specificate. Oppure, l'utente non è stato trovato nel tenant. Oppure, è stata inviata una richiesta di accesso automatica ma nessun utente ha eseguito l'accesso. Oppure, il servizio non è riuscito ad autenticare l'utente.|
-| 50074| È richiesta l'autenticazione avanzata (secondo fattore).|
+| 50074| L'utente non ha superato la richiesta di verifica MFA.|
 | 50079| L'utente deve registrarsi per l'autenticazione del secondo fattore.|
 | 50126| Sono stati usati un nome utente o una password non validi oppure un nome utente o una password locali non validi.|
 | 50131| Usato in diversi errori di accesso condizionale. Ad esempio, in caso di stato del dispositivo Windows non valido, in caso di richiesta bloccata a causa di un'attività sospetta oppure per decisioni relative a criteri di accesso e criteri di sicurezza.|
@@ -75,13 +76,14 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 | 65001| L'applicazione X non è autorizzata ad accedere all'applicazione Y o l'autorizzazione è stata revocata. Oppure, l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa. Oppure, l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare all'amministratore del tenant una richiesta di autorizzazione ad agire per conto dell'applicazione Y per la risorsa Z.|
 | 65005| L'elenco di accesso alle risorse necessario per l'applicazione non contiene applicazioni individuabili dalla risorsa. Oppure, l'applicazione client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessario. Oppure, il servizio Graph ha restituito una richiesta non valida o la risorsa non è stata trovata.|
 | 70001| L'applicazione denominata X non è stata trovata nel tenant denominato Y. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. La richiesta di autenticazione potrebbe essere stata inviata al tenant sbagliato.|
-| 80001| Non sono disponibili agenti di autenticazione.|
+| 80001| L'agente di autenticazione non è in grado di connettersi ad Active Directory.|
 | 80002| Timeout della richiesta di convalida della password dell'agente di autenticazione.|
 | 80003| Risposta non valida ricevuta dall'agente di autenticazione.|
 | 80004| È stato usato un nome dell'entità utente (UPN) non corretto nella richiesta di accesso.|
 | 80005| Agente di autenticazione: si è verificato un errore.|
-| 80007| L'agente di autenticazione non è in grado di connettersi ad Active Directory.|
+| 80007| L'agente di autenticazione non riesce a convalidare la password dell'utente.|
 | 80010| L'agente di autenticazione non è in grado di decrittografare la password.|
+| 80011| L'agente di autenticazione non è in grado di recuperare la chiave di decrittografia.|
 | 81001| Il ticket Kerberos dell'utente è troppo grande.|
 | 81002| Impossibile convalidare il ticket Kerberos dell'utente.|
 | 81003| Impossibile convalidare il ticket Kerberos dell'utente.|
@@ -94,6 +96,7 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 | 81013| Impossibile trovare l'oggetto utente in base alle informazioni nel ticket Kerberos dell'utente.|
 | 90014| Usato in diversi casi quando un campo previsto non è presente nelle credenziali.|
 | 90093| Graph ha restituito un codice di errore non consentito per la richiesta.|
+
 
 
 

@@ -12,18 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 10/19/2017
 ms.author: billmath
+ms.openlocfilehash: c7863e38671349b6424ee08330da8aaa49cb2a70
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 9507a718ba982eb8b3381a6ef70156f075729161
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticazione pass-through di Azure Active Directory: approfondimento tecnico
-L'articolo seguente offre una panoramica del funzionamento dell'autenticazione pass-through di Azure AD.  Per informazioni approfondite di tipo tecnico e relative alla sicurezza, vedere l'[**approfondimento sulla sicurezza dell'autenticazione pass-through di Azure AD**](active-directory-aadconnect-pta-security-deep-dive.md)
+L'articolo seguente offre una panoramica del funzionamento dell'autenticazione pass-through di Azure AD.  Per informazioni approfondite di tipo tecnico e relative alla sicurezza, vedere l'articolo di [**approfondimento sulla sicurezza**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Funzionamento dell'autenticazione pass-through di Azure Active Directory
 
@@ -33,11 +31,11 @@ Quando un utente tenta di accedere a un'applicazione Azure Active Directory (Azu
 2. Se l'utente non ha ancora eseguito l'accesso, viene reindirizzato alla pagina di accesso di Azure AD.
 3. L'utente immette il nome utente e la password nella pagina di accesso di Azure AD e fa clic sul pulsante "Accedi".
 4. Quando riceve la richiesta di accesso, Azure AD inserisce il nome utente e la password, crittografata con una chiave pubblica, in una coda.
-5. Un agente di autenticazione pass-through locale esegue una chiamata in uscita alla coda e recupera il nome utente e la password crittografata.
+5. Un agente di autenticazione locale recupera il nome utente e la password crittografata dalla coda.
 6. L'agente decrittografa la password tramite la chiave privata.
 7. L'agente convalida quindi il nome utente e la password in Active Directory usando le API Windows standard. Questo meccanismo è simile a quello usato da Active Directory Federation Services. Il nome utente può essere il nome utente predefinito locale (in genere `userPrincipalName`) o un altro attributo configurato in Azure AD Connect (noto come `Alternate ID`).
 8. Il controller di dominio (DC, Domain Controller) di Active Directory locale valuta quindi la richiesta e restituisce all'agente la risposta appropriata che può essere esito positivo, errore, password scaduta o utente bloccato.
-9. L'agente, a sua volta, restituisce la risposta ad Azure AD.
+9. L'agente di autenticazione, a sua volta, restituisce la risposta ad Azure AD.
 10. Azure AD valuta la risposta e risponde all'utente come appropriato. Ad esempio, consente l'accesso immediato dell'utente o richiede l'autenticazione a più fattori (MFA, Multi-Factor Authentication).
 11. Se l'accesso dell'utente ha esito positivo, l'utente può accedere all'applicazione.
 
@@ -48,9 +46,9 @@ Il diagramma seguente illustra tutti i componenti e i passaggi interessati.
 ## <a name="next-steps"></a>Passaggi successivi
 - [**Limitazioni correnti**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): informazioni su quali scenari sono supportati e quali non lo sono.
 - [**Guida introduttiva**](active-directory-aadconnect-pass-through-authentication-quick-start.md): avvio ed esecuzione dell'autenticazione pass-through di Azure AD.
+- [**Blocco intelligente**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
 - [**Domande frequenti**](active-directory-aadconnect-pass-through-authentication-faq.md): risposte alle domande più frequenti.
 - [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
+- [**Approfondimento sulla sicurezza**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): informazioni tecniche approfondite sulla funzionalità.
 - [**Seamless Single Sign-On di Azure AD**](active-directory-aadconnect-sso.md): altre informazioni su questa funzionalità complementare.
-- [**Approfondimento sulla sicurezza**](active-directory-aadconnect-pta-security-deep-dive.md): informazioni tecniche approfondite sull'autenticazione pass-through di Azure AD.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.
-

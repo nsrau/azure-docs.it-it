@@ -1,6 +1,6 @@
 ---
 title: Spostare una macchina virtuale di Linux in Azure | Microsoft Docs
-description: Spostare una VM di Linux in un&quot;altra sottoscrizione o in un altro gruppo di risorse di Azure nel modello di distribuzione di Resource Manager.
+description: Spostare una VM di Linux in un'altra sottoscrizione o in un altro gruppo di risorse di Azure nel modello di distribuzione di Resource Manager.
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1fe1ab201bb1cd1c6dbfffe288f5c5be1f049d28
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 4695a9c934f97f2b2d448c4990e7ad5533e38e9f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Spostare una VM di Linux in un'altra sottoscrizione o in un altro gruppo di risorse
 Questo articolo illustra come spostare una VM di Linux tra gruppi di risorse o sottoscrizioni. Lo spostamento di una VM tra sottoscrizioni può essere comodo se è stata creata una VM in una sottoscrizione personale e ora si desidera spostarla alla sottoscrizione dell'azienda.
@@ -59,5 +58,4 @@ Viene richiesto di confermare che si vuole spostare la risorsa specificata. Digi
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile spostare molti tipi diversi di risorse tra gruppi di risorse e sottoscrizioni. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../../resource-group-move-resources.md).    
-
 

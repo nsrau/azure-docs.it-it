@@ -13,6 +13,7 @@
 # Procedure
 ## Distribuire e usare
 ### [Configurare le impostazioni](multi-factor-authentication-whats-next.md)
+#### [Usare il portale di PhoneFactor](multi-factor-authentication-whats-next-pfweb.md)
 ### [Report in MFA](multi-factor-authentication-manage-reports.md)
 ### [Usare server di criteri di rete esistenti](multi-factor-authentication-nps-extension.md)
 #### [Configurazione avanzata per l'estensione Server dei criteri di rete](nps-extension-advanced-configuration.md)

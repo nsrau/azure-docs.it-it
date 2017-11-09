@@ -12,20 +12,17 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 43064ddbdfec3e2ddae8de8c69f6c03dc7f8f45e
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-## <a name="what-will-be-accomplished"></a>Contenuto dell'esercitazione
 
 Questa esercitazione illustra i passaggi seguenti:
 
@@ -51,7 +48,7 @@ Se è già stato creato uno spazio dei nomi di messaggistica del bus di servizio
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Creare un argomento usando il portale di Azure
 
 1. Accedere al [portale di Azure][azure-portal].
-2. Nel riquadro di spostamento a sinistra del portale, fare clic su **Bus di servizio** (se non viene visualizzato **Bus di servizio**, fare clic su **Altri servizi**).
+2. Nel riquadro di spostamento sinistro nel portale fare clic su **Bus di servizio** (se l'opzione **Bus di servizio** non è visualizzata, fare clic su **Altri servizi** oppure su **Tutte le risorse**).
 3. Fare clic sullo spazio dei nomi in cui si vuole creare l'argomento. Viene visualizzato il pannello della panoramica dello spazio dei nomi:
    
     ![Creare un argomento][createtopic1]
@@ -83,7 +80,7 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
 ### <a name="add-the-service-bus-nuget-package"></a>Aggiungere il pacchetto NuGet del bus di servizio
 
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
-2. Fare clic sulla scheda **Esplora**, cercare **Bus di servizio di Microsoft Azure** e quindi selezionare l'elemento **WindowsAzure.ServiceBus**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
+2. Fare clic sulla scheda **Esplora**, cercare **WindowsAzure.ServiceBus** e quindi selezionare l'elemento **WindowsAzure.ServiceBus**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
    
     ![Selezionare un pacchetto NuGet][nuget-pkg]
 
@@ -157,7 +154,7 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Aggiungere il codice seguente al metodo `Main` . Impostare la variabile `connectionString` sulla stessa stringa di connessione ottenuta al momento della creazione dello spazio dei nomi e impostare `topicName` sul nome usato durante la creazione dell'argomento.
+3. Aggiungere il codice seguente al metodo `Main` . Impostare la variabile `connectionString` sulla stessa stringa di connessione ottenuta al momento della creazione dello spazio dei nomi e impostare `topicName` sul nome usato durante la creazione dell'argomento. Assicurarsi di sostituire `<your subscription name>` con il nome della sottoscrizione creata nel passaggio 3. 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -225,4 +222,3 @@ Vedere il [repository GitHub con esempi](https://github.com/Azure/azure-service-
 [createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 [azure-portal]: https://portal.azure.com
-

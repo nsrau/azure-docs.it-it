@@ -1,6 +1,6 @@
 ---
-title: "Eseguire attività in parallelo per usare le risorse di calcolo in modo efficiente: Azure Batch | Documentazione Microsoft"
-description: "Aumenta l&quot;efficienza e si riducono i costi usando meno nodi di calcolo ed eseguendo attività simultanee in ogni nodo dei pool di Azure Batch"
+title: "Eseguire attività in parallelo per usare le risorse di calcolo in modo efficiente: Azure Batch | Microsoft Docs"
+description: "Aumenta l'efficienza e si riducono i costi usando meno nodi di calcolo ed eseguendo attività simultanee in ogni nodo dei pool di Azure Batch"
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,13 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: c4053ded725ad7ab2acc6d5d54e8343ffb961408
-ms.contentlocale: it-it
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: eae6359b5fb36bd0317391ce2330afb7dd7bfe3b
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Eseguire attività contemporaneamente per ottimizzare l'uso dei nodi di calcolo Batch 
 
@@ -37,7 +35,7 @@ In alcuni scenari è utile che le risorse di un nodo siano dedicate a una singol
 ## <a name="example-scenario"></a>Scenario di esempio
 Per mostrare i vantaggi dell'esecuzione parallela di attività, si supponga che l'applicazione delle attività abbia requisiti di CPU e memoria che possono essere soddisfatti da dimensioni del nodo [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md). Per poter terminare il processo nei tempi previsti sono tuttavia necessari 1.000 nodi.
 
-Invece di usare nodi Standard\_D1 con 1 core CPU, è possibile usare nodi [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) con 16 core ognuno e abilitare l'esecuzione parallela delle attività. Sarà quindi possibile usare *un numero di nodi inferiore di 16 volte* e invece di 1.000 nodi ne serviranno solo 63. Se ogni nodo usa file dell'applicazione o dati di riferimento di grandi dimensioni, è anche possibile ottimizzare la durata e l'efficienza dei processi perché i dati vengono copiati solo in 16 nodi.
+Invece di usare nodi Standard\_D1 con 1 core CPU, è possibile usare nodi [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) con 16 core ognuno e abilitare l'esecuzione parallela delle attività. Sarà quindi possibile usare *un numero di nodi inferiore di 16 volte* e invece di 1.000 nodi ne serviranno solo 63. Se ogni nodo usa file dell'applicazione o dati di riferimento di grandi dimensioni, è anche possibile ottimizzare la durata e l'efficienza dei processi perché i dati vengono copiati solo in 63 nodi.
 
 ## <a name="enable-parallel-task-execution"></a>Abilitare l'esecuzione parallela di attività
 I nodi di calcolo per l'esecuzione di attività parallele vengono configurati a livello di pool. Con la libreria Batch .NET, impostare la proprietà [CloudPool.MaxTasksPerComputeNode][maxtasks_net] durante la creazione di un pool. Se si usa l'API REST Batch, impostare l'elemento [maxTasksPerNode][rest_addpool] nel corpo della richiesta durante la creazione del pool.
@@ -126,16 +124,13 @@ La seconda esecuzione dell'esempio illustra una diminuzione significativa nella 
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
-### <a name="batch-explorer-heat-map"></a>Mappa termica di Batch Explorer
-[Azure Batch Explorer][batch_explorer], una delle [applicazioni di esempio][github_samples] di Azure Batch, contiene una funzionalità *Mappa termica* che consente di visualizzare l'esecuzione dell'attività. Durante l'esecuzione dell'applicazione di esempio [ParallelTasks][parallel_tasks_sample], è possibile usare la funzionalità Mappa termica per visualizzare facilmente l'esecuzione delle attività parallele in ogni nodo.
+### <a name="batchlabs-heat-map"></a>Mappa termica di BatchLabs
+[BatchLabs][batch_labs] è uno strumento client autonomo, gratuito e ricco di funzionalità che semplifica la creazione, il debug e il monitoraggio delle applicazioni Azure Batch. BatchLabs contiene una funzione *Mappa termica* che fornisce una visualizzazione dell'esecuzione delle attività. Durante l'esecuzione dell'applicazione di esempio [ParallelTasks][parallel_tasks_sample], è possibile usare la funzionalità Mappa termica per visualizzare facilmente l'esecuzione delle attività parallele in ogni nodo.
 
-![Mappa termica di Batch Explorer][1]
-
-*La mappa termica di Batch Explorer mostra un pool di quattro nodi, in cui ogni nodo esegue attualmente quattro attività*
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
@@ -145,6 +140,4 @@ La seconda esecuzione dell'esempio illustra una diminuzione significativa nella 
 [parallel_tasks_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ParallelTasks
 [poolcreate_net]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
-
-[1]: ./media/batch-parallel-node-tasks\heat_map.png
 

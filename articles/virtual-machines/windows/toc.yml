@@ -39,7 +39,9 @@
       href: tutorial-azure-security.md
     - name: 12 - Integrazione continua e distribuzione continua con Team Services
       href: tutorial-vsts-iis-cicd.md
-    - name: '13: Proteggere il server Web con SSL'
+    - name: 13 - Installare uno \.stack NET SQL\IIS
+      href: tutorial-iis-sql.md
+    - name: 14 - Proteggere il server Web con SSL
       href: tutorial-secure-web-server.md
 - name: Esempi
   items:
@@ -55,10 +57,38 @@
       href: regions-and-availability.md
     - name: Tipi e dimensioni di VM
       href: sizes.md
+      items:
+        - name: Scopo generico
+          href: sizes-general.md
+          items:
+            - name: Serie B con possibilità di burst
+              href: b-series-burstable.md
+        - name: Ottimizzate per il calcolo
+          href: sizes-compute.md
+        - name: Ottimizzate per la memoria
+          href: sizes-memory.md
+        - name: Ottimizzate per l'archiviazione
+          href: sizes-storage.md
+        - name: Ottimizzate per la GPU
+          href: sizes-gpu.md
+          items:
+            - name: Configurare i driver GPU
+              href: n-series-driver-setup.md
+        - name: High Performance Computing (HPC)
+          href: sizes-hpc.md
+        - name: Unità di calcolo di Azure
+          href: sizes-general.md
     - name: Manutenzione e aggiornamenti
       href: maintenance-and-updates.md
     - name: Archiviazione
       href: about-disks-and-vhds.md
+      items:
+        - name: Archiviazione Premium
+          href: premium-storage.md
+        - name: Prestazioni di Archiviazione Premium
+          href: premium-storage-performance.md
+        - name: Archiviazione standard
+          href: standard-storage.md
     - name: Rete
       href: network-overview.md
     - name: Ridimensionare automaticamente le applicazioni
@@ -145,7 +175,7 @@
           href: prepare-for-upload-vhd-image.md
         - name: Usare un'immagine generalizzata
           href: create-vm-generalized-managed.md
-        - name: Usare un'immagine specializzata
+        - name: Usare un disco specializzato
           href: create-vm-specialized.md
         - name: Acquisire la macchina virtuale in un'immagine
           href: capture-image-resource.md
@@ -212,12 +242,16 @@
           href: detach-disk.md
         - name: Ridimensionare un disco
           href: expand-os-disk.md
+        - name: Backup e ripristino di emergenza per i dischi
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Snapshot di un disco
           href: snapshot-copy-managed-disk.md
         - name: Eseguire il backup di dischi non gestiti
           href: incremental-snapshots.md
         - name: Convertire il disco tra archiviazione Standard e Premium
           href: convert-disk-storage.md
+        - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Usare Archiviazione file
           href: mount-azure-file-storage.md
         - name: Eseguire la distribuzione di dischi con un modello

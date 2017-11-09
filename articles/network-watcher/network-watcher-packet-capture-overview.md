@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4fdd007c2cfad7b42f26ab2cacfba06d95c8dad3
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 152cc8fb61aa6115c7b5863e4d798db9e7aa5b7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introduzione all'acquisizione di pacchetti di variabili in Azure Network Watcher
 
 Il servizio di acquisizione di pacchetti di variabili di Network Watcher consente di creare sessioni di acquisizione di pacchetti per registrare il traffico da e verso una macchina virtuale. Il servizio di acquisizione di pacchetti consente di individuare eventuali anomalie di rete in modo proattivo e reattivo. Altri usi comprendono la raccolta di statistiche di rete, informazioni sulle intrusioni nella rete, debug delle comunicazioni client-server e molto altro ancora.
@@ -59,7 +57,6 @@ Le informazioni su come creare acquisizioni di pacchetti proattive tramite gli a
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png
-
 
 
 

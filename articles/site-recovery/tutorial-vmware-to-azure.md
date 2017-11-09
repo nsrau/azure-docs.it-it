@@ -9,14 +9,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: raynew
+ms.custom: MVC
+ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ee445c8af2fc6620385d9c462d4c6551da3d7367
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
@@ -40,7 +40,7 @@ Prima di iniziare, è utile [esaminare l'architettura](concepts-vmware-to-azure-
 1. Creare un ruolo a livello di vCenter. Assegnare al ruolo il nome **Azure_Site_Recovery**.
 2. Assegnare le autorizzazioni seguenti al ruolo **Azure_Site_Recovery**.
 
-   **Attività** | **Ruolo/Autorizzazioni** | **Dettagli**
+   **Task** | **Ruolo/Autorizzazioni** | **Dettagli**
    --- | --- | ---
    **Individuazione di macchine virtuali** | Data Center object (Oggetto data center)–> Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura) | Almeno un utente di sola lettura.<br/><br/> L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.<br/><br/> Per limitare l'accesso, assegnare il ruolo **No access** (Nessun accesso) con **Propagate to child object** (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).
    **Replica completa, failover, failback** |  Data Center object (Oggetto data center) –> Propagate to Child Object (Propaga a oggetto figlio), role=Azure_Site_Recovery (ruolo=Azure_Site_Recovery)<br/><br/> Datastore (Archivio dati) -> Allocate space (Alloca spazio), Browse datastore (Sfoglia archivio dati), Low level file operations (Operazioni file di livello basso), Remove file (Rimuovi file), Update virtual machine files (Aggiorna file macchina virtuale)<br/><br/> Network (Rete) -> Network assign (Assegnazione rete)<br/><br/> Risorsa -> Assegnare VM al pool di risorse, migrare la VM spenta, migrare la VM accesa<br/><br/> Tasks (Attività) -> Create task (Crea attività), Update task (Aggiorna attività)<br/><br/> Virtual machine (Macchina virtuale) -> Configuration (Configurazione)<br/><br/> Virtual machine (Macchina virtuale) -> Interact (Interagisci) -> Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)<br/><br/> Virtual machine (Macchina virtuale) -> Inventory (Inventario) -> Create (Crea), Register (Registra), Unregister (Annulla registrazione)<br/><br/> Virtual machine (Macchina virtuale) -> Provisioning -> Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)<br/><br/> Macchina virtuale -> Snapshots -> Remove snapshots | L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.<br/><br/> Per limitare l'accesso, assegnare il ruolo **No access** (Nessun accesso) con **Propagate to child object** (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).
@@ -49,7 +49,7 @@ Prima di iniziare, è utile [esaminare l'architettura](concepts-vmware-to-azure-
 
 ## <a name="specify-what-you-want-to-replicate"></a>Specificare gli elementi da replicare
 
-Il servizio Mobility deve essere installato in ogni VM da replicare. Site Recovery installa questo servizio automaticamente quando si abilita la replica per la macchina virtuale. Per l'installazione automatica è necessario preparare un account che Site Recovery userà per accedere alla macchina virtuale.
+Il servizio Mobility deve essere installato in ogni VM da replicare. Site Recovery installa il servizio automaticamente quando si abilita la replica per la macchina virtuale. Per l'installazione automatica è necessario preparare un account che Site Recovery userà per accedere alla macchina virtuale.
 
 È possibile usare un account di dominio o locale. Per le macchine virtuali Linux l'account deve essere un account radice nel server Linux di origine. Per le macchine virtuali Windows, se non si usa un account di dominio, disabilitare il Controllo dell'accesso utente remoto nel computer locale:
 
@@ -232,4 +232,3 @@ Per monitorare le macchine virtuali aggiunte è possibile controllare l'ora dell
 
 > [!div class="nextstepaction"]
 > [Eseguire un'esercitazione sul ripristino di emergenza](site-recovery-test-failover-to-azure.md)
-

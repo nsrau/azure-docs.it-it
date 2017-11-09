@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Set di scalabilità VM di Azure e dischi gestiti
 
@@ -32,7 +31,7 @@ I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/)
 
 * Grazie al disco gestito, un set di scalabilità può contenere fino a un massimo di 1.000 macchine virtuali se basato su un'immagine di piattaforma o di 300 macchine virtuali se basato su un'immagine personalizzata.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 
 Un modo semplice per iniziare a usare i set di scalabilità con i dischi gestiti consiste nel distribuirne uno dal Portale di Azure. Per altre informazioni, vedere [questo articolo](./virtual-machine-scale-sets-portal-create.md). Un altro modo semplice per iniziare è usare l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) per distribuire un set di scalabilità. Nell'esempio seguente viene illustrato come creare un set di scalabilità basato su Ubuntu con 10 macchine virtuali, ognuna con un disco dati da 50 e da 100 GB:
 
@@ -52,6 +51,5 @@ Per informazioni su come convertire un modello di Resource Manager per eseguire 
 Per altre informazioni sull'uso dei dischi di dati gestiti con i set di scalabilità, vedere [questo articolo](./virtual-machine-scale-sets-attached-disks.md).
 
 Per iniziare a usare i set di scalabilità di grandi dimensioni, fare riferimento a [questo articolo](./virtual-machine-scale-sets-placement-groups.md).
-
 
 

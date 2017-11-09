@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
+ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
@@ -37,7 +36,7 @@ Vedere [Iscriversi a una sottoscrizione di Azure con il proprio account di Offic
 Nome alternativo per [app del servizio app](#app-service-app).
 
 ## <a name="app-service-app"></a>app del servizio app
-Risorse di calcolo fornite da [Servizio app di Azure](app-service/app-service-value-prop-what-is.md) per l'hosting di [siti Web o applicazioni Web](app-service-web/app-service-web-overview.md), [API Web](app-service-api/app-service-api-apps-why-best-platform.md) o [back-end per app per dispositivi mobili](app-service-mobile/app-service-mobile-value-prop.md). Le app del servizio app vengono chiamate anche *servizi app*, *app Web*, *app per le API* e *app per dispositivi mobili*.
+Risorse di calcolo fornite da [Servizio app di Azure](app-service/app-service-web-overview.md) per l'hosting di siti Web o applicazioni Web, API Web o [back-end per app per dispositivi mobili](app-service-mobile/app-service-mobile-value-prop.md). Le app del servizio app vengono chiamate anche *servizi app*, *app Web*, *app per le API* e *app per dispositivi mobili*.
 
 ## <a name="availability-set"></a>set di disponibilità
 Raccolta di macchine virtuali gestite insieme per offrire ridondanza delle applicazioni e affidabilità. Durante un evento di manutenzione pianificato o non pianificato, l'uso di un set di disponibilità assicura la disponibilità di almeno una macchina virtuale.  
@@ -159,5 +158,4 @@ Nome alternativo per [app del servizio app](#app-service-app).
 * [Centro risorse cloud](https://azure.microsoft.com/resources/)  
 * [Azure per le applicazioni aziendali](https://azure.microsoft.com/overview/business-apps-on-azure/)
 * [Azure nel data center](https://azure.microsoft.com/overview/business-apps-on-azure/)
-
 

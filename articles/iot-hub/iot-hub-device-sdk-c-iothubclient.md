@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: obloch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 2f1689a2f59b779c83b6be746edda915fd67a3db
-ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 6e015d391067271cf71eb865af1b469135c8fcaa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT SDK per dispositivi per C: altre informazioni su IoTHubClient
 Il [primo articolo](iot-hub-device-sdk-c-intro.md) di questa serie ha introdotto **Azure IoT SDK per dispositivi per C**. e spiegato che l'SDK comprende due livelli architetturali. Al livello di base è presente la libreria **IoTHubClient** che gestisce direttamente la comunicazione con l'hub IoT. È inclusa anche libreria **serializer**, che si basa sulla libreria IoTHubClient per fornire i servizi di serializzazione. In questo articolo sono forniti dettagli aggiuntivi sulla libreria **IoTHubClient**.
@@ -260,10 +259,10 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Ci sono un paio di opzioni usate comunemente:
 
-* **SetBatching** (bool): se **true**, i dati destinati all'hub IoT vengono inviati in batch. Se **false**, i messaggi vengono inviati singolarmente. Il valore predefinito è **false**. Si noti che l'opzione **SetBatching** si applica solo al protocollo HTTP e non ai protocolli MQTT o AMQP.
-* **Timeout** (unsigned int): questo valore è rappresentato in millisecondi. Se l'invio di una richiesta HTTP o la ricezione di una risposta richiede più tempo di questo intervallo, si verifica il timeout della connessione.
+* **SetBatching** (bool): se **true**, i dati destinati all'hub IoT vengono inviati in batch. Se **false**, i messaggi vengono inviati singolarmente. Il valore predefinito è **false**. Si noti che l'opzione **SetBatching** si applica solo al protocollo HTTPS e non ai protocolli MQTT o AMQP.
+* **Timeout** (unsigned int): questo valore è rappresentato in millisecondi. Se l'invio di una richiesta HTTPS o la ricezione di una risposta richiede più tempo di questo intervallo, si verifica il timeout della connessione.
 
-L'opzione di invio in batch è importante. Per impostazione predefinita, la libreria accetta eventi in ingresso singolarmente. Un singolo evento è qualsiasi elemento passato a **IoTHubClient\_LL\_SendEventAsync**. Se l'opzione di invio in batch è **true**, la libreria raccoglie dal buffer quanti più eventi possibile, fino alle dimensioni massime dei messaggi accettate dall'hub IoT.  Il batch di eventi viene inviato all'hub IoT in una singola chiamata HTTP. I singoli elementi vengono aggregati in una matrice JSON. In genere l'abilitazione dell'invio in batch consente di ottenere un miglioramento significativo delle prestazioni, perché si riducono le sequenze di andata e ritorno in rete. Si riduce in modo significativo anche la larghezza di banda, perché si invia un unico set di intestazioni HTTP con un batch di eventi, invece di un set di intestazioni per ogni singolo evento. A meno di avere un motivo specifico per agire diversamente, è consigliabile abilitare l'invio in batch.
+L'opzione di invio in batch è importante. Per impostazione predefinita, la libreria accetta eventi in ingresso singolarmente. Un singolo evento è qualsiasi elemento passato a **IoTHubClient\_LL\_SendEventAsync**. Se l'opzione di invio in batch è **true**, la libreria raccoglie dal buffer quanti più eventi possibile, fino alle dimensioni massime dei messaggi accettate dall'hub IoT.  Il batch di eventi viene inviato all'hub IoT in una singola chiamata HTTPS. I singoli eventi vengono aggregati in una matrice JSON. In genere l'abilitazione dell'invio in batch consente di ottenere un miglioramento significativo delle prestazioni, perché si riducono le sequenze di andata e ritorno in rete. Si riduce in modo significativo anche la larghezza di banda, perché si invia un unico set di intestazioni HTTPS con un batch di eventi, invece di un set di intestazioni per ogni singolo evento. A meno di avere un motivo specifico per agire diversamente, è consigliabile abilitare l'invio in batch.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo viene descritto in dettaglio il comportamento della libreria **IoTHubClient** inclusa in **Azure IoT SDK per dispositivi per C**. Grazie a queste informazioni si dovrebbe avere acquisito una buona conoscenza delle funzionalità della libreria **IoTHubClient**. L' [articolo successivo](iot-hub-device-sdk-c-serializer.md) fornisce dettagli simili sulla libreria **serializer** .
@@ -277,4 +276,3 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

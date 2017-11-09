@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
 ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creare e condividere dashboard nel portale di Azure
 È possibile creare più dashboard e condividerli con altri utenti che hanno accesso alle sottoscrizioni di Azure.  Questo articolo illustra le nozioni di base della creazione, della modifica, della pubblicazione e della gestione dell'accesso dei dashboard.

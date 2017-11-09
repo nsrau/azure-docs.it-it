@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 09/19/2017
 ms.author: sasolank
+ms.openlocfilehash: 834a81c36557feffaa01c256dad0338617486773
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8131ded6b74e9c544bf70b1a4659ed07e5def04d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione 
 
@@ -33,6 +32,16 @@ La combinazione di Gestione API in una rete virtuale interna con il gateway appl
 * Uso di una singola risorsa di Gestione API e disponibilità di un sottoinsieme di API definite in Gestione API per gli utenti esterni.
 * Predisposizione di un modo veloce per attivare e disattivare l'accesso a Gestione API dalla rete Internet pubblica. 
 
+## <a name="prerequisites"></a>Prerequisiti
+
+Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
+
++ Una sottoscrizione di Azure attiva.
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ Un'istanza di Gestione API. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
+
 ##<a name="scenario"> </a> Scenario
 Questo articolo illustra come usare un singolo servizio Gestione API per gli utenti sia interni che esterni e fare in modo che funga da singolo front-end per le API sia locali che cloud. Verrà anche descritto come esporre solo un sottoinsieme delle API (evidenziato in verde nell'esempio) per l'utilizzo esterno con la funzionalità PathBasedRouting disponibile nel gateway applicazione.
 
@@ -40,9 +49,9 @@ Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno
 
 ![route dell'URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"> </a> Prima di iniziare
+## <a name="before-you-begin"></a> Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](https://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 2. Creare una rete virtuale e subnet separate per Gestione API e il gateway applicazione. 
 3. Se si intende creare un server DNS personalizzato per la rete virtuale, eseguire tale operazione prima di iniziare la distribuzione. Controllarne il funzionamento verificando che una macchina virtuale creata in una nuova subnet della rete virtuale possa risolvere tutti gli endpoint di servizio di Azure e accedervi.
 
@@ -338,7 +347,7 @@ Il nome DNS del gateway applicazione dovrà essere usato per creare un record CN
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ```
 
-##<a name="summary"> </a> Riepilogo
+##<a name="summary"></a> Riepilogo
 Il servizio Gestione API di Azure configurato in una rete virtuale offre un'interfaccia a gateway singolo per tutte le API, che siano ospitate in locale o nel cloud. L'integrazione del gateway applicazione con Gestione API offre la possibilità di rendere accessibili su Internet determinate API in modo selettivo, nonché di fornire un Web application firewall come front-end all'istanza di Gestione API.
 
 ##<a name="next-steps"> </a> Passaggi successivi
@@ -349,4 +358,3 @@ Il servizio Gestione API di Azure configurato in una rete virtuale offre un'inte
 * Altre informazioni su Gestione API e reti virtuali
   * [Uso del servizio Gestione API di Azure con una rete virtuale interna](api-management-using-with-internal-vnet.md)
   * [Usare Gestione API in una rete virtuale](api-management-using-with-vnet.md)
-

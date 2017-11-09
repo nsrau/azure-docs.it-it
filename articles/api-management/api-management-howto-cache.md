@@ -3,7 +3,7 @@ title: Aggiungere il caching per migliorare le prestazioni in Gestione API di Az
 description: Informazioni su come migliorare la latenza, il consumo della larghezza di banda e il carico del servizio Web per le chiamate del servizio Gestione API.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 59c595f0d5ce849f44c46fdb6cab0b44d35fffa0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: e85979859cca40b852e1f39ccaedf6e2781f84a1
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
 Le operazioni in Gestione API possono essere configurate per la memorizzazione nella cache della risposta. La memorizzazione nella cache della risposta può ridurre significativamente la latenza delle API, il consumo di larghezza di banda e il carico del servizio Web per i dati che non vengono modificati di frequente.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 53614d4d2e3101e8ea0bfa6a29256cc817055843
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>Distribuire più eseguibili guest
 Questo articolo descrive come creare pacchetti di più eseguibili guest e in che modo distribuirli in Azure Service Fabric. Per la creazione e la distribuzione di un pacchetto di Service Fabric, consultare l'articolo [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md).
@@ -73,7 +72,7 @@ Di seguito è riportata una descrizione dei parametri in uso:
 * **/target** : definisce la directory in cui creare il pacchetto. Questa directory deve essere diversa dalla directory di origine.
 * **/appname** : definisce il nome dell'applicazione esistente. È importante comprendere che questo nome equivale al nome del servizio nel manifesto e non al nome dell'applicazione di Service Fabric.
 * **/exe**: definisce il file eseguibile che dovrebbe essere avviato da Service Fabric, in questo caso `node.exe`.
-* **/ma** : definisce l'argomento usato per avviare il file eseguibile. Poiché Node.js non è installato, è necessario che Service Fabric avvii il server Web Node.js eseguendo `node.exe bin/www`.  `/ma:'bin/www'` indica allo strumento di creazione pacchetti di usare `bin/ma` come argomento per node.exe.
+* **/ma** : definisce l'argomento usato per avviare il file eseguibile. Poiché Node.js non è installato, è necessario che Service Fabric avvii il server Web Node.js eseguendo `node.exe bin/www`.  `/ma:'bin/www'` indica allo strumento di creazione pacchetti di usare `bin/www` come argomento per node.exe.
 * **/AppType** : definisce il nome del tipo di applicazione di Service Fabric.
 
 Se si passa alla directory specificata nel parametro /target, si noterà che lo strumento ha creato un pacchetto di Service Fabric pienamente funzionante, come illustrato di seguito:
@@ -219,4 +218,3 @@ Per aggiungere un altro servizio a un'applicazione già creata mediante `yo`, se
 * Per avere informazioni sulla distribuzione di contenitori, consultare [Panoramica di Service Fabric e contenitori](service-fabric-containers-overview.md)
 * [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-

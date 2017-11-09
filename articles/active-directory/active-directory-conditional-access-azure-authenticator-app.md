@@ -16,10 +16,10 @@ ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator per Android
 L'amministratore IT può consigliare di usare Microsoft Azure Authenticator per eseguire l'accesso alle risorse di lavoro. Questa applicazione fornisce due opzioni di accesso:
@@ -37,7 +37,7 @@ Le istruzioni seguenti sono applicabili a telefoni Samsung GS3 e modelli superio
 
 1. Nella schermata iniziale dell'app accettare il Contratto di Licenza con l'utente finale.
 2. Nella schermata Attiva account fare clic sul menu di scelta rapida a destra, quindi selezionare **Account aziendale**.
-3. Nella schermata Aggiungi Account, selezionare * * Account lavoro * *.
+3. Nella schermata Aggiungi account selezionare ** Account aziendale**.
 4. Nella schermata relativa all'attivazione dell'amministratore del dispositivo fare clic su **Attiva**.
 5. Nella schermata Informativa sulla privacy selezionare la casella di controllo e quindi fare clic su **Conferma**.
 6. Nella schermata Aggiunta all'area di lavoro immettere l'ID utente fornito dall'organizzazione, quindi fare clic su **Aggiungi**.

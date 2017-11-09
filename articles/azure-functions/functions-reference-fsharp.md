@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
+ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: acb6052343acc34eb2365017ac2a49f9a4af51a2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-f-developer-reference"></a>Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#
-> [!div class="op_single_selector"]
-> * [Script C#](functions-reference-csharp.md)
-> * [Script F#](functions-reference-fsharp.md)
-> * [Node.JS](functions-reference-node.md)
-> 
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 F# per Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole parti di codice, o "funzioni", nel cloud. I dati vengono trasmessi alla funzione F# tramite argomenti della funzione. I nomi di argomento sono specificati in `function.json`e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento.
 
@@ -133,7 +127,7 @@ I seguenti spazi dei nomi vengono aperti automaticamente:
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## <a name="referencing-external-assemblies"></a>Riferimento ad assembly esterni
-In maniera analoga, i riferimenti per l'assembly del framework vengono aggiunti con la direttiva `#r "AssemblyName"` .
+In maniera analoga, i riferimenti per l'assembly del framework possono essere aggiunti con la direttiva `#r "AssemblyName"` .
 
 ```fsharp
 #r "System.Web.Http"
@@ -276,10 +270,7 @@ Per altre informazioni, vedere le seguenti risorse:
 * [F# Guide](/dotnet/articles/fsharp/index) (Guida di F#)
 * [Best Practices for Azure Functions](functions-best-practices.md) (Procedure consigliate per Funzioni di Azure)
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
-* [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
-* [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 * [Test di Funzioni di Azure](functions-test-a-function.md)
 * [Scalabilità di Funzioni di Azure](functions-scale.md)
-
 

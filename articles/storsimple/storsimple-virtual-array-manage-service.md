@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
 ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuire il servizio Gestione dispositivi StorSimple per l'array virtuale StorSimple
 ## <a name="overview"></a>Overview

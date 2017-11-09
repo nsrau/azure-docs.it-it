@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
 ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="oms-architecture"></a>Architettura di OMS
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) è una raccolta di servizi basati sul cloud per la gestione di ambienti locali e cloud.  Questo articolo descrive i diversi componenti locali e cloud di OMS e la relativa architettura di cloud computing di alto livello.  Per altre informazioni, è possibile fare riferimento alla documentazione relativa a ogni servizio.

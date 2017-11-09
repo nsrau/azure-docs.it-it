@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: e6bc2eab3cc1adcf26857ed98d920177a51455ea
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-thousandeyes-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di ThousandEyes per il provisioning utenti automatico
 
 
@@ -92,7 +90,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 12. Fare clic su **Salva**. 
 
-Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a ThousandEyes nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 20 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning.
+Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a ThousandEyes nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 20 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning che descrivono tutte le azioni eseguite dal servizio di provisioning.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Esercitazione: creazione di report sul provisioning automatico degli account utente](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
@@ -105,4 +103,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](active-directory-saas-provisioning-reporting.md)
-

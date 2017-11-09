@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
 ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure
 ## <a name="overview"></a>Overview
@@ -108,9 +108,9 @@ La tabella seguente illustra come *startTime* controlla la modalità di esecuzio
 
 È possibile esaminare lo scenario che prevede un valore per *startTime* nel passato, un oggetto *recurrence* ma nessun oggetto *schedule*.  Si supponga che l'ora corrente sia 2015-04-08 13:00, *startTime* sia 2015-04-07 14:00 e *recurrence* sia pari a ogni 2 giorni, in base a *frequency*: day e *interval*: 2. Si noti che il valore di *startTime* è nel passato e si verifica prima dell'ora corrente.
 
-In queste condizioni, il *prima esecuzione* sarà 2015-04-09 alle 14:00\. Il motore dell'utilità di pianificazione calcola le occorrenze dall'ora di inizio dell'esecuzione.  Vengono eliminate tutte le istanze in passato. Il motore utilizza l'istanza successiva che si verifica in futuro.  In questo caso, quindi, il valore per *startTime* è 2015-04-07 alle 14:00, quindi l'istanza successiva viene eseguita due giorni dopo tale orario, ovvero il giorno 2015-04-09 alle 14:00.
+In queste condizioni, la *prima esecuzione* sarà il 2015-04-09 alle 14:00\. Il motore dell'utilità di pianificazione calcola le occorrenze dall'ora di inizio dell'esecuzione.  Vengono eliminate tutte le istanze in passato. Il motore utilizza l'istanza successiva che si verifica in futuro.  In questo caso, quindi, il valore per *startTime* è 2015-04-07 alle 14:00, quindi l'istanza successiva viene eseguita due giorni dopo tale orario, ovvero il giorno 2015-04-09 alle 14:00.
 
-Si noti che la prima esecuzione potrebbe essere la stessa anche se la proprietà startTime 2015-04-05 14:00 o 14:00\ 2015-04-01. Dopo la prima esecuzione, le esecuzioni successive vengono calcolate secondo la pianificazione – per cui sono il 2015-04-11 alle 14:00, poi il 2015-04-13 alle 14:00, poi il  2015-04-15 alle 14:00, e così via.
+Si noti che la prima esecuzione sarebbe la stessa anche se startTime fosse 2015-04-05 alle 14:00 o 2015-04-01 14:00\. Dopo la prima esecuzione, le esecuzioni successive vengono calcolate secondo la pianificazione – per cui sono il 2015-04-11 alle 14:00, poi il 2015-04-13 alle 14:00, poi il  2015-04-15 alle 14:00, e così via.
 
 Infine, quando un processo ha una pianificazione, se non sono impostate ore e/o minuti nella pianificazione, per impostazione predefinita vengono usate le ore e/o minuti della prima esecuzione.
 
@@ -128,13 +128,13 @@ La tabella seguente illustra in modo dettagliato gli elementi dell'oggetto *sche
 | **minutes** |Minuti dell'ora in cui verrà eseguito il processo |<ul><li>Numero intero o</li><li>Matrice di numeri interi</li></ul> |
 | **hours** |Ora del giorno in cui verrà eseguito il processo |<ul><li>Numero intero o</li><li>Matrice di numeri interi</li></ul> |
 | **weekDays** |Giorni della settimana in cui verrà eseguito il processo. Può essere specificato solo con una frequenza settimanale. |<ul><li>I valori consentiti sono "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" o "Sunday"</li><li>Matrice dei valori precedenti (dimensione massima della matrice: 7)</li></ul>*Non* viene applicata la distinzione tra maiuscole e minuscole |
-| **monthlyOccurrences** |Determina in quali giorni del mese verrà eseguito il processo. Può essere specificato solo con una frequenza mensile. |<ul><li>Matrice di oggetti monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *day* è il giorno della settimana in cui verrà eseguito il processo, ad esempio {Sunday} corrisponde a ogni domenica del mese. Richiesto.</p><p>*occurrence* è l'occorrenza del giorno durante il mese, ad esempio {Sunday, -1} corrisponde all'ultima domenica del mese. Facoltativo.</p> |
+| **monthlyOccurrences** |Determina in quali giorni del mese verrà eseguito il processo. Può essere specificato solo con una frequenza mensile. |<ul><li>Matrice di oggetti monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence":*occurrence*<br />}</pre><p> *day* è il giorno della settimana in cui verrà eseguito il processo, ad esempio {Sunday} corrisponde a ogni domenica del mese. Richiesto.</p><p>*occurrence* è l'occorrenza del giorno durante il mese, ad esempio {Sunday, -1} corrisponde all'ultima domenica del mese. Facoltativo.</p> |
 | **monthDays** |Giorno del mese in cui verrà eseguito il processo. Può essere specificato solo con una frequenza mensile. |<ul><li>Qualsiasi valore <= -1 e >= -31.</li><li>Qualsiasi valore >= 1 e <= 31.</li><li>Matrice dei valori precedenti</li></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Esempi: Pianificazioni di ricorrenza
 Di seguito sono riportati diversi esempi di pianificazioni di ricorrenza – concentrarsi sull'oggetto pianificazione e i relativi elementi secondari.
 
-Le pianificazioni sotto tutti presuppongono che il *intervallo* è impostato su 1\. Inoltre, uno necessario considerare la frequenza di invio in base al contenuto il *pianificazione* : ad esempio, uno non è possibile utilizzare frequenza "day" e una modifica "giorni mese" nella pianificazione. Tali limitazioni sono state descritte in precedenza.
+Le pianificazioni di seguito presumono che l'*intervallo* sia impostato su 1\. È anche necessario presumere che la frequenza sia corretta in base al contenuto della *pianificazione*, ad esempio non è possibile usare la frequenza "day" e includere una modifica "monthDays" nella pianificazione. Tali limitazioni sono state descritte in precedenza.
 
 | **Esempio** | **Descrizione** |
 |:--- |:--- |

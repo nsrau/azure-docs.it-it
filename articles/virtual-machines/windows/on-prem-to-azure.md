@@ -13,20 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 3b427556c589c7cc5205bfda16edc8d891814326
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 685c35dbd4265ca6852de6db2e5a30fc2a611d7c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Eseguire la migrazione da Amazon Web Services (AWS) e altre piattaforme a Managed Disks in Azure
 
-È possibile caricare i file di disco rigido virtuale da soluzioni di virtualizzazione locali o AWS in Azure per creare macchine virtuali che sfruttino i vantaggi di Managed Disks. Azure Managed Disks elimina la necessità di gestire gli account di archiviazione per le macchine virtuali IaaS di Azure. È necessario specificare solo il tipo (Premium o Standard) e le dimensioni del disco necessario. Azure creerà e gestirà il disco per l'utente. 
+È possibile caricare i file di disco rigido virtuale da soluzioni di virtualizzazione locali o AWS in Azure per creare macchine virtuali che sfruttino i vantaggi di Managed Disks. Azure Managed Disks elimina la necessità di gestire gli account di archiviazione per le macchine virtuali IaaS di Azure. È necessario specificare solo il tipo (Premium o Standard) e le dimensioni necessarie del disco, poiché sarà Azure a creare e gestire il disco automaticamente. 
 
 È possibile caricare dischi rigidi virtuali generalizzati e specializzati. 
 - **Disco rigido virtuale generalizzato**: tutte le informazioni dell'account personale sono state rimosse tramite Sysprep. 
@@ -40,18 +38,18 @@ ms.lasthandoff: 08/21/2017
 
 | Scenario                                                                                                                         | Documentazione                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Si dispone di un'istanza EC2 di AWS esistente di cui si potrebbe voler eseguire la migrazione ad Azure Managed Disks                                     | [Spostare una VM Windows da Amazon Web Services (AWS) ad Azure](aws-to-azure.md)                           |
-| Si dispone di una VM e di un'altra piattaforma di virtualizzazione da usare come immagine per creare più macchine virtuali di Azure. | [Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure](upload-generalized-managed.md) |
+| Si ha un'istanza EC2 di AWS esistente di cui si vuole eseguire la migrazione alle VM di usando dischi gestiti                              | [Spostare una VM Windows da Amazon Web Services (AWS) ad Azure](aws-to-azure.md)                           |
+| Si ha una VM di un'altra piattaforma di virtualizzazione da usare come immagine per creare più macchine virtuali di Azure. | [Caricare un disco rigido virtuale generalizzato e usarlo per creare una nuova macchina virtuale in Azure](upload-generalized-managed.md) |
 | Si dispone di una macchina virtuale personalizzata in modo univoco che si desidera ricreare in Azure.                                                      | [Creare una macchina virtuale da un disco specializzato](create-vm-specialized.md)         |
 
 
 ## <a name="overview-of-managed-disks"></a>Panoramica di Managed Disks
 
-Il servizio Azure Managed Disks semplifica la gestione delle macchine virtuali, eliminando la necessità di gestire gli account di archiviazione. Managed Disks trae inoltre vantaggio dalla maggiore affidabilità delle macchine virtuali in un set di disponibilità. Assicura che i dischi di macchine virtuali diverse in un set di disponibilità siano sufficientemente isolati tra loro per evitare singoli punti di errore. Colloca automaticamente i dischi di macchine virtuali differenti in un set di disponibilità in diverse unità di scala di archiviazione (indicatori) per limitare l'impatto degli errori di una singola unità causati da anomalie hardware e software. In base alle specifiche esigenze, è possibile scegliere tra due tipi di opzioni di archiviazione: 
+Il servizio Azure Managed Disks semplifica la gestione delle macchine virtuali, eliminando la necessità di gestire gli account di archiviazione. Managed Disks trae inoltre vantaggio dalla maggiore affidabilità delle macchine virtuali in un set di disponibilità. Assicura che i dischi di macchine virtuali diverse in un set di disponibilità siano sufficientemente isolati tra loro per evitare un singolo punto di guasto. Colloca automaticamente i dischi di macchine virtuali differenti in un set di disponibilità in diverse unità di scala di archiviazione (indicatori) per limitare l'impatto degli errori di una singola unità causati da anomalie hardware e software. In base alle specifiche esigenze, è possibile scegliere tra due tipi di opzioni di archiviazione: 
  
-- [Managed Disks Premium](../../storage/common/storage-premium-storage.md) prevede unità SSD basate su supporti di memorizzazione che assicurano prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O. Per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi, è possibile migrare a Managed Disks Premium.  
+- [Managed Disks Premium](premium-storage.md) prevede unità SSD basate su supporti di archiviazione che assicurano prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O. Per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi, è possibile migrare a Managed Disks Premium.  
 
-- [Managed Disks Standard](../../storage/common/storage-standard-storage.md) usa supporti di memorizzazione basati su unità disco rigido (HDD) ed è ideale per le operazioni di sviluppo/test e per altri carichi di lavoro ad accesso sporadico, meno sensibili alla variabilità delle prestazioni.  
+- [Managed Disks Standard](standard-storage.md) usa supporti di memorizzazione basati su unità disco rigido (HDD) ed è ideale per le operazioni di sviluppo/test e per altri carichi di lavoro ad accesso sporadico, meno sensibili alla variabilità delle prestazioni.  
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Pianificare la migrazione a Managed Disks
 
@@ -103,4 +101,3 @@ Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/en-us/pricing
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

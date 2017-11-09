@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: f6e6bb39164f9b3dea206ebcf850ee98e2506dcf
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
@@ -108,6 +108,9 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 
   ![Autorizzazioni SELECT](./media/application-proxy-ping-access/select-permissions.png)
 
+17. Concedere le autorizzazioni prima di chiudere la schermata delle autorizzazioni. 
+![Concedere le autorizzazioni](media/application-proxy-ping-access/grantperms.png)
+
 ### <a name="collect-information-for-the-pingaccess-steps"></a>Raccogliere informazioni per la procedura PingAccess
 
 1. Nel pannello delle impostazioni dell'app selezionare **Proprietà**. 
@@ -132,7 +135,7 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Facoltativo: aggiornare GraphAPI per inviare campi personalizzati
 
-Per un elenco dei token di sicurezza che Azure AD invia per l'autenticazione, vedere [Riferimento al token di Azure AD](./develop/active-directory-token-and-claims.md). Se è necessaria un'attestazione personalizzata che invia altri token, usare GraphAPI per impostare il campo app *acceptMappedClaims* su **True**. Per eseguire questa configurazione è possibile usare Azure AD Graph Explorer o Microsoft Graph. 
+Per un elenco dei token di sicurezza che Azure AD invia per l'autenticazione, vedere [Riferimento al token di Azure AD](./develop/active-directory-token-and-claims.md). Se è necessaria un'attestazione personalizzata che invia altri token, usare GraphAPI per impostare il campo app *acceptMappedClaims* su **True**. Per eseguire questa configurazione, è possibile usare solo Azure AD Graph Explorer. 
 
 In questo esempio viene usato Graph Explorer:
 
@@ -143,6 +146,14 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+
+>[!NOTE]
+>Per usare un'attestazione personalizzata, è anche necessario avere un criterio personalizzato definito e assegnato all'applicazione.  Questo criterio deve includere tutti gli attributi personalizzati necessari.
+>
+>La definizione e l'assegnazione del criterio possono essere eseguite con PowerShell, Azure AD Graph Explorer o Microsoft Graph.  Se si eseguono queste operazioni in PowerShell, potrebbe essere necessario usare prima `New-AzureADPolicy ` e quindi assegnarlo all'applicazione con `Set-AzureADServicePrincipalPolicy`.  Per altre informazioni, vedere la [documentazione dei criteri di Azure AD](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+### <a name="optional---use-a-custom-claim"></a>Facoltativo: usare un'attestazione personalizzata
+Per fare in modo che l'applicazione usi un'attestazione personalizzata e includa campi aggiuntivi, assicurarsi anche di avere [creato un criterio di mapping di attestazioni personalizzate e di averlo assegnato all'applicazione](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Scaricare PingAccess e configurare l'app
 

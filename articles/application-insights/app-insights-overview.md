@@ -3,7 +3,7 @@ title: "Che cos'è Azure Application Insights? | Microsoft Docs"
 description: "Gestione delle prestazioni delle applicazioni e monitoraggio dell'uso dell'applicazione Web live.  Rilevare, valutare e diagnosticare i problemi e comprendere la modalità di uso dell'app da parte degli utenti."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
@@ -11,17 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: overview
+ms.custom: mvc
 ms.date: 05/14/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 7910540add4092e1b5822a7525bec912befd80e7
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: d06bb37ba38ad7bc2b9b3c5c09b45be6c7fd17bb
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
-Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, che consente di monitorare un'applicazione Web live. Il servizio rileva automaticamente le anomalie nelle prestazioni e include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti.  Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app su un'ampia gamma di piattaforme, tra cui .NET o J2EE, ospitate in locale o nel cloud. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo.
+Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, che consente di monitorare un'applicazione Web live. Il servizio rileva automaticamente le anomalie nelle prestazioni e include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti.  Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app su un'ampia gamma di piattaforme, tra cui .NET o J2EE, ospitate in locale o nel cloud. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo. Può monitorare e analizzare i dati di telemetria da app per dispositivi mobili grazie all'integrazione con Visual Studio Mobile Center e HockeyApp.
 
 ![Creare grafici relativi alle statistiche sulle attività degli utenti o eseguire il drill-down in eventi specifici.](./media/app-insights-overview/00-sample.png)
 
@@ -117,6 +117,7 @@ Application Insights è uno dei molti servizi ospitati in Microsoft Azure e rice
   * [Node.JS](app-insights-nodejs.md)
   * [Altre piattaforme](app-insights-platforms.md)
 * **[Instrumentare le pagine Web](app-insights-javascript.md)** per visualizzazione pagina, AJAX e altri dati di telemetria sul lato client.
+* **[Analizzare l'utilizzo di app per dispositivi mobili](app-insights-mobile-center-quickstart.md)** tramite l'integrazione con Visual Studio Mobile Center.
 * **[Test di disponibilità](app-insights-monitor-web-app-availability.md)**: effettuare regolarmente il ping del sito Web dai server.
 
 
@@ -163,4 +164,3 @@ Introduzione in fase di sviluppo a:
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-

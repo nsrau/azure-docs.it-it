@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: 958ee2f12ebbd46472972a3012ec59aecbc23126
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 44748f3152718f3cec348d7e2bdccdbe0f79091e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creare regole basate su attributi per l'appartenenza dinamica ai gruppi in Azure Active Directory
 In Azure Active Directory (Azure AD) è possibile creare regole avanzate per abilitare complesse appartenenze dinamiche ai gruppi basate su attributi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica per utenti o dispositivi.
@@ -31,7 +30,7 @@ Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta t
 > [!NOTE]
 > - È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365.
 >
-> - Questa funzionalità richiede una licenza Azure AD Premium P1 per ogni utente membro per almeno un gruppo dinamico.
+> - Questa funzionalità richiede una licenza Azure AD Premium P1 per ogni utente membro per almeno un gruppo dinamico. Perché gli utenti siano membri dei gruppi dinamici, non è obbligatorio che vengano effettivamente assegnate a loro le licenze, ma è necessario avere il numero minimo di licenze nel tenant per coprire tutti gli utenti. Se ad esempio si ha un totale di 1.000 utenti univoci in tutti i gruppi dinamici del tenant, è necessario avere almeno 1.000 licenze di Azure AD Premium P1 o versione successiva per soddisfare il requisito delle licenze.
 >
 > - Sebbene sia possibile creare un gruppo dinamico per i dispositivi o gli utenti, non è possibile creare una regola che contenga sia oggetti utente che dispositivo.
 
@@ -40,17 +39,19 @@ Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta t
 ## <a name="to-create-an-advanced-rule"></a>Per creare una regola avanzata
 1. Accedere al [centro amministrativo Azure AD](https://aad.portal.azure.com) con un account di amministratore globale o amministratore di account utente.
 2. Selezionare **Utenti e gruppi**.
-3. Selezionare **Tutti i gruppi**.
+3. Selezionare **Tutti i gruppi** e selezionare **Nuovo gruppo**.
 
-   ![Apertura del pannello Gruppi](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. In **Tutti i gruppi**, selezionare **Nuovo gruppo**.
+   ![Aggiungere un nuovo gruppo](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
 
-   ![Aggiungere un nuovo gruppo](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
-5. Nel pannello **Gruppo** immettere un nome e una descrizione per il nuovo gruppo. Selezionare un **Tipo di appartenenza** di **Utente dinamico** o **Dispositivo dinamico**, a seconda che si intenda creare una regola per gli utenti o per i dispositivi e quindi selezionare **Aggiungi query dinamica**. Per gli attributi usati per le regole di dispositivo, vedere [Uso degli attributi per creare regole per gli oggetti dispositivo](#using-attributes-to-create-rules-for-device-objects).
+4. Nel pannello **Gruppo** immettere un nome e una descrizione per il nuovo gruppo. Selezionare un **Tipo di appartenenza** di **Utente dinamico** o **Dispositivo dinamico**, a seconda che si intenda creare una regola per gli utenti o per i dispositivi e quindi selezionare **Aggiungi query dinamica**. È possibile usare il generatore di regole per creare una regola semplice o scrivere una regola avanzata manualmente. Questo articolo contiene ulteriori informazioni sugli attributi disponibili per utenti e dispositivi, oltre a esempi di regole avanzate.
 
    ![Aggiungere una regola di appartenenza dinamica](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
-6. Nel pannello **Regole di appartenenza dinamica** immettere la regola nella casella **Aggiungi regola avanzata per l'appartenenza dinamica**, premere INVIO e quindi selezionare **Crea** nella parte inferiore del pannello.
-7. Selezionare **Crea** on the **Gruppo** per creare il gruppo.
+
+5. Dopo avere creato la regola, selezionare **Aggiungi query** nella parte inferiore del pannello.
+6. Selezionare **Crea** on the **Gruppo** per creare il gruppo.
+
+> [!TIP]
+> La creazione del gruppo potrebbe non riuscire se la regola avanzata immessa non è corretta. Verrà visualizzata una notifica nell'angolo superiore destro del portale, che contiene una spiegazione dei motivi per cui la regola non è stata accettata dal sistema. Leggere attentamente per capire come occorre modificare la regola per renderla valida.
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>Creazione del corpo di una regola avanzata
 La regola avanzata che è possibile creare per le appartenenze dinamiche ai gruppi è essenzialmente un'espressione binaria composta da tre parti che genera un risultato di tipo true o false. Di seguito sono elencate le tre parti:
@@ -276,7 +277,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | Qualsiasi valore stringa. |(device.displayName - eq "Iphone di Rob")
- deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "IOS")
+ deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "iPad") o (device.deviceOSType -eq "iPhone")
  deviceOSVersion | Qualsiasi valore stringa. | (device.OSVersion -eq "9.1")
  deviceCategory | nome di una categoria di dispositivo valido | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Qualsiasi valore stringa. | (device.deviceManufacturer -eq "Samsung")
@@ -305,9 +306,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 **Uso di PowerShell per modificare la gestione delle appartenenze in un gruppo**
 
 > [!NOTE]
-> Per modificare le proprietà dei gruppi dinamici sarà necessario usare cmdlet di [Azure AD PowerShell versione 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
->
-> Al momento, i cmdlet necessari sono inclusi solo nell'ultima versione di anteprima della libreria. Per installarlo, fare clic [qui](https://www.powershellgallery.com/packages/AzureADPreview).
+> Per modificare le proprietà dei gruppi dinamici, sarà necessario usare i cmdlet della **versione di anteprima di** [Azure AD PowerShell versione 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). È possibile installare l'anteprima da [qui](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Di seguito è riportato un esempio delle funzioni che cambiano la gestione delle appartenenze in un gruppo esistente. È necessario prestare attenzione in modo da modificare correttamente la proprietà GroupTypes e mantenere tutti i valori eventualmente presenti non correlati all'appartenenza dinamica.
 
@@ -369,4 +368,3 @@ Questi articoli forniscono informazioni aggiuntive sui gruppi in Azure Active Di
 * [Gestire le impostazioni di un gruppo](active-directory-groups-settings-azure-portal.md)
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/27/2017
 ms.author: yushwang
+ms.openlocfilehash: db4d8837fb5c5d15364422e957e4914966215674
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 17211379ec61891982a02efca6730ca0da87c1ef
-ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Connettere i gateway VPN di Azure a più dispositivi VPN basati su criteri locali usando PowerShell
 
@@ -46,7 +45,7 @@ Azure supporta attualmente entrambe le modalità di gateway VPN: gateway VPN bas
 
 |                          | **Gateway VPN basato su criteri** | **Gateway VPN basato su route**               |
 | ---                      | ---                         | ---                                      |
-| **SKU del gateway di Azure**    | Basic                       | Basic, Standard, HighPerformance         |
+| **SKU del gateway di Azure**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **Versione IKE**          | IKEv1                       | IKEv2                                    |
 | **Max. connessioni da sito a sito** | **1**                       | Basic/Standard: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
@@ -216,4 +215,3 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare la prima macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
 
 Vedere anche [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Configurare i criteri IPsec/IKE per le connessioni da sito a sito o da rete virtuale a rete virtuale) per altre informazioni sui criteri IPsec/IKE personalizzati.
-

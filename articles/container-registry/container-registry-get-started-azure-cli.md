@@ -1,11 +1,11 @@
 ---
-title: Creare un registro per contenitori Docker privati in Azure - Interfaccia della riga di comando di Azure | Microsoft Docs
-description: Introduzione alla creazione e gestione dei registri per contenitori Docker privati con l'interfaccia della riga di comando di Azure 2.0
+title: Guida introduttiva - Creare un registro Docker privato in Azure con l'interfaccia della riga di comando di Azure
+description: Informazioni su come apprendere rapidamente a creare un registro Docker privato con l'interfaccia della riga di comando di Azure.
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: cristyg
+author: neilpeterson
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
@@ -14,137 +14,150 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
-ms.author: stevelas
+ms.date: 10/16/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Creare un registro per contenitori Docker privati usando l'interfaccia della riga di comando di Azure 2.0
-Usare i comandi dell'[interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-cli) per creare un registro di contenitori e gestirne le impostazioni dal computer Linux, Mac o Windows. È anche possibile creare e gestire registri di contenitori usando il [portale di Azure](container-registry-get-started-portal.md) oppure, a livello di codice, con l'[API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) del servizio Container Registry.
+# <a name="create-a-container-registry-using-the-azure-cli"></a>Creare un registro di contenitori usando l'interfaccia della riga di comando di Azure
 
+Registro contenitori di Azure è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro contenitori di Azure con l'interfaccia della riga di comando di Azure.
 
-* Per informazioni di base e concetti, vedere la [panoramica](container-registry-intro.md)
-* Per informazioni sui comandi dell'interfaccia della riga di comando del servizio Container Registry (comandi `az acr`), passare il parametro `-h` a qualsiasi comando.
+Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.20 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
 
+È anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
-## <a name="prerequisites"></a>Prerequisiti
-* **Interfaccia della riga di comando di Azure 2.0**: per installare e iniziare a usare l'interfaccia della riga di comando di Azure 2.0, vedere le [istruzioni di installazione](/cli/azure/install-azure-cli). Accedere alla sottoscrizione di Azure usando `az login`. Per altre informazioni, vedere [Get started with the CLI 2.0](/cli/azure/get-started-with-azure-cli) (Introduzione all'interfaccia della riga di comando di Azure 2.0).
-* **Gruppo di risorse**: creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups) prima di creare un registro di contenitori o usare un gruppo di risorse esistente. Verificare che il gruppo di risorse si trovi in una posizione in cui il servizio Container Registry è [disponibile](https://azure.microsoft.com/regions/services/). Per creare un gruppo di risorse usando l'interfaccia della riga di comando di Azure 2.0, vedere le [informazioni di riferimento sull'interfaccia della riga di comando 2.0](/cli/azure/group).
-* **Account di archiviazione** (facoltativo): creare un [account di archiviazione](../storage/common/storage-introduction.md) di Azure standard per eseguire il backup del registro di contenitori nella stessa posizione. Se non si specifica un account di archiviazione durante la creazione di un registro con `az acr create`, l'account viene creato automaticamente. Per creare un account di archiviazione usando l'interfaccia della riga di comando 2.0, vedere le [informazioni di riferimento sull'interfaccia della riga di comando 2.0](/cli/azure/storage/account). Archiviazione Premium non è attualmente supportata.
-* **Entità servizio** (facoltativo): quando si crea un registro con l'interfaccia della riga di comando, per impostazione predefinita il registro non è configurato per l'accesso. A seconda delle esigenze, è possibile assegnare a un registro un'entità servizio Azure Active Directory esistente (oppure crearne e assegnarne una nuova) oppure abilitare l'account di utente amministratore del registro. Vedere le sezioni più avanti in questo articolo. Per altre informazioni sull'accesso al registro, vedere [Authenticate with the container registry](container-registry-authentication.md) (Eseguire l'autenticazione al registro di contenitori).
+## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-## <a name="create-a-container-registry"></a>Creare un registro di contenitori
-Eseguire il comando `az acr create` per creare un registro di contenitori.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-> [!TIP]
-> Quando si crea un registro, specificare un nome di dominio univoco globale di primo livello, contenente solo lettere e numeri. Il nome del registro negli esempi è `myRegistry1`, ma è necessario sostituirlo con un nome univoco personalizzato.
->
->
+L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
-Il comando seguente usa i parametri minimi per creare il registro contenitori `myRegistry1` nel gruppo di risorse `myResourceGroup` usando lo SKU *Basic*:
-
-```azurecli
-az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
-* `--storage-account-name` è facoltativo. Se non è specificato, verrà creato un account di archiviazione con un nome costituito dal nome registro e un timestamp nel gruppo di risorse specificato.
+## <a name="create-a-container-registry"></a>Creare un registro di contenitori
+
+In questa guida introduttiva viene creato un registro contenitori di *base*. Registro contenitori di Azure è disponibile in diversi SKU, descritti brevemente nella tabella riportata di seguito. Per altri dettagli su ogni SKU, vedere [SKU di Registro contenitori](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
+
+Creare un'istanza di Registro contenitori di Azure usando il comando [azure acr create](/cli/azure/acr#create).
+
+Il nome del registro **deve essere univoco**. Nell'esempio seguente viene usato il nome *myContainerRegistry007*. Aggiornarlo a un valore univoco.
+
+```azurecli
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
+```
 
 Quando viene creato il registro, l'output è simile al seguente:
 
-```azurecli
+```json
 {
   "adminUserEnabled": false,
-  "creationDate": "2017-06-06T18:36:29.124842+00:00",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
-/registries/myRegistry1",
-  "location": "southcentralus",
-  "loginServer": "myregistry1.azurecr.io",
-  "name": "myRegistry1",
+  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "location": "eastus",
+  "loginServer": "myContainerRegistry007.azurecr.io",
+  "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
     "tier": "Basic"
   },
   "storageAccount": {
-    "name": "myregistry123456789"
+    "name": "mycontainerregistr223140"
   },
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
-
 ```
 
+Nella parte restante di questa guida introduttiva viene usato `<acrname>` come segnaposto per il nome del registro contenitori.
 
-Considerare con attenzione le seguenti voci:
+## <a name="log-in-to-acr"></a>Accedere al record di controllo di accesso
 
-* `id`: identificatore del registro nella sottoscrizione, necessario se si vuole assegnare un'entità servizio.
-* `loginServer`: nome completo specificato per [accedere al registro](container-registry-authentication.md). In questo esempio il nome è `myregistry1.exp.azurecr.io` (tutto in lettere minuscole).
-
-## <a name="assign-a-service-principal"></a>Assegnare un'entità servizio
-Usare i comandi dell'interfaccia della riga di comando di Azure 2.0 per assegnare a un registro un'entità servizio Azure Active Directory. All'entità servizio in questi esempi è assegnato il ruolo di proprietario, ma è possibile assegnare [altri ruoli](../active-directory/role-based-access-control-configure.md).
-
-### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Creare un'entità servizio e assegnare l'accesso al registro
-Nel comando seguente, a una nuova entità servizio viene assegnato il ruolo di proprietario per l'accesso all'identificatore di registro passato con il parametro `--scopes`. Specificare una password complessa con il parametro `--password`.
+Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro contenitori di Azure. A tale scopo usare il comando [az acr login](/cli/azure/acr#login).
 
 ```azurecli
-az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --password myPassword
+az acr login --name <acrname>
 ```
 
+Al termine, il comando restituisce un messaggio di accesso riuscito.
 
+## <a name="push-image-to-acr"></a>Eseguire il push di un'immagine nel record di controllo di accesso
 
-### <a name="assign-an-existing-service-principal"></a>Assegnare un'entità servizio esistente
-Se è già configurata un'entità servizio e si vuole assegnare a tale entità il ruolo di proprietario per l'accesso al registro, eseguire un comando simile all'esempio seguente. Passare l'ID app dell'entità servizio usando il parametro `--assignee`:
+Per eseguire il push di un'immagine nel registro contenitori di Azure è necessario innanzitutto disporre di un'immagine. Se necessario, eseguire il comando seguente per eseguire il pull di un'immagine creata in precedenza dall'Hub Docker.
 
-```azurecli
-az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --assignee myAppId
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
+L'immagine deve essere contrassegnata con il nome del server di accesso del record di controllo di accesso. Eseguire il comando seguente per restituire il nome del server di accesso dell'istanza del record di controllo di accesso.
 
-
-## <a name="manage-admin-credentials"></a>Gestire le credenziali di amministratore
-Per ogni registro di contenitori viene creato automaticamente un account amministratore che è disabilitato per impostazione predefinita. Gli esempi seguenti mostrano i comandi dell'interfaccia della riga di comando `az acr` che consentono di gestire le credenziali di amministratore per il registro di contenitori.
-
-### <a name="obtain-admin-user-credentials"></a>Ottenere le credenziali di utente amministratore
 ```azurecli
-az acr credential show -n myRegistry1
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>Abilitare l'utente amministratore per un registro esistente
-```azurecli
-az acr update -n myRegistry1 --admin-enabled true
+Contrassegnare l'immagine usando il comando [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Sostituire *<acrLoginServer>* con il nome del server di accesso dell'istanza del record di controllo di accesso.
+
+```bash
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>Disabilitare l'utente amministratore per un registro esistente
-```azurecli
-az acr update -n myRegistry1 --admin-enabled false
+Infine, usare [docker push](https://docs.docker.com/engine/reference/commandline/push/) per eseguire il push dell'immagine nell'istanza del record di controllo di accesso. Sostituire *<acrLoginServer>* con il nome del server di accesso dell'istanza del record di controllo di accesso.
+
+```bash
+docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
-## <a name="list-images-and-tags"></a>Elencare immagini e tag
-Usare i comandi dell'interfaccia della riga di comando `az acr` per eseguire query su immagini e tag in un repository.
+## <a name="list-container-images"></a>Elencare le immagini del contenitore
 
-> [!NOTE]
-> Attualmente, il servizio Container Registry non supporta il comando `docker search` per eseguire query relative a immagini e tag.
-
-
-### <a name="list-repositories"></a>Elencare repository
-L'esempio seguente elenca i repository in un registro, in formato JSON (JavaScript Object Notation):
+L'esempio seguente elenca i repository in un registro:
 
 ```azurecli
-az acr repository list -n myRegistry1 -o json
+az acr repository list -n <acrname> -o table
 ```
 
-### <a name="list-tags"></a>Elencare tag
-L'esempio seguente elenca i tag sul repository **samples/nginx**, in formato JSON:
+Output:
+
+```bash
+Result
+----------------
+aci-helloworld
+```
+
+L'esempio seguente elenca i tag nel repository **aci-helloworld**.
 
 ```azurecli
-az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
+az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+```
+
+Output:
+
+```bash
+Result
+--------
+v1
+```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando il gruppo di risorse, l'istanza del record di controllo di accesso e tutte le immagini del contenitore non sono più necessari è possibile usare il comando [az group delete](/cli/azure/group#delete) per rimuoverli.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Effettuare il push della prima immagine tramite l'interfaccia della riga di comando di Docker](container-registry-get-started-docker-cli.md)
 
+In questa guida introduttiva è stato creato un Registro contenitori di Azure con l'interfaccia della riga di comando di Azure. Se si desidera usare il Registro contenitori di Azure con le istanze di contenitore di Azure, continuare con l'esercitazione relativa alle istanze di contenitore di Azure.
+
+> [!div class="nextstepaction"]
+> [Esercitazione su Istanze di contenitore di Azure](../container-instances/container-instances-tutorial-prepare-app.md)

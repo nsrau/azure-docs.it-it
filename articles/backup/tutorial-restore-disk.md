@@ -1,31 +1,29 @@
 ---
 title: Ripristinare il disco di una macchina virtuale con Backup di Azure | Microsoft Docs
 description: Informazioni su come ripristinare un disco e creare un ripristino di una macchina virtuale in Azure con i servizi di backup e ripristino.
-services: virtual-machines, azure-backup
+services: backup, virtual-machines
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
+author: markgalioto
+manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines, azure-backup
+ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 09/28/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 9bc6da13786eb9eb6186ceadf0432b3a3ec2c941
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a704d3f9e37951e38fb395612e001501f322d754
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Ripristinare un disco e creare una macchina virtuale ripristinata in Azure
-Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si esegue il ripristino da un punto di ripristino, è possibile ripristinare l'intera macchina virtuale o file singoli. Questo articolo descrive come ripristinare un'intera macchina virtuale. In questa esercitazione si apprenderà come:
+Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si esegue il ripristino da un punto di recupero, è possibile ripristinare l'intera macchina virtuale o file singoli. Questo articolo descrive come ripristinare un'intera macchina virtuale. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Visualizzare e selezionare i punti di ripristino
@@ -52,7 +50,7 @@ Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e vien
 ## <a name="list-available-recovery-points"></a>Visualizzare i punti di ripristino disponibili
 Per ripristinare un disco, selezionare un punto di ripristino come origine dei dati di ripristino. Poiché i criteri predefiniti creano un punto di ripristino ogni giorno che viene conservato per 30 giorni, è possibile avere a disposizione un insieme di punti di ripristino che consente di selezionare un momento specifico per il ripristino. 
 
-Per visualizzare un elenco dei punti di ripristino disponibili, usare **az backup recoverypoint list**. Il valore **name** del punto di ripristino viene usato per il ripristino dei dischi. In questa esercitazione si vuole usare il punto di ripristino più recente disponibile. Il parametro `--query [0].name` seleziona il nome del punto di ripristino più recente come illustrato di seguito:
+Per visualizzare un elenco dei punti di ripristino disponibili, usare [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). Il valore **name** del punto di ripristino viene usato per il ripristino dei dischi. In questa esercitazione si vuole usare il punto di ripristino più recente disponibile. Il parametro `--query [0].name` seleziona il nome del punto di ripristino più recente come illustrato di seguito:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -68,7 +66,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Ripristinare il disco di una macchina virtuale
 Per ripristinare il disco dal punto di ripristino, è innanzitutto necessario creare un account di archiviazione di Azure. L'account di archiviazione viene usato per archiviare il disco ripristinato. Nei passaggi aggiuntivi il disco ripristinato viene usato per creare una macchina virtuale.
 
-1. Per creare un account di archiviazione, usare [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). Il nome dell'account di archiviazione deve contenere solo caratteri minuscoli ed essere univoco globalmente. Sostituire *mystorageaccount* con il nome univoco:
+1. Per creare un account di archiviazione, usare [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). Il nome dell'account di archiviazione deve contenere solo caratteri minuscoli ed essere univoco globalmente. Sostituire *mystorageaccount* con il nome univoco:
 
     ```azurecli-interactive
     az storage account create \
@@ -77,7 +75,7 @@ Per ripristinare il disco dal punto di ripristino, è innanzitutto necessario cr
         --sku Standard_LRS
     ```
 
-2. Ripristinare il disco dal punto di ripristino con **az backup restore restore-disks**. Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando **az backup recoverypoint list** precedente:
+2. Ripristinare il disco dal punto di ripristino con [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks). Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) precedente:
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -91,7 +89,7 @@ Per ripristinare il disco dal punto di ripristino, è innanzitutto necessario cr
 
 
 ## <a name="monitor-the-restore-job"></a>Monitorare il processo di ripristino
-Per monitorare lo stato del processo di ripristino, usare **az backup job list**:
+Per monitorare lo stato del processo di ripristino, usare [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list):
 
 ```azurecli-interactive 
 az backup job list \
@@ -116,7 +114,7 @@ Quando lo *Stato* del processo di ripristino indica *Completato*, il disco è st
 ## <a name="convert-the-restored-disk-to-a-managed-disk"></a>Convertire il disco ripristinato in un disco gestito
 Il processo di ripristino crea un disco non gestito. Per creare una macchina virtuale dal disco, è necessario innanzitutto convertire il disco in un disco gestito.
 
-1. Ottenere le informazioni di connessione per l'account di archiviazione con [az storage account show-connection-string](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Sostituire *mystorageaccount* con il nome dell'account di archiviazione come illustrato di seguito:
+1. Ottenere le informazioni di connessione per l'account di archiviazione con [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Sostituire *mystorageaccount* con il nome dell'account di archiviazione come illustrato di seguito:
     
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
@@ -133,7 +131,7 @@ Il processo di ripristino crea un disco non gestito. Per creare una macchina vir
     uri=$(az storage blob url --container-name $container --name $blob -o tsv)
     ```
 
-3. È ora possibile creare un disco gestito dal disco ripristinato con [az disk create](/cli/azure/disk?view=azure-cli-latest#az_disk_create). La variabile *uri* del passaggio precedente viene usata come origine del disco gestito.
+3. È ora possibile creare un disco gestito dal disco ripristinato con [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az_disk_create). La variabile *uri* del passaggio precedente viene usata come origine del disco gestito.
 
     ```azurecli-interactive
     az disk create \
@@ -183,5 +181,4 @@ Passare all'esercitazione successiva per apprendere come ripristinare singoli fi
 
 > [!div class="nextstepaction"]
 > [Ripristinare file in una macchina virtuale in Azure](tutorial-restore-files.md)
-
 

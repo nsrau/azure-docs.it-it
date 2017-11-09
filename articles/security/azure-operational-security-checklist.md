@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
 ms.openlocfilehash: 1877e6ab19d504c8be6130578f17b608f123e20a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Elenco di controllo per la sicurezza operativa di Azure
 La distribuzione di un'applicazione in Azure è rapida, semplice ed economica. Prima di distribuire l'applicazione cloud nell'ambiente di produzione è utile disporre di un elenco di controllo per facilitare la valutazione dell'applicazione in un elenco di azioni di sicurezza operative essenziali e consigliate da prendere in considerazione.

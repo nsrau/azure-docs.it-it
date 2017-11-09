@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
 ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Come eseguire un server di applicazione di Java in una macchina virtuale creata con il modello di distribuzione classica.
 > [!IMPORTANT]
@@ -120,7 +120,7 @@ Per vedere Tomcat in esecuzione da macchine esterne, è necessario creare un end
 10. Nella schermata **Nome** specificare un nome per la regola, come **HttpIn** (non è tuttavia necessario che il nome della regola coincida con quello dell'endpoint), quindi fare clic su **Fine**.  
     ![Nome della nuova regola connessioni in entrata][NewRuleName]
 
-A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno. Nella finestra di indirizzi del browser, digitare un URL nel formato  **http://*il\_DNS\_nome*. cloudapp.net**, in cui ***il\_DNS\_nome*** è il nome DNS specificato al momento della creazione della macchina virtuale.
+A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno. Nella finestra dell'indirizzo del browser digitare un URL nel formato **http://*nome\_DNS\_in uso*.cloudapp.net**, dove ***il nome\_DNS\_***in uso è il nome DNS specificato durante la creazione della macchina virtuale.
 
 ## <a name="application-lifecycle-considerations"></a>Considerazioni sul ciclo di vita delle applicazioni
 * È possibile creare il proprio archivio di applicazioni Web (WAR) e aggiungerlo alla cartella **webapps** . Ad esempio, creare un progetto Web dinamico di una pagina JSP (Java Service Page) di base ed esportarlo come file con estensione WAR. Successivamente, copiare il file con estensione WAR nella cartella **webapps** di Apache Tomcat nella macchina virtuale e quindi eseguirlo in un browser.

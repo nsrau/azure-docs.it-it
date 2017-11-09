@@ -9,14 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
+ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="document-collection-analysis"></a>Analisi delle raccolta di documenti
 
 Questo scenario dimostra la procedura per riepilogare e analizzare una vasta raccolta di documenti, incluse tecniche quali apprendimento della frase, modellazione dell'argomento e analisi del modello di argomento mediante Azure ML Workbench. Azure Machine Learning Workbench consente di affrontare facilmente vaste raccolte di documenti e fornisce meccanismi per addestrare e ottimizzare i modelli in un'ampia varietà di contesti di calcolo, che spaziano dal calcolo locale, alle macchine virtuali per data science, al cluster Spark. Lo sviluppo semplificato è fornito tramite notebook Jupyter all'interno di Azure Machine Learning Workbench.
@@ -67,7 +65,7 @@ I prerequisiti per eseguire questo esempio sono i seguenti:
 
 Creare un nuovo progetto usando questo esempio come modello:
 1.  Aprire Azure Machine Learning Workbench
-2.  Nella pagina **Progetti** fare clic sul segno **+** e selezionare **Nuovo progetto**
+2.  Nella pagina **Projects** (Progetti) fare clic sul segno **+** e selezionare **New Project** (Nuovo progetto)
 3.  Nel riquadro **Crea nuovo progetto** specificare le informazioni per il nuovo progetto
 4.  Nella casella di ricerca **Cerca modelli di progetto** digitare "Analisi raccolta documenti" e selezionare il modello
 5.  Fare clic su **Crea**
@@ -104,7 +102,7 @@ I file in questo esempio sono organizzati come indicato di seguito.
 
 | File Name | Tipo | Descrizione |
 |-----------|------|-------------|
-| `aml_config` | Cartella | Cartella di configurazione di Azure Machine Learning Workbench: per la configurazione di esecuzione dettagliata per l'esperimento, vedere [questa documentazione](./experiment-execution-configuration-reference.md) |
+| `aml_config` | Cartella | Cartella di configurazione di Azure Machine Learning Workbench: per la configurazione di esecuzione dettagliata per l'esperimento, vedere [questa documentazione](./experimentation-service-configuration-reference.md) |
 | `Code` | Cartella | La cartella del codice utilizzata per salvare gli script Python e il pacchetto Python |
 | `Data` | Cartella | La cartella di dati utilizzata per salvare i file intermedi |
 | `notebooks` | Cartella | La cartella dei notebook Jupyter |
@@ -122,6 +120,7 @@ I file in questo esempio sono organizzati come indicato di seguito.
 | `notebooks/3_Topic_Model_Training.ipynb` | Notebook iPython | Addestrare il modello di argomento LDA |
 | `notebooks/4_Topic_Model_Summarization.ipynb` | Notebook iPython | Riepilogare il contenuto della raccolta di documenti in base a un modello di argomento LDA addestrato |
 | `notebooks/5_Topic_Model_Analysis.ipynb` | Notebook iPython | Analizzare gli argomenti del contenuto di una raccolta di documenti di testo e correlare le informazioni sugli argomenti con altri metadati associati alla raccolta di documenti |
+| `notebooks/6_Interactive_Visualization.ipynb` | Notebook iPython | Visualizzazione interattiva del modello dell'argomento analizzato |
 | `notebooks/winprocess.py` | File Python | Lo script Python per la multielaborazione utilizzato dai notebook |
 | `README.md` | File markdown | Il file markdown LEGGIMI |
 
@@ -227,6 +226,8 @@ In `4_Topic_Model_Summarization.ipynb` mostra come riepilogare il contenuto del 
 
 Il notebook `5_Topic_Model_Analysis.ipynb` mostra come analizzare gli argomenti del contenuto di una raccolta di documenti e correlare le informazioni sugli argomenti con altri metadati associati alla raccolta stessa. Alcuni tracciati sono stati introdotti in questo notebook per consentire agli utenti di comprendere meglio l'argomento appreso e la raccolta di documenti.
 
+Il notebook `6_Interactive_Visualization.ipynb` illustra come visualizzare in modo interattivo il modello dell'argomento analizzato. Include quattro attività di visualizzazione interattiva.
+
 ## <a name="conclusion"></a>Conclusioni
 
 Questo scenario reale illustra come usare tecniche di analisi del testo note (in questo caso l'apprendimento di frase e la modellazione di argomento LDA) per produrre un modello affidabile e come Azure Machine Learning Workbench consente di tenere traccia delle prestazioni del modello ed eseguire facilmente gli strumenti di apprendimento su scala maggiore. Maggiori dettagli:
@@ -246,4 +247,3 @@ Questo scenario reale illustra come usare tecniche di analisi del testo note (in
 * **Timothy J. Hazen**, [_Latent Topic Modeling for Audio Corpus Summarization_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf) (Modellazione di argomenti latenti per il riepilogo di raccolte audio). Dodicesima conferenza annuale dell'Associazione Internazionale di Comunicazione Vocale. 2011.
 
 * **Michael Roder, Andreas Both, Alexander Hinneburg**, [_Exploring the Space of Topic Coherence Measures_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf) (Esplorazione dello spazio delle misure di coerenza degli argomenti). Procedimenti dell'ottava conferenza internazionale ACM sulla ricerca nel Web e il data mining. ACM, 2015.
-

@@ -1,3 +1,5 @@
+Queste domande frequenti si applicano alle connessioni da punto a sito con il modello di distribuzione classica.
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Quali sistemi operativi client è possibile usare con la connettività da punto a sito?
 
 Sono supportati i sistemi operativi client seguenti:

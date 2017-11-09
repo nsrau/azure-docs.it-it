@@ -4,7 +4,7 @@ title: Documentazione dell'operatore di Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: 'Documentazione dell''operatore di Azure Stack: esercitazioni e informazioni di riferimento sulle API'
-  description: Informazioni su come utilizzare l'anteprima di Azure Stack per offrire servizi di Azure dal data center. Informazioni e dimostrazioni di funzionalità a partire da un ambiente POC.
+  description: Imparare a usare Azure Stack per fornire servizi di Azure dal Data Center. Informazioni e illustrano le funzionalità da un Kit di sviluppo o in un ambiente di sistemi integrati.
   services: azure-stack
   author: czeumault
   manager: carolz
@@ -12,32 +12,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: Microsoft Azure Stack è una piattaforma ibrida su cloud che consente di fornire i servizi di Azure dal data center. Informazioni su come distribuire Azure Stack e offrire servizi con la guida introduttiva e le esercitazioni.
+  description: 'Microsoft Azure Stack è una piattaforma ibrida su cloud che consente di fornire i servizi di Azure dal data center. Informazioni su come distribuire Azure Stack Development Kit e come gestire l''infrastruttura per sistemi integrati e il kit di sviluppo come offerta di servizi con le esercitazioni e Guide rapide.<br/><br/>Se si è un utente di Azure Stack che utilizza i servizi o Compila le App per lo Stack di Azure, vedere il nostro <a href="/azure/azure-stack/user">documentazione utente</a>.'
 sections:
-  - title: Guide introduttive di 5 minuti
+  - title: Guida introduttiva
     items:
       - type: paragraph
-        text: 'Configurare l''hardware e distribuire Azure Stack:'
+        text: La configurazione dell'hardware e distribuire il Kit di sviluppo dello Stack di Azure.
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: Distribuire Azure Stack
+            text: Distribuire il Kit di sviluppo di Azure Stack
             href: azure-stack-deploy-overview.md
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
-        text: 'Informazioni su come aggiungere servizi alla distribuzione di Azure Stack:'
+        text: Informazioni su come aggiungere servizi alla distribuzione dello Stack di Azure.
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Abilitare macchine virtuali in Azure Stack</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Abilitare database SQL in Azure Stack</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Abilitare app Web in Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Offrire le macchine virtuali in Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Offrono i database SQL Azure stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Offrire le app Web nello Stack di Azure</a>
   - title: Video di formazione gratuiti su PluralSight
     items:
       - type: list
@@ -56,4 +56,4 @@ sections:
         className: cardsD
         items:
           - title: Riga di comando
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell per Azure Stack</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">PowerShell per Azure Stack</a></p>

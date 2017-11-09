@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 8005be7ded6ea005af086aeaf594963a5f2d4ac2
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-domain-services"></a>Servizi di dominio Azure Active Directory
 ## <a name="features"></a>Funzionalità
@@ -40,4 +39,3 @@ Nei domini gestiti di Servizi di dominio Azure AD sono disponibili le funzionali
 * **Disponibile in più aree di Azure:** per informazioni sulle aree di Azure in cui è disponibile Servizi di dominio Azure Active Directory, vedere la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services/) .
 * **Disponibilità elevata:** Servizi di dominio Azure AD offre un'elevata disponibilità per il dominio. Questa funzionalità garantisce tempi di attività e resilienza agli errori migliori. Il monitoraggio dell'integrità incluso offre funzionalità automatizzate di correzione degli errori, attivando nuove istanze per sostituire quelle in errore e offrire la continuità del servizio per il dominio.
 * **Usare strumenti di gestione familiari**: è possibile usare strumenti di gestione di Windows Server Active Directory familiari come Centro di amministrazione di Active Directory o Active Directory PowerShell per amministrare i domini gestiti.
-

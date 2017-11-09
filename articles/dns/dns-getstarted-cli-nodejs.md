@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-10"></a>Introduzione a DNS Azure con l'interfaccia della riga di comando di Azure 1.0
 

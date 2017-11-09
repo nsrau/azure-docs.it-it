@@ -11,14 +11,12 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: a3bfa3a17f0d7300f9d1ceb529410bbbb7bb2fee
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
-
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Ridimensionare le distribuzioni di Jenkins per soddisfare la richiesta con agenti di macchine virtuali di Azure
 
 In questa esercitazione viene illustrato come usare il [plug-in di Agente di macchine virtuali di Azure](https://plugins.jenkins.io/azure-vm-agents) di Jenkins per aggiungere capacità su richiesta con macchine virtuali Linux in esecuzione in Azure.
@@ -110,7 +108,7 @@ Configurare un modello da usare per definire un agente di macchine virtuali di A
 1. Selezionare **Aggiungi** vicino a **Add Azure Virtual Machine Template** (Aggiungi un modello di macchina virtuale di Azure).
 2. Immettere `defaulttemplate` per il **Nome**
 3. Immettere `ubuntu` per l'**Etichetta**
-4. Selezionare l'[area di Azure](https://azure.microsoft.com/regions/) desiderata dalla casella combinata.
+4. Selezionare l'[area di Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) desiderata dalla casella combinata.
 5. Selezionare le [dimensioni macchina virtuale](/azure/virtual-machines/linux/sizes) dall'elenco a discesa sotto **Dimensioni macchina virtuale**. Per questa esercitazione sono appropriate delle dimensioni `Standard_DS1_v2` per un uso generico.   
 6. Lasciare un **Periodo di memorizzazione** di `60`. Questa impostazione definisce il numero di minuti per cui Jenkins può attendere prima di deallocare un agente inattivo. Se non si vuole eliminare automaticamente gli agenti inattivi, immettere 0.
 
@@ -147,5 +145,4 @@ Selezionare **Verify Template** (Verifica modello) per verificare la configurazi
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Integrazione continua e distribuzione continua per i Siti Web di Microsoft Azure](deploy-jenkins-app-service-plugin.md)
-
+> [Integrazione continua e distribuzione continua per i Siti Web di Microsoft Azure](java-deploy-webapp-tutorial.md)

@@ -1,6 +1,6 @@
 ---
 title: Progettare il primo database SQL di Azure | Microsoft Docs
-description: Informazioni su come progettare il primo database SQL di Azure.
+description: Informazioni per la progettazione del primo database SQL di Azure nel portale di Azure e con SQL Server Management Studio.
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -13,17 +13,15 @@ ms.custom: mvc,develop databases
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: Active
 ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: e4848eb366faea134a484c8a494fed6a83203116
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 3a58c50d1187b9cca9490ad725b14617b4a98efe
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="design-your-first-azure-sql-database"></a>Progettare il primo database SQL di Azure
 
 Il database SQL di Azure è un database relazionale come servizio (DBaaS, Database-As-A-Service) disponibile in Microsoft Cloud ("Azure"). Questa esercitazione illustra come usare il portale di Azure e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) per le operazioni seguenti: 
@@ -341,4 +339,3 @@ Per informazioni sulla progettazione di un database con Visual Studio e C#, pass
 
 > [!div class="nextstepaction"]
 >[Progettare un database SQL di Azure e connettersi con C# e ADO.NET](sql-database-design-first-database-csharp.md)
-

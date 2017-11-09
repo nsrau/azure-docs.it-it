@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/19/2017
+ms.date: 10/09/2017
 ms.author: BernardoAMunoz
+ms.openlocfilehash: 22e1768257524400f341cf881dfebfb35115a43b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ed9c955096a5427e8184bb6c542ad85ff4c302be
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipi di risorse e controlli di integrità in Integrità risorse di Azure
 Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite Integrità risorse suddivisi per tipi di risorse.
+
+## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
+|Controlli eseguiti|
+|---|
+|<ul><li>Il servizio Gestione API è operativo?</li></ul>|
 
 ## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
 |Controlli eseguiti|
@@ -60,6 +63,12 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |Controlli eseguiti|
 |---|
 |<ul><li>Gli utenti possono caricare i dati in Data Lake Store nell'area?</li><li>Gli utenti possono scaricare i dati da Data Lake Store nell'area?</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+
+|Controlli eseguiti|
+|---|
+|<ul><li>L'hub IoT è operativo?</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Controlli eseguiti|

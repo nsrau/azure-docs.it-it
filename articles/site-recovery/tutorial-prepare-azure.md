@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: raynew
+ms.custom: MVC
+ms.openlocfilehash: 2fa7e731a05e19697603058829f130074bb5b522
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 506b625905abf52963230a787af66f956bc292b5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparare le risorse di Azure per la replica dei computer locali
 
@@ -76,7 +76,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 
    ![Nuovo insieme di credenziali](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   Il nuovo insieme di credenziali viene visualizzato in **Dashboard** > **Tutte le risorse** e nella pagina principale **Insiemi di credenziali dei servizi di ripristino**.
+   Il nuovo insieme di credenziali verrà visualizzato in **Dashboard** > **Tutte le risorse** e nella pagina **Insiemi di credenziali dei servizi di ripristino** principale.
 
 ## <a name="set-up-an-azure-network"></a>Configurare una rete di Azure
 
@@ -101,4 +101,3 @@ Le macchine virtuali di Azure create dall'archiviazione dopo il failover vengono
 
 > [!div class="nextstepaction"]
 > [Preparare l'infrastruttura VMware locale per il ripristino di emergenza in Azure](tutorial-prepare-on-premises-vmware.md)
-

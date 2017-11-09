@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 10/19/2017
 ms.author: larryfr
-ms.openlocfilehash: e66ba67a36fc48d1762ba302d708e060489fdc71
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 39894ba73c691ad547d8b5ab67ec9d5786a5229c
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Hadoop in HDInsight
 
@@ -232,7 +232,7 @@ Per altre informazioni sugli aspetti menzionati in questo documento, usare i col
 * [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
 * [Installare e configurare Azure PowerShell](/powershell/azure/overview)
 * [Gestire HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Effettuare il provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)
+* [provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: /powershell/azureps-cmdlets-docs

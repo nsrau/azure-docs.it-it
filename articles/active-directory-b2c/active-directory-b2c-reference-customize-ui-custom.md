@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 68f40aa638a687398512278a0b77d1ba392859cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 

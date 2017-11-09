@@ -1,6 +1,6 @@
 ---
 title: Ottimizzare l'ambiente System Center Operations Manager con Azure Log Analytics |Microsoft Docs
-description: "È possibile usare la soluzione System Center Operations Manager Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari."
+description: "È possibile usare la soluzione Controllo integrità System Center Operations Manager per valutare i rischi e l'integrità degli ambienti a intervalli regolari."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2017
-ms.author: banders
+ms.date: 10/27/2017
+ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Ottimizzare l'ambiente con la soluzione System Center Operations Manager Assessment (Anteprima)
+# <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
-![Simbolo di Valutazione System Center Operations Manager](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
+![Simbolo di Controllo integrità System Center Operations Manager](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
-È possibile usare la soluzione System Center Operations Manager Assessment per valutare i rischi e l'integrità degli ambienti server di System Center Operations Manager a intervalli regolari. Questo articolo consente di installare, configurare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
+È possibile usare la soluzione Controllo integrità System Center Operations Manager per valutare i rischi e l'integrità del gruppo di gestione di System Center Operations Manager a intervalli regolari. Questo articolo consente di installare, configurare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
 
 La soluzione offre un elenco con priorità di raccomandazioni specifiche per l'infrastruttura distribuita dei server, classificate in quattro aree di interesse che consentono di comprendere rapidamente il rischio e agire in maniera appropriata.
 
@@ -33,69 +33,77 @@ Le raccomandazioni si basano sulla conoscenza e sull'esperienza acquisite dai te
 
 Si possono scegliere le aree di interesse più importanti per l'organizzazione e tenere traccia dello stato di avanzamento verso la realizzazione di un ambiente integro ed esente da rischi.
 
-Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard di **System Center Operations Manager Assessment** per l'infrastruttura verranno visualizzate le informazioni di riepilogo per le aree di interesse. Le sezioni seguenti descrivono come usare le informazioni visualizzate nel dashboard di **System Center Operations Manager Assessment** per intraprendere le azioni consigliate per l'infrastruttura SCOM.
+Dopo aver aggiunto la soluzione e aver eseguito una valutazione, nel dashboard di **Controllo integrità System Center Operations Manager** per l'infrastruttura vengono visualizzate le informazioni di riepilogo per le aree di interesse. Le sezioni seguenti descrivono come usare le informazioni visualizzate nel dashboard di **Controllo integrità System Center Operations Manager** per intraprendere le azioni consigliate per l'ambiente Operations Manager.
 
-![Riquadro della soluzione System Center Operations Manager](./media/log-analytics-scom-assessment/scom-tile.png)
+![Riquadro della soluzione System Center Operations Manager](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-tile.png)
 
-![Dashboard di System Center Operations Manager Assessment](./media/log-analytics-scom-assessment/scom-dashboard01.png)
+![Dashboard di Controllo integrità System Center Operations Manager](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png)
 
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 
-La soluzione funziona con Microsoft System Operations Manager 2012 R2 e 2012 SP1.
+La soluzione funziona con Microsoft System Operations Manager 2012 Service Pack (SP) 1 e 2012 R2.
 
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
- - Prima di poter usare una soluzione di valutazione in OMS, è necessario averla installata. Installare la soluzione da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview) o seguendo le istruzioni indicate in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
+ - Prima di poter usare la soluzione Controllo integrità in Log Analytics, è necessario averla installata. Installare la soluzione da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - Dopo aver aggiunto la soluzione all'area di lavoro, un messaggio nel riquadro di System Center Operations Manager Assessment del dashboard richiede la configurazione aggiuntiva. Fare clic sul riquadro e attenersi alla procedura di configurazione riportata nella pagina
+ - Dopo avere aggiunto la soluzione all'area di lavoro, nel riquadro **Controllo integrità System Center Operations Manager** del dashboard viene visualizzato un altro messaggio di richiesta della configurazione. Fare clic sul riquadro e attenersi alla procedura di configurazione riportata nella pagina
 
  ![Riquadro del dashboard di System Center Operations Manager](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
 
- La configurazione di System Center Operations Manager può essere eseguita tramite lo script seguendo i passaggi illustrati nella pagina di configurazione della soluzione in OMS.
+> [!NOTE]
+> Per eseguire la configurazione di System Center Operations Manager, è possibile usare lo script seguendo i passaggi illustrati nella pagina di configurazione della soluzione in Log Analytics.
 
- Per configurare la valutazione tramite SCOM Console, eseguire invece i passaggi seguenti nello stesso ordine
-1. [Impostare l'account RunAs per System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
-2. [Configurare la regola di System Center Operations Manager Assessment](#configure-the-assessment-rule)
+ Per configurare la valutazione tramite la console operatore di Operations Manager Operations, eseguire i passaggi descritti sotto nell'ordine seguente:
+1. [Impostare l'account RunAs per Controllo integrità System Center Operations Manager](#operations-manager-run-as-accounts-for-log-analytics)  
+2. [Configurare la regola di Controllo integrità System Center Operations Manager](#configure-the-assessment-rule)
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Dettagli della raccolta di dati della valutazione di System Center Operations Manager
+## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Dettagli sulla raccolta dei dati della valutazione di System Center Operations Manager
 
-La valutazione di System Center Operations Manager raccoglie i dati WMI, del Registro di sistema, del log eventi e di Operations Manager tramite Windows PowerShell, query SQL e agente di raccolta di informazioni file usando il server che è stato abilitato.
+Con Valutazione System Center Operations Manager vengono raccolti dati dalle origini seguenti: 
 
-La tabella seguente illustra i metodi di raccolta dati per System Center Operations Manager Assessment e la frequenza con cui i dati vengono raccolti da un agente.
+* Registro
+* Strumentazione gestione Windows (WMI)
+* Registro eventi
+* Dati dei file
+* Direttamente da Operations Manager usando PowerShell e le query SQL, da un server di gestione specificato.  
 
-| Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows | | | | &#8226; | | 7 giorni |
+I dati vengono raccolti nel server di gestione e inoltrati a Log Analytics ogni sette giorni.  
 
-## <a name="operations-manager-run-as-accounts-for-oms"></a>Account RunAs di Operations Manager per OMS
+## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Account RunAs di Operations Manager per Log Analytics
 
-OMS si basa su Management Pack per i carichi di lavoro per offrire servizi a valore aggiunto. Ogni carico di lavoro richiede privilegi specifici per eseguire i Management Pack in un contesto di sicurezza diverso, ad esempio un account di dominio. Configurare un account RunAs di Operations Manager per specificare le informazioni sulle credenziali.
+Log Analytics si basa sui Management Pack per i carichi di lavoro per offrire servizi a valore aggiunto. Ogni carico di lavoro richiede privilegi specifici per eseguire i Management Pack in un contesto di sicurezza diverso, ad esempio un account utente di dominio. Configurare un account RunAs di Operations Manager con credenziali con privilegi. Per altre informazioni, vedere [Come creare un account RunAs](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) nella documentazione di Operations Manager. 
 
-Usare le informazioni seguenti per impostare l'account RunAs di Operations Manager per System Center Operations Manager Assessment.
+Usare le informazioni seguenti per impostare l'account RunAs di Operations Manager per Controllo integrità System Center Operations Manager.
 
 ### <a name="set-the-run-as-account"></a>Impostare l'account RunAs
 
-1. Nella console di Operations Manager passare alla scheda **Amministrazione**.
+Prima di procedere l'account RunAs deve soddisfare i requisiti seguenti:
+
+* Essere un account utente di dominio membro del gruppo Administrators locale in tutti i server che supportano qualsiasi ruolo di Operations Manager, ovvero server di gestione, istanza di SQL Server che ospita il data warehouse operativo e il database ACS, Creazione report, Console Web e Server gateway.
+* Appartenere a un ruolo di amministratore di Operations Manager per il gruppo di gestione valutato
+* Se l'account non ha i diritti di amministratore di sistema SQL, eseguire lo [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) per concedere autorizzazioni granulari all'account in ogni istanza di SQL Server che ospita uno o tutti i database di Operations Manager. 
+
+1. Nella console di Operations Manager selezionare il pulsante di spostamento **Amministrazione**.
 2. In **Run As Configuration** (Configurazione RunAs) fare clic su **Account**.
-3. Creare l'account RunAs seguendo la procedura guidata per la creazione di un account di Windows. L'account da usare è quello identificato e avente tutti i prerequisiti seguenti:
+3. Nella pagina **Introduzione** della procedura guidata **Crea account RunAs** fare clic su **Avanti**.
+4. Nella pagina **Proprietà generali** selezionare **Windows** nell'elenco **Tipo di account RunAs**.
+5. Digitare un nome visualizzato nella casella di testo **Nome visualizzato** e facoltativamente una descrizione nella casella **Descrizione** e quindi fare clic su **Avanti**. 
+6. Nella pagina **Sicurezza della distribuzione** selezionare **Più protetto**.
+7. Fare clic su **Crea**.  
 
-    >[!NOTE]
-    L'account RunAs deve soddisfare i requisiti seguenti:
-    - Essere membro dell'account di dominio del gruppo di amministratori locale in tutti i server dell'ambiente (tutti i ruoli di Operations Manager: server di gestione, database OpsMgr, data warehouse, creazione di report, console Web, gateway)
-    - Appartenere a un ruolo di amministratore di Operations Manager per il gruppo di gestione valutato
-    - Eseguire lo [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) per concedere autorizzazioni dettagliate all'account nell'istanza SQL usata da Operations Manager.
-      Nota: se questo account dispone già di diritti di amministratore di sistema, ignorare l'esecuzione dello script.
+Dopo aver creato l'account RunAs, è necessario indicare i server di gestione di destinazione nel gruppo di gestione e associare l'account a un profilo RunAs predefinito in modo che i flussi di lavoro vengano eseguiti usando le credenziali.  
 
-4. In **Sicurezza della distribuzione** selezionare **Più protetto**.
-5. Specificare il server di gestione in cui viene distribuito l'account.
-3. Tornare alla configurazione dell'account RunAs e fare clic su **Profili**.
+1. In **Run As Configuration** (Configurazione RunAs), **Account** fare doppio clic sull'account creato in precedenza nel riquadro dei risultati.
+2. Nella scheda **Distribuzione** fare clic su **Aggiungi**per la casella **Computer selezionati** e aggiungere il server di gestione in cui distribuire l'account.  Fare due volte clic su **OK** per salvare le modifiche.
+3. In **Run As Configuration** (Configurazione RunAs) fare clic su **Profili**. 
 4. Cercare il profilo *SCOM Assessment*.
 5. Il nome del profilo è *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
-6. Fare clic con il pulsante destro del mouse, aggiornare le proprietà e aggiungere l'account RunAs creato nel passaggio 3.
+6. Fare clic con il pulsante destro del mouse, aggiornare le proprietà e aggiungere l'account RunAs creato in precedenza.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL per la concessione di autorizzazioni dettagliate all'account RunAs
 
-Eseguire questo script SQL per concedere le autorizzazioni necessarie all'account RunAs nell'istanza SQL usata da Operations Manager.
+Eseguire questo script SQL per concedere le autorizzazioni necessarie all'account RunAs nell'istanza di SQL Server usata da Operations Manager che ospita il data warehouse operativo e il database ACS.
 
 ```
 -- Replace <UserName> with the actual user name being used as Run As Account.
@@ -143,33 +151,31 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ```
 
+### <a name="configure-the-health-check-rule"></a>Configurare la regola di controllo integrità
 
-### <a name="configure-the-assessment-rule"></a>Configurare la regola di valutazione
+Il Management Pack della soluzione Controllo integrità System Center Operations Manager include una regola denominata *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*. Questa regola è responsabile del controllo integrità. Per abilitare la regola e configurare la frequenza, seguire queste procedure.
 
-Il Management Pack della soluzione System Center Operations Manager Assessment include una regola denominata *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*. Questa regola è responsabile dell'esecuzione della valutazione. Per abilitare la regola e configurare la frequenza, seguire queste procedure.
-
-Per impostazione predefinita, la regola Microsoft System Center Advisor SCOM Assessment Run Assessment Rule è disabilitata. Per eseguire la valutazione è necessario abilitare la regola in un server di gestione. Seguire questa procedura.
+Per impostazione predefinita, la regola Microsoft System Center Advisor SCOM Assessment Run Assessment Rule è disabilitata. Per eseguire il controllo integrità, è necessario abilitare la regola in un server di gestione. Seguire questa procedura.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Abilitare la regola per un server di gestione specifico
 
-1. Nell'area di lavoro **Creazione e modifica** della console di Operations Manager, cercare la regola *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* nel pannello **Regole**.
+1. Nell'area di lavoro **Creazione e modifica** della console operativa di Operations Manager, cercare la regola *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* nel pannello **Regole**.
 2. Nei risultati della ricerca selezionare quello che include il testo *Tipo: Server di gestione*.
 3. Fare clic con il pulsante destro del mouse sulla regola, quindi scegliere **Override** > **Oggetto specifico della classe: Server di gestione**.
-4.  Nell'elenco dei server di gestione disponibili selezionare il server di gestione in cui eseguire la regola.
-5.  Assicurarsi di modificare il valore di override in **True** per il valore del parametro **Enabled**.  
-    ![parametro di override](./media/log-analytics-scom-assessment/rule.png)
+4.  Nell'elenco dei server di gestione disponibili selezionare il server di gestione in cui eseguire la regola.  Deve trattarsi dello stesso server di gestione configurato in precedenza per l'associazione con l'account RunAs.
+5.  Assicurarsi di modificare il valore di override in **True** per il valore del parametro **Enabled**.<br><br> ![parametro di override](./media/log-analytics-scom-assessment/rule.png)
 
-Sempre in questa finestra, configurare la frequenza di esecuzione usando la procedura successiva.
+    Sempre in questa finestra, configurare la frequenza di esecuzione usando la procedura successiva.
 
 #### <a name="configure-the-run-frequency"></a>Configurare la frequenza di esecuzione
 
-La valutazione è configurata per l'esecuzione ogni 10.080 minuti (o sette giorni), l'intervallo predefinito. È possibile sostituire il valore con un valore minimo di 1440 minuti (o un giorno). Il valore rappresenta l'intervallo minimo tra le esecuzioni della valutazione. Per sostituire l'intervallo, usare la procedura seguente.
+Per impostazione predefinita, la valutazione è configurata per l'esecuzione ogni 10.080 minuti (o sette giorni). È possibile sostituire il valore con un valore minimo di 1440 minuti (o un giorno). Il valore rappresenta l'intervallo minimo tra le esecuzioni della valutazione. Per sostituire l'intervallo, usare la procedura seguente.
 
-1. Nell'area di lavoro **Creazione e modifica** della console di Operations Manager, cercare la regola *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* nel pannello **Regole**.
+1. Nell'area di lavoro **Creazione e modifica** della console di Operations Manager, cercare la regola *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* nella sezione **Regole**.
 2. Nei risultati della ricerca selezionare quello che include il testo *Tipo: Server di gestione*.
 3. Fare clic con il pulsante destro del mouse sulla regola, quindi scegliere **Sostituisci regola** > **Tutti gli oggetti della classe: Server di gestione**.
-4. Impostare il parametro **Interval** (Intervallo) sul valore desiderato. Nell'esempio seguente, il valore è impostato su 1440 minuti (un giorno).  
-    ![parametro interval](./media/log-analytics-scom-assessment/interval.png)  
+4. Impostare il parametro **Interval** (Intervallo) sul valore desiderato. Nell'esempio seguente, il valore è impostato su 1440 minuti (un giorno).<br><br> ![parametro interval](./media/log-analytics-scom-assessment/interval.png)<br>  
+
     Se il valore impostato è minore di 1440 minuti, la regola verrà eseguita a intervalli di un giorno. In questo esempio, la regola ignora il valore dell'intervallo e viene eseguita con una frequenza di un giorno.
 
 
@@ -203,84 +209,94 @@ Non necessariamente. Le raccomandazioni si basano sulla conoscenza e sull'esperi
 
 Ogni raccomandazione include informazioni aggiuntive sui motivi per cui potrebbe essere importante. Usare queste informazioni aggiuntive per valutare se l'implementazione della raccomandazione è appropriata, a seconda della natura dei servizi IT e delle esigenze aziendali dell'organizzazione.
 
-## <a name="use-assessment-focus-area-recommendations"></a>Usare le raccomandazioni relative all'area di interesse della valutazione
+## <a name="use-health-check-focus-area-recommendations"></a>Usare le raccomandazioni relative alle aree di interesse del controllo integrità
 
-Prima di poter usare una soluzione di valutazione in OMS, è necessario averla installata. Per altre informazioni sull'installazione di soluzioni, vedere [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). Dopo l'installazione, sarà possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro di System Center Operations Manager Assessment nella pagina Panoramica in OMS.
+Prima di poter usare una soluzione di controllo integrità in Log Analytics, è necessario averla installata. Per altre informazioni sull'installazione di soluzioni, vedere [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). Dopo l'installazione, è possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro Controllo integrità System Center Operations Manager nella pagina Panoramica del portale di OMS.
 
 Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infrastruttura, quindi visualizzare le raccomandazioni nel dettaglio.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Per visualizzare le raccomandazioni per un'area di interesse e applicare un'azione correttiva
-
-1. Nella pagina **Panoramica** fare clic sul riquadro **System Center Operations Manager Assessment**.
-2. Nella pagina **System Center Operations Manager Assessment** verificare le informazioni di riepilogo in uno dei pannelli dell'area di interesse, quindi fare clic su un'area specifica per visualizzare le raccomandazioni corrispondenti.
-3. In una delle pagine relative alle aree di interesse è possibile visualizzare le raccomandazioni relative all'ambiente specifico, classificate in ordine di priorità. Fare clic su una raccomandazione in **Affected Objects** (Oggetti interessati) per visualizzare i dettagli relativi al motivo per cui è stata generata.  
-    ![area di interesse](./media/log-analytics-scom-assessment/focus-area.png)
-4. È possibile eseguire le azioni correttive suggerite in **Suggested Actions**(Azioni suggerite). Dopo la risoluzione dell'elemento, le valutazioni successive indicheranno che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
+2. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
+3. Nel riquadro delle sottoscrizioni di Log Analytics selezionare un'area di lavoro e quindi fare clic sul riquadro **Portale di OMS**.  
+4. Nella pagina **Panoramica** fare clic sul riquadro **Controllo integrità System Center Operations Manager**.
+5. Nella pagina **Controllo integrità System Center Operations Manager** verificare le informazioni di riepilogo in uno dei pannelli dell'area di interesse e quindi fare clic su un'area specifica per visualizzare le raccomandazioni corrispondenti.
+6. In una delle pagine relative alle aree di interesse è possibile visualizzare le raccomandazioni relative all'ambiente specifico, classificate in ordine di priorità. Fare clic su una raccomandazione in **Affected Objects** (Oggetti interessati) per visualizzare i dettagli relativi al motivo per cui è stata generata.<br><br> ![area di interesse](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
+7. È possibile eseguire le azioni correttive suggerite in **Suggested Actions**(Azioni suggerite). Dopo la risoluzione dell'elemento, le valutazioni successive indicheranno che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
 
 ## <a name="ignore-recommendations"></a>Ignorare le raccomandazioni
 
-Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS userà per impedirne la visualizzazione nei risultati della valutazione.
+Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Log Analytics usa per impedire la visualizzazione delle raccomandazioni nei risultati della valutazione.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Per identificare le raccomandazioni da ignorare
-
-1. Accedere all'area di lavoro e aprire Ricerca log. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.
+1. Nella pagina dell'area di lavoro di Log Analytics per l'area di lavoro selezionata del portale di Azure fare clic sul riquadro **Ricerca log**.
+2. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.
 
     ```
-    Type=SCOMAssessmentRecommendationRecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
+    Type=SCOMAssessmentRecommendationRecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
     ```
 
-    Ecco lo screenshot che mostra la query di ricerca nei log:   
-    ![ricerca log](./media/log-analytics-scom-assessment/scom-log-search.png)
+    >[!NOTE]
+    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
+    >
+    > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-2. Scegliere le raccomandazioni da ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
+    Ecco lo screenshot che mostra la query di ricerca nei log: <br><br> ![ricerca log](./media/log-analytics-scom-assessment/scom-log-search.png)<br>
+
+3. Scegliere le raccomandazioni da ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Per creare e usare un file di testo IgnoreRecommendations.txt
 
 1. Creare un file denominato IgnoreRecommendations.txt.
-2. Incollare o digitare ogni ID raccomandazione per ogni raccomandazione che OMS dovrà ignorare in una riga separata e quindi salvare e chiudere il file.
-3. Inserire il file nella cartella seguente in ogni computer in cui si vuole che OMS ignori le raccomandazioni.
+2. Incollare o digitare ciascun ID raccomandazione per ogni raccomandazione che Log Analytics dovrà ignorare in una riga separata e quindi salvare e chiudere il file.
+3. Inserire il file nella cartella seguente in ogni computer in cui si vuole che Log Analytics ignori le raccomandazioni.
 4. Nel server di gestione di Operations Manager *SystemDrive*:\Programmi\Microsoft System Center 2012 R2\Operations Manager\Server.
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Per verificare che le raccomandazioni vengano ignorate
 
-1. Dopo l'esecuzione della valutazione successiva pianificata, per impostazione predefinita ogni sette giorni, le raccomandazioni specificate vengono contrassegnate come ignorate e non verranno visualizzate nel dashboard di valutazione.
+1. Dopo l'esecuzione della valutazione successiva pianificata, per impostazione predefinita ogni sette giorni, le raccomandazioni specificate vengono contrassegnate come ignorate e non verranno visualizzate nel dashboard di controllo integrità.
 2. È possibile usare le query di Ricerca log seguenti per elencare tutte le raccomandazioni ignorate.
 
     ```
     Type=SCOMAssessmentRecommendationRecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
 
+    >[!NOTE]
+    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
+    >
+    > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure è possibile rimuovere gli ID raccomandazione dagli stessi.
 
-## <a name="system-center-operations-manager-assessment-solution-faq"></a>Domande frequenti sulla soluzione System Center Operations Manager Assessment
+## <a name="system-center-operations-manager-health-check-solution-faq"></a>Domande frequenti sulla soluzione Controllo integrità System Center Operations Manager
 
-*È stata aggiunta la soluzione di valutazione all'area di lavoro di OMS. Non vengono tuttavia visualizzate le raccomandazioni. Perché?* Dopo aver aggiunto la soluzione, procedere come segue per visualizzare le raccomandazioni nel dashboard OMS.  
+*La soluzione Controllo integrità è stata aggiunta all'area di lavoro di Log Analytics. Non vengono tuttavia visualizzate le raccomandazioni. Perché?* Dopo avere aggiunto la soluzione, procedere come segue per visualizzare le raccomandazioni nel dashboard di Log Analytics.  
 
-- [Impostare l'account RunAs per System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
-- [Configurare la regola di System Center Operations Manager Assessment](#configure-the-assessment-rule)
+- [Impostare l'account RunAs per Controllo integrità System Center Operations Manager](#operations-manager-run-as-accounts-for-log-analytics)  
+- [Configurare la regola di Controllo integrità System Center Operations Manager](#configure-the-health-check-rule)
 
 
-*È possibile configurare la frequenza di esecuzione della valutazione?* Sì. Vedere [Configurare la frequenza di esecuzione](#configure-the-run-frequency).
+*È possibile configurare la frequenza di esecuzione del controllo?* Sì. Vedere [Configurare la frequenza di esecuzione](#configure-the-run-frequency).
 
-*Se viene rilevato un altro server dopo l'aggiunta della soluzione System Center Operations Manager Assessment, il server verrà valutato?* Sì, verrà valutato dal momento della rilevazione, per impostazione predefinita ogni sette giorni.
+*Se viene individuato un altro server dopo l'aggiunta della soluzione Valutazione System Center Operations Manager, il server verrà controllato?* Sì, per impostazione predefinita verrà controllato ogni sette giorni a partire dal momento dell'individuazione.
 
 *Qual è il nome del processo che esegue la raccolta di dati?* AdvisorAssessment.exe
 
-*Dove viene eseguito il processo AdvisorAssessment.exe?* AdvisorAssessment.exe viene eseguito nel servizio di integrità del server di gestione in cui è abilitata la regola di valutazione. Con questo processo, l'individuazione dell'intero ambiente avviene tramite la raccolta di dati remoti.
+*Dove viene eseguito il processo AdvisorAssessment.exe?* AdvisorAssessment.exe viene eseguito nel processo HealthService del server di gestione in cui è abilitata la regola di controllo integrità. Con questo processo, l'individuazione dell'intero ambiente avviene tramite la raccolta di dati remoti.
 
 *Quanto tempo occorre per la raccolta di dati?* La raccolta di dati sul server richiede circa un'ora. Potrebbe richiedere più tempo in ambienti con molte istanze o database di Operations Manager.
 
 *Cosa accade se l'intervallo di valutazione viene impostato su un valore inferiore a 1440 minuti?* La valutazione è preconfigurata per essere eseguita al massimo una volta al giorno. Se si sostituisce il valore dell'intervallo con un valore inferiore a 1440 minuti, la valutazione userà 1440 minuti come valore dell'intervallo.
 
-*Come è possibile verificare se sono presenti errori relativi ai prerequisiti?* Se è stata eseguita la valutazione e non vengono visualizzati risultati, è probabile che si siano verificati errori per alcuni dei prerequisiti della valutazione. È possibile eseguire le query: `Type=Operation Solution=SCOMAssessment` e `Type=SCOMAssessmentRecommendation FocusArea=Prerequisites` in Ricerca log per visualizzare i prerequisiti con errori.
+*Come è possibile verificare se sono presenti errori relativi ai prerequisiti?* Se è stato eseguito il controllo integrità e non vengono visualizzati risultati, è probabile che si siano verificati errori per alcuni dei prerequisiti del controllo. Per visualizzare i prerequisiti con errori, è possibile eseguire le query `Operation Solution=SCOMAssessment` e `SCOMAssessmentRecommendation FocusArea=Prerequisites` in Ricerca log.
 
-*È presente un messaggio `Failed to connect to the SQL Instance (….).` negli errori relativi ai prerequisiti. Qual è il problema?* AdvisorAssessment.exe, il processo che raccoglie i dati, viene eseguito nel servizio di integrità del server di gestione. Nell'ambito della valutazione, il processo prova a connettersi al server SQL in cui è presente il database di Operations Manager. Questo errore può verificarsi quando le regole del firewall bloccano la connessione all'istanza di SQL Server.
+*È presente un messaggio `Failed to connect to the SQL Instance (….).` negli errori relativi ai prerequisiti. Qual è il problema?* AdvisorAssessment.exe, il processo che raccoglie i dati, viene eseguito nel processo HealthService del server di gestione. Nell'ambito del controllo integrità, il processo prova a connettersi all'istanza di SQL Server in cui è presente il database di Operations Manager. Questo errore può verificarsi quando le regole del firewall bloccano la connessione all'istanza di SQL Server.
 
 *Quali tipi di dati vengono raccolti?* Vengono raccolti i tipi di dati seguenti: dati WMI, del Registro di sistema, del log eventi e di Operations Manager tramite Windows PowerShell, query SQL e agente di raccolta di informazioni file.
 
-*Perché è necessario configurare un account RunAs?* Per un server di Operations Manager vengono eseguite diverse query SQL. Per consentirne l'esecuzione è necessario usare un account RunAs con le necessarie autorizzazioni. Sono anche necessarie credenziali di amministratore locale per eseguire query su WMI.
+*Perché è necessario configurare un account RunAs?* Con Operations Manager vengono eseguite diverse query SQL. Per consentirne l'esecuzione è necessario usare un account RunAs con le necessarie autorizzazioni. Sono anche necessarie credenziali di amministratore locale per eseguire query su WMI.
 
 *Perché vengono visualizzate solo le prime 10 raccomandazioni?* Invece di esaminare un lunghissimo elenco completo di attività, è consigliabile concentrare l'attenzione sulle raccomandazioni con priorità maggiore. Dopo la verifica delle raccomandazioni principali, verranno rese disponibili raccomandazioni aggiuntive. Se si preferisce visualizzare l'elenco dettagliato, usare Ricerca log per mostrare tutte le raccomandazioni.
 
@@ -289,4 +305,4 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eseguire ricerche nei log](log-analytics-log-searches.md) per visualizzare raccomandazioni e dati dettagliati di System Center Operations Manager Assessment.
+- Vedere [Ricerche nei log](log-analytics-log-searches.md) per informazioni su come analizzare le raccomandazioni e i dati dettagliati di Controllo integrità System Center Operations Manager.

@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 09/17/2017
 ms.author: barclayn
 ms.custom: pim
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 0f9f09ca8fb30d494433ed8d26b808d1b5d4d0b1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Iniziare ad usare Azure AD Privileged Identity Management
 
@@ -60,4 +59,3 @@ La [panoramica di Azure AD Privileged Identity Management](active-directory-priv
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-

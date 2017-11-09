@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/11/2017
 ms.author: bwren
-ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Trovare dati con ricerche nei log in Log Analytics
 
 >[!NOTE]
-> Questo articolo descrive le ricerche nei log con l'attuale linguaggio di query di Log Analytics.  Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), è consigliabile vedere [Informazioni sulle ricerche log in Log Analytics](log-analytics-log-search-new.md).
+> Questo articolo descrive le ricerche log con il linguaggio di query legacy di Log Analytics.  Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), è consigliabile vedere [Informazioni sulle ricerche log in Log Analytics](log-analytics-log-search-new.md).
 
 
 Un elemento fondamentale di Log Analytics è la funzionalità di ricerca nei log, che permette di combinare e correlare i dati del computer da più origini all'interno dell'ambiente. Anche le soluzioni sono basate sulla ricerca log, per offrire metriche specifiche per una particolare area problematica.

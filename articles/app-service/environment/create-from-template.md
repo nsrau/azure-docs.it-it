@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
+ms.openlocfilehash: cdaf09d5558e0453b826b9a3e52500379ced5422
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 9e75f83755424b1b89e7649af98c0347fc5e1c59
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creare un ambiente del servizio app usando un modello di Azure Resource Manager
 
@@ -49,7 +48,7 @@ Un modello di Resource Manager che crea un ambiente del servizio app e il file d
 
 Per creare un ambiente del servizio app con bilanciamento del carico interno, usare questi [esempi][quickstartilbasecreate] di modello di Resource Manager. I modelli soddisfano questo caso d'uso. La maggior parte dei parametri del file *azuredeploy.parameters.json* è comune alla creazione degli ambienti del servizio app con bilanciamento del carico interno e degli ambienti del servizio app esterni. L'elenco seguente indica parametri importanti o specifici per la creazione di un ambiente del servizio app con bilanciamento del carico interno:
 
-* *interalLoadBalancingMode*: impostare nella maggior parte dei casi su 3, a indicare che sia il traffico HTTP/HTTPS sulle porte 80/443 che le porte dei canali di controllo/dati ascoltati dal servizio FTP nell'ambiente del servizio app saranno associati a un indirizzo interno della rete virtuale allocato dal servizio di bilanciamento del carico interno. Se questa proprietà viene impostata su 2, solo le porte correlate al servizio FTP (canali di controllo e dati) vengono associate a un indirizzo del servizio di bilanciamento del carico interno. Il traffico HTTP/HTTPS resta nell'indirizzo VIP pubblico.
+* *internalLoadBalancingMode*: impostare nella maggior parte dei casi su 3, a indicare che sia il traffico HTTP/HTTPS sulle porte 80/443 che le porte dei canali di controllo/dati ascoltate dal servizio FTP nell'ambiente del servizio app saranno associati a un indirizzo interno della rete virtuale allocato dall'ILB. Se questa proprietà viene impostata su 2, solo le porte correlate al servizio FTP (canali di controllo e dati) vengono associate a un indirizzo del servizio di bilanciamento del carico interno. Il traffico HTTP/HTTPS resta nell'indirizzo VIP pubblico.
 * *dnsSuffix*: questo parametro indica il dominio radice predefinito che viene assegnato all'ambiente del servizio app. Nella variante pubblica del servizio app di Azure, il dominio radice predefinito per tutte le app Web è *azurewebsites.net*. Poiché un ambiente del servizio app con servizio di bilanciamento del carico interno è interno alla rete virtuale di un cliente, non ha senso usare il dominio radice predefinito del servizio pubblico. Un ambiente del servizio app con servizio di bilanciamento del carico interno deve invece avere un dominio radice predefinito appropriato per la rete virtuale interna dell'azienda. Un'azienda Contoso Corporation potrebbe ad esempio usare un dominio radice predefinito *internal-contoso.com* per le app che devono essere risolvibili e accessibili solo nella rete virtuale di Contoso. 
 * *ipSslAddressCount*: questo parametro viene automaticamente impostato sul valore predefinito 0 nel file *azuredeploy.json* perché gli ambienti del servizio app con servizio di bilanciamento del carico interno hanno un solo indirizzo del servizio di bilanciamento del carico interno. Non esistono indirizzi IP SSL per un ambiente del servizio app con bilanciamento del carico interno. Il pool di indirizzi IP SSL per un ambiente del servizio app con bilanciamento del carico interno deve quindi essere impostato su zero. In caso contrario, si verifica un errore di provisioning. 
 
@@ -182,4 +181,3 @@ Per creare un ambiente del servizio app 1 usando un modello di Resource Manager,
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
-

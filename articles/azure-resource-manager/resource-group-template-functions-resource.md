@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 10/09/2017
 ms.author: tomfitz
+ms.openlocfilehash: fdee4280b6642fa7c3e26e792b8b940772572ae7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: adcf9ddc0044da9bce1ab584d54cec66055ee0ad
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -234,7 +233,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 <a id="reference" />
 
 ## <a name="reference"></a>reference
-`reference(resourceName or resourceIdentifier, [apiVersion])`
+`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
@@ -244,10 +243,11 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. |
 | apiVersion |No |string |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. |
+| 'Full' |No |string |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Ogni tipo di risorsa restituisce proprietà diverse per la funzione di riferimento. La funzione non restituisce un singolo formato predefinito. Per visualizzare le proprietà per un tipo di risorsa, restituire l'oggetto nella sezione output, come illustrato nell'esempio.
+Ogni tipo di risorsa restituisce proprietà diverse per la funzione di riferimento. La funzione non restituisce un singolo formato predefinito. Il valore restituito, poi, è diverso a seconda del fatto che sia stato richiesto l'oggetto completo o meno. Per visualizzare le proprietà per un tipo di risorsa, restituire l'oggetto nella sezione output, come illustrato nell'esempio.
 
 ### <a name="remarks"></a>Osservazioni
 
@@ -271,6 +271,32 @@ In genere, la funzione **reference** viene usata per restituire un valore specif
     }
 }
 ```
+
+Usare `'Full'` se sono necessari valori della risorsa che non fanno parte dello schema delle proprietà. Per impostare criteri di accesso all'insieme di credenziali delle chiavi, ad esempio, ottenere le proprietà di identità per una macchina virtuale.
+
+```json
+{
+  "type": "Microsoft.KeyVault/vaults",
+  "properties": {
+    "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
+    "accessPolicies": [
+      {
+        "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
+        "objectId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.principalId]",
+        "permissions": {
+          "keys": [
+            "all"
+          ],
+          "secrets": [
+            "all"
+          ]
+        }
+      }
+    ],
+    ...
+```
+
+Per l'esempio completo del modello precedente, vedere [WindowsToKeyvault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Un esempio simile è disponibile per [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
 ### <a name="example"></a>Esempio
 
@@ -304,16 +330,20 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
       "referenceOutput": {
           "type": "object",
           "value": "[reference(parameters('storageAccountName'))]"
+      },
+      "fullReferenceOutput": {
+        "type": "object",
+        "value": "[reference(parameters('storageAccountName'), '2016-12-01', 'Full')]"
       }
     }
 }
 ``` 
 
-L'esempio precedente restituisce un oggetto nel formato seguente:
+L'esempio precedente restituisce i due oggetti. L'oggetto proprietà è nel formato seguente:
 
 ```json
 {
-   "creationTime": "2017-06-13T21:24:46.618364Z",
+   "creationTime": "2017-10-09T18:55:40.5863736Z",
    "primaryEndpoints": {
      "blob": "https://examplestorage.blob.core.windows.net/",
      "file": "https://examplestorage.file.core.windows.net/",
@@ -324,6 +354,43 @@ L'esempio precedente restituisce un oggetto nel formato seguente:
    "provisioningState": "Succeeded",
    "statusOfPrimary": "available",
    "supportsHttpsTrafficOnly": false
+}
+```
+
+L'oggetto completo è nel formato seguente:
+
+```json
+{
+  "apiVersion":"2016-12-01",
+  "location":"southcentralus",
+  "sku": {
+    "name":"Standard_LRS",
+    "tier":"Standard"
+  },
+  "tags":{},
+  "kind":"Storage",
+  "properties": {
+    "creationTime":"2017-10-09T18:55:40.5863736Z",
+    "primaryEndpoints": {
+      "blob":"https://examplestorage.blob.core.windows.net/",
+      "file":"https://examplestorage.file.core.windows.net/",
+      "queue":"https://examplestorage.queue.core.windows.net/",
+      "table":"https://examplestorage.table.core.windows.net/"
+    },
+    "primaryLocation":"southcentralus",
+    "provisioningState":"Succeeded",
+    "statusOfPrimary":"available",
+    "supportsHttpsTrafficOnly":false
+  },
+  "subscriptionId":"<subscription-id>",
+  "resourceGroupName":"functionexamplegroup",
+  "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
+  "referenceApiVersion":"2016-12-01",
+  "condition":true,
+  "isConditionTrue":true,
+  "isTemplateResource":false,
+  "isAction":false,
+  "provisioningOperation":"Read"
 }
 ```
 
@@ -659,5 +726,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
 * Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 * Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](resource-group-template-deploy.md).
-
 

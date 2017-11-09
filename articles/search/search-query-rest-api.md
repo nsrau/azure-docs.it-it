@@ -13,14 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Eseguire query su un indice di Ricerca di Azure con l'API REST
 > [!div class="op_single_selector"]
 >
@@ -165,4 +163,3 @@ Una richiesta di query riuscita restituirà un codice di stato `200 OK` e i risu
 ```
 
 Per altre informazioni, vedere la sezione "Risposta" di [Eseguire ricerche nei documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
-

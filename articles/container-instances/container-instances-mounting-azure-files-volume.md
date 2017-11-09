@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: c68f0239bcb95aa5e9d8194f7b358f30588ea600
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
-
 # <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Montare una condivisione file di Azure con Istanze di contenitore di Azure
 
 Per impostazione predefinita, Istanze di contenitore di Azure è senza stato. Se il contenitore si blocca o si arresta, lo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Questo articolo illustra come montare una condivisione file di Azure per l'uso con Istanze di contenitore di Azure.
@@ -57,14 +55,14 @@ Per montare una condivisione file di Azure come volume in Istanze di contenitore
 Se si usa lo script precedente, il nome dell'account di archiviazione viene creato con un valore casuale alla fine. Per eseguire una query sulla stringa finale (inclusa la parte casuale), usare i comandi seguenti:
 
 ```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
+STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
 echo $STORAGE_ACCOUNT
 ```
 
 Il nome della condivisione è già noto (*acishare* nello script precedente), quindi resta da trovare solo la chiave dell'account di archiviazione, che può essere recuperata tramite il comando seguente:
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
@@ -76,7 +74,7 @@ Creare un insieme di credenziali delle chiavi con l'interfaccia della riga di co
 
 ```azurecli-interactive
 KEYVAULT_NAME=aci-keyvault
-az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g myResourceGroup
+az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g $ACI_PERS_RESOURCE_GROUP
 ```
 
 L'opzione `enabled-for-template-deployment` consente ad Azure Resource Manager di eseguire il pull dei segreti dall'insieme di credenziali delle chiavi al momento della distribuzione.
@@ -203,6 +201,5 @@ az container show --resource-group myResourceGroup --name hellofiles -o table
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Distribuire il primo contenitore usando la [guida introduttiva](container-instances-quickstart.md) di Istanze di contenitore di Azure
+- Distribuire il primo contenitore usando la [guida introduttiva](container-instances-quickstart.md) Istanze di contenitore di Azure
 - Informazioni sulla [relazione tra Istanze di contenitore di Azure e gli agenti di orchestrazione di contenitori](container-instances-orchestrator-relationship.md)
-

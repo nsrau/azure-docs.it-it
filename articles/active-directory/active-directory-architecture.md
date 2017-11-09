@@ -12,14 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/02/2017
+ms.date: 10/31/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
-ms.contentlocale: it-it
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: 3030336f5efca5029e0e790372495df11cdc8aeb
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Informazioni sull'architettura di Azure Active Directory
 Azure Active Directory (Azure AD) consente di gestire in modo sicuro l'accesso ai servizi e alle risorse di Azure per gli utenti. In Azure AD è inclusa una suite completa di funzionalità di gestione delle identità. Per informazioni sulle funzionalità di Azure AD, vedere [Informazioni su Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis).
@@ -118,5 +117,4 @@ Vengono usati controlli operativi, ad esempio Multi-Factor Authentication (MFA),
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Guida per gli sviluppatori di Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
-
 

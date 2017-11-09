@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
-ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
-ms.contentlocale: it-it
-ms.lasthandoff: 12/10/2016
-
+ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Trasmettere il log attività di Azure a Hub eventi
 Il [**log attività di Azure**](monitoring-overview-activity-logs.md) può essere trasmesso quasi in tempo reale a qualsiasi applicazione con l'opzione "Esporta" incorporata nel portale oppure abilitando l'ID regola del bus di servizio in un profilo di log tramite i cmdlet di Azure PowerShell o l'interfaccia della riga di comando di Azure.
@@ -80,5 +79,4 @@ L'ID regola del bus di servizio è una stringa nel formato seguente: `{service b
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md) (Archiviare il log attività in un account di archiviazione)
 * Leggere la [panoramica sul log attività di Azure](monitoring-overview-activity-logs.md)
 * [Set up an alert based on an Activity Log event](insights-auditlog-to-webhook-email.md) (Configurare un avviso in base a un evento del log attività)
-
 

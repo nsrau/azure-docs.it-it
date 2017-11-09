@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
+ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bc0a7127457b2203e3a351d7825d203bba69f4ae
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Spostare i dati da MySQL mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +43,7 @@ Il gateway è necessario anche se il database MySQL è ospitato in una macchina 
 > Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
 
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
-Perché Gateway di gestione dati si connetta al database MySQL, è necessario installare il [connettore MySQL/Net per Microsoft Windows](https://dev.mysql.com/downloads/connector/net/), versione 6.6.5 o una versione successiva, nello stesso sistema di Gateway di gestione dati. Sono supportate le versioni di MySQL a partire dalla 5.1.
+Perché Gateway di gestione dati si connetta al database MySQL, è necessario installare il [connettore MySQL/Net per Microsoft Windows](https://dev.mysql.com/downloads/connector/net/), versione 6.6.5 o una versione successiva, nello stesso sistema di Gateway di gestione dati. Questo driver a 32 bit è compatibile con il gateway di gestione dati a 64 bit. Sono supportate le versioni di MySQL a partire dalla 5.1.
 
 > [!TIP]
 > Se si ottiene l'errore "Autenticazione non riuscita. La parte remota ha chiuso il flusso di trasporto.", è consigliabile aggiornare il connettore MySQL/Net alla versione successiva.
@@ -351,4 +350,3 @@ Quando si copiano dati da archivi dati relazionali, è necessario tenere present
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
-

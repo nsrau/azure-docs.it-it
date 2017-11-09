@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jingwang
+ms.openlocfilehash: 5b2658cecba80ef871cc38b930b0e52bc3952530
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d96c89ed3650c09ac6465e30754ef1155b06d601
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolleranza di errore dell'attività di copia in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -87,13 +86,13 @@ Al termine dell'esecuzione dell'attività di copia, è possibile visualizzare il
 ```
 Se si configura la registrazione delle righe incompatibili, vedere il file di log al percorso seguente: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
 
-Il file di log contiene le righe ignorate e la causa radice dell'incompatibilità.
+I file di log possono essere solo i file CSV. Se necessario, i dati originali ignorati verranno registrati con la virgola come delimitatore di colonna. Altre due colonne "ErrorCode" e "ErrorMessage" vengono aggiunte ai dati di origine originali nel file di log, in cui è possibile visualizzare la causa radice dell'incompatibilità. ErrorCode ed ErrorMessage verranno racchiusi tra virgolette doppie. 
 
-Nel file vengono registrati sia i dati originali che l'errore corrispondente. Di seguito è riportato un esempio del contenuto del file di log:
+Di seguito è riportato un esempio del contenuto del file di log:
 
 ```
-data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'.,
-data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
+data1, data2, data3, "UserErrorInvalidDataValue", "Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'."
+data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4)."
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -101,6 +100,5 @@ Vedere gli altri articoli relativi all'attività di copia:
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
 - [Prestazioni dell'attività di copia](copy-activity-performance.md)
-
 
 

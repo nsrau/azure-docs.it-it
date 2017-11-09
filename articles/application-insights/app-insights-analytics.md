@@ -1,9 +1,9 @@
 ---
-title: 'Analisi: il potente strumento di ricerca di Application Insights | Microsoft Docs'
+title: 'Analytics: il potente strumento di ricerca e query di Azure Application Insights | Microsoft Docs'
 description: 'Panoramica di Analytics: lo strumento di ricerca diagnostica avanzato incluso in Application Insights. '
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
@@ -11,100 +11,53 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: bwren
+ms.date: 10/04/2017
+ms.author: mbullwin
+ms.openlocfilehash: 80a9e248ca50c11ef61a5c50c4986c4f8f4ead9d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: a2dc351bd0346f5ca46f1eaafeff678c3339c8c9
-ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="analytics-in-application-insights"></a>Analytics in Application Insights
-L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics. 
+Analytics è l'efficace strumento di ricerca e query incluso in [Application Insights](app-insights-overview.md). Analytics è uno strumento Web, pertanto non occorre installarlo. Se Application Insights è già stato configurato per una delle app, è possibile analizzare i dati dell'app aprendo Analytics dal [pannello Panoramica](app-insights-dashboards.md) dell'app.
 
-* **[Guardare il video introduttivo](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
-* **[Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo)** se l'app non invia ancora i dati ad Application Insights.
-* Il **[foglio informativo sugli utenti SQL](https://aka.ms/sql-analytics)** traduce i linguaggi più comuni.
-* **[Informazioni di riferimento sul linguaggio](app-insights-analytics-reference.md)** Informazioni su come usare tutte le funzionalità avanzate del linguaggio di query di Log Analytics.
+![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics/001.png)
 
+È anche possibile usare l'[ambiente di prova di Analytics](https://go.microsoft.com/fwlink/?linkid=859557), ovvero un ambiente dimostrativo gratuito con una grande quantità di dati di esempio.
+<br>
+<br>
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
-## <a name="queries-in-analytics"></a>Query in Analytics
-Una query tipica è costituita da una tabella di *origine* seguita da una serie di *operatori* separati da `|`. 
-
-Ad esempio, è possibile sapere a che ora del giorno gli abitanti di Hyderabad sperimentano l'app Web. Inoltre, è possibile sapere quali codici di risultato sono restituiti per le richieste HTTP. 
-
+## <a name="query-data-in-analytics"></a>Eseguire query sui dati in Analytics
+Una query tipica inizia con un nome di tabella seguito da una serie di *operatori* separati da `|`.
+Ad esempio, si supponga di voler scoprire il numero di richieste ricevute dall'app da paesi diversi nelle ultime 3 ore:
 ```AIQL
 requests
-| where timestamp > ago(30d)
-| summarize ClientCount = dcount(client_IP) by bin(timestamp, 1h), resultCode
-| extend LocalTime = timestamp - 4h
-| order by LocalTime desc
-| render barchart
+| where timestamp > ago(3h)
+| summarize count() by client_CountryOrRegion
+| render piechart
 ```
 
-Si contano indirizzi IP client distinti, raggruppandoli in base all'ora del giorno negli ultimi 7 giorni. 
+Si inizia con il nome della tabella *requests* e si aggiungono elementi introdotti da barra verticale in base alle esigenze.  Viene prima di tutto definito un filtro temporale per visualizzare solo i record delle ultime 3 ore.
+Si conteggia quindi il numero di record per ogni paese (questi dati sono disponibili nella colonna *client_CountryOrRegion*). Infine, si esegue il rendering dei risultati in un grafico a torta.
+<br>
 
-> [!NOTE]
-> Per ottenere risultati oltre le 24 ore precedenti, includere "timestamp" in modo esplicito nella query o usare il menu a discesa per l'intervallo di tempo.
->
-
-Verranno visualizzati i risultati in una presentazione con grafico a barre, con lo stack dei risultati ottenuti da codici di risposta diversi:
-
-![Scegliere il grafico a barre, gli assi X e Y, quindi la segmentazione](./media/app-insights-analytics/020.png)
-
-L'app sembra riscuotere molto successo a Hyderabad all'ora di pranzo e prima di andare a dormire. (Si dovrebbe anche esaminare quei 500 codici).
-
-Sono inoltre disponibili operazioni statistiche avanzate:
-
-![Risultati della query statistica](./media/app-insights-analytics/025.png)
+![Risultati query](./media/app-insights-analytics/030.png)
 
 Il linguaggio include diverse funzionalità utili, è possibile:
-
 
 * [Filtrare](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) i dati di telemetria app non elaborati in base a qualsiasi campo, comprese proprietà personalizzate e metriche.
 * [Unire](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) più tabelle: correlare le richieste a visualizzazioni di pagina, chiamate a dipendenze, eccezioni e tracce di log.
 * [Aggregazioni](https://docs.loganalytics.io/learn/tutorials/aggregations.html)statistiche avanzate.
-* Altrettanto efficace come SQL, ma molto più semplice per le query complesse: anziché nidificare le istruzioni, i dati vengono inviati tramite pipe da un'operazione semplice alla successiva.
 * Visualizzazioni immediate e avanzate.
-* [Aggiungere grafici ai dashboard di Azure](app-insights-analytics-using.md#pin-to-dashboard).
-* [Esportare le query in Power BI](app-insights-analytics-using.md#export-to-power-bi).
-* Esiste un'[API REST](https://dev.applicationinsights.io/) che è possibile usare per eseguire query in modo programmatico, ad esempio da PowerShell.
+* Usare un'[API REST](https://dev.applicationinsights.io/) per eseguire query in modo programmatico, ad esempio da PowerShell.
 
-
-## <a name="connect-to-your-application-insights-data"></a>Connettersi ai dati di Application Insights
-Aprire Analisi dal [pannello Panoramica](app-insights-dashboards.md) dell'app in Application Insights: 
-
-![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics/001.png)
-
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
-
-
-[!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-## <a name="query-examples"></a>Esempi di query
-
-Provare a eseguire queste procedure dettagliate per illustrare le potenzialità di utilizzo di Analytics:
-
- *  [Diagnostica automatica di picchi e salti procedurali nella durata delle richieste](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
- *  [Analisi delle riduzioni delle prestazioni con l'analisi delle serie temporali](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
- *  [Analisi degli errori delle applicazioni con autocluster e diffpatterns](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)
- *  [Rilevamenti forma avanzati con l'analisi delle serie temporali](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Advanced%20shape%20detection%20with%20time%20series%20analysis&shared=true)
- *  [Uso di operazioni della finestra temporale scorrevole per analizzare l'utilizzo dell'applicazione (come MAU/DAU in sequenza e così via)](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Using%20sliding%20window%20calculations%20to%20analyze%20usage%20metrics:%20rolling%20MAU~2FDAU%20and%20cohorts&shared=true)
- *  [Rilevamento di interruzioni del servizio in base all'analisi dei registri di debug](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Detection%20of%20service%20disruptions%20based%20on%20regression%20analysis%20of%20trace%20logs&shared=true) e post di blog corrispondente [qui](https://maximshklar.wordpress.com/2017/02/16/finding-trends-in-traces-with-smart-data-analytics).
- *  [Profilatura delle prestazioni delle applicazioni tramite log di debug semplici](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Profiling%20applications'%20performance%20with%20simple%20debug%20logs&shared=true) e post di blog corrispondente [qui](https://yossiattasblog.wordpress.com/2017/03/13/first-blog-post/)
- *  [Misurazione della durata per ogni passaggio nel flusso di codice tramite log di debug semplici](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Measuring%20the%20duration%20of%20each%20step%20in%20your%20code%20flow%20using%20simple%20debug%20logs&shared=true) e post di blog corrispondente [qui](https://yossiattasblog.wordpress.com/2017/03/14/measuring-the-duration-of-each-step-in-your-code-flow-using-simple-debug-logs/)
- *  [Analisi della concorrenza tramite log di debug semplici](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Analyzing%20concurrency%20with%20simple%20debug%20logs&shared=true) e post di blog corrispondente [qui](https://yossiattasblog.wordpress.com/2017/03/23/analyzing-concurrency-using-simple-debug-logs/)
-
-
+Nelle [informazioni di riferimento al linguaggio complete](https://go.microsoft.com/fwlink/?linkid=856079) sono illustrati in dettaglio tutti i comandi supportati e i dati vengono aggiornati regolarmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* È consigliabile iniziare con una [panoramica sul linguaggio](app-insights-analytics-tour.md). 
-* Altre informazioni sull'[uso di Analytics](app-insights-analytics-using.md). 
-* [Informazioni di riferimento sul linguaggio](app-insights-analytics-reference.md). 
-
+* Introduzione al [portale di Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
+* Introduzione alla [scrittura di query](https://go.microsoft.com/fwlink/?linkid=856078)
+* Esaminare la [scheda di riferimento rapido per utenti SQL](https://aka.ms/sql-analytics) per le corrispondenze delle istruzioni per le operazioni più comuni.
+* Testare Analytics nell'[ambiente di prova](https://analytics.applicationinsights.io/demo) se l'app non invia ancora i dati ad Application Insights.
+* Guardare il [video introduttivo](https://applicationanalytics-media.azureedge.net/home_page_video.mp4).

@@ -12,20 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 10/05/2017
 ms.author: skwan
+ms.openlocfilehash: e42bbed0a9e37a6632b2a71d2b3546fcbc38cdc7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 17879d69b95186848a81e4ff4afdf8fc0d1a511e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-access-to-azure-resources-with-azure-active-directory"></a>Gestire l'accesso alle risorse di Azure con Azure Active Directory
 
-La gestione delle identità e dell'accesso per le risorse cloud è una funzione essenziale per qualsiasi organizzazione che usa il cloud.  Azure Active Directory (Azure AD) è il sistema di gestione delle identità e dell'accesso per Microsoft Azure.  
+La gestione delle identità e dell'accesso per le risorse cloud è una funzione essenziale per qualsiasi organizzazione che usa il cloud. Azure Active Directory (Azure AD) è il sistema di gestione delle identità e dell'accesso per Microsoft Azure.  
 
+Prima di esplorare le aree di funzionalità di supporto di Azure AD, fare riferimento a questo video: "Locking down access to the Azure Cloud using SSO, Roles Based Access Control, and Conditional" (Blocco dell'accesso al cloud di Azure con SSO, il controllo degli accessi in base al ruolo e l'accesso condizionale) Il video offre le informazioni seguenti:
+
+- Procedure consigliate per la configurazione di Single Sign-On nel portale di Azure, con Active Directory locale.
+- Uso del controllo degli accessi in base al ruolo per il controllo accurato alle risorse nelle sottoscrizioni.
+- Applicazione di regole di autenticazione avanzata con l'accesso condizionale di Azure AD.
+- Concetto di identità del servizio gestito, in cui le risorse di Azure possono essere autenticate automaticamente per i servizi di Azure, senza che gli sviluppatori debbano gestire le chiavi o i segreti API.
+
+> [!VIDEO https://www.youtube.com/embed/FKBoWWKRnvI]
+
+## <a name="feature-areas"></a>Aree di funzionalità
 Azure AD offre le funzionalità seguenti per la gestione dell'accesso alle risorse di Azure:
 
 |||

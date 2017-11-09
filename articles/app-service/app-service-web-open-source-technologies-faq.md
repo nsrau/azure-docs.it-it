@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cefec9c703d3d1544eb7216c97b0a065a39ee2eb
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle tecnologie open source per App Web in Azure
 
 Questo articolo fornisce risposte alle domande frequenti sui problemi relativi alle tecnologie per la [funzionalità App Web del servizio app di Azure](https://azure.microsoft.com/services/app-service/web/).
@@ -252,4 +249,3 @@ Dopo avere verificato che MySQL in-app è in esecuzione, provare a usare PHPMyAd
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>Viene visualizzato un errore HTTP 403 quando si prova a importare o esportare il database di MySQL in-app usando PHPMyadmin. Come posso risolvere il problema?
 
 Se si usa una versione precedente di Chrome, è possibile che si riscontri un bug noto. Per risolvere il problema, eseguire l'aggiornamento a una versione più recente di Chrome. Provare anche a usare un browser diverso, ad esempio Internet Explorer o Microsoft Edge, in cui non si verifica il problema.
-

@@ -11,21 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 09/29/2017
 ms.author: bwren
+ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Informazioni sulle ricerche log in Log Analytics
-
-> [!NOTE]
-> Questo articolo descrive le ricerche log in Azure Log Analytics tramite il nuovo linguaggio di query.  In [Aggiornare l'area di lavoro di Azure Log Analytics alla nuova ricerca log](log-analytics-log-search-upgrade.md) sono disponibili altre informazioni sul nuovo linguaggio e istruzioni per l'aggiornamento dell'area di lavoro.  
->
-> Se l'area di lavoro non è stata aggiornata al nuovo linguaggio di query, è consigliabile consultare [Trovare dati tramite ricerche nei log in Log Analytics](log-analytics-log-searches.md).
 
 Una ricerca log è necessaria per recuperare qualsiasi tipo di dati da Log Analytics.  Indipendentemente dal fatto che l'esigenza sia quella di analizzare i dati nel portale, configurare una regola di avviso per ricevere una notifica di una determinata condizione o di recuperare dati tramite l'API di Log Analytics, per specificare i dati necessari si userà una ricerca log.  Questo articolo descrive come vengono usate le ricerche log in Log Analytics e illustra i concetti con cui occorre avere familiarità prima di crearne una. Vedere la sezione [Passaggi successivi](#next-steps) per informazioni dettagliate sulla creazione e la modifica delle ricerche log e per informazioni di riferimento sul linguaggio di query.
 
@@ -91,4 +85,3 @@ Per una documentazione completa sul linguaggio di query di Azure Log Analytics, 
 
 - Leggere le informazioni sui [portali usati per creare e modifiche le ricerche log](log-analytics-log-search-portals.md).
 - Vedere un'[esercitazione sulla scrittura di query](log-analytics-tutorial-viewdata.md) con il nuovo linguaggio di query.
-

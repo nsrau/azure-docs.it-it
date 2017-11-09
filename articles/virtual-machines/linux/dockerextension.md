@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 0cef78edaeec9d45aa733b1912d82d5a058ba289
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Creare un ambiente Docker in Azure usando l'estensione di VM Docker
 Docker è una nota piattaforma di creazione dell'immagine e gestione di contenitori che consente di lavorare rapidamente con contenitori in Linux. L'ambiente Azure offre vari modi per distribuire Docker a seconda delle proprie esigenze. Questo articolo è incentrato sull'uso dell'estensione di VM Docker e dei modelli di Azure Resource Manager con l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](dockerextension-nodejs.md).
@@ -156,5 +155,4 @@ Per altre informazioni sulle opzioni di distribuzione di Docker aggiuntive in Az
 * [Usare Docker Machine con il driver di Azure](docker-machine.md)  
 * [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure](docker-compose-quickstart.md).
 * [Distribuire un cluster del servizio contenitore di Azure](../../container-service/dcos-swarm/container-service-deployment.md)
-
 

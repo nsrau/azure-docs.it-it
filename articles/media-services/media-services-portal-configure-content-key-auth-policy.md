@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
+ms.openlocfilehash: 5a35c7255a1c30a693862589c14f6a22a1900790
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 2ad1199ac4cbf40ea9eb9c55046094fd988c7325
-ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-content-key-authorization-policy"></a>Configurare i criteri di autorizzazione della chiave simmetrica
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -66,7 +65,7 @@ Quando si configurano i criteri di restrizione **TOKEN**, è necessario specific
 ### <a name="playready"></a>PlayReady
 Quando si protegge il contenuto con **PlayReady**, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il modello di licenza PlayReady. Per impostazione predefinita, vengono definiti i seguenti criteri:
 
-<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"> <LicenseTemplates> <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices> <ContentKey i:type="ContentEncryptionKeyFromHeader" /> <LicenseType>Nonpersistent</LicenseType> <PlayRight> <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput> </PlayRight> </PlayReadyLicenseTemplate> </LicenseTemplates> </PlayReadyLicenseResponseTemplate>
+<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices><ContentKey i:type="ContentEncryptionKeyFromHeader" /><LicenseType>Nonpersistent</LicenseType><PlayRight><AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput></PlayRight></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>
 
 È possibile fare clic sul pulsante **importa xml criterio** e specificare codice XML differente, conforme allo schema XML definito [qui](media-services-playready-license-template-overview.md).
 
@@ -80,5 +79,4 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="secure-access-to-your-logic-apps"></a>Proteggere l'accesso alle app per la logica
 
 Sono disponibili molti strumenti per proteggere un'app per la logica.
@@ -275,4 +273,3 @@ Molti dei connettori gestiti delle app per la logica offrono una connettività s
 [Gestione delle eccezioni](logic-apps-exception-handling.md)  
 [Monitorare le app per la logica](logic-apps-monitor-your-logic-apps.md)  
 [Diagnosi degli errori delle app per la logica](logic-apps-diagnosing-failures.md)  
-

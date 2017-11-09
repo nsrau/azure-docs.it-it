@@ -12,15 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 10/12/2017
 ms.author: arramac
 ms.custom: mvc
+ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 52cb5f2569b6c3a5301752b1e8bfb6cea13ff7f6
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: sviluppare con l'API Table in .NET
 
@@ -44,7 +43,7 @@ Questa esercitazione illustra le attività seguenti:
 
 Azure Cosmos DB fornisce l'[API Table](table-introduction.md) (anteprima) per le applicazioni che necessitano di un archivio di coppie chiave-valore con una struttura senza schema. È possibile usare gli SDK e le API REST di [archiviazione tabelle di Azure](../storage/common/storage-introduction.md) insieme ad Azure Cosmos DB. È possibile usare Azure Cosmos DB per creare tabelle con requisiti di velocità effettiva elevata. Azure Cosmos DB supporta le tabelle ottimizzate per la velocità effettiva, chiamate in modo informale "tabelle Premium", attualmente disponibili in anteprima pubblica. 
 
-È possibile continuare a usare l'archiviazione tabelle di Azure per le tabelle con requisiti di archiviazione elevati e di velocità effettiva inferiori. Azure Cosmos DB introdurrà il supporto per le tabelle ottimizzate per l'archiviazione in uno dei prossimi aggiornamenti e gli account di archiviazione tabelle di Azure nuovi ed esistenti verranno aggiornati facilmente ad Azure Cosmos DB.
+È possibile continuare a usare l'archiviazione tabelle di Azure per le tabelle con requisiti di archiviazione elevati e di velocità effettiva inferiori.
 
 Se attualmente si usa l'archiviazione tabelle di Azure, è possibile ottenere i vantaggi seguenti con "tabella Premium" in anteprima:
 
@@ -53,7 +52,7 @@ Se attualmente si usa l'archiviazione tabelle di Azure, è possibile ottenere i 
 - Supporto per la [scalabilità indipendente di archiviazione e velocità effettiva](partition-data.md) in un numero qualsiasi di aree
 - Supporto per la [velocità effettiva dedicata per ogni tabella](request-units.md) scalabile da centinaia a milioni di richieste al secondo
 - Supporto per [cinque livelli di coerenza perfezionabili](consistency-levels.md) per ottenere un compromesso ottimale tra disponibilità, latenza e coerenza in base alle esigenze dell'applicazione
-- Disponibilità al 99,99% all'interno di una singola area, possibilità di aggiungere altre aree per aumentare la disponibilità e [contratti di servizio completi leader nel settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/) sulla disponibilità generale
+- Disponibilità al 99,99% all'interno di una singola area, possibilità di aggiungere altre aree per aumentare la disponibilità e [contratti di servizio completi leader nel settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) sulla disponibilità generale
 - Usare la versione esistente di .NET SDK di Archiviazione di Azure senza apportare modifiche al codice dell'applicazione
 
 Nella fase di anteprima Azure Cosmos DB supporta l'API Table usando .NET SDK. È possibile scaricare [Azure Storage Preview SDK](https://aka.ms/premiumtablenuget) da NuGet, che include le stesse classi e firme di metodi disponibili in [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), ma che permette anche di connettersi agli account Azure Cosmos DB tramite l'API Table.
@@ -363,4 +362,3 @@ In questa esercitazione è stato illustrato come iniziare a usare Azure Cosmos D
 
 > [!div class="nextstepaction"]
 > [Eseguire query con l'API Table](tutorial-query-table.md)
-

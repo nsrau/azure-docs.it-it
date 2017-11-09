@@ -9,16 +9,16 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/20/2017
-ms.openlocfilehash: 3fbdb7741481bd3620466c3489d3609f9ea6961f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 3f1ffa20b58c52558e880ed6a0ef4ca674173973
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Come eseguire la procedura di backup e ripristino di un server nel Database di Azure per PostgreSQL usando il portale di Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando il portale di Azure
 
 ## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
-Quando si usa Database di Azure per PostgreSQL, il servizio di database esegue automaticamente il backup del servizio ogni 5 minuti. 
+Quando si usa Database di Azure per PostgreSQL, il servizio di database esegue automaticamente il backup del server ogni 5 minuti. 
 
 La disponibilità dei backup è di 7 giorni per il livello Basic e 35 giorni per il livello Standard. Per altre informazioni, vedere [Livelli di servizio del Database di Azure per PostgreSQL](concepts-service-tiers.md)
 
@@ -31,20 +31,20 @@ Ad esempio, se oggi una tabella è stata accidentalmente eliminata a mezzogiorno
 
 La procedura seguente consente di ripristinare il server di esempio ad un punto temporizzato.
 1. Accedere al [portale di Azure](https://portal.azure.com/)
-2. Individuare il Database di Azure per il server PostgreSQL. Nel portale di Azure fare clic su **Tutte le risorse** dal menu a sinistra e digitare il nome, ad esempio **mypgserver-20170401**, per cercare il server esistente. Fare clic sul nome del server elencato nei risultati della ricerca. Si apre la pagina **Panoramica** relativa al server, con le opzioni per un'ulteriore configurazione.
+2. Individuare il Database di Azure per il server PostgreSQL. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e digitare il nome del server, ad esempio **mypgserver-20170401**, per cercare il server esistente. Fare clic sul nome del server elencato nei risultati della ricerca. Si apre la pagina **Panoramica** relativa al server, con le opzioni per un'ulteriore configurazione.
 
    ![Portale di Azure - Effettuare la ricerca del server](media/postgresql-howto-restore-server-portal/1-locate.png)
 
-3. Nella parte superiore del pannello Panoramica server, fare clic su **Ripristina** nella barra degli strumenti. Viene aperto il pannello Ripristina.
+3. Sulla barra degli strumenti del pannello Panoramica server fare clic su **Ripristina**. Viene aperto il pannello Ripristina.
 
    ![Database di Azure per PostgreSQL - Panoramica - Pulsante Ripristino](./media/postgresql-howto-restore-server-portal/2_server.png)
 
 4. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
    ![Database di Azure per PostgreSQL - Informazioni di ripristino ](./media/postgresql-howto-restore-server-portal/3_restore.png)
-  - **Punto di ripristino**: selezionare un punto nel tempo precedente alla modifica del server
-  - **Server di destinazione**: fornire un nuovo nome del server che si desidera ripristinare
-  - **Posizione**: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
+  - **Punto di ripristino**: selezionare un punto nel tempo precedente la modifica del server.
+  - **Server di destinazione**: fornire un nuovo nome di server in cui si vuole eseguire il ripristino.
+  - **Percorso**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
   - **Piano tariffario**: non è possibile modificare questo valore quando si ripristina un server. È uguale al server di origine. 
 
 5. Fare clic su **OK** per ripristinare il server al punto di ripristino temporizzato. 

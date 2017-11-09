@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
+ms.openlocfilehash: bf6696cfdfe9fc18dd2f000162a4e787a7ca6e21
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 25a376b2e54953602b66abc3bae878f09a776a80
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Crittografia lato client con Python per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -242,4 +241,3 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 ## <a name="next-steps"></a>Passaggi successivi
 * Scaricare la [libreria client di archiviazione di Azure per il pacchetto Java PyPi](https://pypi.python.org/pypi/azure-storage)
 * Scaricare il [codice sorgente della libreria di archiviazione di Azure per Python da GitHub](https://github.com/Azure/azure-storage-python)
-

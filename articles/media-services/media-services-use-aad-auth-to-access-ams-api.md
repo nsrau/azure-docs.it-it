@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: bdeae5d1440cf8930a9cbc1ddea38ea7754ff7f6
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD
  
@@ -154,5 +153,4 @@ Gli articoli seguenti contengono alcune panoramiche dei concetti di autenticazio
 
 * Usare il portale di Azure per [accedere all'autenticazione di Azure AD e usare l'API di Servizi multimediali di Azure](media-services-portal-get-started-with-aad.md).
 * Usare l'autenticazione di Azure AD per [accedere all'API di Servizi multimediali di Azure con .NET](media-services-dotnet-get-started-with-aad.md).
-
 

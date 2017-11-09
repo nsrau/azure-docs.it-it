@@ -10,15 +10,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
+ms.openlocfilehash: 7c0dab5ab2d7342ce4de8899040478a6143c184b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b75b9d82bd6c1e7e7a98fcff6497dbf3a765dcb8
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Come usare le unità GPU in Azure Machine Learning
-L'unità di elaborazione grafica (GPU) è ampiamente usata per elaborare le attività di calcolo complesse che si hanno in genere durante il training di alcuni modelli di reti neurali profonde. Usando le unità GPU è possibile ridurre significativamente la durata del training dei modelli. Questo documento illustra come configurare Azure Machine Learning Workbench affinché usi la [macchina virtuale per data science ](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) dotata di GPU come destinazione dell'esecuzione. 
+L'unità di elaborazione grafica (GPU) è ampiamente usata per elaborare le attività di calcolo complesse che si hanno in genere durante il training di alcuni modelli di reti neurali profonde. Usando le unità GPU è possibile ridurre significativamente la durata del training dei modelli. Questo documento illustra come configurare Azure Machine Learning Workbench affinché usi la [macchina virtuale per data science ](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) dotata di GPU come destinazione dell'esecuzione. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Per proseguire con questa guida è necessario innanzitutto [installare Azure Machine Learning Workbench](quickstart-installation.md).
@@ -152,4 +151,3 @@ Congratulazioni. Ora lo script sfrutta tutte le potenzialità delle unità GPU g
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere un esempio di utilizzo dell'unità GPU per accelerare il training della rete neurale profonda nella raccolta di Azure Machine Learning.
-

@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 11/30/2016
 ms.author: jejiang
 ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-u-sql-assemblies-for-azure-data-lake-analytics-jobs"></a>Sviluppare assembly U-SQL per processi di Azure Data Lake Analytics
 Informazioni su come attivare code-behind negli assembly da usare più volte nei processi di Data Lake Analytics. 

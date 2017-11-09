@@ -1,5 +1,5 @@
 ---
-title: Usare i modelli di Azure Resource Manager per creare e configurare un&quot;area di lavoro di Log Analytics | Microsoft Docs
+title: Usare i modelli di Azure Resource Manager per creare e configurare un'area di lavoro di Log Analytics | Microsoft Docs
 description: "È possibile usare i modelli di Azure Resource Manager per creare e configurare aree di lavoro di Log Analytics."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 10/16/2017
 ms.author: richrund
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: f392b3c0ab6b4d2e133d59766732188ce97c2f3e
-ms.contentlocale: it-it
-ms.lasthandoff: 03/03/2017
-
-
+ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gestire Log Analytics usando i modelli di Azure Resource Manager
 È possibile usare i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analytics. Ecco alcuni esempi di attività eseguibili con i modelli:
@@ -38,6 +36,17 @@ ms.lasthandoff: 03/03/2017
 * Configurare Log Analytics per indicizzare i dati raccolti tramite Diagnostica di Azure
 
 Questo articolo presenta esempi di modelli che illustrano alcune configurazioni effettuabili partendo proprio da tali modelli.
+
+## <a name="api-versions"></a>Versioni dell'API
+L'esempio riportato in questo articolo descrive un'[area di lavoro di Log Analytics aggiornata](log-analytics-log-search-upgrade.md).  Per usare un'area di lavoro legacy, è necessario modificare la sintassi delle query nel linguaggio legacy e modificare la versione API di ogni risorsa.  La tabella seguente elenca la versione dell'API per le risorse usate in questo esempio.
+
+| Risorsa | Tipo di risorsa | Versione API legacy | Versione API aggiornata |
+|:---|:---|:---|:---|
+| Area di lavoro   | aree di lavoro    | 2015-11-01-preview | 2017-03-15-preview |
+| Ricerca      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| Origine dati | datasources   | 2015-11-01-preview | 2015-11-01-preview |
+| Soluzione    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Creare e configurare un'area di lavoro di Log Analytics
 Il modello di esempio seguente illustra come:
@@ -124,7 +133,7 @@ Il modello di esempio seguente illustra come:
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -136,7 +145,7 @@ Il modello di esempio seguente illustra come:
       },
       "resources": [
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2017-03-15-preview",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -146,7 +155,7 @@ Il modello di esempio seguente illustra come:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Type:Event Source=ServiceFabricNodeBootstrapAgent | dedup Computer | measure count () by Computer",
+            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -420,9 +429,33 @@ Il modello di esempio seguente illustra come:
     }
   ],
   "outputs": {
-    "workspaceOutput": {
-      "value": "[reference(concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName')), '2015-11-01-preview')]",
-      "type": "object"
+    "workspaceName": {
+      "type": "string",
+      "value": "[parameters('workspaceName')]"
+    },
+    "provisioningState": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').provisioningState]"
+    },
+    "source": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').source]"
+    },
+    "customerId": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
+    },
+    "pricingTier": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
+    },
+    "retentionInDays": {
+      "type": "int",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
+    },
+    "portalUrl": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
     }
   }
 }
@@ -458,5 +491,4 @@ La raccolta dei modelli di avvio rapido di Azure include alcuni modelli di Log A
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire gli agenti nelle macchine virtuali di Azure usando i modelli di Resource Manager](log-analytics-azure-vm-extension.md)
-
 

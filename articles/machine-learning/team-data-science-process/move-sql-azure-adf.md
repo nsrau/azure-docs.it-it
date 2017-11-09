@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
+ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a5bbf899fd13de4c5a7d3379e2231828c102b372
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Spostare i dati da SQL Server locale a SQL Azure con Azure Data Factory
 Questo argomento descrive come spostare i dati da un database di SQL Server locale a un database di SQL Azure tramite l'archiviazione BLOB di Azure usando Azure Data Factory (ADF).
@@ -54,7 +53,7 @@ Il tutorial presuppone:
 
 * Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per provare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Dopo avere creato l'account di archiviazione, è necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere la sezione [Gestire le chiavi di accesso alle risorse di archiviazione](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
-* Accesso a un **database SQL di Azure**. Se è necessario impostare un database di SQL Azure, l'argomento [Guida introduttiva al database SQL di Microsoft Azure ](../../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database di SQL Azure.
+* Accesso a un **database SQL di Azure**. Se è necessario impostare un database di SQL Azure, l'argomento [Introduzione al database SQL di Microsoft Azure ](../../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database di questo tipo.
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
@@ -326,4 +325,3 @@ I valori del parametro *startdate* ed *enddate* devono essere sostituiti con le 
 Una volta eseguita la pipeline, si dovrebbe poter visualizzare i dati visualizzati nel contenitore selezionato per il blob, un file al giorno.
 
 Si noti che non abbiamo utilizzato la funzionalità fornita da ADF per dirigere i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](https://azure.microsoft.com/services/data-factory/).
-

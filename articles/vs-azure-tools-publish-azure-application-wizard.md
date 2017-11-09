@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 4d9e1564c3fcbdfd59edb0e24158df9954c26026
-ms.contentlocale: it-it
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 25b3ca9af2639860d9cfcb1492aef745fb47beb9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Uso della procedura guidata Pubblica l'applicazione Azure di Visual Studio
 Un'applicazione Web sviluppata in Visual Studio può essere pubblicata in un servizio cloud di Azure mediante la procedura guidata **Pubblica l'applicazione Azure**. 
@@ -59,7 +58,7 @@ Un'applicazione Web sviluppata in Visual Studio può essere pubblicata in un ser
 
 ![Impostazioni comuni](./media/vs-azure-tools-publish-azure-application-wizard/settings-common-settings.png)
 
-**Servizio cloud** - Usando l'elenco a discesa, selezionare un servizio cloud esistente oppure fare clic su **&lt;Crea nuovo>** e creare un servizio cloud. Per ogni servizio cloud viene visualizzato tra parentesi il data center. È consigliabile che la posizione del data center per il servizio cloud corrisponda a quella del data center per l'account di archiviazione (Impostazioni avanzate).  
+**Servizio cloud** - Usando l'elenco a discesa, selezionare un servizio cloud esistente oppure fare clic su **&lt;Crea nuovo&gt;** e creare un servizio cloud. Per ogni servizio cloud viene visualizzato tra parentesi il data center. È consigliabile che la posizione del data center per il servizio cloud corrisponda a quella del data center per l'account di archiviazione (Impostazioni avanzate).  
 
 **Ambiente** - Selezionare **Produzione** o **Gestione temporanea**. Scegliere l'ambiente di gestione temporanea se si vuole distribuire l'applicazione in un ambiente di test. 
 
@@ -85,7 +84,7 @@ L'account di archiviazione di Azure archivia il pacchetto per la distribuzione d
 
 **Aggiornamento distribuzione** - Selezionare questa opzione se si vogliono distribuire solo componenti aggiornati. Questo tipo di distribuzione risulta più rapida della distribuzione completa. Questa opzione deve essere selezionata se si vuole mantenere un indirizzo IP virtuale costante per il servizio cloud. 
 
-**Impostazioni aggiornamento distribuzione** - Questa finestra di dialogo viene usata per specificare ulteriormente come aggiornare i ruoli. Se si sceglie **Aggiornamento incrementale**, le istanze dell'applicazione vengono aggiornate una dopo l'altra, in modo che l'applicazione sia sempre disponibile. Se si sceglie **Aggiornamento simultaneo**, tutte le istanze dell'applicazione vengono aggiornate contemporaneamente. L'aggiornamento simultaneo è più veloce, ma è possibile che il servizio non sia disponibile durante il processo di aggiornamento. 
+**Impostazioni aggiornamento distribuzione** - Questa finestra di dialogo viene usata per specificare ulteriormente come aggiornare i ruoli. Se si sceglie **Aggiornamento incrementale**, le istanze dell'applicazione vengono aggiornate una dopo l'altra, in modo che l'applicazione sia sempre disponibile. Se si sceglie **Simultaneous update** (Aggiornamento simultaneo), tutte le istanze dell'applicazione vengono aggiornate contemporaneamente. L'aggiornamento simultaneo è più veloce, ma è possibile che il servizio non sia disponibile durante il processo di aggiornamento. 
 
 ![Impostazioni di distribuzione](./media/vs-azure-tools-publish-azure-application-wizard/deployment-settings.png)
 

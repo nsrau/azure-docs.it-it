@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/31/2017
-ms.openlocfilehash: 59ac187e50527517c402a5cc2aa871717dde5650
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 0ebdced6ac748245faed90949fd0e76c0eacb2d3
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opzioni e prestazioni di Database di Azure per PostgreSQL: funzionalità disponibili in ogni piano tariffario
 Quando si crea un'istanza di Database di Azure per il server PostgreSQL, si può scegliere tra tre opzioni principali per configurare le risorse allocate per il server. Queste scelte influenzano le prestazioni e la scalabilità del server.
@@ -27,7 +27,7 @@ Ogni piano tariffario ha diversi livelli di prestazioni, ovvero unità di calcol
 > [!IMPORTANT]
 > Mentre il servizio è in anteprima pubblica, non c'è alcun contratto di servizio, SLA, garantito.
 
-In un'istanza di Database di Azure per il server PostgreSQL è possibile avere uno o più database. È possibile scegliere di creare un singolo database per ogni server per usare tutte le risorse o creare più database per condividere le risorse. 
+In un'istanza di Database di Azure per il server PostgreSQL è possibile avere uno o più database. È possibile scegliere di creare un singolo database per ogni server in modo che il database usi tutte le risorse del server o creare più database per condividere le risorse del server. 
 
 ## <a name="choose-a-pricing-tier"></a>Scegliere un piano tariffario
 Nell'anteprima, Database di Azure per PostgreSQL offre due piani tariffari: Basic e Standard. Il piano Premium non è ancora disponibile, ma lo sarà presto. 
@@ -58,7 +58,7 @@ Quando si crea un nuovo database di Azure per PostgreSQL all'interno del [portal
 ## <a name="choose-a-performance-level-compute-units"></a>Scegliere un livello di prestazioni, ovvero le unità di calcolo
 Dopo avere determinato il piano tariffario per l'istanza di Database di Azure per il server PostgreSQL è possibile stabilire il livello di prestazioni selezionando il numero di unità di calcolo necessarie. Si può iniziare con 200 e 400 unità di calcolo per le applicazioni che richiedono maggiore concorrenza degli utenti per i propri carichi di lavoro analitici o Web, quindi aumentare il valore in base alle esigenze. 
 
-Le unità sono una misura della velocità effettiva di elaborazione della CPU garantita come disponibile per un singolo database di Azure per il server PostgreSQL. Un'unità di calcolo è una misura combinata di risorse di CPU e memoria.  Per altre informazioni, vedere [Spiegazione delle unità di calcolo](concepts-compute-unit-and-storage.md)
+Le unità sono una misura della velocità effettiva di elaborazione della CPU garantita come disponibile per un singolo database di Azure per il server PostgreSQL. Un'unità di calcolo è una misura combinata di risorse di CPU e memoria.  Per altre informazioni, vedere l'articolo relativo alla [descrizione delle unità di calcolo](concepts-compute-unit-and-storage.md).
 
 ### <a name="basic-pricing-tier-performance-levels"></a>Livelli di prestazioni del piano tariffario Basic:
 

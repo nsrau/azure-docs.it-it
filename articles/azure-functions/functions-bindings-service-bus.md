@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: glenga
+ms.openlocfilehash: 71149aaacc940a62e085cf1ce103a0214d05bd1c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 58b6d5c6ef40891e56ea4811f5e778286bdb8bc3
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Associazioni del bus di servizio di Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -77,7 +76,7 @@ Tenere presente quanto segue:
 * **Single threading**: per impostazione predefinita il runtime di Funzioni elabora più messaggi contemporaneamente. Per impostare il runtime in modo che elabori un solo messaggio della coda o dell'argomento alla volta, impostare `serviceBus.maxConcurrentCalls` su 1 in *host.json*. 
   Per informazioni su *host.json*, vedere la [Struttura di cartelle](functions-reference.md#folder-structure) e [host.json](https://github .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Gestione dei messaggi non elaborabili**: il bus di servizio esegue la gestione dei messaggi non elaborabili in modo autonomo, non controllabile o modificabile nella configurazione o nel codice di Funzioni di Azure. 
-* **Comportamento di PeekLock**: il runtime di Funzioni riceve un messaggio in modalità [`PeekLock` ](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) e chiama `Complete` sul messaggio se la funzione viene completata correttamente oppure `Abandon` se la funzione ha esito negativo. 
+* **Comportamento di PeekLock**: il runtime di Funzioni riceve un messaggio in modalità [`PeekLock`](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) e chiama `Complete` sul messaggio se la funzione viene completata correttamente oppure `Abandon` se la funzione ha esito negativo. 
   Se il tempo di esecuzione della funzione supera il timeout di `PeekLock` , il blocco viene rinnovato automaticamente.
 
 <a name="triggerusage"></a>
@@ -302,5 +301,4 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

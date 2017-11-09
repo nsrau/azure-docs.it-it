@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/16/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f139070de99c4249207d048d445e86dd41e9060
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Failover e failback di macchine virtuali Hyper-V replicate in un sito locale secondario
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) gestisce e controlla la replica, il failover e il failback dei computer locali e delle macchine virtuali di Azure.
 
-In questa esercitazione viene descritto come eseguire il failover di una macchina virtuale Hyper-V gestita in un cloud System Center Virtual Machine Manager (VMM) in un sito VMM secondario. Dopo il failover verrà eseguito il failback nel sito locale quando risulterà disponibile. In questa esercitazione si apprenderà come:
+In questa esercitazione viene descritto come eseguire il failover di una macchina virtuale Hyper-V gestita in un cloud System Center Virtual Machine Manager (VMM) in un sito VMM secondario. Dopo il failover è possibile eseguire il failback nel sito locale quando disponibile. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Failover di una macchina virtuale Hyper-V da un cloud VMM primario in un cloud VMM secondario
@@ -60,7 +58,7 @@ Questa procedura descrive come eseguire un failover regolare.
 
 
 1. In **Impostazioni** > **Elementi replicati** fare clic sulla macchina virtuale > **Failover**.
-2. In **Failover** selezionare un **Punto di recupero** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
+2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
     - **Più recente** (predefinita): questa opzione elabora prima tutti i dati inviati a Site Recovery. Offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale di replica creata dopo il failover contiene tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
     - **Elaborato più recente**: questa opzione consente di eseguire il failover della macchina virtuale nel punto di recupero più recente elaborato da Site Recovery. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
     - **Coerente con l'app più recente**: questa opzione esegue il failover della macchina virtuale nel punto di recupero coerente con l'app più recente elaborato da Site Recovery. 
@@ -102,5 +100,4 @@ Avviare la replica dal sito secondario al primario ed eseguire il failback nel s
 
 > [!NOTE]
 > La replica inversa replica solo le modifiche apportate dopo che la macchina virtuale di replica è stata spenta e vengono inviate solo le modifiche differenziali.
-
 

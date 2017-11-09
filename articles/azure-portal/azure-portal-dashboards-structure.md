@@ -13,12 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struttura dei dashboard di Azure
 Questo documento descrive dettagliatamente la struttura di un dashboard di Azure usando il dashboard seguente come esempio:

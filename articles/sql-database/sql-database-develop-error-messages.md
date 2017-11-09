@@ -10,18 +10,17 @@ editor:
 ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: drivers
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/28/2017
 ms.author: sstein
+ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: bcf5f4027764b6be3880d597cdf85e83eb967169
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database
 
@@ -180,7 +179,7 @@ I seguenti errori non rientrano nelle categorie precedenti.
 | 40607 |16 |Gli account di accesso Windows non sono supportati in questa versione di SQL Server. |
 | 40611 |16 |È possibile definire un massimo di 128 regole firewall per i server. |
 | 40614 |16 |L'indirizzo IP iniziale della regola firewall non può superare l'indirizzo IP finale. |
-| 40615 |16 |Impossibile aprire il server '{0}' richiesto dall'account di accesso. Non è consentito l'accesso del client con indirizzo IP '{1}' al server.  Per consentire l'accesso, usare il portale di Database SQL o eseguire sp_set_firewall_rule nel database master per creare una regola firewall per l'indirizzo IP o l’intervallo di indirizzi.  Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. |
+| 40615 |16 |Impossibile aprire il server '{0}' richiesto dall'account di accesso. Non è consentito l'accesso del client con indirizzo IP '{1}' al server.<br /><br />Per consentire l'accesso, usare il portale del database SQL o eseguire sp\_set\_firewall\_rule nel database master per creare una regola del firewall per l'indirizzo IP o l'intervallo di indirizzi. Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. |
 | 40617 |16 |Il nome della regola firewall che inizia con (nome della regola) è troppo lungo. La lunghezza massima è 128. |
 | 40618 |16 |Il nome della regola firewall non può essere vuoto. |
 | 40620 |16 |Accesso non riuscito per l’utente "%.&#x2a;ls". Modifica della password non riuscita La modifica della password durante l'accesso non è supportata in questa versione di SQL Server. |
@@ -205,12 +204,12 @@ I seguenti errori non rientrano nelle categorie precedenti.
 | 40651 |16 |Impossibile creare il server perché la sottoscrizione (id sottoscrizione) è disabilitata. |
 | 40652 |16 |Impossibile spostare o creare il server. La sottoscrizione (id sottoscrizione) supera la quota del server. |
 | 40671 |17 |Si è verificato un errore di comunicazione tra il gateway e il servizio di gestione. Riprovare più tardi. |
-| 40852 |16 |Impossibile aprire il database "%.*ls" nel server "%.*ls" richiesto dall'account di accesso. L'accesso al database è consentito solo tramite una stringa di connessione con sicurezza abilitata. Per accedere al database, modificare le stringhe di connessione in modo che contengano "secure" nel server FQDN - "nome server".database.windows.net deve essere modificato in "nome server".database`secure`.windows.net. |
+| 40852 |16 |Impossibile aprire il database "%.\*ls" nel server "%.\*ls" richiesto dall'account di accesso. L'accesso al database è consentito solo tramite una stringa di connessione con sicurezza abilitata. Per accedere al database, modificare le stringhe di connessione in modo che contengano "secure" nel server FQDN - "nome server".database.windows.net deve essere modificato in "nome server".database`secure`.windows.net. |
+| 40914 | 16 | Impossibile aprire il server "*[nome-server]*" richiesto dall'account di accesso. Non è consentito l'accesso del client al server.<br /><br />Per correggere l'errore, provare ad aggiungere una [regola della rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare. |
 | 45169 |16 |Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del server per una singola sottoscrizione (ad esempio, creare il server). La sottoscrizione specificata nel messaggio di errore ha superato il numero massimo di connessioni simultanee e la richiesta è stata negata. Riprovare. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulle [funzionalità di database SQL di Azure](sql-database-features.md).
 * Altre informazioni sui [livelli di servizio](sql-database-service-tiers.md).
-
 

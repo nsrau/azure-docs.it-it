@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/13/2017
 ms.author: ryanwi;mikhegn
 ms.openlocfilehash: 359677972c7e1fa3f7435052021ddfae5b1ed85e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Introduzione alla distribuzione e all'aggiornamento di applicazioni nel cluster locale
 Azure Service Fabric SDK include un ambiente di sviluppo locale completo che può essere usato per iniziare rapidamente a distribuire e gestire applicazioni in un cluster locale. Questo articolo descrive come creare un cluster locale, distribuire un'applicazione esistente nel cluster e quindi aggiornare l'applicazione a una nuova versione usando Windows PowerShell.

@@ -1,11 +1,11 @@
 ---
-title: Introduzione all'app Web di Azure per i contenitori | Microsoft Docs
-description: Informazioni sull'app Web di Azure per i contenitori.
+title: Introduzione al servizio app in Linux | Microsoft Docs
+description: Informazioni sul Servizio app di Azure in Linux.
 keywords: Servizio app di Azure, Linux, OSS
 services: app-service
 documentationcenter: 
 author: naziml
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
@@ -16,24 +16,26 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
+ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: bc1658fa49677386c8e4697221f7269ceec3533d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="introduction-to-azure-web-app-for-containers"></a>Introduzione all'app Web di Azure per i contenitori
+# <a name="introduction-to-azure-app-service-on-linux"></a>Introduzione al Servizio app di Azure in Linux
 
-[App Web](../app-service-web-overview.md) è una piattaforma di calcolo completamente gestita, ottimizzata per l'hosting di siti Web e applicazioni Web. I clienti possono usare l'app Web per i contenitori per ospitare app Web in modo nativo in Linux per stack di applicazioni supportate. Le sezioni seguenti elencano gli stack di applicazioni attualmente supportati.
+[App Web](../app-service-web-overview.md) è una piattaforma di calcolo completamente gestita, ottimizzata per l'hosting di siti Web e applicazioni Web. I clienti possono usare il servizio app in Linux per ospitare app Web in modo nativo in Linux per stack di applicazioni supportate. Le sezioni seguenti elencano gli stack di applicazioni attualmente supportati.
 
 ## <a name="languages"></a>Lingue
 
-|Node.js|PHP|.NET Core|Ruby|
-|:------------------:|:---:|:---------:|:----:|
-|4.4, 4.5|5.6|1.0-1.1|2.3|
-|6.2, 6.6, 6.9-6.11|7.0|||
-|8.0-8.1||||
+Il Servizio app in Linux supporta diverse immagini incorporate per aumentare la produttività degli sviluppatori. Se il runtime richiesto dall'applicazione non è supportato nelle immagini incorporate, sono disponibili istruzioni su come [creare un'immagine Docker personalizzata](tutorial-custom-docker-image.md) da distribuire in app Web per contenitori.
+
+| Lingua | Versioni supportate |
+|---|---|
+| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| PHP | 5.6, 7.0 |
+| .NET Core | 1.0, 1.1 |
+| Ruby | 2.3 |
 
 ## <a name="deployments"></a>Deployments
 
@@ -68,7 +70,7 @@ Il portale di Azure mostra solo le funzionalità che possono essere usate attual
 
 Alcune funzionalità, quali l'integrazione delle reti virtuali, l'autenticazione di Azure Active Directory o di terze parti o le estensioni del sito Kudu, non sono ancora disponibili. Man mano che queste funzionalità dinvetano disponibili, la documentazione verrà aggiornata e le modifiche pubblicate nei blog.
 
-L'app Web per i contenitori è supportata solo nei piani di servizio app [Basic e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). Di seguito sono riportate altre importanti limitazioni dell'app Web per i contenitori:
+Il Servizio app in Linux è supportato solo nei piani di servizio app [Basic e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). Di seguito sono riportate altre importanti limitazioni per il Servizio app in Linux:
 
 * In Linux, non è possibile creare l'app Web per i contenitori in un piano di servizio app che ospita già App Web non Linux.
 * Durante la creazione dell'app Web per i contenitori in un gruppo di risorse contenente App Web non Linux, è necessario creare un piano di servizio app in un'area diversa rispetto al piano di servizio app esistente.
@@ -88,15 +90,14 @@ Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Re
 
 Vedere i collegamenti seguenti per iniziare a usare il servizio app in Linux. È possibile pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Come usare un'immagine Docker personalizzata per l'app Web di Azure per i contenitori](quickstart-custom-docker-image.md)
-* [Uso di .NET Core nell'app Web per i contenitori del Servizio App di Azure](quickstart-dotnetcore.md)
-* [Uso di Ruby nell'app Web per i contenitori del Servizio App di Azure](quickstart-ruby.md)
+* [Come usare un'immagine Docker personalizzata per l'app Web per contenitori](quickstart-custom-docker-image.md)
+* [Uso di .NET Core nel Servizio app di Azure in Linux](quickstart-dotnetcore.md)
+* [Uso di Ruby nel Servizio app di Azure in Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](app-service-linux-faq.md)
-* [Supporto SSH per l'app Web di Azure per i contenitori](app-service-linux-ssh-support.md)
+* [Supporto SSH per il Servizio app di Azure in Linux](app-service-linux-ssh-support.md)
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Docker Hub Continuous Deployment with Azure Web Apps for Containers](./app-service-linux-ci-cd.md) (Distribuzione continua dell'hub Docker con l'app Web di Azure per i contenitori)
+* [Distribuzione continua dell'hub Docker con l'app Web per contenitori](./app-service-linux-ci-cd.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png
 [2]: ./media/app-service-linux-intro/logging.png
-

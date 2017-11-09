@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Monitoraggio di Azure | Microsoft Docs
+title: Panoramica di Monitoraggio di Azure | Documentazione Microsoft
 description: "Monitoraggio di Azure raccoglie dati statistici da usare in avvisi, webhook, scalabilità automatica e automazione. L'articolo elenca anche altre opzioni di monitoraggio di Microsoft."
 author: rboucher
 manager: carmonm
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-azure-monitor"></a>Panoramica di Monitoraggio di Azure
 Questo articolo fornisce una panoramica del servizio Monitoraggio di Azure in Microsoft Azure. Illustra il funzionamento di Monitoraggio di Azure e fornisce collegamenti a informazioni aggiuntive su come usare Monitoraggio di Azure.  Per un'introduzione video, vedere i collegamenti della sezione Passaggi successivi alla fine dell'articolo. 
 
@@ -168,4 +166,3 @@ Altre informazioni su:
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , utili per la diagnosi di problemi nell'app Web del servizio app.
 - [Risoluzione dei problemi di Archiviazione di Azure](../storage/common/storage-e2e-troubleshooting.md) , utile per l'uso di BLOB, tabelle o code di archiviazione.
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
-

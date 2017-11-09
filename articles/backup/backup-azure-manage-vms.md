@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestire i backup delle macchine virtuali di Azure
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ Per arrestare la protezione per una macchina virtuale:
 
     Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzarlo. Il nome dell'elemento si trova anche nella parte superiore del pannello **Interrompi backup** .
 4. L'aggiunta di un **motivo** o **commento** è facoltativa.
-5. Per arrestare il processo di backup per l'elemento corrente, fare clic su ![backup pulsante di arresto](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
+5. Per interrompere il processo di backup per l'elemento corrente, fare clic sul pulsante ![Interrompi backup](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
     Un messaggio di notifica informa che i processi di backup sono stati arrestati.
 
@@ -219,7 +219,7 @@ Per eliminare i dati di backup in una macchina virtuale con il *backup disabilit
 
     Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzarlo. Il nome dell'elemento si trova anche nella parte superiore del pannello **Elimina dati backup** .
 3. L'aggiunta di un **motivo** o **commento** è facoltativa.
-4. Per eliminare i dati di backup per l'elemento corrente, fare clic su ![backup pulsante di arresto](./media/backup-azure-manage-vms/delete-button.png)
+4. Per eliminare i dati di backup per l'elemento corrente, fare clic sul pulsante ![Interrompi backup](./media/backup-azure-manage-vms/delete-button.png)
 
     Un messaggio di notifica informa che i dati di backup sono stati eliminati.
 

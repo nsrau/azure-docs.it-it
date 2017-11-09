@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
 Il servizio di sincronizzazione Azure AD Connect si basa sul provisioning dichiarativo introdotto inizialmente in Forefront Identity Manager 2010. Consente di implementare la logica di business completa per l'integrazione delle identità senza dover scrivere codice compilato.
@@ -68,10 +68,10 @@ L'esempio seguente popola il dominio dell'attributo metaverse con il nome netbio
 ### <a name="operators"></a>Operatori
 È possibile usare gli operatori seguenti:
 
-* **Confronto**: <, <=, <>, =, >, >=
+* **Confronto**: &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Matematici**: +, -, \*, -
 * **Stringa**: & (concatenazione)
-* **Logici**: && (AND), || (OR)
+* **Logici**: &amp;&amp; (AND), || (OR)
 * **Ordine di valutazione**: ( )
 
 Gli operatori vengono valutati da sinistra a destra e hanno la stessa priorità di valutazione. Ad esempio, \* (moltiplicazione) non viene valutato prima di - (sottrazione). L'operazione 2\*(5+3) è diversa da 2\*5+3. Le parentesi ( ) vengono usate per modificare l'ordine di valutazione quando un ordine da sinistra a destra non è appropriato.
@@ -81,7 +81,7 @@ Le funzioni possono essere usate con gli attributi a valore singolo e multivalor
 
 Ad esempio   
 `Trim([proxyAddresses])` esegue un trimming di ogni valore nell'attributo proxyAddress.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`Per ogni valore con un @-sign, sostituire il dominio con @contoso.com.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"` Per ogni valore che contiene un carattere @-sign, sostituire il dominio con @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Cercare l'indirizzo SIP e rimuoverlo dai valori.
 
 ## <a name="next-steps"></a>Passaggi successivi

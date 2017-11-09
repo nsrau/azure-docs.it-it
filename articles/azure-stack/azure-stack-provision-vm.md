@@ -1,6 +1,6 @@
 ---
-title: Create a test VM in Azure Stack | Microsoft Docs
-description: Learn how to provision a test VM in Azure Stack as a cloud operator.
+title: Creare una macchina virtuale di test nello Stack di Azure | Documenti Microsoft
+description: Informazioni su come eseguire il provisioning di una macchina virtuale nello Stack di Azure come operatore di cloud di test.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,34 +14,32 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 98770945d5cccc27bfce971491e6ea30fee2460a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 233cf4df53af6a49e5fe4c5d51e112d8196a7530
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Create a test virtual machine in Azure Stack
+# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Creare una macchina virtuale di test nello Stack di Azure
 
-*Applies to: Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit*
 
-As a cloud operator, you can create a test virtual machine to validate your [Azure Stack](azure-stack-poc.md) deployment.
+Come operatore di Stack di Azure, è possibile creare una macchina virtuale di test per convalidare il [Azure Stack](azure-stack-poc.md) deployment Kit per sviluppatori.
 
 > [!NOTE]
-> Before you can provision virtual machines, you must [add the Windows Server 2016 Evaluation image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+> È possibile eseguire il provisioning di macchine virtuali, è necessario [aggiungere l'immagine di valutazione di Windows Server 2016 nel Marketplace Azure Stack](azure-stack-add-default-image.md).
 > 
 > 
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
-1. On the Azure Stack Development Kit host, [sign in](azure-stack-connect-azure-stack.md) to the administrator portal (`https://adminportal.local.azurestack.external`), and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval** > **Create**.  
-2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
-3. In the **Choose a size** blade, click **A1 Standard**, and then click **Select**.  
-4. In the **Settings** blade, accept the defaults and click **OK**
-5. In the **Summary** blade, click **OK** to create the virtual machine.  
-6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
+## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
+1. Nell'host del Kit di sviluppo dello Stack di Azure, [Accedi](azure-stack-connect-azure-stack.md) al portale di amministrazione (`https://adminportal.local.azurestack.external`), quindi fare clic su **New** > **calcolo**  >  **Windows Server 2016 Datacenter Eval** > **creare**.  
+2. Nel **nozioni di base** pannello, digitare un **nome**, **nome utente**, e **Password**. Scegliere una **Sottoscrizione**. Creare un **gruppo di risorse**, o selezionarne uno esistente e quindi fare clic su **OK**.  
+3. Nel **scegliere una dimensione** pannello, fare clic su **A1 Standard**, quindi fare clic su **selezionare**.  
+4. Nel **impostazioni** pannello, accettare le impostazioni predefinite e fare clic su **OK**
+5. Nel **riepilogo** pannello, fare clic su **OK** per creare la macchina virtuale.  
+6. Per visualizzare la nuova macchina virtuale, fare clic su **tutte le risorse**, quindi cercare la macchina virtuale e fare clic sul relativo nome.
     ![](media/azure-stack-provision-vm/image06.png)
 
 
-## <a name="next-steps"></a>Next steps
-[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
-
+## <a name="next-steps"></a>Passaggi successivi
+[Tramite i portali di amministratore e utente nello Stack di Azure](azure-stack-manage-portals.md)

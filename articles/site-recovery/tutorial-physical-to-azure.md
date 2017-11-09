@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
+ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2f9a5092d4dacce8aa1630830499635b3b4eb151
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
@@ -77,7 +76,7 @@ Configurare un [account di archiviazione di Azure](../storage/common/storage-cre
 
 - Site Recovery replica le macchine locali in Archiviazione di Azure. Le VM di Azure vengono create dalla risorsa di archiviazione dopo il failover.
 - L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino.
-- L'account di archiviazione può essere Standard o [Premium](../storage/common/storage-premium-storage.md).
+- L'account di archiviazione può essere Standard o [Premium](../virtual-machines/windows/premium-storage.md).
 - Se si configura un account Premium, sarà necessario anche un altro account Standard per i dati di log.
 
 
@@ -185,4 +184,3 @@ Per monitorare i server aggiunti, è possibile controllare l'ora dell'ultima ind
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Eseguire un'esercitazione sul ripristino di emergenza](tutorial-dr-drill-azure.md)
-

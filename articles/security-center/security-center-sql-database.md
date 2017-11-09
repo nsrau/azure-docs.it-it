@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
 ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Centro sicurezza di Azure e servizio Database SQL di Azure
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/documentation/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -68,7 +68,7 @@ Dopo l'impostazione dei criteri di sicurezza, il Centro sicurezza analizza lo st
 
 | Raccomandazione | Descrizione |
 | --- | --- |
-| [Enable Auditing & Threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) (Abilita il controllo e il rilevamento delle minacce nei server SQL) |Raccomanda di abilitare il controllo e il rilevamento delle minacce per i server di database SQL (solo per il servizio Database SQL; non prevede l'esecuzione di Microsoft SQL Server sulle macchine virtuali). |
+| [Enable Auditing &amp; Threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) (Abilita il controllo e il rilevamento delle minacce nei server SQL) |Raccomanda di abilitare il controllo e il rilevamento delle minacce per i server di database SQL (solo per il servizio Database SQL; non prevede l'esecuzione di Microsoft SQL Server sulle macchine virtuali). |
 | [Enable Auditing & Threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md) (Abilita il controllo e il rilevamento delle minacce nei database SQL) |Raccomanda di abilitare il controllo e il rilevamento delle minacce per i database del servizio database SQL (solo per il servizio Database SQL; non prevede l'esecuzione di Microsoft SQL Server sulle macchine virtuali). |
 | [Abilita Transparent Data Encryption](security-center-enable-transparent-data-encryption.md) |Raccomanda di abilitare la crittografia per i database SQL (solo per il servizio Database SQL). |
 

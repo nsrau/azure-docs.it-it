@@ -10,17 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 07/18/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 1f18a35a3c22ecdc379bdffa1ecacb931c62a59d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 42a6b1c37de08971674c8b38f1e13bfd657f8b03
-ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Database di Azure per MySQL: usare il linguaggio Go per connettersi ai dati ed eseguire query
-Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando codice scritto nel linguaggio [Go](https://golang.org/) dalle piattaforme Windows, Ubuntu Linux e Apple macOS. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo articolo presuppone che si abbia familiarità con lo sviluppo con Go, ma non con Database di Azure per MySQL.
+Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL dalle piattaforme Windows, Ubuntu Linux e Apple macOS usando codice scritto nel linguaggio [Go](https://golang.org/). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Go, ma non con Database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
@@ -28,7 +26,7 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creare un database di Azure per il server MySQL usando l'interfaccia della riga di comando di Azure)
 
 ## <a name="install-go-and-mysql-connector"></a>Installare Go e il connettore MySQL
-Installare [Go](https://golang.org/doc/install) e il [driver go-sql per MySQL](https://github.com/go-sql-driver/mysql#installation) nel computer. A seconda della piattaforma, seguire questa procedura:
+Installare [Go](https://golang.org/doc/install) e il [driver go-sql per MySQL](https://github.com/go-sql-driver/mysql#installation) nel computer. A seconda della piattaforma, seguire le istruzioni nella sezione appropriata:
 
 ### <a name="windows"></a>Windows
 1. [Scaricare](https://golang.org/dl/) e installare Go per Microsoft Windows seguendo le [istruzioni di installazione](https://golang.org/doc/install).
@@ -65,7 +63,7 @@ Installare [Go](https://golang.org/doc/install) e il [driver go-sql per MySQL](h
 
 ### <a name="apple-macos"></a>Apple macOS
 1. Scaricare e installare Go seguendo le [istruzioni di installazione](https://golang.org/doc/install) per la piattaforma in uso. 
-2. Avviare la shell Bash. 
+2. Avviare la shell Bash.
 3. Creare una cartella per il progetto nella home directory, ad esempio `mkdir -p ~/go/src/mysqlgo/`.
 4. Passare alla cartella, ad esempio `cd ~/go/src/mysqlgo/`.
 5. Impostare la variabile di ambiente GOPATH in modo che punti a una directory di origine valida, ad esempio la cartella go della home directory corrente. Nella shell Bash eseguire `export GOPATH=~/go` per aggiungere la directory go come GOPATH per la sessione shell corrente.
@@ -85,7 +83,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e cercare il server creato, ad esempio **myserver4demo**.
 3. Fare clic sul nome server **myserver4demo**.
-4. Selezionare la pagina **Proprietà** del server. Annotare il **Nome server** e il **nome di accesso dell'amministratore del server**.
+4. Selezionare la pagina **Proprietà** del server e prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**.
  ![Database di Azure per MySQL - Accesso dell'amministratore del server](./media/connect-go/1_server-properties-name-login.png)
 5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** per visualizzare il nome di accesso dell'amministratore del server e, se necessario, reimpostare la password.
    
@@ -93,7 +91,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 ## <a name="build-and-run-go-code"></a>Compilare ed eseguire il codice Go 
 1. Per scrivere codice Golang si può usare un editor di testo semplice, ad esempio Blocco note di Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) o [Nano](https://www.nano-editor.org/) in Ubuntu oppure TextEdit in macOS. Se si preferisce un ambiente IDE (Interactive Development Environment) avanzato, provare [Gogland](https://www.jetbrains.com/go/) di Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) di Microsoft o [Atom](https://atom.io/).
 2. Incollare nei file di testo il codice Go riportato nelle sezioni seguenti, quindi salvare i file nella cartella del progetto con l'estensione \*.go, ad esempio il percorso di Windows `%USERPROFILE%\go\src\mysqlgo\createtable.go` o il percorso di Linux `~/go/src/mysqlgo/createtable.go`.
-3. Trovare le costanti `HOST`, `DATABASE`, `USER` e `PASSWORD` nel codice e sostituire i valori di esempio con i propri valori. 
+3. Trovare le costanti `HOST`, `DATABASE`, `USER` e `PASSWORD` nel codice e quindi sostituire i valori di esempio con i propri valori. 
 4. Avviare il prompt dei comandi o la shell Bash. Passare alla cartella del progetto, ad esempio `cd %USERPROFILE%\go\src\mysqlgo\` in Windows. In Linux `cd ~/go/src/mysqlgo/`.  Alcuni degli editor dell'ambiente di sviluppo integrato indicati offrono funzionalità di debug e di runtime che non richiedono comandi della shell.
 5. Eseguire il codice digitando il comando `go run createtable.go` per compilare l'applicazione ed eseguirla. 
 6. In alternativa, per compilare il codice in un'applicazione nativa, digitare `go build createtable.go` e quindi avviare `createtable.exe` per eseguire l'applicazione.
@@ -356,4 +354,3 @@ func main() {
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./concepts-migrate-import-export.md)
-

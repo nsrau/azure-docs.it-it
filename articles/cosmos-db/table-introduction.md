@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 2073948d44ccc4b9b83e4eaf4f250dc272e46292
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduzione ad Azure Cosmos DB: API di tabella
 
@@ -31,7 +30,7 @@ ms.lasthandoff: 09/08/2017
 * Disponibilità elevata garantita.
 * [Indicizzazione secondaria automatica](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-È possibile eseguire la migrazione di queste applicazioni in Azure Cosmos DB usando l'API di tabella senza modifiche al codice e sfruttare quindi i vantaggi offerti dalle funzionalità Premium.
+È possibile eseguire la migrazione di queste applicazioni in Azure Cosmos DB usando l'API di tabella senza modifiche al codice e sfruttare quindi i vantaggi offerti dalle funzionalità Premium. L'API di tabella è disponibile per .NET e Python.
 
 È consigliabile guardare il video riportato di seguito, in cui Aravind Ramachandran illustra come iniziare a usare l'API di tabella per Azure Cosmos DB:
 
@@ -39,10 +38,10 @@ ms.lasthandoff: 09/08/2017
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>API di tabella Premium e Standard
-Se attualmente si usa l'archiviazione tabelle, è possibile ottenere i vantaggi seguenti passando alla "tabella Premium" in anteprima di Azure Cosmos DB:
+## <a name="table-offerings"></a>Offerte per tabelle
+Se attualmente si usa Archiviazione tabelle di Azure, passando all'API di tabella di Azure Cosmos DB (disponibile in anteprima) è possibile ottenere i vantaggi seguenti.
 
-| | Archiviazione tabelle di Azure | Azure Cosmos DB: archiviazione tabelle (anteprima) |
+| | Archiviazione tabelle di Azure | API di tabella di Azure Cosmos DB (anteprima) |
 | --- | --- | --- |
 | Latency | Veloce, senza limiti superiori per la latenza. | Latenza pari a singole unità di millisecondi per letture e scritture, supportata da latenza minore di 10 ms per le letture e di 15 ms per le scritture al 99° percentile, in base a qualsiasi livello di scalabilità e ovunque nel mondo. |
 | Velocità effettiva | Modello a velocità effettiva variabile. Le tabelle hanno un limite di scalabilità di 20.000 operazioni al secondo. | Altamente scalabile con [velocità effettiva riservata dedicata per tabella](request-units.md), supportata da contratti di servizio. Non esiste un limite superiore di velocità effettiva per gli account, che supportano oltre 10 milioni di operazioni al secondo per tabella. |
@@ -53,7 +52,7 @@ Se attualmente si usa l'archiviazione tabelle, è possibile ottenere i vantaggi 
 | Prezzi | Ottimizzati per l'archiviazione. | Ottimizzati per la velocità effettiva. |
 | Contratti di servizio | Disponibilità del 99.99%. | Disponibilità del 99,99% all'interno di una singola area, con possibilità di aggiungere altre aree per aumentare la disponibilità. [Contratti di servizio completi leader del settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/) che regolano la disponibilità generale. |
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 Creare un account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com). Vedere quindi [Avvio rapido per l'API di tabella con .NET](create-table-dotnet.md). 
 
@@ -64,5 +63,6 @@ Ecco alcuni riferimenti per iniziare:
 * [Sviluppare con l'API di tabella in .NET](tutorial-develop-table-dotnet.md)
 * [Eseguire query sui dati della tabella tramite l'API di tabella](tutorial-query-table.md)
 * [Informazioni su come configurare la distribuzione globale di Azure Cosmos DB tramite l'API di tabella](tutorial-global-distribution-table.md)
-* [Azure Cosmos DB Table API SDK per .NET](table-sdk-dotnet.md)
+* [API .NET di tabella per Azure Cosmos DB](table-sdk-dotnet.md)
+* [Azure Cosmos DB Table SDK per Python](table-sdk-python.md)
 

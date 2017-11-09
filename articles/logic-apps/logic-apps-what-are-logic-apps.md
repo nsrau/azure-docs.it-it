@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 59d35852d6c703f3c96089a8bf426b57660441a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-logic-apps"></a>Cosa sono le app per la logica?
 Le app per la logica consentono di semplificare e implementare flussi di lavoro e integrazioni scalabili nel cloud. Offrono una finestra di progettazione visiva per modellare e automatizzare il processo come una serie di passaggi definita flusso di lavoro.  Nel cloud e in locale sono disponibili [numerosi connettori](../connectors/apis-list.md) per una rapida integrazione in servizi e protocolli.  Un'app per la logica viene avviata con un trigger (corrispondente ad esempio all'aggiunta di un account a Dynamics CRM) e dopo l'attivazione può avviare molte combinazioni di azioni, conversioni e logica condizionale.
@@ -78,4 +77,3 @@ Di seguito sono riportate alcune informazioni fondamentali per comprendere appie
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-

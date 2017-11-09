@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Primi passi: eseguire il backup di file e cartelle in una distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup di file e cartelle di Windows Server o di un computer Windows in Azure usando una distribuzione Resource Manager. Si tratta di un'esercitazione che illustra le informazioni di base, l'ideale per iniziare a usare Backup di Azure.
@@ -229,4 +228,3 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 * Sono disponibili altre informazioni sul [backup di computer Windows](backup-configure-vault.md).
 * Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 * Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
-

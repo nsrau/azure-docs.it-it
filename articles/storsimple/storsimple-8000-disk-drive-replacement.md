@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 073/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: a8616eb51b177a9447a7c466c9d934b9139afedf
-ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Sostituire un'unità disco del dispositivo StorSimple serie 8000
 
@@ -111,5 +110,4 @@ Dopo aver rimosso un'unità guasta nel dispositivo StorSimple, seguire questa pr
   
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-8000-hardware-component-replacement.md).
-
 

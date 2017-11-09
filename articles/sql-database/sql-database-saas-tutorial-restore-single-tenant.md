@@ -10,18 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
+ms.openlocfilehash: a6ad292b9e63c6aaabed09e7569a86a41192ae97
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 792476849e796695dde3f2ec80b56431a17e8fc0
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Ripristinare un database SQL di Azure a tenant singolo in un'app SaaS multi-tenant
 
@@ -150,4 +149,3 @@ Questa esercitazione illustra come:
 * Altre [esercitazioni basate sull'applicazione SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
 * [Informazioni sul backup del database SQL](sql-database-automated-backups.md)
-

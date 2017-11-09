@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c7d2333c90f6ceca93b3eb702c3a010c37a0f70b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione e sottoscrizioni
 
@@ -45,7 +44,7 @@ Per creare un peering di rete virtuale, è possibile usare il [portale di Azure]
 
 ## <a name="register"></a>Eseguire la registrazione per l'anteprima del peering reti virtuali globale
 
-Per creare un peering di reti virtuali tra aree, eseguire la registrazione all'anteprima e completare la procedura seguente per entrambe le sottoscrizioni contenenti le reti virtuali per cui si desidera eseguire il peering. L'unico strumento che consente di registrare per l'anteprima è PowerShell.
+Per creare un peering di reti virtuali tra aree, eseguire la registrazione per l'anteprima e completare la procedura seguente per entrambe le sottoscrizioni contenenti le reti virtuali per cui si desidera creare il peering. L'unico strumento che consente di registrare per l'anteprima è PowerShell.
 
 1. Installare la versione più recente del modulo [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) di PowerShell. Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell).
 2. Avviare una sessione di PowerShell e accedere ad Azure usando il comando `Login-AzureRmAccount`.

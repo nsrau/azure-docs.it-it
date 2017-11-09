@@ -9,6 +9,10 @@
   items:
     - name: Raccolta - Macchine virtuali di Azure
       href: log-analytics-quick-collect-azurevm.md
+    - name: Raccolta - Computer Linux
+      href: log-analytics-quick-collect-linux-computer.md
+    - name: Raccolta - Computer Windows
+      href: log-analytics-quick-collect-windows-computer.md
 - name: Esercitazioni
   items:
     - name: 1 - Analizzare i dati
@@ -23,9 +27,11 @@
       href: powershell-samples.md
 - name: Concetti
   items:
+    - name: Aggiornamento dell'area di lavoro
+      href: log-analytics-log-search-upgrade.md
     - name: Domande frequenti su Log Analytics
       href: log-analytics-faq.md
-    - name: Uso dei dati
+    - name: Utilizzo dei dati
       href: log-analytics-usage.md
     - name: Gestire l'accesso
       href: log-analytics-manage-access.md
@@ -33,14 +39,16 @@
       href: log-analytics-service-providers.md
     - name: Ricerca log
       items:
-        - name: Domande frequenti sulla ricerca log
-          href: log-analytics-log-search-faq.md
         - name: Panoramica delle ricerche nei log
           href: log-analytics-log-search-new.md
+        - name: Domande frequenti sulla ricerca log
+          href: log-analytics-log-search-faq.md
         - name: Portali per la ricerca log
           href: log-analytics-log-search-portals.md
-- name: Procedure
+- name: Guide alle procedure
   items:
+    - name: Creare un'area di lavoro di Log Analytics
+      href: log-analytics-quick-create-workspace.md
     - name: Raccogliere i dati
       items:
         - name: Origini connesse
@@ -53,6 +61,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Risorse di Azure
               href: log-analytics-azure-storage.md
+            - name: Dati di diagnostica o dei log dall'archiviazione di Azure
+              href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager
               href: log-analytics-om-agents.md
             - name: Gestione configurazione
@@ -85,6 +95,20 @@
               href: log-analytics-custom-fields.md
     - name: Eseguire query sui dati
       items:
+        - name: Documentazione del linguaggio
+          href: 'https://docs.loganalytics.io'
+        - name: Transizione dal linguaggio legacy
+          href: log-analytics-log-search-transition.md
+        - name: Ricerche tra aree di lavoro
+          href: log-analytics-cross-workspace-search.md
+        - name: Intervenire dai risultati della ricerca
+          href: log-analytics-log-search-takeaction.md
+        - name: Usare gruppi di computer
+          href: log-analytics-computer-groups.md
+        - name: Connettore di flusso
+          href: log-analytics-flow-tutorial.md
+    - name: Ricerca log legacy
+      items:
         - name: Panoramica delle ricerche nei log
           href: log-analytics-log-searches.md
         - name: Informazioni di riferimento sulle ricerche
@@ -92,24 +116,20 @@
           items:
             - name: Espressioni regolari
               href: log-analytics-log-searches-regex.md
-        - name: Intervenire dai risultati della ricerca
-          href: log-analytics-log-search-takeaction.md
-        - name: Gruppi di computer
-          href: log-analytics-computer-groups.md
-    - name: Nuova ricerca log
-      items:
-        - name: Aggiornare l'area di lavoro
-          href: log-analytics-log-search-upgrade.md
-        - name: Transizione dal linguaggio legacy
-          href: log-analytics-log-search-transition.md
-        - name: Connettore di flusso
-          href: log-analytics-flow-tutorial.md
     - name: Analizzare i dati
       items:
         - name: Dashboard
           href: log-analytics-dashboards.md
         - name: Progettazione viste
-          href: log-analytics-view-designer.md
+          items:
+            - name: Panoramica
+              href: log-analytics-view-designer.md
+            - name: Informazioni di riferimento sui riquadri
+              href: log-analytics-view-designer-tiles.md
+            - name: Informazioni di riferimento sulla parte di visualizzazione
+              href: log-analytics-view-designer-parts.md
+            - name: Filtri
+              href: log-analytics-view-designer-filters.md
         - name: Power BI
           href: log-analytics-powerbi.md
     - name: Creare avvisi
@@ -130,6 +150,12 @@
           href: log-analytics-alerts-webhooks.md
         - name: Soluzione Gestione avvisi
           href: log-analytics-solution-alert-management.md
+    - name: Gestisci
+      items:
+        - name: Gestire il costo dell'area di lavoro
+          href: log-analytics-manage-cost-storage.md
+        - name: Eliminazione di un'area di lavoro
+          href: log-analytics-manage-del-workspace.md
     - name: Usare le soluzioni
       items:
         - name: Panoramica delle soluzioni
@@ -138,7 +164,7 @@
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Activity Log Analytics
           href: log-analytics-activity.md
-        - name: AD Assessment
+        - name: Controllo integrità AD
           href: log-analytics-ad-assessment.md
         - name: Stato della replica di AD
           href: log-analytics-ad-replication-status.md
@@ -181,7 +207,7 @@
           href: log-analytics-network-performance-monitor.md
         - name: Office 365
           href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Valutazione SCOM
+        - name: Controllo integrità SCOM
           href: log-analytics-scom-assessment.md
         - name: Controllo di sicurezza
           href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
@@ -192,7 +218,7 @@
               href: log-analytics-service-fabric-azure-resource-manager.md
         - name: Elenco dei servizi
           href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SQL Assessment
+        - name: Controllo integrità SQL
           href: log-analytics-sql-assessment.md
         - name: Surface Hub
           href: log-analytics-surface-hubs.md
@@ -225,6 +251,8 @@
           href: log-analytics-api-alerts.md
 - name: riferimento
   items:
+    - name: Informazioni di riferimento sul linguaggio
+      href: 'https://docs.loganalytics.io/docs/Language-Reference'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.operationalinsights
     - name: REST

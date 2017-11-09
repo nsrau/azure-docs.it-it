@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7d639ca03261f3a9cad537dd92103c5aa6cd0af9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="azure-hdinsight-documentation"></a>Documentazione di Azure HDInsight
 
 Informazioni su come usare Hadoop nel cloud in HDInsight per analizzare flussi o cronologie di dati. Esercitazioni e altri documenti in cui viene illustrato come creare cluster, elaborare e analizzare i Big Data e sviluppare soluzioni tramite Hadoop, Spark, HBase, R-Server, Storm e altre tecnologie nell'ecosistema Hadoop.
@@ -198,6 +196,5 @@ Informazioni su come usare Hadoop nel cloud in HDInsight per analizzare flussi o
         </div>
     </li>
 </ul>
-
 
 

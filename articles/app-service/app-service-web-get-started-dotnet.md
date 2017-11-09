@@ -4,7 +4,7 @@ description: Informazioni su come eseguire app Web nel servizio app di Azure dis
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: cfowler
 editor: 
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
+ms.openlocfilehash: 76e20ea1bebbf35910210e1651fadc0daf426aa4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 107b0a73c7f544aebd0ee685fd1d726d1420495d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>Creare un'app Web ASP.NET in Azure
 
@@ -107,7 +106,7 @@ Nella finestra di dialogo **Configura piano di servizio app** usare le impostazi
 |-|-|-|
 |Piano di servizio app| myAppServicePlan | Nome del piano di servizio app. |
 | Località | Europa occidentale | Data center in cui è ospitata l'app Web. |
-| Dimensione | Gratuito | [Piano tariffario](https://azure.microsoft.com/pricing/details/app-service/) che determina le funzionalità di hosting. |
+| Dimensione | Gratuito | [Piano tariffario](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) che determina le funzionalità di hosting. |
 
 Selezionare **OK**.
 
@@ -168,4 +167,3 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 
 > [!div class="nextstepaction"]
 > [ASP.NET con database SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
-

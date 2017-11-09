@@ -16,15 +16,14 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
+ms.openlocfilehash: 49a1dad57a6c8cd4b25e0e55e367839c760236e4
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 8b4251c39a8883dfcb97ded8e4b533f073dce685
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Risoluzione dei problemi di appartenenza dinamica per i gruppi
-**È stata configurata una regola su un gruppo, ma nessuna appartenenza viene aggiornata nel gruppo**<br/>Verificare che l'opzione **Abilita gestione gruppi delegata** sia impostata su **Sì** nella scheda **Configura**. Questa impostazione verrà visualizzato solo se si è connessi come utente a cui è assegnata una licenza di Azure Active Directory Premium. Verificare i valori degli attributi utente della regola: sono presenti utenti che soddisfano la regola?
+**È stata configurata una regola su un gruppo, ma nessuna appartenenza viene aggiornata nel gruppo**<br/>Verificare i valori degli attributi utente della regola: sono presenti utenti che soddisfano la regola? Se non vengono rilevati problemi, attendere il popolamento del gruppo. A seconda delle dimensioni del tenant, potrebbero essere necessarie fino a 24 ore per eseguire il popolamento per la prima volta o dopo una modifica di una regola.
 
 **È stata configurata una regola, ma i membri esistenti della regola sono stati rimossi**<br/>Si tratta di un comportamento previsto. I membri esistenti del gruppo vengono rimosse quando una regola viene abilitata o modificata. Gli utenti restituiti dalla valutazione della regola vengono aggiunti come membri al gruppo.     
 
@@ -37,4 +36,3 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-

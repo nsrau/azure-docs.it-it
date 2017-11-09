@@ -3,21 +3,19 @@ title: Monitorare un'app Web ASP.NET con Azure Application Insights | Microsoft 
 description: Vengono fornite istruzioni per configurare rapidamente un'app Web ASP.NET per il monitoraggio con Application Insights
 services: application-insights
 keywords: 
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/14/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
+ms.openlocfilehash: 110d1a0fe52f50f057f7ea7ccbc426706473306d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 5c7e4f876165752824dab2ab8d0c7ecd44864710
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET
 
 Con Azure Application Insights, è possibile monitorare facilmente la disponibilità, le prestazioni e l'uso dell'applicazione Web.  È anche possibile identificare e diagnosticare rapidamente gli errori nell'applicazione senza attendere che vengano segnalati da un utente.  Con le informazioni raccolte da Application Insights sulle prestazioni e sull'efficacia dell'app, è possibile prendere decisioni informate per gestire e migliorare l'applicazione.

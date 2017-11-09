@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Usare i webhook di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET
 Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile monitorare le notifiche dei processi di Servizi multimediali tramite webhook di Azure o [archiviazione code di Azure](media-services-dotnet-check-job-progress-with-queues.md). Questo argomento illustra come usare i webhook.
@@ -513,4 +512,3 @@ Questa sezione mostra il codice che aggiunge una notifica di webhook a un'attivi
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

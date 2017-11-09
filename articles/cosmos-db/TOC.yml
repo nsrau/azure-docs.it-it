@@ -139,6 +139,7 @@
     - name: Sviluppare
       items:
         - name: API di DocumentDB
+          href: documentdb-index.md
           items:
             - name: Risorse
               href: documentdb-resources.md
@@ -213,6 +214,7 @@
                 - name: 'Ritirare S1, S2, S3'
                   href: performance-levels.md
         - name: API di MongoDB
+          href: mongodb-index.md
           items:
             - name: Connettersi all'account MongoDB
               href: connect-mongodb-account.md
@@ -364,6 +366,8 @@
       items:
         - name: .NET
           href: table-sdk-dotnet.md
+        - name: Python
+          href: table-sdk-python.md
     - name: API Graph
       items:
         - name: .NET

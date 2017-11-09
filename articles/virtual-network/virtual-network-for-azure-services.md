@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-integration-for-azure-services"></a>Integrazione della rete virtuale per i servizi di Azure
 
 L'integrazione dei servizi di Azure in una rete virtuale di Azure consente l'accesso privato dalle istanze di un servizio distribuite nella rete virtuale.
@@ -76,7 +74,6 @@ Gli endpoint di servizio sono attualmente supportati per i servizi seguenti.
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>Integrazione della rete virtuale tra più servizi di Azure
 
 È possibile distribuire un servizio di Azure in una subnet all'interno di una rete virtuale e integrare le risorse del servizio critico in tale subnet in modo sicuro. Ad esempio, è possibile distribuire HDInsight nella rete virtuale e integrare in modo sicuro un account di archiviazione nella subnet di HDInsight.
-
 
 
 

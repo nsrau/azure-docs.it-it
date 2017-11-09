@@ -12,15 +12,14 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 03/03/2017
 ms.author: carlrab
+ms.openlocfilehash: b22307ee0cade40370b096ee49bb15dcfd2f0071
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 74b04cb7737011423556cbd956ecef770ac82ad4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Studi tecnici sulle implementazioni dei clienti del database SQL di Azure
 
@@ -39,4 +38,3 @@ ms.lasthandoff: 09/09/2017
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): questo breve case study evidenzia le procedure consigliate e le esperienze acquisite dal team di prodotto di Dynamics 365 for Operations nella migrazione al database SQL di Microsoft Azure, per offrire ai clienti una soluzione software come un servizio (SaaS) completamente gestita. Mediante Azure SQL Database il team Dynamics 365 for Operations ha gestito il servizio con meno personale grazie a una scalabilità intuitiva e a funzionalità di gestione predefinite come il backup automatico dei database, la conservazione dei backup di database, la disponibilità elevata e il ripristino di emergenza. Queste caratteristiche e la possibilità di aggiungere ai database elementi essenziali di automazione ha fatto di Azure SQL Database una piattaforma ideale per la configurazione di servizi su larga scala.
 
 - [Microsoft OneDrive e SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states): questo breve case study racconta i retroscena della migrazione di Microsoft OneDrive e SharePoint Online al database SQL di Azure e descrive in che modo questa migrazione abbia consentito una gestione delle capacità elastica pressoché illimitata, riducendo inoltre in maniera significativa i costi operativi e il sovraccarico dell'infrastruttura.
-

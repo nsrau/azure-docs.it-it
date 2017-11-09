@@ -3,7 +3,7 @@ title: Azure Application Insights per app Web JavaScript | Microsoft Docs
 description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, i dati client Web e la traccia dei modelli di utilizzo. Rilevare le eccezioni e i problemi di prestazioni nelle pagine Web JavaScript.
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
-ms.author: bwren
-ms.openlocfilehash: 4e8a77e3644bb726d1b8e2050dab61893ccfa3c9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: 7cc061b921109f173837352199ff64f055ae2483
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 Scoprire le prestazioni e l'utilizzo della pagina Web o dell'app. Se si aggiunge [Application Insights](app-insights-overview.md) allo script di pagina, si ottengono gli intervalli di tempo di caricamento delle pagine e delle chiamate AJAX, i conteggi e i dettagli delle eccezioni del browser e degli errori AJAX, nonché i conteggi relativi a utenti e sessioni. Tutti questi elementi possono essere segmentati per pagina, sistema operativo client e versione del browser, posizione geografica e altre dimensioni. È possibile impostare avvisi relativi al numero di errori o rallentare il caricamento delle pagine. Inoltre, inserendo le chiamate di traccia nel codice JavaScript, è possibile rilevare come vengono usate le diverse funzionalità dell'applicazione della pagina Web.

@@ -17,10 +17,10 @@ ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: b265763fb5dad240edd710cd8d0fb1079e3a7b51
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-or-user-specific-marathon-service"></a>Creare un servizio Marathon specifico per un'applicazione o un'utente
 Il servizio contenitore di Azure fornisce un set di server master in cui vengono preconfigurati Apache Mesos e Marathon. È possibile usarli per orchestrare le applicazioni nel cluster, ma è consigliabile non usare i server master a questo scopo. La modifica della configurazione di Marathon richiede ad esempio l'accesso ai server master stessi per apportare modifiche. Per questa operazione sono consigliabili server master univoci, che risultano leggermente diversi dai server standard e devono essere gestiti in modo specifico e indipendente. La configurazione necessaria per un team potrebbe non essere ottimale per un altro team.

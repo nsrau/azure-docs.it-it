@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 088d127521ce89d3a82e30ad8797fe5746ae7e03
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurare risorse cloud per il provisioning dei dispositivi con il servizio Device Provisioning in hub IoT
 
 Questa esercitazione illustra come configurare il cloud per il provisioning automatico dei dispositivi con il servizio Device Provisioning in hub IoT. In questa esercitazione si apprenderà come:
@@ -107,4 +105,3 @@ Passare all'esercitazione successiva per informazioni su come configurare il dis
 
 > [!div class="nextstepaction"]
 > [Configurare il dispositivo per il provisioning](tutorial-set-up-device.md)
-

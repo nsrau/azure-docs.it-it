@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/10/2017
 ms.author: nberdy
+ms.openlocfilehash: 3eafa32907c8f68cfc44cb2771d625349ff42003
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: b6de5c5df5f9401a41be152bfa06eb994594e83d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-operations-monitoring"></a>Monitoraggio delle operazioni dell'hub IoT
 
 Il monitoraggio delle operazioni dell'hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni. È possibile scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
+
+>[!NOTE]
+>Il monitoraggio operazioni dell'hub IoT è deprecato e verrà rimosso nelle versioni future dell'hub IoT. Per monitorare le operazioni e l'integrità dell'hub IoT, vedere [Monitor the health of Azure IoT Hub and diagnose problems quickly][lnk-monitor] (Monitorare lo stato dell'hub IoT di Azure e diagnosticare i problemi rapidamente) Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure][lnk-blog-announcement].
 
 L'hub IoT monitora sei categorie di eventi:
 
@@ -33,6 +35,9 @@ L'hub IoT monitora sei categorie di eventi:
 * Connessioni
 * Caricamenti di file
 * Routing dei messaggi
+
+> [!IMPORTANT]
+> Il monitoraggio delle operazioni dell'hub IoT non garantisce il recapito affidabile o ordinato di eventi. A seconda dell'infrastruttura sottostante dell'hub IoT alcuni eventi potrebbero essere persi o recapitati nell'ordine errato. Usare le operazioni di monitoraggio per generare avvisi in base ai segnali di errore, ad esempio i tentativi di connessione non riuscita o disconnessioni ad alta frequenza di dispositivi specifici. Non basarsi sulle operazioni di monitoraggio di eventi per creare un archivio coerente per lo stato del dispositivo, ad esempio un archivio che rileva lo stato di connessione o disconnessione di un dispositivo. 
 
 ## <a name="how-to-enable-operations-monitoring"></a>Come abilitare il monitoraggio delle operazioni
 
@@ -294,6 +299,8 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
 [img-service-key]: media/iot-hub-operations-monitoring/service-key.png
 
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-monitor]: iot-hub-monitor-resource-health.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md

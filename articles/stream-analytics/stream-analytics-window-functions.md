@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introduzione alle funzioni finestra di Analisi di flusso
 In molti scenari di flusso in tempo reale è necessario eseguire operazioni solo sui dati contenuti in finestre temporali. Il supporto nativo delle funzioni finestra è una funzionalità cruciale di Analisi di flusso di Azure che pone l'accento sulla produttività degli sviluppatori per la creazione di processi di elaborazione di flussi complessi. Analisi di flusso consente agli sviluppatori di usare finestre [**a cascata**](https://msdn.microsoft.com/library/dn835055.aspx), [**di salto**](https://msdn.microsoft.com/library/dn835041.aspx) e [**temporali scorrevoli**](https://msdn.microsoft.com/library/dn835051.aspx) per eseguire operazioni temporali sui dati di flusso. Vale la pena di sottolineare che tutte le operazioni [finestra](https://msdn.microsoft.com/library/dn835019.aspx) restituiscono i risultati alla **fine** della finestra. L'output della finestra sarà un singolo evento basato sulla funzione di aggregazione usata. All'evento sarà associato il timestamp di fine della finestra e tutte le funzioni finestra sono definite con una lunghezza fissa. Infine, è importante segnalare che tutte le funzioni finestra devono essere usate in una clausola [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx).
@@ -51,5 +50,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

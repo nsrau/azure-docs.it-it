@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 39be936520d62cb1c1c28de9bd72f8f489166082
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Istruzioni di configurazione del dashboard di Power BI per il modello di soluzione per l'analisi dei dati di telemetria del veicolo
 Questo **menu** contiene i collegamenti alle sezioni dello studio. 
@@ -355,7 +354,7 @@ Sono stati configurati tutti i report corrispondenti al percorso di elaborazione
 
 Verranno creati automaticamente un set di dati, un report e un dashboard vuoto.  
 
-Aggiungere grafici a un nuovo dashboard denominato **Vehicle Telemetry Analytics Dashboard ** (Dashboard di analisi dei dati di telemetria del veicolo) in **Power BI**. Fare clic sul dashboard vuoto creato in precedenza, quindi passare alla sezione **Report** e fare clic sul report appena caricato.  
+Aggiungere grafici a un nuovo dashboard denominato **Vehicle Telemetry Analytics Dashboard**  (Dashboard di analisi dei dati di telemetria del veicolo) in **Power BI**. Fare clic sul dashboard vuoto creato in precedenza, quindi passare alla sezione **Report** e fare clic sul report appena caricato.  
 
 ![Vehicle Telemetry Power BI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard1.png) 
 
@@ -406,4 +405,3 @@ Pagina 6: Logo di Contoso
 ![Telemetria veicolo: organizza dashboard 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 Congratulazioni. Sono stati creati il report e il dashboard per ottenere in tempo reale informazioni dettagliate in batch e predittive sullo stato di integrità dei veicoli e sulle abitudini di guida.  
-

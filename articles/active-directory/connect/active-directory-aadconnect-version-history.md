@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/30/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 895b538680230170cd29817997a7739b1ba89cfc
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -35,12 +34,88 @@ Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [esegu
 Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Scaricare| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+
+## <a name="116490"></a>1.1.649.0
+Stato: 27 ottobre 2017
+
+>[!NOTE]
+>Questa build non è disponibile ai clienti tramite la funzionalità di aggiornamento automatico di Azure AD Connect.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issue"></a>Problema risolto
+* È stato risolto il problema di compatibilità di versione tra Azure AD Connect e l'agente di Azure AD Connect Health (per la sincronizzazione). Questo problema interessa i clienti che eseguono l'aggiornamento sul posto di Azure AD Connect versione 1.1.647.0, ma hanno attualmente l'agente integrità versione 3.0.127.0. Dopo l'aggiornamento, l'agente integrità non può più inviare dati di integrità relativi al servizio di sincronizzazione di Azure AD Connect al servizio integrità di Azure Active Directory. Con questa correzione, l'agente di integrità versione 3.0.129.0 viene installato durante l'aggiornamento sul posto di Azure AD Connect. L'agente integrità versione 3.0.129.0 non presenta il problema di compatibilità con Azure AD Connect versione 1.1.649.0.
+
+
+## <a name="116470"></a>1.1.647.0
+Stato: 19 ottobre 2017
+
+> [!IMPORTANT]
+> Si verifica un problema noto di compatibilità tra Azure AD Connect versione 1.1.647.0 e l'agente di Azure AD Connect Health (per la sincronizzazione) versione 3.0.127.0. Questo problema impedisce l'invio da parte dell'agente Health dei dati di integrità sul servizio di sincronizzazione di Azure AD Connect (inclusi errori di sincronizzazione degli oggetti e dati di cronologia delle esecuzioni) al servizio Azure AD Health. Prima di aggiornare manualmente la distribuzione di Azure AD Connect alla versione 1.1.647.0, verificare la versione corrente dell'agente di Azure AD Connect Health installata nel server di Azure AD Connect. Per eseguire questa operazione, accedere a *Pannello di controllo → Installazione applicazioni* e cercare l'applicazione *Microsoft Azure AD Connect Health Agent for Sync*. Se la versione è 3.0.127.0, è consigliabile attendere la successiva versione di Azure AD Connect disponibile prima di eseguire l'aggiornamento. Se la versione dell'agente Health non è 3.0.127.0, è possibile procedere con l'aggiornamento manuale sul posto. Questo problema non riguarda l'aggiornamento swing o i clienti che eseguono una nuova installazione di Azure AD Connect.
+>
+>
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Problemi risolti
+* È stato risolto un problema con l'attività *Cambia l'accesso utente* nella procedura guidata di Azure AD Connect:
+
+  * Il problema si verifica in presenza di una distribuzione esistente di Azure AD Connect con sincronizzazione della password **abilitata** e si prova a impostare il metodo di accesso utente come *Autenticazione pass-through*. Prima che la modifica venisse applicata, la procedura guidata mostrava in modo errato il prompt di *disabilitazione della sincronizzazione delle password*. La sincronizzazione delle password rimaneva tuttavia abilitata anche dopo l'applicazione della modifica. Con questa correzione, la procedura guidata non visualizza più il prompt.
+
+  * Per impostazione predefinita, la procedura guidata non disabilita la sincronizzazione delle password quando si aggiorna il metodo di accesso utente usando l'attività *Cambia l'accesso utente*. In questo modo si evitano interruzioni dei servizi per i clienti che vogliono mantenere la sincronizzazione delle password, anche se abilitano l'autenticazione pass-through o la federazione come metodo di accesso utente primario.
+  
+  * Per disabilitare la sincronizzazione delle password dopo aver aggiornato il metodo di accesso utente, è necessario eseguire l'attività *Customize Synchronization Configuration* (Personalizzare la configurazione della sincronizzazione) nella procedura guidata. Quando si accede alla pagina *Funzionalità facoltative*, deselezionare l'opzione *Sincronizzazione password*.
+  
+  * Lo stesso problema si verifica anche se si prova ad abilitare/disabilitare Accesso Single Sign-On facile. Nello specifico, si verifica in presenza di una distribuzione esistente di Azure AD Connect con sincronizzazione della password abilitata quando il metodo di accesso utente è già configurato come *Autenticazione pass-through*. Con l'attività *Cambia l'accesso utente*, si prova a selezionare o deselezionare l'opzione *Enable Seamless Single Sign-On* (Abilita accesso Single Sign-On facile) mentre il metodo di accesso utente rimane configurato come "Autenticazione pass-through". Prima che la modifica venisse applicata, la procedura guidata mostrava in modo errato il prompt di *disabilitazione della sincronizzazione delle password*. La sincronizzazione delle password rimaneva tuttavia abilitata anche dopo l'applicazione della modifica. Con questa correzione, la procedura guidata non visualizza più il prompt.
+
+* È stato risolto un problema con l'attività *Cambia l'accesso utente* nella procedura guidata di Azure AD Connect:
+
+   * Il problema si verifica in presenza di una distribuzione esistente di Azure AD Connect con sincronizzazione della password **disabilitata** e se l'utente prova a impostare il metodo di accesso utente come *Autenticazione pass-through*. Quando viene applicata la modifica, la procedura guidata consente sia l'autenticazione pass-through e la sincronizzazione delle password. Con questa correzione, la procedura guidata non abilita più la sincronizzazione delle password.
+
+  * In precedenza, la sincronizzazione delle password era un prerequisito per l'abilitazione dell'autenticazione pass-through. Quando si impostava il metodo di accesso utente come *Autenticazione pass-through*, la procedura guidata abilitava sia l'autenticazione pass-through sia la sincronizzazione delle password. Di recente, la sincronizzazione delle password non costituisce più un prerequisito. Nell'ambito di Azure AD Connect versione 1.1.557.0 è stata apportata una modifica ad Azure AD Connect per non abilitare la sincronizzazione delle password quando si imposta il metodo di accesso utente come *Autenticazione pass-through*. Tuttavia, la modifica veniva applicata solo all'installazione di Azure AD Connect. Con questa correzione, la stessa modifica viene applicata anche all'attività *Cambia l'accesso utente*.
+  
+  * Lo stesso problema si verifica anche se si prova ad abilitare/disabilitare Accesso Single Sign-On facile. Nello specifico, si verifica in presenza di una distribuzione esistente di Azure AD Connect con sincronizzazione della password disabilitata quando il metodo di accesso utente è già configurato come *Autenticazione pass-through*. Con l'attività *Cambia l'accesso utente*, si prova a selezionare o deselezionare l'opzione *Enable Seamless Single Sign-On* (Abilita accesso Single Sign-On facile) mentre il metodo di accesso utente rimane configurato come "Autenticazione pass-through". Quando viene applicata la modifica, la procedura guidata abilita la sincronizzazione delle password. Con questa correzione, la procedura guidata non abilita più la sincronizzazione delle password. 
+
+* È stato risolto un problema che impediva l'aggiornamento di Azure AD Connect con errore "*Unable to upgrade the Synchronization Service*" (Impossibile aggiornare il servizio di sincronizzazione). Inoltre, il servizio di sincronizzazione non è più avviato con l'evento di errore "*The service was unable to start because the version of the database is newer than the version of the binaries installed*" (Impossibile avviare il servizio, poiché la versione del database è più recente della versione dei binari installati). Il problema si verifica quando l'amministratore che esegue l'aggiornamento non dispone dei privilegi di amministratore di sistema per l'istanza di SQL Server usata da Azure AD Connect. Con questa correzione, Azure AD Connect richiede solo che l'amministratore disponga del privilegio db_owner per il database ADSync durante l'aggiornamento.
+
+* È stato corretto un problema relativo all'aggiornamento di Azure AD Connect che interessa i clienti per i quali è abilitata la funzionalità [Accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). Dopo l'aggiornamento di Azure AD Connect, Accesso Single Sign-On facile appare erroneamente come disabilitato nella procedura guidata di Azure AD Connect, anche se la funzionalità rimane abilitata e completamente funzionante. Con questa correzione, la funzionalità appare ora correttamente abilitata nella procedura guidata.
+
+* È stato risolto un problema in base al quale la procedura guidata di Azure AD Connect mostrava sempre il prompt "*Configura l'ancoraggio di origine*" nella pagina *Pronto per la configurazione*, anche se non venivano apportate modifiche relative all'ancoraggio di origine.
+
+* Quando si esegue l'aggiornamento manuale sul posto di Azure AD Connect, il cliente deve fornire le credenziali di amministratore globale del tenant di Azure AD corrispondente. In precedenza, l'aggiornamento poteva procedere anche se le credenziali di amministratore globale specificate appartenevano a un tenant di Azure AD diverso. Sebbene l'aggiornamento risulti completato, alcune configurazioni non vengono mantenute correttamente con l'aggiornamento. Con questa modifica, la procedura guidata non consentirà di procedere con l'aggiornamento se le credenziali specificate non corrispondono al tenant di Azure AD.
+
+* È stata rimossa la logica ridondante che riavvia inutilmente il servizio Azure AD Connect Health all'inizio di un aggiornamento manuale.
+
+
+#### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
+* È stata aggiunta logica per semplificare i passaggi necessari per configurare Azure AD Connect con il cloud di Microsoft Germania. In precedenza era necessario aggiornare specifiche chiavi del Registro di sistema nel server di Azure AD Connect per garantirne il funzionamento con il cloud di Microsoft Germania, come descritto in questo articolo. Ora, Azure AD Connect è in grado di rilevare automaticamente se il tenant si trova nel cloud di Microsoft Germania in base alle credenziali di amministratore globale specificate durante l'installazione.
+
+### <a name="azure-ad-connect-sync"></a>Servizio di sincronizzazione Azure AD Connect
+>[!NOTE]
+> Nota: il servizio di sincronizzazione ha un'interfaccia WMI che consente di sviluppare un'utilità di pianificazione personalizzata. Questa interfaccia è ora obsoleta e verrà rimossa dalle versioni future di Azure AD Connect spedite dopo il 30 giugno 2018. Per i clienti che intendono personalizzare la pianificazione della sincronizzazione è consigliabile usare l'utilità di pianificazione incorporata (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+
+#### <a name="fixed-issues"></a>Problemi risolti
+* Quando la procedura guidata di Azure AD Connect crea l'account AD Connector necessario per sincronizzare le modifiche da Active Directory in locale, non assegna correttamente all'account l'autorizzazione necessaria per leggere gli oggetti PublicFolder. Questo problema riguarda sia l'installazione rapida sia l'installazione personalizzata. Questa modifica risolve il problema.
+
+* È stato risolto un problema che impediva il rendering corretto della pagina relativa alla risoluzione dei problemi della procedura guidata di Azure AD Connect per gli amministratori a partire da Windows Server 2016.
+
+#### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
+* Durante la risoluzione dei problemi di sincronizzazione delle password usando la pagina relativa alla risoluzione dei problemi della procedura guidata di Azure AD Connect, la pagina ora restituisce lo stato specifico del dominio.
+
+* In precedenza, se si provava ad abilitare la sincronizzazione degli hash password, Azure AD Connect non controllava se l'account AD Connector disponesse delle autorizzazioni necessarie per la sincronizzazione degli hash password da AD in locale. Ora, la procedura guidata di Azure AD Connect verifica e avvisa l'utente se l'account AD Connector non dispone di autorizzazioni sufficienti.
+
+### <a name="ad-fs-management"></a>Gestione di AD FS
+#### <a name="fixed-issue"></a>Problema risolto
+* È stato risolto un problema relativo all'uso della funzionalità [msDS-ConsistencyGuid come sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor). Questo problema interessa i clienti che hanno configurato *Federazione tramite AD FS* come metodo di accesso utente. Quando si esegue l'attività *Configura ancoraggio di origine* nella procedura guidata, Azure AD Connect inizia a usare *ms-DS-ConsistencyGuid come attributo di origine per immutableId. Nell'ambito di questa modifica, Azure AD Connect prova ad aggiornare le regole attestazioni per ImmutableId in AD FS. Tuttavia, questo passaggio non riusciva, poiché Azure AD Connect non disponeva delle credenziali di amministratore necessarie per configurare AD FS. Con questa correzione, Azure AD Connect richiede ora di immettere le credenziali di amministratore per AD FS quando si esegue l'attività *Configura ancoraggio di origine*.
+
+
+
 ## <a name="116140"></a>1.1.614.0
 Stato: 5 settembre 2017
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
 #### <a name="known-issues"></a>Problemi noti
+* Un problema noto impedisce l'aggiornamento di Azure AD Connect con errore "*Unable to upgrade the Synchronization Service*" (Impossibile aggiornare il servizio di sincronizzazione). Inoltre, il servizio di sincronizzazione non è più avviato con l'evento di errore "*The service was unable to start because the version of the database is newer than the version of the binaries installed*" (Impossibile avviare il servizio, poiché la versione del database è più recente della versione dei binari installati). Il problema si verifica quando l'amministratore che esegue l'aggiornamento non dispone dei privilegi di amministratore di sistema per l'istanza di SQL Server usata da Azure AD Connect. Le autorizzazioni dbo non sono sufficienti.
+
 * Esiste un problema noto relativo all'aggiornamento di Azure AD Connect che interessa i clienti per i quali è abilitata la funzionalità [Accesso Single Sign-On facile](active-directory-aadconnect-sso.md). Dopo l'aggiornamento di Azure AD Connect, la funzionalità risulta disabilitata nella procedura guidata, anche se in realtà è ancora abilitata. La correzione per questo problema verrà implementata in una versione successiva. I clienti interessati da questo problema di visualizzazione possono correggerlo manualmente abilitando la funzionalità Accesso Single Sign-On facile nella procedura guidata.
 
 #### <a name="fixed-issues"></a>Problemi risolti
@@ -779,4 +854,3 @@ Data di rilascio: settembre 2014
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-

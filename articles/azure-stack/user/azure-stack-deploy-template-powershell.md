@@ -1,6 +1,6 @@
 ---
-title: Deploy templates with PowerShell in Azure Stack | Microsoft Docs
-description: Learn how to deploy a virtual machine using a Resource Manager template and PowerShell.
+title: Distribuire i modelli con PowerShell nello Stack di Azure | Documenti Microsoft
+description: Informazioni su come distribuire una macchina virtuale utilizzando un modello di gestione risorse e PowerShell.
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -14,26 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e4837be016b569dbd0b4bf8e071e6381b8daa85f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="deploy-templates-in-azure-stack-using-powershell"></a>Deploy templates in Azure Stack using PowerShell
+# <a name="deploy-templates-in-azure-stack-using-powershell"></a>Distribuire modelli in Azure Stack tramite PowerShell
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Use PowerShell to deploy Azure Resource Manager templates to the Azure Stack Development Kit.  Resource Manager templates deploy and provision all resources for your application in a single, coordinated operation.
+Utilizzare PowerShell per distribuire modelli di gestione risorse di Azure il Kit di sviluppo dello Stack di Azure.  Modelli di gestione risorse distribuiscono ed eseguire il provisioning di tutte le risorse per l'applicazione in un'operazione singola, coordinata.
 
-## <a name="run-azurerm-powershell-cmdlets"></a>Run AzureRM PowerShell cmdlets
-In this example, you run a script to deploy a virtual machine to Azure Stack Development Kit using a Resource Manager template.  Before proceeding, ensure you have [configured PowerShell](azure-stack-powershell-configure-user.md)  
+## <a name="run-azurerm-powershell-cmdlets"></a>Eseguire cmdlet di PowerShell di Gestione risorse di Azure
+In questo esempio, si esegue uno script per distribuire una macchina virtuale al Kit di sviluppo dello Stack di Azure utilizzando un modello di gestione risorse.  Prima di procedere, verificare di aver [configurato PowerShell](azure-stack-powershell-configure-user.md)  
 
-The VHD used in this example template is WindowsServer-2012-R2-Datacenter.
+Il disco rigido virtuale utilizzato in questo modello di esempio è Windows Server-2012 R2 Datacenter.
 
-1. Go to <http://aka.ms/AzureStackGitHub>, search for the **101-simple-windows-vm** template, and save it to the following location: c:\\templates\\azuredeploy-101-simple-windows-vm.json.
-2. In PowerShell, run the following deployment script. Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter to prevent overwriting your deployment.
+1. Passare a <http://aka.ms/AzureStackGitHub>, cercare il **101-simple-windows-vm** , modello e salvarlo nel percorso seguente: c:\\modelli\\ azuredeploy-101-simple-windows-vm.json.
+2. In PowerShell eseguire lo script di distribuzione seguente. Sostituire *username* e *password* con il nome utente e password. Nei successivi usi, incrementare il valore per il *$myNum* parametro per evitare la sovrascrittura della distribuzione.
    
    ```PowerShell
        # Set Deployment Variables
@@ -56,10 +55,9 @@ The VHD used in this example template is WindowsServer-2012-R2-Datacenter.
            -VmName myVM$myNum `
            -WindowsOSVersion 2012-R2-Datacenter
    ```
-3. Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
+3. Aprire Azure Stack portale, fare clic **Sfoglia**, fare clic su **macchine virtuali**e cercare la nuova macchina virtuale (*myDeployment001*).
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
-
+## <a name="next-steps"></a>Passaggi successivi
+[Distribuire modelli con Visual Studio](azure-stack-deploy-template-visual-studio.md)
 

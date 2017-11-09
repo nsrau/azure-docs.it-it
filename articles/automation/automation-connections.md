@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
+ms.openlocfilehash: f1746f4f6706835d43edc171b03d4ececfa3560c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 00f0b370a05b29c44d0df8f7e9db115ff998b710
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connection-assets-in-azure-automation"></a>Asset di connessione in Automazione di Azure
 
 Un asset di connessione di Automazione contiene le informazioni necessarie per la connessione a un servizio esterno o a un'applicazione da un Runbook o una configurazione DSC. ad esempio le informazioni necessarie per l'autenticazione, quali nome utente e password, oltre alle informazioni di connessione quali un URL o una porta. Il valore di una connessione consiste nel mantenere tutte le proprietà per la connessione a un'applicazione specifica in un singolo asset, invece di creare più variabili. L'utente può modificare i valori per una connessione in un'unica posizione e può passare il nome di una connessione a un Runbook o a una configurazione DSC in un singolo parametro. È possibile accedere alle proprietà per una connessione nel Runbook o nella configurazione DSC con l'attività **Get-AutomationConnection** . 
@@ -161,4 +159,3 @@ L'esempio seguente illustra come eseguire l'autenticazione tramite la connession
 - Consultare la sezione [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow) per informazioni su come dirigere e controllare il flusso di logica nei runbook.  
 
 - Vedere [Moduli di integrazione](automation-integration-modules.md) per ulteriori informazioni sull'uso dei moduli di PowerShell da parte di Automazione di Azure e per conoscere le procedure consigliate per creare i propri moduli di PowerShell come moduli di integrazione in Automazione di Azure.  
-

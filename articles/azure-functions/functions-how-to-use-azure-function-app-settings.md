@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 3229fe0b5aacbbc716039a4a6abfd235dbc4c4f7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Come gestire un'app per le funzioni nel portale di Azure 
 
@@ -130,7 +129,6 @@ Per altre informazioni su come usare le impostazioni del servizio app, vedere [C
 
 + [Configurare le impostazioni del servizio app di Azure](../app-service/web-sites-configure.md)
 + [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
-
 
 
 

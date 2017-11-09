@@ -10,18 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
-ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 4a96efb15268c56e3625832b0b4d6dd8f6a78614
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Estrarre i dati dai database tenant in un database di analisi per l'analisi offline
 
@@ -53,13 +52,13 @@ Gli script dell'app SaaS Wingtip e il codice sorgente dell'applicazione sono dis
 Per questa esercitazione è necessario avere distribuito un database per acquisire i risultati dall'esecuzione dei processi degli script, che contengono query che restituiscono risultati. Per iniziare verrà creato un database denominato tenantanalytics a questo scopo.
 
 1. Aprire …\\Learning Modules\\Operational Analytics\\Tenant Analytics\\*Demo-TenantAnalyticsDB.ps1* in *PowerShell ISE* e impostare il valore seguente:
-   * **$DemoScenario** = **2** *Distribuire il database di analisi operativo*
+   * **$DemoScenario** = **2***Distribuire il database di analisi operativo*
 1. Premere **F5** per eseguire lo script della demo (che chiama lo script *Deploy-TenantAnalyticsDB.ps1*) che crea il database di analisi del tenant.
 
 ## <a name="create-some-data-for-the-demo"></a>Creare alcuni dati per la demo
 
 1. Aprire …\\Learning Modules\\Operational Analytics\\Tenant Analytics\\*Demo-TenantAnalyticsDB.ps1* in *PowerShell ISE* e impostare il valore seguente:
-   * **$DemoScenario** = **1** *Acquistare biglietti per gli eventi in tutte le sedi*
+   * **$DemoScenario** = **1***Acquistare biglietti per gli eventi in tutte le sedi*
 1. Premere **F5** per eseguire lo script e creare la cronologia di acquisto dei biglietti.
 
 
@@ -120,4 +119,3 @@ Congratulazioni.
 
 * Altre [esercitazioni basate sull'applicazione SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Processi elastici](sql-database-elastic-jobs-overview.md)
-

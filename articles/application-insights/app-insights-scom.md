@@ -3,7 +3,7 @@ title: Integrazione di SCOM con Application Insights | Documentazione Microsoft
 description: Gli utenti di SCOM possono monitorare le prestazioni e diagnosticare i problemi con Application Insights. Dashboard completi, avvisi intelligenti, potenti strumenti di diagnostica e query di analisi.
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
-ms.author: bwren
-ms.openlocfilehash: 9c205465981fabdbb696cdc44f765532bbb992b5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: 35ea37b751909e14e616a965462b832e4e51bae0
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Application Performance Monitoring con Application Insights per SCOM
 Se si usa System Center Operations Manager (SCOM) per gestire i server, è possibile monitorare le prestazioni e diagnosticare problemi di prestazioni con [Azure Application Insights](app-insights-asp-net.md). Application Insights monitora le richieste in ingresso dell'applicazione Web, le chiamate REST e SQL in uscita, le eccezioni e le tracce dei log. Fornisce i dashboard con grafici delle metriche e avvisi intelligenti, nonché funzionalità di ricerca diagnostica avanzate e query analitiche di questi dati di telemetria. 

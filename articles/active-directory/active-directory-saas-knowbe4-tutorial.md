@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 2a81495c54cfe293700aa0ef0d82f13933dcc4aa
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Esercitazione: integrazione di Azure Active Directory con KnowBe4 Security Awareness Training
 
@@ -112,7 +111,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`.
 
     > [!NOTE] 
-    > Poiché questo non è un valore reale, è necessario aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di KnowBe4 Security Awareness Training](mailto:support@KnowBe4.com). 
+    > Poiché questo non è un valore reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di KnowBe4 Security Awareness Training](mailto:support@KnowBe4.com). 
 
     b. Nella casella di testo **Identificatore** digitare il valore di stringa `KnowBe4`.
 
@@ -232,5 +231,4 @@ Quando si fa clic sul riquadro KnowBe4 Security Awareness Training nel pannello 
 [201]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_203.png
-
 

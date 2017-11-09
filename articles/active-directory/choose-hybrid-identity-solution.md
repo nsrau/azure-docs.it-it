@@ -14,10 +14,10 @@ ms.technology:
 ms.assetid: 
 ms.custom: it-pro
 ms.openlocfilehash: 5838e3276765f4f074bca2e3cae81b17edfa7c69
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Soluzioni ibride di gestione delle identità
 Le soluzioni ibride di gestione delle identità di [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) consentono di sincronizzare oggetti di directory locali con Azure AD gestendo al contempo gli utenti in locale. La prima decisione da adottare quando si intende sincronizzare Windows Server Active Directory in locale con Azure AD è se usare l'identità sincronizzata o l'identità federata. Le identità sincronizzate e, facoltativamente, gli hash delle password, consentono agli utenti di usare la stessa password per accedere alle risorse aziendali locali e basate su cloud. Per i requisiti di scenari più avanzati, ad esempio Single Sign-On (SSO) o l'autenticazione MFA locale, è necessario distribuire Active Directory Federation Services (ADFS) in identità federate. 

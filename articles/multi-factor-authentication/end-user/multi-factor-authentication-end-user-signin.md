@@ -16,14 +16,12 @@ ms.date: 04/02/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
+ms.openlocfilehash: f4e67815cfe03c775dae83d214aea4f2ac37fcdc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: d12115be61ca00dfb86dd822ccae9f9096fa796a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Esperienza di accesso con Azure Multi-Factor Authentication
 > [!NOTE]
 > Lo scopo di questo articolo è di illustrare un'esperienza di accesso tipico. Per informazioni sull’accesso o per la risoluzione dei problemi, vedere [Problemi con Multi-Factor Authentication di Azure](multi-factor-authentication-end-user-troubleshoot.md).
@@ -92,4 +90,3 @@ In caso di problemi di accesso con la verifica in due passaggi, è possibile ott
 Informazioni su come [Gestire le impostazioni della verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md).
 
 Altre informazioni sull'[introduzione all'app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per poter effettuare l'accesso tramite notifiche, invece che con messaggi e telefonate.
-

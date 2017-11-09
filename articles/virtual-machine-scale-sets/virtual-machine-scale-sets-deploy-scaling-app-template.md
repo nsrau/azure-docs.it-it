@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Distribuire un'app di scalabilità automatica usando un modello
 
 I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa esercitazione spiega come [distribuire un semplice set di scalabilità](virtual-machine-scale-sets-mvss-start.md) e descrive come distribuire una semplice applicazione di scalabilità automatica in un set di scalabilità usando un modello di Azure Resource Manager.  È anche possibile configurare la scalabilità automatica usando PowerShell, l'interfaccia della riga di comando o il portale. Per altre informazioni, vedere la [panoramica del ridimensionamento automatico](virtual-machine-scale-sets-autoscale-overview.md).
@@ -309,4 +307,3 @@ fi
 ## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

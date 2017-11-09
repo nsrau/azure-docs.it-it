@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
-ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple per Cloud Solutions Provider Program: domande frequenti
 
 
@@ -100,4 +98,3 @@ Per altre informazioni su StorSimple per CSP, visitare:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si è pronti a distribuire StorSimple, andare a [Distribuire StorSimple per CSP](storsimple-partner-csp-deploy.md).
-

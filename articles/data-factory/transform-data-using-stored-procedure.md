@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività stored procedure di SQL Server in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1 - Disponibilità generale](v1/data-factory-stored-proc-activity.md)
@@ -94,4 +91,3 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
 * [Attività stored procedure](transform-data-using-stored-procedure.md)
-

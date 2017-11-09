@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: eea563ccbceab0833fb5e5eaf75e3a4347ef1ea4
-ms.contentlocale: it-it
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 89d76c5d00f8a438cfec7fd1568d4735f0a65327
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
 Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
@@ -56,7 +55,7 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
   
     -   [Riprova](api-management-advanced-policies.md#Retry): riprova l'esecuzione delle istruzioni dei criteri, se e fino a quando non viene soddisfatta la condizione. L'esecuzione verrà ripetuta a specifici intervalli di tempo e per il numero di tentativi indicato.  
   
-    -   [Restituisci risposta](api-management-advanced-policies.md#ReturnResponse): l'esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante.  
+    -   [Restituisci risposta](api-management-advanced-policies.md#ReturnResponse) : l’esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante.  
   
     -   [Invia richiesta unidirezionale](api-management-advanced-policies.md#SendOneWayRequest) : invia una richiesta all'URL specificato senza attendere una risposta.  
   
@@ -66,7 +65,7 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
   
     -   [Imposta metodo di richiesta](api-management-advanced-policies.md#SetRequestMethod): consente di modificare il metodo HTTP per una richiesta.  
   
-    -   [Impostazione codice di stato](api-management-advanced-policies.md#SetStatus): modifica il codice di stato HTTP nel valore specificato.  
+    -   [Imposta codice di stato](api-management-advanced-policies.md#SetStatus): modifica il codice di stato HTTP per il valore specificato.  
   
     -   [Traccia](api-management-advanced-policies.md#Trace): aggiunge una stringa nell'output di [Controllo API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
   
@@ -116,10 +115,9 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
   
     -   [Imposta parametro di stringa della query](api-management-transformation-policies.md#SetQueryStringParameter) : aggiunge, sostituisce il valore di o elimina il parametro di stringa della query di richiesta.  
   
-    -   [Riscrivi URL](api-management-transformation-policies.md#RewriteURL): converte un URL di richiesta dal formato pubblico al formato previsto dal servizio Web.  
+    -   [rewrite-uri](api-management-transformation-policies.md#RewriteURL) : converte un URL di richiesta dal formato pubblico al formato previsto dal servizio Web.  
   
     -   [Trasforma XML usando una trasformazione XSLT](api-management-transformation-policies.md#XSLTransform): si applica una trasformazione da XSL a XML nel corpo della richiesta o della risposta.  
   
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
-

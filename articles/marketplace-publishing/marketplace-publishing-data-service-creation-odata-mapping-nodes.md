@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Informazioni sullo schema di nodi per il mapping di un servizio Web esistente a OData tramite CSDL
 > [!IMPORTANT]
@@ -57,7 +57,7 @@ I parametri possono comparire come parametri URI o come parte del percorso URI. 
 
 **Name**: il nome della funzione importata.  Non può corrispondere ad altri nomi definiti nel codice CSDL.  Esempio: Name="GetModelUsageFile"
 
-**EntitySet** *(facoltativo)*: se la funzione restituisce una raccolta di tipi di entità, il valore di **EntitySet** deve corrispondere al set di entità a cui la raccolta appartiene. In caso contrario, l'attributo **EntitySet** non deve essere utilizzato. *Esempio:* `EntitySet="GetUsageStatisticsEntitySet"`
+**EntitySet** *(facoltativo)*: se la funzione restituisce una raccolta di tipi di entità, il valore di **EntitySet** deve corrispondere al set di entità a cui la raccolta appartiene. In caso contrario, l'attributo **EntitySet** non deve essere utilizzato. *Esempio:*`EntitySet="GetUsageStatisticsEntitySet"`
 
 **ReturnType** *(facoltativo)* : specifica il tipo di elementi restituiti dall'URI.  Non utilizzare questo attributo se la funzione non restituisce un valore. Di seguito sono elencati i tipi supportati:
 
@@ -75,7 +75,7 @@ I parametri possono comparire come parametri URI o come parte del percorso URI. 
 * **PageSize:** il paging viene espresso tramite una pagina e una dimensione logiche (elementi per pagina). La pagina corrisponde alla pagina corrente restituita. Valore parametro: $page
 * **Size:** : rappresenta il numero di elementi restituiti per ciascuna pagina. Valore parametro: $size
 
-**d:AllowedHttpMethods** *(facoltativo)* : specifica quale verbo viene gestito dalla risorsa REST. Limita inoltre il verbo accettato al valore specificato.  Valore predefinito = POST.  *Esempio:* `d:AllowedHttpMethods="GET"` Le opzioni disponibili sono:
+**d:AllowedHttpMethods***(facoltativo)* : specifica quale verbo viene gestito dalla risorsa REST. Limita inoltre il verbo accettato al valore specificato.  Valore predefinito = POST.  *Esempio:* `d:AllowedHttpMethods="GET"` Le opzioni disponibili sono:
 
 * **GET:** utilizzato di solito per restituire dati
 * **POST:** utilizzato di solito per inserire nuovi dati
@@ -114,7 +114,7 @@ Ulteriori nodi figlio, non trattati dalla documentazione CSDL, all'interno del n
 * **d:HttpStatusCode** : codice di stato HTTP che deve essere restituito da Marketplace nel caso in cui la condizione corrisponda. Marketplace segnala gli errori all'utente tramite codici di stato HTTP. Un elenco dei codici di stato HTTP è disponibile all'indirizzo http://en.wikipedia.org/wiki/HTTP_status_code
 * **d:ErrorMessage** : il messaggio di errore restituito, con il codice di stato HTTP, all'utente finale. Deve trattarsi di un messaggio di errore descrittivo che non contiene segreti.
 
-**d:Title** *(facoltativo)* : consente di descrivere il titolo della funzione. Il valore per il titolo proviene:
+**d:Title***(facoltativo)* : consente di descrivere il titolo della funzione. Il valore per il titolo proviene:
 
 * Dall'attributo map facoltativo (xpath) che specifica dove trovare il titolo nella risposta restituita dalla richiesta di servizio.
 * In alternativa, dal titolo specificato come valore del nodo.
@@ -124,7 +124,7 @@ Ulteriori nodi figlio, non trattati dalla documentazione CSDL, all'interno del n
 * Dall'attributo map facoltativo (xpath) che specifica dove trovare i diritti nella risposta restituita dalla richiesta di servizio.
 * In alternativa, dai diritti specificati come valore del nodo.
 
-**d:Description** *(facoltativo)* : breve descrizione della funzione. Il valore per la descrizione proviene:
+**d:Description***(facoltativo)* : breve descrizione della funzione. Il valore per la descrizione proviene:
 
 * Dall'attributo map facoltativo (xpath) che specifica dove trovare la descrizione nella risposta restituita dalla richiesta di servizio.
 * In alternativa, dalla descrizione specificata come valore del nodo.
@@ -154,7 +154,7 @@ Una pagina dettagliata molto utile sul nodo "Elemento Parameter" è disponibile 
 
 | Attributo | Obbligatorio | Valore |
 | --- | --- | --- |
-| Name |Sì |Nome del parametro. Fa distinzione tra maiuscole e minuscole.  Seguire maiuscole e minuscole di BaseUri. **Esempio:** `<Property Name="IsDormant" Type="Byte" />` |
+| Name |Sì |Nome del parametro. Fa distinzione tra maiuscole e minuscole.  Seguire maiuscole e minuscole di BaseUri. **Esempio:**`<Property Name="IsDormant" Type="Byte" />` |
 | Tipo |Sì |Tipo di parametro. Il valore deve essere di tipo **EDMSimpleType** o di un tipo complesso compreso nell'ambito del modello. Per ulteriori informazioni, vedere "6 Tipi di parametri e proprietà supportati".  Fa distinzione tra maiuscole e minuscole. Il primo carattere è maiuscolo, gli altri sono minuscoli.  Vedere anche [Tipi del modello concettuale][CollegamentoParametroMSDN](http://msdn.microsoft.com/library/bb399548.aspx). **Esempio:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode |No |**In**, Out o InOut, a seconda che il parametro sia un parametro di input, di output o di input/output. In Azure Marketplace è disponibile solo "In". **Esempio:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength |No |Lunghezza massima consentita per il parametro. **Esempio:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
@@ -165,9 +165,9 @@ Di seguito sono riportati gli attributi che sono stati aggiunti alla specifica C
 
 | Attributo | Descrizione |
 | --- | --- |
-| **d:Regex** *(facoltativo)* |Istruzione regex utilizzata per convalidare il valore di input per il parametro. Se il valore di input non corrisponde all'istruzione il valore viene rifiutato. Questo attributo consente inoltre di specificare un set di valori possibili, ad esempio ^[0-9]+?$ per consentire solo numeri. **Esempio:** "<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="Nome senza spazi né caratteri non appartenenti all'alfabeto inglese" d:SampleValues="George |
-| **d:Enum** *(facoltativo)* |Elenco di valori validi per il parametro, separati da una barra verticale. Il tipo dei valori deve corrispondere al tipo definito per il parametro. Esempio: "english |
-| **d: Nullable** *(facoltativo)* |Consente di definire se un parametro può essere null. Il valore predefinito è true. I parametri che vengono esposti come parte del percorso nel modello URI, tuttavia, non possono essere null. Se l'attributo è impostato su false per questi parametri, l'input dell'utente viene ignorato. **Esempio:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
+| **d:Regex** *(facoltativo)* |Istruzione regex utilizzata per convalidare il valore di input per il parametro. Se il valore di input non corrisponde all'istruzione il valore viene rifiutato. Questo attributo consente inoltre di specificare un set di valori possibili, ad esempio ^[0-9]+?$ per consentire solo numeri. **Esempio:** "&lt;Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="Nome senza spazi né caratteri non appartenenti all'alfabeto inglese" d:SampleValues="George |
+| **d:Enum***(facoltativo)* |Elenco di valori validi per il parametro, separati da una barra verticale. Il tipo dei valori deve corrispondere al tipo definito per il parametro. Esempio: "english |
+| **d: Nullable***(facoltativo)* |Consente di definire se un parametro può essere null. Il valore predefinito è true. I parametri che vengono esposti come parte del percorso nel modello URI, tuttavia, non possono essere null. Se l'attributo è impostato su false per questi parametri, l'input dell'utente viene ignorato. **Esempio:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
 | **d:SampleValue** *(facoltativo)* |Valore di esempio da visualizzare come nota nell'interfaccia utente del client.  È possibile aggiungere più valori separati da una barra verticale, ad esempio "a |
 
 ## <a name="entitytype-node"></a>Nodo EntityType
@@ -177,8 +177,8 @@ Per informazioni dettagliate su questo nodo, vedere [qui](http://msdn.microsoft.
 
 | Nome attributo | Obbligatorio | Valore |
 | --- | --- | --- |
-| Name |Sì |Nome del tipo di entità. **Esempio:** `<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
-| BaseType |No |Nome di un altro tipo di entità, che rappresenta il tipo di base del tipo di entità in corso di definizione. **Esempio:** `<EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord">` |
+| Name |Sì |Nome del tipo di entità. **Esempio:**`<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
+| BaseType |No |Nome di un altro tipo di entità, che rappresenta il tipo di base del tipo di entità in corso di definizione. **Esempio:**`<EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord">` |
 
 Di seguito sono riportati gli attributi che sono stati aggiunti alla specifica CSDL:
 

@@ -9,18 +9,17 @@ documentationcenter:
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
+ms.openlocfilehash: fd21c9b5e573ac6a47fef88c2a9d31c52618ecb8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2b3f9f226039759a68e28b9392d30256f308c8d3
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usare il portale di Azure per creare avvisi per il database SQL di Azure e il data warehouse
 
@@ -126,4 +125,3 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Leggere una [panoramica dei log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e sulla raccolta di metriche dettagliate e ad alta frequenza sul servizio.
 * Leggere una [panoramica della raccolta di metriche](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
-

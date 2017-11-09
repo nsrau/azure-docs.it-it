@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
+ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Introduzione alla rete CDN di Azure
-Questo argomento descrive in dettaglio l'abilitazione della rete CDN di Azure creando un nuovo profilo di rete CDN e un endpoint.
+Questo articolo illustra come abilitare la rete per la distribuzione di contenuti di Azure creando un nuovo profilo e un nuovo endpoint della rete CDN.
 
 > [!IMPORTANT]
-> Per un'introduzione al funzionamento della rete CDN e per un elenco delle funzionalità, vedere [Panoramica della rete CDN](cdn-overview.md).
+> Per un'introduzione alla rete CDN e un elenco delle funzionalità, vedere la [panoramica della rete CDN](cdn-overview.md).
 > 
 > 
 
@@ -65,7 +64,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
 4. Nell'elenco a discesa **Tipo origine** selezionare il tipo di origine.  Selezionare **Archiviazione** per un account di archiviazione di Azure, **Servizio Cloud** per un servizio cloud di Azure, **App Web** per un'app Web di Azure oppure **Origine personalizzata** per qualsiasi altra origine di server Web accessibile pubblicamente, ospitata in Azure o altrove.
    
     ![Tipo di origine della rete CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. Nell'elenco a discesa **Nome host origine** selezionare o digitare il dominio di origine.  Nell'elenco a discesa compaiono tutte le origini disponibili del tipo specificato nel passaggio 4.  Se è stato selezionato l’elemento *Origine personalizzata* come **Tipo di origine**, si digiterà nel dominio di origine personalizzato.
+5. Nell'elenco a discesa **Nome host origine** selezionare o digitare il dominio di origine.  Nell'elenco a discesa compaiono tutte le origini disponibili del tipo specificato nel passaggio 4.  Se come **Tipo origine** è stata selezionata l'opzione *Origine personalizzata*, immettere il dominio dell'origine personalizzata.
 6. Nella casella di testo **Percorso origine** inserire il percorso per le risorse che si desidera memorizzare nella cache oppure lasciare vuoto per consentire la memorizzazione nella cache di qualsiasi risorsa nel dominio specificato nel passaggio 5.
 7. Nell’ **Intestazione dell’host di origine**, inserire l'intestazione dell’host che si desidera che la rete CDN invii con ogni richiesta di immettere, o lasciare il valore predefinito.
    
@@ -73,7 +72,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
    > Per alcuni tipi di origini, ad esempio Archiviazione di Azure e App Web, è necessario che l'intestazione host corrisponda al dominio dell'origine. A meno che non si abbia un'origine che richiede un'intestazione host diversa dal dominio, è consigliabile lasciare il valore predefinito.
    > 
    > 
-8. Per **Protocollo** e **Porta dell'origine** specificare i protocolli e le porte usate per accedere alle risorse in corrispondenza dell'origine.  È necessario selezionare almeno un protocollo (HTTP o HTTPS).
+8. Per **Protocollo** e **Porta dell'origine** specificare i protocolli e le porte usate per accedere alle risorse in corrispondenza dell'origine. È necessario selezionare almeno un protocollo (HTTP o HTTPS). Usare il dominio fornito dalla rete CDN, `<endpointname>.azureedge.net`, per accedere al contenuto HTTPS. 
    
    > [!NOTE]
    > **Porta dell'origine** interessa solo la porta usata dall'endpoint per recuperare informazioni dall'origine.  L'endpoint stesso è disponibile solo per i client finali sulle porte HTTP e HTTPS (80 e 443), indipendentemente dalla **porta dell'origine**.  
@@ -83,20 +82,18 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
    > L'accesso al contenuto della rete CDN tramite HTTPS presenta i vincoli seguenti:
    > 
    > * È necessario usare il certificato SSL fornito dalla rete CDN. I certificati di terze parti non sono supportati.
-   > * Il supporto di HTTPS per i domini personalizzati della rete CDN di Azure è disponibile solo con i prodotti **rete CDN di Azure fornita da Verizon** (Standard e Premium). Non è supportata nella **rete CDN di Azure fornita da Akamai**. Per altre informazioni, vedere [Abilitare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md).
-
-Usare il dominio fornito dalla rete CDN, `<endpointname>.azureedge.net`, per accedere al contenuto HTTPS. Il supporto HTTPS non è disponibile per i nomi di dominio personalizzati (CNAME) perché la rete CDN attualmente non supporta i certificati personalizzati.
-   > 
-   > 
+   > * Il supporto di HTTPS per i domini personalizzati della rete CDN di Azure è disponibile solo con i prodotti **rete CDN di Azure fornita da Verizon** (Standard e Premium). Non è disponibile nei prodotti della **rete CDN di Azure fornita da Akamai**. Per altre informazioni, vedere [Abilitare o disabilitare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md).
+  
 9. Per creare il nuovo endpoint, fare clic sul pulsante **Aggiungi** .
-10. Dopo la creazione, l'endpoint sarà visualizzato in un elenco di endpoint per il profilo. Nella visualizzazione elenco sono mostrati gli URL da usare per accedere a contenuti memorizzati nella cache, oltre al dominio di origine.
+   
+   Dopo la creazione, l'endpoint verrà visualizzato nell'elenco di endpoint per il profilo.
     
-    ![Endpoint della rete CDN][cdn-endpoint-success]
+   ![Endpoint della rete CDN][cdn-endpoint-success]
     
-    > [!IMPORTANT]
-    > L'endpoint non sarà disponibile immediatamente per l'uso, perché la propagazione della registrazione nella rete CDN richiede tempo.  Per <b>Rete CDN di Azure da Akamai</b> la propagazione in genere viene completata entro un minuto.  Per i profili della <b>rete CDN di Azure fornita da Verizon</b>, la propagazione in genere viene completata entro 90 minuti, ma in alcuni casi può richiedere più tempo.
+   > [!IMPORTANT]
+   > Dato che la propagazione della registrazione richiede tempo, l'endpoint non sarà disponibile immediatamente per l'uso.  La propagazione dei profili della <b>rete CDN di Azure fornita da Akamai</b> di solito dura meno di un minuto. Per i profili della <b>rete CDN di Azure fornita da Verizon</b>, la propagazione viene in genere completata entro 90 minuti, ma in alcuni casi può richiedere più tempo.
     > 
-    > Gli utenti che provano a usare il nome di dominio della rete CDN prima che la configurazione dell'endpoint sia stata propagata ai POP riceveranno codici di risposta HTTP 404.  Se sono trascorse diverse ore da quando è stato creato l'endpoint e si ricevono ancora risposte 404, vedere l'articolo relativo alla [risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404](cdn-troubleshoot-endpoint.md).
+    > Gli utenti che provano a usare il nome di dominio della rete CDN prima che la configurazione dell'endpoint sia stata propagata ai POP possono ricevere codici di risposta HTTP 404.  Se sono trascorse diverse ore da quando è stato creato l'endpoint e si ricevono ancora risposte 404, vedere [Risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404](cdn-troubleshoot-endpoint.md).
     > 
     > 
 
@@ -111,4 +108,3 @@ Usare il dominio fornito dalla rete CDN, `<endpointname>.azureedge.net`, per acc
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
-

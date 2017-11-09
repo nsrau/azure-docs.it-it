@@ -11,18 +11,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 2e3fdf06316bbf68abefe06024f63668bdf07b05
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse
 
-Questo articolo illustra come gestire le soluzioni con l'interfaccia della riga di comando di Azure e Azure Resource Manager. Se non si ha familiarità con Resource Manager, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md). Questo argomento è incentrato sulle attività di gestione. Si apprenderà come:
+Questo articolo illustra come gestire le soluzioni con l'interfaccia della riga di comando di Azure e Azure Resource Manager. Se non si ha familiarità con Resource Manager, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md). Questo articolo è incentrato sulle attività di gestione. Si apprenderà come:
 
 1. Creare un gruppo di risorse
 2. Aggiungere una risorsa al gruppo di risorse
@@ -79,6 +78,7 @@ az account show
 ```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
+
 Prima di distribuire risorse nella sottoscrizione, è necessario creare un gruppo di risorse che conterrà le risorse.
 
 Per creare un gruppo di risorse, usare il comando **az group create**. Il comando usa il parametro **name** per specificare un nome per il gruppo di risorse e il parametro **location** per specificarne la posizione.
@@ -115,6 +115,7 @@ az group list
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>Aggiungere risorse a un gruppo di risorse
+
 Per aggiungere una risorsa al gruppo di risorse, è possibile usare il comando **az resource create** oppure un comando specifico del tipo di risorsa che viene creato, ad esempio **az storage account create**. Usare un comando specifico di un tipo di risorsa può risultare più semplice perché può includere i parametri per le proprietà necessarie per la nuova risorsa. Per usare **az resource create**, è necessario conoscere tutte le proprietà da impostare senza che vengano richieste.
 
 Aggiungere una risorsa tramite gli script, tuttavia, potrebbe causare confusione in futuro perché la nuova risorsa non è inclusa in un modello di Azure Resource Manager. I modelli consentono di distribuire la soluzione in modo affidabile e ripetutamente.
@@ -133,7 +134,7 @@ az storage account show --name myuniquestorage --resource-group TestRG1
 
 ## <a name="add-a-tag"></a>Aggiungere un tag
 
-I tag consentono di organizzare le risorse in base a diverse proprietà. È ad esempio possibile che diverse risorse in diversi gruppi di risorse appartengano allo stesso reparto. È possibile applicare un tag e un valore di reparto a tali risorse per contrassegnarle come appartenenti alla stessa categoria oppure indicare se una risorsa viene usata in un ambiente di produzione o di testing. In questo argomento si applicano tag a una sola risorsa, ma nell'ambiente in uso è probabilmente opportuno applicare tag a tutte le risorse.
+I tag consentono di organizzare le risorse in base a diverse proprietà. È ad esempio possibile che diverse risorse in diversi gruppi di risorse appartengano allo stesso reparto. È possibile applicare un tag e un valore di reparto a tali risorse per contrassegnarle come appartenenti alla stessa categoria oppure indicare se una risorsa viene usata in un ambiente di produzione o di testing. In questo articolo si applicano tag a una sola risorsa, ma nell'ambiente in uso è probabilmente opportuno applicare tag a tutte le risorse.
 
 Il comando seguente applica due tag all'account di archiviazione:
 
@@ -176,6 +177,14 @@ Per recuperare le risorse in base a diverse condizioni di ricerca, usare il coma
   ```azurecli-interactive
   az resource list --resource-type "Microsoft.Storage/storageAccounts"
   ```
+
+## <a name="get-resource-id"></a>Ottenere l'ID risorsa
+
+Molti comandi accettano un ID di risorsa come parametro. Per ottenere l'ID per una risorsa e per archiviarlo in una variabile usare:
+
+```azurecli-interactive
+webappID=$(az resource show -g exampleGroup -n exampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+```
 
 ## <a name="lock-a-resource"></a>Bloccare una risorsa
 

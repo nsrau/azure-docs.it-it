@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: fec85bcf1ce46374815fddcd21ab2e8f73cbd1df
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Errori ed eccezioni comuni quando si usano le API FabricClient
 Le API [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) consentono agli amministratori di cluster e applicazioni di eseguire attività amministrative su applicazioni, servizi o cluster di Service Fabric. Ad esempio, la distribuzione, l'aggiornamento e la rimozione di applicazioni, il controllo dell'integrità di un cluster o il test di un servizio. Gli sviluppatori di applicazioni e gli amministratori di cluster possono usare le API FabricClient per sviluppare strumenti per la gestione del cluster e delle applicazioni Service Fabric.
@@ -48,5 +47,4 @@ Alcuni errori [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fab
 | InvalidX509Store |Non è possibile aprire l'archivio certificati X509. |
 | InvalidSubjectName |Il nome soggetto non è valido. |
 | InvalidAllowedCommonNameList |Il formato della stringa dell'elenco nomi comuni non è valido. Deve essere un elenco delimitato da virgole. |
-
 

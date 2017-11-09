@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Domande frequenti per i database MySQL ClearDB con il Servizio app di Azure
 Queste domande frequenti offrono risposte a domande comuni sull'uso e l'acquisto di database MySQL ClearDB per App Web di Azure.
@@ -108,5 +107,4 @@ Contattare il [supporto per contratti Enterprise](http://aka.ms/AzureEntSupport)
 
 ## <a name="more-information"></a>Altre informazioni
 [Domande frequenti su Azure Marketplace](/marketplace/faq/)
-
 

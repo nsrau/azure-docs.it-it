@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: bb3e283e8a9327a9c66c8d8ded037cee5195ffc6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute
 ## <a name="overview"></a>Panoramica
 I clienti possono connettere un circuito [Azure ExpressRoute][ExpressRoute] all'infrastruttura di rete virtuale per estendere la rete locale ad Azure.  Un ambiente del servizio app può essere creato in una subnet di questa infrastruttura di [rete virtuale][virtualnetwork].  Le app in esecuzione nell'ambiente del servizio app possono quindi stabilire connessioni sicure a risorse back-end accessibili solo tramite la connessione ExpressRoute.  
 
-Un ambiente del servizio app può essere creato in una rete virtuale di Azure Resource Manager ******o** in una rete virtuale del modello di distribuzione classica.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati. 
+Un ambiente del servizio app può essere creato **o** in una rete virtuale di Azure Resource Manager **o** in una rete virtuale del modello di distribuzione classica.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati. 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -136,4 +135,3 @@ Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'amb
 
 
 <!-- IMAGES -->
-

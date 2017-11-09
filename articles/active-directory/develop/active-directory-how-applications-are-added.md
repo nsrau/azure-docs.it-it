@@ -16,10 +16,10 @@ ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 Uno degli aspetti più sconcertanti quando si visualizza un elenco di applicazioni nell'istanza di Azure Active Directory sta nel comprendere da dove provengono le applicazioni e perché si trovano nella directory.  Questo articolo fornisce una panoramica generale del modo in cui le applicazioni sono rappresentate nella directory, oltre alle informazioni necessarie per comprendere perché un'applicazione è stata inclusa nella directory.
@@ -121,7 +121,7 @@ Anche se questo può inizialmente destare qualche preoccupazione, tenere present
 * Le app che usano Azure AD per l'autenticazione oAuth stabiliscono quali sono le autorizzazioni che gli utenti possono concedere alle applicazioni e quali autorizzazioni richiedono il consenso da parte dell'amministratore.  Non è necessario ricordare che solo gli amministratori possono dare il consenso per ambiti più ampi e autorizzazioni più significative.
 * Gli utenti che aggiungono app e consentono loro di accedere ai propri dati sono eventi controllati, pertanto è possibile visualizzare i report di controllo nel portale di gestione di Azure per determinare il modo in cui un'app è stata aggiunta alla directory.
 
-**Nota:** *la stessa Microsoft ha usato la configurazione predefinita nel corso degli ultimi mesi.*
+**Nota:***la stessa Microsoft ha usato la configurazione predefinita nel corso degli ultimi mesi.*
 
 È comunque possibile impedire agli utenti della directory aggiungere applicazioni e prendere decisioni in merito alle informazioni da condividere con le applicazioni modificando la configurazione della directory nel portale di gestione di Azure.  Per accedere alla configurazione seguente, passare al portale di gestione di Azure, quindi selezionare la scheda "Configura" della propria directory.
 

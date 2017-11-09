@@ -8,14 +8,12 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ottimizzazione distribuita di iperparametri con Azure Machine Learning Workbench
 
 Questo scenario mostra come usare Azure Machine Learning Workbench per scalare orizzontalmente l'ottimizzazione degli iperparametri di algoritmi di apprendimento automatico che implementano l'API scikit-learn. Viene illustrato come configurare e usare un contenitore Docker remoto e un cluster Spark come back-end di esecuzione per l'ottimizzazione degli iperparametri.
@@ -52,7 +50,7 @@ Viene usato il [set di dati TalkingData](https://www.kaggle.com/c/talkingdata-mo
 ## <a name="scenario-structure"></a>Struttura dello scenario
 Questo scenario ha più cartelle nel repository GitHub. I file di codice e configurazione si trovano nella cartella **Code**, tutta la documentazione si trova nella cartella **Docs** e tutte le immagini si trovano nella cartella **Images**. La cartella radice include un file leggimi che contiene un breve riepilogo dello scenario.
 
-### <a name="getting-started"></a>Introduzione
+### <a name="getting-started"></a>introduttiva
 Fare clic sull'icona di Azure Machine Learning Workbench per eseguire la soluzione e creare un progetto dal modello "Distributed Tuning of Hyperparameters" (Ottimizzazione distribuita di iperparametri). È possibile trovare istruzioni dettagliate su come creare un nuovo progetto nella [guida introduttiva all'installazione e alla creazione](quickstart-installation.md).   
 
 ### <a name="configuration-of-execution-environments"></a>Configurazione degli ambienti di esecuzione
@@ -312,7 +310,6 @@ In questo scenario è stato illustrato come usare Azure Machine Learning Workben
 ## <a name="references"></a>Riferimenti
 
 [1] T. Chen and C. Guestrin. [XGBoost: A Scalable Tree Boosting System](https://arxiv.org/abs/1603.02754) (XGBoost: Sistema scalabile di potenziamento degli alberi). KDD 2016.
-
 
 
 

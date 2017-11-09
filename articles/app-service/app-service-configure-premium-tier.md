@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurare il livello PremiumV2 per il servizio app di Azure
 
 Il nuovo piano tariffario **PremiumV2** offre [macchine virtuali serie Dv2](../virtual-machines/windows/sizes-general.md#dv2-series) con processori più veloci, archiviazione SSD e un rapporto memoria/core doppio rispetto al livello **Standard**. Questo articolo illustra come creare un'app nel livello **PremiumV2** o passare un'app al livello **PremiumV2**.

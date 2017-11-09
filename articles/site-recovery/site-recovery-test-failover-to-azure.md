@@ -12,74 +12,67 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 54f62af6abcdd38254fd5379b95baa05656dc90b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 9902af83125f596f6dd5a1a6c955d00e9b5a87bc
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Failover di test in Azure in Site Recovery
 
 
 
-Questo articolo contiene informazioni e istruzioni per eseguire un failover di test o un'esercitazione sul ripristino di emergenza di macchine virtuali e server fisici protetti con Site Recovery, usando Azure come sito di ripristino.
+In questo articolo viene illustrato come eseguire un'analisi di ripristino di emergenza in Azure tramite un failover di test di Site Recovery.  
 
-Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-Il failover di test viene eseguito per convalidare la strategia di replica o eseguire un'esercitazione sul ripristino di emergenza senza perdita di dati o tempi di inattività. Un failover di test non ha alcun impatto sulla replica in corso o sull'ambiente di produzione. Il failover di test può essere eseguito su una macchina virtuale o un [piano di ripristino](site-recovery-create-recovery-plans.md). Quando si attiva un failover di test, è necessario specificare la rete a cui si connetteranno le macchine virtuali di test. Dopo aver attivato un failover di test, è possibile tenere traccia dello stato di avanzamento nella pagina **Processi**.  
-
-
-## <a name="supported-scenarios"></a>Scenari supportati
-Il failover di test è supportato in tutti gli scenari di distribuzione tranne la [distribuzione legacy da sito VMware in Azure](site-recovery-vmware-to-azure-classic-legacy.md). Il failover di test, inoltre, non è supportato quando la macchina virtuale è stata sottoposta a failover in Azure.  
+Il failover di test viene eseguito per convalidare la strategia di replica e di ripristino di emergenza senza perdita di dati o tempi di inattività. Un failover di test non ha alcun impatto sulla replica in corso o sull'ambiente di produzione. È possibile eseguire un failover di test su una macchina virtuale (VM) specifica o all'interno di un [piano di ripristino](site-recovery-create-recovery-plans.md) che contiene più VM. 
 
 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test
-Questa procedura descrive come eseguire un failover di test per un piano di ripristino. In alternativa, è anche possibile eseguire il failover di test per un singolo computer usando l'opzione appropriata su di esso.
+Questa procedura descrive come eseguire un failover di test per un piano di ripristino. 
 
 ![Failover di test](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
-1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover di test**.
-1. Selezionare un **punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
-    1.  **Punto di ripristino elaborato più recente**: con questa opzione viene eseguito il failover di tutte le macchine virtuali del piano di ripristino nell'ultimo punto di ripristino elaborato dal servizio Site Recovery. Quando si esegue il failover di test di una macchina virtuale, viene visualizzato anche il timestamp del punto di ripristino elaborato più recente. Se si esegue il failover di un piano di ripristino, per ottenere tali informazioni è possibile passare alla singola macchina virtuale ed esaminare il riquadro **Latest Recovery Points** (Punti di ripristino più recenti). Dato che non viene impiegato tempo per elaborare dati non elaborati, questa opzione offre un failover con valore RTO (Recovery Time Objective) basso.
-    1.  **Punto di ripristino più recente coerente con l'applicazione**: con questa opzione viene eseguito il failover di tutte le macchine virtuali del piano di ripristino nell'ultimo punto di ripristino coerente con l'applicazione elaborato dal servizio Site Recovery. Quando si esegue il failover di test di una macchina virtuale, viene visualizzato anche il timestamp del punto di ripristino coerente con l'app più recente. Se si esegue il failover di un piano di ripristino, per ottenere tali informazioni è possibile passare alla singola macchina virtuale ed esaminare il riquadro **Latest Recovery Points** (Punti di ripristino più recenti).
-    1.  **Più recente**: con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni macchina virtuale e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso, perché la macchina virtuale creata dopo il failover avrà tutti i dati che sono stati replicati nel servizio Site Recovery all'attivazione del failover.
-    1.  **Latest multi-VM processed** (Più recente coerente tra più VM elaborato): questa opzione è disponibile solo per i piani di ripristino con almeno una macchina virtuale in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di recupero coerente tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di recupero più recente elaborato.  
-    1.  **Latest multi-VM app-consistent** (Più recente coerente con l'applicazione tra più VM): questa opzione è disponibile solo per i piani di ripristino con almeno una macchina virtuale in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di recupero coerente a livello applicazione tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di recupero più recente coerente con l'applicazione. 
-    1.  **Personalizzato**: in caso di failover di test di una macchina virtuale, è possibile usare questa opzione per eseguire il failover in un determinato punto di ripristino.
-1. Selezionare una **rete virtuale di Azure**: specificare una rete virtuale di Azure in cui verranno create le macchine virtuali di test. Site Recovery tenta di creare le macchine virtuali di test in una subnet con lo stesso nome e con lo stesso IP specificati nelle impostazioni **Calcolo e rete** della macchina virtuale. Se nella rete virtuale di Azure specificata per il failover di test non è disponibile una subnet con lo stesso nome, la macchina virtuale di test verrà creata nella prima subnet in ordine alfabetico. Se nella subnet non è disponibile lo stesso IP, la macchina virtuale ottiene un altro indirizzo IP disponibile nella subnet. Per altri dettagli, vedere [questa sezione](#creating-a-network-for-test-failover).
-1. Se si esegue il failover in Azure ed è abilitata la crittografia dei dati, in **Chiave di crittografia** selezionare il certificato rilasciato quando è stata abilitata la crittografia dei dati durante l'installazione del provider. Se nella macchina virtuale non è stata abilitata la crittografia, è possibile ignorare questo passaggio.
-1. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi** . Nel portale di Azure dovrebbe anche essere possibile vedere la macchina di replica di test.
-1. Per avviare una connessione RDP nella macchina virtuale, è necessario [aggiungere un indirizzo IP pubblico](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) nell'interfaccia di rete della macchina virtuale sottoposta a failover. In caso di failover in una macchina virtuale della versione classica, è necessario [aggiungere un endpoint](../virtual-machines/windows/classic/setup-endpoints.md) sulla porta 3389.
-1. Al termine, fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test. Verranno eliminate le macchine virtuali create durante il failover di test.
+1. Nel portale di Azure, in Site Recovery fare clic su **Piani di ripristino** > *recoveryplan_name* > **Failover di test**.
+2. Selezionare un **Punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
+    - **Elaborato più recente**: questa opzione consente di eseguire il failover di tutte le macchine virtuali del piano nel punto di ripristino più recente elaborato da Site Recovery. Per vedere il punto di ripristino più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
+    - **Coerente con l'app più recente**: questa opzione esegue il failover di tutte le macchine virtuali del piano nel punto di ripristino coerente con l'app più recente elaborato da Site Recovery. Per vedere il punto di ripristino più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale. 
+    - **Più recente**: con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni VM e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale creata dopo il failover conterrà tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
+    - **Elaborato più recente tra più macchine virtuali**: questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali in cui è abilitata l'impostazione eseguono il failover nel punto di ripristino coerente tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente elaborato.  
+    - **Coerente con l'app più recente tra più macchine virtuali**: questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di ripristino coerente a livello applicazione tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente coerente con l'applicazione. 
+    - **Personalizzato**: questa opzione consente di eseguire il failover di una macchina virtuale specifica in un determinato punto di ripristino.
+3. Selezionare una rete virtuale di Azure in cui verranno create le macchine virtuali di test.
 
+    - Site Recovery tenta di creare le macchine virtuali di test in una subnet con lo stesso nome e con lo stesso indirizzo IP specificati nelle impostazioni **Calcolo e rete** della macchina virtuale.
+    - Se nella rete virtuale di Azure specificata per il failover di test non è disponibile una subnet con lo stesso nome, la macchina virtuale di test verrà creata nella prima subnet in ordine alfabetico.
+    - Se nella subnet non è disponibile lo stesso indirizzo IP, la macchina virtuale ottiene un altro indirizzo IP disponibile nella subnet. [Altre informazioni](#creating-a-network-for-test-failover)
+4. Se si esegue il failover in Azure ed è abilitata la crittografia dei dati, in **Chiave di crittografia** selezionare il certificato rilasciato quando è stata abilitata la crittografia durante l'installazione del provider. Se la crittografia non è stata abilitata, è possibile ignorare questo passaggio.
+5. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi** . Nel portale di Azure dovrebbe anche essere possibile vedere la macchina di replica di test.
+6. Per avviare una connessione RDP nella macchina virtuale di Azure, è necessario [aggiungere un indirizzo IP pubblico](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) nell'interfaccia di rete della macchina virtuale sottoposta a failover. 
+7. Quando tutto funziona come previsto, fare clic su **Pulisci failover di test**. Verranno eliminate le VM create durante il failover di test.
+8. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test. 
 
-> [!TIP]
-> Site Recovery tenta di creare le macchine virtuali di test in una subnet con lo stesso nome e con lo stesso IP specificati nelle impostazioni **Calcolo e rete** della macchina virtuale. Se nella rete virtuale di Azure specificata per il failover di test non è disponibile una subnet con lo stesso nome, la macchina virtuale di test verrà creata nella prima subnet in ordine alfabetico. Se l'indirizzo IP di destinazione fa parte della subnet scelta, Site Recovery tenta di creare la macchina virtuale per il failover di test usando l'indirizzo IP di destinazione. Se l'indirizzo IP di destinazione non fa parte della subnet scelta, la macchina virtuale del failover di test viene creata usando qualsiasi indirizzo IP disponibile nella subnet scelta.
->
->
-
-## <a name="test-failover-job"></a>Processo di failover di test
 
 ![Failover di test](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
-L'attivazione di un failover di test comporta l'esecuzione dei passaggi riportati di seguito.
+L'attivazione di un failover di test comporta l'esecuzione dei passaggi seguenti:
 
-1. Verifica preliminare: questo passaggio garantisce che siano soddisfatte tutte le condizioni necessarie per il failover.
-1. Failover: questo passaggio elabora i dati preparandoli in modo che possano essere usati per creare una macchina virtuale di Azure. Se si è scelto il punto di ripristino **Più recente**, viene creato un punto di ripristino dai dati che sono stati inviati al servizio.
-1. Avvio: questo passaggio crea una macchina virtuale di Azure usando i dati elaborati nel passaggio precedente.
+1. **Prerequisiti**: viene eseguito un controllo dei prerequisiti per verificare che tutte le condizioni necessarie per il failover siano in atto.
+2. **Failover**: il failover elabora e prepara i dati in modo che sia possibile creare una macchina virtuale di Azure.
+3. **Più recente**: se si è scelto il punto di ripristino più recente, viene creato un punto di ripristino dai dati che sono stati inviati al servizio.
+4. **Avvio**: questo passaggio crea una macchina virtuale di Azure usando i dati elaborati nel passaggio precedente.
 
-## <a name="time-taken-for-failover"></a>Tempo impiegato per il failover
+### <a name="failover-timing"></a>Intervallo di failover
 
-Il failover di macchine virtuali richiede in alcuni casi un passaggio aggiuntivo intermedio che in genere viene completato in circa 8-10 minuti. Questi casi sono i seguenti:
+Negli scenari seguenti, il failover richiede un passaggio aggiuntivo intermedio che in genere viene completato in circa 8-10 minuti:
 
 * Macchine virtuali VMware che usano una versione del servizio Mobility precedente alla 9.8
 * Server fisici
-* Macchine virtuali VMware Linux
+* Macchine virtuali Linux VMware
 * Macchine virtuali Hyper-V protette come server fisici
-* Macchine virtuali VMware in cui i driver seguenti non sono presenti come driver di avvio
+* Macchine virtuali VMware in cui i driver seguenti non sono driver di avvio:
     * storvsc
     * vmbus
     * storflt
@@ -90,38 +83,41 @@ Il failover di macchine virtuali richiede in alcuni casi un passaggio aggiuntivo
 In tutti gli altri casi questo passaggio intermedio non è necessario e il tempo impiegato per il failover è notevolmente inferiore.
 
 
-## <a name="creating-a-network-for-test-failover"></a>Creazione di una rete per il failover di test
-Durante un failover di test, è consigliabile scegliere una rete isolata dalla rete del sito di ripristino di produzione specificata nelle impostazioni **Calcolo e rete** della macchina virtuale. Quando si crea una rete virtuale di Azure, per impostazione predefinita è isolata dalle altre reti. La rete dovrà simulare la rete di produzione:
+## <a name="create-a-network-for-test-failover"></a>Creare una rete per il failover di test
 
-1. La rete di test dovrà avere lo stesso numero di subnet della rete di produzione, con lo stesso nome delle subnet nella rete di produzione.
-1. La rete di test dovrà usare lo stesso intervallo IP della rete di produzione.
-1. Aggiornare il DNS della rete di test con l'IP specificato come IP di destinazione per la macchina virtuale DNS nelle impostazioni **Calcolo e rete**. Per altri dettagli, vedere la sezione [Considerazioni sul failover di test per Active Directory](site-recovery-active-directory.md#test-failover-considerations) .
+Durante un failover di test, è consigliabile scegliere una rete isolata dalla rete del sito di ripristino di produzione specificata nelle impostazioni **Calcolo e rete** di ogni macchina virtuale. Quando si crea una rete virtuale di Azure, per impostazione predefinita è isolata dalle altre reti. La rete di test dovrà simulare la rete di produzione:
+
+- La rete di test dovrà avere lo stesso numero di subnet della rete di produzione. Le subnet dovranno avere lo stesso nome.
+- La rete di test dovrà usare lo stesso intervallo di indirizzi IP.
+- Aggiornare il DNS della rete di test con l'indirizzo IP specificato per la macchina virtuale DNS nelle impostazioni **Calcolo e rete**. Per altri dettagli, vedere [Considerazioni sul failover di test per Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
 
-## <a name="test-failover-to-a-production-network-on-recovery-site"></a>Failover di test in una rete di produzione nel sito di ripristino
-Durante un failover di test, è consigliabile scegliere una rete diversa rispetto alla rete del sito di ripristino di produzione specificata nelle impostazioni **Calcolo e rete** della macchina virtuale. Se tuttavia si vuole comunque convalidare la connettività di rete end-to-end in una macchina virtuale sottoposta a failover, tenere presente quanto segue:
+## <a name="test-failover-to-a-production-network-in-the-recovery-site"></a>Failover di test in una rete di produzione nel sito di ripristino
 
-1. Verificare che la macchina virtuale primaria sia arrestata quando si esegue il failover di test. In caso contrario, due macchine virtuali con la stessa identità saranno in esecuzione contemporaneamente nella stessa rete e ciò può causare conseguenze indesiderate.
-1. Tutte le modifiche apportate alle macchine virtuali del failover di test andranno perse con la pulizia di tali macchine virtuali. Le modifiche non verranno replicate nella macchina virtuale primaria.
-1. Questa modalità di esecuzione dei test determina un tempo di inattività dell'applicazione di produzione. È consigliabile chiedere agli utenti di non usare l'applicazione mentre è in corso l'esercitazione sul ripristino di emergenza.  
+Anche se è consigliabile usare una rete di test diversa dalla rete di produzione, se si vuole eseguire un'esercitazione sul ripristino di emergenza nella rete di produzione, tenere presente quanto segue: 
+
+- Verificare che la macchina virtuale primaria sia arrestata quando si esegue il failover di test. In caso contrario si avranno due macchine virtuali con la stessa identità in esecuzione contemporaneamente sulla stessa rete. Questa situazione può provocare conseguenze impreviste.
+- Le modifiche apportate alle macchine virtuali create per il failover di test andranno perdute durante la pulizia del failover. Le modifiche non vengono replicate nella macchina virtuale primaria.
+- L'esecuzione dei test nell'ambiente di produzione determina un tempo di inattività dell'applicazione di produzione. Durante il failover di test gli utenti non dovranno usare le app che vengono eseguite nelle macchine virtuali.  
 
 
 
 ## <a name="prepare-active-directory-and-dns"></a>Preparare Active Directory e DNS
-Per eseguire un failover di test per testare l'applicazione, è necessaria una copia dell'ambiente Active Directory di produzione nell'ambiente di test. Per altri dettagli, vedere la sezione [Considerazioni sul failover di test per Active Directory](site-recovery-active-directory.md#test-failover-considerations) .
+
+Per eseguire un failover di test per testare l'applicazione è necessaria una copia dell'ambiente Active Directory di produzione nell'ambiente di test. Per altre informazioni, vedere [Considerazioni sul failover di test per Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparare la connessione alle macchine virtuali di Azure dopo il failover
 
-Per connettersi alle macchine virtuali di Azure con RDP dopo il failover, seguire la procedura riepilogata nella tabella.
+Per connettersi alle macchine virtuali di Azure con RDP dopo il failover, seguire i requisiti riepilogati nella tabella.
 
 **Failover** | **Posizione** | **Actions**
 --- | --- | ---
-**VM di Azure che esegue Windows** | Nel computer locale prima del failover | Per accedere alla VM di Azure tramite Internet, abilitare RDP e assicurarsi che vengano aggiunte regole TCP e UDP per **Pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/><br/> Per l'accesso tramite una connessione da sito a sito, abilitare RDP nel computer e assicurarsi che il protocollo RDP sia consentito in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**.<br/><br/>  Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135).<br/><br/> Quando si attiva un failover, verificare che nella macchina virtuale non siano in sospeso aggiornamenti di Windows. L'aggiornamento di Windows potrebbe essere avviato durante il failover e non si potrà accedere alla macchina virtuale finché non sarà completato. <br/><br/>
-**VM di Azure che esegue Windows** | Nella VM di Azure dopo il failover | Per una macchina virtuale della versione classica, [aggiungere un endpoint pubblico](../virtual-machines/windows/classic/setup-endpoints.md) per il protocollo RDP (porta 3389)<br/><br/>  Per una macchina virtuale di Resource Manager, [aggiungere un indirizzo IP pubblico](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) nella macchina virtuale.<br/><br/> Le regole del gruppo di sicurezza di rete nella VM sottoposta a failover e nella subnet di Azure a cui è connessa devono consentire le connessioni in ingresso alla porta RDP.<br/><br/> Per una macchina virtuale di Resource Manager, è possibile controllare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale.<br/><br/> Se non è possibile connettersi, verificare che la VM sia in esecuzione e quindi vedere questi [suggerimenti sulla risoluzione dei problemi](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).<br/><br/>
-**VM di Azure che esegue Linux** | Nel computer locale prima del failover | Assicurarsi che il servizio Secure Shell nella macchina virtuale di Azure sia impostato per l'avvio automatico all'avvio del sistema.<br/><br/> Verificare che le regole firewall accettino la connessione SSH.
-**VM di Azure che esegue Linux** | VM di Azure dopo il failover | Le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e nella subnet di Azure a cui è connessa devono consentire le connessioni in ingresso alla porta SSH.<br/><br/> Per una macchina virtuale della versione classica, è necessario creare e [aggiungere un endpoint pubblico](../virtual-machines/windows/classic/setup-endpoints.md) per consentire le connessioni in ingresso sulla porta SSH, che per impostazione predefinita è la porta TCP 22.<br/><br/> Per una macchina virtuale di Resource Manager, [aggiungere un indirizzo IP pubblico](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) nella macchina virtuale.<br/><br/> Per una macchina virtuale di Resource Manager, è possibile controllare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale.<br/><br/>
+**VM di Azure che esegue Windows** | Computer locale prima del failover | Per accedere alla VM di Azure tramite Internet, abilitare RDP e assicurarsi che vengano aggiunte regole TCP e UDP per **Pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/><br/> Per l'accesso alla VM di Azure tramite una connessione da sito a sito, abilitare RDP nel computer e assicurarsi che il protocollo RDP sia consentito in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**.<br/><br/>  Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135)<br/><br/> Quando si attiva un failover, verificare che nella macchina virtuale non siano in sospeso aggiornamenti di Windows. L'aggiornamento di Windows potrebbe essere avviato durante il failover e non si potrà accedere alla macchina virtuale finché non sarà completato. 
+**VM di Azure che esegue Windows** | VM di Azure dopo il failover |  [Aggiungere un indirizzo IP pubblico](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) per la macchina virtuale.<br/><br/> Le regole del gruppo di sicurezza di rete nella VM sottoposta a failover e nella subnet di Azure a cui è connessa devono consentire le connessioni in ingresso alla porta RDP.<br/><br/> Selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale.<br/><br/> Se non è possibile connettersi, controllare che la macchina virtuale sia in esecuzione e rivedere i [suggerimenti per la risoluzione dei problemi](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**VM di Azure che esegue Linux** | Computer locale prima del failover | Assicurarsi che il servizio Secure Shell nella macchina virtuale sia impostato per l'avvio automatico all'avvio del sistema.<br/><br/> Verificare che le regole firewall accettino la connessione SSH.
+**VM di Azure che esegue Linux** | VM di Azure dopo il failover | Le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e nella subnet di Azure a cui è connessa devono consentire le connessioni in ingresso alla porta SSH.<br/><br/> [Aggiungere un indirizzo IP pubblico](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) per la macchina virtuale.<br/><br/> Selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale.<br/><br/>
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo l'esito positivo di un failover di test, si può provare a eseguire un [failover](site-recovery-failover.md).
+Dopo aver completato un'esercitazione sul ripristino di emergenza, leggere altre informazioni sugli altri tipi di [failover](site-recovery-failover.md).

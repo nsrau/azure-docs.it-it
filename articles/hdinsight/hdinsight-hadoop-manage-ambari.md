@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/11/2017
 ms.author: larryfr
-ms.openlocfilehash: dc0f9ff030f70985dad0f3b74ba0ee3dda1d9f4b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 470ec09d444f93abcd8f0f58fc197474bbb1376e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari
 
@@ -51,6 +51,9 @@ L'interfaccia utente Web Ambari è disponibile nel cluster HDInsight all'indiriz
 Mentre Ambari per il cluster è accessibile direttamente tramite Internet, alcuni collegamenti dall'interfaccia utente Web di Ambari (ad esempio JobTracker) non sono esposti in Internet. Per accedere a questi servizi, è necessario creare un tunnel SSH. Per altre informazioni, vedere [Usare il tunneling SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="ambari-web-ui"></a>Interfaccia utente Web Ambari
+
+> [!WARNING]
+> Non tutte le funzionalità dell'interfaccia utente Web Ambari sono supportate in HDInsight. Per altre informazioni, vedere la sezione [Operazioni non supportate](#unsupported-operations) in questo documento.
 
 Quando ci si connette all'interfaccia utente Web di Ambari, è necessario eseguire l'autenticazione alla pagina. Usare l'utente (valore predefinito Admin) e la password di amministrazione del cluster specificati durante la creazione del cluster.
 
@@ -236,3 +239,13 @@ Le viste di Ambari consentono agli sviluppatori di collegare gli elementi dell'i
 * Viste di Hive: le viste di Hive consentono di eseguire query Hive direttamente dal Web browser. È possibile salvare query, visualizzare i risultati, salvare i risultati nell'archiviazione cluster o scaricare i risultati nel sistema locale. Per altre informazioni sull'uso delle viste di Hive, vedere l'argomento relativo all' [uso delle viste Hive con HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
 * Vista Tez: la vista Tez consente di comprendere meglio e ottimizzare i processi. È possibile visualizzare informazioni sulle modalità di esecuzione dei processi Tez e sulle risorse usate.
+
+## <a name="unsupported-operations"></a>Operazioni non supportate
+
+In HDInsight non sono supportate le operazioni di Ambari seguenti:
+
+* __Spostare il servizio di raccolta delle metriche__. Quando si visualizzano informazioni sul servizio di raccolta delle metriche, una delle azioni disponibili nel menu delle azioni del servizio è __spostare l'agente di raccolta delle metriche__. Questa azione non è supportata con HDInsight.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Informazioni su come usare l'[API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) con HDInsight.

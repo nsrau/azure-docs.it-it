@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.openlocfilehash: f43f6e33976325920da9cf0f6aef6decae5bde26
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Procedure consigliate sulla sicurezza per usare Azure Multi-Factor Authentication con account Azure AD
 

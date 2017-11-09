@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: 592a8716dd15b25b14fed145c11e5f5714cdd41c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4a0b047ce5c6706b51e96e8cc160c610625869e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 ## <a name="overview"></a>Panoramica
@@ -518,7 +517,7 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 
    **Risorse**
 
-* [Perché non viene più consigliata la "Modalità FIPS"](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
+* [Perché non viene più consigliata la "Modalità FIPS"](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   Questo articolo di blog fornisce una panoramica di FIPS e spiega perché non viene più abilitata la modalità FIPS per impostazione predefinita.
 * [Convalida FIPS 140](https://technet.microsoft.com/library/cc750357.aspx)
@@ -527,4 +526,3 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 * [Effetti delle impostazioni di sicurezza "Crittografia di sistema: usa algoritmi FIPS conformi per crittografia, hash e firma" in Windows XP e versioni successive di Windows](https://support.microsoft.com/kb/811833)
 
   Questo articolo illustra l'uso della modalità FIPS in computer Windows meno recenti.
-

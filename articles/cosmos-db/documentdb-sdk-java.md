@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15e3f7ef3bfd6b1f61fe6081a378bdb29e0a1aa2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 7de7c5e366d1f7da73eabfa889a3b43fb0403438
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: risorse e note sulla versione di DocumentDB Java SDK
 > [!div class="op_single_selector"]
@@ -47,10 +47,15 @@ ms.lasthandoff: 08/18/2017
 
 <tr><td>**Esercitazione sull'app Web**</td><td>[Sviluppo di applicazioni Web con Azure Cosmos DB](documentdb-java-application.md)</td></tr>
 
-<tr><td>**Runtime attualmente supportato**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Runtime minimo supportato**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
+* Risolto un problema durante la lettura di singoli intervalli di chiavi di partizione.
+* Risolto un problema nell'analisi di ResourceID che interessa il database con nomi brevi.
+* Risolto una problema causato dalla codifica di chiavi di partizione.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
 * Correzioni di bug importanti per richiedere l'elaborazione durante le suddivisioni delle partizioni.
@@ -169,6 +174,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.13.0](#1.13.0) |25 agosto 2017 |--- |
 | [1.12.0](#1.12.0) |11 luglio 2017 |--- |
 | [1.11.0](#1.11.0) |10 maggio 2017 |--- |
 | [1.10.0](#1.10.0) |11 marzo 2017 |--- |

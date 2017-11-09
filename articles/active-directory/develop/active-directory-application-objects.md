@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: bryanla
 ms.custom: aaddev
+ms.openlocfilehash: b00acc192e868a7c1ade9fc68cf4d3ca04f1a070
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 53ab4c04901994982b451149c4a82a5b72c9fc82
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Oggetti applicazione e oggetti entità servizio in Azure Active Directory (Azure AD)
 Spesso il significato del termine "applicazione" può essere frainteso quando usato nel contesto di Azure AD. Questo articolo intende chiarire gli aspetti concettuali e concreti dell'integrazione dell'applicazione di Azure AD, con un esempio di registrazione e consenso per un'[applicazione multi-tenant](active-directory-dev-glossary.md#multi-tenant-application).
@@ -35,7 +34,9 @@ Quando si registra un'applicazione di Azure AD nel [portale di Azure][AZURE-Port
 Un'applicazione di Azure AD è definita da un solo oggetto applicazione che risiede nel tenant di Azure AD in cui l'applicazione è stata registrata, noto come tenant "home" dell'applicazione. L'[entità applicativa][AAD-Graph-App-Entity] di Azure AD Graph definisce lo schema per le proprietà di un oggetto applicazione. 
 
 #### <a name="service-principal-object"></a>Oggetto entità servizio
-L'oggetto entità servizio definisce i criteri e le autorizzazioni per l'uso di un'applicazione in un tenant specifico e costituisce la base per un'entità di sicurezza in cui verrà rappresentata l'applicazione in fase di esecuzione. L'[entità ServicePrincipal][AAD-Graph-Sp-Entity] di Azure AD Graph definisce lo schema delle proprietà di un oggetto entità servizio. 
+Per accedere alle risorse protette da un tenant di Azure AD, l'entità che richiede l'accesso deve essere rappresentata da un'entità di sicurezza. Questo vale sia per gli utenti (entità utente) che per le applicazioni (entità servizio). L'entità di sicurezza definisce i criteri di accesso e le autorizzazioni per l'utente/applicazione nel tenant. Ciò abilita le funzionalità di base, ad esempio l'autenticazione dell'utente/applicazione durante l'accesso e l'autorizzazione durante l'accesso alle risorse.
+
+Quando a un'applicazione viene concesso di accedere alle risorse in un tenant (al momento della registrazione o del [consenso](active-directory-dev-glossary.md#consent)), viene creato un oggetto entità servizio. L'[entità ServicePrincipal][AAD-Graph-Sp-Entity] di Azure AD Graph definisce lo schema delle proprietà di un oggetto entità servizio.  
 
 #### <a name="application-and-service-principal-relationship"></a>Relazione tra applicazione e entità servizio
 Si può considerare l'oggetto applicazione come la rappresentazione *globale* dell'applicazione usata in tutti i tenant, e l'entità servizio come la rappresentazione *locale* usata in uno specifico tenant. L'oggetto applicazione funge da modello da cui *derivano* le proprietà comuni e predefinite per l'uso nella creazione di oggetti entità servizio corrispondenti. Un oggetto applicazione ha quindi una relazione 1:1 con l'applicazione software e relazioni 1:molti con gli oggetti entità servizio corrispondenti.
@@ -77,4 +78,3 @@ L'[Explorer Graph di Azure AD](https://graphexplorer.azurewebsites.net/) è util
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AZURE-Portal]: https://portal.azure.com
-

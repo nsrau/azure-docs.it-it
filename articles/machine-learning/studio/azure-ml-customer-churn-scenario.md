@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeannt
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analisi della varianza del cliente tramite Azure Machine Learning
 ## <a name="overview"></a>Panoramica
@@ -180,7 +179,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:  
 
-*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi *
+*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi* 
 
 | LR | BT | AP | SVM |
 | --- | --- | --- | --- |
@@ -251,4 +250,3 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/azure-ml-customer-churn-scenario/churn-10.png
-

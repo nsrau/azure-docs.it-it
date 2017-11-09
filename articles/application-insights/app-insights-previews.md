@@ -3,7 +3,7 @@ title: Impostare le preferenze di anteprima per Azure Application Insights | Mic
 description: "Il team di sviluppo di Azure Application Insights ha reso disponibili nuove funzionalità. È possibile impostare le nuove funzionalità da visualizzare in anteprima nel portale di Azure."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 3574f62d67740fc498af85b261ad5cbaff0e87dc
-ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: f39ed880003c6ead0e720b730e6b70a4287b5f3f
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="preview-upcoming-changes-to-azure-application-insights"></a>Visualizzare in anteprima le modifiche future in Azure Application Insights 
 
@@ -39,4 +38,3 @@ Nel pannello di anteprima è possibile selezionare una delle opzioni seguenti re
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare una risorsa](app-insights-create-new-resource.md)
-

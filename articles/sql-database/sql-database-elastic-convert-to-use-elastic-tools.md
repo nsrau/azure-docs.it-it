@@ -1,5 +1,5 @@
 ---
-title: "Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale | Documentazione Microsoft"
+title: "Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale | Microsoft Docs"
 description: Convertire database partizionati per l'uso di strumenti dei database elastici mediante la creazione di un gestore mappe partizioni
 services: sql-database
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 099f40d00753b7c86ba726a818f17d440a125221
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 356c4223ff3ae844552b7bee40aa3ffc6aad7ea0
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale
-È possibile gestire facilmente i database partizionati con scalabilità orizzontale esistenti usando gli strumenti di database del database SQL di Azure, come ad esempio la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Prima è necessario convertire un set di database esistente per l'uso del [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md). 
+È possibile gestire facilmente i database partizionati con scalabilità orizzontale esistenti usando gli strumenti di database del database SQL di Azure, come ad esempio la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Come prima cosa convertire un set di database esistente per l'uso del [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md). 
 
 ## <a name="overview"></a>Panoramica
 Per eseguire la migrazione di un database partizionato esistente: 
@@ -37,7 +37,7 @@ Queste tecniche possono essere implementate tramite la [libreria client .NET Fra
 Per altre informazioni su ShardMapManager, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md). Per una panoramica sugli strumenti di database elastici, vedere [Panoramica sulle funzionalità di database elastico](sql-database-elastic-scale-introduction.md).
 
 ## <a name="prepare-the-shard-map-manager-database"></a>Preparare il database del gestore delle mappe partizioni
-Il gestore delle mappe partizioni è un database speciale che contiene i dati per la gestione dei database con un numero maggiore di istanze. È possibile usare un database esistente o crearne un nuovo. Si noti che il database che funge da gestore delle mappe partizioni non deve essere lo stesso della partizione. Si noti anche che lo script di PowerShell non crea automaticamente il database. 
+Il gestore delle mappe partizioni è un database speciale che contiene i dati per la gestione dei database con un numero maggiore di istanze. È possibile usare un database esistente o crearne un nuovo. Un database che funge da gestore delle mappe partizioni non deve essere lo stesso della partizione. Lo script di PowerShell non crea automaticamente il database. 
 
 ## <a name="step-1-create-a-shard-map-manager"></a>Passaggio 1: Creare un gestore mappe partizioni
     # Create a shard map manager. 
@@ -60,7 +60,7 @@ Dopo la creazione, è possibile recuperare il gestore mappe partizioni con quest
 
 
 ## <a name="step-2-create-the-shard-map"></a>Passaggio 2: Creare la mappa partizioni
-È necessario selezionare il tipo di mappa partizioni da creare. La scelta dipende dall'architettura del database: 
+Selezionare il tipo di mappa partizioni da creare. La scelta dipende dall'architettura del database: 
 
 1. Singolo tenant per database. Per informazioni sui i termini, vedere il [glossario](sql-database-elastic-scale-glossary.md). 
 2. Più tenant per database (due tipi):
@@ -91,7 +91,7 @@ Creare una mappa partizioni usando l'oggetto ShardMapManager.
 
 
 ### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>Opzione 2: creare una mappa partizioni per un mapping di tipo intervallo
-Si noti che per usare questo modello di mapping, i valori dell'ID tenant devono essere a intervalli continui ed è accettabile avere gap negli intervalli semplicemente ignorando l'intervallo durante la creazione dei database.
+Per usare questo modello di mapping, i valori dell'ID tenant devono essere a intervalli continui ed è accettabile avere gap negli intervalli ignorando l'intervallo durante la creazione dei database.
 
     # $ShardMapManager is the shard map manager object 
     # 'RangeShardMap' is the unique identifier for the range shard map.  
@@ -141,7 +141,7 @@ Aggiungere il mapping di tipo intervallo per tutte le associazioni intervallo ID
 
 
 ### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Passaggio 4, opzione 3: eseguire il mapping dei dati per più tenant su un database singolo
-Per ogni tenant eseguire Add-ListMapping (opzione 1, come riportato sopra). 
+Per ogni tenant eseguire Add-ListMapping (opzione 1). 
 
 ## <a name="checking-the-mappings"></a>Verifica dei mapping
 È possibile eseguire query per ottenere informazioni sulle partizioni esistenti e sui mapping a esse associati usando i comandi seguenti:  
@@ -164,7 +164,7 @@ Usare lo strumento di suddivisione-unione per spostare dati in o da un modello m
 Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Domande e richieste di funzionalità
-Se ci sono domande, è possibile visitare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum relativo a commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Se ci sono domande, usare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum relativo a commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

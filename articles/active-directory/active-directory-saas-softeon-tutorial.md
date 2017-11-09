@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: dfcfd58ff504c207908fa4deee5a3c8793857dda
-ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 87714bbcb317395563033d2f0ebc60aaa0ff0e10
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>Esercitazione: Integrazione di Azure Active Directory con Softeon WMS
 
@@ -122,7 +121,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_certificate.png) 
 
-5. Fare clic sul pulsante **Salva**.
+5. Fare clic sul pulsante **Salva** .
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_general_400.png)
 
@@ -228,5 +227,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-softeon-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-softeon-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-softeon-tutorial/tutorial_general_203.png
-
 

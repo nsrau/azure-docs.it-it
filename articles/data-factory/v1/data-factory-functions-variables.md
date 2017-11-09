@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: 3c506ee95281e1250a721a9c150bd839b4c1fcdb
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6d7e9be25badbd83ee613518ba768d98334a5f4d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funzioni e variabili di sistema
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Variabili di sistema in Data Factory versione 2](../control-flow-system-variables.md).
+
 In questo articolo vengono fornite informazioni sulle funzioni e le variabili supportate da Azure Data Factory.
 
 ## <a name="data-factory-system-variables"></a>Variabili di sistema di Data Factory
@@ -229,5 +231,4 @@ Per leggere i dati del giorno precedente anziché del giorno rappresentato da Sl
 ```
 
 Vedere l'argomento [Stringhe di formato di data e ora personalizzato](https://msdn.microsoft.com/library/8kb3ddd4.aspx) che descrive diverse opzioni di formattazione che è possibile usare, ad esempio: AA e aaaa. 
-
 

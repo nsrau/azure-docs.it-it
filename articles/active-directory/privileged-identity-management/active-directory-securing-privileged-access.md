@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
+ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 849637fb391576954307bc84bb02e1d8579bf1cf
-ms.contentlocale: it-it
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Protezione dell'accesso con privilegi in Azure AD
 La protezione dell'accesso con privilegi è il primo passaggio fondamentale per proteggere gli asset aziendali in un'organizzazione moderna. Gli account con privilegi sono gli account che amministrano e gestiscono i sistemi IT. Gli utenti malintenzionati usano questi account per ottenere l'accesso ai dati e ai sistemi di un'organizzazione. Per proteggere l'accesso con privilegi, è necessario isolare gli account e i sistemi dal rischio di esposizione a utenti malintenzionati.
@@ -63,8 +62,6 @@ Per ridurre il tempo di esposizione dei privilegi e aumentare la visibilità del
 ## <a name="conditional-access"></a>Accesso condizionale
 Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche selezionate durante l'autenticazione di un utente e prima di consentire l'accesso a un'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
 
-![Impostazione delle regole di accesso condizionale con MFA][4]
-
 ## <a name="related-articles"></a>Articoli correlati
 * Abilitare [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Abilitare [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
@@ -77,5 +74,3 @@ Per altre informazioni su come creare una guida di orientamento alla sicurezza c
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png
 [2]: ../media/active-directory-privileged-identity-management-configure/PIM_Dash.png
 [3]: ../media/active-directory-identityprotection/29.png
-[4]: ../media/active-directory-conditional-access/conditionalaccess-saas-apps.png
-

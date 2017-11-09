@@ -1,5 +1,5 @@
 # Panoramica
-## [Informazioni sulle macchine virtuali](../../virtual-machines-windows-about.md)
+## [Informazioni sulle macchine virtuali](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Dischi e dischi rigidi virtuali](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Reti virtuali](../../../virtual-network/virtual-networks-overview.md)
 ## [Domande frequenti](faq.md)
@@ -91,9 +91,9 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Creare modelli di Resource Manager](../../../resource-group-authoring-templates.md)
 ## [Modelli della community](https://azure.microsoft.com/documentation/templates)
-## [REST di calcolo](/rest/api/compute)
-## [REST di rete](/rest/api)
-## [REST di archiviazione](/rest/api/storageservices)
+## [REST di calcolo](https://msdn.microsoft.com/library/jj157206.aspx)
+## [REST di rete](https://msdn.microsoft.com/library/jj157182.aspx)
+## [REST di archiviazione](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=compute)

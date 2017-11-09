@@ -16,12 +16,11 @@ ms.topic: troubleshooting
 ms.date: 06/26/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 42cf9c3f0198b1fb8bcc84532c004c576b30d935
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 86795ba6eab3505a3d539e4fc4e032bdeecc2e78
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione quando si crea una nuova macchina virtuale Windows in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -91,5 +90,4 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si incontrano problemi quando si avvia una VM Windows arrestata o si ridimensiona una VM Windows esistente in Azure, vedere l'articolo su come [risolvere i problemi della distribuzione di Resource Manager con il riavvio o il ridimensionamento di una macchina virtuale Windows esistente in Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

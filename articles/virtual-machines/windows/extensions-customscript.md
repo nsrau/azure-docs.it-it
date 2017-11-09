@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: nepeters
+ms.openlocfilehash: 4117b6020d2d75a953fd5f032b378e49d2c752ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 45b3e2a493fd6fab54f193f8ea9bbeae1d7470ac
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -151,4 +150,3 @@ Le informazioni sul percorso dopo il primo segmento URI vengono mantenute per i 
 ### <a name="support"></a>Supporto
 
 Per ricevere maggiore assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum di Azure su MSDN e Stack Overflow].(https://azure.microsoft.com/en-us/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/en-us/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/en-us/support/faq/).
-

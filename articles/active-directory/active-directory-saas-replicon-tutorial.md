@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
 ms.openlocfilehash: 2aeeceb61191962b62892b8409218684f76c6fa8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Esercitazione: Integrazione di Azure Active Directory con Replicon
 In questa esercitazione viene illustrata l'integrazione di Azure e Replicon. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:

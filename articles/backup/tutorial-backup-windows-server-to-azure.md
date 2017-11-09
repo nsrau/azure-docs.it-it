@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Eseguire il backup di Windows Server in Azure
 
@@ -103,7 +102,7 @@ L'agente di Servizi di ripristino di Microsoft Azure (MARS) crea un'associazione
  
 4. Quando richiesto, specificare una passphrase di crittografia per crittografare i backup da Windows Server. Salvare la passphrase in una posizione sicura perché Microsoft non può recuperarla in caso di perdita.
 
-5. Fare clic su **Fine**. 
+5. Fare clic su **Finish**. 
 
 ## <a name="configure-backup-and-retention"></a>Configurare il backup e la conservazione
 
@@ -161,5 +160,4 @@ Passare all'esercitazione successiva per recuperare i file Azure in Windows Serv
 
 > [!div class="nextstepaction"] 
 > [Restore files from Azure to Windows Server](./tutorial-backup-restore-files-windows-server.md) (Ripristinare i file da Azure in Windows Server) 
-
 

@@ -15,13 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
-ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
-ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Creare definizioni dei flussi di lavoro per le app per la logica usando JSON
 
@@ -277,9 +275,9 @@ In questo caso, si ottiene prima un elenco di articoli. In base alla categoria d
 
 Tenere presente quanto segue: 
 
-*    La funzione [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) controlla se la categoria corrisponde a una delle categorie note definite.
+*   La funzione [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) controlla se la categoria corrisponde a una delle categorie note definite.
 
-*    Dopo avere ottenuto la categoria, è possibile effettuare il pull dell'elemento dalla mappa usando parentesi quadre: `parameters[...]`.
+*   Dopo avere ottenuto la categoria, è possibile effettuare il pull dell'elemento dalla mappa usando parentesi quadre: `parameters[...]`.
 
 ## <a name="process-strings"></a>Elaborare le stringhe
 
@@ -452,4 +450,3 @@ Nella richiesta `PUT` effettiva per le app per la logica è possibile fornire il
 In ogni ambiente è possibile fornire un valore diverso per il parametro `connection`. 
 
 Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx). 
-

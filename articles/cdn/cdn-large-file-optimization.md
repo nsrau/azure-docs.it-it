@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
 ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Ottimizzazione del download di file di grandi dimensioni tramite la rete di distribuzione dei contenuti di Azure
 
-Le dimensioni di file dei contenuti distribuiti in Internet continua ad aumentare come conseguenza delle funzionalità avanzate, della grafica migliorata e della complessità dei contenuti multimediali. Questa crescita dipende da numerosi fattori: penetrazione a banda larga, i dispositivi di archiviazione economica più grandi, generalizzata aumento dei dispositivi ad alta definizione video e connesso a Internet (IoT). Un meccanismo di recapito veloci ed efficienti per i file di grandi dimensioni è fondamentale per garantire un'esperienza uniforme e piacevole consumer.
+Le dimensioni di file dei contenuti distribuiti in Internet continua ad aumentare come conseguenza delle funzionalità avanzate, della grafica migliorata e della complessità dei contenuti multimediali. Questa crescita ha origine da numerosi fattori, tra cui la penetrazione della banda larga, dispositivi di archiviazione più grandi ed economici, il diffuso incremento di video in alta definizione e dispositivi connessi a Internet (IoT). Un meccanismo di distribuzione veloce ed efficiente per i file di grandi dimensioni è fondamentale per garantire un'esperienza utente uniforme e piacevole.
 
 La distribuzione di file di grandi dimensioni pone diverse sfide. In primo luogo, il tempo medio per scaricare un file di grandi dimensioni può essere significativo, in quanto molte applicazioni potrebbero non scaricare tutti i dati in sequenza. In alcuni casi, le applicazioni potrebbero scaricare l'ultima parte di un file prima della prima. Quando è necessaria solo una piccola parte di un file o un utente sospende un download, il download può non riuscire. Il download può anche subire ritardi, finché la rete per la distribuzione di contenuti (rete CDN) non recupera l'intero file dal server di origine. 
 

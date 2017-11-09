@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: a2a3a4773d33fe6b8589ad8d9d219acda4d1015e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure
 ## <a name="introduction"></a>Introduzione
@@ -86,7 +86,7 @@ Aggiungere AppSettings al file App.Config.
 </appSettings>
 ```
 
-Aggiungere le istruzioni `using` seguenti e assicurarsi di aggiungere al progetto un riferimento a System.Configuration.
+Aggiungere le direttive `using` seguenti e assicurarsi di aggiungere al progetto un riferimento a System.Configuration.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;

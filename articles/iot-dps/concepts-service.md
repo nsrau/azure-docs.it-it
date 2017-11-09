@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 10/03/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 96c63e5d0379150ea619dbbe912a21e373f808af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: 1a37f0753ab576aba9154e148b026b70877176f2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Concetti relativi al servizio Device Provisioning in hub IoT
 
 Il servizio Device Provisioning in hub IoT è un servizio helper per l'hub IoT che consente di configurare il provisioning completamente automatico dei dispositivi in un hub IoT specifico. Con il servizio Device Provisioning è possibile effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.
@@ -53,14 +51,14 @@ Una registrazione è un record di dispositivi o gruppi di dispositivi che a un c
 
 ### <a name="enrollment-group"></a>Gruppo di registrazione
 
-Un gruppo di registrazione è un gruppo di dispositivi che condividono un meccanismo di attestazione specifico. Tutti i dispositivi nel gruppo di registrazione presentano certificati X.509 che sono stati firmati dalla stessa CA radice. I gruppi di registrazione possono usare solo il meccanismo di attestazione X.509.
+Un gruppo di registrazione è un gruppo di dispositivi che condividono un meccanismo di attestazione specifico. Tutti i dispositivi nel gruppo di registrazione presentano certificati X.509 che sono stati firmati dalla stessa CA radice. I gruppi di registrazione possono usare solo il meccanismo di attestazione X.509. Il nome del gruppo di registrazione e il nome di certificato devono essere alfanumerici, in caratteri minuscoli e possono contenere segni meno.
 
 > [!TIP]
 > È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant.
 
 ### <a name="individual-enrollment"></a>Registrazione individuale
 
-Una registrazione individuale è una voce per un singolo dispositivo che esegue la registrazione. Le registrazioni individuali possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. In caso di registrazione individuale è possibile specificare l'ID dispositivo hub IoT desiderato.
+Una registrazione individuale è una voce per un singolo dispositivo che esegue la registrazione. Le registrazioni individuali possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. L'ID di registrazione in una singola registrazione è alfanumerico, con caratteri minuscoli e può contenere segni meno. In caso di registrazione individuale è possibile specificare l'ID dispositivo hub IoT desiderato.
 
 > [!TIP]
 > È consigliabile usare le registrazioni individuali per i dispositivi che richiedono configurazioni iniziali univoche oppure per i dispositivi che possono usare solo token di firma di accesso condiviso tramite TPM o TPM virtuale come meccanismo di attestazione.
@@ -72,4 +70,3 @@ Una registrazione è il record di un dispositivo che esegue correttamente la reg
 ## <a name="operations"></a>Operazioni
 
 Le operazioni rappresentano l'unità di fatturazione del servizio Device Provisioning. Un'operazione si riferisce al corretto completamento di un'istruzione nel servizio. Le operazioni includono le registrazioni e le ripetizioni delle registrazioni dei dispositivi, oltre alle modifiche sul lato del servizio, come l'aggiunta di voci all'elenco di registrazione e l'aggiornamento delle voci dell'elenco di registrazione.
-

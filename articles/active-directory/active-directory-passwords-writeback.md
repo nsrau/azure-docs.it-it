@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: e460e734973622fb0d5745adfc4c1aa0178dd22e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="password-writeback-overview"></a>Panoramica del writeback delle password
 
@@ -88,14 +87,44 @@ La procedura seguente presuppone che Azure AD Connect sia già stato configurato
 3. Nella schermata Attività aggiuntive fare clic su **Personalizzazione delle opzioni di sincronizzazione** e quindi scegliere **Avanti**.
 4. Nella schermata Connessione ad Azure AD immettere le credenziali di amministratore globale e scegliere **Avanti**.
 5. Nelle schermate Connessione delle directory e Filtro di domini e unità organizzative è possibile scegliere **Avanti**.
-6. Nella schermata Funzionalità facoltative selezionare la casella accanto a **Writeback delle password** e fare clic su **Avanti**.
+6. Nella schermata Funzionalità facoltative selezionare la casella accanto a **Writeback password** e fare clic su **Avanti**.
    ![Abilitare il writeback delle password in Azure AD Connect][Writeback]
 7. Nella schermata Pronto per la configurazione fare clic su **Configura** e attendere il completamento del processo.
-8. Quando si vede La configurazione è stata completata è possibile fare clic su **Esci**
+8. Quando viene visualizzato il messaggio "La configurazione è stata completata" fare clic su **Esci**
+
+## <a name="active-directory-permissions"></a>Autorizzazioni di Active Directory
+
+L'account specificato nell'utilità di Azure AD Connect deve avere i diritti estesi per le opzioni Reimposta password, Modifica password, Autorizzazioni di scrittura per lockoutTime e Autorizzazioni di scrittura per pwdLastSet, per uno oggetto radice di **ogni dominio** nella foresta **O** nelle Unità organizzative dell'utente che si desidera avere nell'ambito per la reimpostazione della password self-service.
+
+Se non si è certi dell'identità dell'account al quale si fa riferimento, aprire l'interfaccia utente della configurazione di Azure Active Directory Connect e fare clic sull'opzione Visualizza configurazione corrente. L'account a cui è necessario aggiungere le autorizzazioni è elencato in "Directory sincronizzate"
+
+L'impostazione di queste autorizzazioni consente all'account del servizio MA per ogni foresta di gestire le password per conto di account utente all'interno di tale foresta. **Se non si assegnano tali autorizzazioni, anche se il writeback è configurato correttamente, gli utenti visualizzeranno errori durante il tentativo di gestione delle password locali dal cloud.**
+
+> [!NOTE]
+> La replica delle autorizzazioni in tutti gli oggetti nella directory può richiedere fino a un'ora o anche più tempo.
+>
+
+Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle password
+
+1. Aprire Utenti e computer di Active Directory con un account con le autorizzazioni appropriate per l'amministrazione del dominio
+2. Nel menu Visualizza verificare che l'opzione Funzionalità avanzate sia attivata
+3. Nel riquadro sinistro fare clic con il pulsante destro del mouse sull'oggetto che rappresenta la radice del dominio e scegliere le proprietà
+    * Fare clic sulla scheda Sicurezza
+    * Fare clic su Opzioni avanzate.
+4. Fare clic su Aggiungi nella scheda Autorizzazioni
+5. Selezionare l'account a cui applicare le autorizzazioni, dalla configurazione di Azure AD Connect
+6. Nell'elenco a discesa Applica a selezionare gli oggetti Descendent User objects (Utente discendente)
+7. Tra le autorizzazioni selezionare le caselle relative a quanto segue
+    * Password senza scadenza
+    * Reimpostare la password
+    * Modifica della password
+    * Scrittura di lockoutTime
+    * Scrittura di pwdLastSet
+8. Fare clic su Applica/OK per applicare e chiudere le finestre di dialogo aperte.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
 
-Per informazioni sulle licenze, vedere l'argomento [Licenses required for password writeback](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) (Licenze necessarie per il writeback delle password) o uno dei seguenti siti
+Per informazioni sulle licenze, vedere [Licenze richieste per il writeback delle password](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) o i siti seguenti
 
 * [Sito sui prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
@@ -160,9 +189,9 @@ Il writeback delle password è un servizio altamente sicuro.  Per garantire che 
 Di seguito vengono descritti i passaggi di crittografia seguiti per una richiesta di reimpostazione della password dopo l'invio da parte dell'utente, prima di raggiungere l'ambiente locale, per garantire massimi livelli di sicurezza e affidabilità del servizio.
 
 * **Passaggio 1 - Crittografia della password con una chiave RSA a 2048 bit**: quando un utente invia una password per il writeback in locale, prima di tutto la password inviata viene crittografata con una chiave RSA a 2048 bit.
-* **Passaggio 2 - Crittografia a livello di pacchetto con AES-GCM**: l'intero pacchetto (password + metadati necessari) viene quindi crittografato con AES-GCM. Ciò impedisce a chiunque abbia accesso diretto al canale del bus di servizio sottostante di visualizzare o manomettere il contenuto.
-* **Passaggio 3 - Tutte le comunicazioni avvengono tramite TLS/SSL**: tutte le comunicazioni con ServiceBus avvengono in un canale SSL/TLS. Ciò consente di proteggere i contenuti da terze parti non autorizzate.
-* **Rollover automatico delle chiavi ogni 6 mesi**: automaticamente ogni 6 mesi o ogni volta che il writeback delle password viene disabilitato e abilitato di nuovo in Azure AD Connect, viene eseguito il rollover di tutte le chiavi per garantire i massimi livelli di sicurezza e protezione del servizio.
+* **Passaggio 2 - Crittografia a livello di pacchetto con AES-GCM**: l'intero pacchetto (password + metadati necessari) viene quindi crittografato con AES-GCM. Questa crittografia impedisce a chiunque abbia accesso diretto al canale del bus di servizio sottostante di visualizzare o manomettere il contenuto.
+* **Passaggio 3 - Tutte le comunicazioni avvengono tramite TLS/SSL**: tutte le comunicazioni con ServiceBus avvengono in un canale SSL/TLS. Questa crittografia protegge i contenuti da terze parti non autorizzate.
+* **Rollover automatico delle chiavi ogni 6 mesi**: ogni 6 mesi o ogni volta che il writeback delle password viene disabilitato e di nuovo abilitato in Azure AD Connect, viene eseguito automaticamente il rollover di tutte le chiavi per garantire i massimi livelli di sicurezza e protezione del servizio.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Utilizzo della larghezza di banda per il writeback delle password
 
@@ -183,18 +212,16 @@ Le dimensioni di ogni messaggio illustrato in precedenza sono in genere inferior
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
-
-* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
-* [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
-* [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
-* [**Implementazione**](active-directory-passwords-best-practices.md): pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
-* [**Personalizzazione**](active-directory-passwords-customize.md) - personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
-* [**Criteri**](active-directory-passwords-policy.md) - comprendere e impostare i criteri password di Azure AD
-* [**Creazione di report**](active-directory-passwords-reporting.md) - verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
-* [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
-* [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
-* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
+* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](active-directory-passwords-best-practices.md)
+* [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md).
+* [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md).
+* [Domande sulle licenze](active-directory-passwords-licensing.md)
+* [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](active-directory-passwords-data.md)
+* [Metodi di autenticazione disponibili per gli utenti](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Opzioni dei criteri per la reimpostazione della password self-service](active-directory-passwords-policy.md)
+* [Come creare un report sull'attività relativa alla reimpostazione della password self-service](active-directory-passwords-reporting.md)
+* [Informazioni sulle opzioni della reimpostazione della password self-service](active-directory-passwords-how-it-works.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Abilitare il writeback delle password in Azure AD Connect"
-

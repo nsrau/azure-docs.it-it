@@ -1,0 +1,63 @@
+- name: Servizio contenitore di Azure
+  href: ./index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sul servizio contenitore di Azure
+      href: intro-kubernetes.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Creare un cluster del servizio contenitore di Azure
+      href: kubernetes-walkthrough.md
+- name: Esercitazioni
+  items:
+    - name: '1: Preparare l''applicazione per il servizio contenitore di Azure'
+      href: tutorial-kubernetes-prepare-app.md
+    - name: '2: Creare un registro contenitori'
+      href: tutorial-kubernetes-prepare-acr.md
+    - name: '3: Creare un cluster Kubernetes'
+      href: tutorial-kubernetes-deploy-cluster.md
+    - name: '4: Eseguire l''applicazione'
+      href: tutorial-kubernetes-deploy-application.md
+    - name: '5: Ridimensionare l''applicazione'
+      href: tutorial-kubernetes-scale.md
+    - name: '6: Aggiornare l''applicazione'
+      href: tutorial-kubernetes-app-update.md
+    - name: '7: Monitorare con Log Analytics'
+      href: tutorial-kubernetes-monitor.md
+    - name: '8: Aggiornare il cluster'
+      href: tutorial-kubernetes-upgrade-cluster.md
+- name: Guide alle procedure
+  items:
+    - name: Ridimensionare un cluster del servizio contenitore di Azure
+      href: scale-cluster.md
+    - name: Aggiornare un cluster del servizio contenitore di Azure
+      href: upgrade-cluster.md
+    - name: Eseguire applicazioni con Helm
+      href: kubernetes-helm.md
+    - name: Sviluppare applicazioni con Draft
+      href: kubernetes-draft.md
+    - name: Rendere persistenti i dati con File di Azure
+      href: azure-files.md
+    - name: Usare il dashboard Kubernetes
+      href: kubernetes-dashboard.md
+    - name: Creare un'entità servizio
+      href: kubernetes-service-principal.md
+- name: riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/aks
+    - name: REST
+      href: /rest/api/aks
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Aree di disponibilità
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: Video
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

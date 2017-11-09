@@ -12,14 +12,14 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 64dec0bb789fe6e07975b1d403b6a37b5c2c2ed8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: bced4e04f541dde58410e25fe0c3aa5493a5e5fd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure offre a GEP copertura globale e maggiore efficienza
 ![Logo GEP](./media/sql-database-implementation-gep/geplogo.png)

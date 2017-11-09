@@ -1,6 +1,6 @@
 ---
 title: 'Portale di Azure: creare un database SQL | Microsoft Docs'
-description: Informazioni su come creare un server logico di database SQL, una regola del firewall a livello di server e database nel portale di Azure. Viene illustrato anche come effettuare una query su un database SQL di Azure usando il portale di Azure.
+description: Creare un server logico di database SQL, una regola del firewall a livello di server e database nel portale di Azure ed eseguire una query.
 keywords: esercitazione sul database sql, creare un database sql
 services: sql-database
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: a97ff8cbd05eb3cd94b557b4dbeb63634a94ccf8
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 6bf1b94b38fffe31dd67a5146c3c9c5e9367084e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creare un database SQL di Azure nel portale di Azure
 
@@ -186,4 +185,3 @@ Dopo aver creato un database, è possibile connettersi ed eseguire query usando 
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
 ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cdn-rules-engine"></a>Motore regole della rete CDN di Azure
 In questo argomento sono riportate descrizioni dettagliate delle condizioni di corrispondenza e delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md)della rete per la distribuzione di contenuti (CDN) di Azure.

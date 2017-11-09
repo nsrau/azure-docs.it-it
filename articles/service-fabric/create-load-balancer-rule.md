@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/22/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: d152444f38e7a09b97ce7cb9778d8c67a0a5a421
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Aprire le porte per un cluster di Service Fabric
 
 Il servizio di bilanciamento del carico distribuito con il cluster di Azure Service Fabric indirizza il traffico all'app eseguita in un nodo. Se si modifica l'app per usare una porta diversa, è necessario esporre tale porta (o eseguire l'instradamento a un'altra porta) in Azure Load Balancer.

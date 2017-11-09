@@ -12,16 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/13/2017
+ms.date: 10/18/2017
 ms.author: mimig
+ms.openlocfilehash: 4907df15fddfb7d8d6128dc994b0920ca601f2c7
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 63b2d20c74df4fd6173994ee1a727594ba8afba3
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/19/2017
 ---
-
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>API di DocumentDB per Azure Cosmos DB: riferimento per la sintassi SQL
 
 L'API di DocumentDB per Azure Cosmos DB supporta l'esecuzione di query sui documenti usando un linguaggio SQL (Structured Query Language) familiare come una grammatica per i documenti JSON gerarchici senza richiedere uno schema esplicito o la creazione di indici secondari. Questo argomento indica la documentazione di riferimento per il linguaggio delle query SQL dell'API di DocumentDB.
@@ -505,8 +503,8 @@ ORDER BY <sort_specification>
 |**aritmetico**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addizione.<br /><br /> Sottrazione.<br /><br /> Moltiplicazione.<br /><br /> Divisione.<br /><br /> Modulazione.|  
 |**bit per bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit per bit.<br /><br /> AND bit per bit.<br /><br /> XOR bit per bit.<br /><br /> Spostamento a sinistra.<br /><br /> Spostamento a destra.<br /><br /> Spostamento a destra riempimento zero.|  
 |**logico**|**AND**<br /><br /> **OR**|Congiunzione logica. Restituisce **true** se entrambi gli argomenti sono **true**, altrimenti restituisce **false**.<br /><br /> Congiunzione logica. Restituisce **true** se entrambi gli argomenti sono **true**, altrimenti restituisce **false**.|  
-|**confronto**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Uguale a. Restituisce **true** se gli argomenti sono uguali, altrimenti restituisce **false**.<br /><br /> Diverso da. Restituisce **true** se gli argomenti non sono uguali, altrimenti restituisce **false**.<br /><br /> Maggiore di. Restituisce **true** se il primo argomento è maggiore del secondo, altrimenti restituisce **false**.<br /><br /> Maggiore o uguale a. Restituisce **true** se il primo argomento è maggiore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Minore di. Restituisce **true** se il primo argomento è minore del secondo, altrimenti restituisce **false**.<br /><br /> Minore o uguale a. Restituisce **true** se il primo argomento è minore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Unione. Restituisce il secondo argomento se il primo argomento è un valore **non definito**.|  
-|**Stringa**|**&#124;&#124;**|Concatenazione. Restituisce una concatenazione di entrambi gli argomenti.|  
+|**confronto**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Uguale a. Restituisce **true** se gli argomenti sono uguali, altrimenti restituisce **false**.<br /><br /> Diverso da. Restituisce **true** se gli argomenti non sono uguali, altrimenti restituisce **false**.<br /><br /> Maggiore di. Restituisce **true** se il primo argomento è maggiore del secondo, altrimenti restituisce **false**.<br /><br /> Maggiore o uguale a. Restituisce **true** se il primo argomento è maggiore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Minore di. Restituisce **true** se il primo argomento è minore del secondo, altrimenti restituisce **false**.<br /><br /> Minore o uguale a. Restituisce **true** se il primo argomento è minore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Unione. Restituisce il secondo argomento se il primo argomento è un valore **non definito**.|  
+|**Stringa**|**&amp;#124;&amp;#124;**|Concatenazione. Restituisce una concatenazione di entrambi gli argomenti.|  
   
  **Operatori ternari:**  
   
@@ -2448,12 +2446,12 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
- Restituisce un valore booleano che indica se la matrice contiene il valore specificato.  
-  
+Restituisce un valore booleano che indica se la matrice contiene il valore specificato. Può specificare se la corrispondenza è completa o parziale. 
+
  **Sintassi**  
   
 ```  
-ARRAY_CONTAINS (<arr_expr>, <expr>)  
+ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
 ```  
   
  **Argomenti**  
@@ -2465,6 +2463,10 @@ ARRAY_CONTAINS (<arr_expr>, <expr>)
 -   `expr`  
   
      È qualsiasi espressione valida.  
+
+-   `bool_expr`  
+  
+     È un'espressione booleana.       
   
  **Tipi restituiti**  
   
@@ -2484,6 +2486,25 @@ SELECT
   
 ```  
 [{"$1": true, "$2": false}]  
+```  
+
+ L'esempio seguente illustra come verificare la corrispondenza di un JSON in una matrice usando ARRAY_CONTAINS.  
+  
+```  
+SELECT  
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true), 
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}),
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) 
+```  
+  
+ Questo è il set di risultati.  
+  
+```  
+[{
+  "$1": true,
+  "$2": false,
+  "$3": false
+}] 
 ```  
   
 ####  <a name="bk_array_length"></a> ARRAY_LENGTH  
@@ -2773,4 +2794,3 @@ SELECT ST_ISVALIDDETAILED({
  [Documentazione di Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
   
   
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Crittografare una macchina virtuale di Azure
 Centro sicurezza di Azure invia avvisi in caso di macchine virtuali non crittografate. Gli avvisi vengono visualizzati con un livello di gravità elevato e la raccomandazione di crittografare tali macchine virtuali.
@@ -116,7 +115,7 @@ L'output dello script sarà simile alla schermata seguente:
 ## <a name="encrypt-the-azure-virtual-machine"></a>Crittografare la macchina virtuale di Azure
 A questo punto è possibile crittografare la macchina virtuale. Se la macchina virtuale si trova nello stesso gruppo di risorse dell'insieme di credenziali delle chiavi, è possibile passare alla sezione Passaggi di crittografia. Se la macchina virtuale non si trova nello stesso gruppo di risorse dell'insieme di credenziali delle chiavi, è necessario immettere quanto segue nella console di PowerShell ISE:
 
-**$resourceGroupName = <'Virtual_Machine_RG'>**
+**$resourceGroupName = &lt;'Virtual_Machine_RG'&gt;**
 
 Sostituire **< Virtual_Machine_RG >** con il nome del gruppo di risorse in cui sono contenute le macchine virtuali, racchiuso tra virgolette singole, e quindi premere **INVIO**.
 Per verificare che sia stato immesso il nome del gruppo di risorse corretto, digitare quanto segue nella console di PowerShell ISE:
@@ -130,7 +129,7 @@ Premere **INVIO**. Viene visualizzato il nome del gruppo di risorse in cui si tr
 ### <a name="encryption-steps"></a>Passaggi di crittografia
 In primo luogo, è necessario specificare in PowerShell il nome della macchina virtuale da crittografare. Nella console digitare quanto segue:
 
-**$vmName = <'your_vm_name'>**
+**$vmName = &lt;'your_vm_name'&gt;**
 
 Sostituire **<'your_vm_name'>** con il nome della VM, racchiuso tra virgolette singole, e quindi premere **INVIO**.
 
@@ -179,4 +178,3 @@ In questo documento si è appreso come crittografare una macchina virtuale di Az
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'utilizzo del servizio
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
-ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 7ca9307e8a78f6dade4b231fa3a0d83a68af3f21
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)
 
@@ -223,5 +222,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 
 * [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
 

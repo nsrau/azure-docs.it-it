@@ -10,17 +10,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
+ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: fccf0e3d8cb5d0f0adfb53a06b95aa1090451915
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 giorni di suggerimenti su Azure Cosmos DB
 
 ![Informazioni su come individuare un nuovo suggerimento Azure Cosmos DB ogni giorno](./media/20-days-of-tips/20-days-of-azure-cosmos-db-tips-header.png)
@@ -159,9 +157,32 @@ Post di blog: [Using Mongoose Discriminators to Store Multiple Entities in a Sin
 
 [![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
+## <a name="tip-18-request-units"></a>Suggerimento 18: unità richiesta
+
+Suggerimento 18: informazioni sulle unità richiesta (UR) e su come configurarle in Azure #CosmosDB. Altre informazioni nell'articolo all'indirizzo [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+
+Articolo: [Unità richiesta in Azure Cosmos DB](https://aka.ms/Kt2nbn)
+
+[![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913449916026032128)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319223402796326912)
+
+## <a name="tip-19-partition-partition-partition"></a>Suggerimento 19: partizionamento Partizionamento Partizionamento 
+
+Suggerimento 19: partizionamento Partizionamento Partizionamento Tutti i perché e i come in Azure #CosmosDB. Articolo all'indirizzo [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
+
+> [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
+
+[![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913773131499794433)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319541726637883392)
+
+## <a name="tip-20-cheatsheet"></a>Suggerimento 20: foglio riassuntivo
+
+Suggerimento 20: i vecchi fogli riassuntivi sono ancora molto apprezzati. C'è n'è uno anche per Azure #CosmosDB. È disponibile all'indirizzo [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
+
+Foglio informativo: [Azure Cosmos DB: foglio informativo PDF sulle query SQL dell'API di DocumentDB](https://aka.ms/Nt01nl)
+
+[![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su Azure Cosmos DB sono disponibili in [Introduzione ad Azure Cosmos DB](introduction.md) e [Panoramica tecnica di Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/).
-
 
 

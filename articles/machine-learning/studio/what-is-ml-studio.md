@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 923bf1163e4d27e8c453fc2fcd58ebb80222bd6a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Informazioni su Azure Machine Learning Studio
 Microsoft Azure Machine Learning Studio è uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva ai dati. Machine Learning Studio pubblica i modelli come servizi Web che possono essere facilmente usati da applicazioni personalizzate o strumenti di Business Intelligence, ad esempio Excel.
@@ -59,10 +58,10 @@ Se si fa clic su **Studio**, viene visualizzato **Azure Machine Learning Studio*
 * **PROJECTS** (PROGETTI): raccolte di esperimenti, set di dati, blocchi appunti e altre risorse che rappresentano un solo progetto.
 * **EXPERIMENTS** (ESPERIMENTI): esperimenti creati, eseguiti e salvati come bozze.
 * **WEB SERVICES** (SERVIZI WEB): servizi Web distribuiti tramite gli esperimenti.
-* **NOTEBOOKS** (BLOCCHI APPUNTI): notebook Jupyter creati.
+* **NOTEBOOKS** - notebook Jupyter creati.
 * **DATASETS** (SET DI DATI): set di dati caricati in Studio.
-* **TRAINED MODELS** (MODELLI SOTTOPOSTI A TRAINING): modelli sottoposti a training durante gli esperimenti e salvati in Studio.
-* **SETTINGS** (IMPOSTAZIONI): insieme di impostazioni che è possibile usare per configurare l'account e le risorse.
+* **TRAINED MODELS** - modelli sottoposti a training durante gli esperimenti e salvati in Studio.
+* **SETTINGS** : insieme di impostazioni che è possibile usare per configurare l'account e le risorse.
 
 ### <a name="gallery"></a>Gallery
 Fare clic sulla scheda **Gallery**. Verrà visualizzata **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. La raccolta è un'area in cui una community di sviluppatori e data scientist condivide le soluzioni create usando i componenti di Cortana Intelligence Suite.
@@ -119,4 +118,3 @@ Quando il modello di analisi predittiva è pronto, è possibile distribuirlo com
 [elementary-statistics]: https://msdn.microsoft.com/library/azure/3086b8d4-c895-45ba-8aa9-34f0c944d4d3/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-

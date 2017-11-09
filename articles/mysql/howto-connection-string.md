@@ -8,17 +8,15 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 2f40da41bcfda7e35f6fc63ead5d055246ab390c
-ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: c9fe0a892bd5e81d2b33987b6ca55ec753550a01
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Come connettere le applicazioni a Database di Azure per MySQL
-Questo documento elenca i tipi di stringa di connessione supportati da Database di Azure per MySQL, oltre a modelli ed esempi. Nella stringa di connessione potrebbero essere presenti parametri diversi e impostazioni diverse.
+Questo argomento elenca i tipi di stringa di connessione supportati da Database di Azure per MySQL, oltre a modelli ed esempi. Nella stringa di connessione possono essere presenti parametri e impostazioni diverse.
 
 - Per ottenere il certificato, vedere [Come configurare SSL](./howto-configure-ssl.md).
 - {your_host} = <servername>.mysql.database.azure.com
@@ -66,10 +64,9 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Ottenere i dettagli della stringa di connessione dal portale di Azure
-Nel [portale di Azure](https://portal.azure.com) andare al database di Azure per il server MySQL e quindi fare clic su **Stringhe di connessione** per ottenere l'elenco di stringhe per l'istanza: ![il riquadro Stringhe di connessione nel portale di Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
+Nel [portale di Azure](https://portal.azure.com) passare a Database di Azure per il server MySQL e quindi fare clic su **Stringhe di connessione** per ottenere l'elenco di stringhe per l'istanza: ![Riquadro Stringhe di connessione nel portale di Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
 
-La stringa include informazioni dettagliate quali il driver, il server e altri parametri di connessione al database. Modificare questi esempi con i propri parametri, ad esempio nome del database, password e così via. È quindi possibile usare questa stringa per la connessione al server dal codice e dalle applicazioni.
+La stringa include informazioni dettagliate quali il driver, il server e altri parametri di connessione al database. Modificare questi esempi con i parametri personali, come il nome del database, la password e così via. È quindi possibile usare questa stringa per la connessione al server dal codice e dalle applicazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sulle raccolte di connessioni, vedere [Concepts - Connection libraries](./concepts-connection-libraries.md) (Concetti: raccolte di connessioni).
-

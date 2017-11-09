@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Introduzione a DNS Azure con il portale di Azure
 
 > [!div class="op_single_selector"]
@@ -104,5 +102,4 @@ Per eliminare tutte le risorse create nell'esecuzione dell'esercizio, seguire qu
 Per altre informazioni sul servizio DNS Azure, vedere [Panoramica di DNS Azure](dns-overview.md).
 
 Per altre informazioni sulla gestione dei record DNS in DNS Azure, vedere [Gestire record e set di record DNS con il portale di Azure](dns-operations-recordsets-portal.md).
-
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: da7bc05c6452cde4d0236806f249559f178dd4e1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 781d06d2a8234d4cedf546ef059d49b7ece8783d
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Come configurare l'accesso Single Sign-On federato per un'applicazione non inclusa nella raccolta
 
-Per configurare un'applicazione non inclusa nella raccolta, è necessario disporre di Azure AD Premium e l'applicazione deve supportare SAML 2.0. Per altre informazioni sulle versioni di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella raccolta *senza scrivere codice*, è necessario disporre di una sottoscrizione Azure AD Premium e l'applicazione deve supportare SAML 2.0. Per altre informazioni sulle versioni di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="overview-of-steps-required"></a>Panoramica dei passaggi necessari
-La panoramica di alto livello che segue mostra i passaggi necessari per configurare l'accesso Single Sign-On federato per un'applicazione non inclusa nella raccolta, ad esempio perché personalizzata.
+La panoramica di alto livello che segue mostra i passaggi necessari per configurare l'accesso Single Sign-On federato con SAML 2.0 per un'applicazione non inclusa nella raccolta, ad esempio perché personalizzata.
 
 -   [Configurare i valori dei metadati dell'applicazione in Azure AD (URL di accesso, identificatore, URL di risposta)](#_Configuring_single_sign-on)
 

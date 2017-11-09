@@ -1,6 +1,6 @@
 ---
-title: Develop apps for Azure Stack | Microsoft Docs
-description: Learn development considerations in prototyping applications on Azure Stack
+title: Sviluppare App per lo Stack di Azure | Documenti Microsoft
+description: Altre considerazioni di sviluppo di applicazioni di creazione di prototipi nello Stack di Azure
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -14,19 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 062c17173f87eec8e0eaa3f74323cbf8a8f48571
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="develop-for-azure-stack"></a>Develop for Azure Stack
-You can get started developing applications today, even if you don't have access to an Azure Stack environment. Because Azure Stack delivers Microsoft Azure services that run in your datacenter, you can use similar tools and processes to develop against Azure Stack as you would with Azure.  With a bit of preparation and guidance from the following topics, you can use Azure to emulate an Azure Stack environment:
+# <a name="develop-for-azure-stack"></a>Sviluppare per Azure Stack
+È possibile iniziare lo sviluppo di applicazioni di oggi, anche se non si ha accesso a un ambiente dello Stack di Azure. Poiché lo Stack di Azure offre servizi di Microsoft Azure in esecuzione nel Data Center, è possibile utilizzare strumenti e processi analoghi per sviluppare sullo Stack di Azure, come si farebbe con Azure.  Con un minimo di preparazione e alle linee guida gli argomenti seguenti, è possibile utilizzare Azure per emulare un ambiente dello Stack di Azure:
 
-* In Azure, you can create Azure Resource Manager templates that are also deployable to Azure Stack.  See [template considerations](azure-stack-develop-templates.md) for guidance on developing your templates to ensure portability.
-* There is a delta in service availability and service versioning between Azure and Azure Stack. You can use the [Azure Stack policy module](azure-stack-policy-module.md) to restrict Azure service availability and resource types to what's available in Azure Stack. Constraining available services will help your application rely on services available to Azure Stack.
-* The [Azure Stack Quickstart Templates](https://github.com/Azure/AzureStack-QuickStart-Templates) are common scenario examples of how to develop your templates so they can be deployed to both Azure and Azure Stack.
-
+* In Azure, è possibile creare modelli di gestione risorse di Azure che sono anche distribuibili allo Stack di Azure.  Vedere [considerazioni sui modelli](azure-stack-develop-templates.md) per informazioni aggiuntive sullo sviluppo di modelli per garantire la portabilità.
+* Non vi è un delta di disponibilità del servizio e controllo delle versioni di servizio tra Azure e Azure Stack. È possibile utilizzare il [modulo criteri di Azure Stack](azure-stack-policy-module.md) per limitare i tipi di risorse e la disponibilità di servizio di Azure a quello disponibile nello Stack di Azure. Vincolare i servizi disponibili consentirà l'applicazione si basano sui servizi disponibili allo Stack di Azure.
+* Il [modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) sono esempi comuni di uno scenario di sviluppo di modelli affinché possano essere distribuiti in Azure sia Azure Stack.
 
 

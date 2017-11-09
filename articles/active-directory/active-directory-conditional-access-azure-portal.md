@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/20/2017
+ms.date: 09/27/2017
 ms.author: markvi
 ms.reviewer: calebb
+ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9424f43db504964ba5ea3cbd84f305d1a6697208
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
 
@@ -119,7 +118,7 @@ Nell'implementazione corrente di Azure Active Directory è possibile definire co
 - Piattaforme del dispositivo
 - Località
 - App client
-- Tempo
+
 
 ![Condizioni](./media/active-directory-conditional-access-azure-portal/01.png)
 
@@ -169,11 +168,11 @@ Gli **IP attendibili MFA** sono una funzionalità di Multi-Factor Authentication
 
 Nei criteri di accesso condizionale, è possibile:
 
-- Includere
+- Includi
     - Qualsiasi località
     - Tutte le località attendibili
     - Le località selezionate
-- Escludere
+- Escludi
     - Tutte le località attendibili
     - Le località selezionate
      
@@ -221,4 +220,3 @@ Molti clienti Intune usano l'accesso condizionale per assicurarsi che solo i dis
 - Per informazioni su come configurare un criterio di accesso condizionale, vedere [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introduzione all'accesso condizionale in Azure Active Directory).
 
 - Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
-

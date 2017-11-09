@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: 20ac1392949a6f604e68d984cb50273b61051037
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 5d62a138313ae3568470cbf5a8eb191321cd6cc7
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Creare e gestire regole del firewall per Database di Azure per PostgreSQL usando il portale di Azure
 Le regole del firewall a livello di server consentono agli amministratori di accedere a un server di Database di Azure per PostgreSQL da un indirizzo IP specificato o da un intervallo di indirizzi IP. 
@@ -27,7 +27,7 @@ Per proseguire con questa guida, si richiedono:
 
   ![Portale di Azure: fare clic su Sicurezza connessione](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. Fare clic su **Aggiungi indirizzo IP corrente** sulla barra degli strumenti. Verrà creata automaticamente una regola con l'indirizzo IP del computer rilevato dal sistema Azure.
+2. Fare clic su **Aggiungi indirizzo IP corrente** sulla barra degli strumenti. Verrà creata automaticamente una regola firewall con l'indirizzo IP pubblico del computer rilevato dal sistema Azure.
 
   ![Portale di Azure: fare clic su Aggiungi indirizzo IP corrente](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -36,7 +36,7 @@ Usare un motore di ricerca o un altro strumento online per controllare l'indiriz
 
   ![Ricerca Bing di What is my IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Aggiungere altri intervalli di indirizzi. Nelle regole per il firewall di Database di Azure per PostgreSQL è possibile specificare un solo indirizzo IP o un intervallo di indirizzi. Per limitare la regola a un solo indirizzo IP, digitare lo stesso indirizzo nei campi Indirizzo IP iniziale e Indirizzo IP finale. L'apertura del firewall consente agli amministratori e agli utenti di accedere a qualsiasi database nel server PostgreSQL per cui hanno credenziali valide.
+4. Aggiungere altri intervalli di indirizzi. Nelle regole firewall per Database di Azure per PostgreSQL è possibile specificare un solo indirizzo IP o un intervallo di indirizzi. Per limitare la regola a un solo indirizzo IP, digitare lo stesso indirizzo nei campi Indirizzo IP iniziale e Indirizzo IP finale. L'apertura del firewall consente agli amministratori, agli utenti e alle applicazioni di accedere a qualsiasi database nel server PostgreSQL per cui hanno credenziali valide.
 
   ![Portale di Azure: regole del firewall ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -50,8 +50,8 @@ Ripetere i passaggi per gestire le regole del firewall.
 * Per aggiungere il computer corrente, fare clic sul pulsante + **Aggiungi indirizzo IP corrente**. È consigliabile fare clic su **Salva** per salvare le modifiche.
 * Per aggiungere ulteriori indirizzi IP, digitare nome della regola, indirizzo IP iniziale e indirizzo IP finale. È consigliabile fare clic su **Salva** per salvare le modifiche.
 * Per modificare una regola esistente, fare clic su uno dei campi nella regola e modificare. È consigliabile fare clic su **Salva** per salvare le modifiche.
-* Per eliminare una regola esistente, fare clic sui puntini di sospensione […] e fare clic su Elimina per rimuovere la regola. È consigliabile fare clic su **Salva** per salvare le modifiche.
+* Per eliminare una regola esistente, fare clic sui puntini di sospensione […] e fare clic su **Elimina** per rimuovere la regola. È consigliabile fare clic su **Salva** per salvare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Analogamente, è possibile generare uno script per [creare e gestire le regole del firewall per Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md)
-- Per informazioni sulla connessione a un'istanza di Database di Azure per il server PostgreSQL, vedere [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md) (Raccolte di connessioni per Database di Azure per PostgreSQL)
+- Analogamente, è possibile generare uno script per [creare e gestire le regole firewall per Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md).
+- Per informazioni sulla connessione a un'istanza di Database di Azure per il server PostgreSQL, vedere [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md) (Raccolte di connessioni per Database di Azure per PostgreSQL).

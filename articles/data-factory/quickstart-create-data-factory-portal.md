@@ -11,17 +11,23 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
+ms.openlocfilehash: 9f49fbff9f66dc081e94b35e1318a2c9aee60dc0
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: b884d7f08311cc60dc3af500f552d525d23b91e6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-data-factory-using-the-azure-portal"></a>Creare una data factory nel portale di Azure
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versione 1 - Disponibilità generale](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Versione 2 - Anteprima](quickstart-create-data-factory-portal.md)
+
 Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI). 
 
 In questa guida introduttiva si userà il portale di Azure per creare una data factory. Dopo aver creato la data factory, è necessario usare PowerShell, .NET SDK, Python SDK o l'API REST come descritto nelle altre guide introduttive per creare una pipeline di dati che copia i dati da un archivio dati di origine a un archivio dati di destinazione. Attualmente, non è possibile creare pipeline in una data factory usando il portale di Azure.
+
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere l'[introduzione a Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

@@ -14,12 +14,11 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
-ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Introduzione ad Azure Mobile Engagement per Cordova/Phonegap
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -220,5 +219,4 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [10]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
-
 

@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 3bd8256814036a357b30b69286da6bb7c974162f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # Protocolli della versione 2.0: applicazioni a singola pagina che usano il flusso implicito
 Con l'endpoint v2.0 è possibile far accedere gli utenti alle app a singola pagina con account Microsoft sia personali che aziendali o dell'istituto di istruzione.  Le app a pagina singola e le altre app JavaScript che vengono eseguite soprattutto in un browser presentano alcune problematiche interessanti nell'ambito dell'autenticazione:

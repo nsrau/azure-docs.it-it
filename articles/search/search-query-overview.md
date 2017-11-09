@@ -13,12 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
-ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
-
+ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="query-your-azure-search-index"></a>Eseguire query su un indice di Ricerca di Azure
 > [!div class="op_single_selector"]
@@ -67,4 +66,4 @@ Il modo migliore per comprendere le differenze di sintassi consiste nell'inviare
 
 + Usare [Esplora ricerche](search-explorer.md) nel portale di Azure. Distribuendo l'[indice di esempio](search-get-started-portal.md), è possibile eseguire una query dell'indice in pochi minuti usando gli strumenti del portale.
 
-+ Usare [Fiddler](search-fiddler.md) o Chrome Postman per inviare query a un indice che è stato caricato nel servizio di ricerca. Entrambi gli strumenti supportano le chiamate REST a un endpoint HTTP. 
++ Usare Telerik Fiddler o Chrome Postman per inviare query a un indice che è stato caricato nel servizio di ricerca. Entrambi gli strumenti supportano le chiamate REST a un endpoint HTTP. 

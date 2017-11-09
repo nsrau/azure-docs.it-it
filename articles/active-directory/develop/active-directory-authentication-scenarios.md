@@ -16,10 +16,10 @@ ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
 ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Scenari di autenticazione per Azure AD
 Azure Active Directory (AD) semplifica l'autenticazione per gli sviluppatori fornendo le identità come servizio, con il supporto per protocolli standard del settore come OAuth 2.0 e OpenID Connect, nonché librerie open source per diverse piattaforme che permettono di iniziare rapidamente a creare codice. Questo documento include informazioni utili per comprendere i diversi scenari supportati da Azure AD, oltre a illustrare come iniziare. Il documento è suddiviso nelle sezioni seguenti:

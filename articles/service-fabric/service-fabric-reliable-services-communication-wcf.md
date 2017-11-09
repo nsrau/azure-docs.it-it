@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
 ms.openlocfilehash: 7037620ebdc26a9f18531064bf45d058f5060e39
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Stack di comunicazione basato su WCF per Reliable Services
 Il framework di Reliable Services consente agli autori del servizio di scegliere lo stack di comunicazione da usare per il servizio, nonché di collegarsi allo stack di comunicazione scelto tramite l'oggetto **ICommunicationListener** restituito dai metodi [CreateServiceReplicaListeners o CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md). Il framework offre un'implementazione dello stack di comunicazione basata su Windows Communication Foundation (WCF) per gli autori del servizio che intendono usare la comunicazione basata su WCF.

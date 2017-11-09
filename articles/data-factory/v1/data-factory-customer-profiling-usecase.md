@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: fcba76555902fb393830f352e6274b3ecd2fba38
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e7acb9fbddc59803ed8cf6f1d7dcda0171998f7b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="use-case---customer-profiling"></a>Caso di utilizzo - Profilo clienti
 Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per ulteriori informazioni su Cortana Intelligence, vedere [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). In questo documento viene descritto un caso di semplice utilizzo che consente di iniziare a capire come Data Factory di Azure può risolvere problemi comuni di analisi.
@@ -69,5 +68,4 @@ In questo esempio Data Factory viene usato per gestire le attività che copiano 
 
 ## <a name="benefits"></a>Vantaggi
 Per ottimizzare l'analisi del profilo dell'utente e allinearla agli obiettivi aziendali, le società di giochi online sono in grado di raccogliere rapidamente modelli di uso e analizzare l'efficacia delle campagne pubblicitarie.
-
 

@@ -17,6 +17,8 @@
       href: app-insights-nodejs-quick-start.md
     - name: Java
       href: app-insights-java-quick-start.md
+    - name: Mobile
+      href: app-insights-mobile-center-quickstart.md
 - name: Esercitazioni
   items:
     - name: Individuare le eccezioni in fase di esecuzione
@@ -92,7 +94,7 @@
             - name: Profiler
               href: app-insights-profiler.md
             - name: Abilitare Profiler
-              href: enable-profiler-cloud-services.md
+              href: enable-profiler-compute.md
             - name: Diagnostica
               href: app-insights-azure-diagnostics.md
             - name: Anteprime
@@ -117,8 +119,6 @@
               href: app-insights-snapshot-debugger.md
         - name: J2EE
           items:
-            - name: Eclipse
-              href: app-insights-java-eclipse.md
             - name: Analisi di log
               href: app-insights-java-trace-logs.md
             - name: Metriche di UNIX
@@ -140,8 +140,6 @@
               href: app-insights-proactive-failure-diagnostics.md
             - name: Anomalie delle prestazioni
               href: app-insights-proactive-performance-diagnostics.md
-        - name: Dynamics CRM
-          href: app-insights-sample-mscrm.md
         - name: Creare una risorsa
           href: app-insights-create-new-resource.md
     - name: Analizzare
@@ -188,14 +186,8 @@
           items:
             - name: Panoramica
               href: app-insights-analytics.md
-            - name: Presentazione
-              href: app-insights-analytics-tour.md
-            - name: Con
-              href: app-insights-analytics-using.md
-            - name: Importa
+            - name: Importare i log personalizzati
               href: app-insights-analytics-import.md
-            - name: Diagnostica
-              href: app-insights-analytics-diagnostics.md
     - name: Automazione
       items:
         - name: Configurazione di Azure PowerShell
@@ -259,7 +251,7 @@
           href: app-insights-java-troubleshoot.md
 - name: riferimento
   items:
-    - name: Analytics
+    - name: Linguaggio di query di Analytics
       href: 'https://docs.loganalytics.io/'
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'

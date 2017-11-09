@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 1dfa93643f45a96ded3fd022aa8b1c71d487acb4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Linee guida per l'ottimizzazione delle prestazioni di Storm in HDInsight e di Azure Data Lake Store
 

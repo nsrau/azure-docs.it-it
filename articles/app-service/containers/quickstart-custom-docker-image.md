@@ -1,6 +1,6 @@
 ---
-title: Eseguire un'immagine Docker Hub personalizzata in App Web di Azure per contenitori | Microsoft Docs
-description: Come usare un'immagine Docker personalizzata per App Web di Azure per contenitori.
+title: Eseguire un'immagine hub Docker personalizzata nell'app Web per contenitori | Microsoft Docs
+description: Come usare un'immagine Docker personalizzata per l'app Web per contenitori.
 keywords: Servizio app di Azure, app Web, Linux, Docker, contenitore
 services: app-service
 documentationcenter: 
@@ -16,27 +16,25 @@ ms.topic: quickstart
 ms.date: 09/05/2017
 ms.author: wesmc
 ms.custom: mvc
+ms.openlocfilehash: c85f79cc14cdcecd2a05fc0ff91c4864b9fba277
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: da47bc9dd6fd980a37e2fdb57485858c2f1b2a73
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
+# <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Eseguire un'immagine hub Docker personalizzata nell'app Web per contenitori
 
-# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Eseguire un'immagine Docker Hub personalizzata in App Web di Azure per contenitori #
-
-Il servizio app fornisce stack di applicazioni predefiniti in Linux con il supporto per versioni specifiche, ad esempio PHP 7.0 e Node.js 4.5. È anche possibile usare un'immagine Docker personalizzata per distribuire l'app Web in uno stack di applicazioni non ancora definito in Azure. Questa guida introduttiva mostra come creare un'app Web e distribuire un'immagine Python nell'app. Creare l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Il servizio app fornisce stack di applicazioni predefiniti in Linux con il supporto per versioni specifiche, ad esempio PHP 7.0 e Node.js 4.5. È anche possibile usare un'immagine Docker personalizzata per distribuire l'app Web in uno stack di applicazioni non ancora definito in Azure. Questa guida introduttiva mostra come creare un'app Web e distribuire un'immagine Docker basata su Python nell'app. Creare l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Creare un'app Web
+## <a name="create-a-web-app-for-container"></a>Creare un'app Web per contenitori
 
 Creare un'[app Web](../app-service-web-overview.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp#create). Non dimenticare di sostituire `<app name>` con un nome univoco dell'app.
 
@@ -44,7 +42,7 @@ Creare un'[app Web](../app-service-web-overview.md) nel piano di servizio app `m
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
 ```
 
-Nel comando precedente `--deployment-container-image-name` punta all'immagine Docker Hub pubblica [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/). È possibile esaminarne il contenuto in [https://github.com/rachelappel/docker-image](https://github.com/rachelappel/docker-image).
+Nel comando precedente `--deployment-container-image-name` punta all'immagine Docker Hub pubblica [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/). È possibile esaminarne il contenuto in [https://github.com/ahmedelnably/dockerimagetest](https://github.com/ahmedelnably/dockerimagetest).
 
 Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mostra un output simile all'esempio seguente:
 
@@ -79,4 +77,3 @@ http://<app_name>.azurewebsites.net
 
 > [!div class="nextstepaction"]
 > [Compilare un'app Web Python Docker e PostgreSQL in Azure](tutorial-docker-python-postgresql-app.md)
-

@@ -4,7 +4,7 @@ description: "Script di esempio di Azure PowerShell per sincronizzare più datab
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 07/31/2017
-ms.author: douglasl
+ms.author: jognanay
+ms.reviewer: douglasl
+ms.openlocfilehash: 0a4130fcf3f3ee9a2a6ad99a53778b69e85b25c0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 3a2fe08706ea5bea10da0c8f42188397a2f9f2f4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>Usare PowerShell per sincronizzare più database SQL di Azure
  
@@ -361,4 +361,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Per altri esempi, vedere tra gli [script di PowerShell per database SQL di Azure](../sql-database-powershell-samples.md).
-

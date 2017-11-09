@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/22/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
 Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio PD, documenti di Microsoft Office e numerosi altri formati comuni) salvati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
 
@@ -381,4 +379,3 @@ La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di docume
 
 ## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure
 Per richieste di funzionalità o idee su miglioramenti da apportare, è possibile usare il [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-

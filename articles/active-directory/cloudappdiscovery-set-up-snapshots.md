@@ -16,14 +16,12 @@ ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
+ms.openlocfilehash: dd4cf725689739ce4c8b86a4d8203ffc5aff016b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 38e3f71fb4817de7aa95b99e662856f586e72530
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Creare report snapshot di Cloud App Discovery
 
 Prima di configurare l'agente di raccolta log automatico, caricare manualmente un log e lasciare che Cloud App Security lo analizzi. Se in mancanza di un log si vuole esaminare un log di esempio, usare la procedura seguente per scaricare un file di log di esempio e scoprire che aspetto avrà il log.
@@ -56,4 +54,3 @@ Prima di configurare l'agente di raccolta log automatico, caricare manualmente u
 * [Introduzione all'uso di Cloud App Discovery in Azure AD](cloudappdiscovery-get-started.md)
 * [Configurare il caricamento automatico dei log per i report continui](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Usare un parser di log personalizzato](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-

@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 09/26/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: 9c0d9274ac78a5e1c4c12ea8e373b69b6f9e165c
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 14975454cbc0afcfbdbd3aa6b52983be4d4b1785
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurare un'entità servizio di Azure AD per un cluster Kubernetes nel servizio contenitore
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Un cluster Kubernetes richiede un'[entità servizio di Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) nel servizio contenitore di Azure per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le [route definite dall'utente](../../virtual-network/virtual-networks-udr-overview.md) e [Azure Load Balancer di livello 4](../../load-balancer/load-balancer-overview.md).
 

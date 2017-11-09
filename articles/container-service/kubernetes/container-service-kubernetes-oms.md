@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
+ms.openlocfilehash: e171d1ef09712362ff1aabd783449abaed9daaf7
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: bcb4a7a7d0b712ebe35a5a5bb063124be5095148
-ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Monitorare un cluster del servizio contenitore di Azure con Microsoft Operations Management Suite (OMS)
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio contenitore di Azure](container-service-kubernetes-walkthrough.md).
@@ -75,8 +75,7 @@ Per altre informazioni sulla soluzione contenitore, consultare [Log Analytics de
 ## <a name="installing-oms-on-kubernetes"></a>Installazione di OMS in Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Ottenere l'ID e la chiave dell'area di lavoro
-Per consentire la comunicazione dell'agente OMS con il servizio, è necessario configurare il rispettivo ID e la rispettiva chiave dell'area di lavoro. Per ottenere l'ID e la chiave dell'area di lavoro è necessario creare un account OMS nel sito <https://mms.microsoft.com>.
-Attenersi alla procedura di creazione di un account. Al termine della creazione dell'account, è necessario ottenere l'ID e la chiave facendo clic su **Impostazioni**, quindi **Origini connesse** e infine **Server Linux**, come illustrato di seguito.
+Per consentire la comunicazione dell'agente OMS con il servizio, è necessario configurare il rispettivo ID e la rispettiva chiave dell'area di lavoro. Per ottenere l'ID e la chiave dell'area di lavoro è necessario creare un account OMS nel sito <https://mms.microsoft.com>. Attenersi alla procedura di creazione di un account. Al termine della creazione dell'account, è necessario ottenere l'ID e la chiave facendo clic su **Impostazioni**, quindi **Origini connesse** e infine **Server Linux**, come illustrato di seguito.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -131,4 +130,3 @@ Per proteggere l'ID dell'area di lavoro OMS e la chiave è possibile usare il se
 
 ### <a name="conclusion"></a>Conclusione
 L'operazione è terminata. Dopo qualche minuto dovrebbe essere visualizzato il flusso di dati verso il dashboard OMS.
-

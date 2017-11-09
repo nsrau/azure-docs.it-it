@@ -12,24 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 7f9b886259c065627055f62a3636ab65434ca57b
-ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 4c87ebbcd79576553ad95b99cbdca8ad33a4452e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Developer Analytics: linguaggi, piattaforme e integrazioni
 Di seguito sono riportate implementazioni di [Application Insights](app-insights-overview.md) già illustrate, incluse alcune di terze parti.
 
-## <a name="languages---officially-supported-by-application-insights-team"></a>Lingue: supportate ufficialmente dal team di Application Insights
+## <a name="languages---officially-supported-by-application-insights-team"></a>Linguaggi: supportati ufficialmente dal team di Application Insights
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Pagine Web JavaScript](app-insights-javascript.md)
+* [Node.JS](app-insights-nodejs.md)
 
-## <a name="languages---community-supported"></a>Lingue: supportate dalla community
-* [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
+## <a name="languages---community-supported"></a>Linguaggi: supportati dalla community
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -40,20 +39,20 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET - per app già attive](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (Mobile Center, HockeyApp)
 * [App Web di Azure](app-insights-azure-web-apps.md)
 * [Servizi cloud di Azure](app-insights-cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
 * [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (Mobile Center, HockeyApp)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE - per app già attive](app-insights-java-live.md)
-* [App Mac OS X](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
+* [App macOS](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [App di Windows Universale](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (HockeyApp)
+* [App di Windows universale](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (Mobile Center, HockeyApp)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [App Windows Phone 8 e 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
 * [App Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)
@@ -84,4 +83,3 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 
 ## <a name="projects"></a> Creare un SDK personalizzato
 Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibile crearne uno. A tale scopo, esaminare il codice degli SDK esistenti incluso nel [progetto di Application Insights SDK su GitHub](https://github.com/Microsoft/AppInsights-Home).
-

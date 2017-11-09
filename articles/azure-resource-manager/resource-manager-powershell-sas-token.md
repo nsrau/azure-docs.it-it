@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
 ms.openlocfilehash: 1e3cea027b599e2b1af1ced0fdf14e2cc8a0db82
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e Azure PowerShell
 

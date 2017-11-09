@@ -3,7 +3,7 @@ title: Introduzione ad Azure Application Insights con Java in Eclipse | Document
 description: Usare il plug-in Eclipse per aggiungere il monitoraggio delle prestazioni e l'uso nel sito Web Java con Application Insights
 services: application-insights
 documentationcenter: java
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: e88c9f53-cd90-4abc-b097-1f170937908e
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
-ms.author: bwren
-ms.openlocfilehash: f2f696a3bbe7893c1f521a3e5588f4f93805d6a2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introduzione ad Application Insights con Java in Eclipse
 SDK di Application Insights invia dati di telemetria dall'applicazione Web Java in modo da poter analizzare l'uso e le prestazioni. Il plug-in Eclipse per Application Insights installa automaticamente SDK nel progetto in modo da ottenere i dati di telemetria predefiniti, oltre a un'API che è possibile usare per scrivere dati di telemetria personalizzati.   

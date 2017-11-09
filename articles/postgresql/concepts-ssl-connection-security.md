@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
-ms.openlocfilehash: 685aa4c2f75b7c3260ca737f7c786157480b2d90
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: fa14d4d0115ecc5cf416918f6bdb0d29345e4f83
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurare la connettività SSL nel Database di Azure per PostgreSQL
 Il Database di Azure per PostgreSQL preferisce connettere le applicazioni client al servizio di PostgreSQL usando la connettività SSL (Secure Sockets Layer). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
@@ -30,7 +30,7 @@ Analogamente, le stringhe di connessione predefinite nelle impostazioni "Stringh
 Facoltativamente, è possibile disabilitare l'applicazione della connettività SSL. Microsoft Azure consiglia di abilitare sempre l'impostazione **Enforce SSL connection** (Applica connessione SSL) per una maggiore sicurezza.
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
-Visitare il Database di Azure per il server PostgreSQL e fare clic su **Sicurezza connessione**. Usare l'interruttore per abilitare o disabilitare l'impostazione **Applica connessione SSL**. Fare quindi clic su **Salva**. 
+Visitare il Database di Azure per il server PostgreSQL e fare clic su **Sicurezza connessione**. Usare l'interruttore per abilitare o disabilitare l'impostazione **Imponi connessione SSL**. Fare quindi clic su **Salva**. 
 
 ![Sicurezza connessione - Disabilitare l'applicazione di SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
 
@@ -59,11 +59,11 @@ Per decodificare il file del certificato richiesto dall'applicazione per connett
 #### <a name="for-linux-os-x-or-unix"></a>Per Linux, OS X o Unix
 Le librerie OpenSSL vengono distribuite nel codice sorgente direttamente da [OpenSSL Software Foundation](http://www.openssl.org). Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare OpenSSL nel computer Linux. In questo articolo vengono usati i comandi noti per lavorare su Ubuntu 12.04 (e versioni successive).
 
-Aprire una sessione terminal e installare OpenSSL
+Aprire una sessione terminal e scaricare OpenSSL.
 ```bash
 wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
 ``` 
-Estrarre i file dal pacchetto di download
+Estrarre i file dal pacchetto scaricato.
 ```bash
 tar -xvzf openssl-1.1.0e.tar.gz
 ```
@@ -82,7 +82,7 @@ Ora che OpenSSL è stato configurato correttamente, è necessario compilarlo per
 ```bash
 make
 ```
-Al termine della compilazione è possibile installare OpenSSL come eseguibile con questo comando:
+Al termine della compilazione è possibile installare OpenSSL come eseguibile eseguendo il comando seguente:
 ```bash
 make install
 ```
@@ -99,7 +99,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 #### <a name="for-windows"></a>Per Windows
 L'installazione di OpenSSL in un PC Windows può essere eseguita nei modi seguenti:
 1. **(Scelta consigliata)** Usando la funzionalità Bash per Windows disponibile in Windows 10 e versioni successive, OpenSSL viene installato per impostazione predefinita. Le istruzioni su come abilitare la funzionalità Bash per Windows in Windows 10 sono disponibili [qui](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
-2. Tramite il download di un'applicazione Win32/64 bit fornita dalla community. Pur non offrendo o avallando eventuali programmi di installazione di Windows specifici, OpenSSL Software Foundation offre un elenco dei programmi di installazione disponibili [qui](https://wiki.openssl.org/index.php/Binaries)
+2. Tramite il download di un'applicazione Win32/64 bit fornita dalla community. Pur non fornendo o avallando eventuali programmi di installazione di Windows specifici, OpenSSL Software Foundation offre un elenco dei programmi di installazione disponibili [qui](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Decodificare il file del certificato
 Il file CA radice scaricato è in formato crittografato. Usare OpenSSL per decodificare il file del certificato. Per farlo, eseguire questo comando OpenSSL:
@@ -113,7 +113,7 @@ Ora che il certificato è stato decodificato correttamente, è possibile connett
 
 > [!NOTE]
 > Attualmente si verifica un problema noto se si usa "sslmode = verify-full" nella connessione al servizio, ovvero la connessione avrà esito negativo con un errore indicante che il _certificato del server per "&lt;area&gt;.control.database.windows.net" (e 7 altri nomi) non corrisponde al nome host "&lt;servername&gt;.postgres.database.azure.com"._
-> Se è obbligatorio usare la modalità "sslmode=verify-full", usare la convenzione di denominazione server  **&lt;nomeserver&gt;.database.windows.net** come nome host della stringa di connessione. In futuro questa limitazione verrà rimossa. Le connessioni che usano altre [modalità SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) devono continuare a usare la convenzione di denominazione host preferita  **&lt;nomeserver&gt;.postgres.database.azure.com**.
+> Se è obbligatorio usare la modalità "sslmode=verify-full", usare la convenzione di denominazione server **&lt;nomeserver&gt;.database.windows.net** come nome host nella stringa di connessione. In futuro questa limitazione verrà rimossa. Le connessioni che usano altre [modalità SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) devono continuare a usare la convenzione di denominazione host preferita  **&lt;nomeserver&gt;.postgres.database.azure.com**.
 
 #### <a name="using-psql-command-line-utility"></a>Uso dell'utilità della riga di comando PSQL
 L'esempio seguente illustra come connettersi al server PostgreSQL tramite l'utilità della riga di comando PSQL. Usare il file `root.crt` creato e `sslmode=verify-ca` o l'opzione `sslmode=verify-full`.
@@ -141,4 +141,4 @@ La configurazione di pgAdmin 4 per connettersi in modo sicuro tramite SSL richie
 ![Schermata di pgAdmin - connessione - modalità SSL richiesta](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Esaminare varie opzioni di connettività dell'applicazione secondo [Raccolte connessioni per il Database di Azure per PostgreSQL](concepts-connection-libraries.md)
+Esaminare varie opzioni di connettività dell'applicazione come descritto nell'articolo [Raccolte connessioni per Database di Azure per PostgreSQL](concepts-connection-libraries.md).

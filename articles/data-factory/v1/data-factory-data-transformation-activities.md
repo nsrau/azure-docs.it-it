@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: 2ec40ee232ab50f79169f42b6573d294b77110a2
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8f6c428d6b7d5b9cab823c2a2408b895bb2c05a3
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Trasformare i dati in Azure Data Factory
 > [!div class="op_single_selector"]
@@ -34,6 +33,9 @@ ms.lasthandoff: 09/25/2017
 > * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
 
 ## <a name="overview"></a>Panoramica
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Attività di trasformazione dei dati in Data Factory versione 2](../transform-data.md).
+
 Questo articolo illustra le attività di trasformazione dei dati in Azure Data Factory da usare per trasformare ed elaborare i dati non elaborati in stime e informazioni dettagliate. L'attività di trasformazione viene eseguita in un ambiente di elaborazione, ad esempio cluster HDInsight di Azure o un Batch di Azure. Vengono forniti i collegamenti ad articoli con informazioni dettagliate su ciascuna attività di trasformazione.
 
 Data Factory supporta le seguenti attività di trasformazione dei dati che possono essere aggiunte a [pipeline](data-factory-create-pipelines.md) singolarmente o con un'altra attività concatenata.
@@ -97,5 +99,4 @@ Azure Data Factory supporta le seguenti attività di trasformazione di dati e i 
 | [Stored procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse o SQL Server |
 | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |Azure Data Lake Analytics. |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Batch di Azure |
-
 

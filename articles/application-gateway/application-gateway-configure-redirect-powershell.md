@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: cbee070c6bfe17135f37a82c545bf8ee7db2db43
-ms.contentlocale: it-it
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>Configurare il reindirizzamento nel gateway applicazione con PowerShell
 
 Il gateway applicazione supporta il reindirizzamento del traffico in base a una configurazione definita. Per altre informazioni sul reindirizzamento in generale, vedere la [panoramica del reindirizzamento del gateway applicazione](application-gateway-redirect-overview.md). Questo articolo contiene esempi di reindirizzamento da HTTP a HTTPS e di reindirizzamenti basati sul percorso, multisito e a siti esterni.

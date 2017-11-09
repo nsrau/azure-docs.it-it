@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 10/05/2017
 ms.author: sethm; babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1a6bf0a0352e6d9e3a22586ac825558d12e1307a
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-event-hubs"></a>Che cos'è Hub eventi?
 
-Hub eventi di Azure è una piattaforma di streaming di dati estremamente scalabile e un servizio di inserimento degli eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Con la possibilità di fornire [funzionalità di pubblicazione-sottoscrizione](https://msdn.microsoft.com/library/aa560414.aspx) con una latenza bassa e su larga scala, Hub eventi funge da "rampa di ingresso" per i Big Data.
+Hub eventi di Azure è una piattaforma di streaming di dati estremamente scalabile e un servizio di inserimento degli eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Con la possibilità di fornire [funzionalità di pubblicazione-sottoscrizione](/biztalk/core/publish-and-subscribe-architecture) con una latenza bassa e su larga scala, Hub eventi funge da "rampa di ingresso" per i Big Data.
 
 ## <a name="why-use-event-hubs"></a>Vantaggi dell'uso di Hub eventi
 
@@ -59,7 +58,7 @@ Per informazioni tecniche dettagliate su queste e altre funzionalità di Hub eve
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni dettagliate sui prezzi di Hub eventi, vedere [Hub eventi Prezzi](https://azure.microsoft.com/pricing/details/event-hubs/).
+Per informazioni dettagliate sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi ](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 
@@ -68,5 +67,4 @@ Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 * [Applicazioni di esempio che usano Hub eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples)
  
  
-
 

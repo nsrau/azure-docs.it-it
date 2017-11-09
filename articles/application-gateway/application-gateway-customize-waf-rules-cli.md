@@ -14,14 +14,12 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: 3051f71f269e409b76e6a19fdcd2feae2a04b8fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 456be048dc2d82cd50d145b71f17a84a7189ea96
-ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli-20"></a>Personalizzare le regole del web application firewall con l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
@@ -143,4 +141,3 @@ Dopo aver configurato le regole disattivate, viene descritto come visualizzare i
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
-

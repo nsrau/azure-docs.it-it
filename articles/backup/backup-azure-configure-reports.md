@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/13/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 597c3eb49bc3d4f9b2311f232e4280027636266c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 In questo articolo vengono illustrati i passaggi per configurare i report per Backup di Azure usando l'insieme di credenziali di Servizi di ripristino e per accedere a questi report usando Power BI. Dopo aver seguito questa procedura, è possibile passare direttamente a Power BI per visualizzare tutti i report, personalizzare e creare report. 
@@ -66,7 +65,7 @@ Usare la procedura seguente per configurare l'account di archiviazione per l'arc
 7. Esaminare tutte le modifiche e fare clic sul pulsante **Salva** nella parte superiore, come illustrato nella figura precedente. Questa azione assicura che tutte le modifiche vengano salvate e che l'account di archiviazione sia ora configurato per l'archiviazione dei dati dei report.
 
 > [!NOTE]
-> Dopo aver configurato i report con il salvataggio dell'account di archiviazione, è consigliabile **attendere 24 ore** affinché venga completato il push di dati iniziale. È consigliabile importare il pacchetto di contenuto di Backup di Azure in Power BI solo dopo tale intervallo. Per altri dettagli, vedere la [sezione delle domande frequenti](#frequently-asked-questions). 
+> Dopo aver configurato i report con il salvataggio dell'account di archiviazione, è consigliabile **attendere 24 ore** affinché venga completato il push di dati iniziale. È consigliabile importare il pacchetto di contenuto di Backup di Azure in Power BI solo dopo tale intervallo. Per altri dettagli vedere la [sezione delle domande frequenti](#frequently-asked-questions). 
 >
 >
 
@@ -152,5 +151,4 @@ Dopo aver configurato l'account di archiviazione e importato il pacchetto di con
 * [Utilizzo del modello dati di Backup di Azure](backup-azure-reports-data-model.md)
 * [Filtraggio dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Creazione dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-
 

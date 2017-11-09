@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1a6f1c6566468188daa71939db8345280b7a529f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory
 Quando si chiede agli utenti di aggiungere i dispositivi personali all'area di lavoro con il servizio Registrazione dispositivo di Azure Active Directory (Azure AD), i dispositivi possono essere contrassegnati come noti all'organizzazione. Di seguito è riportata una guida dettagliata all'abilitazione dell'accesso condizionale alle applicazioni locali con Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -220,8 +220,5 @@ Nei comandi precedenti **relying party trust name** è il nome dell'oggetto trus
 E **yourdomain.com** è il nome di dominio configurato con Azure Active Directory, ad esempio contoso.com.
 Assicurarsi di rimuovere le eventuali interruzioni di riga presenti nel contenuto HTML passato al cmdlet **Set-AdfsRelyingPartyWebContent** .
 
-A questo punto, quando gli utenti accedono all'applicazione da un dispositivo non registrato con il servizio Registrazione dispositivo di Azure Active Directory, visualizzano una pagina simile alla schermata seguente.
-
-![Schermata di un errore visualizzato quando gli utenti non hanno registrato il dispositivo con Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
-
+A questo punto, quando gli utenti accedono all'applicazione da un dispositivo non registrato nel servizio Registrazione dispositivo di Azure Active Directory, verrà visualizzato un errore.
 

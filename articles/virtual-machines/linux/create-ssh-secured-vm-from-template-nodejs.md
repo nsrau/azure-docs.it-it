@@ -17,10 +17,10 @@ ms.date: 05/12/2017
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 33d4aaa78fcdf3bd9e2e236606f2d3049f464a8a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Procedura per creare una VM Linux in Azure con un'interfaccia della riga di comando 1.0 di Azure e un modello di Azure Resource Manager
 Questo articolo illustra come distribuire rapidamente una macchina virtuale Linux usando un'interfaccia della riga di comando 1.0 di Azure e un modello di Azure Resource Manager. L'articolo richiede:

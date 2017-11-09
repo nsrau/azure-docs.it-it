@@ -1,6 +1,6 @@
 ---
-title: Provisioning di una macchina virtuale di SQL Server | Microsoft Docs
-description: "Creare e connettersi a una macchina virtuale di SQL Server in Azure usando il portale. Questa esercitazione usa la modalità Resource Manager."
+title: Creare una VM Windows di SQL Server 2017 in Azure | Microsoft Docs
+description: Questa esercitazione illustra come creare una macchina virtuale Windows di SQL Server 2017 nel portale di Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -12,55 +12,54 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 10/10/2017
 ms.author: jroth
+ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
-ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure
+# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale Windows di SQL Server nel portale di Azure
+
 > [!div class="op_single_selector"]
 > * [Portale](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-Questa esercitazione end-to-end illustra come usare il portale di Azure per effettuare il provisioning di una macchina virtuale che esegue SQL Server.
-
-La raccolta di macchine virtuali (VM) di Azure include numerose immagini che contengono Microsoft SQL Server. Sono sufficienti pochi clic per selezionare una delle immagini di VM di SQL dalla raccolta ed effettuarne il provisioning nell'ambiente Azure.
+In questa esercitazione introduttiva si usa il portale di Azure per creare una macchina virtuale Windows con SQL Server installato.
 
 In questa esercitazione si apprenderà come:
 
-* [Selezionare un'immagine di VM di SQL dalla raccolta](#select-a-sql-vm-image-from-the-gallery)
-* [Configurare e creare la macchina virtuale](#configure-the-vm)
-* [Aprire la macchina virtuale tramite Desktop remoto](#open-the-vm-with-remote-desktop)
-* [Connettersi a SQL Server in modalità remota](#connect-to-sql-server-remotely)
+* [Selezionare un'immagine di VM di SQL dalla raccolta](#select)
+* [Configurare e creare la macchina virtuale](#configure)
+* [Aprire la macchina virtuale tramite Desktop remoto](#remotedesktop)
+* [Connettersi a SQL Server in modalità remota](#connect)
 
-## <a name="select-a-sql-vm-image-from-the-gallery"></a>Selezionare un'immagine di VM di SQL dalla raccolta
+## <a id="select"></a> Selezionare un'immagine di VM di SQL dalla raccolta
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account.
 
    > [!NOTE]
    > Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2. Nel portale di Azure fare clic su **Nuovo**. Nel portale verrà aperta la finestra **Nuovo**.
+1. Nel portale di Azure fare clic su **Nuovo**. Nel portale verrà aperta la finestra **Nuovo**.
 
-3. Nella finestra **Nuovo** fare clic su **Calcolo** e quindi su **Visualizza tutto**.
+1. Nella finestra **Nuovo** fare clic su **Calcolo** e quindi su **Visualizza tutto**.
 
    ![Finestre Nuovo e Calcolo](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
-4. Nel campo di ricerca digitare **SQL Server** e premere INVIO.
+1. Nel campo di ricerca digitare **SQL Server 2017** e premere INVIO.
 
-5. Fare quindi clic sull'icona **Filtro** e selezionare **Microsoft** come editore. Fare clic su **Fatto** nella finestra Filtro per filtrare i risultati e ottenere le immagini di SQL Server pubblicate da Microsoft.
+1. Fare quindi clic sull'icona **Filtro**.
+
+1. Nella finestra Filtro selezionare la sottocategoria **Basato su Windows** e **Microsoft** come editore. Fare quindi clic su **Fatto** per filtrare i risultati e ottenere le immagini di SQL Server in Windows pubblicate da Microsoft.
 
    ![Finestra per macchine virtuali di Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Esaminare le immagini di SQL Server disponibili. Ogni immagine identifica una versione di SQL Server e un sistema operativo.
+1. Esaminare le immagini di SQL Server disponibili. Ogni immagine identifica una versione di SQL Server e un sistema operativo.
 
-6. Selezionare l'immagine denominata **Free License: SQL Server 2016 SP1 Developer on Windows Server 2016**.
+1. Selezionare l'immagine denominata **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** (Licenza gratuita di SQL Server: SQL Server 2017 Developer in Windows Server 2016).
 
    > [!TIP]
    > L'edizione per sviluppatori viene usata in questa esercitazione perché è una versione completa di SQL Serve gratuita a scopo di test per lo sviluppo. Si paga solo il costo dell'esecuzione della macchina virtuale. Per questa esercitazione è tuttavia possibile scegliere e usare qualsiasi immagine.
@@ -70,13 +69,13 @@ In questa esercitazione si apprenderà come:
    >
    > Per altre informazioni su queste opzioni, vedere [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
 
-7. In **Selezionare un modello di distribuzione** assicurarsi che l'opzione **Resource Manager** sia selezionata. Resource Manager è il modello di distribuzione consigliato per le nuove macchine virtuali. 
+1. In **Selezionare un modello di distribuzione** assicurarsi che l'opzione **Resource Manager** sia selezionata. Resource Manager è il modello di distribuzione consigliato per le nuove macchine virtuali. 
 
-8. Fare clic su **Crea**.
+1. Fare clic su **Crea**.
 
     ![Creare VM di SQL con Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a name="configure-the-vm"></a>Configurare la VM
+## <a id="configure"></a> Configurare la VM
 Per la configurazione di una macchina virtuale di SQL Server sono disponibili cinque finestre.
 
 | Passaggio | Descrizione |
@@ -155,8 +154,8 @@ Nella finestra **Impostazioni di SQL Server** configurare le impostazioni e le o
 | [Configurazione dell'archiviazione](#storage-configuration) |
 | [Applicazione automatica delle patch](#automated-patching) |
 | [Backup automatico](#automated-backup) |
-| [Integrazione dell'insieme di credenziali delle chiavi di Azure](#azure-key-vault-integration) |
-| [Servizi R](#r-services) |
+| [Integrazione di Azure Key Vault](#azure-key-vault-integration) |
+| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) |
 
 ### <a name="connectivity"></a>Connettività
 
@@ -257,14 +256,11 @@ La tabella seguente include l'elenco dei parametri necessari per configurare l'i
 
 Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in macchine virtuali di Azure (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md).
 
-### <a name="r-services"></a>Servizi R
+### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning Services
 
-È possibile abilitare i [servizi R di SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Questo consente di usare l'analisi avanzata con SQL Server 2016. Fare clic su **Abilita** nella finestra **Impostazioni di SQL Server**.
+È possibile abilitare [SQL Server Machine Learning Services](https://msdn.microsoft.com/library/mt604845.aspx). Questo consente di usare l'analisi avanzata con SQL Server 2017. Fare clic su **Abilita** nella finestra **Impostazioni di SQL Server**.
 
-> [!NOTE]
-> Per SQL Server 2016 Developer Edition, questa opzione viene erroneamente disabilitata dal portale. Per tale edizione è necessario abilitare manualmente i servizi R dopo la creazione della VM.
-
-![Abilitare i servizi R di SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![Abilitare SQL Server Machine Learning Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
 Al termine della configurazione delle impostazioni di SQL Server, fare clic su **OK**.
 
@@ -275,9 +271,9 @@ Nella finestra **Riepilogo** esaminare le informazioni e fare clic su **Acquista
 È possibile monitorare la distribuzione dal portale di Azure. Il pulsante **Notifiche** nella parte superiore della schermata mostra lo stato di base della distribuzione.
 
 > [!NOTE]
-> Per dare un'idea dei tempi di distribuzione, è stata distribuita una macchina virtuale di SQL nell'area Stati Uniti orientali con le impostazioni predefinite. Il completamento della distribuzione di prova ha richiesto in totale 26 minuti. È possibile che i tempi di distribuzione specifici siano minori o maggiori in base all'area in cui ci si trova e alle impostazioni selezionate.
+> Per dare un'idea dei tempi di distribuzione, è stata distribuita una macchina virtuale di SQL nell'area Stati Uniti orientali con le impostazioni predefinite. Il completamento della distribuzione di prova ha richiesto circa 12 minuti. È possibile che i tempi di distribuzione specifici siano minori o maggiori in base all'area in cui ci si trova e alle impostazioni selezionate.
 
-## <a name="open-the-vm-with-remote-desktop"></a>Aprire la macchina virtuale tramite Desktop remoto
+## <a id="remotedesktop"></a> Aprire la VM con Desktop remoto
 
 Seguire questa procedura per connettersi alla macchina virtuale SQL Server con Desktop remoto:
 
@@ -295,7 +291,7 @@ Per abilitare il protocollo TCP/IP per le edizioni Developer ed Express di SQL S
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## <a name="connect-to-sql-server-remotely"></a>Connettersi a SQL Server in modalità remota
+## <a id="connect"></a> Connettersi a SQL Server in modalità remota
 
 In questa esercitazione è stato selezionato l'accesso **Pubblico** per la macchina virtuale ed è stata scelta l'**Autenticazione di SQL Server**. Queste impostazioni hanno configurato automaticamente la macchina virtuale in modo da consentire connessioni a SQL Server da qualsiasi client su Internet, purché abbiano l'account di accesso SQL corretto.
 

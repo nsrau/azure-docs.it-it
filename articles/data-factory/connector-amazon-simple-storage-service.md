@@ -8,14 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: jingwang
+ms.openlocfilehash: 1263f2cdf6a6467d973f838bb380bd00ce52ba1d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e3907f024808b2c7f5e48e6e04811f5da71b9856
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiare dati da Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,6 +56,10 @@ Per il servizio collegato di Amazon S3 sono supportate le proprietà seguenti:
 | accessKeyID | ID della chiave di accesso segreta. |Sì |
 | secretAccessKey | La stessa chiave di accesso segreta. Contrassegnare questo campo come SecureString. |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+
+>[!NOTE]
+>Questo connettore richiede le chiavi di accesso per l'account IAM per la copia di dati da Amazon S3. Le [credenziali di sicurezza temporanee](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) non sono supportate.
+>
 
 Di seguito è fornito un esempio:
 

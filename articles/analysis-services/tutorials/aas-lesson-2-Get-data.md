@@ -4,7 +4,7 @@ description: Descrive come ottenere e importare i dati nel progetto per l'eserci
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="lesson-2-get-data"></a>Lezione 2: Ottenere i dati
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,6 +28,9 @@ ms.lasthandoff: 06/03/2017
 In questa lezione si usa la funzionalità Recupera dati in SSDT per connettersi al database di esempio AdventureWorksDW2014, selezionare i dati, visualizzarli in anteprima e filtrarli, quindi importarli nell'area di lavoro del modello.  
   
 Con Recupera dati è possibile importare dati da un'ampia gamma di origini: database SQL di Azure, Oracle, Sybase, feed OData, Teradata, file e altro ancora. I dati possono essere recuperati anche tramite query, usando un'espressione di formula Power Query M.
+
+> [!NOTE]
+> Attività e immagini in questa esercitazione mostrano la connessione a un database AdventureWorksDW2014 in un server locale. In alcuni casi, un database AdventureWorksDW2014 in Azure può essere diverso.
   
 Tempo previsto per il completamento della lezione: **10 minuti**  
   
@@ -71,13 +72,19 @@ Le tabelle nel database di esempio AdventureWorksDW2014 includono dati che non �
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Per filtrare i dati della tabella prima dell'importazione  
   
-1.  Nell'Editor di query selezionare la tabella **DimCustomer**. Verrà aperta una vista della tabella DimCustomer nell'origine dati, ovvero il database di esempio AdventureWorksDWQ2014. 
+1.  Nell'Editor di query selezionare la tabella **DimCustomer**. Verrà aperta una vista della tabella DimCustomer nell'origine dati, ovvero il database di esempio AdventureWorksDW2014. 
   
 2.  Effettuare una selezione multipla con CTRL+clic di **SpanishEducation**, **FrenchEducation**, **SpanishOccupation**, **FrenchOccupation**, fare clic con il pulsante destro del mouse e quindi scegliere **Rimuovi colonne**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Dato che i valori per queste colonne non sono attinenti all'analisi delle vendite Internet, non è necessario importare queste colonne. L'eliminazione delle colonne superflue consente di ridurre le dimensioni del modello e di aumentarne l'efficienza.  
+
+    > [!TIP]
+    > Se si commette un errore, è possibile tornare indietro eliminando un passaggio in **PASSAGGI APPLICATI**.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Filtrare le tabelle restanti rimuovendo le colonne seguenti in ogni tabella:  
     
@@ -85,7 +92,7 @@ Le tabelle nel database di esempio AdventureWorksDW2014 includono dati che non �
     
       |Colonna|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ Le tabelle nel database di esempio AdventureWorksDW2014 includono dati che non �
   
     **FactInternetSales**
   
-      |Colonna|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      Nessuna colonna rimossa.
   
 ## <a name="Import"></a>Importare i dati delle tabelle e delle colonne selezionate  
 Dopo aver visualizzato in anteprima i dati e avere escluso quelli non necessari, è possibile importare il resto dei dati necessari. La procedura guidata importa i dati delle tabelle insieme alle eventuali relazioni tra le tabelle. Nel modello vengono create nuove tabelle e colonne e i dati esclusi tramite filtro non vengono importati.  
@@ -160,4 +163,3 @@ Dopo aver visualizzato in anteprima i dati e avere escluso quelli non necessari,
 
   
   
-

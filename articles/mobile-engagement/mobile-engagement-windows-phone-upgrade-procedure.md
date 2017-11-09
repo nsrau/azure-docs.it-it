@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: f87f65788075c7f4067e77946e1bcbc8f3709317
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Procedure di aggiornamento dell'SDK per Windows Phone Silverlight
 Se è già stata eseguita l'integrazione di una versione precedente dell'SDK nell'applicazione, sarà necessario tenere in considerazione gli aspetti seguenti durante l'aggiornamento dell'SDK.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/24/2017
 ms.author: chackdan
 ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Eliminare un cluster Service Fabric in Azure e le risorse che utilizzate
 Un cluster Service Fabric è costituito da molte risorse di Azure oltre alla risorsa cluster stessa. Per eliminare completamente un cluster Service Fabric è necessario eliminare anche tutte le risorse di cui è composto.

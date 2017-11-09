@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: 8bfdd9d69b6172ff4fae82be6db4a459dd516716
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 94c820b23a91f3493a0fbc8e1fd38c86d371e985
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -362,5 +361,4 @@ Tenere presente quanto segue:
 - Per altre informazioni sui set di dati, vedere l'articolo [Creare i set di dati](data-factory-create-datasets.md). 
 - Per altre informazioni sulle modalità di pianificazione ed esecuzione delle pipeline, vedere l'articolo [Pianificazione ed esecuzione in Azure Data Factory](data-factory-scheduling-and-execution.md). 
   
-
 

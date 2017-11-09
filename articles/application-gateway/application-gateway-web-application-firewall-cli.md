@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: davidmu
+ms.openlocfilehash: c9c740a3a1a28a1a9a4f2abf579fe2adb54e4f47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 999d1ad3ee54d84e155254655dbb7a39ac60572c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Configurare un web application firewall in un gateway applicazione nuovo o esistente con l'interfaccia della riga di comando di Azure
 
@@ -161,4 +160,3 @@ az network public-ip show \
 Per informazioni su come personalizzare le regole del WAF, vedere [Customize web application firewall rules through the Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md) (Personalizzare le regole del web application firewall con l'interfaccia della riga di comando di Azure 2.0).
 
 [scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
-

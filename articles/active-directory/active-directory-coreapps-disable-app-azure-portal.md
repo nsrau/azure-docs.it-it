@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 5d27046370eada0c371c94fb573fa1bcf536f7cf
-ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 4f587eb96aaa41ba2034eb9eaeb904f72c501abe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Disabilitare gli accessi utente per un'app aziendale in Azure Active Directory
 Disabilitare un'applicazione aziendale in modo da impedirne l'accesso da parte degli utenti in Azure Active Directory (Azure AD) è un'operazione facile. È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale ed essere amministratore globale della directory.
@@ -45,4 +44,3 @@ Disabilitare un'applicazione aziendale in modo da impedirne l'accesso da parte d
 * [Assegnare un utente o gruppo a un'app aziendale](active-directory-coreapps-assign-user-azure-portal.md)
 * [Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Modificare il nome o il logo di un'app aziendale](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-

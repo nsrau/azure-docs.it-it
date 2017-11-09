@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: moderakh
+ms.openlocfilehash: 751ad19e72c7d705639227bd6a44dafab78e41d8
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 2209ff4aaaca93da853281ebf68f3b476aeeb3b6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Esempi di Node.js per Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [Esempi di .NET](documentdb-dotnet-samples.md)
 > * [Esempi di Node.js](documentdb-nodejs-samples.md)
 > * [Esempi di Python](documentdb-python-samples.md)
-> * [Raccolta di esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb)
+> * [Raccolta di esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 > 
 > 
 
@@ -40,7 +39,7 @@ Il repository [azure-documentdb-nodejs](https://github.com/Azure/azure-documentd
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+- È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -124,5 +123,4 @@ Il file [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samp
 | [Usare un'attività HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
 Per altre informazioni sul partizionamento dei dati in Azure Cosmos DB, vedere [Come eseguire il partizionamento e il ridimensionamento in Azure Cosmos DB](partition-data.md).
-
 

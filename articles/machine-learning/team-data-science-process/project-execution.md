@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c318f87243d0c98b6a42bebcdffb433f9cc456e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="execution-of-data-science-projects"></a>Esecuzione di progetti di data science
 
 Questo documento descrive come un esperto di dati può eseguire un progetto di data science in modo sistematico, collaborativo e con controllo della versione all'interno di un team di progetto tramite il [Team Data Science Process roles and tasks](overview.md) TDSP (Ruoli e attività del processo di data science per i team). Il TDSP è un framework sviluppato da Microsoft che fornisce una sequenza strutturata di attività per eseguire in modo efficiente soluzioni di analisi predittiva, basate sul cloud. Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di analisi scientifica dei dati, che vengono standardizzati con il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di analisi scientifica dei dati per i team). 
@@ -243,6 +240,6 @@ Nel secondo dashboard di esempio vengono presentati gli elementi di lavoro (stor
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici** . Sono elencate, con collegamenti e brevi descrizioni, nell'argomento [Procedure dettagliate di esempio](walkthroughs.md). Viene spiegato come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
+Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici** . Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'argomento [Example walkthroughs](walkthroughs.md) (Procedure dettagliate di esempio). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 
-Per esempi di esecuzione dei passaggi nel processo di analisi scientifica dei dati per i team, che usano Azure Machine Learning Studio, vedere il percorso di apprendimento [Con Azure ML](http://aka.ms/datascienceprocess).
+Per esempi di esecuzione dei passaggi nel processo di data science per i team, che usano Azure Machine Learning Studio, vedere il percorso di apprendimento [Con Azure ML](http://aka.ms/datascienceprocess).

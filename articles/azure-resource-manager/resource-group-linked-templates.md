@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
 ms.openlocfilehash: 8b58a83ffd473500dd3f76c09e251f9208527d4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-linked-templates-when-deploying-azure-resources"></a>Uso di modelli collegati nella distribuzione di risorse di Azure
 Dall'interno di un modello di Azure Resource Manager è possibile collegarsi a un altro modello che consente di scomporre la distribuzione in un set di modelli di destinazione specifici. In modo analogo alla scomposizione di un'applicazione in diverse classi di codice, la scomposizione offre vantaggi in termini di testing, riuso e leggibilità.  

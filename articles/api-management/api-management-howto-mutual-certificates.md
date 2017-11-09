@@ -1,9 +1,9 @@
 ---
-title: Proteggere i servizi back-end usando l&quot;autenticazione con certificati client - Gestione API di Azure | Documentazione Microsoft
-description: Come proteggere i servizi back-end usando l&quot;autenticazione con certificati client in Gestione API di Azure.
+title: Proteggere i servizi back-end usando l'autenticazione con certificati client - Gestione API di Azure | Documentazione Microsoft
+description: Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 2ebe71c96fd9076a48f689041634dbd23d3d8414
-
+ms.openlocfilehash: 196a91c21afb8c1596c9766f6a2a5d373b828f60
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
 Gestione API offre la possibilità di proteggere l'accesso al servizio back-end di un'API usando i certificati client. Questa guida illustra come gestire i certificati nel portale di pubblicazione delle API e come configurare un'API per l'uso di un certificato per accedere al servizio back-end.
@@ -27,7 +28,7 @@ Per informazioni sulla gestione dei certificati con l'API REST di Gestione API, 
 ## <a name="prerequisites"> </a>Prerequisiti
 In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione con certificati client per accedere al servizio back-end di un'API. Prima di seguire i passaggi indicati in questo argomento è necessario aver configurato il servizio back-end per l'autenticazione del certificato client ([per la configurazione dell'autenticazione del certificato client nei siti Web di Azure, vedere questo articolo ][to configure certificate authentication in Azure WebSites refer to this article]) e avere l'accesso al certificato e alla relativa password per il caricamento nel portale di pubblicazione di Gestione API.
 
-## <a name="step1"> </a>Caricare un certificato client
+## <a name="step1"></a>Caricare un certificato client
 Per iniziare, fare clic sul **portale di pubblicazione** nel Portale di Azure relativo al servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
 ![Portale di pubblicazione delle API][api-management-management-console]
@@ -66,7 +67,7 @@ Una volta caricato il certificato, questo viene visualizzato nella scheda **Cert
 > 
 > 
 
-## <a name="step1a"> </a>Eliminare un certificato client
+## <a name="step1a"></a>Eliminare un certificato client
 Per eliminare un certificato, fare clic su **Elimina** accanto al certificato desiderato.
 
 ![Eliminazione di un certificato][api-management-certificate-delete]
@@ -79,7 +80,7 @@ Se il certificato è in uso da parte di un'API, verrà visualizzata una schermat
 
 ![Conferma dell'eliminazione][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>Configurare un'API per l'uso di un certificato client per l'autenticazione gateway
+## <a name="step2"></a>Configurare un'API per l'uso di un certificato client per l'autenticazione gateway
 Fare clic su **API** dal menu **Gestione API** a sinistra, fare clic sul nome dell'API desiderata, quindi sulla scheda **Sicurezza**.
 
 ![Sicurezza API][api-management-api-security]
@@ -105,6 +106,15 @@ Fare clic su **Salva** per salvare la modifica di configurazione nell'API.
 > 
 
 ![Criteri dei certificati][api-management-certificate-policy]
+
+## <a name="self-signed-certificates"></a>Certificati autofirmati
+
+Se si usano i certificati autofirmati, è necessario disabilitare la convalida della catena di certificati affinché la Gestione API possa comunicare con il sistema back-end, altrimenti verrà restituito un codice di errore 500. Per la configurazione, usare i cmdlet PowerShell [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (per il nuovo back-end) o [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (per il back-end esistente) e impostare il parametro `-SkipCertificateChainValidation` su `True`.
+
+```
+$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad esempio autenticazione HTTP di base o segreto condiviso, vedere il video seguente.
@@ -141,7 +151,7 @@ Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -150,11 +160,5 @@ Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

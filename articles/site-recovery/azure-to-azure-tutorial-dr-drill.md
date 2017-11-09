@@ -2,24 +2,22 @@
 title: Eseguire un'analisi del ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria con Azure Site Recovery (anteprima)
 description: Informazioni su come eseguire un'analisi del ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria usando il servizio Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
-ms.author: rajanaki
+ms.date: 11/01/2017
+ms.author: raynew
 ms.custom: mvc
+ms.openlocfilehash: 5bcd3d64714951508d984c17326e845ae4842670
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a3b453028b7fd32bd3ed22823a337f7a978d9aa7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Eseguire un'analisi del ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria (anteprima)
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo disponibili e operative le app aziendali durante interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
@@ -56,4 +54,3 @@ Questa esercitazione illustra come eseguire un'analisi del ripristino di emergen
 
 > [!div class="nextstepaction"]
 > [Eseguire un failover di produzione](azure-to-azure-tutorial-failover-failback.md)
-

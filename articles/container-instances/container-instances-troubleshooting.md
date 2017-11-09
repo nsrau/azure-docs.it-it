@@ -17,15 +17,13 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: ff6da0ce95d0405714602c3872da34a2bff344d3
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Risolvere i problemi di distribuzione di Istanze di contenitore di Azure
+# <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Risolvere i problemi di distribuzione in Istanze di contenitore di Azure
 
 Questo articolo mostra come risolvere i problemi durante la distribuzione di contenitori in Istanze di contenitore di Azure e illustra alcuni problemi comuni che è possibile incontrare.
 
@@ -226,4 +224,3 @@ Questo errore indica che a causa di un carico elevato nell'area in cui si sta ce
 * Specificare impostazioni di memoria e CPU inferiori per il contenitore
 * Eseguire la distribuzione in un'area di Azure diversa
 * Eseguire la distribuzione in un secondo momento
-

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.openlocfilehash: a36a41c231472ceeeb46d02ddb65549b1c79728a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: b2078e5f1bb1bafdf8b53ec8c8ead014773cc9f0
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Creare i cluster Hadoop tramite l'API REST di Azure
 
@@ -229,7 +229,7 @@ Seguire i passaggi illustrati [Introduzione all'interfaccia della riga di comand
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
 > [!NOTE]
-> Questa procedura costituisce una sintesi della sezione *Creare un'entità servizio con password* dell'articolo [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password). Con questi passaggi viene creata un'entità servizio usata per autenticare l'API REST di Azure.
+> Questa procedura costituisce una sintesi della sezione *Creare un'entità servizio con password* dell'articolo [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Con questi passaggi viene creata un'entità servizio usata per autenticare l'API REST di Azure.
 
 1. Dalla riga di comando, usare il comando seguente per elencare le sottoscrizioni di Azure.
 

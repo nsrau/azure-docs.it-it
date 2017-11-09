@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 57ab58fa1fd8371d0b6f019f94bb162bcc1e0e43
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="repairing-an-export-job"></a>Riparazione di un processo di esportazione
 Al termine di un processo di esportazione, è possibile eseguire lo strumento Importazione/Esportazione di Microsoft Azure in locale per:  
@@ -38,10 +38,10 @@ Il comando per la riparazione di un processo di importazione è **RepairExport**
 |Parametro|Descrizione|  
 |---------------|-----------------|  
 |**/r:<RepairFile\>**|Obbligatorio. Percorso del file di ripristino che tiene traccia dell'avanzamento del ripristino e consente di riprendere un ripristino interrotto. Ogni unità deve contenere un solo file di ripristino. Quando si avvia un ripristino per una determinata unità, si viene spostati nel percorso di un file di ripristino che non esiste ancora. Per riprendere un ripristino interrotto, è consigliabile inserire il nome di un file di ripristino esistente. Il file di ripristino corrispondente all'unità di destinazione deve essere sempre specificato.|  
-|**/logdir:<LogDirectory\>**|Facoltativa. Directory dei log. in cui verranno scritti file di log dettagliati. Se non è specificata alcuna directory dei log, verrà usata la directory corrente.|  
-|**/d:<TargetDirectory\>**|Obbligatorio. La directory per la convalida e il ripristino. Si tratta in genere della directory radice dell'unità di esportazione, ma potrebbe anche essere una condivisione di file di rete che contiene una copia dei file esportati.|  
+|**/logdir:&lt;LogDirectory\>**|Facoltativa. Directory dei log. in cui verranno scritti file di log dettagliati. Se non è specificata alcuna directory dei log, verrà usata la directory corrente.|  
+|**/d:&lt;TargetDirectory\>**|Obbligatorio. La directory per la convalida e il ripristino. Si tratta in genere della directory radice dell'unità di esportazione, ma potrebbe anche essere una condivisione di file di rete che contiene una copia dei file esportati.|  
 |**/bk:<BitLockerKey\>**|Facoltativa. È necessario specificare la chiave BitLocker se si desidera che lo strumento sblocchi un'unità crittografata in cui sono archiviati i file esportati.|  
-|**/sn:<StorageAccountName\>**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|  
+|**/sn:&lt;StorageAccountName\>**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|  
 |**/sk:<StorageAccountKey\>**|**Obbligatorio** solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
 |**/csas:<ContainerSas\>**|**Obbligatorio** solo se non è specificata la chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'accesso ai BLOB associati al processo di esportazione.|  
 |**/CopyLogFile:\><DriveCopyLogFile**|Obbligatorio. Il percorso del file dei log di copia dell'unità. Il file viene generato dal servizio di Importazione/Esportazione di Azure e può essere scaricato dall'archiviazione BLOB associata al processo. Il file dei log di copia contiene informazioni sui BLOB non riusciti o sui file da ripristinare.|  

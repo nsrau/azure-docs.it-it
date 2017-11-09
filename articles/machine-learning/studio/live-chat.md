@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2bf63d41c9a06e724b971c2edb9e3127fe878b8e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-help-from-machine-learning-live-chat-support"></a>Ricevere assistenza tramite live chat in Machine Learning
 [Azure Machine Learning Studio](what-is-ml-studio.md) offre un'interfaccia intuitiva per la creazione di modelli di Machine Learning. Per iniziare, è disponibile una [raccolta](gallery-how-to-use-contribute-publish.md) di esempi forniti dalla community. È anche possibile porre domande utili per il proprio lavoro in un [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning). 
@@ -39,5 +38,4 @@ La live chat è gestita da membri del team di Machine Learning. Se la relativa i
 È sempre possibile pubblicare domande nel [Forum di Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning). Le domande saranno viste dai membri del team di Machine Learning, da altri ricercatori esperti di dati e dagli sviluppatori.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

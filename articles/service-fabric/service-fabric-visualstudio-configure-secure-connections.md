@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: dc07b2f38d6fd2de941ebbe99303f6e63cbf122d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configurare connessioni protette a un cluster Service Fabric da Visual Studio
 Scoprire come usare Visual Studio per accedere in modo sicuro a un cluster di Service Fabric di Azure con i criteri di controllo di accesso configurati.

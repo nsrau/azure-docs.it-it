@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/22/2017
 ms.author: genli
+ms.openlocfilehash: 019ccbcec9dc344cb5ea57afdff1f81ab094dc64
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 2180a11c53a3b283fed35844c5821aef744fb95e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure
 
@@ -135,4 +134,3 @@ Sì. È possibile aggiungere una VM classica esistente a un set di disponibilit�
 Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/).
 
 In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
-

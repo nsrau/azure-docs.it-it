@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: daecef7962ddee2f5e4b6a36c418619285f3ba5a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla distribuzione per app Web in Azure
 
@@ -100,4 +99,3 @@ La distribuzione continua di codice per entrambe le opzioni dipende dai flussi d
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Come si usa FTP o FTPS per distribuire l'app nel servizio app?
 
 Per informazioni sull'uso di FTP o FTPS per distribuire l'app Web nel servizio app, vedere [Distribuire l'app nel servizio app usando FTP/S](app-service-deploy-ftp.md).
-

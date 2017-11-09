@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/13/2017
+ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: d936670c548ff709fc2e935d3f28d94e4bde8a04
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 779d39e2910d0de25ee07b8fae3ca7a0e9772776
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="actor-events"></a>Eventi relativi agli attori
-Gli eventi relativi agli attori consentono l'invio di notifiche il più possibile accurate dall'attore ai client. Tali eventi sono stati progettati per la comunicazione tra attore e client e non è consigliabile usarli per la comunicazione tra attori.
+Gli eventi relativi agli attori consentono l'invio di notifiche il più possibile accurate dall'attore ai client. Tali eventi sono progettati per la comunicazione tra attore e client e non è consigliabile usarli per la comunicazione tra attori.
 
 I frammenti di codice seguenti mostrano come usare eventi relativi agli attori nella propria applicazione.
 
@@ -95,7 +95,7 @@ return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler()
 
 In caso di failover, l'attore può eseguire il failover su un processo o un nodo diverso. Il proxy dell'attore gestisce le sottoscrizioni attive e le rieffettua in modo automatico. È possibile controllare l'intervallo di risottoscrizione tramite l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>` . Per annullare la sottoscrizione usare l' `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
 
-Nell'attore pubblicare semplicemente gli eventi man mano che si verificano. Se vi sono sottoscrittori dell'evento, il runtime di Actors invierà loro la notifica.
+Nell'attore pubblicare gli eventi man mano che si verificano. Se ci sono sottoscrittori dell'evento, il runtime di Actors invierà loro la notifica.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();

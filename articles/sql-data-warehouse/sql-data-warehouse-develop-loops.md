@@ -16,10 +16,10 @@ ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 40a872ff310f48bfd543ac184fe7301b85b50258
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="loops-in-sql-data-warehouse"></a>Cicli in SQL Data Warehouse
 SQL Data Warehouse supporta il ciclo [WHILE][WHILE] per eseguire ripetutamente blocchi di istruzioni. L'esecuzione continua fino a quando le condizioni specificate sono vere o fino a quando il codice termina il ciclo in modo specifico usando la parola chiave `BREAK` . I cicli sono particolarmente utili per la sostituzione di cursori definiti nel codice SQL. Per fortuna, quasi tutti i cursori scritti in codice SQL sono del tipo avanzamento rapido, di sola lettura. Di conseguenza i cicli [WHILE] rappresentano un'ottima alternativa se è necessario sostituirne uno.

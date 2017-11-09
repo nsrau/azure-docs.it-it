@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: wgries
+ms.openlocfilehash: c4f997b994bb337ad8a886d7ad09791cb587d4f9
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 25d8f2bf5c42c54f1b9da330d7d3d6cbcc5dacb1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/19/2017
 ---
-
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Poiché File di Azure è completamente gestito, la sua distribuzione negli scenari di produzione è molto più semplice rispetto alla distribuzione e alla gestione di un file server o un dispositivo NAS. Questo articolo illustra gli argomenti da considerare quando si distribuisce una condivisione di File di Azure per l'uso in produzione all'interno dell'organizzazione.
 
@@ -65,6 +63,7 @@ File di Azure offre diverse opzioni predefinite per garantire la sicurezza dei d
     * I client che supportano la crittografia SMB 3.0 inviano e ricevono dati tramite un canale crittografato.
     * I client che non supportano SMB 3.0 possono comunicare tra più datacenter su SMB 2.1 o SMB 3.0 senza crittografia. Si noti che ai client non è consentita la comunicazione tra più datacenter su SMB 2.1 o SMB 3.0 senza crittografia.
     * I client possono comunicare su REST di File con HTTP o HTTPS.
+* Crittografia dei dati inattivi ([Crittografia del servizio Archiviazione di Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): è in corso l'abilitazione della crittografia del servizio di archiviazione (SSE) nella piattaforma di archiviazione di Azure sottostante. Ciò significa che la crittografia verrà abilitata per impostazione predefinita per tutti gli account di archiviazione. Se si sta creando un nuovo account di archiviazione in un'area con crittografia dei dati inattivi, non è necessario eseguire alcuna azione per l'abilitazione. Crittografia dei dati inattivi con chiavi completamente gestite. La crittografia dei dati inattivi non aumenta i costi di archiviazione, né riduce le prestazioni. 
 * Requisito facoltativo di dati crittografati in transito: quando è selezionato, File di Azure non consente l'accesso ai dati attraverso i canali non crittografati. In particolare, vengono consentiti solo HTTPS e SMB 3.0 con connessioni di crittografia. 
 
     > [!Important]  

@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: fcaab18c2c22bcbdbb42708da9840fb6e5c25b2e
-ms.contentlocale: it-it
-ms.lasthandoff: 03/25/2017
-
+ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>Aggiungere l'autenticazione all'app Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -80,4 +79,3 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 
 <!-- URLs. -->
 [Introduzione ad App per dispositivi mobili]: app-service-mobile-android-get-started.md
-

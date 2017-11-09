@@ -10,16 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/17/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 2f18016614b229273aa4d661991149be949ce238
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0c0bd4b707c114d2991e5f0473a4bfbe9e463e3c
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Node.js per connettersi ai dati ed eseguire query
-Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando [Node.js](https://nodejs.org/) dalle piattaforme Windows, Ubuntu Linux e Mac. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Node.js, ma non con Database di Azure per MySQL.
+Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando [Node.js](https://nodejs.org/) dalle piattaforme Windows, Ubuntu Linux e Mac. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Node.js, ma non con Database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
@@ -31,12 +30,12 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 - Installare il pacchetto [mysql2](https://www.npmjs.com/package/mysql2) per connettersi a MySQL dall'applicazione Node.js. 
 
 ## <a name="install-nodejs-and-the-mysql-connector"></a>Installare Node.js e il connettore MySQL
-A seconda della piattaforma, seguire le istruzioni appropriate per installare Node.js. Usare npm per installare il pacchetto mysql2 e le relative dipendenze nella cartella del progetto.
+A seconda della piattaforma, seguire le istruzioni nella sezione appropriata per installare Node.js. Usare npm per installare il pacchetto mysql2 e le relative dipendenze nella cartella del progetto.
 
 ### <a name="windows"></a>**Windows**
-1. Visitare la [pagina di download di Node.js](https://nodejs.org/en/download/) e selezionare l'opzione di installazione di Windows desiderata.
+1. Visitare la [pagina di download di Node.js](https://nodejs.org/en/download/) e quindi selezionare l'opzione di installazione di Windows desiderata.
 2. Creare una cartella di progetto locale, ad esempio `nodejsmysql`. 
-3. Avviare il prompt dei comandi e passare alla cartella del progetto, ad esempio `cd c:\nodejsmysql\`
+3. Avviare il prompt dei comandi e quindi passare alla cartella del progetto, ad esempio `cd c:\nodejsmysql\`
 4. Eseguire lo strumento NPM per installare la libreria mysql2 nella cartella del progetto.
 
    ```cmd
@@ -88,13 +87,13 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Nel riquadro a sinistra fare clic su **Tutte le risorse** e cercare il server creato, ad esempio **myserver4demo**.
 3. Fare clic sul nome server **myserver4demo**.
-4. Selezionare la pagina **Proprietà** del server. Annotare il **Nome server** e il **nome di accesso dell'amministratore del server**.
+4. Selezionare la pagina **Proprietà** del server e prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**.
  ![Database di Azure per MySQL - Accesso dell'amministratore del server](./media/connect-nodejs/1_server-properties-name-login.png)
 5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** per visualizzare il nome di accesso dell'amministratore del server e, se necessario, reimpostare la password.
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Esecuzione del codice JavaScript in Node.js
-1. Incollare il codice JavaScript nei file di testo e salvarli in una cartella di progetto con estensione js, ad esempio C:\nodejsmysql\createtable.js or /home/username/nodejsmysql/createtable.js
-2. Avviare il prompt dei comandi o la shell Bash. Passare alla cartella del progetto `cd nodejsmysql`.
+1. Incollare il codice JavaScript nei file di testo e quindi salvarli in una cartella di progetto con estensione js, ad esempio C:\nodejsmysql\createtable.js o /home/username/nodejsmysql/createtable.js.
+2. Avviare il prompt dei comandi o la shell Bash e quindi passare alla cartella del progetto `cd nodejsmysql`.
 3. Per eseguire l'applicazione, digitare il comando node seguito dal nome del file, ad esempio `node createtable.js`.
 4. In Windows, se l'applicazione Node non è presente nella variabile di ambiente PATH potrebbe essere necessario usare il percorso completo per avviare l'applicazione Node, ad esempio `"C:\Program Files\nodejs\node.exe" createtable.js`
 
@@ -316,4 +315,3 @@ function deleteData(){
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./concepts-migrate-import-export.md)
-

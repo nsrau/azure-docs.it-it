@@ -1,6 +1,6 @@
 ---
 title: API REST di Resource Manager | Microsoft Docs
-description: Panoramica dell&quot;autenticazione ed esempi di utilizzo delle API REST di Resource Manager
+description: Panoramica dell'autenticazione ed esempi di utilizzo delle API REST di Resource Manager
 services: azure-resource-manager
 documentationcenter: na
 author: navalev
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-manager-rest-apis"></a>API REST di Resource Manager
 > [!div class="op_single_selector"]
@@ -254,4 +252,3 @@ La lunga risposta JSON per questa richiesta è stata omessa per migliorare la le
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sulla gestione delle operazioni REST asincrone, vedere [Track asynchronous Azure operations](resource-manager-async-operations.md) (Tenere traccia delle operazioni asincrone di Azure).
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
+ms.openlocfilehash: f3195fa83479986a3e605abce618c78bcdb64dac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
-ms.openlocfilehash: 1eb8c05f24fcf41f9c188e1153f96a53d8828a39
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Risolvere i problemi di Backup di Azure relativi all'agente e/o all'estensione
 
 Questo articolo presenta una procedura di risoluzione dei problemi per correggere gli errori di Backup correlati a problemi di comunicazione con l'agente e l'estensione delle macchine virtuali.
@@ -180,5 +178,4 @@ Per disinstallare l'estensione, seguire questa procedura:
 6. Fare clic su **Disinstalla**.
 
 Questa procedura reinstalla l'estensione durante il backup successivo.
-
 

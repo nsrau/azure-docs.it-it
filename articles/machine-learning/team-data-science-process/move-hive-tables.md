@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e879ab2874cb3298de4b0929b286482d824e8309
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure
 Questo argomento presenta le query Hive generiche che consentono di creare tabelle Hive e di caricare i dati dall'archiviazione BLOB di Azure. Vengono inoltre fornite alcune linee guida sul partizionamento delle tabelle Hive e sull'uso della formattazione ORC per migliorare le prestazioni delle query.
@@ -236,4 +235,3 @@ Selezionare i dati della tabella esterna nel passaggio 1 e inserirli nella tabel
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 Al termine della procedura, si disporrà di una tabella con i dati nel formato ORC pronta per l'uso.  
-

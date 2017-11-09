@@ -9,8 +9,7 @@
   
 3. Fare clic su **Crea** per aprire il nuovo pannello SQL Server (server logico).
 
-   <kbd> ![Aprire il pannello del server logico](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd>
-    <kbd>![Pannello del server logico](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
+   <kbd> ![Aprire il pannello del server logico](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd>![Pannello del server logico](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
   
 3. Nella casella di testo Nome server del pannello SQL Server (server logico) specificare un nome valido per il nuovo server logico. Un segno di spunta verde indica che è stato specificato un nome valido.
     

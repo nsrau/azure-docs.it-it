@@ -15,14 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi
 ms.custom: mvc
+ms.openlocfilehash: 5a095663b7e716fd63322c9f89f67a1f3187638b
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 51d580e9594bc3fb43a812395d1dda505a83ead1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/30/2017
 ---
-
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 Questa è la prima di una serie di esercitazioni.  Illustra come creare un'applicazione di Azure Service Fabric con un front-end API Web ASP.NET Core e un servizio back-end con stato per archiviare i dati. Al termine, sarà disponibile un'applicazione di voto con un front-end Web ASP.NET Core che salva i risultati delle votazioni in un servizio back-end con stato nel cluster. Se non si vuole creare manualmente l'applicazione di voto, è possibile [scaricare il codice sorgente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) per l'applicazione completata e passare direttamente alla [Descrizione dettagliata dell'applicazione di voto di esempio](#walkthrough_anchor).
 
@@ -335,7 +333,7 @@ In questa esercitazione si creerà un servizio che archivia un valore del contat
 
     Visual Studio crea un progetto di servizio e lo visualizza in Esplora soluzioni.
 
-    ![Esplora soluzioni](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
+    ![Esplora soluzioni](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
 
 ### <a name="add-the-votedatacontrollercs-file"></a>Aggiungere il file VoteDataController.cs
 

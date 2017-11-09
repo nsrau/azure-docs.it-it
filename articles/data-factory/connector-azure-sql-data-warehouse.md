@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fb67c70d1e85307c38a185e2b47729880880d55b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +39,7 @@ In particolare, il connettore Azure SQL Data Warehouse supporta:
 - Come origine, il recupero di dati tramite query SQL o stored procedure.
 - Come sink, il caricamento di dati tramite **PolyBase** o l'inserimento bulk. Per ottimizzare le prestazioni di copia, è **consigliabile** usare il primo metodo.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>introduttiva
 È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Le sezioni seguenti riportano le informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore Azure SQL Data Warehouse.

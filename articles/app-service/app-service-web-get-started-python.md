@@ -3,7 +3,7 @@ title: Creare un'app Web Python in Azure | Microsoft Docs
 description: Distribuire la prima app Python Hello World in un'app Web del servizio app di Azure in pochi minuti.
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
+author: cephalin
 manager: cfowler
 editor: 
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
@@ -12,15 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/17/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
+ms.openlocfilehash: ae410c7fabac6d23a69922804a0a87fde63594a2
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 9331039cef4ef047820e088cc84b92655336d12c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Creare un'app Web Python in Azure
 
@@ -47,12 +46,10 @@ In una finestra del terminale eseguire il comando seguente per clonare il reposi
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-Questa finestra del terminale dovrà essere usata per eseguire tutti i comandi presenti in questa guida introduttiva.
-
 Passare alla directory contenente il codice di esempio.
 
 ```bash
-cd Python-docs-hello-world
+cd python-docs-hello-world
 ```
 
 ## <a name="run-the-app-locally"></a>Eseguire l'app in locale
@@ -85,23 +82,17 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
+## <a name="create-a-web-app"></a>Creare un'app Web
 
-![Pagina dell'app Web vuota](media/app-service-web-get-started-python/app-service-web-service-created.png)
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-È stata creata una nuova app Web vuota in Azure.
+Passare all'app Web appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
 
-## <a name="configure-to-use-python"></a>Eseguire la configurazione per usare Python
-
-Usare il comando [az webapp config set](/cli/azure/webapp/config#set) per configurare l'app Web per l'uso di Python versione `3.4`.
-
-```azurecli-interactive
-az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
+```bash
+http://<app name>.azurewebsites.net
 ```
 
-Per impostare la versione Python in questo modo viene usato un contenitore predefinito fornito dalla piattaforma. Per usare un contenitore personalizzato, vedere il riferimento sull'interfaccia della riga di comando per il comando [az webapp config container set](/cli/azure/webapp/config/container#set).
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)]
+![Pagina dell'app Web vuota](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)]
 
@@ -169,7 +160,7 @@ Usando un editor di testo locale, aprire il file `main.py` nell'app Python e app
 return 'Hello, Azure!'
 ```
 
-Eseguire il commit delle modifiche in Git e quindi effettuare il push delle modifiche al codice in Azure.
+Nella finestra del terminale locale eseguire il commit delle modifiche in Git e quindi eseguire il push delle modifiche al codice in Azure.
 
 ```bash
 git commit -am "updated output"
@@ -200,4 +191,3 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 
 > [!div class="nextstepaction"]
 > [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-domain.md)
-

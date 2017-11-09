@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/14/2017
-ms.openlocfilehash: 5e306d516d04789e4526bfd09bf99139b83573ba
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 5c3a642940bbaf766b87c74522a97b145632291f
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrare il database PostgreSQL usando le funzionalità di esportazione e importazione
 È possibile usare [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) per estrarre un database PostgreSQL in un file di script e [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) importare i dati nel database di destinazione da quel file.
@@ -31,7 +31,7 @@ Per esportare un database PostgreSQL disponibile in locale o in una macchina vir
 ```bash
 pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
-Se ad esempio è presente un server locale che contiene un database denominato **testdb**, eseguire:
+Se ad esempio è presente un server locale che contiene un database denominato **testdb**:
 ```bash
 pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sql
 ```

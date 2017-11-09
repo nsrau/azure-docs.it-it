@@ -1,5 +1,5 @@
 ---
-title: Rinnovo del certificato per gli utenti di Office 365 e Azure AD. | Documentazione Microsoft
+title: Rinnovo del certificato per gli utenti di Office 365 e Azure AD. | Microsoft Docs
 description: In questo articolo viene illustrato agli utenti di Office 365 come risolvere i problemi con i messaggi e-mail contenenti la notifica sul rinnovo di un certificato.
 services: active-directory
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 675f5b31eb60a75e060a397f01777e427c068c64
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Rinnovare i certificati di federazione per Office 365 e Azure Active Directory
 ## <a name="overview"></a>Overview
@@ -158,9 +158,18 @@ Aggiornare Office 365 con i nuovi certificati per la firma di token da usare per
 > [!NOTE]
 > Se occorre supportare più domini di primo livello, ad esempio contoso.com e fabrikam.com, è necessario usare l'opzione **SupportMultipleDomain** con tutti i cmdlet. Per altre informazioni, vedere [Supporto di più domini per la federazione con Azure AD](active-directory-aadconnect-multiple-domains.md).
 >
->
+
 
 ## Ripristinare il trust di Azure AD con AD Connect <a name="connectrenew"></a>
 Se la farm AD FS e il trust di Azure AD sono stati configurati con Azure AD Connect, è possibile usare quest'ultimo per rilevare se occorre intraprendere un'azione per i certificati per la firma di token. Se è necessario rinnovare i certificati, è possibile usare Azure AD Connect a questo scopo.
 
 Per altre informazioni, vedere [Ripristino del trust](active-directory-aadconnect-federation-management.md).
+
+## <a name="ad-fs-and-azure-ad-certificate-update-steps"></a>Passaggi per l'aggiornamento dei certificati AD FS e Azure AD
+I certificati per la firma di token sono certificati X509 standard usati per firmare in modo sicuro tutti i token rilasciati dal server federativo. I certificati di decrittografia token sono certificati X509 standard usati per decrittografare i token in ingresso. 
+
+Per impostazione predefinita, AD FS è configurato per generare automaticamente i certificati per la firma di token e i certificati di decrittografia token, sia in fase di configurazione iniziale, sia quando i certificati hanno quasi raggiunto la data di scadenza.
+
+Azure AD tenta di recuperare un nuovo certificato dai metadati del servizio federativo 30 giorni prima della scadenza del certificato corrente. Se un nuovo certificato non è disponibile in quel momento, Azure AD continuerà a monitorare i metadati ogni giorno a intervalli regolari. Non appena il nuovo certificato è disponibile nei metadati, le impostazioni di federazione del dominio vengono aggiornate con le nuove informazioni del certificato. È possibile usare `Get-MsolDomainFederationSettings` per verificare se il nuovo certificato è presente nel NextSigningCertificate / SigningCertificate.
+
+Per altre informazioni sui certificati per la firma di token in AD FS, vedere [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs) (Ottenere e configurare i certificati per la firma di token e i certificati di decrittografia token per AD FS)

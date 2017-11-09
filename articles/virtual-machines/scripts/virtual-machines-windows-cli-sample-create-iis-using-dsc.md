@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 96516cb374841e663f831957ccbc6690e801154d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-vm-with-iis-using-dsc"></a>Creare una macchina virtuale con IIS usando DSC
 
 Questo script crea una macchina virtuale e usa l'estensione dello script personalizzato DSC di Macchina virtuale di Azure per installare e configurare IIS. 
@@ -34,7 +32,7 @@ Questo script crea una macchina virtuale e usa l'estensione dello script persona
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-windows-iis-using-dsc/create-windows-iis-using-dsc.sh "Creazione rapida della macchina virtuale")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-windows-iis-using-dsc/create-windows-iis-using-dsc.sh "Quick Create VM")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
@@ -61,4 +59,3 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando della macchina virtuale sono reperibili nella [documentazione della macchina virtuale Windows Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

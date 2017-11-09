@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
+ms.openlocfilehash: bfc2b89533ca52b0b2e0cdfe3327d3c45b36009c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 815ba6e1eb775399e747514843dbd0f201156a3e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-import-a-pacpac-file-into-an-azure-sql-database"></a>Usare PowerShell per importare un file BACPAC in un database SQL di Azure
 
 Questo esempio di script di PowerShell importa un database da un file BACPAC in un database SQL di Azure.  
@@ -32,7 +30,7 @@ Questo esempio di script di PowerShell importa un database da un file BACPAC in 
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1?highlight=18-19 "Creare database SQL")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1?highlight=18-19 "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -59,4 +57,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Per altri esempi, vedere tra gli [script di PowerShell per database SQL di Azure](../sql-database-powershell-samples.md).
-

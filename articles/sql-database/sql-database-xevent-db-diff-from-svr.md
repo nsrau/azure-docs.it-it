@@ -10,17 +10,17 @@ tags:
 ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: 7e5da1c32484b0b94d2ad32ead6bb7c28f9744aa
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: f4e41d340b38a5f29387d75b8f65b68c5fb31eb9
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -146,7 +146,7 @@ SELECT
 ```
 
 
-<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
+<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a>&nbsp;
 
 ## <a name="targets-for-your-sql-database-event-sessions"></a>Destinazioni per le sessioni di eventi del database SQL
 

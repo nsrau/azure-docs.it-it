@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: 786121ae249d69376b4be4c74000868cbb208989
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Procedure: Usare l'hub IoT di Azure
 
@@ -31,7 +31,7 @@ Sono disponibili varie opzioni per apprendere come sviluppare per il servizio hu
 
 Gli sviluppatori possono leggere le linee guida teoriche e dettagliate relative all'hub IoT nella [Guida per gli sviluppatori][lnk-devguide]. Questa guida include:
 
-* Descrizioni dettagliate di tutte le funzionalità dell'hub IoT utili per imparare a usarle.
+* Descrizioni dettagliate di tutte le funzionalità dell'hub IoT, per imparare a usarle.
 * Linee guida per la scelta quando sono disponibili più opzioni.
 
 ## <a name="tutorials"></a>Esercitazioni

@@ -4,7 +4,7 @@ description: Descrive come creare ruoli nel progetto per l'esercitazione su Azur
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 085a36edd2a0e80123ac8754b438bceadfa6c0e9
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 1496e4523154ba791bf55a0708a1a77132f5257c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-11-create-roles"></a>Lezione 11: Creare ruoli
 
@@ -97,4 +96,3 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
 
   
   
-

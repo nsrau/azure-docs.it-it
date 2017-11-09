@@ -9,18 +9,18 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
+ms.reviewer: douglasl
+ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 926938a8ed20167e1f17a9883007cd993897f14a
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -98,11 +98,13 @@ Dato che la sincronizzazione dati è basata su trigger, la coerenza delle transa
 
 ### <a name="requirements"></a>Requisiti
 
--   Ogni tabella deve avere una chiave primaria.
+-   Ogni tabella deve avere una chiave primaria. Non modificare il valore della chiave primaria in alcuna riga. Se questa modifica è necessaria, eliminare la riga e ricrearla con il nuovo valore di chiave primaria. 
 
 -   Una tabella non può includere colonne Identity che non sono la chiave primaria.
 
 -   I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
+
+-   L'isolamento dello snapshot deve essere abilitato. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="limitations-on-service-and-database-dimensions"></a>Limitazioni alle dimensioni del servizio e del database
 
@@ -140,6 +142,11 @@ Questo messaggio di errore indica uno dei due problemi seguenti:
 ### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>In che modo la sincronizzazione dati gestisce i riferimenti circolari? In altre parole, quando vengono sincronizzati gli stessi dati in più gruppi di sincronizzazione e pertanto continuano a cambiare?
 La sincronizzazione dati non gestisce i riferimenti circolari. Si consiglia di evitarli. 
 
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Come si esporta e importa un database con la sincronizzazione dei dati?
+Dopo aver esportato un database come file con estensione bacpac e averlo importato per creare un nuovo database, è necessario eseguire le due operazioni seguenti per usare la sincronizzazione dei dati nel nuovo database:
+1.  Pulire le tabelle e gli oggetti di sincronizzazione dei dati nel **nuovo database** usando [questo script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Questo script elimina tutti gli oggetti di sincronizzazione dei dati dal database.
+2.  Creare di nuovo il gruppo di sincronizzazione con il nuovo database. Se il gruppo di sincronizzazione precedente non è più necessario, eliminarlo.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulla sincronizzazione dati SQL, vedere:
@@ -150,8 +157,6 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
     -   [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 
--   [Scaricare la documentazione tecnica completa di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
-
 -   [Scaricare la documentazione dell'API REST di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Per altre informazioni sul database SQL, vedere:
@@ -159,4 +164,3 @@ Per altre informazioni sul database SQL, vedere:
 -   [Panoramica del database SQL](sql-database-technical-overview.md)
 
 -   [Gestione del ciclo di vita del database](https://msdn.microsoft.com/library/jj907294.aspx)
-

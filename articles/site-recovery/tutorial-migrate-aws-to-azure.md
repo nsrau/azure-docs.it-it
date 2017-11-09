@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/22/2017
+ms.date: 11/01/2017
 ms.author: raynew
+ms.custom: MVC
+ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: aa378c167c81617bc13baa65335335a749d13516
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -219,7 +219,7 @@ Quando viene abilitata la replica per una macchina virtuale, le modifiche divent
 Quando si esegue un failover di test, si verifica quanto segue:
 
 1. Viene eseguito un controllo dei prerequisiti per verificare che tutte le condizioni necessarie per il failover siano in atto.
-2. Il failover elabora i dati, in modo che sia possibile creare una macchina virtuale di Azure. Selezionando il punto di ripristino più recente, viene creato un punto di ripristino dai dati.
+2. Il failover elabora i dati, in modo che sia possibile creare una macchina virtuale di Azure. Selezionando il punto di recupero più recente, viene creato un punto di recupero dai dati.
 3. Una macchina virtuale di Azure viene creata usando i dati elaborati nel passaggio precedente.
 
 Nel portale eseguire il failover di test come descritto di seguito:
@@ -237,7 +237,7 @@ Nel portale eseguire il failover di test come descritto di seguito:
 6. Sarà ora possibile connettersi alla macchina virtuale replicata in Azure.
 7. Per eliminare le macchine virtuali di Azure create durante il failover di test, fare clic su **Pulisci failover di test** nel piano di ripristino. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test.
 
-In alcuni scenari il failover richiede un'ulteriore elaborazione il cui completamento richiede da 8 a 10 minuti. 
+In alcuni scenari il failover richiede un'altra elaborazione il cui completamento richiede da 8 a 10 minuti. 
 
 
 ## <a name="migrate-to-azure"></a>Eseguire la migrazione ad Azure
@@ -264,4 +264,3 @@ In questo argomento si è appreso come eseguire la migrazione di istanze EC2 AWS
 
 > [!div class="nextstepaction"]
 > [Esercitazioni per le macchine virtuali di Windows in Azure](../virtual-machines/windows/tutorial-manage-vm.md)
-

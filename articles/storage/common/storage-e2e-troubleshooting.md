@@ -13,12 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
+ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1aa40c4de48c0117e9d3f9d434972adecccdb548
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end con le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -374,4 +373,3 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
 * [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
-

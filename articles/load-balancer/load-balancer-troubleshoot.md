@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
+ms.openlocfilehash: bc059221656a695bb43af0dca06df941ca77c73d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: df5c836abbf09889f4859170359c0ee6c1b03378
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -136,5 +134,4 @@ Se si decide di aprire un caso di supporto, raccogliere le informazioni seguenti
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se i passaggi precedenti non risolvono il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).
-
 

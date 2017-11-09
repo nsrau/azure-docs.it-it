@@ -3,7 +3,7 @@ title: Errori ed eccezioni di diagnosi nelle app Web con Azure Application Insig
 description: Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria della richiesta.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: 6baffb1fb14a3b7ede5a754029b9efbaf543ea07
-ms.contentlocale: it-it
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
 Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insights](app-insights-overview.md). È possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.
@@ -33,8 +32,8 @@ Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insi
 * In certi framework applicazione o con alcune impostazioni è necessario eseguire alcuni passaggi aggiuntivi per intercettare più eccezioni:
   * [Web Form](#web-forms)
   * [MVC](#mvc)
-  * [API Web 1.*](#web-api-1)
-  * [API Web 2.*](#web-api-2)
+  * [API Web 1.*](#web-api-1x)
+  * [API Web 2.*](#web-api-2x)
   * [WCF](#wcf)
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnosticare le eccezioni con Visual Studio
@@ -445,4 +444,3 @@ Questo conteggio è diverso dal conteggio delle eccezioni calcolato dal portale 
 * [Monitorare chiamate REST, SQL e di altro tipo alle dipendenze](app-insights-asp-net-dependencies.md)
 * [Monitorare i tempi di caricamento delle pagina, le eccezioni del browser e le chiamate AJAX](app-insights-javascript.md)
 * [Monitorare i contatori delle prestazioni](app-insights-performance-counters.md)
-

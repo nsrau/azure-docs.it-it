@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: bwren
-ms.openlocfilehash: 747c00842f4df9c7fbd816c99771ba8a267106a4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: ea6e6c4044a0163ae36d6790755b67c5066251a8
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 

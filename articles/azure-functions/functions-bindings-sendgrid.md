@@ -1,6 +1,6 @@
 ---
-title: Bnding di SendGrid di Funzioni di Azure | Microsoft Docs
-description: Riferimento per i binding di SendGrid di Funzioni di Azure
+title: Associazioni di SendGrid di Funzioni di Azure | Microsoft Docs
+description: Riferimento per le associazioni di SendGrid di Funzioni di Azure
 services: functions
 documentationcenter: na
 author: rachelappel
@@ -12,27 +12,26 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/26/2017
 ms.author: rachelap
+ms.openlocfilehash: 4cdafbe05e29d8b483c6b0e1daf41a36583d7b5e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: bcdbb6aee49d230a4cb0ba08d836facacb64de7f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-functions-sendgrid-bindings"></a>Binding di SendGrid di Funzioni di Azure
+# <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
 
-Questo articolo illustra come configurare e usare i binding SendGrid in Funzioni di Azure. Con Sendgrid è possibile usare Funzioni di Azure per inviare messaggi di posta elettronica personalizzati a livello programmatico.
+Questo articolo illustra come configurare e usare le associazioni SendGrid in Funzioni di Azure. Con Sendgrid è possibile usare Funzioni di Azure per inviare messaggi di posta elettronica personalizzati a livello programmatico.
 
 Questo articolo contiene le informazioni di riferimento per gli sviluppatori di Funzioni di Azure. Se non si ha familiarità con le Funzioni di Azure, iniziare con le seguenti risorse:
 
 [Creare la prima funzione di Azure](functions-create-first-azure-function.md). 
 Informazioni di riferimento per sviluppatori su [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) o [Node](functions-reference-node.md).
 
-## <a name="functionjson-for-sendgrid-bindings"></a>function.json per binding SendGrid
+## <a name="functionjson-for-sendgrid-bindings"></a>function.json per associazioni di SendGrid
 
-Funzioni di Azure offre binding di output per SendGrid. Il binding di output di SendGrid consente di creare e inviare messaggi di posta elettronica a livello programmatico. 
+Funzioni di Azure offre associazioni di output per SendGrid. L'associazione di output di SendGrid consente di creare e inviare messaggi di posta elettronica a livello programmatico. 
 
-Il binding SendGrid supporta le proprietà seguenti:
+L'associazione SendGrid supporta le proprietà seguenti:
 
 |Proprietà  |Descrizione  |
 |---------|---------|
@@ -68,7 +67,7 @@ Il binding SendGrid supporta le proprietà seguenti:
 >
 >
 
-## <a name="c-example-of-the-sendgrid-output-binding"></a>C# di esempio del binding di output SendGrid
+## <a name="c-example-of-the-sendgrid-output-binding"></a>C# di esempio dell'associazione di output SendGrid
 
 ```csharp
 #r "SendGrid"
@@ -95,7 +94,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 }
 ```
 
-## <a name="node-example-of-the-sendgrid-output-binding"></a>Nodo di esempio del binding di output SendGrid
+## <a name="node-example-of-the-sendgrid-output-binding"></a>Nodo di esempio dell'associazione di output SendGrid
 
 ```javascript
 module.exports = function (context, input) {    
@@ -115,10 +114,9 @@ module.exports = function (context, input) {
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni sugli altri binding e trigger per Funzioni di Azure, vedere 
-- [Guida di riferimento per gli sviluppatori di trigger e binding di Funzioni di Azure](functions-triggers-bindings.md)
+Per informazioni sulle altre associazioni e i trigger per Funzioni di Azure, vedere 
+- [Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
 - L'articolo [Procedure consigliate per le funzioni di Azure](functions-best-practices.md) elenca alcune procedure consigliate da usare durante la creazione di Funzioni di Azure.
 
-- La [guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) contiene informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e binding.
-
+- La [guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) contiene informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.

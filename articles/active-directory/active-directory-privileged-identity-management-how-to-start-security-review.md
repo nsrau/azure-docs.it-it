@@ -16,10 +16,10 @@ ms.date: 05/04/2017
 ms.author: billmath
 ms.custom: pim
 ms.openlocfilehash: 2b516e2f05aa883c5e37f5864e5ee8a2b37d3a46
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Come avviare una verifica dell'accesso in Azure AD Privileged Identity Management
 Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi con privilegi di cui non necessitano più. Per ridurre il rischio associato alle assegnazioni dei ruoli obsolete, gli amministratori dei ruoli con privilegi devono esaminare periodicamente i ruoli assegnati agli utenti. Questo documento illustra i passaggi per l'avvio di una verifica dell'accesso in Azure AD Privileged Identity Management (PIM).

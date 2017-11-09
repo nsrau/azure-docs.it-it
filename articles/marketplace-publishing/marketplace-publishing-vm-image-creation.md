@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
-ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guida alla creazione di un'immagine di macchina virtuale per Azure Marketplace
 Questo articolo, **Passaggio 2**, illustra la preparazione di dischi rigidi virtuali (VHD) da distribuire in Azure Marketplace. I dischi rigidi virtuali costituiscono la base dello SKU. Il processo varia a seconda che si stia offrendo uno SKU basato su Linux o su Windows. In questo articolo vengono descritti entrambi gli scenari. Questo processo può essere eseguito parallelamente alla [creazione e registrazione dell'account][link-acct-creation].
@@ -568,4 +567,3 @@ Dopo aver specificato i dettagli dello SKU, passare alla [Guida ai contenuti di 
 [link-openssl]:https://www.openssl.org/
 [link-intsvc]:http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]:https://www.python.org/
-

@@ -16,14 +16,12 @@ ms.workload: web
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: c1277a04e3a63c09b2ed7f9304bfc482ab9189a8
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Connettere un'App Web a una cache Redis
 
 Questo scenario illustra come creare una cache Redis di Azure e un'App Web di Azure. La cache Redis viene quindi collegata all'App Web usando le impostazioni dell'app.
@@ -36,7 +34,7 @@ Questo scenario illustra come creare una cache Redis di Azure e un'App Web di Az
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Cache Redis di Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Redis Cache")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -58,4 +56,3 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'App Web,
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando del servizio app sono disponibili nella [documentazione del servizio app di Azure](../app-service-cli-samples.md).
-

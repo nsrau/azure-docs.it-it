@@ -1,114 +1,112 @@
 ---
-title: Azure Stack datacenter integration - Publish endpoints
-description: Learn how to publish Azure Stack endpoints in your datacenter
+title: 'Azure dello Stack di integrazione di datacenter: pubblicare endpoint'
+description: Viene descritto come pubblicare endpoint dello Stack di Azure nel Data Center
 services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/18/2017
 ms.author: victorh
 keywords: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 02d73a3d843ee7cd3cdfbf6b137908e03d7306a7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 0d15252079b62f6a74a1279309fb9b1b3ed5711e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
+# <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure dello Stack di integrazione di datacenter: pubblicare endpoint
 
-# <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter integration - Publish endpoints
+*Si applica a: Azure Stack integrate di sistemi*
 
-*Applies to: Azure Stack integrated systems*
-
-Azure Stack sets up various endpoints (VIPs - virtual IP addresses) for its infrastructure roles. These VIPs are allocated from the public IP address pool. Each VIP is secured with an access control list (ACL) in the software-defined network layer. ACLs are also used across the physical switches (TORs and BMC) to further harden the solution. A DNS entry is created for each endpoint in the external DNS zone that was specified at deployment time.
+Stack di Azure consente di impostare vari endpoint (gli indirizzi VIP - indirizzi IP virtuali) per i ruoli di infrastruttura. Questi indirizzi VIP sono allocati dal pool di indirizzi IP pubblici. Ogni indirizzo IP virtuale è protetta con un elenco di controllo di accesso (ACL) nel livello di rete definita dal software. Gli ACL vengono usati anche tra i commutatori fisici (tori e BMC) per un'ulteriore protezione avanzata della soluzione. Una voce DNS viene creata per ogni endpoint nella zona DNS esterna che è stata specificata in fase di distribuzione.
 
 
-The following architectural diagram shows the different network layers and ACLs:
+Il diagramma dell'architettura seguente illustra i vari livelli della rete e gli ACL:
 
-![Architectural diagram](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Diagramma dell'architettura](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
-## <a name="ports-and-protocols-inbound"></a>Ports and protocols (inbound)
+## <a name="ports-and-protocols-inbound"></a>Porte e protocolli (in ingresso)
 
-The infrastructure VIPs that are required for publishing Azure Stack endpoints to external networks are listed in the following table. The list shows each endpoint, the required port, and protocol. Endpoints required for additional resource providers, like the SQL resource provider and others, are covered in the specific resource provider deployment documentation.
+Nella tabella seguente sono elencati i VIP infrastruttura necessari per una pubblicazione di endpoint Azure Stack a reti esterne. L'elenco Mostra ogni endpoint, la porta richiesta e protocollo. Gli endpoint necessari per i provider di risorse aggiuntive, come il provider di risorse SQL e altri, sono vedere la documentazione sulla distribuzione di provider di risorse specifico.
 
-Internal infrastructure VIPs are not listed because they’re not required for publishing Azure Stack.
+Gli indirizzi VIP infrastruttura interna che non sono elencate perché non sono necessarie per la pubblicazione dello Stack di Azure.
 
 > [!NOTE]
-> User VIPs are dynamic, defined by the users themselves with no control by the Azure Stack operator.
+> Gli indirizzi VIP utente sono dinamici, definiti dagli utenti stessi senza il controllo dall'operatore dello Stack di Azure.
 
 
-|Endpoint (VIP)|DNS host A record|Protocol|Ports|
+|Endpoint (VIP)|Un record host DNS|Protocol|Porte|
 |---------|---------|---------|---------|
 |AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|Portal (administrator)|`Adminportal.[Region].[External FQDN]`|HTTPS|443|
-|Azure Resource Manager (administrator)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Portal (user)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (user)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Graph|`Graph.[Region].[External FQDN]`|HTTPS|443|
-|Certificate revocation list|`Crl.[Region].[External FQDN]`|HTTP|80|
-|DNS|`*.[Region].[External FQDN]`|TCP & UDP|53|
-|Key Vault (user)|`*.vault.[Region].[External FQDN]`|TCP<br>TCP|443<br>12490|
-|Key Vault (administrator)|`*.adminvault.[Region].[External FQDN]`|TCP<br>TCP|443<br>12492|
-|Storage Queue|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Storage Table|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Storage Blob|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
+|Portale (amministratore)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
+|Gestione risorse di Azure (amministratore)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
+|Portale (utente)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
+|Gestione risorse di Azure (utente)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
+|Grafico|`Graph.[Region].[External FQDN]`|HTTPS|443|
+|Elenco di revoche di certificati|`Crl.[Region].[External FQDN]`|HTTP|80|
+|DNS|`*.[Region].[External FQDN]`|TCP / UDP|53|
+|Chiave dell'insieme di credenziali (utente)|`*.vault.[Region].[External FQDN]`|TCP|443|
+|Chiave dell'insieme di credenziali (amministratore)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
+|Coda di archiviazione|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
+|Tabella di archiviazione|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
+|Archiviazione BLOB|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 
-## <a name="ports-and-urls-outbound"></a>Ports and URLs (outbound)
+## <a name="ports-and-urls-outbound"></a>Porte e gli URL (in uscita)
 
-Azure Stack supports only transparent proxy servers. In a deployment where a transparent proxy uplinks to a traditional proxy server, you must allow the following ports and URLs for outbound communication:
+Stack di Azure supporta solo i server proxy trasparente. In una distribuzione in cui un uplink proxy trasparente per un server proxy tradizionali, è necessario consentire le seguenti porte e gli URL per le comunicazioni in uscita:
 
 
-|Purpose|URL|Protocol|Ports|
+|Scopo|URL|Protocol|Porte|
 |---------|---------|---------|---------|
-|Identity|`login.windows.net`<br>`login.microsoftonline.com`<br>`graph.windows.net`|HTTP<br>HTTPS|80<br>443|
-|Marketplace syndication|`https://management.azure.com`<br>`https://*.blob.core.windows.net`<br>`https://*.azureedge.net`<br>`https://*.microsoftazurestack.com`|HTTPS|443|
-|Patch & Update|`https://*.azureedge.net`|HTTPS|443|
-|Registration|`https://management.azure.com`|HTTPS|443|
-|Usage|`https://*.microsoftazurestack.com`<br>`https://*.trafficmanager.com`|HTTPS|443|
+|Identità|`login.windows.net`<br>`login.microsoftonline.com`<br>`graph.windows.net`|HTTP<br>HTTPS|80<br>443|
+|Diffusione di Marketplace|`https://management.azure.com`<br>`https://*.blob.core.windows.net`<br>`https://*.azureedge.net`<br>`https://*.microsoftazurestack.com`|HTTPS|443|
+|Patch e aggiornamento|`https://*.azureedge.net`|HTTPS|443|
+|Registrazione|`https://management.azure.com`|HTTPS|443|
+|Utilizzo|`https://*.microsoftazurestack.com`<br>`https://*.trafficmanager.com`|HTTPS|443|
 
-## <a name="firewall-publishing"></a>Firewall publishing
+## <a name="firewall-publishing"></a>Pubblicazione di firewall
 
-The ports listed in the previous section apply to inbound communication when publishing Azure Stack Services through an existing firewall.
+Le porte elencate nella sezione precedente riguardano comunicazione in ingresso durante la pubblicazione di servizi di Azure Stack attraverso un firewall esistenti.
 
-We recommend that you use a firewall device to help secure Azure Stack. However, it’s not a strict requirement. Although firewalls can help with things like distributed denial-of-service (DDOS) attacks, and content inspection, they can also become a throughput bottleneck for Azure storage services like blobs, tables, and queues.
+È consigliabile che per utilizzare un dispositivo firewall sicura dello Stack di Azure. Tuttavia, non è un requisito. Sebbene i firewall consente ad esempio attacchi distribuiti di tipo denial of service (DDOS) e l'ispezione del contenuto, possono anche diventare un collo di bottiglia della velocità effettiva per servizi di archiviazione di Azure come BLOB, tabelle e code.
 
-Based on the Identity model (Azure AD or AD FS), it may or may not be required to publish the AD FS endpoint. If a disconnected deployment mode is used, you must publish the AD FS endpoint. (For more information, see the Datacenter integration identity topic.)
+In base al modello di identità (Azure Active Directory o AD FS), Microsoft potrà o potrebbe non essere necessario pubblicare l'endpoint ADFS. Se viene utilizzata una modalità di distribuzione disconnesso, è necessario pubblicare l'endpoint ADFS. (Per ulteriori informazioni, vedere l'argomento di identità di integrazione Datacenter).
 
-The Azure Resource Manager (administrator), administrator portal, and Key Vault (administrator) endpoints do not necessarily require external publishing. It depends on the scenario. For example, as a service provider, you may want to limit the attack surface and only administer Azure Stack from inside your network, and not from the Internet.
+Gli endpoint di chiave dell'insieme di credenziali (amministratore), Gestione risorse di Azure (amministratore) e portale dell'amministratore non richiedono necessariamente pubblicazione esterna. A seconda dello scenario. Ad esempio, come un provider di servizi, è opportuno limitare la superficie di attacco e amministrare solo Stack di Azure all'interno della rete e non da Internet.
 
-For an enterprise organization, the external network can be the existing corporate network. In such a scenario, you must publish those endpoints to operate Azure Stack from the corporate network.
+Per un'organizzazione, la rete esterna può essere la rete azienda esistente. In questo caso, è necessario pubblicare gli endpoint per il funzionamento di Azure Stack dalla rete aziendale.
 
-## <a name="edge-firewall-scenario"></a>Edge firewall scenario
+## <a name="edge-firewall-scenario"></a>Scenario di firewall perimetrale
 
-In an edge deployment, Azure Stack is deployed directly behind the edge router (provided by the ISP) with or without a firewall in front of it.
+In una distribuzione di bordo, Stack di Azure viene distribuito direttamente dietro il router perimetrale (fornito dal provider del servizio), con o senza un firewall trovano davanti.
 
-![Architectural diagram of an Azure Stack edge deployment](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
+![Diagramma dell'architettura di una distribuzione di bordo dello Stack di Azure](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
 
-Typically, public routable IP addresses are specified for the public VIP pool at deployment time in an edge deployment. This scenario enables a user to experience the full self-controlled cloud experience like in a public cloud like Azure.
+In genere, gli indirizzi IP instradabili pubblici vengono specificati per il pool di indirizzi VIP pubblico in fase di distribuzione in una distribuzione di bordo. Questo scenario consente a un utente provare l'esperienza del cloud self-controllata completo come un pubblica cloud come Azure.
 
-### <a name="using-nat"></a>Using NAT
+### <a name="using-nat"></a>Utilizzo di NAT
 
-Although not recommended because of the overhead, you could use Network Address Translation (NAT) for publishing endpoints. For endpoint publishing that is fully controlled by users, this requires a NAT rule per user VIP that contains all ports a user might use.
+Anche se non è consigliata a causa dell'overhead, è possibile utilizzare Network Address Translation (NAT) per la pubblicazione di endpoint. Per la pubblicazione di endpoint che è completamente controllata dagli utenti, questo richiede una regola NAT per ogni utente VIP che contiene tutte le porte che utilizzabili dall'utente.
 
-Another consideration is that Azure does not support setting up a VPN tunnel to an endpoint using NAT in a hybrid cloud scenario with Azure.
+Un'altra considerazione è che Azure non supporta la configurazione di un tunnel VPN a un endpoint tramite NAT in uno scenario di cloud ibrido con Azure.
 
-## <a name="enterpriseintranetperimeter-network-firewall-scenario"></a>Enterprise/intranet/perimeter network firewall scenario
+## <a name="enterpriseintranetperimeter-network-firewall-scenario"></a>Scenario firewall di rete intranet/Enterprise/perimetrale
 
-In an enterprise/intranet/perimeter deployment, Azure Stack is deployed beyond a second firewall, which is typically part of a perimeter network (also known as a DMZ).
+In una distribuzione intranet/enterprise/perimetrale, Stack di Azure viene distribuito all'interno del firewall di secondo, ovvero in genere parte di una rete perimetrale (detta anche DMZ).
 
-![Azure Stack firewall scenario](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
+![Scenario firewall di Azure Stack](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
 
-If public routable IP addresses have been specified for the public VIP pool of Azure Stack, these addresses logically belong to the perimeter network and require publishing rules at the primary firewall.
+Se gli indirizzi IP instradabili pubblici sono stati specificati per il pool di indirizzi VIP pubblico dello Stack di Azure, questi indirizzi logicamente appartengano alla rete perimetrale e richiedono regole firewall primario di pubblicazione.
 
-### <a name="using-nat"></a>Using NAT
+### <a name="using-nat"></a>Utilizzo di NAT
 
-If non-public routable IP addresses are used for the public VIP pool of Azure Stack, NAT is used at the secondary firewall to publish Azure Stack endpoints. In this scenario, you need to configure the publishing rules on the primary firewall beyond the edge, and on the secondary firewall. Consider the following points if you want to use NAT:
+Se gli indirizzi IP instradabili pubblici vengono utilizzati per il pool di indirizzi VIP pubblico dello Stack di Azure, NAT viene utilizzato nel firewall secondario per pubblicare endpoint dello Stack di Azure. In questo scenario, è necessario configurare le regole di pubblicazione nel firewall primario oltre il bordo e del firewall secondario. Se si desidera utilizzare NAT, tenere presente quanto segue:
 
-- NAT adds overhead when managing firewall rules because users control their own endpoints and their own publishing rules in the software-defined networking (SDN) stack. Users must contact the Azure Stack operator to get their VIPs published, and to update the port list.
-- While NAT usage limits the user experience, it gives full control to the operator over publishing requests.
-- For hybrid cloud scenarios with Azure, consider that Azure does not support setting up a VPN tunnel to an endpoint using NAT.
+- NAT comporta un overhead aggiuntivo per la gestione di regole del firewall perché gli utenti di controllare i propri endpoint e le proprie regole di pubblicazione definita dal software (SDN) dello stack di rete. Gli utenti devono contattare l'operatore di Stack di Azure per ottenere i relativi indirizzi IP virtuali pubblicate e per aggiornare l'elenco delle porte.
+- Durante l'utilizzo NAT limita l'esperienza utente, offre controllo completo all'operatore tramite le richieste di pubblicazione.
+- Per scenari di cloud ibrido con Azure, è consigliabile che Azure non supporta la configurazione di un tunnel VPN a un endpoint tramite NAT.
 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Passaggi successivi
 
-[Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md)
+[Integrazione di Azure Data Center di Stack - sicurezza](azure-stack-integrate-security.md)

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Come configurare Cache Redis di Azure
 In questo argomento viene descritto come esaminare e aggiornare la configurazione per le istanze di Cache Redis di Azure e viene illustrata la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -146,7 +145,7 @@ Le impostazioni **Criterio maxmemory**, **maxmemory-reserved** e **maxfragmentat
 
 Per altre informazioni sui criteri `maxmemory`, vedere [Eviction policies](http://redis.io/topics/lru-cache#eviction-policies) (Criteri di rimozione).
 
-L'impostazione **maxmemory-reserved** consente di configurare la quantità di memoria in MB riservata per le operazioni non appartenenti alla cache, ad esempio la replica durante il failover. L'impostazione di questo valore consente di avere un'esperienza più coerente del server Redis quando il carico varia. Questo valore deve essere più alto per i carichi di lavoro ad intensa attività di scrittura. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
+L'impostazione **maxmemory-reserved** consente di configurare la quantità di memoria in MB riservata per le operazioni non appartenenti alla cache, ad esempio la replica durante il failover. L’impostazione di questo valore consente di avere un'esperienza più coerente del server Redis quando il carico varia. Questo valore deve essere più alto per i carichi di lavoro ad intensa attività di scrittura. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
 L'impostazione **maxfragmentationmemory-reserved** consente di configurare la quantità di memoria in MB riservata per la frammentazione della memoria. L'impostazione di questo valore consente un'esperienza un server Redis più coerente quando la cache è piena o prossima al riempimento e anche il rapporto di frammentazione è elevato. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
@@ -515,5 +514,4 @@ Per informazioni sullo spostamento delle risorse da un gruppo di risorse all'alt
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands)
-
 

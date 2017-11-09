@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 878badf2753b4ceb471abc789e388fd784c4c42a
-ms.contentlocale: it-it
-ms.lasthandoff: 04/13/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 152e21bd9fc6db424c3caff4ce425e54ecab11e2
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights per le applicazioni web Java che sono già live
 
@@ -137,5 +136,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 * [Configurare i test Web](app-insights-monitor-web-app-availability.md) in modo da assicurarsi che l'applicazione sia disponibile e reattiva.
 * [Acquisire le tracce dei log](app-insights-java-trace-logs.md)
 * [Cercare eventi e log](app-insights-diagnostic-search.md) per facilitare la diagnosi dei problemi.
-
 

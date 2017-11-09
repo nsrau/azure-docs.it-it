@@ -3,7 +3,7 @@ title: Opzioni per il debug dei servizi cloud di Azure | Microsoft Docs
 description: Debug dei servizi cloud di Azure
 services: visual-studio-online
 documentationcenter: n/a
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: 80755da7-8350-4f5c-97ce-2962beabb36d
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/18/2017
-ms.author: kraigb
-ms.openlocfilehash: cdcd4ca1fbc7e0a2f24122b32148cbda3d6951a0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.author: mikejo
+ms.openlocfilehash: 196a39a75f8a3151c277f0b2a7944e6886192171
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Informazioni sui vari modi per eseguire il debug di un servizio cloud di Azure
 Questo articolo include collegamenti ai vari modi per eseguire il debug di un servizio cloud di Azure. 

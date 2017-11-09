@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 91c1cb9713d087982dc68f2511b72ef86a050616
-ms.openlocfilehash: bb5e0fa9981133a77c235a42be369b3bbacb4ac0
-ms.contentlocale: it-it
-ms.lasthandoff: 02/17/2017
-
+ms.openlocfilehash: cbdd210f2fe46228daa8c138815826df2b3b0fd7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Documentazione di Estensione database di SQL Server
 
@@ -100,6 +99,5 @@ Informazioni su come usare Estensione database di SQL Server per eseguire la mig
  </ul>
 
 ---
-
 
 

@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/17/2017
+ms.openlocfilehash: 708d1f186fb2877568243049c9ef8dd62cc0f2fc
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 65151a546881cfb049a2c231e61722de85523b95
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="model-management-command-line-interface-reference"></a>Informazioni di riferimento sull'interfaccia della riga di comando di Gestione modelli
 
 ## <a name="base-cli-concepts"></a>Concetti CLI di base:
@@ -193,7 +191,7 @@ Argomenti globali
 
 È possibile creare un'immagine di cui prima è stato creato il relativo manifesto. 
 
-`az ml image create -n [image name] -manifest-id [the manifest ID]`
+`az ml image create -n [image name] --manifest-id [the manifest ID]`
 
 Oppure è possibile creare il manifesto e l'immagine con un unico comando. 
 
@@ -343,4 +341,3 @@ Argomenti globali
     --output -o: Output format.  Allowed values: json, jsonc, table, tsv. Default: json.
     --query    : JMESPath query string. See http://jmespath.org/ for more information and examples.
     --verbose  : Increase logging verbosity. Use --debug for full debug logs.
-

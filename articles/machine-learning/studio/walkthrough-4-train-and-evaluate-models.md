@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5a545b9f9f7f935be91fed743779ebd6b4d930a6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Passaggio 4 della procedura dettagliata: Eseguire il training e valutare i modelli analitici predittivi
 Questo argomento contiene il quarto passaggio della procedura dettagliata [Sviluppare una soluzione di analisi predittiva in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -210,4 +209,3 @@ La scienza e l'arte di interpretare questi risultati e di ottimizzare le prestaz
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-

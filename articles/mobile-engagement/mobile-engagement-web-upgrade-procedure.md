@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
 ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Procedure di aggiornamento di Azure Mobile Engagement SDK per Web
 Se nell'applicazione Web è già stata integrata una versione precedente di Azure Mobile Engagement SDK per Web, è necessario considerare i seguenti punti quando si aggiorna l'SDK.

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 62fa6a6d0cccc5545b94d4ae167f2fcc7e4cd0de
-ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 1ad6ca4abe73336ce9ce3539fdaf2a9d7dd23fa6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="packet-inspection-with-azure-network-watcher"></a>Ispezione dei pacchetti con Azure Network Watcher
 
 Usando la funzionalità di acquisizione di pacchetti di Network Watcher, è possibile avviare e gestire sessioni di acquisizioni nelle VM di Azure dal portale, da PowerShell, dall'interfaccia della riga di comando e a livello di codice tramite l'SDK e l'API REST. L'acquisizione di pacchetti consente di gestire scenari in cui sono necessari dati a livello di pacchetto fornendo le informazioni in un formato subito utilizzabile. Sfruttando gli strumenti disponibili gratuitamente per ispezionare i dati, è possibile esaminare le comunicazioni inviate alle e dalle VM e ottenere informazioni dettagliate sul traffico di rete. Alcuni esempi di uso dei dati di acquisizione di pacchetti includono: esame dei problemi della rete o delle applicazioni, rilevamento dell'uso improprio della rete e dei tentativi di intrusione o gestione della conformità alle normative. In questo articolo viene illustrato come aprire un file di acquisizione di pacchetti fornito da Network Watcher usando un diffuso strumento open source. Verranno anche forniti esempi che illustrano come calcolare la latenza di una connessione, identificare il traffico anomalo ed esaminare le statistiche di rete.
@@ -136,7 +134,6 @@ Per informazioni sulle altre funzionalità di diagnostica di Network Watcher, ve
 [6]: ./media/network-watcher-deep-packet-inspection/figure6.png
 [7]: ./media/network-watcher-deep-packet-inspection/figure7.png
 [8]: ./media/network-watcher-deep-packet-inspection/figure8.png
-
 
 
 

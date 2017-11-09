@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: 47ebebbd838d245c2559bff8d8750e80dbcc3fd8
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f45a9bd265991a3c2234f12af428b27b7659cb6b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Domande frequenti
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le [domande frequenti relative a Data Factory versione 2](../frequently-asked-questions.md).
+
 ## <a name="general-questions"></a>Domande generali
 ### <a name="what-is-azure-data-factory"></a>Che cos'è Azure Data Factory?
 Data Factory è un servizio di integrazione dei dati basato sul cloud che **automatizza lo spostamento e la trasformazione dei dati**. Analogamente a quanto avviene in uno stabilimento di produzione, in cui vengono usate attrezzature per trasformare le materie prime in prodotti finiti, Data Factory orchestra i servizi esistenti che raccolgono i dati non elaborati e li trasforma in informazioni pronte per l'uso.
@@ -143,7 +145,7 @@ Un errore frequente è la mancata impostazione della proprietà **external** su 
 
 Nell'esempio seguente è necessario soltanto impostare **external** su true in **dataset1**.  
 
-**DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
+**DataFactory1** Pipeline 1: dataset1 -&gt; activity1 -&gt; dataset2 -&gt; activity2 -&gt; dataset3 Pipeline 2: dataset3-&gt; activity3 -&gt; dataset4
 
 Se si dispone di un'altra data factory con una pipeline che accetta dataset4 (prodotto dalla pipeline 2 nella data factory 1), contrassegnare dataset4 come set di dati esterno perché tale set di dati è prodotto da una data factory differente (DataFactory1, non DataFactory2).  
 
@@ -206,4 +208,3 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
-

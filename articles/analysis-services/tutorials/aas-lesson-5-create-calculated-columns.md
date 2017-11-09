@@ -4,7 +4,7 @@ description: Descrive come creare colonne calcolate nel progetto per l'esercitaz
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 893371145d77e156843271907aeef0c3756d0403
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: d7d2265aa82e54cdbd3b85e09a05e5ea55a7a2c2
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-5-create-calculated-columns"></a>Lezione 5: Creare colonne calcolate
 
@@ -138,4 +137,3 @@ La colonna calcolata ProductCategoryName viene usata per creare una gerarchia ne
   
   
   
-

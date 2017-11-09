@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 09/18/2017
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: e8e97f0a0d18bafac581ce0fa31a69e385669bcf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: d8d8ff77f0099185707a0207c4ba6aed190a102e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-service-preview"></a>Creare ed effettuare il provisioning di un dispositivo simulato usando il servizio Device Provisioning in hub IoT (anteprima)
 
 Questi passaggi illustrano come creare un dispositivo simulato nel computer di sviluppo che esegue un sistema operativo Windows, eseguire il simulatore Windows TPM come [modulo di protezione hardware](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) del dispositivo e usare l'esempio di codice per connettere questo dispositivo simulato con il servizio Device Provisioning e l'hub IoT. 
@@ -29,7 +27,7 @@ Assicurarsi di completare la procedura descritta in [Set up IoT Hub Device Provi
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Preparare l'ambiente di sviluppo 
 
-1. Verificare che nel computer sia installato Visual Studio 2015 o [Visual Studio 2017](https://www.visualstudio.com/vs/). 
+1. Verificare che nel computer sia installato Visual Studio 2015 o [Visual Studio 2017](https://www.visualstudio.com/vs/). È necessario che il carico di lavoro 'Sviluppo di applicazioni desktop con C++' sia abilitato per l'installazione di Visual Studio.
 
 2. Scaricare e installare il [sistema di compilazione CMake](https://cmake.org/download/).
 
@@ -122,4 +120,3 @@ In questa guida introduttiva è stato creato un dispositivo simulato TPM sul com
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials (Esercitazioni sul servizio Device Provisioning in hub IoT di Azure)](./tutorial-set-up-cloud.md)
-

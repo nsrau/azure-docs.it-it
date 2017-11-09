@@ -3,7 +3,7 @@ title: "Domande frequenti e problemi noti di Identità del servizio gestito (MSI
 description: "Problemi noti di Identità del servizio gestito per Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: bryanla
 manager: mbaldwin
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -12,21 +12,23 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/22/2017
-ms.author: skwan
+ms.date: 10/20/2017
+ms.author: bryanla
+ms.openlocfilehash: 859cfbeae6701336699b4f3f7a96d6b08c599340
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 3cfd1eb55a031696635270a56ed5028e3b249543
-ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/21/2017
 ---
-
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Domande frequenti e problemi noti di Identità del servizio gestito (MSI) per Azure Active Directory
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
+
+### <a name="does-msi-work-with-azure-cloud-services"></a>Identità del servizio gestito funziona con Servizi cloud di Azure?
+
+No. Non è previsto il supporto di Identità del servizio gestito in Servizi cloud di Azure.
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>L'Identità del servizio gestito funziona con Active Directory Authentication Library (ADAL) o con Microsoft Authentication Library (MSAL)?
 
@@ -58,6 +60,16 @@ Dove:
 
 ## <a name="known-issues"></a>Problemi noti
 
+### <a name="automation-script-fails-when-attempting-schema-export-for-msi-extension"></a>Si verifica un errore di "Script di automazione" durante il tentativo di esportazione dello schema per l'estensione dell'identità del servizio gestito
+
+Se l'identità del servizio gestito è abilitata in una macchina virtuale, viene visualizzato l'errore seguente quando si tenta di usare la funzionalità "Script di automazione" per la macchina virtuale o il relativo gruppo di risorse:
+
+![Errore di esportazione dello script di automazione per l'identità del servizio gestito](media/msi-known-issues/automation-script-export-error.png)
+
+L'estensione della macchina virtuale dell'identità del servizio gestito non supporta attualmente la possibilità di esportare lo schema in un modello di gruppo di risorse. Di conseguenza, il modello generato non include i parametri di configurazione per abilitare l'identità del servizio gestito per la risorsa. È possibile aggiungere manualmente queste sezioni seguendo gli esempi in [Configurare un'Identità del servizio gestito della macchina virtuale tramite un modello](msi-qs-configure-template-windows-vm.md).
+
+Quando è disponibile per l'estensione della macchina virtuale dell'identità del servizio gestito, la funzionalità di esportazione dello schema sarà elencata in [Esportazione di gruppi di risorse contenenti estensioni macchina virtuale](../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Il pannello di configurazione non viene visualizzato nel portale di Azure
 
 Se il pannello di configurazione della macchina virtuale non viene visualizzato nella macchina virtuale vuol dire che l'Identità del servizio gestito non è stata ancora abilitata nel portale della propria area geografica.  Ricontrollare in seguito.  È anche possibile abilitare l'Identità del servizio gestito per la macchina virtuale tramite [PowerShell](msi-qs-configure-powershell-windows-vm.md) o l'[interfaccia della riga di comando di Azure](msi-qs-configure-cli-windows-vm.md).
@@ -87,4 +99,3 @@ Dopo aver avviato la macchina virtuale, il tag può essere rimosso tramite il se
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-

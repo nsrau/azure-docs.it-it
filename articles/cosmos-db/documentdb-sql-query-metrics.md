@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 Azure Cosmos DB fornisce un'[API SQL per le query sui dati](documentdb-sql-query.md), senza che siano necessari schemi o indici secondari. In questo articolo vengono fornite le seguenti informazioni per gli sviluppatori:
@@ -280,6 +279,5 @@ Di seguito sono riportate alcune query di esempio, con informazioni su come inte
 * Per informazioni sulle parole chiave e gli operatori di query SQL supportati, vedere [Query SQL](documentdb-sql-query.md). 
 * Per informazioni sulle unità richiesta, vedere [Unità richiesta](request-units.md).
 * Per informazioni sui criteri di indicizzazione, vedere [Criteri di indicizzazione](indexing-policies.md) 
-
 
 

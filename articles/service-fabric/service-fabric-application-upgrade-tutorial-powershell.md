@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c685deaa008cfdba5971cef4cfc7dfa41b1df64d
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 845e459a0c829ed8e737d687108e3bda48dab9ad
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Aggiornamento di un'applicazione di Service Fabric mediante PowerShell
 > [!div class="op_single_selector"]
@@ -46,7 +45,7 @@ Compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mo
 > 
 > 
 
-Dopo aver compilato il progetto in Visual Studio è possibile usare il comando di PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) per copiare il pacchetto dell'applicazione in ImageStore. Se si desidera verificare il pacchetto dell'applicazione in locale, usare il cmdlet [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage). Il passaggio successivo consiste nel registrare l'applicazione nel runtime di Service Fabric mediante il cmdlet [Register-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) . Il passaggio finale consiste nell'avviare un'istanza dell'applicazione con il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) .  Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.
+Dopo aver compilato il progetto in Visual Studio è possibile usare il comando di PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) per copiare il pacchetto dell'applicazione in ImageStore. Se si desidera verificare il pacchetto dell'applicazione in locale, usare il cmdlet [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage). Il passaggio successivo consiste nel registrare l'applicazione nel runtime di Service Fabric usando il cmdlet [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). Il passaggio seguente consiste nell'avviare un'istanza dell'applicazione con il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.  Al termine del provisioning, è consigliabile pulire il pacchetto dell'applicazione copiato dall'archivio immagini per ridurre le risorse utilizzate.  Se un tipo di applicazione non è più necessario, è consigliabile annullarne la registrazione per lo stesso motivo. Per altre informazioni, vedere [Distribuire e rimuovere applicazioni con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
 
 È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui è possibile accedere in Internet Explorer digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) sulla barra degli indirizzi.  Verranno visualizzati alcuni oggetti visivi mobili sullo schermo.  È anche possibile usare [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) per verificare lo stato dell'applicazione.
 
@@ -73,7 +72,6 @@ A questo punto il file *ApplicationManifest.xml*, disponibile nel progetto **Vis
 
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
-
 
 A questo punto compilare il progetto selezionando solo il progetto **ActorService** e quindi facendo clic con il pulsante destro del mouse e scegliendo l'opzione **Compila** in Visual Studio. Se si seleziona **Ricompila tutto**, è necessario aggiornare le versioni per tutti i progetti, poiché il codice è stato modificato. È quindi possibile aggiungere l'applicazione aggiornata al pacchetto facendo clic con il pulsante destro del mouse sul progetto ***VisualObjectsApplication***, scegliendo il menu Service Fabric e quindi **Pacchetto**. In questo modo viene creato un pacchetto dell'applicazione che può essere distribuito.  L'applicazione aggiornata è pronta per essere distribuita.
 
@@ -112,6 +110,12 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 
 Se il comando precedente non riesce, è probabile che si debbano ricompilare tutti i servizi. Come indicato nel passaggio 2, potrebbe essere necessario aggiornare anche la versione di WebService.
 
+Al termine della registrazione dell'applicazione, è consigliabile rimuovere il pacchetto dell'applicazione.  L'eliminazione dei pacchetti di applicazioni dall'archivio immagini consente di liberare risorse di sistema.  Conservando pacchetti inutilizzati, viene occupato spazio di archiviazione su disco e si verificano problemi di prestazioni delle applicazioni.
+
+```powershell
+Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
+```
+
 ## <a name="step-5-start-the-application-upgrade"></a>Passaggio 5: avviare l'aggiornamento dell'applicazione
 Ora è tutto pronto per avviare l'aggiornamento dell'applicazione usando il comando [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps):
 
@@ -142,5 +146,4 @@ Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare la [se
 Per informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione, vedere [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
 
 Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione](service-fabric-application-upgrade-troubleshooting.md).
-
 

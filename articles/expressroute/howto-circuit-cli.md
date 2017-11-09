@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 1a1c9a96b772868e2c832e9ff57874038c0db2d4
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creare e modificare un circuito ExpressRoute tramite l'interfaccia della riga di comando
 
@@ -39,7 +39,7 @@ Questo articolo descrive la procedura di creazione di un circuito di Azure Expre
 * Prima di iniziare, installare la versione più recente dei comandi dell'interfaccia della riga di comando (2.0 o successiva). Per informazioni sull'installazione dei comandi dell'interfaccia della riga di comando, vedere [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Installare l'interfaccia della riga di comando di Azure 2.0) e [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Introduzione all'interfaccia della riga di comando di Azure 2.0).
 * Prima di iniziare la configurazione, verificare i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).
 
-## <a name="create-and-provision-an-expressroute-circuit"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning
+## <a name="create"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Accedere al proprio account Azure e selezionare la sottoscrizione
 
@@ -351,7 +351,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 Vedere le istruzioni contenute in [Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager](expressroute-howto-move-arm.md).
 
-## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Deprovisioning ed eliminazione di un circuito ExpressRoute
+## <a name="delete"></a>Deprovisioning ed eliminazione di un circuito ExpressRoute
 
 Per effettuare il deprovisioning e l'eliminazione di un circuito ExpressRoute, assicurarsi di comprendere i criteri seguenti:
 

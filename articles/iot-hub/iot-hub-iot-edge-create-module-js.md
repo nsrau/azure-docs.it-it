@@ -11,11 +11,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: sushi
-ms.openlocfilehash: ba466f47e157d805600c41fa3d84ed5a0363969c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: e23c4aa7bb3eb4fab18d5a13cbad28e07c18d8f2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-nodejs"></a>Creare un modulo Azure IoT Edge con Node.js
 
@@ -121,7 +121,7 @@ L'input potrebbe essere costituito da dati dell'hardware (ad esempio un rilevato
 
 L'output è simile all'input. Può attivare il comportamento dell'hardware, ad esempio il lampeggiamento di un LED, generare un messaggio ad altri moduli o qualsiasi altra azione, ad esempio la stampa nella console.
 
-I moduli comunicano reciprocamente usando l'oggetto `message`. Il **contenuto** di un oggetto `message` è una matrice di byte in grado di rappresentare qualsiasi tipo di dati che si preferisce. In `message` sono presenti anche **proprietà** che rappresentano semplicemente il mapping stringa-a-stringa. Si può pensare alle **proprietà** come alle intestazioni in una richiesta HTTP o ai metadati di un file.
+I moduli comunicano reciprocamente usando l'oggetto `message`. Il **contenuto** di un oggetto `message` è una matrice di byte in grado di rappresentare qualsiasi tipo di dati che si preferisce. In `message` sono presenti anche **proprietà** che rappresentano semplicemente il mapping stringa-a-stringa. Si può pensare alle **proprietà** come alle intestazioni in una richiesta HTTPS o ai metadati di un file.
 
 Per sviluppare un modulo Azure IoT Edge in JS, è necessario creare un nuovo oggetto modulo che implementa i metodi `receive()` necessari. È anche possibile a questo punto implementare i metodi `create()` o `start()` o `destroy()` facoltativi. Il frammento di codice seguente mostra lo scaffolding dell'oggetto modulo JS.
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
-ms.contentlocale: it-it
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
 Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -124,7 +123,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 |vary-by-developer-groups|Impostare su `true` per memorizzare le risposte nella cache per ogni ruolo utente.|No|false|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere utilizzato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** in ingresso  
   
@@ -242,7 +241,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 |variable-name|Nome della [variabile di contesto](api-management-policy-expressions.md#ContextVariables) a cui verrà assegnato il valore cercato, se la ricerca ha esito positivo. Se la ricerca non produce risultati, alla variabile sarà assegnato il valore dell'attributo `default-value` o `null`, se l'attributo `default-value` è omesso.|Sì|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere utilizzato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error  
   
@@ -285,7 +284,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 |value|Il valore da memorizzare nella cache.|Sì|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere utilizzato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error  
   
@@ -323,7 +322,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 |key|La chiave del valore memorizzato in precedenza nella cache da rimuovere dalla cache.|Sì|N/D|  
   
 #### <a name="usage"></a>Utilizzo  
- Questo criterio può essere utilizzato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error  
   
@@ -331,4 +330,4 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
+Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  

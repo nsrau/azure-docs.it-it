@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 116eaa59eb60833036ad4d3c975c0b86e525f625
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="team-lead-tasks"></a>Attività del responsabile del team
 
 Questo argomento illustra le attività che un responsabile del team deve completare per il proprio team di data science. L'obiettivo è di stabilire un ambiente di collaborazione nel team per normalizzare il [processo di data science per i team](overview.md) (TDSP, Team Data Science Process). Il processo di data science per i team (TDSP) è una metodologia di data science agile e iterativa, mirata a offrire in modo efficiente soluzioni di analisi predittiva e applicazioni intelligenti. Il processo è studiato per migliorare la collaborazione e l'apprendimento del team. Il processo è un'ottimizzazione di strutture e procedure consigliate di Microsoft e di settore, ai fini di una corretta implementazione di iniziative di data science volte ad aiutare le aziende a realizzare appieno i vantaggi dei propri programmi di analisi. Per una descrizione dei ruoli del personale e delle rispettive attività associate che un team di data science gestisce allo scopo di normalizzare il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
@@ -73,7 +71,7 @@ I prerequisiti vengono soddisfatti completando le attività assegnate al respons
 - Il responsabile del gruppo deve avere configurato il **server VSTS del gruppo** (o l'account di gruppo in alcune altre piattaforme di hosting del codice).
 - Il responsabile del gruppo deve avere impostato il **repository GroupProjectTemplate** (R1) nell'account di gruppo nella piattaforma di hosting del codice che si intende usare.
 - Si deve disporre dell'**autorizzazione** nell'account di gruppo necessaria per creare i repository per il team.
-- Git deve essere installato nel computer in uso. Se si usa una macchina virtuale data science (DSVM, Data Science Virtual Machine), è necessario che Git sia stato preinstallato e che si disponga di tutto l'occorrente. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).  
+- Git deve essere installato nel computer in uso. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).  
 - Se si usa una **DSVM per Windows**, è necessario avere installato [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) nel computer. Nel file README.md scorrere fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il file con estensione exe del programma di installazione ed eseguirlo. 
 - Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al server VSTS del gruppo. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
     
@@ -412,9 +410,9 @@ Nella home page del server VSTS del gruppo fare clic sull'**icona a forma di ing
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ecco i collegamenti alle descrizioni più dettagliate dei ruoli e delle attività definiti dal processo di data science per i team:
+Ecco i collegamenti alle descrizioni più dettagliate dei ruoli e delle attività definite dal processo di data science per i team:
 
-- [Group Manager tasks for a data science team (Attività del responsabile del gruppo per un team di data science)](group-manager-tasks.md)
+- [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md)
 - [Team Lead tasks for a data science team (Attività del responsabile del team per un team di data science)](team-lead-tasks.md)
-- [Attività del responsabile del progetto per un team di data science](project-lead-tasks.md)
+- [Attività del responsabile di progetto per un team di data science](project-lead-tasks.md)
 - [Singoli collaboratori al progetto per un team di data science](project-ic-tasks.md)

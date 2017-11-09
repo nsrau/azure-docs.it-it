@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
+ms.openlocfilehash: bfeba57036338b4e325d2f122443f2cde0373eed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 701a8febb3f897fd7f1a81a00adb4635df153d3a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-powershell"></a>Creare un indirizzo IP pubblico in una zona di disponibilità con PowerShell
 
 È possibile distribuire un indirizzo IP pubblico in una zona di disponibilità di Azure (anteprima). Una zona di disponibilità è una zona fisicamente separata in un'area di Azure. È possibile passare agli argomenti seguenti:

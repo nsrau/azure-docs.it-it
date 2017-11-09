@@ -3,7 +3,7 @@ title: Imbuti di Azure Application Insights
 description: Informazioni su come usare gli imbuti per scoprire in che modo i clienti interagiscono con l'applicazione.
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: bwren
-ms.openlocfilehash: 59c4dfafc102b26e3b9873f433065715f4aec9ec
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: d7af89409cb908f98f86288a0d673ab287e3aaaa
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Informazioni sulle modalità di utilizzo dell'applicazione da parte dei clienti attraverso gli imbuti di Application Insights
 

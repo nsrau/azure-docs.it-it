@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: spelluru
+ms.openlocfilehash: cc0ed958a9e1018ed9f06fdcc94873ae5420ba95
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 780e5673b5ed159a7f170373d54fea7c1713a910
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
-
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Gestire un runtime di integrazione SSIS di Azure
 L’articolo [Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md) illustra come creare un runtime di integrazione SSIS di Azure usando Azure Data Factory. In questo articolo lo integra, fornendo informazioni su come arrestare, avviare, riconfigurare o rimuovere un runtime di integrazione SSIS di Azure.  
 
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
 ## <a name="stop"></a>Arresto 
 Arresta il runtime di integrazione SSIS di Azure. Questo comando rilascia tutti i nodi e arresta la fatturazione.
@@ -73,4 +73,3 @@ Per altre informazioni sui runtime SSIS di Azure, vedere gli argomenti seguenti:
 - [Procedura: come creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e fornisce istruzioni sull'utilizzo dell’istanza gestita di database SQL di Azure (anteprima privata) e sull’aggiunta del runtime di integrazione a un VNet. 
 - [Monitorare un runtime di integrazione SSIS di Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo viene illustrato come recuperare informazioni su un runtime di integrazione SSIS di Azure e le descrizioni degli stati nelle informazioni restituite. 
 - [Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md). Questo articolo fornisce informazioni sull'aggiunta di un runtime di integrazione SSIS di Azure a una rete virtuale di Azure (VNet). Indica inoltre i passaggi per usare il portale di Azure per configurare VNet in modo che il runtime di integrazione SSIS di Azure possa essere aggiunto alla rete virtuale. 
-

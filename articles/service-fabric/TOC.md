@@ -6,6 +6,7 @@
 ## [Creare un'applicazione .NET](service-fabric-quickstart-dotnet.md)
 ## [Distribuire un'applicazione contenitore Linux](service-fabric-quickstart-containers-linux.md)
 ## [Distribuire un'applicazione contenitore Windows](service-fabric-quickstart-containers.md)
+## [Distribuire un'applicazione Java](service-fabric-quickstart-java.md)
 
 # Esercitazioni
 ## Distribuire un'app .NET
@@ -28,7 +29,9 @@
 ### 1- Creare un cluster in Azure
 #### [1a- Creare un cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Creare un cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2- Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [2- Ridimensionare il cluster](service-fabric-tutorial-scale-cluster.md)
+### [3- Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Esempi
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=service-fabric)
@@ -240,6 +243,7 @@
 
 ### Distribuire o rimuovere applicazioni
 #### [Distribuire applicazioni in un cluster locale](service-fabric-get-started-with-a-local-cluster.md)
+#### [Gestione risorse di Azure](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -341,8 +345,8 @@
 # riferimento
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
-## [Interfaccia della riga di comando di Azure](/cli/azure/sf)
-## [Interfaccia della riga di comando di Service Fabric](service-fabric-sfctl.md)
+## [Interfaccia della riga di comando di Azure (az sf)](/cli/azure/sf)
+## [Interfaccia della riga di comando di Service Fabric (sfctl)](service-fabric-sfctl.md)
 ### [sfctl application](service-fabric-sfctl-application.md)
 ### [sfctl chaos](service-fabric-sfctl-chaos.md)
 ### [sfctl cluster](service-fabric-sfctl-cluster.md)
@@ -357,6 +361,7 @@
 ## [API Java](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
+## [Schema XML del modello del servizio](service-fabric-service-model-schema.md)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)

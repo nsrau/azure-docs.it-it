@@ -9,18 +9,17 @@ editor:
 ms.assetid: 4e71db4a-a 22f-4f1c-83e5-4a34a036ecf3
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 08/08/2017
 ms.author: carlrab
+ms.openlocfilehash: ae8cf7b847442883f03078a8c34d0921f8992b02
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 3a43472ad2be4a0fd6f7126f72433acd8b5f25fd
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Usare PHP per eseguire query su un database SQL di Azure
 
@@ -101,4 +100,3 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 - [Progettare il primo database SQL di Azure](sql-database-design-first-database.md)
 - [Driver Microsoft PHP per SQL Server](https://github.com/Microsoft/msphpsql/)
 - [Segnalare problemi o porre domande](https://github.com/Microsoft/msphpsql/issues)
-

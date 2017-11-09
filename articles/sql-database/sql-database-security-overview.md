@@ -1,6 +1,6 @@
 ---
 title: Panoramica della sicurezza del database SQL di Azure | Microsoft Docs
-description: "In questo argomento vengono fornite informazioni sulla sicurezza database SQL Azure e SQL Server, incluse le differenze tra il cloud e SQL Server locale per quanto riguarda l'autenticazione, l'autorizzazione, la sicurezza della connessione,  la crittografia e conformità."
+description: In questo argomento vengono fornite informazioni sulla sicurezza del database SQL Azure e di SQL Server, incluse le differenze tra il cloud e SQL Server locale.
 services: sql-database
 documentationcenter: 
 author: tmullaney
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
+ms.openlocfilehash: c69b98e1abf0b6bc953c9c80b9e031319becff9f
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: de2b70a6a6bc557902fbe1fe1391696ec9998d70
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="securing-your-sql-database"></a>Protezione del Database SQL
 
@@ -84,4 +83,3 @@ Oltre alle caratteristiche e alle funzionalità sopra descritte, che consentono 
 - Per informazioni sull'uso delle funzionalità di controllo dell'accesso nel database SQL, vedere [Control access](sql-database-control-access.md) (Controllare l'accesso).
 - Per informazioni sul controllo del database, vedere [SQL Database auditing](sql-database-auditing.md) (Controllo del database SQL).
 - Per informazioni sul rilevamento delle minacce, vedere [SQL Database threat detection](sql-database-threat-detection.md) (Rilevamento delle minacce nel database SQL).
-

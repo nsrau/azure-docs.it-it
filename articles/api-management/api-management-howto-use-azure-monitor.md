@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 717e033aa4bbd4dd8ebcc727c3f551aee81770dc
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-api-management-with-azure-monitor"></a>Monitorare Gestione API con Monitoraggio di Azure
 Monitoraggio di Azure è un servizio di Azure che offre un'unica origine per il monitoraggio di tutte le risorse di Azure. Con Monitoraggio di Azure è possibile visualizzare, eseguire query, indirizzare, archiviare ed effettuare operazioni sulle metriche e sui log provenienti dalle risorse di Azure, tra cui Gestione API. 
@@ -143,4 +142,3 @@ Per altre informazioni sull'uso dei log di diagnostica, vedere [Raccogliere e us
 [activity-logs-blade]: ./media/api-management-azure-monitor/api-management-activity-logs-blade.png
 [alert-rules-blade]: ./media/api-management-azure-monitor/api-management-alert-rules-blade.png
 [diagnostic-logs-blade]: ./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png
-

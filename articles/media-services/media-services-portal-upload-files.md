@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 7ddfe44918b358a1749640d1c93dba490855cc5a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Caricare file in un account Servizi multimediali nel portale di Azure
 > [!div class="op_single_selector"]
@@ -64,6 +63,5 @@ Al termine del caricamento, il nuovo asset viene visualizzato nel riquadro **Ass
 * Informazioni su come [codificare gli asset caricati](media-services-portal-encode.md).
 
 * È anche possibile usare Funzioni di Azure per attivare un processo di codifica quando un file arriva nel contenitore configurato. Per altre informazioni, vedere l'esempio in [Media Services: Integrating Azure Media Services with Azure Functions and Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/) (Servizi multimediali: Integrazione di Servizi multimediali di Azure con Funzioni di Azure e App per la logica).
-
 
 

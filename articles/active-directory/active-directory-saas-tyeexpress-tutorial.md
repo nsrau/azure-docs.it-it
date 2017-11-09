@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
 ms.openlocfilehash: 869e5284c71904fcc817ceee0f39d94fab1bc6f3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Esercitazione: Integrazione di Azure Active Directory con T&E Express
 
@@ -96,7 +96,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con T&E Express, 
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di gestione di Azure e viene configurato l'accesso Single Sign-On nell'applicazione T&E Express.
 
-**Per configurare Single Sign-On di Azure AD con T&E Express, seguire questa procedura:**
+**Per configurare Single Sign-On di Azure AD con T&amp;E Express, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **T&E Express** del portale di gestione di Azure fare clic su **Single Sign-On**.
 
@@ -199,7 +199,7 @@ In questa sezione viene concesso a Britta Simon l'accesso a T&E Express per cons
 
 ![Assegna utente][200] 
 
-**Per assegnare Britta Simon a T&E Express, seguire questa procedura:**
+**Per assegnare Britta Simon a T&amp;E Express, seguire questa procedura:**
 
 1. Nel portale di gestione di Azure aprire la visualizzazione con le applicazioni e quindi passare alla visualizzazione con le directory e andare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 

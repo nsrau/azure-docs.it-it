@@ -13,15 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/24/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.openlocfilehash: 07927f1660681af35428747b51a8c14ba6153a7a
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: f333354311b16c00a0d43a691f139f5f80383d1a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight basato su Linux
 
@@ -166,9 +165,6 @@ Usare la procedura seguente per importare dati dal file con estensione csv in un
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
-
-   > [!NOTE]
-   > In questo esempio viene usato `localhost` dal momento che si è connessi al nodo head del cluster HDInsight, in cui HiveServer2 è in esecuzione.
 
 4. Al termine dell'esecuzione dello script __flightdelays.hql__ usare il comando seguente per aprire una sessione Beeline interattiva:
 
@@ -323,4 +319,3 @@ Per altre informazioni su come usare i dati in HDInsight, vedere gli articoli se
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-

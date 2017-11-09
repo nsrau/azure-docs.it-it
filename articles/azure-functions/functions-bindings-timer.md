@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
+ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6a97ab8508f889b77d064a5da70e3c726d62900c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Trigger timer in Funzioni di Azure
 
@@ -55,7 +54,7 @@ Il valore di `schedule` è un'[espressione CRON](http://en.wikipedia.org/wiki/Cr
 >[!NOTE]   
 >In molte delle espressioni CRON disponibili online il campo `{second}` viene omesso. Se si copia da una di esse, è necessario apportare una modifica per il campo `{second}` aggiuntivo. Per esempi specifici, vedere [Esempi di pianificazione](#examples) di seguito.
 
-Il fuso orario predefinito usato con le espressioni CRON è Coordinated Universal Time (UTC). Per fare in modo che l'espressione CRON sia basata su un altro fuso orario, creare una nuova impostazione di app per l'app per le funzioni denominata `WEBSITE_TIME_ZONE`. Impostare il valore sul nome del fuso orario prescelto come illustrato nell'[indice dei fusi orari di Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
+Il fuso orario predefinito usato con le espressioni CRON è Coordinated Universal Time (UTC). Per fare in modo che l'espressione CRON sia basata su un altro fuso orario, creare una nuova impostazione di app per l'app per le funzioni denominata `WEBSITE_TIME_ZONE`. Impostare il valore sul nome del fuso orario prescelto come illustrato nell'[indice dei fusi orari di Microsoft](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
 
 Ad esempio, *Ora solare fuso orientale* (EST) è UTC-05:00. Per attivare il timer trigger ogni giorno alle 10:00 EST, usare la seguente espressione CRON che rappresenta il fuso orario UTC:
 
@@ -192,5 +191,4 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

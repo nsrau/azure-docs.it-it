@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
 
@@ -179,4 +178,3 @@ Per altre informazioni sui prezzi e sulla gestione dei dati con Azure Cosmos DB,
 1.  [Partizionamento dei dati in Cosmos DB](documentdb-partition-data.md). Informazioni sulla differenza tra contenitore a partizione singola e contenitori partizionati e suggerimenti sull'implementazione di una strategia di partizionamento per eseguire facilmente il ridimensionamento.
 2.  [Prezzi di Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Informazioni sui costi del provisioning della velocità effettiva e del consumo di spazio di archiviazione.
 3.  [Unità richiesta](request-units.md). Analisi del consumo di velocità effettiva per i diversi tipi di operazione, ad esempio lettura, scrittura, query.
-

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: 6cf8debc6443bb60fc5f601ea4aa392eb2f13a8f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: e178c5fa453c753aabdc38449273f46a90e1194a
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Servizio di sincronizzazione Azure AD Connect: Concetti tecnici
 Questo articolo è un riepilogo dell'argomento [Informazioni sull'architettura](active-directory-aadconnectsync-technical-concepts.md).
@@ -40,8 +40,7 @@ Le sezioni successive includono altri dettagli sugli aspetti seguenti del serviz
 ## <a name="connector"></a>Connettore
 I moduli di codice utilizzati per comunicare con una directory connessa sono chiamati connettori (definiti in precedenza agenti di gestione (MA)).
 
-Sono installati nel computer che esegue il servizio di sincronizzazione Azure AD Connect.
-I connettori offrono la possibilità di comunicare senza agente usando protocolli di sistema remoto invece di basarsi sulla distribuzione di agenti specializzati. Ciò comporta una riduzione del rischio e dei tempi di distribuzione, in particolare in caso di applicazioni e sistemi critici.
+Sono installati nel computer che esegue il servizio di sincronizzazione Azure AD Connect. I connettori offrono la possibilità di comunicare senza agente usando protocolli di sistema remoto invece di basarsi sulla distribuzione di agenti specializzati. Ciò comporta una riduzione del rischio e dei tempi di distribuzione, in particolare in caso di applicazioni e sistemi critici.
 
 Nell'immagine precedente il connettore è sinonimo di spazio connettore, ma include tutte le comunicazioni con il sistema esterno.
 

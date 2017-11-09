@@ -1,6 +1,6 @@
 ---
-title: Add users for Azure Stack ADFS | Microsoft Docs
-description: Learn how to add users for ADFS deployments of Azure Stack
+title: Aggiungere utenti per ADFS Stack Azure | Documenti Microsoft
+description: Informazioni su come aggiungere utenti per le distribuzioni di ADFS dello Stack di Azure
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -13,24 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2cad56caa182a9abdca02944000b1506953af3f4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="add-users-in-the-azure-stack-development-kit"></a>Add users in the Azure Stack Development Kit
+# <a name="add-users-in-the-azure-stack-development-kit"></a>Aggiungere gli utenti nel Kit di sviluppo di Azure Stack
 
-*Applies to: Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit*
 
-To add additional users to the Development Kit deployment, you must add them to the Azure Stack Development Kit directory using Microsoft Management Console from the Azure Stack host computer.
-1.  On the Azure Stack host computer, open Microsoft Management Console.
-2.  Click **File > Add or remove snap-in**.
-3.  Select **Active Directory Users and Computers** > **AzureStack.local** > **Users**.
-4.  Click **Action** > **New** > **User**.
-5.  In the New Object – User window, provide and confirm a password
-6.  Click **Next** to finalize the values and click Finish to create the user.
-
+Per aggiungere altri utenti per la distribuzione del Kit di sviluppo, è necessario aggiungerli nella directory di Azure Stack Development Kit usando Microsoft Management Console dal computer host dello Stack di Azure.
+1.  Nel computer host dello Stack di Azure, aprire Microsoft Management Console.
+2.  Fare clic su **File > Aggiungi o Rimuovi snap-in**.
+3.  Selezionare **utenti e computer Active Directory** > **AzureStack.local** > **utenti**.
+4.  Fare clic su **azione** > **nuova** > **utente**.
+5.  Nuovo oggetto-finestra dell'utente, fornire e confermare una password
+6.  Fare clic su **Avanti** per finalizzare i valori e fare clic su Fine per creare l'utente.
 
 

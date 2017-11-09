@@ -1,6 +1,6 @@
 ---
 title: Creare un database singolo di database SQL di Azure | Microsoft Docs
-description: Gestire un database SQL di Azure singolo.
+description: "Gestire il livello di servizio, un livello di prestazioni e una quantità di risorse di archiviazione per un singolo database SQL di Azure."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -12,15 +12,14 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 08/25/2017
+ms.workload: On Demand
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 3af597d7af13daaf80cd750b230675c8475033e1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gestire le risorse per un database singolo nel database SQL di Microsoft Azure
 
@@ -37,7 +36,7 @@ Per impostare o modificare il livello di servizio, il livello di prestazioni o l
 ![Configurare il livello di servizio e di prestazioni](./media/sql-database-single-database-resources/change-service-tier.png)
 
 > [!IMPORTANT]
-> Se si seleziona un livello di servizio P11 o P15, vedere [Limitazioni correnti dei database P11 e P15 con dimensioni massime di 4 TB](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
+> Se si seleziona un livello di servizio P11 o P15, vedere [Limitazioni correnti dei database P11 e P15 con dimensioni massime di 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>Gestire risorse di database singoli con PowerShell
@@ -60,12 +59,12 @@ Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo 
 
 | Cmdlet | Descrizione |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |Crea un database|
-|[az sql db list](/cli/azure/sql/db#list)|Elenca tutti i database e i data warehouse in un server o tutti i database in un pool elastico|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Elenca gli obiettivi di servizio e i limiti di archiviazione disponibili|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|Restituisce gli utilizzi del database|
-|[az sql db show](/cli/azure/sql/db#show)|Recupera un database o un data warehouse|
-|[az sql db update](/cli/azure/sql/db#update)|Aggiorna un database|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Crea una regola del firewall del server|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Elenca le regole del firewall in un server|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra i dettagli di una regola del firewall|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Aggiorna una regola del firewall|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina una regola del firewall|
+
 
 > [!TIP]
 > Per uno script di esempio dell'interfaccia della riga di comando di Azure che ridimensiona un database SQL di Azure singolo passando a un livello di prestazioni diverso dopo l'esecuzione di query sulle dimensioni del database, vedere l'articolo su come [usare l'interfaccia della riga di comando per monitorare e ridimensionare un database SQL singolo](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -102,7 +101,7 @@ Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo 
 |[Database: elenca da pool elastico](/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
 |[Database: elenca da pool elastico consigliato](/rest/api/sql/databases/listbyrecommendedelasticpool)|Restituisce un elenco di database in un pool elastico consigliato.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
-|[Database - Aggiornamento] ((/rest/api/sql/databases/update)|Aggiorna un database esistente.|
+|[Databases - Update](/rest/api/sql/databases/update)|Aggiorna un database esistente.|
 
 
 
@@ -111,4 +110,3 @@ Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo 
 - Per informazioni sui livelli di servizio, i livelli di prestazioni e le dimensioni di archiviazione, vedere [Livelli di servizio](sql-database-service-tiers.md).
 - Altre informazioni sui pool elastici, vedere [Pool elastici](sql-database-elastic-pool.md).
 - Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
-

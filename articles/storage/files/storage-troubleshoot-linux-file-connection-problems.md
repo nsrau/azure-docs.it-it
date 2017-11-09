@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
+ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: bef3e7bf8b1fd9199d0c8a083d94660b8eed3365
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -83,7 +82,7 @@ Se non è possibile eseguire l'aggiornamento alle versioni del kernel più recen
 
 ### <a name="cause"></a>Causa
 
-Alcune distribuzioni Linux non supportano ancora le funzionalità di crittografia in SMB 3.0 e gli utenti potrebbero ricevere un messaggio di errore "115" se tentano di montare File di Azure usando SMB 3.0 poiché manca una funzionalità.
+Alcune distribuzioni Linux non supportano ancora le funzionalità di crittografia in SMB 3.0 e gli utenti potrebbero ricevere un messaggio di errore "115" se tentano di montare File di Azure usando SMB 3.0 poiché manca una funzionalità. SMB 3.0 con crittografia completa è attualmente supportato solo quando si usa Ubuntu 16.04 o versioni successive.
 
 ### <a name="solution"></a>Soluzione
 
@@ -104,11 +103,11 @@ Per controllare se la memorizzazione nella cache è disattivata, cercare la voce
 
 In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il comando **ls** esegua stat rispetto a ogni voce di directory. Questo comportamento determina un calo delle prestazioni quando si elenca una directory di grandi dimensioni. È possibile controllare le opzioni di montaggio nella voce **/etc/fstab**:
 
-`//azureuser.file.core.windows.net/cifs /cifs cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 È inoltre possibile controllare se vengono usate le opzioni corrette eseguendo il comando **sudo mount | grep cifs** e controllandone l'output, ad esempio l'output dell'esempio seguente:
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Se l'opzione **cache=strict** o **serverino** non è presente, smontare e montare nuovamente File di Azure eseguendo il comando di montaggio dalla [documentazione](../storage-how-to-use-files-linux.md). Verificare quindi di nuovo che la voce **/etc/fstab** disponga delle opzioni corrette.
 
@@ -159,4 +158,3 @@ Per risolvere il problema, usare lo [strumento di risoluzione dei problemi per g
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-

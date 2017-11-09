@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
 ms.openlocfilehash: b0bf637db90cfcb987ad43ed34cb8065d28b0fcf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-create-an-mongodb-api-account-using-the-azure-cli"></a>Azure Cosmos DB: creare un account API di MongoDB con l'interfaccia della riga di comando di Azure
 
@@ -32,7 +32,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli-interactive[principale](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh?highlight=15-35 "Creare un account API di Azure Cosmos DB MongoDB, un database e una raccolta")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh?highlight=15-35 "Create an Azure Cosmos DB MongoDB API account, database, and collection")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

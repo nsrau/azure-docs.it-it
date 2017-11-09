@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
 ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Come risolvere problemi comuni incontrati durante la creazione del disco rigido virtuale
 Questo articolo viene fornito per aiutare gli sviluppatori e/o i co-amministratori di Azure Marketplace nel caso in cui registrino un problema o abbiano domande generiche nel momento in cui pubblicano o gestiscono la propria soluzione basata su macchina virtuale.

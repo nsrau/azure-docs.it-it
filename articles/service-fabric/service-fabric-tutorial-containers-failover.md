@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 21dd9dfbc90c26236c43e2c334305ca97f63d361
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Illustrare il failover e il ridimensionamento dei servizi contenitore con Service Fabric
 
 Questa è la terza di una serie di esercitazioni. In questa esercitazione si apprenderà come viene gestito il failover nelle applicazioni contenitore di Service Fabric e come ridimensionare i contenitori. In questa esercitazione:
@@ -89,4 +87,3 @@ In questa serie di esercitazioni si è appreso come:
 [noderestart]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialnoderestart.png
 [sfxscale]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialscale.png
 [sfxscaledone]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialscaledone.png
-

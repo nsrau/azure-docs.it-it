@@ -12,21 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c473d4adf3b87fe6dc9fa89e0bae112bf27d47ed
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]
 > * [Con il portale di Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 > * [Con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md)
 
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni su come [monitorare e gestire le pipeline di Data Factory nella versione 2](../monitor-visually.md).
 
 > [!IMPORTANT]
 > L'applicazione di monitoraggio e gestione offre un supporto migliore per il monitoraggio e la gestione delle pipeline di dati, nonché per la risoluzione di eventuali problemi. Per dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
@@ -659,4 +660,3 @@ Outputs
 È anche possibile spostare le risorse correlate insieme alla data factory, ad esempio gli avvisi ad essa associati.
 
 ![Finestra di dialogo Sposta risorse](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
-

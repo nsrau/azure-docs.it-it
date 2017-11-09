@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
 ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificare il contenuto e il layout delle pagine nel portale per sviluppatori in Gestione API di Azure
 Per personalizzare il portale per sviluppatori in Gestione API di Azure ci sono tre modalità principali:
@@ -27,7 +27,7 @@ Per personalizzare il portale per sviluppatori in Gestione API di Azure ci sono 
 * [Aggiornare gli stili usati per gli elementi della pagina nel portale per sviluppatori][customize-styles]
 * [Modificare i modelli usati per le pagine generate dal portale][portal-templates] (ad esempio documenti API, prodotti, autenticazione utente e così via)
 
-## <a name="page-structure"> </a>Struttura delle pagine del portale per sviluppatori
+## <a name="page-structure"></a>Struttura delle pagine del portale per sviluppatori
 
 Il portale per sviluppatori è basato su un sistema di gestione dei contenuti. Il layout delle pagine viene creato in base al set di elementi di pagine di piccole dimensioni noto come widget:
 
@@ -39,7 +39,7 @@ Tutti i widget sono modificabili.
 
 Nella modifica quotidiana di una pagina in genere viene modificato solo il widget Contenuto che avrà un contenuto diverso per ogni pagina.
 
-## <a name="modify-layout-widget"> </a>Modifica dei contenuti di un widget di layout
+## <a name="modify-layout-widget"></a>Modifica dei contenuti di un widget di layout
 
 È possibile modificare il contenuto nel portale per sviluppatori tramite il portale di pubblicazione, accessibile tramite il Portale di Azure. Per accedervi, fare clic su **Publisher portal** (Portale di pubblicazione) nella barra degli strumenti del servizio dell'istanza di Gestione API.
 
@@ -57,7 +57,7 @@ A questo punto, la nuova intestazione dovrebbe essere visualizzata in ogni pagin
 > 
 > 
 
-## <a name="edit-page-contents"> </a>Modificare i contenuti di una pagina
+## <a name="edit-page-contents"></a>Modificare i contenuti di una pagina
 
 Per visualizzare l'elenco di tutte le pagine di contenuto esistenti, nel portale di pubblicazione scegliere **Contenuto** dal menu **Portale per sviluppatori**.
 
@@ -69,7 +69,7 @@ Fare clic nella pagina di **benvenuto** per modificare gli elementi visualizzati
 > 
 > 
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Aggiornare gli stili usati per gli elementi della pagina nel portale per sviluppatori][customize-styles]
 * [Modificare i modelli usati per le pagine generate dal portale][portal-templates] (ad esempio documenti API, prodotti, autenticazione utente e così via)
 

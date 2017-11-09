@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: 2e53c3ff2ffbef95d6b72ca6afb3b4de377f0389
-ms.contentlocale: it-it
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli-10"></a>Gestire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando 1.0 di Azure
 
@@ -367,5 +366,4 @@ Output previsto:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Abilitare la registrazione](virtual-network-nsg-manage-log.md) per gli NSG.
-
 

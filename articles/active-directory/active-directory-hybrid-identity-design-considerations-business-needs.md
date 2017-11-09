@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 6503034b3f5a17a2a42338c73329eef0b01f2f27
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti per la soluzione ibrida di gestione delle identità
 Il primo passaggio della progettazione di una soluzione ibrida di gestione delle identità consiste nel determinare i requisiti per l'organizzazione che userà la soluzione.  La gestione ibrida delle identità nasce come un ruolo di supporto (supporta tutte le altre soluzioni cloud fornendo l'autenticazione) che può in seguito offrire funzionalità nuove e interessanti per i carichi di lavoro degli utenti.  I carichi di lavoro o i servizi che verranno adottati per gli utenti determinano i requisiti per la progettazione della soluzione ibrida di gestione delle identità.  Questi servizi e carichi di lavoro dovranno usare la soluzione ibrida di gestione delle identità sia in locale che nel cloud.  

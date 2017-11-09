@@ -13,15 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: e4e298475d7be7d51c8bd55be498371ed6ce77a9
-ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
-
+ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/30/2017
 ---
-
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
 
 U-SQL è un linguaggio di query progettato per carichi di lavoro di tipo Big Data. Una delle caratteristiche esclusive di U-SQL è la combinazione tra linguaggio dichiarativo di tipo SQL e funzionalità di estendibilità e programmabilità del linguaggio C#. Questa guida è incentrata sulle funzionalità di estendibilità e programmabilità del linguaggio U-SQL supportate da C#.
@@ -32,98 +29,95 @@ Scaricare e installare [Strumenti Azure Data Lake per Visual Studio](https://www
 
 ## <a name="get-started-with-u-sql"></a>Introduzione a U-SQL  
 
-Verrà ora esaminato il seguente script U-SQL:
+Si consideri lo script U-SQL seguente:
 
 ```
 @a  = 
-    SELECT * FROM 
-        (VALUES
-            ("Contoso",   1500.0, "2017-03-39"),
-            ("Woodgrove", 2700.0, "2017-04-10")
-        ) AS 
-              D( customer, amount );
+  SELECT * FROM 
+    (VALUES
+       ("Contoso",   1500.0, "2017-03-39"),
+       ("Woodgrove", 2700.0, "2017-04-10")
+    ) AS D( customer, amount );
+
 @results =
-    SELECT
-        customer,
+  SELECT
+    customer,
     amount,
     date
-    FROM @a;    
+  FROM @a;    
 ```
 
-Definisce un set di righe chiamato @a e crea un set di righe chiamato @results da @a.
+Lo script definisce due set di righe: `@a` e `@results`. La definizione del set di righe `@results` deriva da `@a`.
 
 ## <a name="c-types-and-expressions-in-u-sql-script"></a>Tipi ed espressioni C# in uno script U-SQL
 
-Un'espressione U-SQL è un'espressione C# combinata con operazioni logiche U-SQL quali `AND`, `OR` e `NOT`. Le espressioni U-SQL possono essere utilizzate con l'istruzione SELECT, EXTRACT, WHERE, HAVING, GROUP BY e DECLARE.
-
-Ad esempio, lo script seguente analizza una stringa di un valore DateTime nella clausola SELECT.
+Un'espressione U-SQL è un'espressione C# combinata con operazioni logiche U-SQL quali `AND`, `OR` e `NOT`. Le espressioni U-SQL possono essere utilizzate con l'istruzione SELECT, EXTRACT, WHERE, HAVING, GROUP BY e DECLARE. Lo script seguente, ad esempio, analizza una stringa come valore DateTime.
 
 ```
 @results =
-    SELECT
-        customer,
+  SELECT
+    customer,
     amount,
     DateTime.Parse(date) AS date
-    FROM @a;    
+  FROM @a;    
 ```
 
-Lo script seguente analizza una stringa di un valore DateTime in un'istruzione DECLARE.
+Il frammento di codice seguente analizza una stringa come valore DateTime in un'istruzione DECLARE.
 
 ```
-DECLARE @d DateTime = ToDateTime.Date("2016/01/01");
+DECLARE @d = DateTime.Parse("2016/01/01");
 ```
 
 ### <a name="use-c-expressions-for-data-type-conversions"></a>Usare espressioni C# per conversioni del tipo di dati
+
 L'esempio seguente illustra come effettuare una conversione di dati di tipo datetime usando espressioni C#. In questo particolare scenario, i dati della stringa datetime vengono convertiti in datetime standard con la notazione dell'ora 00:00:00.
 
 ```
-DECLARE @dt String = "2016-07-06 10:23:15";
+DECLARE @dt = "2016-07-06 10:23:15";
 
 @rs1 =
-    SELECT 
-        Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
-        dt AS olddt
-    FROM @rs0;
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+  SELECT 
+    Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
+    dt AS olddt
+  FROM @rs0;
+
+OUTPUT @rs1 
+  TO @output_file 
+  USING Outputters.Text();
 ```
 
 ### <a name="use-c-expressions-for-todays-date"></a>Usare espressioni C# per la data odierna
-Per effettuare il pull della data odierna, è possibile usare l'espressione C# seguente:
 
-```
-DateTime.Now.ToString("M/d/yyyy")
-```
+Per eseguire il pull della data odierna, è possibile usare l'espressione C# seguente: `DateTime.Now.ToString("M/d/yyyy")`
 
 Di seguito è riportato un esempio di come usare questa espressione in uno script:
 
 ```
 @rs1 =
-    SELECT
-        MAX(guid) AS start_id,
-        MIN(dt) AS start_time,
-        MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
-        MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
-        DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
-        user,
-        des
-    FROM @rs0
-    GROUP BY user, des;
+  SELECT
+    MAX(guid) AS start_id,
+    MIN(dt) AS start_time,
+    MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
+    MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
+    DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
+    user,
+    des
+  FROM @rs0
+  GROUP BY user, des;
 ```
-
-
-
 ## <a name="using-net-assemblies"></a>Uso di assembly .NET
-Il modello di estendibilità di U-SQL dipende in larga misura dalla possibilità di aggiungere codice personalizzato. Attualmente, U-SQL consente di aggiungere facilmente codice basato su Microsoft .NET (in particolare C#). È anche possibile, tuttavia, aggiungere codice personalizzato scritto in altri linguaggi .NET, come VB.NET o F#. 
+
+Il modello di estendibilità di U-SQL dipende in larga misura dalla possibilità di aggiungere codice personalizzato da assembly .NET. 
 
 ### <a name="register-a-net-assembly"></a>Registrare un assembly .NET
 
-Utilizzare l'istruzione CREATE ASSEMBLY per inserire un assembly .NET in un database U-SQL. Dopo il posizionamento di un assembly in un database, gli script U-SQL possono utilizzare tali assembly per mezzo dell'istruzione REFERENCE ASSEMBLY. 
+Usare l'istruzione `CREATE ASSEMBLY` per inserire un assembly .NET in un database U-SQL. In seguito gli script U-SQL potranno usare tali assembly tramite l'istruzione `REFERENCE ASSEMBLY`. 
 
 Nel codice seguente viene illustrato come registrare un assembly:
 
 ```
 CREATE ASSEMBLY MyDB.[MyAssembly]
-    FROM "/myassembly.dll";
+   FROM "/myassembly.dll";
 ```
 
 Nel codice seguente viene illustrato come referenziare un assembly:
@@ -143,7 +137,6 @@ Come indicato in precedenza, U-SQL esegue il codice in un formato a 64 bit (x64)
 Ogni DLL di assembly e file di risorse caricato (ad esempio un diverso runtime, un assembly nativo o un file di configurazione) può essere al massimo di 400 MB. Le dimensioni totali delle risorse distribuite, tramite DEPLOY RESOURCE o riferimenti agli assembly e ai relativi file aggiuntivi, non possono superare 3 GB.
 
 Si noti infine che ogni database U-SQL può contenere solo una versione di un determinato assembly. Se sono necessarie entrambe le versioni 7 e 8 della libreria NewtonSoft Json.Net, si devono registrare in due database diversi. Ogni script, inoltre, può fare riferimento a una sola versione di una determinata DLL di assembly. A tale riguardo, U-SQL segue la semantica di gestione e controllo delle versioni degli assembly di C#.
-
 
 ## <a name="use-user-defined-functions-udf"></a>Usare funzioni definite dall'utente (UDF)
 Le funzioni definite dall'utente (UDF) di U-SQL sono routine di programmazione che accettano parametri, eseguono un'azione, ad esempio un calcolo complesso, e restituiscono il risultato di tale azione come valore. Il valore restituito della funzione UDF può essere solo un valore scalare singolo. Una funzione UDF di U-SQL può essere chiamata nello script di base di U-SQL come qualsiasi altra funzione scalare di C#.
@@ -248,9 +241,7 @@ namespace USQL_Programmability
 
             return "Q" + FiscalQuarter.ToString() + ":" + FiscalMonth.ToString();
         }
-
     }
-
 }
 ```
 
@@ -555,7 +546,7 @@ L'interfaccia `IFormatter` serializza e deserializza un oggetto grafico con il t
 
 Come un normale tipo C#, la definizione di un tipo definito dall'utente di U-SQL può includere override per operatori come +/==/!= e così via. Può anche includere metodi statici. Ad esempio, se si intende usare il tipo definito dall'utente come parametro per una funzione di aggregazione MIN U-SQL, è necessario definire l'override dell'operatore <.
 
-In precedenza in questa guida è stato illustrato un esempio di identificazione del periodo fiscale dalla data specifica nel formato Qn:Pn (Q1:P10). Nell'esempio seguente viene illustrato come definire un tipo personalizzato per i valori del periodo fiscale.
+In precedenza in questa guida è stato illustrato un esempio di identificazione del periodo fiscale dalla data specifica nel formato `Qn:Pn (Q1:P10)`. Nell'esempio seguente viene illustrato come definire un tipo personalizzato per i valori del periodo fiscale.
 
 Di seguito è riportato un esempio di sezione code-behind con tipo definito dall'utente e interfaccia IFormatter personalizzati:
 
@@ -658,9 +649,9 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-Il tipo definito include due numeri, corrispondenti a trimestre e mese. Qui sono definiti gli operatori ==/!=/>/< e il metodo statico ToString ().
+Il tipo definito include due numeri, corrispondenti a trimestre e mese. Qui sono definiti gli operatori `==/!=/>/<` e il metodo statico `ToString()`.
 
-Come indicato in precedenza, il tipo definito dall'utente può essere usato nelle espressioni SELECT, ma non in OUTPUTTER/EXTRACTOR senza serializzazione personalizzata. Deve essere serializzato come stringa con ToString () oppure essere usato con un elemento OUTPUTTER/EXTRACTOR personalizzato.
+Come indicato in precedenza, il tipo definito dall'utente può essere usato nelle espressioni SELECT, ma non in OUTPUTTER/EXTRACTOR senza serializzazione personalizzata. Deve essere serializzato come stringa con `ToString()` oppure deve essere usato con un elemento OUTPUTTER/EXTRACTOR personalizzato.
 
 Ora esaminiamo l'uso dell'UDT. In una sezione code-behind, la funzione GetFiscalPeriod è stata modificata come segue:
 
@@ -2123,7 +2114,7 @@ L'attributo **SqlUserDefinedReducer** indica che il tipo deve essere registrato 
 **SqlUserDefinedReducer** è un attributo facoltativo per la definizione di un riduttore definito dall'utente. Viene usato per definire la proprietà IsRecursive.
 
 * bool     IsRecursive    
-* **true**  = indica se il riduttore è idempotente
+* **true** = indica se questo Reducer è associativo e commutativo
 
 I principali oggetti di programmabilità sono **input** e **output**. L'oggetto di input viene usato per enumerare le righe di input. L'output viene usato per impostare le righe di output come risultato dell'attività di riduzione.
 
@@ -2220,4 +2211,3 @@ OUTPUT @rs2
     TO @output_file 
     USING Outputters.Text();
 ```
-

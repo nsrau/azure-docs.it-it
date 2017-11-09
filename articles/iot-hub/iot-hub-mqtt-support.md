@@ -3,7 +3,7 @@ title: Informazioni sul supporto MQTT dell'hub IoT di Azure | Documentazione Mic
 description: Guida per sviluppatori - Supporto per dispositivi che si connettono a un endpoint che usa dispositivi dell'hub IoT con il protocollo MQTT. Sono incluse informazioni sul supporto MQTT integrato in Azure IoT SDK per dispositivi.
 services: iot-hub
 documentationcenter: .net
-author: kdotchkoff
+author: fsautomata
 manager: timlt
 editor: 
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2017
-ms.author: kdotchko
+ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 886bf3ce3979b7ef52ca29b7731562c5768596a2
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: f1a3ce746601dc42f04f021f3ba142688abdb7e7
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -62,7 +61,7 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 * Per il campo **Username** usare `{iothubhostname}/{device_id}/api-version=2016-11-14`, dove {iothubhostname} rappresenta il record CName completo dell'hub IoT.
 
     Ad esempio, se il nome dell'hub IoT è **contoso.azure-devices.net** e il nome del dispositivo è **MyDevice01**, il campo **Username** completo deve contenere `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
-* Per il campo **Password** usare un token di firma di accesso condiviso. Il formato del token di firma di accesso condiviso è identico a quello per i protocolli HTTP e AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
+* Per il campo **Password** usare un token di firma di accesso condiviso. Il formato del token di firma di accesso condiviso è identico a quello per i protocolli HTTPS e AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
     Per altre informazioni su come generare i token di firma di accesso condiviso, vedere la sezione sui dispositivi nell'articolo [Uso dei token di sicurezza dell'hub IoT][lnk-sas-tokens].
 
@@ -79,16 +78,52 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 
 Per i pacchetti di connessione e disconnessione di MQTT l'hub IoT genera un evento nel canale **Monitoraggio operazioni** con ulteriori informazioni in grado di contribuire a risolvere i problemi di connettività.
 
+### <a name="tlsssl-configuration"></a>Configurazione TLS/SSL
+
+Per usare direttamente il protocollo MQTT, il client *deve* connettersi tramite TLS/SSL, altrimenti si verificheranno errori di connessione.
+
+Per stabilire una connessione TLS, potrebbe essere necessario scaricare e fare riferimento al DigiCert Baltimore Root Certificate, il certificato che Azure usa per proteggere la connessione. È disponibile nel [repository Azure-iot-sdk-c][lnk-sdk-c-certs]. Altre informazioni su questi certificati sono disponibili nel [sito Web di Digicert][lnk-digicert-root-certs].
+
+Di seguito un esempio di implementazione che usa la versione Python della [libreria Paho MQTT][lnk-paho] di Eclipse Foundation.
+
+È prima necessario installare la libreria Paho dall'ambiente della riga di comando:
+
+```
+>pip install paho-mqtt
+```
+
+Implementare poi il client in uno script Python:
+
+```
+from paho.mqtt import client as mqtt
+import ssl
+  
+path_to_root_cer = "...local\\path\\to\\digicert.cer"
+device_id = "<device id from device registry>"
+sas_token = "<generated SAS token>"
+subdomain = "<iothub subdomain>"
+
+client = mqtt.Client(client_id=device_id, protocol=mqtt.MQTTv311)
+
+client.username_pw_set(username=subdomain+".azure-devices.net/" + device_id, password=sas_token)
+
+client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None, cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+client.tls_insecure_set(False)
+
+client.connect(subdomain+".azure-devices.net", port=8883)
+```
+
+
 ### <a name="sending-device-to-cloud-messages"></a>Invio di messaggi da dispositivo a cloud
 
-Dopo avere stabilito una connessione, un dispositivo può inviare messaggi all'hub IoT usando `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` come **nome di argomento**. L'elemento `{property_bag}` consente al dispositivo di inviare messaggi con proprietà aggiuntive in un formato con codifica URL. Ad esempio:
+Dopo avere stabilito una connessione, un dispositivo può inviare messaggi all'hub IoT usando `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` come **nome di argomento**. L'elemento `{property_bag}` consente al dispositivo di inviare messaggi con proprietà aggiuntive in un formato con codifica URL. ad esempio:
 
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
 
 > [!NOTE]
-> Questo elemento `{property_bag}`usa la stessa codifica delle stringhe di query nel protocollo HTTP.
+> Questo elemento `{property_bag}` usa la stessa codifica delle stringhe di query nel protocollo HTTPS.
 >
 >
 
@@ -221,7 +256,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
-[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
+[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
@@ -242,4 +277,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-twin-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 [lnk-devguide-twin]: iot-hub-devguide-device-twins.md
-
+[lnk-sdk-c-certs]: https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c
+[lnk-digicert-root-certs]: https://www.digicert.com/digicert-root-certificates.htm
+[lnk-paho]: https://pypi.python.org/pypi/paho-mqtt

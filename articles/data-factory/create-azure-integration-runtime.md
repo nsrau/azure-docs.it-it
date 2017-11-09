@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e4e9416d75d5887de059a6fcfc66683940e3e6fe
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Come creare e configurare il runtime di integrazione di Azure
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per altre informazioni sul runtime di integrazione, vedere [Integration runtime](concepts-integration-runtime.md) (Runtime di integrazione).
@@ -73,4 +72,3 @@ Per creare altri tipi di runtime di integrazione, vedere gli articoli seguenti:
 - [Creare il runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md)
 - [Creare il runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md)
  
-

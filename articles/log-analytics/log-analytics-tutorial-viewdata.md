@@ -2,7 +2,7 @@
 title: Visualizzare o analizzare i dati raccolti di Log Analytics di Azure | Microsoft Docs
 description: Questo articolo include un'esercitazione che descrive come creare ricerche log e analizzare i dati archiviati nella risorsa Log Analytics tramite il portale per la ricerca log.  L'esercitazione include l'esecuzione di alcune semplici query per restituire diversi tipi di dati e l'analisi dei risultati.
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
 editor: 
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
+ms.custom: mvc
+ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visualizzare o analizzare i dati raccolti con la ricerca log di Log Analytics
 

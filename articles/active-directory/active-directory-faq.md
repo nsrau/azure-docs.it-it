@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/16/2017
 ms.author: markvi
-ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: e70ac475f8ffce93e89fa09f18f8943eb2371d13
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-active-directory-faq"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -161,7 +161,7 @@ Per un elenco completo delle applicazioni preintegrate, vedere il [Marketplace d
 
 Per altre informazioni, vedere:
 
-* [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](active-directory-saas-custom-apps.md)
+* [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](active-directory-scim-provisioning.md)
 
 - - -

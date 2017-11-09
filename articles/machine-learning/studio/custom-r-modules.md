@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 03/24/2017
 ms.author: bradsev;ankarlof
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cf3f0e79a9f873a57ef6b7f5233d324faee3e017
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Creare moduli R personalizzati in Azure Machine Learning
 Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
@@ -371,5 +370,4 @@ L'ambiente di esecuzione dello script R usa la stessa versione di R del modulo *
 
 * File system non persistente: i file scritti quando viene eseguito il modulo personalizzato non vengono mantenuti in più esecuzioni dello stesso modulo.
 * Nessun accesso alla rete
-
 

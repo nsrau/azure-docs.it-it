@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 1cd6ace16488cd6014db4249d4a209ac36485ed7
-ms.contentlocale: it-it
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: afde020b7817dc58ecea24eb4a09cf93d0986eb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Come configurare un'applicazione del servizio app per usare l'account di accesso di Twitter
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -28,7 +27,7 @@ Questo argomento descrive come configurare il servizio app di Azure per usare Tw
 
 Per completare la procedura descritta in questo argomento è necessario avere un account Twitter con un indirizzo di posta elettronica e un numero di telefono verificati. Per creare un nuovo account Twitter, visitare il sito Web all'indirizzo <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
-## <a name="register"> </a>Registrare l'applicazione con Twitter
+## <a name="register"></a>Registrare l'applicazione con Twitter
 1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l' **URL**. Verrà usato per configurare l'app Twitter.
 2. Passare al sito Web [Twitter Developers] , accedere con le credenziali dell'account Twitter e quindi fare clic su **Create New App**(Crea nuova app).
 3. Digitare i valori per **Name** (Nome) e **Description** (Descrizione) per la nuova app. Incollare l'**URL** dell'applicazione per il valore **Website** (Sito Web). Nella casella **Callback URL** (URL callback) incollare quindi il valore di **URL callback** copiato prima. Si tratta del gateway dell'app per dispositivi mobili con il percorso */.auth/login/twitter/callback* come suffisso. Ad esempio `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Assicurarsi che sia in uso lo schema HTTPS.
@@ -41,7 +40,7 @@ Per completare la procedura descritta in questo argomento è necessario avere un
    > 
    > 
 
-## <a name="secrets"> </a>Aggiungere informazioni di Twitter all'applicazione
+## <a name="secrets"></a>Aggiungere informazioni di Twitter all'applicazione
 1. Nel [portale di Azure], passare all'applicazione. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
 2. Se la funzionalità di autenticazione/autorizzazione non è abilitata, impostare l'opzione in modo da **abilitarla**.
 3. Fare clic su **Twitter**. Incollare i valori relativi all'ID dell'app e al segreto dell'app ottenuti in precedenza. Fare quindi clic su **OK**.
@@ -54,7 +53,7 @@ Per completare la procedura descritta in questo argomento è necessario avere un
 
 È ora possibile usare un account Twitter per l'autenticazione nell'app.
 
-## <a name="related-content"> </a>Contenuti correlati
+## <a name="related-content"></a>Contenuti correlati
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->
@@ -67,4 +66,3 @@ Per completare la procedura descritta in questo argomento è necessario avere un
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [portale di Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
-

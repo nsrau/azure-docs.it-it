@@ -1,5 +1,5 @@
 ---
-title: Panoramica e architettura di SAP HANA in Azure (istanze di grandi dimensioni) | Microsoft Docs
+title: Panoramica e architettura di SAP HANA in Azure (istanze di grandi dimensioni) | Documentazione Microsoft
 description: Panoramica dell'architettura della distribuzione di SAP HANA in Azure (istanze di grandi dimensioni).
 services: virtual-machines-linux
 documentationcenter: 
@@ -11,15 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 4ef5ec3d8f4b96d4a318e01b449d3baad8a6324a
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 0fa1ac4f9e9711332c568e84f86d132508eb185f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Panoramica e architettura di SAP HANA (istanze Large) in Azure
 
@@ -63,6 +62,10 @@ Nella guida all'architettura e alla distribuzione vengono comunemente usati alcu
 - **SAP HANA in Azure (istanze di grandi dimensioni):** nome ufficiale dell'offerta in Azure per l'esecuzione di istanze HANA in un ambiente hardware con certificazione SAP HANA TDI e distribuito in moduli per istanze grandi dimensioni in diverse aree di Azure. Il termine **istanze Large di HANA** correlato è un'abbreviazione di SAP HANA in Azure (istanze Large) ed è ampiamente usato in questa guida alla distribuzione tecnica.
 - **Cross-premise:** indica uno scenario in cui le VM sono distribuite in una sottoscrizione di Azure con connettività da sito a sito, multisito o ExpressRoute tra i data center locali e Azure. Nella documentazione comune su Azure questi tipi di distribuzioni vengono definiti anche scenari cross-premise. La connessione consente di estendere i domini locali, l'istanza locale di Active Directory/OpenLDAP e il DNS locale in Azure. Il panorama applicativo locale viene esteso agli asset Azure della sottoscrizione di Azure. Questa estensione consente alle macchine virtuali di fare parte del dominio locale. Gli utenti di dominio del dominio locale possono accedere ai server e possono eseguire servizi in queste VM, ad esempio i servizi DBMS. La comunicazione e la risoluzione dei nomi tra VM distribuite in locale e VM distribuite in Azure sono consentite. Questo è lo scenario tipico in cui verrà distribuita la maggior parte degli asset SAP. Per informazioni più dettagliate, vedere [Pianificazione e progettazione per il gateway VPN](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e l'articolo su come [creare una rete virtuale con una connessione da sito a sito usando il portale di Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Tenant:** un cliente distribuito nello stamp di istanze Large di HANA viene isolato in un "tenant". Un tenant è isolato a livello di rete, archiviazione e calcolo dagli altri tenant, in modo che le unità di archiviazione e di calcolo assegnate ai diversi tenant non possano vedersi o comunicare tra di esse a livello di stamp di istanze Large di HANA. Un cliente può scegliere di avere distribuzioni in tenant diversi. Neppure in questo caso i tenant possono comunicare tra di essi a livello di stamp di istanze Large di HANA.
+- **Categoria SKU:** per le istanze Large di HANA, sono disponibili le due categorie di SKU seguenti.
+    - **Classe di tipo I:** S72, S72m, S144, S144m, S192 e S192m
+    - **Classe di tipo II:** S384, S384m, S384xm, S576, S768 e S960
+
 
 Nell'argomento sulla distribuzione del carico di lavoro SAP nel cloud pubblico di Microsoft Azure sono disponibili numerose risorse aggiuntive. È consigliabile che la pianificazione e l'esecuzione di una distribuzione di SAP HANA in Azure vengano eseguite da utenti esperti che conoscono le entità di sicurezza dell'infrastruttura IaaS di Azure e la distribuzione dei carichi di lavoro SAP in tale infrastruttura. Le risorse seguenti forniscono altre informazioni ed è necessario fare riferimento a queste ultime prima di continuare:
 
@@ -123,7 +126,7 @@ Nell'infrastruttura multi-tenant del modulo per istanze di grandi dimensioni i c
 
 Analogamente alle VM di Azure, SAP HANA in Azure (istanze di grandi dimensioni) è disponibile in più aree di Azure. Per offrire funzionalità di ripristino di emergenza, è possibile fornire il consenso esplicito. I diversi moduli per istanze Large in un'area geopolitica sono collegati tra loro. Ad esempio, i moduli per istanze Large di HANA in Stati Uniti occidentali e Stati Uniti orientali sono connessi tramite un collegamento di rete dedicato ai fini della replica per il ripristino di emergenza. 
 
-Così come è possibile scegliere tra diversi tipi di VM con Macchine virtuali di Azure, è possibile scegliere tra diverse SKU delle istanze HANA di grandi dimensioni personalizzate per tipi diversi di carichi di lavoro di SAP HANA. SAP applica la memoria ai rapporti socket del processore per diversi carichi di lavoro in base alle generazioni del processore Intel. Sono disponibili quattro diversi tipi di SKU:
+Così come è possibile scegliere tra diversi tipi di VM con Macchine virtuali di Azure, è possibile scegliere tra diverse SKU delle istanze HANA di grandi dimensioni personalizzate per tipi diversi di carichi di lavoro di SAP HANA. SAP applica la memoria ai rapporti socket del processore per diversi carichi di lavoro in base alle generazioni del processore Intel. La tabella seguente illustra i tipi di SKU disponibili.
 
 A partire da luglio 2017, SAP HANA in Azure (istanze Large) è disponibile in diverse configurazioni nelle aree di Azure Stati Uniti occidentali, Stati Uniti orientali, Australia orientale, Australia sud-orientale, Europa occidentale ed Europa settentrionale:
 
@@ -183,7 +186,7 @@ Di seguito sono riportati alcuni esempi dell'esecuzione di più istanze di SAP H
 | SKU | Dimensione della memoria | Dimensioni di archiviazione | Dimensioni con più database |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1 istanza di HANA da 768 GB<br /> o 1 istanza da 512 GB + 1 istanza da 256 GB<br /> o 3 istanze da 256 GB | 
-| S72m | 768 GB | 3 TB | 3 istanze di HANA da 512 GB<br />o 1 istanza da 512 GB + 1 istanza da 1 TB<br />o 6 istanze da 256 GB<br />o 1 istanza da 1,5 TB | 
+| S72m | 1,5 TB | 6 TB | 3 istanze di HANA da 512 GB<br />o 1 istanza da 512 GB + 1 istanza da 1 TB<br />o 6 istanze da 256 GB<br />o 1 istanza da 1,5 TB | 
 | S192m | 4 TB | 16 TB | 8 istanze da 512 GB<br />o 4 istanze da 1 TB<br />o 4 istanze da 512 GB + 2 istanze da 1 TB<br />o 4 istanze da 768 GB + 2 istanze da 512 GB<br />o 1 istanza da 4 TB |
 | S384xm | 8 TB | 22 TB | 4 istanze da 2 TB<br />o 2 istanze da 4 TB<br />o 2 istanze da 3 TB + 1 istanza da 2 TB<br />o 2 istanze da 2,5 TB + 1 istanza da 3 TB<br />o 1 istanza da 8 TB |
 
@@ -356,7 +359,7 @@ Il cliente può scegliere di usare gli snapshot di archiviazione a scopo di back
 ### <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
 La memoria usata per le istanze di grandi dimensioni HANA consente una crittografia trasparente dei dati al momento dell'archiviazione su dischi. In fase di distribuzione di un'unità di istanze Large di HANA, è possibile abilitare questo tipo di crittografia. È anche possibile scegliere di passare ai volumi crittografati in seguito alla distribuzione. Lo spostamento da volumi non crittografati a volumi crittografati è trasparente e non richiede un tempo di inattività. 
 
-Con gli SKU Classe di tipo I, il volume in cui è archiviato il LUN di avvio è crittografato. Nel caso degli SKU Classe di tipo II delle istanze Large di HANA, è necessario crittografare il LUN di avvio con i metodi del sistema operativo. 
+Con gli SKU Classe di tipo I, il volume in cui è archiviato il LUN di avvio è crittografato. Nel caso degli SKU Classe di tipo II delle istanze Large di HANA, è necessario crittografare il LUN di avvio con i metodi del sistema operativo. Per altre informazioni, contattare il team di gestione dei servizi Microsoft.
 
 
 ## <a name="networking"></a>Rete
@@ -483,6 +486,5 @@ La figura precedente illustra come le diverse reti virtuali di Azure in entrambe
 
 > [!IMPORTANT] 
 > Se vengono usati più circuiti ExpressRoute, è necessario definire le impostazioni AS Path Prepending (Percorso AS anteposto) e Local Preference BGP (BGP preferenza locale) per consentire il routing appropriato del traffico.
-
 
 

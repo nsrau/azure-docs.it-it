@@ -3,7 +3,7 @@ title: Runbook figlio in Automazione di Azure | Documentazione Microsoft
 description: Descrive i diversi metodi per avviare un runbook in automazione di Azure da un altro runbook e condividere informazioni tra di essi.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbook figlio in Automazione di Azure
 È buona norma in automazione di Azure scrivere runbook riutilizzabili e modulari con una funzione discreta che può essere utilizzata da altri runbook. Un runbook padre chiama spesso uno o più runbook figlio per eseguire la funzionalità richiesta. Esistono due modi per chiamare un runbook figlio e ognuno presenta differenze che è necessario comprendere in modo che sia possibile determinare quale sarà migliore per i diversi scenari.
@@ -44,7 +43,7 @@ Quando è importante l’ordine di pubblicazione:
 
 * L'ordine di pubblicazione dei runbook è rilevante solo per i runbook del flusso di lavoro PowerShell e i runbook grafici del flusso di lavoro PowerShell.
 
-Quando si richiama un runbook figlio grafico o del flusso di lavoro PowerShell tramite l’esecuzione inline, è sufficiente utilizzare il nome del runbook.  Quando si chiama un runbook figlio PowerShell, il nome deve essere preceduto da *.\\*  per specificare che lo script si trova nella directory locale. 
+Quando si richiama un runbook figlio grafico o del flusso di lavoro PowerShell tramite l’esecuzione inline, è sufficiente utilizzare il nome del runbook.  Quando si chiama un runbook figlio di PowerShell, è necessario anteporre al nome *.\\* per specificare che lo script si trova nella directory locale. 
 
 ### <a name="example"></a>Esempio
 Nell'esempio seguente viene richiamato un runbook figlio di test che accetta tre parametri, un oggetto complesso, un numero intero e un valore booleano. L'output del runbook figlio viene assegnato a una variabile.  In questo caso, il runbook figlio è un runbook del flusso di lavoro PowerShell
@@ -87,5 +86,4 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 ## <a name="next-steps"></a>Passaggi successivi
 * [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 * [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
-
 

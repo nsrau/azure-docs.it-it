@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: a6394b1b02ebfe518dc2f2b7f65eb677bb0ba5f2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Caricamento del livello Standard di Centro sicurezza di Azure per la sicurezza avanzata
 Eseguire l'aggiornamento al livello Standard di Centro sicurezza di Azure per la sicurezza avanzata per sfruttare i vantaggi della gestione della sicurezza avanzata e la protezione dalle minacce per i carichi di lavoro cloud ibridi.  È possibile provare gratuitamente il livello Standard per 60 giorni. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
@@ -140,4 +139,3 @@ Questo articolo illustra come caricare risorse Azure e non Azure per trarre vant
 [6]: ./media/security-center-onboarding/compute-blade.png
 [7]: ./media/security-center-onboarding/add-non-azure-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png
-

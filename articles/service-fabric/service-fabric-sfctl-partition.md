@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: a5d0ff59803212403281063f47e706433cee64b4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consente di eseguire una query e gestire partizioni per qualsiasi servizio.
@@ -66,7 +65,7 @@ Utilizzare ReplicasHealthStateFilter per filtrare la raccolta di oggetti Replica
 |Argomento|Descrizione|
 | --- | --- |
 | --debug                    | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h                  | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h                  | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.                Predefinito: json.|
 | --query                    | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/. |
 | --verbose                  | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -88,7 +87,7 @@ L'endpoint delle partizioni restituisce informazioni sulla partizione specificat
 |Argomento|Descrizione|
 | --- | --- |
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h             | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -102,7 +101,7 @@ Mostra l'elenco delle partizioni di un servizio di Service Fabric. Include l'ID 
 
 |Argomento|Descrizione|
 | --- | --- |
-| --service-id [Obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
+| --service-id [obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
 | --continuation-token| Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo.         Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati dal sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL.|
 | --timeout -t        | Timeout del server in secondi.  Predefinito: 60.|
 
@@ -111,7 +110,7 @@ Mostra l'elenco delle partizioni di un servizio di Service Fabric. Include l'ID 
 |Argomento|Descrizione|
 | --- | --- |
 | --debug             | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h           | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h           | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o         | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query             | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose           | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -119,7 +118,7 @@ Mostra l'elenco delle partizioni di un servizio di Service Fabric. Include l'ID 
 ## <a name="sfctl-partition-load"></a>sfctl partition load
 Mostra il carico della partizione di Service Fabric specificata.
 
-Restituisce informazioni sulla partizione specificata. La risposta include un elenco di informazioni sul caricamento. Tutte le informazioni includono il nome della metrica carico, il valore e l’ultimo time riportato in UTC. .
+Restituisce informazioni sulla partizione specificata. La risposta include un elenco di informazioni sul caricamento. Tutte le informazioni includono il nome della metrica carico, il valore e l’ultimo time riportato in UTC.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -133,7 +132,7 @@ Restituisce informazioni sulla partizione specificata. La risposta include un el
 |Argomento|Descrizione|
 | --- | --- |
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h             | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -141,7 +140,7 @@ Restituisce informazioni sulla partizione specificata. La risposta include un el
 ## <a name="sfctl-partition-recover"></a>sfctl partition recover
 Indica al cluster di Service Fabric che deve tentare di ripristinare una partizione specifica, che è attualmente bloccata in una perdita di quorum.
 
-Indica al cluster di Service Fabric che deve tentare di ripristinare una partizione specifica, che è attualmente bloccata in una perdita di quorum. Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un utilizzo non corretto di questa API può causare una perdita di dati.
+Indica al cluster di Service Fabric che deve tentare di ripristinare una partizione specifica, che è attualmente bloccata in una perdita di quorum. Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un uso non corretto di questa API può causare una perdita di dati.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -155,7 +154,7 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare una partizi
 |Argomento|Descrizione|
 | --- | --- |
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h             | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
@@ -180,11 +179,11 @@ Questa API è utile per il test del failover. Se utilizzato come destinazione di
 |Argomento|Descrizione|
 | --- | --- |
 | --debug                         | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
-| --help -h                       | Mostra questo messaggio della Guida e l’uscita.|
+| --help -h                       | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                     | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.                     Predefinito: json.|
 | --query                         | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose                       | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come utilizzare l’interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).

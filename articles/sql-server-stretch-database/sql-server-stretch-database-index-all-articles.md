@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
 ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Tutti gli argomenti per il servizio Estensione database di SQL Server di Azure
 In questo argomento vengono elencati tutti gli argomenti che si applicano direttamente al servizio **Estensione database di SQL Server** di Azure. È possibile cercare la pagina Web per le parole chiave utilizzando **Ctrl+F**, per trovare gli argomenti di interesse corrente.
@@ -55,6 +55,6 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 ## <a name="backup-and-recovery"></a>Backup e ripristino
 | &nbsp; | Titolo | Descrizione |
 | ---:|:--- |:--- |
-| 14 |[Eseguire il backup di database con estensione abilitata](sql-server-stretch-database-backup.md) |Informazioni su come eseguire il backup estensione\-database abilitati. |
+| 14 |[Eseguire il backup di database con estensione abilitata](sql-server-stretch-database-backup.md) |Informazioni su come eseguire il backup di database con estensione abilitata. |
 | 15 |[Ripristinare database con estensione abilitata](sql-server-stretch-database-restore.md) |Informazioni su come eseguire il ripristino di database\-con estensione abilitata. |
 

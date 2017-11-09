@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 10/15/2017
 ms.author: jingwang
 robots: noindex
+ms.openlocfilehash: 569e5a3bf8227caf003a9ea9ff897b29d7b0cf19
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d8d45bad6205f0dbc449c86c453c9efc1bbb3da4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Spostare i dati da MongoDB con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -372,4 +371,3 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) per istruzioni dettagliate sulla creazione di una pipeline di dati che sposta i dati da un archivio dati locale a un archivio dati di Azure.
-

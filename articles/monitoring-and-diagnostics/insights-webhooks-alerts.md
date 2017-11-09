@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
 ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurare un webhook in un avviso relativo alle metriche di Azure
 I webhook consentono di instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite servizi di messaggistica/chat o eseguono un numero qualsiasi di altre azioni. Questo articolo descrive come impostare un webhook in un avviso relativo alle metriche di Azure e illustra il payload per l'esecuzione di un'azione HTTP POST in un webhook. Per informazioni sulla configurazione e lo schema di un avviso del registro attività di Azure (avvisi per eventi), [vedere invece questa pagina](insights-auditlog-to-webhook-email.md).

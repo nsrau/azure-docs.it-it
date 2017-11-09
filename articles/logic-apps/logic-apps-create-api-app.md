@@ -1,7 +1,7 @@
 ---
-title: Creare API Web e API REST come connettori - App per la logica di Azure | Microsoft Docs
-description: Creare API Web e API REST per chiamare le API, i servizi o i sistemi nei flussi di lavoro per le integrazioni di sistema con le app per la logica di Azure
-keywords: API Web, API REST, connettori, flussi di lavoro, integrazioni di sistema
+title: Creare API Web e API REST per App per la logica di Azure | Microsoft Docs
+description: Creare API Web e API REST per chiamare le API, i servizi o i sistemi da flussi di lavoro di app per la logica per le integrazioni di sistema
+keywords: API Web, API REST, flussi di lavoro, integrazioni di sistema
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -15,30 +15,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 4ae98804aced23c0261c1d58721cb18d8152c6f1
-ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
-
+ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Creare API personalizzate che è possibile chiamare da flussi di lavoro di app per la logica
 
-# <a name="create-custom-apis-as-connectors-for-logic-apps"></a>Creare API personalizzate come connettori per app per la logica
-
-Sebbene le app per la logica di Azure offrano [più di 100 connettori incorporati](../connectors/apis-list.md) che è possibile usare nei flussi di lavoro delle app per la logica, si consiglia di chiamare le API, i sistemi e i servizi che non sono disponibili come connettori. È possibile creare proprie API personalizzate che specificano le azioni e trigger da usare nelle app per la logica. Questi sono alcuni altri motivi per cui può essere necessario creare le proprie API da usare come connettori nelle app per la logica:
+Sebbene le app per la logica di Azure offrano [più di 100 connettori incorporati](../connectors/apis-list.md) che è possibile usare nei flussi di lavoro delle app per la logica, si consiglia di chiamare le API, i sistemi e i servizi che non sono disponibili come connettori. È possibile creare API personalizzate che specificano le azioni e i trigger da usare in app per la logica. Di seguito vengono indicati altri motivi per cui è utile creare API personalizzate da chiamare da flussi di lavoro di app per la logica:
 
 * Estendere gli attuali flussi di lavoro di integrazione del sistema e integrazione dei dati.
 * Aiutare i clienti a usare il servizio per gestire attività professionali o personali.
 * Espandere la copertura, l'individuabilità e l'uso del servizio.
 
-In pratica, i connettori sono API Web che usano REST per le interfacce collegabili, il [formato dei metadati Swagger](http://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché i connettori sono API REST che comunicano attraverso endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java o Node.js, per la creazione dei connettori. È anche possibile ospitare le API nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md), una soluzione PaaS (platform-as-a-service) che offre uno dei modi più efficaci, semplici e scalabili per ospitare le API. 
+In pratica, i connettori sono API Web che usano REST per le interfacce collegabili, il [formato dei metadati Swagger](http://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché i connettori sono API REST che comunicano attraverso endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java o Node.js, per la creazione dei connettori. È anche possibile ospitare le API nel [servizio app di Azure](../app-service/app-service-web-overview.md), una soluzione PaaS (platform-as-a-service) che offre uno dei modi più efficaci, semplici e scalabili per ospitare le API. 
 
 Per consentire alle API personalizzate di funzionare con le app per la logica, l'API può rendere disponibili [*azioni*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) che eseguono attività specifiche nei flussi di lavoro delle app per la logica. L'API può anche agire come un [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) che avvia un flusso di lavoro di app per la logica quando nuovi dati o un evento soddisfano una condizione specificata. Questo argomento descrive i modelli comuni che è possibile seguire per la creazione di azioni e trigger nell'API, in base al comportamento previsto per l'API.
 
+È possibile ospitare le API in [Servizio app di Azure](../app-service/app-service-web-overview.md), una soluzione PaaS (Platform-as-a-Service, piattaforma distribuita come servizio) che offre hosting di API semplice e altamente scalabile.
+
 > [!TIP] 
-> Benché sia possibile implementare le API come [app Web](../app-service-web/app-service-web-overview.md), è consigliabile distribuirle come [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md), in modo da semplificare il lavoro durante la compilazione, l'hosting e l'uso delle API nel cloud e in locale. Non è necessario modificare alcun codice nelle API, è sufficiente implementare il codice a un'app per le API. Informazioni su come [compilare le app per le API create con ASP.NET](../app-service-api/app-service-api-dotnet-get-started.md), [Java](../app-service-api/app-service-api-java-api-app.md) o [Node.js](../app-service-api/app-service-api-nodejs-api-app.md). 
+> Benché sia possibile distribuire le API come app Web, è consigliabile distribuirle come app per le API, in modo da semplificare le attività durante la compilazione, l'hosting e l'utilizzo delle API nel cloud e in locale. Non è necessario modificare alcun codice nelle API, è sufficiente implementare il codice a un'app per le API. Ad esempio, è possibile compilare app per le API create con questi linguaggi: 
+> 
+> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
+> * [Java](../app-service/app-service-web-get-started-java.md)
+> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
+> * [PHP](../app-service/app-service-web-get-started-php.md)
+> * [Python](../app-service/app-service-web-get-started-python.md)
 >
 > Per gli esempi di app per le API compilate per le app per la logica, visitare il [repository GitHub](http://github.com/logicappsio) o il [blog sulle app per la logica di Azure](http://aka.ms/logicappsblog).
+
+## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Differenza tra le API e i connettori personalizzati
+
+Le API personalizzate e i [connettori personalizzati](../logic-apps/custom-connector-overview.md) sono API Web che usano REST per le interfacce modulari, il [formato dei metadati Swagger](http://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché questi connettori e API sono API REST che comunicano tramite endpoint HTTP, è possibile usare qualsiasi linguaggio, tra cui .NET, Java o Node.js, per la compilazione di API e connettori personalizzati.
+
+Le API personalizzate consentono di chiamare API che non sono connettori e forniscono gli endpoint che è possibile chiamare con HTTP + Swagger, Gestione API di Azure o Servizi app. I connettori personalizzati funzionano come le API personalizzate, ma hanno anche questi attributi:
+
+* Sono registrati come risorse connettore di App per la logica in Azure.
+* Vengono visualizzati con icone insieme ai connettori gestiti da Microsoft in Progettazione app per la logica.
+* Sono disponibili solo per gli autori dei connettori e degli utenti di app per la logica che hanno lo stesso tenant di Azure Active Directory e la stessa sottoscrizione di Azure nell'area in cui vengono distribuite le app per la logica.
+
+È anche possibile designare connettori registrati per la certificazione Microsoft. Questo processo verifica che i connettori registrati soddisfino i criteri per l'uso pubblico e rende i connettori disponibili per gli utenti in Microsoft Flow e Microsoft PowerApps.
+
+Per altre informazioni sui connettori personalizzati, vedere 
+
+* [Panoramica dei connettori personalizzati](../logic-apps/custom-connector-overview.md)
+* [Creare connettori personalizzati dalle API Web](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
+* [Registrare i connettori personalizzati in App per la logica di Azure](../logic-apps/logic-apps-custom-connector-register.md)
 
 ## <a name="helpful-tools"></a>Strumenti utili
 
@@ -120,7 +144,7 @@ Per questo modello, configurare due endpoint sul controller: `subscribe` e `unsu
 ![Modello di azione webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
 > [!NOTE]
-> Attualmente, Progettazione app per la logica non supporta l'individuazione di endpoint webhook con Swagger. Per questo modello è quindi necessario aggiungere un'[azione **webhook**](../connectors/connectors-native-webhook.md) e specificare l'URL, le intestazioni e il corpo per la richiesta. Vedere anche [Azioni e trigger del flusso di lavoro](logic-apps-workflow-actions-triggers.md#api-connection-webhook-action). Per passare l'URL di callback, è possibile usare la funzione di flusso di lavoro `@listCallbackUrl()` in uno qualsiasi dei campi precedenti in base alle necessità.
+> Attualmente, Progettazione app per la logica non supporta l'individuazione di endpoint webhook con Swagger. Per questo modello è quindi necessario aggiungere un'[azione **webhook**](../connectors/connectors-native-webhook.md) e specificare l'URL, le intestazioni e il corpo per la richiesta. Vedere anche [Azioni e trigger del flusso di lavoro](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Per passare l'URL di callback, è possibile usare la funzione di flusso di lavoro `@listCallbackUrl()` in uno qualsiasi dei campi precedenti in base alle necessità.
 
 > [!TIP]
 > Per un esempio di modello webhook, esaminare questo [esempio di trigger webhook in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
@@ -146,21 +170,24 @@ Di seguito sono riportati i passaggi specifici per un trigger di polling, descri
 
 | Sono stati rilevati nuovi dati o eventi?  | Risposta dell'API | 
 | ------------------------- | ------------ |
-| Trovato | Restituire uno stato HTTP `200 OK` con il payload di risposta (input per il passaggio successivo). <br/>Questa risposta crea un'istanza di app per la logica e avvia il flusso di lavoro. |
-| Non trovato | Restituire uno stato HTTP `202 ACCEPTED` con un'intestazione `location` e un'intestazione `retry-after`. <br/>Per i trigger, l'intestazione `location` deve contenere anche un parametro di query `triggerState`, che in genere è "timestamp". L'API è in grado di usare questo identificatore per verificare quando è stata attivata l'app per la logica per l'ultima volta. |
+| Trovato | Restituire uno stato HTTP `200 OK` con il payload di risposta (input per il passaggio successivo). <br/>Questa risposta crea un'istanza di app per la logica e avvia il flusso di lavoro. | 
+| Non trovato | Restituire uno stato HTTP `202 ACCEPTED` con un'intestazione `location` e un'intestazione `retry-after`. <br/>Per i trigger, l'intestazione `location` deve contenere anche un parametro di query `triggerState`, che in genere è "timestamp". L'API è in grado di usare questo identificatore per verificare quando è stata attivata l'app per la logica per l'ultima volta. | 
+||| 
 
 Ad esempio, per verificare periodicamente se nel servizio sono presenti nuovi file, si può creare un trigger di polling con questi comportamenti:
 
-| La richiesta include `triggerState`? | Risposta dell'API |
-| -------------------------------- | -------------|
-| No | Restituire uno stato HTTP `202 ACCEPTED` oltre a un'intestazione `location` con `triggerState` impostato sull'ora corrente e l'intervallo `retry-after` su 15 secondi. |
-| Sì | Verificare se nel servizio sono presenti file aggiunti dopo `DateTime` per `triggerState`. |
+| La richiesta include `triggerState`? | Risposta dell'API | 
+| -------------------------------- | -------------| 
+| No | Restituire uno stato HTTP `202 ACCEPTED` oltre a un'intestazione `location` con `triggerState` impostato sull'ora corrente e l'intervallo `retry-after` su 15 secondi. | 
+| Sì | Verificare se nel servizio sono presenti file aggiunti dopo `DateTime` per `triggerState`. | 
+||| 
 
-| Numero di file trovati | Risposta dell'API |
-| --------------------- | -------------|
-| Singolo file | Restituire uno stato HTTP `200 OK` e il payload del contenuto, aggiornare `triggerState` a `DateTime` per il file restituito e impostare l'intervallo `retry-after` su 15 secondi. |
-| File multipli | Restituire un file alla volta e uno stato HTTP `200 OK`, aggiornare `triggerState` e impostare l'intervallo `retry-after` su 0 secondi. </br>Questi passaggi consentono al motore di sapere che sono disponibili più dati e che il motore deve richiedere immediatamente i dati dall'URL nell'intestazione `location`. |
-| Nessun file | Restituire uno stato HTTP `202 ACCEPTED`, non modificare `triggerState` e impostare l'intervallo `retry-after` su 15 secondi. |
+| Numero di file trovati | Risposta dell'API | 
+| --------------------- | -------------| 
+| Singolo file | Restituire uno stato HTTP `200 OK` e il payload del contenuto, aggiornare `triggerState` a `DateTime` per il file restituito e impostare l'intervallo `retry-after` su 15 secondi. | 
+| File multipli | Restituire un file alla volta e uno stato HTTP `200 OK`, aggiornare `triggerState` e impostare l'intervallo `retry-after` su 0 secondi. </br>Questi passaggi consentono al motore di sapere che sono disponibili più dati e che il motore deve richiedere immediatamente i dati dall'URL nell'intestazione `location`. | 
+| Nessun file | Restituire uno stato HTTP `202 ACCEPTED`, non modificare `triggerState` e impostare l'intervallo `retry-after` su 15 secondi. | 
+||| 
 
 > [!TIP]
 > Per un esempio di modello di trigger di polling, vedere questo [esempio di controller di trigger di polling in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
@@ -186,26 +213,30 @@ I trigger webhook funzionano in modo molto simile alle [azioni webhook](#webhook
 > [!TIP]
 > Per un esempio di modello webhook, esaminare questo [esempio di controller di trigger webhook in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## <a name="deploy-call-and-secure-custom-apis"></a>Distribuire, chiamare e proteggere le API personalizzate
+## <a name="secure-calls-to-your-apis-from-logic-apps"></a>Proteggere le chiamate alle API da app per la logica
 
-Dopo aver creato le API personalizzate, impostare le API per la distribuzione in modo da chiamarle in modo sicuro. Informazioni su come [implementare, chiamare e proteggere le API personalizzate per le app per la logica](./logic-apps-custom-hosted-api.md).
+Dopo aver creato le API personalizzate, configurare l'autenticazione per le API in modo che possano essere chiamate in modo sicuro da app per la logica. Vedere [Come proteggere le chiamate alle API personalizzate da app per la logica](../logic-apps/logic-apps-custom-api-authentication.md).
+
+## <a name="deploy-and-call-your-apis"></a>Distribuire e chiamare le API
+
+Dopo aver configurato l'autenticazione, configurare la distribuzione per le API. Vedere [Come distribuire e chiamare API personalizzate da app per la logica](../logic-apps/logic-apps-custom-api-host-deploy-call.md).
 
 ## <a name="publish-custom-apis-to-azure"></a>Pubblicare API personalizzate in Azure
 
-Per rendere le API personalizzate disponibili per l'uso pubblico in Azure, inviare le candidature al [programma Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+Per rendere disponibili le API personalizzate per altri utenti di App per la logica in Azure, è necessario incrementare la sicurezza e registrarle come connettori di App per la logica. Per altre informazioni, vedere [Panoramica dei connettori personalizzati](../logic-apps/custom-connector-overview.md). 
 
-## <a name="get-help"></a>Ottenere aiuto
+Per rendere le API personalizzate disponibili a tutti gli utenti in App per la logica, Microsoft Flow e Microsoft PowerApps, è necessario incrementare la sicurezza, registrare le API come connettori di App per la logica e designare i connettori per il [programma Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
-Per assistenza specifica per le API personalizzate, contattare [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
+## <a name="get-support"></a>Supporto
 
-Per porre domande, fornire risposte e ottenere informazioni sulle attività degli altri utenti delle app per la logica di Azure, vedere il [forum sulle app per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per assistenza specifica per le API personalizzate, contattare [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
-Per contribuire al miglioramento delle app per la logica e dei connettori, votare o inviare idee al [sito dei commenti e suggerimenti degli utenti delle app per la logica](http://aka.ms/logicapps-wish). 
+* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+* Per contribuire al miglioramento di App per la logica, è possibile votare o inviare idee nel [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Misurazione dell'utilizzo per azioni e trigger](logic-apps-pricing.md)
-* [Gestire i tipi di contenuti](./logic-apps-content-type.md)
-* [Gestire errori ed eccezioni](./logic-apps-exception-handling.md)
-* [Proteggere l'accesso alle app per la logica](./logic-apps-securing-a-logic-app.md)
-* [Chiamare, attivare o annidare le app per la logica con endpoint HTTP](./logic-apps-http-endpoint.md)
+* [Gestire errori ed eccezioni](../logic-apps/logic-apps-exception-handling.md)
+* [Chiamare, attivare o annidare le app per la logica con endpoint HTTP](../logic-apps/logic-apps-http-endpoint.md)
+* [Misurazione dell'utilizzo per azioni e trigger](../logic-apps/logic-apps-pricing.md)

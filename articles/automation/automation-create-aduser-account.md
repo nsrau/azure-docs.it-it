@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
+ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
-ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Autenticare i runbook con la distribuzione classica di Azure e Resource Manager
 Questo articolo descrive le procedure da eseguire per configurare un account utente di Azure AD per i runbook di Automazione di Azure in esecuzione in risorse di Azure Resource Manager o del modello di distribuzione classica di Azure.  Anche se questa identità di autenticazione è ancora supportata per i runbook basati su Azure Resource Manager, il metodo consigliato consiste nell'usare un account RunAs di Azure.       
@@ -91,5 +90,4 @@ Al termine della creazione delle credenziali, è necessario creare un asset cred
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Esaminare i vari tipi di runbook e le procedure per creare runbook personalizzati nell'articolo [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
-
 

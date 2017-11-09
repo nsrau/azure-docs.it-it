@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Creare un cluster Windows HPC (High Performance Computing) con lo script di distribuzione IaaS di HPC Pack
 Eseguire lo script PowerShell di distribuzione IaaS di HPC Pack per distribuire un cluster HPC Pack 2012 R2 completo per carichi di lavoro di Windows nelle macchine virtuali di Azure. Il cluster è costituito da un nodo head aggiunto ad Active Directory che esegue Windows Server e Microsoft HPC Pack e da altre risorse di calcolo di Windows specificate. Se si desidera distribuire un cluster HPC Pack in Azure per i carichi di lavoro di Linux, vedere [Creare un cluster HPC Linux con lo script di distribuzione IaaS di HPC Pack](../../linux/classic/hpcpack-cluster-powershell-script.md). Per distribuire un cluster HPC Pack è anche possibile usare un modello di Gestione risorse di Azure. Per degli esempi, vedere [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) (Creare un cluster HPC) e [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/) (Creare un cluster HPC con un'immagine di nodo di calcolo personalizzata).

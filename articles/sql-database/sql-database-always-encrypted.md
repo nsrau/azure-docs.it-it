@@ -10,17 +10,17 @@ editor: cgronlun
 ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: d1fdfc4f739e65ff532b159eefaffe1622ad0963
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL e archiviare le chiavi di crittografia nell'archivio certificati di Windows
 

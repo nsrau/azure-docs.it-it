@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 52408184c8cff53f8bb7006fa940b0db4b900db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 84bddd0cb6e53786d3aafb3f7acde34b7e19f83b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Come creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker
 Per automatizzare le fasi di compilazione e test dello sviluppo di un'applicazione, è possibile usare una pipeline per l'integrazione e la distribuzione continue (CI/CD). In questa esercitazione viene creata una pipeline CI/CD in una macchina virtuale di Azure e viene illustrato come:
 
@@ -41,7 +39,7 @@ Per automatizzare le fasi di compilazione e test dello sviluppo di un'applicazio
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Creare l'istanza di Jenkins
-In un'esercitazione precedente, [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md) (Come personalizzare una macchina virtuale Linux al primo avvio), è stato descritto come personalizzare una macchina virtuale al primo avvio con cloud-init. Questa esercitazione usa un file cloud-init per installare Jenkins e Docker in una macchina virtuale. 
+In un'esercitazione precedente, [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md) (Come personalizzare una macchina virtuale Linux al primo avvio), è stato descritto come personalizzare una macchina virtuale al primo avvio con cloud-init. Questa esercitazione usa un file cloud-init per installare Jenkins e Docker in una macchina virtuale. Jenkins è un server di automazione open source molto diffuso che si integra uniformemente con Azure per consentire l'integrazione continua e il recapito continuo. Per altre esercitazioni sull'uso di Jenkins, vedere [Jenkins in Azure](https://docs.microsoft.com/azure/jenkins/).
 
 Nella shell corrente creare un file denominato *cloud-init.txt* e incollare la configurazione seguente. Ad esempio, creare il file in Cloud Shell anziché nel computer locale. Immettere `sensible-editor cloud-init-jenkins.txt` per creare il file e visualizzare un elenco degli editor disponibili. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga:
 

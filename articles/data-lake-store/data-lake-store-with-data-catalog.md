@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 90e29a9ab522031db8feb934a218d4b671561417
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registrare i dati da Archivio Data Lake in Azure Data Catalog
 Questo articolo descrive come integrare Archivio Azure Data Lake con Azure Data Catalog per individuare i dati all'interno dell'organizzazione integrandoli con il catalogo dati. Per altre informazioni sulla catalogazione dei dati, vedere [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Per informazioni sugli scenari in cui è possibile usare il catalogo dati, vedere l'articolo relativo agli [scenari comuni di Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
@@ -83,4 +82,3 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 * [Annotare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrazione di Data Lake Store con altri servizi di Azure](data-lake-store-integrate-with-other-services.md)
-

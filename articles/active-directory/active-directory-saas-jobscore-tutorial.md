@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: f6ed2d362f7b027bfdc38ba2fdaa03948ff5632c
-ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>Esercitazione: Integrazione di Azure Active Directory con JobScore
 
@@ -219,5 +218,4 @@ Quando si fa clic sul riquadro JobScore nel pannello di accesso, si dovrebbe acc
 [201]: ./media/active-directory-saas-jobscore-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jobscore-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jobscore-tutorial/tutorial_general_203.png
-
 

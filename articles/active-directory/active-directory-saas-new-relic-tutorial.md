@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 45106b499b9a541d5e6120538cfe1715608be118
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Esercitazione: Integrazione di Azure Active Directory con New Relic
 
@@ -114,7 +113,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare il valore: `rpm.newrelic.com`
 
     > [!NOTE] 
-    > Poiché questo non è un valore reale, è necessario aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di New Relic](https://support.newrelic.com/). 
+    > Poiché questo non è un valore reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di New Relic](https://support.newrelic.com/). 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -273,5 +272,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-new-relic-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-new-relic-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-new-relic-tutorial/tutorial_general_203.png
-
 

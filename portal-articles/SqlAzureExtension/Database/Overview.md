@@ -1,6 +1,6 @@
 ---
-title: Panoramica del database SQL | Documenti Microsoft
-description: Sommario della Guida per una panoramica del database SQL nel portale di Azure
+title: Panoramica del database SQL | Microsoft Docs
+description: Contenuto della Guida per la panoramica del database SQL nel portale di Azure
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: b41b4b7d302b0f3c528fa424627b4446a5e2c0ca
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-database-documentation"></a>Documentazione sul database SQL
 
@@ -28,7 +28,7 @@ Informazioni su come creare un database SQL, gestirlo con SQL Management Studio 
 
 ## <a name="step-by-step-tutorials"></a>Esercitazioni dettagliate
 
-Informazioni su come creare, gestire e la migrazione dei database utilizzando i database di SQL Server.
+Informazioni su come creare e gestire i database ed eseguirne la migrazione tramite un database SQL.
 
 - [Creare e progettare lo schema di un nuovo database SQL](/azure/sql-database/sql-database-design-first-database)
 - [Eseguire la migrazione di un database SQL Server esistente per l'uso di un database SQL di Azure](/azure/sql-database/sql-database-migrate-your-sql-server-database)
@@ -49,5 +49,5 @@ Trovare script per gestire le attività comuni.
 
 ## <a name="more"></a>Altro
 
-- [Documentazione per ulteriori informazioni visitare](/azure/sql-database/index)
-- [Informazioni su tutti i servizi di Azure](https://aka.ms/j3wr7y)
+- [Vedere la documentazione per altre informazioni](/azure/sql-database/index)
+- [Informazioni su tutti i servizi Azure](https://aka.ms/j3wr7y)

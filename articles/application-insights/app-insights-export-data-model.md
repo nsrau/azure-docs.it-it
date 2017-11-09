@@ -3,7 +3,7 @@ title: Modello di dati di Azure Application Insights | Microsoft Docs
 description: "Descrive le proprietà esportate da esportazione continua in JSON e usate come filtri."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
-ms.author: bwren
-ms.openlocfilehash: a485ddd555f65473d81896effc4a3562bda71410
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: 86aef6ba93224bbbb41bc7e651aaeec394fd8718
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-export-data-model"></a>Modello di dati di esportazione di Application Insights
 Questa tabella elenca le proprietà di telemetria inviate al portale dagli SDK di [Application Insights](app-insights-overview.md) .

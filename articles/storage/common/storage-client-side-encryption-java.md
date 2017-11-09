@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure con Java per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -252,5 +252,5 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 * Scaricare la [libreria client di Archiviazione di Azure per il codice Java Source da GitHub](https://github.com/Azure/azure-storage-java)   
 * Scaricare la libreria Maven dell'insieme di credenziali delle chiavi di Azure per i pacchetti Java Maven seguenti:
   * [core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 
-  * [client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 
+  * [client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 * Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-whatis.md)

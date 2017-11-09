@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Strumenti di inserimento dati della macchina virtuale per data science
 
 Una delle prime operazioni tecniche in un progetto di IA o di data science consiste nell'identificare i set di dati da usare e importarli nell'ambiente di analisi. La macchina virtuale per data science offre gli strumenti e librerie per importare dati provenienti da origini diverse in un archivio dati analitico in locale nella macchina virtuale per data science o in una piattaforma dati nel cloud o in locale. 
@@ -98,4 +96,3 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 |  Come usarlo o eseguirlo?    |   Avviare "Gateway di gestione dati di Microsoft" dal menu Start.    |
 | Collegamenti agli esempi      | [Gateway di gestione dati](https://msdn.microsoft.com/library/dn879362.aspx)      |
 | Strumenti correlati nella macchina virtuale per data science      | AzCopy, AdlCopy, bcp    |
-

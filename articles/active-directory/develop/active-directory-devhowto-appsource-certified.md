@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: d8e2f8fc19ff879e6a7b632f033fd0ed9d77392a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) è la posizione in cui gli utenti aziendali possono trovare, provare e gestire applicazioni SaaS line-of-business (soluzioni SaaS autonome e componenti aggiuntivi per prodotti Microsoft SaaS esistenti).

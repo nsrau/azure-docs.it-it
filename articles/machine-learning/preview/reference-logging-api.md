@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="logging-api-reference"></a>Informazioni di riferimento sulle API di registrazione
 
 La raccolta di registrazione ML di Azure consente al programma generare metriche e file che vengono rilevati dal servizio di cronologia per l'analisi successiva. Attualmente, sono supportati alcuni tipi di metriche e file di base e il set di tipi supportati aumenterà con le versioni future del pacchetto Python.
@@ -88,4 +86,3 @@ $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to cr
 ## <a name="next-steps"></a>Passaggi successivi
 - Scorrere le [esercitazioni di diaframma di classificazione, parte 2](tutorial-classifying-iris-part-2.md) per visualizzare la registrazione API in azione.
 - Rivedere [Come usare Cronologia di esecuzione e le metriche del modello in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) per comprendere più approfonditamente come le API di registrazione possano essere usate nella cronologia di esecuzione.
-

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: ea114f484c774573b7d219cff9102a7308af356e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="restart-vms"></a>Riavviare le VM
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -60,19 +58,19 @@ Il terzo script riavvia tutte le VM di cui è stato eseguito il provisioning e q
 Questo script crea un gruppo di risorse e quindi crea tre VM da riavviare.
 Due di queste vengono contrassegnate con tag.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Eseguire il provisioning delle VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
 ### <a name="wait"></a>Attesa
 
 Questo script verifica lo stato del provisioning ogni 20 secondi, fino a quando viene completato il provisioning di tutte e tre le VM oppure il provisioning di una delle VM fallisce.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Attendere che venga completato il provisioning della VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
 
 ### <a name="restart-the-vms"></a>Riavviare le VM
 
 Questo script riavvia tutte le VM nel gruppo di risorse e quindi riavvia solo le VM con tag.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Riavviare le macchine virtuali in base al tag")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
@@ -100,4 +98,3 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando della macchina virtuale sono reperibili nella [documentazione della VM Linux di Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

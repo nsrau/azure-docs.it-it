@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b63c930b5ef1de349a1daf434426829ebc51da11
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Copia guidata di Azure Data Factory
 > [!NOTE]
-> Questo articolo si applica alla versione 1 di Data Factory, che è disponibile a livello generale. 
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). 
 
 La copia guidata di Azure Data Factory semplifica l'inserimento di dati, che rappresenta in genere il primo passaggio in uno scenario di integrazione dati end-to-end. Quando si esegue la copia guidata di Azure Data Factory, non è necessario comprendere le definizioni JSON per i set di dati, le pipeline e i servizi collegati. La procedura guidata crea automaticamente una pipeline per copiare i dati dall'origine dati selezionata alla destinazione scelta. In più, la copia guidata consente di convalidare i dati inseriti al momento della creazione, risparmiando tempo soprattutto quando si inseriscono i dati per la prima volta dall'origine dati. Per avviare Copia guidata, fare clic sul riquadro **Copia dati** nella home page della data factory.
 
@@ -93,4 +92,3 @@ Un'operazione di copia eseguita una sola volta permette di spostare dati da un'o
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per una procedura dettagliata sull'uso di Copia guidata di Data Factory per creare una pipeline con l'attività di copia, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
-

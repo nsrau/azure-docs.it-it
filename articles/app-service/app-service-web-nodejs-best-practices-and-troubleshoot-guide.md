@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: ranjithr
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 8f39b5e6faf5f9121ec2abe347f50653c5c3e4f9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Procedure consigliate e guida alla risoluzione dei problemi per le applicazioni Node in App Web di Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -259,5 +258,4 @@ Per altre informazioni sulle applicazioni node.js nel servizio app di Azure, sel
 * [Blog sulle app Web del servizio app di Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Centro per sviluppatori di Node. js](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console (Esplorazione della console segreta di debug di Kudu)](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
-
 

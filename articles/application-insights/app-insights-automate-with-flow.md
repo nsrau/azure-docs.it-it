@@ -3,7 +3,7 @@ title: Automatizzare i processi di Azure Application Insights con Microsoft Flow
 description: Informazioni su come usare Microsoft Flow per automatizzare in poco tempo i processi ripetibili usando il connettore di Application Insights.
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,15 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d0cd0cc97fa61d3401f6101292b82132622c9e81
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: a1d2787626ed8fa71e3e4e9921ffb8a4680014cb
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizzare i processi di Azure Application Insights con il connettore per Microsoft Flow
 
 Ci si trova spesso a eseguire ripetutamente le stesse query sui dati di telemetria per verificare il corretto funzionamento del servizio? Per automatizzare queste query per trovare tendenze e anomalie e creare quindi flussi di lavoro basati su queste informazioni, il connettore di Azure Application Insights (anteprima) per Microsoft Flow è lo strumento ideale.
@@ -54,7 +52,7 @@ Questa esercitazione illustra come creare un flusso che usa l'algoritmo di clust
 
 ### <a name="step-4-connect-to-an-application-insights-resource"></a>Passaggio 4: Connettersi a una risorsa di Application Insightss
 
-Per completare questo passaggio, sono necessari un ID applicazione e una chiave API per la risorsa. È possibile recuperare queste informazioni dal portale di Azure, come illustrato nel diagramma seguente:
+Per completare questo passaggio, sono necessari un ID applicazione e una chiave API per la risorsa. È possibile recuperare queste informazioni dal portale di Azure, come illustrato nell'immagine seguente:
 
 ![ID applicazione nel portale di Azure](./media/app-insights-automate-with-flow/appid.png) 
 
@@ -92,11 +90,11 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 
 4. Nella finestra **Invia un messaggio di posta elettronica** seguire questa procedura:
 
-   a. Digitare l'indirizzo di posta elettronica del destinatario.
+   a. Digitare l'indirizzo e-mail del destinatario.
 
    b. Digitare l'oggetto del messaggio di posta elettronica.
 
-   c. Fare clic in qualsiasi punto della casella **Corpo** e quindi scegliere **Corpo** dal menu di contenuto dinamico che viene visualizzato a destra.
+   c. Fare clic in un punto qualsiasi della casella **Corpo** e scegliere **Corpo** dal menu di contenuto dinamico che viene visualizzato a destra.
 
    d. Fare clic su **Mostra opzioni avanzate**.
 
@@ -132,7 +130,6 @@ Quando il flusso è in esecuzione, i destinatari specificati nell'elenco di post
 
 
 <!--Link references-->
-
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: 'Esempio di PowerShell: gruppo di failover con replica geografica per un database SQL di Azure singolo | Microsoft Docs'
-description: Script di esempio di Azure PowerShell per configurare la replica geografica attiva per un database SQL di Azure singolo
+description: Script di esempio di Azure PowerShell per configurare il gruppo di failover della replica geografica attiva per un database SQL di Azure singolo ed eseguirne il failover.
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 0fcddfd7e224fc763616573e5cd8b3345cc46ded
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 5824199850645d8d85b85209b34bdf088de90009
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>Usare PowerShell per configurare un gruppo di failover con replica geografica attiva per un database SQL di Azure singolo
 
 Questo esempio di script di PowerShell configura un gruppo di failover con replica geografica attiva per un database SQL di Azure singolo e ne effettua il failover in una replica secondaria del database SQL di Azure.
@@ -32,7 +30,7 @@ Questo esempio di script di PowerShell configura un gruppo di failover con repli
 
 ## <a name="sample-scripts"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "Configurare un gruppo di failover per un database singolo")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "Set up failover group for single database")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -66,4 +64,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Per altri esempi, vedere tra gli [script di PowerShell per database SQL di Azure](../sql-database-powershell-samples.md).
-

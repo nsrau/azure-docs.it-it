@@ -13,17 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/14/2017
+ms.date: 10/20/2017
 ms.author: negat
 ms.custom: na
+ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: cc5a0ba5474827cedc5b6a42651c206d5f2540b7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
 Risposte alle domande frequenti sui set di scalabilità di macchine virtuali in Azure.
@@ -461,11 +459,6 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Per eseguire uno script personalizzato ospitato in un account di archiviazione provato, configurare le impostazioni protette con la chiave e il nome dell'account di archiviazione. Per altre informazioni, vedere [Estensione Script personalizzato per Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 
-
-
-
-
-
 ## <a name="networking"></a>Rete
  
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>È possibile assegnare un gruppo di sicurezza di rete (NSG) a un set di scalabilità, in modo che venga applicato a tutte le schede di interfaccia di rete della VM presenti in tale set?
@@ -650,7 +643,15 @@ Sì, è possibile usare l'operazione di ricreazione dell'immagine per ripristina
 
 Per altre informazioni, vedere [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set) (Gestire tutte le VM in un set di scalabilità di macchine virtuali).
 
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>È possibile integrare i set di scalabilità con Azure OMS (Operations Management Suite)?
 
+Sì, è possibile installando l'estensione OMS nelle macchine virtuali dei set di scalabilità. Di seguito è riportato un esempio dell'interfaccia della riga di comando di Azure:
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+È possibile trovare l'ID e la chiave dell'area di lavoro necessari nel portale OMS. Nella pagina Panoramica fare clic sul riquadro Impostazioni. Fare clic sula scheda Origini connesse nella parte superiore.
+
+Nota: se il set di scalabilità _upgradePolicy_ è impostato su Manuale, è necessario applicare l'estensione a tutte le macchine virtuali del set tramite una chiamata di aggiornamento. Nell'interfaccia della riga di comando è necessario chiamare _az vmss update-instances_.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -703,5 +704,4 @@ La differenza principale tra l'eliminazione di una VM in un set di scalabilità 
 - Si vuole avviare un set di VM con una velocità maggiore rispetto all'aumento del numero di istanze di un set di scalabilità di macchine virtuali.
   - In relazione a questo scenario è stato creato un motore di ridimensionamento automatico proprio e si vuole ottenere una scalabilità end-to-end più rapida.
 - È presente un set di scalabilità di macchine virtuali distribuito in modo non uniforme nei domini di errore o nei domini di aggiornamento. Questo problema può essere stato causato dall'eliminazione selettiva di VM o dall'eliminazione di VM dopo l'overprovisioning. L'esecuzione di `stop deallocate` seguito da `start` nel set di scalabilità di macchine virtuali consente di distribuire uniformemente le VM nei domini di errore o nei domini di aggiornamento.
-
 

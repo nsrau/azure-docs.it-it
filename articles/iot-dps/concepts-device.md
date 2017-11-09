@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concetti relativi ai dispositivi del servizio Device Provisioning in hub IoT
 
 Il servizio Device Provisioning in hub IoT è un servizio helper per l'hub IoT che consente di configurare il provisioning completamente automatico dei dispositivi in un hub IoT specifico. Con il servizio Device Provisioning è possibile effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.
@@ -63,4 +61,3 @@ L'ambito ID viene assegnato a un servizio Device Provisioning quando viene creat
 
 > [!NOTE]
 > L'univocità è importante per le operazioni di distribuzione con esecuzione prolungata e gli scenari di fusione e acquisizione.
-

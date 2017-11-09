@@ -10,20 +10,18 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: quickstart
 ms.date: 04/17/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d1acc548dca4c89572eece8dbdae0eae4853a97c
-ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 68f7ea0f5255602629a0b0960726c30dd508a655
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Creare un singolo database SQL di Azure usando PowerShell
 
 PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida illustra in dettaglio l'uso di PowerShell per distribuire un database SQL di Azure in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) in un [server logico di database SQL di Azure](sql-database-features.md).
@@ -129,5 +127,4 @@ Dopo aver creato un database, è possibile connettersi ed eseguire query usando 
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
-
 

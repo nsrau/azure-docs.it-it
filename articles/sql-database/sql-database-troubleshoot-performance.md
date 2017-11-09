@@ -10,18 +10,17 @@ keywords: ottimizzazione delle prestazioni di sql, ottimizzazione delle prestazi
 ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: v-shysun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 7a2f1199a56e0bd32eafef9f420879c756673e7f
-ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.openlocfilehash: 4eb344bf9e87ef1a8f469268211588e51696164e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 

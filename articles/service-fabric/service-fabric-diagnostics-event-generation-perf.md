@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="performance-metrics"></a>Metriche delle prestazioni
 
@@ -40,7 +40,7 @@ Per i computer presenti nel cluster è opportuno raccogliere i contatori delle p
 | PhysicalDisk(per Disk) | Byte scritti su disco/sec |
 | Memoria | MByte disponibili |
 | PagingFile | % Usage |
-| Process(Total) | % di tempo processore |
+| Processor(Total) | % di tempo processore |
 | Process (per service) | % di tempo processore |
 | Process (per service) | ID Process |
 | Process (per service) | Private Bytes |
@@ -48,6 +48,11 @@ Per i computer presenti nel cluster è opportuno raccogliere i contatori delle p
 | Process (per service) | Virtual Bytes |
 | Process (per service) | Working Set |
 | Process (per service) | Working Set - Private |
+| Network Interface(all-instances) | Lunghezza della coda di output |
+| Network Interface(all-instances) | Pacchetti in uscita scartati |
+| Network Interface(all-instances) | Pacchetti ricevuti scartati |
+| Network Interface(all-instances) | Errori pacchetti in uscita |
+| Network Interface(all-instances) | Errori pacchetti ricevuti |
 
 ## <a name="net-applications-and-services"></a>Applicazioni e servizi .NET
 

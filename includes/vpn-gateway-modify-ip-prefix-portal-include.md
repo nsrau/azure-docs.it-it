@@ -9,7 +9,7 @@
 #### <a name="to-remove-address-prefixes"></a>Per rimuovere prefissi degli indirizzi:
 
 1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
-2. Fare clic su **'...'** nella riga contenente il prefisso da rimuovere.
+2. Fare clic su **"..."** nella riga contenente il prefisso da rimuovere.
 3. Fare clic su **Rimuovi**.
 4. Per salvare le impostazioni, fare clic su **Save** .
 

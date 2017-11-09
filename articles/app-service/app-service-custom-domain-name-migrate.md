@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure
 
@@ -56,8 +55,8 @@ Il record TXT necessario varia a seconda del record DNS di cui si vuole eseguire
 | Esempio di record DNS | Host TXT | Valore TXT |
 | - | - | - |
 | @ (radice) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
-| www (sottodominio) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
-| \* (wildcard) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
+| www (sottodominio) | _awverify.www_ | _&lt;appname&gt;.azurewebsites.net_ |
+| \* (wildcard) | _awverify.\*_ | _&lt;appname&gt;.azurewebsites.net_ |
 
 Nella pagina dei record DNS prendere nota del tipo di record del nome DNS di cui si vuole eseguire la migrazione. Il servizio app supporta i mapping da record CNAME e A.
 
@@ -117,7 +116,7 @@ Per l'esempio di dominio radice `contoso.com`, modificare il mapping del record 
 | - | - | - | - |
 | contoso.com (radice) | Una  | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
 | www.contoso.com (sottodominio) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
-| \*.contoso.com (carattere jolly) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
+| \*.contoso.com (carattere jolly) | CNAME | _\*_ | _&lt;appname&gt;.azurewebsites.net_ |
 
 Salvare le impostazioni.
 
@@ -129,4 +128,3 @@ Informazioni su come associare un certificato SSL personalizzato al servizio app
 
 > [!div class="nextstepaction"]
 > [Associare un certificato SSL personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-ssl.md)
-

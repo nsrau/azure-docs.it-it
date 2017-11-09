@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
+ms.openlocfilehash: 25f0578a9e273c30ecc98af5b66c6dd43305aa03
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 6179c4a3ba54260e9bd80156ec84e1d9aa3a0561
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-azure-active-directory-login"></a>Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -32,44 +31,31 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 3. Fare clic su **Azure Active Directory** e quindi su **Express** in **Modalità di gestione**.
 4. Fare clic su **OK** per registrare l'applicazione in Azure Active Directory. Verrà creata una nuova registrazione. Se invece si intende scegliere una registrazione esistente, fare clic su **Seleziona un'app esistente** e quindi cercare il nome di una registrazione creata in precedenza all'interno del tenant.
    Fare clic sulla registrazione per selezionarla e fare clic su **OK**. Quindi, fare clic su **OK** nel pannello Impostazioni di Azure Active Directory.
-   
-   ![][0]
-   
    Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
 5. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati da Azure Active Directory, impostare **Azione da eseguire quando la richiesta non è autenticata** su **Accedi con Azure Active Directory**. Per poter usare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate ad Azure Active Directory per l'autenticazione.
 6. Fare clic su **Save**.
 
 È ora possibile usare Azure Active Directory per l'autenticazione nell'app.
 
-## <a name="advanced"> </a>(Metodo alternativo) Configurare manualmente Azure Active Directory con impostazioni avanzate
+## <a name="advanced"></a>(Metodo alternativo) Configurare manualmente Azure Active Directory con impostazioni avanzate
 È inoltre possibile scegliere di specificare manualmente le impostazioni di configurazione. Questa è la soluzione migliore se il tenant AAD che si desidera utilizzare è diverso dal tenant con cui si accede ad Azure. Per completare la configurazione, è innanzitutto necessario creare una registrazione in Azure Active Directory. È quindi necessario fornire alcune informazioni di registrazione al servizio app.
 
-### <a name="register"> </a>Registrare l'applicazione con Azure Active Directory
-1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l' **URL**. L'URL verrà utilizzato per configurare l'app di Azure Active Directory.
-2. Accedere al [portale di Azure classico] e passare ad **Active Directory**.
-   
-    ![][2]
-3. Selezionare la directory, quindi la scheda **Applicazioni** nella parte superiore. Fare clic su **AGGIUNGI** in basso per creare una nuova registrazione dell'app.
-4. Fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
-5. Nella procedura guidata di aggiunta applicazione immettere un nome per l'applicazione in **Nome** e fare clic sul tipo **Applicazione Web e/o API Web**. Fare quindi clic per continuare.
-6. Nella casella **URL ACCESSO** incollare l'URL dell'applicazione copiato in precedenza. Immettere lo stesso URL nella casella **URI ID app** . Fare quindi clic per continuare.
-7. Una volta aggiunta l'applicazione, fare clic sulla scheda **Configura** . Modificare il valore di **URL di risposta** in **Single Sign-on** in modo che corrisponda all'URL dell'applicazione con il percorso */.auth/login/aad/callback come suffisso*. ad esempio `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Assicurarsi che sia in uso lo schema HTTPS.
-   
-    ![][3]
-8. Fare clic su **Save**. Copiare quindi l' **ID client** per l'app. L'applicazione verrà configurata in questo modo più avanti.
-9. Nella barra dei comandi in basso fare clic su **Visualizza endpoint**, copiare l'URL di **Documento metadati federazione** e scaricare quest'ultimo oppure aprirlo nel browser.
-10. Nell'elemento radice **EntityDescriptor** dovrebbe trovarsi un attributo **entityID** nel formato `https://sts.windows.net/` seguito da un GUID specifico per il tenant (denominato "ID tenant"). Copiare questo valore, che verrà usato come **URL dell'autorità di certificazione**. L'applicazione verrà configurata in questo modo più avanti.
+### <a name="register"></a>Registrare l'applicazione con Azure Active Directory
+1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l'**URL** dell'applicazione. L'URL verrà utilizzato per configurare l'app di Azure Active Directory.
+2. Passare ad **Active Directory**, selezionare **Registrazioni per l'app**, quindi fare clic su **Registrazione nuova applicazione** nella parte superiore per avviare la registrazione della nuova app. 
+3. Nella finestra di dialogo di creazione della registrazione immettere un **nome** per l'applicazione, selezionare il tipo **App Web/API** e nella casella **URL accesso** incollare l'URL dell'applicazione copiato nel passaggio 1. Fare quindi clic su **Crea**.
+4. Entro pochi secondi verrà visualizzata la registrazione della nuova applicazione appena creata.
+5. Dopo aver aggiunto l'applicazione, fare clic sul nome della registrazione dell'applicazione, fare clic su **Impostazioni** nella parte superiore e quindi su **Proprietà** 
+6. Incollare l'URL dell'applicazione copiato nel passaggio 1 nella casella **URI ID app** e in **URL pagina iniziale**, quindi fare clic su **Salva**
+7. Fare ora clic su **URL di risposta**, modificare l'**URL di risposta**, incollare l'URL dell'applicazione copiato nel passaggio 1, modificare il protocollo in modo che sia **https://** (non http://), quindi aggiungere */.auth/login/aad/callback* alla fine dell'URL, ad esempio `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Fare clic su **Save**.   
+8.  A questo punto, copiare l'**ID applicazione** dell'app per usarlo in seguito. L'ID applicazione sarà necessario per configurare l'applicazione Web.
+9. Chiudere il pannello dei dettagli della registrazione dell'applicazione. Tornare al riepilogo della registrazione dell'app di Azure Active Directory, fare clic sul pulsante **Endpoint** nella parte superiore, quindi copiare l'URL **Documento metadati federazione**. 
+10. Aprire una nuova finestra del browser, incollare l'URL e passare alla pagina XML. Nella parte superiore del documento saranno presenti un elemento **EntityDescriptor** e un attributo **entityID** nel formato `https://sts.windows.net/` seguito da un GUID specifico per il tenant (denominato "ID tenant"). Copiare questo valore, che verrà usato come **URL dell'autorità di certificazione**. L'applicazione verrà configurata in questo modo più avanti.
 
-### <a name="secrets"> </a>Aggiungere informazioni di Azure Active Directory all'applicazione
-1. Nel [portale di Azure], passare all'applicazione. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
-2. Se la funzionalità di autenticazione/autorizzazione non è abilitata, impostare l'opzione in modo da **abilitarla**.
-3. Fare clic su **Azure Active Directory** e quindi su **Avanzata** in **Modalità di gestione**. Incollare i valori relativi all'ID client e all'URL dell'autorità di certificazione ottenuti in precedenza. Fare quindi clic su **OK**.
-   
-   ![][1]
-   
-   Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
-4. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati da Azure Active Directory, impostare **Azione da eseguire quando la richiesta non è autenticata** su **Accedi con Azure Active Directory**. Per poter usare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate ad Azure Active Directory per l'autenticazione.
-5. Fare clic su **Save**.
+### <a name="secrets"></a>Aggiungere informazioni di Azure Active Directory all'applicazione
+1. Nel [portale di Azure], passare all'applicazione. Fare clic su **Autenticazione/autorizzazione**. Se la funzionalità di autenticazione/autorizzazione non è abilitata, impostare l'opzione in modo da **abilitarla**. Fare clic su **Azure Active Directory** in Provider di autenticazione per configurare l'applicazione. Facoltativo: per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app. In **Azione da eseguire quando la richiesta non è autenticata** selezionare **Accedi con Azure Active Directory**. Per poter usare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate ad Azure Active Directory per l'autenticazione.
+Nella configurazione dell'autenticazione di Active Directory fare clic su **Avanzata** in **Modalità di gestione**. Incollare l'ID applicazione copiato nel passaggio 8 nella casella ID client e incollare il valore entityId copiato nel passaggio 10 in URL autorità di certificazione. Fare quindi clic su **OK**.
+3. Nel pannello di configurazione dell'autenticazione di Active Directory fare clic su **Salva**.
 
 È ora possibile usare Azure Active Directory per l'autenticazione nell'app.
 
@@ -93,14 +79,20 @@ Ora è stata configurata un'applicazione client nativa che può accedere all'app
 
 <!-- Images. -->
 
-[0]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/mobile-app-aad-express-settings.png
-[1]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/mobile-app-aad-advanced-settings.png
-[2]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-navigate-aad.png
-[3]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app-configure.png
+[0]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-webapp-url.png
+[1]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app_registration.png
+[2]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app-registration-create.png
+[3]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app-registration-config-appidurl.png
+[4]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app-registration-config-replyurl.png
+[5]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-endpoints.png
+[6]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-endpoints-fedmetadataxml.png
+[7]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-webapp-auth.png
+[8]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-webapp-auth-config.png
+
+
 
 <!-- URLs. -->
 
 [portale di Azure]: https://portal.azure.com/
-[portale di Azure classico]: https://manage.windowsazure.com/
+[Portale di Azure classico]: https://manage.windowsazure.com/
 [alternative method]:#advanced
-

@@ -24,7 +24,7 @@
 
 La configurazione del dispositivo è stata completata. 
 
-![Video disponibile](./media/storsimple-take-backup/Video_icon.png) **Video disponibile**
+![Video disponibile](./media/storsimple-take-backup/Video_icon.png)**Video disponibile**
 
 Per guardare un video che illustra come eseguire un backup StorSimple, fare clic [qui](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 

@@ -12,36 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/30/2017
+ms.date: 09/18/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4b6da997f44860dccb2aa2571ce099ab2d0231f3
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: c0cd24e03c24655adfe851bc85b721c0b617efcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Abilitare la sincronizzazione password con Azure Active Directory Domain Services
 Nelle attività precedenti è stato abilitato Azure Active Directory Domain Services per il tenant di Azure Active Directory (Azure AD). L'attività successiva prevede l'abilitazione della sincronizzazione degli hash delle credenziali necessari per l'autenticazione NTLM (NT LAN Manager) e Kerberos con Azure AD Domain Services. Al termine della configurazione della sincronizzazione delle credenziali, gli utenti potranno accedere al dominio gestito con le credenziali aziendali.
 
-La procedura da eseguire è diversa per gli account utente solo cloud rispetto agli account utente sincronizzati dalla directory locale tramite Azure AD Connect.  Se il tenant di Azure AD include una combinazione di utenti solo cloud e utenti dell'istanza locale di AD, è necessario eseguire entrambe le procedure.
+La procedura da eseguire è diversa per gli account utente solo cloud rispetto agli account utente sincronizzati dalla directory locale tramite Azure AD Connect. 
+
+<br>
+| **Tipo di account utente** | **Passaggi da eseguire** |
+| --- |---|
+| **Account utente cloud creati in Azure AD** |**&#x2713;** [Seguire le istruzioni in questo articolo](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |
+| **Account utente sincronizzati da una directory locale** |**&#x2713;** [Sincronizzare le password per gli account utente sincronizzati dall'istanza locale di AD con il dominio gestito](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
 
 <br>
 
-> [!div class="op_single_selector"]
-> * **Account utente solo cloud**: [Sincronizzare le password per gli account utente solo cloud con il dominio gestito](active-directory-ds-getting-started-password-sync.md)
-> * **Account utente locali**: [Sincronizzare le password per gli account utente sincronizzati dall'istanza locale di AD con il dominio gestito](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+> [!TIP]
+> **Potrebbe essere necessario completare entrambi i set di passaggi.**
+> Se il tenant di Azure AD include una combinazione di utenti solo cloud e utenti dell'istanza locale di AD, è necessario eseguire entrambi i set di passaggi.
 >
->
-
-<br>
 
 ## <a name="task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts"></a>Attività 5: Abilitare la sincronizzazione password nel dominio gestito per gli account utente solo cloud
 Per autenticare gli utenti nel dominio gestito, Azure Active Directory Domain Services necessita di hash delle credenziali in un formato idoneo per l'autenticazione NTLM e Kerberos. Azure AD genera e archivia gli hash delle credenziali nel formato necessario per l'autenticazione NTLM o Kerberos solo dopo l'abilitazione di Azure Active Directory Domain Services per il tenant. Per ovvi motivi di sicurezza, Azure AD non archivia nemmeno le credenziali di tipo password in un formato non crittografato. Azure AD quindi non può generare automaticamente questi hash delle credenziali NTLM o Kerberos in base alle credenziali esistenti degli utenti.
 
 > [!NOTE]
-> Se l'organizzazione include account utente solo cloud, gli utenti che devono usare Azure Active Directory Domain Services devono cambiare le proprie password. Un account utente solo cloud è un account creato nella directory di Azure AD tramite il portale di Azure o i cmdlet di Azure AD PowerShell. Questi account utente non vengono sincronizzati da una directory locale.
+> **Se l'organizzazione include account utente solo cloud, tutti gli utenti che devono usare Azure Active Directory Domain Services devono cambiare le proprie password.** Un account utente solo cloud è un account creato nella directory di Azure AD tramite il portale di Azure o i cmdlet di Azure AD PowerShell. Questi account utente non vengono sincronizzati da una directory locale.
 >
 >
 
@@ -62,7 +63,7 @@ Di seguito sono riportate le istruzioni che è necessario fornire agli utenti fi
 
     ![Fare clic su "Cambia password"](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-   > [!NOTE]
+   > [!TIP]
    > Se l'opzione **Cambia password** non è visualizzata nella finestra del pannello di accesso, verificare che l'organizzazione abbia configurato la [gestione delle password in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
    >
    >
@@ -72,7 +73,7 @@ Di seguito sono riportate le istruzioni che è necessario fornire agli utenti fi
 
 5. Fare clic su **invia**.
 
-Dopo alcuni minuti dalla modifica, la nuova password è utilizzabile in Azure Active Directory Domain Services. Dopo alcuni minuti aggiuntivi (in genere circa 20), è possibile accedere ai computer aggiunti al dominio gestito usando la password appena cambiata.
+Dopo alcuni minuti dalla modifica, la nuova password è utilizzabile in Azure Active Directory Domain Services. Dopo circa 20 minuti, è possibile accedere ai computer aggiunti al dominio gestito usando la password appena modificata.
 
 ## <a name="related-content"></a>Contenuti correlati
 * [Come aggiornare la password](../active-directory/active-directory-passwords-update-your-own-password.md)
@@ -81,4 +82,3 @@ Dopo alcuni minuti dalla modifica, la nuova password è utilizzabile in Azure Ac
 * [Amministrare un dominio gestito di Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)
 * [Aggiungere una macchina virtuale Windows a un dominio gestito di Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito di Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-

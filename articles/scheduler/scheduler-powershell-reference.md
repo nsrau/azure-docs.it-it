@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 419e489e4e99935dea49b2d3f9a405013b94048c
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 141919ab4506b3de4c4a69670dcf54c60ee6409c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione
 La tabella seguente include descrizioni e collegamenti alla pagina di riferimento per ciascuno dei cmdlet principali nell'Utilità di pianificazione di Azure.
@@ -76,5 +75,4 @@ Get-Help <cmdlet name> -Full
  [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
-
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gestire record e set di record DNS con il portale di Azure
 
 > [!div class="op_single_selector"]
@@ -127,4 +125,3 @@ Non è possibile eliminare i set di record SOA e NS al vertice della zona (name 
 * Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di Azure](dns-overview.md).
 * Per altre informazioni sull'automazione di DNS, vedere [Creazione di zone e set di record DNS con .NET SDK](dns-sdk.md).
 * Per altre informazioni sui record DNS inversi, vedere [Panoramica del DNS inverso e supporto in Azure](dns-reverse-dns-overview.md).
-

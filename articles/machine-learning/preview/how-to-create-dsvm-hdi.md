@@ -10,17 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
+ms.openlocfilehash: 9ce1d32a2785bec1164d2a89dea9946fe113cb33
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 049478baa108b94c042575a5e29bdc513e527542
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Creare cluster DSVM e HDI Spark come destinazioni di calcolo
 
-È possibile applicare la scalabilità verticale o orizzontale all'esperimento di machine learning tramite l'aggiunta di destinazioni di calcolo aggiuntive, ad esempio DSVM (macchina virtuale di data science) basata su Ubuntu e Apache Spark per il cluster HDInsight di Azure. Questo articolo illustra i passaggi della creazione di queste destinazioni di calcolo in Azure. Per ulteriori informazioni sulle destinazioni di calcolo di Azure ML, fare riferimento a [Panoramica del servizio di esecuzione dell’esperimento di Azure Machine Learning](experiment-execution-configuration.md).
+È possibile applicare la scalabilità verticale o orizzontale all'esperimento di machine learning tramite l'aggiunta di destinazioni di calcolo aggiuntive, ad esempio DSVM (macchina virtuale di data science) basata su Ubuntu e Apache Spark per il cluster HDInsight di Azure. Questo articolo illustra i passaggi della creazione di queste destinazioni di calcolo in Azure. Per altre informazioni sulle destinazioni di calcolo di Azure ML, vedere [Panoramica del servizio Sperimentazione di Azure Machine Learning](experimentation-service-configuration.md).
 
 >[!NOTE]
 >Prima di procedere, è necessario assicurarsi di avere le autorizzazioni appropriate per creare risorse, ad esempio cluster HDI e macchina virtuale in Azure. Entrambe queste risorse possono anche impiegare molti core di calcolo a seconda della configurazione. Verificare che la sottoscrizione abbia una capacità sufficiente per i core CPU virtuali. È possibile sempre contattare il supporto di Azure per aumentare il numero massimo di core consentito nella sottoscrizione.
@@ -183,8 +181,7 @@ A questo punto si è pronti per eseguire gli esperimenti in questo cluster Spark
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su:
-- [Panoramica del servizio di esecuzione dell'esperimento di Azure Machine Learning](experiment-execution-configuration.md)
-- [File di configurazione di esecuzione di Azure Machine Learning Workbench](experiment-execution-configuration-reference.md)
+- [Panoramica del servizio Sperimentazione di Azure Machine Learning](experimentation-service-configuration.md)
+- [File di configurazione del servizio Sperimentazione di Azure Machine Learning Workbench](experimentation-service-configuration-reference.md)
 - [Apache Spark per il cluster Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [Macchina virtuale di data science](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
-

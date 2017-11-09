@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: c3c30e51b81886ebc875df7c815a17dfa633a5f8
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Connettersi ad Azure SQL Data Warehouse
 Questo articolo consente di connettersi a SQL Data Warehouse per la prima volta.
@@ -96,6 +94,5 @@ Per connettersi ed eseguire query con Visual Studio, vedere [Eseguire query con 
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
-
 
 

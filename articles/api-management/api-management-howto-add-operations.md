@@ -3,7 +3,7 @@ title: Come aggiungere operazioni a un'API in Gestione API di Azure | Microsoft 
 description: Informazioni su come aggiungere operazioni a un'API in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 1158a023-1913-4e9c-93de-9164b672f9b3
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 8b047c0826590d1cb6a79a2f14ca07764dc2b409
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Come aggiungere operazioni a un'API in Gestione API di Azure
 Prima di poter usare un'API in Gestione API, è necessario aggiungervi le operazioni. Questa guida descrive come aggiungere e configurare diversi tipi di operazioni a un'API in Gestione API.
 
-## <a name="add-operation"> </a>Aggiungere un'operazione
+## <a name="add-operation"></a>Aggiungere un'operazione
 Le operazioni vengono aggiunte e configurate in un'API nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API.
 
 ![Portale di pubblicazione][api-management-management-console]
@@ -66,7 +66,7 @@ In **Nome visualizzato** e **Descrizione** viene fornita una descrizione dell'op
 
 È possibile specificare la descrizione dell'operazione come testo normale o HTML nella casella di testo **Descrizione** .
 
-## <a name="operation-caching"> </a>Memorizzazione nella cache di un'operazione
+## <a name="operation-caching"></a>Memorizzazione nella cache di un'operazione
 La memorizzazione nella cache della risposta riduce la latenza percepita dai consumer dell'API, riduce l'utilizzo della larghezza di banda e diminuisce il carico nel servizio Web HTTP che implementa l'API. 
 
 Per abilitare la memorizzazione nella cache per l'operazione in modo facile e veloce, selezionare la scheda **Memorizzazione nella cache** e selezionare la casella di controllo **Abilita**.
@@ -94,7 +94,7 @@ Per aggiungere un parametro di query, fare clic su **Aggiungi parametro di query
 
 ![Parametri della richiesta][api-management-request-parameters]
 
-## <a name="request-body"> </a>Corpo della richiesta
+## <a name="request-body"></a>Corpo della richiesta
 Se l'operazione consente (ad esempio, PUT, POST) e richiede un corpo, è possibile fornirne un esempio in tutti i formati di rappresentazione supportati, ad esempio JSON e XML. 
 
 > Il corpo della richiesta è usato solo ai fini della documentazione e non viene convalidato.
@@ -128,7 +128,7 @@ Se necessario, aggiungere una descrizione facoltativa nella casella di testo **D
 
 Dopo avere configurato l'operazione, fare clic su **Salva**.
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Una volta aggiunte le operazioni a un'API, nel passaggio successivo l'API verrà associata a un prodotto e verrà pubblicata in modo che gli sviluppatori possano chiamare le relative operazioni.
 
 * [Come creare e pubblicare un prodotto][How to create and publish a product]

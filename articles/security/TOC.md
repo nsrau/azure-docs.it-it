@@ -63,7 +63,7 @@
 ### [Procedure consigliate per la sicurezza della gestione delle identità](azure-security-identity-management-best-practices.md)
 
 ## Servizi PaaS
-### [Proteggere distribuzioni PaaS](security-paas-deployments.md)
+### [Protezione delle distribuzioni PaaS](security-paas-deployments.md)
 #### [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante i Servizi app](security-paas-applications-using-app-services.md)
 #### [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante SQL](security-paas-applications-using-sql.md)
 ##### [Procedure consigliate per la sicurezza del database SQL](azure-database-security-best-practices.md)
@@ -95,6 +95,7 @@
 ## [Programma MVP per la sicurezza di Azure](azure-security-mvp.md)
 ## [Consulenza sulla sicurezza informatica](azure-security-cyber-services.md)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace](security-recommendations-azure-marketplace-images.md)
 ## Scenari
 ### [Gestire dati personali in Azure](manage-personal-data-azure.md)
 ### [Individuare, identificare e classificare i dati personali in Azure](how-to-discover-classify-personal-data-azure.md)

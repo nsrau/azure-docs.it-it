@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle API Graph di Azure Cosmos DB | Microsoft Docs
+title: Introduzione alle API Graph di Azure Cosmos DB | Documentazione Microsoft
 description: Informazioni su come usare Azure Cosmos DB per archiviare, eseguire query e attraversare grafi di grandi dimensioni con bassa latenza usando il linguaggio di query per grafi Gremlin di Apache TinkerPop.
 services: cosmos-db
 author: dennyglee
@@ -12,12 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: denlee
+ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 02d4042803bdbc3b982019e0e5d3bcd7ed3e0173
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduzione ad Azure Cosmos DB: API Graph
 
@@ -149,4 +148,3 @@ Per altre informazioni sul supporto di Graph in Azure Cosmos DB, vedere:
 
 * Introduzione all'[esercitazione sui grafi di Azure Cosmos DB](create-graph-dotnet.md).
 * Informazioni su come [eseguire query sui grafi in Azure Cosmos DB usando Gremlin](gremlin-support.md).
-

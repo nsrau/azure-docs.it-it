@@ -34,6 +34,8 @@
   items:
     - name: Usare un ambiente del servizio app
       href: using-an-ase.md
+    - name: Integrare con il gateway applicazione
+      href: integrate-with-application-gateway.md
     - name: Creare l'ambiente del servizio app da un modello
       href: create-from-template.md
 - name: riferimento

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
+ms.openlocfilehash: f88f7aaf71ff35875a13b33230abd5536c021201
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 0d0bceb32902a4ae506919f48302471543dd5162
-ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Usare PowerShell per monitorare e ridimensionare un singolo database SQL
 
 Questo esempio di script di PowerShell consente di monitorare le metriche delle prestazioni di un database, ne aumenta le prestazioni a un livello superiore e crea una regola di avviso per una delle metriche delle prestazioni. 
@@ -32,7 +30,7 @@ Questo esempio di script di PowerShell consente di monitorare le metriche delle 
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitorare e ridimensionare database SQL singoli")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -61,4 +59,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Per altri esempi, vedere tra gli [script di PowerShell per database SQL di Azure](../sql-database-powershell-samples.md).
-

@@ -1,4 +1,4 @@
----   
+---
 title: Panoramica dei criteri SSL per il gateway applicazione di Azure | Microsoft Docs
 description: Informazioni sul modo in cui il gateway applicazione di Azure consente di configurare criteri SSL
 services: application gateway
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-   
-
 # <a name="application-gateway-ssl-policy-overview"></a>Panoramica dei criteri SSL per il gateway applicazione
 
 È possibile usare il gateway applicazione di Azure per centralizzare la gestione dei certificati SSL e ridurre il sovraccarico di crittografia e decrittografia da una server farm back-end. Questa gestione centralizzata dei certificati SSL permette anche di specificare criteri SSL centrali adatti ai requisiti di sicurezza dell'organizzazione. In questo modo, è possibile soddisfare i requisiti di conformità, nonché le linee guida e le procedure consigliate per la sicurezza.
@@ -107,4 +104,3 @@ Il gateway applicazione supporta i pacchetti di crittografia seguenti, tra i qua
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come configurare criteri SSL, vedere [Configurare criteri SSL nel gateway applicazione](application-gateway-configure-ssl-policy-powershell.md).
-

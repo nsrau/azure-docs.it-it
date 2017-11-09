@@ -2,11 +2,11 @@
 
 Per i passaggi di questa esercitazione si presuppone che sia in esecuzione Ubuntu Linux.
 
-Aprire una shell ed eseguire i comandi seguenti per installare i pacchetti prerequisiti:
+Per installare i pacchetti prerequisiti, aprire una shell ed eseguire i comandi seguenti:
 
 ```bash
 sudo apt-get update
-sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
+sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake pkg-config libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
 ```
 
 Nella shell eseguire il comando seguente per clonare il repository GitHub Azure IoT Edge nel computer locale:

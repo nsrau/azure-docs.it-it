@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Servizi cloud Microsoft e sicurezza di rete
 I Servizi cloud Microsoft offrono servizi e infrastruttura su scala elevata, capacità di livello aziendale e molte opzioni per la connettività ibrida. I clienti possono scegliere di accedere a questi servizi tramite Internet o con Azure ExpressRoute, che offre connettività di rete privata. La piattaforma Microsoft Azure consente ai clienti di estendere con facilità la propria infrastruttura nel cloud e di sviluppare architetture a più livelli. Inoltre, le terze parti possono abilitare capacità avanzate offrendo servizi di sicurezza e appliance virtuali. Questo white paper offre una panoramica dei problemi relativi a sicurezza e architettura che i clienti dovrebbero tenere in considerazione quando usano i Servizi cloud Microsoft con accesso tramite ExpressRoute. Il documento illustra anche come creare servizi più sicuri sulle reti virtuali di Azure.
@@ -532,8 +532,8 @@ L'aggiunta di una connessione di rete con peering privato di ExpressRoute può e
 [8]: ./media/best-practices-network-security/example2design.png "Rete perimetrale in ingresso con appliance virtuale di rete e gruppo di sicurezza di rete"
 [9]: ./media/best-practices-network-security/example3design.png "Rete perimetrale bidirezionale con appliance virtuale di rete, gruppo di sicurezza di rete e routing definito dall'utente"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Visualizzazione logica delle regole del firewall"
-[11]: ./media/best-practices-network-security/example3designoptions.png "Rete perimetrale con appliance virtuale di rete connesso tramite rete ibrida"
-[12]: ./media/best-practices-network-security/example4designs2s.png "Rete perimetrale con appliance virtuale di rete connesso tramite VPN da sito a sito"
+[11]: ./media/best-practices-network-security/example3designoptions.png "Rete perimetrale con appliance virtuale di rete connessa tramite rete ibrida"
+[12]: ./media/best-practices-network-security/example4designs2s.png "Rete perimetrale con appliance virtuale di rete connessa tramite VPN da sito a sito"
 [13]: ./media/best-practices-network-security/example4networklogical.png "Rete logica dal punto di vista dell'appliance virtuale di rete"
 [14]: ./media/best-practices-network-security/example5designoptions.png "Rete perimetrale con gateway di Azure connesso tramite rete ibrida da sito a sito"
 [15]: ./media/best-practices-network-security/example5designs2s.png "Rete perimetrale con gateway di Azure che usa la VPN da sito a sito"

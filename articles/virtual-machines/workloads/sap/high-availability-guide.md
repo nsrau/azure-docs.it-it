@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65236f527b62b4990b062fb6a54ce13b3c182e93
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: ae90fe1d6d9e91bffa3fd4c6a7d79d069ab604a2
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure
 
@@ -380,7 +380,7 @@ ms.lasthandoff: 08/29/2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -418,13 +418,13 @@ ms.lasthandoff: 08/29/2017
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
-[virtual-network-deploy-multinic-arm-cli]:../../../virtual-network/virtual-network-deploy-multinic-arm-cli.md
-[virtual-network-deploy-multinic-arm-ps]:../../../virtual-network/virtual-network-deploy-multinic-arm-ps.md
+[virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
+[virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-networks-multiple-nics.md
+[virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
@@ -522,7 +522,6 @@ Un cluster di failover è un gruppo di 1 + n server (nodi) indipendenti che funz
 * **Maggioranza dei nodi e dei dischi**. Ogni nodo e un disco designato (un disco di controllo) nello spazio di archiviazione del cluster possono votare quando sono disponibili e in comunicazione. Il cluster funziona solo con la maggioranza dei voti, vale a dire con più della metà dei voti. Questa modalità ha senso in un ambiente cluster con un numero pari di nodi. Se metà dei nodi e il disco sono online, il cluster rimane in uno stato di integrità.
 * **Maggioranza dei nodi e delle condivisioni file**. Ogni nodo e una condivisione file designata (controllo di condivisione file) creata dall'amministratore possono votare, indipendentemente dal fatto che i nodi e la condivisione file siano disponibili e in comunicazione. Il cluster funziona solo con la maggioranza dei voti, vale a dire con più della metà dei voti. Questa modalità ha senso in un ambiente cluster con un numero pari di nodi. È simile alla modalità Maggioranza dei nodi e dei dischi, ma usa una condivisione file di controllo invece di un disco di controllo. Questa modalità è facile da implementare, ma la condivisione file potrebbe diventare un singolo punto di guasto, se non è a disponibilità elevata.
 * **Non di maggioranza - solo disco**. Il cluster ha un quorum se un nodo è disponibile e in comunicazione con un disco specifico nello spazio di archiviazione del cluster. Solo i nodi che sono anche in comunicazione con questo disco possono aggiungersi al cluster. Si consiglia di non usare questa modalità.
- 
 
 ## <a name="fdfee875-6e66-483a-a343-14bbaee33275"></a> Windows Server Failover Clustering locale
 La figura 1 illustra un cluster con due nodi. Se la connessione di rete tra i nodi viene interrotta ed entrambi i nodi rimangono operativi, un disco quorum o una condivisione file determina quale nodo continuerà a fornire le applicazioni e i servizi del cluster. Il nodo che ha accesso alla condivisione file o al disco quorum è il nodo che garantisce la continuità dei servizi.
@@ -701,9 +700,9 @@ _**Figura 11:** Impostare i parametri di Azure Resource Manager di disponibilit�
     * Cluster DBMS: <*SIDSistemaSAP*>-db-<*Numero*>
 
   * **Schede di rete per tutte le macchine virtuali, con gli indirizzi IP associati**:
-    * <*SIDSistemaSAP*>-nic-di-<*Numero*>
+    * <*SIDSistemaSAP*&gt;-nic-di-&lt;*Numero*>
     * <*SIDSistemaSAP*>-nic-ascs-<*Numero*>
-    * <*SIDSistemaSAP*>-nic-db-<*Numero*>
+    * <*SIDSistemaSAP*&gt;-nic-db-&lt;*Numero*>
 
   * **Account di archiviazione di Azure**
 
@@ -1471,7 +1470,7 @@ Per modificare il profilo SAP dell'istanza di ASCS/SCS:
 
 #### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Aggiungere una porta probe
 
-Usare la funzionalità probe del servizio di bilanciamento del carico interno per il corretto funzionamento della configurazione del cluster con Azure Load Balancer. Il servizio di bilanciamento del carico interno di Azure distribuisce in genere il carico di lavoro in ingresso in modo uniforme tra le macchine virtuali. Questa operazione non funziona tuttavia in alcune configurazioni di cluster perché è attiva una sola istanza. L'altra istanza è passiva e non può accettare carico di lavoro. La funzionalità probe è utile quando il servizio di bilanciamento del carico interno di Azure assegna il carico di lavoro solo a un'istanza attiva. Con la funzionalità probe, il servizio di bilanciamento del carico interno può rilevare l'istanza attiva e usare solo questa istanza come destinazione del carico di lavoro.
+Usare la funzionalità probe del servizio di bilanciamento del carico interno per il corretto funzionamento della configurazione del cluster con Azure Load Balancer. Il servizio di bilanciamento del carico interno di Azure distribuisce in genere il carico di lavoro in ingresso in modo uniforme tra le macchine virtuali. Questa operazione non funziona tuttavia in alcune configurazioni di cluster perché è attiva una sola istanza. L'altra istanza è passiva e non può accettare carichi di lavoro. La funzionalità probe è utile quando il servizio di bilanciamento del carico interno di Azure assegna il carico di lavoro solo a un'istanza attiva. Con la funzionalità probe, il servizio di bilanciamento del carico interno può rilevare l'istanza attiva e usare solo questa istanza come destinazione del carico di lavoro.
 
 Per aggiungere una porta probe:
 
@@ -1643,7 +1642,7 @@ _**Figura 62:** In SIOS DataKeeper, replicare il volume locale dal nodo A al nod
 
   ![Figura 63: In Gestione cluster di failover, il gruppo di cluster <SID> SAP è in esecuzione nel nodo B del cluster][sap-ha-guide-figure-5002]
 
-  _**Figura 63**: In Gestione cluster di failover, il gruppo di cluster SAP <*SID*> è in esecuzione nel nodo B del cluster_
+  _**Figura 63**: In Gestione cluster di failover, il gruppo di cluster SAP &lt;*SID*&gt; è in esecuzione nel nodo B del cluster_
 
   Il disco condiviso è ora montato nel nodo B del cluster. SIOS DataKeeper replica i dati dall'unità S del volume di origine nel nodo B del cluster all'unità S del volume di destinazione nel nodo A del cluster, ad esempio da **pr1-ascs-1 [10.0.0.41]** a **pr1-ascs-0 [10.0.0.40]**.
 

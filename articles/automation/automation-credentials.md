@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
+ms.openlocfilehash: 70f6272d936b097a9458dfa18279a70727da9d6b
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 540362e27e0552780d61038cf8285d934795129c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="credential-assets-in-azure-automation"></a>Asset credenziali in Automazione di Azure
 Un asset credenziali di Automazione contiene un oggetto [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) contenente credenziali di sicurezza, ad esempio un nome utente e una password. I Runbook e le configurazioni DSC possono usare i cmdlet che accettano un oggetto PSCredential per l'autenticazione oppure possono estrarre il nome utente e la password dell'oggetto PSCredential per fornirli ad alcune applicazioni o servizi che richiedono l'autenticazione. Le proprietà delle credenziali sono archiviate in modo sicuro in Automazione di Azure ed è possibile accedervi nel Runbook o nella configurazione DSC con l'attività [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) .
 
 > [!NOTE]
-> Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata usando il certificato master e viene quindi usata per crittografare l'asset.  
+> Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata mediante il certificato master e viene quindi usata per crittografare l'asset.  
 
-## <a name="windows-powershell-cmdlets"></a>Cmdlet di Windows PowerShell
+## <a name="azure-classic-powershell-cmdlets"></a>Cmdlet di Azure classici per PowerShell
 I cmdlet della tabella seguente vengono usati per creare e gestire asset credenziali di automazione con Windows PowerShell.  Sono inclusi nel [modulo Azure PowerShell](/powershell/azure/overview) , disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
 
 | Cmdlet | Descrizione |
@@ -36,6 +35,16 @@ I cmdlet della tabella seguente vengono usati per creare e gestire asset credenz
 | [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Crea nuove credenziali di Automazione. |
 | [Remove- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Rimuove le credenziali di Automazione. |
 | [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Imposta le proprietà per le credenziali di Automazione esistenti. |
+
+## <a name="azurerm-powershell-cmdlets"></a>Cmdlet di PowerShell AzureRM
+Per AzureRM, per creare e gestire asset di credenziali di automazione con Windows PowerShell, vengono usati i cmdlet della tabella seguente.  Sono inclusi nel [modulo AzureRM.Automation](/powershell/azure/overview), disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
+
+| Cmdlet | Descrizione |
+|:--- |:--- |
+| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Recupera informazioni riguardo un asset credenziali.  |
+| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Crea nuove credenziali di Automazione. |
+| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Rimuove le credenziali di Automazione. |
+| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Imposta le proprietà per le credenziali di Automazione esistenti. |
 
 ## <a name="runbook-activities"></a>Attività del Runbook
 Le attività incluse nella tabella seguente vengono usate per accedere alle credenziali in un Runbook o nelle configurazioni DSC.
@@ -121,5 +130,4 @@ L'esempio seguente illustra un esempio di accesso alle credenziali dei runbook P
 * Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md)
 * Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md) 
 * Per iniziare a usare i runbook di Python2, vedere [Il primo runbook Python2](automation-first-runbook-textual-python2.md) 
-
 

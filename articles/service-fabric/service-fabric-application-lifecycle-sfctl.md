@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: 6eb58b31f20f239d310415d44f61e7455918dae9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: c3a2eb3e6e54f952ef963bb2a0292d9ad7b53bc5
-ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Gestire un'applicazione di Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric
 
@@ -31,14 +30,14 @@ Per distribuire una nuova applicazione, completare questi passaggi:
 
 1. Caricare un pacchetto dell'applicazione nell'archivio immagini di Service Fabric.
 2. Eseguire il provisioning di un tipo di applicazione.
-3. Specificare e creare un'applicazione.
-4. Specificare e creare i servizi.
+3. Eliminare il contenuto dell'archivio immagini.
+4. Specificare e creare un'applicazione.
+5. Specificare e creare i servizi.
 
 Per rimuovere un'applicazione esistente, completare questi passaggi:
 
 1. Eliminare l'applicazione.
 2. Annullare il provisioning del tipo di applicazione associato.
-3. Eliminare il contenuto dell'archivio immagini.
 
 ## <a name="deploy-a-new-application"></a>Distribuire un'applicazione nuova
 
@@ -65,6 +64,18 @@ sfctl application provision --application-type-build-path app_package_dir
 ```
 
 Il valore per `application-type-build-path` è il nome della directory in cui è stato caricato il pacchetto dell'applicazione.
+
+### <a name="delete-the-application-package"></a>Eliminare il pacchetto dell'applicazione
+
+Al termine della registrazione dell'applicazione, è consigliabile rimuovere il pacchetto dell'applicazione.  L'eliminazione dei pacchetti di applicazioni dall'archivio immagini consente di liberare risorse di sistema.  Conservando pacchetti inutilizzati, viene occupato spazio di archiviazione su disco e si verificano problemi di prestazioni delle applicazioni. 
+
+Per eliminare il pacchetto dell'applicazione dall'archivio immagini, usare il comando seguente:
+
+```azurecli
+sfctl store delete --content-path app_package_dir
+```
+
+`content-path` deve essere il nome della directory caricata al momento della creazione dell'applicazione.
 
 ### <a name="create-an-application-from-an-application-type"></a>Creare un'applicazione da un tipo di applicazione
 
@@ -127,18 +138,6 @@ sfctl application unprovision --application-type-name TestAppTye --application-t
 
 Il nome del tipo e la versione del tipo devono corrispondere al nome e alla versione indicati nel manifesto dell'applicazione di cui in precedenza è stato eseguito il provisioning.
 
-### <a name="delete-the-application-package"></a>Eliminare il pacchetto dell'applicazione
-
-Dopo avere annullato il provisioning del tipo di applicazione, è possibile eliminare il pacchetto dell'applicazione dall'archivio immagini se non è più necessario. L'eliminazione di pacchetti di applicazioni consente di recuperare spazio su disco. 
-
-Per eliminare il pacchetto dell'applicazione dall'archivio immagini, usare il comando seguente:
-
-```azurecli
-sfctl store delete --content-path app_package_dir
-```
-
-`content-path` deve essere il nome della directory caricata al momento della creazione dell'applicazione.
-
 ## <a name="upgrade-application"></a>Aggiornare l'applicazione
 
 Dopo avere creato l'applicazione, è possibile ripetere lo stesso set di passaggi per eseguire il provisioning di una seconda versione dell'applicazione. Con un aggiornamento dell'applicazione Service Fabric è possibile passare a eseguire la seconda versione dell'applicazione. Per altre informazioni, vedere la documentazione su [Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md).
@@ -148,6 +147,7 @@ Per eseguire un aggiornamento, eseguire prima il provisioning della versione suc
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
+sfctl store delete --content-path app_package_dir_2
 ```
 
 Si consiglia quindi di eseguire un aggiornamento automatico monitorato, avviare l'aggiornamento usando il comando seguente:
@@ -169,4 +169,3 @@ Infine, se un aggiornamento è in corso e deve essere annullato, è possibile us
 * [Azure Service Fabric command line](service-fabric-cli.md) (Riga di comando di Service Fabric)
 * [Introduzione a Service Fabric in Linux](service-fabric-get-started-linux.md)
 * [Service Fabric application upgrade](service-fabric-application-upgrade.md) (Aggiornamento di un'applicazione Service Fabric)
-

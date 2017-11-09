@@ -15,10 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Scenario di Automazione di Azure - Integrazione del controllo del codice sorgente con Visual Studio Team Services
 

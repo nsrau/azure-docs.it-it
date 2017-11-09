@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
+ms.openlocfilehash: 1a7c98207a5f19d514a0cd05b66898e7fb725944
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 787f729732accd74c212b3be9520af50a2f04261
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
 In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -28,7 +27,7 @@ In questo articolo viene illustrato come collegare dischi nuovi o esistenti a un
 Prima di collegare i dischi alla macchina virtuale, leggere i seguenti suggerimenti:
 
 * La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Per usare l'archiviazione Premium, è necessaria una macchina virtuale della serie DS o GS. Con queste macchine virtuali, è possibile usare dischi Premium e Standard. L’archiviazione Premium è disponibile solo in determinate aree geografiche. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Per usare l'archiviazione Premium, è necessaria una macchina virtuale della serie DS o GS. Con queste macchine virtuali, è possibile usare dischi Premium e Standard. L’archiviazione Premium è disponibile solo in determinate aree geografiche. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * I dischi collegati a macchine virtuali sono effettivamente file con estensione VHD archiviati in Azure. Per informazioni dettagliate, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
@@ -76,4 +75,3 @@ Prima di collegare i dischi alla macchina virtuale, leggere i seguenti suggerime
 
 ## <a name="next-steps"></a>Passaggi successivi
 È anche possibile [collegare un disco dati](add-disk.md) usando l'interfaccia della riga di comando di Azure.
-

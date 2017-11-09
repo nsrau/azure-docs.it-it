@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
 ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configurazione del progetto Azure tramite più configurazioni del servizio
 Un progetto di servizio cloud di Azure include due file di configurazione: ServiceDefinition.csdef e ServiceConfiguration.cscfg. Questi file sono inclusi nel pacchetto dell'applicazione di servizio cloud di Azure e vengono distribuiti in Azure.

@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
 ms.openlocfilehash: 4f8dd685c3ae89535217d7a17a01c5129ca7e6e4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="http2-support-in-azure-cdn"></a>Supporto HTTP/2 nella rete CDN di Azure
 
-HTTP/2 è una revisione principale HTTP/1.1\. Fornisce più velocemente esperienza utente migliorata, tempo di risposta ridotto e delle prestazioni web, mantenendo i metodi HTTP familiarità, codici di stato e semantica. Anche se HTTP/2 è progettato per funzionare con HTTP e HTTPS, molti browser Web client supportano solo HTTP/2 su TLS.
+HTTP/2 è una revisione principale del protocollo HTTP/1.1\. Fornisce prestazioni Web più veloci, riduce il tempo di risposta e offre un'esperienza utente migliore pur mantenendo invariati i metodi, i codici di stato e la semantica di HTTP. Anche se HTTP/2 è progettato per funzionare con HTTP e HTTPS, molti browser Web client supportano solo HTTP/2 su TLS.
 
 ###<a name="http2-benefits"></a>Vantaggi di HTTP/2
 

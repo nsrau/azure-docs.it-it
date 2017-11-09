@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
@@ -201,4 +200,3 @@ Se in ServiceManifest è stato specificato
 e i valori Port1 e Protocol1 per i parametri di Aplication sono null o vuoti. La porta è comunque stabilita da ServiceFabric. E il protocollo sarà tcp.
 
 Si supponga di specificare un valore errato. Ad esempio per la porta è stato specificato un valore stringa "Foo" anziché di tipo int.  Il comando New-ServiceFabricApplication avrà esito negativo con l'errore seguente: The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid (Il parametro di override con nome "ServiceEndpoint1" attributo "Port1" nella sezione "ResourceOverrides" non è valido). Il valore specificato è "Foo", mentre era richiesto "int".
-

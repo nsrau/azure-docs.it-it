@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: a1a0679b91304df5cbc3dcaec14abfeaaa25c04f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a81751270075095ccb3bb80039efb9c0c6c1e02d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Esercitazione: Creare la prima pipeline per trasformare i dati usando il cluster Hadoop
 > [!div class="op_single_selector"]
@@ -30,6 +29,10 @@ ms.lasthandoff: 09/25/2017
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere la [guida introduttiva per la creazione di una data factory con Azure Data Factory versione 2](../quickstart-create-data-factory-dot-net.md).
 
 In questa esercitazione si compila la prima data factory di Azure con una pipeline di dati. La pipeline trasforma i dati di input tramite l'esecuzione di script Hive su un cluster Azure HDInsight (Hadoop) per generare i dati di output.  
 
@@ -108,4 +111,3 @@ Il portale di Azure e Visual Studio forniscono l'interfaccia utente grafica per 
 
 
   
-

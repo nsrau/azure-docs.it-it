@@ -17,6 +17,8 @@
       items:
         - name: SSMS
           href: sql-database-connect-query-ssms.md
+        - name: Portale di Azure
+          href: sql-database-connect-query-portal.md
         - name: Visual Studio Code
           href: sql-database-connect-query-vscode.md
         - name: .NET con Visual Studio
@@ -135,12 +137,16 @@
           href: sql-database-disaster-recovery.md
         - name: Eseguire un'esercitazione sul ripristino
           href: sql-database-disaster-recovery-drills.md
-    - name: Caricare e spostare dati
+    - name: Eseguire la migrazione al database SQL
       items:
         - name: Eseguire la migrazione del database SQL Server
           href: sql-database-cloud-migrate.md
         - name: Modifiche di T-SQL
           href: sql-database-transact-sql-information.md
+        - name: Gestire il database dopo la migrazione
+          href: sql-database-manage-after-migration.md
+    - name: Caricare e spostare dati
+      items:
         - name: Copiare un database
           href: sql-database-copy.md
         - name: Importare un database
@@ -169,8 +175,6 @@
           href: sql-database-operate-query-store.md
         - name: Eventi estesi
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: Livelli di compatibilità
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: Monitorare in memoria
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Scalabilità orizzontale
@@ -267,6 +271,12 @@
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Continuità aziendale
       items:
+        - name: 'Configurare l''insieme di credenziali: backup'
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: 'Eseguire la replica geografica: portale'
+          href: sql-database-geo-replication-portal.md
+    - name: Caricare e spostare dati
+      items:
         - name: Caricare dati con BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Caricare dati con ADF
@@ -299,6 +309,10 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Automazione di Azure
           href: sql-database-manage-automation.md
+        - name: Procedure consigliate per la sincronizzazione dati SQL
+          href: sql-database-best-practices-data-sync.md
+        - name: Risolvere i problemi della sincronizzazione dati SQL
+          href: sql-database-troubleshoot-data-sync.md
     - name: Scalabilità orizzontale
       items:
         - name: Creare un'app partizionata

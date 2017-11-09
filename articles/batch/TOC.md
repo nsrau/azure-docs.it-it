@@ -20,6 +20,7 @@
 ### [Attività simultanee nei nodi](batch-parallel-node-tasks.md)
 ### [Conteggio delle attività in base allo stato](batch-get-task-counts.md)
 ### [Creare un pool con un'immagine personalizzata](batch-custom-images.md)
+### [Creare un pool in una rete virtuale](batch-virtual-network.md)
 ### [Query di elenco efficienti](batch-efficient-list-queries.md)
 ### [Attività di preparazione e completamento dei processi](batch-job-prep-release.md)
 ### [Nodi di calcolo Linux](batch-linux-nodes.md)
@@ -46,7 +47,7 @@
 ## [Interfaccia della riga di comando di Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Node.js](/nodejs/api/overview/azure/batch)
 ## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](/rest/api/batchservice)
 ## [Log di diagnostica di Batch](batch-diagnostics.md)
@@ -62,6 +63,7 @@
 ## [Variabili di ambiente per i nodi di calcolo di Azure Batch](batch-compute-node-environment-variables.md)
 
 # Risorse correlate
+## [Intelligenza artificiale per Batch](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Elaborazione dati con Batch e Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Soluzioni Batch e HPC nel cloud di Azure](batch-hpc-solutions.md)

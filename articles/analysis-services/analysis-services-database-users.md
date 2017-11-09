@@ -4,7 +4,7 @@ description: Informazioni su come gestire ruoli del database e utenti in un serv
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: d0bc7d7514f111b4bbde33bd60ae21264bd797fc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 53e946bba6bbd882e78b51ee8d222ab0d3ec056a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
 

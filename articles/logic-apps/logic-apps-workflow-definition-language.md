@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: bdf078a0cebf3c36d5916035fb5fd7e47d231abe
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Schema del linguaggio di definizione del flusso di lavoro per App per la logica di Azure
 
@@ -167,7 +167,7 @@ Gli operatori sono i caratteri che possono essere usati all'interno delle espres
 |Expression|Versione di valutazione|  
 |----------------|----------------|  
 |"@function('Hello')"|Chiama il membro funzione della definizione con la stringa letterale Hello come primo parametro.|  
-|"@function('It's Cool!')"|Chiama il membro funzione della definizione con la stringa letterale 'It's Cool!' come primo parametro.|  
+|"@function('It''s Cool!')"|Chiama il membro funzione della definizione con la stringa letterale 'It's Cool!' come primo parametro.|  
 |"@function().prop1"|Restituisce il valore della proprietà prop1 del membro `myfunction` della definizione.|  
 |"@function('Hello').prop1"|Chiama il membro funzione della definizione con la stringa letterale 'Hello' come primo parametro e restituisce la proprietà prop1 dell'oggetto.|  
 |"@function(parameters('Hello'))"|Valuta il parametro Hello e passa il valore alla funzione.|  

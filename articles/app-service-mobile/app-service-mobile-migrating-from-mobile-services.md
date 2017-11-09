@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
+ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
 Con la [disponibilità generale del servizio app di Azure], è possibile eseguire facilmente la migrazione sul posto dei siti di Servizi mobili di Azure per sfruttare appieno tutte le funzionalità del servizio app di Azure.  Questo documento illustra cosa accade durante la migrazione del sito da Servizi mobili di Azure al servizio app di Azure.
@@ -145,7 +144,7 @@ Il sito è disponibile tramite Git o FTP e può essere pubblicato nuovamente con
 4. Fare clic su **Credenziali di distribuzione** nel menu PUBBLICAZIONE.
 5. Immettere le nuove credenziali di distribuzione nelle apposite caselle e quindi fare clic sul pulsante Salva.
 
-È possibile usare queste credenziali per clonare il sito con Git o configurare distribuzioni automatizzate da GitHub, TFS o Mercurial.  Per altre informazioni, vedere [Documentazione sulla distribuzione del servizio app di Azure].
+È possibile usare queste credenziali per clonare il sito con Git o configurare distribuzioni automatizzate da GitHub, TFS o Mercurial.  Per altre informazioni, vedere la [documentazione sulla distribuzione del Servizio app di Azure].
 
 ### <a name="appsettings"></a>Impostazioni dell'applicazione
 La maggior parte delle impostazioni di un servizio mobile di cui è stata eseguita la migrazione è disponibile in Impostazioni app.  Nel [portale di Azure] è possibile ottenere un elenco delle impostazioni dell'app.
@@ -229,7 +228,7 @@ I processi pianificati vengono elencati con la frequenza specificata prima della
 3. Fare clic su **Impostazioni** e quindi su **Pianificazione**.
 4. Selezionare la ricorrenza **Una sola volta** e quindi fare clic su **Salva**.
 
-I processi su richiesta si trovano in `App_Data/config/scripts/scheduler post-migration`.  È consigliabile convertire tutti i processi su richiesta in [Processi Web] o in [funzioni].  Scrivere i nuovi processi dell'Utilità di pianificazione come [Processi Web] o [funzioni].
+I processi su richiesta si trovano in `App_Data/config/scripts/scheduler post-migration`.  È consigliabile convertire tutti i processi su richiesta in [processi Web] o in [funzioni].  Scrivere i nuovi processi dell'Utilità di pianificazione come [processi Web] o [funzioni].
 
 ### <a name="notification-hubs"></a>Hub di notifica
 Servizi mobili usa Hub di notifica per le notifiche push.  Le impostazioni app riportate di seguito vengono usate per collegare l'hub di notifica al servizio mobile dopo la migrazione:
@@ -375,29 +374,26 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 <!-- Links -->
 [Prezzi del servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
-[Scalabilità automatica]: ../app-service-web/web-sites-scale.md
-[servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
-[Documentazione sulla distribuzione del servizio app di Azure]: ../app-service-web/web-sites-deploy.md
+[Scalabilità automatica]: ../app-service/web-sites-scale.md
+[servizio app di Azure]: ../app-service/app-service-web-overview.md
 [portale di Azure classico]: https://manage.windowsazure.com
 [portale di Azure]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [piani dell'utilità di pianificazione di Azure]: ../scheduler/scheduler-plans-billing.md
-[distribuzione continua]: ../app-service-web/app-service-continuous-deployment.md
+[distribuzione continua]: ../app-service/app-service-continuous-deployment.md
 [Convertire gli spazi dei nomi di tipo Misto]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
-[nomi di dominio personalizzati]: ../app-service-web/web-sites-custom-domain-name.md
+[nomi di dominio personalizzati]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler
 [disponibilità generale del servizio app di Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[registrazione]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[registrazione]: ../app-service/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Confronto tra Servizi mobili e il servizio app]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Hub di notifica]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[monitoraggio delle prestazioni]: ../app-service-web/web-sites-monitor.md
+[monitoraggio delle prestazioni]: ../app-service/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[slot di staging]: ../app-service-web/web-sites-staged-publishing.md
-[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
-[Processi Web]: ../app-service-web/websites-webjobs-resources.md
+[slot di staging]: ../app-service/web-sites-staged-publishing.md
+[VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT transform samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [funzioni]: ../azure-functions/functions-overview.md
-

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
+ms.openlocfilehash: 715076ee1ce33370ca2b2399549b7c907ac48f3e
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 01357ceca1d78c80c901c9fbec08ce85f02fb958
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2017
 ---
-
 # <a name="deploy-docker-ce-cluster"></a>Distribuire un cluster Docker CE
 
 In questa guida introduttiva viene distribuito un cluster Docker CE usando l'interfaccia della riga di comando di Azure. Un'applicazione multicontenitore costituita dal front-end Web e da un'istanza di Redis viene quindi distribuita ed eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet.
@@ -50,7 +48,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westcentralus",
+  "location": "ukwest",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -72,7 +70,7 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 
 In alcuni casi la sottoscrizione di Azure ha accesso limitato alle risorse di Azure, ad esempio con una versione di valutazione gratuita limitata. Se la distribuzione non riesce a causa di core disponibili limitati, ridurre il numero di agenti predefinito aggiungendo `--agent-count 1` al comando [az acs create](/cli/azure/acs#create). 
 
-Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato json sul cluster.
+Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato JSON sul cluster.
 
 ## <a name="connect-to-the-cluster"></a>Connettersi al cluster
 

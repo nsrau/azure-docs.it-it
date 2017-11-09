@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: juanpere
+ms.openlocfilehash: 5d0b7b1ab5893e55a6e2aa16451b6a9fc1481966
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: caab61a18fd5bb27ecc62cf1126823f79c3fdf4d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="get-started-with-device-management-netnode"></a>Introduzione alla gestione dei dispositivi (.NET/Node)
 
@@ -63,13 +62,13 @@ In questa sezione viene creata un'app console .NET (tramite C#) che attiva un ri
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto con la stringa di connessione dell'hub IoT creato nella sezione precedente e il dispositivo di destinazione.
+5. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto con la stringa di connessione dell'hub IoT creato nella sezione "Creare un hub IoT". 
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static JobClient jobClient;
-        static string targetDevice = "{deviceIdForTargetDevice}";
+        static string targetDevice = "myDeviceId";
         
 6. Aggiungere il metodo seguente alla classe **Program**.  Questo codice ottiene il dispositivo gemello per il dispositivo in fase di riavvio e restituisce le proprietà segnalate.
    

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 7/3/2017
 ms.author: delhan
+ms.openlocfilehash: d24d1f194b74b9da6a463d3efd741b402102fde3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: bd48128a078821b7a4baa02d5d7ceecc6de99608
-ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Come reimpostare la password di Linux locale nelle VM di Azure
 
 Questo articolo illustra diversi metodi per reimpostare le password delle macchine virtuali (VM) di Linux locali. Se l'account utente è scaduto o si vuole creare un nuovo account, è possibile usare i metodi seguenti per creare un nuovo account amministratore locale e riottenere l'accesso alla VM.

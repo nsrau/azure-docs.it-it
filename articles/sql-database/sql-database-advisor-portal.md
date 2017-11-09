@@ -1,6 +1,6 @@
 ---
 title: Applicare le raccomandazioni per le prestazioni - Database SQL di Azure | Microsoft Docs
-description: "È possibile usare il portale di Azure per trovare raccomandazioni per le prestazioni che consentono di ottimizzare le prestazioni del database SQL di Azure o per correggere eventuali problemi individuati nel carico di lavoro."
+description: Usare il portale di Azure per trovare raccomandazioni per le prestazioni che consentono di ottimizzare le prestazioni del database SQL di Azure.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -12,14 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 018afaa8b08bd001e55693390e80c8e2c4f33a30
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
@@ -37,7 +37,7 @@ Usare la procedura seguente per trovare raccomandazioni per le prestazioni nel p
 
 Le raccomandazioni per le prestazioni vengono visualizzate in una tabella simile a quella illustrata nella figura seguente:
 
-![Consigli](./media/sql-database-advisor-portal/recommendations.png)
+![Raccomandazioni](./media/sql-database-advisor-portal/recommendations.png)
 
 Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestazioni nelle categorie seguenti:
 
@@ -49,7 +49,7 @@ Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestaz
 
 
 > [!NOTE]
-> Il database SQL di Azure deve monitorare le attività almeno per un giorno per poter individuare alcune raccomandazioni. Il database SQL di Azure può ottimizzare più facilmente modelli di query coerenti anziché picchi irregolari casuali di attività. Se non sono disponibili raccomandazioni, nella pagina **Raccomandazione per le prestazioni** viene visualizzato un messaggio che ne spiega il motivo.
+> Il database SQL di Azure deve monitorare le attività almeno per un giorno per poter individuare alcune raccomandazioni. Il database SQL di Azure può ottimizzare più facilmente modelli di query coerenti anziché picchi irregolari casuali di attività. Se non sono disponibili raccomandazioni, nella pagina **Performance recommendation** (Raccomandazione prestazioni) viene visualizzato un messaggio che ne spiega il motivo.
 > 
 
 È anche possibile visualizzare lo stato delle ultime operazioni storiche. Selezionare un'indicazione o lo stato per visualizzare altri dettagli.
@@ -72,8 +72,8 @@ Il database rimane online mentre viene applicata la raccomandazione. Un database
 ### <a name="apply-an-individual-recommendation"></a>Applicare una singola indicazione
 È possibile leggere e accettare le indicazioni una alla volta.
 
-1. Nel pannello **Raccomandazioni** selezionare una raccomandazione.
-2. Nel pannello **Dettagli** fare clic sul pulsante **Applica**.
+1. Nella pagina **Raccomandazioni** selezionare una raccomandazione.
+2. Nella pagina **Dettagli** fare clic sul pulsante **Applica**.
    
     ![Applica suggerimento](./media/sql-database-advisor-portal/apply.png)
 
@@ -83,19 +83,19 @@ La raccomandazione selezionata verrà applicata nel database.
 Se l'elenco di raccomandazioni contiene voci che si vuole rimuovere dall'elenco, ignorare la raccomandazione:
 
 1. Selezionare una raccomandazione nell'elenco **Raccomandazioni** per aprire i dettagli.
-2. Fare clic su **Ignora** nel pannello **Dettagli**.
+2. Fare clic su **Ignora** nella pagina **Dettagli**.
 
 Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco **Raccomandazioni** :
 
-1. Nel pannello **Raccomandazioni** fare clic su **Visualizza rimosse**.
+1. Nella pagina **Raccomandazioni** fare clic su **Visualizza rimosse**.
 2. Selezionare un elemento ignorato nell'elenco per visualizzarne i dettagli.
 3. Facoltativamente, fare clic su **Annulla rimozione** per aggiungere nuovamente l'indice all'elenco principale di **Raccomandazioni**.
 
 
 ### <a name="enable-automatic-tuning"></a>Abilitare l'ottimizzazione automatica
-È possibile impostare il database SQL di Azure in modo che implementi automaticamente le raccomandazioni. Man mano che le indicazioni vengono rese disponibili, verranno applicate automaticamente. Come per tutte le raccomandazioni gestite dal servizio, se l'impatto sulle prestazioni è negativo le raccomandazioni verranno annullate.
+È possibile impostare il database SQL di Azure in modo che implementi automaticamente le raccomandazioni. Man mano che le raccomandazioni vengono rese disponibili, verranno applicate automaticamente. Come per tutte le raccomandazioni gestite dal servizio, se l'impatto sulle prestazioni è negativo le raccomandazioni verranno annullate.
 
-1. Nel pannello **Raccomandazioni** fare clic su **Automatizza**:
+1. Nella pagina **Raccomandazioni** fare clic su **Automatizza**:
    
     ![Impostazioni di Advisor](./media/sql-database-advisor-portal/settings.png)
 2. Selezionare le azioni da automatizzare:
@@ -110,7 +110,7 @@ Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script*
 ### <a name="canceling-recommendations"></a>Annullamento delle raccomandazioni
 Le raccomandazioni con stato **In sospeso**, **Verifica** o **Operazione completata** possono essere annullate. Le raccomandazioni con stato **In esecuzione** non possono essere annullate.
 
-1. Selezionare una raccomandazione nell'area **Cronologia ottimizzazione** per aprire il pannello dei **dettagli della raccomandazione**.
+1. Selezionare una raccomandazione nell'area **Cronologia ottimizzazione** per aprire la pagina dei **dettagli della raccomandazione**.
 2. Fare clic su **Annulla** per interrompere il processo di applicazione della raccomandazione.
 
 ## <a name="monitoring-operations"></a>Monitoraggio delle operazioni
@@ -131,23 +131,23 @@ Fare clic su una raccomandazione in-process nell'elenco per visualizzare altri d
 ![Indici consigliati](./media/sql-database-advisor-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Ripristino di una raccomandazione
-Se sono state usate le raccomandazioni per le prestazioni per applicare la raccomandazione, ovvero non è stato eseguito manualmente lo script T-SQL, la raccomandazione verrà annullata automaticamente se viene rilevato un impatto negativo sulle prestazioni. Se per qualsiasi motivo si vuole semplicemente annullare una raccomandazione, procedere come segue:
+Se sono state usate le raccomandazioni per le prestazioni per applicare la raccomandazione, ovvero non è stato eseguito manualmente lo script T-SQL, la raccomandazione annulla automaticamente la modifica se viene rilevato un impatto negativo sulle prestazioni. Se per qualsiasi motivo si vuole semplicemente annullare una raccomandazione, procedere come segue:
 
 1. Selezionare una raccomandazione applicata nell'area **Cronologia ottimizzazione** .
-2. Fare clic su **Ripristina** nel pannello dei **dettagli della raccomandazione**.
+2. Fare clic su **Ripristina** nella pagina dei **dettagli della raccomandazione**.
 
 ![Indici consigliati](./media/sql-database-advisor-portal/details.png)
 
 ## <a name="monitoring-performance-impact-of-index-recommendations"></a>Monitoraggio dell'impatto sulle prestazioni delle indicazioni relative agli indici
-Dopo aver implementato correttamente le raccomandazioni (attualmente, solo raccomandazioni relative alle operazioni sugli indici e alle query con parametri), fare clic su **Informazioni dettagliate query** nel pannello dei dettagli delle raccomandazioni per aprire [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) ed esaminare l'impatto sulle prestazioni delle query principali.
+Dopo aver implementato correttamente le raccomandazioni, attualmente, solo raccomandazioni relative alle operazioni sugli indici e alle query con parametri, fare clic su **Informazioni dettagliate query** nella pagina dei dettagli delle raccomandazioni per aprire [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) ed esaminare l'impatto sulle prestazioni delle query principali.
 
 ![Monitorare l'impatto sulle prestazioni](./media/sql-database-advisor-portal/query-insights.png)
 
 ## <a name="summary"></a>Riepilogo
-Il database SQL di Azure fornisce raccomandazioni per migliorare le prestazioni del database SQL. Questa funzionalità offre script T-SQL, nonché opzioni singole e completamente automatizzate, e risulta molto utile per ottimizzare il database e quindi per migliorare le prestazioni delle query.
+Il database SQL di Azure fornisce raccomandazioni per migliorare le prestazioni del database SQL. Questa funzionalità offre script T-SQL e consente di ottimizzare il database e quindi di migliorare le prestazioni delle query.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare le prestazioni. I carichi di lavoro dei database sono dinamici e cambiano in modo continuo. Il database SQL di Azure continuerà a monitorare e fornire raccomandazioni potenzialmente utili per migliorare le prestazioni del database. 
+Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare le prestazioni. I carichi di lavoro dei database sono dinamici e cambiano in modo continuo. Database SQL di Azure continua a monitorare e offrire raccomandazioni potenzialmente utili per migliorare le prestazioni del database. 
 
 * Vedere [Ottimizzazione automatica](sql-database-automatic-tuning.md) per altre informazioni sull'ottimizzazione automatica nel database SQL di Azure.
 * Vedere le [Raccomandazioni per le prestazioni](sql-database-advisor.md) per una panoramica delle raccomandazioni per le prestazioni per il database SQL di Azure.

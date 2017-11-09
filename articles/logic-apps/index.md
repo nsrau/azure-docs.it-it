@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 7f9790a52365b76e9d3dd1fdf1a17ab2aaaf8b5a
-ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: ff3f9ba6c225294e7570c5204701dd2f6b927318
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="logic-apps-documentation"></a>Documentazione di App per la logica
 
 Informazioni su come sviluppare app per la logica in grado di semplificare e integrare flussi di lavoro scalabili nel cloud. Esercitazioni, modelli e informazioni di riferimento sulle API in cui viene illustrato come progettare e distribuire flussi di lavoro aziendali automatizzati, nel cloud e in locale.
@@ -172,6 +170,5 @@ Informazioni su come sviluppare app per la logica in grado di semplificare e int
         </div>
     </li>
 </ul>
-
 
 

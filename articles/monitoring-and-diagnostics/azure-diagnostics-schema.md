@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
 ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure
 Questa pagina rappresenta l'indice delle versioni degli schemi di estensione di Diagnostica di Azure forniti con Microsoft Azure SDK.  

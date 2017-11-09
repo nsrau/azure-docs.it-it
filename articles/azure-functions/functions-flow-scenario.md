@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 09/20/2017
 ms.author: mblythe
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-a-function-from-microsoft-flow"></a>Chiamare una funzione da Microsoft Flow
 
 [Microsoft Flow](https://flow.microsoft.com/) facilita l'automazione dei flussi di lavoro e dei processi aziendali tra le app e i servizi preferiti dagli utenti. Gli sviluppatori professionisti possono usare Funzioni di Azure per estendere le funzionalità di Microsoft Flow, evitando ai creatori di app del flusso i dettagli tecnici.

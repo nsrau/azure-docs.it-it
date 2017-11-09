@@ -4,7 +4,7 @@ description:
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,20 +13,19 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d628dc621335acf231342a6d9186079de16e85f4
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 28e4e24f5706e88ede25060d5459617befd4aea9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-9-create-hierarchies"></a>Lezione 9: Creare gerarchie
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In questa lezione verranno create gerarchie. Le gerarchie sono gruppi di colonne disposti in livelli. Ad esempio, una gerarchia Geografia può includere i sottolivelli Paese, Stato, Regione e Città. Le gerarchie possono essere visualizzate separatamente da altre colonne in un elenco di campi dell'applicazione client per la creazione di report, in modo che sia più semplice per gli utenti del client individuare i campi appropriati da includere in un report. Per altre informazioni, vedere [Hierarchies](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular) (Gerarchie).
+In questa lezione verranno create gerarchie. Le gerarchie sono gruppi di colonne disposte in livelli. Ad esempio, una gerarchia Geografia può includere i sottolivelli Paese, Stato, Regione e Città. Le gerarchie possono essere visualizzate separatamente da altre colonne in un elenco di campi dell'applicazione client per la creazione di report, in modo che sia più semplice per gli utenti del client individuare i campi appropriati da includere in un report. Per altre informazioni, vedere [Hierarchies](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular) (Gerarchie).
   
 Per creare gerarchie, usare la finestra di progettazione dei modelli in *Vista diagramma*. La creazione e la gestione delle gerarchie non è supportata in vista dati.  
   
@@ -85,4 +84,3 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
 [Lezione 10: Creare partizioni](../tutorials/aas-lesson-10-create-partitions.md). 
   
   
-

@@ -15,14 +15,12 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 47b17c0d81e8597d3125949b26906cc356a9af11
-ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
 Questo articolo illustra come configurare i connettori del proxy applicazione di Azure Active Directory (Azure AD) per l'uso di server proxy in uscita. È rivolto ai clienti con ambienti di rete che dispongono di proxy esistenti.
@@ -189,4 +187,3 @@ Se vengono visualizzati altri codici di risposta, ad esempio 407 o 502, signific
 - [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-understand-connectors.md)
 
 - In caso di problemi di connettività del connettore, porre una domanda nel [forum di Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) o creare un ticket per il team di supporto Microsoft.
-

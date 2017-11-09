@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
+ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 0398e9f814614b3dccf849385903a8ed8717eafb
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>Creare un indirizzo IP pubblico in una zona di disponibilità con il portale di Azure
 
 È possibile distribuire un indirizzo IP pubblico in una zona di disponibilità di Azure (anteprima). Una zona di disponibilità è una zona fisicamente separata in un'area di Azure. È possibile passare agli argomenti seguenti:

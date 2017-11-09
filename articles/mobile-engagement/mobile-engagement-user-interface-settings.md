@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>Come gestire le impostazioni globali dell'applicazione
 Le opzioni del menu **Impostazioni** disponibili per un'applicazione variano a seconda della piattaforma dell'applicazione e delle autorizzazioni di cui si dispone per l'applicazione. Sono disponibili le impostazioni seguenti: Dettagli, Progetti, Push nativo, Velocità push, Tag (info app) e Pressione commerciale. L'opzione di menu Tag (info app) della sezione Impostazioni può essere gestita dall'applicazione (utilizzando l’SDK) o dal back-end (utilizzando l'API dispositivo). 

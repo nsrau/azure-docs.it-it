@@ -15,14 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/21/2017
 ms.author: liamca
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Esempi di sintassi di query Lucene per la creazione di query in Ricerca di Azure
 Quando si creano query per Ricerca di Azure, è possibile usare la [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predefinita o il [parser di query Lucene in Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Il parser di query Lucene supporta costrutti di query più complessi, ad esempio le query con ambito campo, ricerca fuzzy, ricerca di prossimità, aumento priorità dei termini e ricerca di espressioni regolari.
 
@@ -80,7 +78,7 @@ Per eseguire una ricerca fuzzy, aggiungere il simbolo tilde "~" alla fine di una
 
 **Esempio 3** : fare clic con il pulsante destro del mouse sul frammento di query seguente. Questa query cerca i processi con il termine associate, che non è scritto correttamente:
 
-* [&queryType=full&search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+* [&amp;queryType=full&amp;search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
 > [!Note]
 > Le query fuzzy non vengono [analizzate](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), il che può sorprendere se si prevede lo stemming o la lemmatizzazione. L'analisi lessicale viene eseguita solo su termini completi, la query di un termine o di una locuzione. I tipi di query con termini incompleti, ad esempio query di prefisso, di caratteri jolly, di espressioni regolari, fuzzy, vengono aggiunte direttamente alla struttura della query, ignorando la fase di analisi. L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
@@ -91,7 +89,7 @@ Le ricerche per prossimità vengono usate per trovare termini che si trovano vic
 
 **Esempio 4** : fare clic con il pulsante destro del mouse sulla query. Ricerca processi con il termine "senior analyst" separato da non più di una parola:
 
-* [&queryType=full&search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+* [&amp;queryType=full&amp;search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
 
 **Esempio 5** : ricerca le ricorrenze in cui "senior analyst" non è separato da nessuna parola.
 
@@ -106,7 +104,7 @@ Per aumentare la priorità di un termine, usare il carattere accento circonfless
 
 **Esempio 6**: fare clic con il pulsante destro del mouse sulla query. Cercare processi con il termine "computer analyst" per cui non sono presenti risultati con entrambe le parole computer e analyst, anche se all'inizio dei risultati sono presenti processi che contengono analyst.
 
-* [&queryType=full&search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [&amp;queryType=full&amp;search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 **Esempio 7**: provare di nuovo, questa volta aumentando la priorità dei risultati con il termine computer rispetto al termine analyst, se non esiste nessuna delle due parole.
 

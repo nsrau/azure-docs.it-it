@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 5479981ed4c017e6953ef616588ca0e4060ce3b2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
 Questo studio consente di:
@@ -119,7 +119,7 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 2. Passare a **Identity Protection**.
 3. Nel pannello principale di **Azure AD Identity Protection** fare clic su **Impostazioni**. 
 4. Nel pannello **Impostazioni del portale** in **Regole di sicurezza** fare clic su **Rischio di accesso**.
-5. Nel * * Accedi rischio * * pannello seleziona **su** in **Abilita regola**. 
+5. Nel pannello **Rischio di accesso** selezionare **Sì** in **Abilita regola**. 
 6. Selezionare una delle opzioni seguenti:
    
    a. Per bloccare, selezionare **Medio** in **Blocca l'accesso**

@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: d4681e2f2552589e310f80cbf763bd453c0eba84
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 1778a4af004afd45464e37e198d78b4f0977c1c4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -31,7 +30,9 @@ ms.lasthandoff: 09/25/2017
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 > 
-> 
+ 
+> [!NOTE]
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere la [guida introduttiva per la creazione di una data factory con Azure Data Factory versione 2](../quickstart-create-data-factory-dot-net.md).
 
 In questo articolo viene usato un modello di Azure Resource Manager per creare la prima data factory di Azure. Per eseguire l'esercitazione usando altri strumenti/SDK, selezionare una delle opzioni dall'elenco a discesa.
 
@@ -332,7 +333,7 @@ Creare un file JSON denominato **ADFTutorialARM-Parameters.json** contenente i p
 
 ## <a name="monitor-pipeline"></a>Monitorare la pipeline
 1. Dopo l'accesso al [portale di Azure](https://portal.azure.com/) fare clic su **Esplora** e selezionare **Data factory**.
-     ![Esplorare->Data factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+     ![Esplorare-&gt;Data factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2. Nel pannello **Data factory** fare clic sulla data factory **TutorialFactoryARM** creata.    
 3. Nel pannello **Data factory** relativo alla data factory scelta fare clic su **Diagramma**.
 
@@ -623,5 +624,4 @@ Questo modello crea una data factory denominata GatewayUsingArmDF con un gateway
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) |Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. |
-
 

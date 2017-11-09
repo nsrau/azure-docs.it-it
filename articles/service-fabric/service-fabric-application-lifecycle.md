@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/14/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a33d25f3806090307f6fb14dbb821264f2e4f28b
-ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: d892c5979d0dec54767fe5a9ef84b05739683604
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo di vita dell'applicazione Service Fabric
 Analogamente ad altre piattaforme, un'applicazione su Service Fabric di Azure in genere passa attraverso le fasi seguenti: progettazione, sviluppo, test, distribuzione, aggiornamento, manutenzione e rimozione. Service Fabric di Azure offre un supporto di prima categoria per l'intero ciclo di vita delle applicazioni cloud, dallo sviluppo alla distribuzione, alla gestione giornaliera, alla manutenzione e infine alla rimozione delle autorizzazioni. Il modello di servizio abilita diversi ruoli per la partecipazione indipendente al ciclo di vita delle applicazioni. Questo articolo offre una panoramica delle interfacce API e del modo in cui vengono utilizzate dai diversi ruoli nelle fasi del ciclo di vita di un'applicazione di Service Fabric.
@@ -100,4 +99,3 @@ Per altre informazioni sullo sviluppo, il test e la gestione di applicazioni e s
 * [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md)
 * [Aggiornamento dell'applicazione](service-fabric-application-upgrade.md)
 * [Panoramica di Testabilità](service-fabric-testability-overview.md)
-

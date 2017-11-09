@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
-ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: e07b6808f2401ac7b2b21e5f8816bac5a15b50b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-portal"></a>Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nel portale di Azure classico
 
 > [!div class="op_single_selector"]
@@ -69,4 +67,3 @@ Per le macchine virtuali aggiuntive nel set con carico bilanciato, ripetere i pa
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-

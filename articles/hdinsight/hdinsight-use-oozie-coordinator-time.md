@@ -17,12 +17,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
+ms.openlocfilehash: a1f6285dd230afd6d4de202a0cb25e5097e378f2
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 709541a88b2b15924b93c630693ad7a3f276e29c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Usare il coordinatore di Oozie basato sul tempo con Hadoop in HDInsight per definire flussi di lavoro e coordinare processi
 Questo articolo descrive come definire flussi di lavoro e coordinatori e come attivare i processi del coordinatore in base al tempo. Prima di procedere può essere utile vedere [Usare Oozie con HDInsight][hdinsight-use-oozie]. Oltre a Oozie, è possibile pianificare processi anche con Azure Data Factory. Per informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data factory](../data-factory/transform-data.md).
@@ -663,7 +662,8 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
     # killOozieJob($oozieJobId)
     ```
 
-    Rimuovere i segni # se si desidera eseguire le funzioni aggiuntive.
+Rimuovere i segni # se si desidera eseguire le funzioni aggiuntive.
+
 9. Se si usa la versione 2.1 del cluster HDinsight, sostituire "https://$clusterName.azurehdinsight.net:443/oozie/v2/" con "https://$clusterName.azurehdinsight.net:443/oozie/v1/". La versione 2.1 del cluster HDInsight non supporta la versione 2 dei servizi Web.
 10. Fare clic su **Esegui script** o premere **F5** per eseguire lo script. L'output sarà analogo al seguente:
 
@@ -762,4 +762,3 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [img-runworkflow-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-

@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 3596b50b68cabf212218825566c0f8313f054f65
-ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Informazioni su come gestire utenti amministrativi, SSH e dischi di controllo o di ripristino in macchine virtuali Linux usando l'estensione VMAccess con l'interfaccia della riga di comando di Azure 2.0
 Il disco della VM Linux genera errori. In qualche modo la password radice della VM Linux è stata reimpostata o la chiave privata SSH è stata eliminata accidentalmente. In passato, quando nel data center si verificava questa situazione, era necessario accedere all'unità e quindi aprire il KVM per raggiungere la console del server. L'estensione VMAccess di Azure può essere concepita come il commutatore tastiera, video e mouse che consente di accedere alla console per reimpostare l'accesso a Linux o eseguire la manutenzione a livello di disco.
@@ -236,5 +235,4 @@ L'aggiornamento di Linux mediante l'estensione VMAccess di Azure è un metodo pe
 [Creazione di modelli di Azure Resource Manager con le estensioni di VM Linux](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Uso di cloud-init per personalizzare una VM Linux durante la creazione](using-cloud-init.md)
-
 

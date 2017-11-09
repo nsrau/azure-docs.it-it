@@ -13,15 +13,14 @@ ms.custom: overview, mvc
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Active
 ms.date: 09/20/2017
 ms.author: carlrab
+ms.openlocfilehash: f97a1e7977e28765985991ba9e38ed4618e00bda
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d373ecaf585233f5daa4cf987e55adab9e099f8f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure 
 
@@ -118,7 +117,7 @@ Il [controllo del database SQL](sql-database-auditing.md) tiene traccia degli ev
 
 ### <a name="data-encryption-at-rest"></a>Crittografia di dati inattivi
 
-La funzionalità [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) (TDE) del database SQL consente di proteggere il sistema da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei database, dei backup associati e dei file di log delle transazioni inattivi, senza dover apportare modifiche all'applicazione. A partire da maggio 2017, tutti i nuovi database SQL di Azure creati vengono protetti automaticamente con Transparent Data Encryption (TDE). TDE è la tecnologia di crittografia dei dati inattivi collaudata di SQL, richiesta da molti standard di conformità per la protezione in caso di furto di supporti di archiviazione. I clienti possono gestire le chiavi di crittografia TDE e altri segreti in modo sicuro e conforme tramite Azure Key Vault.
+La funzionalità [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) (TDE) del database SQL consente di proteggere il sistema da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei database, dei backup associati e dei file di log delle transazioni inattivi, senza dover apportare modifiche all'applicazione. A partire da maggio 2017, tutti i nuovi database SQL di Azure creati vengono protetti automaticamente con Transparent Data Encryption (TDE). TDE è la tecnologia di crittografia dei dati inattivi collaudata di SQL, richiesta da molti standard di conformità per la protezione in caso di furto di supporti di archiviazione. I clienti possono gestire le chiavi di crittografia TDE e altri segreti in modo sicuro e conforme tramite Azure Key Vault.
 
 ### <a name="data-encryption-in-motion"></a>Crittografia dei dati in movimento
 
@@ -172,4 +171,3 @@ Il database SQL supporta lo sviluppo di applicazioni con Python, Java, Node.js, 
 - Per un set di esempi dell'interfaccia della riga di comando di Azure e di PowerShell, vedere:
   - [Esempi dell'interfaccia della riga di comando di Azure per database SQL](sql-database-cli-samples.md)
   - [Esempi di Azure PowerShell per database SQL](sql-database-powershell-samples.md)
-

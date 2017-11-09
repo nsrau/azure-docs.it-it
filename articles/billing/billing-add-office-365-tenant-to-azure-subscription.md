@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/13/2017
 ms.author: cjiang
+ms.openlocfilehash: e6300932d044ec9a4f88eb5bd5977220ed11d513
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: b7b3e4539110f68e1e6ef4a75110924a27b40c49
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>Collegare un tenant di Office 365 a una sottoscrizione di Azure
 Collegare le sottoscrizioni di Azure e Office 365 separate per accedere al tenant di Office 365 dalla sottoscrizione di Azure. Per collegare le sottoscrizioni, accedere ad Azure con l'account di amministratore del servizio di Azure, aggiungere una directory e quindi aggiungere l'account aziendale o dell'istituto di istruzione per Office 365 al tenant di Azure Active Directory.
@@ -94,5 +93,4 @@ Per aggiungere un amministratore alla sottoscrizione di Azure, vedere [Aggiunger
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-
 

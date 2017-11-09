@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a id="unity-roll-a-ball"></a>Creare il gioco Roll a Ball di Unity
 Questa esercitazione illustra i passaggi principali di un' [esercitazione su Roll a Ball di Unity](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial)leggermente modificata. Questo gioco di esempio è costituito da un oggetto "player" sferico controllato dall'utente dell'app e lo scopo del gioco è di raccogliere oggetti da collezione facendo scontrare l'oggetto player con questi oggetti da collezione. Ciò presuppone una certa conoscenza di base dell'ambiente dell'editor di Unity. In caso di problemi, vedere l'esercitazione completa. 
@@ -262,7 +262,7 @@ I passaggi seguenti sono tratti dall' [esercitazione di Unity](https://unity3d.c
 7. Premere **Play** nell'editor Unity e sarà possibile giocare a **Roll a Ball** spostando l'oggetto Player tramite i tasti della tastiera per indicare la direzione. 
 
 ### <a name="updating-the-game-for-mobile-play"></a>Aggiornamento del gioco per la riproduzione su dispositivo mobile
-Con le sezioni precedenti si è conclusa l'esercitazione di base di Unity. Ora il gioco verrà modificato in modo che sia semplice da usare sui dispositivi mobili. Si noti che finora per il test è stato usato l'input da tastiera. Ora verrà modificato per garantire il controllo del giocatore tramite movimenti del telefono, ad esempio usando l'accelerometro come input. 
+Con le sezioni precedenti si è conclusa l'esercitazione di base di Unity. Ora il gioco verrà modificato in modo che sia semplice da usare sui dispositivi mobili. Si noti che finora per il test è stato usato l'input da tastiera. Verrà ora modificato in modo da poter controllare il giocatore tramite il movimento del telefono, ad esempio usando l'accelerometro come input. 
 
 Aprire lo script **PlayerController** per modificare e aggiornare il metodo **FixedUpdate** in modo da usare il movimento dell'accelerometro per spostare l'oggetto Player. 
 

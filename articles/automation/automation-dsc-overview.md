@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
 ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-dsc-overview"></a>Panoramica della piattaforma DSC di Automazione di Azure
 
@@ -65,4 +65,4 @@ Si preferisce guardare che leggere? Guardare il video di seguito del maggio 2015
 * Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Automation DSC per Azure](automation-dsc-compile.md)
 * Per informazioni di riferimento sui cmdlet di PowerShell per Automation DSC per Azure, vedere [Azure Automation DSC cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet di Automation DSC per Azure)
 * Per informazioni sui prezzi, vedere [Prezzi di Automation DSC per Azure](https://azure.microsoft.com/pricing/details/automation/)
-* Per un esempio di utilizzo di Automation DSC per Azure in una pipeline di distribuzione continua, vedere [distribuzione continua per IaaS macchine virtuali utilizzando Automation DSC per Azure e Chocolatey](automation-dsc-cd-chocolatey.md)
+* Per vedere un esempio dell'uso di Automation DSC per Azure in una pipeline di distribuzione continua, vedere [Distribuzione continua in macchine virtuali IaaS tramite Automation DSC per Azure e Chocolatey](automation-dsc-cd-chocolatey.md)

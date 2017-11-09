@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 48c56e2de40a3166f22db88850c6df2489a35e8e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Spostare dati da un server SFTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -417,4 +416,3 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 Vedere gli articoli seguenti:
 
 * [Esercitazione dell'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate della creazione di una pipeline con un'attività di copia.
-

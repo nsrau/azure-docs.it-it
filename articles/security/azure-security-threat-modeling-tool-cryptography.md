@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Infrastruttura di sicurezza: crittografia - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -106,7 +106,7 @@ ms.lasthandoff: 08/29/2017
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passaggi** | <p>I prodotti devono usare la famiglia SHA-2 di algoritmi (SHA256, SHA384 e SHA512). Se è necessario un hash più breve, ad esempio una lunghezza di output di 128 bit, per la corrispondenza con una struttura di dati progettata per il più breve hash MD5, i team dei prodotti possono troncare uno degli hash SHA-2 (in genere, SHA256). Si noti che SHA384 è una versione troncata di SHA512. Il troncamento di hash crittografici per motivi di sicurezza a meno di 128 bit non è consentito. Il codice nuovo non deve usare gli algoritmi hash MD2, MD4, MD5, SHA-0, SHA-1 o RIPEMD. Da un punto di vista computazionale, le collisioni di hash sono possibili per questi algoritmi, che li interrompono in modo efficace.</p><p>Algoritmi hash .NET consentiti per la flessibilità crittografica gestita (in ordine di preferenza):</p><ul><li>SHA512Cng (conforme allo standard FIPS)</li><li>SHA384Cng (conforme allo standard FIPS)</li><li>SHA256Cng (conforme allo standard FIPS)</li><li>SHA512Managed (non-conformi a FIPS) (utilizzare SHA512 come nome dell'algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName)</li><li>SHA384Managed (non-conformi a FIPS) (utilizzare SHA384 come nome dell'algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName)</li><li>SHA256Managed (non-conformi a FIPS) (utilizzare SHA256 come nome dell'algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (conforme allo standard FIPS)</li><li>SHA256CryptoServiceProvider (conforme allo standard FIPS)</li><li>SHA384CryptoServiceProvider (conforme allo standard FIPS)</li></ul>| 
+| **Passaggi** | <p>I prodotti devono usare la famiglia SHA-2 di algoritmi (SHA256, SHA384 e SHA512). Se è necessario un hash più breve, ad esempio una lunghezza di output di 128 bit, per la corrispondenza con una struttura di dati progettata per il più breve hash MD5, i team dei prodotti possono troncare uno degli hash SHA-2 (in genere, SHA256). Si noti che SHA384 è una versione troncata di SHA512. Il troncamento di hash crittografici per motivi di sicurezza a meno di 128 bit non è consentito. Il codice nuovo non deve usare gli algoritmi hash MD2, MD4, MD5, SHA-0, SHA-1 o RIPEMD. Da un punto di vista computazionale, le collisioni di hash sono possibili per questi algoritmi, che li interrompono in modo efficace.</p><p>Algoritmi hash .NET consentiti per la flessibilità crittografica gestita (in ordine di preferenza):</p><ul><li>SHA512Cng (conforme allo standard FIPS)</li><li>SHA384Cng (conforme allo standard FIPS)</li><li>SHA256Cng (conforme allo standard FIPS)</li><li>SHA512Managed (non conforme allo standard FIPS). Usare SHA512 come nome di algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName</li><li>SHA384Managed (non conforme allo standard FIPS). Usare SHA384 come nome di algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName</li><li>SHA256Managed (non conforme allo standard FIPS). Usare SHA256 come nome di algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName</li><li>SHA512CryptoServiceProvider (conforme allo standard FIPS)</li><li>SHA256CryptoServiceProvider (conforme allo standard FIPS)</li><li>SHA384CryptoServiceProvider (conforme allo standard FIPS)</li></ul>| 
 
 ## <a id="strong-db"></a>Usare algoritmi di crittografia avanzata per crittografare i dati nel database
 

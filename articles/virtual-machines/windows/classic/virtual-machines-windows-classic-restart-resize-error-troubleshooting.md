@@ -15,12 +15,11 @@ ms.workload: required
 ms.date: 06/13/2017
 ms.devlang: na
 ms.author: delhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 7fe0636366c60d4679cfc69bd96cd532695b080e
-ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.openlocfilehash: e2053a0a78519a1c4a503dc1f620d99cfe20b69c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Windows esistente in Azure
 > [!div class="op_single_selector"]
@@ -84,5 +83,4 @@ Se il servizio cloud esistente non è associato a una rete virtuale basata sull'
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si verificano problemi durante la creazione di una VM Windows in Azure, vedere [Risolvere i problemi di distribuzione quando si crea una nuova macchina virtuale Windows in Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

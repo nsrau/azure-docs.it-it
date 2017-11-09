@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Connettersi a un server IBM MQ da app per la logica usando il connettore MQ 
 
 Microsoft Connector per MQ consente di inviare e recuperare i messaggi archiviati in un server MQ locale o in Azure. Il connettore include un client MQ Microsoft che comunica con un server IBM MQ remoto tramite una rete TCP/IP. Questo documento è una guida introduttiva all'uso del connettore MQ. Si consiglia di iniziare con la visualizzazione di un singolo messaggio in una coda, per poi provare altre azioni.    
@@ -126,4 +124,3 @@ Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali lim
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
-

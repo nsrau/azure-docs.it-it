@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>Configurare credenziali per l'autenticazione denominate
 Per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente, è necessario fornire le credenziali che Visual Studio può usare per l'autenticazione delle richieste inviate a Azure. In Visual Studio è possibile fornire queste credenziali accedendo a più posizioni. Ad esempio, da Esplora server è possibile aprire il menu di scelta rapida per il nodo **Azure** e scegliere **Connessione alla sottoscrizione di Microsoft Azure**. Dopo l'accesso le informazioni sulla sottoscrizione associate all'account Azure diverranno disponibili in Visual Studio. Non è necessario eseguire altre operazioni.

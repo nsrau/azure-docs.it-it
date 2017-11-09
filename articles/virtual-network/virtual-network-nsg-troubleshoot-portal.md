@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Risolvere i problemi relativi ai gruppi di sicurezza di rete tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
     Si notino le sezioni seguenti dell'immagine:
    
    * **Ambito:** impostato su *VM1*, ovvero la VM selezionata nel passaggio 3.
-   * **Interfaccia di rete:** *VM1-NIC1* . Una VM può avere più interfacce di rete (NIC). Ogni interfaccia di rete può avere regole di sicurezza effettive univoche. Per risolvere il problema può essere necessario visualizzare le regole di sicurezza effettive per ogni interfaccia di rete.
+   * **Interfaccia di rete:***VM1-NIC1* . Una VM può avere più interfacce di rete (NIC). Ogni interfaccia di rete può avere regole di sicurezza effettive univoche. Per risolvere il problema può essere necessario visualizzare le regole di sicurezza effettive per ogni interfaccia di rete.
    * **Gruppi di sicurezza di rete associati:** i gruppi di sicurezza di rete possono essere applicati sia all'interfaccia di rete che alla subnet cui è connessa l'interfaccia di rete. Nell'immagine, il gruppo di sicurezza di rete è stato applicato sia all'interfaccia di rete che alla subnet cui è connessa. È possibile fare clic sui nomi dei gruppi di sicurezza di rete per modificare le regole direttamente nei gruppi stessi.
    * **Scheda VM1-nsg:** l'elenco delle regole visualizzate nell'immagine si riferisce al gruppo di sicurezza di rete applicato all'interfaccia di rete. Azure crea diverse regole predefinite quando viene creato un gruppo di sicurezza di rete. Non è possibile rimuovere le regole predefinite, ma è possibile eseguirne l'override con regole di priorità più alta. Per altre informazioni sulle regole predefinite, vedere l'articolo generale sui [gruppi di sicurezza di rete](virtual-networks-nsg.md#default-rules) .
    * **Colonna DESTINAZIONE:** alcune regole hanno testo nella colonna, mentre altre hanno prefissi di indirizzo. Il testo è il nome dei tag predefiniti applicati alla regola di sicurezza al momento della creazione. I tag sono identificatori forniti dal sistema che rappresentano più prefissi. Selezionando una regola con un tag, ad esempio *AllowInternetOutBound*, sarà possibile visualizzare i prefissi nel pannello **Prefissi degli indirizzi** .

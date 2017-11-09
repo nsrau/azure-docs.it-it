@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: d63d4b6e9e230e814762aadbe57bb3971b129d95
-ms.contentlocale: it-it
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 5abddf3a8698e3eb39f118f54eeac62ce68fed39
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-application-consent-works"></a>Funzionamento del consenso per applicazioni
 
 Questo articolo offre altre informazioni sul funzionamento del framework di consenso di Azure AD per poter sviluppare applicazioni in modo più efficace.
@@ -34,4 +32,3 @@ Questo articolo offre altre informazioni sul funzionamento del framework di cons
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Azure AD in Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

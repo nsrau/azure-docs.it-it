@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 09/28/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 518e6a481ab6385b03dd3ddc2e155fb724e677fe
-ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 84d2bcc4ccc102f03d878bfede43672158469190
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Autorizzazioni per il sito azureiotsuite.com
 
@@ -47,18 +46,14 @@ Per altre informazioni sui ruoli di amministratore in AAD, vedere [Assegnazione 
 Per ogni tenant di AAD possono essere presenti più amministratori globali:
 
 * Quando si crea un tenant di AAD, si è per impostazione predefinita l'amministratore globale del tenant.
-* L'amministratore globale può eseguire il provisioning di una soluzione preconfigurata e gli viene assegnato un ruolo **Admin** per l'applicazione all'interno di tenant di AAD.
-* Se un altro utente nello stesso tenant di AAD crea un'applicazione, il ruolo predefinito concesso all'amministratore globale è **ReadOnly**.
-* Gli amministratori globali possono assegnare agli utenti dei ruoli per le applicazioni tramite il [portale di Azure][lnk-portal].
+* L'amministratore globale può effettuare il provisioning di soluzioni preconfigurate di base e standard.
 
 ### <a name="domain-user"></a>Utente di dominio
 
 Per ogni tenant di AAD possono essere presenti molti utenti del dominio:
 
-* Un utente di dominio può effettuare il provisioning di una soluzione preconfigurata tramite il sito [azureiotsuite.com][lnk-azureiotsuite]. Per impostazione predefinita, all'utente di dominio viene concesso il ruolo di **Amministratore** nell'applicazione in cui è stato eseguito il provisioning.
-* Un utente di dominio può creare un'applicazione usando lo script build.cmd nel repository [azure-iot-remote-monitoring][lnk-rm-github-repo], [azure-iot-predictive-maintenance][lnk-pm-github-repo] oppure [azure-iot-connected-factory][lnk-cf-github-repo]. Tuttavia, il ruolo predefinito concesso all'utente di dominio è **ReadOnly**, perché un utente di dominio non dispone dell'autorizzazione per assegnare i ruoli.
-* Se un altro utente nel tenant di AAD crea un'applicazione, all'utente di dominio viene assegnato il ruolo **ReadOnly** per impostazione predefinita per l'applicazione.
-* Un utente di dominio non può assegnare ruoli per le applicazioni, quindi non può aggiungere utenti o ruoli per gli utenti di un'applicazione anche se ne è stato effettuato il provisioning.
+* Un utente di dominio può effettuare il provisioning di una soluzione preconfigurata di base tramite il sito [azureiotsuite.com][lnk-azureiotsuite].
+* Un utente di dominio può creare una soluzione preconfigurata di base tramite l'interfaccia della riga di comando.
 
 ### <a name="guest-user"></a>Utente guest
 
@@ -75,55 +70,11 @@ I ruoli di amministrazione di Azure controllano la possibilità di eseguire il m
 
 È possibile trovare altre informazioni sui ruoli di amministratore nell'articolo [Come aggiungere o modificare i ruoli Co-amministratore, Amministratore del servizio e Amministratore account di Azure][lnk-admin-roles].
 
-## <a name="application-roles"></a>Ruoli applicazione
-
-I ruoli applicazione controllano l'accesso ai dispositivi nella soluzione preconfigurato.
-
-In un'applicazione su cui è stato eseguito il provisioning sono stati definiti due ruoli e uno implicito:
-
-* **Admin:** dispone di autorizzazioni complete per aggiungere, gestire, rimuovere i dispositivi e modificare le impostazioni.
-* **ReadOnly:** è possibile visualizzare i dispositivi, le regole, le azioni, i processi e i dati di telemetria.
-
-È possibile trovare le autorizzazioni assegnate a ogni ruolo nel file di origine [RolePermissions.cs][lnk-resource-cs].
-
-### <a name="changing-application-roles-for-a-user"></a>Modifica dei ruoli applicazione di un utente
-
-È possibile usare la procedura seguente per configurare un utente di Active Directory come amministratore della soluzione preconfigurata.
-
-Per modificare i ruoli per un utente, è necessario essere un amministratore globale di AAD:
-
-1. Accedere al [portale di Azure][lnk-portal].
-2. Selezionare **Azure Active Directory**.
-3. Verificare che si sta usando la directory selezionata in azureiotsuite.com durante il provisioning della soluzione. Se si dispone di più directory associate alla sottoscrizione, è possibile passare da una all'altra facendo clic sul nome dell'account in alto a destra del portale.
-4. Fare clic su **Applicazioni aziendali**, quindi su **Tutte le applicazioni**.
-4. Vengono visualizzate **Tutte le applicazioni** con stato **Qualsiasi**. Eseguire quindi una ricerca per un'applicazione con il nome della soluzione preconfigurata.
-5. Fare clic sul nome dell'applicazione che coincide con il nome della soluzione preconfigurata.
-6. Fare clic su **Utenti e gruppi**.
-7. Selezionare l'utente per cui si vogliono scambiare i ruoli.
-8. Fare clic su **Assegna** e selezionare il ruolo, ad esempio **Amministratore**, da assegnare all'utente, fare clic sul segno di spunta.
-
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Un amministratore del servizio vuole modificare il mapping della directory tra la sottoscrizione e un tenant di AAD specifico. Come completare questa attività
 
-1. Accedere al [portale di Azure classico][lnk-classic-portal] e fare clic su **Impostazioni** nell'elenco dei servizi sul lato sinistro.
-2. Selezionare la sottoscrizione per cui si vuole modificare il mapping della directory.
-3. Fare clic su **Modifica directory**.
-4. Nell'elenco a discesa selezionare la **Directory** si vuole usare. Fare clic sulla freccia Avanti.
-5. Verificare il mapping della directory e i coamministratori interessati. Se ci si sposta da un'altra directory, tutti i coamministratori dalla directory originale verranno rimossi.
-
-### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Un utente o membro di dominio del tenant di AAD ha creato una soluzione preconfigurata. Come gli viene assegnato un ruolo per l'applicazione?
-
-Contattare l'amministratore globale per diventare amministratore globale del tenant di AAD e assegnare ruoli agli utenti. In alternativa, contattare l'amministratore globale per assegnare direttamente un ruolo. Se si vuole modificare il tenant di AAD in cui è stata distribuita la soluzione preconfigurata, vedere la domanda successiva.
-
-### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Come si cambia il tenant AAD a cui sono assegnate l'applicazione e soluzione preconfigurata di monitoraggio remoto?
-
-È possibile eseguire una distribuzione cloud da <https://github.com/Azure/azure-iot-remote-monitoring> ed eseguire una ridistribuizione con un tenant AAD appena creato. Poiché per impostazione predefinita quando si crea un nuovo tenant di AAD si diventa un amministratore globale, si dispone anche dell'autorizzazione per aggiungere utenti e assegnare loro dei ruoli.
-
-1. Creare una directory di AAD nel [Portale di Azure][lnk-portal].
-2. Passare a <https://github.com/Azure/azure-iot-remote-monitoring>.
-3. Eseguire `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}`. Ad esempio `build.cmd cloud debug myRMSolution`.
-4. Quando richiesto, impostare il **tenantid** come tenant appena creato al posto del tenant precedente.
+Vedere [Come aggiungere una sottoscrizione esistente alla directory di Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organisational-account"></a>Si vuole modificare un amministratore del servizio o coamministratore quando si accede con un account dell'organizzazione
 
@@ -152,7 +103,6 @@ Per altre informazioni su IoT Suite, vedere come [personalizzare una soluzione p
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
-[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md
@@ -161,4 +111,3 @@ Per altre informazioni su IoT Suite, vedere come [personalizzare una soluzione p
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-

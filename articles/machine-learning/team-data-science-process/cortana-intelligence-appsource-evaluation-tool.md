@@ -13,13 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8340ae1231b7f40f739d7bbb63cee1bf0f095ab5
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
---- 
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
+---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Strumento di valutazione delle soluzioni Cortana Intelligence
 ## <a name="overview"></a>Panoramica
 È possibile usare lo strumento di valutazione delle soluzioni Cortana Intelligence per valutare la conformità delle soluzioni di analisi avanzata alle procedure consigliate di Microsoft. Microsoft interagisce costantemente con i partner (ISV o SI) per offrire soluzioni di alta qualità per i clienti, i rivenditori e l'implementazione. Questa guida descrive nel dettaglio l'utilizzo dello strumento di valutazione delle soluzioni con la soluzione corrente e le procedure consigliate specifiche per i controlli.
@@ -199,5 +198,4 @@ Per altre informazioni sull'automatizzazione del processo di training del modell
 [Programma Microsoft Azure Certified per la crescita dell'attività cloud](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
 
 [Microsoft Azure Certified per Cortana Intelligence](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
-
 

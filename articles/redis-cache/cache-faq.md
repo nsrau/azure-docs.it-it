@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: sdanie
 ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-redis-cache-faq"></a>Domande frequenti sulla Cache Redis di Azure
 Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure.

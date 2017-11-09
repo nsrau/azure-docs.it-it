@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2017
 ms.author: magoedte
+ms.openlocfilehash: 5e6687e4e868ae998c77bba231437d52fdbe719c
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: d01d9b8723e321ca0f2f9073d5b99b984e30d971
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Come distribuire un ruolo di lavoro ibrido per runbook di Linux
-I runbook in Automazione di Azure non possono accedere alle risorse in altri cloud o negli ambienti locali perché vengono eseguiti nel cloud di Azure.  La funzionalità Ruolo di lavoro ibrido per runbook di Automazione di Azure consente di eseguire runbook direttamente sul computer che ospita il ruolo e su risorse nell'ambiente per gestire tali risorse locali. I runbook vengono infatti archiviati e gestiti in Automazione di Azure e quindi distribuiti a uno o più computer designati.  
+
+I runbook in Automazione di Azure non possono accedere alle risorse in altri cloud o negli ambienti locali perché vengono eseguiti nel cloud di Azure. La funzionalità Ruolo di lavoro ibrido per runbook di Automazione di Azure consente di eseguire runbook direttamente sul computer che ospita il ruolo e su risorse nell'ambiente per gestire tali risorse locali. I runbook vengono infatti archiviati e gestiti in Automazione di Azure e quindi distribuiti a uno o più computer designati.
 
 Questa funzionalità è illustrata nell'immagine seguente:<br>  
 
@@ -50,13 +49,21 @@ Prima di procedere, è necessario annotare l'area di lavoro di Log Analytics a c
          $null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
-2.  Eseguire il comando seguente modificano i valori per i parametri *-w* e *-k* sul computer Linux.
+2.  Eseguire il comando seguente modificando i valori per i parametri *-w*, *-k*, *-g* e *-e*. Per il parametro *-g* sostituire il valore con il nome del gruppo del ruolo di lavoro ibrido per runbook che il nuovo ruolo di lavoro ibrido per runbook di Linux deve aggiungere. Se il nome non è già presente nell'account di Automazione, verrà eseguito un nuovo ruolo di lavoro ibrido per runbook con lo stesso nome.
     
     ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> --groupname <hybridgroupname> -e <automationendpoint>
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. Dopo il completamento del comando, il pannello Gruppi di ruoli di lavoro ibridi nel portale di Azure mostrerà il nuovo gruppo e il numero di membri oppure, nel caso di un gruppo esistente, il numero di membri verrà incrementato.  È possibile selezionare il gruppo nell'elenco nel pannello **Gruppi di ruoli di lavoro ibridi** e selezionare il riquadro **Ruoli di lavoro per runbook**.  Nel pannello **Ruoli di lavoro per runbook** sono elencati i membri del gruppo.  
 
+
+## <a name="turning-off-signature-validation"></a>Disattivazione della convalida della firma 
+Per impostazione predefinita, i ruoli di lavoro ibridi per runbook di Linux richiedono la convalida della firma. Se si esegue un runbook non firmato in un ruolo di lavoro, si visualizza un errore che contiene "Convalida firma non riuscita". Per disattivare la convalida della firma, eseguire il comando seguente, sostituendo il secondo parametro con l'ID dell'area di lavoro OMS:
+
+    ```
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
+    ```
+   
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Esaminare [Esecuzione dei runbook per Hybrid Runbook Workers](automation-hrw-run-runbooks.md) per informazioni su come configurare i runbook per automatizzare i processi nel centro dati locale o un altro ambiente cloud.

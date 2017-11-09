@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 5/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: cb7a9f01e43d41eb7315cb37a41e69f044ce5566
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: iscrizione e accesso degli utenti alle applicazioni tramite criteri personalizzati
 I criteri personalizzati sono file di configurazione che definiscono il comportamento del tenant di Azure Active Directory B2C. Questi criteri possono essere modificati completamente da uno sviluppatore di identità per completare un numero praticamente illimitato di attività.
@@ -41,7 +40,6 @@ Informazioni su come usare funzionalità specifiche di Azure Active Directory B2
 
 ## <a name="whats-new"></a>Novità
 Visitare spesso questa pagina per rimanere aggiornati sulle future modifiche apportate ad Azure Active Directory B2C. Gli aggiornamenti saranno anche resi noti su Twitter con @AzureAD.
-
 
 
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
+ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 062d82d1bb2126a5b135796a2b5fa00ccf02511d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
 Questo articolo integra la versione principale di Azure Data Factory: articolo di integrazione di Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo. 
@@ -89,7 +88,7 @@ Perché il flusso di lavoro end-to-end citato in precedenza funzioni, è necessa
 Per il secondo servizio collegato di Azure Machine Learning la configurazione è diversa a seconda che il servizio Web di Azure Machine Learning in uso sia un servizio Web classico o nuovo. Le differenze sono illustrate separatamente nelle sezioni seguenti. 
 
 ## <a name="web-service-is-a-classic-web-service"></a>Il servizio Web è un servizio Web classico
-Se il servizio Web predittivo è un **servizio Web classico**, creare il secondo **endpoint non predefinito e aggiornabile** tramite il [portale di Azure](https://manage.windowsazure.com). Per la procedura, vedere l'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md) . Dopo aver creato l'endpoint aggiornabile non predefinito, seguire questa procedura:
+Se il servizio Web predittivo è un **servizio Web classico**, creare il secondo **endpoint non predefinito e aggiornabile** usando il portale di Azure. Per la procedura, vedere l'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md) . Dopo aver creato l'endpoint aggiornabile non predefinito, seguire questa procedura:
 
 * Fare clic su **ESECUZIONE BATCH** per ottenere il valore dell'URI per la proprietà JSON **mlEndpoint**.
 * Fare clic su **AGGIORNA RISORSA** per ottenere il valore dell'URI per la proprietà JSON **updateResourceEndpoint**. La chiave API si trova nell'angolo in basso a destra della pagina dell'endpoint.
@@ -307,8 +306,7 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività Hive](transform-data-using-hadoop-hive.md)
 * [Attività Pig](transform-data-using-hadoop-pig.md)
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Attività Hadoop Streaming](transform-data-using-hadoop-streaming.md)
+* [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
 * [Attività stored procedure](transform-data-using-stored-procedure.md)
-

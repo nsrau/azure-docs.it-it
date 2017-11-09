@@ -1,6 +1,6 @@
 ---
 title: Servizio del database SQL di Azure | Microsoft Docs
-description: Informazioni sui livelli di servizio del database SQL
+description: Informazioni sui livelli di servizio per database singoli e di pool per offrire livelli di prestazioni e dimensioni di archiviazione.
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -13,15 +13,14 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Active
 ms.date: 08/20/2017
 ms.author: carlrab
+ms.openlocfilehash: 55f59fddee008eb42b7252d6368a56873a6abd16
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 0183e9c60da7c216a6268dfec3874eb76270f71d
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quali sono i livelli di servizio del database SQL di Azure?
 
@@ -80,5 +79,4 @@ Per i dettagli su livelli di prestazioni specifici e sulle opzioni relative alle
 - Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 * Altre informazioni sulle [DTU ed eDTU](sql-database-what-is-a-dtu.md).
 * Per informazioni sul monitoraggio dell'utilizzo di DTU, vedere [Monitoraggio e ottimizzazione delle prestazioni](sql-database-troubleshoot-performance.md).
-
 

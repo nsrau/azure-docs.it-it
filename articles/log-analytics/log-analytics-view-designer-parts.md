@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Riferimento alla parte di visualizzazione relativa a Progettazione viste di Log Analytics
 Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati provenienti dal repository OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascuna parte di visualizzazione disponibile per l'uso nelle viste personalizzate.
@@ -83,10 +83,10 @@ L'intestazione presenta un numero singolo che mostra il conteggio dei record ris
 | Colore |Colore delle barre o dei grafici sparkline. |
 | Nome e separatore valori |Delimitatore dei singoli caratteri per analizzare la proprietà text in più valori.  Per i dettagli, vedere le [impostazioni comuni](#name-value-separator). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
-| **Elenco** |**> Titoli di colonna** |
+| **Elenco** |**&gt; Titoli di colonna** |
 | Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
-| **Elenco** |**> Thresholds** (Soglie) |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
 
 ## <a name="two-numbers--list-part"></a>Parte relativa a Due numeri e all'elenco
@@ -112,10 +112,10 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 | Operazione |Operazione da eseguire per il grafico sparkline.  Per i dettagli, vedere le [impostazioni comuni](#sparklines). |
 | Nome e separatore valori |Delimitatore dei singoli caratteri per analizzare la proprietà text in più valori.  Per i dettagli, vedere le [impostazioni comuni](#name-value-separator). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
-| **Elenco** |**> Titoli di colonna** |
+| **Elenco** |**&gt; Titoli di colonna** |
 | Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
-| **Elenco** |**> Thresholds** (Soglie) |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
 
 ## <a name="donut--list-part"></a>Parte relativa all'anello e all'elenco
@@ -139,7 +139,7 @@ Nell'intestazione viene visualizzato un singolo numero riepilogato da una colonn
 | Text |Il testo da visualizzare sotto il valore all'interno dell'anello. |
 | Operazione |L'operazione da eseguire sulla proprietà del valore per riepilogare un singolo valore.<br><br>- Somma: aggiunge i valori di tutti i record.<br>- Percentuale: percentuale dei record restituiti in base ai valori in **Valori dei risultati usati nell'operazione relativa al centro** nel totale dei record nella query. |
 | I valori dei risultati usati nell'operazione centrale |Se si desidera, fare clic sul segno più per aggiungere uno o più valori.  I risultati della query saranno limitati ai record con i valori di proprietà specificati.  Se non vengono aggiunti valori, tutti i record sono inclusi nella query. |
-| **Opzioni aggiuntive** |**> Colors** (Colori) |
+| **Opzioni aggiuntive** |**&gt; Colors** (Colori) |
 | Colore 1<br>Colore 2<br>Colore 3 |Selezionare il colore per ognuno dei valori visualizzati nell'anello. |
 | **Opzioni aggiuntive** |**> Advanced Color Mapping** (Mappa colori avanzata) |
 | Valore campo |Digitare il nome di un campo da visualizzare con un colore diverso, se incluso nell'anello. |
@@ -152,10 +152,10 @@ Nell'intestazione viene visualizzato un singolo numero riepilogato da una colonn
 | Operazione |Operazione da eseguire per il grafico sparkline.  Per i dettagli, vedere le [impostazioni comuni](#sparklines). |
 | Nome e separatore valori |Delimitatore dei singoli caratteri per analizzare la proprietà text in più valori.  Per i dettagli, vedere le [impostazioni comuni](#name-value-separator). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
-| **Elenco** |**> Titoli di colonna** |
+| **Elenco** |**&gt; Titoli di colonna** |
 | Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
-| **Elenco** |**> Thresholds** (Soglie) |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
 
 ## <a name="two-timelines--list-part"></a>parte relativa alle due sequenze temporali e all'elenco
@@ -182,10 +182,10 @@ L'intestazione mostra i risultati di due query di log nel tempo come grafici a c
 | Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline.  Per i dettagli, vedere le [impostazioni comuni](#sparklines). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
-| **Elenco** |**> Titoli di colonna** |
+| **Elenco** |**&gt; Titoli di colonna** |
 | Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
-| **Elenco** |**> Thresholds** (Soglie) |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
 
 ## <a name="information-part"></a>Parte relativa alle informazioni
@@ -202,7 +202,7 @@ L'intestazione mostra il testo statico e un collegamento opzionale.  L'elenco mo
 | **Intestazione** | |
 | Image |File di immagine da visualizzare nell'intestazione. |
 | Etichetta |Testo da visualizzare nell'intestazione. |
-| **Intestazione** |**> Collegamento** |
+| **Intestazione** |**&gt; Collegamento** |
 | Etichetta |Testo del collegamento. |
 | Url |URL del collegamento. |
 | **Elementi informazione** | |
@@ -242,10 +242,10 @@ Nell'intestazione viene visualizzato un grafico a linee con più serie provenien
 | Operazione |Operazione da eseguire per il grafico sparkline.  Per i dettagli, vedere le [impostazioni comuni](#sparklines). |
 | Nome e separatore valori |Delimitatore dei singoli caratteri per analizzare la proprietà text in più valori.  Per i dettagli, vedere le [impostazioni comuni](#name-value-separator). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
-| **Elenco** |**> Titoli di colonna** |
+| **Elenco** |**&gt; Titoli di colonna** |
 | Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
-| **Elenco** |**> Thresholds** (Soglie) |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
 
 ## <a name="line-chart--list-part"></a>Parte relativa al grafico a linee e all'elenco
@@ -277,10 +277,10 @@ Nell'intestazione viene visualizzato un grafico a linee con più serie provenien
 | Operazione |Operazione da eseguire per il grafico sparkline.  Per i dettagli, vedere le [impostazioni comuni](#sparklines). |
 | Nome e separatore valori |Delimitatore dei singoli caratteri per analizzare la proprietà text in più valori.  Per i dettagli, vedere le [impostazioni comuni](#name-value-separator). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
-| **Elenco** |**> Titoli di colonna** |
+| **Elenco** |**&gt; Titoli di colonna** |
 | Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
-| **Elenco** |**> Thresholds** (Soglie) |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
 
 ## <a name="stack-of-line-charts-part"></a>Stack dei grafici a linee
@@ -294,7 +294,7 @@ Vengono visualizzati grafici a linee con più serie provenienti da una query di 
 | Titolo gruppo |Testo da visualizzare nella parte superiore del riquadro. |
 | Nuovo gruppo |Selezionare questa opzione per creare un nuovo gruppo nella vista che inizia con la visualizzazione corrente. |
 | Icona |File di immagine da visualizzare accanto al risultato nell'intestazione. |
-| **Grafico 1<br>Grafico 2<br>Grafico 3** |**> Header** (Intestazione) |
+| **Grafico 1<br>Grafico 2<br>Grafico 3** |**&gt; Header** (Intestazione) |
 | Titolo |Testo da visualizzare nella parte superiore del grafico. |
 | Sottotitolo |Testo da visualizzare sotto al titolo nella parte superiore del grafico. |
 | **Grafico 1<br>Grafico 2<br>Grafico 3** |**Grafico a linee** |

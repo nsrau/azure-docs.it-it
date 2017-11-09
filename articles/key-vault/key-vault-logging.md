@@ -3,7 +3,7 @@ title: Registrazione dell'insieme di credenziali delle chiavi di Azure| Document
 description: Usare questa esercitazione per un'introduzione alla registrazione dell'insieme di credenziali delle chiavi di Azure.
 services: key-vault
 documentationcenter: 
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/19/2017
-ms.author: cabailey
-ms.openlocfilehash: e9a4f16f048833dab49f7db79892fe47a5aeff37
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.date: 10/16/2017
+ms.author: barclayn
+ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione dell'insieme di credenziali delle chiavi di Azure
 L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).

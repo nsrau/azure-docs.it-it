@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se non si ha familiarità con le reti virtuali di Azure, si tratta di una funzionalità che consente di posizionare molte delle risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure][VNETOverview]. 
@@ -302,4 +301,3 @@ Oltre a differenze funzionali, vanno considerate le differenze di prezzo. La fun
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-

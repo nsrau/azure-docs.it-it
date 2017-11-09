@@ -1,6 +1,6 @@
 ---
-title: Install PowerShell for Azure Stack | Microsoft Docs
-description: Learn how to install PowerShell for Azure Stack.
+title: Installare PowerShell per Azure Stack | Documenti Microsoft
+description: Informazioni su come installare PowerShell per Azure Stack.
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -12,28 +12,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/13/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5555ee022e74b5d4791c5826ef80b166c4990a61
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 3014b8a424e554f3c46f1c7e76eab586d089e059
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/13/2017
 ---
+# <a name="install-powershell-for-azure-stack"></a>Installare PowerShell per Azure Stack  
 
-# <a name="install-powershell-for-azure-stack"></a>Install PowerShell for Azure Stack  
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+Moduli di Azure PowerShell compatibili Stack Azure necessarie per lavorare con lo Stack di Azure. In questa guida sono illustrati i passaggi necessari per installare PowerShell per Azure Stack. È possibile utilizzare i passaggi descritti in questo articolo del Kit di sviluppo dello Stack di Azure o da un client esterno basato su Windows, se si è connessi tramite VPN.
 
-Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. In this guide, we walk you through the steps required to install PowerShell for Azure Stack. You can use the steps described in this article either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
-
-This article has detailed instructions to install PowerShell for Azure Stack. However, if you want to quickly install and configure PowerShell, you can use the script that is provided in the [Get up and running with PowerShell](azure-stack-powershell-configure-quickstart.md) topic. 
+In questo articolo contiene istruzioni dettagliate per installare PowerShell per Azure Stack. Tuttavia, se si desidera installare e configurare PowerShell rapidamente, è possibile utilizzare lo script fornito nel [diventare operativi con PowerShell](azure-stack-powershell-configure-quickstart.md) argomento. 
 
 > [!NOTE]
-> The following steps require PowerShell 5.0. To check your version, run $PSVersionTable.PSVersion and compare the "Major" version.
+> Le operazioni seguenti richiedono PowerShell 5.0. Per controllare la versione in uso, eseguire $PSVersionTable.PSVersion e confrontare la versione "Principale".
 
-PowerShell commands for Azure Stack are installed through the PowerShell gallery. To regiser the PSGallery repository, open an elevated PowerShell session from the development kit or from a Windows-based external client if you are connected through VPN and run the following command:
+I comandi di PowerShell per lo Stack di Azure vengono installati tramite PowerShell gallery. Per il repository PSGallery regiser, aprire una sessione di PowerShell con privilegi elevata del kit di sviluppo o da un client esterno basato su Windows se si sono connessi tramite VPN ed eseguire il comando seguente:
 
 ```powershell
 Set-PSRepository `
@@ -41,23 +39,26 @@ Set-PSRepository `
   -InstallationPolicy Trusted
 ```
 
-## <a name="uninstall-existing-versions-of-powershell"></a>Uninstall existing versions of PowerShell
+## <a name="uninstall-existing-versions-of-powershell"></a>Disinstallare le versioni esistenti di PowerShell
 
-Before installing the required version, make sure that you uninstall any existing Azure PowerShell modules. You can uninstall them by using one of the following two methods:
+Prima di installare la versione richiesta, assicurarsi di disinstallare i moduli di PowerShell di Azure esistenti. È possibile disinstallarle utilizzando uno dei due metodi seguenti:
 
-* To uninstall the existing PowerShell modules, sign in to the development kit, or to the Windows-based external client if you are planning to establish a VPN connection. Close all the active PowerShell sessions and run the following command: 
+* Per disinstallare i moduli di PowerShell esistenti, accedere al kit di sviluppo o per client basati su Windows esterno se si prevede di stabilire una connessione VPN. Chiudere tutte le sessioni attive di PowerShell ed eseguire il comando seguente: 
 
    ```powershell
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Sign in to the development kit, or to the Windows-based external client if you are planning to establish a VPN connection. Delete all the folders that start with "Azure" from the `C:\Program Files (x86)\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules from the "AzureStackAdmin" and "global" user scopes. 
+* Accedere al kit di sviluppo o per client basati su Windows esterno se si prevede di stabilire una connessione VPN. Eliminare tutte le cartelle che iniziano con "Azure" dal `C:\Program Files (x86)\WindowsPowerShell\Modules` e `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` cartelle. Eliminazione di queste cartelle rimuove tutti i moduli PowerShell esistenti dal ambiti utente "globali" e "AzureStackAdmin". 
 
-The following sections describe the steps required to install PowerShell for Azure Stack. PowerShell can be installed on Azure Stack that is operated in connected, partially connected, or in a disconnected scenario. 
+Nelle sezioni seguenti vengono descritti i passaggi necessari per installare PowerShell per Azure Stack. PowerShell può essere installato nello Stack di Azure che viene gestita in connessa, parzialmente connesso o in uno scenario disconnesso. 
 
-## <a name="install-powershell-in-a-connected-scenario"></a>Install PowerShell in a connected scenario 
+## <a name="install-powershell-in-a-connected-scenario"></a>Installare PowerShell in uno scenario connesso 
 
-Azure Stack compatible AzureRM modules are installed through API version profiles. Azure Stack requires the **2017-03-09-profile** API version profile, which is available by installing the AzureRM.Bootstrapper module. To learn about API version profiles and the cmdlets provided by them, refer to the [manage API version profiles](azure-stack-version-profiles.md). In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. Run the following PowerShell script to install these modules on your development workstation:
+Moduli di Azure Resource Manager compatibili Stack Azure vengono installati tramite i profili della versione API. Stack di Azure richiede il **2017-03-09-profilo** profilo di versione API, che è disponibile per l'installazione del modulo AzureRM.Bootstrapper. Per ulteriori informazioni sui profili di versione API e i cmdlet forniti dall'utente, consultare il [gestire i profili di versione API](azure-stack-version-profiles.md). Oltre ai moduli di Azure Resource Manager, è inoltre necessario installare i moduli di Azure PowerShell specifici dello Stack. Eseguire lo script di PowerShell seguente per installare i moduli nella workstation di sviluppo:
+
+> [!IMPORTANT]
+> La versione del modulo PowerShell di Azure Resource Manager 1.2.11 viene fornito con un elenco di modifiche di rilievo. Eseguire l'aggiornamento dal 1.2.10 versione, vedere la Guida alla migrazione al [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -70,22 +71,25 @@ Azure Stack compatible AzureRM modules are installed through API version profile
 
   Install-Module `
     -Name AzureStack `
-    -RequiredVersion 1.2.10
+    -RequiredVersion 1.2.11
   ```
 
-To confirm the installation, run the following command:
+Per verificare l'installazione, eseguire il comando seguente:
 
   ```powershell
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
-  If the installation is successful, the AzureRM and AzureStack modules are displayed in the output.
+  Se l'installazione ha esito positivo, i moduli di Azure Resource Manager e AzureStack vengono visualizzati nell'output.
 
-## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>Install PowerShell in a disconnected or in a partially connected scenario
+## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>Installare PowerShell in un disconnesso o in uno scenario di connesso parziale
 
-In a disconnected scenario, you must first download the PowerShell modules to a machine that has internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
+In uno scenario disconnesso, è necessario innanzitutto scaricare i moduli di PowerShell in un computer con connettività internet e quindi li trasferiscono al Kit di sviluppo dello Stack di Azure per l'installazione.
 
-1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
+> [!IMPORTANT]
+> La versione del modulo PowerShell di Azure Resource Manager 1.2.11 viene fornito con un elenco di modifiche di rilievo. Eseguire l'aggiornamento dal 1.2.10 versione, vedere la Guida alla migrazione al [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
+
+1. Accedere a un computer in cui si dispone di connettività internet e usare lo script seguente per il download di Azure Resource Manager e AzureStack pacchetti nel computer locale:
 
    ```powershell
    $Path = "<Path that is used to save the packages>"
@@ -96,7 +100,7 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
      -Name AzureRM `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.10
+     -RequiredVersion 1.2.11
 
    Save-Package `
      -ProviderName NuGet `
@@ -104,14 +108,14 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
      -Name AzureStack `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.10 
+     -RequiredVersion 1.2.11 
    ```
 
-2. Copy the downloaded packages over to a USB device.
+2. Copiare i pacchetti scaricati in un dispositivo USB.
 
-3. Sign in to the development kit and copy the packages from the USB device to a location on the development kit. 
+3. Accedere al kit di sviluppo e copiare i pacchetti dal dispositivo USB in un percorso nel kit di sviluppo. 
 
-4. Now you must register this location as the default repository and install the AzureRM and AzureStack modules from this repository:
+4. È ora necessario registrare questo percorso come il repository predefinito e installare i moduli di Azure Resource Manager e AzureStack da questo repository:
 
    ```powershell
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
@@ -130,10 +134,9 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
      -Repository $RepoName 
    ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Passaggi successivi
 
-* [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
-* [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md)  
-* [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md) 
-* [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md)  
-
+* [Scaricare strumenti di Azure Stack da GitHub](azure-stack-powershell-download.md)
+* [Configurare l'ambiente di PowerShell dell'utente Azure Stack](user/azure-stack-powershell-configure-user.md)  
+* [Configurare l'ambiente di PowerShell dell'operatore Azure Stack](azure-stack-powershell-configure-admin.md) 
+* [Gestire i profili di versione API in Azure Stack](azure-stack-version-profiles.md)  

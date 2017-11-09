@@ -1,6 +1,6 @@
 ---
-title: Region management in Azure Stack | Microsoft Docs
-description: Overview of region management in Azure Stack.
+title: Gestione area nello Stack di Azure | Documenti Microsoft
+description: Panoramica di gestione di area nello Stack di Azure.
 services: azure-stack
 documentationcenter: 
 author: efemmano
@@ -14,45 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: efemmano
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="region-management-in-azure-stack"></a>Region management in Azure Stack
+# <a name="region-management-in-azure-stack"></a>Gestione area nello Stack di Azure
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Azure Stack has the concept of regions, which are logical entities comprised of the hardware resources that make up the Azure Stack infrastructure. Inside Region management, you can find all resources that are required to successfully operate the Azure Stack infrastructure lifecycle.
+Stack di Azure è il concetto di aree, ovvero sono entità logiche costituita da risorse hardware che costituiscono l'infrastruttura di Azure Stack. All'interno di gestione di area, è possibile trovare tutte le risorse che sono necessari per utilizzare correttamente il ciclo di vita di infrastruttura di Azure Stack.
 
-One integrated system deployment (referred to as an *Azure Stack cloud*) makes up a single region. Each Azure Stack Development Kit has one region, named **local**. If you deploy a second Azure Stack integrated system, or you set up another instance of the development kit on separate hardware, this Azure Stack cloud is a different region.
+Una distribuzione del sistema di integrazione (detto un *cloud Azure Stack*) costituiscono una singola area. Ogni Kit di sviluppo dello Stack di Azure è un'area, denominata **locale**. Se si distribuisce un sistema Azure Stack integrato secondo, o l'installazione di un'altra istanza del kit di sviluppo su computer separati, questo cloud di Azure Stack è un'area diversa.
 
-## <a name="information-available-through-the-region-management-tile"></a>Information available through the Region management tile
-Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile is available to an Azure Stack operator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
+## <a name="information-available-through-the-region-management-tile"></a>Informazioni disponibili tramite il riquadro di gestione di area
+Stack di Azure dispone di un set di funzionalità di gestione di area disponibili nel **Gestione area** riquadro. Questo riquadro è disponibile a un operatore di Stack di Azure nel dashboard predefinito nel portale di amministrazione. Tramite questo riquadro, è possibile monitorare e aggiornare l'area dello Stack di Azure e i relativi componenti che sono specifiche dell'area.
 
- ![The region management tile](media/azure-stack-manage-region/image1.png)
+ ![Riquadro area di gestione](media/azure-stack-manage-region/image1.png)
 
- If you click a region in the Region management tile, you can access the following information:
+ Se si fa clic su un'area del riquadro area di gestione, è possibile accedere le informazioni seguenti:
 
-  ![Description of panes on the Region management blade](media/azure-stack-manage-region/image2.png)
+  ![Descrizione dei riquadri nel pannello area Gestione](media/azure-stack-manage-region/image2.png)
 
-1. **The resource menu**. Here, you can access specific infrastructure management areas, and view and manage user resources such as storage accounts and virtual networks.
+1. **Il menu di risorsa**. In questo caso, è possibile accedere aree di gestione specifiche di infrastruttura, visualizzare e gestire le risorse utente, ad esempio gli account di archiviazione e le reti virtuali.
 
-2. **Alerts**. This tile lists system-wide alerts and provides details on each of those alerts.
+2. **Avvisi**. Questo riquadro Elenca gli avvisi relativi a livello di sistema e fornisce dettagli su ognuna di tali avvisi.
 
-3. **Updates**. In this tile, you can view the current version of your Azure Stack infrastructure.
+3. **Aggiornamenti**. In questo riquadro, è possibile visualizzare la versione corrente dell'infrastruttura di Azure Stack.
 
-4. **Resource providers**. Resource providers is the place to manage the tenant functionality offered by the components required to run Azure Stack. Each resource provider comes with an administrative experience. This experience can include alerts for the specific provider, metrics, and other management capabilities specific to the resource provider.
+4. **I provider di risorse**. I provider di risorse è possibile gestire la funzionalità di tenant fornita con i componenti necessari per l'esecuzione dello Stack di Azure. Ogni provider di risorse viene fornito con un'esperienza di amministrazione. Questa esperienza può includere avvisi per il provider specifico, metriche e altre funzionalità di gestione specifiche del provider di risorse.
  
-5. **Infrastructure roles**. Infrastructure roles are the components necessary to run Azure Stack. Only the infrastructure roles that report alerts are listed. By clicking a role, you can view the alerts associated with the specific role and the role instances where this role is running. Although there is the capability to start, restart, or shut down an infrastructure role instance, do **not** do this in a development kit environment. These options are designed only for a multi-node environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability.
+5. **Ruoli di infrastruttura**. Ruoli di infrastruttura sono i componenti necessari per l'esecuzione dello Stack di Azure. Vengono elencati solo i ruoli di infrastruttura che segnalano gli avvisi. Fare clic su un ruolo, è possibile visualizzare gli avvisi associati a un ruolo specifico e le istanze del ruolo in cui questo ruolo è in esecuzione. Anche se non esiste la possibilità di avviare, riavviare o arrestare un'istanza del ruolo di infrastruttura, effettuare **non** eseguire questa operazione in un ambiente del kit di sviluppo. Queste opzioni sono progettate solo per un ambiente a più nodi, in cui è presente più di un'istanza di ruolo per ogni ruolo di infrastruttura. Il riavvio di un'istanza del ruolo (in particolare AzS Xrp01) nel kit di sviluppo causa l'instabilità del sistema.
 
-## <a name="next-steps"></a>Next steps
-[Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md)
+## <a name="next-steps"></a>Passaggi successivi
+[Monitoraggio dell'integrità e avvisi nello Stack di Azure](azure-stack-monitor-health.md)
 
-[Manage updates in Azure Stack](azure-stack-updates.md)
-
+[Gestire gli aggiornamenti in Azure Stack](azure-stack-updates.md)
 
 
 

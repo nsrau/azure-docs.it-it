@@ -1,5 +1,5 @@
 ---
-title: 'Configurare un web application firewall: Gateway applicazione di Azure | Microsoft Docs'
+title: 'Configurare un web application firewall: gateway applicazione di Azure | Microsoft Docs'
 description: Questo articolo fornisce indicazioni su come iniziare a usare il firewall applicazione Web in un gateway applicazione nuovo o esistente.
 documentationcenter: na
 services: application-gateway
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
+ms.openlocfilehash: e8106805d21b325e33fb3ab376db75cd783b9042
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 3d01763709e58d25047a6dec4361bcf6553d54e0
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configurare un web application firewall su un gateway applicazione nuovo o esistente
 
@@ -236,4 +235,3 @@ DnsSettings              : {
 Per informazioni su come configurare la registrazione diagnostica, per registrare gli eventi che vengono rilevati o bloccati con un WAF, visitare [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
-

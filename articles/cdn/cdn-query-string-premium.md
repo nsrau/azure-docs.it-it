@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con stringhe di query: Premium
 > [!div class="op_single_selector"]

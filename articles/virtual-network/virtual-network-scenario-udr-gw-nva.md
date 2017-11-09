@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
-ms.openlocfilehash: 8e464348660114f5e99b4739bb7761b7e53ebf99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario dell'appliance virtuale
 Uno scenario comune tra i clienti di Azure di grandi dimensioni è la necessità di offrire un'applicazione a due livelli esposta a Internet, consentendo l'accesso al livello back-end da un data center locale. Questo documento illustra uno scenario che prevede route definite dall'utente (UDR), un gateway VPN e appliance di rete virtuali per distribuire un ambiente a due livelli che soddisfi i requisiti seguenti:
@@ -70,7 +70,7 @@ In questo esempio è presente una sottoscrizione che include gli elementi seguen
   * **AZF3**. Firewall di gestione accessibile agli amministratori dal centro dati locale e connesso a una subnet usata per la gestione di tutte le appliance firewall. I modelli per appliance virtuali con 2 schede di interfaccia di rete sono disponibili nel Marketplace oppure possono essere richiesti direttamente al fornitore dell'appliance.
 
 ## <a name="user-defined-routing-udr"></a>Routing definito dall'utente
-Ogni subnet in Azure può essere collegata a una tabella di route definite dall'utente usata per definire come viene indirizzato il traffico che ha origine nella subnet. Se non sono presenti route definite dall'utente, Azure usa le route predefinite per consentire il flusso del traffico da una subnet all'altra. Per informazioni approfondite sulle route definite dall'utente, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](virtual-networks-udr-overview.md#ip-forwarding).
+Ogni subnet in Azure può essere collegata a una tabella di route definite dall'utente usata per definire come viene indirizzato il traffico che ha origine nella subnet. Se non sono presenti route definite dall'utente, Azure usa le route predefinite per consentire il flusso del traffico da una subnet all'altra. Per informazioni approfondite sulle route definite dall'utente, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](virtual-networks-udr-overview.md).
 
 Per garantire la comunicazione tramite l'appliance firewall corretta, in base all'ultimo requisito indicato in precedenza, è necessario creare la tabella seguente contenente le route definite dall'utente in **azurevnet**.
 
@@ -110,7 +110,7 @@ Le route definite dall'utente e l'inoltro IP sono funzionalità che è possibile
 
 Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere traffico in ingresso non viene indirizzato a se stesso. Per consentire a una macchina virtuale di ricevere il traffico indirizzato ad altre destinazioni, è necessario abilitare l'inoltro IP per la macchina virtuale. Si tratta di un'impostazione di Azure e non del sistema operativo guest. L'appliance virtuale deve comunque eseguire qualche tipo di applicazione per gestire il traffico in ingresso e indirizzarlo correttamente.
 
-Per altre informazioni sull'inoltro IP, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](virtual-networks-udr-overview.md#ip-forwarding).
+Per altre informazioni sull'inoltro IP, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](virtual-networks-udr-overview.md).
 
 Si supponga ad esempio che una rete virtuale di Azure sia configurata come segue:
 

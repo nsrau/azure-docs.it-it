@@ -1,6 +1,6 @@
 ---
-title: Creare un'app Web PHP in un contenitore Linux in Azure | Microsoft Docs
-description: Distribuire la prima app PHP Hello World in un'app Web del servizio app di Azure in pochi minuti.
+title: Creare un'app Web PHP e distribuirla nel Servizio app in Linux | Microsoft Docs
+description: Distribuire in pochi minuti la prima app Hello World PHP in un'app Web del Servizio app in Linux.
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -15,20 +15,19 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Creare un'app Web PHP in un contenitore Linux in Azure
+# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Creare un'app Web PHP nel Servizio app in Linux
 
-[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web ad alta scalabilità e con correzione automatica basato sul sistema operativo Linux. Questa esercitazione introduttiva mostra come distribuire un'app PHP in App Web di Azure per contenitori. È necessario creare l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell e Git per distribuire il codice PHP nell'app Web.
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva illustra come distribuire un'app PHP nel Servizio app di Azure in Linux. È necessario creare l'app Web con immagine incorporata usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell e Git per distribuire il codice PHP nell'app Web.
 
 !![App di esempio in esecuzione in Azure]](media/quickstart-php/hello-world-in-browser.png)
 
-È possibile eseguire queste procedure con un computer Mac, Windows o Linux. 
+È possibile eseguire queste procedure con un computer Mac, Windows o Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -72,19 +71,17 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Creare un'app Web
+## <a name="create-a-web-app-with-built-in-image"></a>Creare un'app Web con immagine incorporata
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Passare al sito per visualizzare l'app Web appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
+Passare al sito per visualizzare l'app Web con immagine incorporata appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
 ![Pagina dell'app Web vuota](media/quickstart-php/app-service-web-service-created.png)
-
-È stata creata una nuova app Web vuota in un contenitore Linux, con la distribuzione Git abilitata.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -121,11 +118,11 @@ Passare all'applicazione distribuita con il Web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-Il codice di esempio PHP è in esecuzione in un'app Web del servizio app di Azure.
+Il codice di esempio PHP è in esecuzione in un'app Web con immagine incorporata.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-php/hello-world-in-browser.png)
 
-**Congratulazioni.** La distribuzione della prima app PHP nel servizio app è stata completata.
+**Congratulazioni.** La distribuzione della prima app PHP nel Servizio app in Linux è stata completata.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice in locale
 
@@ -166,4 +163,3 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 
 > [!div class="nextstepaction"]
 > [PHP con MySQL](tutorial-php-mysql-app.md)
-

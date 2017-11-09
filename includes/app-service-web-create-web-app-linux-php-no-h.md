@@ -1,6 +1,6 @@
 In Cloud Shell creare un'[app Web](../articles/app-service/containers/app-service-linux-intro.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp#create). Non dimenticare di sostituire `<app name>` con un nome univoco dell'app.
 
-Il runtime nel comando seguente viene impostato su `PHP|7.0`. Per visualizzare tutti i runtime supportati, eseguire [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
+Il runtime nel comando seguente è impostato su `PHP|7.0`. Per visualizzare tutti i runtime supportati, eseguire [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "PHP|7.0" --deployment-local-git

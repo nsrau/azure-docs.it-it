@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 7963a07a2b9d529e89302f32e5ffd56c51687ffa
-ms.contentlocale: it-it
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Usare Microsoft Authentication Library (MSAL) per ottenere un token per l'API Microsoft Graph
 
 1.  Aprire: `MainActivity` (in `app` > `java` > `{domain}.{appname}`)
@@ -379,4 +378,3 @@ private void updateSignedOutUI() {
 L'oggetto `onSignOutClicked` sopra riportato rimuove l'utente dalla cache utente di MSAL: in questo modo, MSAL dimenticherà l'utente corrente e un'eventuale richiesta futura di acquisizione di un token riuscirà solo se effettuata in modo interattivo.
 Anche se l'applicazione in questo esempio supporta un unico utente, MSAL supporta anche scenari in cui è possibile eseguire contemporaneamente l'accesso di più account, come nel caso di un'applicazione di posta elettronica in cui un utente dispone di più account.
 <!--end-collapse-->
-

@@ -12,20 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 10/23/2017
 ms.author: byvinyal
+ms.openlocfilehash: 5fbd308e9f037038ad867f3d242da6573bc67081
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 83cdc42d412f646ddf1ecd1b65bf9aa46983b26b
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restrizioni IP statico del Servizio app di Azure #
 
-Le restrizioni IP consentono di definire un elenco di indirizzi IP che non possono accedere alle app. L'elenco di blocchi può includere singoli indirizzi IP o un intervallo di indirizzi IP definito da una subnet mask.
+Le restrizioni IP consentono di definire un elenco di indirizzi IP che possono accedere all'app. Questo elenco può includere singoli indirizzi IP o un intervallo di indirizzi IP definito da una subnet mask.
 
-Quando viene generata sa un client una richiesta per l'app, l'indirizzo IP viene controllato a fronte dell'elenco degli IP bloccati. Se viene trovata una corrispondenza, l'applicazione risponde con un codice di stato [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
+Quando un client genera una richiesta all'app, l'indirizzo IP viene controllato rispetto all'elenco di indirizzi IP consentiti. Se l'indirizzo IP non è presente nell'elenco, l'app risponde con un codice di stato [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
+
+Le restrizioni IP sono definite nel file web.config utilizzato dall'app in fase di esecuzione. In determinate circostanze, qualche modulo potrebbe essere eseguito prima della logica delle restrizioni IP nella pipeline HTTP. In questo caso, la richiesta ha esito negativo con un diverso codice di errore HTTP.
 
 Le restrizioni IP vengono valutate nelle stesse istanze del piano di servizio App assegnate all'app.
 
@@ -40,4 +41,3 @@ Da qui è possibile esaminare l'elenco delle regole di restrizioni IP definite p
 È possibile fare clic su **[+] Aggiungi** per aggiungere una nuova regola di restrizioni IP.
 
 ![aggiungere restrizioni IP](media/app-service-ip-restrictions/add-ip-restrictions.png)
-

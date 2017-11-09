@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
 ms.author: kgremban
+ms.openlocfilehash: 19f3228b874fc4e37bf83388dae4341428226482
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 1cce449a87571fdabd0dbf76f764f442b2990ffe
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Introduzione ad Azure Multi-Factor Authentication nel cloud
 Questo articolo illustra come iniziare a usare Azure Multi-Factor Authentication nel cloud.
@@ -46,5 +45,4 @@ Usare una delle procedure elencate in [Come richiedere la verifica in due passag
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere configurato Azure Multi-Factor Authentication nel cloud, è possibile configurare e impostare la distribuzione. Per altri dettagli, vedere [Configurazione di Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md).
-
 

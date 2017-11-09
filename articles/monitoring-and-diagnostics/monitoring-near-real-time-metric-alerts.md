@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/16/2017
 ms.author: snmuvva
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="near-real-time-metric-alerts-preview"></a>Avvisi metriche near real time (anteprima)
 Monitoraggio di Azure supporta ora un nuovo tipo di avvisi delle metriche denominati Avvisi metriche near real time (anteprima). Questa funzionalità è attualmente in anteprima pubblica.
 Questi avvisi sono diversi dagli avvisi delle metriche regolari per alcuni aspetti
@@ -95,7 +93,6 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 * Visualizzare un grafico che mostra la soglia della metrica e i valori effettivi del giorno precedente.
 * Modificarlo o eliminarlo.
 * **Disabilitarlo** o **abilitarlo** per interrompere temporaneamente o riprendere la ricezione delle notifiche relative all'avviso.
-
 
 
 

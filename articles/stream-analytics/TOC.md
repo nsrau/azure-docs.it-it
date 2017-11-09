@@ -1,6 +1,6 @@
 # Panoramica
 ## [Che cos'è Analisi di flusso?](stream-analytics-introduction.md)
-## [Confrontare Storm e Analisi di flusso](stream-analytics-comparison-storm.md)
+## [Confrontare Storm e l'analisi di flusso](stream-analytics-comparison-storm.md)
 
 # Introduzione
 ## [Elaborare dati di streaming IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
@@ -20,9 +20,11 @@
 ### [Dati di input di esempio](stream-analytics-sample-data-input.md)
 ### [Modelli di query comuni](stream-analytics-stream-analytics-query-patterns.md)
 ### [Funzioni finestra](stream-analytics-window-functions.md)
+
 ### [Usare dati di riferimento](stream-analytics-use-reference-data.md)
 ### [Query di test](stream-analytics-test-query.md)
 ### [Integrare funzioni UDF di JavaScript](stream-analytics-javascript-user-defined-functions.md)
+### [Integrare UDA di JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Integrare API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Creare output](stream-analytics-define-outputs.md)
 ### [Output in Data Lake Store](stream-analytics-data-lake-output.md)
@@ -53,6 +55,7 @@
 ### [Diagramma dei processi e metriche](stream-analytics-job-diagram-with-metrics.md)
 ### [Debug di SELECT INTO](stream-analytics-select-into.md)
 ### [Gestione dell'ordine degli eventi](stream-analytics-out-of-order-and-late-events.md)
+### [Considerazioni sull'ordinamento degli eventi](stream-analytics-out-of-order-and-late-events.md)
 ### [Limiti del lettore dell'hub eventi](stream-analytics-event-hub-consumer-groups.md)
 ### [Log di diagnostica](stream-analytics-job-diagnostic-logs.md)
 

@@ -13,15 +13,14 @@ ms.custom: VNet Service endpoints
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: Inactive
 ms.date: 09/15/2017
 ms.author: genemi
+ms.openlocfilehash: 9f58ea34dad5d4436c13b64653040bd2a57c299e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 0b8e6464ba5a895d1e961709139993f6adc30d7f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Usare PowerShell per creare un endpoint del servizio virtuale e una regola per il database SQL di Azure
 
@@ -647,5 +646,4 @@ Good: Subnet found, and is already tagged as an endpoint of type 'Microsoft.Sql'
 [sql-db-vnet-service-endpoint-rule-overview-735r]: sql-database-vnet-service-endpoint-rule-overview.md
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
-
 

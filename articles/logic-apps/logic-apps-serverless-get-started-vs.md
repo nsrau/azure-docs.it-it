@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
 ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Compilare un'app senza server in Visual Studio con App per la logica e Funzioni
 
@@ -46,7 +46,7 @@ La gestione delle risorse viene eseguita in Azure all'interno di un gruppo di ri
 1. Nella categoria **Cloud** selezionare l'opzione per la creazione di un progetto **Gruppo di risorse** in Azure  
  * Se la categoria o il progetto non sono elencati, verificare di avere installato Azure SDK per Visual Studio
 1. Assegnare al progetto un nome e un percorso e selezionare **OK** per creare i prompt di Visual Studio per la selezione di un modello.  È possibile scegliere di iniziare da un modello vuoto, da App per la logica o da un'altra risorsa.  In questo caso, tuttavia, per iniziare la creazione di un'app senza server si userà un modello di avvio rapido di Azure.
-1. Selezionare questa opzione per visualizzare i modelli da **Guida introduttiva di Azure** ![modelli selezionare avvio rapido di Azure][1]
+1. Selezionare l'opzione per visualizzare i modelli di **avvio rapido di Azure** ![Selezione dei modelli di avvio rapido di Azure][1]
 1. Selezionare il modello di avvio rapido senza server: **101-logic-app-and-function-app** e fare clic su **OK**
 
 Il modello di avvio rapido crea un modello di distribuzione nel progetto Gruppo di risorse,  contenente una semplice App per la logica che chiama un'istanza di Funzioni di Azure e restituisce il risultato.  Se si apre il file `azuredeploy.json` in Esplora soluzioni, è possibile visualizzare le risorse disponibili per l'app senza server.
@@ -55,7 +55,7 @@ Il modello di avvio rapido crea un modello di distribuzione nel progetto Gruppo 
 
 Prima di poter aprire la finestra di progettazione visiva di App per la logica in Visual Studio, è necessario che sia presente un progetto Gruppo di risorse di Azure pre-distribuito.  In questo modo, infatti, il progettista può creare e usare le connessioni a servizi e risorse disponibili nell'app per la logica.  Per iniziare, è sufficiente distribuire la soluzione creata.
 
-1. Fare clic sul progetto in Visual Studio, selezionare **Distribuisci**e creare un **New** distribuzione ![selezionando una nuova distribuzione di risorse][2]
+1. Fare clic con il pulsante destro del mouse sul progetto di Visual Studio, selezionare **Distribuisci** e creare una nuova distribuzione scegliendo **Nuovo** ![Selezione di una nuova distribuzione di risorse][2]
 1. Selezionare una sottoscrizione di Azure valida e un gruppo di risorse
 1. Selezionare l'opzione **Distribuisci** per distribuire la soluzione
 1. Immettere il nome per l'app per la logica e per l'app per le funzioni di Azure.  Il nome dell'app per le funzioni di Azure deve essere globalmente univoco

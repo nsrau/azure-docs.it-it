@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
 ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Esporre le impostazioni di configurazione del ruolo come una variabile di ambiente con XPath
 Nel file di definizione del servzio del ruolo di lavoro o del ruolo Web del servizio cloud è possibile esporre i valori di configurazione di runtime come variabili di ambiente. Sono supportati i valori XPath seguenti, che corrispondono ai valori di API.

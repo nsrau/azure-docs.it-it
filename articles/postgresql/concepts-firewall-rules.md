@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: 150c4f53c5ab6a6425b6af7d286d4c1518b006f8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: a8e1980900b430e56b0c01a4446dc525d25698da
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Regole firewall per Database di Azure per PostgreSQL
-I firewall impediscono qualsiasi accesso al server del database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.
+Il firewall del Database di Azure per il server PostgreSQL impedisce qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.
 Per configurare il firewall, creare regole del firewall che specificano gli intervalli di indirizzi IP accettabili. È possibile creare regole firewall a livello di server.
 
 **Regole firewall:** queste regole consentono ai client di accedere all'intero Database di Azure per il server PostgreSQL, ovvero a tutti i database all'interno dello stesso server logico. Le regole firewall a livello di server possono essere configurate usando il portale di Azure o i comandi dell'interfaccia della riga di comando di Azure. Per creare regole firewall a livello di server è necessario essere il proprietario o un collaboratore della sottoscrizione.
@@ -28,8 +28,8 @@ I tentativi di connessione da Internet e Azure devono superare il firewall prima
 ![Esempio del flusso di funzionamento del firewall](media/concepts-firewall-rules/1-firewall-concept.png)
 
 ## <a name="connecting-from-the-internet"></a>Connessione da Internet
-Le regole firewall a livello di server si applicano a tutti i database del Database di Azure per il server PostgreSQL. Se l'indirizzo IP della richiesta rientra in uno degli intervalli specificati nelle regole firewall a livello di server, viene consentita la connessione.
-Se l'indirizzo IP della richiesta non rientra negli intervalli specificati in una delle regole firewall a livello di database o di server, la richiesta di connessione ha esito negativo.
+Le regole firewall a livello di server si applicano a tutti i database dello stesso Database di Azure per il server PostgreSQL. Se l'indirizzo IP della richiesta rientra in uno degli intervalli specificati nelle regole firewall a livello di server, viene consentita la connessione.
+Se l'indirizzo IP della richiesta non rientra negli intervalli specificati in una delle regole del firewall a livello di server, la richiesta di connessione non riesce.
 Ad esempio, se l'applicazione si connette con il driver JDBC per PostgreSQL, potrebbe verificarsi questo errore durante il tentativo di connessione quando il firewall blocca la connessione.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: nessuna voce pg\_hba.conf per l'host "123.45.67.890", utente "adminuser", database "postgresql", SSL
 
@@ -37,12 +37,12 @@ Ad esempio, se l'applicazione si connette con il driver JDBC per PostgreSQL, pot
 Oltre al portale di Azure, le regole firewall possono essere gestite a livello di programmazione usando l'interfaccia della riga di comando di Azure.
 Vedere anche [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md) (Creare e gestire regole firewall per il Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure)
 
-## <a name="troubleshooting-the-database-firewall"></a>Risoluzione dei problemi del firewall del database
+## <a name="troubleshooting-the-database-server-firewall"></a>Risoluzione dei problemi del firewall del server di database
 Quando si effettua l'accesso al servizio Database di Microsoft Azure per il server PostgreSQL non si comporta come previsto, considerare quanto segue:
 
 * **Le modifiche all'elenco Consentiti non sono state ancora applicate:** per rendere effettive le modifiche apportate al firewall del Database di Azure per il server PostgreSQL possono essere necessari fino a cinque minuti.
 
-* **L'accesso non è autorizzato oppure è stata usata una password errata:** quando un account di accesso non dispone delle autorizzazioni per il Database di Azure per il server PostgreSQL o la password usata non è corretta, la connessione al Database di Azure per il server PostgreSQL verrà negata. La creazione di un'impostazione del firewall fornisce ai client soltanto un'opportunità di connessione al server; ogni client deve fornire le credenziali di sicurezza necessarie.
+* **L'accesso non è autorizzato oppure è stata usata una password errata:** quando un account di accesso non dispone delle autorizzazioni per il Database di Azure per il server PostgreSQL o la password usata non è corretta, la connessione al Database di Azure per il server PostgreSQL verrà negata. La creazione di un'impostazione del firewall fornisce ai client soltanto un'opportunità di connessione al server; ogni client deve ancora fornire le credenziali di sicurezza necessarie.
 
 Ad esempio, se si usa un client JDBC potrebbe essere visualizzato l'errore seguente.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: autenticazione della password non riuscita per l'utente "yourusername"
@@ -51,9 +51,9 @@ Ad esempio, se si usa un client JDBC potrebbe essere visualizzato l'errore segue
 
 * Richiedere al provider di servizi Internet (ISP) l'intervallo di indirizzi IP assegnato ai computer client che accedono al Database di Azure per il server MySQL, quindi aggiungere l'intervallo di indirizzi IP come regola firewall.
 
-* Ottenere indirizzi IP statici per i computer client, quindi aggiungere gli indirizzi IP come regole del firewall.
+* Ottenere indirizzi IP statici per i computer client, quindi aggiungere gli indirizzi IP statici come una regola del firewall.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni sulla creazione di regole del firewall a livello di server e di database, vedere:
-* [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md) (Creare e gestire regole firewall per il Database di Azure per PostgreSQL usando il portale di Azure)
-* [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md) (Creare e gestire regole firewall del Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure)
+Per informazioni sulla creazione di regole del firewall a livello di server vedere:
+* [Creare e gestire regole del firewall per Database di Azure per PostgreSQL usando il portale di Azure](howto-manage-firewall-using-portal.md).
+* [Creare e gestire regole del firewall di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md).

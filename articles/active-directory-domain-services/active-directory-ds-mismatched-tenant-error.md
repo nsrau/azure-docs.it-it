@@ -4,7 +4,7 @@ description: Comprendere e risolvere gli errori di directory senza corrispondenz
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 10/30/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ca9ff29f5f91b8d796a29706ab49a82e417d1ecd
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti esistenti di Azure AD Domain Services
 Si dispone di un dominio gestito esistente che è stato abilitato tramite il portale di Azure classico. Quando si passa al nuovo portale di Azure e si visualizza il dominio gestito, compare il messaggio di errore seguente:
@@ -44,7 +43,7 @@ In breve, non è possibile abilitare un dominio gestito per un tenant di Azure A
 
 ![Configurazione tenant senza corrispondenza](./media/getting-started/mismatched-tenant-config.png)
 
-Pertanto, questo errore si verifica quando il dominio gestito e la rete virtuale in cui è abilitato appartengono a due diversi tenant di Azure AD.
+Questo errore si verifica quando il dominio gestito e la rete virtuale in cui è abilitato appartengono a due diversi tenant di Azure AD.
 
 Le regole seguenti si applicano nell'ambiente di Resource Manager:
 - Una directory di Azure AD può avere più sottoscrizioni di Azure.
@@ -56,12 +55,11 @@ Le regole seguenti si applicano nell'ambiente di Resource Manager:
 ## <a name="resolution"></a>Risoluzione
 Per risolvere l'errore di directory senza corrispondenza ci sono due possibilità. L'utente può:
 
-- Fare clic sul pulsante **Elimina** per eliminare il dominio gestito esistente. Effettuare una nuova creazione tramite il [portale di Azure](https://portal.azure.com), in modo che il dominio gestito e la rete virtuale in cui si trova appartengano alla directory di Azure AD. È necessario aggiungere di nuovo al dominio gestito appena creato tutti i computer precedentemente aggiunti al dominio eliminato.
+- Fare clic sul pulsante **Elimina** per eliminare il dominio gestito esistente. Effettuare una nuova creazione tramite il [portale di Azure](https://portal.azure.com), in modo che il dominio gestito e la rete virtuale in cui si trova appartengano alla directory di Azure AD. Aggiungere al dominio gestito appena creato tutti i computer precedentemente aggiunti al dominio eliminato.
 
-- Contattare il supporto tecnico di Azure per spostare la sottoscrizione di Azure contenente la rete virtuale nella directory di Azure AD a cui appartiene il dominio gestito. Fare clic su **Nuova richiesta di supporto** e specificare **la directory senza corrispondenza** nella sezione **Dettagli** della richiesta di supporto. Includere le informazioni contenute nel messaggio di errore come parte della richiesta di supporto.
+- Spostare la sottoscrizione di Azure contenente la rete virtuale nella directory di Azure AD a cui appartiene il dominio gestito. Seguire la procedura descritta nell'articolo [Trasferire la proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md).
 
 
 ## <a name="related-content"></a>Contenuti correlati
 * [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Guida alla risoluzione dei problemi: Azure AD Domain Services](active-directory-ds-troubleshooting.md)
-

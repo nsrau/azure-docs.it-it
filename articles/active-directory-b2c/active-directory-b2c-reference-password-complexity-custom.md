@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
+ms.openlocfilehash: c28a1d30127956f6cc589b1efef6bff12117e3f1
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 5be521a08ab70be891ddd5fcb374adc52d5c0705
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Configurare la complessità delle password nei criteri personalizzati
+
+> [!NOTE]
+> **Questa funzionalità è in anteprima.**  Contattare [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) per abilitare questa funzionalità per il proprio tenant di prova.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -232,4 +234,3 @@ Questo esempio contiene una convalida per le password di soli numeri (PIN) e una
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
-

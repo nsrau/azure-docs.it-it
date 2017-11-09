@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/07/2017
 ms.author: jonbeck
+ms.openlocfilehash: 234d32a7f690b3bfd79a30f1cd0fd355da8fd7b3
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 0a02e65620d864a5bfa6926c598400a3223a69df
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Dimensioni per le macchine virtuali Windows in Azure
 
 Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine virtuali di Azure che è possibile usare per eseguire le app Windows e i carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.  Questo articolo è disponibile anche per le [macchine virtuali Linux](../linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -31,7 +29,7 @@ Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine 
 | Tipo                     | Dimensioni           |    Descrizione       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](sizes-general.md)          | B (anteprima), Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7 | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
-| [Ottimizzate per il calcolo](sizes-compute.md)        | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni.        |
+| [Ottimizzate per il calcolo](sizes-compute.md)        | Fsv2, Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni.        |
 | [Ottimizzate per la memoria](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Rapporto elevato tra memoria e CPU. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria.                 |
 | [Ottimizzate per l'archiviazione](../virtual-machines-windows-sizes-storage.md)        | Ls                | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NC            | Macchine virtuali specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video, disponibili con GPU singole o più GPU.       |
@@ -68,7 +66,6 @@ Altre informazioni sulle diverse dimensioni di macchina virtuale disponibili:
 - [Ottimizzate per l'archiviazione](../virtual-machines-windows-sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)
 - [High Performance Computing (HPC)](sizes-hpc.md)
-
 
 
 

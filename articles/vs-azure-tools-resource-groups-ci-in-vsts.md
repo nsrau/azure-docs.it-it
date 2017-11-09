@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integrazione continua in Visual Studio Team Services con i progetti di distribuzione Gruppo di risorse di Azure
 Per distribuire un modello di Azure, eseguire attività in varie fasi, ovvero compilazione, test, copia in Azure (detta anche "staging") e distribuzione del modello. Esistono due modi diversi per distribuire i modelli in Visual Studio Team Services (VS Team Services). Entrambi i metodi forniscono gli stessi risultati, quindi è opportuno scegliere quello che meglio si adatta al proprio flusso di lavoro.

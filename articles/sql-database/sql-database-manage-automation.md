@@ -9,17 +9,17 @@ editor: monicar
 ms.assetid: 77c262a1-9b93-456d-b3c7-b2f23bdfcd61
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: jhubbard
-ms.openlocfilehash: 7f45b8b654691063823c13bee61e9bb874a6a13a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: c5f7e6da09c6ca8ddc6cc3ddcbcf7c5b53116e26
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gestire i database SQL usando Automazione di Azure
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione dei database SQL.

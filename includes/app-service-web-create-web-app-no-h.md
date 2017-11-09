@@ -11,6 +11,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 Al termine della creazione dell'app Web, l'interfaccia della riga di comando di Azure visualizza informazioni simili all'esempio seguente:
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -19,24 +20,17 @@ Al termine della creazione dell'app Web, l'interfaccia della riga di comando di 
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
   "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
   "enabled": true,
-  "enabledHostNames": [
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "<app_name>.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
-    }
-    < JSON data removed for brevity. >
+  < JSON data removed for brevity. >
 }
 ```
+
+È stata creata un'app Web vuota, con la distribuzione Git abilitata.
+
+> [!NOTE]
+> L'URL dell'elemento Git remoto è riportato nella proprietà `deploymentLocalGitUrl`, con il formato `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Salvare questo URL, perché sarà necessario in un secondo momento.
+>
 
 Passare al sito per visualizzare l'app Web appena creata.
 

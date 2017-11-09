@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Informazioni sugli elenchi di controllo di accesso agli endpoint
 
@@ -92,5 +91,4 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gestire elenchi di controllo di accesso di endpoint con PowerShell](virtual-networks-acl-powershell.md)
-
 

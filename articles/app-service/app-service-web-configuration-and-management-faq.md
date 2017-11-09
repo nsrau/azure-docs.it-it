@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cc17196603a5bdcd7f880c3650512846fa0facef
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -321,4 +320,3 @@ Per attivare la compressione sia per i tipi di contenuto sia statici che dinamic
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Come si effettua la migrazione da un ambiente locale al servizio app?
 
 Per eseguire la migrazione di siti da server Web Linux e Windows al servizio app, è possibile utilizzare Azure App Service Migration Assistant. Lo strumento di migrazione crea app Web e database in Azure in base alle esigenze, quindi pubblica il contenuto. Per altre informazioni, vedere [Azure App Service Migration Assistant](https://www.movemetothecloud.net/).
-

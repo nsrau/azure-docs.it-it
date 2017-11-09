@@ -139,7 +139,7 @@
 ### [Eseguire il backup dell'app in Azure](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Ripristinare un'app in Azure](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## [Monitorare](../app-service/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Monitoraggio](../app-service/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Abilitare la registrazione diagnostica](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Risolvere i problemi con Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 

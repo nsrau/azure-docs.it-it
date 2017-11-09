@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/31/2017
 ms.author: rajani-janaki-ram
 ms.openlocfilehash: fdb33ea0d08353b491f2934fcf885fcb6910b9a2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Site Recovery a un insieme di credenziali di Servizi di ripristino basato su Azure Resource Manager
 

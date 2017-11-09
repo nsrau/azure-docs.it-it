@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Gestire il numero e la disponibilità dei nodi di calcolo in un cluster HPC Pack in Azure
 Se è stato creato un cluster HPC Pack 2012 R2 nelle macchine virtuali di Azure, potrebbe essere utile conoscere il modo in cui aggiungere, rimuovere, avviare (provisioning) o arrestare (deprovisioning) facilmente alcune macchine virtuali dei nodi di calcolo nel cluster. Per eseguire queste attività, eseguire gli script di Azure PowerShell installati nella VM del nodo head. Questi script consentono di controllare il numero e la disponibilità delle risorse del cluster HPC Pack in modo da poter controllare i costi.

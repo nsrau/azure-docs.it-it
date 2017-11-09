@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Come configurare le porte a disponibilità elevata per il servizio di bilanciamento del carico interno
 
 Questo articolo fornisce una distribuzione di esempio delle porte a disponibilità elevata in un servizio di bilanciamento del carico interno. Per le configurazioni specifiche delle appliance virtuali di rete, vedere i siti Web dei relativi provider.
@@ -90,4 +88,3 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Altre informazioni sulle porte a disponibilità elevata](load-balancer-ha-ports-overview.md)
-

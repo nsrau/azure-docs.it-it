@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 5ef87e606f055359ca325befd6048353ce57ca2b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinare i requisiti di sincronizzazione delle directory
 La sincronizzazione consiste nel fornire agli utenti un'identità nel cloud basata sulla rispettiva identità locale. Gli utenti, infatti, devono necessariamente disporre di un'identità nel cloud, indipendentemente dal fatto che per autenticarsi si avvalgano di un account sincronizzato o di un'autenticazione federata.  L'identità dovrà inoltre essere gestita e aggiornata periodicamente.  Gli aggiornamenti possono assumere molte forme, tra cui modifiche al titolo o alla password.  

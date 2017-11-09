@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 10/30/2017
 ms.author: rajanaki
+ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 103643ace17961cd4e2e37313f75c775e3dcd8cd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da locale ad Azure
 
 
 In questo articolo vengono riepilogati le configurazioni e i componenti supportati per Azure Site Recovery durante la replica e il ripristino in Azure. Per altre informazioni sui requisiti di Azure Site Recovery, vedere i [prerequisiti](site-recovery-prereq.md).
+
+> [!NOTE]
+> Assicurarsi di eseguire l'aggiornamento alla versione più recente dell'agente e del provider di Site Recovery per ottenere la compatibilità con gli aggiornamenti nella matrice di supporto.
 
 
 ## <a name="support-for-deployment-options"></a>Supporto per opzioni di distribuzione
@@ -66,8 +68,11 @@ La tabella seguente offre un riepilogo dei sistemi operativi replicati supportat
 
  **Server fisico/VMware** | **Hyper-V (con/senza VMM)** |
 --- | --- |
-Le VM Windows Server 2012 R2 a 64 bit, Windows Server 2012, Windows Server 2008 R2 con SP1 o successivo<br/>*Windows Server 2016*: non supportato attualmente in macchine virtuali VMware e server fisici. <br/><br/> Red Hat Enterprise Linux: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.3 <br/><br/>CentOS: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.3 <br/><br/>Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES a SLES 11 SP4, è necessario disabilitare la replica e proteggere di nuovo il computer dopo l'aggiornamento.) | Qualsiasi sistema operativo guest [supportato da Azure](https://technet.microsoft.com/library/cc794868.aspx)
+Windows Server 2016 a 64 bit (Server Core, server con Esperienza desktop)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con almeno SP1<br/><br/> Red Hat Enterprise Linux: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.3 <br/><br/>CentOS: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.3 <br/><br/>Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES a SLES 11 SP4, è necessario disabilitare la replica e proteggere di nuovo il computer dopo l'aggiornamento.) | Qualsiasi sistema operativo guest [supportato da Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
+>[!NOTE]
+>
+> \*Windows Server 2016 Nano Server non è supportato.
 
 >[!IMPORTANT]
 >(Applicabile ai server VMware/fisici replicati in Azure)
@@ -83,8 +88,10 @@ Le VM Windows Server 2012 R2 a 64 bit, Windows Server 2012, Windows Server 2008 
 14.04 LTS | 9.9 | Da 3.13.0-24 generica a 3.13.0-117 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-75 generica |
 14.04 LTS | 9.10 | Da 3.13.0-24 generica a 3.13.0-121 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-81 generica |
 14.04 LTS | 9.11 | Da 3.13.0-24 generica a 3.13.0-128 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-91 generica |
+14.04 LTS | 9.12 | Da 3.13.0-24 generica a 3.13.0-132 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-96 generica |
 16.04 LTS | 9.10 | Da 4.4.0-21 generica a 4.4.0-81 generica<br/>Da 4.8.0-34 generica a 4.8.0-56 generica<br/>Da 4.10.0-14 generica a 4.10.0-24 generica |
 16.04 LTS | 9.11 | Da 4.4.0-21 generica a 4.4.0-91 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-32 generica |
+16.04 LTS | 9.12 | Da 4.4.0-21 generica a 4.4.0-96 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-35 generica |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>File system e configurazioni di archiviazione guest supportate in Linux (server VMware/fisici)
 
@@ -166,7 +173,8 @@ NFS | No | N/D
 SMB 3.0 | No | No
 RDM | Sì<br/><br/> N/D per server fisici | N/D
 Disco superiore a 1 TB | Sì<br/><br/>Fino a 4095 GB | Sì<br/><br/>Fino a 4095 GB
-Disco con dimensioni del settore di 4K | Sì | Sì, supportato per VM di generazione 1<br/><br/>Non supportato per VM di generazione 2
+Disco con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | Sì | Non supportato per VM di generazione 1<br/><br/>Non supportato per VM di generazione 2
+Disco con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Sì |  Sì
 Volume con disco con striping superiore a 1 TB<br/><br/> Gestione volumi logici (LVM) | Sì | Sì
 Spazi di archiviazione | No | Sì
 Aggiunta/rimozione a caldo disco | No | No
@@ -225,10 +233,10 @@ Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risors
 
 **Nome** | **Descrizione** | **Versione più recente** | **Dettagli**
 --- | --- | --- | --- | ---
-**Provider di Azure Site Recovery** | Coordina le comunicazioni tra server locali e Azure <br/><br/> Installato nei server Virtual Machine Manager locali o nei server Hyper-V se non è presente un server Virtual Machine Manager | 5.1.19 ([disponibile dal portale](http://aka.ms/downloaddra)) | [Funzionalità e correzioni più recenti](https://support.microsoft.com/kb/3155002)
-**Installazione unificata di Azure Site Recovery (da VMware ad Azure)** | Coordina le comunicazioni tra server VMware locali e Azure  <br/><br/> Installato su server VMware locali | 9.3.4246.1 (disponibile dal portale) | [Funzionalità e correzioni più recenti](https://support.microsoft.com/kb/3155002)
-**Servizio Mobility** | Coordina la replica fra server VMware locali/server fisici e sito Azure/secondario<br/><br/> Installato in server fisici o in macchine virtuali VMware da replicare  | N/D (disponibile dal portale) | N/D
-**Agente di Servizi di ripristino di Microsoft Azure (MARS)** | Coordina la replica tra le macchine virtuali Hyper-V e Azure<br/><br/> Installato nei server Hyper-V locali (con o senza un server Virtual Machine Manager) | Agente più recente ([disponibile dal portale](http://aka.ms/latestmarsagent)) |
+**Provider di Azure Site Recovery** | Coordina le comunicazioni tra server locali e Azure <br/><br/> Installato nei server Virtual Machine Manager locali o nei server Hyper-V se non è presente un server Virtual Machine Manager | 5.1.2700.1 (disponibile dal portale) | [Funzionalità e correzioni più recenti](https://aka.ms/latest_asr_updates)
+**Installazione unificata di Azure Site Recovery (da VMware ad Azure)** | Coordina le comunicazioni tra server VMware locali e Azure  <br/><br/> Installato su server VMware locali | 9.12.4653.1 (disponibile dal portale) | [Funzionalità e correzioni più recenti](https://aka.ms/latest_asr_updates)
+**Servizio Mobility** | Coordina la replica fra server VMware locali/server fisici e sito Azure/secondario<br/><br/> Installato in server fisici o in macchine virtuali VMware da replicare  | 9.12.4653.1 (disponibile dal portale) | [Funzionalità e correzioni più recenti](https://aka.ms/latest_asr_updates)
+**Agente di Servizi di ripristino di Microsoft Azure (MARS)** | Coordina la replica tra le macchine virtuali Hyper-V e Azure<br/><br/> Installato nei server Hyper-V locali (con o senza un server Virtual Machine Manager) | Agente più recente (disponibile dal portale) |
 
 
 
@@ -237,4 +245,3 @@ Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risors
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Verifica dei prerequisiti](site-recovery-prereq.md)
-

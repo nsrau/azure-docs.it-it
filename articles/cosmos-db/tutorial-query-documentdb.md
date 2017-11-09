@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a2a562c06c6302b9548e758b4c6754ec13b6001d
-ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 270fe75e61bb26ad3bb9cae1105e83911bae677d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: procedura per l'esecuzione di query con SQL
 
 L'[API DocumentDB](documentdb-introduction.md) di Azure Cosmos DB supporta l'esecuzione di query sui documenti usando SQL. Questo articolo include un documento di esempio e due esempi di query SQL e relativi risultati.
@@ -148,5 +146,4 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="nextstepaction"]
 > [Distribuire i dati a livello globale](tutorial-global-distribution-documentdb.md)
-
 

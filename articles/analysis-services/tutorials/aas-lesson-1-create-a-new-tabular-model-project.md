@@ -4,7 +4,7 @@ description: Descrive come creare un nuovo progetto per un'esercitazione su Azur
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: a2bfb714e92986465befd79aaa7b12f90b6490e7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ebd160372fc75c6d0fc323be9e948fa2475b71cf
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-1-create-a-tabular-model-project"></a>Lezione 1: Creare un progetto di modello tabulare
 
@@ -88,4 +87,3 @@ Esplorare alcune delle finestre di dialogo e individuare le posizioni delle vari
   
   
   
-

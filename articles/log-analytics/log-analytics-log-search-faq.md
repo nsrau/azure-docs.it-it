@@ -11,16 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/17/2017
 ms.author: bwren
+ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Nuova ricerca log in Log Analytics - domande frequenti e problemi noti
 
 Questo articolo riporta le domande più frequenti e i problemi noti riguardanti l'aggiornamento di [Log Analytics al nuovo linguaggio di query](log-analytics-log-search-upgrade.md).  Prima di decidere di aggiornare l'area di lavoro, leggere l'intero articolo.
@@ -30,6 +28,10 @@ Questo articolo riporta le domande più frequenti e i problemi noti riguardanti 
 
 ### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Domanda: Sono presenti molte regole di avviso. È necessario crearle nuovamente nel nuovo linguaggio dopo l'aggiornamento?  
 No, le regole di avviso vengono convertite automaticamente nel nuovo linguaggio di ricerca durante l'aggiornamento.  
+
+### <a name="question-i-have-alert-rules-with-webhook-and-runbook-actions-will-these-continue-to-work-when-i-upgrade"></a>Domanda: Sono presenti regole di avviso con azioni webhook e runbook. Continueranno a funzionare dopo l'aggiornamento?
+
+No, alcune modifiche delle azioni webhook e runbook potrebbero richiedere di cambiare la modalità di esecuzione del payload. Queste modifiche sono state eseguite per standardizzare i vari formati di output e ridurre le dimensioni del payload. Per informazioni dettagliate sui formati, vedere [Aggiungere azioni alle regole di avviso in Log Analytics](log-analytics-alerts-actions.md).
 
 
 ## <a name="computer-groups"></a>Gruppi di computer
@@ -48,7 +50,7 @@ Di seguito viene riportata una query di esempio per creare un nuovo gruppo di co
 ## <a name="dashboards"></a>Dashboard
 
 ### <a name="question-can-i-still-use-dashboards-in-an-upgraded-workspace"></a>Domanda: È sempre possibile usare i dashboard in un'area di lavoro aggiornata?
-È possibile continuare a usare tutti i riquadri aggiunti a **My Dashboard** (Il mio dashboard) prima dell'aggiornamento dell'area di lavoro, ma non è possibile modificarli o crearne di nuovi.  È possibile continuare a creare e modificare le viste tramite [Progettazione viste](log-analytics-view-designer.md), oltre a creare dashboard nel portale di Azure.
+Con l'aggiornamento inizierà il processo di deprecazione di **Dashboard**.  È possibile continuare a usare tutti i riquadri aggiunti al dashboard prima dell'aggiornamento dell'area di lavoro, ma non sarà possibile modificarli o crearne di nuovi.  È possibile continuare a creare e modificare le viste tramite [Progettazione viste](log-analytics-view-designer.md), che ha un set di funzionalità più avanzate, oltre a creare dashboard nel portale di Azure.
 
 
 ## <a name="log-searches"></a>Ricerche log
@@ -58,6 +60,9 @@ Di seguito viene riportata una query di esempio per creare un nuovo gruppo di co
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Domanda: Perché i risultati della query non sono ordinati?
 Nel nuovo linguaggio di query, i risultati non sono ordinati per impostazione predefinita.  Usare il comando [Operatore sort](https://go.microsoft.com/fwlink/?linkid=856079) per ordinare i risultati in base a una o più proprietà.
+
+### <a name="question-where-did-the-metrics-view-go-after-i-upgraded"></a>Domanda: Dove è stata spostata la visualizzazione metriche dopo l'aggiornamento?
+La visualizzazione metriche offriva una rappresentazione grafica dei dati sulle prestazioni da una ricerca nei log.  Questa visualizzazione non è più disponibile dopo l'aggiornamento.  È possibile usare l'[operatore di rendering](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) per formattare l'output di una query in un diagramma temporale.
 
 ### <a name="question-where-did-minify-go-after-i-upgraded"></a>Domanda: Dove è stata spostata la funzionalità minify dopo l'aggiornamento?
 Minify è una funzionalità che offre una visualizzazione riepilogata dei risultati della ricerca.  Dopo l'aggiornamento,l'opzione Minify non viene più visualizzata nel portale Ricerca log.  È possibile ottenere funzionalità simili con il nuovo linguaggio di ricerca tramite [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) o [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
@@ -89,6 +94,18 @@ L'[API di ricerca log](log-analytics-log-search-api.md) legacy non funzionerà p
 È possibile visualizzare un confronto tra i due portali in [Portali per la creazione e la modifica di ricerche log in Azure Log Analytics](log-analytics-log-search-portals.md).  Ognuno presenta vantaggi distinti, per cui è possibile scegliere quello più adatto alle proprie esigenze.  È comune per scrivere le query nel portale Advanced Analytics e incollarle in altre posizioni, ad esempio Progettazione viste.  È necessario essere a conoscenza degli [aspetti da considerare](log-analytics-log-search-portals.md#advanced-analytics-portal) quando si esegue questa operazione.
 
 
+### <a name="question--after-upgrade-i-get-an-error-trying-to-run-queries-and-am-also-seeing-errors-in-my-views"></a>Domanda: Se dopo l'aggiornamento tento di eseguire query viene visualizzato un errore. Vengono visualizzati errori anche nelle viste.
+
+Dopo l'aggiornamento, per l'esecuzione di query Log Analytics il browser richiede l'accesso agli indirizzi seguenti.  Se il browser accede al portale di Azure attraverso un firewall, è necessario abilitare l'accesso a questi indirizzi.
+
+| Uri | IP | Porte |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinamico | 80,443 |
+| api.loganalytics.io    | Dinamico | 80,443 |
+| docs.loganalytics.io   | Dinamico | 80,443 |
+
+
+
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Domanda: L'aggiornamento implica modifiche per l'integrazione con Power BI?
@@ -98,10 +115,12 @@ Sì.  Dopo aver aggiornato l'area di lavoro, il processo per esportare i dati di
 Per l'esportazione di una query Log Analytics in Power BI è attualmente prevista una dimensione massima di 8 MB.  Questo limite verrà presto incrementato.
 
 
-##<a name="powershell-cmdlets"></a>Cmdlet PowerShell
+## <a name="powershell-cmdlets"></a>Cmdlet PowerShell
 
 ### <a name="question-does-the-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>Domanda: Il cmdlet PowerShell di ricerca log viene aggiornato dopo l'aggiornamento?
-Il cmdlet [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) non è ancora stato aggiornato al nuovo linguaggio di ricerca.  Continuare a usare il linguaggio di query legacy con questo cmdlet, anche dopo l'aggiornamento dell'area di lavoro.  La documentazione aggiornata verrà resa disponibile per il cmdlet una volta aggiornato.
+Dopo il completamento dell'aggiornamento per tutte le aree di lavoro, il cmdlet [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) verrà deprecato.  Per eseguire ricerche log nelle aree di lavoro aggiornate usare il [cmdlet Invoke-LogAnalyticsQuery](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets).
+
+
 
 
 ## <a name="resource-manager-templates"></a>Modelli di Gestione risorse
@@ -154,11 +173,9 @@ No. I dati di log disponibili nelle ricerche dell'area di lavoro non sono intere
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Domanda: Cosa accade se non si aggiorna l'area di lavoro?  
 La funzionalità di ricerca log legacy verrà deprecata nei prossimi mesi. Le aree di lavoro non aggiornate verranno in seguito aggiornate automaticamente.
 
-### <a name="question-i-didnt-choose-to-upgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>Domanda: L'area di lavoro è stata aggiornata, anche se è stato scelto di non eseguire l'aggiornamento. Che cosa è successo?  
-È possibile sia stata aggiornata da un altro amministratore dell'area di lavoro. Si noti che tutte le aree di lavoro verranno aggiornate automaticamente quando il nuovo linguaggio sarà disponibile a livello generale.  
+### <a name="question-can-i-revert-back-after-i-upgrade"></a>Domanda: Dopo l'aggiornamento è possibile ripristinare la situazione precedente?
+Prima della disponibilità generale, era possibile ripristinare l'area di lavoro dopo l'aggiornamento.  Ora che il nuovo linguaggio ha raggiunto il livello di disponibilità generale, questa funzionalità è stata rimossa, dato che è iniziato il ritiro della piattaforma legacy.
 
-### <a name="question-i-have-upgraded-by-mistake-and-now-need-to-cancel-it-and-restore-everything-back-what-should-i-do"></a>Domanda: Se si esegue l'aggiornamento per errore, è possibile annullare l'operazione e ripristinare tutto?  
-Non c'è problema.  Prima dell'aggiornamento dell'area di lavoro viene creato uno snapshot ed è quindi possibile ripristinarlo. Tenere presente, tuttavia, che andranno perduti gli avvisi, le ricerche o le visualizzazioni salvati dopo l'aggiornamento.  Per ripristinare l'ambiente dell'area di lavoro, seguire la procedura descritta in [Dopo aver eseguito l'aggiornamento è possibile tornare indietro?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)
 
 
 ## <a name="views"></a>Visualizzazioni
@@ -173,4 +190,3 @@ Facendo clic sull'opzione *Visualizzare tutto* nella parte inferiore di una part
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni, sull'[aggiornamento dell'area di lavoro al nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md).
-

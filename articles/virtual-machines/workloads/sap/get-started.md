@@ -14,17 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/27/2017
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 17b157b723b4a4973d9bf95b4acbf7e76e797b8c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 7af2657b01b954c3f43a687dedebad7e4a814e6a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizzo di Azure per l'hosting e l'esecuzione di scenari con carichi di lavoro SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -79,21 +77,21 @@ ms.lasthandoff: 09/28/2017
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription
 
-[dbms-guide]:dbms-guide.md 
-[dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
-[dbms-guide-2.2]:dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 
-[dbms-guide-2.3]:dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 
-[dbms-guide-2]:dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 
-[dbms-guide-3]:dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 
-[dbms-guide-5.5.1]:dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
+[dbms-guide]:dbms-guide.md
+[dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
+[dbms-guide-2.2]:dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91
+[dbms-guide-2.3]:dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152
+[dbms-guide-2]:dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64
+[dbms-guide-3]:dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3
+[dbms-guide-5.5.1]:dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268
 [dbms-guide-5.5.2]:dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b
-[dbms-guide-5.6]:dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
-[dbms-guide-5.8]:dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 
-[dbms-guide-5]:dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 
-[dbms-guide-8.4.1]:dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
-[dbms-guide-8.4.2]:dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d 
-[dbms-guide-8.4.3]:dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c 
-[dbms-guide-8.4.4]:dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 
+[dbms-guide-5.6]:dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8
+[dbms-guide-5.8]:dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30
+[dbms-guide-5]:dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737
+[dbms-guide-8.4.1]:dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573
+[dbms-guide-8.4.2]:dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d
+[dbms-guide-8.4.3]:dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c
+[dbms-guide-8.4.4]:dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818
 [dbms-guide-900-sap-cache-server-on-premises]:dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
@@ -106,26 +104,26 @@ ms.lasthandoff: 09/28/2017
 [dbms-guide-figure-800]:media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:deployment-guide.md 
-[deployment-guide-2.2]:deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 
-[deployment-guide-3.1.2]:deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab 
-[deployment-guide-3.2]:deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 
-[deployment-guide-3.3]:deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 
+[deployment-guide]:deployment-guide.md
+[deployment-guide-2.2]:deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94
+[deployment-guide-3.1.2]:deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab
+[deployment-guide-3.2]:deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281
+[deployment-guide-3.3]:deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2
 [deployment-guide-3.4]:deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1
-[deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e 
-[deployment-guide-4.1]:deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 
-[deployment-guide-4.2]:deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e 
-[deployment-guide-4.3]:deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc 
-[deployment-guide-4.4.2]:deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 
-[deployment-guide-4.4]:deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d 
-[deployment-guide-4.5.1]:deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 
-[deployment-guide-4.5.2]:deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f 
-[deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca 
+[deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
+[deployment-guide-4.1]:deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7
+[deployment-guide-4.2]:deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e
+[deployment-guide-4.3]:deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc
+[deployment-guide-4.4.2]:deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542
+[deployment-guide-4.4]:deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d
+[deployment-guide-4.5.1]:deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4
+[deployment-guide-4.5.2]:deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f
+[deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca
 [deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2
-[deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 
-[deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 
-[deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b 
-[deployment-guide-configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d 
+[deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1
+[deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8
+[deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b
+[deployment-guide-configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d
 [deployment-guide-figure-100]:media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-1000]:media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
 [deployment-guide-figure-11]:deployment-guide.md#figure-11
@@ -148,7 +146,7 @@ ms.lasthandoff: 09/28/2017
 [deployment-guide-figure-azure-cli-installed]:deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
 [deployment-guide-figure-azure-cli-version]:deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
 [deployment-guide-install-vm-agent-windows]:deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b 
+[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b
 [deploy-template-cli]:../../../resource-group-template-deploy.md
 [deploy-template-portal]:../../../resource-group-template-deploy.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
@@ -163,6 +161,7 @@ ms.lasthandoff: 09/28/2017
 
 [ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
 [ha-guide]:sap-high-availability-guide.md
+[ha-guide-get-started]:sap-high-availability-guide-start.md
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -171,32 +170,32 @@ ms.lasthandoff: 09/28/2017
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:planning-guide.md 
-[planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff 
-[planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 
-[planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f 
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 
-[planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 
-[planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a 
-[planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 
-[planning-guide-3.2.2]:planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 
-[planning-guide-3.2.3]:planning-guide.md#18810088-f9be-4c97-958a-27996255c665 
-[planning-guide-3.2]:planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 
-[planning-guide-3.3.2]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 
-[planning-guide-5.1.1]:planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 
-[planning-guide-5.1.2]:planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c 
-[planning-guide-5.2.1]:planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef 
-[planning-guide-5.2.2]:planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 
-[planning-guide-5.2]:planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 
-[planning-guide-5.3.1]:planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 
-[planning-guide-5.3.2]:planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a 
-[planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 
-[planning-guide-5.5.1]:planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 
-[planning-guide-5.5.3]:planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d 
-[planning-guide-7.1]:planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 
-[planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 
-[planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 
-[planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 
+[planning-guide]:planning-guide.md
+[planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff
+[planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77
+[planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f
+[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
+[planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
+[planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a
+[planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358
+[planning-guide-3.2.2]:planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560
+[planning-guide-3.2.3]:planning-guide.md#18810088-f9be-4c97-958a-27996255c665
+[planning-guide-3.2]:planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77
+[planning-guide-3.3.2]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92
+[planning-guide-5.1.1]:planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53
+[planning-guide-5.1.2]:planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c
+[planning-guide-5.2.1]:planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef
+[planning-guide-5.2.2]:planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3
+[planning-guide-5.2]:planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7
+[planning-guide-5.3.1]:planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79
+[planning-guide-5.3.2]:planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a
+[planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1
+[planning-guide-5.5.1]:planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646
+[planning-guide-5.5.3]:planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d
+[planning-guide-7.1]:planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30
+[planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14
+[planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3
+[planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92
 
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -222,7 +221,7 @@ ms.lasthandoff: 09/28/2017
 [planning-guide-figure-700]:media/virtual-machines-shared-sap-planning-guide/700-decision-tree-deploy-to-azure.png
 [planning-guide-figure-800]:media/virtual-machines-shared-sap-planning-guide/800-portal-vm-overview.png
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
-[planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
+[planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
@@ -238,7 +237,7 @@ ms.lasthandoff: 09/28/2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -249,8 +248,8 @@ ms.lasthandoff: 09/28/2017
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md 
-[virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md 
+[virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
+[virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
 [virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
@@ -276,13 +275,13 @@ ms.lasthandoff: 09/28/2017
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
-[virtual-network-deploy-multinic-arm-cli]:../../../virtual-network/virtual-network-deploy-multinic-arm-cli.md
-[virtual-network-deploy-multinic-arm-ps]:../../../virtual-network/virtual-network-deploy-multinic-arm-ps.md
+[virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
+[virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-networks-multiple-nics.md
+[virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
@@ -295,9 +294,9 @@ ms.lasthandoff: 09/28/2017
 [xplat-cli]:../../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
-Scegliendo Microsoft Azure come partner cloud per SAP, sarà possibile eseguire in modo affidabile gli scenari e i carichi di lavoro SAP mission critical in una piattaforma scalabile, conforme e comprovata per le aziende,  nonché ottenere la scalabilità, la flessibilità e la convenienza di Azure. Grazie alla partnership estesa tra Microsoft e SAP, è possibile eseguire applicazioni SAP in scenari di sviluppo/test e di produzione in Azure con il supporto completo. Da SAP NetWeaver a SAP S4/HANA, SAP BI, da Linux a Windows, da SAP HANA a SQL, viene offerto supporto per tutte le soluzioni. 
+Scegliendo Microsoft Azure come partner cloud per SAP, sarà possibile eseguire in modo affidabile gli scenari e i carichi di lavoro SAP mission critical in una piattaforma scalabile, conforme e comprovata per le aziende,  nonché ottenere la scalabilità, la flessibilità e la convenienza di Azure. Grazie alla partnership estesa tra Microsoft e SAP, è possibile eseguire applicazioni SAP in scenari di sviluppo/test e di produzione in Azure con il supporto completo. Da SAP NetWeaver a SAP S4/HANA, SAP BI, da Linux a Windows, da SAP HANA a SQL, viene offerto supporto per tutte le soluzioni.
 
-Oltre all'hosting di scenari SAP NetWeaver con diversi DBMS in Azure, è possibile eseguire l'hosting di diversi altri scenari di carico di lavoro SAP, come SAP BI in Azure. La documentazione relativa alle distribuzioni di SAP NetWeaver nelle macchine virtuali di Azure native è disponibile nella sezione "SAP NetWeaver in Macchine virtuali di Azure". 
+Oltre all'hosting di scenari SAP NetWeaver con diversi DBMS in Azure, è possibile eseguire l'hosting di diversi altri scenari di carico di lavoro SAP, come SAP BI in Azure. La documentazione relativa alle distribuzioni di SAP NetWeaver nelle macchine virtuali di Azure native è disponibile nella sezione "SAP NetWeaver in Macchine virtuali di Azure".
 
 Le offerte di macchine virtuali di Azure native prevedono dimensioni crescenti a livello di risorse di CPU e memoria per soddisfare il carico di lavoro SAP basato su SAP HANA. Per altre informazioni su questo argomento, vedere i documenti nella sezione SAP HANA sulle macchine virtuali di Azure.
 
@@ -313,23 +312,23 @@ Titolo: Panoramica e architettura di SAP HANA in Azure (istanze di grandi dimens
 
 Riepilogo: Questa guida sull'architettura e la distribuzione tecnica di SAP offre informazioni sulle modalità di distribuzione di SAP nella nuova piattaforma SAP HANA in Azure (istanze di grandi dimensioni). Non è stata concepita per essere una guida completa sull'installazione specifica di soluzioni SAP, ma per offrire utili informazioni sulla distribuzione iniziale e le operazioni successive. Non deve essere usata in sostituzione della documentazione di SAP correlata all'installazione di SAP HANA o delle varie note di supporto SAP che riguardano l'argomento. Offre semplicemente una panoramica e informazioni specifiche sull'installazione di SAP HANA in Azure (istanze di grandi dimensioni).
 
-Ultimo aggiornamento: luglio 2017
+Ultimo aggiornamento: ottobre 2017
 
 [Questa guida è disponibile qui](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="infrastructure-and-connectivity-to-sap-hana-on-azure-large-instances"></a>Infrastruttura e connettività a SAP HANA in Azure (istanze di grandi dimensioni)
 Titolo: Infrastruttura e connettività a SAP HANA in Azure (istanze di grandi dimensioni)
 
-Riepilogo: Dopo aver finalizzato l'acquisto di SAP HANA in Azure (istanze di grandi dimensioni) con il team Microsoft dedicato agli account aziendali, per garantire una connettività appropriata è necessario eseguire alcune configurazioni di rete.  Questo documento descrive le informazioni che devono essere condivise e le informazioni necessarie. In particolare, descrive quali informazioni devono essere raccolte e quali script di configurazione devono essere eseguiti. 
+Riepilogo: Dopo aver finalizzato l'acquisto di SAP HANA in Azure (istanze di grandi dimensioni) con il team Microsoft dedicato agli account aziendali, per garantire una connettività appropriata è necessario eseguire alcune configurazioni di rete.  Questo documento descrive le informazioni che devono essere condivise e le informazioni necessarie. In particolare, descrive quali informazioni devono essere raccolte e quali script di configurazione devono essere eseguiti.
 
-Ultimo aggiornamento: luglio 2017
+Ultimo aggiornamento: ottobre 2017
 
 [Questa guida è disponibile qui](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="install-sap-hana-in-sap-hana-on-azure-large-instances"></a>Installare SAP HANA in SAP HANA in Azure (istanze di grandi dimensioni)
 Titolo: Installare SAP HANA in SAP HANA in Azure (istanze di grandi dimensioni)
 
-Riepilogo: Questo documento descrive le procedure necessarie per l'installazione di SAP HANA nell'istanza di grandi dimensioni di Azure. 
+Riepilogo: Questo documento descrive le procedure necessarie per l'installazione di SAP HANA nell'istanza di grandi dimensioni di Azure.
 
 Ultimo aggiornamento: luglio 2017
 
@@ -340,16 +339,16 @@ Titolo: Disponibilità elevata e ripristino di emergenza di SAP HANA in Azure (i
 
 Riepilogo: La disponibilità elevata e il ripristino di emergenza sono aspetti importanti dell'esecuzione di sistemi SAP HANA cruciali nei server di Azure (istanze di grandi dimensioni). La collaborazione con SAP, l'integratore di sistemi e/o Microsoft è fondamentale per progettare e implementare correttamente la strategia di disponibilità elevata e ripristino di emergenza adatta alle proprie esigenze. È inoltre necessario prendere in considerazione alcuni fattori significativi, come l'RPO (Recovery Point Objective, obiettivo del punto di ripristino) e l'RTO (Recovery Time Objective, obiettivo del tempo di ripristino), specifici del proprio ambiente.  Questo documento illustra le opzioni disponibili per abilitare i livelli desiderati di disponibilità elevata e ripristino di emergenza.
 
-Ultimo aggiornamento: settembre 2017
+Ultimo aggiornamento: ottobre 2017
 
 [Questo documento è disponibile qui](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="troubleshooting-and-monitoring-of-sap-hana-on-azure-large-instances"></a>Risoluzione dei problemi e monitoraggio di SAP HANA in Azure (istanze di grandi dimensioni)
 Titolo: Risoluzione dei problemi e monitoraggio di SAP HANA in Azure (istanze di grandi dimensioni)
 
-Riepilogo: Questa guida offre informazioni utili per definire il monitoraggio di SAP HANA in ambiente Azure e informazioni aggiuntive sulla risoluzione dei problemi. 
+Riepilogo: Questa guida offre informazioni utili per definire il monitoraggio di SAP HANA in ambiente Azure e informazioni aggiuntive sulla risoluzione dei problemi.
 
-Ultimo aggiornamento: agosto 2017
+Ultimo aggiornamento: ottobre 2017
 
 [Questo documento è disponibile qui](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -414,7 +413,7 @@ Ultimo aggiornamento: marzo 2017
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>SAP NetWeaver distribuito in macchine virtuali di Azure
 
 ### <a name="deploy-sap-ides-system-on-windows-and-sql-server-through-sap-cal-on-azure"></a>Distribuire il sistema SAP IDES in Windows e SQL Server mediante SAP CAL in Azure
-Titolo: Test di SAP NetWeaver nelle macchine virtuali SUSE Linux di Microsoft Azure 
+Titolo: Test di SAP NetWeaver nelle macchine virtuali SUSE Linux di Microsoft Azure
 
 Riepilogo: Questo documento descrive la distribuzione di un sistema SAP IDES basato su Windows e SQL Server in Azure mediante SAP Cloud Appliance Library. SAP Cloud appliance Library è un servizio SAP che consente la distribuzione di prodotti SAP in Azure. Questo documento descrive passo per passo la distribuzione di un sistema SAP IDES. Il sistema IDES è solo un esempio di molte altre decine di applicazioni che possono essere distribuite attraverso appliance cloud SAP in Microsoft Azure.
 
@@ -424,7 +423,7 @@ Ultimo aggiornamento: giugno 2017
 
 
 ### <a name="quickstart-guide-for-netweaver-on-suse-linux-on-azure"></a>Guida rapida per NetWeaver su SUSE Linux in Azure
-Titolo: Test di SAP NetWeaver nelle macchine virtuali SUSE Linux di Microsoft Azure 
+Titolo: Test di SAP NetWeaver nelle macchine virtuali SUSE Linux di Microsoft Azure
 
 Riepilogo: Questo articolo descrive vari aspetti da considerare quando si esegue SAP NetWeaver in macchine virtuali (VM) SUSE Linux di Microsoft Azure. SAP NetWeaver è ufficialmente supportato nelle macchine virtuali SUSE Linux in Azure. Tutti i dettagli riguardanti le versioni di Linux, le versioni del kernel SAP e altre informazioni sono reperibili nella nota 1928533 di SAP "SAP Applications on Azure: Supported Products and Azure VM types" (Applicazioni SAP in Azure: prodotti supportati e i tipi di VM di Azure).
 
@@ -444,14 +443,14 @@ Ultimo aggiornamento: giugno 2017
 ### <a name="high-availability-configurations-of-sap-netweaver-in-azure-vms"></a>Configurazioni a disponibilità elevata di SAP NetWeaver in VM di Azure
 Titolo: Disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver
 
-Riepilogo: Questo documento illustra la procedura che è possibile eseguire per distribuire sistemi SAP a disponibilità elevata in Azure, usando il modello di distribuzione Azure Resource Manager. Le attività principali che verranno illustrate sono le seguenti. Il documento descrive come proteggere i componenti con un singolo punto di guasto in Azure, ad esempio Advanced Business Application Programming (ABAP) SAP Central Services (ASCS)/SAP Central Services (SCS) e i sistemi di gestione di database (DBMS), oltre ai componenti ridondanti, ad esempio i server applicazioni SAP, eseguiti nelle VM di Azure. Questo documento riporta la dimostrazione passo per passo di un esempio di installazione e configurazione di un sistema SAP a disponibilità elevata in un cluster Windows Server Failover Clustering in Azure.
+Riepilogo: Questo documento illustra la procedura che è possibile eseguire per distribuire sistemi SAP a disponibilità elevata in Azure, usando il modello di distribuzione Azure Resource Manager. Le attività principali che verranno illustrate sono le seguenti. Il documento descrive come proteggere i componenti con un singolo punto di guasto in Azure, ad esempio Advanced Business Application Programming (ABAP) SAP Central Services (ASCS)/SAP Central Services (SCS) e i sistemi di gestione di database (DBMS), oltre ai componenti ridondanti, ad esempio i server applicazioni SAP, eseguiti nelle VM di Azure. Questo documento riporta la dimostrazione passo per passo di un esempio di installazione e configurazione di un sistema SAP a disponibilità elevata in un cluster Windows Server Failover Clustering in Azure e in SUSE Linux Enterprise Server Cluster Framework.
 
-Ultimo aggiornamento: giugno 2017
+Ultimo aggiornamento: ottobre 2017
 
-[Questa guida è disponibile qui](high-availability-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Questa guida è disponibile qui][ha-guide-get-started]
 
 ### <a name="realizing-multi-sid-deployments-of-sap-netweaver-in-azure-vms"></a>Realizzazione di distribuzioni a più SID di SAP NetWeaver in VM di Azure
-Titolo: Creare una configurazione di SAP NetWeaver a più SID 
+Titolo: Creare una configurazione di SAP NetWeaver a più SID
 
 Riepilogo: Questo documento costituisce un'aggiunta al documento sulla disponibilità elevata per SAP NetWeaver in VM di Azure. A causa di nuove funzionalità di Azure introdotte nel settembre 2016, è possibile distribuire più istanze di SAP NetWeaver ASCS/SCS in una coppia di VM di Azure. Con questa configurazione è possibile ridurre il numero di VM distribuite per realizzare configurazioni a disponibilità elevata di SAP NetWeaver. La guida descrive l'impostazione di tali configurazioni a più SID.
 
@@ -478,12 +477,10 @@ Ultimo aggiornamento: giugno 2017
 [Questa guida è disponibile qui][dbms-guide]
 
 ### <a name="using-azure-site-recovery-for-sap-workload"></a>Utilizzo di Azure Site Recovery per un carico di lavoro SAP
-Titolo: SAP NetWeaver - Creazione di una soluzione di ripristino di emergenza con Azure Site Recovery 
+Titolo: SAP NetWeaver - Creazione di una soluzione di ripristino di emergenza con Azure Site Recovery
 
 Riepilogo: Questo documento descrive come è possibile usare i servizi Azure Site Recovery per gestire scenari di ripristino di emergenza. Casi in cui è possibile usare Azure come posizione di ripristino di emergenza per un landscape SAP locale mediante i servizi Azure Site Recovery. In questo documento è descritta anche la procedura per gestire un caso di ripristino di emergenza A2A (da Azure ad Azure) con Azure Site Recovery.  
 
 Ultimo aggiornamento: agosto 2017
 
 [Questa guida è disponibile qui](http://aka.ms/asr-sap)
-
-

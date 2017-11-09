@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: e5ac068e37d921530272e5eb3dc76d976a86a742
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Informazioni sull'accesso alle risorse in Azure
 
@@ -61,4 +60,3 @@ Operazioni quali lo spostamento di risorse tra sottoscrizioni possono risultare 
 [2]: ./media/active-directory-understanding-resource-access/IC707932.png
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
-

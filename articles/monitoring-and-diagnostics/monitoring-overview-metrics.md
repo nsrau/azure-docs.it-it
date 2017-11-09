@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
+ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fbfb3d026540b45a28751d6c3ab0f8dce444e0cd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Panoramica delle metriche in Microsoft Azure
 In questo articolo sono descritte le metriche disponibili in Microsoft Azure, i loro vantaggi e come iniziare a usarle.  
 
@@ -127,23 +125,6 @@ Alcune risorse di Azure supportano l'aumento o la riduzione di più istanze per 
  ![Metriche e ridimensionamento automatico nel Monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## <a name="learn-about-supported-services-and-metrics"></a>Altre informazioni su metriche e servizi supportati
-Il monitoraggio di Azure è una nuova infrastruttura di metriche. Fornisce supporto per i seguenti servizi di Azure nel Portale di Azure e nella nuova versione dell'API del monitoraggio di Azure:
-
-* VM (basate su Azure Resource Manager)
-* set di scalabilità di macchine virtuali
-* Batch
-* Spazio dei nomi di Hub eventi
-* Spazio dei nomi del bus di servizio (solo SKU premium)
-* Database SQL (versione 12)
-* Pool SQL elastico
-* Siti Web
-* Server farm Web
-* App per la logica
-* Hub IoT
-* Cache Redis
-* Rete: gateway applicazione
-* Search
-
 È possibile visualizzare un elenco dettagliato di tutti i servizi supportati e delle relative metriche in [Metriche del Monitoraggio di Azure: metriche supportate per tipo di risorsa](monitoring-supported-metrics.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -152,4 +133,3 @@ Fare riferimento ai collegamenti forniti all'interno dell'articolo. In più, è 
 * [Metriche comuni per il ridimensionamento automatico](insights-autoscale-common-metrics.md)
 * [Come creare regole di avviso](insights-alerts-portal.md)
 * [Analizzare i log di Archiviazione di Azure con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: 862594bcbd6df8a2c62a12340ceb8096fb6bd691
-ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Query SQL per l'API di DocumentDB di Azure Cosmos DB
 Microsoft Azure Cosmos DB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) come linguaggio di query JSON. Cosmos DB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari. 
@@ -1779,7 +1778,7 @@ In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JS
 Di seguito è riportato un elenco di operatori LINQ supportati nel provider LINQ incluso in DocumentDB .NET SDK.
 
 * **Select**: le proiezioni convertono in SQL SELECT inclusa la costruzione dell'oggetto.
-* **Where**: i filtri convertono in SQL WHERE e supportano la conversione tra && , || e ! in operatori SQL.
+* **Where**: i filtri convertono in SQL WHERE e supportano la conversione tra &amp;&amp; , || e ! in operatori SQL.
 * **SelectMany**: consente la rimozione di matrici nella clausola SQL JOIN. Può essere usato per concatenare/annidare le espressioni per filtrare in base agli elementi della matrice.
 * **OrderBy e OrderByDescending**: converte in ORDER BY crescente o decrescente.
 * Operatori di aggregazione **Count**, **Sum**, **Min**, **Max** e **Average** e relativi equivalenti asincroni **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** e **AverageAsync**.

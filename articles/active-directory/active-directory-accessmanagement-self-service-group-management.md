@@ -16,12 +16,11 @@ ms.date: 09/07/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7a7370eb076ba8602a58a260a14bb863c55bc803
-ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Configurare Azure Active Directory per la gestione dei gruppi self-service
 Gli utenti possono creare e gestire gruppi di sicurezza o gruppi di Office 365 in Azure Active Directory (Azure AD). Gli utenti possono anche richiedere l'appartenenza a gruppi di sicurezza o gruppi di Office 365, che il proprietario del gruppo può quindi approvare o rifiutare. Il controllo giornaliero dell'appartenenza al gruppo può essere delegato a persone che conoscono il contesto aziendale pertinente. Le funzionalità di gestione self-service dei gruppi sono disponibili solo per i gruppi di sicurezza e i gruppi di Office 365, ma non per i gruppi di protezione abilitati alla posta o le liste di distribuzione.
@@ -47,8 +46,7 @@ La gestione dei gruppi self-service riguarda attualmente due scenari principali,
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
-* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 * [Integrare le identità locali con Azure Active Directory](active-directory-aadconnect.md)
-

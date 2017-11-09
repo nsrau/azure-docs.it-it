@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
+ms.openlocfilehash: 3d702f4e0746f07c5420853a7b93bdc793e4f288
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c7a6e32089a084d200cd0bb7a57f8f8a1e1bb04e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiare i dati da MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,13 +40,13 @@ In particolare, questo connettore MySQL supporta la **versione 5.1 e le versioni
 Per usare questo connettore MySQL, è necessario:
 
 - Configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
-- Installare la versione 6.6.5 o versione successiva del [connettore/Net MySQL per Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) sul computer per il runtime dell'integrazione.
+- Installare la versione 6.6.5 o versione successiva del [connettore/Net MySQL per Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) sul computer per il runtime dell'integrazione. Questo driver a 32 bit è compatibile con il runtime di integrazione a 64 bit.
 
 > [!TIP]
 > Se si ottiene l'errore "Autenticazione non riuscita. La parte remota ha chiuso il flusso di trasporto.", è consigliabile aggiornare il connettore MySQL/Net alla versione successiva.
 
 ## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello di Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di data factory specifiche per il connettore MySQL.
 

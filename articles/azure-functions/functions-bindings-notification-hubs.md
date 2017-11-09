@@ -1,6 +1,6 @@
 ---
-title: Binding di Hub di notifica in Funzioni di Azure | Microsoft Docs
-description: Informazioni su come usare il binding di Hub di notifica di Azure in Funzioni di Azure.
+title: Associazione di Hub di notifica in Funzioni di Azure | Documentazione Microsoft
+description: Informazioni su come usare l'associazione di Hub di notifica di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,25 +16,24 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/26/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 02d01d0f6e945ed54dbe766aec2a0fd7c17c510f
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-functions-notification-hub-output-binding"></a>Binding di output di Hub di notifica in Funzioni di Azure
+# <a name="azure-functions-notification-hub-output-binding"></a>Associazione di output di Hub di notifica in Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e scrivere il codice di binding di Hub di notifica in Funzioni di Azure. 
+Questo articolo illustra come configurare e scrivere il codice di associazioni di Hub di notifica in Funzioni di Azure. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 Le funzioni possono inviare notifiche push usando un hub di notifica di Azure configurato con poche righe di codice. L'hub di notifica di Azure tuttavia deve essere configurato per i servizi di notifiche della piattaforma (PNS) che si intende usare. Per altre informazioni sulla configurazione di un hub di notifica di Azure e sullo sviluppo di applicazioni client che eseguono la registrazione per ricevere notifiche, vedere [Introduzione ad Hub di notifica per le app della piattaforma UWP (Universal Windows Platform)](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) e fare clic sulla piattaforma client di destinazione nella parte superiore.
 
-Le notifiche inviate possono essere native o modello. Le notifiche native sono indirizzate a una piattaforma di notifica specifica, come configurato nella `platform` proprietà del binding di output. È possibile utilizzare una notifica modello per indirizzare più piattaforme.   
+Le notifiche inviate possono essere native o modello. Le notifiche native sono indirizzate a una piattaforma di notifica specifica, come configurato nella `platform` proprietà dell'associazione di uscita. È possibile utilizzare una notifica modello per indirizzare più piattaforme.   
 
-## <a name="notification-hub-output-binding-properties"></a>Binding delle proprietà di output dell'hub di notifica
+## <a name="notification-hub-output-binding-properties"></a>Associazione delle proprietà di uscita dell'hub di notifica
 Il file function.json specifica le proprietà seguenti:
 
 
@@ -46,7 +45,7 @@ Il file function.json specifica le proprietà seguenti:
 |**hubName** | Nome della risorsa dell'hub di notifica nel portale di Azure. |
 |**connessione** | Questa stringa di connessione deve essere una stringa di connessione di **impostazione applicazione** impostata sul valore *DefaultFullSharedAccessSignature* per l'hub di notifica. |
 |**direction** | Il valore deve essere impostato su `out`. | 
-|**platform** | La proprietà platform indica la piattaforma di notifica a cui è indirizzata la notifica. Per impostazione predefinita, se la proprietà della piattaforma viene omessa dal binding di output, possono essere usate le notifiche del modello per indirizzarsi a qualsiasi piattaforma configurata nell'hub di notifica di Azure. Per ulteriori informazioni sull'utilizzo dei modelli in generale per inviare notifiche tra piattaforme con un hub di notifica di Azure, vedere [Modelli](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Se impostata, la proprietà _platform_ deve avere uno dei valori seguenti: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Per altre informazioni su come configurare l'hub di notifica per il servizio APN e ricevere la notifica in un'app client, vedere [Invio di notifiche push a iOS con Hub di notifica di Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Per altre informazioni su come configurare l'hub di notifica per ADM e ricevere la notifica in un'app Kindle, vedere [Introduzione ad Hub di notifica per le app per Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). È supportato anche Firebase Cloud Messaging, la nuova versione di GCM. Per altre informazioni, vedere [Invio di notifiche push ad Android con Hub di notifica di Azure](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Servizi notifica Push Windows](https://msdn.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) per piattaforme Windows. Anche Windows Phone 8.1 e versioni successive sono supportati da WNS. Per altre informazioni, vedere [Introduzione ad Hub di notifica per le app della piattaforma UWP (Universal Windows Platform)](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Servizio notifica push Microsoft](https://msdn.microsoft.com/en-us/library/windows/apps/ff402558.aspx). Questa piattaforma supporta piattaforme Windows Phone 8 e precedenti di Windows Phone. Per altre informazioni, vedere [Invio di notifiche push con Hub di notifica di Azure in Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**platform** | La proprietà platform indica la piattaforma di notifica a cui è indirizzata la notifica. Per impostazione predefinita, se la proprietà della piattaforma viene omessa dall'associazione di output, possono essere usate le notifiche del modello per indirizzarsi a qualsiasi piattaforma configurata nell'hub di notifica di Azure. Per ulteriori informazioni sull'utilizzo dei modelli in generale per inviare notifiche tra piattaforme con un hub di notifica di Azure, vedere [Modelli](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Se impostata, la proprietà _platform_ deve avere uno dei valori seguenti: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Per altre informazioni su come configurare l'hub di notifica per il servizio APN e ricevere la notifica in un'app client, vedere [Invio di notifiche push a iOS con Hub di notifica di Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Per altre informazioni su come configurare l'hub di notifica per ADM e ricevere la notifica in un'app Kindle, vedere [Introduzione ad Hub di notifica per le app per Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). È supportato anche Firebase Cloud Messaging, la nuova versione di GCM. Per altre informazioni, vedere [Invio di notifiche push ad Android con Hub di notifica di Azure](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Servizi notifica Push Windows](https://msdn.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) per piattaforme Windows. Anche Windows Phone 8.1 e versioni successive sono supportati da WNS. Per altre informazioni, vedere [Introduzione ad Hub di notifica per le app della piattaforma UWP (Universal Windows Platform)](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Servizio notifica push Microsoft](https://msdn.microsoft.com/en-us/library/windows/apps/ff402558.aspx). Questa piattaforma supporta piattaforme Windows Phone 8 e precedenti di Windows Phone. Per altre informazioni, vedere [Invio di notifiche push con Hub di notifica di Azure in Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 Function.json di esempio:
 
@@ -68,7 +67,7 @@ Function.json di esempio:
 ```
 
 ## <a name="notification-hub-connection-string-setup"></a>Configurazione della stringa di connessione dell'hub di notifica
-Per usare un binding di output dell'hub di notifica, è necessario configurare la stringa di connessione per l'hub. È possibile selezionare un hub di notifica esistente o crearne uno nuovo direttamente dalla scheda *Integrazione* nella funzione. È anche possibile configurare manualmente la stringa di connessione. 
+Per usare un'associazione di output dell'hub di notifica, è necessario configurare la stringa di connessione per l'hub. È possibile selezionare un hub di notifica esistente o crearne uno nuovo direttamente dalla scheda *Integrazione* nella funzione. È anche possibile configurare manualmente la stringa di connessione. 
 
 Per configurare la stringa di connessione a un hub di notifica esistente:
 
@@ -293,5 +292,4 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

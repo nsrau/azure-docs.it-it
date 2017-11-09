@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/26/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a7ce4d771e9c655687f72f4b46c7405cf64aeb74
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -57,6 +56,14 @@ Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più rec
 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). In caso di interesse a .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* Aggiunta di diverse correzioni e miglioramenti dell'affidabilità.
+
+### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1 
+
+* Le modifiche interne correlate al supporto di [Microsoft.Azure.Graphs](https://docs.microsoft.com/en-us/azure/cosmos-db/graph-sdk-dotnet)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
@@ -137,6 +144,8 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](http://stackove
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.6.0](#1.6.0) |17 ottobre 2017 |--- |
+| [1.5.1](#1.5.1) |02 ottobre 2017 |--- |
 | [1.5.0](#1.5.0) |10 agosto 2017 |--- | 
 | [1.4.1](#1.4.1) |07 agosto 2017 |--- |
 | [1.4.0](#1.4.0) |02 agosto 2017 |--- |
@@ -154,5 +163,4 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](http://stackove
 
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

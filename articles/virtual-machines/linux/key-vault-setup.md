@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
 ms.openlocfilehash: 2cc9b4c978e9a4deb0c8443c4b0f9e301a7cf492
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Come configurare Key Vault per le macchine virtuali con l'interfaccia della riga di comando 2.0
 

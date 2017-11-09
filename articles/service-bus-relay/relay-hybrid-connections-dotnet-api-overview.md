@@ -1,6 +1,6 @@
 ---
 title: Panoramica delle API .NET Standard di Inoltro di Azure | Microsoft Docs
-description: Panoramica dell'API .NET Standard di Inoltro di Azure
+description: Panoramica delle API .NET Standard di Inoltro di Azure
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f3f4a2e721b1a75a5b92a5c17a9939c7013340d4
-ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 58451bae409c74c319f41c38a1cec5f051619e0c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Panoramica dell'API .NET Standard per Connessioni ibride di Inoltro di Azure
 
 In questo articolo vengono riepilogate alcune delle principali [API client](/dotnet/api/microsoft.azure.relay) .NET Standard per Connessioni ibride di Inoltro di Azure.
@@ -62,10 +60,10 @@ catch (ArgumentException ae)
 }
 ```
 
-## <a name="hybrid-connection-stream"></a>Flusso di Connessioni ibride
+## <a name="hybrid-connection-stream"></a>Flusso di connessione ibrida
 La classe [HybridConnectionStream][HCStream] è l'oggetto principale usato per inviare e ricevere dati da un endpoint di Inoltro di Azure, sia che si lavori con un [HybridConnectionClient][HCClient] o un [HybridConnectionListener][HCListener].
 
-### <a name="getting-a-hybrid-connection-stream"></a>Ottenere un flusso di Connessioni ibride
+### <a name="getting-a-hybrid-connection-stream"></a>Ottenere un flusso di connessione ibrida
 
 #### <a name="listener"></a>Listener
 Tramite [HybridConnectionListener][HCListener] è possibile ottenere un oggetto `HybridConnectionStream` nel modo seguente:

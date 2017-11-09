@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 383f0a466f92a230e49c3d1e96d306a0b7d67da2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Modalità di passaggio di un modello di Machine Learning da esperimento a servizio Web operativo
 Azure Machine Learning Studio fornisce un'area di disegno che consente di sviluppare, eseguire, testare e ripetere un ***esperimento*** che rappresenta un modello di analisi predittiva. Sono disponibili diversi moduli che consentono di:
@@ -119,5 +118,4 @@ Per esempi dell'intero processo, vedere:
 
 * [Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio](create-experiment.md)
 * [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
-
 

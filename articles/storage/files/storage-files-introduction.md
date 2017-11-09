@@ -12,23 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: renash
+ms.openlocfilehash: 712f66ade5709311721e5a4a8416f305f2e16e6b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5a4a26957c115277e7558c210560777af63d2d0f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/19/2017
 ---
-
 # <a name="introduction-to-azure-files"></a>Introduzione a File di Azure
 File di Azure offre condivisioni file completamente gestite nel cloud accessibili tramite il protocollo [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore, anche noto come CIFS o Common Internet File System. Le condivisioni di File di Azure possono essere montate simultaneamente da distribuzioni cloud o locali di Windows, macOS e Linux. Le condivisioni di File di Azure possono essere memorizzate nella cache in Windows Server con Sincronizzazione file di Azure (anteprima) per l'accesso rapido nelle vicinanze del punto in cui vengono usati i dati.
 
 ## <a name="videos"></a>Video
-| Introduzione a File di Azure (27 minuti) | Esercitazione di File di Azure (5 minuti)  |
+| Introduzione a Sincronizzazione file di Azure (2 minuti) | File di Azure con sincronizzazione (Ignite 2017, 85 minuti)  |
 |-|-|
-| [![Screencast del video di introduzione a File di Azure (fare clic per riprodurre)](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Screencast dell'esercitazione su File di Azure (fare clic per riprodurre)](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Screencast del video di introduzione a Sincronizzazione file di Azure (fare clic per riprodurre)](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast della presentazione su File di Azure e la sincronizzazione (fare clic per riprodurre)](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
 
 ## <a name="why-azure-files-is-useful"></a>Vantaggi offerti da File di Azure
 Le condivisioni file di Azure possono essere usate per gli scopi seguenti:
@@ -36,15 +34,15 @@ Le condivisioni file di Azure possono essere usate per gli scopi seguenti:
 * **Sostituire o integrare file server locali**:  
     È possibile usare File di Azure per sostituire completamente o integrare i dispositivi NAS o i file server locali tradizionali. I sistemi operativi più diffusi, come Windows, macOS e Linux, possono montare direttamente condivisioni di File di Azure ovunque nel mondo. Le condivisioni di File di Azure possono anche essere replicate nei server Windows con Sincronizzazione file di Azure, in locale o nel cloud, per il caching efficiente e distribuito dei dati lì dove vengono usati.
 
-* **Trasferire in modalità lift-and-shift le applicazioni**  
+* **Applicazioni "lift-and-shift"**:  
     File di Azure semplifica il trasferimento nel cloud in modalità lift-and-shift di applicazioni che prevedono una condivisione file per archiviare i dati delle applicazioni o degli utenti. File di Azure consente sia lo scenario lift-and-shift "classico", in cui l'applicazione e i dati vengono trasferiti in Azure, che lo scenario lift-and-shift "ibrido", in cui i dati dell'applicazione vengono trasferiti in File di Azure e l'applicazione continua a essere eseguita in locale. 
 
-* **Semplificare lo sviluppo per il cloud**  
+* **Semplificare lo sviluppo per il cloud**:  
     È possibile usare File di Azure in molti modi per semplificare i nuovi progetti di sviluppo per il cloud. ad esempio:
-    * **Impostazioni delle applicazioni condivise**  
+    * **Impostazioni delle applicazioni condivise**:  
         Un modello comune per le applicazioni distribuite consiste nell'inserire i file di configurazione in una posizione centralizzata in cui siano accessibili da numerose istanze dell'applicazione. Le istanze dell'applicazione possono caricare la propria configurazione tramite l'API REST di File e gli utenti possono accedere alle istanze in base alle esigenze mondando la condivisione SMB in locale.
 
-    * **Condivisione di diagnostica**  
+    * **Condivisione di diagnostica**:  
         Una condivisione di File di Azure è un modo pratico per la scrittura di registri, metriche e dump di arresto anomalo del sistema di applicazioni cloud. I registri possono essere scritti dalle istanze dell'applicazione tramite l'API REST di File e gli sviluppatori possono accedervi montando la condivisione file nel computer locale. Ciò consente una notevole flessibilità perché gli sviluppatori possono dedicarsi allo sviluppo cloud senza dover abbandonare gli strumenti che già conoscono e preferiscono.
 
     * **Sviluppo/test/debug**  

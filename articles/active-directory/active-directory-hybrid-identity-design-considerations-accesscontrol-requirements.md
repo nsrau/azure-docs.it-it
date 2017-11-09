@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 6404940da460461632616fe49f055d50c2a7aba3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di controllo di accesso per una soluzione di identità ibrida
 Durante la progettazione di una soluzione di identità ibrida, le aziende hanno la possibilità di valutare i requisiti di accesso per le risorse che prevedono di rendere disponibili agli utenti. L'accesso ai dati coinvolge tutti i quattro pilastri dell'identità, ovvero:

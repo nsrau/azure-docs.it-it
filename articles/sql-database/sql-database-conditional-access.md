@@ -9,11 +9,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
-ms.openlocfilehash: 0dcec61c03a84197e2c351761c743683caa98a06
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.workload: Inactive
+ms.openlocfilehash: c45f0ae655c544f51c8983c234591eef3da9dc6b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Accesso condizionale (MFA) con il database SQL di Azure e Azure SQL Data Warehouse  
 

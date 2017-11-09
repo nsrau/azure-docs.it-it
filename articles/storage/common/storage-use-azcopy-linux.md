@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
+ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 0b6417b616a9e4e74b5fb8a67e1414ad74e8f258
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Trasferire dati con AzCopy in Linux
 AzCopy in Linux è un'utilità della riga di comando progettata la copia dei dati da e verso l'archiviazione BLOB e file di Microsoft Azure usando semplici comandi con prestazioni ottimali. È possibile copiare dati da un oggetto a un altro all'interno dell'account di archiviazione o tra account di archiviazione.
@@ -497,7 +496,7 @@ azcopy \
     --sync-copy
 ```
 
-Durante la copia da Archiviazione file ad Archiviazione BLOB, il tipo di BLOB predefinito è il BLOB in blocchi. Per modificare il tipo di BLOB di destinazione, è possibile specificare l'opzione `/BlobType:page`.
+Durante la copia da Archiviazione file ad Archiviazione BLOB, il tipo di BLOB predefinito è il BLOB in blocchi. Per modificare il tipo di BLOB di destinazione, è possibile specificare l'opzione `--blob-type page`. I tipi disponibili sono `page | block | append`.
 
 `--sync-copy` può generare costi aggiuntivi in uscita rispetto alla copia asincrona. Per evitare costi in uscita, si consiglia quindi di usare questa opzione in una macchina virtuale di Azure che si trova nella stessa area dell'account di archiviazione di origine.
 
@@ -691,5 +690,4 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 * [AzCopy:trasferimento di dati con modalità riavviabile e token di firma di accesso condiviso](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: uso del comando di copia dei BLOB tra account](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Caricamento e download di file per BLOB di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
 

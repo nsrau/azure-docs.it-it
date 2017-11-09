@@ -15,12 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
-ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-azure-ad-directory"></a>Gestire la directory di Azure AD
 
@@ -123,4 +122,3 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 * [Domande per Azure in Stack Overflow](http://stackoverflow.com/questions/tagged/azure)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Assegnazione dei ruoli di amministratore in Azure AD](active-directory-assign-admin-roles.md)
-

@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4d4c16860dbec10162797a13c8f9f57106abd17f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitorare le modifiche a una macchina virtuale con Griglia di eventi di Azure e app per la logica
 
@@ -225,29 +225,26 @@ Aggiungere ora un'[*azione* ](../logic-apps/logic-apps-what-are-logic-apps.md#lo
 
 Congratulazioni, è stata creata ed eseguita un'app per la logica in grado di monitore gli eventi di risorse tramite Griglia di eventi e di inviare un messaggio di posta elettronica quando si verificano tali eventi. Si è inoltre appreso come creare con facilità flussi di lavoro per l'automazione dei processi e come integrare sistemi e servizi cloud.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-In questa esercitazione vengono usate risorse ed eseguite azioni che generano addebiti sulla sottoscrizione di Azure. Al termine dell'esercitazione e dei test, accertarsi di disabilitare o eliminare le risorse per evitare di incorrere in addebiti.
-
-È possibile impedire l'esecuzione dell'app per la logica e l'invio di posta elettronica senza eliminare l'app. Scegliere **Panoramica** dal menu dell'app per la logica. Sulla barra degli strumenti scegliere **Disabilita**.
-
-![Disabilitare l'app per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
-
-## <a name="faq"></a>domande frequenti
-
-**D**: Quali altre attività di monitoraggio delle macchine virtuali è possibile eseguire con Griglia di eventi e le app per la logica? </br>
-**R**: È possibile monitorare altre modifiche di configurazione, ad esempio:
+È possibile monitorare altre modifiche alla configurazione con le griglie di evento e le app per la logica, ad esempio:
 
 * L'acquisizione da parte di una macchina virtuale dei diritti di controllo degli accessi in base al ruolo.
 * L'implementazione di modifiche a un gruppo di sicurezza di rete o a un'interfaccia di rete.
 * L'aggiunta o la rimozione di dischi in una macchina virtuale.
 * L'assegnazione di un indirizzo IP pubblico all'interfaccia di rete di una macchina virtuale.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+In questa esercitazione vengono usate risorse ed eseguite azioni che generano addebiti sulla sottoscrizione di Azure. Al termine dell'esercitazione e dei test, accertarsi di disabilitare o eliminare le risorse per evitare di incorrere in addebiti.
+
+* Per interrompere l'esecuzione dell'app per la logica senza eliminare il lavoro, disabilitare l'app. Scegliere **Panoramica** dal menu dell'app per la logica. Sulla barra degli strumenti scegliere **Disabilita**.
+
+  ![Disabilitare l'app per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
+
+  > [!TIP]
+  > Se il menu dell'app per la logica non è visualizzato, provare a tornare al dashboard di Azure e riaprire l'app per la logica.
+
+* Per eliminare in modo definitivo l'app per la logica, scegliere **Panoramica** dal menu delle app per la logica. Sulla barra degli strumenti scegliere **Elimina**. Assicurarsi di voler eliminare l'app per la logica e quindi scegliere **Elimina**.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica di Griglia di eventi](../event-grid/overview.md)
-* [Concetti relativi a Griglia di eventi](../event-grid/concepts.md)
-* [Guida introduttiva: Creare e instradare eventi personalizzati con la griglia di eventi](../event-grid/custom-event-quickstart.md)
-* [Schema di eventi di Griglia di eventi](../event-grid/event-schema.md)
-* [App per la logica di Azure](../logic-apps/logic-apps-what-are-logic-apps.md)
-* [Creare flussi di lavoro di app per la logica con modelli predefiniti](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Creare e instradare eventi personalizzati con Griglia di eventi](../event-grid/custom-event-quickstart.md)

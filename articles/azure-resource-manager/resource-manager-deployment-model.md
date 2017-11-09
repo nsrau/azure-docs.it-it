@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/09/2017
 ms.author: tomfitz
 ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse
 Questo argomento illustra i modelli di distribuzione classica e Azure Resource Manager, lo stato delle risorse e i motivi per cui le risorse sono state distribuite con un metodo o con l'altro. I modelli di distribuzione classica e Resource Manager rappresentano due diversi modi di distribuire e gestire le soluzioni Azure. Vengono usati con due diversi set di API e le risorse distribuite possono contenere differenze significative. I due modelli non sono completamente compatibili tra loro. Questo argomento descrive tali differenze.

@@ -10,20 +10,18 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/17/2017
+ms.date: 10/11/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: df42834bca821b16e9dd1bc57d735d346f12ca1d
-ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 5076a9fcbfb0c46a0aebf858d5ec1dcbee839946
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Creare un singolo database SQL di Azure usando l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida illustra in dettaglio l'uso dell'interfaccia della riga di comando di Azure per distribuire un database SQL di Azure in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) in un [server logico del database SQL di Azure](sql-database-features.md).
@@ -56,14 +54,14 @@ export databasename = mySampleDatabase
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con il comando [az group create](/cli/azure/group#create). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `westeurope`.
+Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `westeurope`.
 
 ```azurecli-interactive
 az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>Creare un server logico
 
-Creare un [server logico del database SQL di Azure](sql-database-features.md) con il comando [az sql server create](/cli/azure/sql/server#create). Un server logico contiene un gruppo di database gestiti come gruppo. L'esempio seguente crea un server con un nome casuale nel gruppo di risorse con un account di accesso amministratore denominato `ServerAdmin` e la password `ChangeYourAdminPassword1`. Sostituire questi valori predefiniti con quelli desiderati.
+Creare un [server logico del database SQL di Azure](sql-database-features.md) con il comando [az sql server create](/cli/azure/sql/server#az_sql_server_create). Un server logico contiene un gruppo di database gestiti come gruppo. L'esempio seguente crea un server con un nome casuale nel gruppo di risorse con un account di accesso amministratore denominato `ServerAdmin` e la password `ChangeYourAdminPassword1`. Sostituire questi valori predefiniti con quelli desiderati.
 
 ```azurecli-interactive
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
@@ -72,7 +70,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurare una regola del firewall del server
 
-Creare una [regola del firewall del server del database SQL di Azure](sql-database-firewall-configure.md) con il comando [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio SQL Server Management Studio o l'utility SQLCMD, di connettersi a un database SQL tramite il firewall del servizio di database SQL. Nell'esempio seguente, il firewall è aperto solo per altre risorse di Azure. Per abilitare la connettività esterna, modificare l'indirizzo IP in un indirizzo appropriato per l'ambiente. Per aprire tutti gli indirizzi IP, usare 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo finale.  
+Creare una [regola del firewall del server del database SQL di Azure](sql-database-firewall-configure.md) con il comando [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio SQL Server Management Studio o l'utility SQLCMD, di connettersi a un database SQL tramite il firewall del servizio di database SQL. Nell'esempio seguente, il firewall è aperto solo per altre risorse di Azure. Per abilitare la connettività esterna, modificare l'indirizzo IP in un indirizzo appropriato per l'ambiente. Per aprire tutti gli indirizzi IP, usare 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo finale.  
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
@@ -85,7 +83,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>Creare un database nel server con dati di esempio
 
-Creare nel server un database con [livello di prestazioni S0](sql-database-service-tiers.md) con il comando [az sql db create](/cli/azure/sql/db#create). L'esempio seguente crea un database denominato `mySampleDatabase` e carica i dati di esempio di AdventureWorksLT in questo database. Sostituire questi valori predefiniti con quelli desiderati. Altre guide introduttive di questa raccolta si basano sui valori di questa guida introduttiva.
+Creare nel server un database con [livello di prestazioni S0](sql-database-service-tiers.md) con il comando [az sql db create](/cli/azure/sql/db#az_sql_db_create). L'esempio seguente crea un database denominato `mySampleDatabase` e carica i dati di esempio di AdventureWorksLT in questo database. Sostituire questi valori predefiniti con quelli desiderati. Altre guide introduttive di questa raccolta si basano sui valori di questa guida introduttiva.
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \
@@ -116,5 +114,4 @@ Dopo aver creato un database, è possibile connettersi ed eseguire query usando 
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
-
 

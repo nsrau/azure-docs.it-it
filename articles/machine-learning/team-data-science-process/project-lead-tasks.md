@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ed3dc8d441989239f02e12231f06d22fbef9d3dd
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="project-lead-tasks"></a>Attività del responsabile di progetto
 
 Questa esercitazione descrive le attività che un responsabile di progetto deve completare per il team del progetto. L'obiettivo è di stabilire un ambiente di collaborazione per normalizzare il [processo di data science per il team](overview.md) (TDSP, Team Data Science Process). TDSP è un framework sviluppato da Microsoft che fornisce una sequenza strutturata di attività per eseguire in modo efficiente soluzioni di analisi predittiva, basate sul cloud. Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di data science, che vengono standardizzati con il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
@@ -53,9 +51,9 @@ Di seguito vengono riepilogati i prerequisiti che è necessario soddisfare prima
 - Il responsabile del gruppo deve avere configurato il **server VSTS del gruppo** (o l'account di gruppo in alcune altre piattaforme di hosting del codice).
 - Il responsabile del team deve avere configurato il **repository TeamProjectTemplate** (R3) nell'account di gruppo nella piattaforma di hosting del codice che si intende usare.
 - Si deve avere l'**autorizzazione** da parte del responsabile del gruppo necessaria per creare i repository nell'account di gruppo per il team.
-- Git deve essere installato nel computer. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice in Platforms and tools](platforms-and-tools.md#appendix) (Piattaforme e strumenti).  
-- Se si usa una **DSVM Windows**, è necessario che [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) sia installato nel computer. Nel file README.md scorrere verso il basso fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il programma di installazione EXE ed eseguirlo. 
-- Se si usa una **DSVM Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al server VSTS del gruppo. Per altre informazioni su SSH, vedere la sezione **Create SSH public key** (Creare una chiave pubblica SSH) nell'[appendice in Platforms and tools](platforms-and-tools.md#appendix) (Piattaforme e strumenti). 
+- Git deve essere installato nel computer. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).  
+- Se si usa una **DSVM per Windows**, è necessario avere installato [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) nel computer. Nel file README.md scorrere fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il file con estensione exe del programma di installazione ed eseguirlo. 
+- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al server VSTS del gruppo. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
 
 
 ## <a name="1-create-a-project-repository-r5"></a>1. Creare un repository di progetto (R5)
@@ -204,7 +202,7 @@ Se per il progetto sono necessarie alcune directory o documenti specifici, diver
     git config --global user.name <your name>
     git config --global user.email <your email address>
  
-> Se si esegue il commit in più repository Git, usare lo stesso nome e indirizzo di posta elettronica in tutti. L'uso dello stesso nome e indirizzo di posta elettronica si dimostra utile successivamente quando si compilano i dashboard di PowerBI per tenere traccia delle attività Git in più repository.
+> Se si esegue il commit in più repository Git, usare lo stesso nome e indirizzo di posta elettronica in tutti. L'uso dello stesso nome e dello stesso indirizzo e-mail si dimostra utile in un secondo momento, quando si compilano i dashboard di PowerBI per tenere traccia delle attività Git in più repository.
 
 ![15](./media/project-lead-tasks/project-leads-15-git-config-name.png)
 

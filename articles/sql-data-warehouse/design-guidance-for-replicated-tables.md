@@ -12,16 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/14/2017
+ms.date: 10/23/2017
 ms.author: rortloff;barbkess
+ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 437a4f628a343312984d1fa2981df7fa01459e26
-ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse
 Questo articolo offre alcuni consigli per la progettazione di tabelle replicate nello schema Azure SQL Data Warehouse. Usare questi consigli per migliorare le prestazioni delle query riducendo lo spostamento dei dati e la complessità delle query stesse.
 
@@ -30,7 +28,7 @@ Questo articolo offre alcuni consigli per la progettazione di tabelle replicate 
 > 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere [Dati distribuiti](sql-data-warehouse-distributed-data.md). 
+Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md). 
 
 Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
 
@@ -142,7 +140,7 @@ SQL Data Warehouse implementa una tabella replicata mantenendo una versione mast
 
 Le compilazioni sono necessarie dopo le operazioni seguenti:
 - Vengono caricati o modificati dati
-- Il data warehouse viene ridimensionato in base a un'impostazione DWU diversa
+- Il data warehouse viene ridimensionato in base a un [livello di servizio](performance-tiers.md#service-levels) diverso
 - Viene aggiornata la definizione di tabella
 
 Le ricompilazioni non sono necessarie dopo le operazioni seguenti:
@@ -203,10 +201,9 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 Per creare una tabella replicata, usare una di queste istruzioni:
 
 - [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 Per una panoramica delle tabelle distribuite, vedere [Tabelle distribuite](sql-data-warehouse-tables-distribute.md).
-
 
 
 

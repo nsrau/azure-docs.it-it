@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
 ms.openlocfilehash: 36504a281756b980e3348e7f892ba08821873b52
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Esercitazione: Integrazione di Azure Active Directory con Keeper Password Manager & Digital Vault
 
@@ -178,7 +178,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ![Assegna utente][200] 
 
-**Per assegnare Britta Simon a Keeper Password Manager & Digital Vault, seguire questa procedura:**
+**Per assegnare Britta Simon a Keeper Password Manager &amp; Digital Vault, seguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 

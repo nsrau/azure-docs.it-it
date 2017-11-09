@@ -1,6 +1,6 @@
 ---
 title: Ottimizzare l'ambiente Active Directory con Log Analytics di Azure|Documentazione Microsoft
-description: "È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari."
+description: "È possibile usare la soluzione Controllo integrità Active Directory per valutare i rischi e l'integrità degli ambienti a intervalli regolari."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
-ms.author: banders
+ms.date: 10/27/2017
+ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente Active Directory con la soluzione Active Directory Assessment in Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Ottimizzare l'ambiente Active Directory con la soluzione Controllo integrità Active Directory in Log Analytics
 
-![Simbolo di Valutazione AD](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
+![Simbolo di Controllo integrità AD](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
 
-È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari. Questo articolo descrive come installare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
+È possibile usare la soluzione Controllo integrità Active Directory per valutare i rischi e l'integrità degli ambienti server a intervalli regolari. Questo articolo descrive come installare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
 
 La soluzione offre un elenco con priorità di raccomandazioni specifiche per l'infrastruttura distribuita dei server, classificate in quattro aree di interesse che consentono di comprendere rapidamente il rischio e agire in maniera appropriata.
 
@@ -33,46 +33,48 @@ Le raccomandazioni si basano sulla conoscenza e sull'esperienza acquisite dai te
 
 Si possono scegliere le aree di interesse più importanti per l'organizzazione e tenere traccia dello stato di avanzamento verso la realizzazione di un ambiente integro ed esente da rischi.
 
-Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard **AD Assessment** per l'infrastruttura nell'ambiente verranno visualizzate le informazioni di riepilogo per l'area di interesse. Le sezioni seguenti descrivono come usare le informazioni visualizzate nel dashboard **AD Assessment** , in cui sarà possibile intraprendere le azioni consigliate per l'infrastruttura dei server di Active Directory.
+Dopo aver aggiunto la soluzione e completato un controllo, nel dashboard di **Controllo integrità AD** per l'infrastruttura nell'ambiente vengono visualizzate le informazioni di riepilogo per le aree di interesse. Le sezioni seguenti descrivono come usare le informazioni visualizzate nel dashboard di **Controllo integrità AD**, dove è possibile visualizzare, e quindi eseguire, le azioni consigliate per l'infrastruttura server di Active Directory.  
 
-![immagine del riquadro  SQL Assessment](./media/log-analytics-ad-assessment/ad-tile.png)
+![Immagine del riquadro di Controllo integrità AD](./media/log-analytics-ad-assessment/ad-healthcheck-summary-tile.png)
 
-![Immagine del dashboard SQL Assessment ](./media/log-analytics-ad-assessment/ad-assessment.png)
+![Immagine del dashboard di Controllo integrità AD](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
-Usare le informazioni seguenti per installare e configurare le soluzioni.
+## <a name="prerequisites"></a>Prerequisiti
 
-* Gli agenti devono essere installati nei controller di dominio membri del dominio da valutare.
-* La soluzione Active Directory Assessment richiede l'installazione di una versione di .NET Framework 4 (4.5.2 o superiore) supportata in ogni computer che contiene un agente OMS.
-* Aggiungere la soluzione Active Directory Assessment all'area di lavoro OMS da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview) o seguendo la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
+* La soluzione Controllo integrità Active Directory richiede l'installazione di una versione supportata di .NET Framework 4.5.2 o successiva in ogni computer in cui è installato Microsoft Monitoring Agent (MMA).  L'agente MMA viene usato da System Center 2016 Operations Manager e Operations Manager 2012 R2, oltre che dal servizio Log Analytics. 
+* La soluzione supporta controller di dominio che eseguono Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
+* Area di lavoro di Log Analytics per aggiungere la soluzione Controllo integrità Active Directory da Azure Marketplace al portale di Azure.  Non è richiesta alcuna ulteriore configurazione.
 
   > [!NOTE]
-  > Dopo aver aggiunto la soluzione, il file AdvisorAssessment.exe viene aggiunto al server con agenti. I dati di configurazione vengono letti e quindi inviati al servizio OMS nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.
+  > Dopo aver aggiunto la soluzione, il file AdvisorAssessment.exe viene aggiunto al server con agenti. I dati di configurazione vengono letti e quindi inviati al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.
   >
   >
 
-## <a name="active-directory-assessment-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati per Active Directory Assessment
+Per eseguire il controllo integrità dei controller di dominio che sono membri del dominio da valutare, sono necessari un agente e la connettività a Log Analytics tramite uno dei metodi supportati seguenti:
 
-Valutazione Active Directory raccoglie i dati dalle origini seguenti tramite gli agenti abilitati:
+1. Installare [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) se il controller di dominio non è già monitorato da System Center 2016 Operations Manager o Operations Manager 2012 R2.
+2. Se si esegue il monitoraggio con System Center 2016 Operations Manager o Operations Manager 2012 R2 e il gruppo di gestione non è integrato con il servizio Log Analytics, è possibile usare una configurazione multihomed del controller di dominio con Log Analytics per raccogliere i dati e inoltrarli al servizio, mantenendo il monitoraggio di Operations Manager.  
+3. In caso contrario, se il gruppo di gestione di Operations Manager è integrato con il servizio, è necessario aggiungere i controller di dominio per la raccolta dati da parte del servizio seguendo i passaggi descritti in [Aggiungere computer gestiti dagli agenti](log-analytics-om-agents.md#connecting-operations-manager-to-oms) dopo aver abilitato la soluzione nell'area di lavoro.  
 
-- Agenti di raccolta del Registro di sistema
-- Agenti di raccolta LDAP
+L'agente nel controller di dominio che invia i contenuti a un gruppo di gestione di Operations Manager raccoglie i dati e li inoltra al server di gestione assegnato, quindi viene eseguito l'invio direttamente da un server di gestione al servizio Log Analytics.  I dati non vengono scritti nei database di Operations Manager.  
+
+## <a name="active-directory-health-check-data-collection-details"></a>Informazioni dettagliate sulla raccolta dati di Controllo integrità Active Directory
+
+Controllo integrità Active Directory raccoglie i dati dalle origini seguenti usando l'agente abilitato:
+
+- Registro 
+- LDAP 
 - .NET Framework
-- Agenti di raccolta del registro eventi
+- Registro eventi 
 - Active Directory Service Interfaces (ADSI)
 - Windows PowerShell
-- Agenti di raccolta dei dati di file
+- Dati dei file 
 - Strumentazione gestione Windows (WMI)
 - API dello strumento DCDIAG
 - API di File Replication Service (NTFRS)
 - Codice personalizzato in C#
 
-
-La tabella seguente illustra i metodi di raccolta dati per gli agenti, se Operations Manager (SCOM) è obbligatorio e la frequenza con cui i dati vengono raccolti da un agente.
-
-| Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows |&#8226; |&#8226; |  |  |&#8226; |7 giorni |
+I dati vengono raccolti nel controller di dominio e inoltrati a Log Analytics ogni sette giorni.  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Informazioni sulla classificazione in ordine di priorità delle raccomandazioni
 A ogni raccomandazione generata viene assegnato un valore di ponderazione che identifica l'importanza relativa della raccomandazione. Vengono visualizzate solo le 10 raccomandazioni più importanti.
@@ -100,71 +102,76 @@ Non necessariamente. Le raccomandazioni si basano sulla conoscenza e sull'esperi
 
 Ogni raccomandazione include informazioni aggiuntive sui motivi per cui potrebbe essere importante. È consigliabile usare queste informazioni aggiuntive per valutare se l'implementazione della raccomandazione è appropriata, a seconda della natura dei servizi IT e delle esigenze aziendali dell'organizzazione.
 
-## <a name="use-assessment-focus-area-recommendations"></a>Usare le raccomandazioni relative all'area di interesse della valutazione
-Prima di poter usare una soluzione di valutazione in OMS, è necessario averla installata. Per altre informazioni sull'installazione di soluzioni, vedere [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). Dopo l'installazione, sarà possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro Assessment della pagina Overview in OMS.
+## <a name="use-health-check-focus-area-recommendations"></a>Usare le raccomandazioni relative alle aree di interesse del controllo integrità
+Dopo l'installazione, è possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro di Controllo integrità nella pagina della soluzione nel portale di Azure.
 
 Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infrastruttura, quindi visualizzare le raccomandazioni nel dettaglio.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Per visualizzare le raccomandazioni per un'area di interesse e applicare un'azione correttiva
-1. Nella pagina **Overview** (Panoramica) fare clic sul riquadro **Assessment** (Valutazione) per l'infrastruttura del server.
-2. Nella pagina **Assessment** verificare le informazioni di riepilogo in uno dei pannelli dell'area di interesse, quindi fare clic su un'area specifica per visualizzare le raccomandazioni corrispondenti.
-3. In una delle pagine relative alle aree di interesse è possibile visualizzare le raccomandazioni relative all'ambiente specifico, classificate in ordine di priorità. Fare clic su una raccomandazione in **Affected Objects** (Oggetti interessati) per visualizzare i dettagli relativi al motivo per cui è stata generata.  
-    ![immagine delle raccomandazioni di Assessment (Valutazione)](./media/log-analytics-ad-assessment/ad-focus.png)
-4. È possibile eseguire le azioni correttive suggerite in **Suggested Actions**(Azioni suggerite). Dopo la risoluzione dell'elemento, le valutazioni successive indicano che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
+2. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
+3. Nel riquadro delle sottoscrizioni di Log Analytics selezionare un'area di lavoro e quindi fare clic sul riquadro del **Portale di OMS**.  
+4. Nella pagina **Panoramica** fare clic sul riquadro di **Controllo integrità AD**. 
+5. Nella pagina **Controllo integrità** esaminare le informazioni di riepilogo in uno dei pannelli delle aree di interesse e quindi fare clic su un'area specifica per visualizzare le raccomandazioni corrispondenti.
+6. In una delle pagine relative alle aree di interesse è possibile visualizzare le raccomandazioni relative all'ambiente specifico, classificate in ordine di priorità. Fare clic su una raccomandazione in **Affected Objects** (Oggetti interessati) per visualizzare i dettagli relativi al motivo per cui è stata generata.<br><br> ![Immagine delle raccomandazioni di Controllo integrità](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
+7. È possibile eseguire le azioni correttive suggerite in **Suggested Actions**(Azioni suggerite). Dopo la risoluzione dell'elemento, le valutazioni successive indicano che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
 
 ## <a name="ignore-recommendations"></a>Ignorare le raccomandazioni
-Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS userà per impedirne la visualizzazione nei risultati della valutazione.
+Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Log Analytics userà per impedire la visualizzazione delle raccomandazioni nei risultati della valutazione.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Per identificare le raccomandazioni che verranno ignorate
-1. Accedere all'area di lavoro e aprire Ricerca log. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.
+1. Nel portale di Azure, nella pagina dell'area di lavoro di Log Analytics per l'area di lavoro selezionata, fare clic sul riquadro **Ricerca log**.
+2. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.
 
-   ```
-   Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
-   ```
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
->
-> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+    ```
+    Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
+    >[!NOTE]
+    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
+    >
+    > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-   Ecco lo screenshot che mostra la query di ricerca nei log: ![raccomandazioni con esito negativo](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
-2. Scegliere le raccomandazioni da ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
+    Ecco lo screenshot che mostra la query di ricerca nei log: <br><br> ![raccomandazioni non riuscite](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
+
+3. Scegliere le raccomandazioni che si vogliono ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Per creare e usare un file di testo IgnoreRecommendations.txt
 1. Creare un file denominato IgnoreRecommendations.txt.
 2. Incollare o digitare ciascun ID raccomandazione per ogni raccomandazione che Log Analytics dovrà ignorare in una riga separata e quindi salvare e chiudere il file.
-3. Inserire il file nella cartella seguente in ogni computer in cui si vuole che OMS ignori le raccomandazioni.
-   * Nei computer con Microsoft Monitoring Agent, connesso direttamente o tramite Operations Manager, *SystemDrive*:\Programmi\Microsoft Monitoring Agent\Agent
-   * Nel server di gestione Operations Manager *SystemDrive*: \Programmi\Microsoft System Center 2012 R2\Operations Manager\Server
+3. Inserire il file nella cartella seguente in ogni computer in cui si vuole che Log Analytics ignori le raccomandazioni.
+   * Nei computer con Microsoft Monitoring Agent, connesso direttamente o tramite Operations Manager, *UnitàSistema*:\Programmi\Microsoft Monitoring Agent\Agent
+   * Nel server di gestione di Operations Manager 2012 R2, *UnitàSistema*:\Programmi\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * Nel server di gestione di Operations Manager 2016, *UnitàSistema*:\Programmi\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Per verificare che le raccomandazioni vengano ignorate
-Dopo la successiva esecuzione della valutazione pianificata, per impostazione predefinita ogni 7 giorni, le raccomandazioni specificate sono contrassegnate come *ignorate* e non verranno visualizzate nel dashboard di valutazione.
+Dopo l'esecuzione del controllo integrità successivo pianificato, per impostazione predefinita ogni sette giorni, le raccomandazioni specificate vengono contrassegnate come *ignorate* e non vengono visualizzate nel dashboard.
 
 1. È possibile usare le query di Ricerca log seguenti per elencare tutte le raccomandazioni ignorate.
 
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
->
-> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+    >[!NOTE]
+    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
+    >
+    > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure è possibile rimuovere gli ID raccomandazione dagli stessi.
 
-## <a name="ad-assessment-solutions-faq"></a>Domande frequenti sulle soluzioni AD Assessment
-*Con quale frequenza viene eseguita la valutazione?*
+## <a name="ad-health-check-solutions-faq"></a>Domande frequenti sulla soluzione Controllo integrità AD
+*Con che frequenza viene eseguito un controllo integrità?*
 
-* La valutazione viene eseguita ogni 7 giorni.
+* Il controllo viene eseguito ogni sette giorni.
 
-*È possibile configurare la frequenza di esecuzione della valutazione?*
+*È possibile configurare la frequenza di esecuzione del controllo integrità?*
 
 * Attualmente non è possibile.
 
-*Se viene rilevato un altro server dopo l'aggiunta della soluzione per la valutazione, il server verrà valutato?*
+*Se viene rilevato un altro server dopo l'aggiunta di una soluzione di controllo integrità, il server verrà controllato?*
 
-* Sì, a partire dal rilevamento verrà valutato ogni 7 giorni.
+* Sì, dal momento in cui viene rilevato verrà controllato ogni sette giorni.
 
-*Se un server viene rimosso, quando sarà rimosso dalla valutazione?*
+*Se un server viene ritirato, quando sarà rimosso dal controllo integrità?*
 
 * Se un server non invia dati per 3 settimane, verrà rimosso.
 
@@ -189,4 +196,4 @@ Dopo la successiva esecuzione della valutazione pianificata, per impostazione pr
 * Sì, vedere la sezione [Ignorare le raccomandazioni](#ignore-recommendations) sopra.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per visualizzare dati e raccomandazioni dettagliati di AD Assessment usare [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) .
+* Vedere [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) per informazioni su come analizzare le raccomandazioni e i dati dettagliati di Controllo integrità AD.

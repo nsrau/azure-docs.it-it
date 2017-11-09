@@ -15,12 +15,11 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 62242f356afd55a7f9e432faa6cdf3be74b7c18c
-ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.openlocfilehash: 4d1302416cfa767415d7bb1e8b426079099caf28
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Domande frequenti sull'app Microsoft Authenticator
 
@@ -111,4 +110,3 @@ Se questo articolo non ha fornito le risposte necessarie, saranno apprezzati com
 * [Informazioni sulla verifica in due passaggi](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) per l'account Microsoft
 * [Problemi con la verifica in due passaggi](multi-factor-authentication-end-user-troubleshoot.md) per un account aziendale o dell'istituto di istruzione
 * [Usare Microsoft Authenticator per accedere dal telefono](microsoft-authenticator-app-phone-signin-faq.md)
-

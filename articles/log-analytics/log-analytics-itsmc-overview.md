@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector (anteprima)
 
@@ -110,7 +109,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Computer
 
 
-**Elemento di lavoro:** **Richieste di modifica**
+**Elemento di lavoro:****Richieste di modifica**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
@@ -307,4 +306,3 @@ Per eventuali domande o commenti e suggerimenti su IT Service Management Connect
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Aggiungere prodotti o servizi ITSM a IT Service Management Connector](log-analytics-itsmc-connections.md).
-

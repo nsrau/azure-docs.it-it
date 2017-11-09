@@ -12,15 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
+ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="performance-recommendations"></a>Raccomandazioni per le prestazioni
 
@@ -81,6 +80,5 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 * Vedere [Intelligent Insights del database SQL di Azure](sql-database-intelligent-insights.md) per monitorare automaticamente le prestazioni del database con diagnostica automatizzata e analisi della causa radice dei problemi di prestazioni.
 * Vedere [Applicare le raccomandazioni per le prestazioni](sql-database-advisor-portal.md) per istruzioni su come usare le raccomandazioni per le prestazioni nel portale di Azure.
 * Per imparare a esaminare l'impatto sulle prestazioni delle query principali, vedere [Query Performance Insight del database SQL di Azure](sql-database-query-performance.md).
-
 
 

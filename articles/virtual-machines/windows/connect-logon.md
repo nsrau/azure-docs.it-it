@@ -4,7 +4,7 @@ description: Informazioni su come connettersi e accedere a una VM Windows median
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ef62b02e-bf35-468d-b4c3-71b63fe7f409
@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 10/20/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 88431377a36d5bc36220c630f0c8d4a46ab4a434
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 2b748e4fc536a933dc41f9f673a534598b7343b8
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
 Per avviare una sessione di Desktop remoto (RDP) da un desktop di Windows, sarà necessario usare il pulsante **Connetti** nel portale di Azure. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
@@ -29,9 +28,9 @@ Se si sta tentando di effettuare la connessione a una macchina virtuale Windows 
 
 ## <a name="connect-to-the-virtual-machine"></a>Connettersi alla macchina virtuale
 1. Accedere al [portale di Azure](https://portal.azure.com/), se questa operazione non è già stata eseguita.
-2. Scegliere **Macchine virtuali**dal menu Hub.
+2. Nel menu a sinistra fare clic su **Macchine virtuali**.
 3. Selezionare la macchina virtuale dall'elenco.
-4. Nel pannello della macchina virtuale fare clic su **Connetti**.
+4. Nella pagina della macchina virtuale fare clic su **Connetti**.
    
     ![Screenshot del portale di Azure che illustra come connettersi alla VM.](./media/connect-logon/connect.png)
    
@@ -45,5 +44,4 @@ Se si sta tentando di effettuare la connessione a una macchina virtuale Windows 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In caso di problemi quando si cerca di eseguire la connessione, vedere [Risolvere i problemi di connessioni Desktop remoto](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
-
 

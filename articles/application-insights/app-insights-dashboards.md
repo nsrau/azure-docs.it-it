@@ -3,7 +3,7 @@ title: Navigazione e dashboard in Azure Application Insights | Microsoft Docs
 description: Creare visualizzazioni di query e grafici APM chiave.
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: bwren
-ms.openlocfilehash: 9987f04e7e71df5fe10c8bc209a390cb940ec4f2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigazione e dashboard nel portale Application Insights
 Dopo aver [impostato Application Insights nel progetto](app-insights-overview.md), i dati di telemetria sull'uso e le prestazioni dell'app verranno visualizzati nella risorsa di Application Insights del progetto nel [portale di Azure](https://portal.azure.com).

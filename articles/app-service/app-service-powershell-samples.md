@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 3254fdd57cfcd170f22374c1e3b058e6081d8e8e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: b587f299e7b11effd05cbbc4b15976fee3f83ffd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-powershell-samples"></a>Esempi di Azure PowerShell
 
@@ -29,8 +29,8 @@ La tabella seguente include i collegamenti agli script Bash compilati tramite Az
 | | |
 |-|-|
 |**Creare un'app**||
-| [Creare un'App Web con la distribuzione da GitHub](./scripts/app-service-powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'App Web di Azure che effettua il pull del codice da GitHub. |
-| [Creare un'App Web con distribuzione continua da GitHub](./scripts/app-service-powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'App Web di Azure che distribuisce in modo continuo codice da GitHub. |
+| [Creare un'App Web con la distribuzione da GitHub](./scripts/app-service-powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app Web di Azure che esegue il pull del codice da GitHub. |
+| [Creare un'App Web con distribuzione continua da GitHub](./scripts/app-service-powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app Web di Azure che distribuisce in modo continuo il codice da GitHub. |
 | [Creare un'app Web e distribuire il codice da FTP](./scripts/app-service-powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app Web di Azure per caricare i file da una directory locale tramite FTP. |
 | [Creare un'App Web e distribuire il codice da un archivio Git locale](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'App Web di Azure e configura il push del codice da un archivio Git locale. |
 | [Creare un'App Web e distribuire il codice in un ambiente di gestione temporanea](./scripts/app-service-powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'App Web di Azure con uno slot di distribuzione per le modifiche al codice di gestione temporanea. |
@@ -43,6 +43,10 @@ La tabella seguente include i collegamenti agli script Bash compilati tramite Az
 |**Collegare l'app alle risorse**||
 | [Collegare un'App Web a un database SQL](./scripts/app-service-powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'App Web di Azure e un database SQL, quindi aggiunge la stringa di connessione del database alle impostazioni dell'app. |
 | [Connettere un'App Web a un account di archiviazione](./scripts/app-service-powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'App Web e un account di archiviazione di Azure, quindi aggiunge la stringa di connessione della risorsa di archiviazione alle impostazioni dell'app. |
+|**Eseguire il backup e il ripristino delle app**||
+| [Eseguire il backup di un'app Web](./scripts/app-service-powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app Web di Azure e ne crea un backup monouso. |
+| [Creare un backup pianificato per un'app Web](./scripts/app-service-powershell-backup-scheduled.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app Web di Azure e ne crea un backup pianificato. |
+| [Eliminare un backup per un'app Web](./scripts/app-service-powershell-backup-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Elimina un backup esistente per un'app Web. |
 |**Monitorare un'app**||
 | [Monitorare un'App Web con i log del server Web](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'App Web di Azure, consente la creazione di log per essa e scarica i log nel computer locale. |
 | | |

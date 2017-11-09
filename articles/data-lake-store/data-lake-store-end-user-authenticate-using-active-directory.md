@@ -6,32 +6,30 @@ documentationcenter:
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-ms.assetid: ec586ecd-1b42-459e-b600-fadbb7b80a9b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 09/29/2017
 ms.author: nitinme
+ms.openlocfilehash: 98898675b85d62c97a215f9922f1393001013943
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: f10bc67e4ee814d5aa0accff1a3dc1426b818084
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticazione dell'utente finale con Data Lake Store tramite Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Autenticazione da servizio a servizio](data-lake-store-authenticate-using-active-directory.md)
 > * [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md)
+> * [Autenticazione da servizio a servizio](data-lake-store-service-to-service-authenticate-using-active-directory.md)
 > 
 > 
 
-Azure Data Lake Store usa Azure Active Directory per l'autenticazione. Prima di creare un'applicazione che funziona con Azure Data Lake Store o Azure Data Lake Analytics, per prima cosa è necessario stabilire come si desidera eseguire l'autenticazione dell'applicazione con Azure Active Directory (Azure AD). Le opzioni disponibili sono due:
+Azure Data Lake Store usa Azure Active Directory per l'autenticazione. Prima di creare un'applicazione che funzioni con Azure Data Lake Store o Azure Data Lake Analytics, è necessario stabilire come autenticare l'applicazione con Azure Active Directory (Azure AD). Le opzioni disponibili sono due:
 
 * Autenticazione dell'utente finale (questo articolo)
-* Autenticazione da servizio a servizio
+* Autenticazione da servizio a servizio (selezionare questa opzione dall'elenco a discesa precedente)
 
 Entrambe queste opzioni comportano che l'applicazione venga fornita con un token OAuth 2.0, che viene associato a ogni richiesta effettuata ad Azure Data Lake Store o Azure Data Lake Analytics.
 
@@ -48,8 +46,10 @@ Questo articolo illustra come creare un'**applicazione nativa di Azure AD per l'
   
     ![Ottenere il dominio AAD](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
+* ID del tenant di Azure. Per istruzioni su come recuperare l'ID tenant, vedere [Ottenere l'ID tenant](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+
 ## <a name="end-user-authentication"></a>Autenticazione dell'utente finale
-Questo è l'approccio consigliato se si vuole che un utente finale acceda all'applicazione tramite Azure AD. L'applicazione può quindi accedere alle risorse di Azure con lo stesso livello di accesso dell'utente che ha effettuato l'accesso. L'utente finale deve fornire le sue credenziali periodicamente affinché l'applicazione possa mantenere attivo l'accesso.
+Questo meccanismo di autenticazione è l'approccio consigliato se si vuole che un utente finale acceda all'applicazione tramite Azure AD. L'applicazione può quindi accedere alle risorse di Azure con lo stesso livello di accesso dell'utente che ha effettuato l'accesso. L'utente finale deve fornire le sue credenziali periodicamente affinché l'applicazione possa mantenere attivo l'accesso.
 
 L'accesso effettuato dall'utente finale comporta l'assegnazione di un token di accesso e un token di aggiornamento all'applicazione. Il token di accesso viene associato a ogni richiesta effettuata a Data Lake Store o Data Lake Analytics, ed è valido per un'ora, per impostazione predefinita. Il token di aggiornamento può essere usato per ottenere un nuovo token di accesso e, per impostazione predefinita, è valido per un massimo di due settimane. È possibile usare due diversi approcci per l'accesso degli utenti finali.
 
@@ -64,15 +64,16 @@ L'applicazione può attivare una finestra popup di autorizzazione OAuth 2.0, in 
 ### <a name="directly-passing-in-user-credentials"></a>Accesso diretto tramite le credenziali dell'utente
 L'applicazione può fornire direttamente le credenziali utente ad Azure AD. Questo metodo funziona solo con gli account utente con ID aziendale. Non è compatibile con gli account utente personali o con "Live ID", inclusi quelli che terminano con @outlook.com o @live.com. Inoltre, questo metodo non è compatibile con gli account utente che richiedono l'autenticazione a due fattori (2FA) di Azure AD.
 
-### <a name="what-do-i-need-to-use-this-approach"></a>Di cosa ho bisogno per usare questo approccio?
+### <a name="what-do-i-need-for-this-approach"></a>Di cosa ho bisogno per questo approccio?
 * Il nome di dominio di Azure AD. Questo requisito è già elencato nei prerequisiti riportati in questo articolo.
+* ID tenant di Azure AD. Questo requisito è già elencato nei prerequisiti riportati in questo articolo.
 * **L'applicazione nativa** di Azure AD
 * L'ID applicazione per l'applicazione nativa di Azure AD
 * L'URI di reindirizzamento per l'applicazione nativa di Azure AD
 * Impostare autorizzazioni delegate
 
 
-## <a name="step-1-create-an-active-directory-native-application"></a>Passaggio 1: Creare un'applicazione nativa di Active Directory
+## <a name="step-1-create-an-active-directory-native-application"></a>Passaggio 1: creare un'applicazione nativa di Active Directory
 
 Creare e configurare un'applicazione nativa di Azure AD per l'autenticazione dell'utente finale con Azure Data Lake Store tramite Azure Active Directory. Per istruzioni, vedere [Creare un'applicazione Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
@@ -109,7 +110,7 @@ Per recuperare l'URI di reindirizzamento, attenersi alla procedura seguente.
  
 4.  Nel pannello **Aggiungi accesso all'API** fare clic su **Selezionare le autorizzazioni**, selezionare la casella di controllo per concedere l'**accesso completo a Data Lake Store** e quindi fare clic su **Seleziona**.
 
-    ![ID CLIENT](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+    ![ID client](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
     Fare clic su **Done**.
 
@@ -118,8 +119,8 @@ Per recuperare l'URI di reindirizzamento, attenersi alla procedura seguente.
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stata creata un'applicazione nativa di Azure AD e sono state raccolte le informazioni necessarie nelle applicazioni client create usando .NET SDK, Java SDK, API REST e così via. È ora possibile passare agli articoli seguenti che illustrano come usare l'applicazione Web di Azure AD per eseguire prima l'autenticazione con Data Lake Store e quindi altre operazioni sull'archivio.
 
-* [Introduzione a Azure Data Lake Store utilizzando .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Introduzione ad Azure Data Lake Store con Java SDK](data-lake-store-get-started-java-sdk.md)
-* [Introduzione ad Azure Data Lake Store con API REST](data-lake-store-get-started-rest-api.md)
-
+* [Autenticazione da servizio a servizio con Data Lake Store tramite Java SDK](data-lake-store-end-user-authenticate-java-sdk.md)
+* [Autenticazione dell'utente finale con Data Lake Store tramite .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+* [Autenticazione dell'utente finale con Data Lake Store tramite Python](data-lake-store-end-user-authenticate-python.md)
+* [Autenticazione dell'utente finale con Data Lake Store tramite API REST](data-lake-store-end-user-authenticate-rest-api.md)
 

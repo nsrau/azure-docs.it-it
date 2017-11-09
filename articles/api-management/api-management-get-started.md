@@ -3,7 +3,7 @@ title: Gestire la prima API in Gestione API di Azure | Microsoft Docs
 description: Informazioni su come creare API, aggiungere operazioni e iniziare a usare Gestione API.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: juliako
 manager: erikre
 editor: 
 ms.assetid: 51b7df8b-1c43-43c6-90c9-0aa24f48206b
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 0866b94003111267951a0d7917d616a370961880
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Gestire la prima API in Gestione API di Azure
 ## <a name="overview"> </a>Panoramica
 Questa guida illustra le procedure per iniziare subito a usare Gestione API di Azure ed effettuare la prima chiamata API.
 
-## <a name="concepts"> </a>Cos'è Gestione API di Azure?
+## <a name="concepts"></a>Cos'è Gestione API di Azure?
 È possibile usare Gestione API di Azure per avviare un programma API completo basato su qualsiasi back-end.
 
 Gli scenari comuni includono:
@@ -57,7 +57,7 @@ Il sistema è costituito dai componenti seguenti:
   * Creare un account ed eseguire la sottoscrizione per ottenere le chiavi API.
   * Accedere all'analisi di utilizzo personalizzata.
 
-## <a name="create-service-instance"> </a>Creare un'istanza di Gestione API
+## <a name="create-service-instance"></a>Creare un'istanza di Gestione API
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][Azure Free Trial].
 > 
@@ -71,7 +71,7 @@ In **URL**specificare un nome univoco di sottodominio da usare come URL del serv
 
 Scegliere i valori di **Sottoscrizione**, **Gruppo di risorse** e **Area** per l'istanza del servizio.
 
-Immettere **Contoso Ltd.** in **Nome organizzazione** e specificare l'indirizzo di posta elettronica nel campo **Indirizzo di posta elettronica dell'amministratore**.
+In **Nome organizzazione** specificare **Contoso Ltd.** e quindi immettere il proprio indirizzo di posta elettronica nel campo **Indirizzo di posta elettronica dell'amministratore**.
 
 > [!NOTE]
 > Questo indirizzo di posta elettronica viene usato per le notifiche inviate dal sistema Gestione API. Per altre informazioni, vedere [Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure][How to configure notifications and email templates in Azure API Management].
@@ -93,7 +93,7 @@ Fare clic su **Crea** per avviare il provisioning di un'istanza del servizio.
 
 Dopo aver creato l'istanza del servizio, l'operazione successiva consiste nel creare o importare un'API.
 
-## <a name="create-api"> </a>Importare un'API
+## <a name="create-api"></a>Importare un'API
 Un'API rappresenta un set di operazioni che possono essere richiamate da un'applicazione client. Le operazioni API vengono trasmesse tramite proxy ai servizi Web esistenti.
 
 È possibile creare le API (e aggiungere operazioni) in modo manuale oppure è possibile importarle. In questa esercitazione, verrà importata l'API per un servizio Web calcolatrice di esempio fornito da Microsoft e ospitato in Azure.
@@ -163,7 +163,7 @@ Dopo aver richiamato un'operazione, nel portale per sviluppatori vengono visuali
 
 ![Response][api-management-invoke-get-response]
 
-## <a name="view-analytics"> </a>Visualizzare l'analisi
+## <a name="view-analytics"></a>Visualizzare l'analisi
 Per visualizzare l'analisi per la Calcolatrice di base, tornare al portale di pubblicazione selezionando **Gestisci** nel menu in alto a destra nel portale per sviluppatori.
 
 ![Gestisci][api-management-manage-menu]
@@ -196,7 +196,7 @@ La sezione **Analisi** include le quattro schede seguenti:
 * **Integrità** : è incentrata sui codici di stato, sulle percentuali di operazioni sulla cache completate, sui tempi di risposta, oltre che sui tempi di risposta di API e servizi.
 * **Attività** : fornisce report che illustrano in dettaglio l'attività specifica in base a sviluppatore, prodotto, API e operazione.
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [proteggere le API con limiti di frequenza](api-management-howto-product-with-rules.md).
 
 [Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a

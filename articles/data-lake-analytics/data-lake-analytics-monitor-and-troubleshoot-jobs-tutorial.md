@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Risolvere i problemi dei processi di Analisi di Azure Data Lake mediante il portale di Azure
 Informazioni su come usare il portale di Azure per risolvere i problemi relativi ai processi di Analisi Data Lake.

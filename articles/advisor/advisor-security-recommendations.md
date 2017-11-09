@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 53be05593c3733ccb27979a3a026414013125779
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: bb690bf86743136778e01b480b98c9cc08211839
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advisor-security-recommendations"></a>Consigli di Advisor sulla sicurezza
 
@@ -60,4 +59,3 @@ Per altre informazioni sui consigli di Advisor, vedere:
 
 
  
-

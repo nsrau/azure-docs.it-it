@@ -4,7 +4,7 @@ description: Descrive come distribuire il progetto per l'esercitazione in Azure 
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/17/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: 926b1b71ca27ede23e36dcf313ef51d4ea73fc02
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-13-deploy"></a>Lezione 13: Distribuire
 
@@ -82,4 +81,3 @@ Congratulazioni. Sono state completate le attività di creazione e distribuzione
 [Lezione supplementare: Sicurezza dinamica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
 [Lezione supplementare: Righe di dettaglio](../tutorials/aas-supplemental-lesson-detail-rows.md)   
 [Lezione supplementare: Gerarchie incomplete](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
-

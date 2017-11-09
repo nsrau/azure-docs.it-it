@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 58d29996a922fac6d295e753ba5d66d32e745a57
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione nella raccolta di Azure AD
 
@@ -29,7 +29,7 @@ Questo problema si verifica in genere se il fornitore dell'applicazione ha modif
 
 Microsoft dispone di tecnologie per rilevare automaticamente queste interruzioni nelle integrazioni, ma a volte i problemi non vengono rilevati subito e richiedono tempo per essere risolti. Gli utenti che sperimentano questi problemi di integrazione sono invitati ad aprire un caso di supporto cosicché Microsoft possa correggere i problemi nel più breve tempo possibile.
 
-**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,** **può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,****può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Le credenziali vengono compilate e inoltrate, ma un messaggio nella pagina indica che le credenziali sono errate
 
@@ -57,7 +57,7 @@ Se il problema persiste, è possibile che sia stata apportata una modifica sul l
 
 Microsoft dispone di tecnologie per rilevare automaticamente queste interruzioni nelle integrazioni, ma a volte i problemi non vengono rilevati subito e richiedono tempo per essere risolti. Gli utenti che sperimentano questi problemi di integrazione sono invitati ad aprire un caso di supporto cosicché Microsoft possa correggere i problemi nel più breve tempo possibile.
 
-**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,** **può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,****può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>L'estensione funziona in Chrome e Firefox, ma non in Internet Explorer
 

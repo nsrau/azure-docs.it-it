@@ -4,7 +4,7 @@ description: Descrive come creare partizioni nel progetto per l'esercitazione su
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: df74d9cbdcf4916c24955e491767589e72389155
-ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 99f7fcbd3a2d3b6f6fe48c7fb2703d35d3b3a8fd
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-10-create-partitions"></a>Lezione 10: Creare partizioni
 
@@ -119,4 +118,3 @@ In Gestione partizioni, si noti che la colonna **Ultima elaborazione** per ogni 
   
  ## <a name="whats-next"></a>Passaggi successivi
 Passare alla lezione successiva: [Lezione 11: Creare ruoli](../tutorials/aas-lesson-11-create-roles.md). 
-

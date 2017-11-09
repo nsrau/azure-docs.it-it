@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Ambiti, autorizzazioni e consenso nell'endpoint di Azure Active Directory v2.0
 Le app che si integrano con Azure Active Directory (Azure AD) seguono un modello di autorizzazione che consente agli utenti di controllare la modalità di accesso ai dati da parte di un'app. L'implementazione v2.0 di questo modello di autorizzazione è stata aggiornata, modificando la modalità di interazione di un'app con Azure AD. Questo articolo illustra i concetti di base di questo modello di autorizzazione, inclusi gli ambiti, le autorizzazioni e il consenso.

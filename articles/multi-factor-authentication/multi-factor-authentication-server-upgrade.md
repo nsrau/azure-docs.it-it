@@ -15,11 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 3a2fb7413fa1391969d00ad281fd1ade3e0f40a8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Aggiornare il server Azure Multi-Factor Authentication alla versione più recente
 
@@ -29,7 +29,7 @@ Se si esegue l'aggiornamento dalla versione 6.x o precedente alla versione 7.x o
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Installare la versione più recente del server Azure MFA
 
-1. Usare le istruzioni in [Scaricare il server Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server) per ottenere la versione più recente del server Azure MFA.
+1. Usare le istruzioni in [Scaricare il server Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-mfa-server) per ottenere la versione più recente del server Azure MFA.
 2. Eseguire il backup del file di dati del Server MFA che si trova in C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (prevedendo il percorso di installazione predefinito) sul server principale di MFA.
 3. Se si eseguono più server per avere una disponibilità elevata, modificare i sistemi client che eseguono l'autenticazione nel server MFA in modo da arrestare l'invio del traffico ai server che si intende aggiornare. Se si usa un bilanciamento del carico, rimuovere un server MFA dal bilanciamento del carico, eseguire l'aggiornamento e quindi aggiungere nuovamente il server alla farm.
 4. Eseguire il nuovo programma di installazione in ogni server MFA. Aggiornare prima i server subordinati perché leggono il vecchio file di dati che viene replicato dal server principale. 

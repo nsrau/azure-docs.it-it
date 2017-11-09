@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di adozione della soluzione ibrida di gestione delle identità in modo che soddisfi i requisiti aziendali definiti in:

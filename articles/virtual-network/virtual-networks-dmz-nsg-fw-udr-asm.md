@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall'utente e un gruppo di sicurezza di rete
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]

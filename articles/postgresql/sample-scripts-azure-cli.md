@@ -12,10 +12,10 @@ ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 05/25/2017
 ms.openlocfilehash: bad53b7d7ff931605fd3a2cdfc40fda6447f8ab9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL 
 La tabella seguente include collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL.

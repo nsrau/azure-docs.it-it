@@ -39,19 +39,24 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Gruppi di sicurezza delle applicazioni che possono essere specificati in tutte le regole di sicurezza di un gruppo di sicurezza di rete |50 |100 |
 | Tabelle di route definite dall’utente |100 |200 |
 | Le route definite dall’utente per ogni tabella di route |100 |400 |
-| Indirizzi IP pubblici: dinamici |(Basic) |60 |Contattare il supporto tecnico |
+| Indirizzi IP pubblici: dinamici |(Basic) 60 |Contattare il supporto tecnico |
 | Indirizzi IP pubblici: statici |(Basic) 20 |Contattare il supporto tecnico |
 | Indirizzi IP pubblici: statici |(Standard) 20 |Contattare il supporto tecnico |
-| Servizi di bilanciamento del carico (interni e con connessione Internet, Basic e Standard) |100 |1000 |
-| Regole del servizio di bilanciamento del carico (Basic) per ogni servizio di bilanciamento del carico |150 |250 |
-| Regole del servizio di bilanciamento del carico (Standard) per ogni servizio di bilanciamento del carico | 1250 | 1500|
-| Regole del servizio di bilanciamento del carico (Basic) per ogni configurazione IP |250 |250 |
-| IP front-end pubblico per ogni servizio di bilanciamento del carico (Basic) |10 |30 |
-| IP front-end pubblico per ogni servizio di bilanciamento del carico (Standard) | 10 | 600 |
-| IP front-end privato per ogni servizio di bilanciamento del carico (Basic) |10 |Contattare il supporto tecnico |
-| IP front-end privato per ogni servizio di bilanciamento del carico (Standard) | 10 | 600 |
 | Certificati radice Point-to-Site per ogni gateway VPN |20 |20 |
 
+#### <a name="load-balancer"></a>Limiti del bilanciamento del carico
+
+| Risorsa | Limite predefinito | Limite massimo |
+| --- | --- | --- |
+| Servizi di bilanciamento del carico | 100 | 1000 |
+| Regole per risorsa, Basic | 150 | 250 |
+| Regole per risorsa, Standard | 1250 | 1500 |
+| Regole per configurazione IP | 299 |299 |
+| Configurazioni IP front-end, Basic | 10 | Contattare il supporto tecnico |
+| Configurazioni IP front-end, Standard | 10 | 600 |
+| Pool back-end, Basic | 100, singolo set di disponibilità | - |
+| Pool back-end, Standard | 1000, singola rete virtuale | Contattare il supporto tecnico |
+| Porte a disponibilità elevata, Standard | 1 per front-end interno | - |
 
 Se è necessario aumentare i limiti rispetto all'impostazione predefinita, [contattare il supporto tecnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

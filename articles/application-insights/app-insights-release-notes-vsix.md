@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bwren
-ms.openlocfilehash: 2e6987d30b56407559f54c02817ee94eff8df46b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Note sulla versione per Strumenti di analisi per sviluppatori
 

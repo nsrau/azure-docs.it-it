@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Failback in Site Recovery per macchine virtuali Hyper-V
 
 Questo articolo descrive come eseguire il failback di macchine virtuali protette da Site Recovery.
@@ -98,4 +96,3 @@ Per velocizzare il download dei dati, è possibile configurare l'agente MARS aff
 Dopo aver completato il processo di failback, eseguire il **commit** della macchina virtuale. Il commit elimina la macchina virtuale di Azure e i relativi dischi e prepara la VM a essere protetta di nuovo.
 
 Dopo aver eseguito il **commit**, è possibile avviare la *replica inversa*. In questo modo si inizierà a proteggere la macchina virtuale dalla posizione locale ad Azure. Si noti che saranno replicate solo le modifiche dal momento in cui la VM è stata disattivata in Azure e pertanto saranno inviate solo le modifiche differenziali.
-

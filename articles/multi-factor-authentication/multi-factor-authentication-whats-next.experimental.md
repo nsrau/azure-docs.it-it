@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: kgremban
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 9d77b9329116afcf2fdde48d672c95020738138c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 Le informazioni in questo articolo sono utili per gestire Azure Multi-Factor Authentication ora che si è operativi.  L'articolo illustra diversi argomenti che permettono di ottenere il massimo da Azure Multi-Factor Authentication.  Non tutte queste funzionalità sono disponibili in ogni versione di Azure Multi-Factor Authentication.
@@ -215,7 +214,7 @@ Alcune applicazioni, come Office 2010 o le versioni meno recenti di Apple Mail, 
 > 
 > I client di Office 2013, tra cui Outlook, e le versioni più recenti supportano i protocolli di autenticazione moderni e possono essere abilitati per la verifica in due passaggi. Dopo aver abilitato la verifica in due passaggi, non è più necessario usare le password dell'app per questi client.  Per altre informazioni, vedere l'[annuncio dell'anteprima pubblica dell'autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-### <a name="important-things-to-know-about-app-passwords"></a>Informazioni importanti sulle password delle app
+### <a name="important-things-to-know-about-app-passwords"></a>Informazioni importanti sulle password dell'app
 Di seguito è riportato un elenco delle informazioni importanti da conoscere sulle password delle app.
 
 * Le password delle app devono essere immesse nella casella di input una sola volta per ogni app. Non è necessario tenerne traccia e immetterle ogni volta.
@@ -319,4 +318,3 @@ Quando gli utenti registrano i propri account per l'autenticazione MFA, scelgono
    ![Opzioni di verifica](./media/multi-factor-authentication-whats-next/authmethods.png)
 4. Fare clic su **Save**.
 5. Fare clic su **Close**.
-

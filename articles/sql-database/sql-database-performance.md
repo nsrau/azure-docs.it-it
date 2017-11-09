@@ -12,14 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 07/19/2016
 ms.author: sstein
-ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 49b24619372d41ff25f815ca493ca7e6ce69ef9c
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorare e migliorare le prestazioni
 Il database SQL di Azure identifica potenziali problemi in un database e propone azioni che consentono di migliorare le prestazioni del carico di lavoro tramite azioni e raccomandazioni per l'ottimizzazione intelligente.

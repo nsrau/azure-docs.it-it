@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
+ms.openlocfilehash: c5331a7f658feacba4b03dd3b5ba8ddb23738051
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e46609b3f1cc2cae3814e729ea74cfb8b24bea68
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Creare i servizi inclusi nell'account gratuito di Azure
 
@@ -37,4 +36,3 @@ Per informazioni sulla disponibilità dei servizi di Azure per area, vedere [Pro
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-

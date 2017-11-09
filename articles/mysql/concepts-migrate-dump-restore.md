@@ -8,15 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 8606067a8e82c6314ab931eb4816d45755a8e04f
-ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: ce6edbdffe9704383676e990865cd4e2958f30fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Eseguire la migrazione del database MySQL nel database di Azure mediante dump e ripristino
 Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MySQL
 - Dump e ripristino dalla riga di comando( tramite mysqldump) 
@@ -46,8 +44,8 @@ Usare utilità e strumenti comuni, come ad esempio MySQL Workbench, mysqldump, T
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 Per ottimizzare le prestazioni, tenere presenti le considerazioni seguenti durante il dump di database di grandi dimensioni:
 -   Usare l'opzione `exclude-triggers` in mysqldump durante il dump dei database. Escludere i trigger dai file di dump per evitare l'attivazione dei comandi di trigger durante il ripristino dei dati. 
--   Evitare l'opzione `single-transaction` in mysqldump durante il dump di database di dimensioni molto estese. Il dump di molte tabelle all'interno di una singola transazione determina un maggior consumo di spazio di archiviazione e risorse di memoria durante il ripristino e può generare ritardi nelle prestazioni o vincoli delle risorse.
--   Usare gli inserimenti multivalore durante il caricamento con SQL per ridurre al minimo il sovraccarico di esecuzione delle istruzioni durante il dump dei database. Quando si usano i file dump generati dall'utilità mysqldump, gli inserimenti multivalore sono abilitati per impostazione predefinita. 
+-   Usare l'opzione `single-transaction` per impostare la modalità di isolamento della transazione su REPEATABLE READ e inviare un'istruzione SQL START TRANSACTION al server prima di creare un dump dei dati. Il dump di molte tabelle all'interno di una singola transazione causa l'uso di spazio di archiviazione aggiuntivo durante il ripristino. L'opzione `single-transaction` e l'opzione `lock-tables` si escludono a vicenda in quanto LOCK TABLES causa il commit implicito di eventuali transazioni in sospeso. Per eseguire il dump tabelle di grandi dimensioni, combinare l'opzione `single-transaction` con l'opzione `quick`. 
+-   Usare la sintassi a più righe `extended-insert` che include vari elenchi VALUES. Ciò consente di ottenere un file di dump più piccolo e di velocizzare gli inserimenti quando il file viene ricaricato.
 -  Usare l'opzione `order-by-primary` in mysqldump durante il dump dei database, in modo che i dati vengano inseriti nello script nell'ordine delle chiavi primarie.
 -   Usare l'opzione `disable-keys` in mysqldump durante il dump dei dati, per disabilitare i vincoli della chiave esterna prima del caricamento. La disabilitazione dei controlli della chiave esterna offre miglioramenti delle prestazioni. Abilitare i vincoli e verificare i dati dopo il caricamento per garantire l'integrità referenziale.
 -   Usare le tabelle partizionate quando appropriato.
@@ -126,4 +124,3 @@ L'importazione del database è simile all'esportazione. Procedere come segue:
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Come connettere le applicazioni al database di Azure per MySQL](./howto-connection-string.md)
-

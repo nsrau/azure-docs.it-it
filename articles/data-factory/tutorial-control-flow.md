@@ -11,18 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 10/06/2017
 ms.author: shlo
+ms.openlocfilehash: de131fe912fd61a45af943db876ab0510ef0d57e
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 3ffe45775a55f4bdb3103fea2075fcb83e0c9cf9
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
-Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI). 
+
+[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
+
+#### <a name="this-tutorial"></a>Questa esercitazione
+
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, si vogliono inviare i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, si vogliono inviare i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
 
@@ -366,7 +370,7 @@ Aggiungere il codice seguente al metodo Main per creare una pipeline con un'atti
 
 In questa pipeline si usano le funzionalità seguenti:
 
-- parameters
+- Parametri
 - Attività Web
 - Dipendenza di attività
 - Uso dell'output di un'attività come input per l'attività successiva
@@ -450,7 +454,7 @@ Aggiungere il codice seguente al metodo **Main** per creare la pipeline:
 ```
 client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
 ```
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 La prima sezione della pipeline definisce i parametri. 
 
 - sourceBlobContainer: parametro nella pipeline utilizzato dal set di dati del BLOB di origine.

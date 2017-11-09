@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2017
 ms.author: genli
+ms.openlocfilehash: 60da4d7f418e2aac6ed6d41092486d2ccdaf940c
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: aa1cec2ef11da6aa8a8c4089be36994ab5f61682
-ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 Prima di caricare una macchina virtuale di Windows dall'ambiente locale a Microsoft Azure, è necessario preparare il disco rigido virtuale, VHD o VHDX. Azure supporta solo macchine virtuali di prima generazione nel formato di file VHD e con un disco a dimensione fissa. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. È possibile convertire una VM di prima generazione dal file system VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) (Creare una macchina virtuale di prima o seconda generazione in Hyper-V).
@@ -428,5 +427,5 @@ Se è presente un disco dati collegato alla macchina virtuale, la lettera del vo
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](upload-generalized-managed.md)
-
+* [Risolvere i problemi di attivazione della macchina virtuale Windows di Azure](troubleshoot-activation-problems.md)
 

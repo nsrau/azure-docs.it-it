@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 612311f1c4e081e87dde76ce4a1d8efd46428c06
-ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurare un'Identità del servizio gestito della macchina virtuale tramite PowerShell
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -107,7 +105,6 @@ Se si dispone di una macchina virtuale che non richiede più un'Identità del se
   - [Creare una macchina virtuale Linux con PowerShell](../virtual-machines/linux/quick-create-powershell.md) 
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
-
 
 
 

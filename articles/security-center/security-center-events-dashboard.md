@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/05/2017
 ms.author: terrylan
+ms.openlocfilehash: 367067874b167268bd690a9e0b55412e92e08122
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 01ac75244839c0e3c1ac350d4271677feb21a9d7
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitoraggio ed elaborazione degli eventi di sicurezza nel Centro sicurezza di Azure
 Il dashboard degli eventi offre una panoramica del numero di eventi di sicurezza raccolti nel tempo e un elenco di eventi importanti che potrebbero richiedere l'attenzione dell'utente.  
@@ -48,13 +47,16 @@ Il **dashboard Eventi** offre una panoramica del numero di eventi elaborati nel 
  - Gli **Eventi rilevanti** includono le query di eventi contenute nel Centro sicurezza e le query di eventi create e aggiunte. Il dashboard offre anche una visualizzazione rapida del conteggio di ogni evento rilevante.
  - La sezione **Tutti gli eventi per tipo** mostra i tipi di eventi che vengono ricevuti e un conteggio per ogni tipo. Esempi di tipo di evento sono SecurityEvent, CommonSecurityLog, WindowsFirewall e W3CIISLog.
 
+> [!NOTE]
+> Gli eventi significativi includono la [valutazione baseline Web](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). L'obiettivo della valutazione baseline Web è trovare le impostazioni del server Web potenzialmente vulnerabili.
+
 ## <a name="view-processed-event-details"></a>Visualizzare i dettagli dell'evento elaborato
-1. Selezionare **Eventi elaborati** nel menu principale del **Centro sicurezza**.
-2. Potrebbe aprirsi il selettore dell'area di lavoro degli **Eventi elaborati**. Se si dispone solo di un'area di lavoro, questo selettore dell'area di lavoro non viene visualizzato. Se si dispone di più di un'area di lavoro, è necessario selezionare un'area di lavoro per visualizzarne i dettagli dell'evento elaborato. Se si dispone di più di un'area di lavoro, selezionare un'area di lavoro dall'elenco.
+1. Scegliere **Eventi** dal menu principale del **Centro sicurezza**.
+2. Potrebbe aprirsi il selettore dell'area di lavoro **Dashboard Eventi**. Se si dispone solo di un'area di lavoro, questo selettore dell'area di lavoro non viene visualizzato. Se si dispone di più di un'area di lavoro, è necessario selezionare un'area di lavoro per visualizzarne i dettagli dell'evento elaborato. Se si dispone di più di un'area di lavoro, selezionare un'area di lavoro dall'elenco.
 
   ![Elenco dell'area di lavoro][3]
 
-3. Si apre il dashboard **Eventi elaborati** che mostra i dettagli dell'evento per l'area di lavoro selezionata. È possibile visualizzare gli eventi rilevanti e tutti gli eventi per tipo.  In questo esempio, è stato selezionato **Notable events** (Eventi rilevanti).
+3. Si apre **Dashboard Eventi** che mostra i dettagli dell'evento per l'area di lavoro selezionata. È possibile visualizzare gli eventi rilevanti e tutti gli eventi per tipo.  In questo esempio, è stato selezionato **Notable events** (Eventi rilevanti).
 
   ![Eventi rilevanti][4]
 
@@ -67,7 +69,7 @@ Il **dashboard Eventi** offre una panoramica del numero di eventi elaborati nel 
   ![Ricerca log][6]
 
 ## <a name="add-a-notable-event"></a>Aggiungere un evento rilevante
-Il Centro sicurezza contiene eventi rilevanti predefiniti. È possibile aggiungere eventi rilevanti in base alle proprie query usando il [linguaggio di query di Log Analytics](../log-analytics/log-analytics-search-reference.md). Per aggiungere un evento rilevante è necessario ritornare nel dashboard **Eventi elaborati**.
+Il Centro sicurezza contiene eventi rilevanti predefiniti. È possibile aggiungere eventi rilevanti in base alle proprie query usando il [linguaggio di query di Log Analytics](../log-analytics/log-analytics-search-reference.md). Per aggiungere un evento significativo, è necessario tornare a **Dashboard Eventi**.
 
 1. Selezionare **Add Notable Event** (Aggiungi un evento rilevante).
 
@@ -80,7 +82,7 @@ Il Centro sicurezza contiene eventi rilevanti predefiniti. È possibile aggiunge
 4. Selezionare **OK**.
 
 ## <a name="update-your-workspace-for-events-processing"></a>Aggiornare l'area di lavoro per l'elaborazione degli eventi
-Per usa l'elaborazione dell'evento ne Centro sicurezza, l'area di lavoro deve eseguire la versione 2 di Log Analytics e trovarsi nel livello Standard del Centro sicurezza. Il selettore dell'area di lavoro **Eventi** identifica le aree di lavoro che non soddisfano questi requisiti.
+Per usa l'elaborazione dell'evento ne Centro sicurezza, l'area di lavoro deve eseguire la versione 2 di Log Analytics e trovarsi nel livello Standard del Centro sicurezza. Il selettore dell'area di lavoro **Dashboard Eventi** identifica le aree di lavoro che non soddisfano questi requisiti.
 
 ![L'area di lavoro non soddisfa i requisiti][9]
 
@@ -91,7 +93,7 @@ Se la riga dell'area di lavoro:
 - è vuoto, l'area di lavoro soddisfa i requisiti e per aprire il dashboard basta selezionare un'area di lavoro
 
 > [!NOTE]
-> In **Eventi**, la colonna **EVENTI** indica la quantità di eventi in ogni area di lavoro.  Questa colonna è vuota per alcune aree di lavoro perché il livello Gratuito del Centro sicurezza viene applicato all'area di lavoro. Nel livello Gratuito il Centro sicurezza raccoglierà gli eventi che però non vengono salvati in Log Analytics e non sono disponibili nel dashboard.
+> In **Dashboard Eventi** la colonna **EVENTI** indica la quantità di eventi in ogni area di lavoro.  Questa colonna è vuota per alcune aree di lavoro perché il livello Gratuito del Centro sicurezza viene applicato all'area di lavoro. Nel livello Gratuito il Centro sicurezza raccoglierà gli eventi che però non vengono salvati in Log Analytics e non sono disponibili nel dashboard.
 >
 >
 
@@ -103,7 +105,7 @@ Se la riga dell'area di lavoro:
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Passare al piano Standard del Centro sicurezza
 1. Selezionare un'area di lavoro con **UPGRADE PLAN** (AGGIORNA PIANO).
-2. Viene aperto il **dashboard Eventi**. Selezionare **Try the Events Processed dashboard** (Prova il dashboard degli eventi elaborati).
+2. Viene aperto il **dashboard Eventi**. Selezionare **Try Events dashboard** (Prova il dashboard Eventi).
 
   ![Prova il dashboard][11]
 
@@ -114,7 +116,7 @@ Se la riga dell'area di lavoro:
   ![Passare al livello Standard][12]
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è stato descritto come usare il dashboard degli eventi elaborati nel Centro sicurezza. Per altre informazioni sul funzionamento del dashboard e su come scrivere le proprie query di eventi, vedere:
+In questo articolo è stato descritto come usare il dashboard Eventi nel Centro sicurezza. Per altre informazioni sul funzionamento del dashboard e su come scrivere le proprie query di eventi, vedere:
 
 - [Che cos'è Log Analytics?](../log-analytics/log-analytics-overview.md) : Panoramica di Log Analytics
 - [Informazioni sulle ricerche log in Log Analytics](../log-analytics/log-analytics-log-search-new.md): descrive come vengono usate le ricerche log in Log Analytics e illustra i concetti con cui occorre avere familiarità prima di creare una ricerca log
@@ -137,4 +139,3 @@ Per altre informazioni sul Centro sicurezza, vedere:
 [10]: ./media/security-center-events-dashboard/search-upgrade.png
 [11]: ./media/security-center-events-dashboard/try-dashboard.png
 [12]: ./media/security-center-events-dashboard/onboard-workspace.png
-

@@ -12,14 +12,14 @@ ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat; ronitr
-ms.openlocfilehash: bd3de9ed0131edc683763b0fe7f4a2ae74533944
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 647bd11fe305e255ab492939586241e28557ead8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-database-threat-detection"></a>Rilevamento delle minacce nel database SQL
 
@@ -27,22 +27,22 @@ Rilevamento minacce di SQL rileva le attività anomale che indicano tentativi in
 
 ## <a name="overview"></a>Panoramica
 
-Rilevamento minacce di SQL offre un nuovo livello di protezione, che consente ai clienti di rilevare e rispondere alle minacce potenziali non appena si verificano, fornendo avvisi di sicurezza sulle attività anomale.  Gli utenti riceveranno un avviso in caso di attività di database sospetta, potenziali vulnerabilità e attacchi SQL injection, nonché in caso di modelli di accesso ai database anomali. Gli avvisi di Rilevamento minacce di SQL forniscono i dettagli delle attività sospette e consigliano azioni per analizzare e ridurre la minaccia. Gli utenti possono esaminare gli eventi sospetti tramite il [servizio di controllo del database SQL](sql-database-auditing.md) per determinare se sono il risultato di un tentativo di accesso, una violazione o un exploit dei dati del database. Il rilevamento delle minacce rende più semplice affrontare le minacce potenziali al database, senza dover essere esperti della sicurezza o gestire sistemi di controllo di sicurezza avanzati.
+Rilevamento minacce di SQL offre un nuovo livello di protezione, che consente ai clienti di rilevare e rispondere alle minacce potenziali non appena si verificano, fornendo avvisi di sicurezza sulle attività anomale.  Gli utenti ricevono un avviso in caso di attività di database sospetta, potenziali vulnerabilità e attacchi SQL injection, nonché in caso di modelli di accesso ai database anomali. Gli avvisi di Rilevamento minacce di SQL forniscono i dettagli delle attività sospette e consigliano azioni per analizzare e ridurre la minaccia. Gli utenti possono esaminare gli eventi sospetti tramite il [servizio di controllo del database SQL](sql-database-auditing.md) per determinare se sono il risultato di un tentativo di accesso, una violazione o un exploit dei dati del database. Il rilevamento delle minacce rende più semplice affrontare le minacce potenziali al database, senza dover essere esperti della sicurezza o gestire sistemi di controllo di sicurezza avanzati.
 
 Ad esempio, l'attacco SQL injection è uno dei problemi di sicurezza comuni delle applicazioni Web su Internet, che viene usato per attaccare le applicazioni guidate dai dati. Gli autori degli attacchi sfruttano le vulnerabilità delle applicazioni per introdurre istruzioni SQL dannose nei campi di immissione dell'applicazione, con lo scopo di violare o modificare i dati del database.
 
-Rilevamento minacce di SQL integra gli avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/en-us/services/security-center/). Ogni database SQL protetto verrà fatturato allo stesso prezzo del livello Standard del Centro sicurezza di Azure, al prezzo di $ 15 per nodo al mese, dove ogni server di database SQL protetto viene conteggiato come un nodo. Fai una prova gratuita di 60 giorni. 
+Rilevamento minacce di SQL integra gli avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/en-us/services/security-center/). Ogni database SQL protetto verrà fatturato allo stesso prezzo del livello Standard del Centro sicurezza di Azure, al prezzo di $ 15 per nodo al mese, dove ogni server di database SQL protetto viene conteggiato come un nodo.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurare il rilevamento delle minacce per il database tramite il portale di Azure
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-2. Passare al pannello di configurazione del database SQL che si vuole monitorare. Nel pannello Impostazioni selezionare **Controllo e rilevamento minacce**. 
+2. Passare alla pagina di configurazione del database SQL che si vuole monitorare. Nella pagina Impostazioni selezionare **Controllo e rilevamento minacce**. 
     ![Riquadro di spostamento][1]
-3. Nel pannello di configurazione **Controllo e rilevamento minacce** impostare il controllo su **SÌ**, il che consentirà di visualizzare le impostazioni di rilevamento minacce.
+3. Nella pagina di configurazione **Controllo e rilevamento minacce** impostare il controllo su **SÌ**, il che consentirà di visualizzare le impostazioni di rilevamento minacce.
   
     ![Riquadro di spostamento][2]
 4. Impostare il rilevamento delle minacce su **SÌ** .
 5. Configurare l'elenco di indirizzi di posta elettronica che riceveranno avvisi di sicurezza in caso di rilevamento di attività di database anomale.
-6. Fare clic su **Salva** nel pannello di configurazione **Controllo e rilevamento minacce** per salvare il controllo nuovo o aggiornato e le impostazioni di rilevamento delle minacce.
+6. Fare clic su **Salva** nella pagina di configurazione **Controllo e rilevamento minacce** per salvare il controllo nuovo o aggiornato e le impostazioni di rilevamento delle minacce.
        
     ![Riquadro di spostamento][3]
 
@@ -61,11 +61,11 @@ Per un esempio di script, vedere [Configurare il controllo del database SQL e il
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Esplorare gli avvisi di rilevamento delle minacce per il database tramite il portale di Azure
 
-Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/en-us/services/security-center/). Un riquadro sulla sicurezza live di SQL all'interno del pannello del database nel portale di Azure tiene traccia dello stato delle minacce attive. 
+Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/en-us/services/security-center/). Un riquadro sulla sicurezza live di SQL all'interno della pagina del database nel portale di Azure tiene traccia dello stato delle minacce attive. 
 
    ![Riquadro di spostamento][6]
    
-1. Facendo clic sul riquadro della sicurezza di SQL si avvia il pannello degli avvisi del Centro sicurezza di Azure e viene fornita una panoramica delle minacce SQL attive rilevate nel database. 
+1. Facendo clic sul riquadro della sicurezza di SQL si avvia la pagina degli avvisi del Centro sicurezza di Azure e viene fornita una panoramica delle minacce SQL attive rilevate nel database. 
 
   ![Riquadro di spostamento][7]
 

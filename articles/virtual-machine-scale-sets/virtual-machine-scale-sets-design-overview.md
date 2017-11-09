@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 0b05359938f4da544c4cb2a6fe60cfaf228478e1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerazioni sulla progettazione per i set di scalabilità
 Questo argomento descrive una serie di considerazioni di progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
@@ -77,5 +76,4 @@ Un set di scalabilità configurato con account di archiviazione gestita dall'ute
 Un set di scalabilità basato su un'immagine personalizzata (creata dall'utente) può avere una capacità massima di 300 macchine virtuali quando configurato con Azure Managed Disks. Se il set di scalabilità è configurato con gli account di archiviazione gestita dall'utente, è necessario creare tutti i dischi rigidi virtuali del disco del sistema operativo all'interno di un unico account di archiviazione. Di conseguenza, il numero massimo consigliato di VM in un set di scalabilità basato su un'immagine personalizzata e su un'archiviazione gestita dall'utente è 20. Se si disattiva il provisioning eccessivo, è possibile arrivare a 40.
 
 Per un numero di macchine virtuali superiore a tali limiti, è necessario distribuire più set di scalabilità, come indicato in [questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
-
 

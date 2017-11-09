@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: d0f89cd530486b40eec8cb1a0c97519824999649
-ms.contentlocale: it-it
-ms.lasthandoff: 11/29/2016
-
+ms.openlocfilehash: d5836589932e27e7439fb89fca7be63f0856681e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="h264-multiple-bitrate-16x9-sd"></a>Codec video H.264 a bitrate multipli con risoluzione 16x9 SD
 `Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui codificare il file multimediale oppure creare set di impostazioni basati su JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi dei set di impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni di attività per Media Encoder Standard).  
   
@@ -235,4 +233,3 @@ ms.lasthandoff: 11/29/2016
   ]  
 }  
 ```
-

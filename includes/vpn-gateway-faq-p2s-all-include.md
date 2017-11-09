@@ -8,6 +8,7 @@ Sono supportati i sistemi operativi client seguenti:
 * Windows 8.1 (a 32 e 64 bit)
 * Windows Server 2012 (solo a 64 bit)
 * Windows Server 2012 R2 (solo a 64 bit)
+* Windows Server 2016 (solo a 64 bit)
 * Windows 10
 * OSX versione 10.11 per Mac (El Capitan)
 * macOS versione 10.12 per Mac (Sierra)
@@ -47,10 +48,6 @@ No. Un client da punto a sito può connettersi solo alle risorse nella rete virt
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Per la connettività da punto a sito è possibile usare qualsiasi client VPN software che supporta SSTP e/o IKEv2?
 
 No. È possibile usare solo il client VPN nativo in Windows per SSTP e il client VPN nativo in Mac per IKEv2. Vedere l'elenco dei sistemi operativi client supportati.
-
-### <a name="can-i-access-the-internet-when-i-am-connected-over-p2s-vpn"></a>È possibile accedere a Internet quando si è connessi tramite VPN P2S?
-
-Sì, è possibile accedere a Internet mentre si è connessi a una rete VPN P2S.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure supporta VPN IKEv2 con Windows?
 

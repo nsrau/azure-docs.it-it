@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="team-data-science-process-roles-and-tasks"></a>Ruoli e attività del processo di data science per i team
 
 Il processo di data science per i team è un framework sviluppato da Microsoft che fornisce una metodologia strutturata per creare con efficienza soluzioni di analisi predittiva e applicazioni intelligenti. Questo articolo descrive i ruoli chiave del personale e le loro attività associate gestite da un team di data science che usa questo processo come standard. 
@@ -137,6 +135,6 @@ Per istruzioni dettagliate sul flusso di lavoro di esecuzione del progetto, vede
 Ecco i collegamenti alle descrizioni più dettagliate dei ruoli e delle attività definite dal processo di data science per i team:
 
 - [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md)
-- [Attività del responsabile del team per un team di data science](team-lead-tasks.md)
+- [Team Lead tasks for a data science team (Attività del responsabile del team per un team di data science)](team-lead-tasks.md)
 - [Attività del responsabile di progetto per un team di data science](project-lead-tasks.md)
 - [Singoli collaboratori al progetto per un team di data science](project-ic-tasks.md)

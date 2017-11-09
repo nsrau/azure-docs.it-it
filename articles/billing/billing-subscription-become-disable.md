@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: f0fb408557f58ddf434cbebb8978dc81342c87c9
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Perché la sottoscrizione di Azure è disabilitata e cosa occorre fare per riattivarla?
 
@@ -59,4 +58,3 @@ Per altri tipi di sottoscrizione, [contattare il supporto tecnico](https://porta
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-

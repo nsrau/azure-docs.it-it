@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 925aff209056f5a63b927dcb95ef6621967a0ffb
-ms.contentlocale: it-it
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 6aa7a25a9addceee78abe027fb3a19351940464e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Controlli pagina in Gestione API di Azure
 Gestione API di Azure mette a disposizione i seguenti controlli per l'uso nei modelli del portale per sviluppatori.  
@@ -55,7 +54,7 @@ Gestione API di Azure mette a disposizione i seguenti controlli per l'uso nei mo
 ##  <a name="app-actions"></a> app-actions  
  Il controllo `app-actions` offre un'interfaccia utente per interagire con le applicazioni nella pagina del profilo utente nel portale per sviluppatori.  
   
- ![Controllo app&#45;actions](./media/api-management-page-controls/APIM-app-actions-control.png "Controllo app-actions in Gestione API di Azure")  
+ ![Controllo app&amp;#45;actions](./media/api-management-page-controls/APIM-app-actions-control.png "Controllo app-actions in Gestione API di Azure")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -159,7 +158,7 @@ Gestione API di Azure mette a disposizione i seguenti controlli per l'uso nei mo
 ##  <a name="sign-up"></a> sign-up  
  Il controllo `sign-up` permette di raccogliere le informazioni di profilo degli utenti nella pagina di iscrizione del portale per sviluppatori.  
   
- ![Controllo sign&#45;up](./media/api-management-page-controls/APIM-sign-up-control.png "Controllo sign-up in Gestione API di Azure")  
+ ![Controllo sign&amp;#45;up](./media/api-management-page-controls/APIM-sign-up-control.png "Controllo sign-up in Gestione API di Azure")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -178,7 +177,7 @@ Gestione API di Azure mette a disposizione i seguenti controlli per l'uso nei mo
 ##  <a name="subscribe-button"></a> subscribe-button  
  Il controllo `subscribe-button` consente di sottoscrivere un utente a un prodotto.  
   
- ![Controllo subscribe&#45;button](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controllo subscribe-button in Gestione API di Azure")  
+ ![Controllo subscribe&amp;#45;button](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controllo subscribe-button in Gestione API di Azure")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -197,7 +196,7 @@ Gestione API di Azure mette a disposizione i seguenti controlli per l'uso nei mo
 ##  <a name="subscription-cancel"></a> subscription-cancel  
  Il controllo `subscription-cancel` consente di annullare la sottoscrizione a un prodotto nella pagina di profilo dell'utente nel portale per sviluppatori.  
   
- ![Controllo subscription&#45;cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Controllo subscription-cancel in Gestione API di Azure")  
+ ![Controllo subscription&amp;#45;cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Controllo subscription-cancel in Gestione API di Azure")  
   
 ### <a name="usage"></a>Utilizzo  
   

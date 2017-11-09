@@ -1,6 +1,6 @@
 ---
 title: Usare Azure Data Factory con SQL Data Warehouse | Microsoft Docs
-description: Suggerimenti per l&quot;uso di Data factory di Azure con Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per l'uso di Data factory di Azure con Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 12743b3594a0a62b0b974fb6dd1c39972c1bd3fa
-ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 6adfa1264c9d196d6c6e57f1d108710b9ee73265
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>Usare Data factory di Azure con SQL Data Warehouse
 Data factory di Azure offre un metodo completamente gestito per l'orchestrazione del trasferimento di dati e l'esecuzione di stored procedure in SQL Data Warehouse.  In questo modo è possibile configurare e pianificare più facilmente procedure ETL (Extract, Transform, Load) complesse con SQL Data Warehouse. Per una panoramica più completa di Azure Data Factory, vedere la [documentazione di Azure Data Factory][Azure Data Factory documentation].
@@ -47,7 +45,7 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ../data-factory/data-factory-data-movement-activities.md
+[Copy data with Azure Data Factory]: ../data-factory/copy-activity-overview.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 [SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integrate.md
 
@@ -55,5 +53,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--Other Web references-->
 [Azure Data Factory documentation]:https://azure.microsoft.com/documentation/services/data-factory/
-
 

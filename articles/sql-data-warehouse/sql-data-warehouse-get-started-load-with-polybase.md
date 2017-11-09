@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
 ms.author: cakarst;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 1a26fe127448f794bbad11043aa3c8770bc2ac8c
-ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Caricare dati con PolyBase in SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -277,4 +276,3 @@ Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBa
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
-

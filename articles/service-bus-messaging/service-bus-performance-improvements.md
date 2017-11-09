@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: e6a0e480f7748f12f5e566cf4059b5b2c4242c09
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 1f57fbb8e2a86b744808ee844e5f853bdb587a5d
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 
-Questo articolo descrive come usare la [messaggistica del bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) per ottimizzare le prestazioni durante lo scambio di messaggi negoziati. La prima parte di questo argomento descrive i vari meccanismi disponibili per aumentare le prestazioni. La seconda parte fornisce invece indicazioni su come usare il bus di servizio per garantire le prestazioni ottimali in uno scenario specifico.
+Questo articolo descrive come usare il [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) per ottimizzare le prestazioni durante lo scambio di messaggi negoziati. La prima parte dell'articolo descrive i diversi meccanismi disponibili per migliorare le prestazioni. La seconda parte fornisce invece indicazioni su come usare il bus di servizio per garantire le prestazioni ottimali in uno scenario specifico.
 
-In questo argomento il termine "client" fa riferimento a qualsiasi entità che accede al bus di servizio. Un client può assumere il ruolo di mittente o di ricevitore. Il termine "mittente" viene usato per un client di coda o argomento del bus di servizio che invia messaggi a una coda o a un argomento del bus di servizio. Il termine "ricevitore" fa riferimento a un client di coda o sottoscrizione del bus di servizio che riceve messaggi da una coda o da una sottoscrizione del bus di servizio.
+In questo argomento il termine "client" fa riferimento a qualsiasi entità che accede al bus di servizio. Un client può assumere il ruolo di mittente o di ricevitore. Il termine "mittente" viene usato per un client di coda o argomento del bus di servizio che invia messaggi a una sottoscrizione di una coda o un argomento del bus di servizio. Il termine "ricevitore" fa riferimento a un client di coda o sottoscrizione del bus di servizio che riceve messaggi da una coda o da una sottoscrizione del bus di servizio.
 
 Queste sezioni presentano numerosi concetti usati dal bus di servizio per migliorare le prestazioni.
 
@@ -117,7 +117,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 L'accesso in batch all'archivio non influisce sul numero di operazioni di messaggistica fatturabili ed è una proprietà di una coda, di un argomento o di una sottoscrizione. È indipendente dalla modalità di ricezione e dal protocollo usato tra un client e il servizio Bus di servizio.
 
 ## <a name="prefetching"></a>Prelettura
-La prelettura consente al client di coda o sottoscrizione di caricare messaggi aggiuntivi dal servizio durante l'esecuzione di un'operazione di ricezione. Il client archivia i messaggi in una cache locale. Le dimensioni della cache sono determinate dalle proprietà [QueueClient.PrefetchCount][QueueClient.PrefetchCount] o [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]. Ogni client che abilita la prelettura mantiene la propria cache. La cache non è condivisa tra i client. Se il client avvia un'operazione di ricezione e la relativa cache è vuota, il servizio trasmette un batch di messaggi. Le dimensioni del batch corrispondono alle dimensioni della cache o a 256 KB, a seconda del valore minore. Se il client avvia un'operazione di ricezione e la cache contiene un messaggio, il messaggio viene recuperato dalla cache.
+La [prelettura](service-bus-prefetch.md) consente al client di coda o sottoscrizione di caricare messaggi aggiuntivi dal servizio durante l'esecuzione di un'operazione di ricezione. Il client archivia i messaggi in una cache locale. Le dimensioni della cache sono determinate dalle proprietà [QueueClient.PrefetchCount][QueueClient.PrefetchCount] o [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]. Ogni client che abilita la prelettura mantiene la propria cache. La cache non è condivisa tra i client. Se il client avvia un'operazione di ricezione e la relativa cache è vuota, il servizio trasmette un batch di messaggi. Le dimensioni del batch corrispondono alle dimensioni della cache o a 256 KB, a seconda del valore minore. Se il client avvia un'operazione di ricezione e la cache contiene un messaggio, il messaggio viene recuperato dalla cache.
 
 Quando un messaggio viene sottoposto a prelettura, il servizio lo blocca. In questo modo, il messaggio non potrà essere ricevuto da un ricevitore diverso. Se il ricevitore non può completare il messaggio prima della scadenza del blocco, il messaggio diventa disponibile per altri ricevitori. La copia del messaggio sottoposta a prelettura resta nella cache. Il ricevitore che usa la copia scaduta memorizzata nella cache riceve un'eccezione quando prova a completare il messaggio. Per impostazione predefinita, il blocco del messaggio scade dopo 60 secondi. Questo valore può essere esteso a 5 minuti. Per evitare che vengano usati messaggi scaduti, la dimensione della cache dovrebbe essere sempre inferiore al numero di messaggi che possono essere usati da un client nell'intervallo di timeout del blocco.
 
@@ -145,7 +145,7 @@ Se un messaggio contenente informazioni critiche che non devono andare perdute v
 > Le entità express non supportano le transazioni.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>Uso di code o argomenti partizionati
-Internamente, il bus di servizio usa lo stesso nodo e lo stesso archivio di messaggistica per elaborare e archiviare tutti i messaggi per un'entità di messaggistica (coda o argomento). Una coda o un argomento partizionato, al contrario, viene distribuito tra più nodi e archivi di messaggistica. Le code e gli argomenti partizionati non solo registrano una velocità effettiva superiore rispetto a quella delle code e degli argomenti normali, ma presentano anche una maggiore disponibilità. Per creare un'entità partizionata, impostare la proprietà [EnablePartitioning][EnablePartitioning] su **true**, come illustrato nell'esempio seguente. Per altre informazioni sulle entità partizionate, vedere le [entità di messaggistica partizionate][Partitioned messaging entities].
+Internamente, il bus di servizio usa lo stesso nodo e lo stesso archivio di messaggistica per elaborare e archiviare tutti i messaggi per un'entità di messaggistica (coda o argomento). Una [coda o un argomento partizionato](service-bus-partitioning.md), al contrario, viene distribuito tra più nodi e archivi di messaggistica. Le code e gli argomenti partizionati non solo registrano una velocità effettiva superiore rispetto a quella delle code e degli argomenti normali, ma presentano anche una maggiore disponibilità. Per creare un'entità partizionata, impostare la proprietà [EnablePartitioning][EnablePartitioning] su **true**, come illustrato nell'esempio seguente. Per altre informazioni sulle entità partizionate, vedere le [entità di messaggistica partizionate][Partitioned messaging entities].
 
 ```csharp
 // Create partitioned queue.
@@ -248,16 +248,16 @@ Per ottimizzare la velocità effettiva, eseguire le operazioni seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio, vedere le [entità di messaggistica partizionate][Partitioned messaging entities].
 
-[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
-[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
+[MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
 [MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
-[ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
-[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
-[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
-[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
-[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
-[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
-[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
+[PeekLock]: /dotnet/api/microsoft.azure.servicebus.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.azure.servicebus.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.messagesender.batchflushinterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
-[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing

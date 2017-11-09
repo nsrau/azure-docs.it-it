@@ -3,7 +3,7 @@ title: Domande frequenti su Azure Application Insights | Microsoft Docs
 description: Domande frequenti su Application Insights.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8a6a8027b93d0d5b353c41c103d2c9ad5faa70c1
-ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: domande frequenti
 
@@ -105,7 +104,7 @@ Da app Web del server:
 * Richieste HTTP
 * [Dipendenze](app-insights-asp-net-dependencies.md). Chiamate a: database SQL, chiamate HTTP a servizi esterni, Azure Cosmos DB, tabelle, archiviazione BLOB e code. 
 * [Eccezioni](app-insights-asp-net-exceptions.md) e analisi dello stack.
-* [Contatori delle prestazioni](app-insights-performance-counters.md): se si usa [Status Monitor](app-insights-monitor-performance-live-website-now.md), il monitoraggio di Azure (app-insights-azure-web-apps.md) o il [writer collectd di Application Insights](app-insights-java-collectd.md).
+* [Contatori delle prestazioni](app-insights-performance-counters.md): se si usa [Status Monitor](app-insights-monitor-performance-live-website-now.md), il [monitoraggio di Azure](app-insights-azure-web-apps.md) o il [plug-in di scrittura collectd di Application Insights](app-insights-java-collectd.md).
 * [Metrica ed eventi personalizzati](app-insights-api-custom-events-metrics.md) codificati.
 * [Log di traccia](app-insights-asp-net-trace-logs.md) se si configura l'agente di raccolta appropriato.
 
@@ -187,7 +186,7 @@ Usare una singola risorsa per tutti i componenti o i ruoli in un singolo sistema
 * JavaScript SDK imposta un cookie utente nel client Web, per identificare gli utenti abituali, e un cookie di sessione per raggruppare le attività.
 * Se non c'è uno script lato client, è possibile [impostare cookie per il server](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Se un utente reale usa il sito in browser diversi o esegue una navigazione privata o in incognito oppure usa computer diversi, viene inclusi più di una volta nei conteggi.
-* Per identificare un utente connesso a più computer e browser, aggiungere una chiamata a [setAuthenticatedUserContect()](app-insights-api-custom-events-metrics.md#authenticated-users).
+* Per identificare un utente connesso a più computer e browser, aggiungere una chiamata a [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> In Application Insights sono state abilitate tutte le funzionalità?
 | Elementi che dovrebbero essere visualizzati | Come ottenerli | Perché si vuole ottenerli |
@@ -205,7 +204,7 @@ Usare una singola risorsa per tutti i componenti o i ruoli in un singolo sistema
 
 Il [campionamento](app-insights-sampling.md) riduce il numero di elementi di telemetria (richieste, eventi personalizzati e così via) inviati effettivamente dall'app al portale. Nel grafico di ricerca, viene visualizzato il numero di elementi effettivamente ricevuti. Nei grafici di metrica che visualizzano un conteggio degli eventi, è possibile vedere il numero di eventi originali che si sono verificati. 
 
-Ogni elemento trasmesso include una proprietà `itemCount` che visualizza quanti eventi originali rappresenta tale elemento. Per osservare un campionamento in esecuzione, è possibile eseguire questa query in Analytics:
+Ogni elemento trasmesso include una proprietà `itemCount` che visualizza il numero di eventi originali rappresentati da questo elemento. Per osservare un campionamento in esecuzione, è possibile eseguire questa query in Analytics:
 
 ```
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
@@ -281,4 +280,3 @@ I [test Web](app-insights-monitor-web-app-availability.md) vengono eseguiti in p
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
-

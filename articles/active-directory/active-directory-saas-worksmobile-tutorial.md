@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 139a1968a59424eae278de3e7fa227ad340a1eb8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 760fbb21c86fa14808f9a946c2c2fd0814bfb139
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-works-mobile"></a>Esercitazione: Integrazione di Azure Active Directory con WORKS MOBILE
 
@@ -110,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.worksmobile.com/jp/myservice`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`.
 
     b. Nella casella di testo **Identificatore** digitare il valore `worksmobile.com`.
 

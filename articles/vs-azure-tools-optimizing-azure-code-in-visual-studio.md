@@ -3,8 +3,8 @@ title: Ottimizzazione del codice di Azure in Visual Studio | Documentazione Micr
 description: "Informazioni su come il codice di Azure come strumento di ottimizzazione in Visual Studio consente di rendere il codice più affidabile e migliorare le prestazioni."
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
 ms.service: multiple
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
+ms.author: cawa
+ms.openlocfilehash: a606c8e7d8b730b67bd8481656e099900eb39fbc
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: bce7a5c9d65f124edfcd86bb882537632ecf73df
-ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="optimizing-your-azure-code"></a>Ottimizzare il codice Azure
 Quando si programmano app che utilizzano Microsoft Azure, esistono alcune procedure consigliate da seguire per evitare problemi con la scalabilità di app, il comportamento e le prestazioni in un ambiente cloud. Microsoft fornisce uno strumento di analisi del codice di Azure che riconosce molti di questi problemi comunemente riscontrati e aiuta a risolverli. È possibile scaricare lo strumento in Visual Studio tramite NuGet.
@@ -467,4 +466,3 @@ public class BlogsController : Controller
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'ottimizzazione e la risoluzione dei problemi delle app Azure, vedere [Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio](app-service/web-sites-dotnet-troubleshoot-visual-studio.md).
-

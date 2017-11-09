@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: mvc
 ms.date: 09/25/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 86a660309fd3fd80f10f706ff460af2309c12174
-ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Creare un trigger HTTP di Funzioni di Azure con un'associazione di input di Azure Cosmos DB
 
 Azure Cosmos DB è un database multimodello Microsoft distribuito a livello globale, senza schema e senza server. Funzioni di Azure è un servizio di calcolo senza server che consente di eseguire codice su richiesta. Se si uniscono questi due servizi di Azure, si dispone della base per un'architettura senza server che consente di concentrarsi sulla compilazione di app eccezionali senza doversi preoccupare di eseguire il provisioning e mantenere i server necessari per le proprie esigenze di calcolo e database.
@@ -277,4 +275,3 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 > [Distribuzione globale](distribute-data-globally.md) 
 
 Questo articolo si basa su un blog della serie di blog [di Brady Gaster Schemaless & Serverless](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless) (Senza schema e senza server). Visitare il suo blog per altri post della serie.
-

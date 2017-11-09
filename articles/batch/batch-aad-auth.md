@@ -3,7 +3,7 @@ title: Usare Azure Active Directory per autenticare le soluzioni del servizio Az
 description: Batch supporta Azure AD per l'autenticazione dal servizio Batch.
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 tags: 
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -31,13 +31,6 @@ Quando si usa l'autenticazione di Azure AD con Azure Batch, è possibile eseguir
 - Usando un'**entità servizio** per autenticare un'applicazione automatica. L'entità servizio definisce i criteri e le autorizzazioni per un'applicazione al fine di rappresentare l'applicazione al momento dell'accesso alle risorse in fase di runtime.
 
 Per altre informazioni su Azure AD, vedere [Documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
-
-## <a name="authentication-and-pool-allocation-mode"></a>Modalità di allocazione pool e autenticazione
-
-Quando si crea un account Batch, è possibile specificare dove devono essere allocati i pool creati per tale account. È possibile scegliere di allocare i pool nella sottoscrizione predefinita del servizio Batch o in una sottoscrizione utente. La scelta influisce sulla modalità di autenticazione dell'accesso alle risorse nell'account.
-
-- **Sottoscrizione al servizio Batch**. Per impostazione predefinita, i pool di Batch vengono allocati in una sottoscrizione del servizio Batch. è Se si sceglie questa opzione, possibile eseguire l'autenticazione per l'accesso alle risorse in tale account con [chiave condivisa](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) o con Azure AD.
-- **Sottoscrizione utente.** È possibile scegliere di allocare il pool Batch in una sottoscrizione utente specificata. Se si sceglie questa opzione, è necessario eseguire l'autenticazione con Azure AD.
 
 ## <a name="endpoints-for-authentication"></a>Endpoint per l'autenticazione
 

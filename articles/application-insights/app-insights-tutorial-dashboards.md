@@ -3,21 +3,19 @@ title: Creare dashboard personalizzati in Azure Application Insights | Microsoft
 description: Esercitazione per la creazione di dashboard personalizzati per gli indicatori KPI con Azure Application Insights.
 keywords: 
 services: application-insights
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fb00711c762aa67c632d1cc582741970e3df0ef2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creare dashboard personalizzati per gli indicatori KPI con Azure Application Insights
 
 È possibile creare più dashboard nel portale di Azure, ognuno dei quali include riquadri per la visualizzazione dei dati di più risorse di Azure tra i diversi gruppi di risorse e le sottoscrizioni.  È possibile aggiungere diversi grafici e visualizzazioni da Azure Application Insights per creare dashboard personalizzati in grado di offrire un quadro completo dell'integrità e delle prestazioni dell'applicazione.  Questa esercitazione illustra la creazione di un dashboard personalizzato che include più tipi di dati e visualizzazioni da Azure Application Insights.  Si apprenderà come:

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1801ef47e5b182e0bcd5b23970a2999633b4a852
-ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Esportare un modello di Azure Resource Manager da risorse esistenti
 Questo articolo illustra come esportare un modello di Resource Manager dalle risorse esistenti della sottoscrizione. Il modello generato può essere usato per comprendere meglio la sintassi del modello.
@@ -176,5 +175,4 @@ Si è appreso come esportare un modello da risorse create nel portale.
 * È possibile distribuire un modello tramite [PowerShell](resource-group-template-deploy.md), l'[interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md) o l'[API REST](resource-group-template-deploy-rest.md).
 * Per informazioni su come esportare un modello tramite PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 * Per informazioni su come esportare un modello tramite l'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-
 

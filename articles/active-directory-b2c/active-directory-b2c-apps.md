@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 51001feb17ae99d3bd391a9f980d514e07f97099
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: tipi di applicazioni
 Azure Active Directory (Azure AD) B2C supporta l'autenticazione per un'ampia gamma di architetture di app moderne. Tutte le architetture sono basate sui protocolli standard [OAuth 2.0](active-directory-b2c-reference-protocols.md) o [OpenID Connect](active-directory-b2c-reference-protocols.md). Questo documento descrive brevemente i tipi di app che è possibile compilare, indipendente dal linguaggio o dalla piattaforma preferita. Illustra anche gli scenari generali per [iniziare a compilare applicazioni](active-directory-b2c-overview.md#get-started).
@@ -132,4 +131,3 @@ Questo flusso non è attualmente supportato da Azure AD B2C. Le app possono otte
 Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client nativi che hanno un back-end dell'API Web. Quest'ultimo chiama a sua volta un servizio online Microsoft, ad esempio l'API Graph di Azure AD.
 
 Questo scenario di API Web concatenata può essere supportato usando la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of.  Il flusso On-Behalf-Of, tuttavia, non è attualmente implementato in Azure AD B2C.
-

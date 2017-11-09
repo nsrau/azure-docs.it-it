@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-with-bcp"></a>Caricare i dati con BCP
 > [!div class="op_single_selector"]

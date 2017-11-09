@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creare avvisi sulle metriche in Monitoraggio di Azure per i servizi di Azure: portale di Azure
 > [!div class="op_single_selector"]
@@ -98,4 +97,3 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 * Altre informazioni sui [runbook di automazione di Azure](../automation/automation-starting-a-runbook.md).
 * Leggere una [panoramica dei log di diagnostica](monitoring-overview-of-diagnostic-logs.md) e sulla raccolta di metriche dettagliate e ad alta frequenza sul servizio.
 * Leggere una [panoramica della raccolta di metriche](insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
-

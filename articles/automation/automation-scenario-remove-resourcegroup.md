@@ -3,7 +3,7 @@ title: Automatizzare la rimozione di gruppi di risorse | Documentazione Microsof
 description: Versione del flusso di lavoro PowerShell di uno scenario di Automazione di Azure che include runbook per rimuovere tutti i gruppi di risorse nella sottoscrizione.
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
-
-
+ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-automation-scenario-automate-removal-of-resource-groups"></a>Scenario di Automazione di Azure: automatizzare la rimozione di gruppi di risorse
+# <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scenario di Automazione di Azure: automatizzare la rimozione di gruppi di risorse
 Molti clienti creano più gruppi di risorse. Alcuni potrebbero essere usati per gestire applicazioni di produzione e altri come ambienti di sviluppo, test e staging. La rimozione di un gruppo di risorse con un clic è più complessa rispetto all'automazione della distribuzione di queste risorse. È possibile semplificare questa comune attività di gestione con Automazione di Azure. Ciò è utile se si usa una sottoscrizione di Azure con un limite di spesa tramite un'offerta riservata ai membri, ad esempio di MSDN o del programma Microsoft Partner Network Cloud Essentials.
 
 Questo scenario si basa su un runbook di PowerShell ed è progettato per rimuovere uno o più gruppi di risorse specificati dalla sottoscrizione. L'impostazione predefinita del runbook prevede l'esecuzione preliminare di un test, per evitare di eliminare per errore il gruppo di risorse prima di essere pronti a completare la procedura.   
@@ -33,7 +33,7 @@ Questo scenario è costituito da un runbook di PowerShell scaricabile da [PowerS
 | Remove-ResourceGroup |Rimuove uno o più gruppi di risorse di Azure e le risorse associate dalla sottoscrizione. |
 
 <br>
- Per questo runbook vengono definiti i parametri di input seguenti:
+Per questo runbook vengono definiti i parametri di input seguenti:
 
 | Parametro | Descrizione |
 | --- | --- |
@@ -67,9 +67,3 @@ Il **Riepilogo processi** include i messaggi dai flussi di output, di avviso e d
 ## <a name="next-steps"></a>Passaggi successivi
 * Per iniziare a creare il runbook, vedere [Creazione o importazione di un runbook in Automazione di Azure](automation-creating-importing-runbook.md).
 * Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

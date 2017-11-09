@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0813cb0ccf976b7e47420b33ec65714fd8e60ac1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nell’interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
@@ -153,4 +151,3 @@ azure vm endpoint delete web1 tcp-80-80
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analisi del sentiment con Analisi di flusso di Azure e Azure Machine Learning
 Questo articolo descrive come configurare rapidamente un semplice processo di Analisi di flusso di Azure che integra Azure Machine Learning. Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
 
@@ -277,7 +275,6 @@ Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Integrare API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 
 
 

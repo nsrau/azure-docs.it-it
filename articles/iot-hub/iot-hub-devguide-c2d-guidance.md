@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 10/09/2017
 ms.author: elioda
+ms.openlocfilehash: c0f9d0e13cb159188bdaf2b915c1bf6de73be855
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 688b33710283a82fcd772bf50a171893f3ac124c
-ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Indicazioni sulle comunicazioni da cloud a dispositivo
 L'hub IoT fornisce tre opzioni per le app per dispositivo che consentono di esporre le funzionalità a un'app back-end:
@@ -36,9 +35,9 @@ Ecco un confronto dettagliato delle diverse opzioni di comunicazione da cloud a 
 | Flusso di dati | Bidirezionale. L'app per dispositivo può rispondere immediatamente al metodo. Il back-end della soluzione riceve il risultato insieme alla richiesta. | Unidirezionale. L'app per dispositivo riceve una notifica quando la proprietà viene modificata. | Unidirezionale. L'app per dispositivo riceve il messaggio.
 | Durabilità | I dispositivi disconnessi non vengono contattati. Il back-end della soluzione riceve una notifica che indica che il dispositivo non è connesso. | I valori delle proprietà vengono conservati nel dispositivo gemello. Il dispositivo li leggerà alla riconnessione successiva. I valori delle proprietà possono essere recuperati con il [linguaggio di query dell'hub IoT][lnk-query]. | I messaggi possono essere conservati dall'hub IoT per un massimo di 48 ore. |
 | Destinazioni | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi][lnk-jobs]. | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi][lnk-jobs]. | Singolo dispositivo in base a **deviceId**. |
-| Dimensione | Fino a 8 KB di richieste e 8 KB di risposte. | Le dimensioni massime per le proprietà desiderate sono 8 KB. | Messaggi di un massimo di 64 KB. |
+| Dimensione | Fino a 8 KB per le richieste e 8 KB per le risposte. | Le dimensioni massime per le proprietà desiderate sono 8 KB. | Fino a 64 KB per i messaggi. |
 | Frequenza | Elevata. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Media. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Bassa. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. |
-| Protocol | Disponibile tramite MQTT o AMQP. | Disponibile tramite MQTT o AMQP. | Disponibile in tutti i protocolli. Il dispositivo deve eseguire il polling quando usa HTTP. |
+| Protocol | Disponibile tramite MQTT o AMQP. | Disponibile tramite MQTT o AMQP. | Disponibile in tutti i protocolli. Il dispositivo deve eseguire il polling quando usa HTTPS. |
 
 Informazioni su come usare i metodi diretti, le proprietà desiderate e messaggi da cloud a dispositivo nelle esercitazioni seguenti:
 
@@ -55,4 +54,3 @@ Informazioni su come usare i metodi diretti, le proprietà desiderate e messaggi
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-c2d-tutorial]: iot-hub-node-node-c2d.md
-

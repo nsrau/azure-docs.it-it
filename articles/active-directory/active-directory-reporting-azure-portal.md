@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 10/18/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: e81e2ca473477204c0b9e8d8803bcc356746e232
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-reporting"></a>Creazione di report in Azure Active Directory
 

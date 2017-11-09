@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -1017,4 +1016,3 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 Per altre informazioni sull'uso di questi criteri, vedere:
 -   [Criteri in Gestione API](api-management-howto-policies.md) 
 -   [Espressioni di criteri](api-management-policy-expressions.md)
-

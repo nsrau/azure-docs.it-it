@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
+ms.openlocfilehash: 413d7ddf1e5b87f64c0d8e14c0ef4bdefd2890a7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 81d631291c5b375cf7425b0089caf6a97ec3b598
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Attività ExecutePipeline in Azure Data Factory
 L'attività ExecutePipeline consente a una pipeline di Data Factory di richiamare un'altra pipeline.
@@ -106,8 +105,6 @@ Questo scenario include due pipeline:
         "name": "MyExecutePipelineActivity"
       }
     ],
-    "datasets": [],
-    "linkedServices": [],
     "parameters": {
       "masterSourceBlobContainer": {
         "type": "String"
@@ -153,55 +150,6 @@ Questo scenario include due pipeline:
         ]
       }
     ],
-    "datasets": [
-      {
-        "name": "SourceBlobDataset",
-        "properties": {
-          "type": "AzureBlob",
-          "typeProperties": {
-            "folderPath": {
-              "value": "@pipeline().parameters.sourceBlobContainer",
-              "type": "Expression"
-            },
-            "fileName": "salesforce.txt"
-          },
-          "linkedServiceName": {
-            "referenceName": "BlobStorageLinkedService",
-            "type": "LinkedServiceReference"
-          }
-        }
-      },
-      {
-        "name": "sinkBlobDataset",
-        "properties": {
-          "type": "AzureBlob",
-          "typeProperties": {
-            "folderPath": {
-              "value": "@pipeline().parameters.sinkBlobContainer",
-              "type": "Expression"
-            }
-          },
-          "linkedServiceName": {
-            "referenceName": "BlobStorageLinkedService",
-            "type": "LinkedServiceReference"
-          }
-        }
-      }
-    ],
-    "linkedServices": [
-      {
-        "name": "BlobStorageLinkedService",
-        "properties": {
-          "type": "AzureStorage",
-          "typeProperties": {
-            "connectionString": {
-              "value": "DefaultEndpointsProtocol=https;AccountName=*****",
-              "type": "SecureString"
-            }
-          }
-        }
-      }
-    ],
     "parameters": {
       "sourceBlobContainer": {
         "type": "String"
@@ -213,6 +161,64 @@ Questo scenario include due pipeline:
   }
 }
 
+```
+
+**Servizio collegato**
+
+```json
+{
+    "name": "BlobStorageLinkedService",
+    "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": {
+        "value": "DefaultEndpointsProtocol=https;AccountName=*****",
+        "type": "SecureString"
+      }
+    }
+  }
+}
+```
+
+**Set di dati di origine**
+```json
+{
+    "name": "SourceBlobDataset",
+    "properties": {
+    "type": "AzureBlob",
+    "typeProperties": {
+      "folderPath": {
+        "value": "@pipeline().parameters.sourceBlobContainer",
+        "type": "Expression"
+      },
+      "fileName": "salesforce.txt"
+    },
+    "linkedServiceName": {
+      "referenceName": "BlobStorageLinkedService",
+      "type": "LinkedServiceReference"
+    }
+  }
+}
+```
+
+**Set di dati sink**
+```json
+{
+    "name": "sinkBlobDataset",
+    "properties": {
+    "type": "AzureBlob",
+    "typeProperties": {
+      "folderPath": {
+        "value": "@pipeline().parameters.sinkBlobContainer",
+        "type": "Expression"
+      }
+    },
+    "linkedServiceName": {
+      "referenceName": "BlobStorageLinkedService",
+      "type": "LinkedServiceReference"
+    }
+  }
+}
 ```
 
 ### <a name="running-the-pipeline"></a>Esecuzione della pipeline

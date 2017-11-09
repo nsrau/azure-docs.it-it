@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.openlocfilehash: 361e16262e528c7dea1bab4b9d945a28af8be399
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 Per preparare uno o più dischi rigidi per il processo di importazione, seguire questi passaggi:
@@ -109,14 +109,14 @@ Per preparare uno o più dischi rigidi per il processo di importazione, seguire 
 
 |Parametro della riga di comando|Descrizione|
 |-----------------------------|-----------------|
-|**/sk:**<StorageAccountKey\>|`Optional.` Chiave dell'account di archiviazione per l'account di archiviazione in cui verranno importati i dati. È necessario includere **/sk:**<StorageAccountKey\> oppure **/csas:**<ContainerSas\> in the command.|
+|**/sk:**&lt;StorageAccountKey\>|`Optional.` Chiave dell'account di archiviazione per l'account di archiviazione in cui verranno importati i dati. È necessario includere **/sk:**<StorageAccountKey\> oppure **/csas:**<ContainerSas\> in the command.|
 |**/csas:**<ContainerSas\>|`Optional`. La firma di accesso condiviso del contenitore da usare per importare i dati sull'account di archiviazione. È necessario includere **/sk:**<StorageAccountKey\> oppure **/csas:**<ContainerSas\> in the command.<br /><br /> Il valore per questo parametro deve iniziare con il nome del contenitore, seguito da un punto interrogativo (?) e dal token della firma di accesso condiviso. Ad esempio:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> Le autorizzazioni, laddove specificato nell'URL o in un criterio di accesso archiviato, devono includere Lettura, Scrittura ed Eliminazione per i processi di importazione e Lettura, Scrittura ed Elenco per i processi di esportazione.<br /><br /> Quando viene specificato questo parametro, tutti i BLOB da importare o esportare devono trovarsi all'interno del contenitore specificato nella firma di accesso condiviso.|
 |**/t:**<TargetDriveLetter\>|`Required.` Lettera di unità del disco rigido di destinazione per la sessione di copia corrente, senza i due punti finali.|
 |**/format**|`Optional.` Specificare questo parametro se è necessario formattare l'unità. In caso contrario, ometterlo. Prima di formattare l'unità, verrà chiesta una conferma dalla console. Per evitare questa richiesta di conferma, specificare il parametro /silentmode.|
 |**/silentmode**|`Optional.` Specificare questo parametro per eliminare la richiesta di conferma per la formattazione dell'unità.|
 |**/encrypt**|`Optional.` Specificare questo parametro se l'unità non è ancora stata crittografata con BitLocker e deve essere crittografata tramite lo strumento. Se l'unità è già stata crittografata con BitLocker, omettere questo parametro e specificare il parametro `/bk`, fornendo la chiave BitLocker esistente.<br /><br /> Se si specifica il parametro `/format`, sarà necessario specificare anche il parametro `/encrypt`.|
 |**/bk:**<BitLockerKey\>|`Optional.`Se `/encrypt` viene specificato, omettere questo parametro. Se `/encrypt` viene omesso, è necessario aver già crittografato l'unità con BitLocker. Usare questo parametro per specificare la chiave di BitLocker. La crittografia di BitLocker è necessaria per tutti i dischi rigidi destinati ai processi di importazione.|
-|**/logdir:**<LogDirectory\>|`Optional.` La directory log specifica la directory da usare per archiviare i log dettagliati, nonché i file manifesti temporanei. Se non è specificata, come directory dei log viene usata la directory corrente.|
+|**/logdir:**&lt;LogDirectory\>|`Optional.` La directory log specifica la directory da usare per archiviare i log dettagliati, nonché i file manifesti temporanei. Se non è specificata, come directory dei log viene usata la directory corrente.|
 
 ### <a name="parameters-required-for-all-copy-sessions"></a>Parametri necessari per tutte le sessioni di copia
  Il file journal contiene lo stato di tutte le sessioni di copia per un disco rigido. Include inoltre le informazioni necessarie per creare il processo di importazione. Quando si esegue lo strumento Importazione/Esportazione di Azure, è sempre necessario specificare un file journal, nonché l'ID della sessione di copia:
@@ -124,8 +124,8 @@ Per preparare uno o più dischi rigidi per il processo di importazione, seguire 
 |||
 |-|-|
 |Parametro della riga di comando|Descrizione|
-|**/j:**<JournalFile\>|`Required.` Percorso del file journal. Ogni unità deve contenere esattamente un file journal. Si noti che il file journal non deve trovarsi nell'unità di destinazione. L'estensione del file journal è `.jrn`.|
-|**/id:**<SessionId\>|`Required.` L'ID di sessione identifica una sessione di copia. Viene usato per garantire il recupero accurato di una sessione di copia interrotta. I file copiati in una sessione di copia vengono archiviati in una directory denominata in base all'ID di sessione nell'unità di destinazione.|
+|**/j:**&lt;JournalFile\>|`Required.` Percorso del file journal. Ogni unità deve contenere esattamente un file journal. Si noti che il file journal non deve trovarsi nell'unità di destinazione. L'estensione del file journal è `.jrn`.|
+|**/id:**&lt;SessionId\>|`Required.` L'ID di sessione identifica una sessione di copia. Viene usato per garantire il recupero accurato di una sessione di copia interrotta. I file copiati in una sessione di copia vengono archiviati in una directory denominata in base all'ID di sessione nell'unità di destinazione.|
 
 ### <a name="parameters-for-copying-a-single-directory"></a>Parametri per copiare una singola directory
  Quando si copia una singola directory, si applicano i parametri obbligatori e facoltativi seguenti:

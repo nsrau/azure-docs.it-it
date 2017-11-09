@@ -12,17 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
-ms.author: banders
+ms.date: 10/26/2017
+ms.author: magoedte;banders
+ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 0b0d91b130172eb3506fdebb9547ab6ba5cc3780
-ms.contentlocale: it-it
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
-
-
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorare un database SQL di Azure usando Azure SQL Analytics (anteprima) in Log Analytics
 
 ![Simbolo di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-symbol.png)
@@ -50,8 +47,8 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile crearne una [gratuitamente](https://azure.microsoft.com/free/).
-- Un'area di lavoro di Log Analytics. È possibile usarne una esistente o [crearne una nuova](log-analytics-get-started.md) prima di iniziare a usare questa soluzione.
-- Abilitare Diagnostica di Azure per i database SQL di Azure SQL e i pool elastici e [configurarli per l'invio dei dati a Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+- Un'area di lavoro di Log Analytics. È possibile usarne una esistente o [crearne una nuova](log-analytics-quick-create-workspace.md) prima di iniziare a usare questa soluzione.
+- Abilitare Diagnostica di Azure per i database SQL di Azure SQL e i pool elastici e [configurarli per l'invio dei dati a Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ## <a name="configuration"></a>Configurazione
 
@@ -63,9 +60,9 @@ Eseguire questa procedura per aggiungere la soluzione Analisi SQL di Azure all'a
 3. Nell'elenco **Monitoraggio e gestione** fare clic su **Visualizza tutto**.
 4. Nell'elenco **Consigliati** fare clic su **Altro** e quindi nel nuovo elenco trovare **Azure SQL Analytics (anteprima)** e selezionarlo.  
     ![Soluzione Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. Nel riquadro **Analisi SQL di Azure (anteprima)** fare clic su **Crea**.  
+5. Nel pannello **Azure SQL Analytics (anteprima)** fare clic su **Crea**.  
     ![Creare](./media/log-analytics-azure-sql/portal-create.png)
-6. Nel riquadro **Crea nuova soluzione** selezionare l'area di lavoro che si vuole aggiungere alla soluzione e quindi fare clic su **Crea**.  
+6. Nel pannello **Crea nuova soluzione** selezionare l'area di lavoro che si vuole aggiungere alla soluzione e quindi fare clic su **Crea**.  
     ![Aggiunta all'area di lavoro](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -86,7 +83,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ## <a name="using-the-solution"></a>Uso della soluzione
 
 >[!NOTE]
-> Aggiornare l'area di lavoro di Log Analytics per ottenere la versione più recente di Analisi SQL di Azure.
+> Aggiornare Log Analytics per ottenere la versione più recente di Analisi SQL di Azure.
 >
 
 Quando si aggiunge la soluzione all'area di lavoro, il riquadro Azure SQL Analytics viene aggiunto all'area di lavoro e visualizzato in Panoramica. Il riquadro mostra il numero di database SQL di Azure e di pool elastici SQL a cui la soluzione è connessa.
@@ -99,26 +96,17 @@ Fare clic sul riquadro **Analisi SQL di Azure** per aprire il dashboard Analisi 
 
 ![Panoramica di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-La selezione di uno dei riquadri consente di visualizzare un report drill-down nella prospettiva specifica.
+La selezione di uno dei riquadri consente di visualizzare un report drill-down nella prospettiva specifica. Il report drill-down viene aperto una volta selezionata la prospettiva.
 
 ![Timeout di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
 Ogni prospettiva fornisce riepiloghi relativi a sottoscrizione, server, pool elastico e livello di database. Ogni prospettiva mostra inoltre un report specifico della prospettiva a destra. La selezione di una sottoscrizione, un server, un pool o un database dall'elenco continua il drill-down.
 
-| Prospettiva | Descrizione |
-| --- | --- |
-| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. Il drill-down fornisce il riepilogo delle metriche relative a DTU e GB. |
-| Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights. Altre informazioni su Intelligent Insights. |
-| Errors | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. |
-| Timeout | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. |
-| Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. |
-| Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |
-| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. |
-| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. |
+| Prospettiva | Descrizione | | Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. Il drill-down fornisce il riepilogo delle metriche relative a DTU e GB. | | Insights | Fornisce il drill-down gerarchico per Intelligent Insights. Altre informazioni su Intelligent Insights. | | Errori | Fornisce il drill-down gerarchico per gli errori SQL che si sono verificati nei database. | | Timeout | Fornisce il drill-down gerarchico per i blocchi SQL che si sono verificati nei database. | | Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL che si sono verificati nei database. | | Attese database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. | | Durata query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. | | Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. |
 
 ### <a name="intelligent-insights-report"></a>Report di Intelligent Insights
 
-È possibile visualizzare e accedere a tutti i dati di Intelligent Insights raccolti tramite la prospettiva di Intelligent Insights. [Per altre informazioni su Intelligent Insights fare clic qui](../sql-database/sql-database-intelligent-insights.md)
+È possibile visualizzare e accedere a tutti i dati di Intelligent Insights raccolti tramite la prospettiva di Intelligent Insights. 
 
 ![Informazioni dettagliate di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
@@ -139,6 +127,9 @@ Tramite la prospettiva relativa a durata e attese delle query, è possibile corr
 ### <a name="analyze-data-and-create-alerts"></a>Analizzare i dati e creare avvisi
 
 È possibile creare facilmente avvisi con i dati provenienti dalle risorse del database SQL di Azure. Di seguito sono riportati due query utili di [ricerca nei log](log-analytics-log-searches.md) che è possibile usare per gli avvisi:
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 
 *Elevato utilizzo di DTU nel database SQL di Azure*
 
@@ -165,9 +156,8 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 6. Nella pagina **Aggiungi regola di avviso** configurare le proprietà necessarie e le soglie specifiche desiderate e quindi fare clic su **Salva**.  
 ![Aggiungere una regola di avviso](./media/log-analytics-azure-sql/create-alert02.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 - Usare le [ricerche log](log-analytics-log-searches.md) in Log Analytics per visualizzare i dati dettagliati per Azure SQL.
 - [Creare dashboard personalizzati](log-analytics-dashboards.md) che mostrino i dati per Azure SQL.
 - [Creare avvisi](log-analytics-alerts.md) quando si verificano eventi specifici relativi ad Azure SQL.
-

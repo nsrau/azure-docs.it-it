@@ -3,7 +3,7 @@ title: Script di PowerShell per creare una risorsa di Application Insights | Doc
 description: Consente di automatizzare la creazione di risorse di Application Insights.
 services: application-insights
 documentationcenter: windows
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2016
-ms.author: bwren
-ms.openlocfilehash: a828af9c7d207dd84cc626fc70206018fd67e2dd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.author: mbullwin
+ms.openlocfilehash: 376bcb542e4e83c2464d9f3f53ea71965ce79c33
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Script di PowerShell per creare una risorsa di Application Insights
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Elenco di compatibilità di federazione di Azure AD
 Azure Active Directory offre la sicurezza di accesso Single Sign-On e di applicazione avanzata per Office 365 e altri Microsoft Online Services per implementazioni ibride o solo cloud senza richiedere alcuna soluzione non Microsoft. Analogamente alla maggior parte dei Microsoft Online Services, Office 365 è integrato con Azure Active Directory per i servizi di directory, l'autenticazione e l'autorizzazione. Azure Active Directory offre anche l'accesso Single Sign-On a migliaia di applicazioni SaaS e di applicazioni Web locali. Per le applicazioni SaaS supportate, vedere la raccolta di applicazioni Azure Active Directory.
@@ -57,7 +57,7 @@ Per informazioni su come ottenere il provider di identità di terze parti elenca
 * [RadiantOne CFS 3.0](#radiantone-cfs-30) 
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
-* [Sign&go 5.3](#signgo-53) 
+* [Sign&amp;go 5.3](#signgo-53) 
 * [Online Service Gate di SoftBank Technology](#softbank)
 * [VMware Workspace One](#vmware-workspace-one)
 

@@ -9,17 +9,17 @@ editor:
 ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f0a7b5ce61feaead608d457465f64813737fa112
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 4a2f73df00dd706699b20062d443af3bb88b6ef4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="elastic-database-tools-faq"></a>Domande frequenti sugli strumenti di database elastici
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>In presenza di un tenant singolo per partizione senza chiave di partizionamento orizzontale, in che modo è possibile popolare la chiave di partizionamento orizzontale per le informazioni sullo schema?
@@ -32,7 +32,7 @@ Vedere **[Adding a shard to an application using the elastic database client lib
 L'uso della libreria di database elastico è gratuito. È previsto un costo solo per i database SQL di Azure che vengono usati per le partizioni e il Gestore mappe partizioni, nonché per i ruoli di lavoro/Web di cui viene eseguito il provisioning per lo strumento di divisione e unione.
 
 #### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Perché le credenziali personali non funzionano quando si aggiunge una partizione da un server diverso?
-Non utilizzare le credenziali sotto forma di "ID utente =username@servername", ma è sufficiente usare "ID utente = username".  Verificare inoltre che il “nome utente” di accesso disponga di autorizzazioni sulla partizione.
+Non usare credenziali in formato "User ID=username@servername", ma usare semplicemente "User ID=nomeutente".  Verificare inoltre che il “nome utente” di accesso disponga di autorizzazioni sulla partizione.
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>È necessario creare un Gestore mappe partizioni e popolare le partizioni ogni volta che si avviano le applicazioni?
 No. La creazione del Gestore mappe partizioni, ad esempio **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**, è un'operazione che si esegue una volta sola.  L'applicazione deve usare la chiamata **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** al momento dell'avvio dell'applicazione.  È supportata una sola chiamata di questo tipo per dominio di applicazione.

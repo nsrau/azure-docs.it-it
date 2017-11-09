@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0b6f4fa657a16196ba8f42c2137dc3c245d25a07
-ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 6c17c2ff522ae5a77c15ba287f50157882d5f2c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Ripristinare un'istanza di Azure SQL Data Warehouse (PowerShell)
 > [!div class="op_single_selector"]
@@ -177,4 +176,3 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-

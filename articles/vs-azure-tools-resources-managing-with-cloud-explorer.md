@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/25/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: ca20927377e84e76c8148deef075f2d6bfb11137
-ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 6e6d8d559f0251b71bfa6d529ead82a246cb3235
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer
 Cloud Explorer consente di visualizzare le risorse di Azure e i gruppi di risorse, controllare le relative proprietà ed eseguire azioni di diagnostica fondamentali per gli sviluppatori dall'interno di Visual Studio. 
@@ -103,4 +102,3 @@ Per trovare risorse con un nome specifico nelle sottoscrizioni dell'account di A
 ![Ricerca di risorse in Cloud Explorer](./media/vs-azure-tools-resources-managing-with-cloud-explorer/search-for-resources.png)
 
 Quando si immettono caratteri nella casella **Cerca**, nell'albero delle risorse vengono visualizzate solo le risorse corrispondenti ai caratteri immessi.
-

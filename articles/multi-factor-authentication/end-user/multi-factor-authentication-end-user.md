@@ -1,5 +1,5 @@
 ---
-title: Introduzione alla verifica in due passaggi | Documentazione Microsoft
+title: Introduzione alla verifica in due passaggi | Microsoft Docs
 description: "Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili agli utenti finali per utilizzare Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 6527e624ce9c911b201881ffd409c57b2f065ef3
-ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.openlocfilehash: cb6e652794de6cda8b5fc7c7e466f880833a1a14
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Quali sono i vantaggi di Azure Multi-Factor Authentication?
 È stato ricevuto un messaggio di posta elettronica dal reparto IT o dal capo con la comunicazione dell’aggiunta di un’altra verifica di sicurezza all’account.  Che cosa significa?
@@ -34,7 +33,7 @@ Il primo passo è completare il processo di registrazione.  Prima di avviare il 
 * **App per dispositivi mobili con codice di notifica o verifica** : se si utilizza l'app per dispositivi mobili, scegliere tra la ricezione di una notifica con risposta da parte dell’utente o un codice di verifica.
 
 > [!NOTE]
-> Il reparto IT può disabilitare una o più opzioni specificate.  In tal caso, non saranno disponibili durante il processo di registrazione.  
+> Il supporto tecnico dell'azienda può disabilitare una o più opzioni specificate.  In tal caso, non saranno disponibili durante il processo di registrazione.  
 
 Dopo aver scelto il metodo di verifica, procedere con la registrazione. Usare il collegamento [Esperienza di installazione](multi-factor-authentication-end-user-first-time.md) per un'introduzione al processo di registrazione.
 
@@ -48,4 +47,3 @@ Per iniziare, selezionare uno degli argomenti seguenti.
 | [Modifica delle impostazioni](multi-factor-authentication-end-user-manage-settings.md) |Descrive come modificare le impostazioni quali il numero di telefono o il metodo di registrazione preferito. |
 | [Guida alle password per le app](multi-factor-authentication-end-user-app-passwords.md) |Informazioni sulla creazione e sull’utilizzo delle password per le app. |
 | [Usare un'app per dispositivi mobili](microsoft-authenticator-app-how-to.md) |L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-

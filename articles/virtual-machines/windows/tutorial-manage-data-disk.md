@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a7511a35a7b186fc424088e7ff5cbc933d325712
-ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 1d5a4c02209fb811f5dd33c26f9936a43372bc4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-disks-with-powershell"></a>Gestire i dischi di Azure con PowerShell
 
 Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, applicazioni e dati di VM. Quando si crea una VM, è importante scegliere dimensione del disco e configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la distribuzione e la gestione dei dischi di VM. Vengono fornite informazioni su:
@@ -35,7 +33,9 @@ Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, app
 > * Prestazioni dei dischi
 > * Collegamento e preparazione dei dischi dati
 
-Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installare il modulo di Azure PowerShell).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure. 
 
 ## <a name="default-azure-disks"></a>Dischi di Azure predefiniti
 
@@ -91,7 +91,7 @@ I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazio
 | IOPS per disco | 500 | 2.300 | 5.000 |
 Velocità effettiva per disco | 100 MB/s | 150 MB/s | 200 MB/s |
 
-Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni di I/O al secondo per disco, è possibile raggiungere un livello superiore di prestazioni tramite lo striping di più dischi di dati. Ad esempio, è possibile collegare 64 dati dischi alla macchina virtuale Standard_GS5. Se ognuno di questi dischi viene ridimensionato come un P30, è possibile ottenere un massimo di 80.000 operazioni di I/O al secondo. Per informazioni dettagliate sul numero massimo di operazioni di I/O al secondo per macchina virtuale, vedere [Dimensioni delle VM Linux](./sizes.md).
+Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni di I/O al secondo per disco, è possibile raggiungere un livello superiore di prestazioni tramite lo striping di più dischi di dati. Ad esempio, è possibile collegare 64 dati dischi alla macchina virtuale Standard_GS5. Se ognuno di questi dischi viene ridimensionato come un P30, è possibile ottenere un massimo di 80.000 operazioni di I/O al secondo. Per informazioni dettagliate sul numero massimo di operazioni di I/O al secondo per macchina virtuale, vedere [Tipi e dimensioni delle macchine virtuali](./sizes.md).
 
 ## <a name="create-and-attach-disks"></a>Creare e collegare dischi
 
@@ -99,31 +99,31 @@ Per completare l'esempio contenuto in questa esercitazione è necessario disporr
 
 Creare la configurazione iniziale con [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). L'esempio seguente configura un disco delle dimensioni di 128 GB.
 
-```powershell
+```azurepowershell-interactive
 $diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
 ```
 
 Creare il disco dati con il comando [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk).
 
-```powershell
+```azurepowershell-interactive
 $dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
 ```
 
 Ottenere la macchina virtuale a cui si vuole aggiungere il disco dati con il comando [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm).
 
-```powershell
+```azurepowershell-interactive
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
 Aggiungere il disco dati alla configurazione della macchina virtuale con il comando [Add-AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk).
 
-```powershell
+```azurepowershell-interactive
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
 ```
 
 Aggiornare la macchina virtuale con il comando [Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk).
 
-```powershell
+```azurepowershell-interactive
 Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 ```
 
@@ -135,7 +135,7 @@ Dopo aver collegato un disco alla macchina virtuale, il sistema operativo deve e
 
 Creare una connessione RDP alla macchina virtuale. Aprire PowerShell ed eseguire questo script.
 
-```powershell
+```azurepowershell-interactive
 Get-Disk | Where partitionstyle -eq 'raw' | `
 Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `
@@ -157,4 +157,3 @@ Passare all'esercitazione successiva per informazioni sull'automazione della con
 
 > [!div class="nextstepaction"]
 > [Automatizzare la configurazione delle macchine virtuali](./tutorial-automate-vm-deployment.md)
-

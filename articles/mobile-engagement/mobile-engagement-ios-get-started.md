@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 1b87a2ebb35b31ee3d3139ecead6267e62eb1033
-ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-objective-c"></a>Introduzione a Azure Mobile Engagement per app per iOS in Objective C
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -167,4 +166,3 @@ Le sezioni seguenti consentono di configurare l'app per la ricezione.
 [2]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
-

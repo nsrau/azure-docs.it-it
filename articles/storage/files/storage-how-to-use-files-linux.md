@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 192680efe07368666c5a9d037549c7686189d0b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6c80c6814dacf90a0a50dab691899c3a8cc2bf82
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-files-with-linux"></a>Usare File di Azure con Linux
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate nelle distribuzioni di Linux usando il [pacchetto cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) dal [progetto Samba](https://www.samba.org/). Questo articolo illustra due modi per montare una condivisione file di Azure: su richiesta con il comando `mount` e all'avvio creando una voce in `/etc/fstab`.
@@ -117,4 +116,3 @@ Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 * [Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Domande frequenti](../storage-files-faq.md)
 * [Risoluzione dei problemi](storage-troubleshoot-linux-file-connection-problems.md)
-

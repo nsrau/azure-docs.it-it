@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/22/2017
 ms.author: alkohli
 ms.openlocfilehash: b7f9a2b7eb3dbf4cc97fac9a410359e068e67eb1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
 
@@ -216,7 +216,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 | La sessione del supporto tecnico Microsoft è stata avviata. |Sessione di supporto per l'accesso di terze parti. |Verificare che l'accesso sia autorizzato. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 | La password per <*elemento*> scadrà tra <*periodo di tempo*>. |La scadenza della password è prossima. |Modificare la password prima della scadenza. |
 | Informazioni sulla configurazione di sicurezza mancanti per <*ID elemento*>. | |Non è possibile usare i volumi associati a questo contenitore del volume per replicare la configurazione StorSimple. Per garantire che i dati vengano archiviati in modo sicuro, è consigliabile eliminare il contenitore del volume e gli eventuali volumi ad esso associati. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
-| <*numero*> di tentativi di accesso non riusciti per <*ID elemento*>. |Più tentativi di accesso non riusciti. |È possibile che il dispositivo sia vittima di un attacco o che un utente autorizzato stia tentando di connettersi con una password non corretta.<ul><li>Contattare gli utenti autorizzati e verificare che questi tentativi provengano da un'origine legittima. Se viene rilevato un numero elevato di tentativi di accesso, provare a disabilitare la gestione remota e a contattare l'amministratore di rete. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.</li><li>Verificare che le istanze di Gestione snapshot siano configurate con la password corretta. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.</li></ul>Per altre informazioni, vedere [Modifica della password scaduta di un dispositivo](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password). |
+| <*numero*&gt; di tentativi di accesso non riusciti per &lt;*ID elemento*&gt;. |Più tentativi di accesso non riusciti. |È possibile che il dispositivo sia vittima di un attacco o che un utente autorizzato stia tentando di connettersi con una password non corretta.<ul><li>Contattare gli utenti autorizzati e verificare che questi tentativi provengano da un'origine legittima. Se viene rilevato un numero elevato di tentativi di accesso, provare a disabilitare la gestione remota e a contattare l'amministratore di rete. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.</li><li>Verificare che le istanze di Gestione snapshot siano configurate con la password corretta. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.</li></ul>Per altre informazioni, vedere [Modifica della password scaduta di un dispositivo](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password). |
 | Si sono verificati uno o più errori durante la modifica della chiave DEK del servizio. | |Si sono verificati errori durante la modifica della chiave DEK del servizio. Dopo avere risolto le condizioni di errore, eseguire il cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per aggiornare il servizio. Se questo problema persiste, contattare il supporto tecnico Microsoft. Dopo avere risolto il problema, cancellare questo avviso dalla pagina degli avvisi. |
 
 ### <a name="support-package-alerts"></a>Avvisi del pacchetto per il supporto

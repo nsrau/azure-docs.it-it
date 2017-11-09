@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
+ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 868d3ee973a03aca82c9775371d9832b7a063e9a
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
 ## <a name="traffic-manager-basics"></a>Fondamenti di Gestione traffico
@@ -218,7 +216,7 @@ Visualizzazione traffico genera il proprio output elaborando i dati dei sette gi
 
 ### <a name="how-does-traffic-view-handle-external-endpoints"></a>In che modo Visualizzazione traffico gestisce gli endpoint esterni?
 
-Quando si usano endpoint esterni ospitati all'esterno di aree di Azure in un profilo di Gestione traffico, è possibile scegliere che venga eseguito il mapping a un'area di Azure che è un proxy per le relative caratteristiche di latenza (che è in effetti necessario se si usa il metodo di routing basato sulle prestazioni). Con questo mapping dell'area di Azure, verranno usate le metriche di latenza di quell'area di Azure per generare l'output di Visualizzazione traffico. Se non viene specificata alcuna area di Azure, le informazioni sulla latenza saranno vuote nei dati per quegli endpoint esterni.
+Quando si usano endpoint esterni ospitati all'esterno di aree di Azure in un profilo di Gestione traffico, è possibile scegliere che venga eseguito il mapping a un'area di Azure che è un proxy per le relative caratteristiche di latenza (che è in effetti necessario se si usa il metodo di routing basato sulle prestazioni). Con questo mapping dell'area di Azure verranno usate le metriche di latenza di quell'area di Azure per generare l'output di Visualizzazione traffico. Se non viene specificata alcuna area di Azure, le informazioni sulla latenza saranno vuote nei dati per quegli endpoint esterni.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>È necessario abilitare Visualizzazione traffico per ogni profilo della sottoscrizione?
 Durante il periodo di anteprima, la funzionalità Visualizzazione traffico è abilitata a livello di sottoscrizione ed è disponibile per tutti i profili di Gestione traffico in tale sottoscrizione.
@@ -253,6 +251,10 @@ Gestione traffico risponde con il nome DNS dell'endpoint. Per supportare un endp
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>È possibile usare Gestione traffico con più app Web nella stessa area?
 
 In genere, Gestione traffico viene usato per indirizzare il traffico ad applicazioni distribuite in aree diverse. Tuttavia, può anche essere usato in un'applicazione che abbia più distribuzioni nella stessa area. Gli endpoint di Azure di Gestione traffico non permettono l'aggiunta di più endpoint di app Web della stessa area di Azure allo stesso profilo di Gestione traffico.
+
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Qual è la procedura per spostare gli endpoint di Azure del profilo di Gestione traffico in un gruppo di risorse diverso?
+
+Per tenere traccia degli endpoint di Azure associati a un profilo di Gestione traffico vengono usati i relativi ID di risorsa. Quando una risorsa di Azure usata come endpoint (ad esempio, indirizzo IP pubblico, servizio cloud classico, app Web o un altro profilo di Gestione traffico usato con annidamento) viene spostata in un gruppo di risorse diverso, il relativo ID di risorsa cambia. In questo scenario, è attualmente necessario aggiornare il profilo di Gestione traffico eliminando e riaggiungendo gli endpoint al profilo. 
 
 ##  <a name="traffic-manager-endpoint-monitoring"></a>Monitoraggio degli endpoint di Gestione traffico
 

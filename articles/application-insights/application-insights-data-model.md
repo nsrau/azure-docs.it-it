@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: b14eea46e773a4b92ba20cd3121cd258f86307c9
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: a2487aac712542d86cb3a7f34c45e21c8d035496
-ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modello di dati di Application Insights Telemetry
 
@@ -57,4 +56,3 @@ Per segnalare problemi e suggerimenti relativi al modello di dati e allo schema,
 - Informazioni su come [estendere e filtrare i dati di telemetria](app-insights-api-filtering-sampling.md).
 - Usare il [campionamento](app-insights-sampling.md) per ridurre al minimo la quantità di dati di telemetria in base al modello di dati.
 - Verificare quali [piattaforme](app-insights-platforms.md) supportano Application Insights.
-

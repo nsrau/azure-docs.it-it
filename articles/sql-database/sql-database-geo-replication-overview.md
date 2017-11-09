@@ -1,6 +1,6 @@
 ---
 title: Gruppi di failover e replica geografica attiva - Database SQL di Azure | Microsoft Docs
-description: I gruppi di failover automatico con replica geografica attiva consentono di configurare 4 repliche del database in uno qualsiasi dei data center di Azure e di eseguire automaticamente il failover in caso di interruzione.
+description: Usare i gruppi di failover automatico con replica geografica attiva e abilitare l'esecuzione automatica del failover in caso di interruzione.
 services: sql-database
 documentationcenter: na
 author: anosov1960
@@ -12,15 +12,14 @@ ms.custom: business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: NA
-ms.date: 07/10/2017
+ms.workload: Active
+ms.date: 10/11/2017
 ms.author: sashan
+ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 290d672146765b9273697ba35e99231a5b854679
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Panoramica: gruppi di failover e replica geografica attiva
 La replica geografica attiva consente di configurare fino a quattro database secondari accessibili in lettura nella stessa posizione del data center o in posizioni (aree) diverse. Sono disponibili database secondari per l'esecuzione di query e per il failover in caso di interruzione di un data center o di impossibilità di connettersi al database primario. Il failover deve essere avviato manualmente dall'applicazione dell'utente. Dopo il failover, il nuovo database primario dispone di un endpoint di connessione diverso. 
@@ -66,7 +65,7 @@ La funzionalità di replica geografica attiva fornisce i seguenti elementi essen
 * **Database secondari accessibili in lettura**: un'applicazione può accedere a un database secondario per le operazioni di sola lettura usando le stesse entità di sicurezza usate per l'accesso al database primario. I database secondari operano in modalità di isolamento dello snapshot per garantire che la replica degli aggiornamenti del database primario (riesecuzione del log) non venga ritardata da query eseguite sul database secondario.
 
    > [!NOTE]
-   > La riesecuzione del log viene ritardata nel database secondario se è in corso la ricezione di aggiornamenti dello schema dal database primario, perché richiede un blocco dello schema nel database secondario. 
+   > La riesecuzione del log viene ritardata nel database secondario se è in corso la ricezione di aggiornamenti dello schema dal database primario perché richiede un blocco dello schema nel database secondario. 
    > 
 
 * **Più database secondari leggibili**: due o più database secondari aumentano la ridondanza e il livello di protezione per il database primario e l'applicazione. Se sono presenti più database secondari, l'applicazione resta protetta anche se uno dei database secondari non funziona. Se è presente un solo database secondario e questo smette di funzionare, l'applicazione rimane esposta a maggiori rischi finché non viene creato un nuovo database secondario.
@@ -117,6 +116,8 @@ Si noti che il failover comporta l'aggiornamento del record DNS in modo che le c
 Si noti che l'applicazione nell'area di ripristino di emergenza non deve usare una stringa di connessione diversa.  
 - **Prepararsi a una perdita di dati**: se viene rilevata un'interruzione, SQL attiva automaticamente il failover di lettura/scrittura se è prevedibile una perdita di dati nulla. In caso contrario, attende il periodo specificato da **GracePeriodWithDataLossHours**. Se è stato specificato **GracePeriodWithDataLossHours**, prepararsi a una perdita di dati. Durante le interruzioni del servizio, generalmente Azure predilige la disponibilità. Se non ci si può permettere una perdita di dati, assicurarsi di impostare **GracePeriodWithDataLossHours** su un numero sufficientemente elevato, ad esempio 24 ore. 
 
+> [!IMPORTANT]
+> I pool elastici con 800 o meno DTU e più di 250 database con replica geografica possono riscontrare problemi quali failover pianificati più lunghi e un peggioramento delle prestazioni.  Questi problemi si verificano con maggiore probabilità nella scrittura di carichi di lavoro con utilizzo intensivo, quando gli endpoint con replica geografica sono ampiamente separati per area geografica o quando vengono utilizzati più endpoint secondari per ogni database.  I sintomi di questi problemi emergono quando il ritardo della replica geografica aumenta nel tempo.  Questo ritardo può essere monitorato mediante [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Se si verificano questi problemi, per prevenirli si può aumentare il numero di DTU nel pool o ridurre il numero di database replicati geograficamente nello stesso pool.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Aggiornamento o downgrade di un database primario
 È possibile eseguire l'aggiornamento o il downgrade di un database primario a un livello di prestazioni diverso entro lo stesso livello di servizio, senza disconnettere eventuali database secondari. Quando si esegue l'aggiornamento, è consigliabile aggiornare prima di tutto il database secondario e quindi il database primario. Quando si esegue il downgrade, seguire l'ordine inverso, ovvero eseguire prima di tutto il downgrade del database primario e quindi del database secondario. Quando si aggiorna o si effettua il downgrade del database a un livello di servizio diverso, viene applicata questa raccomandazione. 
@@ -176,7 +177,7 @@ Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la
 | [Creare o aggiornare database (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Crea, aggiorna o ripristina un database primario o secondario. |
 | [Get Create or Update Database Status](/rest/api/sql/Databases/CreateOrUpdate) |Restituisce lo stato durante un'operazione di creazione. |
 | [Impostazione del database secondario come primario (failover pianificato)](/rest/api/sql/replicationlinks/failover) |Imposta il database di replica primario eseguendo il failover dal database di replica primaria corrente. |
-| [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks#failoverallowdataloss) |Imposta il database di replica primario eseguendo il failover dal database di replica primaria corrente. Questa operazione potrebbe comportare la perdita di dati. |
+| [Set Secondary Database as Primary (Unplanned Failover)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Imposta il database di replica primario eseguendo il failover dal database di replica primaria corrente. Questa operazione potrebbe comportare la perdita di dati. |
 | [Get Replication Link](/rest/api/sql/replicationlinks/get) |Ottiene tutti i collegamenti di replica specifici per un database SQL specificato in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo_replication_links. |
 | [Replication Links - List By Database](/rest/api/sql/replicationlinks/listbydatabase) | Ottiene tutti i collegamenti di replica per un database SQL specificato in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo_replication_links. |
 | [Delete Replication Link](/rest/api/sql/databases/delete) | Elimina un collegamento alla replica del database. Non può essere eseguito durante il failover. |
@@ -198,5 +199,4 @@ Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la
 * Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
 * Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md).
 * Per ulteriori informazioni sui requisiti di autenticazione per un nuovo database e server primario, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
-
 

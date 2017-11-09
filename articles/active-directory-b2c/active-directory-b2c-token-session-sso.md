@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 256c93e5c343cba022599f8e13c5b7616bfa8b58
-ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Configurazione di token, sessione e accesso Single Sign-On
 
@@ -114,5 +113,4 @@ Se il tenant di B2C include più applicazioni e criteri, è possibile gestire le
     > Queste impostazioni non sono disponibili per i criteri di reimpostazione della password.
     > 
     > 
-
 

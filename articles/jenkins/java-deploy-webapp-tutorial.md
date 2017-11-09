@@ -11,14 +11,12 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
+ms.openlocfilehash: 3a2635ac968d843226f05dc51cf4a5f078235c11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: dcc60feb4c0b3a961689f3d365d49ac1690696a6
-ms.contentlocale: it-it
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurare l'integrazione e la distribuzione continue in Servizio App di Azure con Jenkins
 
 Questa esercitazione consente di impostare l'integrazione e la distribuzione continue di un'app Web Java di esempio sviluppata con il framework [Spring Boot](http://projects.spring.io/spring-boot/) nell'[app Web di Servizio app di Azure in Linux](/azure/app-service/containers/app-service-linux-intro) con Jenkins.
@@ -187,4 +185,3 @@ Impostare Jenkins per la ricezione di [webhook GitHub](https://developer.github.
 - [Usare macchine virtuali di Azure come agenti di compilazione](/azure/jenkins/jenkins-azure-vm-agents)
 - [Gestire le risorse in processi e pipeline con l'interfaccia della riga di comando di Azure](/azure/jenkins/execute-cli-jenkins-pipeline)
  
-

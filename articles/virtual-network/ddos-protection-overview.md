@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
+ms.openlocfilehash: 76da0d4e805c732d40a7bd02e5c70973c792e26c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
-ms.contentlocale: it-it
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
 
@@ -36,12 +35,12 @@ Protezione DDoS di Azure, in combinazione con le procedure consigliate di proget
 
 ![Protezione DDoS di Azure Standard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
-Per gli scenari di sviluppo e test, è possibile provare Protezione DDoS Standard e usare queste risorse per fornire commenti e suggerimenti in merito alle proprie esperienze:
+È consigliabile provare Protezione DDoS Standard in ambienti di sviluppo, test o produzione. Per inviare commenti e suggerimenti sulle proprie esperienze, usare le risorse seguenti:
 - [Protezione DDoS di Azure nel forum di Microsoft Azure](https://feedback.azure.com/forums/905032-azure-ddos-protection) 
 - [Protezione DDoS di Azure nel forum MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azureddosprotection)
 - [Protezione DDoS di Azure in Stack Overflow](https://stackoverflow.com/tags/azure-ddos/info)
 
-In caso di problemi, è possibile [aprire un ticket di supporto di Azure](../azure-supportability/how-to-create-azure-support-request.md).
+In caso di problemi, è possibile [aprire un ticket di supporto di Azure](../azure-supportability/how-to-create-azure-support-request.md). Mentre Protezione DDoS Standard è disponibile in anteprima, il supporto viene fornito in base al principio del massimo sforzo.
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Tipi di attacchi DDoS mitigati da Protezione DDoS Standard
 

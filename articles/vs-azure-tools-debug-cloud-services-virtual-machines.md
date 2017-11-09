@@ -3,7 +3,7 @@ title: Debug di un servizio cloud o di una macchina virtuale di Azure in Visual 
 description: Debug di un servizio cloud o di una macchina virtuale in Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: dd9019a6feb86d90fc6219b06bf1e69da4c2b18f
-ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
+ms.author: mikejo
+ms.openlocfilehash: a303e080bc847daf023eed2e9ba1ffc31e340160
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio
 Visual Studio offre diverse opzioni per il debug dei servizi cloud e delle macchine virtuali di Azure.
@@ -27,7 +26,7 @@ Visual Studio offre diverse opzioni per il debug dei servizi cloud e delle macch
 ## <a name="debug-your-cloud-service-on-your-local-computer"></a>Eseguire il debug del servizio cloud sul computer locale
 È possibile risparmiare tempo e denaro usando l'emulatore di calcolo di Azure per il debug del servizio cloud su un computer locale. Eseguendo il debug di un servizio in locale prima della distribuzione, è possibile migliorare l'affidabilità e le prestazioni senza pagare per il tempo di calcolo. Tuttavia, potrebbero verificarsi alcuni errori solo quando si esegue un servizio cloud in Azure stesso. È possibile eseguire il debug di questi errori se si abilita il debug remoto quando si pubblica il servizio e poi si collega il debugger a un'istanza del ruolo.
 
-L'emulatore simula il servizio di calcolo di Azure e viene eseguito nell'ambiente locale in modo da poter testare ed eseguire il debug del servizio cloud prima della distribuzione. L'emulatore gestisce il ciclo di vita delle istanze del ruolo e fornisce l'accesso alle risorse simulate, ad esempio l'archiviazione locale. Durante il debug o l’esecuzione del servizio da Visual Studio, esso avvia automaticamente l’emulatore come applicazione in background e il servizio viene distribuito all'emulatore. È possibile usare l'emulatore per visualizzare il servizio quando è in esecuzione nell'ambiente locale. È possibile eseguire la versione completa o la versione express dell'emulatore. (A partire da Azure 2.3, la versione express dell'emulatore è l'impostazione predefinita). Vedere [Uso dell'emulatore Express per l'esecuzione e il debug in locale di un servizio cloud](https://msdn.microsoft.com/library/dn339018.aspx).
+L'emulatore simula il servizio di calcolo di Azure e viene eseguito nell'ambiente locale in modo da poter testare ed eseguire il debug del servizio cloud prima della distribuzione. L'emulatore gestisce il ciclo di vita delle istanze del ruolo e fornisce l'accesso alle risorse simulate, ad esempio l'archiviazione locale. Durante il debug o l’esecuzione del servizio da Visual Studio, esso avvia automaticamente l’emulatore come applicazione in background e il servizio viene distribuito all'emulatore. È possibile usare l'emulatore per visualizzare il servizio quando è in esecuzione nell'ambiente locale. È possibile eseguire la versione completa o la versione express dell'emulatore. (A partire da Azure 2.3, la versione express dell'emulatore è l'impostazione predefinita). Vedere [Uso dell'emulatore Express per l'esecuzione e il debug in locale di un servizio cloud](vs-azure-tools-emulator-express-debug-run.md).
 
 ### <a name="to-debug-your-cloud-service-on-your-local-computer"></a>Per eseguire il debug del servizio cloud nel computer locale
 1. Sulla barra dei menu scegliere **Debug**, **Avvia debug** per eseguire il progetto servizio cloud di Azure. In alternativa, è possibile premere F5. Verrà visualizzato un messaggio che indica l'avvio dell'emulatore di calcolo. Quando l'emulatore viene avviato, l'icona della barra delle applicazioni conferma l'operazione.
@@ -166,4 +165,3 @@ I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina v
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare **Intellitrace** per raccogliere un registro degli eventi e delle chiamate da un server di rilascio. Vedere [Debug di un servizio cloud pubblicato con IntelliTrace e Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 * Usare **Diagnostica di Azure** per registrare informazioni dettagliate dal codice eseguito all'interno dei ruoli, sia che essi siano eseguiti nell'ambiente di sviluppo o in Azure. Vedere [Raccogliere dati di registrazione usando Diagnostica di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
-

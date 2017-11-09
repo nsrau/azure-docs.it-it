@@ -8,24 +8,23 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/20/2017
 ms.custom: mvc
+ms.openlocfilehash: 2a9efdd9285dfa5fca450ede64e5f6ee54cbc72b
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 3eff97a9e7568566cd01a4eb3c7ee66806eac4cc
-ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/23/2017
 ---
+# <a name="what-is-azure-database-for-mysql"></a>Database di Azure per MySQL:
+Database di Azure per MySQL è un servizio di database relazionale in Microsoft Cloud basato sul motore di database [MySQL Community Edition](https://www.mysql.com/products/community/). Questo servizio è disponibile in anteprima pubblica. Database di Azure per MySQL offre:
 
-
-# <a name="what-is-azure-database-for-mysql-service-introduction"></a>Database di Azure per MySQL: introduzione al servizio
-Database di Azure per MySQL è un servizio di database relazionale in Microsoft Cloud basato sul motore di database [MySQL Community Edition](https://www.mysql.com/products/community/).  Database di Azure per MySQL offre:
-
-- Prestazioni prevedibili a più livelli di servizio.
-- Scalabilità dinamica senza tempi di inattività dell'applicazione.
-- Disponibilità elevata predefinita.
-- Protezione dei dati.
+- Disponibilità elevata integrata senza costi aggiuntivi.
+- Prestazioni prevedibili, con piano tariffario tutto incluso e pagamento in base al consumo.
+- Scalabilità in tempo reale in pochi secondi.
+- Protezione dei dati sensibili inattivi e in movimento.
+- Backup automatici e ripristino temporizzato per un massimo di 35 giorni.
+- Sicurezza e conformità di livello aziendale.
 
 Queste funzionalità richiedono pochissima amministrazione e sono disponibili senza costi aggiuntivi. Consentono di concentrarsi sullo sviluppo rapido di app e di accelerare i tempi di mercato, piuttosto che allocare tempo e risorse preziose alla gestione delle macchine virtuali e dell'infrastruttura. È anche possibile continuare a sviluppare l'applicazione con la piattaforma e gli strumenti open source scelti e renderla disponibile con la rapidità e l'efficienza richiesti dall'azienda senza bisogno di acquisire nuove competenze.
 
@@ -36,13 +35,13 @@ Questo articolo è un'introduzione dei concetti fondamentali su Database di Azur
 - [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md) (Creare un database di Azure per il server MySQL usando l'interfaccia della riga di comando di Azure)
 
 Per un set di esempi dell'interfaccia della riga di comando di Azure, vedere:
-- [Azure CLI samples for Azure Database for MySQL](sample-scripts-azure-cli.md) (Esempi di interfaccia della riga di comando di Azure per Database di Azure per MySQL)
+- [Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per MySQL](sample-scripts-azure-cli.md)
 
-## <a name="adjust-performance-and-scale-without-downtime"></a>Regolare le prestazioni e scalabilità senza tempi di inattività
-Database di Azure per MySQL offre due livelli di servizio: Basic e Standard. Ogni livello offre diverse prestazioni e capacità per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi cambiare il livello di servizio per scalare in base alle esigenze della soluzione senza tempi di inattività. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie.
+## <a name="adjust-performance-and-scale-within-seconds"></a>Regolare prestazioni e scalabilità in pochi secondi
+L'anteprima del database di Azure per MySQL offre due livelli di servizio: Basic e Standard. Ogni livello offre diverse prestazioni e capacità per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere [Piani tariffari](concepts-service-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
-Come si conosce il giusto arresto quando si connette e si disconnette? Usare le funzionalità predefinite di monitoraggio delle prestazioni e avviso, combinate con le classificazioni delle prestazioni basate sull'unità di calcolo. Grazie a queste funzionalità, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle dimensioni in base alle esigenze di prestazioni attuali o previste. Per informazioni dettagliate, vedere [Concepts: Service tiers](concepts-service-tiers.md) (Concetti: livelli di servizio).
+Per decidere quando aumentare e ridurre le prestazioni, si usano le funzionalità predefinite di monitoraggio delle prestazioni e avviso, combinate con le classificazioni delle prestazioni basate sulle unità di calcolo. Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle unità di calcolo in base alle esigenze correnti o previste relative alle prestazioni. Per informazioni dettagliate, vedere [Avvisi](howto-alert-on-metric.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenere l'applicazione e l’esecuzione dell’azienda
 Il Contratto di servizio per la disponibilità del 99,99% leader del settore di Azure, fornito da una rete globale di datacenter gestiti da Microsoft, consente di mantenere l'applicazione in esecuzione 24 ore su 24, 7 giorni su 7. Con ogni database di Azure per il server MySQL, è possibile sfruttare i vantaggi delle funzionalità di sicurezza, tolleranza di errore e protezione dei dati predefinite che sarebbe altrimenti necessario acquistare o progettare, creare e gestire. Con Database di Azure per MySQL, è possibile usare un ripristino temporizzato per ripristinare uno stato precedente di un server, addirittura fino a 35 giorni prima.
@@ -58,5 +57,4 @@ Per impostazione predefinita, il servizio Database di Azure per MySQL è configu
 Dopo avere letto l'introduzione a Database di Azure per MySQL e avere ottenuto informazioni su Database di Azure per MySQL, è possibile:
 - Vedere la pagina relativa ai prezzi per confrontare i costi e usare i calcolatori. [Prezzi](https://azure.microsoft.com/pricing/details/mysql/)
 - Per iniziare, creare il primo server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
-- Compilare la prima app in Python, PHP, Ruby, C\#, Java, Node.js: [Librerie di connettività usate per connettersi a Database di Azure per MySQL](concepts-connection-libraries.md)
-
+- Compilare la prima app usando il linguaggio preferito: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

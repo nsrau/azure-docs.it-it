@@ -15,14 +15,12 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 9f4445b7ceb5b39c7907b1ca4c7bf0ad52ba8212
-ms.contentlocale: it-it
-ms.lasthandoff: 03/30/2017
-
+ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Elenco delle regole e dei gruppi di regole CRS del Web application firewall disponibili
 
 Il Web application firewall (WAF) di Gateway applicazione protegge le applicazioni Web da vulnerabilità ed exploit comuni. A questo scopo vengono usate regole definite in base a OWASP Core Rule Set 2.2.9 o 3.0. Queste regole possono essere disabilitate singolarmente. Questo articolo contiene le regole e i set di regole attualmente offerti.

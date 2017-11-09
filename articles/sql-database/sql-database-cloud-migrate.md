@@ -1,6 +1,6 @@
 ---
 title: Migrazione di un database SQL Server al database SQL di Azure | Microsoft Docs
-description: "Informazioni sulla migrazione del database SQL Server al database SQL di Azure nel cloud. Usare gli strumenti di migrazione del database per verificare la compatibilità prima della migrazione del database."
+description: Informazioni sulla migrazione del database SQL Server al database SQL di Azure nel cloud.
 keywords: migrazione di database, migrazione di database sql server, strumenti di migrazione del database, eseguire la migrazione di database, eseguire la migrazione di database sql
 services: sql-database
 documentationcenter: 
@@ -9,18 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-migrate
+ms.workload: Active
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migrazione di un database SQL Server al database SQL nel cloud
 Questo articolo illustra i due metodi principali per eseguire la migrazione di un database SQL Server 2005 o versione successiva a un database SQL di Azure. Il primo metodo è più semplice, ma comporta tempi di inattività anche lunghi durante la migrazione. Il secondo metodo è più complesso, ma elimina quasi completamente i tempi di inattività durante la migrazione.

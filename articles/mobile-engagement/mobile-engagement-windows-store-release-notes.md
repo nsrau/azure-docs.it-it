@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
 ms.openlocfilehash: dc5529a9e8f4eba867732f719ca8fff718c00d5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-sdk-release-notes"></a>Note sulla versione di Windows Universal Apps SDK
 ## <a name="341-11032016"></a>3.4.1 (11/03/2016)

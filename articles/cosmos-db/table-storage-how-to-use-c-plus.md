@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: mimig
 ms.openlocfilehash: 8314292cdb9b7a3f464c60119ed10f6b06ed4d10
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-table-storage-from-c"></a>Come usare l'archiviazione tabelle da C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -42,7 +42,7 @@ In questa guida verranno usate le funzionalità di archiviazione che è possibil
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
 * **Linux:** seguire le istruzioni fornite nella pagina relativa al [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
-* **Windows:** in Visual Studio, fare clic su **Strumenti > Gestione pacchetti NuGet > console di Gestione pacchetti**. Digitare il comando seguente nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere INVIO.  
+* **Windows:** in Visual Studio, fare clic su **Strumenti &gt; Gestione pacchetti NuGet &gt; console di Gestione pacchetti**. Digitare il comando seguente nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere INVIO.  
   
      Install-Package knockoutjs
 

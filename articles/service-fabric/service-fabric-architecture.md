@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/19/2017
+ms.date: 10/12/2017
 ms.author: rsinha
-ms.openlocfilehash: 3cf019bf9a08574c984e92985452df438f3eeb77
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 3d1f9d6136622e0e9fc1e725d8230dbedd6af24a
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="service-fabric-architecture"></a>Architettura di Service Fabric
 Service Fabric è costituito da sottosistemi a più livelli. Tali sottosistemi consentono di scrivere applicazioni con le caratteristiche seguenti:

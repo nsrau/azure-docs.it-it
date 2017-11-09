@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b4211cef3b4f3ffa2c0c97fd7650606f3eef7008
-ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 6867e4f910970121df3858516c6bab3114c3c6f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-partners-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di partner per distribuire licenze Widevine a Servizi multimediali di Azure
 ## <a name="overview"></a>Overview
@@ -43,5 +42,4 @@ A partire da Servizi Multimediali .NET SDK versione 3.5.2, Servizi multimediali 
 [Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-drm.md)
 
 [Blog di Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
-
 

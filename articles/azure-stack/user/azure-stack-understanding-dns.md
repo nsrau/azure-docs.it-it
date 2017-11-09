@@ -1,6 +1,6 @@
 ---
-title: Understanding DNS in Azure Stack | Microsoft Docs
-description: Understanding DNS features and capabilities in Azure Stack
+title: Informazioni sui DNS nello Stack di Azure | Documenti Microsoft
+description: "La comprensione di DNS e le funzionalità nello Stack di Azure"
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,45 +14,43 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introducing-idns-for-azure-stack"></a>Introducing iDNS for Azure Stack
+# <a name="introducing-idns-for-azure-stack"></a>Introduzione a nomi IDN per Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-iDNS is a feature in Azure Stack that allows you to resolve external DNS names (such as http://www.bing.com).
-It also allows you to register internal virtual network names. By doing so, you can resolve VMs on the same virtual network by name rather than IP address, without having to provide custom DNS server entries.
+nomi IDN è una funzione nello Stack di Azure che consente di risolvere i nomi DNS esterni (ad esempio http://www.bing.com).
+Consente inoltre di registrare i nomi di rete virtuale interna. In questo modo, è possibile risolvere le macchine virtuali nella stessa rete virtuale con nome anziché come indirizzo IP, senza dover fornire voci dei server DNS personalizzate.
 
-It’s something that’s always been there in Azure, but it's available in Windows Server 2016 and Azure Stack too.
+Si tratta di qualcosa che è sempre stato presente in Azure, ma è disponibile in Windows Server 2016 e Stack di Azure.
 
-## <a name="what-does-idns-do"></a>What does iDNS do?
-With iDNS in Azure Stack, you get the following capabilities, without having to specify custom DNS server entries.
+## <a name="what-does-idns-do"></a>Scopo di nomi IDN
+Con nomi IDN nello Stack di Azure, sono disponibili le seguenti funzionalità, senza dover specificare voci dei server DNS personalizzate.
 
-* Shared DNS name resolution services for tenant workloads.
-* Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
-* Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com).
+* Condiviso di servizi di risoluzione DNS per i carichi di lavoro tenant.
+* Servizio DNS autorevole per la risoluzione dei nomi e la registrazione DNS nella rete virtuale del tenant.
+* Servizio Recursive DNS per la risoluzione dei nomi Internet da macchine virtuali tenant. Tenant non è più necessario specificare le voci DNS personalizzate per la risoluzione dei nomi Internet (ad esempio, www.bing.com).
 
-You can still bring your own DNS and use custom DNS servers if you want. But now, if you just want to be able to resolve Internet DNS names and be able to connect to other virtual machines in the same virtual network, you don’t need to specify anything and it will just work.
+È comunque possibile portare il proprio servizio DNS e se si desidera utilizzare i server DNS personalizzati. Ma, a questo punto, se si desidera essere in grado di risolvere il DNS Internet i nomi e in grado di connettersi ad altre macchine virtuali nella stessa rete virtuale, non è necessario specificare un valore e funzionerà solo.
 
-## <a name="what-does-idns-not-do"></a>What does iDNS not do?
-What iDNS does not allow you to do is create a DNS record for a name that can be resolved from outside the virtual network.
+## <a name="what-does-idns-not-do"></a>Quali sono nomi IDN non?
+I nomi IDN non consente di eseguire la creazione di un record DNS per un nome che può essere risolto dall'esterno della rete virtuale.
 
-In Azure, you have the option of specifying a DNS name label that can be associated with a public IP address. You can choose the label (prefix), but Azure chooses the suffix, which is based on the region in which you create the public IP address.
+In Azure, è possibile specificare un'etichetta del nome DNS che può essere associata a un indirizzo IP pubblico. È possibile scegliere l'etichetta (prefisso), ma Azure sceglie il suffisso è basato sull'area in cui creare l'indirizzo IP pubblico.
 
-![Screenshot of DNS name label](media/azure-stack-understanding-dns-in-tp2/image3.png)
+![Etichetta del nome della schermata di DNS](media/azure-stack-understanding-dns-in-tp2/image3.png)
 
-In the image above, Azure will create an “A” record in DNS for the DNS name label specified under the zone **westus.cloudapp.azure.com**. The prefix and the suffix together compose a Fully Qualified Domain Name (FQDN) that can be resolved from anywhere on the public Internet.
+Nell'immagine precedente, Azure creerà un"record" in DNS per l'etichetta del nome DNS specificato nella zona **westus.cloudapp.azure.com**. Il prefisso e il suffisso insieme costituiscono un dominio nome (completo) che può essere risolto da un punto qualsiasi sulla rete Internet pubblica.
 
-Azure Stack only supports iDNS for internal name registration, so it cannot do the following.
+Stack di Azure supporta solo i nomi IDN per la registrazione del nome interno, in modo non è possibile eseguire le operazioni seguenti.
 
-* Create a DNS record under an existing hosted DNS zone (for example, local.azurestack.external).
-* Create a DNS zone (such as Contoso.com).
-* Create a record under your own custom DNS zone.
-* Support the purchase of domain names.
-
+* Creare un record DNS in una zona DNS ospitato esistente (ad esempio, local.azurestack.external).
+* Creare una zona DNS (ad esempio, Contoso.com).
+* Creare un record nella zona DNS personalizzato.
+* Supporta l'acquisto di nomi di dominio.
 

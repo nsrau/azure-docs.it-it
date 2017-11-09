@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.openlocfilehash: b9b3bd0f2184ac85261166d5fe2ab67e1bf319d4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Eseguire la migrazione di una rete virtuale (classica) da un gruppo di affinità in un'area
 
@@ -51,7 +51,7 @@ L'uso dei gruppi di affinità non è consigliabile in generale. Oltre che come r
    
     **Valore precedente:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
-    **Nuovo valore:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+    **Nuovo valore:**\<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 3. Salvare le modifiche e [importare](virtual-networks-using-network-configuration-file.md#import) la configurazione di rete in Azure.
 
 > [!NOTE]

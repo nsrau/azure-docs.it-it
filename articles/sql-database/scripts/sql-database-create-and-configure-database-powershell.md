@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 928f0285d298cad947359d8ba61553af7b8c132a
-ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: d74e2bc799bda6d5355e47b726b1e97d0b604fcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Usare PowerShell per creare un singolo database SQL di Azure e configurare una regola del firewall
 
 Questo esempio di script di PowerShell di esempio crea un database SQL di Azure e configura una regola del firewall a livello di server. Dopo aver eseguito correttamente lo script, è possibile accedere al database SQL da tutti i servizi di Azure e dall'indirizzo IP configurato. 
@@ -32,7 +30,7 @@ Questo esempio di script di PowerShell di esempio crea un database SQL di Azure 
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/create-and-configure-database/create-and-configure-database.ps1?highlight=13-14 "Creare database SQL")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/create-and-configure-database/create-and-configure-database.ps1?highlight=13-14 "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -60,7 +58,6 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Per altri esempi, vedere tra gli [script di PowerShell per database SQL di Azure](../sql-database-powershell-samples.md).
-
 
 
 

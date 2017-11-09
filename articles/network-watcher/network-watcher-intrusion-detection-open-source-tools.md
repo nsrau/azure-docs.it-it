@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
-ms.openlocfilehash: 82d5e525859ebe03b152c63e4debbae469049c12
-ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Eseguire il rilevamento di intrusioni di rete con Network Watcher e strumenti open source
 
 Le acquisizioni di pacchetti sono un componente chiave per l'implementazione di sistemi di rilevamento di intrusioni (IDS, Intrusion Detection System) di rete e per l'esecuzione del monitoraggio della sicurezza di rete. Esistono diversi strumenti IDS open source che elaborano le acquisizioni di pacchetti e cercano le firme di possibili intrusioni di rete e di attività dannosa. Usando le acquisizioni di pacchetti fornite da Network Watcher, è possibile analizzare la rete per trovare eventuali intrusioni dannose o vulnerabilità.
@@ -82,8 +80,8 @@ Anche se i log generati da Suricata contengono informazioni importanti su quanto
 
 #### <a name="install-elasticsearch"></a>Installare Elasticsearch
 
-1. Elastic Stack versione 5.0 e successive richiede Java 8. Eseguire il comando `java -version` per controllare la versione. Se Java non è installato, vedere la documentazione sul [sito Web di Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
-1. Scaricare il pacchetto binario corretto per il sistema:
+1. Elastic Stack versione 5.0 e successive richiede Java 8. Eseguire il comando `java -version` per controllare la versione in uso. Se Java non è installato, vedere la documentazione sul [sito Web Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+1. Scaricare il pacchetto binario corretto per il proprio sistema:
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
@@ -91,9 +89,9 @@ Anche se i log generati da Suricata contengono informazioni importanti su quanto
     sudo /etc/init.d/elasticsearch start
     ```
 
-    Altri metodi di installazione sono illustrati in [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html) (Installazione di Elasticsearch)
+    Per altri metodi di installazione, vedere [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html) (Installazione di Elasticsearch)
 
-1. Verificare che Elasticsearch sia in esecuzione con il comando:
+1. Verificare che Elasticsearch sia in esecuzione con questo comando:
 
     ```
     curl http://127.0.0.1:9200
@@ -126,7 +124,7 @@ Per altre istruzioni sull'installazione di Elasticsearch, vedere la pagina [Inst
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Ora è necessario configurare Logstash per la lettura dall'output del file eve.json. Creare un file logstash.conf usando:
+1. Successivamente è necessario configurare Logstash per la lettura dall'output del file eve.json. Creare un file logstash.conf usando:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -227,7 +225,7 @@ Per altre istruzioni sull'installazione di Logstash, vedere la [documentazione u
     tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
 
     ```
-1. Per eseguire Kibana, usare i comandi:
+1. Per eseguire Kibana, usare questi comandi:
 
     ```
     cd kibana-5.2.0-linux-x86_64/
@@ -297,4 +295,3 @@ Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza d
 [5]: ./media/network-watcher-intrusion-detection-open-source-tools/figure5.png
 [6]: ./media/network-watcher-intrusion-detection-open-source-tools/figure6.png
 [7]: ./media/network-watcher-intrusion-detection-open-source-tools/figure7.png
-
