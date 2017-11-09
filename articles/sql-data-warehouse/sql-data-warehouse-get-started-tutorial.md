@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: elbutter
+ms.openlocfilehash: 791990b6c544a416fc73bea69dc884e0b49d088e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Introduzione a SQL Data Warehouse
 
@@ -198,7 +198,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, si è autori
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -239,7 +239,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, si è autori
     ```
 5. Creare le tabelle esterne. Queste tabelle fanno riferimento a dati archiviati nell'archivio BLOB di Azure. Eseguire i comandi T-SQL seguenti per creare alcune tabelle esterne che fanno riferimento al BLOB di Azure definito in precedenza nelle origini dati esterne.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -405,14 +405,14 @@ Poiché l'accesso è stato eseguito come amministratore del server, si è autori
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### <a name="import-the-data-from-azure-blob-storage"></a>Importare i dati dall'archivio BLOB di Azure.
 
@@ -430,7 +430,7 @@ SQL Data Warehouse supporta un'istruzione chiave denominata CREATE TABLE AS SELE
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -441,7 +441,7 @@ SQL Data Warehouse supporta un'istruzione chiave denominata CREATE TABLE AS SELE
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -451,7 +451,7 @@ SQL Data Warehouse supporta un'istruzione chiave denominata CREATE TABLE AS SELE
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -461,7 +461,7 @@ SQL Data Warehouse supporta un'istruzione chiave denominata CREATE TABLE AS SELE
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -471,7 +471,7 @@ SQL Data Warehouse supporta un'istruzione chiave denominata CREATE TABLE AS SELE
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -481,7 +481,7 @@ SQL Data Warehouse supporta un'istruzione chiave denominata CREATE TABLE AS SELE
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -495,9 +495,9 @@ SQL Data Warehouse supporta un'istruzione chiave denominata CREATE TABLE AS SELE
 
 2. Visualizzare i dati man mano che vengono caricati.
 
-   Vengono caricati alcuni GB di dati, che vengono compressi in indici cluster columnstore a prestazioni elevate. Eseguire la query riportata di seguito, che usa le viste a gestione dinamica (DMV) per visualizzare lo stato del caricamento. Dopo aver avviato la query, attendere che SQL Data Warehouse esegua le operazioni necessarie.
-    
-    ```sql
+  Vengono caricati alcuni GB di dati, che vengono compressi in indici cluster columnstore a prestazioni elevate. Eseguire la query riportata di seguito, che usa le viste a gestione dinamica (DMV) per visualizzare lo stato del caricamento. Dopo aver avviato la query, attendere che SQL Data Warehouse esegua le operazioni necessarie.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -523,7 +523,8 @@ SQL Data Warehouse supporta un'istruzione chiave denominata CREATE TABLE AS SELE
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. Visualizzare tutte le query di sistema.
 
@@ -563,7 +564,7 @@ Prima di tutto, ridurre le dimensioni a 100 DWU, in modo da ottenere informazion
     > [!NOTE]
     > Non è possibile eseguire query durante il ridimensionamento. Il ridimensionamento **termina** tutte le query attualmente in esecuzione. È possibile riavviarle al termine dell'operazione.
     >
-    
+
 5. Eseguire un'analisi sui dati relativi alla corsa, selezionando il primo milione di voci per tutte le colonne. Se si preferisce velocizzare le operazioni, è possibile selezionare un numero minore di righe. Annotare il tempo necessario per eseguire l'operazione.
 
     ```sql
@@ -626,11 +627,11 @@ Prima di tutto, ridurre le dimensioni a 100 DWU, in modo da ottenere informazion
 
     > [!NOTE]
     > SQL Data Warehouse non gestisce automaticamente le statistiche. Le statistiche sono importanti per le prestazioni delle query ed è consigliabile creare e aggiornare le statistiche.
-    > 
+    >
     > **Il massimo vantaggio è offerto dalle statistiche su colonne usate nei join, colonne usate nella clausola WHERE e colonne presenti in GROUP BY.**
     >
 
-3. Eseguire di nuovo la query da Prerequisiti ed esaminare eventuali differenze tra le prestazioni. Anche se le differenze tra le prestazioni di query non saranno significative come nell'aumento delle prestazioni, si dovrebbe notare una maggiore velocità. 
+4. Eseguire di nuovo la query da Prerequisiti ed esaminare eventuali differenze tra le prestazioni. Anche se le differenze tra le prestazioni di query non saranno significative come nell'aumento delle prestazioni, si dovrebbe notare una maggiore velocità. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -19,10 +19,12 @@
 
 ## Procedure
 ### [Gestire tramite il portale di Azure](storsimple-virtual-array-manager-service-administration.md)
-#### [Installare l'ultimo aggiornamento](storsimple-virtual-array-install-update-06.md)
-##### [Installare l'aggiornamento 0.5](storsimple-virtual-array-install-update-05.md)
-##### [Installare l'aggiornamento 0.4](storsimple-virtual-array-install-update-04.md)
-##### [Installare l'aggiornamento 0.3](storsimple-virtual-array-install-update.md)
+#### [Installare l'ultimo aggiornamento](storsimple-virtual-array-install-update-1.md)
+##### [Installare l'aggiornamento 0.6](storsimple-virtual-array-install-update-06.md)
+##### Archiviazione
+###### [Installare l'aggiornamento 0.5](storsimple-virtual-array-install-update-05.md)
+###### [Installare l'aggiornamento 0.4](storsimple-virtual-array-install-update-04.md)
+###### [Installare l'aggiornamento 0.3](storsimple-virtual-array-install-update.md)
 #### [Creare e gestire backup](storsimple-virtual-array-backup.md)
 #### [Clonare dai backup](storsimple-virtual-array-clone.md)
 #### [Failover e ripristino di emergenza](storsimple-virtual-array-failover-dr.md)
@@ -43,10 +45,10 @@
 ### [Eseguire la configurazione con l'interfaccia utente Web locale](storsimple-ova-web-ui-admin.md)
 
 ## Note sulla versione
-### [Aggiornamento 0.6 - Versione corrente](storsimple-virtual-array-update-06-release-notes.md)
-### [Aggiornamento 0.5](storsimple-virtual-array-update-05-release-notes.md)
-
+### [Aggiornamento 1: versione corrente](storsimple-virtual-array-update-1-release-notes.md)
+### [Aggiornamento 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Archiviazione
+#### [Aggiornamento 0.5](storsimple-virtual-array-update-05-release-notes.md)
 #### [Aggiornamento 0.4](storsimple-virtual-array-update-04-release-notes.md)
 #### [Aggiornamento 0.3](storsimple-ova-update-03-release-notes.md)
 #### [Aggiornamento 0.2 e 0.1](storsimple-ova-update-01-release-notes.md)

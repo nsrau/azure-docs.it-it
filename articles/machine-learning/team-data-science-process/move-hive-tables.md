@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: e879ab2874cb3298de4b0929b286482d824e8309
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1eee39135dca98db205677072d79421eadcdd85e
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure
 Questo argomento presenta le query Hive generiche che consentono di creare tabelle Hive e di caricare i dati dall'archiviazione BLOB di Azure. Vengono inoltre fornite alcune linee guida sul partizionamento delle tabelle Hive e sull'uso della formattazione ORC per migliorare le prestazioni delle query.
@@ -32,7 +32,7 @@ Questo articolo presuppone che l'utente abbia:
 
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
 * Eseguito il provisioning di un cluster Hadoop personalizzato con il servizio HDInsight.  Per istruzioni, vedere [Personalizzazione di cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](customize-hadoop-cluster.md).
-* Abilitato l'accesso remoto al cluster, eseguito l'accesso e aperto la console della riga di comando di Hadoop. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](customize-hadoop-cluster.md#headnode).
+* Abilitato l'accesso remoto al cluster, eseguito l'accesso e aperto la console della riga di comando di Hadoop. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](customize-hadoop-cluster.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Caricare dati nell'archivio BLOB di Azure
 Se è stata creata una macchina virtuale di Azure seguendo le istruzioni fornite nell'articolo [Configurare una macchina virtuale di Azure per l'analisi avanzata](../data-science-virtual-machine/setup-virtual-machine.md), questo file di script deve essere stato scaricato nella directory *C:\\Users\\\<nome utente name\>\\Documents\\Data Science Scripts* della macchina virtuale. Affinché le query Hive siano pronte per l'invio, è necessario solo collegare il proprio schema dei dati e la configurazione dell'archiviazione BLOB di Azure ai campi appropriati.
@@ -120,7 +120,7 @@ Se si apre il contenitore predefinito del cluster Hadoop usando Esplora archivi 
 È inoltre possibile usare la Console di Query (Editor Hive) immettendo un URL con formato *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* in un Web browser. La console è visualizzabile solo dopo aver eseguito l'accesso, pertanto è necessario disporre delle proprie credenziali del cluster Hadoop.
 
 ### <a name="ps"></a> 3. Inviare le query Hive con i comandi di Azure PowerShell
-È possibile usare anche PowerShell per inviare le query Hive. Per istruzioni, vedere [Invio di processi Hive tramite PowerShell](../../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+È possibile usare anche PowerShell per inviare le query Hive. Per istruzioni, vedere [Invio di processi Hive tramite PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Creare il database e le tabelle Hive
 Le query Hive vengono condivise nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) e possono essere scaricate da questa posizione.
@@ -142,11 +142,11 @@ Di seguito è presentata la query Hive che crea una tabella Hive.
 
 Di seguito sono presentate le descrizioni dei campi da collegare e altre configurazioni:
 
-* **&#60;database name>**: il nome del database che si desidera creare. Se si desidera usare solo il database predefinito, la query di *creazione del database* può essere omessa.
-* **&#60;table name>**: il nome della tabella che si desidera creare nel database specificato. Se si desidera usare il database predefinito, è possibile fare direttamente riferimento alla tabella da *&#60;table name>* senza &#60;database name>.
-* **&#60;field separator>**: il separatore che delimita i campi nel file di dati da caricare nella tabella Hive.
+* **&amp;#60;database name&gt;**: il nome del database che si desidera creare. Se si desidera usare solo il database predefinito, la query di *creazione del database* può essere omessa.
+* **&amp;#60;table name&gt;**: il nome della tabella che si desidera creare nel database specificato. Se si desidera usare il database predefinito, è possibile fare direttamente riferimento alla tabella da *&#60;table name>* senza &#60;database name>.
+* **&amp;#60;field separator&gt;**: il separatore che delimita i campi nel file di dati da caricare nella tabella Hive.
 * **&#60;line separator>**: il separatore che delimita le righe nel file di dati.
-* **&#60;storage location>**: il percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se il parametro *LOCATION &#60;storage location>* non viene specificato, il database e le tabelle vengono archiviati per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se si desidera specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato*'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'* e così via. Dopo l'esecuzione della query, vengono create le relative directory nel contenitore predefinito.
+* **&amp;#60;storage location&gt;**: il percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se il parametro *LOCATION &#60;storage location>* non viene specificato, il database e le tabelle vengono archiviati per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se si desidera specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato*'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'* e così via. Dopo l'esecuzione della query, vengono create le relative directory nel contenitore predefinito.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: se il file di dati presenta una riga di intestazione, si deve aggiungere questa proprietà **alla fine** della query di *creazione della tabella*. In caso contrario, la riga di intestazione verrà caricata come un record nella tabella. Se il file di dati non presenta una riga di intestazione, questa configurazione può essere omessa nella query.
 
 ## <a name="load-data"></a>Caricare dati nelle tabelle Hive
@@ -154,7 +154,7 @@ Di seguito è presentata la query Hive che carica i dati in una tabella Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **&#60;path to blob data>**: se il file BLOB da caricare nella tabella Hive si trova nel contenitore predefinito del cluster Hadoop di HDInsight, *&#60;path to blob data>* deve essere nel formato *'wasb:///&#60;directory in this container>/&#60;blob file name>'*. Il file BLOB può trovarsi inoltre in un contenitore aggiuntivo del cluster Hadoop di HDInsight. In questo caso, *&#60;path to blob data>* deve essere nel formato *'wasb://&#60;container name>@&#60;storage account name>.blob.core.windows.net/&#60;blob file name>'*.
+* **&amp;#60;path to blob data&gt;**: se il file BLOB da caricare nella tabella Hive si trova nel contenitore predefinito del cluster Hadoop di HDInsight, *&amp;#60;path to blob data&gt;* deve essere nel formato *'wasb:///&amp;#60;directory in this container&gt;/&amp;#60;blob file name&gt;'*. Il file BLOB può trovarsi inoltre in un contenitore aggiuntivo del cluster Hadoop di HDInsight. In questo caso, *&#60;path to blob data>* deve essere nel formato *'wasb://&#60;container name>@&#60;storage account name>.blob.core.windows.net/&#60;blob file name>'*.
 
   > [!NOTE]
   > I dati BLOB da caricare nella tabella Hive devono trovarsi nel contenitore predefinito o aggiuntivo dell'account di archiviazione del cluster Hadoop. In caso contrario, la query di *LOAD DATA* avrà esito negativo perché non può accedere ai dati.

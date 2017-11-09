@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 10/23/2017
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.openlocfilehash: a6e5712026dc2da3627c07e9b411c81fb9a7e1fb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: e9e55f05c97fe335a315683294805b1027b53784
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Installare o aggiornare Mono in HDInsight
 
@@ -64,9 +64,9 @@ Per specificare la versione Mono installata, usare il numero di versione nel cam
 
 Si è appreso come aggiornare o installare una versione specifica di Mono in HDInsight. Per altre informazioni sull'uso di applicazioni .NET con Mono in HDInsight, vedere i documenti seguenti:
 
-* [Usare C# con lo streaming di MapReduce su Hadoop in HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Usare le funzioni definite dall'utente C# con lo streaming Hive e Pig in Hadoop in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Sviluppare topologie C# per Apache Storm in HDInsight tramite gli strumenti Hadoop per Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Usare C# con lo streaming di MapReduce su Hadoop in HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Usare le funzioni definite dall'utente C# con lo streaming Hive e Pig in Hadoop in HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Sviluppare topologie C# per Apache Storm in HDInsight tramite gli strumenti Hadoop per Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md)
 * [Eseguire la migrazione di soluzioni .NET per HDInsight basato su Windows a HDInsight basato su Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 
 Per altre informazioni sulle azioni di script, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md)

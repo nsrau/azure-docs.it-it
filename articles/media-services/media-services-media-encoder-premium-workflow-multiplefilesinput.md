@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: df1ee5089a0af6ffce1431b658843fcb34a66ce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso di più file di input e proprietà del componente con il codificatore Premium
 ## <a name="overview"></a>Panoramica
@@ -469,7 +469,7 @@ Per effettuare la codifica, seguire questa procedura:
 * [Come usare la codifica Premium in Servizi multimediali di Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Codec e formati del flusso di lavoro Premium del codificatore multimediale](media-services-premium-workflow-encoder-formats.md)
-* [File del flusso di lavoro di esempio](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
+* [File del flusso di lavoro di esempio](https://github.com/Azure/azure-media-services-samples)
 * [Strumento di esplorazione di Servizi multimediali di Azure](http://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: a8579c66cbfb0968a3659316aa5f03b798f4e332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c851e1f756957d58d5f7372098620e4b7129b089
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>Distribuire un eseguibile guest in Service Fabric
 In Azure Service Fabric distribuito come servizio è possibile eseguire qualsiasi tipo di codice, ad esempio Node.js, Java, e C++. Service Fabric fa riferimento a questi tipi di servizi come eseguibili guest.
@@ -349,6 +349,6 @@ Se si passa alla directory usando Esplora server è possibile trovare la directo
 In questo articolo si è appreso come creare il pacchetto di un eseguibile guest e come distribuirlo in Service Fabric. Per informazioni e attività correlate, vedere gli articoli seguenti.
 
 * [Esempio per la creazione del pacchetto e la distribuzione di un file guest eseguibile ](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), con un collegamento alla versione preliminare dello strumento per la creazione di pacchetti
-* [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-containers)
 * [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
 * [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

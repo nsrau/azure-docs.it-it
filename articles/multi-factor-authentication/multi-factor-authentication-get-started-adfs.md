@@ -3,7 +3,7 @@ title: Verifica in due passaggi e AD FS - Azure MFA | Documentazione Microsoft
 description: "Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a usare Azure MFA e ADFS."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 44fbba68-6cf9-46c1-a9df-736580b68ae3
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/25/2017
-ms.author: kgremban
-ms.openlocfilehash: 564e98a4b6b9bd8bf9b58f06cee0027bfdf84458
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: cf76e3d87f27b69697b80eaf3f9f4bba808a0f5f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Introduzione a Azure Multi-Factor Authentication e Active Directory Federation Services
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>

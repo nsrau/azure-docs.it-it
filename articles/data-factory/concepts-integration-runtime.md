@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 82b1dc036b53fbc1f0159d77ce102dcd054ea722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7851a24e7053e03cc28927ffae3a2b69a3291635
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -155,8 +155,8 @@ Australia | Australia orientale | Australia orientale
 &nbsp; | Australia sudorientale | Australia sudorientale
 Giappone | Giappone orientale | Giappone orientale
 &nbsp; | Giappone occidentale | Giappone orientale
-Corea | Corea centrale | Corea meridionale
-&nbsp; | Corea meridionale | Corea meridionale
+Corea | Corea centrale | Corea centrale
+&nbsp; | Corea meridionale | Corea centrale
 India | India centrale | India centrale
 &nbsp; | India occidentale | India centrale
 &nbsp; | India meridionale | India centrale

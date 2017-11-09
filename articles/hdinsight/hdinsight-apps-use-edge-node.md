@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jgao
-ms.openlocfilehash: e21dabcc6999b1f1047d334e782f723d0c03c2cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad161ada875ab30ed8de24506ed27265f26e994a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Hadoop in HDInsight
 
@@ -76,7 +76,7 @@ In questa sezione si userà un modello di Resource Manager per aggiungere un nod
 
 **Per aggiungere un nodo perimetrale a un cluster esistente**
 
-1. Creare un cluster HDInsight, se non ne è ancora disponibile uno.  Vedere [Esercitazione su Hadoop: introduzione all'uso di Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Creare un cluster HDInsight, se non ne è ancora disponibile uno.  Vedere [Esercitazione su Hadoop: introduzione all'uso di Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Fare clic sull'immagine seguente per accedere ad Azure e aprire il modello di Azure Resource Manager nel portale di Azure. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
@@ -99,7 +99,7 @@ In questa sezione si userà un modello di Resource Manager per creare un cluster
 
 **Per aggiungere un nodo perimetrale a un cluster esistente**
 
-1. Creare un cluster HDInsight, se non ne è ancora disponibile uno.  Vedere [Introduzione all'uso di Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Creare un cluster HDInsight, se non ne è ancora disponibile uno.  Vedere [Introduzione all'uso di Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Fare clic sull'immagine seguente per accedere ad Azure e aprire il modello di Azure Resource Manager nel portale di Azure. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>

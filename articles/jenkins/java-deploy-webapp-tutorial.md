@@ -11,11 +11,11 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
-ms.openlocfilehash: 3a2635ac968d843226f05dc51cf4a5f078235c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40d7e822b586e6f6b4addcd7d4e107eda9f4ab11
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurare l'integrazione e la distribuzione continue in Servizio App di Azure con Jenkins
 
@@ -86,7 +86,7 @@ Impostare Jenkins per la ricezione di [webhook GitHub](https://developer.github.
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus
     az appservice plan create --is-linux --name myLinuxAppServicePlan --resource-group myResourceGroupJenkins 
-    az webapp create --name myJavaApp --resource-group myResourceGroupJenkins --plan myLinuxAppServicePlan
+    az webapp create --name myJavaApp --resource-group myResourceGroupJenkins --plan myLinuxAppServicePlan --runtime "java|1.8|Tomcat|8.5"
     ```
 
 2. Creare un [registro contenitori di Azure](/azure/container-registry/container-registry-intro) per archiviare le immagini Docker create da Jenkins. Il nome del registro contenitori usato in questa esercitazione è `jenkinsregistry`, ma è necessario usare un nome univoco per il proprio registro contenitori. 

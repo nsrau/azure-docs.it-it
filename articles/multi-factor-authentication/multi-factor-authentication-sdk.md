@@ -3,7 +3,7 @@ title: Software Development Kit MFA per le app personalizzate | Microsoft Docs
 description: In questo articolo viene spiegato come scaricare e usare l'SDK MFA di Azure per abilitare la verifica in due passaggi per le app personalizzate.
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 1c152f67-be02-42a5-a0c7-246fb6b34377
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
-ms.openlocfilehash: 281f9c61a30a20027f69808600373aa272255ef6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: da09bc9e5f12e418155c30b80623abc92f5b7e70
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Compilazione di Multi-Factor Authentication in app personalizzate (SDK)
 

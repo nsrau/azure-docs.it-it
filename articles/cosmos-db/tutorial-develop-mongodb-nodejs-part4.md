@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: 6fd88c58c0067deab08d502be4bd624c297b5fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20c2ae547d794836474aa34096a20de25dad96c8
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Creare un'app MongoDB con Angular e Azure Cosmos DB - Parte 4: Creare un account Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
 
@@ -38,7 +38,7 @@ La Parte 4 dell'esercitazione è basata sulla [Parte 3](tutorial-develop-mongodb
 
 Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completato le procedure illustrate nella [Parte 3](tutorial-develop-mongodb-nodejs-part3.md) dell'esercitazione. 
 
-In questa sezione dell'esercitazione è possibile usare Azure Cloud Shell (nel browser Internet) o l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installata in locale. Se si usa l'interfaccia della riga di comando di Azure in locale, assicurarsi di eseguire l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Eseguire `az --version` al prompt dei comandi per controllare la versione in uso. 
+In questa sezione dell'esercitazione è possibile usare Azure Cloud Shell (nel browser Internet) o l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) installata in locale. Se si usa l'interfaccia della riga di comando di Azure in locale, assicurarsi di eseguire l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Eseguire `az --version` al prompt dei comandi per controllare la versione in uso. 
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 

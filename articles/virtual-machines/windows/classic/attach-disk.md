@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.openlocfilehash: 7847a2485cd57d895c022afb12ef08f37fe5775d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 0440cd2fadffd945c75d1b94df67e0c8b8bf7c1e
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Collegare un disco dati da una macchina virtuale di Windows creata con il modello di distribuzione classico.
-<!--
-Refernce article:
-    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](../../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
--->
 
 Questo articolo illustra come collegare dischi nuovi o esistenti creati con il modello di distribuzione classica a una macchina virtuale Windows usando il portale di Azure.
+
+
 
 È possibile anche [collegare un disco dati a una macchina virtuale Linux nel portale di Azure](../../linux/attach-disk-portal.md).
 
@@ -43,6 +41,7 @@ Prima di collegare un disco, esaminare i seguenti suggerimenti:
 
 > [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="find-the-virtual-machine"></a>Trovare la macchina virtuale
 1. Accedere al [portale di Azure](https://portal.azure.com/).

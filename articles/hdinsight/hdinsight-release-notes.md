@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Note sulla versione di componenti Hadoop in Azure HDInsight
 
@@ -61,7 +61,7 @@ Questo articolo include informazioni sugli aggiornamenti di versione di Azure HD
 
 * **Nuove funzionalità di Hive**. Vedere la [documentazione di Hortonworks](https://hortonworks.com/apache/hive/#section_4).
 
-* **Interfaccia della riga di comandi di Hive deprecata**: l'interfaccia della riga di comando di Hive verrà deprecata e si invita gli utenti a usare Beeline al suo posto. Per altre informazioni, vedere la [documentazione Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Per istruzioni su come usare Beeline con HDInsight, vedere [Use Beeline with HDInsight Hadoop clusters](hdinsight-hadoop-use-hive-beeline.md) (Usare Beeline con i cluster Hadoop HDInsight).
+* **Interfaccia della riga di comandi di Hive deprecata**: l'interfaccia della riga di comando di Hive verrà deprecata e si invita gli utenti a usare Beeline al suo posto. Per altre informazioni, vedere la [documentazione Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Per istruzioni su come usare Beeline con HDInsight, vedere [Use Beeline with HDInsight Hadoop clusters](hadoop/apache-hadoop-use-hive-beeline.md) (Usare Beeline con i cluster Hadoop HDInsight).
 
 * **Nuove funzionalità di Apache Phoenix e HBase**.
     * Supporto di quota di archiviazione: comunemente usato negli ambienti multi-tenant, consente uno spazio di archiviazione limitato a livello di tabella e di spazio dei nomi.

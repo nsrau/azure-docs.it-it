@@ -4,6 +4,8 @@
   items:
     - name: Informazioni su Griglia di eventi
       href: overview.md
+    - name: Confrontare i servizi di messaggistica
+      href: compare-messaging-services.md
 - name: Guide introduttive
   items:
     - name: Indirizzare eventi di archiviazione BLOB - Interfaccia della riga di comando di Azure

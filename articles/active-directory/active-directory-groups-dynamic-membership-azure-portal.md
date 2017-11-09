@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 958ee2f12ebbd46472972a3012ec59aecbc23126
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5e101c4b92868181a6b627d060a9c8e72a7837c4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creare regole basate su attributi per l'appartenenza dinamica ai gruppi in Azure Active Directory
 In Azure Active Directory (Azure AD) è possibile creare regole avanzate per abilitare complesse appartenenze dinamiche ai gruppi basate su attributi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica per utenti o dispositivi.
@@ -296,7 +296,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Modifica dell'appartenenza dinamica in statica e viceversa
 È possibile modificare il modo in cui viene gestita l'appartenenza in un gruppo. Ciò è utile per mantenere lo stesso ID e nome di gruppo nel sistema in modo che i riferimenti al gruppo esistenti restino validi. Creando un nuovo gruppo sarebbe infatti necessario aggiornare tali riferimenti.
 
-È in corso l'aggiornamento del portale di Azure per supportare questa funzionalità. Nel frattempo, è possibile usare il [portale di Azure classico](https://manage.windowsazure.com) (seguire le istruzioni riportate [qui](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)) oppure i cmdlet di PowerShell come illustrato di seguito.
+È in corso l'aggiornamento del portale di Azure per supportare questa funzionalità. Nel frattempo, è possibile usare il [portale di Azure classico](https://manage.windowsazure.com) (seguire le istruzioni riportate [qui](active-directory-accessmanagement-groups-with-advanced-rules.md)) oppure i cmdlet di PowerShell come illustrato di seguito.
 
 > [!WARNING]
 > Quando si modifica un gruppo statico esistente in gruppo dinamico, tutti i membri esistenti verranno rimossi dal gruppo e verrà quindi elaborata la regola di appartenenza per aggiungere nuovi membri. Se il gruppo viene usato per controllare l'accesso alle app o alle risorse, i membri originali potrebbero perdere l'accesso finché non viene completata l'elaborazione della regola di appartenenza.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 85424a00b34b4bccf7dc38b2bae1cfe31b2507d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Rendere operativi i modelli di apprendimento automatico compilati con Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -118,7 +118,7 @@ Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali 
 * **%%sql -o <variable name>** 
 * Esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
 
-Per altre informazioni sui kernel per i notebook di Jupyter e i "magic" predefiniti messi a disposizione, vedere [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md) (Kernel disponibili per i notebook di Jupyter con cluster Apache Spark in HDInsight Linux).
+Per altre informazioni sui kernel per i notebook di Jupyter e i "magic" predefiniti messi a disposizione, vedere [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md) (Kernel disponibili per i notebook di Jupyter con cluster Apache Spark in HDInsight Linux).
 
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Inserire i dati e creare un frame di dati pulito
 Questa sezione contiene il codice per una serie di attività necessarie per inserire i dati per l'assegnazione dei punteggi. Leggere un campione unito in join pari allo 0,1% del file TSV relativo alle corse e alle tariffe dei taxi, formattare i dati e creare un frame di dati pulito.
@@ -527,7 +527,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Utilizzare i modelli Spark da un'interfaccia Web
-Spark offre un meccanismo che permette di inviare in modalità remota processi batch o query interattive tramite un'interfaccia REST con un componente denominato Livy. Livy è abilitato per impostazione predefinita nel cluster HDInsight Spark. Per altre informazioni, vedere [Inviare processi Spark in modalità remota tramite Livy](../../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
+Spark offre un meccanismo che permette di inviare in modalità remota processi batch o query interattive tramite un'interfaccia REST con un componente denominato Livy. Livy è abilitato per impostazione predefinita nel cluster HDInsight Spark. Per altre informazioni, vedere [Inviare processi Spark in modalità remota tramite Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Livy può essere usato per inviare in modalità remota un processo che assegna punteggi in batch a un file archiviato in un BLOB di Azure e quindi scrive i risultati in un altro BLOB. A tale scopo, caricare lo script Python da   
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) nel BLOB del cluster Spark. Per copiare lo script nel BLOB del cluster, è possibile usare uno strumento come **Microsoft Azure Storage Explorer** o **AzCopy**. In questo caso lo script è stato caricato in ***wasb:///example/python/ConsumeGBNYCReg.py***.   

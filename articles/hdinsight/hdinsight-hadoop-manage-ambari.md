@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 470ec09d444f93abcd8f0f58fc197474bbb1376e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: ec6e6d07b0933504ffee17912aac9ee3ef937688
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari
 
@@ -151,7 +151,7 @@ Selezionando uno di questi collegamenti, verrà aperta una nuova scheda nel brow
 
 ### <a name="ambari-users-groups-and-permissions"></a>Utenti, gruppi e autorizzazioni Ambari
 
-L'uso di utenti, gruppi e autorizzazioni è supportato con un cluster HDInsight [aggiunto al dominio](hdinsight-domain-joined-introduction.md). Per informazioni sull'uso dell'interfaccia utente di gestione di Ambari in un cluster aggiunto al dominio, vedere [Gestire cluster HDInsight aggiunti al dominio](hdinsight-domain-joined-introduction.md).
+L'uso di utenti, gruppi e autorizzazioni è supportato con un cluster HDInsight [aggiunto al dominio](./domain-joined/apache-domain-joined-introduction.md). Per informazioni sull'uso dell'interfaccia utente di gestione di Ambari in un cluster aggiunto al dominio, vedere [Gestire cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-introduction.md).
 
 > [!WARNING]
 > Non modificare la password del watchdog Ambari (hdinsightwatchdog) nel cluster HDInsight basato su Linux. Se si modifica la password, non sarà più possibile usare azioni script o eseguire operazioni di ridimensionamento con il cluster.
@@ -236,7 +236,7 @@ Le viste di Ambari consentono agli sviluppatori di collegare gli elementi dell'i
 
 * Gestore di code Yarn: il gestore delle code fornisce un'interfaccia utente semplice per la visualizzazione e la modifica di code YARN.
 
-* Viste di Hive: le viste di Hive consentono di eseguire query Hive direttamente dal Web browser. È possibile salvare query, visualizzare i risultati, salvare i risultati nell'archiviazione cluster o scaricare i risultati nel sistema locale. Per altre informazioni sull'uso delle viste di Hive, vedere l'argomento relativo all' [uso delle viste Hive con HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
+* Viste di Hive: le viste di Hive consentono di eseguire query Hive direttamente dal Web browser. È possibile salvare query, visualizzare i risultati, salvare i risultati nell'archiviazione cluster o scaricare i risultati nel sistema locale. Per altre informazioni sull'uso delle viste di Hive, vedere l'argomento relativo all' [uso delle viste Hive con HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 * Vista Tez: la vista Tez consente di comprendere meglio e ottimizzare i processi. È possibile visualizzare informazioni sulle modalità di esecuzione dei processi Tez e sulle risorse usate.
 

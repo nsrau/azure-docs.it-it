@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 12ace2ff3bcb967ec5e0ae88d3ce79a53836dd5e
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creare e gestire processi elastici del database SQL con PowerShell (anteprima)
 
@@ -68,7 +68,6 @@ La tabella seguente include l'elenco di tutti i tipi di oggetto dei **processi d
   <tr>
     <td>DACPAC</td>
     <td>Pacchetto dell'<a href="https://msdn.microsoft.com/library/ee210546.aspx">applicazione livello dati </a> da applicare tra i database.
-
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
@@ -79,7 +78,6 @@ La tabella seguente include l'elenco di tutti i tipi di oggetto dei **processi d
   <tr>
     <td>Destinazione del database</td>
     <td>Nome del database e del server che si riferisce a un Database SQL di Azure.
-
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>

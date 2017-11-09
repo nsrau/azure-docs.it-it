@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 7d641d4089f8bce86633b7c476f10617bc642e2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25b0d65797b623f96d623d692ee7707b4452860c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET di tabella di CosmosDB di Azure: download e note sulla versione
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 |---|---|
 |**Download dell'SDK**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**Documentazione sull'API**|[Documentazione di riferimento API .NET](https://aka.ms/acdbtableapiref)|
-|**Guida introduttiva**|[Azure Cosmos DB: Build an app with .NET and the Table API](https://aka.ms/acdbtnetqs) (Cosmos DB di Azure: compilare un'app con .NET e l'API di tabella)|
+|**Guida introduttiva**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md) (Cosmos DB di Azure: compilare un'app con .NET e l'API di tabella)|
 |**Esercitazione**|[Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md) (CosmosDB di Azure: creare un contenitore con l'API Graph)|
 |**Framework attualmente supportato**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 

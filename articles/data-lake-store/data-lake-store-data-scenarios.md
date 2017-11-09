@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c48c0931ede6d17078c64cbb1e1dacd21098f792
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Uso di Archivio Data Lake di Azure per requisiti Big Data
 L'elaborazione di Big Data prevede quattro fasi principali:
@@ -49,7 +49,7 @@ Si tratta dei dati che possono essere generati da origini diverse, ad esempio ap
 Di seguito sono elencati gli strumenti che è possibile usare:
 
 * [Analisi di flusso di Azure](../stream-analytics/stream-analytics-data-lake-output.md): gli eventi inseriti in Hub eventi possono essere scritti in Azure Data Lake usando un output di Azure Data Lake Store.
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) : è possibile scrivere i dati direttamente in Data Lake Store dal cluster Storm.
+* [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) : è possibile scrivere i dati direttamente in Data Lake Store dal cluster Storm.
 * [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md): è possibile ricevere eventi da Hub eventi e scriverli in Data Lake Store usando [.NET SDK di Data Lake Store](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Dati relazionali

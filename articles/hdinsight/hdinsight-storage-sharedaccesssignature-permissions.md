@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/11/2017
+ms.date: 11/02/2017
 ms.author: larryfr
-ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
 
 HDInsight ha accesso completo ai dati negli account di archiviazione di Azure associati al cluster. È possibile usare le firme di accesso condiviso nel contenitore BLOB per limitare l'accesso ai dati, ad esempio per fornire accesso di sola lettura ai dati. Le firme di accesso condiviso sono una funzionalità degli account di archiviazione di Azure che consente di limitare l'accesso ai dati. Ad esempio, concedendo l'accesso in sola lettura ai dati.
 
 > [!IMPORTANT]
-> Per una soluzione che usi Apache Ranger, considerare la possibilità di usare HDInsight aggiunto al dominio. Per altre informazioni, vedere il documento [Configurare i cluster HDInsight aggiunti al dominio](hdinsight-domain-joined-configure.md).
+> Per una soluzione che usi Apache Ranger, considerare la possibilità di usare HDInsight aggiunto al dominio. Per altre informazioni, vedere il documento [Configurare i cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-configure.md).
 
 > [!WARNING]
 > HDInsight deve avere accesso completo alla risorsa di archiviazione predefinita per il cluster.
@@ -304,8 +304,8 @@ Dopo aver stabilito la connessione al cluster, usare la procedura seguente per v
 
 Ora che si è appreso come aggiungere risorse di archiviazione ad accesso limitato al cluster HDInsight, è possibile conoscere altri modi per usare i dati nel cluster:
 
-* [Usare Hive con HDInsight](hdinsight-use-hive.md)
-* [Usare Pig con HDInsight](hdinsight-use-pig.md)
-* [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+* [Usare Hive con HDInsight](hadoop/hdinsight-use-hive.md)
+* [Usare Pig con HDInsight](hadoop/hdinsight-use-pig.md)
+* [Usare MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

@@ -20,6 +20,7 @@
 ## [Installare e configurare un gateway dati locale](analysis-services-gateway-install.md)
 ## [Ottenere le librerie client](analysis-services-data-providers.md)
 ## [Backup e ripristino](analysis-services-backup.md)
+## [Configurare l'aumento del numero di istanze delle repliche delle query](analysis-services-scale-out.md)
 ## [Stabilire la connessione con Excel](analysis-services-connect-excel.md)
 ## [Stabilire la connessione con Power BI](analysis-services-connect-pbi.md)
 ## [Creare un file con estensione odc](analysis-services-odc.md)

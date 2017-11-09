@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 0518519da6c5e62a863a47d6743ab7b7c5923acf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb6ded1dcba2ac0f78fc6f1f4f7de9238cd752bd
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Applicazione Web Ruby on Rails in una macchina virtuale di Azure
 Questa esercitazione mostra come ospitare un sito Web Ruby on Rails usando una macchina virtuale Linux.  
@@ -28,7 +28,7 @@ Questa esercitazione è stata convalidata usando Ubuntu Server 14.04 LTS. Se si 
 
 > [!IMPORTANT]
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md).  Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
->
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 >
 
 ## <a name="create-an-azure-vm"></a>Creare una macchina virtuale di Azure

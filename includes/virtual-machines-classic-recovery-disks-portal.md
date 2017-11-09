@@ -1,5 +1,6 @@
 Se nella macchina virtuale in Azure viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire alcuni passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare il portale di Azure per connettere il disco rigido virtuale a un'altra VM per risolvere eventuali errori e quindi ricreare la VM originale.
 
+
 ## <a name="recovery-process-overview"></a>Panoramica del processo di ripristino
 I passaggi per la risoluzione dei problemi sono i seguenti:
 

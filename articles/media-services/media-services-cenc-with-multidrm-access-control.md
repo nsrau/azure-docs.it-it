@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 730917b6859f8dbd800ef2cb141062f45d7779ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4a53d053a4c792f54e215c19a8f0c4064815839
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC con DRM multiplo e controllo di accesso: progettazione di riferimento e implementazione in Azure e in Servizi multimediali di Azure
  
@@ -207,7 +207,7 @@ L'implementazione includerà i passaggi seguenti:
 
 George Trifonov del team di Servizi multimediali di Azure ha scritto un blog con i passaggi dettagliati per configurare Azure Active Directory per un'app lettore ASP.NET MVC: [Integrare l'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-George ha scritto anche un blog relativo all' [autenticazione di token JWT in Servizi multimediali di Azure e alla crittografia dinamica](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). Qui invece è disponibile il suo [esempio di integrazione di Azure AD con la distribuzione delle chiavi di Servizi multimediali di Azure](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
+George ha scritto anche un blog relativo all' [autenticazione di token JWT in Servizi multimediali di Azure e alla crittografia dinamica](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 Per informazioni su Azure Active Directory:
 

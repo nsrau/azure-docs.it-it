@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>Gestire le autorizzazioni utente a livello di file e di cartella
 
-I [cluster HDInsight aggiunti al dominio](hdinsight-domain-joined-introduction.md) usano l'autenticazione avanzata con gli utenti di Azure Active Directory (Azure AD) e criteri di *controllo degli accessi in base al ruolo* per numerosi servizi, ad esempio YARN e Hive. Se l'archivio dati predefinito per il cluster è Archiviazione di Azure o BLOB del servizio di archiviazione di Azure, è possibile applicare anche autorizzazioni a livello di file e cartella. È possibile usare Apache Ranger per controllare l'accesso ai file del cluster per gli utenti e i gruppi di Azure AD sincronizzati.
+I [cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-introduction.md) usano l'autenticazione avanzata con gli utenti di Azure Active Directory (Azure AD) e criteri di *controllo degli accessi in base al ruolo* per numerosi servizi, ad esempio YARN e Hive. Se l'archivio dati predefinito per il cluster è Archiviazione di Azure o BLOB del servizio di archiviazione di Azure, è possibile applicare anche autorizzazioni a livello di file e cartella. È possibile usare Apache Ranger per controllare l'accesso ai file del cluster per gli utenti e i gruppi di Azure AD sincronizzati.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 Nell'istanza di Apache Ranger per i cluster HDInsight aggiunti al dominio è preconfigurato il servizio Ranger-WASB. Tale servizio è un motore di gestione di criteri analogo a Ranger-HDFS, ma con una diversa applicazione dei criteri di accesso a Ranger. Nel servizio Ranger-WASB, se a una richiesta di risorse in ingresso non corrispondono criteri Ranger, la risposta predefinita è DENY. Il servizio Ranger non trasmette il controllo autorizzazioni a BLOB del servizio di archiviazione di Azure.
@@ -69,7 +69,7 @@ Quando un carattere jolly (`*`) è presente nel percorso di un criterio, il cara
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>Gestire autorizzazioni a livello di file e cartella con Apache Ranger
 
-Se non è già stato fatto, seguire [queste istruzioni](hdinsight-domain-joined-configure.md) per effettuare il provisioning di un nuovo cluster aggiunto al dominio.
+Se non è già stato fatto, seguire [queste istruzioni](./domain-joined/apache-domain-joined-configure.md) per effettuare il provisioning di un nuovo cluster aggiunto al dominio.
 
 Spostarsi su `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/` per aprire Ranger-WASB. Immettere il nome utente e la password di amministratore del cluster definiti durante la creazione del cluster.
 
@@ -117,8 +117,8 @@ Il [flusso di valutazione dei criteri](#permission-and-policy-model) di Apache R
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare criteri Hive in HDInsight aggiunto al dominio](hdinsight-domain-joined-run-hive.md)
-* [Gestione dei cluster HDInsight aggiunti al dominio](hdinsight-domain-joined-manage.md)
+* [Configurare criteri Hive in HDInsight aggiunto al dominio](./domain-joined/apache-domain-joined-run-hive.md)
+* [Gestione dei cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-manage.md)
 * [Autorizzare gli utenti per le viste di Ambari](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

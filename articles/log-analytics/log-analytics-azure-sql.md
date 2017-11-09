@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorare un database SQL di Azure usando Azure SQL Analytics (anteprima) in Log Analytics
 
@@ -102,7 +102,16 @@ La selezione di uno dei riquadri consente di visualizzare un report drill-down n
 
 Ogni prospettiva fornisce riepiloghi relativi a sottoscrizione, server, pool elastico e livello di database. Ogni prospettiva mostra inoltre un report specifico della prospettiva a destra. La selezione di una sottoscrizione, un server, un pool o un database dall'elenco continua il drill-down.
 
-| Prospettiva | Descrizione | | Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. Il drill-down fornisce il riepilogo delle metriche relative a DTU e GB. | | Insights | Fornisce il drill-down gerarchico per Intelligent Insights. Altre informazioni su Intelligent Insights. | | Errori | Fornisce il drill-down gerarchico per gli errori SQL che si sono verificati nei database. | | Timeout | Fornisce il drill-down gerarchico per i blocchi SQL che si sono verificati nei database. | | Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL che si sono verificati nei database. | | Attese database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. | | Durata query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. | | Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. |
+| Prospettiva | Descrizione |
+| --- | --- |
+| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. Il drill-down fornisce il riepilogo delle metriche relative a DTU e GB. |
+| Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights. Altre informazioni su Intelligent Insights. |
+| Errors | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. |
+| Timeout | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. |
+| Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. |
+| Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |
+| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. |
+| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. |
 
 ### <a name="intelligent-insights-report"></a>Report di Intelligent Insights
 

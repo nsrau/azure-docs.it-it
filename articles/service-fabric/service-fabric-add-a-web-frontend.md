@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Compilare un front-end di servizio Web per l'applicazione tramite ASP.NET Core
 Per impostazione predefinita, i servizi di Azure Service Fabric non forniscono un'interfaccia pubblica per il Web. Per esporre la funzionalità dell'applicazione ai client HTTP è necessario creare un progetto Web da usare come punto di ingresso per comunicare con i singoli servizi.
@@ -210,12 +210,6 @@ Il servizio con stato è ora pronto per ricevere traffico da altri servizi trami
     ![Valore del contatore con stato visualizzato nel browser][browser-aspnet-counter-value]
    
     Aggiornare regolarmente il browser per visualizzare l'aggiornamento del valore del contatore.
-
-## <a name="kestrel-and-weblistener"></a>Kestrel e WebListener
-
-Il server Web ASP.NET Core predefinito, noto come Kestrel, [non è attualmente supportato per la gestione diretta del traffico Internet](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). Il modello del servizio senza stato ASP.NET Core per Service Fabric usa di conseguenza [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) per impostazione predefinita. 
-
-Per altre informazioni su Kestrel e WebListener nei servizi Service Fabric, fare riferimento all'articolo [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) (ASP.NET Core in Reliable Services di Service Fabric).
 
 ## <a name="connecting-to-a-reliable-actor-service"></a>Connessione a un servizio Reliable Actor
 Questa esercitazione ha illustrato la procedura per aggiungere un front-end Web in grado di comunicare con un servizio con stato. Per comunicare con gli attori è possibile seguire un modello molto simile. Quando si crea un progetto Reliable Actor, Visual Studio genera automaticamente un progetto interfaccia. È possibile usare tale interfaccia per generare un proxy attore nel progetto Web per comunicare con l'attore. Poiché il canale di comunicazione viene fornito automaticamente, non è necessario eseguire operazioni, ad esempio stabilire un oggetto `ServiceRemotingListener`, come per il servizio con stato.

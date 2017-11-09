@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: e11d431c03be0d2aff05b2ceda8d3df41441a7ec
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3edaefa942b834a070c55fe28daf60c74ea9f59d
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>Analizzare e condividere i dati di utilizzo con cartelle di lavoro interattive in Application Insights
 
@@ -117,7 +117,7 @@ Per aggiungere un collegamento in una cartella di lavoro in un dashboard di Azur
 ## <a name="next-steps"></a>Passaggi successivi
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per abilitare le esperienze di utilizzo, iniziare a inviare [eventi personalizzati](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [visualizzazioni pagina](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Per abilitare le esperienze di utilizzo, iniziare a inviare [eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [visualizzazioni pagina](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se si inviano già eventi personalizzati o visualizzazioni pagina, è possibile esplorare gli strumenti relativi all'uso per scoprire come gli utenti usano il servizio.
     - [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
     - [Grafici a imbuto](usage-funnels.md)

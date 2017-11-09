@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 29f245fdeaadd6f95755f7fd7564dfa7f6b2981f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
@@ -39,9 +39,9 @@ In molti passaggi di questo documento vengono usate le utilità seguenti che dev
 
 ## <a name="users"></a>Utenti
 
-A meno che non sia [aggiunto al dominio](hdinsight-domain-joined-introduction.md), HDInsight deve essere considerato un sistema a **utente singolo**. Con il cluster viene creato un singolo account utente SSH, con autorizzazioni a livello di amministratore. Possono essere creati altri account SSH, che avranno sempre l'accesso di amministratore al cluster.
+A meno che non sia [aggiunto al dominio](./domain-joined/apache-domain-joined-introduction.md), HDInsight deve essere considerato un sistema a **utente singolo**. Con il cluster viene creato un singolo account utente SSH, con autorizzazioni a livello di amministratore. Possono essere creati altri account SSH, che avranno sempre l'accesso di amministratore al cluster.
 
-HDInsight aggiunto al dominio offre il supporto per più utenti e impostazioni di autorizzazioni e ruoli più granulari. Per altre informazioni, vedere [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Gestire cluster HDInsight aggiunti al dominio).
+HDInsight aggiunto al dominio offre il supporto per più utenti e impostazioni di autorizzazioni e ruoli più granulari. Per altre informazioni, vedere [Manage Domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-manage.md) (Gestire cluster HDInsight aggiunti al dominio).
 
 ## <a name="domain-names"></a>Nomi di dominio
 
@@ -277,6 +277,6 @@ Per usare una versione diversa di un componente, caricare la versione desiderata
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Eseguire la migrazione da HDInsight basato su Windows a HDInsight basato su Linux](hdinsight-migrate-from-windows-to-linux.md)
-* [Usare Hive con HDInsight](hdinsight-use-hive.md)
-* [Usare Pig con HDInsight](hdinsight-use-pig.md)
-* [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+* [Usare Hive con HDInsight](hadoop/hdinsight-use-hive.md)
+* [Usare Pig con HDInsight](hadoop/hdinsight-use-pig.md)
+* [Usare processi MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)

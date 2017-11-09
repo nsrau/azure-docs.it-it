@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 3a4764ddf2dea68bf25bd46b9691429ad3341678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aba231a91efafa48837e45435efd51769b12374b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione completa di gestione dell’identità e dell’accesso che fornisce una gamma affidabile di funzionalità per gestire l'accesso alle applicazioni cloud e locali e delle risorse tra cui servizi online di Microsoft quali Office 365 e un mondo di applicazioni non Microsoft SaaS. In questo articolo viene fornita una panoramica, ma se si desidera iniziare a utilizzare subito i gruppi Azure AD, seguire le istruzioni in [Gestione dei gruppi di sicurezza in Azure AD](active-directory-accessmanagement-manage-groups.md). Per altre informazioni su come usare PowerShell per gestire i gruppi in Azure Active Directory, vedere [Cmdlet di Azure Active Directory per la gestione dei gruppi](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
@@ -66,7 +66,7 @@ Il proprietario di un gruppo può anche rendere tale gruppo disponibile per le r
 ## <a name="getting-started-with-access-management"></a>Introduzione alla gestione dell’accesso
 Informazioni introduttive È consigliabile provare alcune delle attività di base che è possibile eseguire con i gruppi di Microsoft Azure AD. Utilizzare queste funzionalità per fornire accesso specializzato a diversi gruppi di utenti per diverse risorse all'interno dell'organizzazione. Un elenco di passaggi di base sono elencati di seguito.
 
-* [Creazione di una regola semplice per configurare l’appartenenza dinamica per un gruppo](active-directory-accessmanagement-manage-groups.md#how-can-i-manage-the-membership-of-a-group-dynamically)
+* [Creazione di una regola semplice per configurare l’appartenenza dinamica per un gruppo](active-directory-accessmanagement-manage-groups.md)
 * [Utilizzare un gruppo per gestire l'accesso alle applicazioni SaaS](active-directory-accessmanagement-group-saasapps.md)
 * [Rendere la modalità self-service disponibile a un gruppo di utenti](active-directory-accessmanagement-self-service-group-management.md)
 * [Sincronizzare un gruppo locale in Azure utilizzando Azure AD Connect](active-directory-aadconnect.md)

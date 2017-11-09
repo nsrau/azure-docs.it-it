@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 8ff8c425189efdd7ea21984528bf7ea765e17955
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Distribuire Gestione API e Service Fabric
 Questa è la seconda di una serie di esercitazioni. Questa esercitazione mostra come impostare il servizio [Gestione API di Azure](../api-management/api-management-key-concepts.md) con Service Fabric per indirizzare il traffico ai servizi back-end di Service Fabric.  Al termine, la Gestione API sarà stata distribuita alla rete virtuale e sarà stata configurata un'operazione API per l'invio del traffico ai servizi senza stato di back-end. Per ulteriori informazioni sugli scenari di Gestione API di Azure con Service Fabric, vedere l'articolo [Panoramica](service-fabric-api-management-overview.md).
@@ -384,7 +384,7 @@ ResourceGroupName="tutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="conclusion"></a>Conclusioni
 In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
@@ -393,7 +393,6 @@ In questa esercitazione si è appreso come:
 > * Creare un'operazione per le API
 > * Configurare un criterio di back-end
 > * Aggiungere l'API a un prodotto
-
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

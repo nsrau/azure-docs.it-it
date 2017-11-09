@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introduzione a Service Fabric Reliable Actors
 Reliable Actors è un framework di applicazione Service Fabric basato sul criterio [Actor virtuale](http://research.microsoft.com/en-us/projects/orleans/). L'API Reliable Actors offre un modello di programmazione a thread singolo basato sulle garanzie di affidabilità e scalabilità offerte da Service Fabric.
@@ -143,7 +143,7 @@ Per impostazione predefinita, il runtime di Actors consente la reentrancy. In al
 Il runtime di Actors fornisce queste garanzie di concorrenza nelle situazioni in cui controlla le chiamate di questi metodi, ad esempio per le chiamate di metodi eseguite in risposta a una richiesta client e per i callback di promemoria e timer. Tuttavia, se il codice dell'attore richiama direttamente questi metodi al di fuori dei meccanismi forniti dal runtime di Actors, il runtime non può offrire alcuna garanzia di concorrenza. Ad esempio, se il metodo viene richiamato nel contesto di un'attività non associata all'attività restituita dai metodi dell'attore oppure se viene richiamato da un thread che l'attore crea in modo autonomo, il runtime non può fornire garanzie di concorrenza. Per eseguire operazioni in background, pertanto, gli attori devono usare specifici [timer e promemoria](service-fabric-reliable-actors-timers-reminders.md) che rispettano la concorrenza basata su turni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per iniziare, creare il primo servizio Reliable Actors:
+Per iniziare, creare il primo servizio Reliable Actors:
    * [Introduzione a Reliable Actors in .NET](service-fabric-reliable-actors-get-started.md)
    * [Introduzione a Reliable Actors in Java](service-fabric-reliable-actors-get-started-java.md)
 

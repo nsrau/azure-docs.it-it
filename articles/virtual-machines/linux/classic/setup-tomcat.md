@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: fa30c78a5a5d458ba8845c3c10b87538427786c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurare Tomcat7 in una macchina virtuale Linux con Azure
 Apache Tomcat (o semplicemente Tomcat, precedentemente chiamato anche Jakarta Tomcat) è un server Web e contenitore di servlet open source sviluppato da Apache Software Foundation (ASF). Tomcat implementa le specifiche Java Servlet e Java Server Pages (JSP) di Sun Microsystems. Tomcat fornisce un ambiente server Web HTTP Java puro in cui eseguire codice Java. Nella configurazione più semplice, Tomcat viene eseguito in un singolo processo del sistema operativo. Questo processo esegue una macchina virtuale Java (JVM). Ogni richiesta HTTP da un browser a Tomcat viene elaborata nel processo di Tomcat come un thread separato.  
 
 > [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e classico](../../../resource-manager-deployment-model.md). Questo articolo descrive come usare il modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager. Per informazioni su come usare un modello di Resource Manager per distribuire una VM Ubuntu con Openjdk e Tomcat, vedere [questo articolo](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In questo articolo si installerà Tomcat7 su un'immagine Linux e la si distribuirà in Azure.  
 

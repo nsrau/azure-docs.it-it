@@ -4,11 +4,11 @@ hide_bc: True
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 featureFlags: clicktale
-ms.openlocfilehash: 1cce8a0c31a7bb7e4c6e228261b27244a762b441
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 810133d91382bffbcd728f9484e075da04da0fd8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1353,7 +1353,7 @@ ms.lasthandoff: 11/01/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Servizio contenitore di Azure</h3>
-                                                    <p>Ridimensionare e orchestrare i contenitori con Kubernetes, DC/OS o Docker Swarm</p>
+                                                    <p>Eseguire applicazioni in contenitori scalabili con Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2020,7 +2020,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Servizio contenitore di Azure</h3>
-                                                    <p>Ridimensionare e orchestrare i contenitori con Kubernetes, DC/OS o Docker Swarm</p>
+                                                    <p>Eseguire applicazioni in contenitori scalabili con Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>

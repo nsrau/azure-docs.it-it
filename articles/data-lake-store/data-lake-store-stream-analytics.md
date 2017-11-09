@@ -12,21 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Trasmettere i dati dal BLOB di archiviazione di Azure ad Archivio Data Lake usando Analisi di flusso di Azure
 In questo articolo viene descritto come usare Archivio Azure Data Lake come output per un processo di Analisi di flusso di Azure. Questo articolo illustra uno scenario semplice in cui i dati vengono letti da un BLOB di Archiviazione di Azure (input) e scritti in Archivio Data Lake (output).
-
-> [!NOTE]
-> Attualmente la creazione e la configurazione di output di Archivio Data Lake per l'Analisi di flusso è supportata solo nel [portale di Azure classico](https://manage.windowsazure.com). Di conseguenza, alcune parti di questa esercitazione useranno il portale di Azure classico.
->
->
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:

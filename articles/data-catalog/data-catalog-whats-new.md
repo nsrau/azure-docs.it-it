@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/06/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novità di Azure Data Catalog
 Gli aggiornamenti ad **Azure Data Catalog** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includono tuttavia nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio Azure Data Catalog.
@@ -239,7 +239,7 @@ A partire da settembre 2015 sono state aggiunte ad Azure Data Catalog le funzion
 * Supporto per la registrazione e l'individuazione degli oggetti e dei database di Azure SQL Data Warehouse. Per altre informazioni su Azure SQL Data Warehouse, vedere [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Supporto per la registrazione e l'individuazione di modelli di SQL Server Analysis Services e di server SQL Server Reporting Services come contenitori. Quando si registrano oggetti SSAS e SSRS, Azure Data Catalog crea una voce per il modello SSAS e il server SSRS, nonché per i report e altri oggetti. I contenitori possono essere individuati e annotati mediante il portale di Azure Data Catalog. Gli utenti possono inoltre eseguire ricerche e applicare filtri nel contenuto di un modello o di un server oltre a eseguire ricerche e applicare filtri nel contenuto del catalogo.
 * Supporto per la registrazione e l'individuazione degli oggetti di SQL Server Analysis Services tramite HTTP/HTTPS. Gli utenti possono ora connettersi ai server SSAS usando un URL (ad esempio https://servername/olap/msmdpump.dll) anziché un nome di server e possono usare l'autenticazione di base e le connessioni anonime oltre all'autenticazione di Windows. Per altre informazioni sulle connessioni HTTP/HTTPS a SSAS, vedere [Configurare l'accesso HTTP ad Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-* Supporto per le origini dati Hive in HDInsight. Gli utenti possono ora registrarsi e individuare le tabelle Hive per Apache Hive di Hadoop sulle origini dati HDInsight. Per altre informazioni su Hive in HDInsight, vedere il [centro di documentazione HDInsight](../hdinsight/hdinsight-use-hive.md).
+* Supporto per le origini dati Hive in HDInsight. Gli utenti possono ora registrarsi e individuare le tabelle Hive per Apache Hive di Hadoop sulle origini dati HDInsight. Per altre informazioni su Hive in HDInsight, vedere il [centro di documentazione HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Supporto per la registrazione e l'individuazione dei database Oracle e dei cluster HDFS come contenitori. Quando si registrano tabelle e viste Oracle o HDFS, Azure Data Catalog crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato mediante il portale di Azure Data Catalog. Gli utenti possono inoltre cercare e filtrare il contenuto di un database o cluster, oltre a cercare e filtrare il contenuto del catalogo.
 * Supporto per la registrazione manuale di tipi di origini dati sconosciute. Gli utenti possono immettere manualmente informazioni sull'origine dati tramite il portale di Azure Data Catalog in modo che sia possibile annotare e individuare le origini dati non esplicitamente supportate dal tool di registrazione delle origini dati.
 * Supporto per la registrazione e l'individuazione dei database di SQL Server come contenitori. Quando si registrano tabelle e viste SQL Server, Azure Data Catalog crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato mediante il portale di Azure Data Catalog. Gli utenti possono inoltre cercare e filtrare il contenuto di un database oltre a cercare e filtrare il contenuto del catalogo.

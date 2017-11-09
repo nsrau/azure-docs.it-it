@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -31,7 +31,7 @@ Dopo la distribuzione, molte organizzazioni vogliono sapere come o se SSPR è ef
 È possibile rispondere alle domande seguenti da rapporti presenti nel [portale di Azure] (https://portal.azure.com/).
 
 > [!NOTE]
-> È necessario essere [un amministratore globale](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) e si deve acconsentire esplicitamente alla raccolta di questi dati per conto dell'organizzazione, visitando le schede di rapporti o i log di controllo almeno una volta. Fino a quel momento, i dati per l'organizzazione non verranno raccolti
+> È necessario essere [un amministratore globale](active-directory-assign-admin-roles.md) e si deve acconsentire esplicitamente alla raccolta di questi dati per conto dell'organizzazione, visitando le schede di rapporti o i log di controllo almeno una volta. Fino a quel momento, i dati per l'organizzazione non verranno raccolti
 
 * Quante persone si sono registrate per la reimpostazione delle password?
 * Chi ha eseguito la registrazione per la reimpostazione delle password?
@@ -78,13 +78,7 @@ Attualmente, l'API di creazione di report ed eventi di Azure AD recupera fino a 
 
 Se è necessario recuperare o archiviare dati oltre questo intervallo, è consigliabile salvarli in modo permanente in un database esterno e usare l'API per eseguire una query sui delta risultanti. Un consiglio è quello di avviare il recupero dei dati quando si inizia a usare la reimpostazione della password in modalità self-service all'interno dell'organizzazione, archiviare i dati esternamente e quindi continuare a monitorare i delta da questo punto in poi.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Come scaricare rapidamente gli eventi di registrazione per la reimpostazione della password con PowerShell
-
-Oltre a usare l'API di creazione di report ed eventi direttamente, è anche possibile impiegare lo script di PowerShell seguente per eventi di registrazione recenti nella directory. Ciò risulta utile nel caso in cui si desidera vedere chi si è registrato di recente o per verificare che l'implementazione della reimpostazione della password stia avendo luogo come previsto.
-
-* [Script di PowerShell per le attività di registrazione della reimpostazione della password self-service di Azure AD](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Descrizione delle colonne del rapporto nel Portale di Azure
+## <a name="description-of-report-columns-in-azure-portal"></a>Descrizione delle colonne del rapporto nel Portale di Azure
 
 L'elenco seguente descrive le colonne del report in modo dettagliato:
 
@@ -93,7 +87,7 @@ L'elenco seguente descrive le colonne del report in modo dettagliato:
 * **Data e ora** : la data e l'ora del tentativo.
 * **Dati registrati** : i dati di autenticazione specificati dall'utente durante la registrazione per la reimpostazione delle password.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Descrizione dei valori del rapporto nel Portale di Azure
+## <a name="description-of-report-values-in-azure-portal"></a>Descrizione dei valori del rapporto nel Portale di Azure
 
 La tabella seguente descrive i valori consentiti per ogni colonna:
 

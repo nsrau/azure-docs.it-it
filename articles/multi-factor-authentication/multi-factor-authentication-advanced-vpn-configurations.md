@@ -3,7 +3,7 @@ title: Scenari avanzati con Azure MFA e VPN di terze parti
 description: Guide di configurazione dettagliate per l'integrazione di Azure MFA con Cisco, Citrix e Juniper.
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 1f94a214-d6f6-48a8-8a12-006b5896ae45
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
-ms.openlocfilehash: 61cf29acac22d546e1b75604f799993ad6ff9042
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: 9daad3fab3990297cea6651c474e29e5c4002364
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Scenari avanzati con Azure Multi-Factor Authentication e soluzioni VPN di terze parti
 È possibile usare Azure Multi-Factor Authentication per connettersi rapidamente a varie soluzioni VPN di terze parti. Questo articolo illustra in particolare i dispositivi VPN Cisco® ASA, Citrix NetScaler SSL e Juniper Networks Secure Access/Pulse Secure Connect Secure SSL. Sono disponibili guide alla configurazione utili per questi tre dispositivi comuni. Il server Multi-Factor Authentication può anche integrarsi con la maggior parte di altri sistemi che usano RADIUS, LDAP, IIS o l'autenticazione basata su attestazioni per AD FS. Per informazioni più dettagliate, vedere la sezione relativa alle [configurazioni del server Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#next-steps).

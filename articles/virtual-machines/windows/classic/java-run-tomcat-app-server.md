@@ -15,15 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Come eseguire un server di applicazione di Java in una macchina virtuale creata con il modello di distribuzione classica.
 > [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per un modello di Resource Manager con cui distribuire un'app Web con Java 8 e Tomcat, vedere [qui](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Con Azure è possibile utilizzare una macchina virtuale per fornire funzionalità di server. Si può ad esempio configurare una macchina virtuale in esecuzione in Azure per ospitare un server applicazioni Java, come Apache Tomcat.
 

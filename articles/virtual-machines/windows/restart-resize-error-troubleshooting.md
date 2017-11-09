@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fe9cc11a9046b537a4a10f34e77bacb69232743
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fecb9ebf359e3d3d23d5af0f60882cdfac5ff45
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione con il riavvio o il ridimensionamento di una VM Windows esistente in Azure
 Quando si prova ad avviare una macchina virtuale (VM) di Azure arrestata o se ne ridimensiona una esistente, l'errore comune che si verifica è un errore di allocazione. L'errore si verifica quando il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni della VM richieste.

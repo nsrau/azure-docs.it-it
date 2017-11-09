@@ -8,6 +8,41 @@
 ### [Distribuire la soluzione preconfigurata](iot-suite-remote-monitoring-deploy.md)
 ### [Gestire la soluzione preconfigurata](iot-suite-remote-monitoring-explore.md)
 
+## Monitoraggio remoto (versione precedente)
+### [Che cosa sono le soluzioni preconfigurate?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [Domande frequenti](iot-suite-v1-faq.md)
+
+### Attività iniziali
+#### [Introduzione alle soluzioni preconfigurate](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Autorizzazioni in azureiotsuite.com](iot-suite-v1-permissions.md)
+#### [Procedura dettagliata per la soluzione di monitoraggio remoto](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Connettere Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### Usare C
+###### [Dati simulati](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [Usare sensori reali](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [Implementare l'aggiornamento del firmware](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Usare Node.js
+###### [Dati simulati](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [Usare sensori reali](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [Implementare l'aggiornamento del firmware](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### Connettere il gateway Intel NUC
+##### [Dati simulati](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [Usare un sensore reale](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### Procedure
+#### Connettere un dispositivo simulato
+##### [C su Windows](iot-suite-v1-connecting-devices.md)
+##### [C su Linux](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.JS](iot-suite-v1-connecting-devices-node.md)
+#### [Connettere un'app per la logica alla soluzione di monitoraggio remoto](iot-suite-v1-logic-apps-tutorial.md)
+#### [Personalizzare una soluzione preconfigurata](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Usare la telemetria dinamica con la soluzione di monitoraggio remoto](iot-suite-v1-dynamic-telemetry.md)
+#### [Creare una regola personalizata nella soluzione di monitoraggio remoto](iot-suite-v1-custom-rule.md)
+#### [Informazioni sui dispositivi nella soluzione di monitoraggio remoto](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## Manutenzione predittiva
 ### [Panoramica della soluzione di manutenzione predittiva](iot-suite-predictive-overview.md)
 ### [Procedura dettagliata per la soluzione di manutenzione predittiva](iot-suite-predictive-walkthrough.md)

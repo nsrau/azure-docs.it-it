@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 174ab97ac14f4c05690306691df5ee4b6d33dd93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a3c9422887592c29c2eae8bd75cf960865808fd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storage-delete-errors-in-resource-manager-deployment"></a>Risolvere gli errori quando si eliminano risorse di archiviazione in una distribuzione Resource Manager
 Questo articolo fornisce indicazioni sulla risoluzione dei problemi quando si verifica uno degli errori seguenti durante il tentativo di eliminare un account di archiviazione, un contenitore o un BLOB di Azure in una distribuzione Resource Manager.

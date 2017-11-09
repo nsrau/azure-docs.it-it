@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc1aa4d778a6232258470fc9a58a98906c86ec7b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scenari di distribuzione e casi d'uso
 Questa sezione illustra alcuni scenari e casi d'uso che traggono vantaggio dall'utilizzo di Servizi di dominio Azure Active Directory (AD).
@@ -85,4 +85,4 @@ Per altre informazioni su questo scenario di distribuzione, vedere come [integra
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>Cluster HDInsight aggiunti al dominio (anteprima)
 È possibile impostare un cluster HDInsight di Azure aggiunto a un dominio gestito di Azure AD Domain Services con Apache Ranger abilitato. Creare e applicare criteri Hive tramite Apache Ranger e consentire agli utenti (ad esempio, i ricercatori) di connettersi a Hive usando strumenti basati su ODBC, come Excel, Tableau e così via. Microsoft sta lavorando per aggiungere presto altri carichi di lavoro, ad esempio HBase, Spark e Storm, a HDInsight aggiunto al dominio.
 
-Per altre informazioni su questo scenario di distribuzione, vedere come [configurare i cluster HDInsight aggiunti al dominio](../hdinsight/hdinsight-domain-joined-configure.md)
+Per altre informazioni su questo scenario di distribuzione, vedere come [configurare i cluster HDInsight aggiunti al dominio](../hdinsight/domain-joined/apache-domain-joined-configure.md)

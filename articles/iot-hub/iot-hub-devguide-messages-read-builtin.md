@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: f864ca586e8e607168ae7b46a1eaa297eca1cfb8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leggere messaggi da dispositivo a cloud dall'endpoint predefinito
 
@@ -62,8 +62,8 @@ Se si deve compilare una stringa di connessione dell'hub eventi con le informazi
 Di seguito sono elencati gli SDK e le integrazioni che è possibile usare con gli endpoint compatibili con l'hub eventi esposti dall'hub IoT:
 
 * [Client Java di Hub eventi](https://github.com/Azure/azure-event-hubs-java).
-* [Spout di Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). È possibile visualizzare il [codice sorgente dello spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) su GitHub.
-* [Integrazione Apache Spark](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md).
+* [Spout di Apache Storm](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). È possibile visualizzare il [codice sorgente dello spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) su GitHub.
+* [Integrazione Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

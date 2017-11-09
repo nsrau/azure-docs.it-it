@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Sinonimi in Ricerca di Azure (anteprima)
 
 La funzionalità relativa ai sinonimi nei motori di ricerca associa termini equivalenti, che espandono in modo implicito l'ambito di una query, senza che l'utente debba fornire effettivamente il termine. Ad esempio, dato il termine "cane" e le associazioni sinonimiche "canino" e "cucciolo", tutti i documenti contenenti "cane", "canino" o "cucciolo" saranno inclusi nella query.
 
-In Ricerca di Azure l'espansione sinonimica viene eseguita in fase di query. È possibile aggiungere mappe sinonimiche a un servizio senza compromettere le operazioni esistenti. La proprietà **synonymMaps** può essere aggiunta alla definizione di un campo senza dover ricompilare l'indice. Per altre informazioni, vedere [Aggiornare un indice](https://docs.microsoft.com/rest/api/searchservice/update-index) .
+In Ricerca di Azure l'espansione sinonimica viene eseguita in fase di query. È possibile aggiungere mappe sinonimiche a un servizio senza compromettere le operazioni esistenti. La proprietà **synonymMaps** può essere aggiunta alla definizione di un campo senza dover ricompilare l'indice.
 
 ## <a name="feature-availability"></a>Disponibilità delle funzionalità
 
@@ -78,14 +78,14 @@ In alternativa è possibile usare PUT e specificare il nome della mappa sinonimi
 
 Il formato Solr supporta il mapping sinonimico equivalente ed esplicito. Le regole del mapping aderiscono alla specifica di filtro dei sinonimi open source di Apache Solr descritta in questo documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Di seguito è riportata una regola di esempio per sinonimi equivalenti.
 ```
-              USA, United States, United States of America
+USA, United States, United States of America
 ```
 
 Con la regola precedente, la query di ricerca "USA" si espanderà in "USA" OR "Stati Uniti" OR "Stati Uniti d'America".
 
 Il mapping esplicito è indicato da una freccia "=>". Quando è specificato, una sequenza di termini di una query di ricerca che corrisponde al lato sinistro di "= >" verrà sostituita con le alternative sul lato destro. Data la regola seguente, le query di ricerca "Washington", "Wash." o "WA" saranno riscritte tutte come "WA". Il mapping esplicito si applica solo nella direzione specificata e, in questo caso, non riscrivere la query "WA" come "Washington".
 ```
-              Washington, Wash., WA => WA
+Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Elencare le mappe sinonimiche del proprio servizio.

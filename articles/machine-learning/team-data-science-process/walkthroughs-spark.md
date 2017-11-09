@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 99b9f047525f46f68dc2c1029f6d53fbda87b69e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76c9382cc5210bb5ac8551ebb7b16ecabe0dcd39
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Procedure dettagliate di data science per HDInsight Spark con PySpark e Scala in Azure
 
-Queste procedure dettagliate usano PySpark e Scala in un cluster Spark di Azure per eseguire analisi predittive. Seguono i passaggi descritti nel processo di data science per i team. Per una panoramica del processo di data science per i team, vedere [Processo di data science](overview.md). Per una panoramica di Spark in HDInsight, vedere [Introduzione a Spark in HDInsight](../../hdinsight/hdinsight-apache-spark-overview.md).
+Queste procedure dettagliate usano PySpark e Scala in un cluster Spark di Azure per eseguire analisi predittive. Seguono i passaggi descritti nel processo di data science per i team. Per una panoramica del processo di data science per i team, vedere [Processo di data science](overview.md). Per una panoramica di Spark in HDInsight, vedere [Introduzione a Spark in HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
 Le procedure dettagliate di data science aggiuntive che eseguono il processo di data science per i team sono raggruppate in base alla **piattaforma** che usano. Per i dettagli di questi esempi, vedere [Procedure dettagliate del processo di data science per i team](walkthroughs.md).
 

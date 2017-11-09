@@ -12,15 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 0d44f94719bff0cb58b3727050598e55f4774e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ae0caec211dc1199f0abd2ce9bc0c7ad11c02ec
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo
+
+
 ## <a name="overview"></a>Panoramica
 Il dispositivo StorSimple include diodi a emissione luminosa (LED) e allarmi che possono essere utilizzati per monitorare i moduli e lo stato generale del dispositivo StorSimple. Gli indicatori di monitoraggio possono trovarsi in componenti hardware dello chassis principale e dello chassis EBOD del dispositivo. Gli indicatori di monitoraggio possono essere LED o allarmi acustici.
 

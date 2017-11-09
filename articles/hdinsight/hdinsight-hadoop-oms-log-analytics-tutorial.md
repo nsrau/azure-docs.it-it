@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: nitinme
-ms.openlocfilehash: c1c74c797449c2fa6d76438f9ec33eaf0fe51af4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbd3d0ed4337d4fe86465c5c59bf20c0a50a87b4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Usare Azure Log Analytics per monitorare i cluster HDInsight (Anteprima)
 
@@ -39,7 +39,7 @@ Log Analytics è un servizio di [Operations Management Suite (OMS)](../operation
     * Kafka
     * Interactive Hive
 
-    Per istruzioni su come creare un cluster HDInsight, vedere [Introduzione ad Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+    Per istruzioni su come creare un cluster HDInsight, vedere [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 
 * **Un'area di lavoro di Log Analytics**. Un'area di lavoro è un ambiente di Log Analytics univoco con un archivio dati, origini dati e soluzioni. È necessario avere un'area di lavoro di questo tipo già creata, da poter associare ai cluster Azure HDInsight. Per istruzioni, vedere [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).

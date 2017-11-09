@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f1aa4117b389bb127eb7235f69f587dcb715ac25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 373a98855886cc7be7518c664f82bb6f92ca86f3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Risolvere i problemi di rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
 Questo articolo fornisce indicazioni sulla risoluzione dei problemi per diagnosticare la causa del rallentamento delle prestazioni di backup per file e cartelle quando si usa Backup di Azure. Quando si usa l'agente di Backup di Azure per eseguire il backup dei file, è possibile che il processo richieda più tempo del previsto. Questo ritardo può dipendere da una o più delle cause seguenti:

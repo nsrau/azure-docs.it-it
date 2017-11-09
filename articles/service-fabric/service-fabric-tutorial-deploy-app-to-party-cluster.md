@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Distribuire un'applicazione in un cluster di entità in Azure
 Questa esercitazione è la seconda parte di una serie e illustra come distribuire un'applicazione di Azure Service Fabric in un cluster di entità in Azure.
@@ -58,24 +58,6 @@ Se si vuole, è possibile usare un proprio cluster anziché il cluster di entit�
 
 > [!NOTE]
 > I cluster di entità non sono protetti, quindi le applicazioni e tutti i dati inseriti negli stessi possono essere visibili ad altri utenti. Non distribuire elementi che gli altri utenti non devono vedere. Assicurarsi di leggere tutti i dettagli nelle Condizioni per l'utilizzo.
-
-## <a name="configure-the-listening-port"></a>Configurare la porta di ascolto
-Quando viene creato il servizio front-end VotingWeb, Visual Studio seleziona casualmente una porta su cui il servizio resterà in ascolto.  Poiché il servizio VotingWeb agisce come front-end per l'applicazione e accetta traffico esterno, è opportuno associare il servizio a una porta fissa e conosciuta. In Esplora soluzioni aprire *VotingWeb/PackageRoot/ServiceManifest.xml*.  Trovare la risorsa **Endpoint** nella sezione **Risorse** e modificare il valore della **Porta** su 80.
-
-```xml
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
-    </Endpoints>
-  </Resources>
-```
-
-Aggiornare inoltre il valore della proprietà URL applicazione nel progetto Voting in modo che, quando si esegue il debug con il tasto F5, un Web browser si apra sulla porta corretta.  In Esplora soluzioni selezionare il progetto **Voting** e aggiornare la proprietà **URL applicazione**.
-
-![URL applicazione](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>Distribuire l'app in Azure
 Ora che l'applicazione è pronta, è possibile distribuirla nel cluster di entità direttamente da Visual Studio.

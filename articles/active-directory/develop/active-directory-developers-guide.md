@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1baf98616eb48bd3ae45b78ab1ac31e711fa655d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory per sviluppatori
 Azure Active Directory è un servizio cloud di gestione delle identità con il quale gli sviluppatori possono consentire l'accesso in modo sicuro a qualsiasi utente con un account aziendale o dell'istituto di istruzione supportato da Microsoft.  Questa documentazione illustra come aggiungere il supporto di Azure AD all'applicazione tramite protocolli di autenticazione standard di settore, OAuth e OpenID Connect.
@@ -59,16 +59,9 @@ Questi articoli offrono informazioni dettagliate su API, messaggi di protocollo 
 | [Glossario](active-directory-dev-glossary.md)                                      | Terminologia e definizioni dei termini usati nella documentazione |
 | [Altro materiale di riferimento](active-directory-developers-guide-index.md#reference)|     |
 
-## <a name="help--support"></a>Guida e supporto
-Il modo migliore per ottenere assistenza per lo sviluppo in Azure Active Directory.
-
-|  |  
-|---|
-|[Tag `azure-active-directory` e `adal` di Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
-|[Commenti e suggerimenti su Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
-| [Provare Microsoft Dev Chat (gratuito per un periodo di tempo limitato)](http://aka.ms/devchat) |
-
-<br />
 
 > [!NOTE]
 > Se è necessario l'accesso ad account personali Microsoft, è consigliabile usare l'[endpoint di Azure AD 2.0 ](active-directory-appmodel-v2-overview.md).  L'endpoint Azure AD 2.0 è l'unificazione degli account personali e aziendali di Microsoft (Azure AD) in un solo sistema di autenticazione.
+
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

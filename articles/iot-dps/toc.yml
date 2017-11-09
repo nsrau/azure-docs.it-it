@@ -29,12 +29,15 @@
       href: concepts-service.md
     - name: Concetti relativi alla sicurezza
       href: concepts-security.md
+    - name: Sicurezza
 - name: Guide alle procedure
   items:
     - name: Gestire le registrazioni dei dispositivi
       href: how-to-manage-enrollments.md
     - name: Usare il modulo di protezione hardware con SDK
       href: use-hsm-with-sdk.md
+    - name: Controllare l'accesso al servizio di provisioning
+      href: how-to-control-access.md
 - name: riferimento
   items:
     - name: REST

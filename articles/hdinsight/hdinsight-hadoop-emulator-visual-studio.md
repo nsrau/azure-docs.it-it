@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53db03029ffca724638871b22a12dfa7f160fc64
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usare gli strumenti Azure Data Lake per Visual Studio con Sandbox di Hortonworks
 
@@ -29,7 +29,7 @@ Sandbox di Hortonworks consente di utilizzare Hadoop in locale nell'ambiente di 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sandbox di Hortonworks in esecuzione su una macchina virtuale nell'ambiente di sviluppo. Questo documento è stato scritto e testato con l'ambiente sandbox in esecuzione in Oracle VirtualBox. Per informazioni sulla configurazione della sandbox, vedere l'[introduzione a Hortonworks Sandbox](hdinsight-hadoop-emulator-get-started.md) nel relativo documento.
+* Sandbox di Hortonworks in esecuzione su una macchina virtuale nell'ambiente di sviluppo. Questo documento è stato scritto e testato con l'ambiente sandbox in esecuzione in Oracle VirtualBox. Per informazioni sulla configurazione della sandbox, vedere l'[introduzione a Hortonworks Sandbox](hadoop/apache-hadoop-emulator-get-started.md) nel relativo documento.
 
 * Visual Studio 2013, Visual Studio 2015 o Visual Studio 2017 (qualsiasi edizione).
 
@@ -39,7 +39,7 @@ Sandbox di Hortonworks consente di utilizzare Hadoop in locale nell'ambiente di 
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configurare le password per Sandbox
 
-Assicurarsi che l'ambiente Hortonworks Sandbox sia in esecuzione. Seguire la proceduta illustrata nel documento di [introduzione a Hortonworks Sandbox](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). per configurare la password dell'account `root` SSH e dell'account `admin` Ambari. Queste password vengono usate per la connessione a Sandbox da Visual Studio.
+Assicurarsi che l'ambiente Hortonworks Sandbox sia in esecuzione. Seguire la proceduta illustrata nel documento di [introduzione a Hortonworks Sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords). per configurare la password dell'account `root` SSH e dell'account `admin` Ambari. Queste password vengono usate per la connessione a Sandbox da Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Connettere gli strumenti a Sandbox
 

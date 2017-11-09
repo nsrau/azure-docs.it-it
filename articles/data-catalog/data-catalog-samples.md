@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/05/2017
+ms.date: 10/01/2017
 ms.author: spelluru
-ms.openlocfilehash: 6ba88885805f1a206f01015f7eec5236da517403
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bda20280e755c69f3d76e5c7dad345b313bd1cc5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="data-catalog-developer-samples"></a>Esempi per sviluppatori del Catalogo dati
 Introduzione allo sviluppo delle app del catalogo dati mediante l'API REST del catalogo dati. L'API REST Data Catalog è un'API basata su REST che consente l'accesso a livello di codice alle risorse di Data Catalog per registrare, annotare e cercare asset di dati.
