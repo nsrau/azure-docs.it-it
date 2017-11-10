@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdb5fdb094a185db12ee08969a12e556dab96389
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Creare un'applicazione .NET Service Fabric in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
@@ -57,12 +57,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## <a name="run-the-application-locally"></a>Eseguire l'applicazione in locale
 Fare clic con il pulsante destro del mouse sull'icona di Visual Studio nel menu Start e scegliere **Esegui come amministratore**. Per connettere il debugger ai servizi, è necessario eseguire Visual Studio come amministratore.
 
-Aprire la soluzione di Visual Studio **Voting.sln** dal repository che è stato clonato.
+Aprire la soluzione di Visual Studio **Voting.sln** dal repository che è stato clonato.  
+
+Per impostazione predefinita, l'applicazione Voting è impostata per l'ascolto sulla porta 8080.  La porta dell'applicazione è impostata nel file */VotingWeb/PackageRoot/ServiceManifest.xml*.  È possibile cambiare la porta dell'applicazione aggiornando l'attributo **Port** dell'elemento **Endpoint**.  Per distribuire ed eseguire l'applicazione in locale, la porta dell'applicazione deve essere aperta e disponibile nel computer.  Se si cambia la porta dell'applicazione, sostituire "8080" con il nuovo valore della porta dell'applicazione in tutto l'articolo.
 
 Per distribuire l'applicazione, premere **F5**.
 
 > [!NOTE]
-> La prima volta che si esegue e si distribuisce l'applicazione, Visual Studio crea un cluster locale per il debug. Questa operazione può richiedere del tempo. Lo stato della creazione del cluster verrà visualizzato nella finestra di output di Visual Studio.
+> La prima volta che si esegue e si distribuisce l'applicazione, Visual Studio crea un cluster locale per il debug. Questa operazione può richiedere del tempo. Lo stato della creazione del cluster verrà visualizzato nella finestra di output di Visual Studio.  Nell'output verrà visualizzato il messaggio "L'URL dell'applicazione non è impostato oppure non è di tipo HTTP/HTTPS, di conseguenza l'applicazione non verrà aperta nel browser".  Questo messaggio non indica un errore, ma indica che un browser non verrà avviato automaticamente.
 
 Al termine della distribuzione, avviare un browser e aprire la pagina `http://localhost:8080`, ovvero il front-end Web dell'applicazione.
 
@@ -114,14 +116,15 @@ Per osservare che cosa avviene nel codice, completare la procedura seguente:
 Per interrompere la sessione di debug, premere **MAIUSC+F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuzione dell'applicazione in Azure
-Per distribuire l'applicazione in un cluster in Azure, è possibile scegliere di creare un proprio cluster oppure usare un cluster di entità.
+Per distribuire l'applicazione in Azure, è necessario un cluster di Service Fabric che esegua l'applicazione. 
 
-I cluster di entità sono cluster Service Fabric gratuiti e disponibili per un periodo di tempo limitato ospitati in Azure e gestiti dal team di Service Fabric, in cui chiunque può distribuire applicazioni e ottenere informazioni sulla piattaforma. Per ottenere l'accesso a un cluster di entità, [seguire le istruzioni](http://aka.ms/tryservicefabric). 
+### <a name="join-a-party-cluster"></a>Aggiungere un party cluster
+I cluster di entità sono cluster Service Fabric gratuiti e disponibili per un periodo di tempo limitato ospitati in Azure e gestiti dal team di Service Fabric, in cui chiunque può distribuire applicazioni e ottenere informazioni sulla piattaforma. 
 
-Per informazioni sulla creazione di un cluster, vedere [Creare il primo cluster di Service Fabric di Azure](service-fabric-get-started-azure-cluster.md).
+Eseguire l'accesso e [aggiungere un cluster Windows](http://aka.ms/tryservicefabric). Ricordare il valore di **Endpoint connessione**, che viene usato nei passaggi seguenti.
 
 > [!Note]
-> Il servizio front-end Web è configurato per l'ascolto del traffico in ingresso sulla porta 8080. Assicurarsi che tale porta sia aperta nel cluster. Se si usa il cluster di entità, questa porta è aperta.
+> Per impostazione predefinita, il servizio front-end Web è configurato per l'ascolto del traffico in ingresso sulla porta 8080. La porta 8080 è aperta nel party cluster.  Se è necessario cambiare la porta dell'applicazione, sostituirla con una delle porte aperte nel party cluster.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Distribuire l'applicazione tramite Visual Studio
@@ -131,7 +134,9 @@ Ora che l'applicazione è pronta, è possibile distribuirla in un cluster dirett
 
     ![Finestra di dialogo Pubblica](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Digitare l'endpoint della connessione del cluster nel campo **Endpoint connessione** e fare clic su **Pubblica**. Durante la registrazione per il cluster di entità, l'endpoint della connessione viene fornito nel browser. Ad esempio, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Copiare l'**endpoint della connessione** dalla pagina del party cluster nel campo **Endpoint connessione** e fare clic su **Pubblica**. ad esempio `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+
+    Ogni applicazione nel cluster deve avere un nome univoco.  Un party cluster è tuttavia un ambiente pubblico condiviso e potrebbe verificarsi un conflitto con un'applicazione esistente.  Se è presente un conflitto di nomi, ridenominare il progetto di Visual Studio e distribuirlo di nuovo.
 
 3. Aprire un browser e digitare l'indirizzo del cluster seguito da ":8080" per passare all'applicazione nel cluster, ad esempio `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. A questo punto, sarà visualizzata l'applicazione in esecuzione nel cluster in Azure.
 
