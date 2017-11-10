@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Aggiungere nodi "burst" su richiesta in un cluster HPC Pack in Azure
 Se si configura un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) in Azure, è possibile aumentarne o ridurne la capacità senza mantenere un set di VM preconfigurate del nodo di calcolo. In questo articolo viene illustrato come aggiungere nodi "burst" su richiesta (istanze del ruolo di lavoro in esecuzione in un servizio cloud) come risorse di calcolo in un nodo head in Azure. 
 
 > [!IMPORTANT] 
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Nodi burst][burst]
 
@@ -42,10 +43,10 @@ I passaggi descritti in questo articolo consentono di aggiungere rapidamente nod
 * **Quota di core** - Potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi di Azure con dimensioni multicore. Per aumentare una quota, è possibile [aprire una richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) senza alcun addebito.
 
 ## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>Passaggio 1: Creare un servizio cloud e un account di archiviazione per i nodi di Azure
-Usare il Portale di Azure classico o strumenti equivalenti per configurare gli elementi seguenti, necessari per la distribuzione dei nodi di Azure:
+Usare il portale di Azure o strumenti equivalenti per configurare gli elementi seguenti, necessari per la distribuzione dei nodi di Azure:
 
-* Un nuovo servizio cloud di Azure
-* Un nuovo account di archiviazione di Azure
+* Un nuovo servizio cloud di Azure (versione classica)
+* Un nuovo account di archiviazione di Azure (versione classica)
 
 > [!NOTE]
 > Non riusare un servizio cloud esistente nella sottoscrizione. 
@@ -60,7 +61,11 @@ Usare il Portale di Azure classico o strumenti equivalenti per configurare gli e
 ## <a name="step-2-configure-an-azure-management-certificate"></a>Passaggio 2: Configurare un certificato di gestione di Azure
 Per aggiungere nodi di Azure come risorse di calcolo, è necessario disporre di un certificato di gestione nel nodo head e caricare un certificato corrispondente nella sottoscrizione di Azure usata per la distribuzione.
 
-Per questo scenario, è possibile scegliere il **certificato di gestione di Azure HPC predefinito** installato e configurato automaticamente da HPC Pack nel nodo head. Questo certificato è utile a scopo di test e per distribuzioni con modello di verifica. Per usare questo certificato, caricare il file C:\Programmi\Microsoft HPC Pack 2012\Bin\hpccert.cer dalla macchina virtuale del nodo head alla sottoscrizione. Per caricare il certificato nel [portale di Azure classico](https://manage.windowsazure.com), fare clic su **Impostazioni** > **Certificati di gestione**.
+Per questo scenario, è possibile scegliere il **certificato di gestione di Azure HPC predefinito** installato e configurato automaticamente da HPC Pack nel nodo head. Questo certificato è utile a scopo di test e per distribuzioni con modello di verifica. Per usare questo certificato, caricare il file C:\Programmi\Microsoft HPC Pack 2012\Bin\hpccert.cer dalla macchina virtuale del nodo head alla sottoscrizione. Per caricare il certificato nel [portale di Azure](https://portal.azure.com):
+
+1. Fare clic su **Sottoscrizioni** > *nome_della_sottoscrizione*.
+
+2. Fare clic su **Certificati di gestione** > **Carica**.
 
 Per altre opzioni per configurare il certificato di gestione, vedere gli [scenari per configurare il certificato di gestione di Azure per distribuzioni di potenziamento di Azure](http://technet.microsoft.com/library/gg481759.aspx).
 
