@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitoraggio dell'integrità e avvisi nello Stack di Azure
 
@@ -36,7 +36,7 @@ Azure Stack include il monitoraggio di funzionalità che consentono di visualizz
  
  Come operatore di Stack di Azure, è possibile visualizzare lo stato di integrità dei componenti nel portale di amministrazione e tramite l'API REST e PowerShell.
  
-Per visualizzare lo stato di integrità nel portale, fare clic sull'area che si desidera visualizzare il **Gestione area** riquadro. È possibile visualizzare lo stato di integrità dei ruoli di infrastruttura e dei provider di risorse. In questa versione, il provider di risorse di calcolo non segnala lo stato di integrità.
+Per visualizzare lo stato di integrità nel portale, fare clic sull'area che si desidera visualizzare il **Gestione area** riquadro. È possibile visualizzare lo stato di integrità dei ruoli di infrastruttura e dei provider di risorse.
 
 ![Elenco di ruoli di infrastruttura](media/azure-stack-monitor-health/image2.png)
 

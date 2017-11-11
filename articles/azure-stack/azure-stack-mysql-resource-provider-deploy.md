@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: badaefb4986f573362babea81d704bf2be067d6b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizzare i database MySQL in Microsoft Azure Stack
 
@@ -153,7 +153,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 Seconda della velocità di download e le prestazioni del sistema, installazione potrebbe richiedere un minimo di 20 minuti o come long come diverse ore. Se il pannello MySQLAdapter non è disponibile, aggiornare il portale di amministrazione.
 
 > [!NOTE]
-> Se l'installazione richiede più di 90 minuti, potrebbe non riuscire e si verrà visualizzato un messaggio di errore sullo schermo e nel file di log. La distribuzione viene ripetuta dal passaggio non riuscito. Sistemi che non soddisfano le specifiche consigliate in memoria e i componenti di base non possono essere in grado di distribuire il RP MySQL.
+> Se l'installazione richiede più di 90 minuti, potrebbe non riuscire e si verrà visualizzato un messaggio di errore sullo schermo e nel file di log. La distribuzione viene ripetuta dal passaggio non riuscito. I sistemi che non soddisfano le specifiche consigliate in memoria e CPU virtuali potrebbero non essere in grado di distribuire il RP MySQL.
 
 
 

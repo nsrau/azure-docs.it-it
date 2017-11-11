@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 329970d8717053ab7126fb8fb6a4a119ccbff6b7
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizzare i database SQL nello Stack di Microsoft Azure
 
@@ -74,7 +74,7 @@ Lo script esegue le operazioni:
 - Registrare il provider di risorse con locale Gestione risorse di Azure (utente e amministratore).
 
 > [!NOTE]
-> Se l'installazione richiede più di 90 minuti, potrebbe non riuscire e viene visualizzato un messaggio di errore sullo schermo e nel file di log, ma la distribuzione viene ritentata dal passaggio non riuscito. Sistemi che non soddisfano le specifiche consigliate in memoria e i componenti di base non possono essere in grado di distribuire il RP SQL.
+> Se l'installazione richiede più di 90 minuti, potrebbe non riuscire e viene visualizzato un messaggio di errore sullo schermo e nel file di log, ma la distribuzione viene ritentata dal passaggio non riuscito. I sistemi che non soddisfano le specifiche consigliate in memoria e CPU virtuali potrebbero non essere in grado di distribuire il RP SQL.
 >
 
 Di seguito è riportato un esempio è possibile eseguire da PowerShell richiesto (ma modificare le informazioni sull'account e password in base alle esigenze):

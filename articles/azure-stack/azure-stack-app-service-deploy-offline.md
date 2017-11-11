@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 8ee171708364c3e29476302bef04a715df650b9b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
@@ -110,7 +110,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 
     ![Programma di installazione del servizio App](media/azure-stack-app-service-deploy/image07.png)    
 
-12. Esaminare le opzioni di SKU e l'istanza del ruolo. Le impostazioni predefinite vengono popolate con il numero minimo di istanza e lo SKU minima per ogni ruolo in una distribuzione ASDK. Viene fornito un riepilogo dei requisiti di memoria e di core per la pianificazione della distribuzione. Dopo aver effettuato le selezioni, fare clic su **Avanti**.
+12. Esaminare le opzioni di SKU e l'istanza del ruolo. Le impostazioni predefinite vengono popolate con il numero minimo di istanza e lo SKU minima per ogni ruolo in una distribuzione ASDK. Viene fornito un riepilogo dei requisiti di memoria e CPU virtuali per la pianificazione della distribuzione. Dopo aver effettuato le selezioni, fare clic su **Avanti**.
 
      > [!NOTE]
      > Per le distribuzioni di produzione, le istruzioni disponibili in [pianificazione della capacità di ruoli del server di servizio App di Azure in Azure Stack](azure-stack-app-service-capacity-planning.md).
@@ -119,11 +119,11 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 
     | Ruolo | Istanze minima | SKU minimo | Note |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 Core, 1792 MB) | Gestisce e mantiene l'integrità del cloud di servizio App. |
-    | gestione | 1 | Standard_A2 - (2 core, 3584 MB) | Gestisce gli endpoint di gestione risorse di Azure App Service e API, estensioni portale (amministrazione, tenant, il portale di funzioni) e il servizio dati. Per supportare il failover, aumentare le istanze consigliate a 2. |
-    | Autore | 1 | Standard_A1 - (1 Core, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
-    | FrontEnd | 1 | Standard_A1 - (1 Core, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
-    | Lavoro condiviso | 1 | Standard_A1 - (1 Core, 1792 MB) | Gli host o applicazioni API App web e le funzioni di Azure. Si potrebbe voler aggiungere più istanze. Un operatore, è possibile definire l'offerta e scegliere il livello di qualsiasi SKU. I livelli è necessario disporre almeno di un core. |
+    | Controller | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Gestisce e mantiene l'integrità del cloud di servizio App. |
+    | gestione | 1 | Standard_A2 - (Vcpu 2, 3584 MB) | Gestisce gli endpoint di gestione risorse di Azure App Service e API, estensioni portale (amministrazione, tenant, il portale di funzioni) e il servizio dati. Per supportare il failover, aumentare le istanze consigliate a 2. |
+    | Autore | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
+    | FrontEnd | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
+    | Lavoro condiviso | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Gli host o applicazioni API App web e le funzioni di Azure. Si potrebbe voler aggiungere più istanze. Un operatore, è possibile definire l'offerta e scegliere il livello di qualsiasi SKU. I livelli è necessario disporre almeno di una CPU virtuali. |
 
     ![Programma di installazione del servizio App](media/azure-stack-app-service-deploy/image08.png)    
 
