@@ -86,8 +86,7 @@
 #### [Esempi di Azure PowerShell per le licenze basate sui gruppi](active-directory-licensing-ps-examples.md)
 #### [Informazioni di riferimento per i prodotti e i piani di servizio in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Configurare la scadenza dei gruppi di Office 365](active-directory-groups-lifecycle-azure-portal.md)
-### [Visualizzare tutti i gruppi](active-directory-groups-view-azure-portal.md)
-### [Abilitare i gruppi dedicati](active-directory-accessmanagement-dedicated-groups.md)
+### [View all groups](active-directory-groups-view-azure-portal.md) (Visualizzare tutti i gruppi)
 ### [Aggiungere l'accesso dei gruppi alle app SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Ripristinare un gruppo eliminato di Office 365](active-directory-groups-restore-azure-portal.md)
 ### Gestire le impostazioni dei gruppi
@@ -254,7 +253,6 @@
 ##### [Portale classico](active-directory-add-manage-domain-names.md)
 ### [Amministrare la directory](active-directory-administer.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md) (Diverse directory)
-### [Directory di O365](active-directory-manage-o365-subscription.md)
 ### [Iscrizione self-service](active-directory-self-service-signup.md)
 #### [Acquisire la proprietà di una directory non gestita](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
