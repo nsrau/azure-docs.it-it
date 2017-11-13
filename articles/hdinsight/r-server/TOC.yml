@@ -20,8 +20,6 @@
       items:
         - name: Opzioni di archiviazione
           href: r-server-storage.md
-        - name: Installare R Studio
-          href: r-server-install-r-studio.md
         - name: Contesto di calcolo
           href: r-server-compute-contexts.md
         - name: ScaleR e SparkR

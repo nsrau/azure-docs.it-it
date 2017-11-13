@@ -97,6 +97,8 @@
           href: howto-migrate-using-export-and-import.md
     - name: Configurare i parametri del server
       items:
+        - name: Portale di Azure
+          href: howto-configure-server-parameters-using-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-configure-server-parameters-using-cli.md
     - name: Accesso ai registri server
