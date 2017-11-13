@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: bcf42ebb081517d247690ee57c2be274784ef29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuire un dispositivo StorSimple locale (aggiornamento 3 e successivi)
 
@@ -49,7 +49,7 @@ Eseguire questi passaggi obbligatori per configurare il dispositivo StorSimple e
 | [Passaggio 1: Creare un nuovo servizio](#step-1-create-a-new-service) |Impostare Gestione cloud e archiviazione per il dispositivo StorSimple. *Ignorare questo passaggio se si dispone di un servizio esistente per altri dispositivi StorSimple*. |
 | [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2-get-the-service-registration-key) |Questa chiave viene utilizzata per registrare e connettere il dispositivo StorSimple con il servizio di gestione. |
 | [Passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Per completare la configurazione usando il servizio di gestione, connettere il dispositivo alla rete e registrarlo con Azure. |
-| [Passaggio 4: Completare l'installazione minima del dispositivo](#step-4-complete-minimum-device-setup)</br>[Facoltativo: aggiornare il dispositivo StorSimple](#scan-for-and-apply-updates) |Utilizzare il servizio di gestione per completare l'installazione del dispositivo e abilitarlo per fornire l'archiviazione. |
+| [Passaggio 4: Completare l'installazione minima del dispositivo](#step-4-complete-minimum-device-setup)</br>[Procedura consigliata: aggiornare il dispositivo StorSimple](#scan-for-and-apply-updates) |Utilizzare il servizio di gestione per completare l'installazione del dispositivo e abilitarlo per fornire l'archiviazione. |
 | [Passaggio 5: Creare un contenitore di volumi](#step-5-create-a-volume-container) |Creare un contenitore di volumi di provisioning. Un contenitore di volumi dispone di account di archiviazione, larghezza di banda e impostazioni di crittografia per tutti i volumi in esso contenuti. |
 | [Passaggio 6: Creare un volume](#step-6-create-a-volume) |Effettuare il provisioning di volumi di archiviazione nel dispositivo StorSimple per i server. |
 | [Passaggio 7: Montare, inizializzare e formattare un volume](#step-7-mount-initialize-and-format-a-volume)</br>[Facoltativo: Configurare MPIO](storsimple-8000-configure-mpio-windows-server.md) |Connettere i server all'archiviazione iSCSI fornita dal dispositivo. Facoltativamente, è possibile configurare MPIO per assicurarsi che i server possano di tollerare errori di collegamento, rete e interfaccia. |
@@ -127,6 +127,8 @@ Seguire questa procedura nel portale di Azure per completare l'installazione min
 
 [!INCLUDE [storsimple-8000-complete-minimum-device-setup-u2](../../includes/storsimple-8000-complete-minimum-device-setup-u2.md)]
 
+Dopo aver completato la configurazione minima del dispositivo, è consigliabile [cercare e applicare gli aggiornamenti più recenti](#scan-for-and-apply-updates).
+
 ## <a name="step-5-create-a-volume-container"></a>Passaggio 5: Creare un contenitore di volumi
 Un contenitore di volumi dispone di account di archiviazione, larghezza di banda e impostazioni di crittografia per tutti i volumi in esso contenuti. Prima di iniziare il provisioning dei volumi nel dispositivo StorSimple è necessario creare un contenitore di volumi.
 
@@ -181,7 +183,7 @@ Per connettersi a Windows PowerShell per StorSimple, è necessario utilizzare un
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>Cercare e applicare gli aggiornamenti
-L’aggiornamento del dispositivo può richiedere diverse ore. Per i passaggi dettagliati per installare l'aggiornamento più recente, vedere [Install Update 4](storsimple-8000-install-update-4.md) (Installare l'aggiornamento 4).
+L’aggiornamento del dispositivo può richiedere diverse ore. Per istruzioni dettagliate sull'installazione dell'aggiornamento più recente, vedere [Installare l'aggiornamento 5](storsimple-8000-install-update-5.md).
 
 
 ## <a name="get-the-iqn-of-a-windows-server-host"></a>Ottenere il nome qualificato iSCSI di un host di Windows Server

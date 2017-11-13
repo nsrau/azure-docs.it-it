@@ -1,6 +1,6 @@
 ---
-title: Peering di rete virtuale di Azure | Documentazione Microsoft
-description: Informazioni sul peering di rete virtuale in Azure.
+title: Peering reti virtuali di Azure | Documentazione Microsoft
+description: Informazioni sul peering reti virtuali in Azure.
 services: virtual-network
 documentationcenter: na
 author: NarayanAnnamalai
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
 Il peering di rete virtuale consente di connettere in tutta semplicità due [reti virtuali](virtual-networks-overview.md) di Azure. Dopo avere eseguito il peering, le reti virtuali vengono visualizzate come una sola per scopi di connettività. Il traffico tra macchine virtuali presenti in reti virtuali di cui è stato eseguito il peering viene instradato tramite l'infrastruttura backbone Microsoft, in modo simile all'instradamento del traffico tra macchine virtuali presenti nella stessa rete virtuale, solo tramite indirizzi IP *privati*. 
 
-Il peering di rete virtuale include i vantaggi seguenti:
+Il peering reti virtuali include i vantaggi seguenti:
 
 * Il traffico di rete tra reti virtuali di cui è stato eseguito il peering è privato. Il traffico tra le reti virtuali viene mantenuto nella rete backbone Microsoft. Nella comunicazione tra le reti virtuali non sono necessari gateway, una rete Internet pubblica o la crittografia.
 * Connessione a bassa latenza e larghezza di banda elevata tra le risorse in reti virtuali diverse.
@@ -35,9 +35,9 @@ Il peering di rete virtuale include i vantaggi seguenti:
 
 ## <a name="requirements-constraints"></a>Requisiti e vincoli
 
-* Il peering di rete virtuale nella stessa area è disponibile a livello generale. Il peering di rete virtuale in aree diverse è attualmente in anteprima negli Stati Uniti centro-occidentali, nel Canada centrale e negli Stati Uniti occidentali 2. È possibile [registrare la sottoscrizione](virtual-network-create-peering.md) per l'anteprima.
+* Il peering reti virtuali nella stessa area è disponibile a livello generale. Il peering reti virtuali in aree diverse è attualmente in anteprima negli Stati Uniti centro-occidentali, nel Canada centrale e negli Stati Uniti occidentali 2. Prima di eseguire il peering di reti virtuali in aree diverse, è necessario [registrare la sottoscrizione](virtual-network-create-peering.md#register) per l'anteprima. Il tentativo di creare un peering tra reti virtuali di aree diverse non andrà a buon fine se non è stata completata la registrazione per l'anteprima.
     > [!WARNING]
-    > I peering di rete virtuale creati tra aree diverse non hanno lo stesso livello di disponibilità e affidabilità di quelli creati in una versione con disponibilità generale. I peering di rete virtuale possono presentare funzionalità limitate e potrebbero non essere disponibili in tutte le aree di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato della funzionalità, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network) .
+    > I peering di rete virtuale creati tra aree diverse non hanno lo stesso livello di disponibilità e affidabilità di quelli creati in una versione con disponibilità generale. I peering reti virtuali possono presentare funzionalità limitate e potrebbero non essere disponibili in tutte le aree di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato della funzionalità, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network) .
 
 * Le reti virtuali con peering non devono avere spazi di indirizzi IP sovrapposti.
 * Non è possibile aggiungere o eliminare intervalli di indirizzi dallo spazio di indirizzi di una rete virtuale dopo che ne è stato eseguito il peering con un'altra rete virtuale. Se è necessario aggiungere intervalli di indirizzi allo spazio di indirizzi di una rete virtuale di cui è stato eseguito il peering, è necessario rimuovere il peering, aggiungere lo spazio di indirizzi e quindi riaggiungere il peering.
@@ -56,7 +56,7 @@ La latenza di rete tra macchine virtuali presenti in reti virtuali di cui è sta
 
 Il traffico tra macchine virtuali presenti in reti virtuali di cui è stato eseguito il peering viene direttamente instradato attraverso l'infrastruttura backbone Microsoft, non attraverso un gateway né tramite la rete Internet pubblica.
 
-Le macchine virtuali in una rete virtuale possono accedere al bilanciamento del carico interno nella rete virtuale con peering della stessa area. Il supporto per il bilanciamento del carico interno non si estende alle reti virtuali con peering globale (anteprima). La versione di disponibilità generale del peering  di rete virtuale globale supporterà il bilanciamento del carico interno.
+Le macchine virtuali in una rete virtuale possono accedere al bilanciamento del carico interno nella rete virtuale con peering della stessa area. Il supporto per il bilanciamento del carico interno non si estende alle reti virtuali con peering globale (anteprima). La versione di disponibilità generale del peering reti virtuali globale supporterà il bilanciamento del carico interno.
 
 È possibile applicare gruppi di sicurezza di rete a una delle reti virtuali per bloccare l'accesso alle altre reti virtuali o subnet, se necessario.
 Quando si configura il peering di rete virtuale, è possibile aprire o chiudere le regole dei gruppi di sicurezza di rete tra le reti virtuali. Se si apre la connettività completa tra reti virtuali con peering (opzione predefinita), è possibile applicare gruppi di sicurezza di rete a subnet o reti virtuali specifiche per bloccare o negare un accesso specifico. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Panoramica dei gruppi di sicurezza di rete](virtual-networks-nsg.md).
@@ -65,7 +65,7 @@ Quando si configura il peering di rete virtuale, è possibile aprire o chiudere 
 
 È possibile configurare route definite dall'utente che puntano a macchine virtuali di reti virtuali con peering come indirizzo IP dell'hop successivo. In questo modo viene abilitato il concatenamento dei servizi, che consente di indirizzare il traffico da una rete virtuale a un'appliance virtuale in esecuzione in una rete virtuale con peering usando le tabelle di route definite dall'utente.
 
-È anche possibile creare in modo efficace ambienti di tipo hub e spoke, in cui l'hub può ospitare componenti dell'infrastruttura, come le appliance di rete virtuale, e tutte le reti virtuali spoke possono eseguire il peering con la rete virtuale dell'hub. Il traffico può quindi fluire attraverso le appliance di rete virtuale in esecuzione nella rete virtuale dell'hub. In breve, il peering di rete virtuale consente di usare l'indirizzo IP dell'hop successivo nella route definita dall'utente come indirizzo IP di una macchina virtuale nella rete virtuale con peering. Per altre informazioni sulle route definite dall'utente, vedere [Creare route definite dall'utente](virtual-networks-udr-overview.md). Per informazioni su come creare una topologia di rete hub-spoke, vedere [Creare una topologia di rete hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+È anche possibile creare in modo efficace ambienti di tipo hub e spoke, in cui l'hub può ospitare componenti dell'infrastruttura, come le appliance di rete virtuale, e tutte le reti virtuali spoke possono eseguire il peering con la rete virtuale dell'hub. Il traffico può quindi fluire attraverso le appliance di rete virtuale in esecuzione nella rete virtuale dell'hub. In breve, il peering di rete virtuale consente di usare l'indirizzo IP dell'hop successivo nella route definita dall'utente come indirizzo IP di una macchina virtuale nella rete virtuale con peering. Per altre informazioni sulle route definite dall'utente, vedere [Creare route definite dall'utente](virtual-networks-udr-overview.md). Per informazioni su come creare una topologia di rete hub-spoke, vedere l'articolo sulla [topologia di rete hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateway e connettività locale
 
@@ -75,7 +75,7 @@ Quando vengono configurate entrambe le opzioni per la connettività tra reti vir
 
 Dopo aver eseguito il peering delle reti virtuali nella stessa area, gli utenti possono anche configurare il gateway nella rete virtuale con peering come punto di transito verso una rete locale. In questo caso, la rete virtuale che usa un gateway remoto non può avere un proprio gateway. Una rete virtuale può avere un solo gateway, che può essere locale o remoto (nella rete virtuale con peering), come illustrato nell'immagine seguente:
 
-![Peering di rete virtuale con transito](./media/virtual-networks-peering-overview/figure04.png)
+![Peering reti virtuali con transito](./media/virtual-networks-peering-overview/figure04.png)
 
 Il transito gateway non è supportato nella relazione di peering tra le reti virtuali create con aree o modelli di distribuzione diversi. Perché un transito gateway possa funzionare, entrambe le reti virtuali nella relazione di peering devono essere state create tramite Resource Manager e trovarsi nella stessa area. Le reti virtuali con peering globale non supportano attualmente il transito gateway.
 
@@ -119,7 +119,7 @@ Esistono limiti al numero di peering consentiti per una singola rete virtuale. P
 
 ## <a name="pricing"></a>Prezzi
 
-È previsto un addebito nominale per il traffico in ingresso e in uscita che usa una connessione con peering di rete virtuale. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
+È previsto un addebito nominale per il traffico in ingresso e in uscita che usa una connessione con peering reti virtuali. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

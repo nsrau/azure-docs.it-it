@@ -1,6 +1,6 @@
 ---
-title: Esercitazione per la preparazione dei dati per la classificazione con il set di dati Iris nei servizi Machine Learning (anteprima) | Microsoft Docs
-description: "Questa esaustiva esercitazione illustra come usare i servizi di Azure Machine Learning (anteprima) end-to-end. Questa è la Parte 1, che illustra la preparazione dei dati."
+title: Esercitazione per la preparazione dei dati per la classificazione con il set di dati Iris nei servizi di Azure Machine Learning (anteprima) | Microsoft Docs
+description: Questa esaustiva esercitazione illustra come usare i servizi di Azure Machine Learning (anteprima) end-to-end. Questa prima parte illustra la preparazione dei dati.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,142 +11,144 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/28/2017
-ms.openlocfilehash: 975a86c1f9d9692f6eadd232177f33cbbbeeff2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cabba8ce04d62d35ca40b3ae35d9d40a6ec7b2b9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="classifying-iris-part-1-prepare-data"></a>Classificazione di dati Iris - Parte 1: Preparare i dati
-I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di analisi scientifica dei dati e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
+# <a name="classify-iris-part-1-prepare-the-data"></a>Classificare i dati Iris - Parte 1: Preparare i dati
+I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
-Questa esercitazione è la prima di una serie in tre parti. In questa esercitazione sono disponibili informazioni dettagliate sulle nozioni di base dei servizi di Azure Machine Learning (anteprima). In questa esercitazione si apprenderà come:
+Questa esercitazione è la prima di una serie in tre parti. In questa esercitazione vengono illustrate le nozioni di base dei servizi di Azure Machine Learning (anteprima). Si apprenderà come:
 > [!div class="checklist"]
-> * Creare un progetto in Azure Machine Learning Workbench
-> * Creare un pacchetto di preparazione dei dati
-> * Generare codice Python/PySpark per richiamare il pacchetto di preparazione dei dati
+> * Creare un progetto in Azure Machine Learning Workbench.
+> * Creare un pacchetto di preparazione dei dati.
+> * Generare codice Python/PySpark per richiamare un pacchetto di preparazione dei dati.
 
-Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) per presentare l'argomento in modo semplice. Gli screenshot sono specifici di Windows, ma l'esperienza in macOS è praticamente identica.
+Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set). Gli screenshot sono specifici di Windows, ma l'esperienza in Mac OS è quasi identica.
 
 ## <a name="prerequisites"></a>Prerequisiti
-- Creare un account di Sperimentazione di Azure Machine Learning
-- Installare Azure Machine Learning Workbench
+- Creare un account Sperimentazione di Azure Machine Learning.
+- Installare Azure Machine Learning Workbench.
 
-Per installare l'applicazione Azure Machine Learning Workbench, seguire la [guida introduttiva per l'installazione e la creazione](quickstart-installation.md). L'installazione include anche l'interfaccia della riga di comando.
+Per installare l'applicazione Azure Machine Learning Workbench, è possibile seguire le istruzioni riportate nella [guida introduttiva per l'installazione e la creazione](quickstart-installation.md). L'installazione include anche l'interfaccia della riga di comando di Azure, lo strumento da riga di comando multipiattaforma di Azure.
 
-## <a name="create-a-new-project-in-azure-ml-workbench"></a>Creare un nuovo progetto in Azure Machine Learning Workbench
-1. Avviare l'app Azure Machine Learning Workbench ed eseguire l'accesso, se necessario. Nel riquadro **PROGETTI** fare clic sull'icona **+** per creare un **Nuovo progetto**.
+## <a name="create-a-new-project-in-azure-machine-learning-workbench"></a>Creare un nuovo progetto in Azure Machine Learning Workbench
+1. Aprire l'app Azure Machine Learning Workbench ed eseguire l'accesso, se necessario. Nel riquadro **PROGETTI** selezionare il segno più (**+**) per creare un **nuovo progetto**.
 
    ![Nuova area di lavoro](media/tutorial-classifying-iris/new_ws.png)
 
-2. Specificare i dettagli per **Crea nuovo progetto**. 
+2. Specificare i dettagli in **Create New Project** (Crea nuovo progetto): 
 
    ![Nuovo progetto](media/tutorial-classifying-iris/new_project.png)
 
-   - Nel campo **Nome progetto** specificare un nome per il progetto. Usare ad esempio il valore **myIris**.
-   - Scegliere la **Directory del progetto** in cui viene creato il progetto. Usare ad esempio il valore **C:\Temp**. 
-   - Immettere una **Descrizione del progetto**. 
-   - Il campo **Repository Git** è facoltativo e può essere lasciato vuoto. È possibile specificare un repository Git vuoto esistente, ovvero un repository privo di ramo master, in Visual Studio Team Services. Questo approccio consente di abilitare in seguito scenari di roaming e di condivisione. Per altre informazioni, vedere l'articolo [Using Git repo](using-git-ml-project.md) (Uso di un repository Git). 
-   - Scegliere un'**Area di lavoro**. Questa esercitazione, ad esempio, usa **IrisGarden**. 
+   - Nella casella **Nome progetto** specificare un nome per il progetto. Usare ad esempio il valore **myIris**.
+   - Selezionare la **directory di progetto** in cui creare il progetto. Ad esempio, usare il valore `C:\Temp\`. 
+   - Immettere una descrizione nel campo facoltativo **Project description** (Descrizione progetto). 
+   - Anche il campo **Git Repository** (Repository Git) è facoltativo e può essere lasciato vuoto. È possibile specificare un repository Git vuoto (ossia privo di ramo principale) esistente in Visual Studio Team Services. Se si usa un repository Git già esistente, si possono abilitare scenari di roaming e condivisione in un secondo momento. Per altre informazioni, vedere l'articolo su come [usare un repository Git](using-git-ml-project.md). 
+   - Selezionare un'**area di lavoro**. Questa esercitazione, ad esempio, usa **IrisGarden**. 
    - Selezionare il modello **Classifying Iris** dall'elenco di modelli per il progetto. 
 
-3. Fare clic sul pulsante **Crea** per creare il progetto. Il progetto viene creato e viene aperto automaticamente.
+3. Selezionare il pulsante **Crea**. Il progetto viene creato e viene aperto automaticamente.
 
 ## <a name="create-a-data-preparation-package"></a>Creare un pacchetto di preparazione dei dati
-1. Aprire il file **iris.csv** dalla **visualizzazione file**. Il file è una semplice tabella con 5 colonne e 150 righe. Include quattro colonne con funzionalità numeriche e una colonna di destinazione di tipo stringa. Non include intestazioni di colonna.
+1. Aprire il file **iris.csv** dalla **visualizzazione file**. Il file è una tabella con 5 colonne e 150 righe. Include quattro colonne con funzionalità numeriche e una colonna di destinazione di tipo stringa. Non include intestazioni di colonna.
 
    ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
    >[!NOTE]
-   > Non è consigliabile includere file di dati nella cartella di progetto, soprattutto se le dimensioni del file sono elevate. Il file **iris.csv** è incluso in questo modello per finalità dimostrative perché di dimensioni molto ridotte. Per altre informazioni, vedere l'articolo [How to read and write large data files](how-to-read-write-files.md) (Come leggere e scrivere file di dati di grandi dimensioni).
+   > Non includere file di dati nella cartella di progetto, soprattutto se le dimensioni del file sono elevate. Il file **iris.csv** è incluso in questo modello per finalità dimostrative perché di dimensioni molto ridotte. Per altre informazioni, vedere l'articolo su [come leggere e scrivere file di dati di grandi dimensioni](how-to-read-write-files.md).
 
-2. Nella **Visualizzazione dati** fare clic sull'icona **+** per aggiungere una nuova origine dati. Viene avviata la procedura guidata **Aggiungi origine dati**. 
+2. Nella **visualizzazione dati** selezionare il segno più (**+**) per aggiungere una nuova origine dati. Verrà visualizzata la pagina **Aggiungi origine dati**. 
 
    ![Visualizzazione dati](media/tutorial-classifying-iris/data_view.png)
 
-3. Completare la preparazione guidata dei dati. 
-   - Nella prima schermata selezionare l'opzione **File(s)/Directory** (File/Directory) e quindi fare clic su **Avanti**.
-   - Nella seconda schermata scegliere il file locale **iris.csv**, ad esempio "C:\Temp\myIris\iris.csv".
-   - Nella terza schermata **File Details** (Dettagli file) accettare i valori predefiniti.
-   - Nella quarta schermata **Tipi di dati** modificare **TIPO DI DATI** da _Stringa_ a _Numerico_ per le colonne da _Column1_ a _Column4_, perché contengono valori numerici. 
-   - Nella quinta e nella sesta schermata accettare le impostazioni predefinite.
-   - Fare clic sul pulsante **Fine**.
-
+3. Lasciare i valori predefiniti e quindi selezionare il pulsante **Avanti**.  
+ 
    ![Selezionare iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
-   >Per questo esercizio assicurarsi di selezionare il file **iris.csv** dall'interno della directory di progetto corrente. In caso contrario, i passaggi successivi potrebbero avere esito negativo. 
+   >Per questo esercizio assicurarsi di selezionare il file **iris.csv** dalla directory di progetto corrente. In caso contrario, i passaggi successivi potrebbero avere esito negativo. 
 
-4. Verrà creato un nuovo file **iris-1.dsource**. Il file viene denominato in modo univoco con un trattino e il numero 1 perché il progetto di esempio include già un file **iris.dsource** non numerato.  
+4. Verrà creato un nuovo file denominato **iris-1.dsource**. Il file viene denominato in modo univoco con un trattino e il numero 1 perché il progetto di esempio include già un file **iris.dsource** non numerato.  
 
-   Il file viene aperto e vengono visualizzati i dati. Al set di dati viene aggiunta automaticamente una serie di intestazioni di colonna, da **Column1** a **Column5**. Scorrere verso il basso e notare che l'ultima riga del set di dati è vuota. Ciò è dovuto alla presenza di un'interruzione di riga aggiuntiva nel file con estensione csv.
+   Il file verrà aperto e verranno visualizzati i dati. Al set di dati viene aggiunta automaticamente una serie di intestazioni di colonna, da **Column1** a **Column5**. Scorrere verso il basso e notare che l'ultima riga del set di dati è vuota. Ciò è dovuto alla presenta di un'interruzione di riga aggiuntiva nel file CSV.
 
-   ![Visualizzazione dati iris](media/tutorial-classifying-iris/iris_data_view.png)
+   ![Visualizzazione dati Iris](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. Fare ora clic sul pulsante **Metriche**. Osservare gli istogrammi e un set completo di statistiche calcolate automaticamente per ogni colonna. È anche possibile fare clic sul pulsante **Dati** per visualizzare di nuovo i dati. 
+5. Selezionare il pulsante **Metriche**. Osservare gli istogrammi. Per ogni colonna è stato calcolato un set completo di statistiche. È anche possibile selezionare il pulsante **Dati** per visualizzare di nuovo i dati. 
 
-   ![Visualizzazione dati iris](media/tutorial-classifying-iris/iris_metrics_view.png)
+   ![Visualizzazione dati Iris](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. Fare clic sul pulsante **Prepara**. Viene visualizzata la finestra di dialogo **Prepara**. 
+6. Selezionare il pulsante **Prepara**. Verrà visualizzata la finestra di dialogo **Prepara**. 
 
-   Il progetto di esempio include già un file **iris.dprep**. Per impostazione predefinita viene quindi richiesto di creare un nuovo flusso di dati nel pacchetto di preparazione dei dati **iris.dprep** esistente. 
+   Il progetto di esempio include già un file **iris.dprep**. Per impostazione predefinita verrà quindi richiesto di creare un nuovo flusso di dati nel pacchetto di preparazione dei dati **iris.dprep** già esistente. 
 
-   Modificare il valore dell'elenco a discesa in **+New Data Preparation Package** (Nuovo pacchetto di preparazione dei dati), quindi immettere un nuovo valore "iris-1" e infine fare clic su **OK**.
+   Selezionare **+ New Data Preparation Package** (Nuovo pacchetto di preparazione dei dati) nel menu a discesa, immettere **iris-1** come nuovo valore per il nome del pacchetto e quindi selezionare **OK**.
 
    ![Visualizzazione dati Iris](media/tutorial-classifying-iris/new_dprep.png)
 
    Un nuovo pacchetto di preparazione dei dati denominato **iris-1.dprep** verrà creato e aperto nell'editor di preparazione dei dati.
 
-7. È ora possibile eseguire alcune operazioni di preparazione dei dati di base. Rinominare le colonne facendo clic su ogni intestazione di colonna e rendendo modificabile il testo dell'intestazione. 
+7. È ora possibile eseguire alcune operazioni di preparazione dei dati di base. Rinominare le colonne. Selezionare ogni intestazione di colonna per rendere modificabile il testo dell'intestazione. 
 
    Per le cinque colonne, immettere rispettivamente **Sepal Length**, **Sepal Width**, **Petal Length**, **Petal Width** e **Species**.
 
    ![Rinominare le colonne](media/tutorial-classifying-iris/rename_column.png)
 
-8. Per conteggiare valori distinti, selezionare la colonna **Species** e fare clic con il pulsante destro del mouse. Scegliere **Value Counts** (Conteggi dei valori). 
+8. Per conteggiare valori distinti, selezionare la colonna **Species** e quindi fare clic con il pulsante destro del mouse. Scegliere **Value Counts** (Conteggi dei valori) dal menu a discesa. 
 
-   ![Fare clic su Value Counts (Conteggi dei valori)](media/tutorial-classifying-iris/value_count.png)
+   ![Selezionare Value Counts (Conteggi dei valori)](media/tutorial-classifying-iris/value_count.png)
 
-   Verrà così visualizzato il riquadro **Inspectors** (Controlli), contenente un istogramma con quattro barre. Si noti che la colonna di destinazione contiene i tre valori distinti **Iris_virginica**, **Iris_versicolor** e **Iris-setosa** e un valore **(Null)**.
+   Verrà così visualizzato il riquadro **Inspectors** (Controlli), contenente un istogramma con quattro barre. La colonna di destinazione include i tre valori distinti **Iris_virginica**, **Iris_versicolor** e **Iris-setosa** e un valore **(Null)**.
 
-9. Filtrare i valori Null selezionando la barra del grafico che rappresenta Null. È presente una riga con un valore **(Null)**. Per eliminare questa riga, fare clic sul pulsante di filtro **-**.
+9. Per filtrare i valori Null, selezionare la barra del grafico che rappresenta Null. È presente una riga con un valore **(Null)**. Per rimuovere questa riga, selezionare il segno meno (**-**).
 
    ![Istogramma dei conteggi dei valori](media/tutorial-classifying-iris/filter_out.png)
 
-10. Si notino i singoli passaggi riportati in dettaglio nel riquadro **PASSAGGI**. Durante le operazioni per rinominare le colonne e filtrare le righe con valore Null, ogni azione è stata registrata come passaggio di preparazione dei dati. È possibile modificare singoli passaggi per modificare le impostazioni, riordinare i passaggi e anche rimuoverli.
+10. Si notino i singoli passaggi riportati in dettaglio nel riquadro **PASSAGGI**. Durante le operazioni di ridenominazione delle colonne e di filtro delle righe con valore Null, ogni azione è stata registrata come passaggio di preparazione dei dati. È possibile modificare singoli passaggi per modificare le impostazioni, riordinare i passaggi e rimuoverli.
 
-   ![Passi](media/tutorial-classifying-iris/steps.png)
+   ![Passaggi](media/tutorial-classifying-iris/steps.png)
 
-11. Chiudere quindi l'editor di preparazione dei dati facendo clic su **X** nella scheda denominata **iris-1** con l'icona a forma di grafico. Il lavoro viene salvato automaticamente nel file **iris-1.dprep** visualizzato sotto l'intestazione **Data Preparations** (Preparazioni dati).
+11. Chiudere l'editor di preparazione dei dati. Selezionare **Chiudi** (x) nella scheda **iris-1** con l'icona a forma di grafico. Il lavoro viene salvato automaticamente nel file **iris-1.dprep** visualizzato sotto l'intestazione **Data Preparations** (Preparazioni dati).
 
-## <a name="generate-pythonpyspark-code-to-invoke-data-prep-package"></a>Generare codice Python/PySpark per richiamare il pacchetto di preparazione dei dati
+## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Generare codice Python/PySpark per richiamare un pacchetto di preparazione dei dati
 
-1. Fare clic con il pulsante destro del mouse sul file **iris-1.dprep** per visualizzare il menu di scelta rapida, quindi scegliere **Generate Data Access Code File** (Genera file di codice per l'accesso ai dati). 
+1. Fare clic con il pulsante destro del mouse sul file **iris-1.dprep** per visualizzare il menu di scelta rapida e quindi scegliere **Generate Data Access Code File** (Genera file di codice per l'accesso ai dati). 
 
-   ![Generare codice](media/tutorial-classifying-iris/generate_code.png)
+   ![Generare il codice](media/tutorial-classifying-iris/generate_code.png)
 
 2. Verrà aperto un nuovo file denominato **iris-1.py** con le righe di codice seguenti:
 
    ```python
-   # This code snippet will load the referenced package and return a DataFrame.
-   # If the code is run in a PySpark environment, the code will return a
-   # Spark DataFrame. If not, the code will return a Pandas DataFrame.
+   # Use the Azure Machine Learning data preparation package
+   from azureml.dataprep import package
 
-   from azureml.dataprep.package import run
-   df = run('iris.dprep', dataflow_idx=0)
+   # Use the Azure Machine Learning data collector to log various metrics
+   from azureml.logging import get_azureml_logger
+   logger = get_azureml_logger()
+
+   # This call will load the referenced package and return a DataFrame.
+   # If run in a PySpark environment, this call returns a
+   # Spark DataFrame. If not, it will return a Pandas DataFrame.
+   df = package.run('iris-1.dprep', dataflow_idx=0)
+
+   # Remove this line and add code that uses the DataFrame
+   df.head(10)
    ```
 
-   Questo frammento di codice richiama la logica creata come pacchetto di preparazione dei dati. `df` rappresenta diverse tipologie di frame di dati a seconda del contesto in cui questo codice viene eseguito. In caso di esecuzione in un runtime Python viene usato un [frame di dati pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html), mentre in caso di esecuzione in un contesto Spark viene usato un [frame di dati Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html). 
+   Questo frammento di codice richiama la logica creata come pacchetto di preparazione dei dati. `df` rappresenta le varie tipologie di frame di dati a seconda del contesto in cui questo codice viene eseguito. In caso di esecuzione in un runtime Python viene usato un [frame di dati pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html), mentre in caso di esecuzione in un contesto Spark viene usato un [frame di dati Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html). 
 
-   Per altre informazioni sulla preparazione dei dati in Azure Machine Learning Workbench, vedere la guida [Getting Started with Data Preparation](data-prep-getting-started.md) (Introduzione alla preparazione dei dati).
+   Per altre informazioni sulla preparazione dei dati in Azure Machine Learning Workbench, vedere la guida [Introduzione alla preparazione dati](data-prep-getting-started.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa prima parte della serie di esercitazioni in tre parti Azure Machine Learning Workbench è stato usato per:
+In questa prima parte della serie di esercitazioni in tre parti, Azure Machine Learning Workbench è stato usato per:
 > [!div class="checklist"]
-> * Creare un nuovo progetto 
-> * Creare un pacchetto di preparazione dei dati
-> * Generare codice Python/PySpark per richiamare il pacchetto di preparazione dei dati
+> * Creare un nuovo progetto. 
+> * Creare un pacchetto di preparazione dei dati.
+> * Generare codice Python/PySpark per richiamare un pacchetto di preparazione dei dati.
 
-È ora possibile passare alla parte successiva della serie per creare un modello di Machine Learning.
+È ora possibile passare alla parte successiva della serie, in cui viene illustrato come creare un modello di Azure Machine Learning:
 > [!div class="nextstepaction"]
 > [Creare un modello](tutorial-classifying-iris-part-2.md)

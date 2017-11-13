@@ -3,7 +3,7 @@ title: Requisiti di routing per Azure ExpressRoute | Documentazione Microsoft
 description: Questa pagina illustra i requisiti dettagliati per la configurazione e la gestione del routing per i circuiti ExpressRoute.
 documentationcenter: na
 services: expressroute
-author: osamazia
+author: ganesr
 manager: ganesr
 editor: 
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: osamam
-ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.date: 11/03/2017
+ms.author: ganesr
+ms.openlocfilehash: 088147060eeeba5c900cdcdc3fb38fc1d4ccfc58
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -174,6 +174,8 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | Europa occidentale | 12076:51002 |
 | Regno Unito meridionale | 12076:51024 |
 | Regno Unito occidentale | 12076:51025 |
+| Francia centrale | 12076:51030 |
+| Francia meridionale | 12076:51031 |
 | **Asia Pacifico** | |
 | Asia orientale | 12076:51010 |
 | Asia sudorientale | 12076:51011 |

@@ -71,9 +71,7 @@
 
 ## Impostare i criteri delle risorse
 ### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
-### esempi
-#### [Tag](resource-manager-policy-tags.md)
-#### [Convenzioni di denominazione](resource-manager-policy-naming-convention.md)
+### [Convenzioni di denominazione](resource-manager-policy-naming-convention.md)
 
 ## Audit
 ### [Visualizzare log di attività](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Errori di distribuzione delle macchine virtuali

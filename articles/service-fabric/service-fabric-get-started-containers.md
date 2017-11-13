@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/18/2017
+ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 025bde02b3f342ec3399d51819d1fa8a91f11374
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d58ba0985d7a5bb302028254be0951859b79dbb
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
 > [!div class="op_single_selector"]
@@ -169,7 +169,7 @@ L'SDK e gli strumenti di Service Fabric offrono un modello di servizio che conse
 
 1. Avviare Visual Studio.  Selezionare **File** > **Nuovo** > **Progetto**.
 2. Selezionare l'**applicazione di Service Fabric**, denominarla "MyFirstContainer" e fare clic su **OK**.
-3. Scegliere **Contenitore guest** dall'elenco dei **modelli di servizio**.
+3. Scegliere **Contenitore** dall'elenco dei **modelli di servizio**.
 4. In **Nome immagine** immettere "myregistry.azurecr.io/samples/helloworldapp", vale a dire l'immagine di cui è stato effettuato il push nel repository dei contenitori.
 5. Assegnare un nome al servizio e fare clic su **OK**.
 
@@ -293,6 +293,10 @@ Windows supporta due modalità di isolamento per i contenitori: la modalità pro
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
+   > [!NOTE]
+   > La modalità di isolamento Hyper-V è disponibile negli SKU di Azure Ev3 e Dv3 che hanno il supporto per la virtualizzazione annidato. 
+   >
+   >
 
 ## <a name="configure-resource-governance"></a>Configurare la governance delle risorse
 La [governance delle risorse](service-fabric-resource-governance.md) limita le risorse che possono essere usate dal contenitore nell'host. L'elemento `ResourceGovernancePolicy`, specificato nel manifesto dell'applicazione, viene usato per dichiarare limiti di risorse per il pacchetto di codice di un servizio. È possibile impostare limiti per le risorse seguenti: Memory, MemorySwap, CpuShares (peso relativo CPU), MemoryReservationInMB, BlkioWeight (peso relativo BlockIO).  In questo esempio, il pacchetto del servizio Guest1Pkg ottiene un core nei nodi del cluster in cui è posizionato.  I limiti di memoria sono assoluti, quindi i pacchetti di codice sono limitati a 1024 MB di memoria, con prenotazione a garanzia flessibile. I pacchetti di codice (contenitori o pacchetti) non sono in grado di allocare una quantità di memoria superiore a questo limite. Un'operazione di questo tipo genererebbe un'eccezione di memoria esaurita. Perché l'imposizione di un limite di risorse funzioni, è necessario che tutti i pacchetti di codice inclusi in un pacchetto del servizio abbiano limiti di memoria specificati.
@@ -469,7 +473,7 @@ Le immagini che non devono essere eliminate possono essere specificate nel param
 * Altre informazioni sull'esecuzione di [contenitori in Service Fabric](service-fabric-containers-overview.md).
 * Vedere l'esercitazione [Distribuire un'applicazione .NET in un contenitore](service-fabric-host-app-in-a-container.md).
 * Altre informazioni sul [ciclo di vita dell'applicazione](service-fabric-application-lifecycle.md) di Service Fabric.
-* Vedere gli [esempi di codice del contenitore di Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-containers) in GitHub.
+* Vedere gli [esempi di codice del contenitore di Service Fabric](https://github.com/Azure-Samples/service-fabric-containers) in GitHub.
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png

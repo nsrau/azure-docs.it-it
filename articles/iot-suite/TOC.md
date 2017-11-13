@@ -88,7 +88,7 @@
 ## [Analisi di flusso](/azure/stream-analytics/)
 ## [Hub eventi](/azure/event-hubs/)
 ## [Hub IoT](/azure/iot-hub/)
-## [IoT Central](/azure/index#pivot=services&panel=iot)
+## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [Machine Learning](/azure/machine-learning/)
 
 # Risorse

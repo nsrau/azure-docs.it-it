@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: 95d1dce536f8f8f0fc8d93f201520fd84f0f7629
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 12ead91f6729aa3eb631cc453180ddea9bafe3df
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>Copiare dati tra origini locali e cloud
 
@@ -85,7 +85,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
         ```
 
     * Per creare istanze di Data Factory è necessario essere un collaboratore o amministratore della sottoscrizione di Azure.
-    * Data Factory consente attualmente di creare data factory solo nelle aree Stati Uniti orientali e Stati Uniti orientali 2. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+    * Data Factory V2 consente attualmente di creare data factory solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
 ## <a name="create-a-self-hosted-ir"></a>Creare un runtime di integrazione self-hosted
 

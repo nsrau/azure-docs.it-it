@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: Guide alle procedure
   items:
-    - name: Spostare dati
+    - name: Copiare i dati
       items:
-        - name: Panoramica dell'attività di copia
+        - name: Copiare i dati da origini supportate alle destinazioni
           href: copy-activity-overview.md
+        - name: Leggere o scrivere dati partizionati
+          href: how-to-read-write-partitioned-data.md
         - name: Connettori
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Archivio Azure Data Lake
               href: connector-azure-data-lake-store.md
+            - name: Database di Azure per MySQL
+              href: connector-azure-database-for-mysql.md
             - name: Archiviazione file di Azure
               href: connector-azure-file-storage.md
             - name: Ricerca di Azure
@@ -168,6 +172,8 @@
       items:
         - name: Attività della condizione If
           href: control-flow-if-condition-activity.md
+        - name: Attività Until
+          href: control-flow-until-activity.md
         - name: Attività Web
           href: control-flow-web-activity.md
         - name: Attività di ricerca
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: Per ogni attività
           href: control-flow-for-each-activity.md
+        - name: Attività Wait
+          href: control-flow-wait-activity.md
         - name: Linguaggio di espressione
           href: control-flow-expression-language-functions.md
         - name: Variabili di sistema
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: Crittografare le credenziali per il runtime di integrazione self-hosted
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: Identità del servizio di Data Factory
+          href: data-factory-service-identity.md
     - name: Monitorare e gestire
       items:
         - name: Usare SDK

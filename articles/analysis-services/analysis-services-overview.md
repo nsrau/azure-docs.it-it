@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: owend
-ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -46,9 +46,18 @@ Nel portale di Azure è possibile [creare un server](analysis-services-create-se
 Dopo avere creato un server, è possibile creare un modello tabulare direttamente nel portale di Azure. La nuova funzionalità [Finestra di progettazione Web (anteprima)](analysis-services-create-model-portal.md) consente di connettersi a un database SQL di Azure o a un'origine dati Azure SQL Data Warehouse oppure di importare un file con estensione pbix di Power BI Desktop. Le relazioni tra le tabelle vengono create automaticamente ed è possibile creare misure o modificare il file model.bim in formato JSON direttamente dal browser.
 
 ## <a name="scale-to-your-needs"></a>Ridimensionare in base alle esigenze specifiche
+
+### <a name="the-right-tier-when-you-need-it"></a>Il piano giusto quando serve
+
 Azure Analysis Services è disponibile nei livelli Developer, Basic e Standard. Entro ogni livello, i costi del piano dipendono da potenza di elaborazione, QPU e dimensioni della memoria. Quando si crea un server, si seleziona un piano entro un livello. È possibile passare a un piano inferiore o superiore entro lo stesso livello oppure passare a un livello superiore, ma non è possibile passare da un livello superiore a un livello inferiore.
 
 È possibile aumentare o ridurre le prestazioni o sospendere il server. Usare il portale di Azure oppure usare PowerShell per ottenere subito il controllo totale. Si paga solo per le risorse utilizzate. Per altre informazioni sui diversi piani e livelli e per usare il calcolatore dei prezzi per determinare il piano ottimale, vedere [Prezzi di Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>Aumentare il numero di istanze delle risorse per risposte rapide alle query
+
+Con l'aumento del numero di istanze di Azure Analysis Services, le query dei client vengono distribuite tra più *repliche delle query* in un pool di query. Le repliche delle query hanno copie sincronizzate dei modelli tabulari. Distribuendo il carico di lavoro delle query, è possibile ridurre i tempi di risposta quando questi carichi di lavoro sono elevati. Le operazioni di elaborazione del modello possono essere separate dal pool di query, assicurando così che le prestazioni delle query dei client non vengano influenzate negativamente dalle operazioni di elaborazione. È possibile creare un pool di query con fino a sette repliche delle query aggiuntive (otto in totale, incluso il server). 
+
+Proprio come con la modifica del livello, è possibile aumentare il numero di istanze delle repliche delle query in base alle esigenze. Configurare l'aumento del numero di istanze nel portale o con le API REST. Per altre informazioni, vedere [Aumento delle istanze di Azure Analysis Services](analysis-services-scale-out.md).
 
 ## <a name="keep-your-data-close"></a>Mantenere i dati nelle vicinanze
 I server di Azure Analysis Services possono essere creati nelle [aree di Azure](https://azure.microsoft.com/regions/) seguenti:
@@ -92,11 +101,17 @@ L'autenticazione utente per Azure Analysis Services viene gestita da [Azure Acti
 #### <a name="data-security"></a>Sicurezza dei dati
 Azure Analysis Services usa l'archiviazione BLOB di Azure per rendere persistenti i metadati e l'archiviazione per i database di Analysis Services. I file di dati nel BLOB vengono crittografati mediante crittografia sul lato server di BLOB di Azure. Quando si usa la modalità di query diretta, vengono archiviati solo i metadati. L'accesso ai dati effettivi viene eseguito dall'origine dati in fase di query.
 
+#### <a name="firewall"></a>Firewall
+
+Il firewall di Azure Analysis Services blocca tutte le connessioni client non specificate nelle regole. Configurare le regole che specificano gli indirizzi IP consentiti in base agli indirizzi IP dei singoli client o per intervalli di indirizzi IP. Le connessioni di Power BI (servizio) possono essere consentite o bloccate/consentite. 
+
 #### <a name="on-premises-data-sources"></a>Origini dati locali
 È possibile ottenere la sicurezza dell'accesso ai dati in locale all'interno dell'organizzazione installando e configurando un [gateway dati locale](analysis-services-gateway.md). I gateway forniscono accesso ai dati per le modalità DirectQuery e in memoria. Quando un modello di Azure Analysis Services si connette a un'origine dati locale, viene creata una query con le credenziali crittografate per l'origine dati locale. Il servizio cloud del gateway analizza la query e inserisce la richiesta in un'istanza del bus di servizio di Azure. Il gateway locale esegue il polling del bus di servizio per le richieste in sospeso. Il gateway riceve quindi la query, decrittografa le credenziali e si connette all'origine dati per l'esecuzione. I risultati vengono inviati dall'origine dati al gateway e quindi al database Azure Analysis Services.
 
 Azure Analysis Services è disciplinato dalle [Condizioni di Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) e dall'[Informativa sulla privacy di Microsoft Online Services](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 Per altre informazioni sulla sicurezza di Azure, vedere [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
+
+
 
 ## <a name="supports-the-latest-client-tools"></a>Supporto degli strumenti client più recenti
 ![Visualizzazioni di dati](./media/analysis-services-overview/aas-overview-clients.png)

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 10/16/2017
-ms.openlocfilehash: 73785cf8c4f1539cb52254ba316ed7d888b683aa
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.date: 11/01/2017
+ms.openlocfilehash: a8cea099103bd6a306e41770e47b1279f5dbcdea
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Creare un database di Azure per il server MySQL con il portale di Azure
 Database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e ridimensionare database MySQL a disponibilità elevata nel cloud. Questa guida introduttiva illustra come creare un database di Azure per il server MySQL in circa cinque minuti usando il portale di Azure.  
@@ -70,19 +70,21 @@ Il servizio Database di Azure per MySQL crea un firewall a livello di server, ch
 
 3.  Sotto l'intestazione **Regole del firewall** selezionare la casella di testo vuota nella colonna **Nome regola** per iniziare a creare la regola del firewall. 
 
-    Per questa guida introduttiva verranno consentiti tutti gli indirizzi IP nel server inserendo nelle caselle di ogni colonna i valori seguenti:
+   ![Sicurezza delle connessioni: regole del firewall](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
-    Nome regola | Indirizzo IP iniziale | Indirizzo IP finale 
-    ---|---|---
-    AllowAllIps |  0.0.0.0 | 255.255.255.255
-    
-    Consentire tutti gli indirizzi IP non è un'opzione sicura. Questo esempio viene fornito per motivi di semplicità, ma in uno scenario reale è necessario conoscere gli intervalli di indirizzi IP precisi da aggiungere per applicazioni e utenti. 
+   Per questa guida introduttiva verranno consentiti tutti gli indirizzi IP nel server inserendo nelle caselle di ogni colonna i valori seguenti:
+
+   Nome regola | Indirizzo IP iniziale | Indirizzo IP finale 
+   ---|---|---
+   AllowAllIps |  0.0.0.0 | 255.255.255.255
+   
+   Consentire tutti gli indirizzi IP non è un'opzione sicura. Questo esempio viene fornito per motivi di semplicità, ma in uno scenario reale è necessario conoscere gli intervalli di indirizzi IP precisi da aggiungere per applicazioni e utenti. 
 
 4. Sulla barra degli strumenti superiore della pagina **Sicurezza connessione** selezionare **Salva**. Prima di continuare, attendere che venga visualizzata la notifica che informa che l'aggiornamento è stato completato. 
 
-    > [!NOTE]
-    > Le connessioni al database di Azure per MySQL comunicano sulla porta 3306. Se si tenta di connettersi da una rete aziendale, il traffico in uscita sulla porta 3306 potrebbe non essere consentito. In questo caso, non è possibile connettersi al server a meno che il reparto IT non apra la porta 3306.
-    > 
+   > [!NOTE]
+   > Le connessioni al database di Azure per MySQL comunicano sulla porta 3306. Se si tenta di connettersi da una rete aziendale, il traffico in uscita sulla porta 3306 potrebbe non essere consentito. In questo caso, non è possibile connettersi al server a meno che il reparto IT non apra la porta 3306.
+   > 
 
 ## <a name="get-the-connection-information"></a>Ottenere le informazioni di connessione
 Per connettersi al server di database, è necessario il nome del server completo e le credenziali di accesso amministratore. È possibile che si sia preso nota prima di questi valori durante la lettura dell'articolo introduttivo. In caso contrario, è possibile trovare facilmente il nome del server e le informazioni di accesso nella pagina **Proprietà** o nella pagina **Panoramica** del server nel portale di Azure.

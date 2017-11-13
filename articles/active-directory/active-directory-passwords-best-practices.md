@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-successfully-rollout-self-service-password-reset"></a>Come implementare la reimpostazione della password self-service
 
@@ -38,8 +38,8 @@ La maggior parte dei clienti segue questa procedura per garantire un'implementaz
 10. Nel tempo, esaminare gli utenti che eseguono la registrazione e usano la funzionalità tramite i [report messi a disposizione da Azure AD](active-directory-passwords-reporting.md).
 11. Quando si è pronti, abilitare la reimpostazione della password per tutti gli utenti e impostare l'opzione **Reimpostazione delle password self-service abilitata** su **Tutti**. 
 
-    > [!IMPORTANT]
-    > Testare la reimpostazione password self-service con un utente e non con un amministratore, perché Microsoft applica requisiti di autenticazione avanzata per gli account di tipo amministratore di Azure. Per altre informazioni sui criteri delle password amministratore, vedere l'[articolo di approfondimento](active-directory-passwords-how-it-works.md).
+   > [!IMPORTANT]
+   > Testare la reimpostazione password self-service con un utente e non con un amministratore, perché Microsoft applica requisiti di autenticazione avanzata per gli account di tipo amministratore di Azure. Per altre informazioni sui criteri delle password amministratore, vedere l'[articolo sui criteri delle password](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="email-based-rollout"></a>Implementazione basata sulla posta elettronica
 

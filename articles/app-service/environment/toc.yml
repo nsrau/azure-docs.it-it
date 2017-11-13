@@ -38,6 +38,8 @@
       href: integrate-with-application-gateway.md
     - name: Creare l'ambiente del servizio app da un modello
       href: create-from-template.md
+    - name: Configurazione del tunneling forzato
+      href: forced-tunnel-support.md
 - name: riferimento
   items:
     - name: Indirizzi di gestione

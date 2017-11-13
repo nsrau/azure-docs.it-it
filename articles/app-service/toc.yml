@@ -143,6 +143,8 @@
           href: web-sites-enable-diagnostic-log.md
     - name: Gestire un'app
       items:
+        - name: Gestire il piano di hosting
+          href: app-service-plan-manage.md
         - name: Eseguire il backup di un'app
           href: web-sites-backup.md
         - name: Ripristino di un backup

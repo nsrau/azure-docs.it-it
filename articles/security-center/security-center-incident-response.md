@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95af26a655e72a9cc370f339da5ecedbed441997
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Uso del Centro sicurezza di Azure per rispondere a un evento imprevisto
 Molte organizzazioni imparano a rispondere agli eventi imprevisti della sicurezza solo dopo aver subito un attacco. Per ridurre i costi e i danni è importante implementare un piano di risposta agli eventi imprevisti prima di un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
@@ -96,7 +96,7 @@ Guido riceve il caso da Alice e inizia a esaminare la procedura correttiva consi
 ![Ciclo di vita della risposta agli eventi imprevisti](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### <a name="additional-resources"></a>Risorse aggiuntive
-Il team di risposta agli eventi imprevisti della sicurezza può anche usare la funzionalità [Power BI nel Centro sicurezza](security-center-powerbi.md) per visualizzare diversi tipi di report. Questi report possono essere utili durante un'analisi più approfondita per visualizzare, analizzare e filtrare raccomandazioni e avvisi di sicurezza. Le aziende che usano la propria soluzione SIEM (Security Information and Event Management, Sistema di gestione delle informazioni e degli eventi di sicurezza) durante il processo di analisi possono anche [integrare il Centro sicurezza con la propria soluzione](security-center-integrating-alerts-with-log-integration.md). È anche possibile integrare i log di controllo di Azure e gli eventi di sicurezza delle macchine virtuali con lo [strumento di integrazione dei log di Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). Queste informazioni possono essere usate insieme a quelle messe a disposizione dal Centro sicurezza per analizzare un attacco.
+Le aziende che usano la propria soluzione SIEM (Security Information and Event Management, Sistema di gestione delle informazioni e degli eventi di sicurezza) durante il processo di analisi possono anche [integrare il Centro sicurezza con la propria soluzione](security-center-integrating-alerts-with-log-integration.md). È anche possibile integrare i log di controllo di Azure e gli eventi di sicurezza delle macchine virtuali con lo [strumento di integrazione dei log di Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). Queste informazioni possono essere usate insieme a quelle messe a disposizione dal Centro sicurezza per analizzare un attacco. È anche possibile usare la funzionalità di [indagine](https://docs.microsoft.com/azure/security-center/security-center-investigation) nel Centro sicurezza per determinare la causa radice di un incidente.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 La creazione di un team prima che si verifichi un evento imprevisto è molto importante per l'organizzazione e avrà effetti positivi sulla gestione degli eventi imprevisti. Con gli strumenti giusti per monitorare le risorse, questo team potrà prendere provvedimenti mirati per la risoluzione di un evento imprevisto della sicurezza. Le [funzionalità di rilevamento](security-center-detection-capabilities.md) del Centro sicurezza consentono all'IT di rispondere rapidamente agli eventi imprevisti della sicurezza e di attuare interventi correttivi per i problemi di sicurezza.

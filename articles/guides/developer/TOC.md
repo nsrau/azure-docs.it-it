@@ -1,7 +1,7 @@
 # Panoramica
 ## [Guida per sviluppatori](azure-developer-guide.md) 
-## [Panoramica dei servizi di Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Panoramica del portale](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Panoramica dei servizi di Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
+## [Panoramica del portale](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK e strumenti](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Guida introduttiva
@@ -107,6 +107,7 @@
 ## [Fatturazione](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Risorse
+## [Limiti e quote di Azure](../../azure-subscription-service-limits.md)
 ## [Aree di Azure](https://azure.microsoft.com/regions/)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

@@ -118,6 +118,8 @@
           href: scenario-tdsp-biomedical-recognition.md
         - name: 'Classificazione di redditi negli Stati Uniti: progetto TDSP'
           href: scenario-tdsp-classifying-us-incomes.md
+        - name: Classificazione delle immagini con CNTK
+          href: scenario-image-classification-using-cntk.md
 - name: riferimento
   items:
     - name: Preparazione dei dati
@@ -162,6 +164,8 @@
       items:
         - name: Sprint 0 - Ottobre 2017
           href: release-notes-sprint-0.md
+        - name: Sprint 1 - Novembre 2017
+          href: release-notes-sprint-1.md
 - name: Risorse
   items:
     - name: Domande frequenti

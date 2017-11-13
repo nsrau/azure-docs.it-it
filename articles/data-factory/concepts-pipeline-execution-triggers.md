@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ Per fare in modo che il trigger dell'utilità di pianificazione attivi l'esecuzi
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ Per fare in modo che il trigger dell'utilità di pianificazione attivi l'esecuzi
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ Per fare in modo che il trigger dell'utilità di pianificazione attivi l'esecuzi
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ Per fare in modo che il trigger dell'utilità di pianificazione attivi l'esecuzi
 }
 ```
 
+> [!IMPORTANT]
+>  La proprietà **parameters** è obbligatoria in **pipelines**. Anche se la pipeline non accetta parametri, includere un oggetto JSON vuoto per i parametri, dato che la proprietà deve esistere.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>Panoramica: schema del trigger dell'utilità di pianificazione
 La tabella seguente fornisce una panoramica di alto livello degli elementi principali correlati alla ricorrenza e pianificazione in un trigger:
 
 Proprietà JSON |     Descrizione
 ------------- | -------------
 startTime | startTime è in formato Data-Ora. Per le pianificazioni semplici startTime indica la prima occorrenza. Per le pianificazioni complesse il trigger viene attivato non prima del valore startTime.
+endTime | Specifica la data e l'ora di fine per il trigger. Il trigger non viene eseguito dopo questo periodo di tempo. Non è possibile impostare un endTime nel passato.
+timeZone | Attualmente è supportato solo UTC. 
 ricorrenza | L'oggetto recurrence specifica le regole di ricorrenza per il trigger. L'oggetto recurrence supporta gli elementi: frequency, interval, endTime, count e schedule. Se viene definito l'oggetto recurrence, è necessario definire anche frequency. Gli altri elementi di recurrence sono facoltativi.
 frequency | Rappresenta l'unità di frequenza con cui il trigger si ripete. I valori supportati sono: `minute`, `hour`, `day`, `week` o `month`.
 interval | L'intervallo è un numero intero positivo. Indica l'intervallo di frequenza che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, interval è 3 e frequency è "week", il trigger si ripete ogni 3 settimane.
-endTime | Specifica la data e l'ora di fine per il trigger. Il trigger non viene eseguito dopo questo periodo di tempo. Non è possibile impostare un endTime nel passato.
 schedule | Un trigger con una frequenza specificata modifica la sua ricorrenza in base a una pianificazione di ricorrenza. Un oggetto schedule contiene modifiche in base a minuti, ore, giorni della settimana, giorni del mese e numero settimana.
+
+
+### <a name="schedule-trigger-example"></a>Esempio di trigger di pianificazione
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>Panoramica: impostazioni predefinite dello schema del trigger dell'utilità di pianificazione, limiti ed esempi
 
@@ -251,7 +292,7 @@ Infine, quando un trigger ha una pianificazione, se non sono impostate ore e/o m
 ### <a name="deep-dive-schedule"></a>Approfondimenti: schedule
 Da un lato, un oggetto schedule può limitare il numero di esecuzioni di un trigger. Se ad esempio l'oggetto schedule di un trigger con frequenza "month" prevede l'esecuzione solo il giorno 31, il trigger viene eseguito solo nei mesi che includono 31 giorni.
 
-Un oggetto schedule tuttavia può anche aumentare il numero di esecuzioni di un trigger. Se, ad esempio l'oggetto schedule di un trigger con frequenza "month" prevede l'esecuzione nei giorni 1 e 2 del mese, il trigger viene eseguito il 1° e il 2° giorno del mese, invece che una volta al mese.
+Un oggetto schedule può tuttavia anche aumentare il numero di esecuzioni di un trigger. Se, ad esempio l'oggetto schedule di un trigger con frequenza "month" prevede l'esecuzione nei giorni 1 e 2 del mese, il trigger viene eseguito il 1° e il 2° giorno del mese, invece che una volta al mese.
 
 Se vengono specificati più elementi dell'oggetto schedule, l'ordine di valutazione è dal più grande al più piccolo: numero della settimana, giorno del mese, giorno della settimana, ora e minuto.
 
@@ -262,9 +303,9 @@ Nome JSON | Descrizione | Valori validi
 --------- | ----------- | ------------
 minutes | Minuti dell'ora in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul>
 hours | Ore del giorno in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul>
-weekDays | Giorni della settimana in cui verrà eseguito il trigger. Può essere specificato solo con una frequenza settimanale. | <ul><li>I valori consentiti sono Monday, Tuesday, Wednesday, Thursday, Friday, Saturday o Sunday</li><li>Matrice dei valori precedenti (dimensione massima della matrice: 7)</li></p>Non viene applicata la distinzione tra maiuscole e minuscole</p>
+weekDays | Giorni della settimana in cui verrà eseguito il trigger. Può essere specificato solo con una frequenza settimanale. | <ul><li>I valori consentiti sono Monday, Tuesday, Wednesday, Thursday, Friday, Saturday o Sunday</li><li>Matrice dei valori (dimensione massima della matrice: 7)</li></p>Non viene applicata la distinzione tra maiuscole e minuscole</p>
 monthlyOccurrences | Determina in quali giorni del mese verrà eseguito il trigger. Può essere specificato solo con una frequenza mensile. | Matrice di oggetti monthlyOccurence: `{ "day": day,  "occurrence": occurence }`. <p> Il giorno della settimana in cui verrà eseguito il trigger, ad esempio `{Sunday}` corrisponde a ogni domenica del mese. Obbligatorio.<p>occurrence è l'occorrenza del giorno durante il mese, ad esempio `{Sunday, -1}` corrisponde all'ultima domenica del mese. Facoltativo.
-monthDays | Giorno del mese in cui verrà eseguito il trigger. Può essere specificato solo con una frequenza mensile. | <ul><li>Qualsiasi valore <= -1 e >= -31</li><li>Qualsiasi valore >= 1 e <= 31</li><li>Matrice dei valori precedenti</li>
+monthDays | Giorno del mese in cui verrà eseguito il trigger. Può essere specificato solo con una frequenza mensile. | <ul><li>Qualsiasi valore <= -1 e >= -31</li><li>Qualsiasi valore >= 1 e <= 31</li><li>Una matrice di valori</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>Esempi: pianificazioni di ricorrenza

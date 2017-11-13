@@ -1,0 +1,65 @@
+- name: Jenkins in Azure
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Jenkins in Azure
+      href: overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Creare un server Jenkins
+      href: /azure/jenkins/install-jenkins-solution-template
+- name: Esercitazioni
+  items:
+    - name: Integrazione continua e distribuzione continua per il servizio app
+      href: /azure/jenkins/java-deploy-webapp-tutorial
+      maintainContext: true
+    - name: Integrazione continua e distribuzione continua per Kubernetes
+      href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
+      maintainContext: true
+    - name: Integrazione continua e distribuzione continua per le VM Linux
+      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+      maintainContext: true
+    - name: Creare risorse di Azure in un processo della pipeline
+      href: /azure/jenkins/execute-cli-jenkins-pipeline
+      maintainContext: true
+    - name: Scalabilità con gli agenti di macchine virtuali di Azure
+      href: /azure/jenkins/jenkins-azure-vm-agents
+      maintainContext: true
+- name: Procedura
+  items:
+    - name: Proteggere Jenkins in Azure
+      href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
+    - name: Usare il plug-in del servizio app
+      href: deploy-jenkins-app-service-plugin.md
+    - name: Pubblicare in Archiviazione di Azure
+      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+      maintainContext: true
+    - name: Usare Jenkins con Visual Studio Team Services
+      href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+- name: Esempi
+  items:
+    - name: Processi e script di esempio
+      href: 'https://github.com/Azure/azure-devops-utils/tree/master/jenkins'
+- name: Risorse
+  items:
+    - name: Plug-in
+      items:
+        - name: Plug-in Servizio app di Azure
+          href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Plug-in degli Agenti del servizio contenitore di Azure
+          href: 'https://plugins.jenkins.io/azure-container-agents'
+        - name: Plug-in del servizio contenitore di Azure
+          href: 'https://plugins.jenkins.io/azure-acs'
+        - name: Plug-in di Credenziali di Azure
+          href: 'https://plugins.jenkins.io/azure-credentials'
+        - name: Plug-in di Funzioni di Azure
+          href: 'https://plugins.jenkins.io/azure-function'
+        - name: Plug-in di Archiviazione di Azure
+          href: 'https://plugins.jenkins.io/windows-azure-storage'
+        - name: Plug-in di Agenti di macchine virtuali di Azure
+          href: 'https://plugins.jenkins.io/azure-vm-agents'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Home page di Jenkins
+      href: 'https://jenkins.io/'

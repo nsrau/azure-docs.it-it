@@ -1,6 +1,6 @@
 - name: Documentazione di Azure HDInsight
   href: /azure/hdinsight
-- name: Cluster multiutente in HDInsight
+- name: Sicurezza aziendale in HDInsight
   items:
     - name: Panoramica
       href: apache-domain-joined-introduction.md
@@ -13,6 +13,8 @@
   items:
     - name: Configurare HDInsight aggiunto al dominio
       href: apache-domain-joined-configure.md
+    - name: Configurare HDInsight aggiunto al dominio con Azure Active Directory Domain Services
+      href: apache-domain-joined-configure-using-azure-adds.md
     - name: Configurare criteri Hive
       href: apache-domain-joined-run-hive.md
     - name: Pianificazione della capacità

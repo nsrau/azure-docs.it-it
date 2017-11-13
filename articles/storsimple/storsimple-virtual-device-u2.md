@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 98892a0919b1ba49308fd3bc51c735977bbff437
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Distribuire e gestire un dispositivo virtuale StorSimple in Azure
-## <a name="overview"></a>Overview
+> [!NOTE]
+> Il portale classico per StorSimple è deprecato. Le istanze di Gestione dispositivi StorSimple passeranno automaticamente al nuovo portale di Azure in base alla pianificazione per la funzionalità deprecata. Si riceveranno un messaggio di posta elettronica e una notifica del portale relativi a questo passaggio. Anche questo documento verrà ritirato a breve. Per la versione di questo articolo per il nuovo portale di Azure, vedere [Distribuire e gestire un dispositivo virtuale StorSimple in Azure](storsimple-8000-cloud-appliance-u2.md). Per domande relative al passaggio, vedere [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md).
+
+## <a name="overview"></a>Panoramica
 Il dispositivo virtuale StorSimple serie 8000 rappresenta una funzionalità aggiuntiva fornita con la soluzione Microsoft Azure StorSimple. Il dispositivo virtuale StorSimple viene eseguito in una macchina virtuale della rete virtuale di Microsoft Azure e può essere utilizzato per eseguire il backup e duplicare i dati dagli host. Questa esercitazione descrive come distribuire e gestire un dispositivo virtuale in Azure ed è applicabile a tutti i dispositivi virtuali che eseguono la versione del software Update 2 e precedenti.
 
 #### <a name="virtual-device-model-comparison"></a>Confronto tra modelli di dispositivi virtuali
@@ -33,7 +36,7 @@ Il dispositivo virtuale StorSimple è disponibile in due modelli, Standard 8010 
 | **Macchina virtuale di Azure** |Standard_A3 (4 core, 7 GB di memoria) |Standard_DS3 (4 core, 14 GB di memoria) |
 | **Compatibilità tra le versioni** |Versioni con aggiornamenti precedenti a Update 2 o successivi |Versioni con aggiornamenti Update 2 o successivi |
 | **Aree di disponibilità** |Tutte le aree di Azure |Tutte le aree di Azure che supportano Archiviazione Premium e VM DS3 di Azure<br></br> Usare [questo elenco](https://azure.microsoft.com/en-us/regions/services) per verificare se nella propria area sono disponibili sia le *macchine virtuali serie DS* che l'*archiviazione su disco*. |
-| **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/common/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Informazioni su come [creare un account di archiviazione Premium](../virtual-machines/windows/premium-storage.md) |
+| **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/common/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Informazioni su come [creare un account di archiviazione Premium](../storage/common/storage-premium-storage.md) |
 | **Indicazioni relative al carico di lavoro** |Recupero a livello di elemento per i file dai backup |Scenari di sviluppo e test cloud, bassa latenza, carichi di lavoro a prestazioni superiori  <br></br>Dispositivo secondario per il ripristino di emergenza |
 
 <sup>1</sup> *precedentemente noto come 1100*.
@@ -63,7 +66,7 @@ La tabella seguente illustra alcune differenze fondamentali tra il dispositivo S
 | **Chiave DEK del servizio** |Rigenerare la chiave nel dispositivo fisico, quindi aggiornare il dispositivo virtuale con la nuova chiave. |Non è possibile rigenerarla dal dispositivo virtuale. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Prerequisiti per il dispositivo virtuale
-Le sezioni seguenti illustrano i prerequisiti di configurazione per il dispositivo StorSimple virtuale. Prima di distribuire un dispositivo virtuale, esaminare le [considerazioni relative alla sicurezza per l'uso di un dispositivo virtuale](storsimple-security.md).
+Le sezioni seguenti illustrano i prerequisiti di configurazione per il dispositivo StorSimple virtuale. Prima di distribuire un dispositivo virtuale, esaminare le [considerazioni relative alla sicurezza per l'uso di un dispositivo virtuale](storsimple-8000-security.md#storsimple-cloud-appliance-security).
 
 #### <a name="azure-requirements"></a>Requisiti di Azure
 Prima di eseguire il provisioning del dispositivo virtuale, è necessario effettuare le seguenti operazioni preliminari in Azure:
@@ -82,7 +85,7 @@ Prima di eseguire il provisioning del dispositivo virtuale, è necessario effett
 Effettuare i seguenti aggiornamenti del servizio StorSimple di Azure, prima di creare un dispositivo virtuale:
 
 * Aggiungere i [record controllo di accesso](storsimple-manage-acrs.md) per le macchine virtuali che svolgeranno il ruolo di server host per il dispositivo virtuale.
-* Usare un [account di archiviazione](storsimple-manage-storage-accounts.md#add-a-storage-account) nella stessa area del dispositivo virtuale. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. È possibile usare un account di archiviazione Standard o Premium con il dispositivo virtuale. Altre informazioni su come creare un [account di archiviazione Standard](../storage/common/storage-create-storage-account.md) o un [account di archiviazione Premium](../virtual-machines/windows/premium-storage.md)
+* Usare un [account di archiviazione](storsimple-manage-storage-accounts.md#add-a-storage-account) nella stessa area del dispositivo virtuale. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. È possibile usare un account di archiviazione Standard o Premium con il dispositivo virtuale. Altre informazioni su come creare un [account di archiviazione Standard](../storage/common/storage-create-storage-account.md) o un [account di archiviazione Premium](../storage/common/storage-premium-storage.md)
 * Usare un account di archiviazione differente rispetto a quello usato per creare i dati. Se si utilizza lo stesso account di archiviazione, si potrebbe verificare una riduzione delle prestazioni.
 
 Prima di iniziare, verificare quanto segue:

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 502b7678e0c47f594291409a9ede976dea3895e5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2d6a09e234ee8ec63454d42a91613ed8da9d1c4b
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>Che cos'è Azure IoT Suite?
 
@@ -85,6 +85,9 @@ Quando si distribuisce una soluzione preconfigurata, il processo di provisioning
 | Cosmos DB            | Sì                | Sì                    | Sì               |
 | Tabelle di Azure         |                    | Sì                    | Sì               |
 
+> [!NOTE]
+> Per altre informazioni sulle risorse distribuite nella soluzione preconfigurata per il monitoraggio remoto, vedere questo [articolo](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) in GitHub.
+
 * [Hub IoT di Azure](../iot-hub/index.md). Questo servizio fornisce funzionalità di messaggistica da dispositivo a cloud e da cloud a dispositivo e funge da gateway per il cloud e gli altri servizi chiave di IoT Suite. Il servizio consente di ricevere messaggi dai dispositivi su vasta scala e inviare i comandi ai dispositivi. Il servizio consente anche di [gestire i dispositivi](../iot-hub/iot-hub-device-management-overview.md). È possibile, ad esempio, configurare, riavviare o eseguire un ripristino delle impostazioni predefinite per uno o più dispositivi connessi all'hub.
 * [Hub eventi di Azure](../event-hubs/index.md). Questo servizio supporta l'inserimento di volumi elevati di eventi nel cloud. Vedere [Confronto tra l'hub IoT e Hub eventi di Azure](../iot-hub/iot-hub-compare-event-hubs.md).
 * [Azure Time Series Insights](../time-series-insights/index.md). Le soluzioni preconfigurate usano questo servizio per analizzare e visualizzare i dati di telemetria provenienti dai dispositivi.
@@ -124,7 +127,7 @@ Questa architettura di microservizi è un modello collaudato per soluzioni cloud
 Quando si distribuisce la nuova versione del monitoraggio remoto, è necessario selezionare una delle opzioni di distribuzione seguenti.
 
 * **Basic:** versione a costo ridotto a scopo di dimostrazione o per testare una distribuzione. Tutti i microservizi vengono distribuiti in un'unica macchina virtuale di Azure.
-* **Enterprise:** distribuzione di infrastruttura estesa per lo sviluppo di una distribuzione di produzione. Il servizio contenitore di Azure distribuisce i microservizi in più macchine virtuali di Azure. Kubernetes orchestra i contenitori Docker che ospitano i singoli microservizi.
+* **Standard:** distribuzione di infrastruttura estesa per lo sviluppo di una distribuzione di produzione. Il servizio contenitore di Azure distribuisce i microservizi in più macchine virtuali di Azure. Kubernetes orchestra i contenitori Docker che ospitano i singoli microservizi.
 
 ### <a name="language-choices-java-and-net"></a>Linguaggi disponibili: Java e .NET
 

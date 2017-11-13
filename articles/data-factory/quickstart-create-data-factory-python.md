@@ -13,11 +13,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: bc1c1fdc4d7482b0a92b14ac90b8162367946636
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 20130d6d4f331ec0a2435c9eea800ee6f62beaba
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Creare una data factory e una pipeline con Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -108,7 +108,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
-3. Aggiungere il codice seguente al metodo **Main** per creare un'istanza della classe DataFactoryManagementClient. Usare questo oggetto per creare la data factory, il servizio collegato, i set di dati e la pipeline. È possibile usare questo oggetto anche per monitorare i dettagli sull'esecuzione della pipeline. Impostare la variabile **subscription_id** sull'ID della sottoscrizione di Azure.
+3. Aggiungere il codice seguente al metodo **Main** per creare un'istanza della classe DataFactoryManagementClient. Usare questo oggetto per creare la data factory, il servizio collegato, i set di dati e la pipeline. È possibile usare questo oggetto anche per monitorare i dettagli sull'esecuzione della pipeline. Impostare la variabile **subscription_id** sull'ID della sottoscrizione di Azure. Data Factory V2 consente attualmente di creare data factory solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
     ```python   
     def main():
@@ -424,7 +424,7 @@ Copy duration: 4
 Per eliminare la data factory, aggiungere il codice seguente al programma:
 
 ```python
-adf_client.data_factories.delete(rg_name, df_name)
+adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

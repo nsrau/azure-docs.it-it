@@ -246,6 +246,8 @@
           items:
             - name: Sviluppo di tabelle
               href: table-support.md
+            - name: Operazioni dell'API di tabella con PowerShell
+              href: table-powershell.md
             - name: Archiviazione tabelle di Azure
               items:
                 - name: Panoramica dell'archivio tabelle
@@ -254,7 +256,7 @@
                   href: table-storage-design-guide.md
                 - name: API REST dell'archivio tabelle
                   href: /rest/api/storageservices/Table-Service-Concepts
-                - name: Procedure
+                - name: Sviluppare
                   items:
                     - name: .NET
                       href: table-storage-how-to-use-dotnet.md
@@ -274,6 +276,8 @@
                       href: table-storage-how-to-use-python.md
                     - name: Ruby
                       href: table-storage-how-to-use-ruby.md
+                    - name: PowerShell
+                      href: table-storage-how-to-use-powershell.md
         - name: Feed delle modifiche
           href: change-feed.md
         - name: GeoSpatial
