@@ -1,5 +1,5 @@
 ---
-title: Raccolte connessioni per il database di Azure per PostgreSQL | Microsoft Docs
+title: Raccolte connessioni per il database di Azure per PostgreSQL | Documentazione Microsoft
 description: In questo articolo vengono descritte varie librerie e driver che gli sviluppatori possono usare per generare il codice delle applicazioni per la connessione e l'esecuzione di query nel database di Azure per PostgreSQL.
 services: postgresql
 author: SaloniSonpal
@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Raccolte connessioni per il database di Azure per PostgreSQL
-In questo argomento vengono elencate le librerie e i driver che gli sviluppatori possono usare per programmare le applicazioni per la connessione e l'esecuzione di query in Database di Azure per PostgreSQL.
+Questo argomento elenca le librerie e i driver che gli sviluppatori possono usare per creare applicazioni per la connessione e l'esecuzione di query in Database di Azure per PostgreSQL.
 
 ## <a name="client-interfaces"></a>Interfacce client
-La maggior parte delle librerie client di linguaggio usate per connettersi al server PostgreSQL è costituita da progetti esterni e viene distribuita in modo indipendente. Queste sono supportate nelle piattaforme Windows, Linux e Mac. Nella tabella seguente sono elencati alcuni dei driver client più diffusi:
+La maggior parte delle librerie client di linguaggio usate per connettersi al server PostgreSQL è costituita da progetti esterni e viene distribuita in modo indipendente. Le librerie elencate sono supportate dalle piattaforme Windows, Linux e Mac per la connessione a Database di Azure per PostgreSQL. Nella sezione Passaggi successivi sono elencati alcuni esempi introduttivi.
 
 | **Lingua** | **Interfaccia del client** | **Informazioni aggiuntive** | **Scaricare** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|

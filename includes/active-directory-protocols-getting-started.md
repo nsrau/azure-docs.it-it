@@ -19,7 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
-## Registrare l'applicazione nel tenant di Active Directory
+## <a name="register-your-application-with-your-ad-tenant"></a>Registrare l'applicazione nel tenant di Active Directory
 Prima di tutto è necessario registrare l'applicazione nel tenant di Azure Active Directory (Azure AD). Verrà fornito un ID per l'applicazione, abilitandola per ricevere token.
 
 * Accedere al [portale di Azure](https://portal.azure.com).

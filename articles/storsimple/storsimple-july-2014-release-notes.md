@@ -12,27 +12,33 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/18/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 303cdffa15fdfe9b83d0612edecafc6943d218f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6e087ad61ee54fef3552895c00a478fa51e2072
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-8000-series-release-version-release-notes---july-2014"></a>Note sulla versione di rilascio di StorSimple serie 8000 - Luglio 2014
-## <a name="overview"></a>Panoramica
-Le seguenti note sulla versione identificano i problemi critici aperti per la versione di disponibilità generale di luglio 2014 di StorSimple serie 8000 di Microsoft Azure StorSimple. Questa versione corrisponde alla versione del software 6.3.9600.17215.  
 
-A meno che non sia diversamente specificato, queste note sulla versione si applicano a tutti i modelli del dispositivo StorSimple. Le note sulla versione vengono aggiornate continuamente; i problemi critici che richiedono una soluzione alternativa vengono aggiunti man mano che vengono individuati. Prima di distribuire la soluzione Microsoft Azure StorSimple, tenere presenti le informazioni seguenti.  
+> [!NOTE]
+> Il portale classico per StorSimple è deprecato. Le istanze di Gestione dispositivi StorSimple passeranno automaticamente al nuovo portale di Azure in base alla pianificazione per la funzionalità deprecata. Si riceveranno un messaggio di posta elettronica e una notifica del portale relativi a questo passaggio. Anche questo documento verrà ritirato a breve. Per domande relative al passaggio, vedere [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md).
+
+## <a name="overview"></a>Panoramica
+
+Le seguenti note sulla versione identificano i problemi critici aperti per la versione di disponibilità generale di luglio 2014 di StorSimple serie 8000 di Microsoft Azure StorSimple. Questa versione corrisponde alla versione del software 6.3.9600.17215.
+
+A meno che non sia diversamente specificato, queste note sulla versione si applicano a tutti i modelli del dispositivo StorSimple. Le note sulla versione vengono aggiornate continuamente; i problemi critici che richiedono una soluzione alternativa vengono aggiunti man mano che vengono individuati. Prima di distribuire la soluzione Microsoft Azure StorSimple, tenere presenti le informazioni seguenti.
 
 ## <a name="known-issues-in-this-release"></a>Problemi noti in questa versione
+
 Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.  
 
 | No. | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Ripristino delle impostazioni predefinite |In alcuni casi, quando si esegue un ripristino delle impostazioni predefinite, il dispositivo StorSimple potrebbe bloccarsi e l’utente potrebbe visualizzare il messaggio: **Ripristino delle impostazioni predefinite in corso (fase 8)**. Ciò si verifica se si preme CTRL + C mentre il cmdlet è in esecuzione. |Non premere CTRL + C dopo l'avvio di un ripristino delle impostazioni predefinite. Se si è già in questo stato, contattare il supporto tecnico Microsoft per i passaggi successivi. |Sì |No |
-| 2 |Quorum disco |In rari casi, se la maggior parte dei dischi nello chassis EBOD di un dispositivo 8600 è disconnessa generando un’assenza di quorum disco, il pool di archiviazione sarà offline  e rimarrà in tale stato anche se i dischi vengono riconnessi. |Sarà necessario riavviare il dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft per i passaggi successivi. |Sì |No |
+| 2 |Quorum disco |In rari casi, se la maggior parte dei dischi nello chassis EBOD di un dispositivo 8600 è disconnessa generando un'assenza di quorum disco, il pool di archiviazione sarà offline. e rimarrà in tale stato anche se i dischi vengono riconnessi. |Sarà necessario riavviare il dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft per i passaggi successivi. |Sì |No |
 | 3 |Errori di snapshot nel cloud |In rari casi, uno snapshot cloud potrebbe non riuscire a causa dell’errore **Raggiunto il limite massimo di backup**. Ciò si verifica se si superano i 255 cloni online sullo stesso dispositivo, dallo stesso volume originale eliminato. | |Sì |Sì |
 | 4 |ID controller non corretto |Quando viene eseguita la sostituzione di un controller, il controller 0 potrebbe essere visualizzato come controller 1. Durante la sostituzione del controller, quando l'immagine viene caricata dal nodo peer, l'ID del controller può presentarsi inizialmente come ID del controller peer. In rari casi, questo comportamento può verificarsi anche dopo un riavvio del sistema. |Non è necessaria alcuna azione da parte dell’utente. Questa situazione si risolverà dopo la sostituzione del controller. |Sì |No |
 | 5 |Grafici di monitoraggio del dispositivo |Nel servizio StorSimple Manager, i grafici di monitoraggio del dispositivo non funzionano quando l’autenticazione di base o NTLM è abilitata nella configurazione del server proxy per il dispositivo. |Modificare la configurazione del proxy Web per il dispositivo registrato con il servizio StorSimple Manager in modo che l'autenticazione sia impostata su NESSUNA. A tale scopo, eseguire il cmdlet Set-HcsWebProxy di Windows PowerShell per StorSimple. |Sì |Sì |

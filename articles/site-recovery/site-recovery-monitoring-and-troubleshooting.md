@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad1e0bcb2e2c073c8fb186f5a9d8bcb0bac588a0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici
 Questa guida al monitoraggio e alla risoluzione dei problemi illustra come tenere traccia dello stato della replica e le tecniche di risoluzione dei problemi per Azure Site Recovery.
 
 ## <a name="understand-the-components"></a>Informazioni sui componenti
 ### <a name="vmware-virtual-machine-or-physical-server-site-deployment-for-replication-between-on-premises-and-azure"></a>Distribuzione del sito della macchina virtuale VMware o del server fisico per la replica tra ambiente locale e Azure
-Per configurare il ripristino del database tra una macchina virtuale VMware o un server fisico in locale e Azure, è necessario configurare i componenti server di configurazione, server di destinazione master e server di elaborazione nella macchina virtuale o nel server. Quando si abilita la protezione per il server di origine, Azure Site Recovery installa la funzionalità App per dispositivi mobili del Servizio app di Microsoft Azure. Dopo un'interruzione del servizio locale e dopo il failover del server di origine in Azure, i clienti devono configurare un server di elaborazione in Azure e un server di destinazione master locale per ricostruire il server di origine in locale.
+Per configurare il ripristino del database tra una macchina virtuale VMware o un server fisico in locale e Azure, è necessario configurare i componenti server di configurazione, server di destinazione master e server di elaborazione nella macchina virtuale o nel server. Quando si abilita la protezione per il server di origine, Azure Site Recovery installa il servizio Mobility dal server di elaborazione scelto se non è già stata distribuita una versione aggiornata. Dopo un'interruzione del servizio locale e dopo il failover del server di origine in Azure, i clienti devono configurare un server di elaborazione in Azure e un server di destinazione master locale per ricostruire il server di origine in locale.
 
 ![Distribuzione del sito VMware o fisico per la replica tra ambiente locale e Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 

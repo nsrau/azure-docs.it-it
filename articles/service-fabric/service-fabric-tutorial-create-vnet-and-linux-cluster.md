@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: b2542af86be236b8d575fcaf7687222cd74af661
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 33a3474ed91194efbaf2ef96957ad268f43a717e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster Linux di Service Fabric in una rete virtuale e in una subnet di Azure esistente tramite l'interfaccia della riga di comando di Azure. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni. Per creare un cluster Windows tramite PowerShell, vedere [Creare un cluster sicuro di Windows in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -84,17 +84,35 @@ az group deployment create \
 ```
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## <a name="deploy-the-service-fabric-cluster"></a>Distribuire il cluster di Service Fabric
-Una volta terminata la distribuzione delle risorse di rete, il passaggio successivo consiste nel distribuire un cluster Service Fabric per la rete virtuale nella subnet e nel gruppo NSG designato per tale cluster. La distribuzione di un cluster in una rete virtuale esistente e una subnet (distribuito in precedenza in questo articolo) richiede un modello di Gestione risorse.  Per altre informazioni, vedere [Creare un cluster usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Per questa serie di esercitazioni, il modello è preconfigurato per usare i nomi di rete virtuale, subnet e gruppo di sicurezza di rete configurati in un passaggio precedente.  Scaricare il modello e il file di parametri di Resource Manager seguenti:
+Una volta terminata la distribuzione delle risorse di rete, il passaggio successivo consiste nel distribuire un cluster Service Fabric per la rete virtuale nella subnet e nel gruppo NSG designato per tale cluster. La distribuzione di un cluster in una rete virtuale esistente e una subnet (distribuito in precedenza in questo articolo) richiede un modello di Gestione risorse.  Per altre informazioni, vedere [Creare un cluster usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Per questa serie di esercitazioni, il modello è preconfigurato per usare i nomi di rete virtuale, subnet e gruppo di sicurezza di rete configurati in un passaggio precedente.  
+
+Scaricare il modello e il file di parametri di Resource Manager seguenti:
 - [linuxcluster.json][cluster-arm]
 - [linuxcluster.Parameters.json][cluster-parameters-arm]
 
-Compilare i parametri **clusterName**, **adminUserName** e **adminPassword** vuoti nel file *linuxcluster.parameters.json* per la distribuzione.  Lasciare vuoti i parametri **certificateThumbprint**, **certificateUrlValue** e **sourceVaultValue** se si desidera creare un certificato autofirmato.  Se è disponibile un certificato esistente caricato in precedenza in un insieme di credenziali delle chiavi, immettere quei valori di parametro.
+Usare questo modello per creare un cluster protetto.  Un certificato del cluster è un certificato X.509 usato per proteggere le comunicazioni da nodo a nodo e autenticare gli endpoint di gestione dei cluster in un client di gestione.  Il certificato del cluster fornisce anche un certificato SSL per l'API di gestione HTTPS e per Service Fabric Explorer tramite HTTPS. L'insieme di credenziali delle chiavi di Azure viene usato per gestire i certificati dei cluster di Service Fabric in Azure.  Quando viene distribuito un cluster in Azure, il provider di risorse di Azure responsabile della creazione di cluster Service Fabric estrae i certificati dall'insieme di credenziali delle chiavi e li installa nelle macchine virtuali del cluster. 
 
-Per distribuire il cluster usando il modello e il file dei parametri di Gestione risorse, usare lo script seguente.  Un certificato autofirmato viene creato nell'insieme di credenziali delle chiavi specificato e viene usato per proteggere il cluster.  Il certificato viene anche scaricato localmente.
+È possibile usare un certificato da un'autorità di certificazione come certificato del cluster oppure, a scopo di test, creare un certificato autofirmato. Il certificato del cluster deve:
+
+- contenere una chiave privata;
+- essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange);
+- avere un nome del soggetto corrispondente al dominio usato per accedere al cluster di Service Fabric. Questa corrispondenza è necessaria per fornire SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio .cloudapp.azure.com. È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
+
+Specificare un valore per questi parametri vuoti nel file *linuxcluster.parameters.json* per la distribuzione:
+
+|Parametro|Valore|
+|---|---|
+|adminPassword|Password#1234|
+|adminUserName|vmadmin|
+|clusterName|mysfcluster|
+
+Lasciare vuoti i parametri **certificateThumbprint**, **certificateUrlValue** e **sourceVaultValue** per creare un certificato autofirmato.  Per usare un certificato esistente caricato in precedenza in un insieme di credenziali delle chiavi, immettere quei valori di parametro.
+
+Lo script seguente usa il comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) e il modello per distribuire un nuovo cluster in Azure. Il cmdlet crea anche un insieme di credenziali delle chiavi in Azure, aggiunge un nuovo certificato autofirmato all'insieme di credenziali delle chiavi e scarica il file del certificato in locale. È possibile specificare un certificato esistente e/o un insieme di credenziali delle chiavi con altri parametri del comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create).
 
 ```azurecli
 Password="q6D7nN%6ck@6"
-Subject="aztestcluster.southcentralus.cloudapp.azure.com"
+Subject="mysfcluster.southcentralus.cloudapp.azure.com"
 VaultName="linuxclusterkeyvault"
 az group create --name $ResourceGroupName --location $Location
 
@@ -138,9 +156,9 @@ In questa esercitazione si è appreso come:
 > * Connettersi al cluster con l'interfaccia della riga di comando di Service Fabric
 > * Rimuovere un cluster
 
-Procedere con l'esercitazione seguente per scoprire come distribuire Gestione API con Service Fabric.
+Procedere con l'esercitazione seguente per scoprire come ridimensionare il cluster.
 > [!div class="nextstepaction"]
-> [Distribuire Gestione API](service-fabric-tutorial-deploy-api-management.md)
+> [Ridimensionare un cluster](service-fabric-tutorial-scale-cluster.md)
 
 
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json

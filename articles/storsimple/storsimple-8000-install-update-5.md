@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installare l'aggiornamento 5 nel dispositivo StorSimple
 
@@ -30,7 +30,7 @@ L'aggiornamento 5 include software per dispositivi, Storport e Spaceport, aggior
 
 > [!IMPORTANT]
 > * Si esegue una serie di controlli preliminari automatici e manuali prima dell'installazione per determinare l'integrità del dispositivo in termini di connettività di stato e di rete hardware. Questi controlli preliminari vengono eseguiti solo se si applicano gli aggiornamenti dal portale di Azure.
-> * Quando si aggiorna un dispositivo che esegue versioni precedenti all'aggiornamento 3, è consigliabile installare gli aggiornamenti tramite il metodo hotfix. Per ottenere assistenza dal supporto tecnico durante l'aggiornamento, [registrare un ticket di supporto](storsimple-8000-contact-microsoft-support.md).
+> * Quando si aggiorna un dispositivo che esegue versioni precedenti all'aggiornamento 3, è consigliabile installare gli aggiornamenti tramite il metodo hotfix. Se si verificano problemi, [registrare un ticket di supporto](storsimple-8000-contact-microsoft-support.md).
 > * È consigliabile installare gli aggiornamenti software e gli altri aggiornamenti normali tramite il portale di Azure. Passare all'interfaccia di Windows PowerShell del dispositivo (per installare gli aggiornamenti) solo se il gateway di pre-aggiornamento ha esito negativo nel portale. A seconda della versione da cui viene eseguito l'aggiornamento, l'installazione degli aggiornamenti può richiedere un minimo di 4 ore. Gli aggiornamenti in modalità di manutenzione devono essere installati tramite l'interfaccia di Windows PowerShell del dispositivo. Trattandosi di aggiornamenti con interruzioni del servizio, comportano un periodo di inattività per il dispositivo.
 > * Se è in esecuzione StorSimple Snapshot Manager (facoltativo), assicurarsi di avere installato l'aggiornamento 5 in Snapshot Manager prima di aggiornare il dispositivo.
 

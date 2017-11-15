@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
-# Protocolli della versione 2.0: applicazioni a singola pagina che usano il flusso implicito
+# <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolli della versione 2.0: applicazioni a singola pagina che usano il flusso implicito
 Con l'endpoint v2.0 è possibile far accedere gli utenti alle app a singola pagina con account Microsoft sia personali che aziendali o dell'istituto di istruzione.  Le app a pagina singola e le altre app JavaScript che vengono eseguite soprattutto in un browser presentano alcune problematiche interessanti nell'ambito dell'autenticazione:
 
 * Le caratteristiche di sicurezza di queste app sono considerevolmente diverse da quelle delle tradizionali applicazioni Web basate su server.
@@ -39,12 +39,12 @@ Se, tuttavia, si preferisce non usare una libreria nell'app a pagina singola e i
 > 
 > 
 
-## Diagramma di protocollo
+## <a name="protocol-diagram"></a>Diagramma di protocollo
 L'intero flusso di accesso implicito è simile al seguente: i singoli passaggi sono descritti in dettaglio di seguito.
 
 ![Corsie di OpenID Connect](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
-## Inviare la richiesta di accesso
+## <a name="send-the-sign-in-request"></a>Inviare la richiesta di accesso
 Per l'accesso iniziale dell'utente all'app, è possibile inviare una richiesta di autorizzazione [OpenID Connect](active-directory-v2-protocols-oidc.md) e ottenere un `id_token` dall'endpoint 2.0:
 
 ```
@@ -84,7 +84,7 @@ A questo punto, all'utente viene chiesto di immettere le credenziali e completar
 
 Dopo che l'utente viene autenticato e fornisce il consenso, l'endpoint 2.0 restituisce una risposta all'app nell'URI `redirect_uri`, usando il metodo specificato nel parametro `response_mode`.
 
-#### Risposta con esito positivo
+#### <a name="successful-response"></a>Risposta con esito positivo
 Una risposta con esito positivo che usa `response_mode=fragment` e `response_type=id_token+token` è simile a quanto riportato di seguito. Sono state aggiunte interruzioni di riga per migliorare la leggibilità:
 
 ```
@@ -106,7 +106,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | id_token |Token ID richiesto dall'app. È possibile usare il token ID per verificare l'identità dell'utente e avviare una sessione con l'utente.  Informazioni dettagliate sui token ID e il relativo contenuto sono incluse nel [riferimento al token dell'endpoint 2.0](active-directory-v2-tokens.md). |
 | state |Se un parametro di stato è incluso nella richiesta, lo stesso valore viene visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici. |
 
-#### Risposta di errore
+#### <a name="error-response"></a>Risposta di errore
 Le risposte di errore possono essere inviate anche a `redirect_uri` , in modo che l'app possa gestirle adeguatamente:
 
 ```
@@ -120,7 +120,7 @@ error=access_denied
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
 
-## Convalidare il token ID
+## <a name="validate-the-idtoken"></a>Convalidare il token ID
 La semplice ricezione di un token ID non è sufficiente per autenticare l'utente. È necessario convalidare la firma del token ID e verificare le attestazioni nel token per i requisiti dell'app.  L'endpoint 2.0 usa i [token Web JSON](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e la crittografia a chiave pubblica per firmare i token e verificarne la validità.
 
 È possibile scegliere di convalidare `id_token` nel codice client, ma una procedura comune consiste nell'inviare `id_token` a un server back-end dove verrà eseguita la convalida.  Dopo aver convalidato la firma dell'id_token, è necessario verificare alcune attestazioni.  Per altre informazioni, ad esempio relative alla [convalida del token](active-directory-v2-tokens.md) e al [rollover della chiave di firma](active-directory-v2-tokens.md#validating-tokens), vedere il [riferimento al token della versione 2.0](active-directory-v2-tokens.md#validating-tokens).  È consigliabile usare una libreria per l'analisi e la convalida dei token. È disponibile almeno una libreria per la maggior parte dei linguaggi e delle piattaforme.
@@ -136,7 +136,7 @@ Per altre informazioni sulle attestazioni in un token ID, vedere il [riferimento
 
 Dopo aver convalidato completamente il token ID, è possibile avviare una sessione con l'utente e usare le attestazioni nel token ID per ottenere informazioni sull'utente nell'app.  Queste informazioni possono essere usate per la visualizzazione, i record, le autorizzazioni e così via.
 
-## Ottenere i token di accesso
+## <a name="get-access-tokens"></a>Ottenere i token di accesso
 Dopo avere fatto accedere l'utente all'app a pagina singola, è possibile ottenere i token di accesso per chiamare le API Web protette da Azure AD, ad esempio [Microsoft Graph](https://graph.microsoft.io).  Anche se si è già ricevuto un token usando il `token` response_type, è possibile usare questo metodo per acquisire i token per risorse aggiuntive senza dover reindirizzare l'utente perché esegua di nuovo l'accesso.
 
 Nel normale flusso OpenID Connect/OAuth, per eseguire questa operazione, si effettua una richiesta all'endpoint `/token` 2.0.  L'endpoint 2.0 non supporta però le richieste CORS e quindi non è possibile effettuare una chiamata ad AJAX per ottenere e aggiornare i token.  È possibile usare invece il flusso implicito in un iframe nascosto per ottenere nuovi token per altre API Web: 
@@ -180,7 +180,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 Con il parametro `prompt=none` , questa richiesta avrà immediatamente esito positivo o negativo e farà tornare all'applicazione.  Un risposta con esito positivo verrà inviata all'app all'indirizzo `redirect_uri` indicato, usando il metodo specificato nel parametro `response_mode`.
 
-#### Risposta con esito positivo
+#### <a name="successful-response"></a>Risposta con esito positivo
 Una risposta con esito positivo che usa `response_mode=fragment` ha un aspetto simile al seguente:
 
 ```
@@ -200,7 +200,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in |Validità del token di accesso (espressa in secondi). |
 | scope |Ambiti per i quali il token di accesso è valido. |
 
-#### Risposta di errore
+#### <a name="error-response"></a>Risposta di errore
 Le risposte di errore possono essere inviate anche a `redirect_uri` , in modo che l'app possa gestirle adeguatamente.  Nel caso di `prompt=none`, un errore previsto sarà:
 
 ```
@@ -216,10 +216,10 @@ error=user_authentication_required
 
 Se si riceve questo errore nella richiesta iframe, l'utente deve accedere di nuovo in modo interattivo per recuperare un nuovo token.  È possibile scegliere di gestire questa situazione in qualsiasi modo appropriato per l'applicazione.
 
-## Aggiornare i token
+## <a name="refreshing-tokens"></a>Aggiornare i token
 I token `id_token` e `access_token` scadranno dopo un breve periodo, quindi l'app deve essere preparata per aggiornare regolarmente questi token.  Per aggiornare entrambi i tipi di token, è possibile eseguire la stessa richiesta nell'iframe nascosto precedente usando il parametro `prompt=none` per controllare il comportamento di Azure AD.  Per ricevere un nuovo `id_token`, assicurarsi di usare `response_type=id_token` e `scope=openid`, oltre al parametro `nonce`.
 
-## Invio di una richiesta di disconnessione
+## <a name="send-a-sign-out-request"></a>Invio di una richiesta di disconnessione
 `end_session_endpoint` di OpenID Connect consente all'app di inviare una richiesta all'endpoint 2.0 per terminare una sessione utente e cancellare i cookie impostati dall'endpoint 2.0.  Per disconnettere completamente un utente da un'applicazione Web, l'app deve terminare la sessione in cui è presente l'utente (in genere cancellando la cache di un token o eliminando i cookie) e quindi reindirizzare il browser all'indirizzo seguente:
 
 ```

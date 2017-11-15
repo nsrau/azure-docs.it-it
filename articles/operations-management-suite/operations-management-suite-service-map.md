@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Usare la soluzione Mapping dei servizi in Operations Management Suite
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -224,11 +224,26 @@ L'immagine seguente è una vista dettagliata di un evento ConfigurationChange ch
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Integrazione delle prestazioni in Operations Management Suite
-Il riquadro relativo alle **prestazioni del computer** mostra le metriche di prestazioni standard relative al server selezionato. Le metriche includono l'uso della CPU, l'uso della memoria, i byte di rete inviati e ricevuti e un elenco dei processi principali per byte di rete inviati e ricevuti. Per ottenere i dati sulle prestazioni di rete è necessario anche aver abilitato la soluzione Wire Data 2.0 in Operations Management Suite.
+Il riquadro relativo alle **prestazioni del computer** mostra le metriche di prestazioni standard relative al server selezionato. Le metriche includono l'uso della CPU, l'uso della memoria, i byte di rete inviati e ricevuti e un elenco dei processi principali per byte di rete inviati e ricevuti.
 
 ![Riquadro delle prestazioni del computer](media/oms-service-map/machine-performance.png)
 
+Per visualizzare i dati sulle prestazioni, potrebbe essere necessario [abilitare i contatori delle prestazioni di Log Analytics appropriati](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Contatori da attivare:
 
+Windows:
+- Processore(*)\% Tempo processore
+- Memoria\% Byte vincolati in uso
+- Scheda di rete(*)\Byte inviati/sec
+- Scheda di rete(*)\Byte ricevuti/sec
+
+Linux:
+- Processore(*)\% Tempo processore
+- Memoria(*)\% Memoria utilizzata
+- Scheda di rete(*)\Byte inviati/sec
+- Scheda di rete(*)\Byte ricevuti/sec
+
+Per ottenere i dati sulle prestazioni di rete è necessario anche aver abilitato la soluzione Wire Data 2.0 in Operations Management Suite.
+ 
 ## <a name="operations-management-suite-security-integration"></a>Integrazione della sicurezza in Operations Management Suite
 L'integrazione di Sicurezza e controllo in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Operations Management Suite.
 

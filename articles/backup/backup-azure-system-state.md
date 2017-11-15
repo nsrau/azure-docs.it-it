@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Eseguire il backup dello stato del sistema Windows in una distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup dello stato del sistema Windows Server in Azure. Si tratta di un'esercitazione che illustra le informazioni di base,
@@ -29,7 +29,7 @@ Per altre informazioni su Backup di Azure, vedere questa [panoramica](backup-int
 Se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) che consente di accedere a qualsiasi servizio di Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
-Per eseguire il backup dei file e delle cartelle, è necessario creare un insieme di credenziali di Servizi di ripristino nell'area in cui archiviare i dati. È anche necessario determinare la modalità di replica di archiviazione.
+Per eseguire il backup dello stato del sistema di Windows Server, è necessario creare un insieme di credenziali di Servizi di ripristino nell'area in cui archiviare i dati. È anche necessario determinare la modalità di replica di archiviazione.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Per creare un insieme di credenziali di Servizi di ripristino
 1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com/) , tramite la sottoscrizione di Azure.
@@ -135,6 +135,9 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
     Le credenziali dell'insieme di credenziali verranno scaricate nella cartella Download locale. Al termine del download delle credenziali dell'insieme di credenziali verrà visualizzato un messaggio popup che chiede se aprire o salvare le credenziali. Fare clic su **Save**. Se si fa clic accidentalmente su **Apri**, attendere che il tentativo di apertura delle credenziali termini con un errore. Non è possibile aprire le credenziali dell'insieme di credenziali. Procedere con il passaggio successivo. Le credenziali dell'insieme di credenziali si trovano nella cartella Downloads.   
 
     ![Il download delle credenziali dell'insieme di credenziali è terminato](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+> [!NOTE]
+> Le credenziali dell'insieme devono essere salvate solo nel percorso locale per Windows Server in cui si prevede di usare l'agente. 
+>
 
 ## <a name="install-and-register-the-agent"></a>Installare e registrare l'agente
 
@@ -163,40 +166,13 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
 
 L'agente ora è installato e il computer è registrato nell'insieme di credenziali. Ora è possibile configurare e pianificare il backup.
 
-## <a name="back-up-windows-server-system-state-preview"></a>Eseguire il backup dello stato del sistema Windows Server (anteprima)
-Il backup iniziale include tre attività:
+## <a name="back-up-windows-server-system-state"></a>Eseguire un backup dello stato del sistema Windows Server 
+Il backup iniziale comprende due attività:
 
-* Abilitare il backup dello stato del sistema con l'agente di Backup di Azure
 * Pianificare il backup
-* Eseguire il backup di file e cartelle per la prima volta
+* Eseguire il backup dello stato del sistema per la prima volta
 
 Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Microsoft Azure.
-
-### <a name="to-enable-system-state-backup-using-the-azure-backup-agent"></a>Per abilitare il backup dello stato del sistema con l'agente di Backup di Azure
-
-1. In una sessione di PowerShell eseguire questo comando per arrestare il motore di backup di Azure.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Aprire il Registro di sistema di Windows.
-
-  ```
-  PS C:\> regedit.exe
-  ```
-
-3. Aggiungere la chiave del Registro di sistema seguente con il valore DWORD specificato.
-
-  | Percorso del Registro | Chiave del Registro di sistema | Valore DWORD |
-  |---------------|--------------|-------------|
-  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
-
-4. Riavviare il motore di backup eseguendo questo comando in un prompt dei comandi con privilegi elevati.
-
-  ```
-  PS C:\> Net start obengine
-  ```
 
 ### <a name="to-schedule-the-backup-job"></a>Per pianificare il processo di backup
 
@@ -216,11 +192,7 @@ Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Mi
 
 6. Fare clic su **Avanti**.
 
-7. La pianificazione del backup e della conservazione dello stato del sistema viene impostata automaticamente su un backup ogni domenica alle 21:00 ora locale e su un periodo di conservazione di 60 giorni.
-
-   > [!NOTE]
-   > I criteri di backup e di conservazione dello stato del sistema vengono configurati automaticamente. Se si vuole eseguire il backup di file e cartelle oltre che dello stato del sistema Windows Server, nella procedura guidata specificare solo i criteri di backup e di conservazione per i backup dei file. 
-   >
+7. Nelle pagine successive, selezionare la frequenza e i criteri di conservazione del backup per i backup dello stato del sistema. 
 
 8. Nella pagina Conferma esaminare le informazioni e fare clic su **Fine**.
 
@@ -234,88 +206,21 @@ Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Mi
 
     ![Eseguire ora il backup di Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Nella pagina Conferma riesaminare le impostazioni che l'Esecuzione guidata backup userà per il backup del computer. Fare clic su **Backup**.
+3. Selezionare **Stato del sistema** nella schermata di **selezione degli elementi di backup** visualizzata e fare clic su **Avanti**.
+
+4. Nella pagina Conferma riesaminare le impostazioni che l'Esecuzione guidata backup userà per il backup del computer. Fare clic su **Backup**.
 
 4. Fare clic su **Chiudi** per chiudere la procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
 
-5. Se si esegue il backup di file e cartelle oltre che dello stato del sistema Windows Server, la procedura guidata Esegui backup ora eseguirà il backup solo dei file. Per eseguire un backup dello stato del sistema ad hoc, usare questo comando di PowerShell:
 
-    ```
-    PS C:\> Start-OBSystemStateBackup
-    ```
-
-  Al termine del backup iniziale, nella console Backup comparirà lo stato **Processo completato** .
+Al termine del backup iniziale, nella console Backup comparirà lo stato **Processo completato** .
 
   ![Completamento infrarossi](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
-
-## <a name="frequently-asked-questions"></a>Domande frequenti
-
-Le domande e le risposte seguenti offrono informazioni supplementari.
-
-### <a name="what-is-the-staging-volume"></a>Che cos'è il volume di staging?
-
-Il volume di staging rappresenta la posizione intermedia in cui Windows Server Backup, disponibile in modo nativo, inserisce temporaneamente il backup dello stato del sistema. L'agente di Backup di Azure quindi comprime e crittografa questo backup intermedio e lo invia tramite il protocollo HTTPS sicuro all'insieme di credenziali dei servizi di ripristino. **È consigliabile definire il volume di staging in una posizione che non sia un volume del sistema operativo Windows. Se si riscontrano problemi con i backup dello stato del sistema, il primo passaggio per risolverli è controllare la posizione del volume di staging.** 
-
-### <a name="how-can-i-change-the-staging-volume-path-specified-in-the-azure-backup-agent"></a>Come si può modificare il percorso del volume di staging specificato nell'agente di Backup di Azure?
-
-Per impostazione predefinita, il volume di staging si trova nella cartella della cache. 
-
-1. Per modificare tale posizione, usare il comando seguente in un prompt dei comandi con privilegi elevati:
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Aggiornare quindi la voce del Registro di sistema seguente con il percorso della nuova cartella del volume di staging.
-
-  |Percorso del Registro|Chiave del Registro di sistema|Valore|
-  |-------------|------------|-----|
-  |HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | Nuovo percorso del volume di staging |
-
-Per il percorso di staging viene fatta distinzione tra maiuscole e minuscole e l'uso di maiuscole e minuscole deve corrispondere esattamente a quello esistente nel server. 
-
-3. Dopo aver modificato il percorso del volume di staging, riavviare il motore di backup:
-  ```
-  PS C:\> Net start obengine
-  ```
-4. Per acquisire il percorso modificato, aprire l'agente di Servizi di ripristino di Microsoft Azure e attivare un backup ad hoc dello stato del sistema.
-
-### <a name="why-is-the-system-state-default-retention-set-to-60-days"></a>Perché l'impostazione predefinita della conservazione dello stato del sistema è 60 giorni?
-
-La vita utile di un backup dello stato del sistema è uguale all'impostazione della "durata di rimozione definitiva" del ruolo Active Directory di Windows Server. Il valore predefinito della voce relativa alla durata di rimozione definitiva è 60 giorni. Questo valore può essere impostato nell'oggetto di configurazione del servizio directory (NTDS).
-
-### <a name="how-do-i-change-the-default-backup-and-retention-policy-for-system-state"></a>Come si modificano i criteri di backup e di conservazione predefiniti per lo stato del sistema?
-
-Per modificare i criteri di backup e di conservazione predefiniti per lo stato del sistema:
-1. Arrestare il motore di backup. Eseguire questo comando da un prompt dei comandi con privilegi elevati.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Aggiungere o aggiornare le voci di chiave del Registro di sistema seguenti in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
-
-  |Nome nel Registro di sistema|Descrizione|Valore|
-  |-------------|-----------|-----|
-  |SSBScheduleTime|Consente di configurare l'ora di backup. L'impostazione predefinita sono le 21 ora locale.|DWORD: formato HHMM (numero decimale), ad esempio 2130 per le 21:30 ora locale|
-  |SSBScheduleDays|Consente di configurare i giorni in cui il backup dello stato del sistema deve essere eseguito all'ora specificata. I giorni della settimana sono specificati da singole cifre. 0 rappresenta domenica, 1 lunedì e così via. Il giorno predefinito per il backup è domenica.|DWORD: giorni della settimana in cui eseguire il backup (numero decimale). Ad esempio, 1230 pianifica i backup di lunedì, martedì, mercoledì e domenica.|
-  |SSBRetentionDays|Consente di configurare i giorni di conservazione del backup. Il valore predefinito è 60. Il massimo consentito è 180.|DWORD: giorni di conservazione del backup (numero decimale).|
-
-3. Usare il comando seguente per riavviare il motore di backup.
-    ```
-    PS C:\> Net start obengine
-    ```
-
-4. Aprire l'agente di Servizi di ripristino di Microsoft Azure.
-
-5. Fare clic su **Pianifica backup** e quindi su **Avanti** finché non vengono visualizzate le modifiche.
-
-6. Fare clic su **Fine** per applicare le modifiche.
-
 
 ## <a name="questions"></a>Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Sono disponibili altre informazioni sul [backup di computer Windows](backup-configure-vault.md).
-* Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
+* Dopo aver eseguito il backup dello stato del sistema Windows Server, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 * Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).

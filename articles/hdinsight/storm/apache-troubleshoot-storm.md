@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Risolvere i problemi di Storm usando Azure HDInsight
 
@@ -86,14 +86,14 @@ Il comando di esportazione scrive i metadati in un percorso Apache Hadoop Distri
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Individuare i binari Storm in un cluster
+## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Come individuare i file binari Storm in un cluster
 La posizione dei file binari Storm per lo stack HDP corrente è /usr/hdp/current/storm-client. Il percorso è lo stesso sia per i nodi head che per i nodi di lavoro.
  
 Potrebbero essere presenti più file binari per versioni HDP specifiche in /usr/hdp (ad esempio, /usr/hdp/2.5.0.1233/storm). La cartella /usr/hdp/current/storm-client è collegata alla versione più recente in esecuzione nel cluster.
 
 Per altre informazioni, vedere [Connettersi a un cluster HDInsight con SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [Storm](http://storm.apache.org/).
  
-## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Procedura per determinare la topologia di distribuzione di un cluster Storm
+## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Come determinare la topologia di distribuzione di un cluster Storm
 Identificare prima tutti i componenti installati in HDInsight Storm. Un cluster Storm è costituito da quattro categorie di nodi:
 
 * Nodi gateway
@@ -138,7 +138,7 @@ Per informazioni su come usare lo spout dell'hub eventi di Storm più recente ch
 ### <a name="source-code-examples"></a>Esempi di codice sorgente
 Vedere gli [esempi](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) su come leggere e scrivere da Hub eventi di Azure usando una topologia di Apache Storm (scritta in Java) in un cluster Azure HDInsight.
  
-## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Individuare i file di configurazione Storm Log4J nei cluster
+## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Come individuare i file di configurazione di Storm Log4J nei cluster
  
 Per identificare i file di configurazione di Apache Log4J per i servizi Storm.
  
@@ -152,3 +152,5 @@ Il file di configurazione Log4J di lavoro viene letto da /usr/hdp/\<versione HDP
  
 Esempi: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+### <a name="see-also"></a>Vedere anche
+[Risolvere i problemi tramite Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

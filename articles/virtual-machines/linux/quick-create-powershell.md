@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fdd83f2386055fa9fac1ad50f4b01bf4419342b5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3b93cdfbfb143c1597d190d87d270b5e6ede9537
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Creare una macchina virtuale Linux con PowerShell
 
-Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. Questa guida illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire una macchina virtuale che esegue Ubuntu Server. Dopo aver distribuito il server viene creata una connessione SSH e viene installato un server Web NGINX.
+Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. Questa guida illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire una macchina virtuale che esegue Server Ubuntu. Dopo aver distribuito il server viene creata una connessione SSH e viene installato un server Web NGINX.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

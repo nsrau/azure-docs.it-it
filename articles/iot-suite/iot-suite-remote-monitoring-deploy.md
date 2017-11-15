@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: babcf20b58af1415e0e658e0a622cb056e34642b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 159397ba4fc93628acbf2bb53edf5eb88fd0cac7
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Distribuire la soluzione preconfigurata di monitoraggio remoto
 
@@ -39,13 +39,17 @@ Se non si dispone di un account, è possibile creare un account di valutazione g
 
 Prima di poter distribuire la soluzione preconfigurata nella sottoscrizione di Azure, è necessario scegliere alcune opzioni di configurazione:
 
-1. Accedere ad [azureiotsuite.com](https://www.azureiotsuite.com) usando le credenziali dell'account Azure e quindi fare clic su **+** per creare una soluzione.
+1. Accedere ad [azureiotsuite.com](https://www.azureiotsuite.com) usando le credenziali dell'account Azure e quindi fare clic su **+** per creare una nuova soluzione:
 
-1. Fare clic su **Seleziona** nel riquadro **Remote monitoring** (Monitoraggio remoto).
+    ![Creare una nuova soluzione](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
+
+1. Fare clic su **Seleziona** nel riquadro **Remote monitoring preview** (Monitoraggio remoto in anteprima).
+
+    ![Scegliere il monitoraggio remoto](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
 1. Nella pagina **Create Remote Monitoring solution** (Crea soluzione di monitoraggio remoto) immettere il nome desiderato in **Nome soluzione** per la soluzione preconfigurata di monitoraggio remoto.
 
-1. Selezionare una distribuzione **Basic** o **Enterprise**. Se la soluzione viene distribuita per esplorarne il funzionamento o eseguire una dimostrazione, scegliere l'opzione **Basic** per ridurre al minimo i costi.
+1. Selezionare una distribuzione **Basic** o **Standard**. Se la soluzione viene distribuita per esplorarne il funzionamento o eseguire una dimostrazione, scegliere l'opzione **Basic** per ridurre al minimo i costi.
 
 1. Scegliere **Java** o **.NET** come linguaggio. Tutti i microservizi sono disponibili come implementazione Java o .NET.
 
@@ -53,7 +57,9 @@ Prima di poter distribuire la soluzione preconfigurata nella sottoscrizione di A
 
 1. Selezionare la **sottoscrizione** e l'**area** da usare per il provisioning della soluzione.
 
-1. Fare clic su **Crea soluzione** per iniziare il processo di provisioning. In genere il processo richiede alcuni minuti.
+1. Fare clic su **Crea soluzione** per iniziare il processo di provisioning. In genere il processo richiede alcuni minuti:
+
+    ![Informazioni sulla soluzione di monitoraggio remoto](media/iot-suite-remote-monitoring-deploy/createform.png)
 
 Per informazioni sulla risoluzione dei problemi, vedere [What to do when a deployment fails](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) (Che cosa fare quando una distribuzione non riesce) nel repository GitHub.
 
@@ -61,12 +67,16 @@ Per informazioni sulla risoluzione dei problemi, vedere [What to do when a deplo
 
 Al termine del processo di provisioning, è possibile accedere alla soluzione preconfigurata di monitoraggio remoto.
 
-1. Nella pagina **Soluzioni di cui è stato effettuato il provisioning** scegliere la soluzione di monitoraggio remoto.
+1. Nella pagina **Soluzioni di cui è stato effettuato il provisioning** scegliere la soluzione di monitoraggio remoto:
+
+    ![Scegliere nuova soluzione](media/iot-suite-remote-monitoring-deploy/choosenew.png)
 
 1. È possibile esaminare le informazioni sulla soluzione di monitoraggio remoto nel pannello visualizzato. Scegliere **Dashboard soluzione** per connettersi alla soluzione di monitoraggio remoto.
 
     > [!NOTE]
     > È possibile eliminare la soluzione di monitoraggio remoto da questo pannello quando non la si usa più.
+
+    ![Riquadro della soluzione](media/iot-suite-remote-monitoring-deploy/solutionpanel.png)
 
 1. Il dashboard della soluzione di monitoraggio remoto viene visualizzato nel browser.
 

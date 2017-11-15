@@ -1,5 +1,5 @@
 ---
-title: Esercitazione su REST del bus di servizio usando il servizio di inoltro di Azure | Documentazione Microsoft
+title: Esercitazione su REST usando il servizio di inoltro di Azure | Microsoft Docs
 description: Compilare una semplice applicazione host di inoltro del bus di servizio di Azure che espone un'interfaccia basata su REST.
 services: service-bus-relay
 documentationcenter: na
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2017
+ms.date: 11/06/2017
 ms.author: sethm
-ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a5a2916514a125d0b7443ced42e5ec600c68857
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Esercitazione su REST per l'inoltro WCF di Azure
 
 Questa esercitazione descrive come creare una semplice applicazione host di inoltro di Azure che espone un'interfaccia basata su REST. REST consente ai client Web, ad esempio un Web browser, di accedere all'API del bus di servizio tramite richieste HTTP.
 
-In questa esercitazione viene usato il modello di programmazione REST di Windows Communication Foundation (WCF) per creare un servizio REST nel bus di servizio. Per altre informazioni, vedere [Modello di programmazione HTTP Web WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) e [Progettazione e implementazione di servizi](/dotnet/framework/wcf/designing-and-implementing-services) nella documentazione di WCF.
+In questa esercitazione viene usato il modello di programmazione REST di Windows Communication Foundation (WCF) per creare un servizio REST nel servizio di inoltro di Azure. Per altre informazioni, vedere [Modello di programmazione HTTP Web WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) e [Progettazione e implementazione di servizi](/dotnet/framework/wcf/designing-and-implementing-services) nella documentazione di WCF.
 
 ## <a name="step-1-create-a-namespace"></a>Passaggio 1: Creare uno spazio dei nomi
 
@@ -32,9 +32,9 @@ Per usare le funzionalità del servizio d'inoltro di Azure, è prima necessario 
 
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Passaggio 2: definire un contratto di servizio WCF basato su REST da usare con il servizio di inoltro di Azure
 
-Quando si crea un servizio basato su REST WCF, è necessario definire il contratto. Il contratto specifica quali operazioni sono supportate dall'host. Un'operazione di servizio può essere considerata come un metodo del servizio Web. I contratti vengono creati definendo un'interfaccia C++, C# o Visual Basic. Ogni metodo dell'interfaccia corrisponde a un'operazione di servizio specifico. L'attributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) deve essere applicato a ogni interfaccia e l'attributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) deve essere applicato a ogni operazione. Se un metodo di un'interfaccia che ha [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) non ha [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), non viene esposto. Il codice usato per eseguire queste attività viene illustrato nell'esempio che segue la procedura.
+Quando si crea un servizio basato su REST WCF, è necessario definire il contratto. Il contratto specifica quali operazioni sono supportate dall'host. Un'operazione di servizio può essere considerata come un metodo del servizio Web. I contratti vengono creati definendo un'interfaccia C++, C# o Visual Basic. Ogni metodo dell'interfaccia corrisponde a un'operazione di servizio specifico. L'attributo [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) deve essere applicato a ogni interfaccia e l'attributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) deve essere applicato a ogni operazione. Se un metodo di un'interfaccia che ha [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) non ha [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), non viene esposto. Il codice usato per eseguire queste attività viene illustrato nell'esempio che segue la procedura.
 
-La differenza principale tra un contratto di WCF e un contratto di tipo REST è costituita dall'aggiunta di una proprietà all'attributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Questa proprietà consente di eseguire il mapping di un metodo dell'interfaccia a un metodo su altro lato dell'interfaccia. In tal caso, si userà [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) per collegare un metodo a HTTP GET. In questo modo il bus di servizio può recuperare e interpretare in modo accurato i comandi inviati all'interfaccia.
+La differenza principale tra un contratto di WCF e un contratto di tipo REST è costituita dall'aggiunta di una proprietà all'attributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Questa proprietà consente di eseguire il mapping di un metodo dell'interfaccia a un metodo su altro lato dell'interfaccia. Questo esempio usa l'attributo [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) per collegare un metodo al metodo HTTP GET. In questo modo il bus di servizio può recuperare e interpretare in modo accurato i comandi inviati all'interfaccia.
 
 ### <a name="to-create-a-contract-with-an-interface"></a>Per creare un contratto con un'interfaccia
 
@@ -56,7 +56,7 @@ La differenza principale tra un contratto di WCF e un contratto di tipo REST è 
     using System.IO;
     ```
    
-    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) è lo spazio dei nomi che consente l'accesso a livello di codice alle funzionalità di base di WCF. Inoltro WCF usa molti oggetti e attributi di WCF per definire i contratti di servizio. Questo spazio dei nomi viene usato nella maggior parte delle applicazioni di inoltro. Analogamente, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) consente di definire il canale, ossia l'oggetto usato per comunicare con il servizio di inoltro di Azure e il Web browser client. Infine, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contiene i tipi che consentono di creare applicazioni basate sul Web.
+    [System.ServiceModel](/dotnet/api/system.servicemodel) è lo spazio dei nomi che consente l'accesso a livello di codice alle funzionalità di base di WCF. Inoltro WCF usa molti oggetti e attributi di WCF per definire i contratti di servizio. Questo spazio dei nomi viene usato nella maggior parte delle applicazioni di inoltro. Analogamente, [System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels) consente di definire il canale, ossia l'oggetto usato per comunicare con il servizio di inoltro di Azure e il Web browser client. Infine, [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web) contiene i tipi che consentono di creare applicazioni basate sul Web.
 7. Rinominare lo spazio dei nomi `ImageListener` in **Microsoft.ServiceBus.Samples**.
    
     ```csharp
@@ -149,7 +149,7 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
     }
     ```
     Analogamente ad altre implementazioni di interfaccia, è possibile implementare la definizione in un altro file. Tuttavia, per questa esercitazione, l'implementazione è presente nello stesso file di definizione dell'interfaccia e del metodo `Main()`.
-2. Applicare l'attributo [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) alla classe **IImageService** per indicare che la classe è un'implementazione di un contratto WCF.
+2. Applicare l'attributo [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) alla classe **IImageService** per indicare che la classe è un'implementazione di un contratto WCF.
    
     ```csharp
     [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -158,7 +158,7 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
     }
     ```
    
-    Come accennato in precedenza, questo spazio dei nomi non è uno spazio dei nomi tradizionale. Infatti, fa parte dell'architettura WCF che identifica il contratto. Per altre informazioni, vedere l'argomento [Nomi di contratto dati](https://msdn.microsoft.com/library/ms731045.aspx) nella documentazione di WCF.
+    Come accennato in precedenza, questo spazio dei nomi non è uno spazio dei nomi tradizionale. Infatti, fa parte dell'architettura WCF che identifica il contratto. Per altre informazioni, vedere l'articolo [Nomi di contratto dati](https://msdn.microsoft.com/library/ms731045.aspx) nella documentazione di WCF.
 3. Aggiungere un'immagine con estensione jpg al progetto.  
    
     Si tratta di un'immagine che viene visualizzata nel browser di ricezione dal servizio. Fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Aggiungi**. Fare clic su **Elemento esistente**. Usare la finestra di dialogo **Aggiungi elemento esistente** per trovare un'immagine con estensione jpg appropriata e quindi fare clic su **Aggiungi**.
@@ -558,7 +558,7 @@ Dopo aver compilato la soluzione, effettuare le operazioni seguenti per eseguire
 3. Al termine, premere **INVIO** nella finestra del prompt dei comandi per chiudere l'app.
 
 ## <a name="next-steps"></a>Passaggi successivi
-A questo punto, dopo avere creato un'applicazione che usa il servizio di inoltro del bus di servizio, vedere gli articoli seguenti per altre informazioni sul servizio di inoltro di Azure:
+A questo punto, dopo avere creato un'applicazione che usa il servizio di inoltro di Azure, vedere gli articoli seguenti per altre informazioni:
 
 * [Panoramica dell'architettura del bus di servizio di Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Panoramica del servizio di inoltro di Azure](relay-what-is-it.md)

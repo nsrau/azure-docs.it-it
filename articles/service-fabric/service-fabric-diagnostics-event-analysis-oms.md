@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: f0cefab15a115719ea9c378546a7e6004bd06187
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Analisi e visualizzazione degli eventi con OMS
 
 Operations Management Suite (OMS) è una raccolta di servizi di gestione che consentono di monitorare e diagnosticare le applicazioni e i servizi ospitati nel cloud. Per avere una panoramica più dettagliata di OMS e sui vantaggi offerti, leggere [Informazioni su Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
-## <a name="log-analytics-and-the-oms-workspace"></a>Area di lavoro OMS e Log Analytics
+## <a name="log-analytics-and-the-oms-workspace"></a>Area di lavoro di OMS e Log Analytics
 
 Log Analytics raccoglie i dati dalle risorse gestite, tra cui una tabella di archiviazione o un agente di Azure, e li gestisce in un repository centrale. I dati possono essere quindi usati per analisi, avvisi e visualizzazioni o altre esportazioni. Log Analytics supporta i dati sulle prestazioni, sugli eventi o altri dati personalizzati.
 
@@ -37,52 +37,13 @@ Dopo la ricezione dei dati da Log Analytics, OMS dispone di numerose *soluzioni 
 
 ![Soluzione OMS SF](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
-Esistono due modi per eseguire il provisioning e configurare un'area di lavoro OMS, tramite un modello di Resource Manager o direttamente da Azure Marketplace. Usare il primo quando si distribuisce un cluster e il secondo se il cluster è già stato distribuito e la diagnostica è attiva.
-
-### <a name="deploying-oms-using-a-resource-management-template"></a>Distribuzione di OMS con il modello di gestione risorse
-
-Quando si distribuisce un cluster con un modello di Resource Manager, il modello può anche creare una nuova area di lavoro OMS, aggiungervi la soluzione Service Fabric e configurarla per leggere i dati dalle tabelle di archiviazione appropriate.
-
->[!NOTE]
->A tale scopo, è necessario abilitare la diagnostica in modo che le tabelle di archiviazione di Azure possano essere usate da OMS/Log Analytics per leggere altre informazioni.
-
-[Qui](https://azure.microsoft.com/resources/templates/service-fabric-oms/) viene illustrato un modello di esempio che è possibile usare e modificare in base alle necessità e che esegue le azioni descritte sopra. Nel caso in cui si desideri avere maggiori opzioni, esistono altri modelli che consentono di eseguire operazioni diverse a seconda del punto del processo in cui si configura un'area di lavoro OMS: si tratta dei modelli reperibili in [Service Fabric e OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
-
-### <a name="deploying-oms-using-through-azure-marketplace"></a>Distribuzione di OMS tramite Azure Marketplace
-
-Se si desidera aggiungere un'area di lavoro OMS dopo aver distribuito un cluster, passare in Azure Marketplace e cercare *"Analisi Service Fabric"*.
-
-![Analisi SF OMS in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
-
-* Fare clic su **Crea**
-* Nella finestra di creazione di Analisi Service Fabric fare clic su **Selezionare un'area di lavoro** per il campo *Area di lavoro OMS* e quindi su **Crea una nuova area di lavoro**. Compilare le voci necessarie: l'unico requisito è che la sottoscrizione per il cluster di Service Fabric e l'area di lavoro OMS devono essere gli stessi. Dopo aver convalidato le voci, verrà avviata la distribuzione dell'area di lavoro OMS. Dovrebbero essere necessari solo alcuni minuti.
-* Al termine, fare di nuovo clic su **Crea** nella parte inferiore della finestra di creazione di Analisi Service Fabric. Assicurarsi che la nuova area di lavoro sia visualizzata in *Area di lavoro OMS*. La soluzione verrà aggiunta all'area di lavoro appena creata.
-
-
-Nonostante la soluzione venga aggiunta nell'area di lavoro, l'area di lavoro deve ancora essere connessa ai dati di diagnostica provenienti dal cluster. Passare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Verrà visualizzata l'indicazione *ServiceFabric (\<nomeAreaDiLavoroOMS\>)*.
-
-* Fare clic sulla soluzione per passare alla relativa pagina di panoramica, da dove è possibile modificare le impostazioni della soluzione e le impostazioni dell'area di lavoro e passare al portale di OMS.
-* Nel menu di spostamento a sinistra fare clic su **Log account di archiviazione** in *Origini dati dell'area di lavoro*.
-
-    ![Soluzione Analisi Service Fabric nel portale](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-portal.png)
-
-* Nella pagina *Log account di archiviazione* fare clic su **Aggiungi** nella parte superiore per aggiungere i log del cluster all'area di lavoro.
-* Fare clic su **Account di archiviazione** per aggiungere l'account appropriato creato nel cluster. Se è stato usato il nome predefinito, il nome dell'account di archiviazione è *sfdg\<NomeGruppoDiRisorse\>*. È anche possibile verificare controllando il modello di Azure Resource Manager usato per distribuire il cluster, esaminando il valore usato per `applicationDiagnosticsStorageAccountName`. Potrebbe anche essere necessario scorrere verso il basso e fare clic su **Carica altro** se il nome dell'account non è visualizzato. Fare clic sul nome dell'account di archiviazione corretto quando viene visualizzato per selezionarlo.
-* Sarà quindi necessario specificare il valore di *Tipo di dati*, che deve essere **Eventi di Service Fabric**.
-* Il valore di *Origine* dovrebbe essere impostato automaticamente su *WADServiceFabric\*EventTable*.
-* Fare clic su **OK** per connettere l'area di lavoro ai log del cluster.
-
-    ![Aggiungere i log dell'account di archiviazione a OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
-
-* L'account dovrebbe ora essere visualizzato in *Log account di archiviazione* nelle origini dati dell'area di lavoro.
-
-In questo modo, la soluzione Analisi Service Fabric è stata aggiunta in un'area di lavoro di OMS Log Analytics, che è ora connessa correttamente alla piattaforma del cluster e alla tabella del log dell'applicazione. È possibile aggiungere altre origini all'area di lavoro nello stesso modo.
+Vedere [Configurare Log Analytics di OMS](service-fabric-diagnostics-oms-setup.md) per iniziare con questa soluzione per il cluster.
 
 ## <a name="using-the-oms-agent"></a>Uso dell'agente OMS
 
-È consigliabile usare EventFlow e WAD come soluzioni di aggregazione, in quanto consentono un approccio più modulare alla diagnostica e al monitoraggio. Ad esempio, se si desidera modificare l'output da EventFlow, non è necessaria alcuna modifica per la strumentazione effettiva, solo una semplice modifica al file di configurazione. Se, tuttavia, si decide di investire nell'uso di OMS e si desidera continuare a usarlo per l'analisi di eventi, non essendo l'unica piattaforma usata, ma almeno una delle piattaforme, è consigliabile esplorare la configurazione dell'[agente OMS](../log-analytics/log-analytics-windows-agents.md). È anche necessario usare l'agente OMS durante la distribuzione di contenitori nel cluster, come descritto di seguito.
+È consigliabile usare EventFlow e WAD come soluzioni di aggregazione, in quanto consentono un approccio più modulare alla diagnostica e al monitoraggio. Ad esempio, se si desidera modificare l'output da EventFlow, non è necessaria alcuna modifica per la strumentazione effettiva, solo una semplice modifica al file di configurazione. Se, tuttavia, si decide di usare Log Analytics di OMS, è necessario impostare l'[agente di OMS](../log-analytics/log-analytics-windows-agents.md). È anche necessario usare l'agente OMS durante la distribuzione di contenitori nel cluster, come descritto di seguito. 
 
-Il processo per eseguire questa operazione è relativamente semplice, poiché è sufficiente aggiungere l'agente come estensione del set di scalabilità di macchine virtuali al modello di Resource Manager, verificando che venga installato su ogni nodo. Un esempio di modello di Resource Manager che distribuisce l'area di lavoro di OMS con la soluzione Service Fabric, come mostrato sopra, e aggiunge l'agente ai nodi è reperibile per i cluster che eseguono [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) o [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Per altre informazioni su questa procedura, vedere [Aggiungere l'agente di OMS a un cluster](service-fabric-diagnostics-oms-agent.md).
 
 I vantaggi sono i seguenti:
 
@@ -107,16 +68,7 @@ L'agente consente la raccolta di diversi log specifici per il contenitore che po
 * ContainerServiceLog: comandi del daemon Docker che sono stati eseguiti
 * Perf: contatori delle prestazioni, inclusi cpu, memoria, traffico di rete, I/O del disco e metriche personalizzate dei contenitori dai computer host
 
-Questo articolo illustra i passaggi necessari per configurare il monitoraggio dei contenitori per il cluster. Per altre informazioni sulla soluzione Contenitori di OMS, vedere la relativa [documentazione](../log-analytics/log-analytics-containers.md).
-
-Per configurare la soluzione del contenitore nell'area di lavoro, assicurarsi che l'agente OMS sia stato distribuito nei nodi del cluster seguendo i passaggi indicati in precedenza. Quando il cluster è pronto, distribuirvi un contenitore. Tenere presente che la prima volta che un'immagine del contenitore viene distribuita in un cluster, sono necessari alcuni minuti per scaricare l'immagine, a seconda delle dimensioni.
-
-In Azure Marketplace cercare *Soluzione Monitoraggio contenitori* e creare il risultato **Soluzione Monitoraggio contenitori** che dovrebbe comparire nella categoria Monitoraggio e gestione.
-
-![Aggiunta della soluzione Contenitori](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
-
-Nel passaggio di creazione viene richiesta un'area di lavoro di OMS. Selezionare l'area creata con la distribuzione precedente. Questo passaggio aggiunge una soluzione Contenitori nell'area di lavoro di OMS e viene rilevato automaticamente dall'agente OMS distribuito dal modello. L'agente inizierà a raccogliere dati nei processi dei contenitori nel cluster e, in meno di 15 minuti, si dovrebbe vedere la soluzione con i dati come nell'immagine del dashboard precedente.
-
+L'articolo [Monitorare i contenitori con Log Analytics di OMS](service-fabric-diagnostics-oms-containers.md) illustra i passaggi necessari per configurare il monitoraggio dei contenitori per il cluster. Per altre informazioni sulla soluzione Contenitori di OMS, vedere la relativa [documentazione](../log-analytics/log-analytics-containers.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

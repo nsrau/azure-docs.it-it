@@ -20,12 +20,12 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
-# Protocollo per le connessioni ibride di inoltro di Azure
+# <a name="azure-relay-hybrid-connections-protocol"></a>Protocollo per le connessioni ibride di inoltro di Azure
 L'inoltro di Azure è una delle funzionalità chiave di base della piattaforma Bus di servizio di Azure. La nuova funzionalità *Connessioni ibride* di inoltro è un'evoluzione sicura del protocollo aperto basata su HTTP e WebSocket. Sostituisce la funzionalità precedente, comunemente denominata *Servizi BizTalk*, che è basata su un protocollo di proprietà. L'integrazione di Connessioni ibride nei servizi app di Azure continuerà a funzionare così com'è.
 
 Connessioni ibride permette di stabilire una comunicazione bidirezionale con flussi binari tra due applicazioni di rete, di cui una o entrambe le parti risiedono dietro NAT o firewall. Questo articolo descrive le interazioni lato client con l'inoltro di Connessioni ibride per la connessione dei client nei ruoli listener e mittente e come i listener accettano nuove connessioni.
 
-## Modello di interazione
+## <a name="interaction-model"></a>Modello di interazione
 L'inoltro di Connessioni ibride connette due parti fornendo un punto di incontro nel cloud di Azure che entrambe le parti possono individuare e a cui possono connettersi dalla rispettiva rete. Tale punto di incontro è detto "connessione ibrida" in questo e negli altri documenti, nelle API e anche nel Portale di Azure. L'endpoint di servizio di Connessioni ibride viene chiamato "servizio" nella parte restante di questo articolo. Il modello di interazione si basa sulla nomenclatura stabilita da diverse altre API di rete.
 
 È presente un listener che prima indica la conformità alla gestione delle connessioni in ingresso e successivamente le accetta quando arrivano. Sull'altro lato è presente un client di connessione che si connette al listener, aspettando che la connessione venga accettata per stabilire un percorso di comunicazione bidirezionale.
@@ -35,46 +35,46 @@ In un modello di comunicazione di inoltro entrambe le parti creano connessioni i
 
 I programmi su entrambi i lati di una connessione sono detti "client", perché sono i client del servizio. Il client che attende e accetta le connessioni è il "listener", che è anche nel "ruolo listener". Il client che avvia una nuova connessione verso un listener tramite il servizio è detto "mittente", che è anche nel "ruolo mittente".
 
-### Interazioni del listener
+### <a name="listener-interactions"></a>Interazioni del listener
 Il listener ha quattro interazioni con il servizio. Tutti i dettagli sono descritti più avanti in questo articolo nella sezione di riferimento.
 
-#### Attesa
+#### <a name="listen"></a>Attesa
 Un listener, per indicare al servizio che è pronto ad accettare le connessioni, crea una connessione WebSocket in uscita. L'handshake della connessione trasporta il nome di una connessione ibrida configurata nello spazio dei nomi dell'inoltro e un token di sicurezza che conferisce il diritto di "ascoltare" a tale nome.
 Quando il WebSocket viene accettato dal servizio, la registrazione è completa e il WebSocket stabilito viene mantenuto attivo come "canale di controllo" per abilitare tutte le interazioni successive. Il servizio consente fino a 25 listener simultanei in una connessione ibrida. In presenza di due o più listener attivi, le connessioni in ingresso vengono bilanciate tra di essi in ordine casuale. Non è garantita una distribuzione equa.
 
-#### Accept
+#### <a name="accept"></a>Accept
 Quando un mittente apre una nuova connessione nel servizio, il servizio sceglie uno dei listener attivi nella connessione ibrida e gli invia una notifica. La notifica viene inviata al listener tramite il canale di controllo aperto come messaggio JSON contenente l'URL dell'endpoint del WebSocket a cui il listener deve connettersi per accettare la connessione.
 
 L'URL può e deve essere usato direttamente dal listener senza operazioni aggiuntive.
 Le informazioni codificate sono valide solo per un breve periodo, essenzialmente finché il mittente è disposto ad attendere che venga stabilita una connessione end-to-end e comunque per un massimo di 30 secondi. L'URL può essere usato solo per tentativo di connessione riuscito. Non appena viene stabilita la connessione WebSocket con l'URL di incontro, tutte le altre attività in questo WebSocket vengono inoltrate da e verso il mittente, senza interventi o interpretazioni da parte del servizio.
 
-#### Renew
+#### <a name="renew"></a>Renew
 Il token di sicurezza che deve essere usato per registrare il listener e mantenere il canale di controllo può scadere mentre il listener è attivo. La scadenza del token non ha effetto sulle connessioni in corso, ma il canale di controllo viene rimosso dal servizio al momento della scadenza o poco dopo. L'operazione "renew" è un messaggio JSON che il listener può inviare per sostituire il token associato al canale di controllo che potrà quindi essere mantenuto per lunghi periodi.
 
-#### Ping
+#### <a name="ping"></a>Ping
 Se il canale di controllo rimane inattivo a lungo, gli intermediari lungo il percorso, ad esempio servizi di bilanciamento del carico o NAT, potrebbero rimuovere la connessione TCP. L'operazione "ping" evita questo problema inviando nel canale una piccola quantità di dati che ricorda a tutti gli elementi nella route di rete che la connessione deve restare attiva, oltre a fungere da test dello stato attivo per il listener. Se il ping non riesce, il canale di controllo deve essere considerato non utilizzabile e il listener deve riconnettersi.
 
-### Interazione del mittente
+### <a name="sender-interaction"></a>Interazione del mittente
 Il mittente ha una sola interazione con il servizio, la connessione.
 
-#### Connettere
+#### <a name="connect"></a>Connettere
 L'operazione "connect" apre un WebSocket nel servizio, fornendo il nome della connessione ibrida e un token di sicurezza (facoltativo, ma richiesto per impostazione predefinita) che conferisce l'autorizzazione "Send" nella stringa di query. Il servizio interagisce quindi con il listener nel modo descritto in precedenza e il listener crea una connessione di incontro che viene unita a questo WebSocket. Dopo che il WebSocket è stato accettato, tutte le altre interazioni nel WebSocket avvengono quindi con un listener connesso.
 
-### Riepilogo delle interazioni
+### <a name="interaction-summary"></a>Riepilogo delle interazioni
 Il risultato di questo modello di interazione è che il client mittente esce dall'handshake con un WebSocket "pulito" che è connesso a un listener e non richiede altri preamboli o preparazioni. Questo modello consente in pratica alle implementazioni di client WebSocket esistenti di usare subito il servizio Connessioni ibride specificando un URL correttamente costruito nel livello del client WebSocket.
 
 Anche il WebSocket della connessione di incontro che il listener ottiene tramite l'interazione accept è pulito e può essere assegnato a qualsiasi implementazione di server WebSocket esistente con una minima astrazione aggiuntiva che distingue tra operazioni "accept" sui listener di rete locale del framework e operazioni "accept" remote di Connessioni ibride.
 
-## Riferimento al protocollo
+## <a name="protocol-reference"></a>Riferimento al protocollo
 
 Questa sezione descrive i dettagli delle interazioni del protocollo descritte sopra.
 
 Tutte le connessioni WebSocket vengono stabilite sulla porta 443 come aggiornamento da HTTPS 1.1, che è in genere un'astrazione di alcune API o framework del WebSocket. La presente descrizione è neutra dal punto di vista dell'implementazione e non suggerisce un framework specifico.
 
-### Protocollo del listener
+### <a name="listener-protocol"></a>Protocollo del listener
 Il protocollo del listener è costituito da due comandi di connessione e da tre operazioni messaggio.
 
-#### Connessione del canale di controllo del listener
+#### <a name="listener-control-channel-connection"></a>Connessione del canale di controllo del listener
 Il canale di controllo viene aperto con la creazione di una connessione WebSocket a:
 
 ```
@@ -109,7 +109,7 @@ Se la connessione WebSocket viene intenzionalmente arrestata dal servizio dopo l
 | 1008 |Il token di sicurezza è scaduto e i criteri di autorizzazione vengono quindi violati. |
 | 1011 |Si è verificato un errore nel servizio. |
 
-### Handshake accept
+### <a name="accept-handshake"></a>Handshake accept
 La notifica "accept" viene inviata dal servizio al listener tramite il canale di controllo stabilito in precedenza come messaggio JSON in una cornice di testo del WebSocket. Non sono previste risposte a questo messaggio.
 
 Il messaggio contiene un oggetto JSON denominato "accept", che definisce le proprietà attuali seguenti:
@@ -118,7 +118,7 @@ Il messaggio contiene un oggetto JSON denominato "accept", che definisce le prop
 * **id**: identificatore univoco per questa connessione. Se l'ID è stato fornito dal client mittente, si tratta del valore fornito dal mittente. In caso contrario, è un valore generato dal sistema.
 * **connectHeaders**: tutte le intestazioni HTTP fornite all'endpoint di inoltro dal mittente, che include anche le intestazioni Sec-WebSocket-Protocol e Sec-WebSocket-Extensions.
 
-#### Messaggio accept
+#### <a name="accept-message"></a>Messaggio accept
 
 ```json
 {                                                           
@@ -136,7 +136,7 @@ Il messaggio contiene un oggetto JSON denominato "accept", che definisce le prop
 
 L'URL dell'indirizzo specificato nel messaggio JSON viene usato dal listener per stabilire il WebSocket per accettare o rifiutare il socket del mittente.
 
-#### Accettazione del socket
+#### <a name="accepting-the-socket"></a>Accettazione del socket
 Per accettare, il listener stabilisce una connessione WebSocket all'indirizzo specificato.
 
 Se il messaggio "accept" contiene un'intestazione `Sec-WebSocket-Protocol`, è previsto che il listener accetti il WebSocket solo se supporta tale protocollo. Imposta inoltre l'intestazione quando viene definito il WebSocket.
@@ -173,7 +173,7 @@ Dopo che la connessione è stata stabilita, il server arresta il WebSocket quand
 | 1008 |Il token di sicurezza è scaduto e i criteri di autorizzazione vengono quindi violati. |
 | 1011 |Si è verificato un errore nel servizio. |
 
-#### Rifiuto del socket
+#### <a name="rejecting-the-socket"></a>Rifiuto del socket
 Per rifiutare il socket dopo avere esaminato il messaggio "accept", è necessario un handshake simile in modo che il codice di stato e la descrizione dello stato che comunica il motivo del rifiuto possano tornare al mittente.
 
 La scelta di progettazione del protocollo in questo caso prevede l'uso di un handshake WebSocket (progettato per restituire uno stato di errore definito) in modo che le implementazioni del client listener possano continuare a basarsi su un client WebSocket e non sia necessario impiegare un altro client HTTP di base.
@@ -194,12 +194,12 @@ Se completato correttamente, questo handshake non riuscirà di proposito con il 
 | 403 |Accesso negato |URL non valido. |
 | 500 |Errore interno |Si è verificato un errore nel servizio. |
 
-### Rinnovo del token del listener
+### <a name="listener-token-renewal"></a>Rinnovo del token del listener
 Quando il token del listener sta per scadere, può essere sostituito inviando un messaggio in una cornice di testo al servizio tramite il canale di controllo stabilito. Il messaggio contiene un oggetto JSON denominato `renewToken`, che definisce la proprietà attuale seguente:
 
 * **token**: token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Listen**.
 
-#### Messaggio renewToken
+#### <a name="renewtoken-message"></a>Messaggio renewToken
 
 ```json
 {                                                                                                                                                                        
@@ -215,7 +215,7 @@ Se la convalida del token non riesce, l'accesso viene negato e il servizio cloud
 | --- | --- |
 | 1008 |Il token di sicurezza è scaduto e i criteri di autorizzazione vengono quindi violati. |
 
-## Protocollo per il mittente
+## <a name="sender-protocol"></a>Protocollo per il mittente
 Il protocollo per il mittente è di fatto identico a come viene stabilito un listener.
 L'obiettivo è la massima trasparenza per il WebSocket end-to-end. L'indirizzo a cui connettersi è lo stesso del listener, ma l'"azione" è diversa e il token richiede un'autorizzazione diversa:
 
@@ -262,7 +262,7 @@ Se la connessione WebSocket viene intenzionalmente arrestata dal servizio dopo l
 | 1008 |Il token di sicurezza è scaduto e i criteri di autorizzazione vengono quindi violati. |
 | 1011 |Si è verificato un errore nel servizio. |
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Domande frequenti sull'inoltro](relay-faq.md)
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)

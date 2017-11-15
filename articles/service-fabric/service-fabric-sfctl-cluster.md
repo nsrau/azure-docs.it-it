@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: dc2ed59d6adaca97b23dddcb7ec968d90171b483
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2af214a9aa3c67818e8ce64f204ebda32c35abc7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selezionare, gestire e usare dei cluster di Service Fabric.
@@ -54,36 +54,12 @@ Mostra l'integrità di un cluster di Service Fabric. Usare EventsHealthStateFilt
 
 |Argomento|Descrizione|
 | --- | --- |
-| --applications-health-state-filter| Consente di filtrare lo stato di integrità dell'applicazione
-                                                    objects returned in the result of cluster health
-                                                    query based on their health state. The possible
-                                                    values for this parameter include integer value
-                                                    obtained from members or bitwise operations on
-                                                    members of HealthStateFilter enumeration. Only
-                                                    applications that match the filter are returned.
-                                                    All applications are used to evaluate the
-                                                    aggregated health state. If not specified, all
-                                                    entries are returned. The state values are flag
-                                                    based enumeration, so the value could be a
-                                                    combination of these values obtained using
-                                                    bitwise 'OR' operator. For example, if the
-                                                    provided value is 6 then health state of
-                                                    applications with HealthState value of OK (2)
-                                                    and Warning (4) are returned. - Default -
-                                                    Default value. Matches any HealthState. The
-                                                    value is zero. - None - Filter that doesn't
-                                                    match any HealthState value. Used in order to
-                                                    return no results on a given collection of
-                                                    states. The value is 1. - Ok - Filter that
-                                                    matches input with HealthState value Ok. The
-                                                    value is 2. - Warning - Filter that matches
-                                                    input with HealthState value Warning. The value
-                                                    is 4. - Error - Filter that matches input with
-                                                    HealthState value Error. The value is 8. - All -
-                                                    Filter that matches input with any HealthState value. The value is 65535.|
-| --events-health-state-filter |Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero. - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2. -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso.
-Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535.| |--exclude-health-statistics                   | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche mostrano il numero di entità figlie con integrità OK, Avviso ed Errore. | |--include-system-application-health-statistics| Indica se le statistiche di integrità devono includere le statistiche di integrità dell'applicazione fabric:/System. False per impostazione predefinita. Se IncludeSystemApplicationHealthStatistics è impostato su true, le statistiche di integrità includono le entità che appartengono all'applicazione fabric:/System. In caso contrario, il risultato della query includerà soltanto le statistiche di integrità per le applicazioni utente. Le statistiche di integrità devono essere incluse nel risultato della query perché questo parametro venga applicato.| | --nodes-health-state-filter    | Consente di filtrare gli oggetti dello stato di integrità di un nodo restituiti nei risultati della query di integrità del cluster in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo i nodi che corrispondono al filtro. Tutti i nodi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è "6", viene restituito lo stato di integrità dei nodi con valore HealthState OK (2) e Warning (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero. - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2. -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso.
-Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535.| | --timeout -t                   | Timeout del server in secondi.  Impostazione predefinita: 60.|
+| --applications-health-state-filter| Consente di filtrare gli oggetti dello stato di integrità delle applicazioni restituiti nel risultato della query sull'integrità dei cluster in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero ottenuto da membri o operazioni bit per bit sui membri dell'enumerazione HealthStateFilter. Vengono restituite solo le applicazioni che corrispondono al filtro.  Tutte le applicazioni vengono usate per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag. Pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore indicato è 6, viene restituito lo stato di integrità delle applicazioni il cui valore di HealthState è OK (2) e Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero. -None - Il filtro non corrisponde ad alcun valore di HealthState. Usato per non restituire alcun risultato in una determinata raccolta di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di HealthState Ok. Il valore è 2. -Warning - Filtro che ricerca le corrispondenze di input con valore di HealthState Avviso. Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di HealthState Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di HealthState. Il valore è 65535.|
+| --events-health-state-filter   | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno degli stati di integrità seguenti. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag. Pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore di HealthState OK (2) e Avviso (4). - Default - Valore predefinito. Consente di ricercare le corrispondenze con qualsiasi valore di HealthState. Il valore predefinito è zero. -None - Il filtro non restituisce corrispondenze ad alcun valore di HealthState. Usato per non restituire alcun risultato in una determinata raccolta di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di HealthState Ok. Il valore è 2. -Warning - Filtro che ricerca le corrispondenze di input con valore di HealthState Avviso.  Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di HealthState Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di HealthState. Il valore è 65535.|
+|--exclude-health-statistics                   | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche mostrano il numero di elementi figlio in stato di integrità Ok, Avviso ed Errore.|
+ |   --include-system-application-health-statistics| Indica se le statistiche di integrità devono includere le statistiche di integrità di sistema dell'applicazione fabric:/System. False per impostazione predefinita. Se IncludeSystemApplicationHealthStatistics è impostato su true, le statistiche di integrità includono le entità che appartengono all'applicazione fabric:/System. In caso contrario, il risultato della query includerà soltanto le statistiche di integrità per le applicazioni utente. Per applicare questo parametro, è necessario includere le statistiche di integrità nel risultato della query.|
+| --nodes-health-state-filter    | Consente di filtrare gli oggetti dello stato di integrità dei nodi restituiti nel risultato della query sull'integrità dei cluster in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno degli stati di integrità seguenti. Vengono restituiti solo i nodi che corrispondono al filtro. Tutti i nodi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag. Pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è "6", viene restituito lo stato di integrità dei nodi con valore di HealthState OK (2) e Warning (4). - Default - Valore predefinito. Consente di ricercare le corrispondenze con qualsiasi valore di HealthState. Il valore predefinito è zero. -None - Il filtro non restituisce corrispondenze ad alcun valore di HealthState. Usato per non restituire alcun risultato in una determinata raccolta di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di HealthState Ok. Il valore è 2. -Warning - Filtro che ricerca le corrispondenze di input con valore di HealthState Avviso.  Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di HealthState Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di HealthState. Il valore è 65535.|
+| --timeout -t                   | Timeout del server in secondi.  Predefinito: 60.|
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -118,8 +94,7 @@ Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster cont
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster provision
 Esegue il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric.
-
-        Validate and provision the code or configuration packages of a Service Fabric cluster.
+Esegue la convalida e il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -169,7 +144,7 @@ In caso di connessione a un cluster sicuro, specificare un certificato (con este
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
 Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric.
 
-        Unprovision the code or configuration packages of a Service Fabric cluster.
+Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric.
 
 ### <a name="arguments"></a>Argomenti
 |Argomento|Descrizione|
@@ -184,43 +159,46 @@ Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster d
 |--debug         | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
  |   --help -h       | Mostra questo messaggio della Guida e l'uscita.|
  |   --output -o     | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
- |   --query         | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/
-                      .|
+ |   --query         | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
  |   --verbose       | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 
 ## <a name="sfctl-cluster-upgrade"></a>sfctl cluster upgrade
 Avvia l'aggiornamento della versione codice o configurazione di un cluster di Service Fabric.
-
-        Validate the supplied upgrade parameters and start upgrading the code or configuration
-        version of a Service Fabric cluster if the parameters are valid.
+Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della versione del codice o della configurazione di un cluster di Service Fabric se i parametri sono validi.
 
 ### <a name="arguments"></a>Argomenti
 |Argomento|Descrizione|
 | --- | --- |
-|    --app-health-map                      | Dizionario con codifica JSON delle coppie di nomi dell'applicazione e
-                                            percentuale massima di valori non integri prima che venga generato l'errore.|
- |   --app-type-health-map                 | Dizionario con codifica JSON delle coppie di tipi di applicazioni
-                                            name and maximum percentage unhealthy before raising
-                                            error.|
- |   --code-version                        | Versione del codice del cluster.| |   --config-version                      | Versione di configurazione del cluster.| |   --delta-health-evaluation             | Consente di valutare l'integrità delta anziché l'integrità assoluta dopo il completamento di ogni dominio di aggiornamento.| |   --delta-unhealthy-nodes               | Percentuale massima consentita di riduzione delle prestazioni di integrità dei nodi durante l'aggiornamento del cluster.  Predefinito: 10.
-Il valore delta è misurato tra lo stato dei nodi e all'inizio dell'aggiornamento e lo stato dei nodi al momento della valutazione dell'integrità. Il controllo viene eseguito dopo il completamento di ogni aggiornamento di dominio per assicurarsi che lo stato complessivo del cluster rientri nei limiti di tolleranza.| |   --failure-action                      | I valori possibili sono: "Invalid", "Rollback", "Manual".| |   --force-restart                       | Forza il riavvio.| |   --health-check-retry                  | Timeout dei tentativi di controllo integrità misurato in millisecondi.| |   --health-check-stable                 | Durata stabile del controllo di integrità misurata in millisecondi.| |  --health-check-wait                   | Durata di attesa del controllo integrità misurata in millisecondi.| |  --replica-set-check-timeout           | Timeout in secondi del controllo del set di repliche di aggiornamento.| |   --rolling-upgrade-mode                | I valori possibili sono: "Invalid", "UnmonitoredAuto", "UnmonitoredManual", "Monitored".  Impostazione predefinita: UnmonitoredAuto.| |  --timeout -t                          | Timeout del server in secondi.  Impostazione predefinita: 60.| |  --unhealthy-applications              | Percentuale massima consentita di applicazioni non integre prima che venga segnalato un errore.
-Ad esempio, per consentire il 10% di applicazioni non integre, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di applicazioni che possono risultare non integre prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un'applicazione non integra, l'integrità viene valutata come Avviso. Questa viene calcolata dividendo il numero di applicazioni non integre rispetto al numero totale di istanze dell'applicazione nel cluster, escluse le applicazioni di tipi inclusi nel parametro ApplicationTypeHealthPolicyMap. Il calcolo arrotonda per eccesso per tollerare un errore in un numero limitato di applicazioni.| |   --unhealthy-nodes                     | Percentuale massima consentita di nodi non integri prima di segnalare un errore.
-Ad esempio, per consentire il 10% di nodi non integri, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di nodi che possono risultare non integri prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un nodo non integro, l'integrità viene valutata come Avviso. Tale percentuale viene calcolata dividendo il numero dei nodi non integri per il numero totale di nodi nel cluster. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di nodi. Nei cluster di grandi dimensioni, alcuni nodi saranno sempre down o out per i ripristini, pertanto questa percentuale dovrà essere configurata in modo da tollerare tale condizione.| |   --upgrade-domain-delta-unhealthy-nodes| Percentuale massima consentita di riduzione delle prestazioni di integrità dei nodi di dominio di aggiornamento durante gli aggiornamenti del cluster.
-Impostazione predefinita: 15.
-Il valore delta è misurato tra lo stato dei nodi di dominio all'inizio dell'aggiornamento e lo stato dei nodi di dominio al momento della valutazione dell'integrità. Il controllo viene eseguito dopo il completamento di ogni aggiornamento del dominio per tutti i domini di aggiornamento completati per verificare che lo stato dei domini di aggiornamento rientri nei limiti di tolleranza.| |   --upgrade-domain-timeout              | Timeout del dominio di aggiornamento misurato in millisecondi.| |   --upgrade-timeout                     | Timeout di aggiornamento misurato in millisecondi.| |   --warning-as-error                    | Gli avvisi vengono considerati con lo stesso livello di gravità degli errori. |
+|    --app-health-map                      | Dizionario con codifica JSON delle coppie di nomi dell'applicazione e percentuale massima di stato non integro prima che venga generato l'errore.|
+ |   --app-type-health-map                 | Dizionario con codifica JSON delle coppie di nomi del tipo di applicazione e percentuale massima di stato non integro prima che venga generato l'errore.|
+ |   --code-version                        | Versione del codice del cluster.|
+ |   --config-version                      | Versione della configurazione del cluster.|
+ |   --delta-health-evaluation             | Abilita la valutazione dell'integrità delta anziché la valutazione dell'integrità assoluta dopo il completamento di ogni dominio di aggiornamento.|
+ |   --delta-unhealthy-nodes               | Percentuale massima di riduzione dell'integrità dei nodi consentita durante gli aggiornamenti del cluster.  Predefinito: 10. Il valore delta è misurato tra lo stato dei nodi e all'inizio dell'aggiornamento e lo stato dei nodi al momento della valutazione dell'integrità. Il controllo viene eseguito dopo il completamento dell'aggiornamento di ciascun dominio di aggiornamento per assicurarsi che lo stato complessivo del cluster rientri nei limiti di tolleranza.|
+ |   --failure-action                      | I valori possibili sono: 'Invalid', 'Rollback', 'Manual'.|
+ |   --force-restart                       | Forza il riavvio.|
+ |   --health-check-retry                  | Timeout del nuovo tentativo di controllo dell'integrità misurato in millisecondi.|
+ |   --health-check-stable                 | Durata stabile controllo integrità misurata in millisecondi.|
+  |  --health-check-wait                   | Durata attesa controllo integrità misurata in millisecondi.|
+  |  --replica-set-check-timeout           | Timeout del controllo del set di repliche di aggiornamento misurato in secondi.|
+ |   --rolling-upgrade-mode                | I valori possibili sono: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Predefinito: UnmonitoredAuto.|
+  |  --timeout -t                          | Timeout del server in secondi.  Predefinito: 60.|
+  |  --unhealthy-applications              | Percentuale massima consentita di applicazioni non integre prima che venga segnalato un errore. Ad esempio, per consentire il 10% di applicazioni non integre, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di applicazioni che possono risultare non integre prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un'applicazione non integra, l'integrità viene valutata come Avviso. Questa viene calcolata dividendo il numero di applicazioni non integre rispetto al numero totale di istanze dell'applicazione nel cluster, escluse le applicazioni di tipi inclusi nel parametro ApplicationTypeHealthPolicyMap. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di applicazioni.|
+ |   --unhealthy-nodes                     | Percentuale massima consentita di nodi non integri prima che venga segnalato un errore. Ad esempio, per consentire il 10% di nodi non integri, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di nodi che possono risultare non integri prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un nodo non integro, l'integrità viene valutata come Avviso. Tale percentuale viene calcolata dividendo il numero dei nodi non integri per il numero totale di nodi nel cluster. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di nodi. Questa percentuale dovrà essere configurata in modo da tenere conto del fatto che in cluster di grandi dimensioni sono sempre presenti nodi inattivi o in fase di riparazione.|
+ |   --upgrade-domain-delta-unhealthy-nodes| Percentuale massima di riduzione dell'integrità dei nodi del dominio di aggiornamento consentita durante gli aggiornamenti del cluster. Impostazione predefinita: 15. Il valore delta è misurato tra lo stato dei nodi di dominio all'inizio dell'aggiornamento e lo stato dei nodi di dominio al momento della valutazione dell'integrità. Il controllo viene eseguito dopo il completamento dell'aggiornamento di ciascun dominio di aggiornamento per tutti i domini di aggiornamento completati per assicurarsi che lo stato complessivo dei domini di aggiornamento rientri nei limiti di tolleranza.|
+ |   --upgrade-domain-timeout              | Timeout del dominio di aggiornamento misurato in millisecondi.|
+ |   --upgrade-timeout                     | Timeout dell'aggiornamento misurato in millisecondi.|
+ |   --warning-as-error                    | Gli avvisi vengono considerati con lo stello livello di gravità degli errori.|
 
 ### <a name="global-arguments"></a>Argomenti globali
-    |Argomento|Descrizione|
+|Argomento|Descrizione|
 | --- | --- |
 |--debug                               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 |    --help -h                             | Mostra questo messaggio della Guida e l'uscita.|
-|    --output -o                           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.
-                                            Predefinito: json.|
-|    --query                               | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/
-                                            .|
-|    --verbose                             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug
-                                            completi.|
+|    --output -o                           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv. Predefinito: json.|
+|    --query                               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+|    --verbose                             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.

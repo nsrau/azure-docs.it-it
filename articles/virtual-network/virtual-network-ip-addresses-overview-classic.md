@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5eea5e4499b9de40002ce2fc6aac39239c41b19
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione (modello di distribuzione classica) in Azure
 È possibile assegnare gli indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e con Internet. Sono disponibili due tipi di indirizzi IP che è possibile usare in Azure: pubblici e privati.
@@ -141,9 +141,8 @@ Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di all
 
 | Risorsa | Dinamico | statico | Più indirizzi IP |
 | --- | --- | --- | --- |
-| Macchine virtuali (in un servizio cloud *autonomo* ) |Sì |Sì |Sì |
-| Istanza del ruolo PaaS (in un servizio cloud *autonomo* ) |Sì |No |Sì |
-| Istanza del ruolo PaaS o della macchina virtuale (in una VNet) |Sì |Sì |Sì |
+| Macchina virtuale (in una rete virtuale o un servizio cloud *autonomo*) |Sì |Sì |Sì |
+| Istanza del ruolo PaaS (in una rete virtuale o un servizio cloud *autonomo*) |Sì |No |No |
 | Front-end del servizio di bilanciamento del carico interno |Sì |Sì |Sì |
 | Front-end del gateway applicazione |Sì |Sì |Sì |
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Creare e caricare un disco rigido virtuale con FreeBSD in Azure
 Questo articolo descrive come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo FreeBSD. Dopo il caricamento, è possibile usarlo come immagine personalizzata per creare una macchina virtuale in Azure.
@@ -39,7 +39,7 @@ In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 >
 >
 
-Questa attività include i cinque passaggi seguenti:
+Questa attività include i quattro passaggi seguenti:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Passaggio 1: preparare l'immagine da caricare
 Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD, completare le procedure seguenti:
@@ -114,66 +114,21 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
     Ora è possibile arrestare la macchina virtuale.
 
-## <a name="step-2-create-a-storage-account-in-azure"></a>Passaggio 2: creare un account di archiviazione in Microsoft Azure
-È necessario avere un account di archiviazione di Azure per caricare un file VHD da usare per la creazione di una macchina virtuale. Per creare un account di archiviazione, è possibile utilizzare il portale classico di Microsoft Azure.
+## <a name="step-2-prepare-the-connection-to-azure"></a>Passaggio 2: preparare la connessione ad Azure
+Assicurarsi di usare l'interfaccia della riga di comando di Azure nel modello di distribuzione classica (`azure config mode asm`), quindi accedere al proprio account:
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Sulla barra dei comandi selezionare **Nuovo**.
-3. Fare clic su **Servizi dati** > **Archiviazione** > **Creazione rapida**.
+```azurecli
+azure login
+```
 
-    ![Creazione rapida di un account di archiviazione](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
-4. Compilare i campi come indicato di seguito:
 
-   * In **URL** digitare il nome di un sottodominio da usare nell'URL dell'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo nome diventa il nome host all'interno dell'URL utilizzato per fare riferimento alle risorse di archiviazione BLOB di Azure, archiviazione code di Azure o archiviazione tabelle di Azure per la sottoscrizione.
-   * Nel menu a discesa **Località/gruppo di affinità** scegliere la **località o il gruppo di affinità** per l'account di archiviazione. Un gruppo di affinità consente di inserire i servizi cloud e le risorse di archiviazione nello stesso data center.
-   * Nel campo **Replica** decidere se usare la replica **Con ridondanza geografica** per l'account di archiviazione. La replica geografica è attivata per impostazione predefinita. Se questa opzione è selezionata, i dati vengono replicati in una posizione secondaria, senza alcun costo aggiuntivo, per garantire il failover a tale posizione qualora si verifichi un errore grave nella posizione primaria. La località secondaria viene assegnata automaticamente e non può essere modificata. Se è necessario un maggiore controllo sulla posizione dell'archiviazione basata sul cloud a causa di requisiti legali o criteri dell'organizzazione, è possibile disattivare la replica geografica. Tenere presente che se si attiva la replica geografica in un momento successivo, verrà addebitato un corrispettivo di trasferimento dati una tantum per la replica dei dati esistenti nella posizione secondaria. I servizi di archiviazione senza replica geografica sono offerti a un prezzo scontato. Altri dettagli sulla gestione della replica geografica degli account di archiviazione sono disponibili nell'articolo [Replica dell'archiviazione di Azure](../../../storage/common/storage-redundancy.md).
+<a id="upload"></a>
 
-     ![Immissione dei dettagli dell'account di archiviazione](./media/freebsd-create-upload-vhd/Storage-create-account.png)
-5. Fai clic su **Crea account di archiviazione**. L'account verrà visualizzato in **Archiviazione**.
 
-    ![Creazione dell'account di archiviazione completata](./media/freebsd-create-upload-vhd/Storagenewaccount.png)
-6. Creare quindi un contenitore per i VHD caricati. Selezionare il nome dell'account di archiviazione e quindi **Contenitori**.
+## <a name="step-3-upload-the-vhd-file"></a>Passaggio 3: Caricare il file .vhd
 
-    ![Dettaglio dell'account di archiviazione](./media/freebsd-create-upload-vhd/storageaccount_detail.png)
-7. Selezionare **Crea contenitore**.
+È necessario un account di archiviazione in cui caricare il file VHD. È possibile usare un account di archiviazione esistente o [crearne uno nuovo](../../../storage/common/storage-create-storage-account.md).
 
-    ![Dettaglio dell'account di archiviazione](./media/freebsd-create-upload-vhd/storageaccount_container.png)
-8. Nel campo **Nome** digitare un nome per il contenitore. Quindi nel menu a discesa **Accesso** selezionare il tipo di criteri di accesso desiderato.
-
-    ![Nome del contenitore](./media/freebsd-create-upload-vhd/storageaccount_containervalues.png)
-
-   > [!NOTE]
-   > Per impostazione predefinita, il contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso pubblico in lettura ai BLOB nel contenitore, ma non alle proprietà e ai metadati del contenitore, usare l'opzione **BLOB pubblico** . Per consentire l'accesso in lettura pubblico completo per contenitori e BLOB, usare l'opzione **Contenitore pubblico** .
-   >
-   >
-
-## <a name="step-3-prepare-the-connection-to-azure"></a>Passaggio 3: preparare la connessione a Microsoft Azure
-Prima di poter caricare un file VHD, è necessario stabilire una connessione sicura tra il computer e la sottoscrizione di Azure. A questo scopo, è possibile usare il metodo basato su Azure Active Directory (Azure AD) o sul certificato.
-
-### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>Usare il metodo Azure AD per caricare un file VHD
-1. Aprire la console di Azure PowerShell.
-2. Digitare il comando seguente:  
-    `Add-AzureAccount`
-
-    Questo comando consente di aprire una finestra in cui è possibile eseguire l'accesso con l'account aziendale o dell'istituto di istruzione.
-
-    ![Finestra di PowerShell](./media/freebsd-create-upload-vhd/add_azureaccount.png)
-3. Le informazioni delle credenziali vengono autenticate e salvate in Azure, quindi la finestra viene chiusa.
-
-### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Usare il metodo basato sul certificato per caricare un file VHD
-1. Aprire la console di Azure PowerShell.
-2. Digitare `Get-AzurePublishSettingsFile`.
-3. Viene aperta una finestra del browser in cui viene chiesto se scaricare il file con estensione publishsettings, che contiene informazioni e un certificato per la sottoscrizione di Azure.
-
-    ![Pagina di download del browser](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
-4. Salvare il file .publishsettings.
-5. Digitare `Import-AzurePublishSettingsFile <PathToFile>`, dove `<PathToFile>` è il percorso completo del file con estensione publishsettings.
-
-   Per altre informazioni, vedere [Iniziare a usare i cmdlet di Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
-
-   Per altre informazioni sull'installazione e la configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
-
-## <a name="step-4-upload-the-vhd-file"></a>Passaggio 4: caricare il file VHD
 È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archivio BLOB. Di seguito sono riportati alcuni termini che verranno usati durante il caricamento del file:
 
 * **BlobStorageURL** è l'URL dell'account di archiviazione creato nel passaggio 2.
@@ -185,7 +140,7 @@ Nella finestra di Azure PowerShell usata nel passaggio precedente, digitare:
 
         Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-## <a name="step-5-create-a-vm-with-the-uploaded-vhd-file"></a>Passaggio 5: Creare una macchina virtuale con il file VHD caricato
+## <a name="step-4-create-a-vm-with-the-uploaded-vhd-file"></a>Passaggio 4: Creare una macchina virtuale con il file con estensione vhd caricato
 Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elenco di immagini personalizzate associate alla propria sottoscrizione e creare una macchina virtuale con questa immagine personalizzata.
 
 1. Nella finestra di Azure PowerShell usata nel passaggio precedente, digitare:

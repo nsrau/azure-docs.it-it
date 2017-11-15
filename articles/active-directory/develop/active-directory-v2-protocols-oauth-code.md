@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/12/2017
 ---
-# Protocolli della versione 2.0: flusso del codice di autorizzazione di OAuth 2.0
+# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolli della versione 2.0: flusso del codice di autorizzazione di OAuth 2.0
 La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nelle app che vengono installate su un dispositivo per ottenere l'accesso alle risorse protette, come l'API web.  Usando l'implementazione di OAuth 2.0 definita in Modello app 2.0, è possibile aggiungere i criteri e l'API di accesso alle applicazioni desktop e mobili.  Questa guida è indipendente dal linguaggio, e descrive come inviare e ricevere messaggi HTTP senza utilizzare une delle nostre librerie open source.
 
 > [!NOTE]
@@ -31,12 +31,12 @@ La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nel
 
 Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](http://tools.ietf.org/html/rfc6749).  Viene usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui [app Web](active-directory-v2-flows.md#web-apps) e [app native](active-directory-v2-flows.md#mobile-and-native-apps).  Tale flusso consente alle app di acquisire in modo sicuro i token di accesso che possono essere usati per accedere alle risorse protette tramite endpoint v2.0.  
 
-## Diagramma di protocollo
+## <a name="protocol-diagram"></a>Diagramma di protocollo
 In generale, l'intero flusso di autenticazione per un'applicazione nativa/mobile ha un aspetto analogo al seguente:
 
 ![Flusso del codice di autenticazione di OAuth](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-## Richiedere un codice di autorizzazione
+## <a name="request-an-authorization-code"></a>Richiedere un codice di autorizzazione
 Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize` .  In questa richiesta, il client indica le autorizzazioni che deve acquisire dall'utente:
 
 ```
@@ -74,7 +74,7 @@ A questo punto, all'utente viene chiesto di immettere le credenziali e completar
 
 Dopo che l'utente viene autenticato e fornisce il consenso, l'endpoint 2.0 restituisce una risposta all'app nell'URI `redirect_uri`, usando il metodo specificato nel parametro `response_mode`.
 
-#### Risposta con esito positivo
+#### <a name="successful-response"></a>Risposta con esito positivo
 Una risposta con esito positivo che usa `response_mode=query` ha un aspetto simile al seguente:
 
 ```
@@ -88,7 +88,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | code |Codice di autorizzazione richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione.  I codici di autorizzazione hanno una durata molto breve, in genere scadono dopo circa 10 minuti. |
 | state |Se un parametro di stato è incluso nella richiesta, lo stesso valore viene visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici. |
 
-#### Risposta di errore
+#### <a name="error-response"></a>Risposta di errore
 Le risposte di errore possono essere inviate anche a `redirect_uri` , in modo che l'app possa gestirle adeguatamente:
 
 ```
@@ -102,7 +102,7 @@ error=access_denied
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
 
-#### Codici per gli errori dell'endpoint di autorizzazione
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Codici per gli errori dell'endpoint di autorizzazione
 La tabella seguente descrive i diversi codici errore che possono essere restituiti nel parametro `error` della risposta di errore.
 
 | Codice di errore | Descrizione | Azione client |
@@ -115,7 +115,7 @@ La tabella seguente descrive i diversi codici errore che possono essere restitui
 | temporarily_unavailable |Il server è temporaneamente troppo occupato per gestire la richiesta. |ripetere la richiesta. L'applicazione client sta comunicando all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
 | invalid_resource |La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o non è attualmente configurata. |Indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
 
-## Richiedere un token di accesso
+## <a name="request-an-access-token"></a>Richiedere un token di accesso
 Dopo aver ottenuto un codice di autorizzazione e l'autorizzazione dell'utente, è possibile riscattare il valore `code` per un `access_token`alla risorsa desiderata, inviando una richiesta `POST` all'endpoint `/token`:
 
 ```
@@ -148,7 +148,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Obbligatoria |Stesso valore redirect_uri usato per acquisire il codice di autorizzazione. |
 | client_secret |Obbligatorio per app Web |Segreto dell'applicazione creato per l'app nel portale di registrazione delle app.  È consigliabile non usarlo in un'app nativa, perché i segreti client non possono essere archiviati in modo affidabile nei dispositivi.  Il segreto è obbligatorio per le app Web e le API Web che possono archiviare in modo sicuro il segreto client sul lato server. |
 
-#### Risposta con esito positivo
+#### <a name="successful-response"></a>Risposta con esito positivo
 Una risposta token con esito positivo ha un aspetto simile al seguente:
 
 ```
@@ -169,7 +169,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | scope |Ambiti per i quali il token di accesso è valido. |
 | refresh_token |Token di aggiornamento di OAuth 2.0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente.  I token di aggiornamento hanno una durata elevata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo.  Per informazioni dettagliate, consultare l'argomento [Anteprima Azure AD B2C: Riferimento al Token](active-directory-v2-tokens.md). <br> **Nota:** viene fornito solo è stato richiesto l'ambito `offline_access`. |
 | id_token |Token JWT (Token Web JSON) non firmato. L'app può eseguire la decodifica base64Url dei segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza.  Per altre informazioni sui token ID, vedere le [informazioni di riferimento sui token dell'endpoint 2.0](active-directory-v2-tokens.md). <br> **Nota:** viene fornito solo è stato richiesto l'ambito `openid`. |
-#### Risposta di errore
+#### <a name="error-response"></a>Risposta di errore
 Le risposte di errore hanno un aspetto simile al seguente:
 
 ```
@@ -194,7 +194,7 @@ Le risposte di errore hanno un aspetto simile al seguente:
 | trace_id |Identificatore univoco per la richiesta utile per la diagnostica. |
 | correlation_id |Identificatore univoco per la richiesta utile per la diagnostica tra i componenti. |
 
-#### Codici per gli errori degli endpoint di token
+#### <a name="error-codes-for-token-endpoint-errors"></a>Codici per gli errori degli endpoint di token
 | Codice di errore | Descrizione | Azione client |
 | --- | --- | --- |
 | invalid_request |Errore del protocollo, ad esempio un parametro obbligatorio mancante. |Correggere e inviare di nuovo la richiesta. |
@@ -206,7 +206,7 @@ Le risposte di errore hanno un aspetto simile al seguente:
 | interaction_required |La richiesta richiede l'interazione dell'utente. Ad esempio, è necessario un passaggio di autenticazione aggiuntivo. |Ripetere la richiesta con la stessa risorsa. |
 | temporarily_unavailable |Il server è temporaneamente troppo occupato per gestire la richiesta. |ripetere la richiesta. L'applicazione client sta comunicando all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
 
-## Usare il token di accesso
+## <a name="use-the-access-token"></a>Usare il token di accesso
 Dopo aver ottenuto un `access_token` è possibile usarlo in richieste alle API Web includendolo nell'intestazione `Authorization`:
 
 > [!TIP]
@@ -220,7 +220,7 @@ Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## Aggiornare il token di accesso
+## <a name="refresh-the-access-token"></a>Aggiornare il token di accesso
 I token di accesso hanno breve durata ed è quindi necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse.  A tale scopo, inviare un'altra richiesta `POST` all'endpoint `/token`, specificando il `refresh_token` anziché il valore `code`:
 
 ```
@@ -253,7 +253,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Obbligatoria |Stesso valore redirect_uri usato per acquisire il codice di autorizzazione. |
 | client_secret |Obbligatorio per app Web |Segreto dell'applicazione creato per l'app nel portale di registrazione delle app.  È consigliabile non usarlo in un'app nativa, perché i segreti client non possono essere archiviati in modo affidabile nei dispositivi.  Il segreto è obbligatorio per le app Web e le API Web che possono archiviare in modo sicuro il segreto client sul lato server. |
 
-#### Risposta con esito positivo
+#### <a name="successful-response"></a>Risposta con esito positivo
 Una risposta token con esito positivo ha un aspetto simile al seguente:
 
 ```
@@ -275,7 +275,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | refresh_token |Nuovo token di aggiornamento di OAuth 2.0. È necessario sostituire il token di aggiornamento precedente con quello appena acquisito, per garantire che i token di aggiornamento rimangano validi il più a lungo possibile. <br> **Nota:** viene fornito solo è stato richiesto l'ambito `offline_access`. |
 | id_token |Token JWT (Token Web JSON) non firmato. L'app può eseguire la decodifica base64Url dei segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza.  Per altre informazioni sui token ID, vedere le [informazioni di riferimento sui token dell'endpoint 2.0](active-directory-v2-tokens.md). <br> **Nota:** viene fornito solo è stato richiesto l'ambito `openid`. |
 
-#### Risposta di errore
+#### <a name="error-response"></a>Risposta di errore
 ```
 {
   "error": "invalid_scope",

@@ -1,5 +1,5 @@
 ---
-title: Sincronizzare i dati (anteprima) | Microsoft Docs
+title: Anteprima di sincronizzazione dati SQL di Azure | Microsoft Docs
 description: "Questa panoramica è un'introduzione all'anteprima di sincronizzazione dati SQL di Azure."
 services: sql-database
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Sincronizzare i dati tra più database cloud e locali con l'anteprima di sincronizzazione dati SQL di Azure
 
 La sincronizzazione dati SQL è un servizio basato sul database SQL di Azure che consente di sincronizzare i dati selezionati bidirezionalmente tra più database SQL e istanze di SQL Server.
 
@@ -44,7 +44,7 @@ La sincronizzazione dati usa una topologia hub-spoke per sincronizzare i dati. U
 -   Il **database di sincronizzazione** contiene i metadati e il log per la sincronizzazione dati. Il database di sincronizzazione deve essere un database SQL di Azure posizionato nella stessa area del database hub. Il database di sincronizzazione viene creato dal cliente ed è di sua proprietà.
 
 > [!NOTE]
-> Se si usa un database locale, è necessario [configurare un agente locale.](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Se si usa un database locale, è necessario [configurare un agente locale.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
 
 ![Sincronizzare i dati tra database](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -58,7 +58,7 @@ La sincronizzazione dati è utile nei casi in cui i dati devono essere mantenuti
 
 -   **Applicazioni distribuite a livello globale:** molte aziende sono estese a più aree, a volte anche in paesi diversi. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
 
-Il servizio di sincronizzazione dati è sconsigliato per gli scenari seguenti:
+La sincronizzazione dei dati non è appropriata per gli scenari seguenti:
 
 -   Ripristino di emergenza
 
@@ -77,48 +77,6 @@ Il servizio di sincronizzazione dati è sconsigliato per gli scenari seguenti:
 -   **Risoluzione dei conflitti:** sincronizzazione dati offre due opzioni per la risoluzione dei conflitti, ovvero *Priorità hub* o *Priorità client*.
     -   Se si seleziona *Priorità hub*, le modifiche nell'hub sovrascrivono sempre le modifiche nel membro.
     -   Se si seleziona *Priorità client*, le modifiche nel membro sovrascrivono sempre le modifiche nell'hub. In presenza di più di un membro, il valore finale dipende dal membro sincronizzato per primo.
-
-## <a name="limitations-and-considerations"></a>Limitazioni e considerazioni
-
-### <a name="performance-impact"></a>Impatto sulle prestazioni
-La sincronizzazione dati usa trigger di inserimento, aggiornamento ed eliminazione per il rilevamento delle modifiche e crea tabelle laterali nel database utente per il rilevamento delle modifiche. Queste attività di rilevamento delle modifiche hanno un impatto sul carico di lavoro del database. Valutare il livello di servizio e aggiornare se necessario.
-
-### <a name="eventual-consistency"></a>Coerenza finale
-Dato che la sincronizzazione dati è basata su trigger, la coerenza delle transazioni non è garantita. Microsoft garantisce che tutte le modifiche vengono apportate alla fine e che la sincronizzazione dati non causi perdite di dati.
-
-### <a name="unsupported-data-types"></a>Tipi di dati non supportati
-
--   FileStream
-
--   Tipo definito dall'utente (UDT) SQL/CLR
-
--   XMLSchemaCollection (supportato da XML)
-
--   Cursor, Timestamp, Hierarchyid
-
-### <a name="requirements"></a>Requisiti
-
--   Ogni tabella deve avere una chiave primaria. Non modificare il valore della chiave primaria in alcuna riga. Se questa modifica è necessaria, eliminare la riga e ricrearla con il nuovo valore di chiave primaria. 
-
--   Una tabella non può includere colonne Identity che non sono la chiave primaria.
-
--   I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
-
--   L'isolamento dello snapshot deve essere abilitato. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
-### <a name="limitations-on-service-and-database-dimensions"></a>Limitazioni alle dimensioni del servizio e del database
-
-|                                                                 |                        |                             |
-|-----------------------------------------------------------------|------------------------|-----------------------------|
-| **Dimensioni**                                                      | **Limite**              | **Soluzione alternativa**              |
-| Numero massimo di gruppi di sincronizzazione a cui può appartenere qualsiasi database.       | 5                      |                             |
-| Numero massimo di endpoint in un singolo gruppo di sincronizzazione              | 30                     | Creare più gruppi di sincronizzazione |
-| Numero massimo di endpoint locali in un singolo gruppo di sincronizzazione. | 5                      | Creare più gruppi di sincronizzazione |
-| Nomi di database, tabella, schema e colonna                       | 50 caratteri per nome |                             |
-| Tabelle in un gruppo di sincronizzazione                                          | 500                    | Creare più gruppi di sincronizzazione |
-| Colonne in una tabella in un gruppo di sincronizzazione                              | 1000                   |                             |
-| Dimensioni delle righe di dati in una tabella                                        | 24 MB                  |                             |
-| Intervallo minimo di sincronizzazione                                           | 5 minuti              |                             |
 
 ## <a name="common-questions"></a>Domande frequenti
 
@@ -143,15 +101,63 @@ Questo messaggio di errore indica uno dei due problemi seguenti:
 La sincronizzazione dati non gestisce i riferimenti circolari. Si consiglia di evitarli. 
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Come si esporta e importa un database con la sincronizzazione dei dati?
-Dopo aver esportato un database come file con estensione bacpac e averlo importato per creare un nuovo database, è necessario eseguire le due operazioni seguenti per usare la sincronizzazione dei dati nel nuovo database:
+Dopo aver esportato un database come file con estensione `.bacpac` e averlo importato per creare un nuovo database, è necessario eseguire le due operazioni seguenti per usare la sincronizzazione dei dati nel nuovo database:
 1.  Pulire le tabelle e gli oggetti di sincronizzazione dei dati nel **nuovo database** usando [questo script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Questo script elimina tutti gli oggetti di sincronizzazione dei dati dal database.
 2.  Creare di nuovo il gruppo di sincronizzazione con il nuovo database. Se il gruppo di sincronizzazione precedente non è più necessario, eliminarlo.
+
+## <a name="sync-req-lim"></a> Requisiti e limitazioni
+
+### <a name="general-requirements"></a>Requisiti generali
+
+-   Ogni tabella deve avere una chiave primaria. Non modificare il valore della chiave primaria in alcuna riga. Se questa modifica è necessaria, eliminare la riga e ricrearla con il nuovo valore di chiave primaria. 
+
+-   Una tabella non può includere colonne Identity che non sono la chiave primaria.
+
+-   I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
+
+-   L'isolamento dello snapshot deve essere abilitato. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
+### <a name="general-considerations"></a>Considerazioni generali
+
+#### <a name="eventual-consistency"></a>Coerenza finale
+Dato che la sincronizzazione dati è basata su trigger, la coerenza delle transazioni non è garantita. Microsoft garantisce che tutte le modifiche vengono apportate alla fine e che la sincronizzazione dati non causi perdite di dati.
+
+#### <a name="performance-impact"></a>Impatto sulle prestazioni
+La sincronizzazione dati usa trigger di inserimento, aggiornamento ed eliminazione per il rilevamento delle modifiche e crea tabelle laterali nel database utente per il rilevamento delle modifiche. Queste attività di rilevamento delle modifiche hanno un impatto sul carico di lavoro del database. Valutare il livello di servizio e aggiornare se necessario.
+
+### <a name="general-limitations"></a>Limitazioni generali
+
+#### <a name="unsupported-data-types"></a>Tipi di dati non supportati
+
+-   FileStream
+
+-   Tipo definito dall'utente (UDT) SQL/CLR
+
+-   XMLSchemaCollection (supportato da XML)
+
+-   Cursor, Timestamp, Hierarchyid
+
+#### <a name="limitations-on-service-and-database-dimensions"></a>Limitazioni alle dimensioni del servizio e del database
+
+| **Dimensioni**                                                      | **Limite**              | **Soluzione alternativa**              |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| Numero massimo di gruppi di sincronizzazione a cui può appartenere qualsiasi database.       | 5                      |                             |
+| Numero massimo di endpoint in un singolo gruppo di sincronizzazione              | 30                     | Creare più gruppi di sincronizzazione |
+| Numero massimo di endpoint locali in un singolo gruppo di sincronizzazione. | 5                      | Creare più gruppi di sincronizzazione |
+| Nomi di database, tabella, schema e colonna                       | 50 caratteri per nome |                             |
+| Tabelle in un gruppo di sincronizzazione                                          | 500                    | Creare più gruppi di sincronizzazione |
+| Colonne in una tabella in un gruppo di sincronizzazione                              | 1000                   |                             |
+| Dimensioni delle righe di dati in una tabella                                        | 24 MB                  |                             |
+| Intervallo minimo di sincronizzazione                                           | 5 minuti              |                             |
+|||
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
--   [Introduzione alla sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md)
+-   [Introduzione alla sincronizzazione dati SQL di Azure](sql-database-get-started-sql-data-sync.md)
+-   [Procedure consigliate per la sincronizzazione dati SQL di Azure](sql-database-best-practices-data-sync.md)
+-   [Risolvere i problemi della sincronizzazione dati SQL di Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL:
     -   [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -162,5 +168,4 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 Per altre informazioni sul database SQL, vedere:
 
 -   [Panoramica del database SQL](sql-database-technical-overview.md)
-
 -   [Gestione del ciclo di vita del database](https://msdn.microsoft.com/library/jj907294.aspx)

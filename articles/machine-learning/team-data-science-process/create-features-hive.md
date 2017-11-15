@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 0c8c2ab8c7daceb13fd39d2a109148a40430d59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Creare funzionalità per i dati in un cluster Hadoop mediante le query Hive
 Questo documento illustra come creare funzionalità per i dati archiviati in un cluster Hadoop di Azure HDInsight tramite query Hive. Tali query Hive usano le funzioni definite dall'utente di Hive incorporate, gli script per i quali sono fornite.
@@ -37,7 +37,7 @@ Questo articolo presuppone che l'utente abbia:
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Eseguito il provisioning di un cluster Hadoop personalizzato con il servizio HDInsight.  Per istruzioni, vedere [Personalizzazione di cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](customize-hadoop-cluster.md).
 * Caricato i dati nelle tabelle Hive dei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](move-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
-* Abilitato l'accesso remoto al cluster. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](customize-hadoop-cluster.md#headnode).
+* Abilitato l'accesso remoto al cluster. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](customize-hadoop-cluster.md).
 
 ## <a name="hive-featureengineering"></a>Creazione di funzionalità
 In questa sezione vengono descritti vari esempi dei modi in cui è possibile generare funzionalità mediante le query Hive. Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che quindi può essere unita alla tabella originale. Di seguito ci sono gli esempi presentati:
@@ -63,7 +63,7 @@ Spesso, può essere utile calcolare le frequenze relative ai livelli di una vari
 
 
 ### <a name="hive-riskfeature"></a>Rischi di variabili di categoria nella classificazione binaria
-Nella classificazione binaria, se i modelli usati accettano soltanto funzionalità numeriche, è necessario convertire le variabili di categoria non numeriche in funzionalità numeriche. È possibile eseguire questa operazione sostituendo tutti i livelli non numerici con un rischio numerico. In questa sezione, vengono descritte alcune query Hive generiche che consentono di calcolare i valori di rischio (disparità di log) di una variabile di categoria.
+Nella classificazione binaria, se i modelli usati accettano soltanto funzionalità numeriche, è necessario convertire le variabili di categoria non numeriche in funzionalità numeriche. È possibile eseguire questa operazione sostituendo tutti i livelli non numerici con un rischio numerico. Questa sezione descrive alcune query Hive generiche che consentono di calcolare i valori di rischio (disparità di log) di una variabile di categoria.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -88,7 +88,7 @@ In questo esempio, le variabili `smooth_param1` e `smooth_param2` vengono impost
 Dopo aver calcolato la tabella dei rischi, gli utenti possono assegnare i valori di rischio a una tabella unendola a quella dei rischi. La query Hive che viene aggiunta è stata descritta nella sezione precedente.
 
 ### <a name="hive-datefeatures"></a>Estrazione delle funzionalità dal campo Datetime
-In Hive è disponibile un set di funzioni definite dall'utente per elaborare i campi Datetime. In Hive, il formato data/ora predefinito è "aaaa-MM-gg 00:00:00" (ad esempio, "1970-01-01 12:21:32"). In questa sezione, vengono riportati esempi che consentono di estrarre il giorno del mese, il mese da un campo Datetime e altri esempi che consentono di convertire una stringa data/ora in formato diverso rispetto a quello predefinito da una stringa data/ora con formato predefinito.
+In Hive è disponibile un set di funzioni definite dall'utente per elaborare i campi Datetime. In Hive, il formato data/ora predefinito è "aaaa-MM-gg 00:00:00" (ad esempio, "1970-01-01 12:21:32"). Questa sezione include esempi che consentono di estrarre il giorno del mese, il mese da un campo Datetime e altri esempi che consentono di convertire una stringa data/ora in formato diverso rispetto a quello predefinito da una stringa data/ora con formato predefinito.
 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
@@ -150,13 +150,13 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 
     Questo parametro consente di allocare 4 GB di memoria nello spazio dell'heap di Java e facilita l'ordinamento poiché rende disponibile maggiore quantità di memoria. Si consiglia di regolare queste allocazioni se si verificano errori di processo relativi allo spazio dell'heap.
 
-1. **Dimensione di blocco per DFS** : questo parametro consente di impostare la quantità minima relativa all'unità di dati che il file system è in grado di memorizzare. Ad esempio, se la dimensione di blocco per DFS è di 128 MB, tutti i dati con dimensione inferiore o pari a 128 MB vengono memorizzati in un blocco singolo; al contrario, ai dati con dimensione superiore a 128 MB vengono assegnati ulteriori blocchi. Se si sceglie una dimensione di blocco molto limitata si causano sovraccarichi in Hadoop, dal momento che il nodo del nome deve elaborare molte più richieste al fine di rilevare il blocco che fa riferimento al file. Un'impostazione consigliata per dati con dimensioni in gigabyte (o più grandi) è:
+1. **Dimensione di blocco per DFS**: questo parametro consente di impostare la quantità minima relativa all'unità di dati che il file system è in grado di memorizzare. Ad esempio, se la dimensione di blocco per DFS è di 128 MB, tutti i dati con dimensione inferiore o pari a 128 MB vengono memorizzati in un blocco singolo; al contrario, ai dati con dimensione superiore a 128 MB vengono assegnati ulteriori blocchi. Se si sceglie una dimensione di blocco molto limitata si causano sovraccarichi in Hadoop, dal momento che il nodo del nome deve elaborare molte più richieste al fine di rilevare il blocco che fa riferimento al file. Un'impostazione consigliata per dati con dimensioni in gigabyte (o più grandi) è:
    
         set dfs.block.size=128m;
-2. **Ottimizzazione delle operazioni di unione in Hive** : anche se le operazioni nel framework di mapping/riduzione avvengono solitamente nella fase di riduzione, è possibile talvolta ottenere dei miglioramenti pianificando le operazioni di unione nella fase di mapping (detta anche "mapjoin"). Per indirizzare Hive a tale scopo, quando possibile, impostare:
+2. **Ottimizzazione delle operazioni di unione in Hive**: anche se le operazioni nel framework di mapping/riduzione avvengono solitamente nella fase di riduzione, è possibile talvolta ottenere dei miglioramenti pianificando le operazioni di unione nella fase di mapping (detta anche "mapjoin"). Per indirizzare Hive a tale scopo, quando possibile, impostare:
    
         set hive.auto.convert.join=true;
-3. **Specifica del numero di mapper in Hive** : mentre Hadoop consente all'utente di impostare il numero di riduttori, il numero di mapper generalmente non viene impostato dall'utente. Un espediente che offre un certo livello di controllo su questo numero consiste nello scegliere le variabili di Hadoop, *mapred.min.split.size* e *mapred.max.split.size* come dimensione di ogni attività di mapping determinata da:
+3. **Specifica del numero di mapper in Hive**: mentre Hadoop consente all'utente di impostare il numero di riduttori, il numero di mapper generalmente non viene impostato dall'utente. Un espediente che offre un certo livello di controllo su questo numero consiste nello scegliere le variabili di Hadoop, *mapred.min.split.size* e *mapred.max.split.size* come dimensione di ogni attività di mapping determinata da:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

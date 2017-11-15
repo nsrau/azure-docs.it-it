@@ -11,13 +11,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Uso di Azure PowerShell con Archiviazione di Azure
 
@@ -216,6 +216,12 @@ Fino a qui si è appreso come gestire l'account di archiviazione con PowerShell.
 * [Eseguire operazioni in Archiviazione Blob di Azure con Azure PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Come usare PowerShell per gestire File di Azure](../files/storage-how-to-use-files-powershell.md)
 * [Eseguire operazioni nell'archivio code di Azure con Azure PowerShell](../queues/storage-powershell-how-to-use-queues.md)
+* [Eseguire operazioni di Archiviazione tabelle di Azure con PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+
+L'API di tabella di Azure Cosmos DB offre funzionalità Premium per l'archiviazione di tabelle, ad esempio distribuzione globale chiavi in mano, operazioni di lettura e scrittura a bassa latenza, indicizzazione secondaria automatica e velocità effettiva dedicata. 
+
+* Per altre informazioni, vedere [API di tabella di Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
+* Per informazioni su come usare PowerShell per eseguire operazioni dell'API di tabella di Azure Cosmos DB, vedere [Eseguire operazioni dell'API di tabella di Azure Cosmos DB con PowerShell](../../cosmos-db/table-powershell.md).
 
 ## <a name="azures-independently-deployed-clouds"></a>Cloud distribuiti in modo indipendente di Azure
 

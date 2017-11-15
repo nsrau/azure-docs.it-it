@@ -3,8 +3,8 @@ title: Abilitare o disabilitare HTTPS in un dominio personalizzato della rete pe
 description: Informazioni su come abilitare o disabilitare HTTPS nell'endpoint della rete CDN di Azure con un dominio personalizzato.
 services: cdn
 documentationcenter: 
-author: camsoper
-manager: erikre
+author: dksimpson
+manager: 
 editor: 
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 11/07/2017
 ms.author: casoper
-ms.openlocfilehash: c92f1e20acf55b8bd791fad43f17e162a5cb3847
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68a171ee6da58e6d84b466daf573577c909c7f5c
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>Abilitare o disabilitare HTTPS in un dominio personalizzato della rete per la distribuzione di contenuti di Azure
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Il supporto di HTTPS per i domini personalizzati della rete per la distribuzione di contenuti (CDN) di Microsoft Azure consente di distribuire contenuto sicuro tramite SSL usando il nome del proprio dominio per una maggiore sicurezza dei dati in transito. Il flusso di lavoro end-to-end per abilitare il protocollo HTTPS per il dominio personalizzato è più semplice grazie all'abilitazione con un unico clic e alla gestione completa dei certificati, il tutto senza costi aggiuntivi.
+Il supporto di HTTPS per i domini personalizzati della rete di distribuzione dei contenuti (CDN, Content Delivery Network) di Microsoft Azure consente di distribuire contenuto sicuro tramite SSL usando il nome del proprio dominio per una maggiore sicurezza dei dati in transito. Il flusso di lavoro end-to-end per abilitare il protocollo HTTPS per il dominio personalizzato è più semplice grazie all'abilitazione con un unico clic e alla gestione completa dei certificati, il tutto senza costi aggiuntivi.
 
-È fondamentale garantire la riservatezza e l'integrità di tutti i dati sensibili delle applicazioni Web in transito. Il protocollo HTTPS garantisce la crittografia dei dati sensibili inviati su Internet. Offre attendibilità, autenticazione e protezione delle applicazioni Web da attacchi. La rete CDN di Azure supporta attualmente il protocollo HTTPS su un endpoint della rete CDN. Se si crea un endpoint CDN dalla rete CDN di Azure, ad esempio https://contoso.azureedge.net, il protocollo HTTPS è abilitato per impostazione predefinita. La funzionalità HTTPS per i domini personalizzati offre ora la possibilità di abilitare la distribuzione sicura anche per un dominio personalizzato, ad esempio https://www.contoso.com. 
+È fondamentale garantire la riservatezza e l'integrità di tutti i dati sensibili delle applicazioni Web in transito. Il protocollo HTTPS garantisce la crittografia dei dati sensibili inviati su Internet. Offre attendibilità, autenticazione e protezione delle applicazioni Web da attacchi. Per impostazione predefinita, la rete CDN di Azure supporta il protocollo HTTPS per gli endpoint CDN. Se si crea un endpoint CDN dalla rete CDN di Azure, ad esempio `https://contoso.azureedge.net`, il protocollo HTTPS viene abilitato automaticamente. In più, il supporto di HTTPS per i domini personalizzati offre ora la possibilità di abilitare la distribuzione sicura anche per un dominio personalizzato, ad esempio `https://www.contoso.com`. 
 
 Alcuni attributi chiave della funzionalità HTTPS sono:
 
@@ -34,7 +34,7 @@ Alcuni attributi chiave della funzionalità HTTPS sono:
 
 - Abilitazione semplice: il provisioning è disponibile con un unico clic nel [portale Azure](https://portal.azure.com). È possibile anche usare l'API REST o altri strumenti per sviluppatori per abilitare la funzionalità.
 
-- Gestione completa dei certificati: tutta la fase di approvvigionamento e gestione di certificati viene gestita automaticamente. Il provisioning e il rinnovo dei certificati vengono eseguiti automaticamente prima della scadenza. In questo modo si riduce completamente il rischio di interruzione del servizio a causa della scadenza di un certificato.
+- Gestione completa dei certificati: tutta la fase di approvvigionamento e gestione di certificati viene gestita automaticamente. Il provisioning e il rinnovo dei certificati vengono eseguiti automaticamente prima della scadenza. Ciò elimina il rischio di interruzione del servizio a causa della scadenza di un certificato.
 
 >[!NOTE] 
 >Prima di abilitare il supporto di HTTPS, è necessario avere già definito un [dominio personalizzato della rete CDN di Azure](./cdn-map-content-to-custom-domain.md).
@@ -51,23 +51,26 @@ Per abilitare HTTPS, seguire questa procedura.
 
 3. Selezionare il dominio personalizzato per il quale si vuole abilitare la funzionalità HTTPS.
 
-    ![Pannello Endpoint](./media/cdn-custom-ssl/cdn-custom-domain.png)
+    ![Elenco dei domini personalizzati](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
 4. Fare clic su **Sì** per abilitare HTTPS e quindi su **Applica**.
 
-    ![Finestra di dialogo HTTPS personalizzato](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
+    ![Stato HTTPS del dominio personalizzato](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
 
 
 ### <a name="step-2-validate-domain"></a>Passaggio 2: Convalidare il dominio
 
 >[!IMPORTANT] 
->Prima che la funzionalità HTTPS sia attiva nel dominio personalizzato, è necessario completare la convalida del dominio. Il dominio deve essere approvato entro sei giorni lavorativi. Le richieste non approvate entro sei giorni lavorativi verranno automaticamente annullate. 
+>Prima che la funzionalità HTTPS sia attiva nel dominio personalizzato, è necessario completare la convalida del dominio. Il dominio deve essere approvato entro sei giorni lavorativi. Le richieste non approvate entro sei giorni lavorativi vengono annullate automaticamente. 
 
-Dopo l'abilitazione di HTTPS nel dominio personalizzato, il provider di certificati HTTPS DigiCert convalida la proprietà del dominio contattandone il registrante in base alle informazioni del registrante [WHOIS](http://whois.domaintools.com/) del dominio. Per il contatto viene usato l'indirizzo di posta elettronica (impostazione predefinita) o il numero di telefono riportato nella registrazione WHOIS. 
+Dopo l'abilitazione di HTTPS nel dominio personalizzato, l'autorità di certificazione (CA) DigiCert convalida la proprietà del dominio contattandone il registrante in base alle informazioni sul registrante stesso in [WHOIS](http://whois.domaintools.com/). Per il contatto viene usato l'indirizzo di posta elettronica (impostazione predefinita) o il numero di telefono riportato nella registrazione WHOIS. 
+
+>[!NOTE]
+>Se si ha un record di autorizzazione dell'autorità di certificazione (CAA, Certificate Authority Authorization) con il provider DNS, il record deve includere DigiCert come CA valida. Un record CAA consente ai proprietari di domini di indicare ai propri provider DNS le CA autorizzate a emettere certificati per i loro domini. Se una CA riceve l'ordine di un certificato per un dominio dotato di record CAA ma la CA non è citata come autorità emittente autorizzata in tale record, non deve emettere il certificato per il dominio o il sottodominio.
 
 ![Record WHOIS](./media/cdn-custom-ssl/whois-record.png)
 
-DigiCert invierà il messaggio di posta elettronica di verifica anche agli indirizzi seguenti. Se le informazioni del registrante WHOIS sono private, verificare di poter eseguire l'approvazione direttamente da uno di questi indirizzi:
+DigiCert invia un messaggio di verifica anche a indirizzi di posta elettronica aggiuntivi. Se le informazioni del registrante WHOIS sono private, verificare di poter eseguire l'approvazione direttamente da uno degli indirizzi seguenti:
 
 admin@&lt;nome-dominio.com&gt;  
 administrator@&lt;nome-dominio.com&gt;  
@@ -77,29 +80,29 @@ postmaster@&lt;nome-dominio.com&gt;
 
 Entro pochi minuti si dovrebbe ricevere un messaggio di posta elettronica simile all'esempio seguente, in cui viene chiesto di approvare la richiesta. Se si usa un filtro per la posta indesiderata, aggiungere admin@digicert.com all'elenco degli indirizzi consentiti. Se non si riceve un messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
     
-![Finestra di dialogo HTTPS personalizzato](./media/cdn-custom-ssl/domain-validation-email.png)
+![Messaggio di posta elettronica di convalida del dominio](./media/cdn-custom-ssl/domain-validation-email.png)
 
 Facendo clic sul collegamento per l'approvazione, si verrà indirizzati al modulo di approvazione online seguente: 
     
-![Finestra di dialogo HTTPS personalizzato](./media/cdn-custom-ssl/domain-validation-form.png)
+![Modulo di convalida del dominio](./media/cdn-custom-ssl/domain-validation-form.png)
 
 Seguire le istruzioni nel modulo. Sono disponibili due opzioni di verifica:
 
-- È possibile approvare tutti gli ordini futuri effettuati con lo stesso account per lo stesso dominio radice, ad esempio contoso.com. Questo approccio è consigliato se si prevede di aggiungere in futuro altri domini personalizzati per lo stesso dominio radice.
+- È possibile approvare tutti gli ordini futuri effettuati con lo stesso account per lo stesso dominio radice, ad esempio `contoso.com`. Questo approccio è consigliato se si prevede di aggiungere altri domini personalizzati per lo stesso dominio radice.
 
-- È possibile approvare solo il nome host specifico usato in questa richiesta. Le richieste successive richiederanno un'approvazione aggiuntiva.
+- È possibile approvare solo il nome host specifico usato in questa richiesta. Le richieste successive richiedono un'approvazione aggiuntiva.
 
-Dopo l'approvazione, DigiCert aggiungerà il nome del dominio personalizzato al certificato dei nomi alternativi soggetto. Il certificato è valido per un anno e verrà rinnovato automaticamente prima della scadenza.
+Dopo l'approvazione, DigiCert aggiunge il nome del dominio personalizzato al certificato dei nomi alternativi del soggetto (SAN, Subject Alternative Name). Il certificato è valido per un anno e verrà rinnovato automaticamente prima della scadenza.
 
 ### <a name="step-3-wait-for-propagation"></a>Passaggio 3: Attendere la propagazione
 
-Dopo la convalida del nome di dominio, per l'attivazione della funzionalità HTTPS per il dominio personalizzato possono essere necessarie 6-8 ore. Al termine del processo, lo stato di "HTTPS personalizzato" nel portale di Azure è impostato su "Abilitato" e i quattro passaggi dell'operazione nel pannello HTTPS dominio personalizzato sono contrassegnati come completati. Il dominio personalizzato è ora pronto per l'uso di HTTPS.
+Dopo la convalida del nome di dominio, per l'attivazione della funzionalità HTTPS per il dominio personalizzato possono essere necessarie 6-8 ore. Al termine del processo, lo stato HTTPS personalizzato nel portale di Azure viene impostato su **Abilitato** e i quattro passaggi nella finestra di dialogo del dominio personalizzato sono contrassegnati come completati. Il dominio personalizzato è ora pronto per l'uso di HTTPS.
 
 ![Finestra di dialogo per l'abilitazione di HTTPS](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
 
 ### <a name="operation-progress"></a>Avanzamento dell'operazione
 
-La tabella seguente illustra l'avanzamento dell'operazione per l'abilitazione di HTTPS. Al termine, i quattro passaggi dell'operazione vengono visualizzati nel pannello HTTPS dominio personalizzato. All'attivazione di ogni passaggio, sotto il passaggio in corso vengono visualizzati dettagli aggiuntivi. Al completamento di un passaggio, accanto viene visualizzato un segno di spunta verde. 
+La tabella seguente illustra l'avanzamento dell'operazione per l'abilitazione di HTTPS. Dopo l'abilitazione di HTTPS, i quattro passaggi dell'operazione vengono visualizzati nella finestra di dialogo del dominio personalizzato. All'attivazione di ogni passaggio, sotto il passaggio in corso vengono visualizzati dettagli aggiuntivi. Al completamento di un passaggio, accanto viene visualizzato un segno di spunta verde. 
 
 | Passaggio dell'operazione | Dettagli del passaggio dell'operazione | 
 | --- | --- |
@@ -115,9 +118,9 @@ La tabella seguente illustra l'avanzamento dell'operazione per l'abilitazione di
 | | Il certificato è stato distribuito nella rete CDN. |
 | 4 Operazione completata | HTTPS è stato abilitato nel dominio. |
 
-\* Questo messaggio verrà visualizzato solo se si è verificato un errore. 
+\* Questo messaggio viene visualizzato solo se si è verificato un errore. 
 
-Se si verifica un errore prima dell'invio della richiesta, verrà visualizzato il messaggio di errore seguente:
+Se si verifica un errore prima dell'invio della richiesta, viene visualizzato il messaggio di errore seguente:
 
 <code>
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
@@ -135,7 +138,7 @@ Dopo aver abilitato HTTPS, è possibile successivamente disabilitarlo. Per disab
 
 3. Selezionare il dominio personalizzato per cui si vuole disabilitare HTTPS.
 
-    ![Pannello Endpoint](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
+    ![Elenco dei domini personalizzati](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
 4. Fare clic su **No** per disabilitare HTTPS e quindi su **Applica**.
 
@@ -143,13 +146,13 @@ Dopo aver abilitato HTTPS, è possibile successivamente disabilitarlo. Per disab
 
 ### <a name="step-2-wait-for-propagation"></a>Passaggio 2: Attendere la propagazione
 
-Per rendere effettiva la disabilitazione della funzionalità HTTPS per il dominio personalizzato possono essere necessarie 6-8 ore. Al termine del processo, lo stato di "HTTPS personalizzato" nel portale di Azure è impostato su "Disabilitato" e i tre passaggi dell'operazione nel pannello HTTPS dominio personalizzato sono contrassegnati come completati. Il dominio personalizzato non può più usare HTTPS.
+Per rendere effettiva la disabilitazione della funzionalità HTTPS per il dominio personalizzato possono essere necessarie 6-8 ore. Al termine del processo, lo stato HTTPS personalizzato nel portale di Azure viene impostato su **Disabilitato** e i tre passaggi nella finestra di dialogo del dominio personalizzato sono contrassegnati come completati. Il dominio personalizzato non può più usare HTTPS.
 
 ![Finestra di dialogo per la disabilitazione di HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
 
 ### <a name="operation-progress"></a>Avanzamento dell'operazione
 
-La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazione di HTTPS. Al termine, i tre passaggi dell'operazione vengono visualizzati nel pannello HTTPS dominio personalizzato. All'attivazione di ogni passaggio, sotto di esso vengono visualizzati dettagli aggiuntivi. Al completamento di un passaggio, accanto viene visualizzato un segno di spunta verde. 
+La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazione di HTTPS. Al termine, i tre passaggi dell'operazione vengono visualizzati nella finestra di dialogo del dominio personalizzato. All'attivazione di ogni passaggio, sotto di esso vengono visualizzati dettagli aggiuntivi. Al completamento di un passaggio, accanto viene visualizzato un segno di spunta verde. 
 
 | Avanzamento dell'operazione | Dettagli dell'operazione | 
 | --- | --- |
@@ -161,7 +164,7 @@ La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazion
 
 1. *Chi è il provider di certificati e quale tipo di certificato viene usato?*
 
-    Viene usato il certificato dei nomi alternativi soggetto (SAN) fornito da DigiCert. Un certificato SAN può proteggere più nomi di dominio completi con un certificato.
+    Microsoft usa un certificato dei nomi alternativi soggetto (SAN) fornito da DigiCert. Un solo certificato SAN può proteggere più nomi di dominio completi.
 
 2. *È possibile usare il certificato dedicato personale?*
     
@@ -173,11 +176,14 @@ La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazion
 
 4. *L'uso di un certificato SAN è meno sicuro rispetto a un certificato dedicato?*
     
-    Un certificato SAN applica gli stessi standard di crittografia e protezione di un certificato dedicato. Tutti i certificati SSL emessi usano l'algoritmo SHA-256 per la protezione avanzata di server.
+    Un certificato SAN applica gli stessi standard di crittografia e sicurezza di un certificato dedicato. Tutti i certificati SSL emessi usano l'algoritmo SHA-256 per la protezione avanzata dei server.
 
 5. *È possibile usare la funzionalità HTTPS del dominio personalizzato con la rete CDN di Azure fornita da Akamai?*
 
-    Attualmente questa funzionalità è disponibile solo con la rete CDN di Azure fornita da Verizon. Siamo impegnati nel fornire il supporto di questa funzionalità con la rete CDN di Azure fornita da Akamai nei prossimi mesi.
+    Attualmente questa funzionalità è disponibile solo con la rete CDN di Azure fornita da Verizon. Microsoft si sta impegnando per fornire il supporto di questa funzionalità con la rete CDN di Azure fornita da Akamai nei prossimi mesi.
+
+6. *È necessario avere un record di autorizzazione dell'autorità di certificazione presso il provider DNS?*
+   No, attualmente un record di autorizzazione dell'autorità di certificazione non è obbligatorio. Se tuttavia se ne ha uno, deve includere DigiCert come CA valida.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

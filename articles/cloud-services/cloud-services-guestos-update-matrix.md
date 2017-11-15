@@ -1,5 +1,5 @@
 ---
-title: "Informazioni sulle versioni più recenti del sistema operativo guest Azure | Microsoft Docs"
+title: "Informazioni sulle versioni più recenti del sistema operativo guest Azure | Documentazione Microsoft"
 description: "Notizie sui rilasci più recenti e sulla compatibilità SDK per il sistema operativo guest di Servizi cloud di Azure."
 services: cloud-services
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/22/2017
+ms.date: 11/8/2017
 ms.author: raiye
-ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: b94001e16068f1163beaac81053a03600af5f768
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest di Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -43,6 +43,8 @@ Non si è certi di quale sia il sistema operativo guest o di come funzionano i r
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
 
+###### <a name="november-8-2017"></a>**8 novembre 2017**
+È stato rilasciato il sistema operativo guest di ottobre.
 
 ###### <a name="october-6-2017"></a>**6 ottobre 2017**
 È stato rilasciato il sistema operativo guest di settembre. Per questa versione di settembre di Windows Server 2016 netfx3 è abilitata per impostazione predefinita. I clienti devono aggiungere "dism /online /disable-feature /featurename:netfx3" in OnStart se il flusso di lavoro richiede l'esecuzione di un'app .NET 2.x con runtime 4.x o se è stata eseguita un'app .NET 2.x, gestito un errore e quindi eseguita un'app .NET 4.x.
@@ -71,12 +73,6 @@ L'implementazione del sistema operativo guest di giugno è iniziata il 16 giugno
 ###### <a name="may-17-2017"></a>**17 maggio 2017**
 A causa di un bug di sicurezza, le versioni del sistema operativo di dicembre 2016 e gennaio 2017 seguenti verranno disabilitate poiché non presentano le [correzioni] del portale: WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
 
-###### <a name="may-12-2017"></a>**12 maggio 2017**
-L'implementazione del sistema operativo guest di maggio è iniziata il 12 maggio e il rilascio è previsto per l'13 giugno.
-
-###### <a name="april-18-2017"></a>**18 aprile 2017**
-L'implementazione del sistema operativo guest di aprile è iniziata il 18 aprile e il rilascio è previsto per il 9 maggio.
-
 
 ## <a name="releases"></a>Rilasci
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
@@ -92,16 +88,16 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.12_201710-01 |8 novembre 2017 |Post 5.14 |Da definire |
 | WA-GUEST-OS-5.11_201709-01 |6 ottobre 2017 |Post 5.13 |Da definire |
 | WA-GUEST-OS-5.10_201708-01 |24 agosto 2017 |Dopo la versione 5.12 |Da definire |
-| WA-GUEST-OS-5.9_201707-01 |3 agosto 2017 |Post 5.11 |Da definire |
+|~~WA-GUEST-OS-5.9_201707-01~~ |3 agosto 2017 |8 novembre 2017 |Da definire |
 |~~WA-GUEST-OS-5.8_201706-01~~ |7 luglio 2017 |6 ottobre 2017 |Da definire |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
 |~~WA-GUEST-OS-5.4_201612-01~~ |10 gennaio 2017 |5 giugno 2017|Da definire |
 |~~WA-GUEST-OS-5.3_201611-01~~ |14 dicembre 2016 |9 maggio 2017 |Da definire |
-|~~WA-GUEST-OS-5.2_201610-02~~ |1 novembre 2016 |10 aprile 2017 |Da definire |
 
 ## <a name="family-4-releases"></a>Versioni della famiglia 4
 **Windows Server 2012 R2**
@@ -115,20 +111,16 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.47_201710-01 |8 novembre 2017 |Post 4.49 |Da definire |
 | WA-GUEST-OS-4.46_201709-01 |6 ottobre 2017 |Post 4.48 |Da definire |
 | WA-GUEST-OS-4.45_201708-01 |24 agosto 2017 |Dopo la versione 4.47 |Da definire |
-| WA-GUEST-OS-4.44_201707-01 |3 agosto 2017 |Post 4.46 |Da definire |
+|~~WA-GUEST-OS-4.44_201707-01~~ |3 agosto 2017 |8 novembre 2017 |Da definire |
 |~~WA-GUEST-OS-4.43_201706-01~~ |7 luglio 2017 |6 ottobre 2017 |Da definire |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
 |~~WA-GUEST-OS-4.39_201612-01~~ |10 gennaio 2017 |5 giugno 2017 |Da definire |
 |~~WA-GUEST-OS-4.38_201611-01~~ |14 dicembre 2016 |9 maggio 2017 |Da definire |
-|~~WA-GUEST-OS-4.37_201610-02~~ |16 novembre 2016 |10 aprile 2017 |Da definire |
-|~~WA-GUEST-OS-4.36_201609-01~~ |13 ottobre 2016 |14 gennaio 2017 |Da definire |
-|~~WA-GUEST-OS-4.35_201608-01~~ |13 settembre 2016 |16 dicembre 2016 |Da definire |
-|~~WA-GUEST-OS-4.34_201607-01~~ |8 agosto 2016 |13 novembre 2016 |Da definire |
-
 
 ## <a name="family-3-releases"></a>Versioni della famiglia 3
 **Windows Server 2012**
@@ -142,20 +134,16 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.54_201710-01 |8 novembre 2017 |Post 3.56 |Da definire |
 | WA-GUEST-OS-3.53_201709-01 |6 ottobre 2017 |Post 3.55 |Da definire |
 | WA-GUEST-OS-3.52_201708-01 |24 agosto 2017 |Dopo la versione 3.54 |Da definire |
-| WA-GUEST-OS-3.51_201707-01 |3 agosto 2017 |Post 3.53 |Da definire |
+|~~WA-GUEST-OS-3.51_201707-01~~ |3 agosto 2017 |8 novembre 2017 |Da definire |
 |~~WA-GUEST-OS-3.50_201706-01~~ |7 luglio 2017 |6 ottobre 2017 |Da definire |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
 |~~WA-GUEST-OS-3.46_201612-01~~ |10 gennaio 2017 |5 giugno 2017 |Da definire |
 |~~WA-GUEST-OS-3.45_201611-01~~ |14 dicembre 2016 |9 maggio 2017 |Da definire |
-|~~WA-GUEST-OS-3.44_201610-02~~ |16 novembre 2016 |1 maggio 2017 |Da definire |
-|~~WA-GUEST-OS-3.43_201609-01~~ |13 ottobre 2016 |14 gennaio 2017 |Da definire |
-|~~WA-GUEST-OS-3.42_201608-01~~ |13 settembre 2016 |16 dicembre 2016 |Da definire |
-|~~WA-GUEST-OS-3.41_201607-01~~ |8 agosto 2016 |13 novembre 2016 |Da definire |
-
 
 ## <a name="family-2-releases"></a>Versioni della famiglia 2
 **Windows Server 2008 R2 SP1**
@@ -169,9 +157,10 @@ Versione .NET Framework installata: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.67_201710-01 |8 novembre 2017 |Post 2.69 |Da definire |
 | WA-GUEST-OS-2.66_201709-01 |6 ottobre 2017 |Post 2.68 |Da definire |
 | WA-GUEST-OS-2.65_201708-01 |24 agosto 2017 |Dopo la versione 2.67 |Da definire |
-| WA-GUEST-OS-2.64_201707-01 |3 agosto 2017 |Post 2.66 |Da definire |
+|~~WA-GUEST-OS-2.64_201707-01~~ |3 agosto 2017 |8 novembre 2017 |Da definire |
 |~~WA-GUEST-OS-2.63_201706-01~~ |7 luglio 2017 |6 ottobre 2017 |Da definire |
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
@@ -179,11 +168,6 @@ Versione .NET Framework installata: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 |~~WA-GUEST-OS-2.59_201701-01~~ |10 gennaio 2017 |5 giugno 2017 |Da definire |
 |~~WA-GUEST-OS-2.58_201612-01~~ |10 gennaio 2017 |9 maggio 2017|Da definire |
 |~~WA-GUEST-OS-2.57_201611-01~~ |14 dicembre 2016 |10 aprile 2017 |Da definire |
-|~~WA-GUEST-OS-2.56_201610-02~~ |16 novembre 2016 |10 febbraio 2017 |Da definire |
-|~~WA-GUEST-OS-2.55_201609-01~~ |13 ottobre 2016 |14 gennaio 2017 |Da definire |
-|~~WA-GUEST-OS-2.54_201608-01~~ |13 settembre 2016 |16 dicembre 2016 |Da definire |
-|~~WA-GUEST-OS-2.53_201607-01~~ |8 agosto 2016 |13 novembre 2016 |Da definire |
-
 
 
 ## <a name="msrc-patch-updates"></a>Patch di aggiornamento MSRC

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
 ## <a name="overview"></a>Panoramica
@@ -50,7 +50,7 @@ I requisiti software includono le informazioni su Web browser supportati, versio
 | Memoria minima (RAM) |8 GB <br> Per un file server, 8 GB per meno di 2 milioni di file e 16 GB per 2 - 4 milioni di file|
 | Spazio su disco<sup>1</sup> |Disco sistema operativo: 80 GB  <br></br>Disco dati: da 500 GB a 8 TB |
 | Numero minimo di interfaccia o interfacce di rete |1 |
-| Larghezza di banda Internet minima<sup>2</sup> |5 Mbps |
+| Larghezza di banda Internet <sup>2</sup> |Larghezza di banda minima necessaria: 5 Mbps <br> Larghezza di banda consigliata: 100 Mbps <br> La velocità del trasferimento di dati si adatta in base alla larghezza di banda di Internet. Ad esempio, per trasferire 100 GB di dati a 5 Mbps sono necessari 2 giorni. Questo potrebbe causare degli errori di backup perché i backup giornalieri non vengono completati in un giorno. Con una larghezza di banda di 100 Mbps si possono trasferire 100 GB di dati in 2,5 ore.   |
 
 <sup>1</sup> : thin provisioning
 
@@ -113,7 +113,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 > [!NOTE]
 > 
 > * Gli indirizzi IP di origine del dispositivo devono essere sempre impostati su tutte le interfacce di rete abilitate per il cloud. 
-> * Gli indirizzi IP di destinazione devono essere impostati sugli [intervalli IP dei data center di Azure](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> * Gli indirizzi IP di destinazione devono essere impostati sugli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
@@ -128,6 +128,5 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 | `https://*.partners.extranet.microsoft.com/*` |Pacchetto di supporto |
 | `http://*.data.microsoft.com ` |Servizio Telemetria in Windows; vedere [Aggiornamento per la soddisfazione dei clienti e di telemetria diagnostica](https://support.microsoft.com/en-us/kb/3068708) |
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-steps"></a>Passaggi successivi
 * [Preparare il portale per distribuire StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
-

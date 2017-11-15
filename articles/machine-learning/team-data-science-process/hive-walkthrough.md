@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
 In questa procedura dettagliata si usa il [Processo di analisi scientifica dei dati per i team (TDSP)](overview.md) in uno scenario end-to-end usufruendo di un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e acquisire dati di progettazione del set di dati relativo alle [corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) disponibile pubblicamente, nonché sottocampionarli. I modelli dei dati sono creati con Azure Machine Learning in modo da gestire la classificazione binaria e multiclasse e attività predittive di regressione.
@@ -59,15 +59,15 @@ Di seguito sono riportati tre esempi di problemi di previsione che verranno affr
 
 1. **Classificazione binaria**: consente di prevedere se sia stata lasciata una mancia per la corsa oppure no, vale a dire se un *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **Classificazione multiclasse**: consente di prevedere l'intervallo in cui si inserisce l'importo della mancia pagata per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **Attività di regressione**: consente di prevedere l'importo della mancia pagata per una corsa.  
 
 ## <a name="setup"></a>Configurare un cluster Hadoop di HDInsight per l'analisi avanzata
@@ -132,7 +132,7 @@ I dati si trovano ora nell'archiviazione BLOB di Azure e sono pronti per essere 
 > 
 > 
 
-Per accedere al nodo head del cluster per l'analisi esplorativa e il sottocampionamento dei dati, seguire la procedura descritta in [Accedere al nodo head del cluster Hadoop](customize-hadoop-cluster.md#headnode).
+Per accedere al nodo head del cluster per l'analisi esplorativa e il sottocampionamento dei dati, seguire la procedura descritta in [Accedere al nodo head del cluster Hadoop](customize-hadoop-cluster.md).
 
 In questa procedura dettagliata si useranno essenzialmente query scritte in [Hive](https://hive.apache.org/), un linguaggio di query di tipo SQL per l'esecuzione di analisi preliminari dei dati. Le query Hive vengono archiviate in file con estensione hql. Si effettuerà quindi il sottocampionamento dei dati da usare in Azure Machine Learning per la creazione dei modelli.
 
@@ -436,7 +436,7 @@ Il file *sample\_hive\_trip\_count\_by\_medallion\_license.hql* raggruppa il set
 
 Questa query restituisce le combinazioni dei taxi e degli autisti, visualizzate in ordine decrescente in base al numero di corse.
 
-Dal prompt della directory Hive eseguire:
+Al prompt della directory Hive eseguire:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion_license.hql" > C:\temp\queryoutput.tsv
 
@@ -460,7 +460,7 @@ Di seguito è riportato il contenuto del file *sample\_hive\_quality\_assessment
         OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
 
-Dal prompt della directory Hive eseguire:
+Al prompt della directory Hive eseguire:
 
     hive -S -f "C:\temp\sample_hive_quality_assessment.hql"
 
@@ -523,7 +523,7 @@ Eseguire il seguente comando dalla console della riga di comando di Hadoop:
 
 La disponibilità di una misura della distanza diretta consente di rilevare eventuali discrepanze con la distanza effettiva della corsa. Questa funzionalità è stata motivata sottolineando come un passeggero sarebbe probabilmente meno incline a offrire una mancia se intuisse che l'autista ha intenzionalmente compiuto un percorso più lungo.
 
-Per visualizzare il confronto tra la distanza effettiva della corsa e la [distanza Haversine](http://en.wikipedia.org/wiki/Haversine_formula) tra due punti di latitudine-longitudine (distanza "grande-cerchio"), si useranno le funzioni trigonometriche disponibili in Hive., pertanto:
+Per visualizzare il confronto tra la distanza effettiva della corsa e la [distanza Haversine](http://en.wikipedia.org/wiki/Haversine_formula) tra due punti di latitudine-longitudine (distanza "grande-cerchio"), si useranno le funzioni trigonometriche disponibili in Hive, pertanto:
 
     set R=3959;
     set pi=radians(180);
@@ -712,7 +712,7 @@ Di seguito sono riportati i contenuti del file *sample\_hive\_prepare\_for\_aml\
         on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
         where t.sample_key<=0.01
 
-Per eseguire questa query, dal prompt della directory di Hive eseguire:
+Per eseguire questa query, dal prompt della directory Hive:
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
@@ -729,11 +729,11 @@ Di seguito sono elencate informazioni dettagliate sul modulo [Import Data][impor
 
 **Password dell'account utente di Hadoop**: la password scelta per il cluster (**non** la password di accesso remoto).
 
-**Percorso dei dati di output** : ossia Azure.
+**Percorso dei dati di output**: ossia Azure.
 
-**Nome dell'account di archiviazione di Azure** : nome dell'account di archiviazione predefinito associato al cluster.
+**Nome dell'account di archiviazione di Azure**: nome dell'account di archiviazione predefinito associato al cluster.
 
-**Nome del contenitore di Azure** : nome del contenitore predefinito per il cluster, in genere corrisponde al nome del cluster. Per un cluster denominato "abc123", il nome del contenitore è semplicemente abc123.
+**Nome del contenitore di Azure**: nome del contenitore predefinito per il cluster, in genere corrisponde al nome del cluster. Per un cluster denominato "abc123", il nome del contenitore è semplicemente abc123.
 
 > [!IMPORTANT]
 > **Qualsiasi tabella su cui si desidera eseguire una query tramite il modulo [Import Data][import-data] di Azure Machine Learning deve essere una tabella interna.** Di seguito è riportato un suggerimento per determinare se una tabella T in un database D.db è una tabella interna.
@@ -761,7 +761,7 @@ A questo punto è possibile procedere con la creazione e la distribuzione di mod
 
 **Strumento di apprendimento usato:** regressione logistica a due classi
 
-a. Per questo problema, l'etichetta (o classe) di destinazione è "tipped". Il set di dati sottocampionati originale dispone di alcune colonne che indicano le perdite di destinazione per questo esperimento di classificazione. In particolare: tip\_class, tip\_amount e total\_amount contengono informazioni sull'etichetta di destinazione non disponibile in fase di test. È possibile rimuovere queste colonne dalla valutazione tramite il modulo [Select Columns in Dataset][select-columns].
+a. Per questo problema, l'etichetta (o classe) di destinazione è "tipped". Il set di dati sottocampionati originale dispone di alcune colonne che indicano le perdite di destinazione per questo esperimento di classificazione. In particolare: tip\_class, tip\_amount e total\_amount contengono informazioni sull'etichetta di destinazione non disponibili in fase di test. È possibile rimuovere queste colonne dalla valutazione tramite il modulo [Select Columns in Dataset][select-columns].
 
 Lo snapshot seguente illustra un esperimento in cui si prevede se per una corsa è stata pagata o meno una mancia.
 
@@ -781,7 +781,7 @@ Di conseguenza, si ottengono un valore di AUC di 0,987 come illustrato nella fig
 
 **Strumento di apprendimento usato:** regressione logistica multiclasse
 
-a. Per questo problema, l'etichetta (o classe) di destinazione è "tip\_class", che può assumere uno dei cinque valori (0, 1, 2, 3, 4). Come nel caso della classificazione binaria, sono presenti alcune colonne che indicano le perdite di destinazione per questo esperimento. In particolare: tipped, tip\_amount e total\_amount contengono informazioni sull'etichetta di destinazione non disponibile in fase di test. È possibile rimuovere queste colonne tramite il modulo [Select Columns in Dataset][select-columns].
+a. Per questo problema, l'etichetta (o classe) di destinazione è "tip\_class", che può assumere uno dei cinque valori (0, 1, 2, 3, 4). Come nel caso della classificazione binaria, sono presenti alcune colonne che indicano le perdite di destinazione per questo esperimento. In particolare: tipped, tip\_amount e total\_amount contengono informazioni sull'etichetta di destinazione non disponibili in fase di test. È possibile rimuovere queste colonne tramite il modulo [Select Columns in Dataset][select-columns].
 
 Lo snapshot seguente illustra l'esperimento che stima la possibile collocazione di una mancia (Classe 0: mancia = $ 0, classe 1: mancia > $ 0 e <= $ 5, classe 2: mancia > $ 5 e <= $ 10, classe 3: mancia > $ 10 e <= $ 20, classe 4: mancia > $ 20)
 
@@ -801,7 +801,7 @@ Si noti che mentre la precisione è abbastanza efficace in relazione alle classi
 
 **Strumento di apprendimento usato:** albero delle decisioni con boosting
 
-a. Per questo problema, l'etichetta (o classe) di destinazione è "tiptip\_amount". In questo caso, le perdite di destinazione sono tipped, tip\_class e total\_amount; tutte queste variabili contengono informazioni sull'importo della mancia che non è in genere disponibile in fase di test. È possibile rimuovere queste colonne tramite il modulo [Select Columns in Dataset][select-columns].
+a. Per questo problema, l'etichetta (o classe) di destinazione è "tiptip\_amount". In questo caso, le perdite di destinazione sono tipped, tip\_class e total\_amount; tutte queste variabili contengono informazioni sull'importo della mancia che non sono in genere disponibili in fase di test. È possibile rimuovere queste colonne tramite il modulo [Select Columns in Dataset][select-columns].
 
 Lo snapshot seguente illustra l'esperimento che stima l'importo della mancia pagata.
 
@@ -819,7 +819,7 @@ Si noti che il coefficiente di determinazione è 0,709, che implica che circa il
 > 
 
 ## <a name="license-information"></a>Informazioni sulla licenza
-Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con licenza MIT. Selezionare il file LICENSE.txt nella directory del codice di esempio in GitHub per ulteriori informazioni.
+Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con licenza MIT. Selezionare il file LICENSE.txt nella directory del codice di esempio in GitHub per altre informazioni.
 
 ## <a name="references"></a>Riferimenti
 •    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  

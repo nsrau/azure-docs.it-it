@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Eseguire il backup di Windows Server in Azure
 
@@ -120,19 +120,15 @@ Usare l'agente di Servizi di ripristino di Microsoft Azure per la pianificazione
 
 5. Fare clic su **Avanti**.
 
-6. Nella pagina **Specificare la pianificazione del backup** specificare l'ora del giorno o la settimana in cui deve essere eseguito il backup di file e cartelle. La panificazione del backup dello stato del sistema viene configurata automaticamente. 
+6. Nella pagina **Specificare la pianificazione del backup (stato del sistema)**  specificare l'ora del giorno o la settimana in cui deve essere eseguito il backup dello stato del sistema e fare clic su **Avanti**. 
 
-    ![Preparare l'infrastruttura](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
- 
-
-
-7.  Nella pagina **Selezionare i criteri di conservazione** selezionare i criteri di conservazione per la copia di backup di file e cartelle. Il periodo di conservazione dei backup dello stato del sistema è impostato automaticamente su 60 giorni.
+7.  Nella pagina **Selezionare i criteri di conservazione (stato del sistema)** selezionare i criteri di conservazione per lo stato del sistema e fare cluc su **Avanti**.
+8. Analogamente, selezionare il criterio di pianificazione e conservazione dei backup per i file e le cartelle selezionate. 
 8.  Nella pagina **Scegliere il tipo di backup iniziale** lasciare selezionata l'opzione **Automaticamente tramite rete** e fare clic su **Avanti**.
 9.  Nella pagina **Conferma** esaminare le informazioni e fare clic su **Fine**.
 10. Dopo aver creato la pianificazione del backup tramite la procedura guidata, fare clic su **Chiudi**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Eseguire un backup ad hoc
-
 
 È stata definita la pianificazione di esecuzione dei processi di backup. Non è stato tuttavia eseguito il backup del server. Per un ripristino di emergenza è consigliabile eseguire un backup su richiesta per garantire la resilienza dei dati del server.
 
@@ -140,8 +136,9 @@ Usare l'agente di Servizi di ripristino di Microsoft Azure per la pianificazione
 
     ![Preparare l'infrastruttura](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-2.  Nella pagina **Conferma** riesaminare le impostazioni che la procedura guidata di **Esegui backup** userà per il backup del server. Fare clic su **Backup**.
-3.  Fare clic su **Chiudi** per chiudere la procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
+2.  Nell'**Esecuzione guidata backup**, selezionare **File e cartelle** o **Stato del sistema** e fare clic su **Avanti** 
+3. Nella pagina **Conferma** riesaminare le impostazioni che la procedura guidata di **Esegui backup** userà per il backup del server. Fare clic su **Backup**.
+4.  Fare clic su **Chiudi** per chiudere la procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
 4.  Al termine del backup iniziale, viene visualizzato lo stato **Processo completato** nel riquadro **Processi** della console dell'agente di MARS.
 
 

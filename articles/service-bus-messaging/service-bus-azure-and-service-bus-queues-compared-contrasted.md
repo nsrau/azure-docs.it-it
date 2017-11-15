@@ -5,20 +5,20 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: 555759073507219188b59af76a82be74b112c57c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le differenze e le analogie presenti tra i due tipi di code offerte attualmente da Microsoft Azure: code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.
@@ -49,7 +49,7 @@ Gli architetti e gli sviluppatori di soluzioni **dovrebbero considerare l'uso de
 * La soluzione deve garantire il recapito ordinato FIFO (First In First Out) da parte della coda.
 * Si vuole una configurazione simmetrica in Azure e su Windows Server (cloud privato). Per altre informazioni, vedere [Bus di servizio per Windows Server](https://msdn.microsoft.com/library/dn282144.aspx).
 * La soluzione deve essere in grado di eseguire il rilevamento duplicato automatico.
-* L'applicazione deve elaborare i messaggi come flussi paralleli a esecuzione prolungata (i messaggi sono associati a un flusso tramite la proprietà [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) del messaggio). In questo modello ogni nodo dell'applicazione che utilizza il servizio entra in competizione con gli altri nodi per l'acquisizione dei flussi anziché dei messaggi. Quando un flusso viene assegnato a un nodo basato sul servizio, tale nodo può esaminare lo stato del flusso dell'applicazione mediante transazioni.
+* L'applicazione deve elaborare i messaggi come flussi paralleli a esecuzione prolungata (i messaggi sono associati a un flusso tramite la proprietà [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) del messaggio). In questo modello ogni nodo dell'applicazione che utilizza il servizio entra in competizione con gli altri nodi per l'acquisizione dei flussi anziché dei messaggi. Quando un flusso viene assegnato a un nodo basato sul servizio, tale nodo può esaminare lo stato del flusso dell'applicazione mediante transazioni.
 * Per la soluzione sono necessari atomicità e comportamento transazionale in caso di invio o ricezione di più messaggi da una coda.
 * La caratteristica relativa alla durata (TTL) del carico di lavoro specifico dell'applicazione può superare il periodo di 7 giorni.
 * L'applicazione gestisce messaggi che possono superare i 64 KB ma che probabilmente non si avvicineranno al limite dei 256 KB
@@ -61,7 +61,7 @@ Gli architetti e gli sviluppatori di soluzioni **dovrebbero considerare l'uso de
 * Si desidera essere in grado di pubblicare e usare batch di messaggi.
 
 ## <a name="comparing-storage-queues-and-service-bus-queues"></a>Confronto tra code di archiviazione e code del bus di servizio
-Le tabelle nelle sezioni seguenti forniscono un raggruppamento logico delle funzionalità relative alle code e offrono la possibilità di un confronto immediato delle funzionalità disponibili sia nelle code di archiviazione sia in quelle del bus di servizio.
+Le tabelle nelle sezioni seguenti forniscono un raggruppamento logico delle funzionalità relative alle code e offrono la possibilità di un confronto immediato delle funzionalità disponibili sia nelle code di archiviazione di Azure sia in quelle del bus di servizio.
 
 ## <a name="foundational-capabilities"></a>Funzionalità fondamentali
 Questa sezione confronta alcune delle funzionalità di accodamento fondamentali fornite dalle code di archiviazione e dalle code del bus di servizio.
@@ -121,7 +121,7 @@ Questa sezione confronta le funzionalità avanzate fornite dalle code di archivi
 * La funzionalità di inoltro automatico consente a migliaia di code di inoltrare automaticamente i propri messaggi a una singola coda dalla quale l'applicazione ricevente preleva il messaggio. Questo meccanismo consente di ottenere un valore elevato di sicurezza, di controllare il flusso e di isolare le aree di archiviazione tra i server di pubblicazione dei messaggi.
 * Le code di archiviazione offrono supporto per l'aggiornamento del contenuto del messaggio. Questa funzionalità consente di rendere permanenti le informazioni sullo stato e gli aggiornamenti sull'avanzamento incrementale all'interno del messaggio, in modo che sia possibile elaborare quest'ultimo dall'ultimo checkpoint noto anziché dall'inizio. Con le code del bus di servizio è possibile abilitare lo stesso scenario mediante sessioni di messaggistica Le sessioni consentono di salvare e recuperare lo stato di elaborazione dell'applicazione tramite [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) e [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState).
 * La funzionalità [messaggi non recapitabili](service-bus-dead-letter-queues.md), supportata solo dalle code del bus di servizio, può essere utile per isolare i messaggi che non possono essere elaborati correttamente dall'applicazione ricevente o quando i messaggi non possono essere recapitati a causa di una proprietà di durata (TTL) scaduta. Tramite il valore TTL viene specificata la durata del messaggio nella coda. Con il bus di servizio, il messaggio verrà spostato in una coda speciale denominata $DeadLetterQueue allo scadere del periodo TTL.
-* Per trovare messaggi "non elaborabili" nelle code di archiviazione, durante la rimozione di un messaggio dalla coda l'applicazione esamina la proprietà **[DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx)** del messaggio. Se il valore della proprietà **DequeueCount** supera la soglia specificata, l'applicazione sposta il messaggio in una coda di "messaggio non recapitabile" definita dall'applicazione.
+* Per trovare messaggi "non elaborabili" nelle code di archiviazione, durante la rimozione di un messaggio dalla coda l'applicazione esamina la proprietà [DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx) del messaggio. Se il valore della proprietà **DequeueCount** supera la soglia specificata, l'applicazione sposta il messaggio in una coda di "messaggio non recapitabile" definita dall'applicazione.
 * Le code di archiviazione consentono di ottenere un log dettagliato di tutte le transazioni eseguite nella coda, nonché le metriche aggregate. Queste opzioni sono entrambe utili per il debug e per comprendere in che modo l'applicazione usa le code di archiviazione. Inoltre, sono utili per l'ottimizzazione delle prestazioni dell'applicazione e per la riduzione dei costi d'uso delle code.
 * Il concetto di "sessione di messaggistica" supportato dal bus di servizio consente di associare a uno specifico destinatario i messaggi appartenenti a un determinato gruppo logico. Il destinatario crea a sua volta un'affinità di tipo sessione tra i messaggi e i relativi destinatari. È possibile abilitare questa funzionalità avanzata nel bus di servizio impostando la proprietà [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) in un messaggio. I destinatari possono quindi restare in ascolto su un ID di sessione specifico e ricevere messaggi in cui viene condiviso l'identificatore di sessione specificato.
 * La funzionalità di rilevamento di duplicazione supportata dalle code del bus di servizio rimuove automaticamente i messaggi duplicati inviati a una coda o a un argomento, in base al valore della proprietà [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId).
@@ -133,7 +133,7 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 | --- | --- | --- |
 | Dimensioni massime della coda |**500 TB**<br/><br/>(limitate alla [capacità di un singolo account di archiviazione](../storage/common/storage-introduction.md#queue-storage)) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
 | Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Poiché Azure supporta messaggi di grandi dimensioni combinando code e BLOB, è possibile accodare fino a 200 GB per un singolo elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
-| Durata TTL massima del messaggio |**7 giorni** |**`TimeSpan.Max`** |
+| Durata TTL massima del messaggio |**7 giorni** |**TimeSpan.Max** |
 | Numero massimo di code |**Illimitato** |**10.000**<br/><br/>(per spazio dei nomi del servizio, può essere aumentato) |
 | Numero massimo di client concorrenti |**Illimitato** |**Illimitato**<br/><br/>(limite di 100 connessioni simultanee applicato solo alla comunicazione basata su protocollo TCP) |
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: be062ce9cfbe7486ef500dd9d27418cbf245d6e0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: b31955e19883f9fe2e7ed6cf7f5076eaf52577c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Gestire gli avvisi relativi alla manutenzione pianificata per le macchine virtuali Linux
 
@@ -65,6 +65,8 @@ MaintenanceRedeployStatus restituisce i valori seguenti:
 | LastOperationResultCode               | Risultato dell'ultimo tentativo di avviare la manutenzione della macchina virtuale ||
 
 
+
+
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>Avviare la manutenzione della macchina virtuale usando l'interfaccia della riga di comando
 
 La chiamata seguente avvia la manutenzione in una macchina virtuale se `IsCustomerInitiatedMaintenanceAllowed` è impostata su true.
@@ -74,6 +76,28 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## <a name="classic-deployments"></a>Distribuzioni classiche
+
+Se si dispone ancora di macchine virtuali legacy distribuite tramite il modello di distribuzione classico, è possibile usare l'interfaccia della riga di comando 1.0 per eseguire query per le macchine virtuali e avviare la manutenzione.
+
+Verificare che sia attiva la modalità corretta per operare con una VM classica digitando:
+
+```
+azure config mode asm
+```
+
+Per ottenere lo stato di manutenzione della macchina virtuale denominata *myVM*, digitare:
+
+```
+azure vm show myVM 
+``` 
+
+Per avviare la manutenzione della VM classica denominata *myVM* nel servizio *myService* e nella distribuzione *myDeployment*, digitare:
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
 
 
 ## <a name="faq"></a>domande frequenti

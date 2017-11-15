@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
 I componenti di Azure Service Fabric forniscono report sull'integrità del sistema in tutte le entità del cluster per impostazione predefinita. L' [archivio integrità](service-fabric-health-introduction.md#health-store) crea ed elimina le entità in base ai report di sistema. Le organizza anche in una gerarchia che acquisisce le interazioni delle entità.
@@ -55,6 +55,18 @@ Il report specifica il timeout di lease globale come durata (TTL). Il report vie
 * **SourceId**: System.Federation
 * **Property**: inizia con **Neighborhood** e include informazioni sul nodo.
 * **Passaggi successivi**: analizzare il motivo della perdita del nodo vicino, ad esempio controllare la comunicazione tra i nodi del cluster.
+
+### <a name="rebuild"></a>Ricompilazione
+
+Il servizio **Gestione failover** (**FM**) gestisce le informazioni relative ai nodi del cluster. In caso di perdita dei dati, il servizio Gestione failover non è in grado di garantire la disponibilità delle informazioni più aggiornate sui nodi del cluster. In questo caso, il sistema esegue una **ricompilazione** e l'evento **System.FM** raccoglie i dati da tutti i nodi nel cluster per ricompilare il proprio stato. In alcuni casi, a causa di problemi a livello di nodo o rete, è possibile che la ricompilazione si blocchi. Lo stesso problema può verificarsi con il servizio **Failover Manager Master** (**FMM**). **FMM** è un servizio di sistema senza stato che tiene traccia della posizione in cui si trovano tutte le istanze del servizio **FM** nel cluster. Il servizio **FMM** principale corrisponde sempre al nodo con l'ID più prossimo allo zero. In caso di rilascio del nodo, viene attivato un evento di **ricompilazione**.
+Quando si verifica una delle condizioni precedenti, **System.FM** o **System.FMM** contrassegna tale condizione tramite un report degli errori. La ricompilazione può rimanere bloccata in una delle due fasi seguenti:
+
+* In attesa di trasmissione: **FM/FMM** attende la risposta del messaggio di trasmissione dagli altri nodi. **Passaggi successivi:** controllare se si è verificato un problema di connessione di rete tra i nodi.   
+* In attesa dei nodi: **FM/FMM** ha già ricevuto una risposta di trasmissione dagli altri nodi ed è in attesa di una risposta da nodi specifici. Nel report sull'integrità sono elencati i nodi per il quale il servizio **FM/FMM** è in attesa di una risposta. **Passaggi successivi:** verificare la connessione di rete tra **FM/FMM** e i nodi elencati. Esaminare ogni nodo elencato per individuare altri possibili problemi.
+
+* **SourceID**: System.FM o System.FMM
+* **Property**: Rebuild.
+* **Passaggi successivi**: verificare la connessione di rete tra i nodi e lo stato di nodi specifici riportati nell'elenco di descrizioni del report sull'integrità.
 
 ## <a name="node-system-health-reports"></a>Report sull'integrità del sistema di nodi
 **System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui nodi del cluster. Ogni nodo deve avere un report generato da System.FM che mostra il relativo stato. Le entità nodo vengono rimosse quando viene rimosso lo stato del nodo. Per altre informazioni, vedere [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).

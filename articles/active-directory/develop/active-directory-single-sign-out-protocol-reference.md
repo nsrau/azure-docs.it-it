@@ -21,14 +21,14 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
-# Protocollo SAML per Single Sign-Out
+# <a name="single-sign-out-saml-protocol"></a>Protocollo SAML per Single Sign-Out
 Azure Active Directory (Azure AD) supporta il profilo di Single Sign-Out per Web browser SAML 2.0. Perché la disconnessione Single Sign-Out funzioni correttamente il **LogoutURL** per l'applicazione deve essere registrato in modo esplicito con Azure AD durante la registrazione dell'applicazione. Azure AD usa LogoutURL per reindirizzare gli utenti dopo che si sono disconnessi.
 
 Questo diagramma descrive il flusso di lavoro del processo Single Sign-Out di Azure AD.
 
 ![Flusso di lavoro di Single Sign-Out](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
-## LogoutRequest
+## <a name="logoutrequest"></a>LogoutRequest
 Il servizio cloud invia un messaggio `LogoutRequest` ad Azure AD per indicare che è stata terminata una sessione. L'estratto seguente contiene un esempio di elemento `LogoutRequest` .
 
 ```
@@ -38,20 +38,20 @@ Il servizio cloud invia un messaggio `LogoutRequest` ad Azure AD per indicare ch
 </samlp:LogoutRequest>
 ```
 
-### LogoutRequest
+### <a name="logoutrequest"></a>LogoutRequest
 L'elemento `LogoutRequest` inviato ad Azure AD richiede gli attributi seguenti:
 
 * `ID` : identifica la richiesta di disconnessione. Il valore di `ID` non deve iniziare con un numero. La procedura tipica consiste nell'aggiungere **id** alla rappresentazione di stringa di un GUID.
 * `Version` : impostare il valore di questo elemento su **2.0**. Questo valore è obbligatorio.
 * `IssueInstant` : è una stringa `DateTime` con un valore di UTC (Coordinate Universal Time) e il [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore di questo tipo, ma non lo impone.
 
-### Issuer
+### <a name="issuer"></a>Issuer
 L'elemento `Issuer` in una `LogoutRequest` deve corrispondere esattamente a uno dei **ServicePrincipalNames** nel servizio cloud in Azure AD. Viene in genere impostato sull' **URI ID app** specificato durante la registrazione dell'applicazione.
 
-### NameID
+### <a name="nameid"></a>NameID
 Il valore dell'elemento `NameID` deve corrispondere esattamente al `NameID` dell'utente che viene disconnesso.
 
-## LogoutResponse
+## <a name="logoutresponse"></a>LogoutResponse
 Azure AD invia un elemento `LogoutResponse` in risposta a un elemento `LogoutRequest`. L'estratto seguente contiene un esempio di elemento `LogoutResponse`.
 
 ```
@@ -63,13 +63,13 @@ Azure AD invia un elemento `LogoutResponse` in risposta a un elemento `LogoutReq
 </samlp:LogoutResponse>
 ```
 
-### LogoutResponse
+### <a name="logoutresponse"></a>LogoutResponse
 Azure AD imposta i valori `ID`, `Version` e `IssueInstant` nell'elemento `LogoutResponse`. Imposta anche l'elemento `InResponseTo` sul valore dell'attributo `ID` dell'elemento `LogoutRequest` che ha provocato la risposta.
 
-### Issuer
+### <a name="issuer"></a>Issuer
 Azure AD imposta questo valore su `https://login.microsoftonline.com/<TenantIdGUID>/`, dove <TenantIdGUID> è l'ID del tenant di Azure AD.
 
 Per valutare il valore dell'elemento `Issuer` usare il valore dell' **URI ID app** specificato durante la registrazione dell'applicazione.
 
-### Stato
+### <a name="status"></a>Stato
 Azure AD usa l'elemento `StatusCode` nell'elemento `Status` per indicare l'esito positivo o negativo della disconnessione. Quando il tentativo di disconnessione non riesce, l'elemento `StatusCode` può anche contenere messaggi di errore personalizzati.

@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 11/08/2017
 ms.author: gauravbh
-ms.openlocfilehash: b4fda06f85c7dab52ff38558b0d928193e0694f6
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 41eaff13cf55d58f58b33bc05d39a6665d51ea29
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applicazioni gestite di Azure nel marketplace
 
@@ -122,7 +122,7 @@ Uno SKU viene visualizzato sotto l'offerta padre nel marketplace e come entità 
    Compilare i seguenti campi:
 
    * **Current Version** (Versione corrente): immettere la versione per il pacchetto caricato. Deve essere nel formato `{number}.{number}.{number}{number}`.
-   * **Seleziona un file di pacchetto**: questo pacchetto contiene il file necessario compresso in un pacchetto con estensione zip. Per altre informazioni, vedere [Creare un'applicazione del catalogo di servizi](publish-service-catalog-app.md).
+   * **Seleziona un file di pacchetto**: questo pacchetto contiene due file necessari compressi in un pacchetto con estensione zip. Un file è un modello di Resource Manager che definisce le risorse da distribuire per l'applicazione gestita. L'altro file definisce l'[interfaccia utente](create-uidefinition-overview.md) per i consumer che distribuiscono l'applicazione gestita tramite il portale. Nell'interfaccia utente specificare gli elementi che consentono ai consumer di fornire i valori dei parametri.
    * **PrincipalId**: questa proprietà è l'identificatore Azure Active Directory (Azure AD) di un utente, di un gruppo di utenti o di un'applicazione a cui è stato concesso l'accesso alle risorse nella sottoscrizione del cliente. La definizione del ruolo descrive le autorizzazioni.
    * **Role Definition** (Definizione ruolo): questa proprietà è un elenco di tutti i ruoli di controllo degli accessi in base al ruolo forniti da Azure AD. È possibile selezionare il ruolo più appropriato da usare per gestire le risorse per conto del cliente.
 

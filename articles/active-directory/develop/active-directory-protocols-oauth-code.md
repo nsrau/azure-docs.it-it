@@ -21,19 +21,19 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
-# Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory
+# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory
 Azure Active Directory (Azure AD) usa OAuth 2.0 per consentire di autorizzare l'accesso ad applicazioni Web e API Web nel proprio tenant di Azure AD. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie open source di Microsoft.
 
 Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). Viene usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui app Web e app native.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
-## Flusso di autorizzazione di OAuth 2.0
+## <a name="oauth-20-authorization-flow"></a>Flusso di autorizzazione di OAuth 2.0
 A livello generale, l'intero flusso di autenticazione per un'applicazione ha un aspetto analogo al seguente:
 
 ![Flusso del codice di autenticazione di OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
-## Richiedere un codice di autorizzazione
+## <a name="request-an-authorization-code"></a>Richiedere un codice di autorizzazione
 Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize` . In questa richiesta, il client indica le autorizzazioni che deve acquisire dall'utente. È possibile ottenere gli endpoint di OAuth 2.0 nella pagina dell'applicazione nel portale di Azure classico, con il pulsante **Visualizza endpoint** nel pannello in basso.
 
 ```
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 A questo punto all'utente verrà chiesto di immettere le credenziali e dare il consenso per le autorizzazioni indicate nel parametro di query `scope` . Dopo che l'utente ha eseguito l'autenticazione e concesso il consenso, Azure AD invia una risposta all'app all'indirizzo `redirect_uri` della richiesta.
 
-### Risposta con esito positivo
+### <a name="successful-response"></a>Risposta con esito positivo
 Una risposta con esito positivo può avere un aspetto simile al seguente:
 
 ```
@@ -83,7 +83,7 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | session_state |Valore univoco che identifica la sessione utente corrente. Questo valore è un GUID, ma deve essere trattato come un valore opaco passato senza alcun controllo. |
 | state |Se un parametro di stato è incluso nella richiesta, lo stesso valore viene visualizzato nella risposta. È consigliabile che l'applicazione verifichi che i valori dello stato nella richiesta e nella risposta siano identici, prima di usare la risposta. Ciò consente di rilevare gli [attacchi di richiesta intersito falsa (CSRF)](https://tools.ietf.org/html/rfc6749#section-10.12) contro il client. |
 
-### Risposta di errore
+### <a name="error-response"></a>Risposta di errore
 Le risposte di errore possono essere inviate anche a `redirect_uri` , in modo che l'applicazione possa gestirle adeguatamente.
 
 ```
@@ -98,7 +98,7 @@ error=access_denied
 | error_description |Descrizione più dettagliata dell'errore. Questo messaggio non vuole essere semplice da usare. |
 | state |Il valore di state è un valore non riutilizzato generato casualmente che viene inviato nella richiesta e restituito nella risposta per impedire attacchi di tipo richiesta intersito falsa. |
 
-#### Codici per gli errori dell'endpoint di autorizzazione
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Codici per gli errori dell'endpoint di autorizzazione
 La tabella seguente descrive i diversi codici errore che possono essere restituiti nel parametro `error` della risposta di errore.
 
 | Codice di errore | Descrizione | Azione client |
@@ -111,7 +111,7 @@ La tabella seguente descrive i diversi codici errore che possono essere restitui
 | temporarily_unavailable |Il server è temporaneamente troppo occupato per gestire la richiesta. |ripetere la richiesta. L'applicazione client può comunicare all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
 | invalid_resource |La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o non è attualmente configurata. |Indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
 
-## Usare un codice di autorizzazione per richiedere un token di accesso
+## <a name="use-the-authorization-code-to-request-an-access-token"></a>Usare un codice di autorizzazione per richiedere un token di accesso
 Dopo aver acquisito un codice di autorizzazione e aver ottenuto l'autorizzazione dall'utente, è possibile riscattare il codice per un token di accesso per la risorsa desiderata inviando una richiesta POST all'endpoint `/token` :
 
 ```
@@ -142,7 +142,7 @@ grant_type=authorization_code
 
 Per trovare l'URI ID app, nel portale di gestione di Azure fare clic su **Active Directory**, selezionare la directory, fare clic sull'applicazione e infine su **Configura**.
 
-### Risposta con esito positivo
+### <a name="successful-response"></a>Risposta con esito positivo
 Azure AD restituisce un token di accesso in caso di risposta corretta. Per ridurre al minimo le chiamate di rete dall'applicazione client e la latenza associata, l'applicazione client deve memorizzare i token di accesso nella cache per la durata del token specificata nella risposta OAuth 2.0. Per determinare la durata del token, usare i valori dei parametri `expires_in` o `expires_on`.
 
 Se una risorsa API Web restituisce un codice di errore `invalid_token` , ciò può indicare che la risorsa ha determinato che il token è scaduto. Se l'ora del client e l'ora della risorsa sono diverse ("sfasamento dell'ora"), la risorsa potrebbe considerare il token scaduto prima che venga cancellato dalla cache del client. In questo caso, cancellare il token dalla cache anche se si trova ancora nella durata calcolata.
@@ -174,7 +174,7 @@ Una risposta con esito positivo può avere un aspetto simile al seguente:
 | refresh_token |Token di aggiornamento di OAuth 2.0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente.  I token di aggiornamento hanno durata elevata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. |
 | id_token |Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. |
 
-### Attestazioni nei token JWT
+### <a name="jwt-token-claims"></a>Attestazioni nei token JWT
 Il token JWT nel valore del parametro `id_token` può essere decodificato nelle attestazioni seguenti:
 
 ```
@@ -219,7 +219,7 @@ Il parametro `id_token` include i tipi di attestazione seguenti:
 | upn |Nome dell'entità utente dell'utente. |
 | ver |Versione. Versione del token JWT, in genere 1.0. |
 
-### Risposta di errore
+### <a name="error-response"></a>Risposta di errore
 Gli errori dell'endpoint di rilascio dei token sono codici di errore HTTP perché il client chiama direttamente l'endpoint di rilascio dei token. Oltre al codice di stato HTTP, l'endpoint di rilascio dei token di Azure AD restituisce anche un documento JSON con gli oggetti che descrivono l'errore.
 
 Una risposta di errore di esempio può avere un aspetto simile al seguente:
@@ -246,7 +246,7 @@ Una risposta di errore di esempio può avere un aspetto simile al seguente:
 | trace_id |Identificatore univoco per la richiesta utile per la diagnostica. |
 | correlation_id |Identificatore univoco per la richiesta utile per la diagnostica tra i componenti. |
 
-#### Codici di stato HTTP
+#### <a name="http-status-codes"></a>Codici di stato HTTP
 La tabella seguente elenca i codici di stato HTTP restituiti dall'endpoint di rilascio dei token. In alcuni casi il codice di errore è sufficiente a descrivere la risposta, ma in caso di errori sarà necessario analizzare il documento JSON associato ed esaminare il codice errore.
 
 | Codice HTTP | Descrizione |
@@ -256,7 +256,7 @@ La tabella seguente elenca i codici di stato HTTP restituiti dall'endpoint di ri
 | 403 |Autorizzazione non riuscita. Ad esempio, l'utente non ha l'autorizzazione per accedere alla risorsa. |
 | 500 |Si è verificato un errore interno nel servizio. ripetere la richiesta. |
 
-#### Codici per gli errori degli endpoint di token
+#### <a name="error-codes-for-token-endpoint-errors"></a>Codici per gli errori degli endpoint di token
 | Codice di errore | Descrizione | Azione client |
 | --- | --- | --- |
 | invalid_request |Errore del protocollo, ad esempio un parametro obbligatorio mancante. |Correggere e inviare di nuovo la richiesta. |
@@ -268,17 +268,17 @@ La tabella seguente elenca i codici di stato HTTP restituiti dall'endpoint di ri
 | interaction_required |La richiesta richiede l'interazione dell'utente. Ad esempio, è necessario un passaggio di autenticazione aggiuntivo. | Invece di una richiesta non interattiva, provare di nuovo con una richiesta di autorizzazione interattiva per la stessa risorsa. |
 | temporarily_unavailable |Il server è temporaneamente troppo occupato per gestire la richiesta. |ripetere la richiesta. L'applicazione client può comunicare all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
 
-## Usare il token di accesso per accedere alla risorsa
+## <a name="use-the-access-token-to-access-the-resource"></a>Usare il token di accesso per accedere alla risorsa
 Dopo aver ottenuto un `access_token` è possibile usarlo in richieste alle API Web includendolo nell'intestazione `Authorization`. La specifica [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) illustra come usare i token di connessione nelle richieste HTTP per accedere a risorse protette.
 
-### Richiesta di esempio
+### <a name="sample-request"></a>Richiesta di esempio
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ
 ```
 
-### Risposta di errore
+### <a name="error-response"></a>Risposta di errore
 Le risorse protette che implementano RFC 6750 rilasciano codici di stato HTTP. Se la richiesta non include le credenziali di autenticazione o è priva del token, la risposta include un'intestazione `WWW-Authenticate` . Quando una richiesta non riesce, il server delle risorse risponde con un codice di stato HTTP e un codice di errore.
 
 L'esempio seguente illustra una risposta non riuscita quando la richiesta del client non include il token di connessione:
@@ -288,7 +288,7 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
 ```
 
-#### Parametri dell'errore
+#### <a name="error-parameters"></a>Parametri dell'errore
 | Parametro | Descrizione |
 | --- | --- |
 | authorization_uri |URI (endpoint fisico) del server di autorizzazione. Questo valore viene usato anche come chiave di ricerca per ottenere altre informazioni sul server da un endpoint di individuazione. <p><p> Il client deve convalidare l'attendibilità del server di autorizzazione. Quando la risorsa è protetta da Azure AD, è sufficiente verificare che l'URL inizi con https://login.microsoftonline.com o con un altro nome host supportato da Azure AD. Una risorsa specifica del tenant deve sempre restituire un URI di autorizzazione specifico del tenant. |
@@ -296,7 +296,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | error_description |Descrizione più dettagliata dell'errore. Questo messaggio non vuole essere semplice da usare. |
 | resource_id |Restituisce l'identificatore univoco della risorsa. L'applicazione client può usare questo identificatore come valore del parametro `resource` quando richiede un token per la risorsa. <p><p> È importante per l'applicazione client verificare questo valore, in caso contrario un servizio dannoso potrebbe riuscire ad attuare un attacco di tipo **elevazione dei privilegi** <p><p> La strategia consigliata per prevenire un attacco consiste nel verificare che `resource_id` corrisponda alla base dell'URL dell'API Web a cui si accede. Ad esempio, se si accede ad https://service.contoso.com/data, `resource_id` può essere htttps://service.contoso.com/. L'applicazione client deve rifiutare un `resource_id` che non inizia con l'URL di base a meno che non esista un modo alternativo affidabile per verificare l'ID. |
 
-#### Codici errore dello schema di connessione
+#### <a name="bearer-scheme-error-codes"></a>Codici errore dello schema di connessione
 La specifica RFC 6750 definisce gli errori seguenti per le risorse che usano l'intestazione WWW-Authenticate e lo schema di connessione nella risposta.
 
 | Codice di stato HTTP | Codice di errore | Descrizione | Azione client |
@@ -306,7 +306,7 @@ La specifica RFC 6750 definisce gli errori seguenti per le risorse che usano l'i
 | 403 |insufficient_scope |Il token di accesso non contiene le autorizzazioni di rappresentazione necessarie per accedere alla risorsa. |Inviare una nuova richiesta di autorizzazione all'endpoint di autorizzazione. Se la risposta contiene il parametro scope, usare il valore di scope nella richiesta alla risorsa. |
 | 403 |insufficient_access |Il soggetto del token non ha le autorizzazioni necessarie per accedere alla risorsa. |Chiedere all'utente di usare un account diverso o di richiedere le autorizzazioni alla risorsa specificata. |
 
-## Aggiornamento dei token di accesso
+## <a name="refreshing-the-access-tokens"></a>Aggiornamento dei token di accesso
 I token di accesso hanno breve durata ed è necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse. È possibile aggiornare `access_token` inviando un'altra richiesta `POST` all'endpoint `/token` e specificando `refresh_token` anziché il valore `code`.
 
 I token di aggiornamento non hanno una durata specificata. La durata dei token di aggiornamento è in genere relativamente lunga. In alcuni casi, tuttavia, i token di aggiornamento scadono, vengono revocati o non hanno privilegi sufficienti per l'azione desiderata. L'applicazione deve prevedere e gestire correttamente gli errori restituiti dall'endpoint di rilascio del token.
@@ -329,7 +329,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-### Risposta con esito positivo
+### <a name="successful-response"></a>Risposta con esito positivo
 Una risposta token con esito positivo ha un aspetto simile al seguente:
 
 ```
@@ -352,7 +352,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | access_token |Nuovo token di accesso che è stato richiesto. |
 | refresh_token |Nuovo refresh_token OAuth 2.0 che può essere usato per richiedere nuovi token di accesso alla scadenza del token di questa risposta. |
 
-### Risposta di errore
+### <a name="error-response"></a>Risposta di errore
 Una risposta di errore di esempio può avere un aspetto simile al seguente:
 
 ```

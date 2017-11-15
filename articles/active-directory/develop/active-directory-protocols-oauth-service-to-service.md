@@ -21,10 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
-# Chiamate da servizio a servizio mediante le credenziali client (certificato o segreto condiviso)
+# <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Chiamate da servizio a servizio mediante le credenziali client (certificato o segreto condiviso)
 Il flusso di concessione delle credenziali client OAuth 2.0 consente a un servizio Web, (*client riservato*) di usare le proprie credenziali, invece di rappresentare un utente, per l'autenticazione durante la chiamata a un altro servizio Web. In questo scenario il client è in genere un servizio Web di livello intermedio, un servizio daemon o un sito Web. Per un livello più elevato di sicurezza, Azure AD consente al servizio chiamante di usare anche un certificato (invece di un segreto condiviso) come credenziale.
 
-## Diagramma del flusso di concessione delle credenziali client
+## <a name="client-credentials-grant-flow-diagram"></a>Diagramma del flusso di concessione delle credenziali client
 Il diagramma seguente illustra il funzionamento del flusso di concessione delle credenziali client in Azure Active Directory (Azure AD).
 
 ![Flusso di concessione delle credenziali client di OAuth 2.0](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
@@ -34,20 +34,20 @@ Il diagramma seguente illustra il funzionamento del flusso di concessione delle 
 3. Il token di accesso viene usato per l'autenticazione nella risorsa protetta.
 4. I dati della risorsa protetta vengono restituiti all'applicazione Web.
 
-## Registrare i servizi in Azure AD
+## <a name="register-the-services-in-azure-ad"></a>Registrare i servizi in Azure AD
 Registrare il servizio chiamante e il servizio ricevente in Azure Active Directory (Azure AD). Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](active-directory-integrating-applications.md).
 
-## Richiedere un token di accesso
+## <a name="request-an-access-token"></a>Richiedere un token di accesso
 Per richiedere un token di accesso, usare una richiesta HTTP POST per l'endpoint di Azure AD specifico del tenant.
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
-## Richiesta del token di accesso da servizio a servizio
+## <a name="service-to-service-access-token-request"></a>Richiesta del token di accesso da servizio a servizio
 L'applicazione client può scegliere di essere protetta da un segreto condiviso oppure da un certificato.
 
-### Primo caso: richiesta del token di accesso con un segreto condiviso
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primo caso: richiesta del token di accesso con un segreto condiviso
 Quando si usa un segreto condiviso, una richiesta di token di accesso da servizio a servizio contiene i parametri seguenti:
 
 | Parametro |  | Descrizione |
@@ -57,7 +57,7 @@ Quando si usa un segreto condiviso, una richiesta di token di accesso da servizi
 | client_secret |Obbligatoria |Immettere una chiave registrata per l'applicazione daemon o il servizio Web chiamante in Azure AD. Per creare una chiave, nel portale di Azure fare clic su **Active Directory**, passare alla directory, fare clic su **Impostazioni**, fare clic su **Chiavi** e aggiungere una chiave.|
 | resource |Obbligatoria |Immettere l'URI ID app del servizio Web ricevente. Per trovare l'URI dell'ID app, nel portale di Azure fare clic su **Active Directory**, passare alla directory, fare clic sull'applicazione di servizio, quindi fare clic su **Impostazioni** e infine su **Proprietà**. |
 
-#### Esempio
+#### <a name="example"></a>Esempio
 La richiesta HTTP POST seguente richiede un token di accesso per il servizio Web https://service.contoso.com/. `client_id` identifica il servizio Web che richiede il token di accesso.
 
 ```
@@ -68,7 +68,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### Secondo caso: richiesta del token di accesso con un certificato
+### <a name="second-case-access-token-request-with-a-certificate"></a>Secondo caso: richiesta del token di accesso con un certificato
 Una richiesta di token di accesso da servizio a servizio con un certificato contiene i parametri seguenti:
 
 | Parametro |  | Descrizione |
@@ -81,7 +81,7 @@ Una richiesta di token di accesso da servizio a servizio con un certificato cont
 
 Si noti che i parametri sono quasi uguali a quelli usati nella richiesta tramite segreto condiviso, con l'eccezione del parametro client_secret che viene sostituito da due parametri: client_assertion_type e client_assertion.
 
-#### Esempio
+#### <a name="example"></a>Esempio
 La richiesta HTTP POST seguente richiede un token di accesso per il servizio Web https://service.contoso.com/ con un certificato. `client_id` identifica il servizio Web che richiede il token di accesso.
 
 ```
@@ -92,7 +92,7 @@ Content-Type: application/x-www-form-urlencoded
 resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b3bf&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
 ```
 
-### Risposta del token di accesso da servizio a servizio
+### <a name="service-to-service-access-token-response"></a>Risposta del token di accesso da servizio a servizio
 
 Una risposta corretta contiene una risposta OAuth 2.0 JSON con i parametri seguenti:
 
@@ -105,7 +105,7 @@ Una risposta corretta contiene una risposta OAuth 2.0 JSON con i parametri segue
 | not_before |Ora da cui il token di accesso diventa utilizzabile. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino all'ora di validità per il token.|
 | resource |URI ID app del servizio Web ricevente. |
 
-#### Esempio di risposta
+#### <a name="example-of-response"></a>Esempio di risposta
 L'esempio seguente mostra una risposta corretta a una richiesta di token di accesso per un servizio Web.
 
 ```
@@ -118,6 +118,6 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 }
 ```
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)
 * [Esempio in C# della chiamata da servizio a servizio con un segreto condiviso](https://github.com/Azure-Samples/active-directory-dotnet-daemon) ed [esempio in C# della chiamata da servizio a servizio con un certificato](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

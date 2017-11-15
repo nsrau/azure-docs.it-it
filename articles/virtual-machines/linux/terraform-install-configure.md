@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: d8c357474e040f2e35c51dec0c7785cf98381a37
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installare e configurare Terraform per eseguire il provisioning di macchine virtuali e altra infrastruttura in Azure
  
 Terraform offre un modo semplice per definire, visualizzare in anteprima e distribuire l'infrastruttura cloud usando un [linguaggio di creazione modelli semplice](https://www.terraform.io/docs/configuration/syntax.html). Questo articolo descrive la procedura da seguire per usare Terraform per effettuare il provisioning di risorse in Azure. 
 
 > [!TIP]
-> Terraform fa parte dell'[esperienza Azure Cloud Shell Bash](/azure/cloud-shell/quickstart) ed è preconfigurato con credenziali e [moduli Terraform per Azure](https://registry.terraform.io/modules/Azure).
+> Terraform viene installato per impostazione predefinita nell'[esperienza Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart) ed è preconfigurato con le credenziali e i [moduli Terraform per Azure](https://registry.terraform.io/modules/Azure). Usando Cloud Shell è possibile ignorare le parti relative all'installazione e alla configurazione di questo documento.
 
 ## <a name="install-terraform"></a>Installazione di Terraform
 
@@ -47,9 +47,7 @@ Esistono diversi modi per creare un'applicazione Azure AD e un'entità servizio 
 
 Eseguire l'accesso per amministrare la sottoscrizione di Azure eseguendo il comando seguente:
 
-```azurecli-interactive
-az login
-```
+   `az login`
 
 Se si dispone di più sottoscrizioni di Azure, i relativi dettagli vengono restituiti dal comando `az login`. Impostare la variabile di ambiente `SUBSCRIPTION_ID` che conterrà il valore del campo `id` restituito dalla sottoscrizione che si intende usare. 
 

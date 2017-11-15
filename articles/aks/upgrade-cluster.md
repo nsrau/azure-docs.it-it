@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 7b69f770354c9402a3248a1d5a27558ff9aea7c4
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 0b136953adecbd049c12f102714e23f00ac0d350
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Aggiornare un cluster del servizio contenitore di Azure
 
@@ -38,15 +38,15 @@ az aks get-versions --name myK8sCluster --resource-group myResourceGroup --outpu
 Output:
 
 ```console
-Name     ResourceGroup    MasterVersion    MasterUpgrades    AgentPoolVersion    AgentPoolUpgrades
--------  ---------------  ---------------  ----------------  ------------------  -------------------
-default  myResourceGroup  1.7.7            1.8.1             1.7.7               1.8.1
+Name     ResourceGroup    MasterVersion    MasterUpgrades       AgentPoolVersion    AgentPoolUpgrades
+-------  ---------------  ---------------  -------------------  ------------------  -------------------
+default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Sono disponibili due versioni per l'aggiornamento: 1.8.0 e 1.8.1.  È possibile usare il comando `az aks upgrade` per eseguire l'aggiornamento all'ultima versione disponibile.  Durante il processo di aggiornamento, i nodi vengono accuratamente [contrassegnati come non pianificabili e svuotati](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) per ridurre al minimo le interruzioni nelle applicazioni in esecuzione.
+Sono disponibili tre versioni per l'aggiornamento: 1.7.9, 1.8.1 e 1.8.2. È possibile usare il comando `az aks upgrade` per eseguire l'aggiornamento all'ultima versione disponibile.  Durante il processo di aggiornamento, i nodi vengono accuratamente [contrassegnati come non pianificabili e svuotati](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) per ridurre al minimo le interruzioni nelle applicazioni in esecuzione.
 
 ```azurecli-interactive
-az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.1
+az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
 Output:
@@ -81,7 +81,7 @@ Output:
     ],
     "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
     "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.westus2.azmk8s.io",
-    "kubernetesVersion": "1.8.1",
+    "kubernetesVersion": "1.8.2",
     "linuxProfile": {
       "adminUsername": "azureuser",
       "ssh": {
@@ -116,12 +116,12 @@ Output:
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  westus2     myResourceGroup  1.8.1                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
+myK8sCluster  westus2     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esercitazioni sul servizio contenitore di Azure che ne illustrano la distribuzione e la gestione.
+Altre informazioni sulla distribuzione e la gestione del servizio contenitore di Azure sono disponibili nelle relative esercitazioni.
 
 > [!div class="nextstepaction"]
 > [Esercitazione sul servizio contenitore di Azure](./tutorial-kubernetes-prepare-app.md)
