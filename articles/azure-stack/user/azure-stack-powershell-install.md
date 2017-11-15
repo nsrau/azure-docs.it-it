@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: ae489cfab1effca8fa33c4e2693b8b5229eda9c5
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f45b65c1cb16a79a44e873e3e001e0f5c12a8e37
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installare PowerShell per Azure Stack  
 
@@ -82,7 +82,7 @@ Per verificare l'installazione, eseguire il comando seguente:
 
 ## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>Installare PowerShell in un disconnesso o in uno scenario di connesso parziale
 
-In uno scenario disconnesso, è necessario innanzitutto scaricare i moduli di PowerShell in un computer con connettività internet e quindi li trasferiscono al Kit di sviluppo dello Stack di Azure per l'installazione.
+In uno scenario parzialmente connesso o disconnesso, è necessario innanzitutto scaricare i moduli di PowerShell in un computer con connettività internet e quindi li trasferiscono al Kit di sviluppo dello Stack di Azure per l'installazione.
 
 > [!IMPORTANT]
 > La versione del modulo PowerShell di Azure Resource Manager 1.2.11 viene fornito con un elenco di modifiche di rilievo. Eseguire l'aggiornamento dal 1.2.10 versione, vedere la Guida alla migrazione al [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
