@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 44ec416a814ff6a5fef79ef21e2f54ce4ce4da17
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Trasferire oggetti da e verso Archiviazione BLOB di Azure con Python
 In questa guida rapida si apprende a usare Python per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
@@ -32,25 +32,7 @@ Per completare questa guida introduttiva:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Creare un account di archiviazione usando il portale di Azure
-
-Innanzitutto, creare un nuovo account di archiviazione generico da usare per questa guida rapida. 
-
-1. Aprire e accedere al [portale di Azure](https://portal.azure.com) con il proprio account di Azure. 
-2. Nel menu Hub selezionare **Nuovo** > **Archiviazione** > **Account di archiviazione: BLOB, File, Tabelle, Code**. 
-3. Immettere un nome per l'account di archiviazione. Il nome deve avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole. Deve anche essere univoco.
-4. Impostare `Deployment model` su **Gestione risorse**.
-5. Impostare `Account kind` su **Utilizzo generico**.
-6. Impostare `Performance` su **Standard**. 
-7. Impostare `Replication` su **Archiviazione con ridondanza locale**.
-8. Impostare `Storage service encryption` su **Disabilitato**.
-9. Impostare `Secure transfer required` su **Disabilitato**.
-10. Selezionare la propria sottoscrizione. 
-11. Per `resource group`, crearne una nuova e assegnarle un nome univoco. 
-12. Selezionare `Location` per l'account di archiviazione.
-13. Selezionare **Aggiungi al dashboard** e fare clic su **Crea** per creare l'account di archiviazione. 
-
-Dopo aver creato l'account di archiviazione, questa viene aggiunta al dashboard. Fare clic su di essa per aprirla. In **IMPOSTAZIONI** fare clic su **Chiavi di accesso**. Selezionare una chiave e copiare il nome dell'account di archiviazione negli Appunti, quindi incollarlo nel Blocco note per usarlo in seguito.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
 L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) usata in questa guida rapida è un'applicazione Python di base.  
@@ -100,8 +82,10 @@ La prima cosa da fare è creare i riferimenti agli oggetti usati per accedere e 
 
 Dopo aver creato CloudBlobContainer, è possibile creare un'istanza dell'oggetto **CloudBlockBlob** che punti al BLOB specifico a cui si è interessati ed esegua operazioni di caricamento, download e copia.
 
-In questa sezione si creano istanze degli oggetti, si crea un nuovo contenitore e quindi si impostano le autorizzazioni nel contenitore in modo che i BLOB siano pubblici. Il contenitore è denominato **quickstartblobs**. 
+> [!IMPORTANT]
+> I nomi dei contenitori devono essere in minuscolo. Per altre informazioni sulla denominazione dei contenitori e dei BLOB vedere [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
 
+In questa sezione si creano istanze degli oggetti, si crea un nuovo contenitore e quindi si impostano le autorizzazioni nel contenitore in modo che i BLOB siano pubblici. Il contenitore è denominato **quickstartblobs**. 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account

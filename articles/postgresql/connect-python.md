@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/15/2017
-ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare Python per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database di Azure per PostgreSQL. Descrive anche come usare istruzioni SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database dalle piattaforme macOS, Ubuntu Linux e Windows. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per PostgreSQL.
@@ -50,14 +50,14 @@ Installare il pacchetto [psycopg2](http://initd.org/psycopg/docs/install.html), 
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per PostgreSQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Scegliere **Tutte le risorse** dal menu a sinistra nel portale di Azure e cercare **mypgserver-20170401**, ossia il server appena creato.
+2. Scegliere **Tutte le risorse** dal menu a sinistra nel portale di Azure e cercare **mypgserver-20170401**, ossia il server creato.
 3. Fare clic sul nome del server **mypgserver-20170401**.
 4. Selezionare la pagina **Panoramica** del server e prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**.
  ![Database di Azure per PostgreSQL - Accesso dell'amministratore del server](./media/connect-python/1-connection-string.png)
 5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** per visualizzare il nome di accesso dell'amministratore del server e, se necessario, reimpostare la password.
 
 ## <a name="how-to-run-python-code"></a>Come eseguire codice Python
-Questo argomento contiene in totale quattro esempi di codice, ognuno dei quali esegue una funzione specifica. Le istruzioni seguenti indicano come creare un file di testo, inserire un blocco di codice e quindi salvare il file per poterlo eseguire in un secondo momento. Assicurarsi di creare quattro file separati, uno per ogni blocco di codice.
+Questo articolo contiene in totale quattro esempi di codice, ognuno dei quali esegue una funzione specifica. Le istruzioni seguenti indicano come creare un file di testo, inserire un blocco di codice e quindi salvare il file per poterlo eseguire in un secondo momento. Assicurarsi di creare quattro file separati, uno per ogni blocco di codice.
 
 - Usando l'editor di testo preferito, creare un nuovo file.
 - Copiare e incollare uno degli esempi di codice delle sezioni seguenti nel file di testo. Sostituire i parametri **host**, **dbname**, **user** e **password** con i valori specificati al momento della creazione del server e del database.
@@ -66,7 +66,7 @@ Questo argomento contiene in totale quattro esempi di codice, ognuno dei quali e
 -  Per eseguire il codice, digitare il comando Python seguito dal nome del file, ad esempio `Python postgres.py`.
 
 > [!NOTE]
-> A partire da Python versione 3, quando si eseguono i blocchi di codice seguenti potrebbe essere visualizzato l'errore `SyntaxError: Missing parentheses in call to 'print'`. In tal caso, sostituire ogni chiamata al comando `print "string"` con una chiamata di funzione con parentesi, ad esempio `print("string")`.
+> A partire da Python versione 3, è possibile che venga visualizzato l'errore `SyntaxError: Missing parentheses in call to 'print'` durante l'esecuzione dei blocchi di codice seguente: in tal caso, sostituire ogni chiamata al comando `print "string"` con una chiamata di funzione usando le parentesi, ad esempio `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Connettersi, creare tabelle e inserire dati
 Usare il codice seguente per connettersi e caricare i dati usando la funzione [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) con un'istruzione SQL **INSERT**. La funzione [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) viene usata per eseguire la query SQL sul database PostgreSQL. Sostituire i parametri host, dbname, user e password con i valori specificati al momento della creazione del server e del database.

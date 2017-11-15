@@ -5,62 +5,64 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e0962ae02dd8132d878792634abc1f63b2c29a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure
-Il primo passaggio per ottenere informazioni sulla conformità in Azure è sapere qual è lo stato delle risorse correnti. Questa guida introduttiva illustra il processo di creazione di un'assegnazione di criteri per identificare le risorse che non usano SQL Server versione 12.0. Alla fine di questo processo saranno stati identificati i server con una versione diversa e pertanto *non conformi*.
+Il primo passaggio per ottenere informazioni sulla conformità in Azure è sapere qual è lo stato delle risorse correnti. Questa guida introduttiva illustra il processo di creazione di un'assegnazione criteri per identificare le macchine virtuali che non usano dischi gestiti.
+
+Alla fine di questo processo saranno state identificate correttamente le macchine virtuali che non usano dischi gestiti e pertanto *non conformi*.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="opt-in-to-azure-policy"></a>Consenso esplicito per Criteri di Azure
 
-Criteri di Azure è attualmente disponibile in anteprima limitata, quindi è necessario registrarsi per richiedere l'accesso.
+Criteri di Azure è attualmente disponibile in anteprima pubblica ed è necessario registrarsi per richiedere l'accesso.
 
-1. Passare a Criteri di Azure all'indirizzo https://aka.ms/getpolicy e selezionare **Sign Up** (Iscrizione) nel riquadro a sinistra.
+1. Passare a Criteri di Azure all'indirizzo https://aka.ms/getpolicy e selezionare **Iscrizione** nel riquadro a sinistra.
 
    ![Ricerca di criteri](media/assign-policy-definition/sign-up.png)
 
-2. Acconsentire esplicitamente all'uso di Criteri di Azure selezionando le sottoscrizioni che si vuole usare nell'elenco **Subscription** (Sottoscrizione). Selezionare quindi **Register** (Registra).
+2. Acconsentire esplicitamente all'uso di Criteri di Azure selezionando le sottoscrizioni che si vuole usare nell'elenco **Sottoscrizione**. Selezionare quindi **Register** (Registra).
 
    ![Consenso esplicito per l'uso di Criteri di Azure](media/assign-policy-definition/preview-opt-in.png)
 
-   Potrebbero trascorrere un paio di giorni prima che Microsoft accetti la richiesta di registrazione, a seconda della domanda. Dopo l'accettazione della richiesta si riceverà conferma tramite posta elettronica che è possibile iniziare a usare il servizio.
+   La richiesta viene approvata automaticamente per l'anteprima. Attendere fino a 30 minuti che il sistema elabori la registrazione.
 
 ## <a name="create-a-policy-assignment"></a>Creare un'assegnazione di criteri
 
-In questa guida introduttiva viene descritta la procedura per creare un'assegnazione di criteri e assegnare la definizione *Require SQL Server Version 12.0* (Richiedere SQL Server versione 12.0). 
+In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la definizione dei criteri *Audit Virtual Machines without Managed Disks* (Controllare le macchine virtuali senza i dischi gestiti).
 
-1. Selezionare **Assignments** (Assegnazioni) nel riquadro sinistro della pagina Criteri di Azure.
+1. Selezionare **Assegnazioni**nel riquadro a sinistra della pagina Criteri di Azure.
 2. Selezionare **Assign Policy** (Assegna criterio) nella parte superiore del riquadro **Assignments** (Assegnazioni).
 
    ![Assegnare una definizione di criteri](media/assign-policy-definition/select-assign-policy.png)
 
-3. Nella pagina **Assign Policy** (Assegna criterio) fare clic sul ![pulsante delle definizioni di criteri](media/assign-policy-definition/definitions-button.png) accanto al campo **Policy** (Criterio) per aprire l'elenco delle definizioni disponibili.
+3. Nella pagina **Assegna criterio** fare clic sul ![pulsante per la definizione dei criteri](media/assign-policy-definition/definitions-button.png) accanto al campo **Policy** (Criterio) per aprire l'elenco delle definizioni disponibili.
 
    ![Aprire le definizioni di criteri disponibili](media/assign-policy-definition/open-policy-definitions.png)
 
    Criteri di Azure include definizioni di criteri predefinite che è possibile usare. Sono disponibili definizioni di criteri predefinite come le seguenti:
 
    - Enforce tag and its value (Imporre un tag e il relativo valore)
-   - Apply tag and its value (Applicare un tag e il relativo valore)
+   - Applicare un tag e il relativo valore
    - Require SQL Server Version 12.0 (Richiedere SQL Server versione 12.0)
 
-4. Cercare la definizione *Require SQL Server Version 12.0* (Richiedere SQL Server versione 12.0) nell'elenco delle definizioni di criteri. Fare clic su tale criterio e fare clic su **Select** (Seleziona).
+4. Cercare tra le definizioni di criteri per trovare la definizione *Audit VMs that do not use managed disks* (Controllare le macchine virtuali che non usano i dischi gestiti). Fare clic su tale criterio e su **Assegna**.
 
    ![Trovare la definizione di criteri corretta](media/assign-policy-definition/select-available-definition.png)
 
-5. Specificare un nome visualizzato per l'assegnazione di criteri in **Name** (Nome). In questo caso, è possibile usare *Require SQL Server Version 12.0* (Richiedere SQL Server versione 12.0). È anche possibile aggiungere una descrizione facoltativa in **Description** (Descrizione). La descrizione fornisce informazioni dettagliate su come questa assegnazione di criteri garantisce che tutte le istanze di SQL Server create in questo ambiente siano nella versione 12.0.
+5. Specificare un nome visualizzato per l'assegnazione del criterio in **Nome**. In questo caso è possibile usare *Audit VMs that do not use managed disks* (Controllare le macchine virtuali che non usano i dischi gestiti). È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su come l'assegnazione criteri identifica tutte le macchine virtuali create in questo ambiente che non usano i dischi gestiti.
 6. Modificare il piano tariffario impostando **Standard** per garantire che i criteri vengano applicati alle risorse esistenti.
 
-   Per Criteri di Azure esistono due piani tariffari, ovvero *Free* (Gratuito) e *Standard*. Con il piano Free (Gratuito) è possibile applicare i criteri solo alle risorse future, mentre con Standard è possibile applicarli anche a risorse esistenti per ottenere una migliore comprensione dello stato di conformità. Trattandosi di un'anteprima limitata, non è ancora stato rilasciato un modello di determinazione dei prezzi, quindi non si riceverà fattura selezionando *Standard*. Per altre informazioni sui prezzi, vedere [Prezzi di Criteri di Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   Per Criteri di Azure esistono due piani tariffari, ovvero *Gratuito* e *Standard*. Con il piano Gratuito è possibile applicare i criteri solo alle risorse future, mentre con quello Standard è possibile applicarli anche a risorse esistenti per ottenere una migliore comprensione dello stato di conformità. Trattandosi di un'anteprima limitata, non è ancora stato rilasciato un modello di determinazione dei prezzi, quindi non si riceverà fattura selezionando *Standard*. Per altre informazioni sui prezzi, vedere [Prezzi di Criteri di Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
 7. Selezionare l'ambito di applicazione dei criteri in **Scope** (Ambito).  L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri e può variare da una sottoscrizione a gruppi di risorse.
 8. Selezionare la sottoscrizione (o il gruppo di risorse) registrato in precedenza al momento del consenso esplicito all'uso di Criteri di Azure. In questo esempio viene usata la sottoscrizione **Azure Analytics Capacity Dev**, ma le opzioni disponibili saranno diverse.
@@ -93,7 +95,7 @@ Se viene valutata una condizione per le risorse esistenti e tale condizione risu
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Altre guide in questa raccolta si basano su questa guida introduttiva. Se si prevede di continuare a usare le esercitazioni successive, non eliminare le risorse create in questa guida introduttiva. Se non si prevede di continuare, seguire questa procedura per eliminare tutte le risorse create da questa guida di avvio rapido nel portale di Azure.
-1. Selezionare **Assignments** (Assegnazioni) nel riquadro sinistro.
+1. Selezionare **Assegnazioni** nel riquadro a sinistra.
 2. Cercare l'assegnazione appena creata.
 
    ![Eliminare un'assegnazione](media/assign-policy-definition/delete-assignment.png)
@@ -108,4 +110,3 @@ Per altre informazioni sull'assegnazione di criteri per assicurarsi che le risor
 
 > [!div class="nextstepaction"]
 > [Creazione e gestione dei criteri](./create-manage-policy.md)
-

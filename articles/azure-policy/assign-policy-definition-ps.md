@@ -5,19 +5,22 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 3f9ef7886af20845eddc4c1e71d60911e4b22eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02afe946e5e1ad9730ab07df19676e90485ecf98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure usando PowerShell
 
-Il primo passaggio per ottenere informazioni sulla conformità in Azure è sapere qual è lo stato delle risorse correnti. Questa guida introduttiva illustra il processo di creazione di un'assegnazione di criteri per identificare le risorse non conformi alla definizione dei criteri: *Richiedere SQL Server versione 12.0*. Alla fine di questo processo saranno stati identificati i server con una versione diversa, o non conformi.
+Il primo passaggio per ottenere informazioni sulla conformità in Azure è sapere qual è lo stato delle risorse correnti. Questa guida introduttiva illustra il processo di creazione di un'assegnazione criteri per identificare le macchine virtuali che non usano dischi gestiti.
+
+Alla fine di questo processo saranno state identificate correttamente le macchine virtuali che non usano dischi gestiti e pertanto *non conformi*.
+
 
 PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida descrive l'uso di PowerShell per creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure.
 
@@ -29,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="opt-in-to-azure-policy"></a>Consenso esplicito per Criteri di Azure
 
-Criteri di Azure è attualmente disponibile in anteprima limitata, quindi è necessario registrarsi per richiedere l'accesso.
+Criteri di Azure è attualmente disponibile in anteprima pubblica ed è necessario registrarsi per richiedere l'accesso.
 
 1. Passare a Criteri di Azure all'indirizzo https://aka.ms/getpolicy e selezionare **Iscrizione** nel riquadro a sinistra.
 
@@ -39,11 +42,11 @@ Criteri di Azure è attualmente disponibile in anteprima limitata, quindi è nec
 
    ![Consenso esplicito per l'uso di Criteri di Azure](media/assign-policy-definition/preview-opt-in.png)
 
-   Potrebbero trascorrere un paio di giorni prima che Microsoft accetti la richiesta di registrazione, a seconda della domanda. Dopo l'accettazione della richiesta si riceverà conferma tramite posta elettronica che è possibile iniziare a usare il servizio.
+   La richiesta viene approvata automaticamente per l'anteprima. Attendere fino a 30 minuti che il sistema elabori la registrazione.
 
 ## <a name="create-a-policy-assignment"></a>Creare un'assegnazione di criteri
 
-In questa guida introduttiva viene descritta la procedura per creare un'assegnazione di criteri e assegnare la definizione *Require SQL Server Version 12.0* (Richiedere SQL Server versione 12.0). Questa definizione di criteri identificherà le risorse che non rispettano le condizioni di definizione dei criteri.
+In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la definizione *Audit Virtual Machines without Managed Disks* (Controllare le macchine virtuali senza i dischi gestiti). Questa definizione di criteri identificherà le risorse che non rispettano le condizioni di definizione dei criteri.
 
 Per creare una nuova assegnazione di criteri, attenersi alla procedura seguente.
 
@@ -62,15 +65,15 @@ Criteri di Azure include definizioni di criteri predefinite che è possibile usa
 Successivamente, assegnare la definizione dei criteri nell'ambito desiderato mediante il cmdlet `New-AzureRmPolicyAssignment`.
 
 Per questa esercitazione, forniamo le informazioni seguenti per il formato:
-- **Name** (Nome): nome visualizzato per l'assegnazione dei criteri. In questo caso è possibile usare l'assegnazione Richiedere SQL Server versione 12.0.
-- **Policy** (Criteri) : si tratta della definizione dei criteri, in base a quello usato per creare l'assegnazione. In questo caso, è la definizione del criterio: *Richiedere SQL Server versione 12.0*.
+- **Name** (Nome): nome visualizzato per l'assegnazione dei criteri. In questo caso, si usa Audit Virtual Machines without Managed Disks (Controllare le macchine virtuali senza i dischi gestiti).
+- **Policy** (Criterio): si tratta della definizione del criterio, in base a quello che si sta usando per creare l'assegnazione. In questo caso, è la definizione dei criteri: *Audit Virtual Machines without Managed Disks* (Controllare le macchine virtuali senza i dischi gestiti)
 - Uno **Scope** (Ambito): determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione dei criteri e può variare da una sottoscrizione a gruppi di risorse. In questo esempio si assegna la definizione dei criteri al gruppo di risorse **FabrikamOMS**.
-- **$definition**: è necessario fornire l'ID risorsa della definizione dei criteri. In questo caso si usa l'ID per la definizione dei criteri: *Richiedere SQL Server versione 12.0*.
+- **$definition**: è necessario fornire l'ID risorsa della definizione dei criteri. In questo caso si usa l'ID per la definizione dei criteri: *Audit Virtual Machines without Managed Disks* (Controllare le macchine virtuali senza i dischi gestiti).
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 A questo punto si è pronti per identificare le risorse non conformi per comprendere lo stato di conformità dell'ambiente.
@@ -89,7 +92,7 @@ A questo punto si è pronti per identificare le risorse non conformi per compren
 Altre guide in questa raccolta si basano su questa guida introduttiva. Se si prevede di continuare a usare le esercitazioni successive, non eliminare le risorse create in questa guida introduttiva. Se non si prevede di continuare, eliminare l'assegnazione creata eseguendo questo comando:
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name “Require SQL Server version 12.0 Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

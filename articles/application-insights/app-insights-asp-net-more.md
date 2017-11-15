@@ -1,5 +1,5 @@
 ---
-title: "Sfruttare al meglio le funzionalità di Azure Application Insights | Documentazione Microsoft"
+title: "Sfruttare al meglio le funzionalità di Azure Application Insights | Microsoft Docs"
 description: "Dopo l'introduzione a Application Insights, ecco un riepilogo delle funzionalità che è possibile esplorare."
 services: application-insights
 documentationcenter: .net
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 06af02408b66291fe6b3efac71f91df5d2db6478
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 167f0175b2c5de804a4251307a7b16e5e40a516a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="more-telemetry-from-application-insights"></a>Altri dati di telemetria da Application Insights
 Dopo aver [aggiunto Application Insights al codice ASP.NET](app-insights-asp-net.md), è possibile eseguire alcune operazioni per ottenere altri dati di telemetria. 

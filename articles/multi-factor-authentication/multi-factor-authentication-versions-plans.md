@@ -4,7 +4,7 @@ description: Informazioni sul client Multi-Factor Authentication e sui diversi m
 keywords: 
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
-ms.openlocfilehash: cacb027fad4127072e542f554373881932870841
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: e2f13f34d5707f3f7b6707fd6100e88ee9783059
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Come ottenere Azure Multi-Factor Authentication
 
 Quando si tratta di proteggere gli account, la verifica in due passaggi dovrebbe essere lo standard in tutta l'organizzazione. Questa funzionalità è importante soprattutto per gli account amministrativi con accesso con privilegi alle risorse. Per questo motivo, Microsoft offre le funzionalità di base della verifica in due passaggi agli amministratori di Office 365 e di Azure, senza costi aggiuntivi. Per aggiornare le funzionalità per gli amministratori o estendere la verifica in due passaggi agli altri utenti, è possibile acquistare Azure Multi-Factor Authentication. 
 
 Questo articolo illustra la differenza tra le versioni offerte agli amministratori e la versione completa di Azure MFA. Se si è pronti per distribuire l'offerta completa di Azure MFA, l'ultima sezione descrive le opzioni di implementazione e come Microsoft calcola il consumo.
+
 
 >[!IMPORTANT]
 >Questo articolo è una guida che spiega i diversi modi di acquistare Azure Multi-Factor Authentication. Per dettagli specifici sui prezzi e sulla fatturazione, è consigliabile vedere sempre la [pagina dei prezzi di Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
@@ -55,6 +56,7 @@ La tabella seguente indica un elenco delle funzionalità disponibili nelle varie
 | SMS come secondo fattore |● |● |● |
 | Password di app per i client che non supportano MFA |● |● |● |
 | Controllo amministrativo sui metodi di verifica |● |● |● |
+| Proteggere gli account non amministratore con MFA | | |● |
 | Modalità PIN | | |● |
 | Avviso di illecito | | |● |
 | Report MFA | | |● |
@@ -87,7 +89,7 @@ Creare un provider Azure Multi-Factor Authentication all'interno di una sottoscr
 
 Quando si usa un provider di Azure Multi-Factor Authentication, sono disponibili due modelli di uso fatturati tramite la sottoscrizione di Azure:  
 
-1. **Per utente**: per le aziende che vogliono abilitare la verifica in due passaggi per un numero fisso di dipendenti che richiedono regolarmente l'autenticazione. La fatturazione per utente si basa sul numero di utenti abilitati per MFA nel tenant di Azure AD e in Azure MFA Server. Se gli utenti sono abilitati per MFA sia in Azure AD che in Azure MFA Server e la sincronizzazione dei domini (Azure AD Connect) è abilitata, viene considerato il set di utenti più numeroso. Se la sincronizzazione dei domini non è abilitata, viene calcolata la somma di tutti gli utenti abilitati per MFA in Azure AD e in Azure MFA Server. La fatturazione viene ripartita e segnalata ogni giorno al sistema commerciale. 
+1. **Per utente abilitato**: per le aziende che vogliono abilitare la verifica in due passaggi per un numero fisso di dipendenti che richiedono regolarmente l'autenticazione. La fatturazione per utente si basa sul numero di utenti abilitati per MFA nel tenant di Azure AD e in Azure MFA Server. Se gli utenti sono abilitati per MFA sia in Azure AD che in Azure MFA Server e la sincronizzazione dei domini (Azure AD Connect) è abilitata, viene considerato il set di utenti più numeroso. Se la sincronizzazione dei domini non è abilitata, viene calcolata la somma di tutti gli utenti abilitati per MFA in Azure AD e in Azure MFA Server. La fatturazione viene ripartita e segnalata ogni giorno al sistema commerciale. 
 
   > [!NOTE]
   > Esempio di fatturazione 1: oggi si hanno 5.000 utenti abilitati per l'autenticazione a più fattori. Il sistema MFA divide il numero per 31 e segnala 161,29 utenti per quel giorno. Il giorno dopo si abilitano altri 15 utenti, quindi il sistema MFA segnala 161,77 utenti per quel giorno. Alla fine del ciclo di fatturazione, il numero totale di utenti fatturati sulla base della sottoscrizione di Azure arriva a circa 5.000. 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 93e6c87a9d445ca448509a256247fb5e4749ec1c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3b51276fe074282339d30d075547160277bee53f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Informazioni sulle connessioni in uscita in Azure
 
@@ -93,4 +93,4 @@ Azure usa un algoritmo per determinare il numero di porte SNAT disponibili in ba
 
 Il timeout di inattività delle connessioni in uscita è di 4 minuti.  Questo valore non è modificabile.
 
-È importante ricordare che il numero di porte SNAT disponibili non vengono traslate direttamente sul numero di connessioni. Vedere le informazioni precedenti per dettagli su come e quando vengono allocate le porte SNAT e su come gestire questa risorsa esauribile.
+È importante ricordare che il numero di porte SNAT disponibili non viene traslato direttamente in un numero di connessioni. Vedere le informazioni precedenti per dettagli su come e quando vengono allocate le porte SNAT e su come gestire questa risorsa esauribile.

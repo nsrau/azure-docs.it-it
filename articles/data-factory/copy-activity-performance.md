@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/08/2017
 ms.author: jingwang
-ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Azure fornisce un set di soluzioni di archiviazione dei dati e data warehouse di
 L'articolo illustra:
 
 * [I numeri di riferimento sulle prestazioni](#performance-reference) per gli archivi dati di origine e sink supportati per aiutare a pianificare il progetto;
-* Funzionalità in grado di incrementare la velocità effettiva di copia in diversi scenari, tra cui [unità di spostamento dei dati cloud](#cloud-data-movement-units), [copia parallela](#parallel-copy) e [copia di staging](#staged-copy);
+* Funzionalità in grado di incrementare la velocità effettiva di copia in diversi scenari, tra cui [unità di spostamento dati nel cloud](#cloud-data-movement-units), [copia parallela](#parallel-copy) e [copia di staging](#staged-copy);
 * [Indicazioni per l'ottimizzazione delle prestazioni](#performance-tuning-steps) che illustrano come ottimizzare le prestazioni e i fattori chiave che possono influire sulle prestazioni di copia.
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Come riferimento, la tabella sotto mostra la velocità effettiva di copia **in M
 ![Matrice delle prestazioni](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->In Azure Data Factory versione 2, quando l'attività di copia viene eseguita in un runtime di integrazione di Azure, il numero minimo di unità di spostamento dati cloud è due.
+>In Azure Data Factory versione 2, quando l'attività di copia viene eseguita in Integration Runtime di Azure, il numero minimo di unità di spostamento dati cloud è due. Se non specificato, vedere le unità di spostamento dati predefinite usate nelle [unità di spostamento dati nel cloud](#cloud-data-movement-units).
 
 Punti da notare:
 
@@ -84,13 +84,12 @@ Punti da notare:
 
 L' **unità di spostamento dati cloud** è una misura che rappresenta la potenza, ossia la combinazione tra CPU, memoria e allocazione di risorse di rete, di una singola unità in Data Factory. L'**unità di spostamento dati si applica solo al [runtime di integrazione di Azure](concepts-integration-runtime.md#azure-integration-runtime)** ma non al [runtime di integrazione self-hosted](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**Il numero minimo di unità di spostamento dati cloud per ottimizzare l'esecuzione dell'attività di copia è due.** Nella tabella seguente sono elencate le unità di spostamento dati predefinite usate in diversi scenari di copia.
+**Il numero minimo di unità di spostamento dati cloud per ottimizzare l'esecuzione dell'attività di copia è due.** Se non specificato, nella tabella seguente sono elencate le unità di spostamento dati predefinite usate in diversi scenari di copia:
 
 | Scenario di copia | Numero di unità di spostamento dati predefinite determinato dal servizio |
 |:--- |:--- |
-| Copiare dati tra archivi basati su file | Tra 2 e 16 in base al numero e alle dimensioni dei file. |
-| Copiare i dati da Salesforce/Dynamics | 4 |
-| Tutti gli altri scenari di copia | 2 |
+| Copiare dati tra archivi basati su file | Tra 4 e 16 in base al numero e alle dimensioni dei file. |
+| Tutti gli altri scenari di copia | 4 |
 
 Per ignorare l'impostazione predefinita, è possibile specificare un valore per la proprietà **cloudDataMovementUnits** procedendo come segue. I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono 2, 4, 8, 16, 32. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati. Per informazioni sul livello di miglioramento delle prestazioni che è possibile ottenere quando si configurano più unità per un sink e un'origine della copia specifici, vedere la sezione [Informazioni di riferimento sulle prestazioni](#performance-reference).
 

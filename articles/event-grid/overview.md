@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/02/2017
 ms.author: babanisa
-ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introduzione a Griglia di eventi di Azure
 
@@ -50,6 +50,8 @@ Ecco alcune delle principali funzionalità di Griglia di eventi di Azure:
 * **Velocità effettiva elevata**: consente di creare carichi di lavoro con volumi elevati in Griglia di eventi con il supporto per milioni di eventi al secondo.
 * **Eventi predefiniti**: consentono di essere operativi rapidamente con gli eventi predefiniti a livello di risorse.
 * **Eventi personalizzati**: consentono di usare la route di Griglia di eventi, di filtrare e recapitare in modo affidabile gli eventi personalizzati nell'app.
+
+Per un confronto tra Griglia di eventi, Hub eventi e Bus di servizio, vedere [Choose between Azure services that deliver messages](compare-messaging-services.md) (Scegliere tra i servizi di Azure che recapitano i messaggi).
 
 ## <a name="built-in-publisher-and-handler-integration"></a>Integrazione predefinita di gestori e autori
 
@@ -100,14 +102,6 @@ Griglia di eventi consente di velocizzare l'automazione e semplificare l'applica
 ![Integrazione di applicazioni](./media/overview/app_integration.png)
 
 Griglia di eventi connette l'app con altri servizi. Creare, ad esempio, un argomento personalizzato per inviare i dati dell'evento dell'app a Griglia di eventi e sfruttare il recapito affidabile, il routing avanzato e l'integrazione diretta con Azure. In alternativa è possibile usare Griglia di eventi con App per la logica per elaborare i dati ovunque, senza scrivere codice. 
-
-## <a name="how-is-event-grid-different-from-other-azure-integration-services"></a>Differenze tra Griglia di eventi e gli altri servizi di integrazione di Azure
-
-Griglia di eventi è un backplane eventi che abilita la programmazione reattiva basata su eventi. È strettamente integrato con i servizi di Azure e può essere integrato con i servizi di terze parti. Il messaggio dell'evento contiene le informazioni necessarie per reagire alle modifiche apportate ai servizi e alle applicazioni. Griglia di eventi non è una pipeline di dati e non recapita l'oggetto effettivo aggiornato.
-
-Il bus di servizio è adatto alle tradizionali applicazioni aziendali che richiedono transazioni, ordinamento, rilevamento duplicati e coerenza immediata. Griglia di eventi è progettato per la velocità, la scalabilità, la varietà e il costo contenuto in un modello reattivo. È particolarmente adatto per l'architettura senza server.
-
-Griglia di eventi è complementare agli altri servizi di Azure, ad esempio App per la logica e Hub eventi. Griglia di eventi attiva l'app per la logica per iniziarne il flusso di lavoro. Hub eventi interagisce con Griglia di eventi consentendo di reagire agli eventi dalla funzionalità di acquisizione di Hub eventi e di creare pipeline per la trasformazione e l'inserimento di dati.
 
 ## <a name="how-much-does-event-grid-cost"></a>Costi di Griglia di eventi
 

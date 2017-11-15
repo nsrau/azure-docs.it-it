@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/03/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8c6ebddef89d48d8121da5777e62e311c234666
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Sostituire un modulo controller nel dispositivo StorSimple
+> [!NOTE]
+> Il portale classico per StorSimple è deprecato. Le istanze di Gestione dispositivi StorSimple passeranno automaticamente al nuovo portale di Azure in base alla pianificazione per la funzionalità deprecata. Si riceveranno un messaggio di posta elettronica e una notifica del portale relativi a questo passaggio. Anche questo documento verrà ritirato a breve. Per la versione di questo articolo per il nuovo portale di Azure, vedere [Sostituire un modulo controller nel dispositivo StorSimple](storsimple-8000-controller-replacement.md). Per domande relative al passaggio, vedere [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Panoramica
 In questa esercitazione viene illustrato come rimuovere e sostituire uno o entrambi i moduli controller in un dispositivo StorSimple. Viene inoltre illustrata la logica sottostante per gli scenari di sostituzione controller singoli e doppi.
 

@@ -1,5 +1,5 @@
 ---
-title: Come usare l'archiviazione tabelle da Java | Microsoft Docs
+title: Come usare l'Archiviazione tabelle di Azure da Java | Microsoft Docs
 description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
 services: cosmos-db
 documentationcenter: java
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 7f92b1e14a514e9eda39f7ca94f63fc761dfdf41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 323d574cbdeea1a2141d3c10d402e44e8af8ee19
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-use-table-storage-from-java"></a>Come usare l'archiviazione tabelle da Java
+# <a name="how-to-use-azure-table-storage-from-java"></a>Come usare l'Archiviazione tabelle di Azure da Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 

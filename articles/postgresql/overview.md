@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 10/20/2017
-ms.openlocfilehash: 5b5da758e966cc5ca536d7b291be74409f02ca73
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 9aa24dd10ef29c716c05cafeb84e0beb23d50628
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Che cos'è Database di Azure per PostgreSQL
 
@@ -23,7 +23,7 @@ Database di Azure per PostgreSQL è un servizio di database relazionale in Micro
 - Disponibilità elevata integrata senza costi aggiuntivi.
 - Prestazioni prevedibili, con piano tariffario tutto incluso e pagamento in base al consumo.
 - Scalabilità in tempo reale in pochi secondi.
-- Con protezione dei dati sensibili sia quando sono inattivi sia quando sono in movimento.
+- Protezione dei dati sensibili inattivi e in movimento.
 - Backup automatici e ripristino temporizzato per un massimo di 35 giorni.
 - Sicurezza e conformità di livello aziendale.
 
@@ -39,7 +39,7 @@ Per un set di esempi dell'interfaccia della riga di comando di Azure, vedere:
 - [Azure CLI samples for Azure Database for PostgreSQL](./sample-scripts-azure-cli.md) (Esempi di interfaccia della riga di comando di Azure per Database di Azure per PostgreSQL)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Regolare prestazioni e scalabilità in pochi secondi
-L'anteprima di Database di Azure per MySQL offre due livelli di servizio: Basic e Standard. Ogni livello offre diverse prestazioni e capacità per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi scalare in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere [Piani tariffari](concepts-service-tiers.md).
+L'anteprima del Database di Azure per PostgreSQL offre due livelli di servizio: Base e Standard. Ogni livello offre diverse prestazioni e capacità per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere [Piani tariffari](concepts-service-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 Per decidere quando aumentare e ridurre le prestazioni, si usano le funzionalità predefinite di monitoraggio delle prestazioni e avviso, combinate con le classificazioni delle prestazioni basate sulle unità di calcolo. Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle unità di calcolo in base alle esigenze correnti o previste relative alle prestazioni. Per informazioni dettagliate, vedere [Avvisi](howto-alert-on-metric.md).

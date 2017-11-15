@@ -1,5 +1,5 @@
 ---
-title: Creare un hub eventi di Azure | Documentazione Microsoft
+title: Creare un hub eventi di Azure | Microsoft Docs
 description: Creare uno spazio dei nomi di Hub eventi di Azure e un hub eventi usando il Portale di Azure
 services: event-hubs
 documentationcenter: na
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e444c4505d4744c95e08c4ef0d33566356785c81
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure
 
 ## <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
-1. Accedere al [portale di Azure][Azure portal] e fare clic su **Nuovo** nella parte superiore sinistra della schermata.
+1. Accedere al [portale di Azure][Azure portal] e fare clic su **Crea una risorsa** nella parte superiore sinistra della schermata.
 1. Fare clic su **Internet delle cose** e quindi su **Hub eventi**.
    
     ![](./media/event-hubs-create/create-event-hub9.png)

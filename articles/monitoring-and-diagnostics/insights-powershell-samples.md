@@ -1,8 +1,8 @@
 ---
 title: Esempi di avvio rapido con PowerShell per Monitoraggio di Azure. | Microsoft Docs
 description: "Usare PowerShell per accedere alle funzionalità di Monitoraggio di Azure, ad esempio scalabilità automatica, avvisi, webhook e ricerca nei log attività."
-author: kamathashwin
-manager: orenr
+author: rboucher
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: ashwink
-ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: robb
+ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Esempi di avvio rapido con PowerShell per Monitoraggio di Azure
-Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamente alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare automaticamente servizi cloud, macchine virtuali e app Web e di inviare notifiche di avviso o chiamare URL Web in base ai valori dei dati di telemetria configurati.
+Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamente alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare in modo automatico macchine virtuali, servizi cloud e app Web. Consente anche di inviare notifiche di avviso o di chiamare gli URL Web in base ai valori dei dati di telemetria configurati.
 
 > [!NOTE]
 > Dal 25 settembre 2016 Monitoraggio di Azure è il nuovo nome di "Azure Insights". Tuttavia, gli spazi dei nomi e quindi i comandi seguenti contengono ancora il termine "insights".
@@ -41,13 +41,13 @@ Per prima cosa, accedere alla sottoscrizione di Azure.
 Login-AzureRmAccount
 ```
 
-Questo richiede di effettuare l’accesso. Dopo aver effettuato l'accesso, vengono visualizzati l'account, l'ID tenant e l'ID sottoscrizione predefinito. Tutti i cmdlet di Azure funzionano nel contesto della sottoscrizione predefinita. Per visualizzare l'elenco delle sottoscrizioni accessibili, usare il comando seguente.
+Verrà visualizzata una schermata di accesso. Dopo aver effettuato l'accesso, vengono visualizzati l'account, l'ID tenant e l'ID della sottoscrizione predefinito. Tutti i cmdlet di Azure funzionano nel contesto della sottoscrizione predefinita. Per visualizzare l'elenco delle sottoscrizioni accessibili, usare il comando seguente:
 
 ```PowerShell
 Get-AzureRmSubscription
 ```
 
-Per modificare il contesto di lavoro in una sottoscrizione diversa, usare il comando seguente.
+Per modificare il contesto di lavoro in una sottoscrizione diversa, usare il comando seguente:
 
 ```PowerShell
 Set-AzureRmContext -SubscriptionId <subscriptionid>
@@ -139,9 +139,9 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 `Get-AzureRmAlertRule` supporta altri parametri. Per altre informazioni, vedere [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) .
 
 ## <a name="create-metric-alerts"></a>Creare avvisi delle metriche
-È possibile utilizzare il cmdlet `Add-AlertRule` per creare, aggiornare o disabilitare una regola di avviso.
+È possibile usare il cmdlet `Add-AlertRule` per creare, aggiornare o disabilitare una regola di avviso.
 
-È possibile creare proprietà di posta elettronica e webhook usando rispettivamente `New-AzureRmAlertRuleEmail` e `New-AzureRmAlertRuleWebhook`. Nel cmdlet per la regola avvisi assegnare queste azioni alla proprietà **Actions** della regola avvisi.
+È possibile creare proprietà di posta elettronica e webhook usando rispettivamente `New-AzureRmAlertRuleEmail` e `New-AzureRmAlertRuleWebhook`. Nel cmdlet della regola di avviso assegnare queste proprietà come azioni alla proprietà **Actions** della regola di avviso.
 
 La tabella seguente descrive i parametri e valori usati per creare un avviso tramite una metrica.
 
@@ -204,7 +204,7 @@ Un elenco completo delle opzioni disponibili per `Get-AzureRmMetricDefinition` s
 Una risorsa, ad esempio un'app Web, una macchina virtuale, un servizio cloud o un set di scalabilità di macchine virtuali, può avere una sola impostazione di scalabilità automatica configurata.
 Tuttavia, ogni impostazione di scalabilità automatica può includere diversi profili. Ad esempio, un profilo di scalabilità in base alle prestazioni e un altro profilo basato sulla pianificazione. Ogni profilo può avere più regole associate configurate. Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md).
 
-Ecco i passaggi da utilizzare:
+Ecco i passaggi da seguire:
 
 1. Creare le regole.
 2. Creare i profili eseguendo il mapping delle regole create in precedenza.
@@ -219,7 +219,7 @@ Per prima cosa, creare una regola per aumentare il numero di istanze, con un inc
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
-Creare poi una regola per ridurre il numero di istanze, con una diminuzione di una istanza.
+Creare poi una regola per ridurre il numero di istanze, con una diminuzione del numero di istanze.
 
 ```PowerShell
 $rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
@@ -243,7 +243,7 @@ Creare la proprietà di notifica per l'impostazione di scalabilità automatica, 
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
 ```
 
-Infine, creare l'impostazione di scalabilità automatica da aggiungere al profilo appena creato.
+Infine, creare l'impostazione di scalabilità automatica da aggiungere al profilo creato in precedenza. 
 
 ```PowerShell
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
@@ -312,14 +312,19 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>Aggiunta di un profilo di log con conservazione e hub di eventi
-Oltre a instradare i dati a un account di archiviazione, è anche possibile trasmetterli all'hub eventi. In questa versione di anteprima, la configurazione dell'account di archiviazione è obbligatoria, mentre quella dell’hub di eventi è facoltativo.
+Oltre a instradare i dati a un account di archiviazione, è anche possibile trasmetterli all'hub eventi. In questa versione di anteprima, la configurazione dell'account di archiviazione è obbligatoria, mentre quella dell'hub di eventi è facoltativa.
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Configurazione dei log di diagnostica
-Molti servizi di Azure fornisce log e dati di telemetria aggiuntivi che possono essere configurati per salvare i dati nell'account di Archiviazione di Azure, inviare dati all'hub eventi e/o inviare dati a un'area di lavoro di Log Analytics di OMS. Tale operazione può essere eseguita solo a livello di risorse e l'account di archiviazione o l'hub eventi deve essere presente nella stessa area come risorsa di destinazione in cui viene configurata l'impostazione di diagnostica.
+Molti servizi di Azure offrono log e dati di telemetria aggiuntivi che possono eseguire una o più delle operazioni seguenti: 
+ - essere configurati per il salvataggio dei dati nell'account di Archiviazione di Azure
+ - essere inviati a Hub eventi
+ - essere inviati a un'area di lavoro di OMS Log Analytics. 
+
+L'operazione può essere eseguita solo a livello di risorse. L'account di archiviazione o l'hub eventi deve essere presente nella stessa area come risorsa di destinazione in cui viene configurata l'impostazione di diagnostica.
 
 ### <a name="get-diagnostic-setting"></a>Acquisizione dell’impostazione di diagnostica
 ```PowerShell

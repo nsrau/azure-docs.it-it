@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4918a820ca07a7d83dfb544ee9f0bbeb66d22722
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Esercitazione sul bike sharing: preparazione avanzata dei dati con Azure Machine Learning Workbench
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end che consente a data scientist professionisti di preparare i dati, sviluppare esperimenti e distribuire modelli a livello di cloud.
@@ -493,7 +493,7 @@ Selezionare __OK__ per applicare il filtro.
 
 ### <a name="remove-columns"></a>Rimuovere le colonne
 
-Nei dati sulle tratte ogni riga rappresenta un evento di prelievo di una bicicletta. Per questa esercitazione, sono necessarie solo le colonne **starttime** e **start station**. Rimuovere le altre colonne selezionando contemporaneamente queste due colonne, fare clic con il pulsante destro del mouse sull'intestazione di colonna e quindi selezionare **Keep Column** (Mantieni colonna). Le altre colonne verranno rimosse.
+Nei dati sulle tratte ogni riga rappresenta un evento di prelievo di una bicicletta. Per questa esercitazione, sono necessarie solo le colonne **starttime** e **start station id**. Rimuovere le altre colonne selezionando contemporaneamente queste due colonne, fare clic con il pulsante destro del mouse sull'intestazione di colonna e quindi selezionare **Keep Column** (Mantieni colonna). Le altre colonne verranno rimosse.
 
 ![Immagine dell'opzione Keep Column (Mantieni colonna)](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

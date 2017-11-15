@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93b80744f68546e37934c987f45d7e2747d64f83
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -40,6 +40,18 @@ Il servizio Azure Active Directory viene continuamente migliorato. Questo artico
 -   Modifiche pianificate 
 
 Visitare regolarmente questa pagina che verrà aggiornata ogni mese.
+
+## <a name="november-2017"></a>Novembre 2017
+
+**Tipo**: funzionalità deprecate  
+**Categoria di servizio:** ACS  
+**Funzionalità del prodotto:** Servizio di controllo di accesso 
+
+<a name="acs-retirement"></a>
+
+Il Sevizio di controllo di accesso di Microsoft Azure Active Directory, noto anche come Servizio di controllo di accesso o ACS, verrà deprecato alla fine del 2018.  Altre informazioni, ad esempio una pianificazione dettagliata e istruzioni sulla migrazione di livello elevato, saranno disponibili nelle prossime settimane. Nel frattempo, lasciare commenti in questa pagina con eventuali domande sull'ACS. Un membro del team di Microsoft si occuperà di rispondere.
+
+---
 
 
 ## <a name="october-2017"></a>Ottobre 2017

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6ccd8728697040b4c783d8a1e51bc68c09ef7001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Proteggere le chiamate alle API personalizzate da app per la logica
 
@@ -49,7 +49,7 @@ Ecco i passaggi generali per questo metodo:
 
 #### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: Creare un'identità di applicazione di Azure AD per l'app per la logica
 
-L'app per la logica usa questa identità di applicazione di Azure AD per l'autenticazione con Azure AD. È sufficiente impostare l'identità una sola volta per la directory. Ad esempio, si può scegliere di usare la stessa identità per tutte le app per la logica, anche se è possibile creare identità univoche per ogni app per la logica. È possibile impostare queste identità nel portale di Azure, nel [portale di Azure classico](#app-identity-logic-classic) o usare [PowerShell](#powershell).
+L'app per la logica usa questa identità di applicazione di Azure AD per l'autenticazione con Azure AD. È sufficiente impostare l'identità una sola volta per la directory. Ad esempio, si può scegliere di usare la stessa identità per tutte le app per la logica, anche se è possibile creare identità univoche per ogni app per la logica. È possibile impostare queste identità nel Portale di Azure o usare [PowerShell](#powershell).
 
 **Creare l'identità di applicazione per l'app per la logica nel portale di Azure**
 
@@ -94,34 +94,6 @@ L'app per la logica usa questa identità di applicazione di Azure AD per l'auten
 
    ![Copiare e salvare la chiave per usarla in un momento successivo](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
-<a name="app-identity-logic-classic"></a>
-
-**Creare l'identità di applicazione per l'app per la logica nel portale di Azure classico**
-
-1. Nel portale di Azure classico scegliere [**Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2. Selezionare la stessa directory che si usa per l'app Web o l'app per le API.
-
-3. Nella scheda **Applicazioni** scegliere **Aggiungi** nella parte inferiore della pagina.
-
-4. Assegnare un nome all'identità di applicazione e scegliere **Avanti** (freccia destra).
-
-5. In **Proprietà dell'app** specificare una stringa univoca formattata come dominio per **URL accesso** e **URI ID app** e scegliere **Completa** (segno di spunta).
-
-6. Nella scheda di **configurazione** copiare e salvare l'**ID client** per l'app per la logica da usare nella Parte 3.
-
-7. In **Chiavi** aprire l'elenco **Seleziona durata**. Selezionare una durata per la chiave.
-
-   La chiave che si sta creando agisce come "segreto" o password dell'identità di applicazione per l'app per la logica.
-
-8. Fare clic su **Salva** nella parte inferiore della pagina. Potrebbe essere necessario attendere alcuni secondi.
-
-9. In **Chiavi** assicurarsi di copiare e salvare la chiave che ora viene visualizzata. 
-
-   Quando si configura l'app per la logica nella Parte 3, si specifica questa chiave come "segreto" o password.
-
-Per altre informazioni, vedere la procedura di [configurazione di un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
-
 <a name="powershell"></a>
 
 **Creare l'identità di applicazione per l'app per la logica in PowerShell**
@@ -156,7 +128,7 @@ Se l'app Web o l'app per le API è già stata distribuita, è possibile attivare
 
 4. Nella pagina **Autenticazione/Autorizzazione** scegliere **Salva**.
 
-A questo punto è necessario trovare l'ID client e l'ID tenant per l'identità di applicazione associata all'app Web o app per le API. Questi ID verranno usati nella Parte 3. Continuare con la procedura per il portale di Azure o il [portale di Azure classico](#find-id-classic).
+A questo punto è necessario trovare l'ID client e l'ID tenant per l'identità di applicazione associata all'app Web o app per le API. Questi ID verranno usati nella Parte 3. Continuare con questa procedura per il portale di Azure.
 
 **Trovare l'ID client e l'ID tenant dell'identità di applicazione per l'app Web o app per le API nel portale di Azure**
 
@@ -177,32 +149,6 @@ A questo punto è necessario trovare l'ID client e l'ID tenant per l'identità d
 
 5. Senza salvare le modifiche, chiudere la pagina **Impostazioni di Azure Active Directory**.
 
-<a name="find-id-classic"></a>
-
-**Trovare l'ID client e l'ID tenant dell'identità di applicazione per l'app Web o app per le API nel portale di Azure classico**
-
-1. Nel portale di Azure classico scegliere [**Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2.  Selezionare la directory che si usa per l'app Web o l'app per le API.
-
-3. Nella casella di **ricerca** trovare e selezionare l'identità di applicazione per l'app Web o app per le API.
-
-4. Nella scheda **Configura** copiare l'**ID client** e salvare il GUID per usarlo nella Parte 3.
-
-5. Dopo avere ottenuto l'ID client, nella parte inferiore della scheda **Configura** scegliere **Visualizza endpoint**.
-
-6. Copiare l'URL del **documento metadati federazione** e passare a tale URL.
-
-7. Nel documento di metadati che si apre individuare l'elemento **EntityDescriptor ID** della radice, che ha un attributo **entityID** in questo formato: `https://sts.windows.net/{GUID}` 
-
-   Il GUID in questo attributo è il GUID del tenant specifico (ID tenant).
-
-8. Copiare l'ID tenant e salvarlo per usarlo nella Parte 3, nonché nel modello di distribuzione dell'app Web o app per le API, se necessario.
-
-Per altre informazioni, vedere gli argomenti seguenti:
-
-* [Autenticazione e autorizzazione nel servizio app di Azure](../app-service/app-service-authentication-overview.md)
-
 <a name="authen-deploy"></a>
 
 **Attivare l'autenticazione quando si esegue la distribuzione con un modello di Azure Resource Manager**
@@ -212,7 +158,7 @@ Per altre informazioni, vedere gli argomenti seguenti:
 È anche possibile seguire i passaggi della Parte 1, ma assicurarsi di usare l'elemento `https://{URL}` reale dell'app Web o app per le API per **URL accesso** e **URI dell'ID dell'app**. Da questi passaggi è necessario salvare sia l'ID client che l'ID tenant per usarli nel modello di distribuzione dell'app, nonché per la Parte 3.
 
 > [!NOTE]
-> Quando si crea l'identità di applicazione di Azure AD per l'app Web o l'app per le API, è necessario usare il portale di Azure o il portale di Azure classico, anziché PowerShell. Il cmdlet di PowerShell non consente di impostare le autorizzazioni necessarie per l'accesso degli utenti in un sito Web.
+> Quando si crea l'identità di applicazione di Azure AD per l'app Web o l'app per le API, è necessario usare il portale di Azure anziché PowerShell. Il cmdlet di PowerShell non consente di impostare le autorizzazioni necessarie per l'accesso degli utenti in un sito Web.
 
 Dopo aver ottenuto l'ID client e l'ID tenant, includerli come risorsa secondaria dell'app Web o app per le API nel modello di distribuzione:
 

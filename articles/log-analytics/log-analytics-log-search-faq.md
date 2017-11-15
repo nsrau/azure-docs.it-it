@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Nuova ricerca log in Log Analytics - domande frequenti e problemi noti
 
@@ -38,13 +38,6 @@ No, alcune modifiche delle azioni webhook e runbook potrebbero richiedere di cam
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>Domanda: Durante il tentativo di usare gruppi di computer vengono visualizzati degli errori.  La sintassi è stata modificata?
 Sì, quando si aggiorna l'area di lavoro, la sintassi per l'uso di gruppi di computer cambia.  Per informazioni dettagliate, vedere [Gruppi di computer nelle ricerche nei log in Log Analytics](log-analytics-computer-groups.md).
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>Problema noto: Gruppi importati da Active Directory
-Attualmente, è possibile creare una query che usi un gruppo di computer importato da Active Directory.  In alternativa, finché questo problema non verrà risolto, creare un nuovo gruppo di computer da usare nella query tramite il gruppo Active Directory importato.
-
-Di seguito viene riportata una query di esempio per creare un nuovo gruppo di computer che includa un gruppo Active Directory importato:
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>Dashboard
@@ -76,11 +69,6 @@ Minify è una funzionalità che offre una visualizzazione riepilogata dei risult
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problema noto: I risultati della ricerca in un elenco possono includere proprietà senza dati
-I risultati della ricerca log in un elenco possono includere proprietà senza dati.  Prima dell'aggiornamento, queste proprietà non sono incluse.  Questo problema verrà corretto in modo che le proprietà vuote non vengano visualizzate.
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Problema noto: La selezione di un valore in un grafico non visualizza risultati dettagliati
-Prima dell'aggiornamento, selezionando un valore in un grafico verrà restituito un elenco dettagliato di record corrispondente al valore selezionato.  Dopo l'aggiornamento, verrà restituita solo la riga di riepilogo singola.  Questo problema è attualmente in fase di analisi.
 
 ## <a name="log-search-api"></a>API di ricerca nei log
 
@@ -109,11 +97,9 @@ Dopo l'aggiornamento, per l'esecuzione di query Log Analytics il browser richied
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Domanda: L'aggiornamento implica modifiche per l'integrazione con Power BI?
-Sì.  Dopo aver aggiornato l'area di lavoro, il processo per esportare i dati di Log Analytics in Power BI non funzionerà più.  Le pianificazioni esistenti create prima dell'aggiornamento verranno disabilitate.  Dopo l'aggiornamento, Azure Log Analytics usa la stessa piattaforma di Application Insights e il processo per esportare le query di Log Analytics in Power BI è uguale al [processo usato per esportare le query di Application Insights in Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Sì.  Dopo aver aggiornato l'area di lavoro, il processo per esportare i dati di Log Analytics in Power BI non funzionerà più.  Le pianificazioni esistenti create prima dell'aggiornamento verranno disabilitate.  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>Problema noto: Limite di dimensioni richiesta in Power BI
-Per l'esportazione di una query Log Analytics in Power BI è attualmente prevista una dimensione massima di 8 MB.  Questo limite verrà presto incrementato.
-
+Dopo l'aggiornamento, Azure Log Analytics usa la stessa piattaforma di Application Insights e il processo per esportare le query di Log Analytics in Power BI è uguale al [processo usato per esportare le query di Application Insights in Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  L'esportazione in Power BI ora chiama direttamente l'endpoint API. Ciò consente di ottenere fino a 500.000 righe o 64.000.000 di byte di dati, esportare query lunghe e personalizzare il timeout della query (il timeout predefinito è di 3 minuti , mentre il timeout massimo è di 10 minuti).
 
 ## <a name="powershell-cmdlets"></a>Cmdlet PowerShell
 
@@ -153,14 +139,11 @@ Sì.  È necessario usare la versione API di anteprima del 15-03-2017 e includer
 ### <a name="question-will-my-solutions-continue-to-work"></a>Domanda: Le mie soluzioni continueranno a funzionare correttamente?
 Tutte le soluzioni continueranno a funzionare in un'area di lavoro aggiornata, anche se le prestazioni miglioreranno se convertite nel nuovo linguaggio di query.  Esistono alcuni problemi noti con alcune soluzioni esistenti che sono descritte in questa sezione.
 
-### <a name="known-issue-capacity-and-performance-solution"></a>Problema noto: Soluzione Capacità e prestazioni
-Alcune parti della vista [Capacità e prestazioni](log-analytics-capacity.md) possono risultare vuote.  Una soluzione a questo problema sarà disponibile a breve.
-
-### <a name="known-issue-application-insights-connector"></a>Problema noto: Connettore di Application Insights
-Le prospettive nella [soluzione Connettore di Application Insights](log-analytics-app-insights-connector.md) non sono attualmente supportate in un'area di lavoro aggiornata.  Una soluzione per questo problema è attualmente in fase di analisi.
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>Problema noto: Prospettive nel connettore di Application Insights
+Le prospettive nella [soluzione Connettore di Application Insights](log-analytics-app-insights-connector.md) non sono più supportate della soluzione Connettore di Application Insights.  Per creare viste personalizzate con i dati di Application Insights è possibile usare Progettazione viste.
 
 ### <a name="known-issue-backup-solution"></a>Problema noto: soluzione Backup
-La soluzione Backup non raccoglie dati in un'area di lavoro aggiornata. A breve verrà annunciata una nuova soluzione Backup che usa le aree di lavoro aggiornate.
+La soluzione Backup non può raccogliere i dati se è stata installata prima dell'aggiornamento di un'area di lavoro. Disinstallare la soluzione e quindi installare la versione più recente.  La nuova versione della soluzione non supporta gli insiemi di credenziali di Backup classici, pertanto per continuare a usare la soluzione è necessario eseguire l'aggiornamento anche agli insiemi di credenziali dei Servizi di ripristino.
 
 ## <a name="upgrade-process"></a>Processo di aggiornamento
 
@@ -182,9 +165,6 @@ Prima della disponibilità generale, era possibile ripristinare l'area di lavoro
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Domanda: Come si crea una nuova vista con Progettazione viste?
 Prima dell'aggiornamento, è possibile creare una nuova vista con Progettazione viste da un riquadro nel dashboard principale.  Quando l'area di lavoro viene aggiornata, questo riquadro viene rimosso.  È possibile creare una nuova vista con Progettazione viste nel portale OMS facendo clic sul pulsante verde + nel menu di sinistra.
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>Problema noto: L'opzione Tutti per i grafici a linee in Viste non dà origine a un grafico a linee
-Facendo clic sull'opzione *Visualizzare tutto* nella parte inferiore di una parte di un grafico a linee in una vista verrà visualizzata una tabella.  Prima dell'aggiornamento, verrà visualizzato un grafico a linee.  Questo problema è attualmente in fase di analisi per una modifica potenziale.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -4,23 +4,26 @@ description: L'API di ricerca log Log Analytics consente a qualsiasi client API 
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Recuperare i dati da Log Analytics con uno script Python
 L'[API di ricerca log Log Analytics](log-analytics-log-search-api.md) consente a qualsiasi client API REST di recuperare dati da un'area di lavoro di Log Analytics.  Questo articolo presenta uno script Python di esempio che utilizza l'API di ricerca log Log Analytics.  
+
+>[!NOTE]
+> Questo articolo usa le API di ricerca log con il linguaggio di query legacy di Log Analytics.  A questo articolo verrà fornito un aggiornamento per le aree di lavoro aggiornate al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md).
 
 ## <a name="authentication"></a>Autenticazione
 Questo script utilizza un'entità servizio in Azure Active Directory per l'autenticazione nell'area di lavoro.  Le entità servizio consentono a un'applicazione client di richiedere al servizio l'autenticazione di un account anche se il client non ha il nome dell'account. Prima di eseguire lo script, creare un'entità servizio utilizzando il processo di [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../azure-resource-manager/resource-group-create-service-principal-portal.md).  È necessario fornire allo script l'ID applicazione, l'ID tenant e la chiave di autenticazione. 

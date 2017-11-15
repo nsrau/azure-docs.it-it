@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Trasferire oggetti da e verso Archiviazione BLOB di Azure con .NET
 
@@ -34,25 +34,7 @@ Per completare questa guida introduttiva:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Creare un account di archiviazione usando il portale di Azure
-
-Innanzitutto, creare un nuovo account di archiviazione generico da usare per questa guida rapida. 
-
-1. Aprire e accedere al [portale di Azure](https://portal.azure.com) con il proprio account di Azure. 
-2. Nel menu Hub selezionare **Nuovo** > **Archiviazione** > **Account di archiviazione: BLOB, File, Tabelle, Code**. 
-3. Immettere un nome per l'account di archiviazione. Il nome deve avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole. Deve anche essere univoco.
-4. Impostare `Deployment model` su **Gestione risorse**.
-5. Impostare `Account kind` su **Utilizzo generico**.
-6. Impostare `Performance` su **Standard**. 
-7. Impostare `Replication` su **Archiviazione con ridondanza locale**.
-8. Impostare `Storage service encryption` su **Disabilitato**.
-9. Impostare `Secure transfer required` su **Disabilitato**.
-10. Selezionare la propria sottoscrizione. 
-11. Per `resource group`, crearne una nuova e assegnarle un nome univoco. 
-12. Selezionare `Location` per l'account di archiviazione.
-13. Selezionare **Aggiungi al dashboard** e fare clic su **Crea** per creare l'account di archiviazione. 
-
-Dopo aver creato l'account di archiviazione, questa viene aggiunta al dashboard. Fare clic su di essa per aprirla. In IMPOSTAZIONI fare clic su **Chiavi di accesso**. Selezionare una chiave e copiare la STRINGA DI CONNESSIONE negli Appunti, quindi incollarla in un editor di testo per un usarla in seguito.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
 
@@ -68,7 +50,7 @@ Questo comando consente di duplicare il repository nella cartella locale git. Pe
 
 ## <a name="configure-your-storage-connection-string"></a>Configurare la stringa di connessione di archiviazione
 
-Nell'applicazione è necessario inserire la stringa di connessione per l'account di archiviazione. Aprire il file `app.config` da Esplora soluzioni in Visual Studio. Cercare la voce `StorageConnectionString`. Per **value** sostituire l'intero valore della stringa di connessione con quello salvato dal portale di Azure. `storageConnectionString` dovrebbe essere simile all'esempio riportato di seguito:
+Nell'applicazione è necessario inserire la stringa di connessione per l'account di archiviazione. Aprire il file `app.config` da Esplora soluzioni in Visual Studio. Cercare la voce `StorageConnectionString`. Per **value** sostituire l'intero valore della stringa di connessione con quello salvato dal portale di Azure. `storageConnectionString` dovrebbe essere simile al seguente:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -116,7 +98,10 @@ La prima cosa da fare è creare i riferimenti agli oggetti usati per accedere e 
 
 Dopo aver creato **CloudBlobContainer**, è possibile creare un'istanza dell'oggetto **CloudBlockBlob** che punti al BLOB specifico a cui si è interessati ed esegua operazioni di caricamento, download, copia e così via.
 
-In questa sezione, si creano istanze degli oggetti, si crea un nuovo contenitore e quindi si impostano le autorizzazioni nel contenitore in modo che i BLOB siano pubblici e accessibili solo con un URL. Il contenitore è denominato **quickstartblobs**. 
+> [!IMPORTANT]
+> I nomi dei contenitori devono essere in minuscolo. Per altre informazioni sulla denominazione dei contenitori e dei BLOB vedere [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
+
+In questa sezione si creano istanze degli oggetti, si crea un nuovo contenitore e quindi si impostano le autorizzazioni nel contenitore in modo che i BLOB siano pubblici e accessibili solo con un URL. Il contenitore è denominato **quickstartblobs**. 
 
 Questo esempio usa **CreateIfNotExists** perché si desidera creare un nuovo contenitore ogni volta che si esegue l'esempio. In un ambiente di produzione in cui si usa lo stesso contenitore per tutta l'applicazione, è consigliabile chiamare **CreateIfNotExists** solo una volta. In alternativa, creare il contenitore in anticipo in modo che non sia necessario crearlo nel codice.
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un dashboard personalizzato in Log Analytics di Azure | Documentazione Microsoft
+title: Creare un dashboard personalizzato in Log Analytics di Azure | Microsoft Docs
 description: Questa guida spiega in che modo i dashboard di Log Analytics visualizzano tutte le ricerche log salvate, offrendo un punto di vista unico su tutto l'ambiente.
 services: log-analytics
 documentationcenter: 
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Creare un dashboard personalizzato da usare in Log Analytics
 
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), non è possibile creare nuovi dashboard o modificare i dashboard esistenti. 
-
 Questa guida spiega in che modo i dashboard di Log Analytics visualizzano tutte le ricerche log salvate, offrendo un punto di vista unico su tutto l'ambiente.
+
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), non è possibile modificare il **My Dashboard** (Dashboard personale) esistente. Se l'area di lavoro non dispone di altri riquadri del **My Dashboard** (Dashboard personale), nell'area di lavoro aggiornata non si visualizzerà il **My Dashboard** (Dashboard personale). 
 
 ![Dashboard di esempio](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 

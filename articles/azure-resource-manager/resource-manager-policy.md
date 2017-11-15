@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: cfdbf35b76b6a7f3cddb2deb35dfc475e0fc600f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6faa8b4d259eddb1b26345d8900e829f6ca4dba8
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="resource-policy-overview"></a>Cenni preliminari sui criteri delle risorse
 I criteri delle risorse consentono di definire le convenzioni per le risorse nell'organizzazione. Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se quindi un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
@@ -55,8 +55,6 @@ Azure offre alcune definizioni di criteri predefiniti che possono ridurre il num
 * Tipi di risorse non consentiti
 * Richiedere SQL Server versione 12.0
 * Richiedere la crittografia dell'account di archiviazione
-
-È possibile assegnare uno di questi criteri tramite il [portale](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell) o l'[interfaccia della riga di comando di Azure](resource-manager-policy-create-assign.md#azure-cli).
 
 ## <a name="policy-definition-structure"></a>Struttura delle definizioni di criteri
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
@@ -446,5 +444,5 @@ PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinition
 * Dopo aver definito una regola dei criteri, assegnarla a un ambito. Per assegnare i criteri tramite il portale, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse). Per assegnare i criteri tramite l'API REST, PowerShell o l'interfaccia della riga di comando di Azure, vedere [Assegnare e gestire i criteri tramite script](resource-manager-policy-create-assign.md).
 * Per dei criteri di esempio vedere [Azure resource policy GitHub repository](https://github.com/Azure/azure-policy-samples).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-* Lo schema del criterio è pubblicato in [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
+* Lo schema dei criteri è pubblicato su [http://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](http://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json). 
 

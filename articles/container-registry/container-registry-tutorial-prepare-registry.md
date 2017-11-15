@@ -13,14 +13,14 @@ ms.devlang:
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 009bc990439b95967f0647d1745cbb220b8ca70e
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 75408dc88b23b615971a23dc6235c563229d75aa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Preparare un registro contenitori di Azure con replica geografica
 
@@ -38,13 +38,17 @@ Nelle esercitazioni successive si distribuirà il contenitore dal registro priva
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questa esercitazione richiede che sia in esecuzione l'interfaccia della riga di comando di Azure 2.0.19 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.20 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, come contenitori, immagini dei contenitore e comandi essenziali. Se necessario, vedere [Introduzione a Docker]( https://docs.docker.com/get-started/) per una panoramica sui concetti fondamentali relativi al contenitore.
 
 Per completare questa esercitazione è necessario un ambiente di sviluppo Docker. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
-Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. È pertanto consigliabile un'installazione locale dell'ambiente di sviluppo dell'interfaccia della riga di comando di Azure e di Docker.
+Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. È quindi consigliabile un'installazione locale dell'ambiente di sviluppo dell'interfaccia della riga di comando di Azure e di Docker.
+
+> [!IMPORTANT]
+> La funzionalità di replica geografica del servizio Registro contenitori di Azure è attualmente in versione di **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+>
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
 
@@ -243,10 +247,10 @@ In questa esercitazione è stato creato un registro contenitori privato con repl
 > * Compilazione di un'immagine del contenitore Docker dall'origine applicazione
 > * Esecuzione del push dell'immagine del contenitore nel registro
 
-Passare all'esercitazione successiva per altre informazioni sulla distribuzione del contenitore in più istanze del Servizio app di Azure usando la replica geografica per gestire le immagini in locale.
+Passare all'esercitazione successiva per altre informazioni sulla distribuzione del contenitore in più istanze dell'app Web per contenitori usando la replica geografica per gestire le immagini in locale.
 
 > [!div class="nextstepaction"]
-> [Distribuire i contenitori nelle istanze del Servizio app di Azure](container-registry-tutorial-deploy-app.md)
+> [Distribuire un'app Web dal Registro contenitori di Azure](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

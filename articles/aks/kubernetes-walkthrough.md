@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: a25f91d092c2f72ea1cbc174d1bf8bf48885788a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 89d469b330644b8f5b82a343ea4408d5b8d10b12
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuire un cluster del servizio contenitore di Azure
 
@@ -77,7 +77,7 @@ L'esempio seguente crea un cluster denominato *myK8sCluster* con un nodo.
 az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
 ```
 
-Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato json sul cluster.
+Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato JSON sul cluster.
 
 ## <a name="connect-to-the-cluster"></a>Connettersi al cluster
 
@@ -93,7 +93,7 @@ az aks install-cli
 Per configurare kubectl per la connessione al cluster Kubernetes, eseguire questo comando. Con questo passaggio si scaricano le credenziali e si configura l'interfaccia della riga di comando di Kubernetes per il loro uso.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
 ```
 
 Per verificare la connessione al cluster, usare il comando [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) per restituire un elenco dei nodi del cluster.
@@ -211,7 +211,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 Dopo il passaggio di *EXTERNAL-IP* da *pending* a un *indirizzo IP*, usare `CTRL-C` per arrestare il processo kubectl watch.
 
 ```
-azure-vote-front   LoadBalancer   10.0.37.27   52.175.236.185   80:30572/TCP   2m
+azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 È ora possibile passare all'indirizzo IP esterno per visualizzare l'app Azure Vote.

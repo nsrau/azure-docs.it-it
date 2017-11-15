@@ -1,5 +1,5 @@
 ---
-title: Campionamento della telemetria in Azure Application Insights | Documentazione Microsoft
+title: Campionamento della telemetria in Azure Application Insights | Microsoft Docs
 description: Come tenere sotto controllo il volume della telemetria.
 services: application-insights
 documentationcenter: windows
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -57,7 +57,7 @@ Come in altri tipi di campionamento, l'algoritmo consente di mantenere gli eleme
 
 I punti dati che vengono rimossi dal campionamento non sono disponibili in alcuna funzionalità di Application Insights, ad esempio nell' [esportazione continua](app-insights-export-telemetry.md).
 
-Il campionamento per inserimento non funziona mentre è attivo il campionamento a frequenza fissa o adattivo basato sull'SDK. Se la frequenza di campionamento nell'SDK è inferiore al 100%, la frequenza di campionamento di inserimento impostata viene ignorata.
+Il campionamento per inserimento non funziona mentre è attivo il campionamento a frequenza fissa o adattivo basato sull'SDK. Si noti che il campionamento adattivo è abilitato per impostazione predefinita quando il SDK di ASP.NET è abilitato in Visual Studio o tramite Status Monitor e il campionamento per inserimento è disattivato. Se la frequenza di campionamento nell'SDK è inferiore al 100%, la frequenza di campionamento di inserimento impostata viene ignorata.
 
 > [!WARNING]
 > Il valore visualizzato nel riquadro indica il valore impostato per il campionamento per inserimento. Non rappresenta la frequenza di campionamento effettiva se il campionamento dell'SDK è in funzione.

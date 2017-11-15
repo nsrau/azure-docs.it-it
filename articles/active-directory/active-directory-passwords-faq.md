@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -176,6 +176,11 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   > **R:** La durata della sessione per la reimpostazione della password è di 15 minuti. Dall'inizio dell'operazione di reimpostazione della password l'utente ha 15 minuti per completare l'operazione. Allo scadere di questo periodo di tempo, il passcode monouso inviato per SMS o posta elettronica non sarà più valido.
   >
   >
+* **D: È possibile impedire agli utenti di reimpostare la password?**
+
+  > **R:** Sì, se si usa un gruppo per abilitare la reimpostazione della password self-service è possibile rimuoverli dal gruppo che dà loro questa possibilità.
+  >
+  >
 
 ## <a name="password-change"></a>Modifica della password
 
@@ -187,6 +192,11 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 * **D: Gli utenti possono ricevere una notifica nel portale di Office alla scadenza della propria password locale?**
 
   > **R:** Attualmente è possibile se si usa ADFS seguendo le istruzioni riportate di seguito: [Sending Password Policy Claims with ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) (Invio delle attestazioni dei criteri delle password con ADFS). Se si usa la sincronizzazione dell'hash della password, al momento non è possibile. Ciò avviene perché i criteri della password locale non vengono sincronizzati, pertanto non è possibile inviare notifiche sulla scadenza nel cloud. In entrambi i casi, è anche possibile [inviare notifiche tramite PowerShell agli utenti le cui password stanno per scadere](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **D: È possibile impedire agli utenti di modificare la password?**
+
+  > **R:** Per gli utenti solo cloud non è possibile impedirlo. Per gli utenti locali è possibile selezionare `User cannot change password` e non saranno più in grado di modificare la loro password.
   >
   >
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 76e6e1b826f37bfea7a8463808566191753e4f2d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 05c5149ed6c8502c31539f31bfff046f98dc633d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="push-an-updated-image-to-regional-deployments"></a>Eseguire il push di un'immagine aggiornata nelle distribuzioni regionali
 
@@ -91,6 +91,20 @@ A questo punto, eseguire il push dell'immagine del contenitore aggiornata *acr h
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
+L'output sarà simile al seguente:
+
+```bash
+The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
+c003ed6fc8b8: Pushed
+02b11afef3fd: Layer already exists
+cf17b6f921be: Layer already exists
+c93ae914d31e: Layer already exists
+2eea44510cee: Layer already exists
+670f809bd6d5: Layer already exists
+a75caa09eb1f: Layer already exists
+v1: digest: sha256:e44c0956a21c91e1f5f7bc83f23f1de710c798246df1e0e508c0c88025449646 size: 1792
+```
+
 ## <a name="view-the-webhook-logs"></a>Visualizzare i log dei webhook
 
 Durante la replica dell'immagine è possibile visualizzare i webhook di Registro contenitori di Azure attivati.
@@ -123,7 +137,7 @@ Con una singola operazione `docker push` sono state aggiornate entrambe le distr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è visto come aggiornare il contenitore dell'applicazione Web ed eseguire il push della nuova versione nel registro con replica geografica. I webhook in Registro contenitori di Azure inviano notifica dell'aggiornamento a Servizi app, che attivano un pull locale dai registri replicati.
+In questa esercitazione si è visto come aggiornare il contenitore dell'applicazione Web ed eseguire il push della nuova versione nel registro con replica geografica. I webhook in Registro contenitori di Azure inviano una notifica dell'aggiornamento all'app Web per contenitori, che attiva un pull locale delle repliche dei registri.
 
 In questa esercitazione, l'ultima parte della serie, sono state completate le attività seguenti:
 

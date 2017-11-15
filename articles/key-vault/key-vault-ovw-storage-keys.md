@@ -9,11 +9,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: 1d92ffc03b60695c5ff7b6c3d2ac54808c527efd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: a87877f4b213365442400d113a67964ef942341f
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chiavi dell'account di archiviazione Key Vault
 
@@ -134,15 +134,15 @@ L'output del comando precedente includerà l'entità servizio, denominata *yourK
 
 ### <a name="set-permissions"></a>Impostare le autorizzazioni
 
-Verificare che le autorizzazioni di archiviazione siano impostate su *tutte*. È possibile ottenere yourKeyVaultServicePrincipalId e impostare le autorizzazioni nell'insieme di credenziali tramite i comandi seguenti.
+Verificare che le autorizzazioni di archiviazione siano impostate su *tutte*. È possibile ottenere yourUserPrincipalId e impostare le autorizzazioni nell'insieme di credenziali usando i comandi seguenti.
 
 ```powershell
-Get-AzureRmADUser -SearchString "your name"
+$youruserPrincipalId = (Get-AzureRmADUser -SearchString "your user principal name").Id
 ```
 Cercare ora il nome e ottenere il relativo ObjectId da usare per l'impostazione delle autorizzazioni nell'insieme di credenziali.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $yourKeyVaultServicePrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>Consentire l'accesso

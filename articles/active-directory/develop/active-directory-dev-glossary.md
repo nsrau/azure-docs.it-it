@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 11/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossario per gli sviluppatori di Azure Active Directory
 Questo articolo contiene le definizioni di alcuni dei concetti di base per gli sviluppatori di Azure Active Directory (AD), utili per imparare a sviluppare applicazioni per Azure AD.
@@ -153,13 +153,13 @@ La funzione di accesso di un'applicazione viene in genere usata per implementare
 Processo con cui viene annullata l'autenticazione di un utente finale, rimuovendo lo stato utente associato alla sessione dell'[applicazione client](#client-application) durante l'[accesso](#sign-in)
 
 ## <a name="tenant"></a>tenant
-Un'istanza di una directory di Azure AD è definita tenant di Azure AD. Offre una serie di funzionalità, tra cui:
+Un'istanza di una directory di Azure AD è definita tenant di Azure AD. Fornisce diverse funzionalità, tra cui:
 
 * un servizio di registro per applicazioni integrate
 * autenticazione di account utente e applicazioni registrate
 * endpoint REST necessari per il supporto di diversi protocolli tra cui OAuth2 e SAML, inclusi l'[endpoint di autorizzazione](#authorization-endpoint), l'[endpoint di token](#token-endpoint) e l'endpoint "comune" usato dalle [applicazioni multi-tenant](#multi-tenant-application).
 
-Un tenant è anche associato a una sottoscrizione di Azure AD o Office 365 durante il provisioning della sottoscrizione, fornendo funzionalità di gestione delle identità e degli accessi per la sottoscrizione. Per informazioni dettagliate sui vari modi in cui è possibile ottenere l'accesso a un tenant, vedere [Come ottenere un tenant di Azure Active Directory][AAD-How-To-Tenant]. Per informazioni sulla relazione tra sottoscrizioni e un tenant di Azure AD, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory][AAD-How-Subscriptions-Assoc].
+I tenant di Azure AD vengono creati/associati alle sottoscrizioni di Azure e agli abbonamenti a Office 365 durante l'iscrizione, fornendo funzionalità di gestione delle identità e degli accessi per la sottoscrizione. Gli amministratori delle sottoscrizioni di Azure inoltre possono creare altri tenant di Azure AD tramite il portale di Azure. Per informazioni dettagliate sui vari modi in cui è possibile ottenere l'accesso a un tenant, vedere [Come ottenere un tenant di Azure Active Directory][AAD-How-To-Tenant]. Per informazioni sulla relazione tra sottoscrizioni e un tenant di Azure AD, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory][AAD-How-Subscriptions-Assoc].
 
 ## <a name="token-endpoint"></a>endpoint di token
 Uno degli endpoint implementati dal [server di autorizzazione](#authorization-server) per supportare le [concessioni di autorizzazione](#authorization-grant) OAuth2. A seconda della concessione, può essere usato per acquisire un [token di accesso](#access-token) (e un token di "aggiornamento" correlato) per un [client](#client-application) oppure un [token ID](#ID-token) quando viene usato insieme al protocollo [OpenID Connect][OpenIDConnect].

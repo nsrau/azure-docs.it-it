@@ -1,5 +1,5 @@
 ---
-title: Cronologia del rilascio delle versioni dei connettori | Documentazione Microsoft
+title: Cronologia del rilascio delle versioni dei connettori | Microsoft Docs
 description: Questo argomento include l'elenco di tutte le versioni dei connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: 
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
 I connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM) vengono aggiornati frequentemente.
 
 > [!NOTE]
 > L'argomento riguarda solo FIM e MIM. Questi connettori non sono supportati per l'installazione in Azure AD Connect. I Connettori rilasciati sono preinstallati su AADConnect quando si aggiorna alla Build specificata.
+
 
 L'argomento include l'elenco di tutte le versioni dei connettori rilasciate.
 
@@ -37,6 +38,29 @@ Collegamenti correlati:
 * [connettore PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 * [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>Problemi risolti:
+
+* Lotus Notes:
+  * Opzione filtro dei file di certificazione personalizzati
+  * Nell'importazione della classe ImportOperations è stata corretta la definizione di quali operazioni possono essere eseguite in modalità "Viste" e quali in modalità "Ricerca".
+* Generic LDAP:
+  * La directory Open LDAP usa DN come ancoraggio anziché entryUUI. Nuova opzione per il connettore GLDAP che consente di modificare l'ancoraggio
+* Generic SQL:
+  * È stata corretta l'esportazione nel campo di tipo varbinary(max).
+  * Quando si aggiungono dati binari da un'origine dati all'oggetto CSEntry, la funzione DataTypeConversion ha esito negativo in zero byte. È stata corretta la funzione DataTypeConversion della classe CSEntryOperationBase.
+
+
+
+
+### <a name="enhancements"></a>Miglioramenti:
+
+* Generic SQL:
+  * La possibilità di configurare la modalità per l'esecuzione di stored procedure con parametri denominati o non denominati è stata aggiunta in una finestra di configurazione dell'agente di gestione di SQL generico nella pagina "Parametri globali". Nella pagina "Parametri globali" è presente la casella di controllo con l'etichetta "Usare parametri denominati per eseguire una stored procedure" che è responsabile della modalità di esecuzione di stored procedure con parametri denominati o non denominati.
+    * La possibilità di eseguire stored procedure con parametri denominati attualmente funziona solo per i database IBM DB2 e MSSQL. Nei database Oracle e MySQL questo approccio non funziona: 
+      * La sintassi SQL di MySQL non supporta i parametri denominati nelle stored procedure.
+      * Il driver ODBC per Oracle non supporta i parametri denominati per i parametri denominati nelle stored procedure.
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -203,6 +227,22 @@ Prima di marzo 2016, i connettori venivano rilasciati come argomenti relativi al
 * [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, febbraio 2014  
 * [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, ottobre 2013
 * [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, agosto 2013
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi 
+
+> [!NOTE]
+> Quando si aggiorna Microsoft Identity Manager o AADConnect con l'uso di uno qualsiasi dei connettori ECMA2. 
+
+È necessario aggiornare la definizione del connettore dopo l'aggiornamento per creare la corrispondenza. In caso contrario, nel registro eventi dell'applicazione verrà visualizzato l'avviso ID 6947: "Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll" (La versione dell'assieme nella configurazione di AAD Connector ("X.X.XXX.X") è precedente alla versione attuale ("X.X.XXX.X") di "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll).
+
+Per aggiornare la definizione:
+* Aprire le proprietà per l'istanza del connettore.
+* Fare clic sulla scheda Connection/Connect (Connessione/Connect).
+  * Immettere la password per l'account del connettore.
+* Fare clic su ognuna delle schede delle proprietà a turno.
+  * Se questo tipo di connettore dispone di una scheda Partitions (Partizioni) con un pulsante di aggiornamento, fare clic sul pulsante Refresh (Aggiorna) mentre è visualizzata la scheda.
+* Dopo avere visualizzato tutte le schede di proprietà, fare clic sul pulsante OK per salvare le modifiche.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).

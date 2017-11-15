@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: e8ac4bef5af7a98857278b82304bb58f1ac6e342
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 091446fd45b09913dee70dbb4c7e5ebbca02819b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Domande frequenti su Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Nozioni fondamentali su Azure Cosmos DB
@@ -81,7 +81,7 @@ Le sottoscrizioni di prova di Azure Cosmos DB vengono visualizzate nel portale d
 
 Le condizioni seguenti si applicano alle sottoscrizioni di prova di Azure Cosmos DB:
 
-* Un contenitore per sottoscrizione per account SQL (API DocumentDB), Gremlin (API Graph) e Tabella.
+* Un contenitore per sottoscrizione per account SQL (API DocumentDB), Gremlin (API Graph) e API Table.
 * Fino a 3 raccolte per sottoscrizione per gli account MongoDB.
 * 10 GB di capacità di archiviazione.
 * La replica globale è disponibile nelle seguenti [aree di Azure](https://azure.microsoft.com/regions/): Stati Uniti centrali, Europa settentrionale e Asia sudorientale
@@ -181,9 +181,7 @@ Oltre ai codici errore comuni di MongoDB, l'API per MongoDB include codici error
 ## <a name="develop-with-the-table-api-preview"></a>Sviluppo con l'API Table (anteprima)
 
 ### <a name="terms"></a>Termini 
-L'API Table (anteprima) di Azure Cosmos DB fa riferimento all'offerta Premium di Azure Cosmos DB per il supporto di tabelle annunciata in occasione di Build 2017. 
-
-L'SDK per tabelle standard è l'SDK per tabelle di Archiviazione di Azure esistente. 
+L'API Table di Azure Cosmos DB (anteprima) si riferisce all'offerta premium di Azure Cosmos DB relativa a un modello di dati tabellare annunciato con la build 2017. 
 
 ### <a name="how-can-i-use-the-new-table-api-preview-offering"></a>Come si può usare la nuova offerta dell'API Table (anteprima)? 
 L'API Table di Azure Cosmos DB è disponibile nel [portale di Azure][azure-portal]. Per prima cosa, è necessario iscriversi per ottenere una sottoscrizione di Azure. Dopo aver effettuato l'iscrizione, è possibile aggiungere un account API Table di Azure Cosmos DB alla sottoscrizione di Azure e quindi aggiungere tabelle all'account. 
@@ -191,7 +189,7 @@ L'API Table di Azure Cosmos DB è disponibile nel [portale di Azure][azure-porta
 Nel periodo di anteprima, durante il quale sono disponibili [SDK](../cosmos-db/table-sdk-dotnet.md) per .NET, vedere la guida introduttiva all'[API Table](../cosmos-db/create-table-dotnet.md) per iniziare.
 
 ### <a name="do-i-need-a-new-sdk-to-use-the-table-api-preview"></a>È necessario un nuovo SDK per usare l'API Table (anteprima)? 
-Sì. In NuGet è disponibile [Windows Azure Storage Premium Table (Preview) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable). Per altre informazioni, vedere la pagina relativa a [download e note sulla versione dell'API Table .NET di Azure Cosmos DB](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md). 
+Sì, l'[SDK di tabelle Premium (anteprima) di Archiviazione di Microsoft Azure](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) è disponibile in NuGet ed è necessario per usare l'API Table di Azure Cosmos DB. Per altre informazioni, vedere la pagina relativa a [download e note sulla versione dell'API Table .NET di Azure Cosmos DB](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md). 
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>Come si forniscono commenti e suggerimenti sull'SDK o sui bug?
 È possibile condividere commenti e suggerimenti in uno dei modi seguenti:
@@ -219,8 +217,8 @@ Per informazioni sulle impostazioni di configurazione, vedere [Funzionalità di 
     </appSettings>
 
 
-### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-standard-table-sdk"></a>Sono stati introdotti cambiamenti per i clienti che usano l'SDK per tabelle standard esistente?
-Nessuno. Non è stato introdotto alcun cambiamento per i clienti nuovi o esistenti che usano l'SDK per tabelle standard esistente. 
+### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdk"></a>Sono stati introdotti cambiamenti per i clienti che usano l'SDK di archiviazione tabelle di Azure?
+Nessuna. Non è stato introdotto alcun cambiamento per i clienti nuovi o esistenti che usano gli SDK di archiviazione tabelle di Azure esistenti. 
 
 ### <a name="how-do-i-view-table-data-that-is-stored-in-azure-cosmos-db-for-use-with-the-table-api-review"></a>Come si visualizzano i dati di tabella archiviati in Azure Cosmos DB da usare con l'API Table (anteprima)? 
 Per esplorare i dati si può usare il portale di Azure. È anche possibile usare il codice dell'API Table (anteprima) o gli strumenti illustrati nella risposta successiva. 
@@ -239,11 +237,11 @@ Sì. La concorrenza ottimistica è supportata tramite l'uso del meccanismo degli
 ### <a name="is-the-odata-query-model-supported-for-entities"></a>È supportato il modello di query OData per le entità? 
 Sì. L'API Table (anteprima) supporta query OData e query LINQ. 
 
-### <a name="can-i-connect-to-the-standard-azure-table-and-the-new-premium-table-api-preview-side-by-side-in-the-same-application"></a>È supportata la connessione affiancata alla tabella standard di Azure e alla nuova API Table (anteprima) Premium nella stessa applicazione? 
+### <a name="can-i-connect-to-the-azure-table-storage-and-the-azure-cosmos-db-table-api-preview-side-by-side-in-the-same-application"></a>È supportata la connessione affiancata tra archiviazione tabelle di Azure e l'API Table (anteprima) di Azure Cosmos DB? 
 Sì. È possibile connettersi creando due istanze separate di CloudTableClient, ognuna delle quali punta a un URI specifico tramite la stringa di connessione.
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-new-offering"></a>Come si esegue la migrazione di un'applicazione di archiviazione tabelle di Azure esistente a questa nuova offerta?
-Per sfruttare la nuova offerta dell'API Table con dati di archivi tabelle esistenti, contattare [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
+Per sfruttare la nuova offerta dell'API Table di Azure Cosmos DB nei dati di archiviazione tabelle esistenti, contattare [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
 
 ### <a name="what-is-the-roadmap-for-this-service-and-when-will-you-offer-other-standard-table-api-functionality"></a>Qual è la roadmap per questo servizio e quando verranno offerte altre funzionalità standard dell'API Table?
 È prevista l'aggiunta del supporto per i token di firma di accesso condiviso, il contesto del servizio, le statistiche, la crittografia lato client, l'analisi e altre funzionalità nel corso del processo verso la disponibilità generale. È possibile fornire commenti e suggerimenti in [UserVoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api). 
@@ -252,7 +250,7 @@ Per sfruttare la nuova offerta dell'API Table con dati di archivi tabelle esiste
 Azure Cosmos DB è progettato per offrire spazio di archiviazione illimitato tramite scalabilità orizzontale. Il servizio può monitorare e aumentare efficacemente lo spazio di archiviazione. 
 
 ### <a name="how-do-i-monitor-the-table-api-preview-offering"></a>Come si monitora l'offerta dell'API Table (anteprima)?
-È possibile usare il riquadro **Metriche** dell'API Table (anteprima) per monitorare le richieste e l'utilizzo dello spazio di archiviazione. 
+È possibile usare il riquadro **Metriche** dell'API Table (anteprima) nel portale di Azure per monitorare le richieste e l'utilizzo dello spazio di archiviazione. 
 
 ### <a name="how-do-i-calculate-the-throughput-i-require"></a>Come si calcola la velocità effettiva necessaria?
 È possibile usare lo strumento di stima della capacità per calcolare il valore di TableThroughput necessario per le operazioni. Per altre informazioni, vedere [Estimate Request Units and Data Storage](https://www.documentdb.com/capacityplanner) (Stimare le unità richiesta e l'archiviazione dei dati). In generale, è possibile rappresentare un'entità in formato JSON e specificare i numeri relativi alle operazioni. 
@@ -264,16 +262,16 @@ Sì. Quando si usa il nuovo SDK, è possibile usare l'API Table (anteprima) con 
 DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
 ```
 
-### <a name="can-my-existing-application-work-with-the-table-api-preview"></a>È possibile usare un'applicazione esistente con l'API Table (anteprima)? 
-La superficie di attacco della nuova API Table (anteprima) è compatibile con l'SDK per tabelle standard di Azure esistente nelle operazioni di creazione, eliminazione, aggiornamento e query dell'API .NET. Verificare di avere una chiave di riga, perché l'API Table (anteprima) richiede sia una chiave di partizione che una chiave di riga. È prevista anche l'aggiunta di maggiore supporto a livello di SDK nel corso del processo verso la disponibilità generale di questa offerta di servizio.
+### <a name="can-my-existing-azure-table-storage-application-work-with-the-table-api-preview"></a>È possibile usare un'applicazione di archiviazione tabelle di Azure esistente con l'API Table (anteprima)? 
+La superficie di attacco della nuova API Table (anteprima) è compatibile con l'SDK di archiviazione tabelle di Azure esistente nelle operazioni di creazione, eliminazione, aggiornamento ed esecuzione di query dell'API .NET. Verificare di avere una chiave di riga, perché l'API Table (anteprima) richiede sia una chiave di partizione che una chiave di riga. È prevista anche l'aggiunta di maggiore supporto a livello di SDK nel corso del processo verso la disponibilità generale di questa offerta di servizio.
 
-### <a name="do-i-need-to-migrate-my-existing-azure-table-based-applications-to-the-new-sdk-if-i-do-not-want-to-use-the-table-api-preview-features"></a>È necessario eseguire la migrazione delle applicazioni basate su tabelle di Azure esistenti al nuovo SDK se non si vogliono usare le funzionalità dell'API Table (anteprima)?
-No. È possibile creare e usare asset tabella standard esistenti senza interruzioni di alcun tipo. Se non si usa la nuova API Table (anteprima), tuttavia, non è possibile usufruire dell'indicizzazione automatica, dell'opzione di coerenza aggiuntiva o della distribuzione globale. 
+### <a name="do-i-need-to-migrate-my-existing-azure-table-storage-applications-to-the-new-sdk-if-i-do-not-want-to-use-the-table-api-preview-features"></a>È necessario eseguire la migrazione delle applicazioni di archiviazione tabelle di Azure esistenti al nuovo SDK se non si vogliono usare le funzionalità dell'API Table (anteprima)?
+No. È possibile creare e usare asset di archiviazione tabelle di Azure esistenti senza interruzioni di alcun tipo. Se non si usa la nuova API Table (anteprima), tuttavia, non è possibile usufruire dell'indicizzazione automatica, dell'opzione di coerenza aggiuntiva o della distribuzione globale. 
 
-### <a name="how-do-i-add-replication-of-the-data-in-the-premium-table-api-preview-across-multiple-regions-of-azure"></a>Come si aggiunge la replica in più aree di Azure dei dati dell'API Table (anteprima) Premium?
+### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-preview-across-multiple-regions-of-azure"></a>Come si aggiunge la replica dei dati nell'API Table (anteprima) in più aree di Azure?
 È possibile usare le [impostazioni di replica globale](tutorial-global-distribution-documentdb.md#portal) del portale di Azure Cosmos DB per aggiungere le aree idonee per l'applicazione. Per sviluppare un'applicazione distribuita a livello globale, è consigliabile anche aggiungere l'applicazione con il valore di PreferredLocation impostato sull'area locale, per garantire una bassa latenza di lettura. 
 
-### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-premium-table-api-preview"></a>Come si modifica l'area di scrittura primaria per l'account nell'API Table (anteprima) Premium?
+### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api-preview"></a>Come si modifica l'area di scrittura primaria per l'account nell'API Table (anteprima)?
 È possibile usare il riquadro del portale relativo alla replica globale di Azure Cosmos DB per aggiungere un'area e quindi effettuare il failover nell'area necessaria. Per istruzioni, vedere l'articolo relativo allo [sviluppo con account Azure Cosmos DB tra più aree](regional-failover.md). 
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>Come si configurano le aree di lettura preferite per una bassa latenza quando si distribuiscono i dati? 
@@ -286,26 +284,26 @@ L'API Table (anteprima) offre letture a bassa latenza con la "lettura delle prop
 
 Per impostazione predefinita, l'archivio tabelle di Azure offre coerenza assoluta all'interno di un'area e coerenza finale nelle località secondarie. 
 
-### <a name="does-azure-cosmos-db-offer-more-consistency-levels-than-standard-tables"></a>Azure Cosmos DB offre più livelli di coerenza rispetto alle tabelle standard?
+### <a name="does-the-azure-cosmos-db-table-api-offer-more-consistency-levels-than-azure-table-storage"></a>L'API Table di Azure Cosmos DB offre più livelli di coerenza rispetto all'archiviazione tabelle di Azure?
 Sì. Per informazioni su come trarre vantaggio dalla natura distribuita di Azure Cosmos DB, vedere l'articolo relativo ai [livelli di coerenza](consistency-levels.md). Grazie alle garanzie associate ai livelli di coerenza, possono essere usati in tutta sicurezza. Per altre informazioni, vedere [Funzionalità di Azure Cosmos DB](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>Quando è abilitata la distribuzione globale, quanto tempo è necessario per replicare i dati?
-Viene eseguito il commit permanente dei dati nell'area locale e ne viene effettuato immediatamente il push nelle altre aree, nell'arco di millisecondi. Questa replica dipende solo dal tempo di round trip del data center. Per altre informazioni sulla funzionalità di distribuzione globale di Azure Cosmos DB, vedere l'articolo relativo ad [Azure Cosmos DB come servizio di database distribuito a livello globale in Azure](distribute-data-globally.md).
+Azure Cosmos DB esegue il commit permanente dei dati nell'area locale e ne effettua immediatamente il push in altre aree, nell'arco di millisecondi. Questa replica dipende solo dal tempo di round trip del data center. Per altre informazioni sulla funzionalità di distribuzione globale di Azure Cosmos DB, vedere l'articolo relativo ad [Azure Cosmos DB come servizio di database distribuito a livello globale in Azure](distribute-data-globally.md).
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>È possibile modificare il livello di coerenza delle richieste di lettura?
 Con Azure Cosmos DB, è possibile impostare il livello di coerenza a livello di contenitore (nella tabella). Usando l'SDK, si può modificare il livello specificando il valore della chiave TableConsistencyLevel nel file app.config. I valori possibili sono: Strong, Bounded Staleness, Session, Consistent Prefix ed Eventual. Per altre informazioni, vedere [Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB](consistency-levels.md). Il concetto chiave è che non è possibile impostare un livello di coerenza delle richieste superiore rispetto all'impostazione della tabella. Ad esempio, non è possibile impostare il livello di coerenza Eventual per la tabella e il livello di coerenza Strong per le richieste. 
 
-### <a name="how-does-the-premium-table-api-preview-account-handle-failover-if-a-region-goes-down"></a>Come viene gestito il failover dall'account API Table (anteprima) Premium se un'area diventa inattiva? 
-L'API Table (anteprima) Premium usa la piattaforma distribuita a livello globale di Azure Cosmos DB. Affinché l'applicazione possa tollerare i tempi di inattività del data center, abilitare almeno un'altra area per l'account nel portale di Azure Cosmos DB, come illustrato nell'articolo relativo allo [sviluppo con account Azure Cosmos DB tra più aree](regional-failover.md). Si può impostare la priorità dell'area usando il portale. Vedere l'articolo relativo allo [sviluppo con account Azure Cosmos DB tra più aree](regional-failover.md). 
+### <a name="how-does-the-table-api-preview-account-handle-failover-if-a-region-goes-down"></a>Come viene gestito il failover dall'account API Table (anteprima) se un'area diventa inattiva? 
+L'API Table (anteprima) di Azure Cosmos DB sfrutta la piattaforma distribuita a livello globale di Azure Cosmos DB. Affinché l'applicazione possa tollerare i tempi di inattività del data center, abilitare almeno un'altra area per l'account nel portale di Azure Cosmos DB, come illustrato nell'articolo relativo allo [sviluppo con account Azure Cosmos DB tra più aree](regional-failover.md). Si può impostare la priorità dell'area usando il portale. Vedere l'articolo relativo allo [sviluppo con account Azure Cosmos DB tra più aree](regional-failover.md). 
 
 È possibile aggiungere il numero di aree desiderato per l'account e controllare in quale potrà essere effettuato il failover specificando una priorità di failover. Per usare il database, è necessario includere anche un'applicazione. Nel corso di questa operazione, i clienti non riscontrano tempi di inattività. L'SDK client supporta l'hosting automatico, ovvero può rilevare l'area inattiva ed effettuare automaticamente il failover nella nuova area.
 
-### <a name="is-the-premium-table-api-preview-enabled-for-backups"></a>L'API Table (anteprima) Premium è abilitata per il backup?
-L'API Table (anteprima) Premium usa la piattaforma di Azure Cosmos DB per il backup. I backup vengono eseguiti automaticamente. Per altre informazioni, vedere [Backup online automatico e ripristino con Azure Cosmos DB](online-backup-and-restore.md).
+### <a name="is-the-table-api-preview-enabled-for-backups"></a>L'API Table (anteprima) è abilitata per il backup?
+Sì, l'API Table (anteprima) di Azure Cosmos DB sfrutta la piattaforma di Azure Cosmos DB per il backup. I backup vengono eseguiti automaticamente. Per altre informazioni, vedere [Backup online automatico e ripristino con Azure Cosmos DB](online-backup-and-restore.md).
 
  
 ### <a name="does-the-table-api-preview-index-all-attributes-of-an-entity-by-default"></a>L'API Table (anteprima) indicizza tutti gli attributi di un'entità per impostazione predefinita?
-Sì. Per impostazione predefinita vengono indicizzati tutti gli attributi di un'entità. Per altre informazioni, vedere l'articolo relativo ai [criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md). 
+Sì, tutti gli attributi vengono indicizzati per impostazione predefinita da Azure Cosmos DB. Per altre informazioni, vedere l'articolo relativo ai [criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md). 
 
 ### <a name="does-this-mean-i-do-not-have-to-create-multiple-indexes-to-satisfy-the-queries"></a>Per soddisfare le query è quindi necessario creare più indici? 
 Sì. Azure Cosmos DB offre l'indicizzazione automatica di tutti gli attributi senza definizione di schema. Questa automazione consente agli sviluppatori di concentrarsi sull'applicazione anziché sulla creazione e sulla gestione degli indici. Per altre informazioni, vedere l'articolo relativo ai [criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md).
@@ -358,16 +356,16 @@ Sì. È possibile usare il riquadro relativo alla scalabilità del portale di Az
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>Per le tabelle appena sottoposte a provisioning viene impostato un valore predefinito di TableThroughput?
 Sì. Se non si sostituisce il valore di TableThroughput in app.config e non si usa un contenitore già creato in Azure Cosmos DB, il servizio crea una tabella con velocità effettiva di 400.
  
-### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-standard-table-api"></a>I prezzi per i clienti esistenti dell'API Table standard verranno modificati?
-No. Il prezzo per i clienti esistenti dell'API Table standard non verrà modificato. 
+### <a name="is-there-any-change-of-pricing-for-existing-customers-of-azure-table-storage"></a>I prezzi per i clienti esistenti dell'archiviazione tabelle di Azure sono cambiati?
+Nessuna. Il prezzo per i clienti esistenti dell'archiviazione tabelle di Azure non è cambiato. 
 
 ### <a name="how-is-the-price-calculated-for-the-table-api-preview"></a>Come viene calcolato il prezzo per l'API Table (anteprima)? 
-Il prezzo dipende dal valore di TableThroughput allocato. 
+Il prezzo dell'API Table (anteprima) di DB Cosmos Azure varia a seconda dell'allocazione di TableThroughput. 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-preview-offering"></a>Come si gestisce l'eventuale limitazione nelle tabelle dell'offerta dell'API Table (anteprima)? 
+### <a name="how-do-i-handle-any-throttling-in-table-api-preview-offering"></a>Come si gestisce l'eventuale limitazione nell'offerta dell'API Table (anteprima)? 
 Se la frequenza delle richieste supera la capacità della velocità effettiva di provisioning per il contenitore sottostante, verrà restituito un errore e l'SDK ripeterà la chiamata applicando i criteri di ripetizione dei tentativi.
 
-### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-premium-table-api-preview-offering-of-azure-cosmos-db"></a>Perché è necessario scegliere una velocità effettiva oltre alla chiave di partizione e alla chiave di riga per sfruttare l'offerta dell'API Table (anteprima) Premium di Azure Cosmos DB?
+### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-azure-cosmos-db-table-api-preview"></a>Perché è necessario scegliere una velocità effettiva oltre alla chiave di partizione (PartitionKey) e alla chiave di riga (RowKey) per sfruttare l'API Table (anteprima) di Azure Cosmos DB?
 Azure Cosmos DB imposta una velocità effettiva predefinita per il contenitore, se non se ne specifica una nel file app.config. 
 
 Azure Cosmos DB offre garanzie di prestazioni e latenza, con limiti superiori nelle operazioni. Questa garanzia è possibile quando il motore può applicare la governance nelle operazioni del tenant. L'impostazione di TableThroughput assicura la velocità effettiva e la latenza garantite, perché la piattaforma riserva tale capacità e garantisce l'esito positivo delle operazioni. 
@@ -376,17 +374,17 @@ Azure Cosmos DB offre garanzie di prestazioni e latenza, con limiti superiori ne
 
 ### <a name="azure-storage-sdk-has-been-very-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-new-azure-cosmos-db-offering-seems-to-be-charging-me-even-though-i-have-not-performed-a-single-transaction-or-stored-anything-can-you-please-explain"></a>Azure Storage SDK può essere molto economico se si eseguono raramente query, perché si paga solo per l'archiviazione dei dati. Con la nuova offerta Azure Cosmos DB sembra che vengano effettuati addebiti anche se non si esegue alcuna transazione o non si archiviano dati. Perché?
 
-Azure Cosmos DB è progettato come un sistema basato su contratti di servizio distribuito a livello globale con garanzie di disponibilità, latenza e velocità effettiva. La velocità effettiva riservata in Azure Cosmos DB è garantita, a differenza della velocità effettiva di altri sistemi. Azure Cosmos DB offre funzionalità aggiuntive che sono state richieste dai clienti, come gli indici secondari e la distribuzione globale. Durante il periodo di anteprima è disponibile un modello ottimizzato per la velocità effettiva ed è prevista infine l'introduzione di un modello ottimizzato per l'archiviazione per soddisfare le esigenze dei clienti. 
+Azure Cosmos DB è progettato come un sistema basato su contratti di servizio distribuito a livello globale con garanzie di disponibilità, latenza e velocità effettiva. La velocità effettiva riservata in Azure Cosmos DB è garantita, a differenza della velocità effettiva di altri sistemi. Azure Cosmos DB offre funzionalità aggiuntive che sono state richieste dai clienti, come gli indici secondari e la distribuzione globale.  
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-table-storage-with-the-table-api-preview-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Quando si inseriscono dati nell'archivio tabelle, non viene mai visualizzata una notifica di raggiungimento della quota che indica che la partizione è piena. Con l'API Table (anteprima) viene visualizzato questo messaggio. Questa offerta impone limitazioni e la modifica dell'applicazione esistente?
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-preview-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Quando si inseriscono dati nell'archiviazione tabelle di Azure, non viene mai visualizzata una notifica di raggiungimento della quota che indica che la partizione è piena. Con l'API Table (anteprima) viene visualizzato questo messaggio. Questa offerta impone limitazioni e la modifica dell'applicazione esistente?
 
 Azure Cosmos DB è un sistema basato su contratti di servizio che offre scalabilità illimitata, con garanzie di latenza, velocità effettiva, disponibilità e coerenza. Per assicurarsi le prestazioni Premium garantite, verificare che l'indice e le dimensioni dei dati siano gestibili e scalabili. Il limite di 10 GB per il numero di entità o elementi per chiave di partizione ha lo scopo di assicurare prestazioni di ricerca e di query elevate. Per assicurare la scalabilità dell'applicazione anche per Archiviazione di Azure, è consigliabile *non* creare una partizione critica archiviando tutte le informazioni in una partizione ed eseguendo query su di essa. 
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-new-table-api-preview"></a>La chiave di partizione e la chiave di riga sono ancora necessarie con la nuova API Table (anteprima)? 
-Sì. Dato che la superficie di attacco dell'API Table (anteprima) è simile a quella di Table Storage SDK, la chiave di partizione offre un modo efficiente per distribuire i dati. La chiave di riga è univoca all'interno della partizione. La chiave di riga deve essere presente e non può essere Null come nell'SDK standard. La chiave di riga è lunga 255 byte, mentre la chiave di partizione ha una lunghezza di 100 byte, che verrà presto aumentata a 1 KB. 
+Sì. Dato che la superficie di attacco dell'API Table (anteprima) è simile a quella di Azure Table Storage SDK, la chiave di partizione offre un modo efficiente per distribuire i dati. La chiave di riga è univoca all'interno della partizione. La chiave di riga deve essere presente e non può essere Null come nell'SDK standard. La chiave di riga è lunga 255 byte, mentre la chiave di partizione ha una lunghezza di 100 byte, che verrà presto aumentata a 1 KB. 
 
 ### <a name="what-are-the-error-messages-for-the-table-api-preview"></a>Quali sono i messaggi di errore per l'API Table (anteprima)?
-Dato che questa anteprima è compatibile con la tabella standard, la maggior parte degli errori sarà mappata agli errori della tabella standard. 
+Dato che questa anteprima è compatibile con l'archiviazione tabelle di Azure, la maggior parte degli errori viene mappata agli errori della tabella standard. 
 
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api-preview"></a>Perché quando si prova a creare numerose tabelle una dopo l'altra nell'API Table (anteprima) viene applicata la limitazione?
 Azure Cosmos DB è un sistema basato su contratti di servizio che offre garanzie di latenza, velocità effettiva, disponibilità e coerenza. Dato che è un sistema con provisioning, riserva risorse per garantire tali requisiti. La rapida frequenza di creazione delle tabelle viene rilevata e limitata. È consigliabile esaminare la frequenza di creazione di tabelle e ridurla a meno di 5 al minuto. Tenere presente che l'API Table (anteprima) è un sistema con provisioning. Il relativo pagamento ha inizio nel momento in cui ne viene effettuato il provisioning. 
@@ -411,7 +409,7 @@ Azure Cosmos DB è stato introdotto come "progetto Florence" nel 2010 per far fr
 
 Da quel momento sono state aggiunte nuove importanti funzionalità. Il risultato è Azure Cosmos DB. Nell'ambito di questo rilascio, i clienti di DocumentDB, con i relativi dati, diventano in modo automatico e trasparente clienti di Azure Cosmos DB. Queste funzionalità riguardano il motore di database principale, ma anche distribuzione globale, scalabilità elastica e contratti di servizio completi, leader del settore. In particolare, il motore di database di Azure Cosmos DB è stato sviluppato per ottenere un mapping efficiente di tutti i più comuni modelli di dati, sistemi di tipi e API al modello di dati sottostante di Azure Cosmos DB. 
 
-Il risultato di questo miglioramento più evidente per gli sviluppatori è attualmente il nuovo supporto per le [API di archiviazione tabelle](../cosmos-db/table-introduction.md) e [Gremlin](../cosmos-db/graph-introduction.md). Questo, però, è solo l'inizio. È prevista l'aggiunta nel corso del tempo di altre API popolari e modelli di dati più recenti con ulteriori miglioramenti in termini di prestazioni e di archiviazione su scala globale. 
+Il risultato di questo miglioramento più evidente per gli sviluppatori è attualmente il nuovo supporto per le [API Gremlin](../cosmos-db/graph-introduction.md) e [API Table](../cosmos-db/table-introduction.md). Questo, però, è solo l'inizio. È prevista l'aggiunta nel corso del tempo di altre API popolari e modelli di dati più recenti con ulteriori miglioramenti in termini di prestazioni e di archiviazione su scala globale. 
 
 È importante sottolineare che il [dialetto SQL](../documentdb/documentdb-sql-query.md) di DocumentDB è sempre stato solo una delle tante API che possono essere supportate da Azure Cosmos DB sottostante. Per gli sviluppatori che usano un servizio completamente gestito come Azure Cosmos DB, l'unica interfaccia per il servizio sono le API esposte dal servizio. Non cambia nulla per i clienti esistenti di DocumentDB. In Azure Cosmos DB è disponibile esattamente la stessa API SQL offerta da DocumentDB. Ora (e in futuro) è possibile accedere ad altre funzionalità prima non accessibili. 
 

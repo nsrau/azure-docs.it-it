@@ -1,5 +1,5 @@
 ---
-title: Gruppi di computer nelle ricerche nei log in Log Analytics | Documentazione Microsoft
+title: Gruppi di computer nelle ricerche nei log in Log Analytics | Microsoft Docs
 description: I gruppi di computer in Log Analytics consentono di limitare l'ambito delle ricerche nei log a uno specifico set di computer.  Questo articolo descrive i diversi metodi disponibili per creare gruppi di computer e come usare tali gruppi in una ricerca nei log.
 services: log-analytics
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: f27f038e0507270c0bfe200cb8c86622ebac5372
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Gruppi di computer nelle ricerche nei log in Log Analytics
 
@@ -109,13 +109,29 @@ Fare clic sulla **x** nella colonna **Rimuovi** per eliminare il gruppo di compu
 
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>Uso di un gruppo di computer in una ricerca nei log
-È possibile usare gruppo di computer in una query trattando il relativo alias come una funzione, in genere con la sintassi seguente:
+È possibile usare gruppo di computer creato da una ricerca log in una query trattando il relativo alias come una funzione, in genere con la sintassi seguente:
 
   `Table | where Computer in (ComputerGroup)`
 
 È ad esempio possibile usare quanto segue per restituire record UpdateSummary solo dei computer in un gruppo di computer denominato mycomputergroup.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+I gruppi di computer importati e i computer in essi inclusi vengono archiviati nella tabella **ComputerGroup**.  Ad esempio, la query seguente restituirà un elenco di computer nel gruppo Computer del dominio da Active Directory. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+La query seguente restituisce i record UpdateSummary solo per i computer in Computer del dominio.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > Se l'area di lavoro usa ancora il [linguaggio di query legacy di Log Analytics](log-analytics-log-search-upgrade.md)>, per fare riferimento a un gruppo di computer in una ricerca log usare la sintassi seguente.  Specificare **Category**> è facoltativo ed è necessario solo se sono presenti gruppi di computer con lo stesso nome in categorie diverse. 

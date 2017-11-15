@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-dotren
-ms.openlocfilehash: 3c62bff7ba37f7e45d73fa2cf67a4aee3b4a7a38
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creare un pool di Azure Batch in una rete virtuale
 
@@ -62,7 +62,12 @@ Per garantire che i nodi di calcolo dei pool di Azure Batch funzionino correttam
 * Il servizio Batch deve comunicare con nodi di calcolo dei pool per la pianificazione delle attività. Per abilitare questa comunicazione, aggiungere una route definita dall'utente per ogni indirizzo IP usando il servizio Batch nell'area in cui è presente l'account Batch. Per ottenere l'elenco di indirizzi IP del servizio Batch, contattare il supporto tecnico di Azure.
 
 * Verificare che il traffico in uscita verso il servizio Archiviazione di Azure (in particolare, gli URL con formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net`) non sia bloccato tramite un Network Appliance locale.
-    
+
+Quando si aggiunge una route definita dall'utente, definire la route per ogni prefisso dell'indirizzo IP di Batch correlato e impostare **Tipo hop successivo** su **Internet**. Vedere l'esempio seguente:
+
+![Route definita dall'utente](./media/batch-virtual-network/user-defined-route.png)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica dettagliata di Batch, vedere [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).
+- Per altre informazioni sulla creazione di una route definita dall'utente, vedere [Creare una route definita dall'utente - Portale di Azure](../virtual-network/create-user-defined-route-portal.md).

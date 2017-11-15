@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2016
+ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: edbf797e6277a65b5311e4939f5ab72776b11557
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Ottimizzare le query Hive in Azure HDInsight
 
@@ -110,7 +110,7 @@ Una volta creata la tabella partizionata, è possibile creare il partizionamento
               L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
              L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as           L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as           L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as      L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
 
-Per ulteriori informazioni, vedere [Tabelle partizionate](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
+Per altre informazioni, vedere [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) (Tabelle partizionate).
 
 ## <a name="use-the-orcfile-format"></a>Utilizzare il formato ORCFile
 Hive supporta diversi formati di file. Ad esempio:
@@ -180,11 +180,11 @@ Esistono altri metodi di ottimizzazione che è possibile considerare, ad esempio
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo sono stati illustrati vari metodi di ottimizzazione delle query comuni di Hive. Per altre informazioni, vedere gli articoli seguenti:
 
-* [Usare Apache Hive in HDInsight](hdinsight-use-hive.md)
+* [Usare Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
 * [Analizzare i dati sui ritardi dei voli mediante Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
 * [Analizzare i dati Twitter mediante Hive in HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight](hdinsight-hive-analyze-sensor-data.md)
-* [Usare Hive con HDInsight per analizzare i log dei siti Web](hdinsight-hive-analyze-website-log.md)
+* [Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
+* [Usare Hive con HDInsight per analizzare i log dei siti Web](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 55e5a60294fc5ccb2a55b1e572af2fd27c68f462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
 
@@ -61,11 +61,11 @@ Il primo passaggio per applicare la conformità a Criteri di Azure consiste nell
    ![Aprire le definizioni di criteri disponibili](media/create-manage-policy/open-policy-definitions.png)
 
 5. Selezionare **Richiedere SQL Server versione 12.0**.
-   
+
    ![Individuare un criterio](media/create-manage-policy/select-available-definition.png)
 
-6. Specificare un nome visualizzato per l'assegnazione del criterio in **Nome**. In questo caso è possibile usare *Richiedere SQL Server versione 12.0*. È anche possibile aggiungere una **descrizione** facoltativa. La descrizione offre informazioni dettagliate su come questa assegnazione di criterio garantisce che tutte le istanze di SQL Server create in questo ambiente siano nella versione 12.0.
-7. Modificare il piano tariffario impostando **Standard** per garantire che il criterio venga applicato alle risorse esistenti.
+6. Specificare un nome visualizzato per l'assegnazione del criterio in **Nome**. In questo caso è possibile usare *Richiedere SQL Server versione 12.0*. È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su come questa assegnazione di criteri garantisce che tutte le istanze di SQL Server create in questo ambiente siano nella versione 12.0.
+7. Modificare il piano tariffario impostando **Standard** per garantire che i criteri vengano applicati alle risorse esistenti.
 
    Per Criteri di Azure esistono due piani tariffari, ovvero *Gratuito* e *Standard*. Con il piano Gratuito è possibile applicare i criteri solo alle risorse future, mentre con quello Standard è possibile applicarli anche a risorse esistenti per ottenere una migliore comprensione dello stato di conformità. Trattandosi di un'anteprima limitata, non è ancora stato rilasciato un modello di determinazione dei prezzi, quindi non si riceverà fattura selezionando *Standard*. Per altre informazioni sui prezzi, vedere [Prezzi di Criteri di Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
@@ -93,7 +93,7 @@ Dopo aver assegnato la definizione dei criteri, viene creato un nuovo criterio p
       - Parametri dei criteri.
       - Le regole/condizioni del criterio, in questo caso: dimensione dello SKU della VM uguale alla serie G.
       - L'effetto del criterio, in questo caso: **Nega**.
-   
+
    Di seguito viene mostrato l'aspetto del codice json:
 
 ```json
@@ -118,9 +118,225 @@ Dopo aver assegnato la definizione dei criteri, viene creato un nuovo criterio p
 }
 ```
 
+<!-- Update the following link to the top level samples page
+-->
    Per visualizzare esempi di codice json, leggere l'articolo [Cenni preliminari sui criteri delle risorse](../azure-resource-manager/resource-manager-policy.md)
-   
+
 4. Selezionare **Salva**.
+
+## <a name="create-a-policy-definition-with-rest-api"></a>Creare una definizione di criteri con l'API REST
+
+È possibile creare un criterio con l'API REST per le definizioni dei criteri. L'API REST consente di creare ed eliminare le definizioni dei criteri, e di ottenere informazioni sulle definizioni esistenti.
+Per creare una definizione criteri, usare l'esempio seguente:
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+
+```
+Includere un corpo della richiesta in modo simile all'esempio seguente:
+
+```
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+## <a name="create-a-policy-definition-with-powershell"></a>Creare una definizione criteri con PowerShell
+
+Prima di passare all'esempio di PowerShell, verificare di avere installato la versione più recente di Azure PowerShell. I parametri dei criteri sono stati aggiunti nella versione 3.6.0. Se si ha una versione precedente, gli esempi restituiscono un errore che indica che non è possibile trovare il parametro.
+
+È possibile creare una definizione di criterio usando il cmdlet `New-AzureRmPolicyDefinition`.
+
+Per creare una definizione dei criteri da un file passare il percorso al file. Per un file esterno, usare l'esempio seguente:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Per un file locale, usare l'esempio seguente:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Per creare una definizione criteri con una regola inline, usare l'esempio seguente:
+
+```
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+L'output viene archiviato in un oggetto `$definition` che viene usato durante l'assegnazione del criterio.
+L'esempio seguente crea una definizione del criterio che include i parametri:
+
+```
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}'
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+```
+
+## <a name="view-policy-definitions"></a>Visualizzare le definizioni dei criteri
+
+Per visualizzare tutte le definizioni dei criteri nella sottoscrizione, usare il comando seguente:
+
+```
+Get-AzureRmPolicyDefinition
+```
+
+Restituisce tutte le definizioni dei criteri disponibili, inclusi i criteri predefiniti. Tutti i criteri vengono restituiti nel formato seguente:
+
+```
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+## <a name="create-a-policy-definition-with-azure-cli"></a>Creare una definizione criteri con l'interfaccia della riga di comando di Azure
+
+È possibile creare una definizione di criteri usando l'interfaccia della riga di comando di Azure con il comando di definizione dei criteri.
+Per creare una definizione criteri con una regola inline, usare l'esempio seguente:
+
+```
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+## <a name="view-policy-definitions"></a>Visualizzare le definizioni dei criteri
+
+Per visualizzare tutte le definizioni dei criteri nella sottoscrizione, usare il comando seguente:
+
+```
+az policy definition list
+```
+
+Restituisce tutte le definizioni dei criteri disponibili, inclusi i criteri predefiniti. Tutti i criteri vengono restituiti nel formato seguente:
+
+```
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
+}
+```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Creare e assegnare una definizione di iniziativa
 
@@ -166,7 +382,7 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
    - Piano tariffario - Standard
    - Ambito a cui si vuole applicare questa assegnazione - **Azure Advisor Capacity Dev**
 
-5. Selezionare **Assegna**. 
+5. Selezionare **Assegna**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Risolvere una risorsa non conforme o non consentita
 
@@ -205,4 +421,4 @@ In questa esercitazione si è eseguito quanto segue:
 Per altre informazioni sulle strutture delle definizioni di criteri, vedere:
 
 > [!div class="nextstepaction"]
-> [Struttura delle definizioni di criteri](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Struttura delle definizioni di Criteri di Azure](policy-definition.md)

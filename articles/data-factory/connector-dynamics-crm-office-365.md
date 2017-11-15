@@ -11,18 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 74a4fca2ff5a0f913b5cb195f42482339e6200cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1af330596052a92237469aba4729474e7fe417aa
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copiare dati da Dynamics 365/Dynamics CRM usando Azure Data Factory
+
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Dynamics 365/Dynamics CRM. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
-## <a name="supported-scenarios"></a>Scenari supportati
+> [!NOTE]
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Attività di copia nella versione 1](v1/data-factory-data-movement-activities.md).
+
+## <a name="supported-capabilities"></a>Funzionalità supportate
 
 È possibile copiare dati da Dynamics 365/Dynamics CRM in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -39,6 +43,7 @@ In particolare, il connettore Dynamics supporta le versioni di Dynamics e i tipi
 > Per usare il connettore Dynamics, archiviare la password in Azure Key Vault e consentire all'attività di copia di Azure Data Factory di effettuare il pull da qui quando esegue la copia dei dati. Per informazioni sulle procedure di configurazione, vedere la sezione [Proprietà del servizio collegato](#linked-service-properties).
 
 ## <a name="getting-started"></a>introduttiva
+
 È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per Dynamics.

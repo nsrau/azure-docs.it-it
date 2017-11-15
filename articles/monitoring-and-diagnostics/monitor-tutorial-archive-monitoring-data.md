@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiviare i dati di monitoraggio di Azure
 
 I diversi livelli dell'ambiente Azure producono dati di metrica e log che possono essere archiviati in un account di archiviazione di Azure. È consigliabile eseguire questa operazione per mantenere una cronologia dei dati di monitoraggio nel tempo in un archivio non ricercabile e poco costoso alla fine del periodo di conservazione dei dati in Log Analytics o in Monitoraggio di Azure. Questa esercitazione illustra il processo di configurazione dell'ambiente di Azure al fine di archiviare i dati in un account di archiviazione.
+
+> [!div class="checklist"]
+> * Creare un account di archiviazione per conservare i dati di monitoraggio
+> * Indirizzarvi i registri della sottoscrizione 
+> * Indirizzarvi i dati della risorsa 
+> * Indirizzarvi i dati della macchina virtuale, ovvero del sistema operativo guest 
+> * Visualizzare i dati di monitoraggio nell'account di archiviazione 
+> * Pulire le risorse 
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -158,7 +166,18 @@ Ora sono stati configurati correttamente i dati di monitoraggio da archiviare in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come configurare i dati di monitoraggio dell'ambiente di Azure, ovvero sottoscrizione, risorse e sistema operativo guest, da archiviare in un account di archiviazione. Per avere maggiori vantaggi dai dati e ottenere informazioni approfondite, provare a inviare i dati anche in Log Analytics.
+In questa esercitazione è stato descritto come configurare i dati di monitoraggio dell'ambiente di Azure, ovvero sottoscrizione, risorse e sistema operativo guest, da archiviare in un account di archiviazione. 
+
+
+> [!div class="checklist"]
+> * Creare un account di archiviazione per conservare i dati di monitoraggio
+> * Indirizzarvi i registri della sottoscrizione 
+> * Indirizzarvi i dati della risorsa 
+> * Indirizzarvi i dati della macchina virtuale, ovvero del sistema operativo guest 
+> * Visualizzare i dati di monitoraggio nell'account di archiviazione 
+> * Pulire le risorse 
+
+Per sfruttare al meglio i dati e derivare informazioni aggiuntive, inviare i dati anche a Log Analytics.
 
 > [!div class="nextstepaction"]
 > [Introduzione a Log Analytics](../log-analytics/log-analytics-get-started.md)

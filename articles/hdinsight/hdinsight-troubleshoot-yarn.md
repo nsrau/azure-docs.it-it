@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 63f2d88ad59661b7fbcffd0aaeb94c58d40bdb73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a30d7a8e3f2e11a0c5ed05c5b68d75d32b138fb9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Risolvere i problemi di YARN tramite Azure HDInsight
 
 Informazioni sui problemi principali che possono verificarsi quando si usano i payload di Apache Hadoop YARN in Apache Ambari unitamente alle risoluzioni.
 
-## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Come creare una nuova coda YARN in un cluster
+## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Come si crea una nuova coda YARN in un cluster?
 
 
 ### <a name="resolution-steps"></a>Procedura per la risoluzione 
@@ -70,7 +70,7 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
 - [Utilità di pianificazione della capacità di YARN](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
-## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Come scaricare i log di YARN da un cluster
+## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Come si scaricano i log di YARN da un cluster?
 
 
 ### <a name="resolution-steps"></a>Procedura per la risoluzione 
@@ -141,6 +141,10 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
 
 - [Connettersi a HDInsight (Hadoop) con SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/) (Concetti e applicazioni di Apache Hadoop YARN)
+
+
+### <a name="see-also"></a>Vedere anche
+[Risolvere i problemi usando Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 

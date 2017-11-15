@@ -1,5 +1,5 @@
 ---
-title: Creazione di un'immagine di macchina virtuale per Azure Marketplace | Documentazione Microsoft
+title: Creazione di un'immagine di macchina virtuale per Azure Marketplace | Microsoft Docs
 description: Istruzioni dettagliate su come creare un'immagine di macchina virtuale per Azure Marketplace acquistabile dagli utenti.
 services: Azure Marketplace
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guida alla creazione di un'immagine di macchina virtuale per Azure Marketplace
 Questo articolo, **Passaggio 2**, illustra la preparazione di dischi rigidi virtuali (VHD) da distribuire in Azure Marketplace. I dischi rigidi virtuali costituiscono la base dello SKU. Il processo varia a seconda che si stia offrendo uno SKU basato su Linux o su Windows. In questo articolo vengono descritti entrambi gli scenari. Questo processo può essere eseguito parallelamente alla [creazione e registrazione dell'account][link-acct-creation].
@@ -290,6 +290,8 @@ Durante il processo di pubblicazione vengono specificati gli URI (Uniform Resour
 
 L'URI di firma di accesso condiviso deve soddisfare i requisiti seguenti:
 
+Nota: le istruzioni seguenti sono applicabili solo ai dischi non gestiti che sono l'unico tipo supportato.
+
 * Per la generazione degli URI di firma di accesso condiviso per i VHD, sono sufficienti le autorizzazioni List e Read­. Evitare di fornire accesso con autorizzazioni di scrittura o eliminazione.
 * La durata dell'accesso deve essere di un minimo di tre (3) settimane dalla creazione dell'URI di firma di accesso condiviso.
 * Per tenere conto dell'ora UTC, selezionare il giorno prima della data corrente. Ad esempio, se la data corrente è il 6 ottobre 2014 selezionare 5/10/2014.
@@ -430,7 +432,7 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite l'interfa
 
 2.  Dopo averlo scaricato, installarlo
 
-3.  Creare un file di PowerShell con il codice seguente e salvarlo in locale
+3.  Creare un file di PowerShell (o un altro script eseguibile) con il codice seguente e salvarlo in locale
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -442,9 +444,9 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite l'interfa
 
     b. **`<Storage Account Key>`**: per dare una chiave all'account di archiviazione
 
-    c. **`<Permission Start Date>`**: per tenere conto dell'ora UTC, selezionare il giorno prima della data corrente. Ad esempio, se la data corrente è il 26 ottobre 2016, selezionare il 25/10/2016
+    c. **`<Permission Start Date>`**: per tenere conto dell'ora UTC, selezionare il giorno prima della data corrente. Ad esempio, se la data corrente è il 26 ottobre 2016, selezionare il valore 25/10/2016. Se si usa la versione 2.0 dell'interfaccia della riga di comando di Azure (comando az), specificare la data e l'ora in Date di inizio e fine, ad esempio: 25-10-2016T00:00:00Z.
 
-    d. **`<Permission End Date>`**: selezionare una data che sia di almeno 3 settimane successiva alla **data di inizio**. Il valore quindi sarà **02/11/2016**.
+    d. **`<Permission End Date>`**: selezionare una data che sia di almeno 3 settimane successiva alla **data di inizio**. Il valore dovrebbe essere **02/11/2016**. Se si usa la versione 2.0 dell'interfaccia della riga di comando di Azure (comando az), specificare la data e l'ora in Date di inizio e fine, ad esempio: 02-11-2016T00:00:00Z.
 
     Di seguito viene riportato il codice di esempio dopo aver aggiornato i parametri appropriati
 
@@ -452,7 +454,7 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite l'interfa
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.  Aprire l'editor di Powershell con la modalità "Esegui come amministratore" e aprire i file nel passaggio #3.
+4.  Aprire l'editor di Powershell con la modalità "Esegui come amministratore" e aprire i file nel passaggio #3. È possibile usare un qualsiasi editor di script disponibile nel sistema operativo.
 
 5.  Eseguire lo script che fornirà l'URL SAS per l'accesso a livello di contenitore
 
@@ -515,7 +517,7 @@ Dopo aver creato l'offerta e lo SKU, è necessario immettere i dettagli relativi
 |Errore durante la copia di immagini: "sp=rl" non è presente nell'URL SAS|Errore: copia di immagini. Non è possibile scaricare il BLOB fornito nell'URI SAS|Aggiornare l'URL SAS con le autorizzazioni impostate come "Lettura" ed "Elenco"|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Errore nella copia di immagini: l'URL SAS presenta spazi vuoti nel nome del file con estensione vhd|Errore: copia di immagini. Non è possibile scaricare il BLOB fornito nell'URI SAS.|Aggiornare l'URL SAS eliminando gli spazi vuoti|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Errore nella copia di immagini: errore di autorizzazione URL SAS|Errore: copia di immagini. Non è possibile scaricare il BLOB a causa dell'errore di autorizzazione|Rigenerare l'URL SAS|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-
+|Errore durante la copia di immagini: i parametri "st" e "se" dell'URL SAS non dispongono di una specifica data e ora completa|Errore: copia di immagini. Non è possibile scaricare il BLOB a causa di un URL SAS errato |I parametri di Date di inizio e fine ("st", "se") dell'URL SAS devono disporre di una specifica data-ora completa, ad esempio 02-11-2017T00:00:00Z e non solo la data o versioni abbreviate dell'ora. È possibile riscontrare questo scenario mediante la versione 2.0 dell'interfaccia della riga di comando di Azure (comando az). Assicurarsi di fornire la specifica completa di data e ora e di rigenerare l'URL SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Passaggio successivo
 Dopo aver specificato i dettagli dello SKU, passare alla [Guida ai contenuti di marketing di Azure Marketplace][link-pushstaging]. In questo passaggio del processo di pubblicazione vengono forniti i contenuti marketing, i prezzi e le altre informazioni necessarie prima di continuare con il **Passaggio 3: Test dell'offerta di macchina virtuale nell'ambiente di staging**, dove vengono testati diversi scenari di casi d'uso prima di distribuire l'offerta in Azure Marketplace per la visibilità pubblica e l'acquisto.  

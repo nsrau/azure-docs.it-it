@@ -1,5 +1,5 @@
 ---
-title: App Web con il servizio di archiviazione tabelle (Node.js) | Microsoft Docs
+title: 'Archiviazione tabelle di Azure: creare un''app Web Node.js | Microsoft Docs'
 description: Esercitazione basata sull'esercitazione per la creazione di un'app Web con Express e in cui vengono aggiunti i servizi di archiviazione di Azure e il modulo di Azure.
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,15 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>Creazione di un'applicazione Web Node.js con Archiviazione
+# <a name="azure-table-storage-nodejs-web-application"></a>Archiviazione tabelle di Azure: applicazione Web Node.js
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>Panoramica
 In questa esercitazione, l'applicazione creata nell'esercitazione [Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure] viene estesa usando le librerie client di Microsoft Azure per Node.js in modo da poter lavorare con i servizi di gestione dati. L'applicazione viene estesa creando un'applicazione elenco di attività basata sul Web che è possibile distribuire in Azure. L'elenco di attività consente a un utente di recuperare le attività, aggiungerne di nuove e contrassegnarle come completate.
 

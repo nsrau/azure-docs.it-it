@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/14/2017
 ms.author: nitinme
-ms.openlocfilehash: 9dd56efb89e07ea61ae431d1ea2accd721cd6502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6be2b9e21d134461dc00d93c3f188c96c6e7af6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Creare cluster HDInsight con Data Lake Store tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ Dopo aver configurato il cluster con Data Lake Store come risorsa di archiviazio
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-primary-storage"></a>Eseguire una query Hive sui dati archiviati in Data Lake Store (come risorsa di archiviazione primaria)
 
-Per eseguire una query Hive, usare l'interfaccia delle visualizzazioni Hive disponibile nel portale di Ambari. Per istruzioni su come usare le visualizzazioni Hive di Ambari, vedere [Usare la visualizzazione Hive con Hadoop in HDInsight](../hdinsight/hdinsight-hadoop-use-hive-ambari-view.md).
+Per eseguire una query Hive, usare l'interfaccia delle visualizzazioni Hive disponibile nel portale di Ambari. Per istruzioni su come usare le visualizzazioni Hive di Ambari, vedere [Usare la visualizzazione Hive con Hadoop in HDInsight](../hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 Quando si usano dati in Data Lake Store, è necessario modificare alcune stringhe.
 
@@ -199,13 +199,14 @@ Per informazioni su come copiare dati dall'archiviazione BLOB a Data Lake Store,
 * [Usare lo strumento AdlCopy per copiare i dati da BLOB di Archiviazione di Azure a Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 
 ### <a name="use-data-lake-store-with-a-spark-cluster"></a>Usare Data Lake Store con un cluster Spark
-È possibile usare un cluster Spark per eseguire processi Spark sui dati archiviati in Data Lake Store. Per altre informazioni, vedere [Usare il cluster HDInsight Spark per analizzare i dati in Data Lake Store](../hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md).
+È possibile usare un cluster Spark per eseguire processi Spark sui dati archiviati in Data Lake Store. Per altre informazioni, vedere [Usare il cluster HDInsight Spark per analizzare i dati in Data Lake Store](../hdinsight/spark/apache-spark-use-with-data-lake-store.md).
 
 
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Usare Data Lake Store in una topologia Storm
-È possibile usare Data Lake Store per scrivere dati da una topologia Storm. Per istruzioni su come ottenere questo scenario, vedere [Usare Azure Data Lake Store con Apache Storm in HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+È possibile usare Data Lake Store per scrivere dati da una topologia Storm. Per istruzioni su come ottenere questo scenario, vedere [Usare Azure Data Lake Store con Apache Storm in HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
 ## <a name="see-also"></a>Vedere anche
+* [Usare Data Lake Store con cluster Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: Creare un cluster HDInsight per usare Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

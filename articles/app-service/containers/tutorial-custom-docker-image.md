@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Usare un'immagine Docker personalizzata per l'app Web per contenitori
 
@@ -279,7 +279,7 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Per fare in
     > [!NOTE]
     > Questa configurazione non consente connessioni esterne al contenitore. SSH è disponibile solo tramite il sito Kudu/SCM. Il sito Kudu/SCM viene autenticato con le credenziali di pubblicazione.
 
-* Un'istruzione [COPY](https://docs.docker.com/engine/reference/builder/#copy) che comunica al motore Docker di copiare il file [sshd_config](http://man.openbsd.org/sshd_config) nella directory */etc/ssh/*. Il file di configurazione deve essere basato su [questo file sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+* Un'istruzione [COPY](https://docs.docker.com/engine/reference/builder/#copy) che comunica al motore Docker di copiare il file [sshd_config](http://man.openbsd.org/sshd_config) nella directory */etc/ssh/*. Il file di configurazione deve essere basato su [questo file sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -493,7 +493,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-In Cloud Shell eseguire il comando [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) per assegnare l'immagine Docker personalizzata all'app web. Sostituire *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_ e _<password>_. Per il Registro contenitori di Azure, *\<docker-registry-server-url>* si presenta nel formato `https://<azure-container-registry-name>.azurecr.io`. 
+In Cloud Shell eseguire il comando [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) per assegnare l'immagine Docker personalizzata all'app web. Sostituire *\<app_name>*, *\<docker-registry-server-url>*, _\<<registry-username>_ e _\<password>_. Per il Registro contenitori di Azure, *\<docker-registry-server-url>* si presenta nel formato `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -534,4 +534,5 @@ Il comando mostra un output simile alla stringa JSON seguente, indicante che la 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Domande frequenti sul Servizio app di Azure in Linux](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Compilare un'app Web Python Docker e PostgreSQL in Azure](tutorial-docker-python-postgresql-app.md)

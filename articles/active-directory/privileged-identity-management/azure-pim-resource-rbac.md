@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barclayn
-ms.openlocfilehash: abaf78428cb12235a659bad5c13d64e8e51f4ba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 114ef434e6167ef2b25b040e35ab3ce1b85151a9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="pim-for-azure-resources-preview"></a>PIM per Risorse di Azure (anteprima)
 
@@ -43,11 +43,12 @@ Azure AD PIM consente di gestire i ruoli predefiniti delle risorse di Azure, olt
 - Gestore della sicurezza e altro ancora
 
 >[!NOTE]
-Gli utenti o i membri di un gruppo assegnati ai ruoli Proprietario o Amministratore Accesso utenti e gli amministratori globali che abilitano la gestione delle sottoscrizioni in Azure AD sono amministratori di risorse. Questi amministratori possono assegnare ruoli, configurare le impostazioni dei ruoli e verificare l'accesso usando PIM per Risorse di Azure. Visualizzare l'elenco di [ruoli predefiniti per le risorse di Azure](../role-based-access-built-in-roles.md)
+Gli utenti o i membri di un gruppo assegnati ai ruoli Proprietario o Amministratore Accesso utenti e gli amministratori globali che abilitano la gestione delle sottoscrizioni in Azure AD sono amministratori di risorse. Questi amministratori possono assegnare ruoli, configurare le impostazioni dei ruoli e verificare l'accesso usando PIM per Risorse di Azure. Visualizzare l'elenco dei [ruoli predefiniti per le risorse di Azure](../role-based-access-built-in-roles.md).
 
 ## <a name="tasks"></a>Attività
 
 PIM offre un comodo accesso per l'attivazione di ruoli, la visualizzazione delle attivazioni/richieste in sospeso, delle approvazioni in sospeso (per i [ruoli della directory di Azure AD](azure-ad-pim-approval-workflow.md)) e delle verifiche in sospeso in attesa della risposta dell'utente dalla sezione Attività nel menu di spostamento a sinistra.
+
 Quando si accede a una delle voci del menu Attività dal punto di ingresso Panoramica, la visualizzazione risultante contiene i risultati per i ruoli della directory di Azure AD e per i ruoli delle risorse di Azure (anteprima). 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
@@ -56,7 +57,7 @@ Ruoli personali contiene un elenco delle assegnazioni a ruoli attivi e idonei de
 
 ## <a name="activate-roles"></a>Attivare i ruoli
 
-L'attivazione dei ruoli per Risorse di Azure (anteprima) introduce una nuova esperienza che consente ai membri dei ruoli idonei di pianificare l'attivazione per una data/ora futura e selezionare una durata di attivazione specifica entro il valore massimo, configurato dagli amministratori. Altre informazioni sull'[attivazione dei ruoli di Azure AD sono disponibili qui](../active-directory-privileged-identity-management-how-to-activate-role.md)
+L'attivazione dei ruoli per Risorse di Azure (anteprima) introduce una nuova esperienza che consente ai membri dei ruoli idonei di pianificare l'attivazione per una data/ora futura e selezionare una durata di attivazione specifica entro il valore massimo, configurato dagli amministratori. Altre informazioni sull'[attivazione dei ruoli di Azure AD sono disponibili qui](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 

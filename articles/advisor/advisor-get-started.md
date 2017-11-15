@@ -14,76 +14,119 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: a662841bebda460d4225e080f16705b3f16fdc46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
 
-Informazioni su come accedere ad Advisor tramite il portale di Azure e ricevere, mettere in pratica, cercare consigli o chiedere consigli aggiornati.
+Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e implementare i consigli.
 
 ## <a name="get-advisor-recommendations"></a>Ricevere consigli da Advisor
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel riquadro sinistro selezionare **Altri servizi**.
-
-3. Nel riquadro del menu del servizio in **Monitoraggio e gestione** fare clic su **Azure Advisor**.  
+2. Nel riquadro sinistro fare clic su **Advisor**.  Se Advisor non è disponibile nel riquadro sinistro, fare clic su **Altri servizi**.  Nel riquadro del menu dei servizi, in **Monitoraggio e gestione** fare clic su **Advisor**.
  Verrà visualizzato il dashboard di Advisor.
 
-   ![Accedere ad Azure Advisor tramite il Portale di Azure](./media/advisor-overview/advisor-azure-portal-menu.png) 
+   ![Accedere ad Azure Advisor tramite il Portale di Azure](./media/advisor-get-started/advisor-portal-menu.png) 
 
-4. Nel dashboard di Advisor selezionare la sottoscrizione per cui si desidera ricevere consigli.  
-Nel dashboard di Advisor vengono visualizzati consigli personalizzati per la sottoscrizione selezionata. 
+4. Nel dashboard di Advisor viene visualizzato un riepilogo dei consigli per tutte le sottoscrizioni selezionate.  È possibile scegliere le sottoscrizioni per le quali si vuole ottenere i consigli usando come filtro il menu a discesa delle sottoscrizioni.
 
-5. Per ricevere consigli per una determinata categoria, fare clic su una delle schede: **Disponibilità elevata**, **Sicurezza**, **Prestazioni** o **Costo**.
+5. Per ricevere consigli per una categoria specifica, fare clic su una delle schede seguenti: **Disponibilità elevata**, **Sicurezza**, **Prestazioni** o **Costo**.
  
 > [!NOTE]
-> Per accedere ai consigli di Advisor, è innanzitutto necessario *registrare la sottoscrizione* con Advisor. Una sottoscrizione viene registrata quando il *proprietario della sottoscrizione* avvia il dashboard di Advisor e fa clic sul pulsante **Ottieni raccomandazioni**. Si tratta di un'*operazione una tantum*. Dopo aver registrato una sottoscrizione, è possibile accedere ai consigli di Advisor come *Proprietario*, *Collaboratore* o *Lettore* di una sottoscrizione, di un gruppo di risorse o di una risorsa specifica.
+> Per usare Azure Advisor con una sottoscrizione, è necessario che un *proprietario* della sottoscrizione avvii il dashboard di Advisor.  Questa azione registra la sottoscrizione con Advisor.  Da questo momento in poi qualsiasi *proprietario*, *collaboratore* o *lettore* della sottoscrizione può accedere ai consigli di Advisor per la sottoscrizione.  
 
-  ![Dashboard di Azure Advisor](./media/advisor-overview/advisor-all-tab.png)
+  ![Dashboard di Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
 ## <a name="get-advisor-recommendation-details-and-implement-a-solution"></a>Ottenere i dettagli dei consigli di Advisor e implementare una soluzione
 
-Il pannello **Raccomandazioni** in Advisor offre informazioni aggiuntive sui consigli. 
+È possibile selezionare un consiglio in Advisor per visualizzare dettagli aggiuntivi, ad esempio le azioni consigliate e le risorse che sono interessate dalle azioni, e per implementare la soluzione del consiglio.  
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e quindi avviare [Azure Advisor](https://aka.ms/azureadvisordashboard).
+1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Nel dashboard **Raccomandazioni Advisor** fare clic su **Ottieni raccomandazioni**.
+2. Selezionare una categoria di consigli per visualizzare l'elenco di suggerimenti disponibili in tale categoria oppure selezionare la scheda **Tutto** per visualizzare tutti i consigli.
 
-3. Nell'elenco dei consigli fare clic su un consigli da esaminare nel dettaglio.  
-Verrà visualizzato il pannello **Raccomandazioni**.
+3. Fare clic su un consiglio che si intende esaminare in dettaglio.
 
-4. Nel pannello **Raccomandazioni** esaminare le informazioni sulle azioni che è possibile eseguire per risolvere un potenziale problema o sfruttare un'opportunità per ridurre i costi. 
-  
-  ![Pannello dei consigli di Advisor](./media/advisor-overview/advisor-recommendation-action-example.png)
+4. Esaminare le informazioni sul consiglio e sulle risorse a cui si applica.
 
-## <a name="search-for-advisor-recommendations"></a>Cercare consigli di Advisor
+5. Fare clic su **Azione consigliata** per implementare il consiglio.
 
-È possibile cercare consigli per un determinato gruppo di risorse o una determinata sottoscrizione. È anche possibile cercare consigli in base allo stato.
+## <a name="filter-advisor-recommendations"></a>Filtrare i consigli di Advisor
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e quindi avviare [Azure Advisor](https://aka.ms/azureadvisordashboard).
+È possibile filtrare i consigli alla ricerca di quello più consono alle proprie esigenze.  Il filtro può essere applicato in base alla sottoscrizione, al tipo di risorsa o allo stato di consiglio.  
 
-2. Cercare i consigli applicando un filtro in base a sottoscrizioni, gruppi di risorse e stato dei consigli (**Attivo** o **Posposto**).
+1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
 
-3. Per visualizzare un elenco di consigli di Advisor in base ai criteri dei filtri di ricerca, fare clic su **Ottieni raccomandazioni**.
+2.  Usare i menu a discesa nel dashboard di Advisor per filtrare in base alla sottoscrizione, al tipo di risorsa o allo stato di consiglio.
 
-  ![Criteri dei filtri di ricerca di Advisor](./media/advisor-get-started/advisor-search.png)
+    ![Criteri dei filtri di ricerca di Advisor](./media/advisor-get-started/advisor-filters.png)
 
 ## <a name="snooze-or-dismiss-advisor-recommendations"></a>Posporre o ignorare i consigli di Advisor
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e quindi avviare [Azure Advisor](https://aka.ms/azureadvisordashboard).
+1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Fare clic su **Ottieni raccomandazioni** e quindi fare clic su un consiglio nell'elenco visualizzato.
+2. Passare al consiglio che si intende posporre o eliminare.
 
-3. Nel pannello **Consigli** fare clic su **Posponi**.  
+3. Fare clic sul consiglio.
 
-   ![Esempio di azione consigliata da Advisor](./media/advisor-get-started/advisor-snooze.png)
+4. Fare clic su **Posponi**. 
 
-4. È possibile specificare il periodo di tempo in base al quale posporre il consiglio oppure selezionare **Mai** per ignorare il consiglio.
+5. È possibile specificare il periodo di tempo in base al quale posporre il consiglio oppure selezionare **Mai** per ignorare il consiglio.
 
+## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Escludere sottoscrizioni o gruppi di risorse da Advisor
+
+È possibile che si disponga di gruppi di risorse, come le risorse di test, e di sottoscrizioni per i quali non si vuole ricevere i consigli di Advisor.  Si può configurare Advisor in modo che generi consigli solo per sottoscrizioni e gruppi di risorse specifici.
+
+> [!NOTE]
+> Per includere o escludere una sottoscrizione o un gruppo di risorse da Advisor, è necessario essere un proprietario della sottoscrizione.  Se non si dispone delle autorizzazioni necessarie per una sottoscrizione o un gruppo di risorse, l'opzione per includere o escludere la sottoscrizione o il gruppo di risorse è disabilitata nell'interfaccia utente.
+
+1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
+
+2. Fare clic su **Configura** nella barra delle azioni.
+
+3. Deselezionare tutte le sottoscrizioni o i gruppi di risorse per i quali non si intende ricevere i consigli di Advisor.
+
+    ![Esempio di configurazione di risorse in Advisor](./media/advisor-get-started/advisor-configure-resources.png)
+
+4. Fare clic sul pulsante **Apply** (Applica).
+
+## <a name="configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation"></a>Configurare la regola di utilizzo medio della CPU per il consiglio sulle macchine virtuali a utilizzo ridotto
+
+Advisor monitora l'utilizzo delle macchine virtuali per 14 giorni, in modo da identificare le macchine virtuali il cui utilizzo è ridotto. Le macchine virtuali con un utilizzo della CPU pari al 5% o inferiore e un utilizzo di rete pari a 7 MB o inferiore per quattro o più giorni sono considerate macchine virtuali a utilizzo ridotto.
+
+Per un'individuazione più mirata delle macchine virtuali a utilizzo ridotto, è possibile perfezionare la regola di utilizzo medio della CPU in base alla sottoscrizione.  La regola di utilizzo medio della CPU può essere impostata su 5%, 10%, 15% o 20%.
+
+> [!NOTE]
+> Per modificare questa regola per identificare le macchine virtuali a utilizzo ridotto, è necessario essere un *proprietario* della sottoscrizione.  Se non si dispone delle autorizzazioni necessarie per una sottoscrizione o un gruppo di risorse, l'opzione per includere o escludere la sottoscrizione o il gruppo di risorse è disabilitata nell'interfaccia utente. 
+
+1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
+
+2. Fare clic su **Configura** nella barra delle azioni.
+
+3. Fare clic sulla scheda **Regole**.
+
+4. Selezionare le sottoscrizioni per cui vuole modificare la regola di utilizzo medio della CPU e quindi fare clic su **Modifica**.
+
+5. Selezionare il valore di utilizzo medio della CPU desiderato e fare clic su **Applica**.
+
+6. Fare clic su **Aggiorna raccomandazioni** per aggiornare i consigli esistenti all'uso della nuova regola di utilizzo medio della CPU. 
+
+   ![Esempio di configurazione di una regola di consiglio in Advisor](./media/advisor-get-started/advisor-configure-rules.png)
+
+## <a name="download-your-advisor-recommendations"></a>Scaricare i consigli di Advisor
+
+Advisor consente di scaricare un riepilogo dei consigli  come file con estensione PDF o con estensione CSV.  Il riepilogo scaricato può essere facilmente condiviso con i colleghi o usato per effettuare analisi personalizzate in base ai dati dei consigli.
+
+1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
+
+2. Nella barra delle azioni fare clic su **Scarica come CSV** o su **Scarica come PDF**.
+
+L'opzione di download rispetta tutti i filtri che sono stati applicati al dashboard di Advisor.  Se si seleziona l'opzione di download mentre si visualizza una categoria di consigli specifica o un consiglio specifico, il riepilogo scaricato includerà solo le informazioni relative alla categoria o al consiglio specifico. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

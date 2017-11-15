@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Come configurare le porte a disponibilità elevata per il servizio di bilanciamento del carico interno
 
@@ -30,7 +30,7 @@ Questo articolo fornisce una distribuzione di esempio delle porte a disponibilit
 
 La figura 1 illustra la configurazione seguente dell'esempio di distribuzione descritto in questo articolo:
 - Le appliance virtuali di rete vengono distribuite nel pool back-end di un servizio di bilanciamento del carico interno dietro la configurazione delle porte a disponibilità elevata. 
-- La route definita dall'utente applicata alla subnet della rete perimetrale instrada tutto il traffico a <?> impostando l'hop successivo come IP virtuale del servizio di bilanciamento del carico interno. 
+- La route definita dall'utente applicata alla subnet della rete perimetrale instrada tutto il traffico verso le appliance virtuali di rete impostando l'hop successivo come IP virtuale del servizio di bilanciamento del carico interno. 
 - Il servizio di bilanciamento del carico interno distribuisce il traffico a una delle appliance virtuali di rete attive in base all'algoritmo di bilanciamento del carico.
 - L'appliance virtuale di rete elabora il traffico e lo inoltra alla destinazione originale nella subnet back-end.
 - Il percorso di ritorno può anche usare la stessa route se viene configurata una route definita dall'utente corrispondente nella subnet back-end. 
@@ -41,19 +41,13 @@ Figura 1: Appliance virtuali di rete distribuite dietro un servizio di bilanciam
 
 ## <a name="preview-sign-up"></a>Iscrizione all'anteprima
 
-Per partecipare all'anteprima della funzionalità Porte a disponibilità elevata in Load Balancer Standard SKU, registrare la propria sottoscrizione per ottenere l'accesso tramite PowerShell o l'interfaccia della riga di comando di Azure 2.0.
+Per partecipare all'anteprima della funzionalità delle porte a disponibilità elevata nel servizio Load Balancer Standard e poter accedere tramite interfaccia della riga di comando di Azure 2.0 o PowerShell, è necessario effettuare una sottoscrizione.  Registrare la sottoscrizione per
 
-- Iscrizione tramite PowerShell
+1. [l'anteprima di Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up) e 
+2. [l'anteprima delle Porte a disponibilità elevata](https://aka.ms/haports#preview-sign-up).
 
-   ```powershell
-   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- Iscrizione tramite l'interfaccia della riga di comando di Azure 2.0
-
-    ```cli
-  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
-    ```
+>[!NOTE]
+>Per usare questa funzionalità, è necessario iscriversi all'[Anteprima Standard](https://aka.ms/lbpreview#preview-sign-up) di Load Balancer oltre alla funzionalità Porte a disponibilità elevata. La registrazione delle funzionalità Porte a disponibilità elevata o Load Balancer Standard (anteprima) potrebbe richiedere fino a un'ora.
 
 ## <a name="configuring-ha-ports"></a>Configurazione di porte a disponibilità elevata
 
@@ -68,6 +62,39 @@ Per questa configurazione il portale di Azure include la casella di controllo **
 ![Configurazione delle porte a disponibilità elevata tramite il portale di Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
 Figura 2: Configurazione delle porte a disponibilità elevata tramite il portale
+
+### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>Configurare la regola di bilanciamento del carico delle porte a disponibilità elevata tramite il modello di Resource Manager
+
+È possibile configurare le porte a disponibilità elevata usando la versione dell'API 2017-08-01 per Microsoft.Network/loadBalancers nella risorsa di Load Balancer. Il frammento JSON seguente illustra le modifiche nella configurazione di Load Balancer per le porte a disponibilità elevata tramite l'API REST.
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
 
 ### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>Configurare la regola del servizio di bilanciamento del carico per le porte a disponibilità elevata con PowerShell
 

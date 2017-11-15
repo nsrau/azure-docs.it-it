@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -94,7 +94,7 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Impostare i criteri di scadenza della password in Azure Active Directory
 
-In qualità di amministratore globale per un servizio cloud Microsoft, è possibile usare il Modulo di Microsoft Azure Active Directory per Windows PowerShell per impostare password utente che non scadono. È inoltre possibile utilizzare cmdlet Windows PowerShell per rimuovere la configurazione senza scadenza, o per vedere quali password utente vengono impostate senza scadenza. Queste indicazioni si applicano ad altri provider, ad esempio Microsoft Intune e Office 365, che si basano sempre su Microsoft Azure Active Directory per i servizi di identità e directory.
+In qualità di amministratore globale per un servizio cloud Microsoft, è possibile usare il Modulo di Microsoft Azure Active Directory per Windows PowerShell per impostare password utente che non scadono. È inoltre possibile utilizzare cmdlet Windows PowerShell per rimuovere la configurazione senza scadenza, o per vedere quali password utente vengono impostate senza scadenza. Queste indicazioni si applicano ad altri provider, ad esempio Microsoft Intune e Office 365, che si basano sempre su Microsoft Azure Active Directory per i servizi di identità e directory. Questa è l'unica parte modificabile dei criteri.
 
 > [!NOTE]
 > Solo le password degli account utente per cui non è usata la sincronizzazione della directory possono essere configurate per non scadere. Per altre informazioni sulla sincronizzazione delle directory, vedere [Integrare le directory locali con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -127,6 +127,9 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 
    * Per impostare la password di un utente senza scadenza, eseguire il cmdlet seguente usando il nome principale utente (UPN) o l'ID utente dell'utente: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * Per impostare le password degli utenti in un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+
+   > [!WARNING]
+   > Se si imposta `-PasswordNeverExpires $true` la password continuerà ancora a invecchiare in base all'attributo `pwdLastSet`. Ciò significa che se si imposta le password in modo che non scadano mai e poi trascorsi oltre 90 giorni in base a `pwdLastSet` si modifica `-PasswordNeverExpires $false`, tutte le password che hanno un `pwdLastSet` superiore a 90 giorni dovranno essere cambiate all'accesso successivo. Questa modifica può influire su un numero elevato di utenti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

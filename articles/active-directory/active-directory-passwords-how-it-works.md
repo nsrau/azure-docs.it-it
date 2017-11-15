@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Approfondimenti sulla reimpostazione della password self-service in Azure AD
 
@@ -88,6 +88,23 @@ Questa opzione determina il numero minimo di metodi di autenticazione o attivit�
 Gli utenti possono scegliere di indicare più metodi di autenticazione, se sono abilitati dall'amministratore.
 
 Se un utente non ha registrato il numero minimo di metodi richiesti, viene visualizzata una pagina di errore che invita a richiedere la reimpostazione della password a un amministratore.
+
+#### <a name="changing-authentication-methods"></a>Modifica dei metodi di autenticazione
+
+Cosa succede se si inizia con un criterio che ha solo un metodo di autenticazione registrato necessario per la reimpostazione o lo sblocco e si passa a due?
+
+| Numero di metodi registrati | Numero di metodi necessari | Risultato |
+| :---: | :---: | :---: |
+| 1 o più | 1 | **Possibilità** di reimpostare o sbloccare |
+| 1 | 2 | **Impossibilità** di reimpostare o sbloccare |
+| 2 o più | 2 | **Possibilità** di reimpostare o sbloccare |
+
+Se si modificano i tipi di metodi di autenticazione che un utente può usare, si potrebbe impedire inavvertitamente agli utenti l'uso della reimpostazione password self-service se questi non dispongono della quantità minima di dati.
+
+Esempio: 
+1. Criteri originali configurati con 2 metodi di autenticazione necessari usando solo il telefono dell'ufficio e domande di sicurezza. 
+2. L'amministratore modifica i criteri in modo da non usare più domande di sicurezza, ma da consentire l'uso del telefono cellulare e di una posta elettronica alternativa.
+3. Gli utenti che non inseriscono il numero di telefono cellulare e l'indirizzo di posta elettronica alternativo nei rispettivi campi non possono reimpostare le password.
 
 ### <a name="how-secure-are-my-security-questions"></a>Sicurezza delle domande di sicurezza
 
@@ -169,6 +186,7 @@ Se è disabilitata, gli utenti possono comunque registrare manualmente le inform
 > [!NOTE]
 > Gli utenti possono ignorare il portale di registrazione per la reimpostazione password facendo clic su Annulla o chiudendo la finestra, ma visualizzeranno la richiesta ogni volta che effettuano l'accesso fino al completamento di registrazione.
 >
+> Questo processo non interromperà la connessione degli utenti che si sono già registrati.
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione
 
@@ -190,7 +208,7 @@ Esempio: nell'ambiente sono presenti quattro amministratori. L'amministratore "A
 
 ## <a name="on-premises-integration"></a>Integrazione locale
 
-Se Azure AD Connect è stato installato, configurato e abilitato, saranno disponibili le opzioni aggiuntive seguenti per le integrazioni locali.
+Se Azure AD Connect è stato installato, configurato e abilitato, saranno disponibili le opzioni aggiuntive seguenti per le integrazioni locali. Se queste opzioni sono disabilitate, il writeback non è stato configurato correttamente, vedere [Configurazione del writeback delle password](active-directory-passwords-writeback.md#configuring-password-writeback) per altre informazioni.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Writeback delle password nella directory locale
 
@@ -214,6 +232,9 @@ La modifica e la reimpostazione della password sono completamente supportate con
 3. **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md) potranno anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
 
 Per testare questo scenario, passare a http://passwordreset.microsoftonline.com con uno di questi utenti partner. Se l'utente ha un indirizzo di posta elettronica alternativo o un indirizzo di posta elettronica per l'autenticazione, la reimpostazione della password funziona come previsto.
+
+> [!NOTE]
+> Gli account Microsoft che hanno ottenuto l'accesso guest al tenant di Azure AD, ad esempio quelli di Hotmail.com, Outlook.com o altri indirizzi di posta elettronica personali, non sono in grado di usare la reimpostazione password self-service di Azure AD e dovranno reimpostare la password usando le informazioni contenute nell'articolo [Quando non riesci ad accedere al tuo account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

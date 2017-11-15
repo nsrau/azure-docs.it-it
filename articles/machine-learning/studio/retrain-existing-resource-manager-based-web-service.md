@@ -1,5 +1,5 @@
 ---
-title: Ripetere il training di un servizio Web predittivo esistente | Documentazione Microsoft
+title: Ripetere il training di un servizio Web predittivo esistente | Microsoft Docs
 description: Informazioni su come ripetere il training di un modello e aggiornare il servizio Web per usare il modello appena sottoposto a training in Azure Machine Learning.
 services: machine-learning
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Ripetere il training di un servizio Web predittivo esistente
 Questo documento descrive il processo di ripetizione del training nello scenario seguente:
@@ -86,9 +86,10 @@ Nella sezione **Basic consumption info** (Informazioni di base sul consumo) dell
 ### <a name="update-the-azure-storage-information"></a>Aggiornare le informazioni di archiviazione di Azure
 Il codice di esempio BES carica un file da un'unità locale (ad esempio, "C:\temp\CensusIpnput.csv") in Archiviazione di Azure, lo elabora e scrive i risultati in Archiviazione di Azure.  
 
-Per aggiornare le informazioni di Archiviazione di Azure è necessario recuperare dal portale classico di Azure il nome dell'account di archiviazione, la chiave e informazioni sul contenitore per l'account di archiviazione e quindi aggiornare i valori corrispondenti nel codice. Dopo aver eseguito l'esperimento, il flusso di lavoro dovrebbe risultare simile al seguente:
+Per aggiornare le informazioni di Archiviazione di Azure è necessario recuperare il nome dell'account di archiviazione, la chiave e le informazioni del contenitore per l'account di archiviazione dal portale di Azure classico e quindi aggiornare i valori corrispondenti nel codice.
+Dopo aver eseguito l'esperimento, il flusso di lavoro risultante dovrebbe essere simile al seguente:
 
-![Flusso di lavoro risultante dopo l'esecuzione][4]valori ng nel codice.
+![Flusso di lavoro risultante dopo l'esecuzione][4]
 
 1. Accedere al portale di Microsoft Azure classico.
 2. Nella colonna di spostamento a sinistra fare clic su **Archiviazione**.
@@ -119,7 +120,9 @@ Quando si specifica il percorso di output nel payload della richiesta, l'estensi
             }
         },
 
-Di seguito è riportato un output di ripetizione del training di esempio: ![Output di ripetizione del training][6]
+Di seguito è riportato un output di ripetizione del training di esempio:
+
+![Output della ripetizione del training.][6]
 
 ## <a name="evaluate-the-retraining-results"></a>Valutare i risultati della ripetizione del training
 Quando si esegue l'applicazione, l'output include l'URL e il token di firma di accesso condiviso necessari per accedere ai risultati della valutazione.

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Eseguire l''aggiornamento da una versione precedente | Documentazione Microsoft'
+title: 'Azure AD Connect: Eseguire l''aggiornamento da una versione precedente | Microsoft Docs'
 description: "Illustra i diversi metodi per eseguire l'aggiornamento alla versione più recente di Azure Active Directory Connect, tra cui l'aggiornamento sul posto e la migrazione swing."
 services: active-directory
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 52fd9375c71c42feaf87f4a0f4220e1cb3889e63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente
 Questo argomento descrive i diversi metodi che è possibile usare per aggiornare l'installazione di Azure Active Directory (Azure AD) Connect alla versione più recente. È consigliabile mantenersi sempre al passo con le versioni di Azure AD Connect. È anche possibile usare le procedure illustrate nella sezione [Migrazione swing](#swing-migration), che consentono di apportare modifiche significative alla configurazione.
@@ -47,6 +47,8 @@ Questo metodo è preferibile quando sono presenti un singolo server e meno di 10
 Se sono state apportate modifiche alle regole di sincronizzazione predefinite, queste regole verranno reimpostate sui valori predefiniti della configurazione al momento dell'aggiornamento. Per assicurarsi che la configurazione venga mantenuta tra un aggiornamento e l'altro, verificare che le modifiche vengano apportate come descritto in [Procedure consigliate per modificare la configurazione predefinita](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
 Durante l'aggiornamento sul posto, è possibile che vengano introdotte modifiche che richiedono l'esecuzione di specifiche attività di sincronizzazione (ad esempio, i passaggi di importazione completa e di sincronizzazione completa) al termine dell'aggiornamento. Per rinviare queste attività, fare riferimento alla sezione [Come rinviare la sincronizzazione completa dopo l'aggiornamento](#how-to-defer-full-synchronization-after-upgrade).
+
+Se si usa Azure AD Connect con un connettore non standard (ad esempio il connettore Generic LDAP e il connettore Generic SQL), è necessario aggiornare la configurazione del connettore corrispondente nel [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) dopo l'aggiornamento sul posto. Per informazioni dettagliate su come aggiornare la configurazione del connettore, consultare la sezione dell'articolo [Cronologia di rilascio delle versioni dei connettori - Troubleshooting (Risoluzione dei problemi)](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Se non si aggiorna la configurazione, i passaggi di importazione ed esportazione non funzioneranno correttamente per il connettore. Viene visualizzato l'errore seguente nel registro eventi dell'applicazione con il messaggio *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll" (La versione dell'assembly nella configurazione di AAD Connector ("X.X.XXX.X") è precedente rispetto alla versione corrente ("X.X.XXX.X") di "C:\Programmi\Microsoft Azure AD Sync\Estensioni\Microsoft.IAM.Connector.GenericLdap.dll).*
 
 ## <a name="swing-migration"></a>Migrazione swing
 Se è presente una distribuzione complessa o molti oggetti, può essere impraticabile eseguire un aggiornamento sul posto nel sistema attivo. Per alcuni clienti questa procedura potrebbe richiedere più giorni, durante i quali non verranno elaborate modifiche differenziali. È possibile usare questo metodo anche quando si pianificano modifiche sostanziali della configurazione e si vogliono provare tali modifiche prima di effettuarne il push nel cloud.

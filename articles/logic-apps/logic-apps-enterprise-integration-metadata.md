@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Gestire i metadati degli elementi dagli account di integrazione per le app per la logica
 
-È possibile definire i metadati personalizzati per gli elementi negli account di integrazione e recuperarli durante il runtime per l'app per la logica. Ad esempio, è possibile specificare i metadati per elementi quali partner, contratti, schemi e mappe; in tutti i casi i metadati vengono archiviati con coppie chiave-valore. Attualmente, gli elementi non possono creare metadati tramite interfaccia utente, ma è possibile usare le API REST per creare i metadati. Per aggiungere metadati quando si crea o si seleziona un partner, un contratto o uno schema nel Portale di Azure, scegliere **Modifica come JSON**. Per recuperare i metadati degli elementi nelle app per la logica, è possibile usare la funzionalità di ricerca elemento dell'account di integrazione.
+È possibile definire i metadati personalizzati per gli elementi negli account di integrazione e recuperarli durante il runtime per l'app per la logica. Ad esempio, è possibile specificare i metadati per elementi quali partner, contratti, schemi e mappe; in tutti i casi i metadati vengono archiviati con coppie chiave-valore. Attualmente, gli elementi non possono creare metadati tramite interfaccia utente, ma è possibile usare le API REST per creare i metadati. Per aggiungere metadati quando si crea o si seleziona un partner, un contratto o uno schema nel portale di Azure, scegliere **Modifica**. Per recuperare i metadati degli elementi nelle app per la logica, è possibile usare la funzionalità di ricerca elemento dell'account di integrazione.
 
 ## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Aggiungere metadati a elementi negli account di integrazione
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 2. Aggiungere un elemento all'account di integrazione, ad esempio, un [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), un [contratto](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) o uno [schema](logic-apps-enterprise-integration-schemas.md).
 
-3.  Selezionare l'elemento, scegliere **Modifica come JSON** e immettere i dettagli dei metadati.
+3.  Selezionare l'elemento, scegliere **Modifica** e immettere i dettagli dei metadati.
 
     ![Immettere i metadati](media/logic-apps-enterprise-integration-metadata/image1.png)
 

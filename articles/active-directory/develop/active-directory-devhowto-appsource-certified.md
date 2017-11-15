@@ -1,5 +1,5 @@
 ---
-title: Come ottenere la certificazione AppSource per Azure Active Directory | Documentazione Microsoft
+title: Come ottenere la certificazione AppSource per Azure Active Directory | Microsoft Docs
 description: Leggere i dettagli su come ottenere la certificazione AppSource per Azure Active Directory.
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: d8e2f8fc19ff879e6a7b632f033fd0ed9d77392a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca5105ff8ec45e703a3fb8e0cbb8666eb0b2c38e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) è la posizione in cui gli utenti aziendali possono trovare, provare e gestire applicazioni SaaS line-of-business (soluzioni SaaS autonome e componenti aggiuntivi per prodotti Microsoft SaaS esistenti).
@@ -108,9 +108,9 @@ Per altre informazioni sull'esperienza di valutazione di AppSource, vedere [ques
 
 
 ## <a name="get-support"></a>Ottenere supporto
-Per l'integrazione di Azure Active Directory, viene usato [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory), con il supporto della community. 
+Per l'integrazione di Azure Active Directory, viene usato [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource), con il supporto della community. 
 
-È consigliabile provare prima a porre le domande in Stack Overflow ed esplorare le problematiche esistenti per vedere se un utente ha già posto la stessa domanda. Assicurarsi di aggiungere alle domande o ai commenti il tag `[azure-active-directory]`.
+È consigliabile provare prima a porre le domande in Stack Overflow ed esplorare le problematiche esistenti per vedere se un utente ha già posto la stessa domanda. Assicurarsi di aggiungere alle domande o ai commenti i tag [`[azure-active-directory]` e `[appsource]`](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

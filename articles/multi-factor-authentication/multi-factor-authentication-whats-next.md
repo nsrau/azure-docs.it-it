@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configurare le impostazioni di Azure Multi-Factor Authentication: anteprima pubblica
 
@@ -29,6 +29,7 @@ Le informazioni in questo articolo sono utili per gestire Azure Multi-Factor Aut
 
 | Funzionalità | Descrizione | 
 |:--- |:--- |
+| [Blocca/Sblocca utenti](#block/unblock-users) |La funzionalità Blocca/Sblocca utenti può impedire agli utenti di ricevere le richieste di autenticazione. |
 | [Avviso di illecito](#fraud-alert) |È possibile configurare e impostare un avviso di illecito in modo che gli utenti possano segnalare i tentativi illeciti di accedere alle loro risorse. |
 | [Bypass monouso](#one-time-bypass) |Un bypass monouso consente a un utente di eseguire l'autenticazione una sola volta "ignorando" Multi-Factor Authentication. |
 | [Messaggi vocali personalizzati](#custom-voice-messages) |I messaggi vocali personalizzati consentono di usare registrazioni o messaggi introduttivi personalizzati con Multi-Factor Authentication. |
@@ -37,6 +38,23 @@ Le informazioni in questo articolo sono utili per gestire Azure Multi-Factor Aut
 | [Password dell'app](#app-passwords) |Una password dell'app consente a un'applicazione che non è in grado di riconoscere MFA di ignorare questa funzionalità e continuare a funzionare. |
 | [Memorizzare Multi-Factor Authentication per dispositivi e browser memorizzati](#remember-multi-factor-authentication-for-devices-that-users-trust) |Consente di memorizzare dispositivi per un determinato numero di giorni dopo che un utente ha effettuato correttamente l'accesso tramite MFA. |
 | [Metodi di verifica selezionabili](#selectable-verification-methods) |Consente di scegliere i metodi di autenticazione disponibili per gli utenti. |
+
+## <a name="blockunblock-users"></a>Blocca/Sblocca utenti
+La funzionalità Blocca/Sblocca utenti può essere usata per impedire agli utenti di ricevere le richieste di autenticazione. Eventuali tentativi di autenticazione per gli utenti bloccati verranno negati automaticamente. Gli utenti bloccati resteranno tali per 90 giorni dal momento in cui vengono bloccati.
+
+### <a name="block-a-user"></a>Bloccare un utente
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
+2. Passare ad **Azure Active Directory** > **MFA Server (Server MFA)** > **Blocca/Sblocca utenti**.
+3. Fare clic su **Aggiungi** per bloccare un utente.
+4. Selezionare il **Gruppo di replica**, immettere il nome utente bloccato come **username@domain.com** e un commento nel campo **Motivo**.
+5. Fare clic su **Aggiungi** per completare il blocco dell'utente.
+
+### <a name="unblock-a-user"></a>Sbloccare un utente
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
+2. Passare ad **Azure Active Directory** > **MFA Server (Server MFA)** > **Blocca/Sblocca utenti**.
+3. Fare clic su **Sblocca** nella colonna **Azione** accanto all'utente che si desidera sbloccare.
+4. Immettere un commento nel campo **Motivo dello sblocco**.
+5. Fare clic su **Sblocca** per completare lo sblocco dell'utente.
 
 ## <a name="fraud-alert"></a>Avviso di illecito
 È possibile configurare e impostare un avviso di illecito in modo che gli utenti possano segnalare i tentativi illeciti di accedere alle loro risorse.  Gli utenti possono segnalare gli illeciti con l'app per dispositivi mobili o tramite il telefono.

@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
+editor: mmacy
 tags: acs, azure-container-service
 keywords: Docker, contenitori, Micro-Service, Kubernetes, DC/OS, Azure
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 848f6cbde49efdcfe96fc58ebc4160e0ea39f3f2
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuire e usare il Registro contenitori di Azure
 
@@ -54,13 +54,19 @@ Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#cr
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare un Registro contenitori di Azure con il comando [az acr create](/cli/azure/acr#create). Il nome di un registro contenitori **deve essere univoco**. Nell'esempio seguente si usa il nome *mycontainerregistry082*.
+Creare un Registro contenitori di Azure con il comando [az acr create](/cli/azure/acr#create). Il nome del registro contenitori **deve essere univoco** in Azure e contenere da 5 a 50 caratteri alfanumerici. Sostituire `<acrName>` con un nome univoco per il registro:
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+```
+
+Ad esempio, per creare un registro contenitori di Azure denominato *mycontainerregistry082*:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-Nella parte restante di questa esercitazione si usa `<acrname>` come segnaposto per il nome del registro contenitori scelto.
+Nella parte restante di questa esercitazione si usa `<acrName>` come segnaposto per il nome del registro contenitori scelto.
 
 ## <a name="container-registry-login"></a>Accesso al registro contenitori
 
@@ -70,7 +76,7 @@ Nella parte restante di questa esercitazione si usa `<acrname>` come segnaposto 
 az acr login --name <acrName>
 ```
 
-Al termine, il comando restituisce un messaggio di accesso riuscito.
+Il comando restituisce un messaggio `Login Succeeded` al termine dell'esecuzione.
 
 ## <a name="tag-container-image"></a>Assegnare tag all'immagine del contenitore
 
@@ -89,13 +95,21 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-Per ottenere il nome loginServer, eseguire questo comando:
+Per ottenere il nome loginServer, eseguire questo comando. Sostituire `<acrName>` con il nome del registro contenitori.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Applicare all'immagine *aci-tutorial-app* il tag del server di accesso del registro contenitori. Aggiungere anche `:v1` alla fine del nome dell'immagine. Questo tag indica il numero di versione dell'immagine.
+Output di esempio:
+
+```
+Result
+------------------------
+mycontainerregistry082.azurecr.io
+```
+
+Applicare all'immagine *aci-tutorial-app* il tag loginServer del registro contenitori. Aggiungere anche `:v1` alla fine del nome dell'immagine. Questo tag indica il numero di versione dell'immagine. Sostituire `<acrLoginServer>` con il risultato del comando `az acr show` appena eseguito.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -117,12 +131,23 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro contenitori di Azure
 
-Eseguire il push dell'immagine *aci-tutorial-app* nel registro.
-
-Usando l'esempio seguente, sostituire il nome del server di accesso del registro contenitori con il nome del server di accesso dell'ambiente in uso.
+Eseguire il push dell'immagine *aci-tutorial-app* nel registro con il comando `docker push`. Sostituire `<acrLoginServer>` con il nome del server di accesso completo ottenuto nel passaggio precedente.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
+```
+
+L'operazione `push` dovrebbe richiedere da alcuni secondi a qualche minuto a seconda della connessione Internet e l'output è simile al seguente:
+
+```bash
+The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
+3db9cac20d49: Pushed
+13f653351004: Pushed
+4cd158165f4d: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
 ## <a name="list-images-in-azure-container-registry"></a>Elencare le immagini in Registro contenitori di Azure

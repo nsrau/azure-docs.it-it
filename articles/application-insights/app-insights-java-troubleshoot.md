@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
 Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco alcuni suggerimenti.
@@ -124,6 +124,13 @@ Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il tra
 **Per quanto tempo vengono conservati i dati nel portale? Tale conservazione è sicura?**
 
 Vedere [Conservazione dei dati e privacy][data].
+
+## <a name="debug-logging"></a>Registrazione del debug
+Application Insights usa `org.apache.http`. Questo è stato spostato all'interno dei file con estensione jar core di Application Insights nello spazio dei nomi `com.microsoft.applicationinsights.core.dependencies.http`. In questo modo Application Insights può gestire gli scenari in cui diverse versioni dello stesso `org.apache.http` coesistono in una base codice. 
+
+>[!NOTE]
+>Se si abilita la registrazione a livello di DEBUG per tutti gli spazi dei nomi nell'app, verrà rispettata da tutti i moduli in esecuzione incluso `org.apache.http` rinominato come `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights non sarà in grado di applicare il filtro per queste chiamate perché la chiamata del registro è stata effettuata dalla libreria di Apache. La registrazione a livello di DEBUG produce una considerevole quantità di dati del registro e non è consigliata per le istanze di produzione in tempo reale.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 **Application Insights è stato correttamente impostato per l'app server Java. Cos'altro è possibile fare?**

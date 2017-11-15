@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 037cd8ac0065adc7572f7a60bac019c05a6e308a
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 9629a86e72e0d5943f0e50e04268720fbedf6c35
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -155,7 +155,7 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche relative
 | sqlDwPolyBase | Se PolyBase viene usato per copiare i dati in SQL Data Warehouse. | Boolean |
 | redshiftUnload | Se UNLOAD viene usato per copiare i dati da Redshift. | Boolean |
 | hdfsDistcp | Se DistCp viene usato per copiare i dati da HDFS. | Boolean |
-| effectiveIntegrationRuntime | Mostra i runtime di integrazione usati per migliorare l'esecuzione dell'attività, nel formato "`<IR name> (<region if it's Azure IR>)`". | Testo (stringa) |
+| effectiveIntegrationRuntime | Mostra gli Integration Runtime usati per migliorare l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)`. | Testo (stringa) |
 | usedCloudDataMovementUnits | Il numero effettivo di unità di spostamento dati cloud durante la copia. | Valore Int32 |
 | redirectRowPath | Percorso del log delle righe incompatibili ignorate nel contenitore di archiviazione BLOB configurato in "redirectIncompatibleRowSettings". Vedere l'esempio seguente. | Testo (stringa) |
 | billedDuration | La durata fatturata per lo spostamento dei dati. | Valore Int32 in secondi |

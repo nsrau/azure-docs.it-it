@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Come utilizzare Ricerca di Azure da un'applicazione .NET
 In questo articolo è descritta una procedura dettagliata per eseguire [.NET SDK di Ricerca di Azure](https://aka.ms/search-sdk). È possibile utilizzare .NET SDK per implementare un'esperienza di ricerca completa nell'applicazione tramite Ricerca di Azure.
@@ -33,7 +33,7 @@ La libreria client definisce classi come `Index`, `Field`, e `Document`, nonché
 
 La versione corrente di Azure Search .NET SDK è ora in disponibilità generale. Per fornire a Microsoft commenti e suggerimenti da incorporare nella prima versione successiva, visitare la [pagina dei commenti](https://feedback.azure.com/forums/263029-azure-search/).
 
-.NET SDK supporta la versione `2016-09-01` dell'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). Questa versione include ora il supporto per gli analizzatori personalizzati, BLOB di Azure e l'Indicizzatore di tabelle di Azure. Le funzionalità di anteprima che *non* sono incluse in questa versione, ad esempio il supporto per l'indicizzazione di file JSON e CSV, sono disponibili in [anteprima](search-api-2015-02-28-preview.md) e tramite la precedente [versione 2.0-preview di .NET SDK](https://aka.ms/search-sdk-preview).
+.NET SDK supporta la versione `2016-09-01` dell'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). Questa versione include ora il supporto per gli analizzatori personalizzati, BLOB di Azure e l'Indicizzatore di tabelle di Azure. Le funzionalità di anteprima che *non* sono incluse in questa versione, ad esempio il supporto per l'indicizzazione di file JSON e CSV, sono disponibili in [anteprima](search-api-2016-09-01-preview.md) e tramite la [versione 4.0.1-preview di .NET SDK](https://aka.ms/search-sdk-preview).
 
 Questo SDK non supporta [operazioni di gestione](https://docs.microsoft.com/rest/api/searchmanagement/), come la creazione e la scalabilità di servizi di ricerca e la gestione delle chiavi API. Se è necessario gestire le risorse di ricerca da un'applicazione .NET, è possibile utilizzare l'[SDK di gestione .NET di Ricerca di Azure](https://aka.ms/search-mgmt-sdk).
 

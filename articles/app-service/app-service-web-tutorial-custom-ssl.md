@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Associare un certificato SSL personalizzato esistente ad app Web di Azure
 
@@ -151,13 +151,13 @@ se è stato usato IIS o _Certreq.exe_ per generare la richiesta di certificato, 
 
 Per caricare il certificato SSL, fare clic su **Certificati SSL** nel riquadro di spostamento sinistro dell'app Web.
 
-Fare clic su **Carica certificato**.
+Fare clic su **Carica certificato**. 
 
 In **File del certificato PFX** selezionare il file PFX. In **Password certificato** digitare la password creata durante l'esportazione del file PFX.
 
 Fare clic su **Carica**.
 
-![Caricamento del certificato](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Caricamento del certificato](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 Dopo che il Servizio app ha terminato il caricamento del certificato, viene visualizzata la pagina **Certificati SSL**.
 
@@ -311,6 +311,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## <a name="public-certificates-optional"></a>Certificati pubblici (facoltativo)
+È possibile caricare i [certificati pubblici](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) nell'app Web. È possibile usare i certificati pubblici con App Web nel Servizio app o nell'Ambiente del servizio app. Se si intende archiviare il certificato nell'archivio certificati LocalMachine, è necessario usare un'app Web nell'Ambiente del servizio app. Per altre informazioni, vedere [come configurare i certificati pubblici nell'App Web](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+
+![Caricare un certificato pubblico](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

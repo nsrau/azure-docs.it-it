@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
 
@@ -131,18 +131,13 @@ Un rischio di accesso è un oggetto usato da Azure Active Directory per tenere t
 
 ### <a name="device-platforms"></a>Piattaforme del dispositivo
 
-Le piattaforme del dispositivo sono caratterizzate dal sistema operativo in esecuzione sul dispositivo:
+La piattaforma del dispositivo è caratterizzata dal sistema operativo in esecuzione nel dispositivo: è possibile definire le piattaforme del dispositivo incluse, nonché le piattaforme del dispositivo esentate dai criteri.  
+Per usare le piattaforme del dispositivo, impostare prima i controlli di configurazione su **Sì** e quindi selezionare tutte oppure una o più piattaforme del dispositivo a cui il criterio si applica. Se si selezionano singole piattaforme del dispositivo, il criterio ha effetto solo su queste piattaforme. In questo caso, gli accessi alle altre piattaforme supportate non sono interessati dal criterio.
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- macOS (anteprima). 
 
 ![Condizioni](./media/active-directory-conditional-access-azure-portal/02.png)
 
-È possibile definire le piattaforme del dispositivo incluse, ma anche quelle escluse da un criterio.  
-Per usare le piattaforme del dispositivo, impostare prima i controlli di configurazione su **Sì** e quindi selezionare tutte oppure una o più piattaforme del dispositivo a cui il criterio si applica. Se si selezionano singole piattaforme del dispositivo, il criterio ha effetto solo su queste piattaforme. In questo caso, gli accessi alle altre piattaforme supportate non sono interessati dal criterio.
+Per un elenco completo delle piattaforme del dispositivo supportate, vedere [Condizione per le piattaforme del dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### <a name="locations"></a>Località

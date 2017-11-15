@@ -1,5 +1,5 @@
 ---
-title: Esempi dell'interfaccia della riga di comando di Azure Cosmos DB | Documentazione Microsoft
+title: Esempi dell'interfaccia della riga di comando di Azure Cosmos DB | Microsoft Docs
 description: Esempi dell'interfaccia della riga di comando di Azure - Creare e gestire account, database, contenitori, aree e firewall di Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 06/07/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 189034b049e776a3b929930be937ec60bc1db241
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 989ef9915028c42a4da817bf2dd3aa5ad2beb2ef
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Esempi dell'interfaccia della riga di comando di Azure Cosmos DB
 
@@ -28,7 +28,7 @@ La tabella seguente include collegamenti a esempi di script di interfaccia della
 | |  |
 |---|---|
 |**Creare account di database e contenitori di Azure Cosmos DB**||
-|[Creare un account API DocumentDB, API Graph o API di tabella](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Consente di creare un account, un database e un contenitore dell'API Azure Cosmos DB da usare con le API DocumentDB, Graph o di tabella. |
+|[Creare un account API di DocumentDB](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Consente di creare un account, un database e un contenitore dell'API Azure Cosmos DB da usare con l'API DocumentDB. |
 | [Creare un account di API MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un singolo account di API MongoDB, database e raccolta di Azure Cosmos DB. |
 |**Scalare Azure Cosmos DB**||
 | [Scalare la velocità effettiva del contenitore](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Modifica la velocità effettiva con provisioning in un contenitore.|

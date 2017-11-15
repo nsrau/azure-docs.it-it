@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fa46d16e2105c0354cc533c58fb9e0093c129ced
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: a8ac18464d0efcc0db96e1667f18f2f853208573
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="introduction-to-azure-container-service-aks"></a>Introduzione al servizio contenitore di Azure
 
@@ -48,13 +48,13 @@ Kubernetes automatizza la distribuzione, il ridimensionamento e la gestione dell
 
 ## <a name="videos"></a>Video
 
-Il supporto per Kubernetes nei servizi contenitore di Azure (Azure Friday, gennaio 2017):
+Servizio contenitore di Azure - Azure Friday, ottobre 2017:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Kubernetes-Support-in-Azure-Container-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Container-Orchestration-Simplified-with-Managed-Kubernetes-in-Azure-Container-Service-AKS/player]
 >
 >
 
-Strumenti per lo sviluppo e la distribuzione di applicazioni in Kubernetes (Azure OpenDev, giugno 2017):
+Strumenti per lo sviluppo e la distribuzione di applicazioni in Kubernetes - Azure OpenDev, giugno 2017:
 
 > [!VIDEO https://channel9.msdn.com/Events/AzureOpenDev/June2017/Tools-for-Developing-and-Deploying-Applications-on-Kubernetes/player]
 >

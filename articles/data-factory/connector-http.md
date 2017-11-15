@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 07f6d0ddac0daf5810d5433c1089114966e80719
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 54afc7d993058ac2b3d2990ba131d334e9332555
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Connettore HTTP in V1](v1/data-factory-http-connector.md).
 
-## <a name="supported-scenarios"></a>Scenari supportati
+## <a name="supported-capabilities"></a>Funzionalità supportate
 
 È possibile copiare dati da un'origine HTTP in qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -72,11 +72,9 @@ Impostare la proprietà "authenticationType" su **Base**, **Digest** o **Windows
 ```json
 {
     "name": "HttpLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "HttpServer",
-        "typeProperties":
-        {
+        "typeProperties": {
             "authenticationType": "Basic",
             "url" : "<HTTP endpoint>",
             "userName": "<username>",
@@ -115,11 +113,9 @@ Se si usa "certThumbprint" per l'autenticazione e il certificato è installato n
 ```json
 {
     "name": "HttpLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "HttpServer",
-        "typeProperties":
-        {
+        "typeProperties": {
             "authenticationType": "ClientCertificate",
             "url": "<HTTP endpoint>",
             "certThumbprint": "<thumbprint of certificate>"
@@ -137,11 +133,9 @@ Se si usa "certThumbprint" per l'autenticazione e il certificato è installato n
 ```json
 {
     "name": "HttpLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "HttpServer",
-        "typeProperties":
-        {
+        "typeProperties": {
             "authenticationType": "ClientCertificate",
             "url": "<HTTP endpoint>",
             "embeddedCertData": "<base64 encoded cert data>",
@@ -260,4 +254,4 @@ Per copiare dati da un database HTTP, impostare il tipo di origine nell'attivit�
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md##supported-data-stores-and-formats).
+Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Cluster HDInsight di Azure con Data Lake Store come risorsa di archiviazione aggiuntiva | Documentazione Microsoft'
+title: 'PowerShell: Cluster HDInsight di Azure con Data Lake Store come risorsa di archiviazione aggiuntiva | Microsoft Docs'
 services: data-lake-store,hdinsight
 documentationcenter: 
 author: nitinme
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 0e2e0d02677013252b0806558535fe970b5c50b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc46e3987f3710bc73ef13a2c195b68f78bd104d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Usare Azure PowerShell per creare un cluster HDInsight con Data Lake Store (come risorsa di archiviazione aggiuntiva)
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Per creare un Archivio Data Lake, seguire questa procedura.
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Configurare l'autenticazione per l'accesso basato sui ruoli all'Archivio Data Lake
-Ogni sottoscrizione di Azure è associata a una Azure Active Directory. Gli utenti e i servizi che accedono alle risorse della sottoscrizione tramite il portale di Azure classico o l'API di Azure Resource Manager devono prima autenticarsi con Azure Active Directory. L'accesso viene concesso alle sottoscrizioni e ai servizi di Azure tramite l'assegnazione del ruolo appropriato in una risorsa di Azure.  Per i servizi, un'entità servizio identifica il servizio in Azure Active Directory (AAD). Questa sezione illustra come concedere a un servizio dell'applicazione, ad esempio HDInsight, l'accesso a una risorsa di Azure, ovvero l'account Archivio Azure Data Lake creato in precedenza, mediante la creazione di un'entità servizio per l'applicazione e l'assegnazione di ruoli a tale entità con Azure PowerShell.
+Ogni sottoscrizione di Azure è associata a una Azure Active Directory. Gli utenti e i servizi che accedono alle risorse della sottoscrizione tramite il portale di Azure o l'API di Azure Resource Manager devono prima autenticarsi con Azure Active Directory. L'accesso viene concesso alle sottoscrizioni e ai servizi di Azure tramite l'assegnazione del ruolo appropriato in una risorsa di Azure.  Per i servizi, un'entità servizio identifica il servizio in Azure Active Directory (AAD). Questa sezione illustra come concedere a un servizio dell'applicazione, ad esempio HDInsight, l'accesso a una risorsa di Azure, ovvero l'account Archivio Azure Data Lake creato in precedenza, mediante la creazione di un'entità servizio per l'applicazione e l'assegnazione di ruoli a tale entità con Azure PowerShell.
 
 Per configurare l'autenticazione di Active Directory per Azure Data Lake, è necessario eseguire queste attività.
 
@@ -264,6 +264,7 @@ Dovrebbe essere elencato anche il file precedentemente caricato in Archivio Data
 È inoltre possibile usare il comando `hdfs dfs -put` per caricare dei file in Archivio Data Lake e quindi usare `hdfs dfs -ls` per verificare che i file siano stati caricati correttamente.
 
 ## <a name="see-also"></a>Vedere anche
+* [Usare Data Lake Store con cluster Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Portale: Creare un cluster HDInsight per usare Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

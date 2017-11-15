@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 749a536fea50d0f45b021cfeaffe8e493faa9b3f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 90d4b51dfaad409298f72887480dfaf827aef9f0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-web-app-from-azure-container-registry"></a>Distribuire un'app Web dal Registro contenitori di Azure
 
@@ -36,7 +36,7 @@ Se non è ancora stato creato il registro contenitori con replica geografica e n
 
 Nella parte successiva della serie viene aggiornata l'applicazione e quindi inserita una nuova immagine del contenitore nel registro. Infine, si esamina ogni istanza dell'app Web in esecuzione per visualizzare le modifiche automaticamente applicate a entrambe, che mostrano il Registro contenitori di Azure con replica geografica e i webhook in azione.
 
-## <a name="automatic-deployment-to-web-app-for-containers"></a>Distribuzione automatica nell'app Web per contenitori
+## <a name="automatic-deployment-to-web-apps-for-containers"></a>Distribuzione automatica nell'app Web per contenitori
 
 Registro contenitori di Azure offre il supporto per la distribuzione di applicazioni nei contenitori direttamente in[App Web per contenitori](../app-service/containers/index.yml). In questa esercitazione, viene usato il portale di Azure per distribuire l'immagine del contenitore creato nell'esercitazione precedente nei due piani di app Web ubicati in aree diverse di Azure.
 
@@ -48,11 +48,11 @@ In questo passaggio viene creata un'istanza di App Web per contenitori nell'area
 
 Accedere al [portale di Azure](https://portal.azure.com) e passare al registro contenitori creato nell'esercitazione precedente.
 
-Selezionare **Repository** > **acr-helloworld**, quindi fare clic sul tag **v1** in **Tag** e selezionare **Distribuisci nel servizio app**.
+Selezionare **Repository** > **acr-helloworld**, quindi fare clic con il pulsante destro del mouse sul tag **v1** in **Tag** e selezionare **Deploy to web app** (Distribuisci nell'app Web).
 
 ![Distribuzione nel servizio app nel portale di Azure][deploy-app-portal-01]
 
-In **App Web in Linux (anteprima)**, specificare i valori seguenti per ogni impostazione:
+In **App Web per contenitori** specificare i valori seguenti per ogni impostazione:
 
 | Impostazione | Valore |
 |---|---|
@@ -71,7 +71,7 @@ Dopo aver completato la distribuzione, è possibile visualizzare l'applicazione 
 
 Nel portale, selezionare **Servizi app**, quindi l'app Web di cui è stato eseguito il provisioning nel passaggio precedente. In questo esempio, l'app Web è denominata *uniqueregistryname-westus*.
 
-Selezionare l'URL con collegamento ipertestuale dell'app Web in alto a destra in **Panoramica di Servizio app** per visualizzare l'applicazione in esecuzione nel browser.
+Selezionare l'URL con collegamento ipertestuale dell'app Web in alto a destra nella panoramica di **Servizio app** per visualizzare l'applicazione in esecuzione nel browser.
 
 ![App Web nella configurazione di Linux nel portale di Azure][deploy-app-portal-04]
 
@@ -81,7 +81,7 @@ Una volta distribuita l'immagine Docker dal Registro contenitori con replica geo
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Distribuire una seconda istanza di App Web per contenitori
 
-Usare la procedura descritta nella sezione precedente per distribuire una seconda app Web nell'area degli *Stati Uniti orientali*. In **App Web in Linux (anteprima)**, specificare i valori seguenti:
+Usare la procedura descritta nella sezione precedente per distribuire una seconda app Web nell'area degli *Stati Uniti orientali*. In **App Web per contenitori** specificare i valori seguenti:
 
 | Impostazione | Valore |
 |---|---|

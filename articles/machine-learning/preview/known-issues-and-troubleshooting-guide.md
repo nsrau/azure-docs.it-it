@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Guida alla risoluzione dei problemi e problemi noti 
 Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso dell'applicazione Azure Machine Learning Workbench. 
@@ -43,7 +43,7 @@ Se si verificano errori durante l'installazione, i file di log del programma di 
 È possibile comprimere i contenuti delle directory e inviarli per la diagnostica.
 
 ### <a name="workbench-desktop-app"></a>App desktop Workbench
-Se desktop Workbench si arresta in modo anomalo, è possibile trovare i file di log qui:
+Se si riscontrano problemi di accesso, o se desktop Workbench si arresta in modo anomalo, è possibile trovare i file di log qui:
 ```
 # Windows
 %APPDATA%\AmlWorkbench
@@ -83,6 +83,23 @@ Quando si usa Azure ML Workbench, è anche possibile inviare una faccia imbronci
 - Le trasformazioni clustering del testo non sono supportate in Mac.
 
 - La libreria RevoScalePy è supportata solo in Windows o in Linux (in contenitori Docker). Non è supportata in macOS.
+
+## <a name="delete-experimentation-account"></a>Eliminare l'account di Sperimentazione
+È possibile usare l'interfaccia della riga di comando per eliminare un account di Sperimentazione, ma è necessario eliminare innanzitutto le aree di lavoro figlio e i progetti figlio al loro interno.
+
+```azure-cli
+# delete a project
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+
+# delete a workspace 
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+
+# delete an experimentation account
+$ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
+```
+
+È anche possibile eliminare i progetti e le aree di lavoro nell'app di Workbench.
+
 
 ## <a name="file-name-too-long-on-windows"></a>Nome file troppo a lungo in Windows
 Se si usa Workbench in Windows, si può incorrere nel limite predefinito di 260 caratteri per la lunghezza del nome file che viene indicato con il fuorviante errore "Impossibile trovare il percorso specificato". È possibile modificare l'impostazione di una chiave del Registro di sistema per consentire nomi di percorso per i file molto più lunghi. Per altre informazioni su come configurare la chiave del Registro di sistema _MAX_PATH_, vedere [questo articolo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath).

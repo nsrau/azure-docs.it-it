@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/20/2017
-ms.openlocfilehash: 3f1ffa20b58c52558e880ed6a0ef4ca674173973
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: 903fd2ff446e1963ab5cfcec745766188b74efcf
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando il portale di Azure
 
@@ -35,7 +35,7 @@ La procedura seguente consente di ripristinare il server di esempio ad un punto 
 
    ![Portale di Azure - Effettuare la ricerca del server](media/postgresql-howto-restore-server-portal/1-locate.png)
 
-3. Sulla barra degli strumenti del pannello Panoramica server fare clic su **Ripristina**. Viene aperto il pannello Ripristina.
+3. Nella barra degli strumenti della pagina di panoramica del server fare clic su **Ripristina**. Verrà visualizzata la pagina Ripristina.
 
    ![Database di Azure per PostgreSQL - Panoramica - Pulsante Ripristino](./media/postgresql-howto-restore-server-portal/2_server.png)
 

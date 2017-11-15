@@ -1,6 +1,6 @@
 ---
-title: Aggiungere nuovi utenti ad Azure Active Directory | Documentazione Microsoft
-description: Viene illustrato come aggiungere nuovi utenti in Azure Active Directory.
+title: Aggiungere o eliminare utenti in Azure Active Directory | Microsoft Docs
+description: Viene illustrato come aggiungere nuovi utenti o eliminare utenti esistenti in Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3df0324cae65418f35743b6543753c405dee01d0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Guida introduttiva: Aggiungere nuovi utenti ad anteprima di Azure Active Directory
 In questo articolo viene illustrato come aggiungere nuovi utenti dell'organizzazione in Azure Active Directory (Azure AD) uno per volta, utilizzando il portale di Azure o sincronizzando i dati dell'account utente Windows Server Active Directory locale. 
@@ -47,7 +47,7 @@ In questo articolo viene illustrato come aggiungere nuovi utenti dell'organizzaz
 
 
 ### <a name="learn-more"></a>Altre informazioni 
-* [Aggiungere un utente esterno](active-directory-users-create-external-azure-portal.md)
+* [Aggiungere utenti guest da un'altra directory](active-directory-b2b-what-is-azure-ad-b2b.md) 
 
 * [Assegnare un utente a un ruolo in Azure AD](active-directory-users-assign-role-azure-portal.md)
 

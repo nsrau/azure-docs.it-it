@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect e federazione | Documentazione Microsoft
+title: Azure AD Connect e federazione | Microsoft Docs
 description: "Questa pagina è il punto centrale per tutta la documentazione correlata alle operazioni di ADFS che usano Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: anandy
-ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc5ef81704423c5a1bc136fb2d51d79a9265e20
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e federazione
 Azure Active Directory (Azure AD) consente di configurare la federazione con Active Directory Federation Services (ADFS) locale e Azure AD. Grazie all'accesso federato, gli utenti possono accedere ai servizi basati su Azure AD con le proprie password locali e, se usano la rete aziendale, senza dover immettere di nuovo le password. Usando l'opzione di federazione con ADFS, è possibile distribuire una nuova installazione di ADFS oppure specificare un'installazione esistente in una farm di Windows Server 2012 R2.
@@ -40,6 +40,7 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 | [Aggiungere un nuovo server WAP ADFS](active-directory-aadconnect-federation-management.md#addwapserver) |Espandere la farm ADFS con un server Web Application Proxy (WAP) aggiuntivo dopo l'installazione iniziale. |
 | [Aggiungere un nuovo dominio federato](active-directory-aadconnect-federation-management.md#addfeddomain) |Aggiungere un altro dominio per la federazione con Azure AD. |
 | [Aggiornare il certificato SSL](active-directory-aadconnectfed-ssl-update.md)| Aggiornare il certificato SSL per una farm ADFS. |
+| [Rinnovare i certificati di federazione per Office 365 e Azure AD](active-directory-aadconnect-o365-certs.md)|Rinnovare il certificato per Office 365 con Azure AD.|
 | **Configurazione aggiuntiva della federazione** | |
 | [Eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Eseguire la federazione di più istanze di Azure AD con una singola farm AD FS.| 
 | [Aggiungere l'illustrazione o il logo personalizzato della società](active-directory-aadconnect-federation-management.md#customlogo) |Come modificare l'esperienza di accesso specificando il logo personalizzato che viene visualizzato nella pagina di accesso di ADFS. |

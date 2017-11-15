@@ -1,5 +1,5 @@
 ---
-title: "Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni | Documentazione Microsoft"
+title: "Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni | Microsoft Docs"
 description: "Questo argomento descrive le attività operative per il servizio di sincronizzazione Azure AD Connect e come prepararsi per il funzionamento di questo componente."
 services: active-directory
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni
 L'obiettivo di questo argomento è descrivere le attività operative per il servizio di sincronizzazione Azure AD Connect.
@@ -68,11 +68,18 @@ Se si sono apportate modifiche personalizzate al server primario e si desidera c
 #### <a name="verify"></a>Verificare
 1. Avviare un prompt dei comandi e passare a `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Eseguire: `csexport "Name of Connector" %temp%\export.xml /f:x` Il nome del connettore si trova nel servizio di sincronizzazione. Il nome sarà simile a "contoso.com - AAD" per Azure AD.
-3. Copiare lo script di PowerShell dalla sezione [CSAnalyzer](#appendix-csanalyzer) in un file denominato `csanalyzer.ps1`.
-4. Aprire una finestra di PowerShell e passare alla cartella in cui è stato creato lo script di PowerShell.
-5. Eseguire: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-6. A questo punto si avrà un file denominato **processedusers1.csv**, che può essere esaminato in Microsoft Excel. In questo file sono disponibili tutte le modifiche di gestione temporanea da esportare in Azure AD.
-7. Apportare le modifiche necessarie ai dati o alla configurazione ed eseguire di nuovo questi passaggi (importazione, sincronizzazione e verifica) finché le modifiche che verranno esportate non saranno quelle previste.
+3. Eseguire: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Si avrà un file denominato export.csv in %temp%, che può essere esaminato in Microsoft Excel. Questo file contiene tutte le modifiche in fase di esportazione.
+4. Apportare le modifiche necessarie ai dati o alla configurazione ed eseguire di nuovo questi passaggi (importazione, sincronizzazione e verifica) finché le modifiche che verranno esportate non saranno quelle previste.
+
+**Informazioni sul file export.csv** La maggior parte del file è facilmente comprensibile. Ecco alcune abbreviazioni per comprendere il contenuto:
+* OMODT: Object Modification Type. Indica se l'operazione a livello di oggetto è un'aggiunta, un aggiornamento o un'eliminazione.
+* AMODT: Attribute Modification Type. Indica se l'operazione a livello di attributo è un'aggiunta, un aggiornamento o un'eliminazione.
+
+**Recuperare gli identificatori comuni** Il file export.csv contiene tutte le modifiche che stanno per essere esportate. Ogni riga corrisponde a una modifica per un oggetto nello spazio connettore e l'oggetto è identificato dall'attributo DN. L'attributo DN è un identificatore univoco assegnato a un oggetto nello spazio connettore. Quando si dispone di molte righe/modifiche nel file export.csv da analizzare, potrebbe essere difficile individuare gli oggetti da modificare solo in base all'attributo DN. Per semplificare il processo di analisi delle modifiche, usare lo script di PowerShell csanalyzer.ps1. Lo script recupera gli identificatori comuni (ad esempio displayName e userPrincipalName) degli oggetti. Per usare lo script:
+1. Copiare lo script di PowerShell dalla sezione [CSAnalyzer](#appendix-csanalyzer) in un file denominato `csanalyzer.ps1`.
+2. Aprire una finestra di PowerShell e passare alla cartella in cui è stato creato lo script di PowerShell.
+3. Eseguire: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+4. A questo punto si avrà un file denominato **processedusers1.csv**, che può essere esaminato in Microsoft Excel. Si noti che il file fornisce un mapping dall'attributo DN agli identificatori comuni (ad esempio displayName e userPrincipalName). Attualmente non include le modifiche effettive all'attributo che stanno per essere esportate.
 
 #### <a name="switch-active-server"></a>Cambiare il server attivo
 1. Disattivare il server attualmente attivo (DirSync/FIM/Azure AD Sync), in modo che non esegua l'esportazione in Azure AD oppure impostarlo in modalità di gestione temporanea (Azure AD Connect).

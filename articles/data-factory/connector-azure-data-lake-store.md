@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 5e6e56dd7ce1a16cadf35f9efe959ac490a65071
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6ef76763859482d24c088f58fe361882cc4a619b
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Store usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere le informazioni sul [connettore Azure Data Lake Store nella versione 1](v1/data-factory-azure-datalake-connector.md).
 
-## <a name="supported-scenarios"></a>Scenari supportati
+## <a name="supported-capabilities"></a>Funzionalità supportate
 
 È possibile copiare dati da qualsiasi archivio dati di origine supportato in Azure Data Lake Store o da Azure Data Lake Store in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -52,7 +52,7 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 - Chiave applicazione
 - ID tenant
 
-[!TIP]
+>[!TIP]
 > Assicurarsi di concedere all'entità servizio un'autorizzazione appropriata in Azure Data Lake Store:
 >- Come origine, concedere almeno l'autorizzazione di accesso ai dati **Lettura ed esecuzione** per l'elenco e la copia del contenuto di una cartella oppure l'autorizzazione **Lettura** per la copia di un file singolo. Nessun requisito per il controllo di accesso a livello di account.
 >- Come sink, concedere almeno l'autorizzazione di accesso ai dati **Scrittura ad esecuzione** per creare elementi figlio nella cartella. E se si consente la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
