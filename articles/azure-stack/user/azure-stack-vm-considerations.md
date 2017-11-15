@@ -4,7 +4,7 @@ description: Informazioni sulle considerazioni e le differenze quando si lavora 
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
-manager: byronr
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 11/14/2017
 ms.author: sngun
-ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerazioni per le macchine virtuali in Azure Stack
 
@@ -46,12 +46,14 @@ Il Kit di sviluppo dello Stack di Azure supporta le dimensioni seguenti:
 
 | Tipo | Dimensione | Intervallo di dimensioni supportate |
 | --- | --- | --- |
-|Scopo generico |Basic A|A0 A4|
+|Scopo generico |Basic A|A0 - A4|
 |Scopo generico |A standard|A0-A7|
-|Scopo generico |D standard|D1 D4|
-|Scopo generico |Dv2 standard|D1v2 D5v2|
-|Ottimizzate per la memoria|Serie D|D11 D14|
-|Ottimizzate per la memoria |Serie Dv2|D11v2 D14v2|
+|Scopo generico |Serie D|D1 - D4|
+|Scopo generico |Serie Dv2|D1_v2 - D5_v2|
+|Scopo generico |Serie DS|DS1 - DS4|
+|Scopo generico |Serie DSv2|DS1_v2 - DS5_v2|
+|Ottimizzate per la memoria|Serie DS|DS11 - DS14|
+|Ottimizzate per la memoria |Serie DSv2|DS11_v2 - DS14_v2|
 
 Dimensioni delle macchine virtuali e le relative quantità di risorse associati sono coerenti tra Stack di Azure e Azure. Ad esempio, ciò include la quantità di memoria, numero di core e la dimensione o numero di dischi dati che possono essere creati. Prestazioni delle stesse dimensioni di macchina virtuale nello Stack di Azure dipendono tuttavia le caratteristiche di un particolare ambiente dello Stack di Azure sottostante.
 

@@ -3,8 +3,8 @@ title: Prerequisiti per la distribuzione di Azure SDK Stack | Documenti Microsof
 description: Consente di visualizzare i requisiti hardware e di ambiente per Azure Stack Development Kit (operatore cloud).
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Prerequisiti per la distribuzione di Azure Stack
 
@@ -40,7 +40,7 @@ Prima di distribuire [Kit di sviluppo di Azure Stack](azure-stack-poc.md), assic
 
 \*Sarà necessario più di questa capacità è consigliata se si prevede di aggiungere molti di [elementi del marketplace](azure-stack-download-azure-marketplace-item.md) da Azure.
 
-**Configurazione delle unità disco dati:** tutte le unità dati devono essere dello stesso tipo (tutti SAS o SATA tutti) e capacità. Se si utilizzano dischi SAS, le unità disco deve essere collegate tramite un unico percorso (non viene fornito alcun MPIO, supporto di percorsi multipli).
+**Configurazione delle unità disco dati:** tutte le unità dati devono essere dello stesso tipo (tutti SAS, SATA tutti o NVMe tutti) e capacità. Se si utilizzano dischi SAS, le unità disco deve essere collegate tramite un unico percorso (non viene fornito alcun MPIO, supporto di percorsi multipli).
 
 **Opzioni di configurazione HBA**
 
@@ -56,6 +56,7 @@ Prima di distribuire [Kit di sviluppo di Azure Stack](azure-stack-poc.md), assic
 * SSD RAID (se il tipo di supporto non viene specificato/sconosciuto\*)
 * Unità SSD SATA + Unità HDD SATA
 * Unità SSD SAS + Unità HDD SAS
+* NVMe
 
 \*Controller RAID senza funzionalità pass-through non è in grado di riconoscere il tipo di supporto. Tali controller contrassegneranno le unità HDD e SSD come non specificate. In tal caso verrà usata l'unità SSD come archivio permanente anziché eseguire la memorizzazione nella cache dei dispositivi. Pertanto, è possibile distribuire il kit di sviluppo su tali unità SSD.
 
