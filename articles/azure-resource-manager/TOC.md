@@ -9,14 +9,6 @@
 ## [Estensione di Visual Studio Code per i modelli](resource-manager-vscode-extension.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Esempi
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Distribuire un modello](resource-manager-samples-powershell-deploy.md)
-
-## Interfaccia della riga di comando di Azure
-### [Distribuire un modello](resource-manager-samples-cli-deploy.md)
-
 # Procedure
 ## Creare modelli
 ### [Sezioni di modelli](resource-group-authoring-templates.md)

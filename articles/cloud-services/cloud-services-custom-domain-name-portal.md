@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
-> [!div class="op_single_selector"]
-> * [Portale di Azure](cloud-services-custom-domain-name-portal.md)
-> * [Portale di Azure classico](cloud-services-custom-domain-name.md)
-> 
-> 
-
 Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Ad esempio, se il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come http://contoso.cloudapp.net. Azure assegna anche un indirizzo IP virtuale.
 
 È tuttavia possibile esporre l'applicazione in un nome di dominio personalizzato, ad esempio **contoso.com**. In questo articolo viene illustrato come riservare o configurare un nome di dominio personalizzato per i ruoli Web del servizio cloud.
@@ -62,7 +56,7 @@ Un record *A* consente di eseguire il mapping di un dominio, ad esempio **contos
 > [!NOTE]
 > Poiché il mapping di un record A viene eseguito a un indirizzo IP statico, il record non è in grado di risolvere automaticamente le modifiche all'indirizzo IP del servizio cloud. L'indirizzo IP usato dal servizio cloud viene allocato la prima volta che si effettua una distribuzione in uno slot vuoto di produzione o di gestione temporanea. Se si elimina la distribuzione per lo slot, l'indirizzo IP viene rilasciato da Azure e le distribuzioni future in quello slot potrebbero ricevere un nuovo indirizzo IP.
 > 
-> L'indirizzo IP di un determinato slot di distribuzione (di produzione o di gestione temporanea) viene reso permanente durante i passaggi tra distribuzioni di produzione e di gestione temporanea o durante l'esecuzione di aggiornamenti sul posto di distribuzioni esistenti. Per ulteriori informazioni sull'esecuzione di queste azioni, vedere [Come gestire i servizi cloud](cloud-services-how-to-manage.md).
+> L'indirizzo IP di un determinato slot di distribuzione (di produzione o di gestione temporanea) viene reso permanente durante i passaggi tra distribuzioni di produzione e di gestione temporanea o durante l'esecuzione di aggiornamenti sul posto di distribuzioni esistenti. Per ulteriori informazioni sull'esecuzione di queste azioni, vedere [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -139,7 +133,7 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
+* [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)
 * [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configurazione generale del servizio cloud](cloud-services-how-to-configure-portal.md).
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).

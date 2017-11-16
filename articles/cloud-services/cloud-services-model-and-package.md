@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 21fbdbc4c24440c6fbbd7487cfbb2e0a3140aa96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7210c944e2f99aacdc2f554409552007286c5da
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Cos'è il modello del servizio cloud e come è possibile crearne il pacchetto?
 Un servizio cloud viene creato da tre componenti: la definizione del servizio *(.csdef)*, la configurazione del servizio *(.cscfg)* e un pacchetto servizio *(.cspkg)*. Entrambi i file **ServiceDefinition.csdef** e **ServiceConfig.cscfg** sono basati su XML e descrivono la struttura e la configurazione del servizio cloud. Insieme costituiscono il modello. **ServicePackage.cspkg** è un file ZIP generato da **ServiceDefinition.csdef** e contiene, oltre ad altri elementi, tutte le dipendenze necessarie basate su file binari. Azure crea un servizio cloud sia da **ServicePackage.cspkg** che da **ServiceConfig.cscfg**.
@@ -290,7 +290,7 @@ Si sta usando Visual Studio e si vuole...
 * [Configurare il desktop remoto per un'istanza del servizio cloud][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
-[remotedesktop]: cloud-services-role-enable-remote-desktop.md
+[remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md

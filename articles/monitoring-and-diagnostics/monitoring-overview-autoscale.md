@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 413828d79d79c181c662bc7cfb4114345de57f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Panoramica del ridimensionamento automatico in Macchine virtuali di Microsoft Azure, Servizi cloud e App Web
 Questo articolo descrive il ridimensionamento automatico di Microsoft Azure e come iniziare a usarlo.  
@@ -110,7 +110,7 @@ Per altre informazioni, vedere [Aumento delle prestazioni delle macchine virtual
 | Service | Schema e documenti |
 | --- | --- |
 | App Web |[Ridimensionamento di app Web](insights-how-to-scale.md) |
-| Servizi cloud |[Ridimensionamento automatico di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md) |
+| Servizi cloud |[Ridimensionamento automatico di un servizio cloud](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Macchine virtuali: classico |[Scaling Classic Virtual Machine Availability Sets (Ridimensionamento di set di disponibilità di macchine virtuale classiche)](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Macchine virtuali: set di scalabilità Windows |[Ridimensionamento dei set di scalabilità di macchine virtuali in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Macchine virtuali: set di scalabilità Linux |[Ridimensionamento dei set di scalabilità di macchine virtuali in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |

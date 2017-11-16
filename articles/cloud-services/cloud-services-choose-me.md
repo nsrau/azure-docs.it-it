@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Perché scegliere Servizi cloud
 Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applicazioni. Ognuno fornisce un diverso set di servizi, pertanto quello da scegliere dipende dalle attività che si tenta di eseguire.
@@ -43,14 +43,14 @@ Non usa IIS ed esegue l'app autonomamente.
 
 Ad esempio, un'applicazione semplice può usare un solo ruolo Web che serve un sito Web. Un'applicazione più complessa può usare un ruolo Web per la gestione delle richieste in arrivo dagli utenti, quindi passare tali richieste a un ruolo di lavoro per l'elaborazione. Per questa comunicazione è possibile che venga usato il [bus di servizio](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) o il [servizio di accodamento di Azure](../storage/common/storage-introduction.md).
 
-Come illustrato nella figura precedente, tutte le VM in una singola applicazione vengono eseguite nello stesso servizio cloud. Gli utenti accedono all'applicazione attraverso un indirizzo IP pubblico che esegue automaticamente il bilanciamento del carico delle richieste nelle VM dell'applicazione. La piattaforma [scala e distribuisce](cloud-services-how-to-scale.md) le VM in un'applicazione di Servizi cloud, in modo da evitare un singolo punto di errore hardware.
+Come illustrato nella figura precedente, tutte le VM in una singola applicazione vengono eseguite nello stesso servizio cloud. Gli utenti accedono all'applicazione attraverso un indirizzo IP pubblico che esegue automaticamente il bilanciamento del carico delle richieste nelle VM dell'applicazione. La piattaforma [scala e distribuisce](cloud-services-how-to-scale-portal.md) le VM in un'applicazione di Servizi cloud, in modo da evitare un singolo punto di errore hardware.
 
 Anche se le applicazioni sono eseguite nelle macchine virtuali, è importante capire che Servizi cloud fornisce PaaS, non IaaS. La spiegazione seguente aiuta a comprendere meglio il concetto: una tecnologia IaaS, quale Macchine virtuali di Azure, consente di creare e configurare prima di tutto l'ambiente in cui l'applicazione viene eseguita, quindi di distribuire l'applicazione in tale ambiente. L'utente ha la responsabilità di gestire questo ambiente, ad esempio distribuendo nuove versioni con patch del sistema operativo in ogni macchina virtuale. La tecnologia PaaS, invece, consente di procedere come se l'ambiente esistesse già. È sufficiente è distribuire l'applicazione. La gestione della piattaforma in cui viene eseguita l'applicazione, inclusa la distribuzione di nuove versioni del sistema operativo, non è a carico dell'utente.
 
 ## <a name="scaling-and-management"></a>Scalabilità e gestione
 Se si usa Servizi cloud, non è necessario creare macchine virtuali. Fornire invece un file di configurazione che specifica ad Azure quante macchine virtuali di ogni tipo sono richieste, ad esempio **tre istanze del ruolo Web** e **due istanze del ruolo di lavoro**. Le macchine virtuali vengono poi create automaticamente dalla piattaforma.  L'utente decide le [dimensioni](cloud-services-sizes-specs.md) delle macchine virtuali di supporto, ma non le crea esplicitamente. Se l'applicazione deve gestire un carico maggiore, è possibile richiedere VM aggiuntive e tali istanze verranno create automaticamente da Azure. Se il carico diminuisce, è possibile chiudere tali istanze e interromperne il pagamento.
 
-Un'applicazione di Servizi cloud viene in genere resa disponibile agli utenti mediante un processo in due fasi. Prima di tutto lo sviluppatore [carica l'applicazione](cloud-services-how-to-create-deploy.md) nell'area di gestione temporanea della piattaforma. Quando lo sviluppatore è pronto per l'attivazione dell'applicazione, usa il portale per il passaggio in produzione. Il [passaggio dalla gestione temporanea alla produzione](cloud-services-nodejs-stage-application.md) può essere eseguito senza tempi di inattività, consentendo l'aggiornamento di un'applicazione in esecuzione a una nuova versione senza interferire con l'uso da parte degli utenti.
+Un'applicazione di Servizi cloud viene in genere resa disponibile agli utenti mediante un processo in due fasi. Prima di tutto lo sviluppatore [carica l'applicazione](cloud-services-how-to-create-deploy-portal.md) nell'area di gestione temporanea della piattaforma. Quando lo sviluppatore è pronto per l'attivazione dell'applicazione, usa il portale per il passaggio in produzione. Il [passaggio dalla gestione temporanea alla produzione](cloud-services-nodejs-stage-application.md) può essere eseguito senza tempi di inattività, consentendo l'aggiornamento di un'applicazione in esecuzione a una nuova versione senza interferire con l'uso da parte degli utenti.
 
 ## <a name="monitoring"></a>Monitoraggio
 Servizi cloud offre inoltre funzionalità di monitoraggio. Analogamente a Macchine virtuali di Azure, rileva un server fisico in errore e riavvia le VM in esecuzione su tale server in una nuova macchina. Servizi cloud consente inoltre di rilevare errori di macchine virtuali e applicazioni, non solo errori hardware. A differenza di Macchine virtuali, dispone di un agente in ogni ruolo Web e di lavoro ed è quindi in grado di avviare nuove macchine virtuali e istanze di applicazione in caso di errori.

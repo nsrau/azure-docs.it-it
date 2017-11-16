@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71adbca34390bda3a7d4067742ffb3a28201449
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Esporre le impostazioni di configurazione del ruolo come una variabile di ambiente con XPath
 Nel file di definizione del servzio del ruolo di lavoro o del ruolo Web del servizio cloud è possibile esporre i valori di configurazione di runtime come variabili di ambiente. Sono supportati i valori XPath seguenti, che corrispondono ai valori di API.
@@ -166,5 +166,5 @@ Altre informazioni sul file [ServiceConfiguration.cscfg](cloud-services-model-an
 
 Creare un pacchetto [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) .
 
-Abilitare [Desktop remoto](cloud-services-role-enable-remote-desktop.md) per un ruolo.
+Abilitare [Desktop remoto](cloud-services-role-enable-remote-desktop-new-portal.md) per un ruolo.
 

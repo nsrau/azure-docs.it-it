@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 977f7c075005efb826e862ee582864b0f6efab38
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrare i criteri di sicurezza del Centro sicurezza con Criteri di Azure
 Questo articolo illustra la configurazione dei criteri di sicurezza del Centro sicurezza di Azure, basati sulla tecnologia di Criteri di Azure. 
@@ -72,7 +72,7 @@ Per informazioni sulle definizioni dei criteri disponibili nel criterio di sicur
 
 | Criteri | Operazione eseguita dal criterio abilitato |
 | --- | --- |
-| Aggiornamenti del sistema |Recupera un elenco giornaliero degli aggiornamenti della sicurezza e critici da Windows Update o da Windows Server Update Services. L'elenco recuperato dipende dal servizio configurato per le macchine virtuali e consiglia di applicare gli aggiornamenti mancanti. Per i sistemi Linux, il criterio usa il sistema di gestione pacchetti fornito dalla distribuzione per determinare per quali pacchetti sono disponibili aggiornamenti. Controlla anche la presenza di aggiornamenti critici e della sicurezza dalle macchine virtuali di [Servizi cloud di Azure](../cloud-services/cloud-services-how-to-configure.md). |
+| Aggiornamenti del sistema |Recupera un elenco giornaliero degli aggiornamenti della sicurezza e critici da Windows Update o da Windows Server Update Services. L'elenco recuperato dipende dal servizio configurato per le macchine virtuali e consiglia di applicare gli aggiornamenti mancanti. Per i sistemi Linux, il criterio usa il sistema di gestione pacchetti fornito dalla distribuzione per determinare per quali pacchetti sono disponibili aggiornamenti. Controlla anche la presenza di aggiornamenti critici e della sicurezza dalle macchine virtuali di [Servizi cloud di Azure](../cloud-services/cloud-services-how-to-configure-portal.md). |
 | Vulnerabilità del sistema operativo |Analizza giornalmente le configurazioni del sistema operativo per determinare i problemi che potrebbero rendere vulnerabile agli attacchi la macchina virtuale. Il criterio consiglia anche le modifiche alla configurazione necessarie per risolvere queste vulnerabilità. Per altre informazioni sulle configurazioni specifiche sottoposte a monitoraggio, vedere l'[elenco di baseline consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (Al momento, Windows Server 2016 non è completamente supportato.) |
 | Endpoint Protection |Consiglia di configurare Endpoint Protection per tutte le macchine virtuali di Windows, per identificare e rimuovere virus, spyware e altro software dannoso. |
 | Crittografia del disco |Suggerisce di abilitare la crittografia dischi in tutte le macchine virtuali per migliorare la protezione dei dati inattivi. |

@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9ae4442f57170746eb0de94849b09625be51264
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
 > [!div class="op_single_selector"]
 > * [Portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Portale di Azure classico](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 Desktop remoto consente di accedere al desktop di un ruolo in esecuzione in Azure. È possibile usare una connessione Desktop remoto per risolvere e diagnosticare i problemi dell'applicazione mentre è in esecuzione.
 
@@ -47,7 +44,7 @@ Il portale di Azure usa l'approccio dell'estensione di Desktop remoto in modo da
     ![Servizi cloud per Desktop remoto](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > Tutte le istanze del ruolo verranno riavviate la prima volta che si abilita Desktop remoto e si fa clic su OK (segno di spunta). Per evitare un riavvio, è necessario che nel ruolo sia installato il certificato usato per crittografare la password. Per evitare un riavvio, [caricare un certificato per il servizio cloud](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) e quindi tornare alla finestra di dialogo.
+   > Tutte le istanze del ruolo verranno riavviate la prima volta che si abilita Desktop remoto e si fa clic su OK (segno di spunta). Per evitare un riavvio, è necessario che nel ruolo sia installato il certificato usato per crittografare la password. Per evitare un riavvio, [caricare un certificato per il servizio cloud](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) e quindi tornare alla finestra di dialogo.
    >
    >
 3. In **Ruolo** selezionare il ruolo da aggiornare oppure selezionare **Tutti** per tutti i ruoli.
@@ -70,5 +67,5 @@ Dopo aver abilitato Desktop remoto nei ruoli, è possibile avviare una connessio
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-[Come configurare i servizi cloud](cloud-services-how-to-configure.md)
+[Come configurare i servizi cloud](cloud-services-how-to-configure-portal.md)
 [Domande frequenti sui servizi cloud - Desktop remoto](cloud-services-faq.md)

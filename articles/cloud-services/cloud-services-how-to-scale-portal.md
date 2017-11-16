@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e9683d4c5779450fd67fa42ab13095c7f201b4cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708b35252429e30b44226030d3d83b928f2a9520
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Come configurare la scalabilità automatica per un servizio cloud nel portale
-> [!div class="op_single_selector"]
-> * [Portale di Azure](cloud-services-how-to-scale-portal.md)
-> * [Portale di Azure classico](cloud-services-how-to-scale.md)
 
 È possibile impostare condizioni per un ruolo di lavoro del servizio cloud che attivano operazioni di scalabilità verticale o orizzontale. Le condizioni per il ruolo possono essere basate sulla CPU, sul disco o sul carico di rete del ruolo. È anche possibile impostare una condizione in base a una coda di messaggi o alla metrica di un'altra risorsa di Azure associata alla sottoscrizione.
 

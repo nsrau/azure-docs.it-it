@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: robb
-ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 21123299fbab59b388aacc4a802f3a9ec1d80632
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Esempi di avvio rapido con PowerShell per Monitoraggio di Azure
 Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamente alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare in modo automatico macchine virtuali, servizi cloud e app Web. Consente anche di inviare notifiche di avviso o di chiamare gli URL Web in base ai valori dei dati di telemetria configurati.
@@ -202,7 +202,7 @@ Un elenco completo delle opzioni disponibili per `Get-AzureRmMetricDefinition` s
 
 ## <a name="create-and-manage-autoscale-settings"></a>Creazione e gestione delle impostazioni di scalabilità automatica
 Una risorsa, ad esempio un'app Web, una macchina virtuale, un servizio cloud o un set di scalabilità di macchine virtuali, può avere una sola impostazione di scalabilità automatica configurata.
-Tuttavia, ogni impostazione di scalabilità automatica può includere diversi profili. Ad esempio, un profilo di scalabilità in base alle prestazioni e un altro profilo basato sulla pianificazione. Ogni profilo può avere più regole associate configurate. Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md).
+Tuttavia, ogni impostazione di scalabilità automatica può includere diversi profili. Ad esempio, un profilo di scalabilità in base alle prestazioni e un altro profilo basato sulla pianificazione. Ogni profilo può avere più regole associate configurate. Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale-portal.md).
 
 Ecco i passaggi da seguire:
 
