@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a56e6026ed0c2c873030625fa7a9b35b92faf930
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>Reazione a eventi di archiviazione BLOB (anteprima)
 
@@ -80,7 +80,7 @@ Di seguito è riportato un esempio di un evento BlobCreated:
 
 ```
 
-Per altre informazioni, vedere lo [schema di eventi di archiviazione BLOB](../../event-grid/event-schema.md#azure-blob-storage).
+Per altre informazioni, vedere lo [schema di eventi di archiviazione BLOB](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtro degli eventi
 Le sottoscrizioni di eventi BLOB possono essere filtrate in base al tipo di evento e in base al nome del contenitore e al nome del BLOB dell'oggetto che è stato creato o eliminato.  I filtri dell'oggetto in Griglia di eventi si basano sulle corrispondenze con "inizia con" e "termina con". In questo modo gli eventi con un argomento corrispondente vengono recapitati al sottoscrittore.

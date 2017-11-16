@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure (anteprima)
 Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere gli account di archiviazione per un set specifico di reti autorizzate.  Quando si configurano le regole di rete, solo le applicazioni delle reti consentite possono accedere a un account di archiviazione.  Quando le applicazioni eseguono chiamate da una rete autorizzata devono comunque avere l'autorizzazione necessaria (una chiave di accesso o un token di firma di accesso condiviso validi) per accedere all'account di archiviazione.
@@ -81,7 +81,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) ed [effettuare l'accesso](/cli/azure/authenticate-azure-cli).
 2. Visualizzare lo stato della regola predefinita per l'account di archiviazione.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.defaultAction
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
 ```
 
 3. Impostare la regola predefinita per negare l'accesso alla rete per impostazione predefinita.  
@@ -173,14 +173,14 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 3. Aggiungere una regola di rete per una rete virtuale di Microsoft Azure e una subnet.  
 ```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
-az storage account network-rule add --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
 ```
 
 4. Rimuovere una regola di rete per una rete virtuale di Microsoft Azure e una subnet. 
 ```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
-az storage account network-rule remove --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
 ```
 
 > [!IMPORTANT]
@@ -340,7 +340,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) ed [effettuare l'accesso](/cli/azure/authenticate-azure-cli).
 2. Visualizzare le eccezioni alle regole di rete dell'account di archiviazione.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.bypass
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
 ```
 
 3. Configurare le eccezioni alle regole di rete dell'account di archiviazione.

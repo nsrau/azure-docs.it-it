@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: e29c381643b233d38b10f89aed5469043c699f45
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 977f7c075005efb826e862ee582864b0f6efab38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrare i criteri di sicurezza del Centro sicurezza con Criteri di Azure
 Questo articolo illustra la configurazione dei criteri di sicurezza del Centro sicurezza di Azure, basati sulla tecnologia di Criteri di Azure. 
@@ -60,7 +60,7 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
     ![Definizioni dei criteri disponibili](./media/security-center-policies/security-center-policies-fig11.png)
 
     * Per una spiegazione dettagliata di un criterio, selezionarlo.  
-    Viene visualizzata una finestra di **Anteprima** della definizione. La finestra mostra una descrizione della definizione e un collegamento al codice JSON che fornisce la struttura della [definizione del criterio](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure).
+    Viene visualizzata una finestra di **Anteprima** della definizione. La finestra mostra una descrizione della definizione e un collegamento al codice JSON che fornisce la struttura della [definizione del criterio](../azure-policy/policy-definition.md).
 
     ![Finestra Anteprima della definizione](./media/security-center-policies/security-center-policies-fig14.png)
 

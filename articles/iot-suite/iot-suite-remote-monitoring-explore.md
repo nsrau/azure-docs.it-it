@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 222050410bfc809991f03a452eb6640e5f9e1802
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Esplorare le funzionalità della soluzione preconfigurata di monitoraggio remoto
 
@@ -73,7 +73,7 @@ La tabella seguente mostra un riepilogo dei tipi di dispositivo di cui viene eff
 
 Gli operatori Contoso conoscono le soglie che determinano se un dispositivo funziona o meno correttamente. Ad esempio, un refrigeratore non funziona correttamente se la pressione segnalata è maggiore di 250 PSI. La tabella seguente mostra le regole basate su soglie definite da Contoso per ogni tipo di dispositivo:
 
-| Nome regola | Descrizione | Soglia | Gravità | Dispositivi interessati |
+| Nome regola | Descrizione | Soglia | Severity | Dispositivi interessati |
 | --------- | ----------- | --------- | -------- | ---------------- |
 | Chiller pressure too high (Pressione refrigeratore troppo alta) | Genera un allarme se i refrigeratori raggiungono livelli di pressione superiori a quelli normali   |P > 250 psi       | Critico | Refrigeratori            |
 | Prototyping device temp too high (Temperatura dispositivo di prototipazione troppo alta)  | Genera un allarme se i dispositivi di prototipazione raggiungono livelli di temperatura superiori a quelli normali  |T > 80 &deg;F |Critico | Dispositivi di prototipazione |

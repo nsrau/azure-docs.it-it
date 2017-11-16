@@ -69,10 +69,6 @@
 ### [API di autenticazione per accedere alle sottoscrizioni](resource-manager-api-authentication.md)
 ### [Bloccare le risorse](resource-group-lock-resources.md)
 
-## Impostare i criteri delle risorse
-### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
-### [Convenzioni di denominazione](resource-manager-policy-naming-convention.md)
-
 ## Audit
 ### [Visualizzare log di attività](resource-group-audit.md)
 ### [Visualizzare le operazioni di distribuzione](resource-manager-deployment-operations.md)

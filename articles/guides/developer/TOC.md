@@ -107,7 +107,7 @@
 ## [Fatturazione](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Risorse
-## [Limiti e quote di Azure](../../azure-subscription-service-limits.md)
+## [Limiti e quote di Azure](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Aree di Azure](https://azure.microsoft.com/regions/)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

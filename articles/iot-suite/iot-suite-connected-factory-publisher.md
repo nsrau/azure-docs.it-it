@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 86ffacae9265b68e8adfeb8f7d8c72626f872dba
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>Server di pubblicazione OPC per Azure IoT Edge
 
@@ -382,7 +382,14 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>Uso dei montaggi di associazione (file system condiviso)
 
-In alcuni scenari, si desidera leggere le informazioni di configurazione, o scrivere i file di log nell'host anziché nel file system del contenitore. Per configurare questo comportamento, usare l'opzione `-v` di `docker run` nella modalità montaggio di associazione.
+In alcuni scenari, si desidera leggere le informazioni di configurazione, o scrivere i file di log nell'host anziché nel file system del contenitore. Per configurare questo comportamento, usare l'opzione `-v` di `docker run` nella modalità montaggio di associazione. ad esempio:
+
+```cmd/sh
+-v //D/docker:/build/out/Logs
+-v //D/docker:/build/out/CertificateStores
+-v //D/docker:/shared
+-v //D/docker:/root/.dotnet/corefx/cryptography/x509stores
+```
 
 #### <a name="store-for-x509-certificates"></a>Archivio per certificati X509
 

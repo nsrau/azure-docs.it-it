@@ -250,8 +250,6 @@
 ### [Eseguire il debug di un servizio Java in Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Monitorare e diagnosticare in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [Distribuire Gestione API e Service Fabric in Azure](service-fabric-api-management-quick-start.md)
-
 ## Eseguire la migrazione da Servizi cloud
 ### [Confrontare Servizi cloud e Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Eseguire la migrazione a Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -265,8 +263,7 @@
 #### [Gestione risorse di Azure](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
-#### [API client Fabric](service-fabric-deploy-remove-applications-fabricclient.md)
+#### [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Aggiornare le applicazioni
 #### [Aggiornamento con Azure PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
@@ -281,11 +278,8 @@
 ##### [Durante i carichi di lavoro](service-fabric-testability-workload-tests.md)
 ##### [Uso di scenari di test](service-fabric-testability-scenarios.md)
 ##### [Uso delle API di transizione del nodo](service-fabric-node-transition-apis.md)
-#### [Eseguire test di carico dell'applicazione](service-fabric-vso-load-test.md)
 
-### Configurare l'integrazione continua
-#### [Configurare l'integrazione continua con VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Distribuire applicazioni Java Linux usando Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Distribuire applicazioni Java Linux usando Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Creare e gestire i cluster
 ### Cluster in Azure
@@ -319,21 +313,6 @@
 ### [Visualizzare un cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md)
 ### [Applicare patch ai nodi del cluster](service-fabric-patch-orchestration-application.md)
-
-### Gestire e orchestrare le risorse cluster
-#### [Panoramica di Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-#### [Architettura di Cluster Resource Manager](service-fabric-cluster-resource-manager-architecture.md)
-#### [Descrivere un cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Panoramica dei gruppi di applicazioni](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Configurare le impostazioni di Cluster Resource Manager](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Metriche di consumo delle risorse](service-fabric-cluster-resource-manager-metrics.md)
-#### [Usare l'affinità dei servizi](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Criteri di posizionamento dei servizi](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Gestire un cluster](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Deframmentazione dei cluster](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [Bilanciare un cluster](service-fabric-cluster-resource-manager-balancing.md)
-#### [Limitazione](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Spostamento dei servizi](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Monitorare e diagnosticare
 ### OMS

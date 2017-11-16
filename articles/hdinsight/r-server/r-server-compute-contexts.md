@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: e15a263879ddc0edabc301201019f4209eee1058
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opzioni del contesto di calcolo per R Server su HDInsight (anteprima)
 
@@ -83,6 +83,5 @@ In questo articolo sono state descritte le opzioni disponibili per specificare s
 
 * [Panoramica: R Server su HDInsight (anteprima)](r-server-overview.md)
 * [Introduzione all'uso di R Server su HDInsight (anteprima)](r-server-get-started.md)
-* [Aggiungere RStudio Server a HDInsight (se non è stato aggiunto durante la creazione del cluster)](r-server-install-r-studio.md)
 * [Opzioni di Archiviazione di Azure per R Server su HDInsight](r-server-storage.md)
 

@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introduzione a Griglia di eventi di Azure
 
@@ -25,6 +25,30 @@ Per la versione di anteprima, la griglia di eventi supporta le località **westu
 Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure).
 
 ![Modello funzionale di Griglia di eventi](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>Publisher di eventi
+
+Attualmente i servizi di Azure seguenti hanno il supporto predefinito degli autori per Griglia di eventi:
+
+* Gruppi di risorse (operazioni di gestione)
+* Sottoscrizioni di Azure (operazioni di gestione)
+* Hub eventi
+* Archiviazione BLOB
+* Argomenti personalizzati
+
+Quest'anno verranno aggiunti altri servizi di Azure.
+
+## <a name="event-handlers"></a>Gestori eventi
+
+Attualmente i servizi di Azure seguenti hanno il supporto predefinito dei gestori per Griglia di eventi: 
+
+* Funzioni di Azure
+* App per la logica
+* Automazione di Azure
+* Webhook
+* Microsoft Flow
+
+Quest'anno verranno aggiunti altri servizi di Azure.
 
 ## <a name="concepts"></a>Concetti
 
@@ -52,34 +76,6 @@ Ecco alcune delle principali funzionalità di Griglia di eventi di Azure:
 * **Eventi personalizzati**: consentono di usare la route di Griglia di eventi, di filtrare e recapitare in modo affidabile gli eventi personalizzati nell'app.
 
 Per un confronto tra Griglia di eventi, Hub eventi e Bus di servizio, vedere [Choose between Azure services that deliver messages](compare-messaging-services.md) (Scegliere tra i servizi di Azure che recapitano i messaggi).
-
-## <a name="built-in-publisher-and-handler-integration"></a>Integrazione predefinita di gestori e autori
-
-Azure offre il supporto per gli eventi predefiniti grazie a numerosi servizi, inclusi autori e gestori.
-
-### <a name="publishers"></a>Autori
-
-Attualmente i servizi di Azure seguenti hanno il supporto predefinito degli autori per Griglia di eventi:
-
-* Gruppi di risorse (operazioni di gestione)
-* Sottoscrizioni di Azure (operazioni di gestione)
-* Hub eventi
-* Archiviazione BLOB
-* Argomenti personalizzati
-
-Quest'anno verranno aggiunti altri servizi di Azure.
-
-### <a name="handlers"></a>Gestori
-
-Attualmente i servizi di Azure seguenti hanno il supporto predefinito dei gestori per Griglia di eventi: 
-
-* Funzioni di Azure
-* App per la logica
-* Automazione di Azure
-* Webhook
-* Microsoft Flow
-
-Quest'anno verranno aggiunti altri servizi di Azure.
 
 ## <a name="what-can-i-do-with-event-grid"></a>Quali operazioni si possono eseguire con Griglia di eventi?
 

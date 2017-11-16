@@ -9,11 +9,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.custom: devops
 ms.author: routlaw
-ms.openlocfilehash: f5ab85c346119f52ce8c7ab7a8bda48c6672f35c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 23d79fa4a1794a6dea69e6ae24da714babf54e62
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Creare un cluster di macchine virtuali con il registro del modulo
 
@@ -91,14 +91,14 @@ Eseguire `terraform init` nella directory di configurazione. Usando almeno la ve
 
 Eseguire `terraform plan` per visualizzare in anteprima l'infrastruttura di macchine virtuali creata dal modello.
 
-![Piano Terraform](media/terraformPlanVmsWithModules.png)
+![Piano Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 
 ## <a name="create-the-virtual-machines-with-apply"></a>Creare le macchine virtuali con il comando apply
 
 Eseguire `terraform apply` per effettuare il provisioning delle macchine virtuali in Azure.
 
-![Comando apply di Terraform](media/terraformApplyVmsWithModules.png)
+![Comando apply di Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
