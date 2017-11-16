@@ -106,7 +106,8 @@
 
 ## [Streaming live](media-services-manage-channels-overview.md)
 ### [Codificatori locali](media-services-live-streaming-with-onprem-encoders.md)
-#### [Portale](media-services-portal-live-passthrough-get-started.md)
+#### [Codificatori locali consigliati](media-services-recommended-encoders.md)
+#### [Portale di Azure](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Streaming live con il codificatore cloud](media-services-manage-live-encoder-enabled-channels.md)
 #### [Portale di Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Codificatore Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Gestire operazioni a esecuzione prolungata](media-services-dotnet-long-operations.md)
 ### [Specifica per l'inserimento live di un flusso MP4 frammentato](media-services-fmp4-live-ingest-overview.md)
+
+## [Ritagliare contenuti](media-services-azure-media-clipper-overview.md)
+### [Introduzione ad Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
+### [Caricare asset in Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+### [Configurare scelte rapide da tastiera personalizzate](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Inviare processi di ritaglio](media-services-azure-media-clipper-submit-job.md)
+### [Portale di Azure](media-services-azure-media-clipper-portal.md)
 
 ## [Proteggere](media-services-content-protection-overview.md)
 ### [Configurare la protezione del contenuto nel portale di Azure](media-services-portal-protect-content.md)

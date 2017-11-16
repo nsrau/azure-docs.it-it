@@ -14,6 +14,9 @@
 ## [Archiviazione persistente in PowerShell](persisting-shell-storage-powershell.md)
 ## [Uso della finestra](using-the-shell-window.md)
 
+# esempi
+## [Distribuire risorse di Azure con Terraform in Bash](example-terraform-bash.md)
+
 # [Prezzi](pricing.md)
 
 # [Risoluzione dei problemi](troubleshooting.md)

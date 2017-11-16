@@ -143,6 +143,17 @@
               href: ssh-from-windows.md
             - name: Procedura dettagliata
               href: create-ssh-keys-detailed.md
+    - name: Proteggere le macchine virtuali
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+        - name: Eseguire il backup di una singola macchina virtuale
+          href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Eseguire il backup di più macchine virtuali
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Ripristinare un disco
+          href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Ripristinare singoli file
+          href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Gestire le macchine virtuali
       items:
         - name: Attività comuni dell'interfaccia della riga di comando

@@ -67,6 +67,18 @@
       href: site-recovery-faq.md
 - name: Guide pratiche
   items:
+    - name: Rete
+      items:
+        - name: Configurare la rete per il ripristino di emergenza di VM di Azure (anteprima)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Configurare il mapping di rete per il ripristino di emergenza di VM di Azure (anteprima)
+          href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Preparare il mapping di rete per la replica di VM Hyper-V in Azure
+          href: site-recovery-network-mapping.md
+        - name: Configurare gli indirizzi IP per l'accesso ad Azure dopo il failover
+          href: concepts-on-premises-to-azure-networking.md
+        - name: Configurare gli indirizzi IP per l'accesso a un sito secondario dopo il failover
+          href: concepts-on-premises-to-on-premises-networking.md
     - name: Ripristino di emergenza
       items:
         - name: Da VM Hyper-V ad Azure
@@ -81,14 +93,43 @@
           href: tutorial-dr-drill-azure.md
         - name: Eseguire un'esercitazione sul ripristino di emergenza in un sito secondario
           href: tutorial-dr-drill-secondary.md
+        - name: Da VM VMware con supporto multi-tenant ad Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+    - name: Failover e failback
+      items:
+        - name: Configurare piani di ripristino
+          href: site-recovery-create-recovery-plans.md
+          items:
+            - name: Aggiungere runbook di Azure a piani di ripristino
+              href: site-recovery-runbook-automation.md
+        - name: Eseguire un failover di test
+          items:
+            - name: Eseguire un failover di test in Azure
+              href: site-recovery-test-failover-to-azure.md
+            - name: Eseguire un failover di test tra cloud VMM
+              href: site-recovery-test-failover-vmm-to-vmm.md
+        - name: Effettuare il failover di computer protetti
+          href: site-recovery-failover.md
         - name: Eseguire un failover e un failback per i server fisici
           href: tutorial-vmware-to-azure-failover-failback.md
         - name: Eseguire failover e failback per le macchine virtuali Hyper-V
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Eseguire failover e failback tra siti locali
           href: tutorial-vmm-to-vmm-failover-failback.md
-        - name: Da VM VMware con supporto multi-tenant ad Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+        - name: Abilitare la riprotezione dei computer dopo il failover
+          items:
+            - name: Abilitare la riprotezione da un'area secondaria di Azure a una primaria
+              href: site-recovery-how-to-reprotect-azure-to-azure.md
+            - name: Riprotezione da Azure al sito locale
+              href: site-recovery-how-to-reprotect.md
+        - name: Effettuare il failback da Azure
+          items:
+            - name: Effettuare il failback da Azure a VMware
+              href: site-recovery-how-to-failback-azure-to-vmware.md
+            - name: Effettuare il failback da Azure a Hyper-V
+              href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: Configurare un server di destinazione master Linux per il failback
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: Capacità e ridimensionamento
       items:
         - name: Pianificazione della capacità per la replica VMware in Azure
@@ -105,16 +146,6 @@
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Configurare
       items:
-        - name: Configurare la rete per il ripristino di emergenza di VM di Azure (anteprima)
-          href: site-recovery-azure-to-azure-networking-guidance.md
-        - name: Configurare gli indirizzi IP per l'accesso dopo il failover in Azure
-          href: concepts-on-premises-to-azure-networking.md
-        - name: Configurare gli indirizzi IP per l'accesso dopo il failover in un sito secondario
-          href: concepts-on-premises-to-on-premises-networking.md
-        - name: Configurare il mapping di rete per il ripristino di emergenza di VM di Azure (anteprima)
-          href: site-recovery-network-mapping-azure-to-azure.md
-        - name: Preparare il mapping di rete per la replica di VM Hyper-V in Azure
-          href: site-recovery-network-mapping.md
         - name: Configurare l'ambiente di origine
           items:
             - name: Ambiente di origine per VMware in Azure
@@ -127,7 +158,7 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: Ambiente di destinazione per computer fisico in Azure
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: Configurare le impostazioni di replica
+        - name: Configurare le impostazioni di replica per VMware in Azure
           href: site-recovery-setup-replication-settings-vmware.md
         - name: Escludere dischi dalla replica
           href: site-recovery-exclude-disk.md
@@ -144,35 +175,6 @@
               href: site-recovery-replicate-azure-to-azure.md
             - name: Abilitare la replica da VMware ad Azure
               href: site-recovery-replicate-vmware-to-azure.md
-    - name: Effettuare il failover e il failback
-      items:
-        - name: Configurare piani di ripristino
-          href: site-recovery-create-recovery-plans.md
-          items:
-            - name: Aggiungere runbook di Azure a piani di ripristino
-              href: site-recovery-runbook-automation.md
-        - name: Eseguire un failover di test
-          items:
-            - name: Eseguire un failover di test in Azure
-              href: site-recovery-test-failover-to-azure.md
-            - name: Eseguire un failover di test tra cloud VMM
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Effettuare il failover di computer protetti
-          href: site-recovery-failover.md
-        - name: Abilitare la riprotezione dei computer dopo il failover
-          items:
-            - name: Abilitare la riprotezione da un'area secondaria di Azure a una primaria
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
-            - name: Riprotezione da Azure al sito locale
-              href: site-recovery-how-to-reprotect.md
-        - name: Effettuare il failback da Azure
-          items:
-            - name: Effettuare il failback da Azure a VMware
-              href: site-recovery-how-to-failback-azure-to-vmware.md
-            - name: Effettuare il failback da Azure a Hyper-V
-              href: site-recovery-failback-from-azure-to-hyper-v.md
-        - name: Configurare un server di destinazione master Linux per il failback
-          href: site-recovery-how-to-install-linux-master-target.md
     - name: Automazione
       items:
         - name: Configurare la replica Hyper-V in Azure senza VMM con PowerShell
@@ -213,7 +215,7 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Gestisci
       items:
-        - name: Aggiornare l'insieme di credenziali di Site Recovery in un insieme di credenziali di Servizi di ripristino
+        - name: Eseguire l'aggiornamento a un insieme di credenziali di Servizi di ripristino
           href: upgrade-site-recovery-vaults.md
         - name: Gestire server di elaborazione in Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
@@ -223,7 +225,7 @@
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Rimuovere server e disabilitare la protezione
           href: site-recovery-manage-registration-and-protection.md
-        - name: Eliminare un insieme di credenziali dei servizi di ripristino
+        - name: Eliminare un insieme di credenziali
           href: delete-vault.md
     - name: Risoluzione dei problemi
       items:
@@ -231,7 +233,7 @@
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
         - name: Problemi di replica da sito locale ad Azure
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
-        - name: Problemi di installazione del servizio Mobility
+        - name: Problemi del servizio Mobility
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problemi del failover in Azure
           href: site-recovery-failover-to-azure-troubleshoot.md

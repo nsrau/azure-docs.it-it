@@ -1,61 +1,61 @@
-- name: Documentazione del servizio Device Provisioning in hub IoT di Azure
+- name: Documentazione di Azure IoT Edge
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sul servizio Device Provisioning in hub IoT
-      href: about-iot-dps.md
+    - name: Informazioni su Azure IoT Edge
+      href: how-iot-edge-works.md
 - name: Guide introduttive
-  expanded: true
   items:
-    - name: Configurare il provisioning automatico
-      href: quick-setup-auto-provision.md
-    - name: Creare un dispositivo simulato
-      items:
-        - name: TPM
-          href: quick-create-simulated-device.md
-        - name: X.509
-          href: quick-create-simulated-device-x509.md
+    - name: Distribuire in un dispositivo perimetrale - Windows
+      href: quickstart.md
+    - name: Distribuire in un dispositivo perimetrale - Linux
+      href: quickstart-linux.md
 - name: Esercitazioni
   items:
-    - name: 1 - Configurare le risorse cloud
-      href: tutorial-set-up-cloud.md
-    - name: 2 - Configurare il dispositivo
-      href: tutorial-set-up-device.md
-    - name: 3 - Effettuare il provisioning di un dispositivo in un hub IoT
-      href: tutorial-provision-device-to-hub.md
-    - name: 4 - Effettuare il provisioning di dispositivi in più hub
-      href: tutorial-provision-multiple-hubs.md
-- name: Concetti
-  items:
-    - name: Concetti relativi ai dispositivi
-      href: concepts-device.md
-    - name: Concetti relativi ai servizi
-      href: concepts-service.md
-    - name: Concetti relativi alla sicurezza
-      href: concepts-security.md
+    - name: Simulare un dispositivo perimetrale - Windows
+      href: tutorial-simulate-device-windows.md
+    - name: Simulare un dispositivo perimetrale - Linux
+      href: tutorial-simulate-device-linux.md
+    - name: 'Sviluppare un modulo C#'
+      href: tutorial-csharp-module.md
+    - name: Distribuire Analisi di flusso di Azure
+      href: tutorial-deploy-stream-analytics.md
+    - name: Distribuire Azure Machine Learning
+      href: tutorial-deploy-machine-learning.md
+    - name: Distribuire Funzioni di Azure
+      href: tutorial-deploy-function.md
 - name: Guide alle procedure
   items:
-    - name: Gestire le registrazioni dei dispositivi
-      href: how-to-manage-enrollments.md
-    - name: Usare il modulo di protezione hardware con SDK
-      href: use-hsm-with-sdk.md
-    - name: Controllare l'accesso al servizio di provisioning
-      href: how-to-control-access.md
-- name: riferimento
+    - name: Creare un dispositivo gateway
+      href: how-to-create-gateway-device.md
+    - name: Distribuire e monitorare su larga scala
+      href: how-to-deploy-monitor.md
+    - name: Effettuare il provisioning di un dispositivo IoT Core
+      href: how-to-install-iot-core.md
+- name: Concetti
   items:
-    - name: REST
-      href: /rest/api/iot-dps
+    - name: Moduli di IoT Edge
+      href: iot-edge-modules.md
+      items:
+        - name: Sviluppo.
+          href: module-development.md
+        - name: Composizione
+          href: module-composition.md
+    - name: Runtime di IoT Edge
+      href: iot-edge-runtime.md
+    - name: Deployments
+      href: module-deployment-monitoring.md
+    - name: Sicurezza
+      href: security.md
 - name: Risorse
   items:
-    - name: Hub IoT Azure
-      href: 'https://azure.microsoft.com/services/iot-hub/'
     - name: Catalogo dei dispositivi Azure Certified per IoT
       href: 'https://catalog.azureiotsuite.com/'
     - name: Centro per sviluppatori Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
-    - name: Strumento Device Explorer
+    - name: Strumento DeviceExplorer
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: Strumento iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'

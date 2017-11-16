@@ -71,7 +71,7 @@
 ## Soluzioni
 ### [Gestione degli aggiornamenti](../operations-management-suite/oms-solution-update-management.md)
 #### [Gestire gli aggiornamenti per più macchine virtuali](manage-update-multi.md)
-#### [Integrare SCCMr con la gestione degli aggiornamenti OMS](oms-solution-updatemgmt-sccmintegration.md)
+#### [Integrare SCCM con Gestione aggiornamenti OMS](oms-solution-updatemgmt-sccmintegration.md)
 ### [Rilevamento modifiche](../log-analytics/log-analytics-change-tracking.md)
 ### [Tenere traccia delle modifiche nelle macchine virtuali](automation-vm-change-tracking.md)
 ### [Gestire una macchina virtuale con la raccolta dell'inventario](automation-vm-inventory.md)

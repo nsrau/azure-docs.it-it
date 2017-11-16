@@ -3,7 +3,6 @@
 
 # Attività iniziali
 
-## [Scegliere una SKU](search-sku-tier.md)
 ## [Creare un servizio](search-create-service-portal.md)
 ## [Creare un indice](search-what-is-an-index.md)
 ### [Portale di Azure](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # Esercitazioni
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [Sinonimi .NET (anteprima)](search-synonyms-tutorial-sdk.md)
-## [Portale](search-get-started-portal.md)
+## [Sviluppare in .NET](search-howto-dotnet-sdk.md)
+## [Anteprima dei sinonimi in .NET](search-synonyms-tutorial-sdk.md)
+## [Indicizzatore di dati SQL in .NET](search-indexer-tutorial.md)
+## [Procedura dettagliata per il portale](search-get-started-portal.md)
 ## [Eseguire ricerche su dati semistrutturati ](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [Esplorare l'API REST](search-fiddler.md)
 
 # Procedure
 
 ## Pianificare e progettare
+### [Scegliere una SKU](search-sku-tier.md)
 ### [Limiti del servizio](search-limits-quotas-capacity.md)
 ### [Scalabilità del servizio](search-capacity-planning.md)
 ### [Progettare modelli per la multi-tenancy](search-modeling-multitenant-saas-applications.md)
 ## Sviluppare
 ### [Versioni dell'API](search-api-versions.md)
+### [Sviluppare in Node.js](search-get-started-nodejs.md)
+### [Sviluppare in Java](search-get-started-java.md)
 ### [Aggiornare l'SDK](search-dotnet-sdk-migration.md)
 ### [Aggiornare l'API REST](search-api-migration.md)
 ### [Modellare tipi di dati complessi](search-howto-complex-data-types.md)

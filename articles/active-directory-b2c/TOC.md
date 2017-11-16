@@ -90,6 +90,7 @@
 ## Riferimento
 ### [Note sulla versione](active-directory-b2c-developer-notes-custom.md)
 ### [Provider di sessioni SSO](active-directory-b2c-reference-sso-custom.md)
+### [Personalizzazione della lingua](active-directory-b2c-language-customization-custom.md)
 ### [Definizione di framework attendibilità](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # riferimento

@@ -11,7 +11,7 @@
 ### [Archiviazione](cdn-create-a-storage-account-with-cdn.md)
 ### [Condivisione di risorse tra le origini](cdn-cors.md)
 ### [Aggiungere un dominio personalizzato all'endpoint della rete CDN](cdn-map-content-to-custom-domain.md)
-### [Abilitare HTTPS in un dominio personalizzato](cdn-custom-ssl.md)
+### [Configurare HTTPS in un dominio personalizzato](cdn-custom-ssl.md)
 ## Ottimizzare il contenuto
 ### [Panoramica dell'ottimizzazione](cdn-optimization-overview.md)
 ####[Ottimizzazione di file di grandi dimensioni](cdn-large-file-optimization.md)

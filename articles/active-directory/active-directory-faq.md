@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 4c8a3885f34942bbd85d34f26e26ff5d7a432189
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 241ad78abfa964c9f64e97cc8201933913f88e1e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -56,7 +56,7 @@ I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, so
 Se altri utenti devono accedere ai servizi con la stessa sottoscrizione, è possibile aggiungerli come coamministratori. Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure.  Per altre informazioni sugli amministratori della sottoscrizione, vedere [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) (Come aggiungere o modificare i ruoli Amministratore di Azure) e [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-In Azure AD è invece disponibile un set di ruoli amministrativi diverso per gestire la directory e le funzionalità relative alle identità.  Questi amministratori avranno accesso a diverse funzionalità nel portale di Azure o nel portale di Azure classico. Il ruolo dell'amministratore determina le operazioni consentite, ad esempio creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente o gestire i domini.  Per altre informazioni sugli amministratori della directory di AD e i loro ruoli, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md).
+In Azure AD è invece disponibile un set di ruoli amministrativi diverso per gestire la directory e le funzionalità relative alle identità.  Questi amministratori avranno accesso a diverse funzionalità nel portale di Azure o nel portale di Azure classico. Il ruolo dell'amministratore determina le operazioni consentite, ad esempio creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente o gestire i domini.  Per altre informazioni sugli amministratori della directory di AD e i loro ruoli, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, sono complementari ad altri servizi Web come Office 365 e Microsoft Azure, con soluzioni di gestione e di sicurezza complete di scala aziendale.
 
@@ -132,8 +132,7 @@ Per gli utenti di Office 365, l'amministratore può reimpostare la password segu
 Per gli account Azure AD, gli amministratori possono reimpostare le password in uno dei modi seguenti:
 
 - [Reimpostare gli account nel portale di Azure](active-directory-users-reset-password-azure-portal.md)
-- [Reimpostare gli account nel portale classico](active-directory-create-users-reset-password.md)
-- [Uso di PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [Tramite PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -
@@ -199,7 +198,7 @@ Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applic
 
 **R:** L'accesso condizionale di Azure AD consente di assegnare criteri di accesso univoci per ogni applicazione. Nel criterio è possibile richiedere sempre l'autenticazione Multi-Factor Authentication o solo quando gli utenti non sono connessi alla rete locale.  
 
-Per altre informazioni, vedere [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md).
+Per altre informazioni, vedere [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - - -
 **D: Che cos'è il provisioning utenti automatizzato per le app SaaS?**

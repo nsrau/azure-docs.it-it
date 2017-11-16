@@ -1,0 +1,25 @@
+- name: Documentazione di Azure Databricks
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Azure Databricks
+      href: what-is-azure-databricks.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Creare un'area di lavoro di Databricks
+      href: quickstart-create-databricks-workspace-portal.md
+- name: Risorse
+  items:
+    - name: Documentazione di Databricks
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: Aree di disponibilità
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Opzioni di supporto
+      href: 'https://azure.microsoft.com/support/options/'

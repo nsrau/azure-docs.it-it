@@ -200,9 +200,9 @@
     - name: SaaS multi-tenant
       items:
         - name: Modelli di progettazione SaaS
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+          href: saas-tenancy-app-design-patterns.md
         - name: Sicurezza delle app SaaS
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+          href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Sviluppare database
       items:
         - name: Dati JSON
@@ -337,24 +337,45 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: SaaS multi-tenant
       items:
-        - name: Introduzione dell'esercitazione
-          href: sql-database-wtp-overview.md
-        - name: Distribuire un'applicazione di esempio
-          href: sql-database-saas-tutorial.md
-        - name: Effettuare il provisioning di tenant
-          href: sql-database-saas-tutorial-provision-and-catalog.md
-        - name: Monitorare le prestazioni del database
-          href: sql-database-saas-tutorial-performance-monitoring.md
-        - name: Monitorare con Log Analytics
-          href: sql-database-saas-tutorial-log-analytics.md
-        - name: Ripristinare un tenant singolo
-          href: sql-database-saas-tutorial-restore-single-tenant.md
-        - name: Gestire uno schema di tenant
-          href: sql-database-saas-tutorial-schema-management.md
-        - name: Eseguire query ad hoc
-          href: sql-database-saas-tutorial-adhoc-analytics.md
-        - name: ETL per l'analisi
-          href: sql-database-saas-tutorial-tenant-analytics.md
+        - name: Introduzione a Wingtips
+          href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: Applicazione autonoma
+          items:
+            - name: Distribuire un'applicazione di esempio
+              href: saas-standaloneapp-get-started-deploy.md
+        - name: Database per tenant
+          href: saas-dbpertenant-wingtip-app-overview.md
+          items:
+            - name: Introduzione dell'esercitazione
+              href: saas-dbpertenant-wingtip-app-overview.md
+            - name: Indicazioni sulle app
+              href: saas-dbpertenant-wingtip-app-guidance-tips.md
+            - name: Distribuire un'applicazione di esempio
+              href: saas-dbpertenant-get-started-deploy.md
+            - name: Effettuare il provisioning di tenant
+              href: saas-dbpertenant-provision-and-catalog.md
+            - name: Monitorare le prestazioni del database
+              href: saas-dbpertenant-performance-monitoring.md
+            - name: Monitorare con Log Analytics
+              href: saas-dbpertenant-log-analytics.md
+            - name: Ripristinare un tenant
+              href: saas-dbpertenant-restore-single-tenant.md
+            - name: Gestire uno schema di tenant
+              href: saas-tenancy-schema-management.md
+            - name: Eseguire query ad hoc
+              href: saas-tenancy-adhoc-analytics.md
+            - name: ETL per l'analisi
+              href: saas-tenancy-tenant-analytics.md
+        - name: Database multi-tenant
+          items:
+            - name: Distribuire un'applicazione di esempio
+              href: saas-multitenantdb-get-started-deploy.md
+            - name: Monitorare le prestazioni del database
+              href: saas-multitenantdb-performance-monitoring.md
+            - name: Eseguire query ad hoc
+              href: saas-multitenantdb-adhoc-reporting.md
+            - name: Gestire uno schema di tenant
+              href: saas-multitenantdb-schema-management.md
     - name: Sviluppo di applicazioni
       items:
         - name: C e C++

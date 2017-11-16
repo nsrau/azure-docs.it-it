@@ -2,6 +2,7 @@
 ## [Che cos'è Analisi di flusso?](stream-analytics-introduction.md)
 ## [Confrontare Storm e l'analisi di flusso](stream-analytics-comparison-storm.md)
 
+
 # Introduzione
 ## [Elaborare dati di streaming IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Rilevamento delle frodi in tempo reale](stream-analytics-real-time-fraud-detection.md)
@@ -13,7 +14,9 @@
 ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Assegnazione di punteggi in tempo reale con Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Elaborazione di eventi in tempo reale](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Analisi di flusso in IoT Edge (anteprima)](stream-analytics-edge.md)
 ### [Guida all'utilizzo del rilevamento delle anomalie in Azure (anteprima)](stream-analytics-machine-learning-anomaly-detection.md)
+### [Simulazione di trading a frequenza elevata con Analisi di flusso](stream-analytics-high-frequency-trading.md)
 
 ## Creare processi
 ### [Creare input](stream-analytics-define-inputs.md)

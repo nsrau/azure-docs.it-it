@@ -91,6 +91,8 @@
       items:
         - name: Azure
           items:
+            - name: Aggiungere il monitoraggio continuo
+              href: app-insights-vsts-continuous-monitoring.md
             - name: Profiler
               href: app-insights-profiler.md
             - name: Abilitare Profiler
