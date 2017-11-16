@@ -53,7 +53,7 @@
 ### [Usare l'identità dei servizi gestiti](api-management-howto-use-managed-service-identity.md)
 ### Integrazione con Service Fabric
 #### [Panoramica](../service-fabric/service-fabric-api-management-overview.md)
-#### [Avvio rapido](../service-fabric/service-fabric-api-management-quick-start.md)
+#### [Esercitazione](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
 
 # riferimento
 ## [Azure PowerShell](/powershell/azure/overview)
