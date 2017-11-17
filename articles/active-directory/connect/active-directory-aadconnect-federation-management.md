@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 0cab39bb3ce5c42fac543171baea498eb894c502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9ff22c7b4793112da5211162ed9cd58ac86d238
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
 In questo articolo viene descritto come gestire e personalizzare Active Directory Federation Services (ADFS) tramite Azure Active Directory (Azure AD) Connect. Si includono inoltre altre attività comuni di AD FS che potrebbero essere necessarie per eseguire una configurazione completa di una farm di AD FS.
@@ -170,7 +170,7 @@ Con Azure AD Connect è facile aggiungere un dominio per la federazione con Azur
 
    ![Dominio di Azure AD](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    Dopo aver scelto il dominio, la procedura guidata offre informazioni appropriate sulle altre azioni che verranno eseguite e sull'impatto della configurazione. In alcuni casi, se si seleziona un dominio non ancora verificato in Azure AD, la procedura guidata offre informazioni che consentono di verificare il dominio. Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory-add-domain.md) .
+    Dopo aver scelto il dominio, la procedura guidata offre informazioni appropriate sulle altre azioni che verranno eseguite e sull'impatto della configurazione. In alcuni casi, se si seleziona un dominio non ancora verificato in Azure AD, la procedura guidata offre informazioni che consentono di verificare il dominio. Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory-domains-add-azure-portal.md) .
 
 5. Fare clic su **Avanti**. Nella pagina **Pronto per la configurazione** viene visualizzato l'elenco delle azioni che verranno eseguite da Azure AD Connect. Fare clic su **Installa** per completare la configurazione.
 

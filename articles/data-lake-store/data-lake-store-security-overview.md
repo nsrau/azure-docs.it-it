@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: e72dd7e84ce3961274cf312649cc679abc576aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b71c7e7f1ea58a273beb58717102522ad0f8c4a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Sicurezza in Archivio Azure Data Lake
 Molte aziende sfruttano l'analisi di Big Data per una visione completa dell'attività e per prendere decisioni appropriate. Un'organizzazione potrebbe presentare un ambiente complesso e regolamentato, con un numero crescente di utenti diversi. Per un'azienda è essenziale assicurarsi che i dati critici vengano archiviati in modo più sicuro e con un corretto livello di accesso concesso ai singoli utenti. Azure Data Lake Store è progettato per contribuire a soddisfare questi requisiti di sicurezza. Questo articolo fornisce informazioni sulle funzionalità di sicurezza di Data Lake Store, tra cui:
@@ -65,7 +65,7 @@ Per istruzioni, vedere [Assegnare utenti o gruppi di sicurezza ad account di Azu
 ### <a name="using-acls-for-operations-on-file-systems"></a>Uso degli ACL per le operazioni sui file system
 Data Lake Store è un file system gerarchico come HDFS (Hadoop Distributed File System) e supporta gli [elenchi di controllo di accesso POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Controlla le autorizzazioni di lettura (r), scrittura (w) ed esecuzione (w) per le risorse per il ruolo Proprietario, per il gruppo Proprietari e per altri utenti e gruppi. Nella versione di anteprima pubblica di Data Lake Store (la versione corrente) gli elenchi di controllo di accesso possono essere abilitati nella cartella radice, nelle sottocartelle e nei singoli file. Per altre informazioni sul funzionamento degli elenchi di controllo di accesso nel contesto di Data Lake Store, vedere [Controllo di accesso in Data Lake Store](data-lake-store-access-control.md).
 
-È consigliabile definire gli elenchi di controllo di accesso per più utenti usando [gruppi di sicurezza](../active-directory/active-directory-accessmanagement-manage-groups.md). Aggiungere gli utenti a un gruppo di sicurezza, quindi assegnare gli elenchi di controllo di accesso per il file o una cartella a tale gruppo di sicurezza. Ciò è utile quando si vuole fornire l'accesso personalizzato, perché si è limitati all'aggiunta di un massimo di nove voci per l'accesso personalizzato. Per altre informazioni su come proteggere meglio i dati archiviati in Data Lake Store usando i gruppi di sicurezza di Azure Active Directory, vedere [Assegnare utenti o gruppi di sicurezza come elenchi di controllo di accesso al file system di Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
+È consigliabile definire gli elenchi di controllo di accesso per più utenti usando [gruppi di sicurezza](../active-directory/active-directory-groups-create-azure-portal.md). Aggiungere gli utenti a un gruppo di sicurezza, quindi assegnare gli elenchi di controllo di accesso per il file o una cartella a tale gruppo di sicurezza. Ciò è utile quando si vuole fornire l'accesso personalizzato, perché si è limitati all'aggiunta di un massimo di nove voci per l'accesso personalizzato. Per altre informazioni su come proteggere meglio i dati archiviati in Data Lake Store usando i gruppi di sicurezza di Azure Active Directory, vedere [Assegnare utenti o gruppi di sicurezza come elenchi di controllo di accesso al file system di Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 
 ![Elencare gli accessi standard e personalizzati](./media/data-lake-store-security-overview/adl.acl.2.png "Elencare gli accessi standard e personalizzati")
 

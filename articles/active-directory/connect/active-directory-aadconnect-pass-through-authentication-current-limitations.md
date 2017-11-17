@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4a33df43ca218545d6c684103a64f2cd1460913b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticazione pass-through di Azure Active Directory - Limitazioni correnti
 
@@ -38,7 +38,7 @@ Sono completamente supportati gli scenari seguenti:
 
 _Non_ sono supportati gli scenari seguenti:
 
-- L'utente accede ad applicazioni client legacy di Office: Office 2010 e Office 2013 _senza_ l'autenticazione moderna). Le organizzazioni sono incoraggiate a passare all'autenticazione moderna, se possibile. L'autenticazione moderna permette di supportare l'autenticazione pass-through e contribuisce anche a proteggere gli account utente tramite le funzionalità di [accesso condizionale](../active-directory-conditional-access.md), come l'autenticazione a più fattori.
+- L'utente accede ad applicazioni client legacy di Office: Office 2010 e Office 2013 _senza_ l'autenticazione moderna). Le organizzazioni sono incoraggiate a passare all'autenticazione moderna, se possibile. L'autenticazione moderna permette di supportare l'autenticazione pass-through e contribuisce anche a proteggere gli account utente tramite le funzionalità di [accesso condizionale](../active-directory-conditional-access-azure-portal.md), come l'autenticazione a più fattori.
 - Accesso degli utenti ad applicazioni client Skype for Business, incluso Skype for Business 2016.
 - L'utente accede a PowerShell v 1.0. È consigliabile tuttavia usare PowerShell 2.0.
 - Azure AD Domain Services.

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: d7847f695a77ad469f56a20518cb979c41384d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6e325f70a37200552832b9c0ac38f6c56471f2c
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Spostamento dei dati da e verso l'archivio BLOB di Azure tramite Python
 Questo argomento descrive come elencare, caricare e scaricare BLOB usando l'API Python. Con l'API Python fornita in Azure SDK, è possibile:

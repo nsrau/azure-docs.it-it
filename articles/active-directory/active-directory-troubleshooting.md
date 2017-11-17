@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b27363a38c1a5955e062d1e5c036b542341e16bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Risoluzione dei problemi: Voce "Active Directory" mancante o non disponibile
 Per la maggior parte delle istruzioni relative all'uso delle funzionalità di Azure Active Directory è necessario accedere al portale di gestione di Azure e fare clic su **Active Directory**. Come procedere però se la voce di menu Active Directory non viene visualizzata o è contrassegnata come **Non disponibile**? Questo argomento illustra come risolvere il problema. Descrive inoltre le condizioni per cui la voce di menu **Active Directory** non viene visualizzata o non è disponibile e illustra le procedure da eseguire.
@@ -43,7 +43,7 @@ La voce Active Directory viene visualizzata nel menu di navigazione sinistro se 
 
 Per creare uno spazio dei nomi di Access Control o un provider Multi-Factor Authentication, fare clic su **+Nuovo** > **Servizi app** > **Active Directory**.
 
-Per ottenere diritti amministrativi per una directory, chiedere a un amministratore di assegnare un ruolo di amministratore al proprio account. Per informazioni dettagliate, vedere [Assegnazione dei ruoli di amministratore in Azure AD](active-directory-assign-admin-roles.md).
+Per ottenere diritti amministrativi per una directory, chiedere a un amministratore di assegnare un ruolo di amministratore al proprio account. Per informazioni dettagliate, vedere [Assegnazione dei ruoli di amministratore in Azure AD](active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="active-directory-is-not-available"></a>Active Directory non è disponibile
 Quando si fa clic su **+Nuovo** > **Servizi app**, viene visualizzata la voce **Active Directory**. In particolare, questa voce viene visualizzata quando per l'utente corrente sono disponibili funzionalità di Active Directory, ad esempio Directory, Access Control o provider di Multi-Factor Authentication.

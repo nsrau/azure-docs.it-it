@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrazione con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -67,7 +67,7 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 **Rilevamento di attività di accesso con anomalie.**  Azure AD elabora oltre un miliardo di accessi al giorno e si avvale di algoritmi di apprendimento automatico per rilevare attività sospette e notificare agli amministratori IT eventuali problemi.  Grazie al supporto dell'accesso tramite Azure AD, l'applicazione può usufruire di questa ulteriore protezione. Altre informazioni sulla [visualizzazione del report di accesso di Azure Active Directory](../active-directory-view-access-usage-reports.md).
 
-**Accesso condizionale.**  Oltre all'autenticazione a più fattori, gli amministratori possono richiedere che vengano soddisfatte specifiche condizioni per consentire l'accesso degli utenti all'applicazione.  Tra le condizioni che è possibile impostare, sono inclusi l'intervallo di indirizzi IP dei dispositivi client, l'appartenenza a gruppi specificati e lo stato del dispositivo usato per l'accesso.  Altre informazioni sull'[accesso condizionale di Azure Active Directory](../active-directory-conditional-access.md).
+**Accesso condizionale.**  Oltre all'autenticazione a più fattori, gli amministratori possono richiedere che vengano soddisfatte specifiche condizioni per consentire l'accesso degli utenti all'applicazione.  Tra le condizioni che è possibile impostare, sono inclusi l'intervallo di indirizzi IP dei dispositivi client, l'appartenenza a gruppi specificati e lo stato del dispositivo usato per l'accesso.  Altre informazioni sull'[accesso condizionale di Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Sviluppo semplificato
 **Protocolli standard del settore.**  Microsoft si impegna a supportare gli standard del settore.  Azure AD supporta i protocolli di autenticazione SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2.  L'API Graph è conforme a OData 4.0.  Se l'applicazione supporta già i protocolli SAML 2.0 o OpenID Connect 1.0 per l'accesso federato, l'aggiunta del supporto per Azure AD è un'operazione semplice.  Altre informazioni sui [protocolli di autenticazione supportati da Azure AD](active-directory-authentication-protocols.md).

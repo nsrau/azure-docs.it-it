@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
@@ -99,10 +99,10 @@ Tempo previsto per il completamento: 15 minuti
 | Passaggio | Risorse |
 | --- | --- |
 | Accedere al portale di gestione di Azure AD | [Portale di gestione di Azure AD - Informazioni personalizzate distintive dell'azienda](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Caricare le risorse per la pagina di accesso (logo alto, logo piccolo, etichette e così via). Facoltativamente, se si usa AD FS, allineare le stesse risorse con le pagine di accesso di AD FS | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso: elementi personalizzabili](active-directory-add-company-branding.md) |
+| Caricare le risorse per la pagina di accesso (logo alto, logo piccolo, etichette e così via). Facoltativamente, se si usa AD FS, allineare le stesse risorse con le pagine di accesso di AD FS | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso: elementi personalizzabili](customize-branding.md) |
 | Attendere un paio di minuti che la modifica diventi effettiva |  |
 | Accedere con le credenziali utente del modello di verifica a https://myapps.microsoft.com |  |
-| Verificare l'aspetto nel browser | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md) |
+| Verificare l'aspetto nel browser | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](customize-branding.md) |
 | Se necessario, verificare l'aspetto in altri dispositivi |  |
 
 ### <a name="considerations"></a>Considerazioni
@@ -379,7 +379,7 @@ Tempo previsto per il completamento: 15 minuti
 
 | Prerequisito. | Risorse |
 | --- | --- |
-| Abilitare la gestione delle password self-service nel tenant. | [Reimpostazione delle password in Azure Active Directory per gli amministratori IT](active-directory-passwords.md) |
+| Abilitare la gestione delle password self-service nel tenant. | [Reimpostazione delle password in Azure Active Directory per gli amministratori IT](active-directory-passwords-update-your-own-password.md) |
 | Abilitare il writeback delle password per gestire le password in locale. Si noti che questa operazione richiede versioni specifiche di Azure AD Connect | [Prerequisiti per il writeback delle password](active-directory-passwords-writeback.md) |
 | Identificare gli utenti del modello di verifica che useranno questa funzionalità e verificare che siano membri di un gruppo di sicurezza. Gli utenti devono essere non amministratori per presentare completamente la funzionalità | [Personalizzare: Gestione delle password di Azure Active Directory: Limitare l'accesso per la reimpostazione delle password](active-directory-passwords-writeback.md) |
 

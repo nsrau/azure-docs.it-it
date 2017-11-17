@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 93645aa5765d533b45fe2266f061ad61c0bf45d7
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 5bf687afa8f42292a3b21b19a572c76926fef1cd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Controllo del traffico delle app Web di Azure con Gestione traffico di Azure
 > [!NOTE]
@@ -49,7 +49,7 @@ Quando si utilizza Gestione traffico con Azure, è opportuno tenere presenti i f
 * Per distribuzioni nella stessa area in cui App Web viene utilizzato insieme a un altro servizio cloud di Azure, è possibile combinare entrambi i tipi di endpoint per abilitare scenari ibridi.
 * È possibile specificare solo un endpoint dell'app Web per area in un profilo. Quando si seleziona un'app Web come endpoint per un'area, le app Web rimanenti in quell'area non saranno più disponibili per la selezione per quel profilo.
 * Gli endpoint delle app Web che si specificano in un profilo di Gestione traffico di Azure vengono visualizzati nella sezione **Nomi di dominio** della pagina Configura per le app Web nel profilo, ma non sono configurabili in quel contesto.
-* Dopo avere aggiunto un'app Web a un profilo, nel campo **URL del sito** nel dashboard della pagina del portale dell'app Web viene visualizzato l'URL del dominio personalizzato dell'app Web, se ne è stato configurato uno. In caso contrario, viene visualizzato l'URL del profilo di Gestione traffico, ad esempio `contoso.trafficmgr.com`. Sia il nome di dominio diretto dell'app Web sia l'URL di Gestione traffico sono visibili nella pagina Configura dell'app Web nella sezione **Nomi di dominio**.
+* Dopo avere aggiunto un'app Web a un profilo, nel campo **URL del sito** nel dashboard della pagina del portale dell'app Web viene visualizzato l'URL del dominio personalizzato dell'app Web, se ne è stato configurato uno. In caso contrario, viene visualizzato l'URL del profilo di Gestione traffico, ad esempio `contoso.trafficmanager.net`. Sia il nome di dominio diretto dell'app Web sia l'URL di Gestione traffico sono visibili nella pagina Configura dell'app Web nella sezione **Nomi di dominio**.
 * I nomi di dominio personalizzato funzionano come previsto, ma oltre ad aggiungerli alle app Web, è necessario configurare la mappa DNS in modo che punti all'URL di Gestione traffico. Per informazioni sulla configurazione di un dominio personalizzato per un'app Web di Azure, vedere [Configurazione di un dominio personalizzato per un sito Web di Azure](app-service-web-tutorial-custom-domain.md).
 * È possibile aggiungere a un profilo di Gestione traffico di Azure solo app Web in modalità Standard o Premium.
 

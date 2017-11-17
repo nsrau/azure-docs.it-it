@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e561061cadd88e2c5670e27f2a66ef21002e30b0
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notifiche di Report di Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Quali report generano notifiche tramite posta elettronica
@@ -47,5 +47,5 @@ Sì, per disattivare le notifiche correlate ad accessi anomali all'interno del p
 ## <a name="whats-next"></a>Passaggi successivi
 * Per informazioni sui report di sicurezza, controllo e attività disponibili, Vedere [Report di sicurezza, controllo e attività di Azure AD](active-directory-view-access-usage-reports.md)
 * [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
+* [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](customize-branding.md)
 

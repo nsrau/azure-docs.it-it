@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Approccio multilivello alla sicurezza delle password di Azure AD
 
@@ -37,7 +37,7 @@ Azure AD adotta i seguenti approcci comuni per la protezione delle password:
 * Requisiti di complessità delle password
 * Scadenza regolare e periodica delle password
 
-Per informazioni sulla reimpostazione delle password in Azure Active Directory, vedere l'argomento [Reimpostazione self-service delle password di Azure AD per i professionisti IT](active-directory-passwords.md).
+Per informazioni sulla reimpostazione delle password in Azure Active Directory, vedere l'argomento [Reimpostazione self-service delle password di Azure AD per i professionisti IT](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="azure-ad-password-protections"></a>Protezione delle password di Azure AD
 
@@ -74,7 +74,7 @@ Per altri account Microsoft, la schermata sarà simile alla seguente:
 
   ![Bloccato da un account Microsoft](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Per informazioni sulla reimpostazione delle password in Azure Active Directory, vedere l'argomento [Reimpostazione self-service delle password di Azure AD per i professionisti IT](active-directory-passwords.md).
+Per informazioni sulla reimpostazione delle password in Azure Active Directory, vedere l'argomento [Reimpostazione self-service delle password di Azure AD per i professionisti IT](active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >Se si è amministratori di Azure AD è consigliabile usare [Windows Hello](https://www.microsoft.com/windows/windows-hello) per evitare che gli utenti creino password tradizionali.

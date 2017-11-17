@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 50161c71443a3cc0192ab2db771bb258058e233c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Uso di Analytics in Application Insights
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics.
@@ -38,7 +38,7 @@ L'esercitazione inline fornisce alcune informazioni su come procedere.
 ### <a name="write-a-query"></a>Scrivere una query
 ![Visualizzazione schema](./media/app-insights-analytics-using/150.png)
 
-Iniziare con i nomi delle tabelle elencate a sinistra oppure con l'operatore [range](https://docs.loganalytics.io/queryLanguage/query_language_rangeoperator.html) o [union](https://docs.loganalytics.io/queryLanguage/query_language_unionoperator.html). Usare `|` per creare una pipeline di [operatori](https://docs.loganalytics.io/learn/cheatsheets/useful_operators.html). 
+Iniziare con i nomi delle tabelle elencate a sinistra oppure con l'operatore [range](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/range-operator) o [union](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/union-operator). Usare `|` per creare una pipeline di [operatori](https://docs.loganalytics.io/docs/Learn/References/Useful-operators). 
 
 IntelliSense suggerisce gli operatori e gli elementi delle espressioni che è possibile usare. Fare clic sull'icona informazioni o premere CTRL+BARRA SPAZIATRICE per una descrizione più dettagliata ed esempi di utilizzo di ogni elemento.
 
@@ -49,7 +49,7 @@ Vedere la [panoramica del linguaggio di Analytics](app-insights-analytics-tour.m
 
 1. Nelle query è possibile usare interruzioni di riga.
 2. Posizionare il cursore all'interno o alla fine della query da eseguire.
-3. Controllare l'intervallo di tempo della query. È possibile modificarlo o ignorarlo inserendo la propria clausola [`where...timestamp...`](https://docs.loganalytics.io/concepts/concepts_datatypes_timespan.html) nella query.
+3. Controllare l'intervallo di tempo della query. È possibile modificarlo o ignorarlo inserendo la propria clausola [`where...timestamp...`](https://docs.loganalytics.io/docs/Learn/Tutorials/Date-and-time-operations) nella query.
 3. Fare clic su Vai per eseguire la query.
 4. Non inserire righe vuote nella query. È possibile mantenere più query separate in un'unica scheda di query, separandole con righe vuote. Viene eseguita solo la query con il cursore.
 
@@ -71,7 +71,7 @@ Espandere una riga dei risultati per visualizzarne l'elenco completo delle propr
 > [!NOTE]
 > Le operazioni di ordinamento, raggruppamento e filtro nel browser non eseguono nuovamente la query, ma riorganizzano i risultati restituiti dall'ultima query. 
 > 
-> Per eseguire queste attività nel server prima che vengano restituiti i risultati, scrivere la query usando gli operatori [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html), [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) e [where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html).
+> Per eseguire queste attività nel server prima che vengano restituiti i risultati, scrivere la query usando gli operatori [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator), [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) e [where](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator).
 > 
 > 
 
@@ -99,7 +99,7 @@ Se si ritiene che non siano visualizzati tutti i risultati previsti, esistono un
 
     È possibile tuttavia modificare il filtro intervallo di tempo usando il menu a discesa.
 
-    In alternativa, è possibile ignorare l'intervallo automatico inserendo la propria clausola [`where  ... timestamp ...` ](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) nella query. Ad esempio:
+    In alternativa, è possibile ignorare l'intervallo automatico inserendo la propria clausola [`where  ... timestamp ...` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) nella query. Ad esempio:
 
     `requests | where timestamp > ago('2d')`
 
@@ -107,10 +107,10 @@ Se si ritiene che non siano visualizzati tutti i risultati previsti, esistono un
 
     È consigliabile evitare di raggiungere il limite. Usare il filtro intervallo di tempo oppure usare gli operatori, ad esempio:
 
-  * [timestamp top 100 by](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
-  * [take 100](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
-  * [summarize ](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
-  * [where timestamp > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
+  * [timestamp top 100 by](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
+  * [take 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
+  * [summarize ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [where timestamp > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 Per visualizzare più di 10.000 righe, è consigliabile usare [Esportazione continua](app-insights-export-telemetry.md). Analytics è progettato per l'analisi e non per il recupero di dati non elaborati.
 
@@ -121,7 +121,7 @@ Selezionare il tipo di diagramma desiderato:
 
 Se sono presenti più colonne dei tipi corretti, è possibile scegliere gli assi X e Y e una colonna di dimensioni in base alla quale dividere i risultati.
 
-Per impostazione predefinita, i risultati vengono inizialmente visualizzati in una tabella e si seleziona il diagramma manualmente. Per selezionare il diagramma, è possibile usare la [direttiva render](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html) alla fine di una query.
+Per impostazione predefinita, i risultati vengono inizialmente visualizzati in una tabella e si seleziona il diagramma manualmente. Per selezionare il diagramma, è possibile usare la [direttiva render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) alla fine di una query.
 
 ### <a name="analytics-diagnostics"></a>Diagnostica di Analytics
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 Funzioni di Azure consente di scrivere codice in risposta agli eventi in Azure e in altri servizi, tramite *trigger* e *associazioni*. In questo articolo viene fornita una panoramica concettuale di trigger e associazioni per tutti i linguaggi di programmazione supportati. Le funzionalità comuni a tutte le associazioni sono descritte di seguito.
@@ -243,7 +243,7 @@ Un trigger di archiviazione code di Azure ad esempio supporta le proprietà segu
 
 I dettagli delle proprietà dei metadati per ogni trigger sono descritti nell'argomento di riferimento corrispondente. La documentazione è disponibile anche nella scheda **Integrazione** del portale nella sezione **Documentazione** sotto l'area di configurazione dell'associazione.  
 
-Poiché ad esempio i trigger BLOB presentano alcuni ritardi, è possibile usare un trigger di coda per l'esecuzione della funzione (vedere [Trigger del BLOB del servizio di archiviazione](functions-bindings-storage-blob.md#storage-blob-trigger)). Il messaggio della coda contiene il filename del BLOB da attivare. Con l'uso della proprietà dei metadati `queueTrigger`, è possibile specificareper intero questo comportamento nella configurazione, invece che nel codice.
+Poiché ad esempio i trigger BLOB presentano alcuni ritardi, è possibile usare un trigger di coda per l'esecuzione della funzione (vedere [Trigger del BLOB del servizio di archiviazione](functions-bindings-storage-blob.md#blob-storage-trigger)). Il messaggio della coda contiene il filename del BLOB da attivare. Con l'uso della proprietà dei metadati `queueTrigger`, è possibile specificareper intero questo comportamento nella configurazione, invece che nel codice.
 
 ```json
   "bindings": [

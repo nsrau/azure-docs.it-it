@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 520e4dfaadf1d476447a600ef2b3d092b6955a89
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Creare un'immagine di macchina virtuale personalizzata disponibile nello Stack di Azure
 
@@ -100,7 +100,7 @@ Per aggiungere l'immagine a Azure Marketplace dello Stack, completare i passaggi
           -EnableAdfsAuthentication:$true
 
         $TenantID = Get-AzsDirectoryTenantId `
-          -ADFS 
+          -ADFS `
           -EnvironmentName AzureStackAdmin 
 
         Login-AzureRmAccount `

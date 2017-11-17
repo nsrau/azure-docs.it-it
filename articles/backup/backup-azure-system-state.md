@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 5481e9139f18cb88ce5152776fa18df3f9441c80
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Eseguire il backup dello stato del sistema Windows in una distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup dello stato del sistema Windows Server in Azure. Si tratta di un'esercitazione che illustra le informazioni di base,
@@ -35,7 +35,7 @@ Per eseguire il backup dello stato del sistema di Windows Server, è necessario 
 1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com/) , tramite la sottoscrizione di Azure.
 2. Scegliere **Altri servizi** dal menu Hub e nell'elenco di risorse digitare **Servizi di ripristino**, quindi fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
     Se presenti nella sottoscrizione, gli insiemi di credenziali dei servizi di ripristino vengono elencati.
 3. Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.

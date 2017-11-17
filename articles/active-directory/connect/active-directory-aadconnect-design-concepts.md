@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 53a0f766de9db7e6ee48b6659aad378620c0d727
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
 L'obiettivo di questo argomento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri argomenti.
@@ -191,7 +191,7 @@ John è un utente di contoso.com. Si vuole fare in modo che John usi l'UPN local
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Domini locali non instradabili e UPN per Azure AD
 Alcune organizzazioni usano domini non instradabili, ad esempio contoso.local, o domini semplici con etichetta singola come contoso. In Azure AD non è possibile verificare un dominio non instradabile. Azure AD Connect è in grado eseguire la sincronizzazione con un solo dominio verificato in Azure AD. Quando si crea una directory di Azure AD, viene creato un dominio instradabile che diventa dominio predefinito per Azure AD, ad esempio contoso.onmicrosoft.com. Si rende quindi necessario verificare eventuali altri domini instradabili nello stesso scenario, nel caso in cui non si voglia eseguire la sincronizzazione con il dominio .onmicrosoft.com predefinito.
 
-Per altre informazioni sull'aggiunta e la verifica dei domini, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory-add-domain.md) .
+Per altre informazioni sull'aggiunta e la verifica dei domini, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory-domains-add-azure-portal.md) .
 
 Azure AD Connect rileva se l'esecuzione avviene in un ambiente di dominio non instradabile e avvisa che è opportuno non proseguire con le impostazioni rapide. Se si opera in un dominio non instradabile, è probabile che anche l'UPN degli utenti abbia suffissi non instradabili. Ad esempio, se si opera in contoso.local, Azure AD Connect suggerisce di usare le impostazioni personalizzate anziché le impostazioni rapide. Con le impostazioni personalizzate è possibile specificare l'attributo che deve essere usato come nome UPN per l'accesso ad Azure dopo la sincronizzazione degli utenti con Azure AD.
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f2b172208185e343c9c10d55036c20d60346778c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Personalizzare la funzionalità di Azure AD per la Reimpostazione self-service delle password
 
@@ -40,7 +40,7 @@ Questo messaggio di posta elettronica viene inviato ai destinatari seguenti nell
 
 In tutti i casi, viene inviata una notifica a un massimo di 100 destinatari totali.
 
-Per altre informazioni sui diversi ruoli di amministratore e su come assegnarli vedere il documento [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md)
+Per altre informazioni sui diversi ruoli di amministratore e su come assegnarli vedere il documento [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 ### <a name="disable-contact-your-administrator-emails"></a>Disabilitare i messaggi di posta elettronica Contattare l'amministratore
 

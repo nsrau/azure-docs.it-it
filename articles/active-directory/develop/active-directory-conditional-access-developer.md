@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
@@ -28,7 +28,7 @@ Azure Active Directory (AD) offre diversi modi per proteggere l'app e un servizi
 * Autorizzazione dell'accesso a servizi specifici solo per dispositivi registrati in Intune
 * Limitazione delle posizioni dell'utente e degli intervalli IP
 
-Per altre informazioni sulle complete funzionalità di accesso condizionale, vedere [Accesso condizionale nel portale di Azure classico](../active-directory-conditional-access.md). 
+Per altre informazioni sulle complete funzionalità di accesso condizionale, vedere [Accesso condizionale nel portale di Azure classico](../active-directory-conditional-access-azure-portal.md). 
 
 In questo articolo viene illustrato il significato dell'accesso condizionale per gli sviluppatori che creano app per Azure AD.  Si presuppone una conoscenza delle app a [tenant singolo](active-directory-integrating-applications.md) e [multi-tenant](active-directory-devhowto-multi-tenant-overview.md) e dei [modelli di autenticazione comuni](active-directory-authentication-scenarios.md).
 
@@ -48,7 +48,7 @@ In particolare, gli scenari seguenti richiedono che il codice gestisca le richie
 * App a pagina singola che usano ADAL.js
 * App Web che chiamano una risorsa
 
-I criteri di accesso condizionale possono essere applicati all'app, ma anche a un'API Web a cui l'app accede. Per altre informazioni su come configurare i criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale di Azure Active Directory](../active-directory-conditional-access-azuread-connected-apps.md).
+I criteri di accesso condizionale possono essere applicati all'app, ma anche a un'API Web a cui l'app accede. Per altre informazioni su come configurare i criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale di Azure Active Directory](../active-directory-conditional-access-azure-portal-get-started.md).
 
 A seconda dello scenario, un cliente aziendale può applicare e rimuovere i criteri di accesso condizionale in qualsiasi momento.  Affinché l'app continui a funzionare quando vengono applicati nuovi criteri, è necessario implementare la gestione delle richieste. Gli esempi seguenti illustrano la gestione delle richieste. 
 
@@ -218,7 +218,7 @@ Per provare questo scenario, vedere l'[esempio di codice on-behalf-of JS SPA](ht
 
 ## <a name="see-also"></a>Vedere anche
 
-* Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure AD](../active-directory-conditional-access.md).
+* Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure AD](../active-directory-conditional-access-azure-portal.md).
 * Per altri esempi di codice di Azure AD, vedere il [repository GitHub di esempi di codice](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Per altre informazioni su ADAL SDK e sull'accesso alla documentazione di riferimento, vedere la [guida alle librerie](active-directory-authentication-libraries.md).
 * Per altre informazioni sugli scenari multi-tenant, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](active-directory-devhowto-multi-tenant-overview.md).

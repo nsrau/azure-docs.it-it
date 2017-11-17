@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: e4524704c6db0d21388ea407870c65d4f69a6323
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -31,7 +31,7 @@ Dopo la distribuzione, molte organizzazioni vogliono sapere come o se SSPR è ef
 È possibile rispondere alle domande seguenti da rapporti presenti nel [portale di Azure] (https://portal.azure.com/).
 
 > [!NOTE]
-> È necessario essere [un amministratore globale](active-directory-assign-admin-roles.md) e si deve acconsentire esplicitamente alla raccolta di questi dati per conto dell'organizzazione, visitando le schede di rapporti o i log di controllo almeno una volta. Fino a quel momento, i dati per l'organizzazione non verranno raccolti
+> È necessario essere [un amministratore globale](active-directory-assign-admin-roles-azure-portal.md) e si deve acconsentire esplicitamente alla raccolta di questi dati per conto dell'organizzazione, visitando le schede di rapporti o i log di controllo almeno una volta. Fino a quel momento, i dati per l'organizzazione non verranno raccolti
 
 * Quante persone si sono registrate per la reimpostazione delle password?
 * Chi ha eseguito la registrazione per la reimpostazione delle password?

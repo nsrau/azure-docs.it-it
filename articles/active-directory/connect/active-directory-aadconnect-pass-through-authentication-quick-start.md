@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: e0b58142a2ed17d2cd4749b33e9e80ff1a01662a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory - Avvio rapido
 
@@ -38,7 +38,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 ### <a name="on-the-azure-active-directory-admin-center"></a>Nell'interfaccia di amministrazione di Azure Active Directory
 
 1. Creare un account Administrator globale solo cloud nel tenant di Azure AD. In questo modo è possibile gestire la configurazione del tenant in caso di errore o mancata disponibilità dei servizi locali. Informazioni su come [aggiungere un account amministratore globale di tipo solo cloud](../active-directory-users-create-azure-portal.md). L'esecuzione di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
-2. Aggiungere uno o più [nomi di dominio personalizzati](../active-directory-add-domain.md) al tenant di Azure AD. Gli utenti accedono usando uno di questi nomi di dominio.
+2. Aggiungere uno o più [nomi di dominio personalizzati](../active-directory-domains-add-azure-portal.md) al tenant di Azure AD. Gli utenti accedono usando uno di questi nomi di dominio.
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 

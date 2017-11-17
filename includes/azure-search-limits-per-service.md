@@ -11,7 +11,6 @@ L'archiviazione è vincolata dallo spazio su disco o da un limite rigido al *num
 | Numero massimo di indicizzatori |3 |5 |50 |200 |200 |Nessun supporto per l'indicizzatore |
 | Numero massimo di origini dati |3 |5 |50 |200 |200 |Nessun supporto per l'indicizzatore |
 | Numero massimo di documenti |10.000 |1 milione |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
-| Query al secondo stimate |N/D |~3 per replica |~15 per replica |~60 per replica |~60 per replica |>60 per replica |
 
 <sup>1</sup> Con il Contratto di servizio non sono incluse funzionalità di anteprima e il livello gratuito. Per tutti i livelli fatturabili, i contratti di servizio diventano effettivi quando viene effettuato il provisioning di una ridondanza sufficiente per il servizio. Per il Contratto di servizio di query (lettura) sono necessarie due o più repliche. Per il contratto di servizio di query e indicizzazione (lettura-scrittura) sono necessarie tre o più repliche. Il numero di partizioni non è un fattore di cui tiene conto il Contratto di servizio. 
 

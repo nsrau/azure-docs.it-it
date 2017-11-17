@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -51,7 +51,7 @@ In Criteri di Azure sono disponibili alcuni criteri predefiniti, ad esempio:
 
 Tutti questi criteri possono essere assegnati tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
-Per altre informazioni sulle strutture delle definizioni di criteri, vedere [Struttura delle definizioni di criteri](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+Per altre informazioni sulle strutture delle definizioni di criteri, vedere [Struttura delle definizioni di criteri](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Assegnazione di criteri
 
@@ -68,7 +68,7 @@ I parametri vengono definiti/creati quando si crea una definizione di criteri. Q
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Per altre informazioni sui parametri dei criteri, vedere [Parametri](../azure-resource-manager/resource-manager-policy.md#parameters) nella panoramica dei criteri delle risorse.
+Per altre informazioni sui parametri dei criteri, vedere [Parametri](policy-definition.md#parameters) nella panoramica dei criteri delle risorse.
 
 ## <a name="initiative-definition"></a>Definizione di iniziativa
 Una definizione di iniziativa è una raccolta di definizioni di criteri ottimizzate per il raggiungimento di un singolo obiettivo globale. Le definizioni di iniziativa semplificano la gestione e l'assegnazione delle definizioni di criteri, in quanto raggruppano un set di criteri in un unico elemento. Ad esempio, è possibile creare un'iniziativa denominata **Abilita monitoraggio nel Centro sicurezza di Azure** con l'obiettivo di monitorare tutte le raccomandazioni sulla sicurezza disponibili nel Centro sicurezza di Azure.

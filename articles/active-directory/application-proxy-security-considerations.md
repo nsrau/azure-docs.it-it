@@ -15,11 +15,11 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 031632aa9e01c66e836d607d588ededb7140589f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 239f3830a5e50f80ace15ff3f080653a5f402136
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD
 
@@ -45,7 +45,7 @@ Se si sceglie Pass-through come metodo di preautenticazione, non si otterrà que
 
 Applicare controlli dei criteri più completi prima che vengano stabilite connessioni alla rete.
 
-Con l'[accesso condizionale](active-directory-conditional-access-azuread-connected-apps.md) è possibile definire restrizioni sul tipo di traffico che può accedere alle applicazioni back-end. È possibile, ad esempio, creare criteri per definire restrizioni in base alla posizione, al livello di autenticazione e al profilo di rischio.
+Con l'[accesso condizionale](active-directory-conditional-access-azure-portal-get-started.md) è possibile definire restrizioni sul tipo di traffico che può accedere alle applicazioni back-end. È possibile, ad esempio, creare criteri per definire restrizioni in base alla posizione, al livello di autenticazione e al profilo di rischio.
 
 È possibile usare l'accesso condizionale anche per configurare criteri di autenticazione a più fattori e aggiungere così un altro livello di sicurezza alle autenticazioni utente. 
 
@@ -59,7 +59,7 @@ Il proxy applicazione di Azure AD è un proxy inverso, quindi tutto il traffico 
 
 Non è necessario aprire alcuna connessione in ingresso nella rete aziendale.
 
-I connettori proxy di applicazione usano solo connessioni in uscita per il servizio proxy di applicazione di Azure AD e, pertanto, non è necessario aprire le porte del firewall per le connessioni in ingresso. I proxy tradizionali richiedono una ***rete perimetrale***e consentono l'accesso a connessioni non autenticate al perimetro della rete. Questo scenario richiede investimenti in prodotti web application firewall per analizzare il traffico e proteggere l'ambiente. Con il proxy applicazione non è necessario disporre di una rete perimetrale perché tutte le connessioni sono in uscita e su un canale sicuro.
+I connettori proxy di applicazione usano solo connessioni in uscita per il servizio proxy di applicazione di Azure AD e, pertanto, non è necessario aprire le porte del firewall per le connessioni in ingresso. I proxy tradizionali richiedono una rete perimetrale e consentono l'accesso a connessioni non autenticate al perimetro della rete. Questo scenario richiede investimenti in prodotti web application firewall per analizzare il traffico e proteggere l'ambiente. Con il proxy applicazione non è necessario disporre di una rete perimetrale perché tutte le connessioni sono in uscita e su un canale sicuro.
 
 Per altre informazioni sui connettori, vedere [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md) (Informazioni sui connettori proxy di applicazione di Azure AD).
 

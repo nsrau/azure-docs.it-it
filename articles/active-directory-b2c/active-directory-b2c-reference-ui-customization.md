@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 23a2996a5eaa41af5dc66558d2a70dd3e4a4fe3f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: personalizzare l'interfaccia utente di Azure AD B2C
 
 L'esperienza utente rappresenta l'aspetto più importante in un'applicazione rivolta ai clienti.  L'utente può accrescere le dimensioni della sua base di clienti grazie alla creazione di esperienze utente con l'aspetto del marchio. Azure Active Directory B2C (Azure AD B2C) permette di personalizzare le pagine di iscrizione, accesso, modifica del profilo e reimpostazione della password con controllo Pixel Perfect.
 
 > [!NOTE]
-> La funzionalità di personalizzazione dell'interfaccia utente delle pagine descritta in questo articolo non si applica al criterio di solo accesso, alla pagina di reimpostazione della password associata e ai messaggi di posta elettronica di verifica.  Queste funzionalità usano invece la [funzionalità di branding aziendale](../active-directory/active-directory-add-company-branding.md).
+> La funzionalità di personalizzazione dell'interfaccia utente delle pagine descritta in questo articolo non si applica al criterio di solo accesso, alla pagina di reimpostazione della password associata e ai messaggi di posta elettronica di verifica.  Queste funzionalità usano invece la [funzionalità di branding aziendale](../active-directory/customize-branding.md).
 >
-> Analogamente, se un utente avvia un criterio di modifica del profilo *prima* dell'accesso, l'utente verrà reindirizzato a una pagina che può essere personalizzata tramite la [funzionalità di branding aziendale](../active-directory/active-directory-add-company-branding.md).
+> Analogamente, se un utente avvia un criterio di modifica del profilo *prima* dell'accesso, l'utente verrà reindirizzato a una pagina che può essere personalizzata tramite la [funzionalità di branding aziendale](../active-directory/customize-branding.md).
 
 Questo articolo include gli argomenti seguenti:
 
