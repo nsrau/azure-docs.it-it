@@ -14,32 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: c0a4f337c055f4b62d986e2a3c3ce7b962aceae9
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 661f24e1271b3f16fddc6426c94464dd8b388f18
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Scaricare strumenti di Azure Stack da GitHub
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-**Strumenti di AzureStack** è un repository di GitHub che ospita i moduli di PowerShell per la gestione e distribuzione delle risorse allo Stack di Azure. Se si prevede di stabilire la connettività VPN, è possibile scaricare questi moduli di PowerShell per il Kit di sviluppo dello Stack di Azure o a un client esterno basato su Windows. Per ottenere questi strumenti, clonare il repository GitHub o scaricare il **AzureStack strumenti** cartella. 
-
-Per clonare il repository, scaricare [Git per Windows](https://git-scm.com/download/win), aprire un prompt dei comandi ed eseguire lo script seguente:
-
-```PowerShell
-# Change directory to the root directory. 
-cd \
-
-# Clone the repository.
-git clone https://github.com/Azure/AzureStack-Tools.git --recursive
-
-# Change to the tools directory.
-cd AzureStack-Tools
-```
-
-Per scaricare la cartella Strumenti, eseguire lo script seguente:
+**Strumenti di AzureStack** è un repository di GitHub che ospita i moduli di PowerShell per la gestione e distribuzione delle risorse allo Stack di Azure. Se si prevede di stabilire la connettività VPN, è possibile scaricare questi moduli di PowerShell per il Kit di sviluppo dello Stack di Azure o a un client esterno basato su Windows. Per ottenere questi strumenti, clonare il repository GitHub o scaricare il **AzureStack strumenti** cartella eseguendo lo script seguente:
 
 ```PowerShell
 # Change directory to the root directory. 
