@@ -1,32 +1,31 @@
 ---
-title: Come scalare l'ambiente Time Series Insights di Azure | Microsoft Docs
-description: Questa esercitazione illustra come scalare l'ambiente Time Series Insights
-keywords: 
+title: Come ridimensionare l'ambiente Time Series Insights di Azure | Microsoft Docs
+description: "Questo articolo spiega come ridimensionare l'ambiente Time Series Insights. Per aggiungere o sottrarre capacità in uno SKU di prezzo, usare il portale di Azure."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: ba6bd1ab05bb7e24dd1bc307218e7a772fbde601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="how-to-scale-your-time-series-insights-environment"></a>Come scalare l'ambiente Time Series Insights
+# <a name="how-to-scale-your-time-series-insights-environment"></a>Come ridimensionare l'ambiente Time Series Insights
 
-Questa esercitazione illustra come scalare l'ambiente Time Series Insights.
+Questo articolo spiega come modificare la capacità dell'ambiente Time Series Insights con il portale di Azure. Per capacità si intende il moltiplicatore applicato alla velocità in ingresso, alla capacità di archiviazione e ai costi associati allo SKU selezionato. 
 
-> [!NOTE]
-> La scalabilità verticale tra i tipi di SKU non è consentita. Un ambiente con uno SKU S1 non può essere convertito in un ambiente S2.
+È possibile usare il portale di Azure per aumentare o diminuire la capacità in uno SKU di prezzo specifico. 
+
+Non è però consentita la modifica dello SKU di piano tariffario. Ad esempio, un ambiente con uno SKU di prezzo S1 non può essere convertito in un ambiente con SKU S2 o viceversa. 
+
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>Capacità e velocità di ingresso dello SKU S1
 
@@ -44,12 +43,20 @@ Questa esercitazione illustra come scalare l'ambiente Time Series Insights.
 
 La capacità ha una scalabilità lineare, pertanto uno SKU S1 con capacità 2 supporta una velocità in ingresso di 2 GB (2 milioni) di eventi al giorno e 60 GB (60 milioni) di eventi al mese.
 
-## <a name="changing-the-capacity-of-your-environment"></a>Modifica della capacità dell'ambiente
+## <a name="change-the-capacity-of-your-environment"></a>Modificare la capacità dell'ambiente
+1. Nel portale di Azure individuare selezionare l'ambiente Time Series Insights in uso. 
 
-1. Nel portale di Azure selezionare l'ambiente di cui si intende modificare la capacità.
-1. In Impostazioni fare clic su Configura.
-1. Usare l'apposito dispositivo di scorrimento per selezionare la capacità che soddisfi i requisiti per la velocità in ingresso e la capacità di archiviazione.
+2. Sotto l'intestazione **Impostazioni** selezionare **Configura**.
+
+   ![configure.png](media/scale-your-environment/configure.png)
+
+3. Regolare il dispositivo di scorrimento **Capacità** per selezionare una capacità che soddisfi i requisiti in termini di velocità in ingresso e capacità di archiviazione. Si noti che la velocità in ingresso, la capacità di archiviazione e i costi stimati vengono aggiornati in modo dinamico per illustrare l'impatto della modifica. 
+
+   ![Dispositivo di scorrimento](media/scale-your-environment/slider.png)
+
+   In alternativa, è possibile digitare il numero del moltiplicatore di capacità nella casella di testo a destra del dispositivo di scorrimento. 
+
+4. Selezionare **Salva** per ridimensionare l'ambiente. Finché non viene eseguito il commit della modifica, viene visualizzato temporaneamente l'indicatore di stato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-* Verificare che la nuova capacità sia sufficiente a impedire la limitazione delle richieste. Per altre informazioni, vedere la sezione *Your environment might be getting throttled* (L'ambiente potrebbe essere soggetto a limitazione delle richieste) [qui](time-series-insights-diagnose-and-solve-problems.md).
+Verificare che la nuova capacità sia sufficiente a impedire la limitazione delle richieste. Per altre informazioni, vedere [If your environment is getting throttled](time-series-insights-diagnose-and-solve-problems.md) (Se l'ambiente è soggetto alla limitazione delle richieste).

@@ -1,5 +1,5 @@
 ---
-title: "Funzionalità di Bash in Azure Cloud Shell (anteprima) | Microsoft Docs"
+title: "Funzionalità di Bash in Azure Cloud Shell | Microsoft Docs"
 description: "Panoramica delle funzionalità di Bash in Azure Cloud Shell"
 services: Azure
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: 23faadc38fde75d4c83361465fdacc76d42d7523
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: f473d45e396c646c8911f4d026aff0f7b97c167e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funzionalità e strumenti per Bash in Azure Cloud Shell
 
@@ -37,16 +37,16 @@ Bash in Cloud Shell autentica in modo sicuro e automatico l'accesso agli account
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH nelle macchine virtuali Linux Azure
 
-Creazione di una VM Linux dall’interfaccia della riga di comando di Azure 2.0 consente di creare una chiave SSH predefinita e di posizionarla nella directory `$Home`. Immissione di chiavi SSH in `$Home` consente di indirizzare le connessioni SSH alle macchine virtuali Linux Azure direttamente da Cloud Shell. Le chiavi vengono tenute in acc_<user>.img nel sistema di condivisione di file, utilizzare le procedure consigliate quando si usa o si condivide l’accesso alla condivisione file o alle chiavi.
+Creazione di una VM Linux dall'interfaccia della riga di comando di Azure 2.0 consente di creare una chiave SSH predefinita e di posizionarla nella directory `$Home`. Immissione di chiavi SSH in `$Home` consente di indirizzare le connessioni SSH alle macchine virtuali Linux Azure direttamente da Cloud Shell. Le chiavi vengono tenute in acc_<user>.img nel sistema di condivisione di file, usare le procedure consigliate quando si usa o si condivide l'accesso alla condivisione file o alle chiavi.
 
 ### <a name="home-persistence-across-sessions"></a>Persistenza $Home tra le sessioni
 
 Per rendere persistenti i file fra le sessioni, Cloud Shell illustra come associare una condivisione file di Azure al primo avvio.
 Al termine, Cloud Shell assocerà automaticamente la risorsa di archiviazione (montata come `$Home\clouddrive`) per tutte le sessioni future.
-Inoltre, in Bash all’interno di Cloud Shell la directory `$Home` viene resa persistente come un .img nella condivisione file di Azure.
+Inoltre, in Bash all'interno di Cloud Shell la directory `$Home` viene resa persistente come un .img nella condivisione file di Azure.
 I file all'esterno di `$Home` e lo stato della macchina non sono persistenti tra le sessioni.
 
-[Altre informazioni sulla persistenza dei file in Bash all’interno di Cloud Shell.](persisting-shell-storage.md)
+[Altre informazioni sulla persistenza dei file in Bash all'interno di Cloud Shell.](persisting-shell-storage.md)
 
 ## <a name="tools"></a>Strumenti
 
