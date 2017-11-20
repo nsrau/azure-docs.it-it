@@ -1,6 +1,6 @@
 ---
-title: Creare un indice di Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato
-description: Informazioni su un indice in Ricerca di Azure e su come viene usato.
+title: Indici in Ricerca di Azure | Microsoft Docs
+description: Informazioni sui concetti relativi agli indici in Ricerca di Azure e sull'uso degli indici.
 services: search
 documentationcenter: 
 author: ashmaka
@@ -10,15 +10,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 11/08/2017
 ms.author: ashmaka
-ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87f1121594d8577b5dacac4026aa7d86b2921d10
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="create-an-azure-search-index"></a>Creare un indice di Ricerca di Azure
+# <a name="indexes-in-azure-search"></a>Indici in Ricerca di Azure
 > [!div class="op_single_selector"]
 > * [Panoramica](search-what-is-an-index.md)
 > * [Portale](search-create-index-portal.md)
@@ -27,8 +27,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="what-is-an-index"></a>Informazioni sugli indici
-Un *indice* è un archivio persistente di *documenti* e altri costrutti usati da un servizio di Ricerca di Azure. Un documento è un singola unità di dati ricercabili nell'indice. Ad esempio, un rivenditore di e-commerce può avere un documento per ogni elemento in vendita, un'agenzia di stampa può avere un documento per ogni articolo e così via. Applicando questi concetti ai più familiari elementi di database equivalenti, un *indice* è concettualmente analogo a una *tabella* e i *documenti* equivalgono in linea di massima alle *righe* di una tabella.
+In Ricerca di Azure un *indice* è un archivio persistente di *documenti* e altri costrutti usati da un servizio di Ricerca di Azure. Un documento è un singola unità di dati ricercabili nell'indice. Ad esempio, un rivenditore di e-commerce può avere un documento per ogni elemento in vendita, un'agenzia di stampa può avere un documento per ogni articolo e così via. Applicando questi concetti ai più familiari elementi di database equivalenti, un *indice* è concettualmente analogo a una *tabella* e i *documenti* equivalgono in linea di massima alle *righe* di una tabella.
 
 Quando si aggiungono o caricano documenti e si inviano le query di ricerca in Ricerca di Azure, si inviano le richieste in un indice specifico nel servizio di ricerca.
 

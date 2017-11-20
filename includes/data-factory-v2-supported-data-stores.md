@@ -3,6 +3,7 @@
 | **Azzurro** |[Archiviazione BLOB di Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[Archivio Data Lake di Azure](../articles/data-factory/connector-azure-data-lake-store.md) |✓  |✓  |✓  |✓  |
+| &nbsp; |[Database di Azure per MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓  |✓  |
 | &nbsp; |[Archiviazione file di Azure](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[Database SQL di Azure](../articles/data-factory/connector-azure-sql-database.md) |✓  |✓  |✓  |✓   |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓  |✓  |✓  |✓   |
@@ -27,11 +28,11 @@
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |✓  |✓  |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |✓ | |✓  |✓  |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |✓  |✓  |
-| **Altro** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |✓  |✓  |
-| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |✓  |✓  |
+| **Altro** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓  |✓  |✓  |
+| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) |✓ | | |✓  |
 | &nbsp; |[HTTP generico](../articles/data-factory/connector-http.md) |✓ | |✓  |✓  |
 | &nbsp; |[OData generico](../articles/data-factory/connector-odata.md) |✓ | |✓  |✓  |
 | &nbsp; |[ODBC generico](../articles/data-factory/connector-odbc.md) |✓ |✓  | |✓  |
-| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ | |✓  |✓  |
+| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Tabella Web (tabella HTML)](../articles/data-factory/connector-web-table.md) |✓ | |✓  |✓  |

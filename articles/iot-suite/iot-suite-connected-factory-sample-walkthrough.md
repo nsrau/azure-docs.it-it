@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 675a3b0fb59e449f0f76f8201d62768c03144818
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Procedura dettagliata per la soluzione preconfigurata di connected factory
 
@@ -101,7 +101,7 @@ L'hub IoT fornisce un'origine evento ad Azure Time Series Insights. Time Series 
 
 Time Series Insights non consente attualmente ai clienti di definire il periodo di conservazione dei dati.
 
-Time Series Insights esegue query sui dati del nodo usando una funzione SearchSpan (Time.From, Time.To) ed esegue l'aggregazione in base ad ApplicationUri OPC UA, NodeId OPC UA oppure DisplayName OPC UA.
+Time Series Insights esegue query sui dati del nodo usando una funzione **SearchSpan** (**Time.From**, **Time.To**) ed esegue l'aggregazione in base ad **ApplicationUri OPC UA**, **NodeId OPC UA** o **DisplayName OPC UA**.
 
 Per recuperare i dati per i misuratori OEE e KPI e i grafici di serie temporali, i dati vengono aggregati per numero di eventi, Sum, Avg, Min e Max.
 
@@ -238,9 +238,9 @@ L'app Web distribuita nell'ambito della soluzione preconfigurata è costituita d
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: iot-suite-permissions.md
+[lnk-permissions]: iot-suite-v1-permissions.md

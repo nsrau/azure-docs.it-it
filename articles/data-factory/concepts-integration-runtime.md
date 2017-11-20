@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 7851a24e7053e03cc28927ffae3a2b69a3291635
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -85,7 +85,7 @@ Per eseguire l'integrazione dei dati in modo sicuro in un ambiente di rete priva
 ### <a name="compute-resource-and-scaling"></a>Risorsa di calcolo e ridimensionamento
 Il runtime di integrazione self-hosted deve essere installato su un computer locale o una macchina virtuale all'interno di una rete privata. Attualmente in un sistema operativo Windows è supportato solo il runtime di integrazione self-hosted.  
 
-In termini di disponibilità elevata e scalabilità è possibile scalare orizzontalmente il runtime di integrazione self-hosted associando l'istanza logica con più computer locali in modalità attivo-attivo.  Per altre informazioni dettagliate, vedere l'argomento su come creare e configurare il runtime di integrazione self-hosted nelle guide alle procedure.
+In termini di disponibilità elevata e scalabilità è possibile scalare orizzontalmente il runtime di integrazione self-hosted associando l'istanza logica con più computer locali in modalità attivo-attivo.  Per altre informazioni dettagliate, vedere l'articolo su come creare e configurare il runtime di integrazione self-hosted nelle guide alle procedure.
 
 ## <a name="azure-ssis-integration-runtime"></a>Runtime di integrazione Azure-SSIS
 Per eseguire in modalità lift-and-shift il carico di lavoro SSIS esistente, è possibile creare un runtime di integrazione Azure-SSIS per l'esecuzione di pacchetti SSIS in modo nativo.
@@ -96,7 +96,7 @@ Per eseguire in modalità lift-and-shift il carico di lavoro SSIS esistente, è 
 ### <a name="compute-resource-and-scaling"></a>Risorsa di calcolo e ridimensionamento
 Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di macchine virtuali Azure dedicato all'esecuzione di pacchetti SSIS. È possibile usare il proprio server di database SQL o Istanza gestita (anteprima privata) per eseguire l'hosting del catalogo di progetti/pacchetti SSIS (SSISDB) da associare ad esso. È possibile aumentare la potenza di calcolo specificando la dimensione del nodo e scalare orizzontalmente specificando il numero di nodi nel cluster. È possibile gestire il costo di esecuzione del runtime di integrazione Azure-SSIS interrompendolo e avviandolo in base alle necessità.
 
-Per altre informazioni, vedere l'argomento su come creare e configurare il runtime di integrazione Azure-SSIS nelle guide alle procedure.  Dopo la creazione è possibile distribuire e gestire i pacchetti SSIS esistenti con poche o nessuna modifica usando strumenti familiari, ad esempio SQL Server Data Tools (SSDT) e SQL Server Management Studio (SSMS), come si usa SSIS in locale.
+Per altre informazioni, vedere l'articolo su come creare e configurare il runtime di integrazione SSIS di Azure nelle guide alle procedure.  Dopo la creazione è possibile distribuire e gestire i pacchetti SSIS esistenti con poche o nessuna modifica usando strumenti familiari, ad esempio SQL Server Data Tools (SSDT) e SQL Server Management Studio (SSMS), come si usa SSIS in locale.
 
 Per altre informazioni sul runtime SSIS di Azure, vedere gli articoli seguenti: 
 
@@ -123,7 +123,7 @@ Il diagramma seguente mostra due esempi di attività di copia:
 ![Runtime di integrazione da usare](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Località del runtime di integrazione
-La località di Data Factory è il punto in cui vengono archiviati i metadati di data factory e il punto da cui viene avviata l'attivazione della pipeline. Attualmente le località Data Factory supportate sono: Stati Uniti orientali, Stati Uniti orientali 2. Una data factory può accedere ad archivi dati e servizi di calcolo in altre aree di Azure per spostare i dati tra archivi dati o elaborare i dati usando i servizi di calcolo. Questo comportamento viene attuato tramite il runtime di integrazione disponibile a livello globale in più aree per garantire la conformità dei dati, l'efficienza e costi in uscita della rete inferiori.
+La località di Data Factory è il punto in cui vengono archiviati i metadati di data factory e il punto da cui viene avviata l'attivazione della pipeline. Attualmente le località Data Factory supportate sono: Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Una data factory può accedere ad archivi dati e servizi di calcolo in altre aree di Azure per spostare i dati tra archivi dati o elaborare i dati usando i servizi di calcolo. Questo comportamento viene attuato tramite il runtime di integrazione disponibile a livello globale in più aree per garantire la conformità dei dati, l'efficienza e costi in uscita della rete inferiori.
 
 La località del runtime di integrazione definisce la località del calcolo back-end ed essenzialmente la località in cui vengono eseguiti lo spostamento dei dati, l'invio di attività e l'esecuzione di pacchetti SSIS. La località del runtime di integrazione può essere diversa dalla località della data factory a cui appartiene. Il diagramma seguente mostra le impostazioni relative alla località di Data Factory e dei relativi runtime di integrazione:
 

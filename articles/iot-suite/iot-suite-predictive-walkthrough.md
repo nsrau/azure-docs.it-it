@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 4a430fb250b9145166a3a212d416a4f1c754473f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e9e0024c645d0e04e7cf9b17e440d7d8c10af232
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Procedura dettagliata della soluzione preconfigurata di manutenzione predittiva
 
@@ -33,7 +33,7 @@ Il diagramma seguente illustra i componenti logici della soluzione preconfigurat
 
 Gli elementi blu sono servizi di Azure di cui viene effettuato il provisioning nell'area in cui è stata distribuita la soluzione preconfigurata. L'elenco di aree in cui è possibile distribuire la soluzione preconfigurata viene visualizzato nella [pagina di provisioning][lnk-azureiotsuite].
 
-L'elemento verde è un dispositivo simulato che rappresenta un motore di aereo. Altre informazioni su questi dispositivi simulati sono disponibili nella sezione seguente.
+L'elemento verde è un dispositivo simulato che rappresenta un motore di aereo. Altre informazioni su questi dispositivi simulati sono disponibili nella sezione [Dispositivi simulati](#simulated-devices).
 
 Gli elementi grigi rappresentano i componenti che implementano le funzionalità di *gestione del dispositivo*. La versione corrente della soluzione preconfigurata di manutenzione predittiva non effettua il provisioning di queste risorse. Per altre informazioni sulla gestione del dispositivo, vedere la [soluzione preconfigurata per il monitoraggio remoto][lnk-remote-monitoring].
 
@@ -65,7 +65,7 @@ L'hub IoT fornisce il riconoscimento dei comandi del dispositivo.
 L'**host processore di eventi** viene eseguito in un processo Web di Azure. Il **processore di eventi** considera i valori medi dei sensori per un ciclo completato e quindi li passa a un'API che espone il modello con training per calcolare la vita utile rimanente di un motore. L'API viene esposta da un'area di lavoro di Machine Learning di cui viene effettuato il provisioning nell'ambito della soluzione.
 
 ## <a name="machine-learning"></a>Machine Learning
-Il componente Machine Learning usa un modello derivato dai dati raccolti da veri motori di aerei. È possibile passare all'area di lavoro di Machine Learning dal riquadro della pagina [azureiotsuite.com][lnk-azureiotsuite] per la soluzione di cui è stato effettuato il provisioning. Quando lo stato della soluzione è **Ready** (Pronto), il riquadro è disponibile.
+Il componente Machine Learning usa un modello derivato dai dati raccolti da veri motori di aerei. È possibile passare all'area di lavoro di Machine Learning dal riquadro della soluzione nella pagina [azureiotsuite.com][lnk-azureiotsuite]. Quando lo stato della soluzione è **Ready** (Pronto), il riquadro è disponibile.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -78,10 +78,10 @@ Dopo avere esaminato i componenti chiave della soluzione preconfigurata di manut
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: iot-suite-v1-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-v1-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

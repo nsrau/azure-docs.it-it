@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -145,29 +145,22 @@ Gli indirizzi IP privati vengono creati con un indirizzo IPv4 o IPv6. Gli indiri
 
 ### <a name="allocation-method"></a>Metodo di allocazione
 
-Un indirizzo IP privato viene allocato dall'intervallo di indirizzi della subnet a cui è collegata la risorsa. L'intervallo di indirizzi della subnet stessa fa parte dell'intervallo di indirizzi della rete virtuale.
+Un indirizzo IP privato viene allocato dall'intervallo di indirizzi della subnet della rete virtuale in cui è distribuita una risorsa. Un indirizzo IP privato può essere allocato con due metodi.
 
-Un indirizzo IP privato viene allocato con due metodi: *dinamico* o *statico*. Il metodo di allocazione predefinito è quello *dinamico*, in base al quale l'indirizzo IP viene allocato automaticamente dalla subnet della risorsa usando DHCP. Questo indirizzo IP può cambiare quando si arresta e avvia la risorsa.
-
-È possibile impostare il metodo di allocazione su *statico* per garantire che l'indirizzo IP rimanga invariato. Quando si specifica *statico*, si specifica un indirizzo IP valido che fa parte della subnet della risorsa.
-
-Gli indirizzi IP privati statici vengono comunemente usati per:
-
-* Macchine virtuali che fungono da controller di dominio o server DNS.
-* Risorse che richiedono regole del firewall basate su indirizzi IP.
-* Risorse accessibili da altre app o risorse tramite un indirizzo IP.
+- **Dinamico**: Azure riserva i primi quattro indirizzi dell'intervallo di indirizzi di ogni subnet e non li assegna. Azure assegna a una risorsa l'indirizzo disponibile successivo dell'intervallo di indirizzi della subnet. Ad esempio, se l'intervallo di indirizzi della subnet è 10.0.0.0/16 e gli indirizzi 10.0.0.0.4-10.0.0.14 sono già assegnati (quelli da .0 a .3 sono riservati), Azure assegna alla risorsa l'indirizzo 10.0.0.15. Il metodo di allocazione predefinito è quello dinamico. Dopo che sono stati assegnati, gli indirizzi IP dinamici vengono rilasciati solo se un'interfaccia di rete viene eliminata o assegnata a un'altra subnet della stessa rete virtuale oppure se il metodo di allocazione viene modificato in statico e viene specificato un diverso indirizzo IP. Quando si modifica il metodo di allocazione da dinamico a statico, per impostazione predefinita Azure assegna l'indirizzo assegnato dinamicamente precedente come indirizzo statico.
+- **Statico**: si seleziona e si assegna un indirizzo dell'intervallo di indirizzi della subnet. È possibile assegnare qualsiasi indirizzo nell'intervallo di indirizzi della subnet che non sia uno dei primi quattro indirizzi di tale intervallo e non sia attualmente assegnato ad altre risorse nella subnet. Gli indirizzi statici vengono rilasciati solo in caso di eliminazione di un'interfaccia di rete. Se si modifica il metodo di allocazione in statico, Azure assegna dinamicamente l'indirizzo IP statico assegnato in precedenza come indirizzo dinamico, anche se non è l'indirizzo disponibile successivo nell'intervallo di indirizzi della subnet. L'indirizzo viene modificato anche in caso di assegnazione dell'interfaccia di rete a un'altra subnet nella stessa rete virtuale, ma per assegnare l'interfaccia di rete a un'altra subnet è prima necessario modificare il metodo di allocazione da statico a dinamico. Dopo aver assegnato l'interfaccia di rete a un'altra subnet, è possibile modificare il metodo di allocazione di nuovo in statico e assegnare un indirizzo IP dell'intervallo di indirizzi della nuova subnet.
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 
-Un indirizzo IP privato viene assegnato all'**interfaccia di rete** di una macchina virtuale [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se la macchina virtuale ha più interfacce di rete, un indirizzo IP privato viene assegnato a ogni interfaccia di rete. Per un'interfaccia di rete è possibile specificare un metodo di allocazione statico o dinamico.
+Uno o più indirizzi IP privati vengono assegnati a una o più **interfacce di rete** di una macchina virtuale [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Per ogni indirizzo IP privato è possibile specificare il metodo di allocazione statico o dinamico.
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>Risoluzione del nome host DNS interno per le macchine virtuali
 
 Tutte le macchine virtuali di Azure sono configurate con [server DNS gestiti da Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) per impostazione predefinita, a meno che non si configurino in modo esplicito server DNS personalizzati. Questi server DNS forniscono la risoluzione dei nomi interna per le macchine virtuali che risiedono nella stessa rete virtuale.
 
-Quando si crea una macchina virtuale, ai server DNS gestiti da Azure viene aggiunto un mapping del nome host al relativo indirizzo IP privato. Se si usa una macchina virtuale con più interfacce di rete, viene eseguito il mapping del nome host all'indirizzo IP privato dell'interfaccia di rete primaria.
+Quando si crea una macchina virtuale, ai server DNS gestiti da Azure viene aggiunto un mapping del nome host al relativo indirizzo IP privato. Se una macchina virtuale ha più interfacce di rete o più configurazioni IP per un'interfaccia di rete, il nome host viene mappato all'indirizzo IP privato della configurazione IP primaria dell'interfaccia di rete primaria.
 
-Le macchine virtuali configurate con server DNS gestiti di Azure possono risolvere i nomi host di tutte le macchine virtuali nella stessa rete virtuale nei relativi indirizzi IP privati.
+Le macchine virtuali configurate con server DNS gestiti di Azure possono risolvere i nomi host di tutte le macchine virtuali nella stessa rete virtuale nei relativi indirizzi IP privati. Per risolvere i nomi host delle macchine virtuali nelle reti virtuali connesse è necessario usare un server DNS personalizzato.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Servizi di bilanciamento del carico interno e gateway applicazione
 

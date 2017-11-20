@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 11/10/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8961576d1a7de268bab2f4adf01d89dde1fc8776
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 23621c418663ee5b4ed83ab989663a882e7000bd
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Connettersi a HDInsight (Hadoop) con SSH
 
@@ -48,26 +48,24 @@ HDInsight può usare Linux (Ubuntu) come sistema operativo per i nodi nel cluste
 > [!TIP]
 > Alla prima connessione a HDInsight, è possibile che il client SSH visualizzi un avviso relativo all'impossibilità di confermare l'autenticità dell'host. Quando richiesto, selezionare 'sì' per aggiungere l'host all'elenco di server attendibili del client SSH.
 >
-> Se è già stata effettuata in precedenza una connessione a un server con lo stesso nome, è possibile che venga visualizzato un avviso relativo alla mancata corrispondenza della chiave host archiviata con la chiave host del server. In questo caso è possibile che il client SSH rifiuti la connessione al cluster. Per informazioni su come rimuovere la voce esistente per il nome del server, vedere la documentazione per il client SSH.
+> Se è già stata effettuata in precedenza una connessione a un server con lo stesso nome, è possibile che venga visualizzato un avviso relativo alla mancata corrispondenza della chiave host archiviata con la chiave host del server. Per informazioni su come rimuovere la voce esistente per il nome del server, vedere la documentazione per il client SSH.
 
 ## <a name="ssh-clients"></a>Client SSH
 
 Nei sistemi Linux, Unix e macOS sono disponibili i comandi `ssh` e `scp`. Il client `ssh` viene in genere usato per creare una sessione della riga di comando remota con un sistema basato su Linux o Unix. Il client `scp` viene usato per la copia sicura dei file tra il client e il sistema remoto.
 
-Per impostazione predefinita, Microsoft Windows non offre client SSH. I client `ssh` e `scp` sono disponibili per Windows nei pacchetti seguenti:
+Per impostazione predefinita, Microsoft Windows non installa client SSH. I client `ssh` e `scp` sono disponibili per Windows nei pacchetti seguenti:
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): Cloud Shell offre un ambiente Bash nel browser, oltre a `ssh`, `scp` e altri comandi Linux comuni.
+* Client OpenSSH (versione beta): in Fall Creators Update andare a __Impostazioni__ > __App e funzionalità__ > __Gestisci funzionalità facoltative__ > __Aggiungi una funzionalità__ e selezionare il __client OpenSSH__. 
+
+    > [!NOTE]
+    > Se dopo l'abilitazione di questa funzionalità i comandi `ssh` e `scp` non sono disponibili in PowerShell, disconnettersi e accedere di nuovo.
 
 * [Bash in Ubuntu in Windows 10](https://msdn.microsoft.com/commandline/wsl/about): i comandi `ssh` e `scp` sono disponibili tramite Bash nella riga di comando di Windows.
 
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): Cloud Shell offre un ambiente Bash nel browser, oltre a `ssh`, `scp` e altri comandi Linux comuni.
+
 * [Git (https://git-scm.com/)](https://git-scm.com/): i comandi `ssh` e `scp` sono disponibili tramite la riga di comando GitBash.
-
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/): i comandi `ssh` e `scp` sono disponibili tramite la riga di comando GitHub Shell. GitHub Desktop può essere configurato per usare Bash, il prompt dei comandi di Windows o PowerShell come riga di comando per Git Shell.
-
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): il team di PowerShell sta introducendo OpenSSH in Windows e offre versioni di test.
-
-    > [!WARNING]
-    > Il pacchetto OpenSSH include il componente server SSH, `sshd`. Tale componente avvia un server SSH nel sistema, consentendo così ad altri di connettersi. Non configurare questo componente né aprire la porta 22 a meno che non si voglia ospitare un server SSH nel sistema. Non è necessario per comunicare con HDInsight.
 
 Sono disponibili anche diversi client SSH con interfaccia grafica, come [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) e [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Anche se questi client possono essere usati per connettersi a HDInsight, il processo di connessione è diverso rispetto a quello tramite l'utilità `ssh`. Per altre informazioni, vedere la documentazione del client con interfaccia grafica usato.
 
@@ -116,7 +114,7 @@ Durante il processo di creazione delle chiavi vengono richieste informazioni, ad
 Gli account SSH possono essere protetti con una password. Quando ci si connette a HDInsight con SSH, viene richiesto di immettere la password.
 
 > [!WARNING]
-> Non è consigliabile usare l'autenticazione tramite password per SSH. Le password sono intuibili e vulnerabili ad attacchi di forza bruta. È consigliabile usare invece [chiavi SSH per l'autenticazione](#sshkey).
+> Microsoft sconsiglia di usare l'autenticazione tramite password per SSH. Le password sono intuibili e vulnerabili ad attacchi di forza bruta. È consigliabile usare invece [chiavi SSH per l'autenticazione](#sshkey).
 
 ### <a name="create-hdinsight-using-a-password"></a>Creare cluster HDInsight con una password
 
@@ -176,7 +174,7 @@ I nodi del ruolo di lavoro e i nodi Zookeeper non sono direttamente accessibili 
 
         ssh sshuser@wn0-myhdi
 
-    Per recuperare un elenco dei nomi di dominio dei nodi del cluster, vedere il documento [Gestire i cluster HDInsight con l'API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+    Per recuperare un elenco dei nomi di nodo, vedere il documento [Gestire i cluster HDInsight con l'API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 Se l'account SSH viene protetto usando una __password__, immetterla quando ci si connette.
 

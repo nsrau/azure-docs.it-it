@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 07d06e4de95fcc562bcc76ac5cc4f5cd3483ba6d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Creare account della versione di anteprima di Azure Machine Learning e installare Azure Machine Learning Workbench
 Azure Machine Learning è una soluzione integrata per data science end-to-end e analisi avanzate. Consente ai data scientist professionisti di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -93,33 +93,20 @@ Installare Azure Machine Learning Workbench in computer che eseguono Windows 10,
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## <a name="install-azure-machine-learning-workbench-on-macos"></a>Installare Azure Machine Learning Workbench in macOS
-Installare Azure Machine Learning Workbench in computer che eseguono macOS Sierra.
+Installare Azure Machine Learning Workbench in computer che eseguono macOS Sierra o versione successiva.
 
-1. Installare la libreria openssl usando [Homebrew](http://brew.sh). Per altre informazioni, vedere [Prerequisiti per .NET Core in Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites).
-   ```
-   # install Homebrew first if you don't have it already
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-   # install latest openssl needed for .NET Core 1.x
-   brew update
-   brew install openssl
-   mkdir -p /usr/local/lib
-   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-   ```
-
-2. Scaricare la versione più recente del programma di installazione di Azure Machine Learning Workbench, [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
+1. Scaricare la versione più recente del programma di installazione di Azure Machine Learning Workbench, [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
 
    >[!IMPORTANT]
    >Scaricare l'intero programma di installazione sul disco e avviarlo. Non eseguirlo direttamente dal widget di download del browser.
 
-3. In Finder fare doppio clic sul programma di installazione **AmlWorkbench.dmg** scaricato.
+2. In Finder fare doppio clic sul programma di installazione **AmlWorkbench.dmg** scaricato.
 
-4. Completare l'installazione seguendo le istruzioni visualizzate.
+3. Completare l'installazione seguendo le istruzioni visualizzate.
 
    Il programma di installazione scarica tutti i componenti dipendenti necessari, ad esempio Python, Miniconda e altre librerie correlate. L'installazione di tutti i componenti potrebbe richiedere circa mezz'ora. 
 
-5. A questo punto, Azure Machine Learning Workbench sarà installato nella directory seguente: 
+4. A questo punto, Azure Machine Learning Workbench sarà installato nella directory seguente: 
 
    `/Applications/AmlWorkbench.app`
 
@@ -163,7 +150,7 @@ Si eseguirà ora uno script nel computer locale.
 
    Questo codice usa l'algoritmo di [regressione logistica](https://en.wikipedia.org/wiki/logistic_regression) della nota libreria [scikit-learn](http://scikit-learn.org/stable/index.html) di Python per compilare il modello.
 
-4. Il pannello **Processi** compare a destra, se non è già visibile, con il processo **iris_sklearn** aggiunto. Lo stato passa da **Invio in corso** a **In esecuzione** quando inizia l'esecuzione del processo, quindi passa a **Completato** dopo pochi secondi. 
+4. Il pannello **Processi** compare a destra, se non è già visibile, con il processo **iris_sklearn** aggiunto. Lo stato passa da **Submitting** (Invio in corso) a **Running** (In esecuzione) quando inizia l'esecuzione del processo, quindi passa a **Completed** (Completato) dopo pochi secondi. 
 
    A questo punto È stato eseguito correttamente uno script Python in Azure Machine Learning Workbench.
 

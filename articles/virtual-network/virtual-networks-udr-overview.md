@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: ab8689defed59bef362b1f22f78d41923087841d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -84,7 +84,7 @@ Le route personalizzate vengono create con route [definite dall'utente](#user-de
 
 - **Appliance virtuale**: un'appliance virtuale è una macchina virtuale che esegue generalmente un'applicazione di rete, ad esempio un firewall. Per informazioni su una serie di appliance virtuali di rete preconfigurate distribuibili in una rete virtuale, vedere [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Quando si crea una route con il tipo hop **appliance virtuale**, si specifica anche un indirizzo IP hop successivo. L'indirizzo IP può essere:
 
-    - L'[indirizzo IP privato](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) di un'interfaccia di rete collegata a una macchina virtuale. Per un'interfaccia di rete collegata a una macchina virtuale che inoltra il traffico di rete a un indirizzo diverso dal proprio è necessario abilitare l'opzione di *inoltro IP* di Azure. Questa impostazione disabilita il controllo di origine e destinazione di Azure per l'interfaccia di rete. Vedere altre informazioni su come [abilitare l'inoltro IP per un'interfaccia di rete](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Anche se l'*abilitazione dell'inoltro IP* è un'impostazione di Azure, può essere necessario abilitare l'inoltro IP anche nel sistema operativo della macchina virtuale, per far sì che la macchina inoltri il traffico tra le interfacce di rete. Per determinare le impostazioni necessarie nella macchina virtuale, vedere la documentazione del sistema operativo o dell'applicazione di rete.
+    - L'[indirizzo IP privato](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) di un'interfaccia di rete collegata a una macchina virtuale. Per un'interfaccia di rete collegata a una macchina virtuale che inoltra il traffico di rete a un indirizzo diverso dal proprio è necessario abilitare l'opzione di *inoltro IP* di Azure. Questa impostazione disabilita il controllo di origine e destinazione di Azure per l'interfaccia di rete. Vedere altre informazioni su come [abilitare l'inoltro IP per un'interfaccia di rete](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Anche se l'*abilitazione dell'inoltro IP* è un'impostazione di Azure, può essere necessario abilitare l'inoltro IP anche nel sistema operativo della macchina virtuale affinché l'appliance inoltri il traffico tra gli indirizzi IP assegnati alle interfacce di rete di Azure. Se l'appliance deve instradare il traffico a un indirizzo IP pubblico, deve usare un proxy per il traffico o convertire con NAT (Network Address Translation) l'indirizzo IP privato dell'origine nel proprio indirizzo IP privato, che Azure convertirà quindi con NAT in un indirizzo IP pubblico prima di inviare il traffico in Internet. Per determinare le impostazioni necessarie nella macchina virtuale, vedere la documentazione del sistema operativo o dell'applicazione di rete. Per informazioni sulle connessioni in uscita, vedere [Informazioni sulle connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     > [!NOTE]
     > Distribuire un'appliance virtuale in una subnet diversa da quella in cui sono distribuite le risorse instradate attraverso l'appliance stessa. La distribuzione di un'appliance virtuale nella stessa subnet, con la successiva applicazione di una tabella di route alla subnet che instrada il traffico attraverso l'appliance, può comportare loop di routing che impediscono al traffico di uscire dalla subnet.

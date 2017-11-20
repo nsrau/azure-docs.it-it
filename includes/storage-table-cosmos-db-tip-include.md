@@ -1,3 +1,3 @@
 > [!TIP]
-> Il contenuto di questo articolo è applicabile all'archivio tabelle di Azure. Ora è tuttavia disponibile un'offerta Premium di Azure Cosmos DB in anteprima pubblica che include tabelle con ottimizzazione per la velocità effettiva, distribuzione globale e indici secondari automatici. Per altre informazioni e per provare la nuova esperienza Premium, vedere [Azure Cosmos DB: API di tabella](https://aka.ms/premiumtables).
+> Il contenuto in questo articolo si applica all'archivio tabelle originale di Azure. Tuttavia, è ora disponibile un'offerta Premium per l'archivio tabelle, l'API Tabelle di Azure Cosmos DB che include tabelle con ottimizzazione per la velocità effettiva, distribuzione globale e indici secondari automatici. Per altre informazioni e per provare l'esperienza Premium, vedere l'articolo relativo all'[API Tabelle di Azure Cosmos DB](https://aka.ms/premiumtables).
 >

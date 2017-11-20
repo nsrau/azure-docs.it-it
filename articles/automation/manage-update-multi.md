@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f97b28d1588e959728163f7ab16d2550a79f610e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gestire gli aggiornamenti per più macchine virtuali Azure
+# <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
-Gestione aggiornamenti consente di gestire gli aggiornamenti e le patch per le macchine virtuali Azure.
-Dall'account di [Automazione di Azure](automation-offering-get-started.md) è possibile, in modo rapido, caricare le macchine virtuali, valutare lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti richiesti ed esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente a tutte le macchine virtuali per cui è abilitata la gestione degli aggiornamenti.
+Gestione aggiornamenti consente di gestire gli aggiornamenti e le patch per i computer Windows e Linux.
+Dall'account di [Automazione di Azure](automation-offering-get-started.md) è possibile, in modo rapido, caricare i computer, valutare lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti richiesti ed esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente a tutte le macchine virtuali per cui è abilitata la gestione degli aggiornamenti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

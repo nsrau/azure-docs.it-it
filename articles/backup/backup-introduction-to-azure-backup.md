@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3be12abaaedf5b0d66a484cbee48fe3df77f63fe
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1d26fb8caacdd775b62d704a4b474e68e2f5a3ec
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Panoramica delle funzionalità di Backup di Azure
 Backup di Azure è il servizio basato su Azure che consente di eseguire il backup, la protezione e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Backup di Azure offre più componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in un insieme di credenziali di Servizi di ripristino, a prescindere che i dati da proteggere si trovino in locale o nel cloud. Vedere la [tabella dei componenti di Backup di Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) più avanti in questo articolo per informazioni sul componente da usare per proteggere dati, applicazioni o carichi di lavoro specifici.
@@ -224,7 +224,10 @@ Un insieme di credenziali di Servizi di ripristino è un'entità di archiviazion
 Gli insiemi di credenziali di backup, basati su Azure Service Manager, sono stati la prima versione dell'insieme di credenziali. Gli insiemi di credenziali di Servizi di ripristino, che aggiungono le funzionalità del modello di Azure Resource Manager, sono la seconda versione dell'insieme di credenziali. Vedere [Recovery Services vaults overview](backup-azure-recovery-services-vault-overview.md) (Panoramica degli insiemi di credenziali di Servizi di ripristino) per una descrizione completa delle differenze di funzionalità. Non è più possibile usare il portale per creare insiemi di credenziali di backup, ma gli insiemi di credenziali di backup sono ancora supportati. Per gestire gli insiemi di credenziali di backup, è necessario usare il portale di Azure.
 
 > [!IMPORTANT]
-> È ora possibile aggiornare gli insiemi di credenziali di Backup ad insiemi di credenziali dei servizi di ripristino. Per altre informazioni, vedere l'articolo [Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft consiglia di aggiornare gli insiemi di credenziali di Backup a insiemi di credenziali dei servizi di ripristino.<br/> Dopo il **15 ottobre 2017** non è più possibile usare PowerShell per creare insiemi di credenziali di backup. <br/> A partire dal **1° novembre 2017**, gli insiemi di credenziali di backup rimanenti verranno automaticamente aggiornati a insiemi di credenziali di Servizi di ripristino.
+> È possibile aggiornare gli insiemi di credenziali di backup a insiemi di credenziali dei servizi di ripristino. Per altre informazioni, vedere l'articolo [Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft consiglia di aggiornare gli insiemi di credenziali di Backup a insiemi di credenziali dei servizi di ripristino.<br/> Dopo il **30 novembre 2017** non è più possibile usare PowerShell per creare insiemi di credenziali di backup. <br/>
+Entro il 30 novembre 2017:
+- Tutti gli insiemi di credenziali di backup rimanenti verranno aggiornati automaticamente a insiemi di credenziali dei servizi di ripristino.
+- Non sarà più possibile accedere ai dati di backup nel portale classico. Sarà possibile invece usare il portale di Azure per accedere ai dati di backup negli insiemi di credenziali di servizi di ripristino.
 
 
 

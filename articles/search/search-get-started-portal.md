@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare il primo indice di Ricerca di Azure nel portale | Microsoft Docs'
+title: Indicizzare, eseguire query e filtrare nelle pagine del portale di Ricerca di Azure | Microsoft Docs
 description: "Nel portale di Azure è possibile usare i dati dell'esempio predefinito per generare un indice. È possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy, la ricerca geografica e altro ancora."
 services: search
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: heidist
-ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Esercitazione: Creare il primo indice di Ricerca di Azure nel portale
+# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Creare, eseguire query e filtrare un indice di Ricerca di Azure nel portale
 
 Nel portale di Azure è possibile iniziare con un set di dati di esempio predefinito per generare rapidamente un indice con la procedura guidata **Importa dati**. Con **Esplora ricerche** è possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy e la ricerca geografica.  
 
-Questa introduzione senza codice permette di iniziare a usare i dati predefiniti per poter scrivere query interessanti fin da subito. Gli strumenti del portale non sostituiscono il codice, ma sono utili per eseguire queste attività:
+Questa introduzione senza codice permette di iniziare a usare i dati predefiniti per poter scrivere query interessanti fin da subito. Gli strumenti del portale non sostituiscono il codice, ma potrebbero essere utili per eseguire queste attività:
 
 + Apprendere in modo pratico con una preparazione minima.
 + Creare il prototipo di un indice prima di scrivere codice in **Importa dati**.
@@ -128,7 +128,7 @@ Ora è disponibile un indice di ricerca su cui è possibile eseguire query. **Es
 
 **`search=seattle`**
 
-+ Il parametro `search` permette di inserire una ricerca per parole chiave per la ricerca full-text. In questo caso la ricerca restituisce elenchi della contea di King, nello stato di Washington, contenenti il termine *Seattle* in qualsiasi campo ricercabile del documento. 
++ Il parametro **search** permette di inserire una ricerca per parole chiave per la ricerca full-text. In questo caso la ricerca restituisce elenchi della contea di King, nello stato di Washington, contenenti il termine *Seattle* in qualsiasi campo ricercabile del documento. 
 
 + **Esplora ricerche** restituisce i risultati in JSON, un formato dettagliato e difficile da leggere se i documenti hanno una struttura densa. A seconda dei documenti, potrebbe essere necessario scrivere codice per la gestione dei risultati della ricerca, allo scopo di estrarre gli elementi importanti. 
 
@@ -136,35 +136,48 @@ Ora è disponibile un indice di ricerca su cui è possibile eseguire query. **Es
 
 **`search=seattle&$count=true&$top=100`**
 
-+ Il simbolo `&` permette di aggiungere parametri di ricerca, che possono essere specificati in qualsiasi ordine. 
++ Il simbolo **&** permette di aggiungere parametri di ricerca, che possono essere specificati in qualsiasi ordine. 
 
-+  Il parametro `$count=true` restituisce un conteggio relativo alla somma di tutti i documenti restituiti. È possibile verificare le query filtro monitorando le modifiche segnalate da `$count=true`. 
++  Il parametro **$count=true** restituisce un conteggio relativo alla somma di tutti i documenti restituiti. È possibile verificare le query filtro monitorando le modifiche segnalate da **$count=true**. 
 
-+ `$top=100` restituisce i 100 documenti con classificazione più alta nel totale. Per impostazione predefinita, Ricerca di Azure restituisce le 50 migliori corrispondenze. Per aumentare o diminuire la quantità è possibile usare `$top`.
++ **$top=100** restituisce i 100 documenti con classificazione più alta nel totale. Per impostazione predefinita, Ricerca di Azure restituisce le 50 migliori corrispondenze. Per aumentare o diminuire la quantità è possibile usare **$top**.
 
-**`search=*&facet=city&$top=2`**
 
-+ `search=*` è una ricerca vuota. Le ricerche vuote permettono di eseguire la ricerca su tutti gli elementi. Una query vuota permette di filtrare o esplorare in base a facet il set completo di documenti, ad esempio per ottenere una struttura di esplorazione con facet composta da tutte le città incluse nell'indice.
+## <a name="filter-query"></a> Filtrare la query
 
-+  `facet` restituisce una struttura di esplorazione che è possibile passare a un controllo dell'interfaccia utente. Restituisce un conteggio e categorie. In questo caso le categorie sono basate sul numero di città. Ricerca di Azure non prevede alcuna aggregazione, ma è possibile ottenere qualcosa di simile all'aggregazione usando `facet`, che restituisce un conteggio dei documenti in ogni categoria.
-
-+ `$top=2` restituisce due documenti, dimostrando che è possibile usare `top` sia per ridurre che per aumentare il numero di risultati.
-
-**`search=seattle&facet=beds`**
-
-+ Questa query consente l'esplorazione in base a facet e cerca "beds", ovvero "letti", in una ricerca di testo di *seattle*. È possibile specificare `"beds"` come facet perché il campo è contrassegnato come recuperabile, filtrabile e con facet nell'indice e i valori numerici che contiene, da 1 a 5, sono adatti alla categorizzazione degli elenchi in gruppi, ad esempio elenchi con 3 o 4 camere da letto. 
-
-+ Solo i campi filtrabili sono adatti all'esplorazione in base a facet. Solo i campi recuperabili possono essere restituiti nei risultati.
+Quando si aggiunge il parametro **$filter**, vengono inclusi filtri nelle richieste di ricerca. 
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ Il parametro `filter` restituisce risultati corrispondenti ai criteri immessi. In questo caso, un numero di camere da letto maggiore di 3. 
++ Il parametro **$filter** restituisce risultati corrispondenti ai criteri immessi. In questo caso, un numero di camere da letto maggiore di 3. 
 
 + La sintassi del filtro è una costruzione OData. Per altre informazioni, vedere l'articolo relativo alla [sintassi OData per i filtri](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
+## <a name="facet-query"></a> Applicare un facet alla query
+
+Nelle richieste di ricerca vengono inclusi filtri facet. È possibile usare il parametro facet per restituire un conteggio aggregato dei documenti che corrispondono a un valore facet specificato. 
+
+**`search=*&facet=city&$top=2`**
+
++ **search=*** è una ricerca vuota. Le ricerche vuote permettono di eseguire la ricerca su tutti gli elementi. Una query vuota permette di filtrare o esplorare in base a facet il set completo di documenti, ad esempio per ottenere una struttura di esplorazione con facet composta da tutte le città incluse nell'indice.
+
++  **facet** restituisce una struttura di esplorazione che è possibile passare a un controllo dell'interfaccia utente. Restituisce un conteggio e categorie. In questo caso le categorie sono basate sul numero di città. Ricerca di Azure non prevede alcuna aggregazione, ma è possibile ottenere qualcosa di simile all'aggregazione usando `facet`, che restituisce un conteggio dei documenti in ogni categoria.
+
++ **$top=2** restituisce due documenti, dimostrando che è possibile usare `top` sia per ridurre che per aumentare il numero di risultati.
+
+**`search=seattle&facet=beds`**
+
++ Questa query consente l'esplorazione in base a facet e cerca "beds", ovvero "letti", in una ricerca di testo di *seattle*. Il termine *beds* può essere specificato come facet perché il campo è contrassegnato come recuperabile, filtrabile e con facet nell'indice e i valori numerici che contiene, da 1 a 5, sono adatti alla categorizzazione degli elenchi in gruppi, ad esempio elenchi con 3 o 4 camere da letto. 
+
++ Solo i campi filtrabili sono adatti all'esplorazione in base a facet. Solo i campi recuperabili possono essere restituiti nei risultati.
+
+## <a name="highlight-query"></a> Aggiungere l'evidenziazione
+
+L'evidenziazione dei risultati si riferisce alla formattazione del testo corrispondente alla parola chiave, date le corrispondenze trovate in un campo specifico. Se il termine di ricerca si trova all'interno di una descrizione, è possibile aggiungere l'evidenziazione dei risultati per trovarli più facilmente. 
+
 **`search=granite countertops&highlight=description`**
 
-+ L'evidenziazione dei risultati si riferisce alla formattazione del testo corrispondente alla parola chiave, date le corrispondenze trovate in un campo specifico. Se il termine di ricerca si trova all'interno di una descrizione, è possibile aggiungere l'evidenziazione dei risultati per trovarli più facilmente. In questo caso, la frase formattata `"granite countertops"` è più facile da visualizzare nel campo della descrizione.
++ In questo esempio la frase formattata *granite countertops* è più facile da trovare nel campo della descrizione.
 
 **`search=mice&highlight=description`**
 
@@ -172,23 +185,29 @@ Ora è disponibile un indice di ricerca su cui è possibile eseguire query. **Es
 
 + Ricerca di Azure supporta 56 analizzatori, sia Microsoft che Lucene. L'impostazione predefinita di Ricerca di Azure prevede l'uso dell'analizzatore Lucene standard. 
 
+## <a name="fuzzy-search"></a> Usare la ricerca fuzzy
+
+In una ricerca tipica i termini con errori di ortografia, ad esempio *samamish* per l'altopiano di Sammamish nell'area di Seattle, non restituiscono corrispondenze. Per gestire gli errori di ortografia, è possibile usare ricerca fuzzy, descritta nell'esempio seguente.
+
 **`search=samamish`**
 
-+ In una ricerca tipica i termini con errori di ortografia, ad esempio "samamish" per l'altopiano di Sammamish nell'area di Seattle, non restituiscono corrispondenze. Per gestire gli errori di ortografia, è possibile usare ricerca fuzzy, descritta nell'esempio seguente.
++ In questo esempio una zona dell'area di Seattle viene scritta in modo non corretto.
 
 **`search=samamish~&queryType=full`**
 
-+ La ricerca fuzzy viene abilitata quando si specifica il simbolo `~` e si usa il parser di query completa, che interpreta e analizza correttamente la sintassi `~`. 
++ La ricerca fuzzy viene abilitata quando si specifica il simbolo **~** e si usa il parser di query completa, che interpreta e analizza correttamente la sintassi **~**. 
 
-+ Per usare la ricerca fuzzy è necessario abilitare in modo esplicito il parser di query completa impostando `queryType=full`. Per altre informazioni sugli scenari di query abilitati dal parser di query completa, vedere [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintassi di query Lucene in Ricerca di Azure).
++ Per usare la ricerca fuzzy è necessario abilitare in modo esplicito il parser di query completa impostando **queryType=full**. Per altre informazioni sugli scenari di query abilitati dal parser di query completa, vedere [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintassi di query Lucene in Ricerca di Azure).
 
-+ Se non si specifica `queryType`, viene usato il parser di query semplice predefinito. Il parser di query semplice è più veloce, ma per la ricerca fuzzy, le espressioni regolari, la ricerca per prossimità o altri tipi di query avanzate, è necessario usare la sintassi completa. 
++ Se non si specifica **queryType**, viene usato il parser di query semplice predefinito. Il parser di query semplice è più veloce, ma per la ricerca fuzzy, le espressioni regolari, la ricerca per prossimità o altri tipi di query avanzate, è necessario usare la sintassi completa. 
+
+## <a name="geo-search"></a> Provare la ricerca geospaziale
+
+La ricerca geospaziale è supportata tramite il [tipo di dati edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) in un campo che contiene coordinate. La ricerca geografica è un tipo di filtro, illustrato nell'articolo relativo alla [sintassi OData per i filtri](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ La ricerca geospaziale è supportata tramite il [tipo di dati edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) in un campo che contiene coordinate. La ricerca geografica è un tipo di filtro, illustrato nell'articolo relativo alla [sintassi OData per i filtri](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
-
-+ La query di esempio filtra tutti i risultati in base a dati posizionali, restituendo i risultati a meno di 5 chilometri da un punto specificato, indicato mediante coordinate di latitudine e longitudine. Aggiungendo `$count` è possibile visualizzare il numero di risultati restituiti se si modifica la distanza o le coordinate. 
++ La query di esempio filtra tutti i risultati in base a dati posizionali, restituendo i risultati a meno di 5 chilometri da un punto specificato, indicato mediante coordinate di latitudine e longitudine. Aggiungendo **$count** è possibile visualizzare il numero di risultati restituiti se si modifica la distanza o le coordinate. 
 
 + La ricerca geospaziale risulta utile se l'applicazione di ricerca include una funzionalità di "ricerca nelle vicinanze" o usa l'esplorazione mappa. Non si tratta, tuttavia, di una ricerca full-text. Se i requisiti dell'utente prevedono la ricerca in una città o un paese in base al nome, oltre alle coordinate è necessario aggiungere campi contenenti nomi di città o di paesi.
 

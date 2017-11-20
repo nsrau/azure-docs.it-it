@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/28/2017
-ms.openlocfilehash: cabba8ce04d62d35ca40b3ae35d9d40a6ec7b2b9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Classificare i dati Iris - Parte 1: Preparare i dati
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -69,7 +69,9 @@ Per installare l'applicazione Azure Machine Learning Workbench, è possibile seg
    ![Selezionare iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
-   >Per questo esercizio assicurarsi di selezionare il file **iris.csv** dalla directory di progetto corrente. In caso contrario, i passaggi successivi potrebbero avere esito negativo. 
+   >Per questo esercizio assicurarsi di selezionare il file **iris.csv** dalla directory di progetto corrente. In caso contrario, i passaggi successivi potrebbero avere esito negativo.
+   
+4. Dopo avere selezionato il file, selezionare il pulsante **Fine**.
 
 4. Verrà creato un nuovo file denominato **iris-1.dsource**. Il file viene denominato in modo univoco con un trattino e il numero 1 perché il progetto di esempio include già un file **iris.dsource** non numerato.  
 
@@ -109,7 +111,7 @@ Per installare l'applicazione Azure Machine Learning Workbench, è possibile seg
 
 10. Si notino i singoli passaggi riportati in dettaglio nel riquadro **PASSAGGI**. Durante le operazioni di ridenominazione delle colonne e di filtro delle righe con valore Null, ogni azione è stata registrata come passaggio di preparazione dei dati. È possibile modificare singoli passaggi per modificare le impostazioni, riordinare i passaggi e rimuoverli.
 
-   ![Passaggi](media/tutorial-classifying-iris/steps.png)
+   ![Passi](media/tutorial-classifying-iris/steps.png)
 
 11. Chiudere l'editor di preparazione dei dati. Selezionare **Chiudi** (x) nella scheda **iris-1** con l'icona a forma di grafico. Il lavoro viene salvato automaticamente nel file **iris-1.dprep** visualizzato sotto l'intestazione **Data Preparations** (Preparazioni dati).
 

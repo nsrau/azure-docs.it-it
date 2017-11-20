@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 80e8e85f058a5cec2e3ae6a6cff5cb8a363370e1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Introduzione alla rete CDN di Azure
 Questo articolo illustra come abilitare la rete per la distribuzione di contenuti di Azure creando un nuovo profilo e un nuovo endpoint della rete CDN.
@@ -82,7 +82,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
    > L'accesso al contenuto della rete CDN tramite HTTPS presenta i vincoli seguenti:
    > 
    > * È necessario usare il certificato SSL fornito dalla rete CDN. I certificati di terze parti non sono supportati.
-   > * Il supporto di HTTPS per i domini personalizzati della rete CDN di Azure è disponibile solo con i prodotti **rete CDN di Azure fornita da Verizon** (Standard e Premium). Non è disponibile nei prodotti della **rete CDN di Azure fornita da Akamai**. Per altre informazioni, vedere [Abilitare o disabilitare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md).
+   > * Il supporto di HTTPS per i domini personalizzati della rete CDN di Azure è disponibile solo con i prodotti **rete CDN di Azure fornita da Verizon** (Standard e Premium). Non è disponibile nei prodotti della **rete CDN di Azure fornita da Akamai**. Per altre informazioni, vedere [Configurare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md).
   
 9. Per creare il nuovo endpoint, fare clic sul pulsante **Aggiungi** .
    

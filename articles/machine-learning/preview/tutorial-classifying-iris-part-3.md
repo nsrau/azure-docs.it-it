@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/2/2017
-ms.openlocfilehash: b6cdd135d2d264c8b4ede1592c686cdeea3d0a59
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.date: 11/14/2017
+ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classificare i dati Iris - Parte 3: Distribuire un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end per i data scientist professionisti. Consente ai data scientist di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -119,8 +119,7 @@ Per distribuire il servizio Web insieme al file di modello, sono necessari anche
 
 A questo punto è possibile preparare l'ambiente per rendere operativo il modello.
 
->[!NOTE]
->Per distribuire modelli è necessario avere accesso come proprietario a una sottoscrizione di Azure.
+
 
 ## <a name="prepare-to-operationalize-locally"></a>Preparare la messa in funzione in locale
 Usare la distribuzione in _modalità locale_ per l'esecuzione in contenitori Docker nel computer locale.
@@ -162,7 +161,9 @@ Usare la distribuzione in _modalità locale_ per l'esecuzione in contenitori Doc
 
    Nella terza riga dell'output viene visualizzato **"registrationState": "Registering"**. Attendere alcuni istanti e ripetere il comando **show** fino a quando l'output non conterrà **"registrationState": "Registered"**.
 
-3. Creare l'ambiente. Questo passaggio deve essere eseguito una sola volta per ambiente, ad esempio una volta per l'ambiente di sviluppo e una per l'ambiente di produzione. Per questo primo ambiente usare la _modalità locale_. È possibile provare l'opzione `-c` o `--cluster` nel comando seguente per configurare un ambiente in _modalità cluster_ in un secondo momento:
+3. Creare l'ambiente. Questo passaggio deve essere eseguito una sola volta per ambiente, ad esempio una volta per l'ambiente di sviluppo e una per l'ambiente di produzione. Per questo primo ambiente usare la _modalità locale_. È possibile provare l'opzione `-c` o `--cluster` nel comando seguente per configurare un ambiente in _modalità cluster_ in un secondo momento.
+
+Si noti che per il comando di configurazione seguente è necessario avere l'accesso come collaboratore alla sottoscrizione. Se non si ha tale accesso, si deve avere almeno l'accesso come collaboratore al gruppo di risorse in cui viene eseguita la distribuzione. In questo secondo caso, è necessario specificare il nome del gruppo di risorse nel comando di configurazione usando il flag `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
