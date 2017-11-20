@@ -248,12 +248,12 @@
 ## Gestire la directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Nomi di dominio personalizzati
-#### [Panoramica](active-directory-domains-manage-azure-portal.md)
-#### [Gestire i nomi di dominio](active-directory-domains-manage-azure-portal.md)
+#### [Guida introduttiva](add-custom-domain.md)
+#### [Aggiungere nomi di dominio personalizzati](active-directory-domains-manage-azure-portal.md)
 ### [Amministrare la directory](active-directory-administer.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md) (Diverse directory)
 ### [Iscrizione self-service](active-directory-self-service-signup.md)
-#### [Acquisire la proprietà di una directory non gestita](domains-admin-takeover.md)
+### [Acquisire la proprietà di una directory non gestita](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Abilitazione](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Impostazioni di Criteri di gruppo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

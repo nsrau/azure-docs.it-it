@@ -4,11 +4,11 @@ hide_bc: True
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 featureFlags: clicktale
-ms.openlocfilehash: 787b7c5dde571ae4f17354981a58957b3111aa20
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 33fa9122eff29b15943c47b0c690cd3fe8244550
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -647,7 +647,7 @@ ms.lasthandoff: 11/15/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/luis/home">
+                                            <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
                                                 <p>LUIS (Language Understanding Intelligent Service)</p>
                                             </a>
@@ -1701,7 +1701,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2653,7 +2653,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Controllo ortografico Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/home"><img src="media/index/API_Luis.svg" alt="" /><span>LUIS (Language Understanding Intelligent Service)&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>LUIS (Language Understanding Intelligent Service)&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Analisi linguistica&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>

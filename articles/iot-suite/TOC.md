@@ -3,7 +3,7 @@
 ## [Confrontare le opzioni di Azure IoT](iot-suite-options.md)
 ## [Panoramica delle soluzioni preconfigurate](iot-suite-what-are-preconfigured-solutions.md)
 
-# Attività iniziali
+# Introduzione
 ## Monitoraggio remoto
 ### [Distribuire la soluzione preconfigurata](iot-suite-remote-monitoring-deploy.md)
 ### [Gestire la soluzione preconfigurata](iot-suite-remote-monitoring-explore.md)
@@ -25,11 +25,8 @@
 ###### [Dati simulati](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Usare sensori reali](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implementare l'aggiornamento del firmware](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Connettere il gateway Intel NUC
-##### [Dati simulati](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Usare un sensore reale](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### Procedure
+### Guide alle procedure
 #### Connettere un dispositivo simulato
 ##### [C su Windows](iot-suite-v1-connecting-devices.md)
 ##### [C su Linux](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [Panoramica della soluzione di connected factory](iot-suite-connected-factory-overview.md)
 ### [Procedura dettagliata per la soluzione di connected factory](iot-suite-connected-factory-sample-walkthrough.md)
 
-# Procedure
+# Guide alle procedure
 ## Monitoraggio remoto
 ### [Eseguire il monitoraggio avanzato](iot-suite-remote-monitoring-monitor.md)
 ### [Usare le regole per rilevare problemi](iot-suite-remote-monitoring-automate.md)

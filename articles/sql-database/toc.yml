@@ -370,6 +370,8 @@
           items:
             - name: Distribuire un'applicazione di esempio
               href: saas-multitenantdb-get-started-deploy.md
+            - name: Effettuare il provisioning di tenant
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: Monitorare le prestazioni del database
               href: saas-multitenantdb-performance-monitoring.md
             - name: Eseguire query ad hoc
