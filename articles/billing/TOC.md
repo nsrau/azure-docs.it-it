@@ -6,6 +6,7 @@
 ## [Iscriversi con l'account di Office 365](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Iscriversi a Office 365 con l'account Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Organizzare le risorse con i gruppi di gestione](billing-enterprise-mgmt-group-overview.md)
+## [Risparmiare con le istanze di macchina virtuale riservate](billing-save-compute-costs-reservations.md)
 ## [Limiti e quote](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # Procedure
@@ -17,9 +18,13 @@
 ### [Informazioni sulle condizioni dell'utilizzo](billing-understand-your-usage.md)
 ### [Informazioni sugli addebiti per i servizi esterni](billing-understand-your-azure-marketplace-charges.md)
 ### [Comprendere il mapping del misuratore di servizi gratuiti](billing-understand-free-service-meter-mapping.md)
+### [Costi di Windows con le istanze di macchina virtuale riservate](billing-reserved-instance-windows-software-costs.md)
+### [Informazioni sull'applicazione di sconti con le istanze di macchina virtuale riservate](billing-understand-vm-reservation-charges.md)
 ### [Comprendere il limite di spesa](billing-spending-limit.md)
 ### [Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure](billing-set-up-alerts.md)
 ### [Risolvere i problemi relativi al saldo scaduto](billing-azure-subscription-past-due-balance.md)
+### [Informazioni su Utilizzo istanze riservate per il pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+### [Informazioni su Utilizzo istanze riservate per Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Gestisci sottoscrizioni
 ### [Gestire i ruoli di amministratore](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [Aggiornare le informazioni di pagamento](billing-how-to-change-credit-card.md)
 ### [Collegare il tenant di Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Pagare le sottoscrizioni con fattura](billing-how-to-pay-by-invoice.md)
+## [Gestire le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md)
 ## Risoluzione dei problemi
 ### [Problemi di iscrizione](https://support.microsoft.com/en-us/help/4042959)
 ### [Carta rifiutata](https://support.microsoft.com/en-us/help/4042960)
