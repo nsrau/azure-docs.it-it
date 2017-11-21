@@ -1,6 +1,6 @@
 ---
-title: Creare una data factory di Azure con PowerShell | Microsoft Docs
-description: Creare una data factory di Azure per copiare dati da un percorso a un altro in Archiviazione BLOB di Azure.
+title: Copiare dati in un archivio BLOB usando Azure Data Factory | Microsoft Docs
+description: Creare una data factory di Azure per copiare dati da una cartella a un'altra cartella in una posizione diversa dello stesso archivio BLOB.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,18 +13,18 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 63e4c654409651f6655da1bed6ab2f544cf024dd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8ee2f48db009da4660a03f91194c4e99f6ecac4a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="create-an-azure-data-factory-and-pipeline-using-powershell"></a>Creare una data factory di Azure e una pipeline con PowerShell
+# <a name="create-an-azure-data-factory-using-powershell"></a>Creare una data factory di Azure con PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1 - Disponibilità generale](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione 2 - Anteprima](quickstart-create-data-factory-powershell.md)
 
-Questa guida introduttiva descrive come usare PowerShell per creare una data factory di Azure. La pipeline creata in questa data factory copia i dati da una posizione a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere l'[esercitazione sulla trasformazione dei dati con Spark](transform-data-using-spark.md). 
+Questa guida introduttiva descrive come usare PowerShell per creare una data factory di Azure. La pipeline creata in questa data factory copia dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere l'[esercitazione sulla trasformazione dei dati con Spark](transform-data-using-spark.md). 
 
 Questo articolo non offre una presentazione dettagliata del servizio Data Factory. Per un'introduzione al servizio Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
 

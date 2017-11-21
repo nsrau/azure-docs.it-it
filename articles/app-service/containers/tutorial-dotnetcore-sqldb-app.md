@@ -16,14 +16,14 @@ ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web di database SQL e .NET Core in Servizio app di Azure in Linux
 
-Un [servizio app in Linux](app-service-linux-intro.md) fornisce un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app Web .NET Core e connetterla a un database SQL. Al termine, si avrà un'app .NET Core MVC in esecuzione nel servizio app in Linux.
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app Web .NET Core e connetterla a un database SQL. Al termine, si avrà un'app .NET Core MVC in esecuzione nel servizio app in Linux.
 
 ![App in esecuzione nel servizio app in Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
