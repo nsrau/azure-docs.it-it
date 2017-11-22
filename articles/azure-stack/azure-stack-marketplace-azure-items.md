@@ -1,5 +1,5 @@
 ---
-title: Gli elementi di Azure marketplace disponibili per lo Stack di Azure | Documenti Microsoft
+title: Elementi del Marketplace Azure disponibili per lo Stack di Azure | Documenti Microsoft
 description: "Nello Stack di Azure, è possono utilizzare questi elementi di Azure Marketplace."
 services: azure-stack
 documentationcenter: 
@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: erikje
-ms.openlocfilehash: 09177c3d036c38c366253f9291d0096994cc123b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: d04a96e061c4f25e10b1582736012a3ada6f6a6b
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/21/2017
 ---
-# <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi di Azure marketplace disponibili per lo Stack di Azure
+# <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per lo Stack di Azure
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Stack di Microsoft Azure supporta gli elementi di Azure marketplace seguenti:
+Stack di Microsoft Azure supporta gli elementi di Azure Marketplace seguenti:
 
 |  | Nome dell'elemento | Descrizione | Autore |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Estensione docker per le macchine virtuali Linux. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [R Server solo SQL Server 2016 Enterprise Edition](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.RServerOnlySQLServer2016Enterprise?tab=Overview) | R Server solo SQL Server 2016 Enterprise Edition. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 in Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft Machine Learning Server 9.2.1 in Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 in Ubuntu 16.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft Machine Learning Server 9.2.1 in Ubuntu 16.04. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 in Linux CentOS 7.2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft Machine Learning Server 9.2.1 in Linux CentOS 7.2. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Distribuzione di Servizi Desktop remoto (RDS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/rds.remote-desktop-services-basic-deployment?tab=Overview) | Creare una distribuzione di Servizi Desktop remoto (RDS) di base. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Versione di valutazione di SharePoint Server 2013](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SharePointServer2013Trial?tab=Overview) | Microsoft SharePoint Server 2013 versione di valutazione sull'edizione community di Windows Server 2012 Datacenter e Visual Studio 2017. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Versione di valutazione di SharePoint Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SharePointServer2016Trial?tab=Overview) | Microsoft SharePoint Server 2016 versione di valutazione nel Data Center di Windows Server 2016. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 in Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2?tab=Overview) | SQL Server 2014 Service Pack 2. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 in Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Piattaforma di database per le applicazioni cruciali intelligente. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 Developer Edition SP1 in Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016?tab=Overview) | La versione per gli sviluppatori di SQL Server 2016 SP1 per i dati transazionali, i carichi di lavoro analitica, business intelligence e data warehousing. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Express in Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | Versione Express di SQL Server 2016 SP1 | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise on Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Piattaforma di database per le applicazioni cruciali intelligente. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 in Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2?tab=Overview) | SQL Server 2014 Service Pack 2.  **Download richiesto:** estensione SQL IaaS. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 in Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Piattaforma di database per le applicazioni cruciali intelligente. **Download richiesto:** estensione SQL IaaS. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 Developer Edition SP1 in Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016?tab=Overview) | La versione per gli sviluppatori di SQL Server 2016 SP1 per i dati transazionali, i carichi di lavoro analitica, business intelligence e data warehousing.  **Download richiesto:** estensione SQL IaaS. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Express in Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | Versione Express di SQL Server 2016 SP1. **Download richiesto:** estensione SQL IaaS. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise on Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Piattaforma di database per le applicazioni cruciali intelligente.  **Download richiesto:** estensione SQL IaaS. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) | Soluzioni aziendali che sono semplici da distribuire, convenienti, orientato all'applicazione e incentrata sull'utente. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.abantecart?tab=Overview) | Aprire e-commerce origine carrello degli acquisti. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.activemq?tab=Overview) | Aprire il broker di messaggi di origine in Java. | Bitnami |
@@ -154,18 +156,22 @@ Stack di Microsoft Azure supporta gli elementi di Azure marketplace seguenti:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine vendita CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Applicazione del servizio clienti, vendite e marketing Compact. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS e del programma portale Web consente di creare siti Web dinamici.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Aprire sistema CRM origine: Mobile, sociali e Gamified. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Punto di controllo vSEC gestione della sicurezza](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Punto di controllo vSEC offre prevenzione di minacce avanzata, a più livelli per proteggere gli asset di cliente in Azure da malware e minacce sofisticate. | Punto di controllo |
 | ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatizzare Chef](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Compilare, distribuire e gestire con Chef automatizza, la piattaforma di automazione continua. | Software di Chef, Inc |
-| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie" con il kernel backports](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview) | Debian GNU/Linux è una delle distribuzioni Linux più popolari. | credativ |
+| ![](media/azure-stack-marketplace-azure-items/coreos.png) | [Contenitore Linux da CoreOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Contenitore Linux è una distribuzione Linux minima e moderna, che fornisce un modo semplice per eseguire contenitori, gestire i cluster e aggiornare i server: tutti i componenti che consentono di warehouse scala di calcolo. | CoreOS |
+| ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server è il prodotto Linux più diffuso al mondo per ambienti cloud. | Canonical |
+| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux è una delle distribuzioni Linux più popolari. | credativ |
+| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "estensione"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian9?tab=Overview) | Debian GNU/Linux è una delle distribuzioni Linux più popolari. | credativ |
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [Commutatore ADC contenuto servizio di bilanciamento carico di loadMaster](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kemptech.vlm-azure?tab=Overview) | Bilanciamento del carico di livello 4-7 applicazione recapito Controller (ADC), opzione di contenuto e gestione traffico. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [Basato su centOS 6,9](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased69?tab=Overview) | Questa distribuzione di Linux è basata su CentOS e viene fornita dal Software di Wave non autorizzato. | Software di Wave inaffidabili (in precedenza OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.3 basato su centOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased73?tab=Overview) | Questa distribuzione di Linux è basata su CentOS e viene fornita dal Software di Wave non autorizzato. | Software di Wave inaffidabili (in precedenza OpenLogic) |
+| ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4 basato su centOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased74?tab=Overview) | Questa distribuzione di Linux è basata su CentOS e viene fornita dal Software di Wave non autorizzato. | Software di Wave inaffidabili (in precedenza OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription?tab=Overview) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [Proxy gestione 3.0 SUSE (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription?tab=Overview) | Best-in-class aprire Gestione dell'infrastruttura di origine. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent per Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Estensione di Trend Micro Deep Security per Linux. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent per Windows](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Trend Micro Deep Security estensione Windows. | Trend Micro |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Strumento Software ZeroDown](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | V 7.1 strumento Software ZeroDown - eseguire la migrazione + a disponibilità elevata. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Strumento Software ZeroDown](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | V 7.1 strumento Software ZeroDown - eseguire la migrazione + a disponibilità elevata. | Software ZeroDown |
 
 
 ### <a name="next-steps"></a>Passaggi successivi
-[Scaricare un elemento del marketplace](azure-stack-download-azure-marketplace-item.md)
-
+[Scaricare un elemento del Marketplace](azure-stack-download-azure-marketplace-item.md)
