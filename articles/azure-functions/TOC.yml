@@ -41,16 +41,20 @@
           href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Esercitazioni
   items:
-    - name: 1. Funzioni con App per la logica
+    - name: Funzioni con App per la logica
       href: functions-twitter-email.md
-    - name: 2. Creare un'API senza server
+    - name: Creare un'API senza server
       href: functions-create-serverless-api.md
-    - name: 3. Creare una definizione OpenAPI
+    - name: Creare una definizione OpenAPI
       href: functions-openapi-definition.md
-    - name: 4 - Ridimensionamento di immagine con Griglia di eventi
+    - name: Ridimensionamento di immagini con Griglia di eventi
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: 5 - Funzioni su un'immagine personalizzata
-      href: functions-create-function-linux-custom-image.md
+    - name: Funzioni in Linux
+      items:
+        - name: Immagine personalizzata
+          href: functions-create-function-linux-custom-image.md
+        - name: Dispositivo IoT Edge
+          href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Esempi
   items:
     - name: Esempi di codice

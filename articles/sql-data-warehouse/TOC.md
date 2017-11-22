@@ -5,7 +5,7 @@
 
 # Attività iniziali
 
-## [Esercitazione per principianti](sql-data-warehouse-get-started-tutorial.md)
+## [Esercitazione sul caricamento di dati](load-data-from-azure-blob-storage-using-polybase.md)
 ## [Esercitazione sulla query elastica](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Procedure consigliate](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
