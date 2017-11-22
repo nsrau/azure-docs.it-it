@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 34da73e5feca1782f3e107fd30d268df4f9883d8
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Creare un'app Web PHP nel Servizio app in Linux
 
@@ -71,14 +71,14 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Creare un'app Web con immagine incorporata
+## <a name="create-a-web-app"></a>Creare un'app Web
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Passare al sito per visualizzare l'app Web con immagine incorporata appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
+Passare al sito per visualizzare l'app Web con immagine incorporata appena creata. Sostituire _&lt;app name>_ con il nome dell'app Web.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 ![Pagina dell'app Web vuota](media/quickstart-php/app-service-web-service-created.png)
@@ -126,7 +126,7 @@ Il codice di esempio PHP è in esecuzione in un'app Web con immagine incorporata
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice in locale
 
-Usando un editor di testo locale, aprire il file `index.php` nell'app PHP e apportare una piccola modifica al testo nella stringa accanto a `echo`:
+Nella directory locale aprire il file `index.php` nell'app PHP e apportare una piccola modifica al testo nella stringa accanto a `echo`:
 
 ```php
 echo "Hello Azure!";

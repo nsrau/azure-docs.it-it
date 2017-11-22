@@ -1,29 +1,26 @@
 ---
-title: Configurare l'autenticazione e l'autorizzazione per un'applicazione personalizzata che chiama l'API Azure Time Series Insights | Microsoft Docs
-description: Questa esercitazione illustra come configurare l'autenticazione e l'autorizzazione per un'applicazione personalizzata che chiama l'API Azure Time Series Insights
-keywords: 
+title: Come configurare l'autenticazione e l'autorizzazione per un'applicazione personalizzata per chiamare l'API Azure Time Series Insights | Microsoft Docs
+description: Questo articolo descrive come configurare l'autenticazione e l'autorizzazione per un'applicazione personalizzata che chiama l'API Azure Time Series Insights.
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
-Questo articolo illustra come configurare un'applicazione personalizzata che chiama l'API Azure Time Series Insights.
+Questo articolo descrive come configurare l'autenticazione e l'autorizzazione usata in un'applicazione personalizzata che chiama l'API Azure Time Series Insights.
 
 ## <a name="service-principal"></a>Entità servizio
 
@@ -102,11 +99,9 @@ Ecco di seguito i passaggi dettagliati:
     string accessToken = token.AccessToken;
     ```
 
+Usare l'ID e la chiave dell'applicazione per eseguire l'autenticazione con Azure Time Series Insight. 
+
 ## <a name="next-steps"></a>Passaggi successivi
-
-Usare l'ID e la chiave dell'applicazione nella propria applicazione. Per un esempio di codice che chiama l'API Time Series Insights, vedere [Eseguire query sui dati tramite C#](time-series-insights-query-data-csharp.md).
-
-## <a name="see-also"></a>Vedere anche
-
-* [API di query](/rest/api/time-series-insights/time-series-insights-reference-queryapi) per informazioni di riferimento complete sulle API di query
-* [Creare un'entità servizio nel portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Per un esempio di codice che chiama l'API Time Series Insights, vedere [Eseguire query sui dati tramite C#](time-series-insights-query-data-csharp.md).
+- Per informazioni di riferimento sull'API, vedere il [riferimento all'API di query](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
+- [Creare un'entità servizio nel portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
