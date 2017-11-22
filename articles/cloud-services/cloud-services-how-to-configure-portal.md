@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Come configurare i servizi cloud
-> [!div class="op_single_selector"]
-> * [Portale di Azure](cloud-services-how-to-configure-portal.md)
-> * [Portale di Azure classico](cloud-services-how-to-configure.md)
->
->
-
 È possibile configurare le impostazioni più comuni di un servizio cloud nel portale di Azure. In alternativa, se si preferisce aggiornare direttamente i file di configurazione, scaricare un file di configurazione del servizio da aggiornare, quindi caricare il file aggiornato e aggiornare il servizio cloud con le modifiche apportate alla configurazione. In ogni caso, per gli aggiornamenti della configurazione viene effettuato il push in tutte le istanze del ruolo.
 
 È anche possibile gestire le istanze dei ruoli del servizio cloud o creare una connessione Desktop remoto per tali servizi.
@@ -77,9 +71,9 @@ Invece di usare **Impostazioni** > **Regole di avviso** è possibile fare clic s
 Da qui è possibile personalizzare il grafico usato con il riquadro oppure aggiungere una regola di avviso.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Riavviare il computer, ricreare l'immagine o creare una connessione Desktop remoto
-In questo momento non è possibile configurare Desktop remoto con il **portale di Azure**. È tuttavia possibile configurarlo con il [portale di Azure classico](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) o [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+È possibile configurare il desktop remoto tramite il [portale di Azure (configurare il desktop remoto)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) o tramite [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-Per iniziare, fare clic sull'istanza del servizio cloud.
+Per riavviare il computer, ricreare l'immagine o accedere in remoto a un servizio cloud, fare clic sull'istanza del servizio cloud.
 
 ![Istanza del servizio cloud](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

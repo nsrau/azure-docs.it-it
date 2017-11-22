@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -32,7 +32,7 @@ Con il ridimensionamento orizzontale è possibile creare un pool di query con un
 
 Indipendentemente dal numero di repliche di query presenti in un pool di query, i carichi di lavoro di elaborazione non sono distribuiti tra le repliche di query. Un unico server funge da server di elaborazione. Le repliche di query servono solo le query verso i modelli sincronizzati tra ogni replica nel pool di query. 
 
-Al termine delle operazioni di elaborazione, è necessario effettuare una sincronizzazione tra il server di elaborazione e i server delle repliche di query. Quando si automatizzano le operazioni di elaborazione, è importante configurare un'operazione di sincronizzazione subito dopo il completamento delle operazioni di elaborazione stesse.
+Al termine delle operazioni di elaborazione, è necessario effettuare una sincronizzazione tra il server di elaborazione e i server delle repliche di query. Quando si automatizzano le operazioni di elaborazione, è importante configurare un'operazione di sincronizzazione subito dopo il completamento delle operazioni di elaborazione stesse. La sincronizzazione può essere eseguita manualmente nel portale oppure tramite PowerShell o l'API REST.
 
 > [!NOTE]
 > Il ridimensionamento orizzontale è disponibile per i server del piano tariffario Standard. Ogni replica di query viene fatturata alla stessa tariffa del server.
@@ -58,12 +58,10 @@ Al termine delle operazioni di elaborazione, è necessario effettuare una sincro
 
 I modelli tabulari nel server primario vengono sincronizzati con i server di replica. Al termine della sincronizzazione, il pool di query inizia la distribuzione delle query in ingresso tra i server di replica. 
 
-### <a name="powershell"></a>PowerShell
-Usare il cmdlet [Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Specificare un valore per il parametro `-Capacity` > 1.
 
 ## <a name="synchronization"></a>Sincronizzazione 
 
-Quando si esegue il provisioning di nuove repliche di query, Azure Analysis Services replica automaticamente i modelli su tutte le repliche. È anche possibile eseguire una sincronizzazione manuale. Quando si elaborano i modelli, è consigliabile eseguire una sincronizzazione in modo che gli aggiornamenti vengano sincronizzati tra le repliche di query.
+Quando si esegue il provisioning di nuove repliche di query, Azure Analysis Services replica automaticamente i modelli su tutte le repliche. È anche possibile eseguire una sincronizzazione manuale tramite il portale o l'API REST. Quando si elaborano i modelli, è consigliabile eseguire una sincronizzazione in modo che gli aggiornamenti vengano sincronizzati tra le repliche di query.
 
 ### <a name="in-azure-portal"></a>Nel portale di Azure
 
@@ -72,12 +70,16 @@ In **Panoramica** > modello > **Sincronizza modello**.
 ![Dispositivo di scorrimento di ridimensionamento orizzontale](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
+Usare l'operazione **sync**.
 
-Sincronizzare un modello   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>Sincronizzare un modello   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-Ottenere lo stato della sincronizzazione di un modello  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>Ottenere lo stato di sincronizzazione  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+Per eseguire la sincronizzazione da PowerShell, [eseguire l'aggiornamento alla versione più recente](https://github.com/Azure/azure-powershell/releases) 5.01 o successiva del modulo AzureRM. Usare [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Connessioni
 

@@ -12,26 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 7a94fd5065de93384460e851627a9813d439956b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-resources-through-portal"></a>Gestire le risorse di Azure mediante il portale
-> [!div class="op_single_selector"]
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
-> * [Portale](resource-group-portal.md) 
-> * [API REST](resource-manager-rest-api.md)
-> 
-> 
 
-Questo argomento illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per gestire le risorse di Azure. Per informazioni sulla distribuzione delle risorse tramite il portale, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](resource-group-template-deploy-portal.md).
-
-Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [grafico della disponibilità del portale di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per gestire le risorse di Azure. Per informazioni sulla distribuzione delle risorse tramite il portale, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](resource-group-template-deploy-portal.md).
 
 ## <a name="manage-resource-groups"></a>Gestire gruppi di risorse
 
@@ -58,7 +49,7 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un p
    
     ![aggiungere colonne](./media/resource-group-portal/add-columns.png)
 7. Per informazioni sulla distribuzione delle risorse nel nuovo gruppo di risorse, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](resource-group-template-deploy-portal.md).
-8. Per accedere rapidamente al gruppo di risorse, è possibile aggiungere il pannello al dashboard.
+8. Per accedere rapidamente al gruppo di risorse, è possibile aggiungere il gruppo di risorse al dashboard.
    
     ![aggiungere un gruppo di risorse](./media/resource-group-portal/pin-group.png)
 9. Il dashboard visualizza il gruppo di risorse e le relative risorse. È possibile selezionare i gruppi di risorse o le relative risorse per passare all'elemento.
@@ -71,12 +62,12 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un p
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="monitor-resources"></a>Monitorare le risorse
-Quando si seleziona una risorsa, il pannello della risorsa visualizza grafici e tabelle predefiniti per il monitoraggio di quel tipo di risorsa.
+Quando si seleziona una risorsa, il portale visualizza grafici e tabelle predefiniti per il monitoraggio di quel tipo di risorsa.
 
 1. Selezionare una risorsa ed esaminare la sezione **Monitoraggio**, che include i grafici relativi al tipo di risorsa. L'immagine seguente illustra i dati di monitoraggio predefiniti per un account di archiviazione.
    
     ![visualizzare il monitoraggio](./media/resource-group-portal/show-monitoring.png)
-2. È possibile aggiungere una sezione del pannello al dashboard selezionando i puntini di sospensione (...) sopra la sezione. È inoltre possibile personalizzare le dimensioni della sezione nel pannello o rimuoverla completamente. L'immagine seguente illustra come aggiungere, personalizzare o rimuovere la sezione relativa a CPU e memoria.
+2. È possibile aggiungere una sezione al dashboard selezionando i puntini di sospensione (...) sopra la sezione. È anche possibile personalizzare le dimensioni della sezione o rimuoverla completamente. L'immagine seguente illustra come aggiungere, personalizzare o rimuovere la sezione relativa a CPU e memoria.
    
     ![sezione di aggiunta](./media/resource-group-portal/pin-cpu-section.png)
 3. Dopo avere aggiunto la sezione al dashboard, ne verrà visualizzato il riepilogo. Selezionandola si potranno vedere altri dettagli sui dati.
@@ -92,7 +83,7 @@ Quando si seleziona una risorsa, il pannello della risorsa visualizza grafici e 
      Per informazioni sull'uso dei dashboard, vedere [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md)(Creazione e condivisione di dashboard nel portale di Azure).
 
 ## <a name="manage-resources"></a>Gestire risorse
-Nel pannello di una risorsa sono visibili le opzioni per la gestione delle risorse. Il portale presenta le opzioni di gestione per quel particolare tipo di risorsa. I comandi per la gestione vengono visualizzati nella parte superiore del pannello della risorsa e sul lato sinistro.
+Quando si visualizza una risorsa nel portale, si vedono le opzioni per la gestione di quella particolare risorsa.
 
 ![Gestire risorse](./media/resource-group-portal/manage-resources.png)
 
@@ -111,7 +102,7 @@ Per spostare una risorsa in un altro gruppo di risorse o in un'altra sottoscrizi
 
 ![sottoscrizione](./media/resource-group-portal/select-subscription.png)
 
-Nel pannello della sottoscrizione viene visualizzata la velocità.
+È visualizzata la velocità.
 
 ![velocità](./media/resource-group-portal/burn-rate.png)
 
@@ -128,7 +119,7 @@ Dopo avere configurato il gruppo di risorse, è possibile che si voglia visualiz
 Per istruzioni dettagliate, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
 
 ## <a name="delete-resource-group-or-resources"></a>Eliminare risorse o gruppi di risorse
-Se si elimina un gruppo di risorse, vengono eliminate tutte le risorse contenute in esso. È anche possibile eliminare singole risorse all'interno di un gruppo. Prestare attenzione quando si elimina un gruppo di risorse perché è possibile che altri gruppi di risorse includano risorse collegate ad esso. Resource Manager non elimina le risorse collegate, ma le risorse potrebbero non funzionare correttamente senza le risorse necessarie.
+Se si elimina un gruppo di risorse, vengono eliminate tutte le risorse contenute in esso. È anche possibile eliminare singole risorse all'interno di un gruppo. Prestare attenzione quando si elimina un gruppo di risorse. Il gruppo di risorse potrebbe contenere risorse da cui dipendono altre risorse di altri gruppi di risorse.
 
 ![eliminare un gruppo](./media/resource-group-portal/delete-group.png)
 

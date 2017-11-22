@@ -14,11 +14,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-ms.openlocfilehash: 2962e30e5d9c60b8e786e2ba79647cabfc5925cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee96a77436f09e5cf2841b36b244e2d03f57f74
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gestire record e recordset DNS in DNS di Azure con Azure PowerShell
 
@@ -96,6 +96,12 @@ Non vengono forniti esempi per la creazione di set di record SOA, dato che vengo
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ipv6Address "2607:f8b0:4009:1803::1005") 
+```
+
+### <a name="create-a-caa-record-set-with-a-single-record"></a>Creare un set di record CAA con un singolo record
+
+```powershell
+New-AzureRmDnsRecordSet -Name "test-caa" -RecordType CAA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Caaflags 0 -CaaTag "issue" -CaaValue "ca1.contoso.com") 
 ```
 
 ### <a name="create-a-cname-record-set-with-a-single-record"></a>Creare un set di record CNAME con un singolo record

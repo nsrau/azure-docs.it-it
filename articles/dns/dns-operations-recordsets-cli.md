@@ -3,7 +3,7 @@ title: Gestire record DNS in DNS di Azure usando l'interfaccia della riga di com
 description: Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi dell'interfaccia della riga di comando 2.0 per le operazioni sui set di record e i record.
 services: dns
 documentationcenter: na
-author: jtuliani
+author: subsarma
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
-ms.author: jonatul
-ms.openlocfilehash: 9543759d7ba88c7c5068021cebbeec6b8d63633e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/08/2017
+ms.author: subsarma
+ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gestire record e recordset DNS in DNS di Azure con l'interfaccia della riga di comando 2.0
 
@@ -105,6 +105,12 @@ Non vengono forniti esempi per la creazione di set di record SOA, dato che vengo
 
 ```azurecli
 az network dns record-set aaaa set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+```
+
+### <a name="create-an-caa-record"></a>Creare un record CAA
+
+```azurecli
+az network dns record-set caa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-caa --flags 0 --tag "issue" --value "ca1.contoso.com"
 ```
 
 ### <a name="create-a-cname-record"></a>Creare un record CNAME
@@ -208,9 +214,9 @@ az network dns record-set a remove-record --resource-group myresourcegroup --zon
 
 Ogni set di record contiene un [time-to-live (TTL)](dns-zones-records.md#time-to-live), [metadati](dns-zones-records.md#tags-and-metadata) e record DNS. Nelle sezioni seguenti viene illustrato come modificare ognuna di queste proprietà.
 
-### <a name="to-modify-an-a-aaaa-mx-ns-ptr-srv-or-txt-record"></a>Per modificare un record A, AAAA, MX, NS, PTR, SRV o TXT
+### <a name="to-modify-an-a-aaaa-caa-mx-ns-ptr-srv-or-txt-record"></a>Per modificare un record A, AAAA, CAA, MX, NS, PTR, SRV o TXT
 
-Per modificare un record esistente di tipo A, AAAA, MX, NS, PTR, SRV o TXT è necessario innanzitutto aggiungere un nuovo record e quindi eliminare il record esistente. Per istruzioni dettagliate su come eliminare e aggiungere record, vedere le sezioni precedenti di questo articolo.
+Per modificare un record esistente di tipo A, AAAA, CAA, MX, NS, PTR, SRV o TXT, è necessario prima aggiungere un nuovo record e quindi eliminare il record esistente. Per istruzioni dettagliate su come eliminare e aggiungere record, vedere le sezioni precedenti di questo articolo.
 
 Nell'esempio seguente viene illustrato come modificare un record "A", dall'indirizzo IP 1.2.3.4 all'indirizzo IP 5.6.7.8:
 

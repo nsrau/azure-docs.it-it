@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 35d05b7003d731610df816c8470acc9133a4a6de
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Eseguire operazioni dell'API di tabella di Azure Cosmos DB con Azure PowerShell 
 
@@ -47,7 +47,7 @@ Dopo avere installato o aggiornato Azure PowerShell, è necessario installare il
 Install-Module AzureRmStorageTable
 ```
 
-Anche se l'API di tabella di Azure Cosmos DB è un'anteprima, è necessario installarne anche gli assembly in locale per usare questi cmdlet di PowerShell. Per le istruzioni su come procedere, vedere [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/) (Modulo PowerShell delle tabelle di archiviazione di Azure RM per le tabelle di Cosmos DB).
+Per usare i cmdlet di PowerShell, installare gli assembly di Azure Cosmos DB localmente. Per le istruzioni su come procedere, vedere [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/) (Modulo PowerShell delle tabelle di archiviazione di Azure RM per le tabelle di Cosmos DB).
 
 Per provare gli esercizi seguenti, è necessario un account di database Azure Cosmos DB. Se non è già presente, creare un nuovo account Azure Cosmos DB usando il [portale di Azure](https://portal.azure.com). Per informazioni sulla creazione di un nuovo account di database, vedere [Azure Cosmos DB: creare un account di database](create-table-dotnet.md#create-a-database-account).
 

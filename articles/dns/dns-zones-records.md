@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Panoramica delle zone e dei record DNS
 
@@ -54,6 +54,16 @@ Poiché in DNS di Azure il valore TTL viene specificato per il set di record e n
 DNS di Azure supporta [record con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). I record con caratteri jolly vengono restituiti in risposta a qualsiasi query con un nome corrispondente, a meno che non esista una corrispondenza più vicina con un set di record non con caratteri jolly. DNS di Azure supporta set di record con caratteri jolly per tutti i tipi di record tranne NS e SOA.
 
 Per creare un set di record con caratteri jolly, usare il nome del set di record "\*". In alternativa, è anche possibile usare un nome con "\*" come etichetta più a sinistra, ad esempio "\*.foo".
+
+### <a name="caa-records"></a>Record CAA
+
+Un record CAA consente ai proprietari di domini di specificare quali autorità di certificazione (CA) sono autorizzate a emettere certificati per i loro domini. In questo modo le autorità di certificazione evitano di rilasciare erroneamente certificati in determinate circostanze. I record CAA hanno tre proprietà:
+* **Flag**: un numero intero compreso tra 0 e 255 utilizzato per rappresentare il flag di criticità che ha un significato speciale in base alla [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Tag**: una stringa ASCII che può avere uno dei valori seguenti:
+    * **issue**: usare questa opzione se si desidera specificare le CA che possono emettere certificati (tutti i tipi)
+    * **issuewild**: usare questa opzione se si desidera specificare le CA che possono emettere certificati (solo certificati con caratteri jolly)
+    * **iodef**: specificare un indirizzo di posta elettronica o nome host a cui le CA possono inviare notifiche per le richieste di emissione di certificati non autorizzate
+* **Valore**: il valore del tag specifico scelto
 
 ### <a name="cname-records"></a>Record CNAME
 

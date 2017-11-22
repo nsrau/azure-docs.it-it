@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configurazione del progetto Azure tramite più configurazioni del servizio
 Un progetto di servizio cloud di Azure include due file di configurazione: ServiceDefinition.csdef e ServiceConfiguration.cscfg. Questi file sono inclusi nel pacchetto dell'applicazione di servizio cloud di Azure e vengono distribuiti in Azure.
@@ -30,7 +30,7 @@ Gli strumenti di Azure per Microsoft Visual Studio forniscono le pagine delle pr
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Per informazioni sugli schemi sottostanti per i file di definizione e di configurazione del servizio, vedere [Guida di riferimento agli schemi](https://msdn.microsoft.com/library/azure/dd179398.aspx). Per altre informazioni sulla configurazione del servizio, vedere [Come configurare i servizi cloud](cloud-services/cloud-services-how-to-configure.md).
+Per informazioni sugli schemi sottostanti per i file di definizione e di configurazione del servizio, vedere gli articoli [Schema XML .csdef](cloud-services/schema-csdef-file.md) e [Schema XML .cscfg](cloud-services/schema-cscfg-file.md). Per altre informazioni sulla configurazione del servizio, vedere [Come configurare i servizi cloud](cloud-services/cloud-services-how-to-configure-portal.md).
 
 ## <a name="configuring-role-properties"></a>Configurazione delle proprietà del ruolo
 Sebbene le pagine delle proprietà per un ruolo di lavoro e un ruolo Web siano simili, esistono alcune differenze descritte nelle sezioni seguenti.
@@ -88,7 +88,7 @@ Un ruolo di lavoro può disporre di qualsiasi numero di endpoint HTTP, HTTPS o T
 ## <a name="certificates-page"></a>Pagina Certificati
 Nella pagina **Certificati** è possibile associare certificati al ruolo. I certificati che si aggiungono possono essere usati per configurare gli endpoint HTTPS nella pagina delle proprietà **Endpoint** .
 
-La pagina delle proprietà **Certificati** consente di aggiungere informazioni sui certificati alla configurazione del servizio. Si noti che i certificati non sono inclusi nel servizio. È necessario caricarli separatamente in Azure usando il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
+La pagina delle proprietà **Certificati** consente di aggiungere informazioni sui certificati alla configurazione del servizio. Si noti che i certificati non sono inclusi nel servizio. È necessario caricarli separatamente in Azure usando il [portale di Azure](http://portal.azure.com).
 
 Per associare un certificato al ruolo, fornire un nome per il certificato. Questo nome sarà usato per fare riferimento al certificato quando si configura un endpoint HTTPS nella pagina delle proprietà **Endpoint** . Specificare quindi se l'archivio certificati è **Computer locale** o **Utente corrente** e il nome dell'archivio. Infine, immettere l'identificazione personale del certificato. Se il certificato si trova nell'archivio Utente corrente\Personale, è possibile immettere l'identificazione personale del certificato selezionandolo da un elenco popolato. Se si trova in qualsiasi altro percorso, immettere manualmente il valore dell'identificazione personale.
 

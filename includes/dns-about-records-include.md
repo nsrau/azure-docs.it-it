@@ -8,7 +8,7 @@ Un record *vertice* è un record DNS alla radice (o *vertice*) di una zona DNS. 
 
 Ogni record DNS ha un nome e un tipo. I record sono organizzati in tipi diversi in base ai dati che contengono. Il tipo più comune è il record "A", che esegue il mapping di un nome a un indirizzo IPv4. Un altro tipo comune è il record "MX", che esegue il mapping di un nome a un server di posta.
 
-DNS di Azure supporta tutti i tipi di record DNS comuni: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Si noti che i [record SPF vengono rappresentati usando record TXT](../articles/dns/dns-zones-records.md#spf-records).
+DNS di Azure supporta tutti i tipi di record DNS comuni: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Si noti che i [record SPF vengono rappresentati usando record TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Set di record
 

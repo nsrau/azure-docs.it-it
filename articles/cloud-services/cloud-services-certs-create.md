@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 689977491e6df37e48536f59234bf4ddba6a1575
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
 I certificati vengono utilizzati in Azure per i servizi cloud ([certificati di servizio](#what-are-service-certificates)) e per l'autenticazione con l'API di gestione ([certificati di gestione](#what-are-management-certificates) quando si usa il portale di Azure classico e non il portale di Azure non classico). Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come [distribuirli](#deploy) in Azure.
 
 Quelli usati in Azure sono certificati x.509 v3 e possono essere firmati da un altro certificato attendibile o essere autofirmati. Un certificato autofirmato viene firmato dall'autore e pertanto non è attendibile per impostazione predefinita. La maggior parte dei browser può ignorare questo problema. È consigliabile utilizzare i certificati autofirmati solo quando si sviluppano e si testano servizi cloud. 
 
-I certificati usati da Azure possono contenere una chiave privata o una pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate.md) di Azure per identificare il certificato che un servizio cloud dovrebbe usare. 
+I certificati usati da Azure possono contenere una chiave privata o una pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate-portal.md) di Azure per identificare il certificato che un servizio cloud dovrebbe usare. 
 
 ## <a name="what-are-service-certificates"></a>Cosa sono i certificati di servizio?
 I certificati di servizio sono associati ai servizi cloud e consentono la comunicazione sicura verso e dal servizio. Ad esempio, se si distribuisse un ruolo Web, si fornirebbe un certificato per autenticare un endpoint HTTPS esposto. I certificati di servizio, definiti nella definizione del servizio, vengono automaticamente distribuiti nella macchina virtuale che esegue un'istanza del ruolo. 
@@ -93,7 +93,7 @@ Su Internet sono disponibili molte pagine che spiegano come eseguire questa oper
 [Questo](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) articolo descrive come creare certificati tramite SSH.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Caricare il certificato di servizio nel portale di Azure classico](cloud-services-configure-ssl-certificate.md) o nel [portale di Azure](cloud-services-configure-ssl-certificate-portal.md).
+[Caricare il certificato di servizio nel portale di Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md) nel portale di Azure classico. Il portale di Azure non usa i certificati di gestione per l'autenticazione.
 

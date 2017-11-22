@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Usare la soluzione Mapping dei servizi in Operations Management Suite
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -231,16 +231,16 @@ Il riquadro relativo alle **prestazioni del computer** mostra le metriche di pre
 Per visualizzare i dati sulle prestazioni, potrebbe essere necessario [abilitare i contatori delle prestazioni di Log Analytics appropriati](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Contatori da attivare:
 
 Windows:
-- Processore(*)\% Tempo processore
-- Memoria\% Byte vincolati in uso
-- Scheda di rete(*)\Byte inviati/sec
-- Scheda di rete(*)\Byte ricevuti/sec
+- Processore(*)\\% di tempo processore
+- Memoria\\% di byte vincolati in uso
+- Scheda di rete(*)\\Byte inviati/sec
+- Scheda di rete(*)\\Byte ricevuti/sec
 
 Linux:
-- Processore(*)\% Tempo processore
-- Memoria(*)\% Memoria utilizzata
-- Scheda di rete(*)\Byte inviati/sec
-- Scheda di rete(*)\Byte ricevuti/sec
+- Processore(*)\\% di tempo processore
+- Memoria(*)\\% di memoria utilizzata
+- Scheda di rete(*)\\Byte inviati/sec
+- Scheda di rete(*)\\Byte ricevuti/sec
 
 Per ottenere i dati sulle prestazioni di rete è necessario anche aver abilitato la soluzione Wire Data 2.0 in Operations Management Suite.
  

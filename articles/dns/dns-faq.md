@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: jonatul
-ms.openlocfilehash: 9d786ce4d06ec95a647a755bed51f824e72ad04c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: subsarma
+ms.openlocfilehash: 1a2a23fb5de5b5b491f061512a15f7acb6721446
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-dns-faq"></a>Domande frequenti su DNS di Azure
 
@@ -139,6 +139,10 @@ Per altre informazioni, vedere [Protezione delle zone e dei record DNS](dns-prot
 ### <a name="how-do-i-set-up-spf-records-in-azure-dns"></a>Come configurare i record SPF in DNS di Azure?
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
+
+### <a name="do-azure-dns-nameservers-resolve-over-ipv6-"></a>I server di nomi DNS di Azure risolvono gli indirizzi su IPv6? 
+
+Sì. I server di nomi DNS di Azure sono dual-stack (hanno sia indirizzi IPv4 che indirizzi IPv6). Per trovare l'indirizzo IPv6 per i server dei nomi DNS di Azure assegnati alla zona DNS, è possibile usare uno strumento come nslookup (ad esempio `nslookup -q=aaaa <Azure DNS Nameserver>`).
 
 ### <a name="how-do-i-set-up-an-international-domain-name-idn-in-azure-dns"></a>Come configurare un nome di dominio internazionale, IDN, in DNS di Azure?
 
